@@ -43,15 +43,15 @@ To enable Resiliency Guard for your subscription, submit the [public preview for
 1. Enter the basic settings, including the name, region, and gateway type.
 1. In the **Resiliency Model** section, select **Multi-homed** or **Single-homed**.
 
-:::image type="content" source="./media/resiliency-model/create-gateway-resiliency-model.png" alt-text="Screenshot showing resiliency model selection during gateway creation." lightbox="./media/resiliency-model/create-gateway-resiliency-model.png":::
+:::image type="content" source="./media/resiliency-model/create-gateway-resiliency-model.png" alt-text="Screenshot of the Create virtual network gateway page with Multi-Homed selected for the resiliency model." lightbox="./media/resiliency-model/create-gateway-resiliency-model.png":::
 
 ### Multi-homed gateway configuration
 
-1. Navigate to your ExpressRoute gateway
+1. Navigate to your ExpressRoute gateway.
 1. Select **Connections**.
-3. Add connections to two or more circuits at different physical locations or to a Metro circuit
+1. Add connections to two or more circuits at different physical locations or to a Metro circuit.
 
-:::image type="content" source="./media/resiliency-model/ResGuard-Connect.png" alt-text="Screenshot showing multi-homed gateway with required connections." lightbox="./media/resiliency-model/ResGuard-Multi.png":::
+:::image type="content" source="./media/resiliency-model/add-gateway-connections.png" alt-text="Screenshot of the gateway Connections page with a banner requiring connections to circuits in different peering locations." lightbox="./media/resiliency-model/add-gateway-connections.png":::
 
 The portal displays your connectivity status once you connect all required circuits:
 
@@ -82,7 +82,7 @@ To simplify your ExpressRoute setup:
 
 A confirmation dialog appears to ensure you understand the implications:
 
-:::image type="content" source="./media/resiliency-model/downgrade-single-homed-confirmation.png" alt-text="Screenshot showing confirmation dialog for downgrading to single-homed." lightbox="./media/resiliency-model/downgrade-single-homed-confirmation.png":::
+:::image type="content" source="./media/resiliency-model/downgrade-single-homed-confirmation.png" alt-text="Screenshot of the gateway Configuration page with Single-Homed selected and the Change Requirement confirmation dialog open." lightbox="./media/resiliency-model/downgrade-single-homed-confirmation.png":::
 
 > [!NOTE]
 > A Metro configuration has only one connection, so you don't need to delete another connection after switching its gateway to single-homed.
