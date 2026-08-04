@@ -167,7 +167,7 @@ Private Application Gateway deployments must have subnet delegation configured t
 
 - If you have a network security group (NSG) or user-defined routes (UDRs) associated with the V2 gateway subnet, make sure they adhere to the [NSG requirements](../application-gateway/configuration-infrastructure.md#network-security-groups) and [UDR requirements](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) for a successful migration.
 
-- [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
+- [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 
 - If you have FIPS mode enabled for your V1 gateway, it isn't migrated to your new V2 gateway.
 
