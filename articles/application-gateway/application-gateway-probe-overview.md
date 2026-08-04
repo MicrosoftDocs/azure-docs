@@ -111,7 +111,7 @@ Match criteria can be attached to probe configuration using a `-Match` operator 
 - When a backend server has a wildcard certificate (*.contoso.com) installed to serve different sub-domains, you can use a Custom probe with a specific hostname (required for SNI) that is accepted to establish a successful TLS probe and report that server as healthy. With "override hostname" in the Backend Setting set to NO, the different incoming hostnames (subdomains) will be passed as is to the backend.
 
 > [!NOTE]
-> An incorrectly configured custom probe **Path** commonly causes backend servers to become unhealthy and clients to receive 502 errors. If backend health checks fail after you configure a custom probe, see [Invalid or improper configuration of custom health probes](/troubleshoot/azure/application-gateway/application-gateway-troubleshooting-502#invalid-or-improper-configuration-of-custom-health-probes) to validate the probe path, response code, and SNI fallback certificate settings.
+> An incorrectly configured custom probe **Path** commonly causes backend servers to become unhealthy and clients to receive 502 Bad Gateway errors. If backend health checks fail after you configure a custom probe, see [Invalid or improper configuration of custom health probes](/troubleshoot/azure/application-gateway/application-gateway-troubleshooting-502#invalid-or-improper-configuration-of-custom-health-probes). This article helps you validate the probe path, response code, and SNI fallback certificate settings.
 
 ## NSG considerations
 
