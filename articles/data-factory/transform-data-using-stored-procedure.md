@@ -14,6 +14,9 @@ ms.subservice: orchestration
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Stored Procedure activity](/fabric/data-factory/stored-procedure-activity).
+
 You use data transformation activities in a Data Factory or Synapse [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that pipelines support. This article builds on the [transform data](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 > [!NOTE]

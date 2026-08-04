@@ -13,6 +13,9 @@ ms.date: 09/26/2024
 
 # Append Variable activity in Azure Data Factory and Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Append Variable activity](/fabric/data-factory/append-variable-activity).
 Use the Append Variable activity to add a value to an existing array variable defined in a Data Factory or Synapse Analytics pipeline.
 
 ## Create an Append Variable activity with UI
