@@ -296,7 +296,7 @@ Content-Type: text/plain
 Engine.IO serialized payload
 ```
 
-See [Send To All](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
+See [Send To All](/rest/api/webpubsub/dataplane/webpubsub/send-to-all/send-to-all) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
 
 #### Example
 
@@ -337,7 +337,7 @@ Content-Type: text/plain
 Engine.IO serialized payload
 ```
 
-See [Send To All](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
+See [Send To All](/rest/api/webpubsub/dataplane/webpubsub/send-to-all/send-to-all) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
 
 #### Example
 
@@ -378,7 +378,7 @@ Content-Type: text/plain
 Engine.IO serialized payload
 ```
 
-See [Send To All](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
+See [Send To All](/rest/api/webpubsub/dataplane/webpubsub/send-to-all/send-to-all) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
 
 #### Example
 
@@ -419,7 +419,7 @@ Content-Type: text/plain
 Engine.IO serialized payload for socket disconnection
 ```
 
-See [Send To All](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details. See [Disconnection from a namespace](https://socket.io/docs/v4/socket-io-protocol/#disconnection-from-a-namespace-1) for disconnection payload details.
+See [Send To All](/rest/api/webpubsub/dataplane/webpubsub/send-to-all/send-to-all) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details. See [Disconnection from a namespace](https://socket.io/docs/v4/socket-io-protocol/#disconnection-from-a-namespace-1) for disconnection payload details.
 
 #### Example
 
