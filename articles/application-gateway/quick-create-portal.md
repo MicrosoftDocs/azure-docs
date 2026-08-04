@@ -5,7 +5,7 @@ description: Use the Azure portal to create an Azure Application Gateway that di
 services: application-gateway
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/03/2026
+ms.date: 08/04/2026
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom:
@@ -99,7 +99,7 @@ Create the application gateway by using the tabs on the **Create application gat
 
     > [!NOTE]
     > Application Gateways are zone-redundant by default in regions that support multiple availability zones.
-    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
 
 ### Frontends tab
 
