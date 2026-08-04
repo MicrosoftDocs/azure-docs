@@ -14,6 +14,9 @@ ms.subservice: orchestration
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Script activity](/fabric/data-factory/script-activity).
+
 You use data transformation activities in a Data Factory or Synapse [pipeline](concepts-pipelines-activities.md) to transform and process raw data into predictions and insights. The Script activity is one of the transformation activities that pipelines support. This article builds on the [transform data article](transform-data.md), which presents a general overview of data transformation and the supported transformation activities. 
 
 Using the script activity, you can execute common operations with Data Manipulation Language (DML), and Data Definition Language (DDL). DML statements like INSERT, UPDATE, DELETE and SELECT let users insert, modify, delete, and retrieve data in the database. DDL statements like CREATE, ALTER and DROP allow a database manager to create, modify, and remove database objects such as tables, indexes, and users.
