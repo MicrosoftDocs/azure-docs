@@ -37,6 +37,18 @@ Connect resources in an enclave to external destinations defined in a community 
 
 Enable inbound connectivity from external networks to resources within an enclave. The transit hub serves as the connection source, allowing traffic from on-premises networks or other Azure virtual networks to reach enclave workloads.
 
+This allows you to:
+
+- **Route traffic between on-premises locations** - Connect multiple VPN or ExpressRoute connections through the community Virtual WAN
+- **Enable spoke-to-spoke communication** - Allow traffic between virtual networks peered to different transit hubs
+
+Transit hub interconnection supports scenarios where:
+- Multiple regional offices need to communicate through a centralized Azure environment
+- Different Azure subscriptions with separate virtual networks require connectivity
+- Hybrid connectivity patterns require traffic to flow between ExpressRoute and VPN connections
+
+To create a transit hub-to-transit hub connection, both transit hubs must exist within the same community. The connection enables bidirectional traffic flow based on the configured routing and firewall rules.
+
 ## Connection security
 
 Multiple layers of network security govern all enclave connections to maintain isolation and control:
