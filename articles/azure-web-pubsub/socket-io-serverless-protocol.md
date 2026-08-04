@@ -164,7 +164,7 @@ Headers:
 Authorization: Bearer <Microsoft Entra ID Token>
 ```
 
-For more optional parameters, see [Generate Client Token](/rest/api/webpubsub/dataplane/web-pub-sub/generate-client-token)
+For more optional parameters, see [Generate Client Token](/rest/api/webpubsub/dataplane/webpubsub/generate-client-token/generate-client-token)
 
 ## Supported functionality and RESTful APIs
 
