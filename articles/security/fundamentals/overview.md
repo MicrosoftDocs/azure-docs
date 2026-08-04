@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 07/20/2026
+ms.date: 08/03/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 
@@ -513,11 +513,7 @@ Microsoft uses multiple security practices and technologies across its products 
 - [Integrated identity management (hybrid identity)](/entra/identity/hybrid/connect/plan-connect-design-concepts) enables you to maintain control of users’ access across internal datacenters and cloud platforms. It creates a single user identity for authentication and authorization to all resources.
 
 ### Secure apps and data
-[Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id), a comprehensive identity and access management cloud solution, helps secure access to data in applications on site and in the cloud, and simplifies the management of users and groups. It combines core directory services, advanced identity governance, security, and application access management, and makes it easy for developers to build policy-based identity management into their apps. To enhance your Microsoft Entra ID, you can add paid capabilities by using the Microsoft Entra Basic, Premium P1, and Premium P2 editions.
-
-| Free or common features     | Basic features    |Premium P1 features |Premium P2 features | Microsoft Entra join - Windows 10 only related features|
-| :------------- | :------------- |:------------- |:------------- |:------------- |
-|  [Directory Objects](/entra/fundamentals/what-is-entra), [User/Group Management (add/update/delete)/ User-based provisioning, Device registration](/entra/fundamentals/what-is-entra), [single sign-on (SSO)](/entra/fundamentals/what-is-entra), [Self-Service Password Change for cloud users](/entra/fundamentals/what-is-entra), [Connect (Sync engine that extends on-premises directories to Microsoft Entra ID)](/entra/fundamentals/what-is-entra), [Security or usage reports](/entra/fundamentals/what-is-entra) | [Group-based access management or provisioning](/entra/fundamentals/what-is-entra), [Self-Service Password Reset for cloud users](/entra/fundamentals/what-is-entra), [Company Branding (sign-in pages or Access Panel customization)](/entra/fundamentals/what-is-entra), [Application Proxy](/entra/fundamentals/what-is-entra), [SLA 99.9%](/entra/fundamentals/what-is-entra) |  [Self-service group and app management, self-service application additions, and dynamic groups](/entra/fundamentals/what-is-entra), [Self-service password reset, change, or unlock with on-premises write-back](/entra/fundamentals/what-is-entra), [multifactor authentication (cloud and on-premises (MFA Server))](/entra/fundamentals/what-is-entra), [MIM CAL + MIM Server](/entra/fundamentals/what-is-entra), [Cloud App Discovery](/entra/fundamentals/what-is-entra), [Connect Health](/entra/fundamentals/what-is-entra), [automatic password rollover for group accounts](/entra/fundamentals/what-is-entra)| [Identity Protection](/entra/id-protection/overview-identity-protection), [Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure)| [Join a device to Microsoft Entra ID, Desktop SSO, Microsoft Passport for Microsoft Entra ID, Administrator BitLocker recovery](/entra/fundamentals/what-is-entra), [MDM autoenrollment, Self-Service BitLocker recovery, extra local administrators to Windows 10 devices through Microsoft Entra join](/entra/fundamentals/what-is-entra)|
+[Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id), a comprehensive identity and access management cloud solution, helps secure access to applications and data on-premises and in the cloud. It combines core directory services, identity governance, identity protection, and application access management. Capabilities and licensing change over time; see [Microsoft Entra licensing](/entra/fundamentals/licensing) for current editions and feature availability.
 
 - [Cloud App Discovery](/cloud-app-security/set-up-cloud-discovery) is a premium feature of Microsoft Entra ID that enables you to identify cloud applications that employees in your organization use.
 
