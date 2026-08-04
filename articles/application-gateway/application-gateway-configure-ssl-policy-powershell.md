@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 08/03/2026
+ms.date: 08/04/2026
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to configure TLS policies on an Application Gateway using PowerShell, so that I can enhance security and control encryption standards for my web applications."
@@ -195,7 +195,7 @@ $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicI
 # Create a new listener with the certificate, port, and frontend ip.
 $listener = New-AzApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
-# Create a new rule for backend traffic routing (v2 requires a rule priority)
+# Create a new rule for backend traffic routing (rule priority is required)
 $rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool -Priority 100
 
 # Define the size of the application gateway
