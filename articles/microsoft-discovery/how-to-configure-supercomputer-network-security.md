@@ -19,7 +19,7 @@ This article explains how to set up secure networking for a Microsoft Discovery 
 To control egress traffic from a supercomputer instance, you need a virtual network with user defined routing configured, and an egress point that can allowlist IPs and FQDNs, such as [Azure Firewall](/azure/firewall/overview).
 When user defined routing is enabled, traffic between the management plane and the workload nodepools must reside within your virtual network. To support this, you must create a subnet delegated to `Microsoft.ContainerService/managedClusters`, as well as the existing subnet for nodepools.
 
-To enable IP allowlisting controls on the supercomputer management plane, the `Microsoft.ContainerService/EnableServiceTagAuthorizedIPPreview` feature flag must be enabled. When enabled, this will automatically add networking restrictions to isolate access to the supercomputer management plane to only the Microsoft Discovery service.
+To enable IP allowlisting controls on the supercomputer management plane, the `Microsoft.ContainerService/EnableServiceTagAuthorizedIPPreview` feature flag must be enabled. When enabled, this feature automatically adds networking restrictions to isolate access to the supercomputer management plane to only the Microsoft Discovery service.
 
 # [Azure CLI](#tab/azure-cli)
 
