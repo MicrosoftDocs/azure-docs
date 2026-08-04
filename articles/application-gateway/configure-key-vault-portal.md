@@ -6,7 +6,7 @@ author: gaking
 ms.author: mbender
 ms.service: azure-application-gateway
 ms.topic: how-to 
-ms.date: 08/03/2026
+ms.date: 08/04/2026
 ms.custom:
   - template-how-to
   - sfi-image-nochange
@@ -115,7 +115,7 @@ You'll create the application gateway using the tabs on the **Create an applicat
 1. Application Gateway needs a virtual network with two subnets: one for the application gateway and one for the backend servers. In this example, you create a new virtual network while creating the application gateway. For general guidance on the baseline gateway and virtual network setup, see the [Application Gateway portal quickstart](quick-create-portal.md).
 
     > [!Note]
-    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
 
     Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the Create virtual network window that opens, enter the following values to create the virtual network and two subnets:
 

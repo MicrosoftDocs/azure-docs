@@ -22,7 +22,7 @@ A frontend IP address is the IP address associated with an application gateway. 
 
 ### Static versus dynamic public IP address
 
-The Azure Application Gateway V2 SKU can be configured to support either both static internal IP address and static public IP address, or only static public IP address. It cannot be configured to support only static internal IP address.
+The Azure Application Gateway V2 SKU can be configured to support both a static internal IP address and a static public IP address, or only a static public IP address. You can also configure it with a static internal (private) IP address only when you deploy a [private Application Gateway](application-gateway-private-deployment.md) with `networkIsolationEnabled` set to `True`. For the supported frontend IP address combinations, see [Frontend IP address configuration](configuration-frontend-ip.md). For DNS behavior in private-IP-only deployments, see [Application Gateway DNS resolution](application-gateway-dns-resolution.md).
 
 The V1 SKU can be configured to support static or dynamic internal IP address and dynamic public IP address. The dynamic IP address of Application Gateway doesn't change on a running gateway. It can change only when you stop or start the Gateway. It doesn't change on system failures, updates, Azure host updates etc. 
 

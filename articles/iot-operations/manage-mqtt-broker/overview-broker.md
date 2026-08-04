@@ -94,9 +94,9 @@ erDiagram
 :::image type="content" source="media/overview-broker/default-broker-resources.svg" alt-text="Diagram that shows the default broker resources and relationships between them.":::
 
 > [!IMPORTANT]
-> To avoid disrupting communication between IoT Operations internal components, don't modify any default configuration.
-> 
-> To customize the MQTT broker deployment, add new resources such as BrokerListeners, BrokerAuthentication, and BrokerAuthorization to the default Broker.
+> Don't modify or delete the preconfigured BrokerListener, BrokerAuthentication, or BrokerAuthorization resources. Azure IoT Operations internal components depend on these resources.
+>
+> To customize client access, create your own BrokerListener, BrokerAuthentication, and BrokerAuthorization resources and associate them with the default Broker. Don't replace or alter the preconfigured resources.
 > 
 > The Broker resource is immutable and can't be modified after deployment, but it requires customization only in advanced scenarios. For more information about customizing the Broker resource, see [Customize default Broker](#customize-default-broker).
 
