@@ -50,13 +50,13 @@ Before you can create or manage logic apps, their workflows, and connections, yo
 >
 > Before you assign a role, review the following best practices, considerations, and impacts:
 >
-> - Always assign contributor-level roles or roles that allow creating or editing, based on least privilege, to *trusted principals* only.
+> - Always assign contributor-level roles or workflow editing permissions, based on least privilege, to *trusted principals* only.
 >
-> - Always assign only the minimum permissions needed for managed identities associated with logic app workflows to do their work.
+> - Always assign only the minimum necessary permissions for managed identities on logic app workflows to do their work.
 >
-> - Editing permissions on a logic app workflow is equivalent to holding the permissions for every [managed identity](/entra/identity/managed-identities-azure-resources/overview) assigned to that workflow.
+> - Contributor or workflow editing permissions equates to holding the permissions for every [managed identity](/entra/identity/managed-identities-azure-resources/overview) assigned to that workflow.
 >
-> - Anyone with workflow editing permissions can set up HTTP built-in operations that use managed identities to request identity bearer tokens for any audience. They can send requests with these tokens to any endpoint or destination. The platform doesn't restrict the destination. Bearer tokens are valid for one hour and can access any Azure API where their identities can reach.
+> - Anyone with contributor or workflow editing permissions can set up HTTP built-in operations that use managed identities to request identity bearer tokens for any audience. They can send requests with these tokens to any endpoint or destination. The platform doesn't restrict the destination. Bearer tokens are valid for one hour and can access any Azure API where their identities can reach.
 
 Azure Logic Apps has the following specific roles, based on whether you have a Consumption or Standard logic app workflow:
 

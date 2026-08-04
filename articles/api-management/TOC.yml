@@ -773,3 +773,5 @@
       href: breaking-changes/trusted-service-connectivity-retirement-march-2026.md
     - name: Built-in analytics dashboard retirement (March 2027)
       href: breaking-changes/analytics-dashboard-retirement-march-2027.md
+    - name: Retirement of TLS 1.0 and TLS 1.1 (October 2025)
+      href: breaking-changes/tls-versions-retirement-oct-2025.md
