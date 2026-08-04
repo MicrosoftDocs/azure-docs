@@ -27,6 +27,8 @@ Here are the parameters for starting a new orchestration instance:
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 * **Name**: The name of the orchestrator function to schedule.
 * **Input**: Any JSON-serializable data that should be passed as the input to the orchestrator function.
 * **InstanceId**: (Optional) The unique ID of the instance. If you don't specify this parameter, the method uses a random ID.

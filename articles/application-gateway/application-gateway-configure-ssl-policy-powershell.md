@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 08/03/2026
+ms.date: 08/04/2026
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to configure TLS policies on an Application Gateway using PowerShell, so that I can enhance security and control encryption standards for my web applications."
@@ -139,8 +139,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 > [!IMPORTANT]
-> - If you're using a custom SSL policy in Application Gateway v1 SKU (Standard or WAF), make sure that you add the mandatory cipher &#34;TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34; to the list. This cipher is required to enable metrics and logging in the Application Gateway v1 SKU. This is not mandatory for Application Gateway v2 SKU (Standard_v2 or WAF_v2).
-> - Cipher suites "TLS_AES_128_GCM_SHA256" and "TLS_AES_256_GCM_SHA384" with TLSv1.3 are not customizable and included by default when setting a CustomV2 policy with a minimum TLS version of 1.2 or 1.3. These two cipher suites won't appear in the Get Details output, with an exception of Portal.
+> Cipher suites `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384` with TLSv1.3 aren't customizable and are included by default when setting a CustomV2 policy with a minimum TLS version of 1.2 or 1.3. These two cipher suites don't appear in the Get Details output, with an exception of Portal.
 
 To set minimum protocol version to 1.3, you must use the following command:
 
@@ -196,14 +195,14 @@ $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicI
 # Create a new listener with the certificate, port, and frontend ip.
 $listener = New-AzApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
-# Create a new rule for backend traffic routing
-$rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+# Create a new rule for backend traffic routing (rule priority is required)
+$rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool -Priority 100
 
 # Define the size of the application gateway
 $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
 
 # Configure the TLS policy to use a different predefined policy
-$policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
+$policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20220101S
 
 # Create the application gateway.
 $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.ResourceGroupName -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert -SslPolicy $policy
@@ -214,7 +213,7 @@ $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.Resourc
 To set a custom TLS policy, pass the following parameters: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, and **ApplicationGateway**. To set a Predefined TLS policy, pass the following parameters: **PolicyType**, **PolicyName**, and **ApplicationGateway**. If you attempt to pass other parameters, you get an error when creating or updating the Application Gateway.
 
 > [!NOTE]
-> Both legacy and new (2022 Predefined or CustomV2) SSL policies can't coexist on the same gateway. If any clients require older TLS versions or ciphers (for example, TLS 1.0), use a legacy predefined or custom policy across the gateway. For details, see [SSL policy overview](./application-gateway-ssl-policy-overview.md).
+> Both legacy and new (2022 Predefined or CustomV2) SSL policies can't coexist on the same gateway. If any clients require ciphers that only the legacy policies offer, use a legacy predefined or custom policy across the gateway. Because [support for TLS 1.0 and 1.1 ended on August 31, 2025](application-gateway-tls-version-retirement.md), the legacy policies no longer negotiate those versions: the 20150501 and 20170401 predefined policies were discontinued, and the legacy Custom policy supports TLS 1.2 only. For details, see [TLS policy overview](./application-gateway-ssl-policy-overview.md).
 
 In the following example, there are code samples for both Custom Policy and Predefined Policy. Uncomment the policy you want to use.
 
@@ -231,7 +230,7 @@ $AppGw = get-Azapplicationgateway -Name $AppGWname -ResourceGroupName $RG
 # Set-AzApplicationGatewaySslPolicy -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_RSA_WITH_AES_128_CBC_SHA256" -ApplicationGateway $AppGw
 
 # TLS Predefined Policy
-# Set-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20170401S" -ApplicationGateway $AppGW
+# Set-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName "AppGwSslPolicy20220101S" -ApplicationGateway $AppGW
 
 # Update AppGW
 # The TLS policy options are not validated or updated on the Application Gateway until this cmdlet is executed.

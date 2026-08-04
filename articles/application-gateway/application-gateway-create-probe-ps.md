@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 07/16/2026
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 # Customer intent: "As a cloud administrator, I want to create and manage custom health probes for an application gateway using PowerShell, so that I can ensure optimal health monitoring of my backend services and improve application reliability."
@@ -101,7 +101,7 @@ $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $
 $pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221, 134.170.185.50
 
 # Creates a probe that will check health at http://contoso.com/path/path.htm
-$probe = New-AzApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/path.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+$probe = New-AzApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/path.htm' -Interval 30 -Timeout 30 -UnhealthyThreshold 8
 
 # Creates the backend http settings to be used. This component references the $probe created in the previous command.
 $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 80
@@ -134,7 +134,7 @@ The following code snippet adds a probe to an existing application gateway.
 $getgw =  Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 # Create the probe object that will check health at http://contoso.com/path/path.htm
-$probe = Add-AzApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/custompath.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+$probe = Add-AzApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/custompath.htm' -Interval 30 -Timeout 30 -UnhealthyThreshold 8
 
 # Set the backend HTTP settings to use the new probe
 $getgw = Set-AzApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120

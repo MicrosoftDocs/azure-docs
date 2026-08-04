@@ -13,6 +13,8 @@ ms.devlang: csharp
 
 # HTTP features in Durable Functions
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Durable Functions has several features that make it easy to incorporate durable orchestrations and entities into HTTP workflows. This article goes into detail about some of those features.
 
 ## Expose HTTP APIs

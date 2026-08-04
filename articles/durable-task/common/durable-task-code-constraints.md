@@ -14,6 +14,8 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Build stateful apps with Durable Functions. It's an extension of [Azure Functions](../../azure-functions/functions-overview.md). Use an [orchestrator function](durable-task-orchestrations.md) to coordinate other Durable Functions in your function app. Orchestrator functions are stateful, reliable, and they're built to run for a long time.
 
 ::: zone-end

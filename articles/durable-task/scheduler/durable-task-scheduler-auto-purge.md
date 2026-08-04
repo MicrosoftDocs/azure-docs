@@ -12,6 +12,8 @@ ms.date: 05/01/2026
 
 # Set autopurge retention policies for Durable Task Scheduler
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 To prevent reaching the memory limit of a capacity unit (CU), we recommend periodically purging orchestration history data. The Durable Task Scheduler offers a lightweight, configurable autopurge feature that helps you manage orchestration data cleanup without manual intervention.
 
 | Setting | Default value |
