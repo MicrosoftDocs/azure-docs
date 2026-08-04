@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 07/16/2026
+ms.date: 08/04/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand the components of Application Gateway for Containers, so that I can effectively configure and manage traffic routing to backend services in my cloud deployment."
 ---
@@ -66,7 +66,7 @@ You can control the Application Gateway for Containers association subnet with r
 
 The association subnet supports two routing patterns that keep traffic received on a public (internet-facing) frontend returning to the internet:
 
-- **Disable BGP route propagation on the association subnet.** When a default route (0.0.0.0/0) advertised through an ExpressRoute or VPN gateway breaks return traffic to the internet, associate a route table that has the **Virtual network gateway route propagation** parameter disabled. This change shouldn't break existing setups.
+- **Disable BGP route propagation on the association subnet.** When a default route (0.0.0.0/0) advertised through an ExpressRoute or VPN gateway breaks return traffic to the internet, associate a route table that has the **Virtual network gateway route propagation** parameter disabled.
 - **Route 0.0.0.0/0 directly to the internet.** Add a user-defined route on the association subnet that sends 0.0.0.0/0 traffic directly to the internet.
 
 ### Application Gateway for Containers ALB Controller
