@@ -61,6 +61,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot/iot-hub-certificate-management-concepts.md",
+      "redirect_url": "/azure/iot/iot-certificate-management-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/iot-hub-certificate-management-overview.md",
+      "redirect_url": "/azure/iot/iot-certificate-management-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-fundamentals/iot-security-best-practices.md",
       "redirect_url": "/azure/iot/iot-overview-security",
       "redirect_document_id": false

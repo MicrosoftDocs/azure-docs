@@ -1,14 +1,13 @@
 ---
-title: Reduce costs for Azure Files with Reservations
+title: Reduce Costs for Azure Files with Reservations
 titleSuffix: Azure Files 
 description: Learn how to save costs on Azure file share deployments by using Azure Files Reservations, also called reserved instances. Get a discount on capacity when you commit to a Reservation for either one year or three years.
 services: storage
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/08/2024
+ms.date: 07/29/2026
 ms.author: kendownie
-recommendations: false
 # Customer intent: As a finance manager, I want to understand Azure Files Reservations so that I can optimize our storage costs by committing to a discount plan that aligns with our long-term data storage needs.
 ---
 
@@ -20,7 +19,8 @@ recommendations: false
 
 You can save money on the storage costs for Azure file shares with Azure Files Reservations. Azure Files Reservations (also referred to as *reserved instances*) offer you a discount on capacity for storage costs when you commit to a Reservation for either one year or three years. A Reservation provides a fixed amount of storage capacity for the term of the Reservation.
 
-Azure Files reservations can significantly reduce your capacity costs for storing data in Azure file shares. How much you save will depend on the duration of your Reservation, the total storage capacity you choose to reserve, and the tier and redundancy settings that you've chosen for your Azure file shares. Reservations provide a billing discount and don't affect the state of your Azure file shares. Reservations have no effect on performance.
+Azure Files reservations can significantly reduce your capacity costs for storing data in Azure file shares. How much you save depends on the duration of your Reservation, the total storage capacity you choose to reserve, and the tier and redundancy settings that you choose for your Azure file shares. Reservations provide a billing discount and don't affect the state of your Azure file shares. Reservations have no effect on performance.
+
 
 For pricing information about Azure Files Reservations, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
@@ -45,7 +45,7 @@ If you're taking snapshots of Azure file shares, there are differences in how Re
 
 ### Supported billing models and redundancy options
 
-Azure Files Reservations are available for SSD provisioned v1 file shares, and for HDD pay-as-you-go file shares in the hot and cool access tiers. Reservations aren't available for the provisioned v2 billing model or for pay-as-you-go file shares in the transaction optimized access tier. All storage redundancies support Reservations. For more information about redundancy options, see [Azure Files redundancy](storage-files-planning.md#redundancy).
+Azure Files Reservations are available for SSD provisioned v1 file shares (premium storage) and for HDD pay-as-you-go file shares (standard storage) in the hot and cool access tiers. Reservations aren't available for the provisioned v2 billing model or for pay-as-you-go file shares in the transaction optimized access tier. All storage redundancies support Reservations. For more information about redundancy options, see [Azure Files redundancy](storage-files-planning.md#redundancy).
 
 ### Security requirements for purchase
 
@@ -57,9 +57,9 @@ To purchase a Reservation:
 
 ## Determine required capacity before purchase
 
-When you purchase an Azure Files Reservation, you must choose the region, billing model and access tier (for pay-as-you-go), and redundancy option for the Reservation. Your Reservation is valid only for data stored in that region, billing model/access tier, and redundancy level. For example, suppose you purchase a Reservation for data in West US for the hot access tier using zone-redundant storage (ZRS). That Reservation will not apply to data in US East, data in the cool access tier, or data in geo-redundant storage (GRS). However, you can purchase another Reservation for your additional needs.  
+When you purchase an Azure Files Reservation, you must choose the region, billing model and access tier (for pay-as-you-go), and redundancy option for the Reservation. Your Reservation is valid only for data stored in that region, billing model/access tier, and redundancy level. For example, suppose you purchase a Reservation for data in West US for the hot access tier using zone-redundant storage (ZRS). That Reservation doesn't apply to data in US East, data in the cool access tier, or data in geo-redundant storage (GRS). However, you can purchase another Reservation for your additional needs.  
 
-Reservations are available for 10 TiB or 100 TiB blocks, with higher discounts for 100 TiB blocks. When you purchase a Reservation in the Azure portal, Microsoft may provide you with recommendations based on your previous usage to help determine which Reservation you should purchase.
+Reservations are available for 10 TiB or 100 TiB blocks, with higher discounts for 100 TiB blocks. When you purchase a Reservation in the Azure portal, Microsoft might provide you with recommendations based on your previous usage to help determine which Reservation you should purchase.
 
 ## Purchase Azure Files Reservations
 
@@ -69,7 +69,7 @@ For help identifying the Reservation terms that are right for your scenario, see
 
 Follow these steps to purchase a Reservation:
 
-1. Navigate to the [Purchase Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) blade in the Azure portal.  
+1. Go to the [Purchase Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) blade in the Azure portal.  
 1. Select **Azure Files** to buy a new Reservation.  
 1. Fill in the required fields as described in the following table:
 
@@ -96,7 +96,7 @@ After you purchase a Reservation, it is automatically applied to any existing Az
 
 You can exchange or refund a Reservation, with certain limitations. These limitations are described in the following sections.
 
-To exchange or refund a Reservation, navigate to the Reservation details in the Azure portal. Select **Exchange** or **Refund**, and follow the instructions to submit a support request. When the request has been processed, Microsoft will send you an email to confirm completion of the request.
+To exchange or refund a Reservation, navigate to the Reservation details in the Azure portal. Select **Exchange** or **Refund**, and follow the instructions to submit a support request. After the request is processed, Microsoft sends you an email to confirm completion of the request.
 
 For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
@@ -104,15 +104,15 @@ For more information about Azure Reservations policies, see [Self-service exchan
 
 Exchanging a Reservation enables you to receive a prorated refund based on the unused portion of the Reservation. You can then apply the refund to the purchase price of a new Azure Files Reservation.
 
-There's no limit on the number of exchanges you can make. Additionally, there's no fee associated with an exchange. The new Reservation that you purchase must be of equal or greater value than the prorated credit from the original reservation. An Azure Files reservation can be exchanged only for another Azure Files reservation, and not for a reservation for any other Azure service.
+There's no limit on the number of exchanges you can make. Additionally, there's no fee associated with an exchange. The new Reservation that you purchase must be of equal or greater value than the prorated credit from the original Reservation. An Azure Files Reservation can be exchanged only for another Azure Files Reservation, and not for a reservation for any other Azure service.
 
-### Refund reservations
+### Refund Reservations
 
-You can refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+You can refund Reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## Expiration of a Reservation
 
-When a Reservation expires, any Azure Files capacity that you are using under that Reservation is billed at the pay-as-you go rate. Reservations don't renew automatically.
+When a Reservation expires, any Azure Files capacity that you're using under that Reservation is billed at the pay-as-you-go rate. Reservations don't renew automatically.
 
 You'll receive an email notification 30 days prior to the expiration of the Reservation, and again on the expiration date. To continue taking advantage of the cost savings that a Reservation provides, renew it no later than the expiration date.
 

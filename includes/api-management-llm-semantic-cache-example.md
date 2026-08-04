@@ -1,11 +1,11 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: include
 ms.date: 08/21/2024
-ms.author: danlep
+ms.author: patricka
 ---
 
 The following example shows how to use the `llm-semantic-cache-lookup` policy along with the `llm-semantic-cache-store` policy to retrieve semantically similar cached responses with a similarity score threshold of 0.05. Cached values are partitioned by the subscription ID of the caller. 

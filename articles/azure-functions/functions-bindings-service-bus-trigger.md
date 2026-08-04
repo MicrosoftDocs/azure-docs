@@ -123,9 +123,9 @@ Java functions can also be triggered when a message is added to a Service Bus to
 
 [!INCLUDE [functions-service-bus-sdk-types-node-ts](../../includes/functions-service-bus-sdk-types-node-ts.md)]
 
-For more information, see [SDK types](functions-reference-node.md#sdk-types) in the Node.js reference article. 
+For more information, see [SDK types](functions-triggers-bindings.md#sdk-types) in the Node.js reference article. 
 
-The following example shows a Service Bus trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
+The following example shows a Service Bus trigger [TypeScript function](functions-triggers-bindings.md?tabs=typescript). The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/serviceBusTrigger1.ts" :::
 

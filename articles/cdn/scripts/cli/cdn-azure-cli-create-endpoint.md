@@ -4,7 +4,7 @@ description: The Azure CLI sample scripts to create an Azure Content Delivery Ne
 author: halkazwini
 ms.author: halkazwini
 manager: kumudd
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: sample
 ms.date: 04/21/2025
 ms.devlang: azurecli

@@ -2,11 +2,11 @@
 title: Copy Data tool
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the Copy Data tool in the Azure Data Factory and Synapse Analytics UI.
-author: dearandyxu
+author: kromerm
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.date: 03/31/2025
-ms.author: yexu
+ms.author: makromer
 ms.custom:
   - synapse
   - sfi-image-nochange

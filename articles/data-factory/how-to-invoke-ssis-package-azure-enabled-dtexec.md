@@ -4,8 +4,8 @@ description: Learn how to execute SQL Server Integration Services (SSIS) package
 ms.subservice: integration-services
 ms.topic: concept-article
 ms.date: 05/15/2024
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange

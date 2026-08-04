@@ -22,7 +22,7 @@ Azure IoT Operations [data flow graphs](concept-dataflow-graphs.md) include buil
 > Want to run AI in-band? See [Run ONNX inference in WebAssembly data flow graphs](../develop-edge-apps/howto-wasm-onnx-inference.md) to package and execute small ONNX models inside your WASM operators.
 
 > [!IMPORTANT]
-> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported.
 
 ## Prerequisites
 
@@ -33,6 +33,10 @@ Azure IoT Operations [data flow graphs](concept-dataflow-graphs.md) include buil
 
 > [!NOTE]
 > **Data flows vs. data flow graphs**: A *data flow* is a pipeline that moves and transforms data between endpoints by using built-in transformations. A *data flow graph* extends data flows with composable processing steps. Azure IoT Operations provides [built-in data flow graphs](concept-dataflow-graphs.md) for common operations like mapping, filtering, branching, and aggregation. For custom processing logic, you can implement WebAssembly modules as described in this article. Data flow graphs use YAML graph definitions that specify how operators connect. The data flow graph resource wraps this definition and maps its abstract source and sink operations to concrete endpoints, like MQTT topics and Kafka topics.
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for values that you choose: `REGISTRY_ENDPOINT` (the name of the registry endpoint), `GRAPH_NAME` (the data flow graph name), `PROFILE` (the data flow profile name), and `REGISTRY_HOST` (the container registry hostname). Set each one before you run the related commands.
 
 ## Overview
 
@@ -189,13 +193,13 @@ The Azure CLI applies a data flow graph from a single JSON config file. Create a
 }
 ```
 
-Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
+Apply the config file. Set the `GRAPH_NAME` environment variable to the name for your data flow graph. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
 
 ```azurecli
 az iot ops dataflowgraph apply \
-  --name <GRAPH_NAME> \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --name $GRAPH_NAME \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
   --config-file graph.json
 ```
 
@@ -546,9 +550,9 @@ Apply the config file. The `extendedLocation` is added automatically from the in
 
 ```azurecli
 az iot ops dataflowgraph apply \
-  --name <COMPLEX_GRAPH_NAME> \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --name $GRAPH_NAME \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
   --config-file graph.json
 ```
 
@@ -887,10 +891,10 @@ The profile isn't part of the `graph.json` config file. Instead, select it with 
 
 ```azurecli
 az iot ops dataflowgraph apply \
-  --name <GRAPH_NAME> \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
-  --profile <PROFILE_NAME> \
+  --name $GRAPH_NAME \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --profile $PROFILE \
   --config-file graph.json
 ```
 
@@ -1351,7 +1355,7 @@ If the data flow graph fails to start and reports that it can't find the registr
 1. **Registry endpoint is ready**: Check the status of your registry endpoint:
 
    ```bash
-   kubectl describe registryendpoint <REGISTRY_ENDPOINT_NAME> -n azure-iot-operations
+   kubectl describe registryendpoint $REGISTRY_ENDPOINT -n azure-iot-operations
    ```
 
 1. **Authentication is configured correctly**: If you use managed identity, ensure the Azure IoT Operations Arc extension has `AcrPull` permissions on the registry. If you use anonymous authentication with a public registry, verify the host URL is correct.
@@ -1360,7 +1364,7 @@ If the data flow graph fails to start and reports that it can't find the registr
 
    ```bash
    # Check if artifacts exist (example with ORAS)
-   oras manifest fetch <REGISTRY_HOST>/graph-simple:1.0.0
+   oras manifest fetch $REGISTRY_HOST/graph-simple:1.0.0
    ```
 
 ### Data flow graph is running but not processing data
@@ -1370,7 +1374,7 @@ If you deploy the data flow graph but it doesn't process messages:
 1. **Check data flow graph status**: Look for errors in the data flow graph resource status.
 
    ```bash
-   kubectl get dataflowgraph <GRAPH_NAME> -n azure-iot-operations -o yaml
+   kubectl get dataflowgraph $GRAPH_NAME -n azure-iot-operations -o yaml
    ```
 
 1. **Verify MQTT topics**: Ensure the source topics in your data flow graph match the topics where you're publishing data.

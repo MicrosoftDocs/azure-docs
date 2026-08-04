@@ -1516,7 +1516,7 @@ How you configure managed identities in your new app depends on the kind of mana
 Recreating the role assignments correctly is key to ensuring your function app has the same access to Azure resources after the migration.
 
 >[!TIP]  
->If your original app used connection strings or other shared secrets for authentication, this is a great opportunity to improve your app's security by switching to using Microsoft Entra ID authentication with managed identities. For more information, see [Tutorial: Create a function app that connects to Azure services using identities instead of secrets](../functions-identity-based-connections-tutorial.md).
+>If your original app used connection strings or other shared secrets for authentication, this is a great opportunity to improve your app's security by switching to using Microsoft Entra ID authentication with managed identities. For more information, see [Configure connections to remote services in Azure Functions](../manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 #### [System-assigned](#tab/system-assigned/github-copilot)
 

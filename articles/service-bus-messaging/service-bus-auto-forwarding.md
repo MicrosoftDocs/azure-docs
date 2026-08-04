@@ -2,14 +2,14 @@
 title: Autoforwarding Azure Service Bus messaging entities
 description: This article describes how to chain an Azure Service Bus queue or subscription to another queue or topic.
 ms.topic: concept-article
-ms.date: 11/12/2024
+ms.date: 07/27/2026
 ms.custom: devx-track-csharp
 # Customer intent: I want to learn how to automatically forward messages received by one entity to another entity in Azure Service Bus. 
 ---
 
 # Chaining Service Bus entities with autoforwarding
 
-The Service Bus *autoforwarding* feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When autoforwarding is enabled, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination). It's still possible to send a message to the destination entity directly.
+The Service Bus *autoforwarding* feature chains a queue or subscription to another queue or topic in the same namespace. When you enable autoforwarding, Service Bus automatically removes messages from the first queue or subscription (source) and puts them in the second queue or topic (destination). You can still send a message directly to the destination entity.
 
 > [!NOTE]
 > The basic tier of Service Bus doesn't support the autoforwarding feature. For differences between tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -56,6 +56,48 @@ When an auto-forward attempt fails because the destination has sessions enabled 
 When the destination entity is deleted or disabled, the source dead-letters the message and no incoming count is recorded on the destination.
 
 For the full list of Service Bus metrics, see [Monitoring data reference](monitor-service-bus-reference.md).
+
+## Autoforwarding throughput and message size
+
+Autoforwarding moves each message from the source entity to the destination entity. As with direct send and receive, message size affects how quickly messages move: smaller messages forward faster, so keep messages small where you can. For high-volume or large-payload workloads, plan capacity so the destination keeps pace with the source.
+
+Keep the following points in mind as message size grows:
+
+- Maximum message size differs by tier. **Standard** allows up to 256 KB. **Premium** allows up to 1 MB by default, or up to 100 MB with [large message support](service-bus-premium-messaging.md#large-messages-support) over AMQP. Because Standard caps messages at 256 KB, large payloads mainly apply to Premium.
+- Set the source entity's maximum size large enough to hold messages briefly while they forward. If the source fills to its size quota, Service Bus rejects new messages sent to it until forwarding frees up space, so size it to absorb your expected bursts.
+
+> [!NOTE]
+> Autoforwarding doesn't change the maximum message size or any quota. It moves messages between entities that you already sized. Size the source entity and the destination for the throughput and message sizes your workload produces.
+
+### Recommendations
+
+To keep autoforwarding fast with large or high-volume workloads:
+
+- Keep forwarded messages as small as practical. Large messages take longer to send and receive, so they lower end-to-end forwarding throughput.
+- Size the source entity's maximum size to absorb short bursts, so a temporary slowdown in forwarding doesn't immediately reach quota.
+- Make sure the destination entity can receive as fast as the source forwards. A slow or backed-up destination limits how quickly the source drains, and if the destination fills to its quota or is disabled, the source [dead-letters](service-bus-dead-letter-queues.md) the messages it can't forward.
+- On the Premium tier, allocate enough messaging units for the message sizes and rates your workload requires.
+
+## Troubleshoot slow autoforwarding
+
+If messages take longer than expected to appear in the destination entity, work through the following checks:
+
+| Symptom | Likely cause | What to check |
+| --- | --- | --- |
+| Destination receives messages slowly and the source depth is rising | The source is forwarding slower than it receives | Compare the source entity's active message count over time with the destination's **Incoming Messages** metric. Check the average message size and whether the destination is keeping up. |
+| The source entity reaches its quota and rejects new incoming messages | Messages accumulate in the source faster than they can be forwarded | Review the source's size against its size quota, then reduce message size or increase the source's maximum size. |
+| Messages appear in the source's dead-letter queue | The source can't forward because the destination is full, disabled, or deleted | Confirm the destination exists, is enabled, and is below its quota, then process the source's dead-letter queue. |
+| Forwarding is slow only for some entities | Large payloads or a backed-up destination on those specific chains | Check the message-size distribution and destination health for the affected entities. |
+
+Common mitigations:
+
+- Keep messages small. Large messages lower throughput and increase latency.
+- Increase the source entity's maximum size to absorb bursts.
+- Scale the destination's consumers so it drains as fast as the source forwards.
+- On the Premium tier, add messaging units.
+
+> [!TIP]
+> The destination's **Incoming Messages** metric counts successfully forwarded messages. Comparing it with the source entity's active message count over the same window shows whether forwarding is keeping up with incoming traffic. For the full list of metrics, see [Monitoring data reference](monitor-service-bus-reference.md).
 
 ## Related content
 To learn how to enable or disable auto forwarding in different ways (Azure portal, PowerShell, CLI, Azure Resource Management template, etc.), see [Enable auto forwarding for queues and subscriptions](enable-auto-forward.md).

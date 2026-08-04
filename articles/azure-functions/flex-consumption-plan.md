@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 03/18/2026
+ms.date: 07/16/2026
 ms.custom:
   - references_regions
   - build-2024
@@ -107,6 +107,48 @@ Concurrency refers to the number of parallel executions of a function on an inst
 
 To learn how to set concurrency limits for HTTP trigger functions, see [Set HTTP concurrency limits](flex-consumption-how-to.md#set-http-concurrency-limits). To learn how to set concurrency limits for non-HTTP trigger functions, see [Target Base Scaling](./functions-target-based-scaling.md).
 
+## Scale-out rate
+
+The number of desired instances for the app is constantly evaluated and defined by the [concurrency](#concurrency) per instance setting.
+
+As event demand increases, the Flex Consumption platform scales your app out automatically. The platform constantly evaluates how many instances your app needs—the *desired instance count*—from the volume of incoming events and your [per-instance concurrency](#concurrency) setting, which controls how many events each instance processes at once. Raising concurrency lets each instance do more work, so your app needs fewer instances to handle the same load.
+
+Two *separate* platform limits then shape how your app reaches that desired count, and it helps to think of them independently:
+
+* The **scale-out rate** governs *how fast* new instances are added.
+* The **maximum instance count** governs *how many* instances your app can reach.
+
+You don't configure the scale-out rate—the platform manages it for you. You do configure the [maximum instance count](event-driven-scaling.md#limit-scale-out) and [per-instance concurrency](#concurrency). Understanding these helps you design workloads that scale smoothly and predictably.
+
+### How the scale curve works
+
+Rather than adding every requested instance at once, the platform adds new instances in short, repeated bursts and decides how many an app may add during each brief interval. The size of that per-interval allowance follows a *scale curve* that depends on how many instances the app is already running:
+
+* When an app is running **only a few instances**, the allowance is at its largest, so a small app scales up very quickly and can add many instances per minute.
+* As an app grows to run **more and more instances**, the platform grants each additional batch more gradually. This deceleration keeps very large scale-outs stable and keeps a single app from destabilizing the region it shares with other apps.
+
+The scale curve applies to on-demand instances only. The exact shape and rate are managed by the platform and can change over time, so don't design against specific per-interval numbers—design for the *pattern*: fast at first, then progressively more measured at very high instance counts.
+
+[Always ready instances](#always-ready-instances) aren't subject to this on-demand scale-out rate. If you need capacity ahead of a predictable burst, configure always ready instances so that capacity is already in place before the load arrives.
+
+### Maximum instance count (the ceiling)
+
+Regardless of the rate, your app never scales beyond its [maximum instance count](event-driven-scaling.md#limit-scale-out). When an app reaches that ceiling, the platform stops adding on-demand instances no matter how much demand remains, until running instances free up. Always ready instances count toward this ceiling.
+
+You configure the maximum instance count on the app, but the platform applies it to each independently-scaling function group rather than to the app's combined instances. A *function group* is a set of functions that scale together on the same instances, as described in [per-function scaling](event-driven-scaling.md#per-function-scaling). Many apps scale as a single group, so the ceiling behaves like one per-app limit. An app that scales some functions on their own instances has more than one function group, and the maximum instance count applies to each group.
+
+A high maximum instance count doesn't guarantee your app reaches it: the [regional subscription memory quota](#regional-subscription-memory-quotas) can cap total scale-out for all apps in a region below the sum of their configured maximums. If your app needs to scale to a large instance count, confirm the subscription quota is high enough and [request an increase](#regional-subscription-memory-quotas) if needed.
+
+### Throttling responses
+
+At any moment, the platform grants the smallest allowance across all of these limits - the scale curve, the maximum instance count, and the regional memory quota. When one of these limits temporarily holds scale-out back, the platform throttles individual scale-out requests briefly. A throttled scale-out is a transient, expected part of high-rate scaling: the platform keeps retrying automatically and your app continues to scale toward demand. You don't need to take any action for an occasional throttle.
+
+### Design for smooth scaling at high rates
+
+* Use [always ready instances](#always-ready-instances) to pre-provision capacity for known bursts and to reduce cold starts, since they bypass the on-demand scale-out rate.
+* Right-size [concurrency](functions-concurrency.md#concurrency-in-azure-functions) so each instance does more work, which reduces the number of instances you need for a given load.
+* Set a [maximum instance count](event-driven-scaling.md#limit-scale-out) high enough for your peak, and confirm your [subscription memory quota](#regional-subscription-memory-quotas) can support that target.
+
 ## Mount file shares
 
 Flex Consumption lets you mount Azure Files shares as local directories in your function app. Mounting is useful when you need to:
@@ -151,7 +193,7 @@ This table shows the language stack versions that are currently supported for Fl
 | Java | Java 8, Java 11, Java 17, Java 21, Java 25 |
 | Node.js | Node.js 22, Node.js 24   |
 | PowerShell | PowerShell 7.4   |
-| Python | Python 3.10, Python 3.11, Python 3.12, Python 3.13  | 
+| Python | Python 3.10, Python 3.11, Python 3.12, Python 3.13, Python 3.14  | 
 | Custom handlers | 1.0 |
 
 1. The [C# in-process model](./functions-dotnet-class-library.md) isn't supported. You need to [migrate your .NET project to the isolated worker model](migrate-dotnet-to-isolated-model.md).  
