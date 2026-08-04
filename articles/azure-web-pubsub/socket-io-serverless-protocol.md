@@ -164,7 +164,7 @@ Headers:
 Authorization: Bearer <Microsoft Entra ID Token>
 ```
 
-For more optional parameters, see [Generate Client Token](/rest/api/webpubsub/dataplane/web-pub-sub/generate-client-token)
+For more optional parameters, see [Generate Client Token](/rest/api/webpubsub/dataplane/webpubsub/generate-client-token/generate-client-token)
 
 ## Supported functionality and RESTful APIs
 
@@ -260,7 +260,7 @@ Content-Type: application/json
 }
 ```
 
-See [Remove Connections From Groups](/rest/api/webpubsub/dataplane/web-pub-sub/remove-connections-from-groups) for REST details. See [OData filter syntax in the Azure Web PubSub service](./reference-odata-filter.md) for filter details.
+See [Remove Connections From Groups](/rest/api/webpubsub/dataplane/webpubsub/remove-connections-from-groups/remove-connections-from-groups) for REST details. See [OData filter syntax in the Azure Web PubSub service](./reference-odata-filter.md) for filter details.
 
 #### Example
 
