@@ -28,7 +28,7 @@ Azure Files offers several ways for Java developers to access data and manage re
 | Approach | How it works | When to use |
 | --- | --- | --- |
 | Standard file I/O libraries | Uses OS-level API calls through Azure file shares mounted using SMB or NFS. When you mount a file share using SMB/NFS, you can use file I/O libraries for a programming language or framework, such as `java.io` and `java.nio` for Java. | You have line-of-business apps with existing code that uses standard file I/O, and you don't want to rewrite code for the app to work with an Azure file share. |
-| FileREST API | Directly calls HTTPS endpoints to interact with data stored in Azure Files. Provides programmatic control over file share resources. The Azure SDK provides the File Shares client library (`com.azure.storage.file.share`) that builds on the FileREST API, allowing you to interact with FileREST API operations through familiar Java programming language paradigms. | You're building value-added cloud services and apps for customers and you want to use advanced features not available through standard file I/O libraries. |
+| FileREST API | Directly calls HTTPS endpoints to interact with data stored in Azure Files. Provides programmatic control over file share resources. The Azure SDK provides the File Shares client library (`com.azure.storage.file.share`) that builds on the FileREST API, so you can interact with FileREST API operations through familiar Java programming language paradigms. | You're building value-added cloud services and apps for customers and you want to use advanced features that standard file I/O libraries don't provide. |
 | Storage resource provider REST API | Uses Azure Resource Manager (ARM) to manage storage accounts and file shares. Calls REST API endpoints for various resource management operations. | Your app or service needs to perform resource management tasks, such as creating, deleting, or updating storage accounts or file shares. |
 
 For general information about these approaches, see [Overview of application development with Azure Files](storage-files-developer-overview.md).
@@ -281,7 +281,7 @@ try (
 }
 ```
 
-When using both SMB and the FileREST API, note that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
+When you use both SMB and the FileREST API, note that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
 
 ### Example: Enumerate file ACLs using Java file I/O libraries
 
@@ -333,7 +333,7 @@ Consider using the FileREST API and the File Shares client library if your appli
 - **Custom cloud integrations:** Build custom value-added services, such as backup, antivirus, or data management, that interact directly with Azure Files.
 - **Performance optimization:** Benefit from performance advantages in high-scale scenarios using data plane operations.
 
-The FileREST API models Azure Files as a hierarchy of resources, and is recommended for operations that are performed at the *directory* or *file* level. Use the [Storage resource provider REST API](#manage-azure-files-resources-using-the-azure-storage-management-libraries) for operations that are performed at the *file service* or *file share* level.
+The FileREST API models Azure Files as a hierarchy of resources. Use it for operations that you perform at the *directory* or *file* level. For operations that you perform at the *file service* or *file share* level, use the [Storage resource provider REST API](#manage-azure-files-resources-using-the-azure-storage-management-libraries).
 
 In this section, you learn how to use the File Shares client library for Java to work with Azure Files resources.
 
@@ -552,7 +552,7 @@ try {
 }
 ```
 
-When using both SMB and the FileREST API, note that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
+When you use both SMB and the FileREST API, note that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
 
 ### Example: Create and list share snapshots using the File Shares client library
 
