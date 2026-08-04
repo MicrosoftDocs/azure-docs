@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 01/27/2026
+ms.date: 08/04/2026
 ---
 
 ## More prerequisites for the Azure CLI
@@ -161,6 +161,12 @@ In this section, you assign the [Azure Device Registry Contributor](../articles/
 
     ```azurecli-interactive
     az role assignment create --assignee $UAMI_PRINCIPAL_ID --role "a5c3590a-3a1a-4cd4-9648-ea0a32b15137" --scope $NAMESPACE_RESOURCE_ID
+    ```
+
+1. Assign the Azure Device Registry Onboarding role to the managed identity (for more information, see [the portal steps](iot-hub-device-registry-setup.md?pivots=portal)):
+
+    ```azurecli-interactive
+    az role assignment create --assignee "$UAMI_PRINCIPAL_ID" --role "547f7f0a-69c0-4807-bd9e-0321dfb66a84" --scope "$NAMESPACE_RESOURCE_ID"
     ```
 
 ## Create an IoT hub with Device Registry integration
