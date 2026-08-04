@@ -12,7 +12,7 @@ ms.author: mekaylamoore
 
 # ExpressRoute Resiliency Guard (Preview)
 
-ExpressRoute Resiliency Guard is a guided setup experience that helps you configure an ExpressRoute gateway for the level of availability your network requires. When you create or modify a gateway, use the **Resiliency Model** property to choose between multi-homed and single-homed configurations.
+ExpressRoute Resiliency Guard is a guided setup experience that helps you configure an ExpressRoute gateway for the level of availability your network requires. When you create or modify a gateway, use the **Resiliency Model** property to choose between multihomed and single-homed configurations.
 
 ## Choose your resiliency model
 
@@ -47,11 +47,11 @@ To enable Resiliency Guard for your subscription, submit the [public preview for
 
 ### Multi-homed gateway configuration
 
-1. Go to your ExpressRoute gateway.
+1. Navigate to your ExpressRoute gateway
 1. Select **Connections**.
-1. Add connections to two or more circuits at different physical locations or to a Metro circuit.
+3. Add connections to two or more circuits at different physical locations or to a Metro circuit
 
-:::image type="content" source="./media/resiliency-model/add-gateway-connections.png" alt-text="Screenshot showing multi-homed gateway with required connections." lightbox="./media/resiliency-model/add-gateway-connections.png":::
+:::image type="content" source="./media/resiliency-model/ResGuard-Connect.png" alt-text="Screenshot showing multi-homed gateway with required connections." lightbox="./media/resiliency-model/ResGuard-Multi.png":::
 
 The portal displays your connectivity status once you connect all required circuits:
 
