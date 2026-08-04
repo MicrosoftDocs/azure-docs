@@ -81,11 +81,11 @@ For an API that supports OAuth 2.0 authorization, complete the following steps. 
 * **Authorization code flow with PKCE (Proof Key for Code Exchange)** - Authenticate users in the browser, such as in the API Center portal.
 * **Client credentials flow** - For applications that don't require a specific user's permissions.
 
-OAuth 2.0 authorization can't be used if anonymous access is enabled for the customer portal.
+OAuth 2.0 secrets can't be used if anonymous access is enabled for the customer portal.
 
 > [!CAUTION]
 > Extra care is required when using a client credentials flow with the developer portal test console. See [security considerations](../api-management/api-management-howto-oauth2.md#security-considerations).
-> When using API keys, any user with access to the developer portal can use APIs.
+> When using API keys and OAuth 2.0 secrets, any user with access to the developer portal can use APIs. Use OAuth 2.0 authorization code flow with PKCE to restrict access to specific users.
 
 ### 1. Create an OAuth 2.0 app
 
