@@ -17,6 +17,8 @@ This article explains what a task hub stores, how to configure and name task hub
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 :::image type="content" source="./media/durable-task-hubs/taskhub.png" alt-text="Screenshot of diagram showing function app and task hub architecture in Durable Task.":::
 
 ::: zone-end
@@ -642,7 +644,15 @@ public class Example : TaskOrchestrator<object?, object?>
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET, Java, and Python.
+```typescript
+import { OrchestrationContext, TOrchestrator, whenAll } from "@microsoft/durabletask-js";
+
+const example: TOrchestrator = async function* (ctx: OrchestrationContext): any {
+    const t1 = ctx.callActivity(myActivity, 1);
+    const t2 = ctx.callActivity(myActivity, 2);
+    yield whenAll([t1, t2]);
+};
+```
 
 # [Python](#tab/python)
 
@@ -657,7 +667,7 @@ def example_orchestrator(ctx: task.OrchestrationContext, _):
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, and Python.
 
 # [Java](#tab/java)
 

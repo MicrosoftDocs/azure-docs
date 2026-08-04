@@ -147,7 +147,23 @@ To enable object REST API, you must create a bucket on an Azure NetApp Files vol
 
     :::image type="content" source="./media/object-rest-api-access-configure/create-bucket.png" alt-text="Screenshot of create a bucket menu." lightbox="./media/object-rest-api-access-configure/create-bucket.png":::
 
-1. Select **Save**. 
+    * **Credentials storage**
+
+        * **Azure Key Vault**
+
+            * **Vault URI**
+
+                Select the name from the drop-down list.
+
+            * **Secret name**
+
+                Enter the name of the secret. The secret name is user-defined and can be any value that meets the naming guidelines. 
+            
+        * **Access key**
+
+            When you select this option, the portal generates access keys after the bucket is created and displays them once in the Azure portal. You must manually copy both these values and store them securely.
+
+1. Select **Create**. 
 
     Additional details are needed to create the first bucket on a set of volumes sharing the same IP address.
     
@@ -165,7 +181,7 @@ To enable object REST API, you must create a bucket on an Azure NetApp Files vol
 
             Select the name from the drop-down list.
 
-        * **Secret name**
+        * **Certificate name**
 
             Enter the name of the certificate.
            
@@ -178,22 +194,6 @@ To enable object REST API, you must create a bucket on an Azure NetApp Files vol
         * **Certificate source**. 
 
             Upload the appropriate certificate. Only PEM files are supported.
-                     
-    **Credentials storage**
-
-    * **Azure Key Vault**
-
-        * **Vault URI**
-
-            Select the name from the drop-down list.
-
-        * **Secret name**
-
-            Enter the name of the secret. The secret name is user-defined and can be any value, that meets the naming guidelines. 
-            
-    * **Access key**
-
-        When selecting this option, access keys are generated after the bucket is created and are displayed once in the Azure portal. You must manually copy both these values and store them securely.
 
 1. Select **Save** to validate the configuration.
 

@@ -135,7 +135,7 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 Add the `requestDiskPersistence` property to your data flow spec:
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: Dataflow
 metadata:
   name: <DATAFLOW_NAME>

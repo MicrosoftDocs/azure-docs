@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: whhender
 ms.topic: concept-article
-ms.date: 02/27/2025
+ms.date: 07/29/2026
 ms.custom:
 ---
 
@@ -16,9 +16,9 @@ ms.custom:
 
 Continuous integration is the practice of testing each change made to your codebase automatically and as early as possible. Continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
 
-In Azure Data Factory, continuous integration and delivery (CI/CD) means moving Data Factory pipelines from one environment (development, test, production) to another. Azure Data Factory utilizes [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to store the configuration of your various ADF entities (pipelines, datasets, data flows, and so on). There are two suggested methods to promote a data factory to another environment:
+In Azure Data Factory, continuous integration and delivery (CI/CD) means moving Data Factory pipelines from one environment (development, test, production) to another. Azure Data Factory uses [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to store the configuration of your various Data Factory entities (for example, pipelines, datasets, and data flows). There are two suggested methods to promote a data factory to another environment:
 
-- Automated deployment using Data Factory's integration with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
+- Automated deployment by using Data Factory's integration with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 - Manually upload a Resource Manager template using Data Factory UX integration with Azure Resource Manager.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
@@ -28,11 +28,11 @@ In Azure Data Factory, continuous integration and delivery (CI/CD) means moving 
 > [!NOTE]
 > For more information, see [Continuous deployment improvements](continuous-integration-delivery-improvements.md#continuous-deployment-improvements).
 
-Below is a sample overview of the CI/CD lifecycle in an Azure data factory that's configured with Azure Repos Git. For more information on how to configure a Git repository, see [Source control in Azure Data Factory](source-control.md).
+The following overview shows the CI/CD lifecycle in an Azure data factory that's configured with Azure Repos Git. For more information on how to configure a Git repository, see [Source control in Azure Data Factory](source-control.md).
 
 1. A development data factory is created and configured with Azure Repos Git. All developers should have permission to author Data Factory resources like pipelines and datasets.
 
-1. A developer [creates a feature branch](source-control.md#creating-feature-branches) to make a change. Signed commits are not supported in data factory. They debug their pipeline runs with their most recent changes. For more information on how to debug a pipeline run, see [Iterative development and debugging with Azure Data Factory](iterative-development-debugging.md). 
+1. A developer [creates a feature branch](source-control.md#creating-feature-branches) to make a change. Signed commits aren't supported in data factory. They debug their pipeline runs with their most recent changes. For more information on how to debug a pipeline run, see [Iterative development and debugging with Azure Data Factory](iterative-development-debugging.md). 
 
 1. After a developer is satisfied with their changes, they create a pull request from their feature branch to the main or collaboration branch to get their changes reviewed by peers.
 
@@ -45,9 +45,9 @@ Below is a sample overview of the CI/CD lifecycle in an Azure data factory that'
 > [!NOTE]
 > Only the development factory is associated with a git repository. The test and production factories shouldn't have a git repository associated with them and should only be updated via an Azure DevOps pipeline or via a Resource Management template.
 
-The below image highlights the different steps of this lifecycle.
+The following image highlights the different steps of this lifecycle.
 
-:::image type="content" source="media/continuous-integration-delivery/continuous-integration-image12.png" alt-text="Diagram of continuous integration with Azure Pipelines":::
+:::image type="content" source="media/continuous-integration-delivery/continuous-integration-image12.png" alt-text="Diagram of continuous integration with Azure Pipelines.":::
 
 ## Best practices for CI/CD
 
@@ -64,43 +64,43 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
     >Make sure to use **PowerShell Core** in ADO task to run the script.
 
     >[!WARNING]
-    >If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
+    >If you don't use the latest versions of PowerShell and Data Factory module, you might run into deserialization errors while running the commands. 
 
-- **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. So Data Factory expects you to have the same name, type and sub-type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
+- **Integration runtimes and sharing**. Integration runtimes don't change often and are similar across all stages in your CI/CD. So Data Factory expects you to have the same name, type, and subtype of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
 
   >[!Note]
   >The integration runtime sharing is only available for self-hosted integration runtimes. Azure-SSIS integration runtimes don't support sharing.
 
 - **Managed private endpoint deployment**. If a private endpoint already exists in a factory and you try to deploy an ARM template that contains a private endpoint with the same name but with modified properties, the deployment will fail. In other words, you can successfully deploy a private endpoint as long as it has the same properties as the one that already exists in the factory. If any property is different between environments, you can override it by parameterizing that property and providing the respective value during deployment.
 
-- **Key Vault**. When you use linked services whose connection information is stored in Azure Key Vault, it is recommended to keep separate key vaults for different environments. You can also configure separate permission levels for each key vault. For example, you might not want your team members to have permissions to production secrets. If you follow this approach, we recommend that you to keep the same secret names across all stages. If you keep the same secret names, you don't need to parameterize each connection string across CI/CD environments because the only thing that changes is the key vault name, which is a separate parameter.
+- **Key Vault**. When you use linked services whose connection information is stored in Azure Key Vault, keep separate key vaults for different environments. You can also configure separate permission levels for each key vault. For example, you might not want your team members to have permissions to production secrets. If you follow this approach, keep the same secret names across all stages. If you keep the same secret names, you don't need to parameterize each connection string across CI/CD environments because the only thing that changes is the key vault name, which is a separate parameter.
 
-- **Resource naming**. Due to ARM template constraints, issues in deployment may arise if your resources contain spaces in the name. The Azure Data Factory team recommends using '_' or '-' characters instead of spaces for resources. For example, 'Pipeline_1' would be a preferable name over 'Pipeline 1'.
+- **Resource naming**. Due to ARM template constraints, issues in deployment might arise if your resources contain spaces in the name. The Azure Data Factory team recommends using '_' or '-' characters instead of spaces for resources. For example, 'Pipeline_1' is a preferable name over 'Pipeline 1'.
 
-- **Altering repository**. ADF manages GIT repository content automatically. Altering or adding manually unrelated files or folder into anywhere in ADF Git repository data folder could cause resource loading errors. For example, presence of *.bak* files can cause ADF CI/CD error, so they should be removed for ADF to load.
+- **Altering repository**. Azure Data Factory (ADF) manages Git repository content automatically. Altering or adding manually unrelated files or folders into anywhere in ADF Git repository data folder could cause resource loading errors. For example, the presence of *.bak* files can cause ADF CI/CD error, so remove them for ADF to load.
 
-- **Exposure control and feature flags**.  When working in a team, there are instances where you may merge changes, but don't want them to be run in elevated environments such as PROD and QA. To handle this scenario, the ADF team recommends [the DevOps concept of using feature flags](/devops/operate/progressive-experimentation-feature-flags). In ADF, you can combine [global parameters](author-global-parameters.md) and the [if condition activity](control-flow-if-condition-activity.md) to hide sets of logic based upon these environment flags.
+- **Exposure control and feature flags**.  When working in a team, there are instances where you might merge changes, but don't want them to run in elevated environments such as production (PROD) and quality assurance (QA). To handle this scenario, the ADF team recommends [the DevOps concept of using feature flags](/devops/operate/progressive-experimentation-feature-flags). In ADF, you can combine [global parameters](author-global-parameters.md) and the [if condition activity](control-flow-if-condition-activity.md) to hide sets of logic based upon these environment flags.
 
-  To learn how to set up a feature flag, see the below video tutorial:
+  To learn how to set up a feature flag, see the following video tutorial:
 
   >[!VIDEO https://learn-video.azurefd.net/vod/player?id=753e946c-f8e0-4a70-b352-2ed1aa296466]
 
 ## Unsupported features
 
-- By design, Data Factory doesn't allow cherry-picking of commits or selective publishing of resources. Publishes will include all changes made in the data factory.
+- By design, Data Factory doesn't support cherry-picking commits or selective publishing of resources. Publishing includes all changes made in the data factory.
 
   - Data factory entities depend on each other. For example, triggers depend on pipelines, and pipelines depend on datasets and other pipelines. Selective publishing of a subset of resources could lead to unexpected behaviors and errors.
   - On rare occasions when you need selective publishing, consider using a hotfix. For more information, see [Hotfix production environment](continuous-integration-delivery-hotfix-environment.md).
 
-- The Azure Data Factory team doesn’t recommend assigning Azure RBAC controls to individual entities (pipelines, datasets, etc.) in a data factory. For example, if a developer has access to a pipeline or a dataset, they should be able to access all pipelines or datasets in the data factory. If you feel that you need to implement many Azure roles within a data factory, look at deploying a second data factory.
+- The Azure Data Factory team doesn't recommend assigning Azure RBAC controls to individual entities (for example, pipelines and datasets) in a data factory. For example, if a developer has access to a pipeline or a dataset, they should be able to access all pipelines or datasets in the data factory. If you feel that you need to implement many Azure roles within a data factory, consider deploying a second data factory.
 
 - You can't publish from private branches.
 
 - You can't currently host projects on Bitbucket.
 
-- You can't currently export and import alerts and matrices as parameters. 
+- You can't currently export and import alerts and metrics as parameters. 
 
-- Partial ARM templates in your publish branch are no longer supported as of November 1, 2021. If your project utilized this feature, please switch to a supported mechanism for deployments, using: ```ARMTemplateForFactory.json``` or ```linkedTemplates``` files.
+- Partial ARM templates in your publish branch are no longer supported as of November 1, 2021. If your project used this feature, switch to a supported mechanism for deployments by using ```ARMTemplateForFactory.json``` or ```linkedTemplates``` files.
 
     :::image type="content" source="media/continuous-integration-delivery/partial-arm-templates-folder.png" alt-text="Diagram of 'PartialArmTemplates' folder.":::
 

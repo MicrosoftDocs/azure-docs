@@ -5,8 +5,8 @@ ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: how-to
 ms.date: 01/05/2024
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ms.custom:
   - subject-rbac-steps
   - devx-track-azurepowershell

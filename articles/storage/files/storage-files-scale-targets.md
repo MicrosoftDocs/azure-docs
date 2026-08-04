@@ -14,11 +14,13 @@ ms.custom: references_regions
 
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that you can access through SMB and NFS file sharing protocols. This article discusses the scalability and performance targets for Azure Files. In addition to the limits set by Azure Files, other variables in your deployment can affect these targets. Test your usage pattern to determine whether the scalability and performance of Azure Files meet your requirements.
 
+## Resource providers
+
 In Azure, a *resource* is a manageable item that you create and configure within your Azure subscriptions and resource groups. *Resource providers* are management services that deliver specific types of resources. While you might work with many resources to deploy a workload in Azure, Azure Files centers on two key resources:
 
 - **Storage accounts**, offered by the `Microsoft.Storage` resource provider. Storage accounts are top-level resources that represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. All storage resources that you deploy into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS file sharing protocols.
 
-- **File shares**, offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource type that simplifies the deployment of Azure Files by eliminating the storage account. Unlike classic file shares, which you must deploy into a storage account, you deploy file shares directly into the resource group. Storage accounts themselves, or other Azure resources you might be familiar with like virtual machines, disks, or virtual networks. File shares support the NFS file sharing protocol. If you require SMB, choose classic file shares for your deployment.
+- **File shares**, offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource type that simplifies the deployment of Azure Files by eliminating the storage account. Unlike classic file shares, which you must deploy into a storage account, you deploy file shares directly into the resource group, similar to how you deploy storage accounts and other familiar Azure resources such as virtual machines, disks, or virtual networks. File shares support the NFS file sharing protocol. If you require SMB, choose classic file shares for your deployment.
 
 ## Classic file share scale targets (Microsoft.Storage)
 

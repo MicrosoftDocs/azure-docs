@@ -7,7 +7,7 @@ description: Learn how to debug and manage your orchestrations using the Durable
 ms.topic: how-to
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 05/04/2026
+ms.date: 07/24/2026
 zone_pivot_groups: dts-devexp
 ---
 
@@ -159,6 +159,8 @@ Orchestration information is presented with the following default columns.
 | Status | Filter by runtime status (Running, Completed, Failed, Terminated, Pending, Suspended). |
 | Tags | Filter by the tags applied to the orchestration instance. |
 | Created | Date and time that the orchestration was created. |
+
+To show a custom display name instead of the registered name in the orchestration list and run details, use the well-known `durabletask.displayName` tag when starting the orchestration. For more information, see [Set a custom display name](durable-task-scheduler-tags.md#set-a-custom-display-name).
 
 You can filter the orchestration list using the following criteria.
 

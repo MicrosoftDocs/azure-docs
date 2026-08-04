@@ -14,6 +14,8 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Build stateful apps with Durable Functions. It's an extension of [Azure Functions](../../azure-functions/functions-overview.md). Use an [orchestrator function](durable-task-orchestrations.md) to coordinate other Durable Functions in your function app. Orchestrator functions are stateful, reliable, and they're built to run for a long time.
 
 ::: zone-end
@@ -155,7 +157,22 @@ public class TimerExample : TaskOrchestrator<object?, TimeSpan>
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET, Java, and Python.
+Don't use `new Date()` or `Date.now()` to get the current time. Instead, use `ctx.currentUtcDateTime`.
+
+```typescript
+import { OrchestrationContext, TOrchestrator } from "@microsoft/durabletask-js";
+
+const timerExample: TOrchestrator = async function* (ctx: OrchestrationContext): any {
+    // Use ctx.currentUtcDateTime instead of new Date() or Date.now()
+    const startTime = ctx.currentUtcDateTime;
+
+    // do some work
+    yield ctx.callActivity(doWork);
+
+    const totalTimeMs = ctx.currentUtcDateTime.getTime() - startTime.getTime();
+    return totalTimeMs;
+};
+```
 
 # [Python](#tab/python)
 
@@ -178,7 +195,7 @@ def timer_example(ctx: task.OrchestrationContext, _):
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, and Python.
 
 # [Java](#tab/java)
 
@@ -289,7 +306,20 @@ public class GuidExample : TaskOrchestrator<object?, Guid>
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET, Java, and Python.
+Instead of `crypto.randomUUID()`, use the context object's `newGuid()` method to generate a deterministic UUID that's safe for orchestrator replay.
+
+```typescript
+import { OrchestrationContext, TOrchestrator } from "@microsoft/durabletask-js";
+
+const guidExample: TOrchestrator = async function* (ctx: OrchestrationContext): any {
+    // Use ctx.newGuid() instead of crypto.randomUUID()
+    const randomGuid = ctx.newGuid();
+    return randomGuid;
+};
+```
+
+> [!NOTE]
+> GUIDs generated with orchestration context APIs are [Type 5 UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier#Versions_3_and_5_(namespace_name-based)).
 
 # [Python](#tab/python)
 
@@ -309,7 +339,7 @@ def guid_example(ctx: task.OrchestrationContext, _):
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, and Python.
 
 # [Java](#tab/java)
 
@@ -438,7 +468,14 @@ await context.CreateTimer(context.CurrentUtcDateTime.AddMinutes(5), Cancellation
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET, Java, and Python.
+Use `ctx.createTimer()` instead of `setTimeout()` or other delay mechanisms.
+
+```typescript
+// Don't use setTimeout() or similar delay mechanisms
+// Use ctx.createTimer() instead
+const fiveMinutesFromNow = new Date(ctx.currentUtcDateTime.getTime() + 5 * 60 * 1000);
+yield ctx.createTimer(fiveMinutesFromNow);
+```
 
 # [Python](#tab/python)
 
@@ -457,7 +494,7 @@ def delay_example(ctx: task.OrchestrationContext, _):
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, and Python.
 
 # [Java](#tab/java)
 

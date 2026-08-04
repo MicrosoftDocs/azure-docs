@@ -15,6 +15,8 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 *Eternal orchestrations* are orchestrator functions that run indefinitely by periodically resetting their own history using the `continue-as-new` API. They're useful for aggregators, periodic background jobs, and any [Durable Functions](what-is-durable-task.md) scenario that requires an infinite loop without unbounded history growth.
 
 Without `continue-as-new`, an orchestrator that loops forever would accumulate [orchestration history](durable-task-orchestrations.md#orchestration-history) with every scheduled task, eventually causing performance problems and excessive memory use. The eternal orchestration pattern solves this by resetting the history on each iteration.

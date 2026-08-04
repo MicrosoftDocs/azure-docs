@@ -108,7 +108,7 @@ The frontend IP address is the entry point for incoming traffic. You can configu
 1. Select **Next: Frontends**.
 1. On the **Frontends** tab, verify that **Frontend IP address type** is set to **Public**.
    > [!NOTE]
-   > * [Private-only deployment](application-gateway-private-deployment.md) for the Application Gateway v2 SKU is currently in public preview.
+   > * Application Gateway v2 also supports private-frontend-only deployments when you register the `EnableApplicationGatewayNetworkIsolation` feature. For more information, see [Private Application Gateway deployment](application-gateway-private-deployment.md).
    > * Application Gateway frontend now supports dual-stack IP addresses (public preview). You can create up to four frontend IP addresses: two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 1. Select **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 

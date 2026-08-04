@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.topic: concept-article
 ms.service: azure-virtual-network-manager
-ms.date: 05/06/2025
+ms.date: 07/17/2026
 ---
 
 # Event log options for Azure Virtual Network Manager
@@ -116,7 +116,7 @@ Within the `properties` attribute are several nested attributes:
 | Message | A static message stating if the connectivity configuration change was successful or unsuccessful. |
 
 > [!NOTE]
-> Connectivity configuration allows virtual networks with overlapping IP spaces within the same connected group, but communication to an overlapped IP address is dropped. In addition, when a connected group’s virtual network is peered with an external virtual network (a virtual network not in the connected group) that has overlapping address spaces, these overlapping address spaces become inaccessible within the connected group. Traffic from the peered virtual network to the overlapping address spaces is routed to the external virtual network, while traffic from other VNets in the connected group to the overlapping address spaces is dropped. Logs show a "Warning" level, with the `TargetResourceIds` field indicating the IDs of VNets with overlapping address spaces and a `message` indicating that either complete or partial address spaces are inaccessible due to overlapping addresses.
+> Overlapping IP address spaces in a connected group or with an externally peered virtual network can make some addresses inaccessible. For details on this behavior, see [Limitations for connected groups](concept-limitations.md#limitations-for-connected-groups). When this condition occurs, logs show a "Warning" level, with the `TargetResourceIds` field indicating the IDs of VNets with overlapping address spaces and a `message` indicating that either complete or partial address spaces are inaccessible due to overlapping addresses.
 
 Within the `AppliedConnectivityConfigurations` attribute are several nested attributes:
 

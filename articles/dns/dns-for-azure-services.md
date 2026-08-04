@@ -10,7 +10,7 @@ ms.assetid: e9b5eb94-7984-4640-9930-564bb9e82b78
 ms.service: azure-dns
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017
-ms.date: 11/30/2023
+ms.date: 06/01/2026
 ms.author: allensu
 # Customer intent: As a cloud administrator, I want to configure DNS records for my Azure services, so that I can successfully resolve names for my applications deployed in Azure.
 ---
@@ -27,7 +27,7 @@ The following table outlines the supported record types you can use for various 
 | --- | --- | --- |
 | Azure Application Gateway |[Front-end public IP](dns-custom-domain.md#public-ip-address) |You can create a DNS A or CNAME record. |
 | Azure Load Balancer |[Front-end public IP](dns-custom-domain.md#public-ip-address) |You can create a DNS A or CNAME record. Load Balancer can have an IPv6 public IP address that's dynamically assigned. Create a CNAME record for an IPv6 address. |
-| Azure Traffic Manager |Public name |You can create an alias record that maps to the trafficmanager.net name assigned to your Traffic Manager profile. For more information, see [Tutorial: Configure an alias record to support apex domain names with Traffic Manager](tutorial-alias-tm.md). |
+| Azure Traffic Manager |Public name |You can create a [Traffic Manager Linked Record](dns-traffic-manager-linked-records.md) that links directly to your Traffic Manager profile, returning endpoint IP addresses without a CNAME hop. |
 | Azure Cloud Services |[Public IP](dns-custom-domain.md#public-ip-address) |For statically allocated IP addresses, you can create a DNS A record. For dynamically allocated IP addresses, you must create a CNAME record that maps to the *cloudapp.net* name.|
 | Azure App Service | [External IP](dns-custom-domain.md#app-service-web-apps) |For external IP addresses, you can create a DNS A record. Otherwise, you must create a CNAME record that maps to the azurewebsites.net name. For more information, see [Map a custom domain name to an Azure app](../app-service/app-service-web-tutorial-custom-domain.md). |
 | Azure Resource Manager VMs |[Public IP](dns-custom-domain.md#public-ip-address) |Resource Manager VMs can have public IP addresses. A VM with a public IP address also can be behind a load balancer. You can create a DNS A, CNAME, or alias record for the public address. You can use this custom name to bypass the VIP on the load balancer. |

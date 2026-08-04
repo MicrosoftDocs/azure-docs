@@ -755,6 +755,8 @@
         href: backup-azure-sap-hana-database.md
       - name: HANA System Replication database
         href: sap-hana-database-with-hana-system-replication-backup.md
+      - name: HANA Scale-out database
+        href: sap-hana-database-scale-out-backup.md
       - name: Instance snapshot
         href: sap-hana-database-instances-backup.md
     - name: Restore
