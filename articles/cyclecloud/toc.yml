@@ -141,6 +141,8 @@ items:
       href: ./how-to/create-fileserver.md
     - name: Mount a Network Fileserver
       href: ./how-to/mount-fileserver.md
+    - name: Mount Azure Blob Storage on cluster nodes
+      href: ./how-to/mount-blob-storage.md
     - name: Enable Return Proxy
       href: ./how-to/return-proxy.md
     - name: Configure Network Security
