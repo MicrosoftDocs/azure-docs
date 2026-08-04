@@ -434,7 +434,7 @@ For comprehensive threat detection capabilities across Azure, see [Azure threat 
 
 ### VM disk encryption
 
-Azure managed disks use [server-side encryption](/azure/virtual-machines/disk-encryption) at rest by default. Encryption at host is an optional virtual machine setting that extends encryption to temporary disks, OS and data disk caches, and data flows between the compute host and Azure Storage. Review supported VM sizes and restrictions before enabling encryption at host. You can use platform-managed keys or configure customer-managed keys stored in Azure Key Vault or Azure Key Vault Managed HSM. For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview) and [Key management in Azure](key-management.md).
+Azure managed disks use [server-side encryption](/azure/virtual-machines/disk-encryption-overview) at rest by default. Encryption at host is an optional virtual machine setting that extends encryption to temporary disks, OS and data disk caches, and data flows between the compute host and Azure Storage. Review [supported VM sizes and restrictions](/azure/virtual-machines/disk-encryption#encryption-at-host-restrictions) before enabling encryption at host. You can use platform-managed keys or configure customer-managed keys stored in Azure Key Vault or Azure Key Vault Managed HSM. For more information, see [Server-side encryption of Azure managed disks](/azure/virtual-machines/disk-encryption) and [Key management in Azure](key-management.md).
 
 ### Azure Resource Manager
 
