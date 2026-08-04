@@ -5,7 +5,7 @@ description: Use the Azure portal to create an Azure Application Gateway that di
 services: application-gateway
 author: mbender-ms
 ms.author: mbender
-ms.date: 03/04/2026
+ms.date: 08/04/2026
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom:

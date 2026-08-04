@@ -6,7 +6,7 @@ author: gaking
 ms.author: mbender
 ms.service: azure-application-gateway
 ms.topic: how-to 
-ms.date: 10/01/2021
+ms.date: 08/04/2026
 ms.custom:
   - template-how-to
   - sfi-image-nochange

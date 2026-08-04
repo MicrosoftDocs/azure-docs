@@ -5,7 +5,7 @@ description: Learn how to deploy Application Gateway Basic.
 services: application-gateway
 author: mbender-ms
 ms.topic: how-to
-ms.date: 02/26/2026
+ms.date: 08/04/2026
 ms.author: mbender
 ms.service: azure-application-gateway
 ms.custom:

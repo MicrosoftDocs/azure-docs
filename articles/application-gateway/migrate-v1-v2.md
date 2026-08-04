@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 07/16/2026
+ms.date: 08/04/2026
 ms.author: mbender
 #customer intent: As a DevOps engineer, I want to migrate my Azure Application Gateway and Web Application Firewall deployments from V1 to V2 so that I can take advantage of the improved features and performance while ensuring minimal downtime during the transition.
 ---

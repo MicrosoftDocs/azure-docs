@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use Azure PowerShell to create
 services: application-gateway
 author: mbender-ms
 ms.author: mbender
-ms.date: 05/30/2024
+ms.date: 08/04/2026
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell, mvc, mode-api

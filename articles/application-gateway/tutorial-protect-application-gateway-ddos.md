@@ -5,7 +5,7 @@ description: Learn how to set up an application gateway and protect it with Azur
 services: application-gateway
 author: duongau
 ms.author: duau
-ms.date: 02/26/2026
+ms.date: 08/04/2026
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: sfi-image-nochange
