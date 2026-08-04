@@ -87,7 +87,7 @@ Create the application gateway using the tabs on the **Create application gatewa
     Application Gateway instances are created in separate subnets. One dual-stack subnet and one IPv4-only are created in this example: The IPv4 and IPv6 subnets (provisioned as one dual-stack subnet) are assigned to the application gateway. The IPv4 subnet is for the backend servers.
 
     > [!NOTE]
-    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
     <a name="dual-stack"></a>
     Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the **Create virtual network** pane, enter the following values to create the virtual network and two subnets:
 

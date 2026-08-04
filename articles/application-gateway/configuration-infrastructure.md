@@ -19,7 +19,7 @@ The Azure Application Gateway infrastructure includes the virtual network, subne
 An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a specific Application Gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the Application Gateway subnet. You can't mix v1 and v2 Application Gateway SKUs on the same subnet.
 
 > [!NOTE]
-> [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+> [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
 
 ### Size of the subnet
 

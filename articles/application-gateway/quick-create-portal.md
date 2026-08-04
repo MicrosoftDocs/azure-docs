@@ -99,7 +99,7 @@ Create the application gateway by using the tabs on the **Create application gat
 
     > [!NOTE]
     > Application Gateways are zone-redundant by default in regions that support multiple availability zones.
-    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
 
 ### Frontends tab
 
