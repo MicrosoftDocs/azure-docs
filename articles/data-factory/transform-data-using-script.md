@@ -168,7 +168,7 @@ Sample output:
 Inline scripts integrate well with Pipeline CI/CD since the script is stored as part of the pipeline metadata.
 
 > [!TIP]
-> When you define parameters in a Script activity, each parameter must be explicitly referenced in the query text to be passed at runtime.  
+> When you define parameters in a Script activity, you must explicitly reference each parameter in the query text to pass it at runtime.  
 > 
 > For example:
 > 
