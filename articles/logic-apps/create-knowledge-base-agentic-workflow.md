@@ -82,6 +82,24 @@ The KBaaS has the following pipelines:
   - [Create autonomous agentic workflows without human interactions in Azure Logic Apps](/azure/logic-apps/create-autonomous-agent-workflows?tabs=standard)
   - [Create conversational agentic workflows with chat interactions in Azure Logic Apps](/azure/logic-apps/create-conversational-agent-workflows?tabs=standard)
 
+- If your logic app uses a managed identity, go to the corresponding resources, and assign the following roles to the managed identity:
+
+  - **Cosmos DB Data Reader** and **Cosmos DB Operator** on your Azure Cosmos DB account.
+  - **Cognitive Services OpenAI User** on your Azure OpenAI resource.
+  
+  Otherwise, you might experience problems such as creating groups and adding files in your knowledge base. 
+  
+  For more information, see:
+
+  - [Assign Azure roles to managed identities](../role-based-access-control/role-assignments-portal-managed-identity.md)
+  - [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+
+  > [!TIP]
+  >
+  > To assign roles for your Cosmos DB account, you can use the following command: 
+  >
+  > [az cosmosdb sql role assignment create](/azure/search/search-howto-managed-identities-cosmos-db#configure-data-plane-role-assignments)
+   
 ## Authentication
 
 The KBaaS capability supports authentication by using [Microsoft Entra ID](/entra/identity/authentication/overview-authentication) with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) or an API key. If possible, [set up and use a managed identity](/azure/logic-apps/authenticate-with-managed-identity) for optimal and superior security. You don't have to manually provide and manage credentials, secrets, or access keys.
