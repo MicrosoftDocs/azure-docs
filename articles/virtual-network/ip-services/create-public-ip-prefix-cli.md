@@ -200,7 +200,7 @@ To create a IPv6 public IP prefix, enter **IPv6** in the `--version` parameter. 
     --version IPv6
 ```
 
-The removal of the `--zone` parameter in the command is valid in all regions, but will lead to the creation of a zone-redundant IP prefix in regions with availabily zones. The removal of the `--zone` parameter is the default selection for standard public IP addresses in regions without [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Omitting the `--zone` parameter is valid in all regions. In regions with availability zones, this omission creates a zone-redundant IP prefix. In regions without [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), omitting the parameter is the default for Standard public IP addresses.
 
 ---
 
