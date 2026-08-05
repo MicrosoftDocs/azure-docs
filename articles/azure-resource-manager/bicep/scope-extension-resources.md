@@ -145,7 +145,7 @@ resource roleAssignmentLock 'Microsoft.Authorization/locks@2020-05-01' = {
 }
 ```
 
-When the `scope` targets another extension resource, Bicep generates the fully qualified resource ID for the scope. This ensures the compiled ARM template correctly resolves the scope when calling `extensionResourceId`, which **requires** a fully qualified resource ID as its first argument.
+When any resource uses the `scope` property, Bicep generates the fully qualified resource ID for the scope. This ensures the compiled ARM template correctly resolves the scope when calling `extensionResourceId`, which **requires** a fully qualified resource ID as its first argument. This behavior applies to extension resources and any other resource type that uses the `scope` property. It also enables deployment scenarios that previously weren't supported, such as deploying tenant-level resources from a lower deployment scope like a subscription or resource group.
 
 The same requirements apply to extension resources as other resource when targeting a scope that is different than the target scope of the deployment. To learn about deploying to more than one scope, see:
 
