@@ -114,11 +114,6 @@ For more information, see the following resources:
 
 <a id="create-connection"></a>
 
-> [!TIP]
->
-> When using a managed identity, assign the Cosmos DB Built-in Data Reader and Cosmos DB Operator roles for Azure Cosmos DB by using the [az cosmosdb sql role assignment create](/azure/search/search-howto-managed-identities-cosmos-db#configure-data-plane-role-assignments) command. For Azure OpenAI, assign the Cognitive Services OpenAI User role.
-> If you can't create a group or add a file, check the [Log Stream](/azure/app-service/troubleshoot-diagnostic-logs#stream-logs) for any error messages.
-
 ## 1: Create the knowledge base connection
 
 To create the knowledge base connection, associate your Cosmos database and Azure OpenAI resource models by following these steps:
