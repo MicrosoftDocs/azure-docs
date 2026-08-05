@@ -137,6 +137,9 @@ The following example shows the rules that you can configure.
         "use-recent-module-versions": {
           "level": "off"
         },
+        "use-recognized-resource-type": {
+          "level": "warning"
+        },
         "use-resource-id-functions": {
           "level": "off"
         },
@@ -144,9 +147,6 @@ The following example shows the rules that you can configure.
           "level": "warning"
         },
         "use-safe-access": {
-          "level": "warning"
-        },
-        "use-recognized-resource-type": {
           "level": "warning"
         },
         "use-secure-value-for-secure-inputs": {
