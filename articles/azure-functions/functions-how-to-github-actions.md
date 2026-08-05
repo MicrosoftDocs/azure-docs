@@ -220,7 +220,7 @@ The best way to manually create a workflow configuration is to start from the of
     
     ### [PowerShell](#tab/powershell/linux)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/powershell-functionapp-on-azure-oidc.yml> 
+     PowerShell functions aren't supported on Linux. Choose Windows instead.
 
     ### [Container](#tab/container/windows)
     
