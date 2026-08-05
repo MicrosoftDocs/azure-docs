@@ -84,7 +84,7 @@ The KBaaS has the following pipelines:
 
 - If your logic app uses a managed identity, go to the corresponding resources, and assign the following roles to the managed identity:
 
-  - **Cosmos DB Data Reader** and **Cosmos DB Operator** on your Azure Cosmos DB account.
+  - **Cosmos DB Built-in Data Reader** and **Cosmos DB Operator** on your Azure Cosmos DB account.
   - **Cognitive Services OpenAI User** on your Azure OpenAI resource.
   
   Otherwise, you might experience problems such as creating groups and adding files in your knowledge base. 
@@ -96,7 +96,7 @@ The KBaaS has the following pipelines:
 
   > [!TIP]
   >
-  > To assign roles for your Cosmos DB account, use the following command: 
+  > To assign **Cosmos DB Built-in Data Reader** for your Cosmos DB account, use the following command: 
   >
   > [az cosmosdb sql role assignment create](/azure/search/search-howto-managed-identities-cosmos-db#configure-data-plane-role-assignments)
    
