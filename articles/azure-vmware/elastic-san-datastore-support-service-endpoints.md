@@ -256,4 +256,4 @@ Configure all private endpoints before attaching a volume as a datastore. Adding
 
 ## Configure an Azure Storage service endpoint
 
-To configure an Azure Storage service endpoint from the virtual network where access is required, you must have permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](../../role-based-access-control/permissions/networking.md#microsoftnetwork) via a custom Azure role to configure a service endpoint. [Learn more](/azure/storage/elastic-san/elastic-san-configure-service-endpoints?tabs=azure-portal#configure-an-azure-storage-service-endpoint).
+To configure an Azure Storage service endpoint from the virtual network where access is required, you must have permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](/azure/role-based-access-control/permissions/networking#microsoftnetwork) via a custom Azure role to configure a service endpoint. [Learn more](/azure/storage/elastic-san/elastic-san-configure-service-endpoints?tabs=azure-portal#configure-an-azure-storage-service-endpoint).
