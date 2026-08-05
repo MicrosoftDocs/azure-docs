@@ -69,6 +69,9 @@ The following example shows the rules that you can configure.
         "no-hardcoded-location": {
           "level": "off"
         },
+        "no-hardcoded-outputs": {
+          "level": "off"
+        },
         "no-loc-expr-outside-params": {
           "level": "off"
         },
@@ -85,6 +88,9 @@ The following example shows the rules that you can configure.
           "level": "warning"
         },
         "no-unused-params": {
+          "level": "warning"
+        },
+        "no-unused-types": {
           "level": "warning"
         },
         "no-unused-vars": {
@@ -106,6 +112,9 @@ The following example shows the rules that you can configure.
           "level": "warning"
         },
         "secure-params-in-nested-deploy": {
+          "level": "warning"
+        },
+        "secure-params-in-parameters-file": {
           "level": "warning"
         },
         "secure-secrets-in-params": {
