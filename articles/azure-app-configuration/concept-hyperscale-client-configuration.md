@@ -48,11 +48,11 @@ Configuration exposed through Azure Front Door is publicly accessible without au
 
 #### Use a dedicated App Configuration store
 
-Consider using a dedicated App Configuration store for client-facing configuration delivered through Azure Front Door. This store should contain only nonsensitive settings that are safe for public consumption. This isolation strategy limits potential impact if configuration is inadvertently exposed, ensuring that sensitive data remains protected.
+Use a dedicated App Configuration store for client-facing configuration delivered through Azure Front Door. This store should contain only nonsensitive settings that are safe for public consumption. This isolation strategy limits potential impact if configuration is inadvertently exposed, ensuring that sensitive data remains protected.
 
 #### Role Based Access Control using Managed Identity
 
-Azure Front Door accesses App Configuration data using either a system-assigned managed identity or a user-assigned managed identity. The selected identity must be assigned the `App Configuration Data Reader` role to retrieve configuration data. When you create the Azure Front Door endpoint through the App Configuration portal, this role assignment is created automatically. The portal displays a warning if the role assignment creation process encounters any issues. Restrict the managed identity to the `App Configuration Data Reader` role only and avoid assigning any roles with write permissions.
+Azure Front Door accesses App Configuration data using either a system-assigned managed identity or a user-assigned managed identity. Restrict the managed identity to the `App Configuration Data Reader` role only and avoid assigning any roles with write permissions.
 
 ### Failover and load balancing
 
