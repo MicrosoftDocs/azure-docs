@@ -100,7 +100,7 @@ With Azure CLI, you create a load balancer with [`az network lb create`](/cli/az
 az network lb create --resource-group myResourceGroupLB --name myLoadBalancer --sku Standard --subnet '/subscriptions/subscription A ID/resourceGroups/{resource group name} /providers/Microsoft.Network/virtualNetwork/{VNet name}/subnets/{subnet name}’  --frontend-ip-name myFrontEnd --backend-pool-name MyBackendPool --tags 'IsRemoteFrontend=true'
 
 ```
-This section updates the backend pool you created earlier by attaching the cross-subscription virtual network and enabling the `syncMode` property required for cross-subscription backends. For details on the `syncMode` requirement, see [Configure the backend address pool and syncMode property](cross-subscription-how-to-attach-backend.md#configure-the-backend-address-pool-and-syncmode-property).
+This section updates the backend pool you created earlier by attaching the cross-subscription virtual network and enabling the `syncMode` property required for cross-subscription backends. For details on the `syncMode` requirement, see [Create a load balancer](cross-subscription-how-to-attach-backend.md#create-a-load-balancer).
 
 ```azurecli
 ## Configure the backend address pool and syncMode property
