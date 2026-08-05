@@ -163,7 +163,7 @@ In this section, you assign the [Azure Device Registry Contributor](../articles/
     az role assignment create --assignee $UAMI_PRINCIPAL_ID --role "a5c3590a-3a1a-4cd4-9648-ea0a32b15137" --scope $NAMESPACE_RESOURCE_ID
     ```
 
-1. Assign the Azure Device Registry Onboarding role to the managed identity (for more information, see [the portal steps](/azure/iot-hub/iot-hub-device-registry-setup?pivots=portal#assign-roles-to-your-managed-identity)):
+1. Assign the [Azure Device Registry Onboarding](../articles/role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-onboarding) role to the managed identity:
 
     ```azurecli-interactive
     az role assignment create --assignee "$UAMI_PRINCIPAL_ID" --role "547f7f0a-69c0-4807-bd9e-0321dfb66a84" --scope "$NAMESPACE_RESOURCE_ID"
