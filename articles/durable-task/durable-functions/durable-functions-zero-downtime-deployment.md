@@ -99,7 +99,44 @@ The following JSON fragment shows the connection string setting in the *host.jso
 
 ### CI/CD pipeline configuration
 
-Configure your CI/CD pipeline to deploy only when your function app has no pending or running orchestration instances. When you're using Azure Pipelines, you can create a function that checks for these conditions, as in the following C# example. The same pattern applies to other languages — query for orchestration instances with `Pending` or `Running` status and return whether any exist.
+Configure your CI/CD pipeline to deploy only when your function app has no pending or running orchestration instances. When you use Azure Pipelines, you can create a function that checks for these conditions, as in the following C# examples. The same pattern applies to other languages - query for orchestration instances with `Pending` or `Running` status and return whether any exist.
+
+<br>
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("StatusCheck")]
+public static async Task<HttpResponseData> StatusCheck(
+  [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req,
+  [DurableClient] DurableTaskClient client)
+{
+  var query = new OrchestrationQuery
+  {
+    Statuses = new[] { OrchestrationRuntimeStatus.Pending, OrchestrationRuntimeStatus.Running }
+  };
+
+  bool hasRunning = false;
+
+  await foreach (OrchestrationMetadata instance in client.GetAllInstancesAsync(query))
+  {
+    hasRunning = true;
+    break;
+  }
+
+  HttpResponseData response = req.CreateResponse(HttpStatusCode.OK);
+  await response.WriteAsJsonAsync(new { HasRunning = hasRunning });
+  return response;
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
 
 ```csharp
 [FunctionName("StatusCheck")]
@@ -117,6 +154,10 @@ public static async Task<IActionResult> StatusCheck(
     return (ActionResult)new OkObjectResult(new { HasRunning = result.DurableOrchestrationState.Any() });
 }
 ```
+
+</details>
+
+<br>
 
 Next, configure the staging gate to wait until no orchestrations are running. For more information, see [Release deployment control using gates](/azure/devops/pipelines/release/approvals/gates)
 

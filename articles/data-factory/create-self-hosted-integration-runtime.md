@@ -17,6 +17,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 The [integration runtime (IR)](concepts-integration-runtime.md) is the compute infrastructure that Azure Data Factory and Synapse pipelines use to provide data-integration capabilities across different network environments.
 
 A self-hosted integration runtime provides these capabilities between a cloud data store and a data store in a private network, for example an on-premises network or an Azure virtual network. This article describes how you can create and configure a self-hosted IR on a machine inside your private network, so you can connect your data source to your data integration resources.

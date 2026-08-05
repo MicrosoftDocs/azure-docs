@@ -6,7 +6,7 @@ services: load-balancer
 author: cozhang8
 ms.service: azure-load-balancer
 ms.topic: troubleshooting
-ms.date: 01/29/2026
+ms.date: 07/17/2026
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to implement best practices for deploying and configuring a load balancer, so that I can enhance the reliability and performance of my Azure network infrastructure.
 ---
@@ -74,7 +74,7 @@ To explicitly permit allowed inbound traffic, you should create Network Security
 
 ### Unblock 168.63.129.16 IP address
 
-Ensure 168.63.129.16 IP address isn't blocked by any Azure network security groups and local firewall policies. This IP address enables health probes from Azure Load Balancer to determine the health state of the VM. If it isn't allowed, the health probe fails as it is unable to reach your instance and it marks your instance as down. For more information, see [Azure Load Balancer health probe](load-balancer-custom-probe-overview.md) and [What is IP address 168.63.129.16?](../virtual-network/what-is-ip-address-168-63-129-16.md)s.
+Don't block 168.63.129.16 in any Azure network security groups or local firewall policies. Azure Load Balancer uses this IP address for health probes. For details on probe behavior and failure consequences, see [Azure Load Balancer health probe](load-balancer-custom-probe-overview.md) and [What is IP address 168.63.129.16?](../virtual-network/what-is-ip-address-168-63-129-16.md)
 
 ### Use outbound rules with manual port allocation
 

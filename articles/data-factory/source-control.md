@@ -11,6 +11,8 @@ ms.date: 07/29/2026
 # Source control in Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 By default, the Azure Data Factory user interface experience (UX) authors directly against the data factory service. This experience has the following limitations:
 
 - The Data Factory service doesn't include a repository for storing the JSON entities for your changes. The only way to save changes is via the **Publish All** button and all changes are published directly to the data factory service.

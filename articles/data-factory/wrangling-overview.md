@@ -12,6 +12,8 @@ ms.date: 05/15/2024
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 [Data wrangling](https://en.wikipedia.org/wiki/Data_wrangling) involves transforming and reformatting data from its original source to make it more suitable and useful for various downstream applications.
 
 Organizations need to have the ability to explore their critical business data for data preparation and wrangling in order to provide accurate analysis of complex data that continues to grow every day. Data preparation is required so that organizations can use the data in various business processes and reduce the time to value.

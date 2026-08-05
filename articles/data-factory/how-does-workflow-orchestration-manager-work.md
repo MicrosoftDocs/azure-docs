@@ -13,6 +13,8 @@ ms.subservice: orchestration
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 > [!NOTE]
 > Workflow Orchestration Manager is powered by Apache Airflow.
 
