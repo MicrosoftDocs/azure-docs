@@ -10,7 +10,6 @@ ms.custom:
   - horz-monitor
   - sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to access detailed performance metrics for Azure Application Gateway, so that I can effectively monitor traffic handling, optimize resource usage, and ensure high availability of services."
-ai-usage: ai-assisted
 ---
 
 # Azure Application Gateway monitoring data reference
