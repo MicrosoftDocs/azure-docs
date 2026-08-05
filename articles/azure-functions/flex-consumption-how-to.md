@@ -856,19 +856,7 @@ Visual Studio Code doesn't currently support site update strategy configuration.
 
 End-to-end (E2E) TLS encryption encrypts traffic between the Azure platform front ends and the workers that run your functions. This feature is currently in preview for function apps in the Flex Consumption plan.
 
-Enable E2E TLS encryption by setting the `endToEndEncryptionEnabled` site configuration property to `true` in an ARM or Bicep template. The following Bicep example enables the property for a function app:
-
-```bicep
-resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
-  name: '<APP_NAME>'
-  location: '<REGION>'
-  properties: {
-    siteConfig: {
-      endToEndEncryptionEnabled: true
-    }
-  }
-}
-```
+Enable E2E TLS encryption by setting the `endToEndEncryptionEnabled` site property to `true` in an ARM or Bicep template.
 
 For more information about how E2E TLS encryption protects traffic, see [End-to-end TLS encryption in Azure App Service](../app-service/overview-tls.md#end-to-end-tls-encryption).
 
