@@ -7,7 +7,7 @@ author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 11/12/2025
+ms.date: 08/05/2026
 #Customer intent: I want to learn about how to use Azure App Configuration emulator for local development.
 ---
 
@@ -35,7 +35,7 @@ The following table lists the features supported by the latest Azure App Configu
 | [`/labels`](./rest-api-labels.md)                                | Available |
 | [`/locks`](./rest-api-locks.md)                                  | Available |
 | [`/revisions`](./rest-api-revisions.md)                          | Available |
-| [`/snapshots`](./rest-api-snapshot.md)                           | WIP       |
+| [`/snapshots`](./rest-api-snapshot.md)                           | Available |
 
 ## Install the emulator
 
@@ -125,6 +125,12 @@ Once started, the emulator is available at: `http://localhost:8483`
     ```json
     {"items":[{"etag":"EzV9zWW8k5JpcIXL00T5Kg","key":"Message","label":null,"content_type":null,"value":"Hello World!","tags":{},"locked":false,"last_modified":"2025-08-12T16:56:25.384738+00:00"}]}
     ```
+
+## Use Azure CLI with the emulator
+
+[Azure CLI](/cli/azure/install-azure-cli) version 2.83.0 or later supports anonymous authentication for App Configuration data-plane commands. You can use Azure CLI to perform any data-plane operation supported by the emulator without an Azure subscription, credentials, or access keys. To learn how to work with App Configuration by using Azure CLI, see [Azure CLI samples](./cli-samples.md).
+
+Consider managing emulator key-values as configuration files in source control. You can use Azure CLI import and export operations to synchronize key-values between configuration files and the emulator, which helps you reproduce emulator data across development environments. For more information, see [Import or export configuration data](./howto-import-export-data.md) and [Configuration as Code](./howto-best-practices.md#configuration-as-code).
 
 ## Next steps
 
