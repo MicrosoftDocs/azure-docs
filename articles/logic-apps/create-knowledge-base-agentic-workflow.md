@@ -96,7 +96,7 @@ The KBaaS has the following pipelines:
 
   > [!TIP]
   >
-  > To assign roles for your Cosmos DB account, you can use the following command: 
+  > To assign roles for your Cosmos DB account, use the following command: 
   >
   > [az cosmosdb sql role assignment create](/azure/search/search-howto-managed-identities-cosmos-db#configure-data-plane-role-assignments)
    
