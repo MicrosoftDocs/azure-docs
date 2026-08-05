@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 05/19/2026
+ms.date: 08/05/2026
 ms.topic: concept-article
 # Customer intent: As a cloud solution architect, I want to implement best practices for Azure Batch services, so that I can optimize performance, ensure reliability, and enhance security for my batch processing workloads.
 ---
@@ -46,9 +46,9 @@ determined yet by the Batch service. Absence of a date doesn't indicate that the
 indefinitely. An EOL date may be added or updated in the future at any time.
 
 - **Image verification status:** An image's `verificationType` reflects current Batch validation test coverage and can change
-over time. An image that is `verified` today may be reported as `unverified` later, for example when it's removed from the
+over time. An image that is `verified` today might be reported as `unverified` later, for example when it's removed from the
 Batch validation test suite or as it reaches its Batch support end of life (EOL) date. A `verified` designation doesn't
-indicate that the image remains verified indefinitely. Verification status may be updated at any time, so periodically
+indicate that the image remains verified indefinitely. Verification status might be updated at any time, so periodically
 refresh your view of the `verificationType` values pertinent to your pools.
 
 - **VM SKUs with impending end-of-life (EOL) dates:** As with VM images, VM SKUs or families may also reach Batch support
