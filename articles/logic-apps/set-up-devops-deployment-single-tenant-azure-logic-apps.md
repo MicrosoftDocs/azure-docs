@@ -31,13 +31,13 @@ If you don't have a Standard logic app, you can still follow this guide using th
  
   - **Visual Studio Code**: You need an empty Standard logic app resource in the Azure portal for your deployment destination. To quickly create an empty Standard logic app resource, see [Create single-tenant based logic app workflows - Portal](create-single-tenant-workflows-azure-portal.md).
 
-  If you don't have an existing logic app or infrastructure, you can use the linked sample Standard logic app projects to deploy an example logic app and infrastructure, based whether you want to use GitHub or Azure DevOps. For more information about the included sample projects and resources to run the example logic app, see [Deploy infrastructure resources](#deploy-infrastructure).
+  If you don't have an existing logic app or infrastructure, you can use the linked sample Standard logic app projects to deploy an example logic app and infrastructure, based on whether you want to use GitHub or Azure DevOps. For more information about the included sample projects and resources to run the example logic app, see [Deploy infrastructure resources](#deploy-infrastructure).
 
 <a name="deploy-infrastructure"></a>
 
 ## Deploy infrastructure resources
 
-To try the DevOps deployment experience without prior Standard logic app or infrastructure setup, use the following sample projects so you can set up deployment for an example Standard logic app and infrastructure, based whether you want to use GitHub or Azure DevOps:
+To try the DevOps deployment experience without prior Standard logic app or infrastructure setup, use the following sample projects so you can set up deployment for an example Standard logic app and infrastructure, based on whether you want to use GitHub or Azure DevOps:
 
 - [GitHub sample for single-tenant Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/github-sample)
 
