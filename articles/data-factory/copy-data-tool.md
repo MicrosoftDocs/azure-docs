@@ -16,6 +16,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 The Copy Data tool eases and optimizes the process of ingesting data into a data lake, which is usually a first step in an end-to-end data integration scenario. It saves time, especially when you use the service to ingest data from a data source for the first time. Some of the benefits of using this tool are:
 
 - When using the Copy Data tool, you don't need understand service definitions for linked services, datasets, pipelines, activities, and triggers. 

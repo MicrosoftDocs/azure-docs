@@ -13,6 +13,8 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article describes a solution template that you can use multiple copy activities to copy containers or folders between file-based stores, where each copy activity is supposed to copy single container or folder. 
 
 > [!NOTE]

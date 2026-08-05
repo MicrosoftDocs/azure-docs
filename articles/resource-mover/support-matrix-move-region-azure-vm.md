@@ -23,6 +23,8 @@ Resource Mover supports Azure VMs running these Windows operating systems.
 
 **Operating system** | **Details**
 --- | ---
+Windows Server 2025 | Supported.
+Windows Server 2022 | Supported.
 Windows Server 2019 | Supported for Server Core, Server with Desktop Experience.
 Windows Server 2016  | Supported Server Core, Server with Desktop Experience.
 Windows Server 2012 R2 | Supported.

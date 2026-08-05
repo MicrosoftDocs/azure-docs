@@ -16,6 +16,8 @@ ai-usage: ai-assisted
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 
 This article describes what datasets are, how they’re defined in JSON format, and how they’re used in Azure Data Factory and Synapse pipelines.
 

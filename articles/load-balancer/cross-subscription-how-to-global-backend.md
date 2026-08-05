@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 02/20/2025
+ms.date: 07/17/2026
 ms.author: mbender
 ms.custom: devx-track-azurepowershell
 # Customer intent: As a cloud architect, I want to configure a global load balancer with backends across multiple subscriptions, so that I can optimize traffic management and resource utilization across different Azure environments.
@@ -22,9 +22,8 @@ A [cross-subscription load balancer](cross-subscription-overview.md) can referen
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-- Two Azure subscriptions. 
+- Two Azure subscriptions. One subscription for the regional load balancer and its virtual network (**Azure Subscription A**) and another subscription for the global load balancer (**Azure Subscription B**).
 - An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
-- A global public IP address deployed in **Azure Subscription A** located in a [Global load balancer home region](cross-subscription-how-to-global-backend.md).
 - A regional load balancer deployed in **Azure Subscription A**.
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
@@ -37,9 +36,8 @@ If you choose to install and use PowerShell locally, this article requires the A
   
 # [Azure CLI](#tab/azurecli/)
 
-- Two Azure subscriptions. One subscription for the virtual network (**Azure Subscription A**) and another subscription for the load balancer(**Azure Subscription B**).
+- Two Azure subscriptions. Use one subscription for the virtual network (**Azure Subscription A**) and another subscription for the load balancer (**Azure Subscription B**).
 - An Azure account with active subscriptions. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
-- A global public IP address deployed in **Azure Subscription A** located in a [Global load balancer home region](cross-subscription-how-to-global-backend.md).
 - A regional load balancer deployed in **Azure Subscription A**. For this example, the load balancer is called **load-balancer-regional** in a resource group called **resource-group-a**.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
@@ -132,7 +130,7 @@ az group create --name resource-group-b --location eastus2
 ## Create a global load balancer
 
 In this section, you create the resources needed for the global load balancer.
-A global standard sku public IP is used for the frontend of the global load balancer.
+A global standard sku public IP is used for the frontend of the global load balancer. Because cross-subscription frontends aren't supported on Azure global Load Balancer, this public IP address is deployed in **Azure Subscription B** along with the global load balancer.
 
 # [Azure PowerShell](#tab/azurepowershell)
 
