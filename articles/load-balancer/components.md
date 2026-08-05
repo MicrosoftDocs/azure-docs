@@ -74,7 +74,7 @@ For example, use a load balancer rule for port 80 to route traffic from your fro
 
 ## High Availability Ports
 
-A load balancer rule configured with **'protocol - all and port - 0'** is known as a High Availability (HA) port rule. This rule enables a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. ICMP traffic is also supported when HA ports are enabled. 
+A load balancer rule that you configure with **protocol - all and port - 0** is a high availability (HA) port rule. This rule enables a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. When you enable HA ports, the rule also supports ICMP traffic. 
 
 The load-balancing decision is made per flow. This action is based on the following five-tuple connection: 
 
