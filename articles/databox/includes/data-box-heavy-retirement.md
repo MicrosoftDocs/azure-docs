@@ -1,6 +1,6 @@
 ---
 author: stevenmatthew
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 03/05/2025
 ms.author: shaas

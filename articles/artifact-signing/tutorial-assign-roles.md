@@ -3,7 +3,7 @@ title: "Tutorial: Assign roles in Artifact Signing"
 description: Learn how to assign roles in Artifact Signing.
 author: TacoTechSharma
 ms.author: mesharm
-ms.service: trusted-signing
+ms.service: azure-artifact-signing
 ms.topic: tutorial
 ms.date: 12/29/2025
 ms.custom: sfi-image-nochange

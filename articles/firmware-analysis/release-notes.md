@@ -4,7 +4,7 @@ author: karengu0
 ms.author: karenguo
 description: Learn about the latest updates for firmware analysis.
 ms.topic: concept-article
-ms.date: 07/07/2026
+ms.date: 08/04/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -16,7 +16,18 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 > `https://learn.microsoft.com/api/search/rss?search=%22What%27s+new+in+firmware+analysis%22&locale=en-us`
 
-## July 2026
+
+## July 28, 2026
+
+- **SBOM component expansion**: Firmware analysis now supports detection of 20 additional SBOM components: bridge-utils, conntrack-tools, ebtables, eeprog, ethtool, exfat, hdparm, i2c-tools, ipset, libcap, lspci, mtd-utils, procps, rngd, rngtest, setserial, strace, zip, zipcloak, and zipnote. This expansion improves SBOM coverage across firmware images and enhances visibility into potential vulnerabilities.
+
+- **Updated CVE database**: Firmware analysis's CVE database was refreshed on July 17, 2026 to incorporate newer CVE data, including added coverage for nano and protobuf-c.
+
+- **Fixed strace version detection**: Corrected the strace version detection regex, ensuring vulnerabilities are accurately identified and reported.
+
+
+
+## July 7, 2026
 
 - **SBOM component expansion**: Firmware analysis now supports detection of four additional SBOM components: nano, libarchive, protobuf-c, and jansson. This expansion improves SBOM coverage across firmware images and enhances visibility into potential vulnerabilities.
 

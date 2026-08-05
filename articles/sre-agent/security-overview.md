@@ -3,7 +3,7 @@ title: Security overview for Azure SRE Agent
 description: Learn how Azure SRE Agent isolates execution, handles credentials, stores data, and protects your environment with built-in security architecture.
 ms.topic: article
 ms.service: azure-sre-agent
-ms.date: 04/29/2026
+ms.date: 07/30/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -23,12 +23,12 @@ The agent's reasoning engine and tool execution run in separate compute boundari
 
 ### Sandbox architecture
 
-Each agent gets its own **sandbox group**, an isolated micro VM powered by Azure Dedicated Compute (ADC), separate from the reasoning loop.
+Each agent has its own sandbox. This architecture provides each agent with a dedicated compute environment that runs in a micro VM and stays separate from the reasoning loop.
 
 | Component | Runs in | Role |
 |---|---|---|
 | **Agent reasoning** | Main runtime | Processes messages, selects tools, builds responses |
-| **Tool execution** | ADC sandbox (micro VM) | Runs file operations, bash commands, code analysis, MCP tools |
+| **Tool execution** | Sandbox (micro VM) | Runs file operations, bash commands, code analysis, MCP tools |
 | **Identity sidecar** | Separate service | Manages credentials and tokens, isolated from reasoning and execution |
 | **Network proxy** | Separate service | Validates and routes all outbound requests |
 
@@ -46,7 +46,7 @@ The system doesn't use persistent process pools. Environment variables and crede
 
 ### Code execution
 
-Python and shell commands run inside the ADC sandbox through the [code interpreter](code-interpreter.md):
+Python and shell commands run inside the sandbox through the [code interpreter](code-interpreter.md):
 
 - Execution is isolated from your resources and the agent's reasoning engine.
 - The environment includes more than 700 preinstalled Python packages, but it doesn't support arbitrary package installation.
@@ -75,32 +75,32 @@ Three properties make credential theft structurally impossible:
 | Type | Lifetime | Refresh |
 |---|---|---|
 | **Managed identity tokens** | ~1 hour (Azure platform standard) | Automatic via Azure SDK |
-| **OAuth tokens** (GitHub, ADO) | Varies by provider | Refreshed 20 minutes before expiry |
+| **OAuth tokens** (GitHub, Azure DevOps) | Varies by provider | Refreshed 20 minutes before expiry |
 | **Action tokens** (per tool call) | Single use | Issued fresh per invocation |
 | **Blob storage SAS tokens** | 1 hour | Refreshed 15 minutes before expiry |
 
 ## Data residency
 
-When your agent investigates an issue, it queries Kusto, Azure Monitor, ARM, and other data sources. The agent holds raw query results **in memory only** during the conversation and discards them when the conversation ends or the context window compacts. The agent never writes raw query results to persistent storage.
+When your agent investigates an issue, it queries your data sources. The agent doesn't write raw query results like log entries, metrics, and API responses to a separate data store. When the agent processes a tool call, it serializes chat and tool messages, including result summaries, into the persistent conversation thread.
 
 The following data **is** persisted:
 
 | Data | Storage | Retention | Purpose |
 |---|---|---|---|
-| **Conversation threads** | Cosmos DB (per-customer) | Until manually deleted | Chat history, investigation records |
-| **Session insights** | Cosmos DB + agent blob storage | Persistent | Synthesized learnings such as symptoms, resolution steps, and root causes |
-| **Memory files** | Agent blob storage (`memories/`) | Persistent across sessions | Synthesized knowledge, team context, repo instructions |
-| **Thread files** | Agent blob storage (`threadfiles/`) | Tied to thread lifetime | User uploads, generated reports |
+| **Conversation threads** | Agent database | Until manually deleted | Chat history, investigation records |
+| **Session insights** | Agent database and blob storage | Persistent | Synthesized learnings such as symptoms, resolution steps, and root causes |
+| **Memory files** | Blob storage | Persistent across sessions | Synthesized knowledge, team context, repo instructions |
+| **Thread files** | Blob storage | Tied to thread lifetime | User uploads, generated reports |
 
-Session insights are synthesized summaries, not raw data copies. The agent extracts patterns (what symptoms appeared, what resolution worked, and what to avoid) and stores those as knowledge. The agent never persists raw query results from Kusto or Azure Monitor.
+Session insights are synthesized summaries, not raw data copies. The agent extracts patterns (what symptoms appeared, what resolution worked, and what to avoid) and stores those as knowledge. The agent doesn't independently persist complete raw query results. It stores serialized tool messages, which might include result excerpts or summaries, as part of the conversation thread history.
 
 ## Per-customer isolation
 
 | Layer | Isolation model |
 |---|---|
-| **Compute** | Dedicated ADC sandbox group per agent |
-| **Database** | Separate Cosmos DB per customer |
-| **Blob storage** | Per-agent storage account |
+| **Compute** | Dedicated sandbox per agent |
+| **Database** | Separate database per agent |
+| **Blob storage** | Separate blob storage per agent |
 | **Network** | Per-agent proxy instance for all outbound requests |
 | **Credentials** | Per-agent managed identity with RBAC scoped to customer-selected resource groups |
 
@@ -123,8 +123,8 @@ Telemetry from sandbox tool execution flows through the same pipeline.
 
 | Layer | Protection |
 |---|---|
-| **At rest** | Cosmos DB and blob storage use Azure-managed encryption |
-| **In transit** | HTTPS for all external communication; HTTP/2 within the sandbox trust boundary |
+| **At rest** | Azure-managed encryption protects all data at rest |
+| **In transit** | All external communication uses HTTPS |
 
 ## Network proxy and policies
 
@@ -148,11 +148,11 @@ Run modes control this behavior: **Review** mode requires approval for write ope
 
 ## Private network access
 
-Azure Dedicated Compute supports deployment configurations for private network requirements:
+Azure SRE Agent supports deployment configurations for private network requirements:
 
 - **Regional isolation** - Sandbox placement respects regional boundaries (for example, East US 2 sandboxes stay within Central US, North Central US, or Canada Central).
-- **VNET-integrated execution** - ARM-provisioned sandbox groups enable execution within your virtual network.
-- **Volume-based credential access** - MSI volume mounts provide credential access without network traversal.
+- **VNet-integrated execution**: Dedicated sandboxes can be configured for execution within your virtual network.
+- **Secretless credential access**: The identity service provides short-lived credentials to tool processes without storing credentials in the sandbox.
 
 ## Related content
 

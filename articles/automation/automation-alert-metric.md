@@ -3,6 +3,7 @@ title: Monitor Azure Automation runbooks with metric alerts
 description: This article describes how to setup a metric alert based on runbook completion status.
 services: automation
 ms.date: 08/10/2020
+ms.update-cycle: 1095-days
 ms.topic: how-to
 ms.author: v-rochak2
 author: RochakSingh-blr

@@ -190,6 +190,10 @@ App Service automatic scaling periodically checks the `/admin/host/ping` endpoin
 
 If your web app returns a 5xx status, these endpoint pings might result in intermittent restarts, though this scenario is uncommon. Ensure that your web app doesn't return a 5xx status at this endpoint. These ping endpoints can't be customized.
 
+### Can I use App Service Health Check with automatic scaling?
+
+Yes. You can enable [Health Check](monitor-instances-health-check.md) and automatic scaling together. You don't need to disable Health Check when you turn on automatic scaling for your web app.
+
 ### How do I track the number of scaled-out instances during the automatic scaling event?
 
 The `AutomaticScalingInstanceCount` metric reports the number of virtual machines on which the app is running, including the prewarmed instance if it's deployed. This metric can also be used to track the maximum number of instances your web app scaled out during an automatic scaling event. This metric is available only for the apps that have **Automatic Scaling** enabled.

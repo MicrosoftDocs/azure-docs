@@ -32,6 +32,7 @@ The following table lists all the upcoming breaking changes and feature retireme
 | [CAPTCHA endpoint update][captcha2025] | September 30, 2025 |
 | [Trusted service connectivity retirement][trustedservice2026] | March 15, 2026 |
 | [Built-in analytics dashboard retirement][analytics2027] | March 15, 2027 |
+| [Retirement of TLS 1.0 and TLS 1.1 versions in Azure API Management][tls2025] | October 31, 2025 |
 
 <!-- Links -->
 [bc1]: ./rp-source-ip-address-change-mar-2023.md
@@ -51,3 +52,4 @@ The following table lists all the upcoming breaking changes and feature retireme
 [workspaces2025march]: ./workspaces-breaking-changes-march-2025.md
 [managed-certificates-suspension-august-2025]: ./managed-certificates-suspension-august-2025.md
 [trustedservice2026]: ./trusted-service-connectivity-retirement-march-2026.md
+[tls2025]: ./tls-versions-retirement-oct-2025.md

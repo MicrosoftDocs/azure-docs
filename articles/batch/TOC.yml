@@ -202,6 +202,9 @@
       href: simplified-node-communication-pool-no-public-ip.md
     - name: Create a pool with ephemeral OS disk nodes
       href: create-pool-ephemeral-os-disk.md
+    - name: Disable hyper-threading on pool nodes
+      displayName: hyperthreading, SMT, simultaneous multithreading, threads per core, vCPUsPerCore
+      href: how-to-disable-hyper-threading-using-pool-tag.md
     - name: Create an Azure Batch pool with Auto OS Upgrade
       href: batch-upgrade-policy.md
     - name: Use extensions with pools

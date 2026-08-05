@@ -1,14 +1,14 @@
 ---
-title: Assess your Azure Data Factory and Synapse pipelines for migration to Fabric
-description: Learn how to check which pipelines are ready to migrate and which ones need attention 
+title: Assess your Azure Data Factory and Synapse pipelines for upgrade to Fabric Data Factory
+description: Learn how to assess which Azure Data Factory and Synapse pipelines are ready to upgrade to Fabric Data Factory.
 author: ssindhub
 ms.author: ssrinivasara
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/11/2026
 ms.custom: pipelines
 ---
 
-# Assess your Pipelines for Migration to Fabric Data Factory
+# Assess your pipelines for upgrade to Fabric Data Factory
 Use the built-in upgrade assessment to quickly check pipeline readiness and identify activity compatibility issues before migrating to Fabric.
 
 ## Assess your Azure Data Factory pipelines for migration

@@ -14,6 +14,8 @@ zone_pivot_groups: azure-durable-approach
 # Implement durable timers for delays and timeouts
 
 ::: zone pivot="durable-functions"
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 [Durable Functions](what-is-durable-task.md) provides *durable timers* for use in orchestrator functions to implement delays or to set up timeouts on async actions. Use durable timers in orchestrator functions instead of `sleep` or `delay` APIs that might be built into the language.
 ::: zone-end
 

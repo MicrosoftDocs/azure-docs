@@ -16,6 +16,8 @@
       href: network-security-groups-overview.md
     - name: Service endpoints
       href: virtual-network-service-endpoints-overview.md
+    - name: Standard service endpoint
+      href: /azure/private-link/service-endpoint-standard-overview?toc=/azure/virtual-network/toc.json
     - name: Service tags
       href: service-tags-overview.md
     - name: Architecture best practices for Azure Virtual Network

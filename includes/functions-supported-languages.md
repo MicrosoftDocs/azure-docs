@@ -104,7 +104,7 @@ The following table shows the language versions supported for Node.js function a
 | [Node.js 24](https://endoflife.date/nodejs) | GA | April 30, 2028 |
 | [Node.js 22](https://endoflife.date/nodejs) | GA | April 30, 2027 |
 
-TypeScript is supported through transpiling to JavaScript. For more information, see [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
+TypeScript is supported through transpiling to JavaScript. For more information, see [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#programming-model).
 
 > [!NOTE]
 > Node.js 22 is the last Node.js version supported for Linux Consumption plan apps. Newer Node.js versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).

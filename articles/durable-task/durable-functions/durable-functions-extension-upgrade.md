@@ -12,6 +12,8 @@ ms.author: azfuncdf
 
 # Upgrade the Durable Functions extension version
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 If you're experiencing orchestration failures, slow replay, or unexpected behavior, upgrading the Durable Functions extension is the recommended first step. New releases often contain critical bug fixes and performance improvements. To get notified of new releases, [watch releases](https://github.com/Azure/azure-functions-durable-extension) on GitHub.
 
 Choose the upgrade method that matches your app type:

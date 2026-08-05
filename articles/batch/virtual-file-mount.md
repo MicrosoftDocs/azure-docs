@@ -4,7 +4,7 @@ description: Learn how to mount different kinds of virtual file systems on Batch
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurepowershell, linux-related-content
-ms.date: 06/16/2026
+ms.date: 07/30/2026
 # Customer intent: As a cloud engineer, I want to mount a virtual file system on Batch pool nodes, so that I can efficiently manage shared data access for tasks running on those compute nodes.
 ---
 
@@ -521,6 +521,15 @@ For more information and tips on using BlobFuse, see the following references:
 - [Blobfuse2 project](https://github.com/Azure/azure-storage-fuse)
 - [Blobfuse Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/Blobfuse-Troubleshoot-FAQ)
 - [GitHub issues in the azure-storage-fuse repository](https://github.com/Azure/azure-storage-fuse/issues)
+
+#### Streaming versus caching mode for large datasets
+
+BlobFuse2 supports two data transfer modes, which you set through `BlobfuseOptions`:
+
+- **Streaming (block cache)** streams data in blocks as it downloads. Use it for **large files**, such as AI/ML training datasets, genomic sequencing, and HPC simulation data - a common pattern for high-throughput Batch workloads that read large inputs from Blob.
+- **Caching (file cache)** downloads each whole file to a local cache before use. Use it for workloads that repeatedly read files that fit on the node's local disk.
+
+To decide which mode fits your workload and to configure the block size, memory, and disk cache, see [Streaming versus caching mode for BlobFuse mounts](/azure/storage/blobs/blobfuse2-streaming-versus-caching) and [Configure BlobFuse for streaming mode](/azure/storage/blobs/blobfuse2-configure-streaming).
 
 ### NFS
 

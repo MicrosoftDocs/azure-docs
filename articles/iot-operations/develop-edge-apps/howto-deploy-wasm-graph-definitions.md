@@ -16,8 +16,7 @@ ai-usage: ai-assisted
 Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for custom data processing at the edge. You can deploy custom business logic and data transformations as part of your data flow pipelines.
 
 > [!IMPORTANT]
-> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
-
+> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported.
 > [!IMPORTANT]
 > Currently the only connector that supports graph definitions for custom processing is the HTTP/REST connector.
 
@@ -31,15 +30,18 @@ To push your own modules and graphs to a private registry like Azure Container R
 - Access to a container registry like ACR to store WASM modules and graphs.
 - The OCI Registry As Storage (ORAS) CLI to push WASM modules to the registry.
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
 ## Overview
 
 WASM modules in Azure IoT Operations data flow graphs and connectors let you process data at the edge with high performance and security. WASM runs in a sandboxed environment and supports Rust and Python.
 
 ## Use prebuilt modules from a public registry
 
-The fastest way to get started is to use the prebuilt sample WASM modules and graph definitions directly from the public GitHub Container Registry. This approach doesn't require setting up a private registry, ORAS CLI, or any pull/push steps.
+You can use the prebuilt sample WASM modules and graph definitions that are published to the public GitHub Container Registry (`ghcr.io`) under `azure-samples/explore-iot-operations`.
 
-To consume the samples, create an anonymous registry endpoint named `public-ghcr` that points to `ghcr.io`. For the Azure CLI and Bicep options, see [Use a public registry](howto-configure-registry-endpoint.md#use-a-public-registry).
+> [!NOTE]
+> `ghcr.io` requires an authenticated token exchange before it serves even *public* artifacts, and the current Azure IoT Operations runtime doesn't perform the anonymous exchange. Configure the `public-ghcr` endpoint with an **artifact pull secret** backed by a GitHub personal access token (PAT) with the `read:packages` scope, rather than anonymous authentication. For the endpoint and secret steps, see [Use a public registry](howto-configure-registry-endpoint.md#use-a-public-registry).
 
 ### Available sample artifacts
 
@@ -95,7 +97,7 @@ oras pull ghcr.io/azure-samples/explore-iot-operations/filter:1.0.0
 
 ## Push modules to your registry
 
-Once you have the sample modules and graphs, push them to your container registry. Replace `<YOUR_ACR_NAME>` with the name of your Azure Container Registry.
+Once you have the sample modules and graphs, push them to your container registry. Set the `ACR_NAME` environment variable to the name of your Azure Container Registry.
 
 > [!IMPORTANT]
 > The operations experience discovers artifacts by their OCI **config** media type, not the layer media type. When you push artifacts to a registry, you must set the correct media types or the artifacts won't appear in the operations experience UI:
@@ -142,19 +144,19 @@ To ensure the graphs and modules are visible in the operations experience web UI
 
 ```bash
 # Log in to your ACR
-az acr login --name <YOUR_ACR_NAME>
+az acr login --name $ACR_NAME
 
 # Push modules to your registry
-oras push <YOUR_ACR_NAME>.azurecr.io/azure-samples/explore-iot-operations/graph-simple:1.0.0 --config /dev/null:application/vnd.microsoft.aio.graph.v1+yaml graph-simple.yaml:application/yaml --disable-path-validation
-oras push <YOUR_ACR_NAME>.azurecr.io/azure-samples/explore-iot-operations/graph-complex:1.0.0 --config /dev/null:application/vnd.microsoft.aio.graph.v1+yaml graph-complex.yaml:application/yaml --disable-path-validation
-oras push <YOUR_ACR_NAME>.azurecr.io/azure-samples/explore-iot-operations/temperature:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm temperature.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/azure-samples/explore-iot-operations/window:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm window.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/azure-samples/explore-iot-operations/snapshot:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm snapshot.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/azure-samples/explore-iot-operations/format:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm format.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/azure-samples/explore-iot-operations/humidity:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm humidity.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/azure-samples/explore-iot-operations/collection:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm collection.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/azure-samples/explore-iot-operations/enrichment:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm enrichment.wasm:application/wasm
-oras push <YOUR_ACR_NAME>.azurecr.io/azure-samples/explore-iot-operations/filter:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm filter.wasm:application/wasm
+oras push $ACR_NAME.azurecr.io/azure-samples/explore-iot-operations/graph-simple:1.0.0 --config /dev/null:application/vnd.microsoft.aio.graph.v1+yaml graph-simple.yaml:application/yaml --disable-path-validation
+oras push $ACR_NAME.azurecr.io/azure-samples/explore-iot-operations/graph-complex:1.0.0 --config /dev/null:application/vnd.microsoft.aio.graph.v1+yaml graph-complex.yaml:application/yaml --disable-path-validation
+oras push $ACR_NAME.azurecr.io/azure-samples/explore-iot-operations/temperature:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm temperature.wasm:application/wasm
+oras push $ACR_NAME.azurecr.io/azure-samples/explore-iot-operations/window:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm window.wasm:application/wasm
+oras push $ACR_NAME.azurecr.io/azure-samples/explore-iot-operations/snapshot:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm snapshot.wasm:application/wasm
+oras push $ACR_NAME.azurecr.io/azure-samples/explore-iot-operations/format:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm format.wasm:application/wasm
+oras push $ACR_NAME.azurecr.io/azure-samples/explore-iot-operations/humidity:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm humidity.wasm:application/wasm
+oras push $ACR_NAME.azurecr.io/azure-samples/explore-iot-operations/collection:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm collection.wasm:application/wasm
+oras push $ACR_NAME.azurecr.io/azure-samples/explore-iot-operations/enrichment:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm enrichment.wasm:application/wasm
+oras push $ACR_NAME.azurecr.io/azure-samples/explore-iot-operations/filter:1.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm filter.wasm:application/wasm
 ```
 
 > [!TIP]
@@ -165,7 +167,7 @@ oras push <YOUR_ACR_NAME>.azurecr.io/azure-samples/explore-iot-operations/filter
 You can update a WASM module in a running graph without stopping the graph. This is useful when you want to update the logic of an operator without stopping the dataflow. For example, to update the temperature conversion module from version `1.0.0` to `2.0.0` in the Azure sample artifact layout, upload the new version as follows:
 
 ```bash
-oras push <YOUR_ACR_NAME>.azurecr.io/azure-samples/explore-iot-operations/temperature:2.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm temperature.wasm:application/wasm
+oras push $ACR_NAME.azurecr.io/azure-samples/explore-iot-operations/temperature:2.0.0 --artifact-type application/vnd.module.wasm.content.layer.v1+wasm temperature.wasm:application/wasm
 ```
 
 > [!NOTE]
@@ -206,10 +208,10 @@ The operations experience uses the config media type for discovery, not the laye
 | Graph definition | `application/vnd.microsoft.aio.graph.v1+yaml` | `application/yaml` |
 | WASM module | `application/vnd.module.wasm.content.layer.v1+wasm` | `application/wasm` |
 
-For graph definitions, pass the config media type with the `--config` flag:
+For graph definitions, pass the config media type with the `--config` flag. Set the `REGISTRY` environment variable to your registry host (for example, `<your-registry>.azurecr.io`):
 
 ```bash
-oras push <REGISTRY>/my-graph:1.0.0 \
+oras push $REGISTRY/my-graph:1.0.0 \
   --config /dev/null:application/vnd.microsoft.aio.graph.v1+yaml \
   graph.yaml:application/yaml \
   --disable-path-validation
@@ -218,7 +220,7 @@ oras push <REGISTRY>/my-graph:1.0.0 \
 For WASM modules, pass it with the `--artifact-type` flag:
 
 ```bash
-oras push <REGISTRY>/my-module:1.0.0 \
+oras push $REGISTRY/my-module:1.0.0 \
   --artifact-type application/vnd.module.wasm.content.layer.v1+wasm \
   module.wasm:application/wasm
 ```
@@ -230,7 +232,7 @@ If you use automated pipelines to copy or promote artifacts between registries (
 To verify that an artifact has the correct metadata after transfer, inspect its manifest:
 
 ```bash
-oras manifest fetch <REGISTRY>/my-graph:1.0.0 | jq '{mediaType, configMediaType: .config.mediaType}'
+oras manifest fetch $REGISTRY/my-graph:1.0.0 | jq '{mediaType, configMediaType: .config.mediaType}'
 ```
 
 The output should show:

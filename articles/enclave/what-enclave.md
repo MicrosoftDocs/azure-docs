@@ -4,7 +4,9 @@ description: What is an enclave?
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 5/5/2026
+ms.service: azure-enclave
+ai-usage: ai-assisted
+ms.date: 8/4/2026
 ---
 
 # What is an enclave?
@@ -23,7 +25,7 @@ Enclaves give you boundaries for security, governance, and resource isolation. E
 Enclaves come with the following platform-managed resources:
 
 **Networking**
-- **Azure Virtual Network with Subnets**: An isolated [virtual network](/azure/virtual-network/virtual-networks-overview) that you define and manage, restricted to [authorized Microsoft services](/azure/azure-portal/azure-portal-safelist-urls) and controlled through [Network Security Groups](/azure/virtual-network/network-security-groups-overview).
+- **Azure Virtual Network with Subnets**: An isolated [Virtual Network](/azure/virtual-network/virtual-networks-overview) that you define and manage, restricted to [authorized Microsoft services](/azure/azure-portal/azure-portal-safelist-urls) and controlled through [Network Security Groups](/azure/virtual-network/network-security-groups-overview).
 - **Private Link integration**: [Private Endpoints](/azure/private-link/private-endpoint-overview) and [Private DNS Zones](/azure/dns/private-dns-privatednszone) ensure all platform resources communicate privately within your network boundary.
 
 **Monitoring and Access**
@@ -45,8 +47,26 @@ Maintenance mode allows enclave owners to temporarily bypass the deny assignment
 
 [Learn more about maintenance mode](./maintenance-mode.md).
 
+## Azure Enclave is authoritative for the enclave Virtual Network
+When Azure Enclave provisions an enclave, it creates and continuously manages the enclave Virtual Network as part of the isolated, zero-trust boundary. Azure Enclave is the authoritative control plane for that Virtual Network: it owns the network topology, routing, and the configuration that binds the Virtual Network to enclave connection management, including resource types and capabilities like enclave endpoints, enclave connections, and enclave subnet features.
+
+Because the enclave holds this authoritative state, change the enclave Virtual Network and its resources only through the Azure Enclave management experience. Editing the Virtual Network directly, even if it's through [Maintenance Mode](./maintenance-mode.md) (for example, through the Azure portal, Azure CLI, or ARM/Bicep outside of Azure Enclave) causes the configuration to drift. When the Virtual Network drifts out of Azure Enclave management, enclave connection management can no longer reliably reconcile the network, and features that depend on it can stop working:
+
+- Enclave endpoints might fail to provision or resolve.
+- Enclave connections might fail to establish, or be dropped.
+- Enclave subnet features, such as delegated subnets and enclave-managed subnet settings, might become unavailable.
+
+> [!IMPORTANT]
+> 
+> Treat Azure Enclave as the single source of truth for the enclave Virtual Network. Make Virtual Network and subnet changes through the enclave's `Manage` experience rather than editing the Virtual Network directly.
+
+## Subnet delegation within the enclave
+Subnets inside the enclave Virtual Network support Azure subnet delegation. Delegation designates a subnet for use by a specific Azure service so that the service can create and manage its service-specific resources within that subnet. Configure subnet delegation as part of creating or managing subnets through the enclave, so that the delegation is captured in the enclave's authoritative state and remains consistent with enclave connection management. Delegating a subnet directly on the Virtual Network instead of through Azure Enclave is an operation that can cause drift.
+ 
+For the steps to add or manage subnets, see [Create a subnet within an enclave](./create-new-enclave-subnet.md).
+
 ## Template
-See [template documentation](./azure-enclave-templates.md#resource-modules)
+See [template documentation](./azure-enclave-templates.md#resource-modules).
 
 ## Managed Resources
 The following resources types are deployed into the enclave managed resource group:

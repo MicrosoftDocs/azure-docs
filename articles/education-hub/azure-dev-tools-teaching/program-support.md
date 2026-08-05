@@ -5,7 +5,7 @@ author: v-dihans
 ms.author: rymend
 ms.topic: overview
 ms.date: 06/30/2020
-ms.service: azure-education
+ms.service: azure-education-hub
 ---
 
 # Support for Azure Dev Tools for Teaching

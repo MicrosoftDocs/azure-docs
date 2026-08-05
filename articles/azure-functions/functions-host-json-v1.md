@@ -226,7 +226,7 @@ If you share a Storage account across multiple function apps, make sure that eac
 
 ## logger
 
-Controls filtering for logs written by an [ILogger](functions-dotnet-class-library.md#ilogger) object or by [context.log](functions-reference-node.md#contextlog-method).
+Controls filtering for logs written by an [ILogger](functions-dotnet-class-library.md#ilogger) object or by [context.log](functions-reference-node.md#logging).
 
 ```json
 {

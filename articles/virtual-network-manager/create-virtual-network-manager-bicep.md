@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 07/07/2026
+ms.date: 07/29/2026
 ms.custom:
   - template-quickstart
   - mode-ui
@@ -23,13 +23,11 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 :::image type="content" source="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png" alt-text="Diagram of resources deployed for a mesh virtual network topology with Azure virtual network manager." lightbox="media/create-virtual-network-manager-portal/virtual-network-manager-resources-diagram.png":::
 
-## Bicep File Modules
+The Bicep solution for this sample is broken down into modules to enable deployments at both a resource group and subscription scope. The following sections describe the components that are unique to Azure Virtual Network Manager. In addition to these components, the solution deploys virtual networks, a user assigned identity, and a role assignment.
 
-The Bicep solution for this sample is broken down into modules to enable deployments at both a resource group and subscription scope. The file sections detailed in the following list are the unique components for Virtual Network Manager. In addition to the sections detailed in the following list, the solution deploys virtual networks, a user assigned identity, and a role assignment.
+## Define the virtual network manager resource
 
-### Virtual Network Manager, Network Groups, and Connectivity Configurations
-
-#### Virtual Network Manager
+This resource creates the `Microsoft.Network/networkManagers` instance, at API version `2022-09-01`, that implements the connected group for inter-virtual network connectivity. Set `networkManagerScopes` to the subscriptions or management groups that the instance manages, and keep `Connectivity` in `networkManagerScopeAccesses` so the instance can deploy connectivity configurations.
 
 ```bicep
 @description('This is the Azure Virtual Network Manager which will be used to implement the connected group for inter-vnet connectivity.')
@@ -50,11 +48,13 @@ resource networkManager 'Microsoft.Network/networkManagers@2022-09-01' = {
 }
 ```
 
-#### Network Groups
+## Define static and dynamic network groups
 
-This solution supports creating either static membership Network Groups or dynamic membership Network Groups. The static membership network group specifies its members by Virtual Network ID.
+The solution supports either a static membership network group or a dynamic membership network group. The `networkGroupMembershipType` parameter selects which one deploys; only one of the two resources is created.
 
-**Static Membership Network Group**
+### Static membership network group
+
+The static network group resource, `Microsoft.Network/networkManagers/networkGroups` at API version `2022-09-01`, names its members explicitly. The nested `staticMembers` resources add spoke virtual networks A, B, and C, plus the hub virtual network, by resource ID. To target your own virtual networks, change the `spokeNetworkGroupMembers` and `hubVnetId` parameters.
 
 ```bicep
 @description('This is the static network group for the all VNETs.')
@@ -82,7 +82,9 @@ resource networkGroupSpokesStatic 'Microsoft.Network/networkManagers/networkGrou
 }
 ```
 
-**Dynamic Membership Network Group**
+### Dynamic membership network group
+
+The dynamic network group resource declares no members. Membership is populated by the Azure Policy definition described in [Define the dynamic membership policy](#define-the-dynamic-membership-policy).
 
 ```bicep
 @description('This is the dynamic group for all VNETs.')
@@ -95,9 +97,9 @@ resource networkGroupSpokesDynamic 'Microsoft.Network/networkManagers/networkGro
 }
 ```
 
-#### Connectivity Configuration
+## Define the mesh connectivity configuration
 
-The Connectivity Configuration associates the Network Group with the specified network topology. 
+The connectivity configuration resource, `Microsoft.Network/networkManagers/connectivityConfigurations` at API version `2022-09-01`, associates the network group with the mesh network topology. The `appliesToGroups` property references the network group you deployed, and you set `connectivityTopology` to `Mesh`.
 
 ```bicep
 @description('This connectivity configuration defines the connectivity between VNETs using Direct Connection. The hub will be part of the mesh, but gateway routes from the hub will not propagate to spokes.')
@@ -122,9 +124,11 @@ resource connectivityConfigurationMesh 'Microsoft.Network/networkManagers/connec
 }
 ```
 
-#### Deployment Script
+## Commit the configuration with a deployment script
 
-To deploy the configuration to the target network group, use a Deployment Script that calls the `Deploy-AzNetworkManagerCommit`​ PowerShell command. The Deployment Script needs an identity with sufficient permissions to execute the PowerShell script against the Virtual Network Manager. The Bicep file creates a user-managed identity and grants it the **Contributor** role on the target resource group. For more information about Deployment Scripts and associated identities, see [Use deployment scripts in ARM templates](../azure-resource-manager/templates/deployment-script-template.md).
+To deploy the configuration to the target network group, use a deployment script that calls the `Deploy-AzNetworkManagerCommit`​ PowerShell command. The deployment script needs an identity with sufficient permissions to run the PowerShell script against the virtual network manager. The Bicep file creates a user-managed identity and grants it the **Contributor** role on the target resource group. For more information about deployment scripts and associated identities, see [Use deployment scripts in ARM templates](../azure-resource-manager/templates/deployment-script-template.md).
+
+The following resource is a `Microsoft.Resources/deploymentScripts` resource at API version `2020-10-01`. It runs an inline PowerShell script that signs in with the user-assigned identity and calls `Deploy-AzNetworkManagerCommit`. Change the properties `azPowerShellVersion`, `retentionInterval`, and `timeout` for your own deployment. Change the values passed through `arguments`: the network manager name, target locations, configuration IDs, subscription ID, configuration type, and resource group name.
 
 ```bicep
 @description('Create a Deployment Script resource to perform the commit/deployment of the Network Manager connectivity configuration.')
@@ -191,9 +195,11 @@ resource deploymentScript 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
 }
 ```
 
-#### Dynamic Network Group Membership Policy
+## Define the dynamic membership policy
 
-When you configure the deployment to use `dynamic` network group membership, the solution also deploys an Azure Policy Definition and Assignment. The following example shows the Policy Definition.
+When you configure the deployment to use `dynamic` network group membership, the solution also deploys an Azure Policy definition and assignment.
+
+The following resource is a `Microsoft.Authorization/policyDefinitions` resource at API version `2021-06-01`. It uses the `Microsoft.Network.Data` policy mode and the `addToNetworkGroup` effect, which adds matching virtual networks to the network group identified by `networkGroupId`. The policy rule matches virtual networks that carry the `_avnm_quickstart_deployment` tag and that live in this sample's resource group. Change the tag name and the resource group filter in the `like` condition to match your own environment.
 
 ```bicep
 @description('This is a Policy definition for dynamic group membership')

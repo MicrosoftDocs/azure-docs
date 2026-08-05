@@ -117,7 +117,7 @@ In this section, you create the health probe used to check the health of the bac
     | **Protocol** | Select **HTTP** |
     | **Port** | Enter **5000** |
     | **Path** | Enter **/health_check/** |
-    | **Interval (seconds)** | Enter **5** |
+    | **Interval (seconds)** | Enter **5**. The portal default is 5 seconds; the ARM, REST API, Azure CLI, and PowerShell default is 15 seconds (minimum 5 seconds). |
 
 1. Select **OK** to create the health probe.
 

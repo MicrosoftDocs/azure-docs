@@ -3,12 +3,10 @@ title: IoT Edge version history and release notes
 description: Release history and notes for IoT Edge.
 author: sethmanheim
 ms.author: sethm
-ms.date: 07/16/2026
+ms.date: 07/17/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 ---
-
-<!-- DO NOT MERGE until IoT Edge 1.6.0 LTS is generally available. Replace <RELEASE_DATE_PLACEHOLDER> with the GA release date and verify the https://github.com/Azure/azure-iotedge/releases/tag/1.6.0 links resolve before merging. -->
 
 # Azure IoT Edge versions and release notes
 
@@ -59,7 +57,7 @@ This table provides recent version history for IoT Edge package releases, and hi
 
 | Release notes and assets | Type | Release date | End of support date | Highlights |
 | ------------------------ | ---- | ------------ | ------------------- | ---------- |
-| [1.6](https://github.com/Azure/azure-iotedge/releases/tag/1.6.0) | Long-term support (LTS) | <RELEASE_DATE_PLACEHOLDER> | November 14, 2028 | IoT Edge 1.6 LTS aligns with the [.NET 10 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) and is supported through November 14, 2028. |
+| [1.6](https://github.com/Azure/azure-iotedge/releases/tag/1.6.0) | Long-term support (LTS) | July 2026 | November 14, 2028 | IoT Edge 1.6 LTS aligns with the [.NET 10 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) and is supported through November 14, 2028. |
 | [1.5](https://github.com/Azure/azure-iotedge/releases/tag/1.5.0) | Long-term support (LTS) | April 2024 | November 10, 2026 | IoT Edge 1.5 LTS is supported through November 10, 2026 to match the [.NET 8 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle). <br> Edge Agent and Edge Hub now support TLS 1.3 for inbound/outbound communication. |
 | [1.4](https://github.com/Azure/azure-iotedge/releases/tag/1.4.0) | Long-term support (LTS) | August 2022 | November 12, 2024 | IoT Edge 1.4 LTS was supported through November 12, 2024 to match the [.NET 6 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle). <br> Automatic image clean-up of unused Docker images. <br> Ability to pass a [custom JSON payload to DPS on provisioning](../iot-dps/how-to-send-additional-data.md#iot-edge-support). <br> Ability to require all modules in a deployment to be downloaded before restart. <br> Use of the TCG TPM2 Software Stack which enables TPM hierarchy authorization values, specifying the TPM index at which to persist the DPS authentication key, and accommodating more [TPM configuration](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml#L276-L302). |
 | [1.3](https://github.com/Azure/azure-iotedge/releases/tag/1.3.0) | Stable | June 2022 | August 2022  | Support for Red Hat Enterprise Linux 8 on AMD and Intel 64-bit architectures.<br>Edge Hub now enforces that inbound/outbound communication uses minimum TLS version 1.2 by default.<br>Updated runtime modules (edgeAgent, edgeHub) based on .NET 6. |
