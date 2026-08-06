@@ -15,8 +15,8 @@ Learn how to use the Microsoft Azure Network Adapter (MANA) component of Azure B
 
 > [!IMPORTANT]
 > The following dates represent the earliest potential placement on MANA-capable hardware:
-> - [MANA-eligible Cobalt 100 and Intel v5 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud: May 26, 2026
-> - [MANA-eligible Intel v1-v4 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud: Timeline under review
+> - [MANA-eligible Cobalt 100 and Intel v5 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in public cloud: May 26, 2026
+> - [MANA-eligible Intel v1-v4 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in public cloud: Timeline under review
 
 ## Compatibility
 
