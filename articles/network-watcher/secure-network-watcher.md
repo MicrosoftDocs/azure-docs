@@ -42,15 +42,15 @@ Network Watcher is primarily a tool for *analyzing* network security. The follow
 
 ## Identity and access management
 
-- **Assign least-privilege roles for Network Watcher operations**: The Network Contributor built-in role grants access to Network Watcher features but intentionally excludes `Microsoft.Storage/*`, `Microsoft.Compute/*`, and `Microsoft.OperationalInsights/workspaces/*` actions. Assign additional permissions only to identities that need to configure flow logs, packet captures, or traffic analytics. For more information, see [RBAC permissions required to use Network Watcher](required-rbac-permissions.md).
+- **Assign least-privilege roles for Network Watcher operations**: The Network Contributor built-in role grants access to Network Watcher features but intentionally excludes `Microsoft.Storage/*`, `Microsoft.Compute/*`, and `Microsoft.OperationalInsights/workspaces/*` actions. Assign additional permissions only to identities that need to configure flow logs, packet captures, or traffic analytics. For more information, see [RBAC permissions required to use Network Watcher](rbac-permissions.md).
 
 - **Create custom RBAC roles for specialized tasks**: Rather than granting Contributor or Owner at the subscription level, create custom roles that include only the Network Watcher actions needed for each team. For example, a monitoring team might need read access to flow logs but not the ability to create packet captures. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 - **Use managed identities for virtual network flow logs**: Configure a user-assigned managed identity to authorize flow log writes to storage accounts. This approach eliminates the need for storage account keys or SAS tokens and aligns with Zero Trust principles. Assign the Storage Blob Data Contributor role to the managed identity on the target storage account. For more information, see [Managed identity for virtual network flow logs](vnet-flow-logs-managed-identity.md).
 
-- **Limit who can initiate packet captures**: Packet capture creates a VM extension and can access raw network traffic. Restrict the `Microsoft.Network/networkWatchers/packetCaptures/write` permission to security and operations teams that have a legitimate need for payload-level inspection. For more information, see [RBAC permissions required to use Network Watcher](required-rbac-permissions.md).
+- **Limit who can initiate packet captures**: Packet capture creates a VM extension and can access raw network traffic. Restrict the `Microsoft.Network/networkWatchers/packetCaptures/write` permission to security and operations teams that have a legitimate need for payload-level inspection. For more information, see [RBAC permissions required to use Network Watcher](rbac-permissions.md).
 
-- **Scope traffic analytics permissions carefully**: Traffic analytics requires permissions on Log Analytics workspaces, data collection rules, and data collection endpoints in addition to Network Watcher. Permissions inherited from management groups aren't supported for traffic analytics—assign them at the subscription or resource group level. For more information, see [RBAC permissions required to use Network Watcher](required-rbac-permissions.md).
+- **Scope traffic analytics permissions carefully**: Traffic analytics requires permissions on Log Analytics workspaces, data collection rules, and data collection endpoints in addition to Network Watcher. Permissions inherited from management groups aren't supported for traffic analytics—assign them at the subscription or resource group level. For more information, see [RBAC permissions required to use Network Watcher](rbac-permissions.md).
 
 ## Data protection
 
@@ -95,7 +95,7 @@ Network Watcher is primarily a tool for *analyzing* network security. The follow
 ## Next steps
 
 - [What is Azure Network Watcher?](network-watcher-overview.md)
-- [RBAC permissions required to use Network Watcher](required-rbac-permissions.md)
+- [RBAC permissions required to use Network Watcher](rbac-permissions.md)
 - [Virtual network flow logs overview](vnet-flow-logs-overview.md)
 - [Traffic analytics](traffic-analytics.md)
 - [Apply Zero Trust principles with traffic analytics](traffic-analytics-zero-trust.md)

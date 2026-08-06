@@ -46,10 +46,6 @@ Your IT administrator must configure the OPC UA connector template for your Azur
 
 An OPC UA server that you can reach from your Azure IoT Operations cluster. If you don't have an OPC UA server, use the OPC PLC simulator from the Azure IoT Operations samples repository.
 
-## Configure a certificate trust list for the connector
-
-[!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
-
 ## Create a device
 
 An Azure IoT Operations deployment can include a sample OPC PLC simulator. To create a device that uses the OPC PLC simulator:

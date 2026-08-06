@@ -39,6 +39,7 @@ Azure Managed Grafana has the following known limitations:
 
 * An Azure Managed Grafana workspace can use only one managed identity: user-assigned or system-assigned.
 
+* [Git Sync](how-to-create-dashboard.md#manage-dashboards-as-code-with-git-sync) requires Grafana version 13 or later and supports GitHub repositories only, with up to 10 repositories and 1,000 resources per repository.
 ### Annotation retention
 
 Azure Managed Grafana automatically removes annotations that exceed the following age and count limits.

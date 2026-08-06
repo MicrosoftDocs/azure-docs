@@ -17,6 +17,8 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Entity functions define operations that read and update small pieces of state, called *durable entities*. Like orchestrator functions, entity functions use a special trigger type called the *entity trigger*. Unlike orchestrator functions, entity functions manage entity state explicitly instead of representing state through control flow.
 Entities help you scale out apps by distributing work across many entities, each with modest state.
 
@@ -114,69 +116,7 @@ Use one of two APIs to define entities in .NET:
 The APIs you use depend on where your C# functions run. An _isolated worker process_ is recommended, but you can also run in the host process.
 
 <details>
-<summary><b>In-process function-based example:</b></summary>
-
-This example shows a simple `Counter` entity implemented as a durable function. It defines three operations—`add`, `reset`, and `get`—that use an integer state.
-
-```csharp
-[FunctionName("Counter")]
-public static void Counter([EntityTrigger] IDurableEntityContext ctx)
-{
-    switch (ctx.OperationName.ToLowerInvariant())
-    {
-        case "add":
-            ctx.SetState(ctx.GetState<int>() + ctx.GetInput<int>());
-            break;
-        case "reset":
-            ctx.SetState(0);
-            break;
-        case "get":
-            ctx.Return(ctx.GetState<int>());
-            break;
-    }
-}
-```
-
-For more information, see [Function-based syntax](../durable-functions/durable-functions-dotnet-entities.md#function-based-syntax).
-
-</details>
-
-<br>
-
-<details>
-<summary><b>In-process class-based example:</b></summary>
-
-This example shows the same `Counter` entity implemented by using classes and methods.
-
-```csharp
-[JsonObject(MemberSerialization.OptIn)]
-public class Counter
-{
-    [JsonProperty("value")]
-    public int CurrentValue { get; set; }
-
-    public void Add(int amount) => this.CurrentValue += amount;
-
-    public void Reset() => this.CurrentValue = 0;
-
-    public int Get() => this.CurrentValue;
-
-    [FunctionName(nameof(Counter))]
-    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
-        => ctx.DispatchAsync<Counter>();
-}
-```
-
-This entity stores state in a `Counter` object that holds the current counter value. Durable Functions serializes and deserializes this object by using the [Json.NET](https://www.newtonsoft.com/json) library.
-
-For more information, see [Defining entity classes](../durable-functions/durable-functions-dotnet-entities.md#define-entity-classes).
-
-</details>
-
-<br>
-
-<details>
-<summary><b>Isolated worker process function-based example:</b></summary>
+<summary><b>Isolated worker process function-based example</b></summary>
 
 The following example shows a function-based `Counter` entity in an isolated worker process. It supports `add`, `reset`, `get`, and `delete`.
 
@@ -218,7 +158,7 @@ public static Task Counter([EntityTrigger] TaskEntityDispatcher dispatcher)
 <br>
 
 <details>
-<summary><b>Isolated worker process class-based example:</b></summary>
+<summary><b>Isolated worker process class-based example</b></summary>
 
 The following example shows the implementation of the `Counter` entity using classes and methods.
 
@@ -245,6 +185,68 @@ public class Counter : TaskEntity<int>
     }
 }
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process function-based example</b></summary>
+
+This example shows a simple `Counter` entity implemented as a durable function. It defines three operations—`add`, `reset`, and `get`—that use an integer state.
+
+```csharp
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
+{
+    switch (ctx.OperationName.ToLowerInvariant())
+    {
+        case "add":
+            ctx.SetState(ctx.GetState<int>() + ctx.GetInput<int>());
+            break;
+        case "reset":
+            ctx.SetState(0);
+            break;
+        case "get":
+            ctx.Return(ctx.GetState<int>());
+            break;
+    }
+}
+```
+
+For more information, see [Function-based syntax](../durable-functions/durable-functions-dotnet-entities.md#function-based-syntax).
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process class-based example</b></summary>
+
+This example shows the same `Counter` entity implemented by using classes and methods.
+
+```csharp
+[JsonObject(MemberSerialization.OptIn)]
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+
+    public void Reset() => this.CurrentValue = 0;
+
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
+}
+```
+
+This entity stores state in a `Counter` object that holds the current counter value. Durable Functions serializes and deserializes this object by using the [Json.NET](https://www.newtonsoft.com/json) library.
+
+For more information, see [Defining entity classes](../durable-functions/durable-functions-dotnet-entities.md#define-entity-classes).
 
 </details>
 

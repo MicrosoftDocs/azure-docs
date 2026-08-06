@@ -29,6 +29,12 @@ By default, an MQTT broker:
 
 Before you begin, [install or configure Azure IoT Operations](../get-started-end-to-end-sample/quickstart-deploy.md). Use the following options to test connectivity to the MQTT broker with MQTT clients in a nonproduction environment.
 
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for values that you choose: `LISTENER` (the name of the broker listener), `LISTENER_PORT` (the listener port), `NODE_PORT` (the static node port), and `HOST_PORT` (the local port used for port forwarding). Set each one before you run the related commands.
+
 ## Connect to the default listener inside the cluster
 
 The first option is to connect from within the cluster. This option uses the default configuration and requires no extra updates. The following examples show how to connect from within the cluster by using plain Alpine Linux and a commonly used MQTT client by using the service account and default root Certificate Authority (CA) certificate.
@@ -138,7 +144,7 @@ For example, to create a new broker listener with the `NodePort` service type, s
 To create a new broker listener with the `NodePort` service type, use the following Azure CLI command.
 
 ```azurecli
-az iot ops broker listener port add --instance <AioInstanceName> --resource-group <ResourceGroupName> --listener <ListenerName> --port <ListenerServicePort> --service-type NodePort --nodeport <static port value>
+az iot ops broker listener port add --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --listener $LISTENER --port $LISTENER_PORT --service-type NodePort --nodeport $NODE_PORT
 ```
 
 Optionally, for testing purposes only, you can use the `--add-insecure-listener` flag to create a listener without authentication and TLS. The `--add-insecure-listener` flag is only available on the instance deployment operation via the `az iot ops create` command. To add a port without authentication and TLS after deployment, you can use the `listener port add` operation as in the previous example, but omit the options for authentication or TLS.
@@ -195,7 +201,7 @@ resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -217,7 +223,7 @@ spec:
   brokerRef: default
   serviceType: NodePort
   ports:
-    - port: 1883
+    - port: 1884
       nodePort: 31884 # Must be in the range 30000-32767
       authenticationRef: default # Add BrokerAuthentication reference, omit setting turns off authentication for testing only
       tls:
@@ -255,10 +261,10 @@ The output should look similar to the following example:
 ...
 ```
 
-Use the external IP address and the node port to connect to the broker. For example, to publish a message to the broker:
+Use the external IP address and the node port to connect to the broker. Set the `EXTERNAL_IP` environment variable to the external IP address from the output. For example, to publish a message to the broker:
 
 ```bash
-mosquitto_pub --host <EXTERNAL_IP> --port 31884 --message "hello" --topic "world" --debug # Add authentication and TLS options matching listener settings
+mosquitto_pub --host $EXTERNAL_IP --port 31884 --message "hello" --topic "world" --debug # Add authentication and TLS options matching listener settings
 ```
 
 If there's no external IP in the output, you might be using a Kubernetes setup that doesn't expose the node's external IP address by default, like many setups of k3s, k3d, or minikube. In that case, you can access the broker with the internal IP along with the node port from machines on the same network. For example, to get the internal IP address of the node:
@@ -366,7 +372,7 @@ resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listene
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -416,10 +422,10 @@ NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)  
 aio-broker-loadbalancer   LoadBalancer   10.x.x.x        x.x.x.x       1883:30382/TCP   83s
 ```
 
-Then an external IP was assigned to the load balancer service. You can use the external IP address and the port to connect to the broker. For example, to publish a message to the broker:
+Then an external IP was assigned to the load balancer service. You can use the external IP address and the port to connect to the broker. Set the `EXTERNAL_IP` environment variable to the external IP address from the output. For example, to publish a message to the broker:
 
 ```bash
-mosquitto_pub --host <EXTERNAL_IP> --port 1883 --message "hello" --topic "world" --debug # Add authentication and TLS options matching listener settings
+mosquitto_pub --host $EXTERNAL_IP --port 1883 --message "hello" --topic "world" --debug # Add authentication and TLS options matching listener settings
 ```
 
 If the external IP isn't assigned, you might need to use port forwarding or a virtual switch to access the broker.
@@ -432,7 +438,7 @@ With [minikube](https://minikube.sigs.k8s.io/docs/), [kind](https://kind.sigs.k8
 
     ```bash
     # Using aio-broker-loadbalancer service name and listener port 1883 as example
-    kubectl port-forward --namespace azure-iot-operations service/aio-broker-loadbalancer <HOST_PORT>:1883
+    kubectl port-forward --namespace azure-iot-operations service/aio-broker-loadbalancer $HOST_PORT:1883
     ```
 
 1. Leave the port forwarding command running in the terminal.
@@ -487,7 +493,7 @@ k3d cluster create --port '1883:1883@loadbalancer'
 Or to update an existing cluster:
 
 ```bash
-k3d cluster edit <CLUSTER_NAME> --port-add '1883:1883@loadbalancer'
+k3d cluster edit $CLUSTER_NAME --port-add '1883:1883@loadbalancer'
 ```
 
 Then, use `localhost` and the port to connect to the broker. For example, to publish a message to the broker:
@@ -582,7 +588,7 @@ resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)

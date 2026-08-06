@@ -15,6 +15,27 @@ appliesto:
 
 Find out what's new in Azure Redis.
 
+## July 2026
+
+### Creation block for Basic, Standard, and Premium tiers removed for existing customers
+
+To simplify the migration journey for existing customers, Microsoft removed the planned October 2026 creation block for existing customers in all clouds. Your tenant qualifies as an existing customer if any subscription in the tenant had an Azure Cache for Redis instance before April 1, 2026. Qualifying tenants can continue creating Basic, Standard, and Premium caches until retirement on September 30, 2028.
+
+The following are the updated dates for Basic, Standard, and Premium tiers in **Azure public cloud**:
+
+| Date | Description |
+|------|-------------|
+| April 1, 2026 | Creating new caches is blocked for new customers. Existing customers can continue creating caches until retirement. |
+| September 30, 2028 | All Basic, Standard, and Premium caches are retired. |
+
+The following are the updated dates for Basic, Standard, and Premium tiers in **Azure Government** and **Microsoft Azure operated by 21Vianet (Azure in China)**:
+
+| Date | Description |
+|------|-------------|
+| September 30, 2028 | All Basic, Standard, and Premium caches are retired. There is no creation block before retirement. |
+
+Migrate all instances to Azure Managed Redis by September 30, 2028. Enterprise and Enterprise Flash timelines are unchanged.
+
 ## April 2026
 
 ### Tooling to migrate Azure Cache for Redis Enterprise instance to Azure Managed Redis

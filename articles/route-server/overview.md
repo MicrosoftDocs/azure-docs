@@ -27,6 +27,7 @@ Azure Route Server provides essential capabilities for modern cloud networking:
 - **High availability**: Built-in redundancy and fault tolerance through Azure's managed infrastructure  
 - **Standard protocol support**: Works with any NVA that supports BGP routing
 - **Flexible deployment**: Deploy in new or existing virtual networks without infrastructure changes
+- **route maps**: Control route advertisements by filtering routes, aggregating prefixes, and modifying BGP attributes such as AS-PATH and Community. For more information, see [About route maps](route-maps-about.md).
 
 ## How Azure Route Server works
 
@@ -115,6 +116,7 @@ For answers to frequently asked questions about Azure Route Server, see [Azure R
 Get started with Azure Route Server and explore advanced scenarios:
 
 - [Quickstart: Create an Azure Route Server using the Azure portal](quickstart-create-route-server-portal.md)
+- [About route maps for Azure Route Server](route-maps-about.md)
 - [Tutorial: Configure BGP peering between Azure Route Server and network virtual appliance (NVA)](peer-route-server-with-virtual-appliance.md)
 - [Multi-region networking with Azure Route Server](multiregion.md)
 - Training module: [Introduction to Azure Route Server](/training/modules/intro-to-azure-route-server)

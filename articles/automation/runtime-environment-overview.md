@@ -25,8 +25,7 @@ This article provides an overview on Runtime environment, scope and its capabili
 You can change these components independently without impacting the other.
 
 > [!NOTE]
-> Runtime environments are supported in all Public and Gov clouds.
-> You can associate each runbook with a single Runtime environment. However, a Runtime environment could be linked to multiple runbooks.
+> Runtime environments are supported in all Public and Gov clouds. You can associate each runbook with a single Runtime environment. However, a Runtime environment could be linked to multiple runbooks.
 
 
 ## Components of Runtime environment

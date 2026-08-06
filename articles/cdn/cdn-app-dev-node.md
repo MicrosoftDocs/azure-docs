@@ -4,7 +4,7 @@ description: Learn how to create a simple Node.js console application that demon
 services: cdn
 author: iamwilliew
 manager: akashdubey
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: how-to
 ms.date: 02/28/2026
 ms.author: wwilliams

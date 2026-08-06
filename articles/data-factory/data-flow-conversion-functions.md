@@ -14,6 +14,8 @@ ms.date: 09/26/2024
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 This article provides details about expressions and functions supported by Azure Data Factory and Azure Synapse Analytics in mapping data flows.

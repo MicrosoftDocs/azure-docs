@@ -8,7 +8,7 @@ ms.reviewer: glenga
 ms.date: 05/21/2026
 ms.topic: quickstart
 ms.service: connector-namespace
-ms.custom: ai-assisted
+ms.custom: ai-assisted, references_regions
 zone_pivot_groups: connector-namespace-hosted-servers
 # Customer intent: As a developer, I want to create a hosted MCP server in my connector namespace so that AI agents and MCP-aware clients can discover and call tools without managing infrastructure.
 ---
@@ -18,6 +18,8 @@ zone_pivot_groups: connector-namespace-hosted-servers
 > [!IMPORTANT]
 > This preview feature is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> During the preview, hosted MCP servers are available in the following regions: **West Central US, East Asia, Central US, and North Europe**.
 
 In this quickstart, you create a [hosted Model Context Protocol (MCP) server](./connector-namespace-hosted-mcp.md) in [Connector Namespace](./connector-namespace-overview.md) and connect it to MCP clients. Use the server selector at the top of this page to choose the server that you want to deploy.
 
@@ -26,6 +28,16 @@ MCP servers are a first-class resource in Connector Namespace. Connector Namespa
 When you create a hosted MCP server in a namespace, the platform runs a prebuilt image of the server in dedicated compute that it provisions. You control server configuration, environment variables, and parameters. The namespace handles hosting, scaling, and credential management. AI agents like Copilot, custom agents, or any MCP-aware client discover and call the server's tools by using the namespace's connection model.  
 
 Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overview.md#key-concepts), which are platform-managed implementations built on connectors. The namespace handles tool definitions and configuration for managed servers.
+
+::: zone pivot="sql"
+
+## Deploy using Azure Developer CLI
+
+The easiest way to deploy a SQL MCP server is to go to the [azure-sql-mcp](https://github.com/microsoft/sql-server-samples/tree/master/samples/applications/azure-sql-mcp) sample and follow README instructions to deploy using the Azure Developer CLI or `azd`. The sample contains bicep files that allow you to provision a Connector Namespace, SQL MCP server, SQL database, and other required Azure resources with just one command. 
+
+If you prefer to step through deploying a SQL MCP server and required resources from beginning to end, follow the instructions below. 
+
+::: zone-end
 
 ## Prerequisites
 
@@ -46,9 +58,6 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 - [Data API builder (DAB) CLI](/azure/data-api-builder/how-to-install-cli) installed.
 
 ::: zone-end
-
-> [!NOTE]
-> During the preview, hosted MCP servers are available in the following regions: West Central US, East Asia, Central US, and North Europe.
 
 ::: zone pivot="sql"
 
@@ -180,19 +189,19 @@ The SQL hosted MCP server is built on [Data API builder (DAB)](/azure/data-api-b
 
 ::: zone pivot="playwright"
 
-1. Search for **Playwright** and select it to create the server.
+6. Search for **Playwright** and select it to create the server.
 
 ::: zone-end
 
 ::: zone pivot="sql"
 
-1. Search for **Azure SQL** and select it to create the server.
+6. Search for **SQL MCP Server** and select it to create the server.
 
-1. In the creation window, select **Manage Identity** for the outbound authentication method.  
+7. In the creation window, select **Manage Identity** for the outbound authentication method.  
 
-1. Upload the DAB configuration file generated earlier.
+8. Upload the DAB configuration file generated earlier.
 
-1. Select **Create**.
+9. Select **Create**.
 
 ::: zone-end
 
@@ -254,13 +263,13 @@ Replace `<your-connector-namespace-name>` with the name of your Connector Namesp
 
 ::: zone pivot="playwright"
 
-1. Open Copilot agent mode and ask "What is the closest pizzeria to 11 Times Square?"
+4. Open Copilot agent mode and ask "What is the closest pizzeria to 11 Times Square?"
 
 ::: zone-end
 
 ::: zone pivot="sql"
 
-1. Open Copilot agent mode and ask "What tables are available?"
+4. Open Copilot agent mode and ask "What tables are available?"
 
 ::: zone-end
 
@@ -290,7 +299,7 @@ Replace `<your-connector-namespace-name>` with the name of your Connector Namesp
 
 ::: zone pivot="playwright"
 
-1. Call a specific tool. For example, the following command calls the `browser_navigate` tool:
+4. Call a specific tool. For example, the following command calls the `browser_navigate` tool:
 
    ```bash
    npx @modelcontextprotocol/inspector --cli \
@@ -306,7 +315,7 @@ Replace `<your-connector-namespace-name>` with the name of your Connector Namesp
 
 ::: zone pivot="sql"
 
-1. Call a specific tool. For example, the following command calls the `describe_entities` tool to list available entities:
+4. Call a specific tool. For example, the following command calls the `describe_entities` tool to list available entities:
 
    ```bash
    npx @modelcontextprotocol/inspector --cli \
@@ -318,7 +327,7 @@ Replace `<your-connector-namespace-name>` with the name of your Connector Namesp
    --tool-arg 'nameOnly=true'
    ```
 
-1. Call the `read_records` tool to retrieve records from an entity (`Books`):
+5. Call the `read_records` tool to retrieve records from an entity (`Books`):
 
    ```bash
    npx @modelcontextprotocol/inspector --cli \

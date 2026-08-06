@@ -13,6 +13,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 You can use an Azure Data Factory managed virtual network to securely connect your data sources to a virtual network that the Data Factory service manages. By using this capability, you can establish a private and isolated environment for your data integration and orchestration processes.
 
 When you use a managed virtual network, you combine the data integration and orchestration capabilities in Data Factory with the security and flexibility of Azure virtual networks. It empowers you to build robust, scalable, and secure data integration pipelines that seamlessly connect to your network resources, whether they're on-premises or in the cloud.

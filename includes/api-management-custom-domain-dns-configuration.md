@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 01/29/2026
-ms.author: danlep
+ms.author: patricka
 ms.custom:
 ---
 ### CNAME record

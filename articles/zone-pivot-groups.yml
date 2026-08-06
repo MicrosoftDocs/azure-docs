@@ -27,7 +27,7 @@ groups:
     title: Azure portal
   - id: python
     title: Python
-# Owner: dlepow
+# Owner: patricka
 - id: api-management-credential-auth-scenario
   title: Authentication scenario
   prompt: Choose authorization credential
@@ -1134,15 +1134,6 @@ groups:
   - id: programming-language-java
     title: Java
 # Owner: alkohli
-- id: azure-stack-edge-device-deployment
-  title: Azure Stack Edge device deployment
-  prompt: Choose deployment type
-  pivots:
-  - id: single-node
-    title: Single node device
-  - id: two-node
-    title: Two node cluster
-# Owner: alkohli
 - id: data-box-shipping
   title: Data Box shipping
   prompt: Choose shipping location
@@ -1709,13 +1700,11 @@ groups:
   prompt: Choose how to create the workflow configuration
   pivots:
   - id: method-manual
-    title: Manual
+    title: Workflow template
   - id: method-portal
     title: Azure portal
-  - id: method-cli
-    title: Azure CLI
   - id: method-template
-    title: GitHub Actions template
+    title: GitHub marketplace
 - id: azure-virtual-network-manager-quickstart-options
   title: Azure Virtual Network Manager Quickstart Scope Options
   prompt: Choose a scope option

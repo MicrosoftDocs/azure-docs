@@ -5,7 +5,7 @@ services: dns
 author: asudbring
 ms.service: azure-dns
 ms.topic: concept-article
-ms.date: 09/24/2024
+ms.date: 06/01/2026
 ms.author: allensu
 # Customer intent: "As a DNS administrator, I want to use alias records in Azure DNS, so that I can dynamically reference Azure resources and prevent dangling DNS records while ensuring quick updates to DNS entries when underlying resources change."
 ---
@@ -29,8 +29,8 @@ In the following example, an alias named **vm1** is added that points to the pub
 
    <br><img src="./media/dns-alias/add-record-set.png" alt="A screenshot showing how to add an alias record set." width="50%">
 
-> [!NOTE]
-> If you intend to use an alias record for the A or AAAA record types to point to an [Azure Traffic Manager profile](../traffic-manager/quickstart-create-traffic-manager-profile.md) you must make sure that the Traffic Manager profile has only [external endpoints](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). You must provide the IPv4 or IPv6 address for external endpoints in Traffic Manager. You can't use fully qualified domain names (FQDNs) in endpoints. Ideally, use static IP addresses.
+> [!TIP]
+> For new Traffic Manager-backed DNS configurations, consider using [Traffic Manager Linked Records](dns-traffic-manager-linked-records.md) instead of alias records. Traffic Manager Linked Records return endpoint IP addresses directly to clients without an intermediate CNAME hop and provide stronger endpoint type enforcement through [Strictly Typed Profiles](../traffic-manager/traffic-manager-strictly-typed-profiles.md). Both features are currently in PREVIEW.
 
 ## Capabilities
 
@@ -39,7 +39,7 @@ In the following example, an alias named **vm1** is added that points to the pub
    > [!NOTE]
    > There's a current limit of 50 alias records sets per resource.
 
-- **Point to a Traffic Manager profile from a DNS A/AAAA/CNAME record set** - You can create an A/AAAA or CNAME record set and use alias records to point it to a Traffic Manager profile. It's especially useful when you need to route traffic at a zone apex, as traditional CNAME records aren't supported for a zone apex. For example, say your Traffic Manager profile is myprofile.trafficmanager.net and your business DNS zone is contoso.com. You can create an alias record set of type A/AAAA for contoso.com (the zone apex) and point to myprofile.trafficmanager.net.
+- **Point to a Traffic Manager profile from a DNS A/AAAA/CNAME record set** - For new configurations, use [Traffic Manager Linked Records](dns-traffic-manager-linked-records.md), which return endpoint IP addresses directly without an intermediate CNAME hop and provide stronger type enforcement through [Strictly Typed Profiles](../traffic-manager/traffic-manager-strictly-typed-profiles.md). Alias records pointing to Traffic Manager profiles remain supported for backward compatibility.
 - **Point to an Azure Content Delivery Network (CDN) endpoint** - This alias type is useful when you create static websites using Azure storage and Azure CDN.
 - **Point to another DNS record set within the same zone** - Alias records can reference other record sets of the same type. For example, a DNS CNAME record set can be an alias to another CNAME record set. This arrangement is useful if you want some but not all record sets to be aliases.
 - **Point to an Azure Front Door endpoint** - This allows you to create a custom domain and enable your endpoint to use this domain in the end-user request. Having a visible domain name can be convenient for your customers and useful for branding purposes.
@@ -87,4 +87,5 @@ To learn more about alias records, see the following articles:
 
 - [Tutorial: Configure an alias record to refer to an Azure public IP address](tutorial-alias-pip.md)
 - [Tutorial: Configure an alias record to support apex domain names with Traffic Manager](tutorial-alias-tm.md)
+- [Traffic Manager Linked Records overview](dns-traffic-manager-linked-records.md)
 - [DNS FAQ](./dns-faq.yml)

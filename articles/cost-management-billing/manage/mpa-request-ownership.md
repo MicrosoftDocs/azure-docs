@@ -20,8 +20,8 @@ A partner can request to transfer their customer's Enterprise subscriptions, res
 
 Supported product (subscriptions, reservations and savings plans) billing ownership transfer options include:
 
-- An Enterprise Agreement transfer to an Azure plan under the MPA
-- An enterprise Microsoft Customer Agreement transfer to an Azure plan under the MPA
+- A Direct Enterprise Agreement transfer to an Azure plan under the MPA
+- An Enterprise Microsoft Customer Agreement transfer to an Azure plan under the MPA
 
 This feature is available only to the following partners:
 

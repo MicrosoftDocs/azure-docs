@@ -110,7 +110,7 @@ az role assignment create --role "Azure Event Hubs Data Sender" --assignee $PRIN
 
 Use the operations experience web UI to create and configure a data flow in your cluster that:
 
-- Renames the `temperature` field in the incoming message to `TemperatureF`.
+- Renames the `temperature` field in the incoming message to `ThermostatTemperatureF`.
 - Adds a field called `AssetId` that contains the name of the asset.
 - Forwards the transformed messages from the MQTT topic to the event hub you created.
 

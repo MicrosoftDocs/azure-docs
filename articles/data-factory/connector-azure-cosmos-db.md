@@ -17,6 +17,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Cosmos DB for NoSQL, and use Data Flow to transform data in Azure Cosmos DB for NoSQL. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 > [!NOTE]

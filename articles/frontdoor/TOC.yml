@@ -68,7 +68,7 @@
       - name: Apex domains
         href: apex-domain.md
       - name: Add a root or apex domain
-        href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-standard-premium
+        href: apex-domain-onboard.md
       - name: Wildcard domains
         href: front-door-wildcard-domain.md?pivots=front-door-standard-premium
   - name: Rules engine
@@ -92,7 +92,7 @@
     - name: URL redirect
       href: front-door-url-redirect.md?pivots=front-door-standard-premium
     - name: Cross-Origin Resource Sharing (CORS)
-      href: standard-premium/troubleshoot-cross-origin-resources.md
+      href: cross-origin-resource-sharing.md
   - name: Origins
     items:
     - name: Origins and origin groups
@@ -165,11 +165,9 @@
         href: ../cdn/tier-migration.md?toc=/azure/frontdoor/toc.json
       - name: Migrate from Azure CDN (classic) to Azure Front Door
         href: ../cdn/migrate-tier.md?toc=/azure/frontdoor/toc.json
-    - name: Other CDN to Front Door Standard/Premium
-      items:
-      - name: Migrate CDN provider
-        href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
-    - name: AFD/CDN Classic migration FAQ
+    - name: Migration best practices
+      href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
+    - name: Migration FAQ
       href: migration-faq.md
     - name: Post migration Dev-Ops experience
       href: post-migration-dev-ops-experience.md
@@ -311,8 +309,6 @@
           href: scripts/custom-domain.md
       - name: Configure HTTPS on a custom domain
         href: front-door-custom-domain-https.md
-      - name: Add a root or apex domain
-        href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-classic
       - name: Set up a Rules Engine (classic)
         href: front-door-tutorial-rules-engine.md
     - name: CDN (classic) from Microsoft

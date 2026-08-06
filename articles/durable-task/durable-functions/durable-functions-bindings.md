@@ -14,6 +14,8 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Bindings for Durable Functions in Azure Functions
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 The [Durable Functions](../common/what-is-durable-task.md) extension provides trigger and output bindings that connect your code to the Durable Functions runtime for workflow orchestration. Use these bindings to define orchestrator functions, activity functions, entity functions, and client functions that start and manage durable workflows.
 
 This article explains how to configure and use each binding (the orchestration trigger, activity trigger, entity trigger, and orchestration client) with code samples for every supported language.

@@ -12,6 +12,8 @@ ms.subservice: data-movement
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article describes a solution template that you can use to replicate multiple ODP objects from SAP via SAP CDC connector to Azure Data Lake Gen2 in Delta format with key partition.
 
 ## About this solution template

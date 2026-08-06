@@ -12,6 +12,8 @@ ms.date: 09/26/2024
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article describes how to let self-hosted integration runtime autoupdate to the latest version and how Azure Data Factory (ADF) manages the versions of self-hosted integration runtime.
 
 ## How to check your self-hosted integration runtime version

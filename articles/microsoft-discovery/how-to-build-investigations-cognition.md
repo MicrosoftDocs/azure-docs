@@ -19,7 +19,7 @@ This guide walks you through setting up a shared session that uses the [Discover
 Before you begin, verify you have:
 
 - A Microsoft Discovery workspace with at least one project configured.
-- A chat model deployment in your project. By default, your project uses the `gpt-5-4` chat model deployment (model: `gpt-5.4`). The Discovery Engine requires this model for task validation. See [Create chat model deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment) for setup instructions.
+- A chat model deployment in your project. By default, your project uses the `gpt-5-4` chat model deployment (model: `gpt-5.4`). The Discovery Engine requires this model for task validation. See [Create chat model deployment](quickstart-infrastructure.md#6-create-chat-model-deployment) for setup instructions.
 - At least one agent deployed in your project (see [Discovery Agent concepts](concept-discovery-agent.md)).
 - Access to Discovery Studio in your browser.
 
