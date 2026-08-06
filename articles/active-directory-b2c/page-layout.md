@@ -505,13 +505,13 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Removed `ReplaceAll` function for IE11 compatibility.
 
 **1.2.4**
-- Remove `ReplaceAll` function for IE11 compatibility.
-
-**1.2.3**
 - Fixed accessibility bugs.
 
+**1.2.3**
+- Updated HandlebarJS version to 4.7.7.
+
 **1.2.2**
-- Updated HandlebarJS version to 4.7.7
+- Set up `H1` heading and enable by default.
 
 **1.2.1**
 - Updated jQuery version to 3.5.1.
