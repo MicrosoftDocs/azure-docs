@@ -2,7 +2,7 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management-group scope in an Azure Resource Manager template.
 ms.topic: article
-ms.date: 06/26/2026
+ms.date: 08/06/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---
 
@@ -155,7 +155,7 @@ Resources defined within the **resources** section of the template are applied t
 
 ### Scope to another management group
 
-To target another management group, add a nested deployment and specify the `scope` property. Set the `scope` property to a value in the `Microsoft.Management/managementGroups/<mg-name>` format.
+To target another management group, add a nested deployment and specify the `scope` property. Set the `scope` property to the fully qualified resource ID of the management group. Use the [`tenantResourceId()`](template-functions-resource.md#tenantresourceid) function to construct the ID in the `/providers/Microsoft.Management/managementGroups/<mg-name>` format.
 
 ```json
 {
@@ -167,7 +167,7 @@ To target another management group, add a nested deployment and specify the `sco
     }
   },
   "variables": {
-    "mgId": "[format('Microsoft.Management/managementGroups/{0}', parameters('mgName'))]"
+    "mgId": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('mgName'))]"
   },
   "resources": [
     {
@@ -376,7 +376,7 @@ To deploy a template that moves an existing Azure subscription to a new manageme
 
 ## Azure Policy
 
-Custom policy definitions that are deployed to the management group are extensions of the management group. To get the ID of a custom policy definition, use the [`extensionResourceId()`](template-functions-resource.md#extensionresourceid) function. Built-in policy definitions are tenant-level resources. To get the ID of a built-in policy definition, use the [`tenantResourceId()`](template-functions-resource.md#tenantresourceid) function.
+Custom policy definitions that are deployed to the management group are extensions of the management group. To get the ID of a custom policy definition, use the [`extensionResourceId()`](template-functions-resource.md#extensionresourceid) function. The first argument must be the fully qualified resource ID of the management group. Built-in policy definitions are tenant-level resources. To get the ID of a built-in policy definition, use the [`tenantResourceId()`](template-functions-resource.md#tenantresourceid) function.
 
 The following example shows how to [define](../../governance/policy/concepts/definition-structure.md) a policy at the management-group level and assign it:
 
