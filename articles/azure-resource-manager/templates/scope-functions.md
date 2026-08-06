@@ -33,7 +33,7 @@ Consider the following when deploying to different scopes:
   "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
   ```
 
-* Use the [`extensionResourceId()`](template-functions-resource.md#extensionresourceid) function for resources that implement as extensions of the management group. Custom policy definitions that are deployed to the management group are extensions of the management group. The first argument to `extensionResourceId()` must be the fully qualified resource ID of the management group.
+* Use the [`extensionResourceId()`](template-functions-resource.md#extensionresourceid) function for resources that are implemented as extensions of the management group. Custom policy definitions that you deploy to the management group are extensions of the management group. The first argument to `extensionResourceId()` must be the fully qualified resource ID of the management group.
 
   To get the resource ID for a custom policy definition at the management-group level, use:
 

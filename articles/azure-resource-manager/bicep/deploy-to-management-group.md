@@ -252,7 +252,7 @@ To deploy a template that moves an existing Azure subscription to a new manageme
 
 ## Azure Policy
 
-Custom policy definitions that are deployed to the management group are extensions of the management group. To get the ID of a custom policy definition, use the [extensionResourceId()](./bicep-functions-resource.md#extensionresourceid) function. When you call this function directly, the first argument must be the fully qualified resource ID of the management group. This requirement prevents failures when the deployment starts from a lower scope, such as a subscription or resource group.
+Custom policy definitions that you deploy to the management group are extensions of the management group. To get the ID of a custom policy definition, use the [extensionResourceId()](./bicep-functions-resource.md#extensionresourceid) function. When you call this function directly, the first argument must be the fully qualified resource ID of the management group. This requirement prevents failures when the deployment starts from a lower scope, such as a subscription or resource group.
 
 In Bicep, prefer the symbolic name of the policy definition and its `id` property, as shown in the following example. Built-in policy definitions are tenant level resources. To get the ID of a built-in policy definition, use the [tenantResourceId()](./bicep-functions-resource.md#tenantresourceid) function.
 
