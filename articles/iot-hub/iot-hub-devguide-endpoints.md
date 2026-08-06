@@ -172,7 +172,9 @@ You can route device-to-cloud messages to a [Microsoft Fabric eventstream](/fabr
 > [!NOTE]
 > Routing to Microsoft Fabric Eventstreams is in public preview. This capability applies to both IoT Hub and IoT Hub Gen 2 instances.
 
-To route messages to a Fabric eventstream, create a route in IoT Hub, add a Fabric Eventstream endpoint, and connect it to a Fabric eventstream that uses a custom endpoint (custom app) source. During public preview, you manually copy the Event Hubs namespace and Event Hub name from the Fabric custom endpoint tile into the IoT Hub endpoint configuration. Automatic configuration is planned before general availability.
+To route messages to a Fabric eventstream, create a route in IoT Hub, add a Fabric Eventstream endpoint, and connect it to a Fabric eventstream that uses a custom endpoint (custom app) source.
+
+In your Microsoft Fabric workspace, select the custom endpoint source tile you want to connect to on your published Eventstream. If a custom endpoint source tile doesn't exist on your Eventstream, [create a new custom endpoint source tile](/fabric/real-time-intelligence/event-streams/add-source-custom-app?pivots=basic-features). Once the source tile is selected, navigate to the **Details** pane. Select **Event Hub** as the **Protocol**. Select **Entra ID Authentication** and access the connection details. To ensure Entra ID Authentication is set up correctly for your Fabric workspace, see [Connect to Eventstream using Microsoft Entra ID authentication](/fabric/real-time-intelligence/event-streams/custom-endpoint-entra-id-auth).
 
 #### Authentication
 
@@ -188,10 +190,10 @@ Messages routed to a Fabric Eventstream endpoint conform to the [CloudEvents](ht
 
 [Message enrichment](iot-hub-message-enrichments-overview.md) property names for Fabric Eventstream endpoints have the following restrictions:
 
-* Names must start with a lowercase letter.
-* Names can contain only lowercase letters and digits.
-* Hyphens, underscores, periods, and camelCase aren't allowed.
-* Names can be at most 20 characters long.
+- Names must start with a lowercase letter.
+- Names can contain only lowercase letters and digits.
+- Hyphens, underscores, periods, and camelCase aren't allowed.
+- Names can be at most 20 characters long.
 
 #### Tooling
 

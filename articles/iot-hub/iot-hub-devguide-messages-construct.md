@@ -6,7 +6,7 @@ author: sethmanheim
 
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 06/26/2025
+ms.date: 08/06/2026
 ms.author: sethm
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
@@ -163,7 +163,8 @@ The following example shows a logical view of a telemetry message routed to an E
 <!-- TODO (WI 599257): Verify the exact per-endpoint representation (for example, how system properties surface as AMQP annotations vs. application properties at an Event Hubs endpoint) with the feature team before publishing. -->
 
 > [!NOTE]
-> Routing to a Microsoft Fabric Eventstream endpoint uses the CloudEvents schema instead of the schema described here. For more information, see [Microsoft Fabric Eventstreams as a routing endpoint](iot-hub-devguide-endpoints.md#microsoft-fabric-eventstreams-as-a-routing-endpoint-preview).
+> Routing to a Microsoft Fabric Eventstream endpoint uses the CloudEvents schema instead of the schema described here. For more information, see
+[Microsoft Fabric Eventstreams as a routing endpoint](iot-hub-devguide-endpoints.md#microsoft-fabric-eventstreams-as-a-routing-endpoint-preview).
 
 ## Message size
 
