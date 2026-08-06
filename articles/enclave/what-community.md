@@ -18,7 +18,7 @@ Communities are isolated hub networks that can securely and logically group seve
 ![Diagram showing a simplified view of a community with the community managed resources and three enclaves.](./media/simple-community-managed-resources-three-enclaves.png)
 
 
-Communities come with the following primary platform-managed and platform-deployed resources:
+Communities include the following primary Azure Enclave managed and Azure Enclave deployed resources:
 - Isolated [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) hub networks. By default, these communities aren't connected to the rest of the internet outside of [certain authorized Microsoft services](/azure/azure-portal/azure-portal-safelist-urls?tabs=public-cloud).
 - [Azure Firewall](/azure/firewall/overview). By default, all communities are deployed with a secure-by-default Azure Firewall through which all community network traffic routes.
 - [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview). By default, all community resources are integrated into Azure Log Analytics, ensuring all activities within a community are effectively monitored, logged, and audited. More specifically, all resources deployed in a community send their [diagnostic platform logs](/azure/azure-monitor/essentials/diagnostic-settings) to this Log Analytics Workspace.
@@ -31,7 +31,7 @@ When you create new enclaves, Azure Enclave uses an IP address management strate
 
 > [!NOTE]
 > 
-> The platform reserves `192.168.0.0/16` to manage enclaves deployed within a community. Don't create communities with any of these address spaces as that action creates overlapping conflicts with the platform-managed enclave management IP ranges.
+> The platform reserves `192.168.0.0/16` to manage enclaves deployed within a community. Don't create communities with any of these address spaces as that action creates overlapping conflicts with the Azure Enclave managed enclave management IP ranges.
 
 ## Community managed resource group
 When you create a community, the Azure Enclave resource provider also creates and manages a separate resource group called the community managed resource group. For more details regarding the community managed resource group, learn more about [Best practices for Azure Enclave](./best-practices.md). 
