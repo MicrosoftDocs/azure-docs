@@ -14,9 +14,12 @@ ms.author: mattmcinnes
 Learn how to use the Microsoft Azure Network Adapter (MANA) component of Azure Boost to improve the performance and availability of virtual machines (VMs) in Azure. MANA is a next-generation network interface that provides stable forward-compatible device drivers for Windows and Linux operating systems. MANA hardware and software are engineered by Microsoft and take advantage of the latest advancements in cloud networking technology.
 
 > [!IMPORTANT]
-> The following dates represent the earliest potential placement on MANA-capable hardware:
-> - [MANA-eligible Cobalt 100 and Intel v5 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in public cloud: May 26, 2026
-> - [MANA-eligible Intel v1-v4 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in public cloud: Timeline under review
+> The following dates represent the earliest potential placement on MANA-capable hardware in public cloud:
+> - May 26, 2026
+>     - Intel v5: Dv5, Dsv5, Ddv5, Ddsv5, Dlsv5, Dldsv5, Ev5, Esv5, Edv5, Edsv5
+>     - Cobalt 100 v6: Dpsv6, Dpdsv6, Dplsv6, Dpldsv6, Epsv6, Epdsv6
+> - Timeline under review
+>     - Intel v1-v4: Dsv4, Dv4, Ddsv4, Ddv4, Esv4, Ev4, Edsv4, Edv4, Dsv3, Dv3, Esv3, Ev3, Bsv2, Dv2, Dsv2, Av2, Fsv2, Fs, F, G, GS, Ls 
 
 ## Compatibility
 
