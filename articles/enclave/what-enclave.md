@@ -22,7 +22,7 @@ Enclaves give you boundaries for security, governance, and resource isolation. E
 
 ## Architecture of an enclave
 
-Enclaves come with the following platform-managed resources:
+Enclaves come with the following Azure Enclave managed resources:
 
 **Networking**
 - **Azure Virtual Network with Subnets**: An isolated [Virtual Network](/azure/virtual-network/virtual-networks-overview) that you define and manage, restricted to [authorized Microsoft services](/azure/azure-portal/azure-portal-safelist-urls) and controlled through [Network Security Groups](/azure/virtual-network/network-security-groups-overview).
@@ -36,7 +36,7 @@ Enclaves come with the following platform-managed resources:
 
 ## Enclave managed resource group 
 
-When you create an enclave, the Azure Enclave resource provider creates a managed resource group to hold all platform-managed resources. A [deny assignment](/azure/role-based-access-control/deny-assignments) prevents unauthorized modifications to this resource group, protecting enclave isolation and security boundaries from accidental or malicious changes. This mechanism ensures platform-managed resources remain in a secure, consistent state.
+When you create an enclave, the Azure Enclave resource provider creates a managed resource group to hold all Azure Enclave managed resources. A [deny assignment](/azure/role-based-access-control/deny-assignments) prevents unauthorized modifications to this resource group, protecting enclave isolation and security boundaries from accidental or malicious changes. This mechanism ensures Azure Enclave managed resources remain in a secure, consistent state.
 
 ### Maintenance mode
 
