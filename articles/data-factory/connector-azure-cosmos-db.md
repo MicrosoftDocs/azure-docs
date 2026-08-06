@@ -26,7 +26,7 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 
 >[!NOTE]
->This connector only supports Azure Cosmos DB for NoSQL. For Azure Cosmos DB for MongoDB, refer to [connector for Azure Cosmos DB for MongoDB](connector-azure-cosmos-db-mongodb-api.md). For Azure DocumentDB (with MongoDB compatibility), use the [native MongoDB connector](connector-mongodb.md) Other API types aren't supported now.
+>This connector only supports Azure Cosmos DB for NoSQL. For Azure Cosmos DB for MongoDB, refer to [connector for Azure Cosmos DB for MongoDB](connector-azure-cosmos-db-mongodb-api.md). For Azure DocumentDB (with MongoDB compatibility), use the [native MongoDB connector](connector-mongodb.md). Other API types aren't supported now.
 
 ## Supported capabilities
 
@@ -95,7 +95,9 @@ The Azure Cosmos DB for NoSQL connector supports the following authentication ty
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | Set the **type** property to **CosmosDb**. | Yes |
-| connectionString |Specify information that's required to connect to the Azure Cosmos DB database.<br />**Note**: You must specify database information in the connection string as shown in the examples that follow. <br/> You can also put account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes |
+| connectionString | Specify information that's required to connect to the Azure Cosmos DB database.
+**Note**: You must specify database information in the connection string as shown in the examples that follow.
+You can also put account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If you don't specify this property, the default Azure Integration Runtime is used. |No |
 
 **Example**
@@ -155,7 +157,7 @@ To use service principal authentication, follow these steps.
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission. See examples on how permission works in Azure Cosmos DB from [Access control lists on files and directories](/azure/cosmos-db/how-to-setup-rbac). More specifically, create a role definition, and assign the role to the service principal via service principal object ID. 
+1. Grant the service principal proper permission. See examples on how permission works in Azure Cosmos DB from [Access control lists on files and directories](/azure/cosmos-db/how-to-setup-rbac). More specifically, create a role definition, and assign the role to the service principal via service principal object ID.
 
 The linked service supports these properties:
 
@@ -231,7 +233,7 @@ You can also store service principal key in Azure Key Vault.
 ### <a name="managed-identity"></a> System-assigned managed identity authentication
 
 >[!NOTE]
->Currently, the system-assigned managed identity authentication is supported in data flows by using advanced properties in JSON format.
+>Currently, data flows support system-assigned managed identity authentication by using advanced properties in JSON format.
 
 You can associate a data factory or Synapse pipeline with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents this specific service instance. You can use this managed identity directly for Azure Cosmos DB authentication, similar to using your own service principal. It grants this designated resource access to copy data to or from your Azure Cosmos DB instance.
 
@@ -239,7 +241,7 @@ To use system-assigned managed identities for Azure resource authentication, fol
 
 1. [Retrieve the system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your service.
 
-2. Grant the system-assigned managed identity proper permission. See examples on how permission works in Azure Cosmos DB from [Access control lists on files and directories](/azure/cosmos-db/how-to-setup-rbac). More specifically, create a role definition, and assign the role to the system-assigned managed identity.
+1. Grant the system-assigned managed identity proper permission. See examples on how permission works in Azure Cosmos DB from [Access control lists on files and directories](/azure/cosmos-db/how-to-setup-rbac). More specifically, create a role definition, and assign the role to the system-assigned managed identity.
 
 The linked service supports these properties:
 
@@ -285,9 +287,9 @@ To use user-assigned managed identities for Azure resource authentication, follo
 
 1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant the user-assigned managed identity proper permission. See examples on how permission works in Azure Cosmos DB from [Access control lists on files and directories](/azure/cosmos-db/how-to-setup-rbac). More specifically, create a role definition, and assign the role to the user-assigned managed identity.
 
-2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity.
+1. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity.
 
-These properties are supported for the linked service:
+The linked service supports these properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -295,7 +297,7 @@ These properties are supported for the linked service:
 | accountEndpoint | Specify the account endpoint URL for the Azure Cosmos DB instance. | Yes |
 | database | Specify the name of the database. | Yes |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If you don't specify this property, the default Azure integration runtime is used. |No |
 | subscriptionId | Specify the subscription ID for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
 | tenantId | Specify the tenant ID for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
 | resourceGroup | Specify the resource group name for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
@@ -364,19 +366,24 @@ This section provides a list of properties that the Azure Cosmos DB for NoSQL so
 
 ### Azure Cosmos DB for NoSQL as source
 
-To copy data from Azure Cosmos DB for NoSQL, set the **source** type in Copy Activity to **DocumentDbCollectionSource**. 
+The Copy Activity **source** section supports the following properties:
 
 The following properties are supported in the Copy Activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The **type** property of the copy activity source must be set to **CosmosDbSqlApiSource**. |Yes |
-| query |Specify the Azure Cosmos DB query to read data.<br/><br/>Example:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>If not specified, this SQL statement is executed: `select <columns defined in structure> from mycollection` |
+| type | Set the **type** property of the copy activity source to **CosmosDbSqlApiSource**. |Yes |
+| query |Specify the Azure Cosmos DB query to read data.
+
+Example:
+`SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No
+
+If you don't specify this property, the service executes the following SQL statement: `select from mycollection` |
 | preferredRegions | The preferred list of regions to connect to when retrieving data from Azure Cosmos DB. | No |
 | pageSize | The number of documents per page of the query result. Default is "-1" which means uses the service side dynamic page size up to 1000. | No |
 | detectDatetime | Whether to detect datetime from the string values in the documents. Allowed values are: **true** (default), **false**. | No |
 
-If you use "DocumentDbCollectionSource" type source, it's still supported as-is for backward compatibility. You're suggested to use the new model going forward, which provides richer capabilities to copy data from Azure Cosmos DB.
+For backward compatibility, the service still supports the "DocumentDbCollectionSource" type source. Use the new model going forward, which provides richer capabilities to copy data from Azure Cosmos DB.
 
 **Example**
 
@@ -413,7 +420,7 @@ If you use "DocumentDbCollectionSource" type source, it's still supported as-is 
 ]
 ```
 
-When copying data from Azure Cosmos DB, unless you want to [export JSON documents as-is](#import-and-export-json-documents), the best practice is to specify the mapping in copy activity. The service honors the mapping you specified on the activity - if a row doesn't contain a value for a column, a null value is provided for the column value. If you don't specify a mapping, the service infers the schema by using the first row in the data. If the first row doesn't contain the full schema, some columns will be missing in the result of the activity operation.
+When copying data from Azure Cosmos DB, unless you want to [export JSON documents as-is](#import-and-export-json-documents), specify the mapping in copy activity. The service honors the mapping you specified on the activity - if a row doesn't contain a value for a column, the service provides a null value for the column value. If you don't specify a mapping, the service infers the schema by using the first row in the data. If the first row doesn't contain the full schema, some columns are missing in the result of the activity operation.
 
 ### Azure Cosmos DB for NoSQL as sink
 
