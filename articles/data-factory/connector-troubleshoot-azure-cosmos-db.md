@@ -100,7 +100,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](/azure/co
 
 ## Error message: The GuidRepresentation for the reader is CSharpLegacy
 
-- **Symptoms**: When you copy data from Azure Cosmos DB MongoAPI or MongoDB with the universally unique identifier (UUID) field, you receive the following error:
+- **Symptoms**: When you copy data from Azure Cosmos DB for MongoDB or Azure DocumentDB (with MongoDB compatibility) or MongoDB with the universally unique identifier (UUID) field, you receive the following error:
 
     `Failed to read data via MongoDB client., 
     Source=Microsoft.DataTransfer.Runtime.MongoDbV2Connector,Type=System.FormatException, 
@@ -108,7 +108,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](/azure/co
 
 - **Cause**: There are two ways to represent the UUID in Binary JSON (BSON): UuidStandard and UuidLegacy. By default, UuidLegacy is used to read data. You'll receive an error if your UUID data in MongoDB is UuidStandard.
 
-- **Resolution**: In the MongoDB connection string, add the *uuidRepresentation=standard* option. For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
+- **Resolution**: In the Azure DocumentDB or MongoDB connection string, add the *uuidRepresentation=standard* option. For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
 
 ## Error code: CosmosDbSqlApiOperationFailed
 
