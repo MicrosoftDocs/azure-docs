@@ -1,7 +1,7 @@
 ---
 author: simplywilson
 ms.topic: include
-ms.date: 07/12/2024
+ms.date: 08/06/2026
 ms.author: tinglee
 ---
 
@@ -22,6 +22,7 @@ ms.author: tinglee
 | &nbsp;                | [Azure Database for MySQL](../connector-azure-database-for-mysql.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            |                                                              |                                                              |✓ |
 | &nbsp;                | [Azure Database for PostgreSQL](../connector-azure-database-for-postgresql.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            |                                                              |                                                              |✓ |
 | &nbsp;                | [Azure Databricks Delta Lake](../connector-azure-databricks-delta-lake.md) | ✓/✓                                                          | ✓/✓ Use [delta format](../format-delta.md) | ✓                                                            |                                                              |                                                              ||
+| &nbsp;                | [Azure DocumentDB(with MongoDB compatibility)](../connector-mongodb.md) | ✓/✓ Use native MongoDB connector                                                         |                                                              |                                                              | 
 | &nbsp;                | [Azure Files](../connector-azure-file-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |✓Exclude storage account V1 |
 | &nbsp;                | [Azure SQL Database](../connector-azure-sql-database.md) | ✓/✓                                                          | ✓/✓ <br>                                                     | ✓                                                            | ✓                                                            |                                                              |✓ |
 | &nbsp;                | [Azure SQL Managed Instance](../connector-azure-sql-managed-instance.md) | ✓/✓                                                          | ✓/✓ <br>                                                     | ✓                                                             | ✓                                                            |                                                             |✓|
