@@ -25,7 +25,7 @@ You can set **prefetch_count** on the [azure.servicebus.ServiceBusReceiver](/pyt
 ---
 
 > [!NOTE]
-> The JavaScript and Go SDKs don't support the **Prefetch** feature.
+> The JavaScript and Go SDKs don't support the prefetch feature.
 
 While messages are available in the prefetch buffer, any subsequent receive calls are immediately fulfilled from the buffer. The buffer is replenished in the background as space becomes available. If there are no messages available for delivery, the receive operation empties the buffer and then waits or blocks, as expected.
 
