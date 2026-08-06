@@ -21,7 +21,7 @@ However, you can continue running workloads on your existing VM series. These VM
 > [!IMPORTANT]
 > The following dates represent the earliest potential placement on MANA-capable hardware:
 > - [MANA-eligible Cobalt 100 and Intel v5 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud: May 26, 2026
-> - [MANA-eligible Intel v1-v4 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud: August 6, 2026
+> - [MANA-eligible Intel v1-v4 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud: Timeline under review
 
 ## Applicable VM series
 The VM series listed below are eligible to land on MANA-capable hardware and may require additional validation to fully benefit from networking improvements.
