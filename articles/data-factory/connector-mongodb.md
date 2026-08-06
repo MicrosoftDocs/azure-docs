@@ -87,7 +87,9 @@ The following properties are supported for MongoDB linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |Set the type property to: **MongoDbV2** |Yes |
-| connectionString |Specify the MongoDB connection string, such as `mongodb://[username:password@]host[:port][/[database][?options]]`. For more details, see [MongoDB manual on connection string](https://docs.mongodb.com/manual/reference/connection-string/) for more details. <br/><br /> You can also put a connection string in Azure Key Vault. For more details, see [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. |Yes |
+| connectionString |Specify the MongoDB connection string, such as `mongodb://[username:password@]host[:port][/[database][?options]]`. For more details, see [MongoDB manual on connection string](https://docs.mongodb.com/manual/reference/connection-string/).
+
+You can also put a connection string in Azure Key Vault. For more details, see [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | database | Name of the database that you want to access. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. To learn more, see the [Prerequisites](#prerequisites) section. If you don't specify this property, the default Azure Integration Runtime is used. |No |
 
@@ -256,7 +258,7 @@ To achieve such schema-agnostic copy, skip the "structure" (also called *schema*
 
 ## Data type mapping for MongoDB
 
-When you copy data from MongoDB, the service uses the following mappings from MongoDB data types to interim data types. For more information about how copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md)
+When you copy data from MongoDB, the service uses the following mappings from MongoDB data types to interim data types. For more information about how copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 | MongoDB data Type | Interim Service Data Type |
 |:---|:---|
