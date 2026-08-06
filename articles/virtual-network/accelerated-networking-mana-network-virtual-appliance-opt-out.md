@@ -34,9 +34,12 @@ You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑ena
 > The `LegacyVMNVA` tag is only needed for workloads using Accelerated Networking that observe performance degredation on MANA-capable hardware. If the tag is applied and enabled before May 31, 2027, the VM will not be placed on MANA-capable hardware until that date.
 > 
 > To ensure expected behavior, it is recommended to apply and enable the tag before the following dates, which align with the earliest potential placement on MANA-capable hardware:
-> - [MANA-eligible Cobalt 100 and Intel v5 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in public cloud: May 26, 2026
-> - [MANA-eligible Intel v1-v4 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in public cloud: Timeline under review
-> 
+> - May 26, 2026
+>     - Intel v5: Dv5, Dsv5, Ddv5, Ddsv5, Dlsv5, Dldsv5, Ev5, Esv5, Edv5, Edsv5
+>     - Cobalt 100 v6: Dpsv6, Dpdsv6, Dplsv6, Dpldsv6, Epsv6, Epdsv6
+> - Timeline under review
+>     - Intel v1-v4: Dsv4, Dv4, Ddsv4, Ddv4, Esv4, Ev4, Edsv4, Edv4, Dsv3, Dv3, Esv3, Ev3, Bsv2, Dv2, Dsv2, Av2, Fsv2, Fs, F, G, GS, Ls
+>   
 > After May 31, 2027, the tag will no longer be honored, and all MANA-eligible VM series may be placed on MANA-capable hardware.
 
 1. Open the `LegacyVMNVA` [Azure Policy](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe87a87f5-e6dd-4919-be21-abb0a4ea4630/version/1.3.0/scopes~/%5B%22%2Fsubscriptions%2F52a442a2-31e9-42f9-8e3e-4b27dbf82673%22%2C%22%2Fsubscriptions%2Feb87f285-893a-4f0f-8c55-7b4f67b1d097%22%5D/contextRender~/false).
