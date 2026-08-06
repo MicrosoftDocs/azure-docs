@@ -37,8 +37,7 @@ You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑ena
 > - May 26, 2026
 >     - Intel v5: Dv5, Dsv5, Ddv5, Ddsv5, Dlsv5, Dldsv5, Ev5, Esv5, Edv5, Edsv5
 >     - Cobalt 100 v6: Dpsv6, Dpdsv6, Dplsv6, Dpldsv6, Epsv6, Epdsv6
-> - Timeline under review
->     - Intel v1-v4: Dsv4, Dv4, Ddsv4, Ddv4, Esv4, Ev4, Edsv4, Edv4, Dsv3, Dv3, Esv3, Ev3, Bsv2, Dv2, Dsv2, Av2, Fsv2, Fs, F, G, GS, Ls
+> - Timeline under review: Dsv4, Dv4, Ddsv4, Ddv4, Esv4, Ev4, Edsv4, Edv4, Dsv3, Dv3, Esv3, Ev3, Bsv2, Dv2, Dsv2, Av2, Fsv2, Fs, F, G, GS, Ls
 >   
 > After May 31, 2027, the tag will no longer be honored, and all MANA-eligible VM series may be placed on MANA-capable hardware.
 
