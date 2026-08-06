@@ -18,6 +18,11 @@ Newer VM series are built and optimized with MANA in mind and are designed to ta
 
 However, you can continue running workloads on your existing VM series. These VM series remain supported and can run on both Mellanox (previous generation) and MANA‑enabled hardware until the series is retired. While most workloads are expected to transition to MANA-capable hardware without issue, you should ensure that your workload is compatible with MANA for optimal networking performance.
 
+> [!IMPORTANT]
+> The following dates represent the earliest potential placement on MANA-capable hardware:
+> - [MANA-eligible Cobalt 100 and Intel v5 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud: May 26, 2026
+> - [MANA-eligible Intel v1-v4 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud: August 6, 2026
+
 ## Applicable VM series
 The VM series listed below are eligible to land on MANA-capable hardware and may require additional validation to fully benefit from networking improvements.
 
