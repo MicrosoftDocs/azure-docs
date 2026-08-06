@@ -13,11 +13,9 @@ ms.author: onwokolo
 
 # Choose a savings plan commitment amount
 
-Savings plan purchase recommendations are calculated by analyzing your hourly pay-as-you-go usage and cost data. Recommendations are generated for the selected savings plan term (1- or 3-year), [benefit scope](scope-savings-plan.md) (shared, subscription), and look back period (7-, 30-, or 60-day). Azure calculates your potential savings by simulating the total costs you would have under a savings plan. It examines each combination of term, benefit scope, and look back period. It then compares these simulated costs with the actual pay-as-you-go costs you incurred. The commitment amount that returns the greatest savings for each term, benefit scope, and look back period combination is highlighted. To learn more about how recommendations are generated, see [How savings plan recommendations are generated](purchase-recommendations.md#how-savings-plan-recommendations-are-generated).
+To calculate savings plan purchase recommendations, Azure analyzes your hourly pay-as-you-go usage and cost data. It generates recommendations for the selected savings plan term (1- or 3-year), [benefit scope](scope-savings-plan.md) (shared, management group, subscription, and resource group), and look back period (7-, 30-, or 60-day). Azure calculates your potential savings by simulating the total costs you would have under a savings plan. It examines each combination of term, benefit scope, and look back period. It then compares these simulated costs with the actual pay-as-you-go costs you incurred. The commitment amount that returns the greatest savings for each term, benefit scope, and look back period combination is highlighted. To learn more about how recommendations are generated, see [How savings plan recommendations are generated](purchase-recommendations.md#how-savings-plan-recommendations-are-generated).
 
 Some products can benefit from both savings plans and reservations. If you buy either a savings plan or a reservation, allow at least 7 days for recommendation systems to update and reflect your purchase before considering the other option. Avoid purchasing both products at the same time to ensure recommendations are accurate and to maximize your savings.
-
-Azure doesn't currently provide savings plan recommendations for management groups. For more information, see [Recommendations for management groups](choose-commitment-amount.md#recommendations-for-management-groups).
 
 Savings plan recommendations are available in [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost), the [Azure portal](https://portal.azure.com/), and the [Savings plan benefit recommendations API](/rest/api/cost-management/benefit-recommendations/list).
 
@@ -25,18 +23,10 @@ Savings plan recommendations are available in [Azure Advisor](https://portal.azu
 Recommendations for one and three-year savings plans in [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost) are currently only available for subscription scopes. These recommendations currently only have a 30-day look back period.
 
 ## Recommendations in Azure portal
-Recommendations for one- and three-year savings plans in the [Azure portal](https://portal.azure.com/) are available for shared, subscription, and resource group scopes. These recommendations currently only have a 30-day look back period.
+Recommendations for one- and three-year savings plans in the [Azure portal](https://portal.azure.com/) are available for shared, management group, subscription, and resource group scopes. These recommendations currently only have a 30-day look back period.
 
 ## Savings plan Recommendations API
-One and three-year savings plan recommendations from the [Savings plan benefit recommendations API](/rest/api/cost-management/benefit-recommendations/list) are available for shared, subscription, and resource group scopes. These recommendations are available for 7-, 30-, and 60-day look back periods.
-
-## Recommendations for management groups
-Currently, the Azure portal doesn't provide savings plan recommendations for management groups. As a workaround, you can perform the following steps:
-1. Aggregate the recommended hourly commitments for all subscriptions within the management group.
-2. Purchase up to ~70% of the above value.
-3. Wait at least three days for the newly purchased savings plan to affect your subscription recommendations.
-4. Repeat steps 1-3 until you have your desired coverage levels.
-
+One- and three-year savings plan recommendations from the [Savings plan benefit recommendations API](/rest/api/cost-management/benefit-recommendations/list) are available for shared, management group, subscription, and resource group scopes. These recommendations are available for 7-, 30-, and 60-day look back periods.
 
 ## Need help? Contact us
 
