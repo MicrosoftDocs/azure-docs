@@ -73,16 +73,19 @@ az batch pool supported-images list
 Images that have a `verificationType` of `verified` undergo regular interoperability validation testing with the Batch service
 by the Azure Batch team. The `verified` designation doesn't mean that every possible application or usage scenario is validated,
 but that functionality exposed by the Batch API such as executing tasks, mounting a supported virtual filesystem, etc. are
-regularly tested as part of release processes. Images that have a `verificationType` of `unverified` don't undergo regular
-validation testing but were initially verified to boot on Azure Batch compute nodes and transition to an `idle` compute
-node state. Support for `unverified` images isn't guaranteed.
+regularly tested as part of release processes.
+
+Images that have a `verificationType` of `unverified` don't undergo regular validation testing but were initially verified to
+boot on Azure Batch compute nodes and transition to an `idle` compute node state. Support for `unverified` images isn't
+guaranteed.
 
 Verification status reflects current test coverage and can change over time. An image reported as `verified` might later be
 reported as `unverified`, for example when the image is removed from the Batch validation test suite or as it approaches its
-Batch support end of life (EOL) date. Images at or past their EOL date aren't verified. A change from `verified` to
-`unverified` doesn't mean that the image stopped working, only that it's no longer part of regular validation testing.
-A `verified` designation doesn't indicate that an image remains verified indefinitely, and isn't a guarantee for the lifetime
-of the image. It's your responsibility to periodically refresh your view of the `verificationType` and
+Batch support end of life (EOL) date. Images at or past their EOL date aren't verified.
+
+A change from `verified` to `unverified` doesn't mean that the image stopped working, only that it's no longer part of regular
+validation testing. A `verified` designation doesn't indicate that an image remains verified indefinitely, and isn't a guarantee
+for the lifetime of the image. It's your responsibility to periodically refresh your view of the `verificationType` and
 `batchSupportEndOfLife` values for the images used by your pools.
 
 > [!TIP]
