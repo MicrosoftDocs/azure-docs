@@ -92,6 +92,9 @@ The KBaaS has the following pipelines:
   For more information, see:
 
   - [Assign Azure roles to managed identities](../role-based-access-control/role-assignments-portal-managed-identity.md)
+
+    To assign **Cosmos DB Built-in Data Reader**, which is unavailable in the Azure portal, use the following command: [az cosmosdb sql role assignment create](/azure/search/search-howto-managed-identities-cosmos-db#configure-data-plane-role-assignments).  
+    
   - [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 
   > [!TIP]
