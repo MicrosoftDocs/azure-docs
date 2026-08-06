@@ -174,7 +174,7 @@ You can route device-to-cloud messages to a [Microsoft Fabric eventstream](/fabr
 
 To route messages to a Fabric eventstream, create a route in IoT Hub, add a Fabric Eventstream endpoint, and connect it to a Fabric eventstream that uses a custom endpoint (custom app) source.
 
-In your Microsoft Fabric workspace, select the custom endpoint source tile you want to connect to on your published Eventstream. If a custom endpoint source tile doesn't exist on your Eventstream, [create a new custom endpoint source tile](/fabric/real-time-intelligence/event-streams/add-source-custom-app?pivots=basic-features). Once the source tile is selected, navigate to the **Details** pane. Select **Event Hub** as the **Protocol**. Select **Entra ID Authentication** and access the connection details. To ensure Entra ID Authentication is set up correctly for your Fabric workspace, see [Connect to Eventstream using Microsoft Entra ID authentication](/fabric/real-time-intelligence/event-streams/custom-endpoint-entra-id-auth).
+In your Microsoft Fabric workspace, select the custom endpoint source tile you want to connect to on your published Eventstream. If a custom endpoint source tile doesn't exist on your Eventstream, [create a new custom endpoint source tile](/fabric/real-time-intelligence/event-streams/add-source-custom-app?pivots=basic-features). Once the source tile is selected, go to the **Details** pane. Select **Event Hub** as the **Protocol**. Select **Entra ID Authentication** and access the connection details. To ensure Entra ID Authentication is set up correctly for your Fabric workspace, see [Connect to Eventstream using Microsoft Entra ID authentication](/fabric/real-time-intelligence/event-streams/custom-endpoint-entra-id-auth).
 
 #### Authentication
 
