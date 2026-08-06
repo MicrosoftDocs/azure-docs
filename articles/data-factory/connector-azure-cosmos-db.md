@@ -6,7 +6,7 @@ ms.author: tinglee
 author: simplywilson
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.date: 07/25/2025
+ms.date: 08/06/2026
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -26,7 +26,7 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 
 >[!NOTE]
->This connector only supports Azure Cosmos DB for NoSQL. For Azure Cosmos DB for MongoDB, refer to [connector for Azure Cosmos DB for MongoDB](connector-azure-cosmos-db-mongodb-api.md). Other API types aren't supported now.
+>This connector only supports Azure Cosmos DB for NoSQL. For Azure Cosmos DB for MongoDB, refer to [connector for Azure Cosmos DB for MongoDB](connector-azure-cosmos-db-mongodb-api.md). For Azure DocumentDB (with MongoDB compatibility), use the [native MongoDB connector](connector-mongodb.md) Other API types aren't supported now.
 
 ## Supported capabilities
 
