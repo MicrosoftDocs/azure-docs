@@ -23,6 +23,8 @@ This article provides an overview of durable orchestrations, including orchestra
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 For information about the types of functions available in a Durable Functions app, see [Durable Task programming model](programming-model-overview.md).
 
 > [!TIP]

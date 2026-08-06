@@ -12,14 +12,18 @@ ms.author: mattmcinnes
 # MANA support for existing VM series
 The following content is for customers running existing Virtual Machine (VM) Sizes using Accelerated Networking.
 
-> [!IMPORTANT]
-> For timelines pertaining to VM series running on MANA-capable hardware, see the [announcement](https://techcommunity.microsoft.com/blog/AzureInfrastructureBlog/announcing-microsoft-azure-network-adapter-mana-support-for-existing-vm-skus/4493279).
-
 Existing VM series are supported on [Microsoft Azure Network Adapter (MANA)](./accelerated-networking-mana-overview.md) capable hardware. However, since these VM series were introduced before MANA was released, they may not fully benefit from all performance, reliability, and resiliency improvements.
 
 Newer VM series are built and optimized with MANA in mind and are designed to take full advantage of its performance, reliability, and resiliency improvements. For this reason, it is recommended to use newer VM sizes for the most optimal networking experience.
 
 However, you can continue running workloads on your existing VM series. These VM series remain supported and can run on both Mellanox (previous generation) and MANA‑enabled hardware until the series is retired. While most workloads are expected to transition to MANA-capable hardware without issue, you should ensure that your workload is compatible with MANA for optimal networking performance.
+
+> [!IMPORTANT]
+> The following dates represent the earliest potential placement on MANA-capable hardware in public cloud:
+> - May 26, 2026
+>     - Intel v5: Dv5, Dsv5, Ddv5, Ddsv5, Dlsv5, Dldsv5, Ev5, Esv5, Edv5, Edsv5
+>     - Cobalt 100 v6: Dpsv6, Dpdsv6, Dplsv6, Dpldsv6, Epsv6, Epdsv6
+> - Timeline under review: Dsv4, Dv4, Ddsv4, Ddv4, Esv4, Ev4, Edsv4, Edv4, Dsv3, Dv3, Esv3, Ev3, Bsv2, Dv2, Dsv2, Av2, Fsv2, Fs, F, G, GS, Ls 
 
 ## Applicable VM series
 The VM series listed below are eligible to land on MANA-capable hardware and may require additional validation to fully benefit from networking improvements.
@@ -30,7 +34,6 @@ The VM series listed below are eligible to land on MANA-capable hardware and may
 | B-family | Bsv2|
 | D-family | Dv1*, Dsv1* <br>Dv2*, Dsv2* <br>Dv3, Dsv3<br> Dv4, Dsv4, Ddv4, Ddsv4 <br>Dv5, Dsv5, Ddv5, Ddsv5, Dlsv5, Dldsv5 <br>Dpsv6, Dpdsv6, Dplsv6, Dpldsv6|
 | E-family | Ev3, Esv3 <br>Ev4, Esv4, Edv4, Edsv4 <br>Ev5, Esv5, Edv5, Edsv5 <br>Epsv6, Epdsv6|
-| Eb-family | Ebsv5, Ebdsv5 |
 | F-family | F*, Fs*, Fsv2* |
 | G-family | G*, Gs* |
 | L-family | Ls* |

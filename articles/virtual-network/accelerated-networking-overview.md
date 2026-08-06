@@ -69,7 +69,7 @@ The following Linux and FreeBSD distributions from Azure Marketplace support Acc
 - AlmaLinux 10.0
 - AlmaLinux 9.6
 - Rocky Linux 10.0
-- Rocky Linux 9.6
+- Rocky Linux 9.7
 - SUSE Linux Enterprise Server 16
 - SUSE Linux Enterprise Server 15 SP7
 - SUSE Linux Enterprise Server 15 SP6

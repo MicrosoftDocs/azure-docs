@@ -42,7 +42,7 @@ The following limits apply only for networking resources managed through **Azure
 | IP configurations per application security group |4,000 |
 | Application security groups that can be specified within all security rules of a network security group |600 |
 | User-defined route tables |600 |
-| User-defined routes per route table |5,000 |
+| User-defined routes per route table |1,000 |
 | Routes with service tag per route table | 25 |
 | Point-to-site root certificates per Azure VPN Gateway |20 |
 | Point-to-site revoked client certificates per Azure VPN Gateway |300 |

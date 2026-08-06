@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/24/2025
+ms.date: 07/29/2026
 ms.author: anfdocs
 # Customer intent: "As a network administrator, I want to configure DNS for Azure NetApp Files integration with Active Directory, so that I can ensure reliable data access and avoid interruptions caused by incorrect or incomplete DNS records."
 ---
@@ -69,6 +69,14 @@ Azure NetApp Files makes use of different types of DNS records for access to fil
 | Service records (SRV)	| [SRV records](https://www.cloudflare.com/learning/dns/dns-records/dns-srv-record/) are used to specify which hosts and ports are used for a specific service, such as LDAP, NFS, CIFS, Kerberos, etc. SRV records in Azure NetApp Files are heavily utilized for file service security (such as Kerberos), site discovery in Active Directory, LDAP server queries, and more. It's important to verify the existence of these records for proper functionality of Azure NetApp Files services. <br></br> SRV records can be queried using `nslookup` or `dig` commands. For examples, see [Using `nslookup` and `dig` for DNS queries](#using-nslookup-and-dig-for-dns-queries). |
 | Canonical names (CNAME) | A CNAME record is a way to provide DNS aliases for A/AAAA records. CNAME records are optional but can be useful to reduce the complexity of the hostname records provided by Azure NetApp Files. For more information, see [DNS aliases and Canonical Name records](#dns-aliases-and-canonical-name-cname-records). |
 | Uniform Resource Identifier (URI) | A [URI record](https://www.rfc-editor.org/rfc/rfc7553) is a way to map hostnames/IP addresses for services to URIs. URIs are presented in a format as such: service://fqdn.contoso.com. <br></br> Azure NetApp Files makes use of queries for URI records only when performing Kerberos KDC lookups for NFS Kerberos requests. URI records aren't created in Active Directory DNS deployments by default. As such, URI lookup requests usually fail and fall back to SRV record lookups. |
+
+>[!NOTE]
+>Azure NetApp Files performs reverse DNS lookups for the Active Directory domain controllers it communicates with. A reverse lookup zone must exist for the subnets that host your AD DS domain controllers and DNS servers, and each domain controller IP address must have a corresponding PTR record. If the reverse lookup zone or PTR record is missing, name resolution for that server fails and Azure NetApp Files logs an entry similar to the following:
+>
+>`Entry for host-address: X.X.X.X not found in the current source: FILES. Ignoring and trying next available source`
+>
+>To resolve the error, create the reverse lookup zone for the domain controller subnet and add a PTR record for the listed IP address.
+
 
 ### Service records (SRV) used with Azure NetApp Files
 

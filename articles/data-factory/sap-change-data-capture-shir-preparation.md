@@ -16,6 +16,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Learn how to create and set up a self-hosted integration runtime for the SAP CDC connector in Azure Data Factory.
 
 To prepare a self-hosted integration runtime to use with the SAP CDC connector, complete the steps that are described in the following sections.

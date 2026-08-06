@@ -14,6 +14,8 @@ ms.custom:
 # Copy data from an OData source by using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 
 This article outlines how to use Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from an OData source. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
 

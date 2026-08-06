@@ -171,6 +171,8 @@ MCP, the [Model Context Protocol](https://github.com/modelcontextprotocol), is a
 
 Hundreds of open-source MCP servers are already available. The [Azure MCP registry](https://mcp.azure.com/) provides a list of curated MCP servers and offers customers the possibility of creating their own in-house MCP servers. You can use tools like [Azure API Management](/azure/api-management/export-rest-mcp-server) to create new MCP servers from existing APIs.
 
+On the SAP side, the **SAP MCP Gateway** on the SAP Integration Suite provides an SAP-managed, governed MCP endpoint that turns existing SAP APIs, integration flows, and OpenAPI specifications into MCP tools -- with authentication, rate limiting, and observability handled by SAP. See [Use the SAP MCP Gateway on SAP Integration Suite](architecture-mcp-gateway-integration-suite.md).
+
 ### Integration and connectivity infrastructure
 
 Whether customers want to have one single point of entry or control access to the back-end system, they can use an integration and connectivity layer to route the calls from Copilot to the SAP back-end system.
@@ -229,9 +231,8 @@ Authentication options vary, depending on the protocol and application. Here's a
 | SAP SuccessFactors | OData, HTTPS | OAuth |
 
 ## Recommended integration patterns
+- Are you running your SAP system on Azure, including RISE? Do you have good Azure practice in-house? [Leverage Azure API Management and virtual network peering (for example, SAP S/4HANA Private Cloud or Native)](architecture-apim-virtual-network.md)
+- Do you want to use BAPI or RFC? Take a look at [Leverage on-premises data gateway with access to BAPI / RFCs and OData Services](architecture-on-premises-data-gateway.md)
+- Are you already using SAP Business Technology Platform and connected your SAP backend system to it? [Leverage SAP Business Technology Platform (with SAP API Management and SAP Cloud Connector)](architecture-business-technology-platform-api.md)
+- Are you using (or planning to use) the SAP Integration Suite and want a governed, SAP-managed MCP endpoint for your agent? [Use the SAP MCP Gateway on SAP Integration Suite](architecture-mcp-gateway-integration-suite.md)
 
-The following list provides an overview of reference architectures. There isn't only one architecture, because it depends on your existing infrastructure and what components you're using. In the simplest form (for a first percentage of completion), you can use Copilot Studio and the SAP OData connector to connect directly to your SAP system in the cloud ([Option #1](https://github.com/hobru/Microsoft-Learning/blob/main/CopilotStudio/Architecture-Demo.md).
-
-* Are you running your SAP system on Azure and RISE? Do you have a good in-house Azure practice? See [Azure API Management and virtual network peering](architecture-apim-virtual-network.md).
-* Do you want to use BAPI or RFC? See [On-premises data gateway with access to BAPIs, RFCs, and OData services](architecture-on-premises-data-gateway.md).
-* Are you already using SAP Business Technology Platform, and have you  connected your SAP back-end system to it? See [SAP Business Technology Platform with SAP API Management and SAP Cloud Connector](architecture-business-technology-platform-api.md).

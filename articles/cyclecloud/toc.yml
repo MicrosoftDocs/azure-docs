@@ -141,6 +141,8 @@ items:
       href: ./how-to/create-fileserver.md
     - name: Mount a Network Fileserver
       href: ./how-to/mount-fileserver.md
+    - name: Mount Azure Blob Storage on cluster nodes
+      href: ./how-to/mount-blob-storage.md
     - name: Enable Return Proxy
       href: ./how-to/return-proxy.md
     - name: Configure Network Security
@@ -279,10 +281,10 @@ items:
         href: ./release-notes/8-8-2.md
   - name: Release Notes - CycleCloud Workspace for Slurm
     items:
-      - name: Current Release - 2026.07.02
+      - name: Current Release - 2026.08.07
+        href: ./release-notes/ccws/2026-08-07.md
+      - name: Previous Release - 2026.07.02
         href: ./release-notes/ccws/2026-07-02.md
-      - name: Previous Release - 2026.06.18
-        href: ./release-notes/ccws/2026-06-18.md
       - name: All Releases
         href: ./release-notes/ccws/release-notes.md
   - name: Service Policy

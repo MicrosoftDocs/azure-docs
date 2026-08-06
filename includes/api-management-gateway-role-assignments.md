@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 02/19/2026
-ms.author: danlep
+ms.author: patricka
 ---
 
 ## Create custom roles

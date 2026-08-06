@@ -194,7 +194,6 @@ For the full troubleshooting guide, including cross-tenant authentication, see t
 ## Related content
 
 - [Role assignments in Microsoft Discovery](concept-role-assignments.md)
-- [Quickstart: Deploy infrastructure using Azure portal](quickstart-infrastructure-portal.md)
-- [Quickstart: Deploy infrastructure using Bicep](quickstart-infrastructure-bicep.md)
+- [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md)
 - [Configure network security](how-to-configure-network-security.md)
 - [Set-DiscoveryRoleAssignments.ps1 on GitHub](https://github.com/microsoft/discovery/tree/main/utilities/rbac-roles-assignment)

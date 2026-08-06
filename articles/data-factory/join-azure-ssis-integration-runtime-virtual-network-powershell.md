@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article shows you how to join your existing Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory to a virtual network via Azure PowerShell. 
 
 > [!NOTE]

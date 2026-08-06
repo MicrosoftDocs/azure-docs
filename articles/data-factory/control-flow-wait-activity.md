@@ -15,6 +15,9 @@ When you use a Wait activity in a pipeline, the pipeline waits for the specified
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Wait activity](/fabric/data-factory/wait-activity).
+
 ## Create a Wait activity with UI
 
 To use a Wait activity in a pipeline, complete the following steps:

@@ -5,7 +5,7 @@ author: tfosmark
 ms.author: rymend
 ms.topic: overview
 ms.date: 06/30/2020
-ms.service: azure-education
+ms.service: azure-education-hub
 ---
 
 # Azure for Students Starter

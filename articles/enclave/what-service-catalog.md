@@ -1,19 +1,19 @@
 ---
 title: What is the service catalog?
-description: What is the service catalog?
+description: Learn how the service catalog provides pre-configured ARM templates for deploying Azure services into Azure Enclave in compliance with policy guardrails and enclave isolation requirements.
 author: aserfass-msft
 ms.author: aserfass
+ms.service: azure-enclave
 ms.topic: overview
-ms.date: 9/30/2025
+ms.date: 7/31/2026
+ai-usage: ai-assisted
 ---
 
 # What is the service catalog?
 
-The service catalog enables you to quickly deploy tailored Azure Resource Manager (ARM) templates of Azure services into Azure Enclave while being compliant with Policy Guardrails and enclave isolation requirements. The service catalog helps you accelerate the creation of your workloads within the secure boundary of Azure Enclave without getting blocked by the security you want.
+The service catalog enables you to quickly deploy tailored Azure Resource Manager (ARM) templates of Azure services into Azure Enclave while staying compliant with policy guardrails and enclave isolation requirements. The service catalog helps you accelerate the creation of your workloads within the secure boundary of Azure Enclave without being impeded by the security controls that protect your environment.
 
-![Diagram showing how service catalog templates deploy resources into your workloads.](./media/service-catalog-process-overview.png)
-
-Diagram Description: The user/admin accesses the service catalog through the portal. Once the user selects the service catalog template they want to deploy, they can customize the resource creation, and then create those resources.
+![Diagram showing the service catalog workflow: a user accesses the service catalog through the portal, selects a template, customizes resource creation, and then deploys those resources.](./media/service-catalog-process-overview.png)
 
 ## What is in the service catalog?
 
@@ -22,7 +22,8 @@ Browse the [Service Catalog List](./list-service-catalog-templates.md) to view t
 > [!NOTE]
 > You can edit the service catalog template itself but edits might change the parameter inputs view.
 
-## Service Catalog Setup
+## Service catalog setup
+
 Since Azure Enclave deploys with connections denied by default, you need to create a community endpoint to allow access to the storage account that contains service catalog templates.
 
 ```bicep
@@ -36,11 +37,11 @@ Since Azure Enclave deploys with connections denied by default, you need to crea
   }
 ```
 
-You can update the destination for other Clouds using the values in [this article](./deploy-template-service-catalog-azure-cli.md).
+To update the destination for other clouds, use the values in [Deploy service catalog templates using Azure CLI](./deploy-template-service-catalog-azure-cli.md).
 
-## Ready? Deploy from the service catalog!
+## Next steps
 
-- [Service Catalog List: How-To Guides and tips for each template](./list-service-catalog-templates.md)
-- [Service Catalog Storage Account deployment Quickstart](./deploy-storage-account-service-catalog.md)
+- [Service catalog list: how-to guides and tips for each template](./list-service-catalog-templates.md)
+- [Service catalog storage account deployment quickstart](./deploy-storage-account-service-catalog.md)
 - [What is Azure Enclave?](./what-azure-enclave.md)
 - [Tutorial: Create resources from the service catalog](./1-4-use-service-catalog-create-azure-resources-workloads.md)

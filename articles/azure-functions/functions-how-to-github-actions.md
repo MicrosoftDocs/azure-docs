@@ -2,7 +2,7 @@
 title: Deploy to Azure Functions by using GitHub Actions
 description: Set up continuous deployment for your Azure Functions app by using GitHub Actions with OpenID Connect (OIDC) authentication.
 ms.topic: how-to
-ms.date: 07/30/2026
+ms.date: 08/06/2026
 ms.custom: devx-track-csharp, github-actions-azure
 zone_pivot_groups: github-actions-deployment-options
 ---

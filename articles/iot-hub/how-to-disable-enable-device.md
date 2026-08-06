@@ -41,17 +41,17 @@ Use these steps to disable a device in the Azure portal when you need to stop de
 
 1. Select **Devices**.
 
-    :::image type="content" source="./media/how-to-disable-enable-device/devices-list.png" alt-text="Screenshot showing the list of devices in Azure Device Registry.":::
+    :::image type="content" source="../iot/media/how-to-disable-enable-device/devices-list.png" alt-text="Screenshot showing the list of devices in Azure Device Registry.":::
 
 1. Select the device that you want to disable.
 
 1. On the device page, select **edit** next to **Device status**.
 
-    :::image type="content" source="./media/how-to-disable-enable-device/select-device.png" alt-text="Screenshot showing the edit button next to device status.":::
+    :::image type="content" source="../iot/media/how-to-disable-enable-device/devices-list.png" alt-text="Screenshot showing the edit button next to device status.":::
 
 1. In **Edit status**, select **Disable**.
 
-    :::image type="content" source="./media/how-to-disable-enable-device/disable-device.png" alt-text="Screenshot showing the dialog to disable the device.":::
+    :::image type="content" source="../iot/media/how-to-disable-enable-device/devices-list.png" alt-text="Screenshot showing the dialog to disable the device.":::
 
 1. Select **Save**.
 
@@ -143,7 +143,7 @@ Verify that the returned device status matches the change that you made.
 
 ## Related content
 
-- [Integration with Azure Device Registry (preview)](iot-hub-device-registry-overview.md)
-- [Deploy Azure IoT Hub with ADR integration and certificate management](iot-hub-device-registry-setup.md)
-- [Revoke certificates and delete policies in Azure Device Registry](how-to-revoke-certificate-delete-policy.md)
-- [Key concepts for certificate management (preview)](iot-hub-certificate-management-concepts.md)
+- [Integration with Azure Device Registry (preview)](../iot-hub/iot-hub-device-registry-overview.md)
+- [Deploy Azure IoT Hub with ADR integration and certificate management](../iot-hub/iot-hub-device-registry-setup.md)
+- [Revoke certificates and delete policies in Azure Device Registry](../iot/how-to-revoke-certificate-delete-policy.md)
+- [Key concepts for certificate management (preview)](../iot/iot-certificate-management-concepts.md)

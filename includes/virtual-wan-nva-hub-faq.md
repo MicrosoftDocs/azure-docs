@@ -68,3 +68,7 @@ The same series of steps can be executed from Azure CLI.
    ```azurecli-interactive
     az network virtual-appliance delete --subscription <subscription name> --resource-group <resource group name> --name <NVA name>
    ```
+### How is MANA support handled for NVAs in the hub?
+
+For all NVA in the hub deployments, Azure automatically applies the [LegacyVMNVA](../articles/virtual-network/accelerated-networking-mana-overview.md) tag. This tag prevents the NVA from running on MANA hardware through [May 31, 2027](../articles/virtual-network/accelerated-networking-mana-overview.md). After this date, the tag is no longer honored, and NVAs deployed in the hub might run on MANA hardware. No action is required to apply the tag. To avoid any network disruption, work with your NVA provider to upgrade to a software version that supports MANA before [May 31, 2027](../articles/virtual-network/accelerated-networking-mana-overview.md).
+   

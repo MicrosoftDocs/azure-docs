@@ -41,7 +41,7 @@ The template defines one resource:
 
 ## Deploy the template
 
-In this example, the template creates a new resource group, a DDoS protection plan, and a virtual network.
+In this example, the template creates a new resource group and a Standard SKU public IP address with DDoS IP Protection enabled.
 
 1. To sign in to Azure and open the template, select the **Deploy to Azure** button.
 
@@ -166,7 +166,7 @@ az group delete --name MyResourceGroup
 
 ## Next steps
 
-To learn how to view and configure telemetry for your DDoS protection plan, continue to the tutorials.
+To learn how to view and configure telemetry for your protected public IP address, continue to the tutorials.
 
 > [!div class="nextstepaction"]
 > [View and configure DDoS protection telemetry](telemetry.md)

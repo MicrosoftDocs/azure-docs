@@ -15,6 +15,8 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 *Eternal orchestrations* are orchestrator functions that run indefinitely by periodically resetting their own history using the `continue-as-new` API. They're useful for aggregators, periodic background jobs, and any [Durable Functions](what-is-durable-task.md) scenario that requires an infinite loop without unbounded history growth.
 
 Without `continue-as-new`, an orchestrator that loops forever would accumulate [orchestration history](durable-task-orchestrations.md#orchestration-history) with every scheduled task, eventually causing performance problems and excessive memory use. The eternal orchestration pattern solves this by resetting the history on each iteration.
@@ -113,6 +115,31 @@ One common use case for eternal orchestrations is periodic background work, such
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("Periodic_Cleanup_Loop")]
+public static async Task Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    await context.CallActivityAsync("DoCleanup");
+
+    // sleep for one hour between cleanups
+    DateTime nextCleanup = context.CurrentUtcDateTime.AddHours(1);
+    await context.CreateTimer(nextCleanup, CancellationToken.None);
+
+    context.ContinueAsNew(null);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
 public static async Task Run(
@@ -127,6 +154,10 @@ public static async Task Run(
     context.ContinueAsNew(null);
 }
 ```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -276,6 +307,32 @@ Use the *start-new* or *schedule-new* durable client method to start an eternal 
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("Trigger_Eternal_Orchestration")]
+public static async Task<HttpResponseData> OrchestrationTrigger(
+    [HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData request,
+    [DurableClient] DurableTaskClient client)
+{
+    string instanceId = "StaticId";
+
+    await client.ScheduleNewOrchestrationInstanceAsync(
+        "Periodic_Cleanup_Loop",
+        null,
+        new StartOrchestrationOptions { InstanceId = instanceId });
+    return await client.CreateCheckStatusResponseAsync(request, instanceId);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("Trigger_Eternal_Orchestration")]
 public static async Task<HttpResponseMessage> OrchestrationTrigger(
@@ -288,6 +345,10 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
     return client.CreateCheckStatusResponse(request, instanceId);
 }
 ```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -396,9 +457,27 @@ If an orchestrator function is in an infinite loop and needs to be stopped, use 
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+await client.TerminateInstanceAsync(instanceId, "Cleanup no longer needed");
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 await client.TerminateAsync(instanceId, "Cleanup no longer needed");
 ```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
