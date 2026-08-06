@@ -34,7 +34,7 @@ You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑ena
 > The `LegacyVMNVA` tag is only needed for workloads using Accelerated Networking that observe performance degredation on MANA-capable hardware. If the tag is applied and enabled before May 31, 2027, the VM will not be placed on MANA-capable hardware until that date.
 > 
 > To ensure expected behavior, it is recommended to apply and enable the tag before the following dates, which align with the earliest potential placement on MANA-capable hardware:
-> - [MANA-eligible Cobalt 100 and Intel v5 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud: May 26, 2026
+> - [MANA-eligible Cobalt 100 and Intel v5 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in public cloud: May 26, 2026
 > - [MANA-eligible Intel v1-v4 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in public cloud: Timeline under review
 > 
 > After May 31, 2027, the tag will no longer be honored, and all MANA-eligible VM series may be placed on MANA-capable hardware.
