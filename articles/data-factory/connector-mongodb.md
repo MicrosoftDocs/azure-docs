@@ -6,7 +6,7 @@ author: simplywilson
 ms.author: tinglee
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 01/26/2026
+ms.date: 08/06/2026
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -27,6 +27,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory Synapse
 
 >[!IMPORTANT]
 >The new MongoDB connector provides improved native MongoDB support. If you are using the legacy MongoDB connector in your solution, supported as-is for backward compatibility only, refer to [MongoDB connector (legacy)](connector-mongodb-legacy.md) article.
+>This connector can be used to copy data from and to an Azure DocumentDB (with MongoDB compatibility) also.
 
 
 ## Supported capabilities
