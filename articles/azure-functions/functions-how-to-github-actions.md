@@ -2,7 +2,7 @@
 title: Deploy to Azure Functions by using GitHub Actions
 description: Set up continuous deployment for your Azure Functions app by using GitHub Actions with OpenID Connect (OIDC) authentication.
 ms.topic: how-to
-ms.date: 07/30/2026
+ms.date: 08/06/2026
 ms.custom: devx-track-csharp, github-actions-azure
 zone_pivot_groups: github-actions-deployment-options
 ---
@@ -180,31 +180,31 @@ The best way to manually create a workflow configuration is to start from the of
     
     ---
 
-1. Copy the language-specific template from the Azure Functions actions repository by using the following link. These templates use the recommended OIDC authentication:
+1. Use the language-specific OIDC workflow template from the Azure Functions actions repository. Copy the full file contents into a new file named `.github/workflows/deploy-function-app.yml` in your repository:
 
     ### [.NET](#tab/dotnet/windows)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/windows-dotnet-functionapp-on-azure-oidc.yml> 
+    :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/windows-dotnet-functionapp-on-azure-oidc.yml" range="1-2,24-90":::
     
     ### [.NET](#tab/dotnet/linux)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/linux-dotnet-functionapp-on-azure-oidc.yml>
+    :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/linux-dotnet-functionapp-on-azure-oidc.yml" range="1-2,24-90":::
     
     ### [Java](#tab/java/windows)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/windows-java-functionapp-on-azure-oidc.yml>
+    :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/windows-java-functionapp-on-azure-oidc.yml" range="1-2,22-90":::
     
     ### [Java](#tab/java/linux)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/linux-java-functionapp-on-azure-oidc.yml>
+    :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/linux-java-functionapp-on-azure-oidc.yml" range="1-2,22-90":::
     
     ### [JavaScript](#tab/javascript/windows)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/windows-node-functionapp-on-azure-oidc.yml> 
+    :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/windows-node-functionapp-on-azure-oidc.yml" range="1-2,22-95":::
     
     ### [JavaScript](#tab/javascript/linux)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/linux-node-functionapp-on-azure-oidc.yml>
+    :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/linux-node-functionapp-on-azure-oidc.yml" range="1-2,22-95":::
     
     ### [Python](#tab/python/windows)
     
@@ -212,11 +212,11 @@ The best way to manually create a workflow configuration is to start from the of
     
     ### [Python](#tab/python/linux)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/python-functionapp-on-azure-oidc.yml>
+    :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/python-functionapp-on-azure-oidc.yml" range="1-2,22-88":::
     
     ### [PowerShell](#tab/powershell/windows)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/powershell-functionapp-on-azure-oidc.yml>
+    :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/powershell-functionapp-on-azure-oidc.yml" range="1-2,22-57":::
     
     ### [PowerShell](#tab/powershell/linux)
     
@@ -228,7 +228,7 @@ The best way to manually create a workflow configuration is to start from the of
     
     ### [Container](#tab/container/linux)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-container-functionapp-on-azure.yml> 
+    :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-container-functionapp-on-azure.yml" range="1-2,9-57":::
 
     > [!IMPORTANT]
     > For new container-based function app deployments, use the native Azure Container Apps hosting model. See [Deploy to Azure Container Apps with GitHub Actions](/azure/container-apps/github-actions). The `Azure/functions-container-action` shown here deploys container images to existing function app resources in Azure.
