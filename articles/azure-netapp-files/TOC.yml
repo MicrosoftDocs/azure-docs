@@ -297,6 +297,8 @@
         href: understand-data-encryption.md
       - name: Understand AES in Azure NetApp Files
         href: understand-advanced-encryption-standard.md  
+      - name: Understand double encryption at rest
+        href: double-encryption-at-rest.md    
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
   - name: Solutions and benefits
