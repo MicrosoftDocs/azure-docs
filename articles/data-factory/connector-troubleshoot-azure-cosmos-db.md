@@ -116,7 +116,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](/azure/co
 
 - **Cause**: A problem with the CosmosDbSqlApi operation. This problem specifically applies to the Azure Cosmos DB for NoSQL connector.
 
-- **Recommendation**:  To check the error details, see [Azure Cosmos DB help document](/azure/cosmos-db/troubleshoot-dot-net-sdk). For further help, contact the Azure Cosmos DB team.
+- **Recommendation**: To check the error details, see [Azure Cosmos DB help document](/azure/cosmos-db/troubleshoot-dot-net-sdk). For further help, contact the Azure Cosmos DB team.
 
 ## Error code: CosmosDbSqlApiPartitionKeyExceedStorage
 
@@ -133,7 +133,7 @@ For more troubleshooting help, try these resources:
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
 - [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
-* [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [X information about Data Factory](https://x.com/hashtag/DataFactory)
