@@ -6,7 +6,7 @@ ms.author: tinglee
 ---
 
 > [!NOTE]
-> Connectors marked *Preview* are available to try, but are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Connectors marked *Preview* are available to try, but aren't recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 | Category              | Data store                                                   | [Copy activity](../copy-activity-overview.md)  (source/sink) | [Mapping Data Flow](../concepts-data-flow-overview.md) (source/sink) | [Lookup Activity](../control-flow-lookup-activity.md) | [Get Metadata Activity](../control-flow-get-metadata-activity.md)/[Validation Activity](../control-flow-validation-activity.md) | [Delete Activity](../delete-activity.md) |[Managed private endpoint](../managed-virtual-network-private-endpoint.md#managed-private-endpoints) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
