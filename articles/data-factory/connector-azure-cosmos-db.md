@@ -30,7 +30,7 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 ## Supported capabilities
 
-This Azure Cosmos DB for NoSQL connector is supported for the following capabilities:
+This Azure Cosmos DB for NoSQL connector supports the following capabilities:
 
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
@@ -42,7 +42,7 @@ This Azure Cosmos DB for NoSQL connector is supported for the following capabili
 
 For Copy activity, this Azure Cosmos DB for NoSQL connector supports:
 
-- Copy data from and to the [Azure Cosmos DB for NoSQL](/azure/cosmos-db/introduction) using key, service principal, or managed identities for Azure resources authentications.
+- Copy data from and to the [Azure Cosmos DB for NoSQL](/azure/cosmos-db/introduction) by using key, service principal, or managed identities for Azure resources authentications.
 - Write to Azure Cosmos DB as **insert** or **upsert**.
 - Import and export JSON documents as-is, or copy data from or to a tabular dataset. Examples include a SQL database and a CSV file. To copy documents as-is to or from JSON files or to or from another Azure Cosmos DB collection, see [Import and export JSON documents](#import-and-export-json-documents).
 
@@ -58,7 +58,7 @@ Data Factory and Synapse pipelines integrate with the [Azure Cosmos DB bulk exec
 
 Use the following steps to create a linked service to Azure Cosmos DB in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
+1. Go to the **Manage** tab in your Azure Data Factory or Synapse workspace and select **Linked Services**. Then select **New**:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -68,7 +68,7 @@ Use the following steps to create a linked service to Azure Cosmos DB in the Azu
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-2. Search for Azure Cosmos DB for NoSQL and select the Azure Cosmos DB for NoSQL connector.
+2. Search for **Azure Cosmos DB for NoSQL** and select the **Azure Cosmos DB for NoSQL** connector.
 
     :::image type="content" source="media/connector-azure-cosmos-db/azure-cosmos-db-connector.png" alt-text="Select Azure Cosmos DB for NoSQL connector.":::    
 
@@ -94,9 +94,9 @@ The Azure Cosmos DB for NoSQL connector supports the following authentication ty
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The **type** property must be set to **CosmosDb**. | Yes |
+| type | Set the **type** property to **CosmosDb**. | Yes |
 | connectionString |Specify information that's required to connect to the Azure Cosmos DB database.<br />**Note**: You must specify database information in the connection string as shown in the examples that follow. <br/> You can also put account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If this property isn't specified, the default Azure Integration Runtime is used. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If you don't specify this property, the default Azure Integration Runtime is used. |No |
 
 **Example**
 
@@ -145,7 +145,7 @@ The Azure Cosmos DB for NoSQL connector supports the following authentication ty
 ### <a name="service-principal-authentication"></a> Service principal authentication
 
 >[!NOTE]
->Currently, the service principal authentication isn't supported in data flow.
+>Currently, data flow doesn't support service principal authentication.
 
 To use service principal authentication, follow these steps.
 
@@ -157,11 +157,11 @@ To use service principal authentication, follow these steps.
 
 2. Grant the service principal proper permission. See examples on how permission works in Azure Cosmos DB from [Access control lists on files and directories](/azure/cosmos-db/how-to-setup-rbac). More specifically, create a role definition, and assign the role to the service principal via service principal object ID. 
 
-These properties are supported for the linked service:
+The linked service supports these properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **CosmosDb**. |Yes |
+| type | Set to **CosmosDb**. |Yes |
 | accountEndpoint | Specify the account endpoint URL for the Azure Cosmos DB instance. | Yes |
 | database | Specify the name of the database. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes |
@@ -169,7 +169,7 @@ These properties are supported for the linked service:
 | servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the application's key. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
 | azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the service's cloud environment is used. | No |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If you don't specify this property, the default Azure integration runtime is used. |No |
 
 **Example: using service principal key authentication**
 
@@ -233,7 +233,7 @@ You can also store service principal key in Azure Key Vault.
 >[!NOTE]
 >Currently, the system-assigned managed identity authentication is supported in data flows by using advanced properties in JSON format.
 
-A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents this specific service instance. You can directly use this managed identity for Azure Cosmos DB authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from your Azure Cosmos DB instance.
+You can associate a data factory or Synapse pipeline with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents this specific service instance. You can use this managed identity directly for Azure Cosmos DB authentication, similar to using your own service principal. It grants this designated resource access to copy data to or from your Azure Cosmos DB instance.
 
 To use system-assigned managed identities for Azure resource authentication, follow these steps.
 
@@ -241,14 +241,14 @@ To use system-assigned managed identities for Azure resource authentication, fol
 
 2. Grant the system-assigned managed identity proper permission. See examples on how permission works in Azure Cosmos DB from [Access control lists on files and directories](/azure/cosmos-db/how-to-setup-rbac). More specifically, create a role definition, and assign the role to the system-assigned managed identity.
 
-These properties are supported for the linked service:
+The linked service supports these properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **CosmosDb**. |Yes |
+| type | Set the type property to **CosmosDb**. |Yes |
 | accountEndpoint | Specify the account endpoint URL for the Azure Cosmos DB instance. | Yes |
 | database | Specify the name of the database. | Yes |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If you don't specify this property, the default Azure integration runtime is used. |No |
 | subscriptionId | Specify the subscription ID for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
 | tenantId | Specify the tenant ID for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
 | resourceGroup | Specify the resource group name for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
@@ -277,9 +277,9 @@ These properties are supported for the linked service:
 ### User-assigned managed identity authentication
 
 >[!NOTE]
->Currently, user-assigned managed identity authentication is supported in data flows by using advanced properties in JSON format.
+>Currently, data flows support user-assigned managed identity authentication by using advanced properties in JSON format.
 
-A data factory or Synapse pipeline can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity), which represents this specific service instance. You can directly use this managed identity for Azure Cosmos DB authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from your Azure Cosmos DB instance.
+You can associate a data factory or Synapse pipeline with [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity), which represent specific service instances. Use this managed identity directly for Azure Cosmos DB authentication, similar to using your own service principal. It grants this designated resource access to copy data to or from your Azure Cosmos DB instance.
 
 To use user-assigned managed identities for Azure resource authentication, follow these steps.
 
@@ -291,7 +291,7 @@ These properties are supported for the linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **CosmosDb**. |Yes |
+| type | Set the type property to **CosmosDb**. |Yes |
 | accountEndpoint | Specify the account endpoint URL for the Azure Cosmos DB instance. | Yes |
 | database | Specify the name of the database. | Yes |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes |
@@ -328,16 +328,16 @@ These properties are supported for the linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties that are available for defining datasets, see [Datasets and linked services](concepts-datasets-linked-services.md).
+For a full list of sections and properties that you can use to define datasets, see [Datasets and linked services](concepts-datasets-linked-services.md).
 
 The following properties are supported for Azure Cosmos DB for NoSQL dataset: 
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The **type** property of the dataset must be set to **CosmosDbSqlApiCollection**. |Yes |
-| collectionName |The name of the Azure Cosmos DB document collection. |Yes |
+| type | Set the **type** property of the dataset to **CosmosDbSqlApiCollection**. |Yes |
+| collectionName |Enter the name of the Azure Cosmos DB document collection. |Yes |
 
-If you use "DocumentDbCollection" type dataset, it's still supported as-is for backward compatibility for Copy and Lookup activity, it's not supported for Data Flow. You're suggested to use the new model going forward.
+If you use the "DocumentDbCollection" type dataset, Azure Data Factory still supports it as-is for backward compatibility for Copy and Lookup activity. It's not supported for Data Flow. Use the new model going forward.
 
 **Example**
 
@@ -527,7 +527,7 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## Import and export JSON documents
 
-You can use this Azure Cosmos DB for NoSQL connector to easily:
+Use this Azure Cosmos DB for NoSQL connector to easily:
 
 * Copy documents between two Azure Cosmos DB collections as-is.
 * Import JSON documents from various sources to Azure Cosmos DB, including from Azure Blob storage, Azure Data Lake Store, and other file-based stores that the service supports.
@@ -540,15 +540,13 @@ To achieve schema-agnostic copy:
 
 ## Migrate from relational database to Azure Cosmos DB
 
-When migrating from a relational database, for example: SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Azure Cosmos DB. In some cases, you might want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](/azure/cosmos-db/modeling-data), for example, to de-normalize the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this article](/azure/cosmos-db/migrate-relational-to-cosmos-db-sql-api) with a walk-through on how to achieve it using the copy activity.
+When migrating from a relational database, such as SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Azure Cosmos DB. In some cases, you might want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](/azure/cosmos-db/modeling-data), such as de-normalizing the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this article](/azure/cosmos-db/migrate-relational-to-cosmos-db-sql-api) with a walk-through on how to achieve it using the copy activity.
 
 ## Azure Cosmos DB change feed 
 
-Azure Data Factory can get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) by enabling it in the mapping data flow source transformation. With this connector option, you can read change feeds and apply transformations before loading transformed data into destination datasets of your choice. You don't have to use Azure functions to read the change feed and then write custom transformations. You can use this option to move data from one container to another, prepare change feed driven material views for fit purpose or automate container backup or recovery based on change feed, and enable many more such use cases using visual drag and drop capability of Azure Data Factory.
+Azure Data Factory can get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) by enabling it in the mapping data flow source transformation. By using this connector option, you can read change feeds and apply transformations before loading transformed data into destination datasets of your choice. You don't have to use Azure functions to read the change feed and then write custom transformations. Use this option to move data from one container to another, prepare change feed driven material views for fit purpose, automate container backup or recovery based on change feed, and enable many more such use cases by using the visual drag and drop capability of Azure Data Factory.
 
-Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can be recorded by ADF for you to get changed data from the last run automatically. If you change your pipeline name or activity name, the checkpoint will be reset, which leads you to start from beginning or get changes from now in the next run.
-
-When you debug the pipeline, this feature works the same. Be aware that the checkpoint will be reset when you refresh your browser during the debug run. After you're satisfied with the pipeline result from debug run, you can go ahead to publish and trigger the pipeline. At the moment when you trigger your published pipeline for the first time, it automatically restarts from the beginning or gets changes from now on.
+Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can be recorded by ADF for you to get changed data from the last run automatically. If you change your pipeline name or activity name, the checkpoint will be reset, which leads you to start from beginning or get changes from now in the next run. When you debug the pipeline, this feature works the same. Be aware that the checkpoint resets when you refresh your browser during the debug run. After you're satisfied with the pipeline result from debug run, you can go ahead to publish and trigger the pipeline. At the moment when you trigger your published pipeline for the first time, it automatically restarts from the beginning or gets changes from now on.
 
 In the monitoring section, you always have the chance to rerun a pipeline. When you're doing so, the changed data is always captured from the previous checkpoint of your selected pipeline run.
 
