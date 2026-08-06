@@ -82,7 +82,7 @@ The KBaaS has the following pipelines:
   - [Create autonomous agentic workflows without human interactions in Azure Logic Apps](/azure/logic-apps/create-autonomous-agent-workflows?tabs=standard)
   - [Create conversational agentic workflows with chat interactions in Azure Logic Apps](/azure/logic-apps/create-conversational-agent-workflows?tabs=standard)
 
-- If you choose a managed identity as the authentication method for Azure Cosmos DB and Azure OpenAI, go to the corresponding resources, and assign the following roles to the managed identity:
+- If you plan to use managed identity authentication, go to the corresponding resources, and assign the following roles to the managed identity:
 
   - **Cosmos DB Built-in Data Reader** and **Cosmos DB Operator** on your Azure Cosmos DB account.
   - **Cognitive Services OpenAI User** on your Azure OpenAI resource.
