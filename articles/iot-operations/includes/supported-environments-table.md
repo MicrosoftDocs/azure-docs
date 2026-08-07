@@ -12,8 +12,8 @@ Microsoft supports the following Kubernetes distributions for Azure IoT Operatio
 
 | Kubernetes distribution           | Architecture         | Support level        | *Minimum validated version*                    |
 |-----------------------------------|----------------------|----------------------|------------------------------------------------|
-| [AKS Edge Essentials](/azure/aks/aksarc/aks-edge-system-requirements)      | x86_64               | Preview       | *AksEdge-K3s-1.30.6-1.11.247.0*                 |
-| [AKS on Azure Local](/azure/aks/aksarc/aks-whats-new-local)                | x86_64               | Preview       | *Azure Stack HCI OS, version 23H2, build 2411* |
+| [AKS Edge Essentials](/azure/aks/aksarc/aks-edge-system-requirements)      | x86_64               | General availability       | *AksEdge-K3s-1.33.5-1.12.269.0*                 |
+| [AKS on Azure Local](/azure/aks/aksarc/aks-whats-new-local)                | x86_64               | General availability       | *Azure Stack HCI OS, Version 24H2, Build 2607* |
 
 * The *minimum validated version* is the lowest version of the Kubernetes distribution that Microsoft uses to validate Azure IoT Operations deployments.
 
