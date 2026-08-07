@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 author: jobingeorge-microsoft
 ms.author: jobingeorge
-ms.date: 07/22/2026
+ms.date: 08/07/2026
 # Customer intent: "As a cloud or storage administrator, I want to attach elastic SAN with an Azure VMware Solution private cloud using a service endpoint."
 ---
 
@@ -201,9 +201,7 @@ ESXi iSCSI Configuration:
 
 ### 2.5 Connectivity Path
 
-**Private Endpoint Approach** (Not Used in AVS Gen 2):
-
-**AVS Gen 2 service endpoint Approach** (Default):
+Norway East fleet native routes through SE, while other regions route through the private endpoint. Otherwise, the private endpoint is used.
 
 **Key Differences**:
 
@@ -251,3 +249,11 @@ ESXi iSCSI Configuration:
 - **Regional Requirements**:
     - Elastic SAN and AVS must be in same Azure region
     - Cross-region connectivity not supported via service endpoints
+
+## Add an Elastic SAN volume as a datastore
+
+Configure all private endpoints before attaching a volume as a datastore. Adding private endpoints after a volume is attached as a datastore requires detaching the datastore and reconnecting it to the cluster. [Learn more](/azure/azure-vmware/configure-azure-elastic-san#add-an-elastic-san-volume-as-a-datastore).
+
+## Configure an Azure Storage service endpoint
+
+To configure an Azure Storage service endpoint from the virtual network where access is required, you must have permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](/azure/role-based-access-control/permissions/networking#microsoftnetwork) via a custom Azure role to configure a service endpoint. [Learn more](/azure/storage/elastic-san/elastic-san-configure-service-endpoints?tabs=azure-portal#configure-an-azure-storage-service-endpoint).
