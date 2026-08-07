@@ -88,7 +88,7 @@ Avoid using the following IP schema reserved for VMware NSX usage:
 Example /22 CIDR network address block **10.31.0.0/22** is divided into the following subnets: 
 
 >[!Note]
-> The /22 CIDR network address block is reserved and must be kept exclusively for Azure VMware Solution internal management and control plane connectivity; customers should not use any of its subnets for other purposes, including related to any private cloud use case.
+> The /22 CIDR network address block is reserved exclusively for Azure VMware Solution internal management and control plane connectivity. Don't use any of its subnets for other purposes, including related to any private cloud use case.
 
 |**Network Usage** |**Subnet** |**Description** |**Example** |
 | :-- | :-- | :-- | :-- |
