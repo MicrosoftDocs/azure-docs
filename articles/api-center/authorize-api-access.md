@@ -4,7 +4,7 @@ description: Configure access to APIs in your Azure API Center inventory using A
 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 03/10/2026
+ms.date: 8/07/2026
  
 ms.custom: 
 # Customer intent: As an API program manager, I want to store API authorization information in my API center and enable authorized users to test APIs in the API Center portal.
@@ -86,7 +86,7 @@ For an API that supports OAuth 2.0 authorization, complete the following steps. 
 * **Client credentials flow** - For applications that don't require a specific user's permissions.
 
 > [!IMPORTANT]
-> You can't use API keys and OAuth 2.0 secrets if you enable anonymous access for the customer portal.
+> You can't use API keys and OAuth 2.0 secrets if you enable anonymous access for the customer portal. If you configure anonymous access for the customer portal, the setting is ignored and test console authorization fails.
 
 > [!CAUTION]
 > Extra care is required when using a client credentials flow with the developer portal test console. See [security considerations](../api-management/api-management-howto-oauth2.md#security-considerations).
