@@ -201,7 +201,7 @@ ESXi iSCSI Configuration:
 
 ### 2.5 Connectivity Path
 
-Gen2 supports both service endpoint and private endpoint. When you enable the circuit breaker, the service endpoint is used. Otherwise, the private endpoint is used.
+Norway east fleet native is routed through SE, while other regions are routed through the private endpoint. Otherwise, the private endpoint is used.
 
 **Key Differences**:
 
