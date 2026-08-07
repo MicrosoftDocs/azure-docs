@@ -56,8 +56,6 @@ azurefunctions {
 
 Open the new Function.java file from the *src/main/java* path in a text editor and review the generated code. This code is an [HTTP triggered](functions-bindings-http-webhook.md) function that echoes the body of the request. 
 
-
-
 ## Run the function locally
 
 Run the following command to build then run the function project:
@@ -97,7 +95,6 @@ Hello, AzureFunctions
 
 Use `Ctrl+C` in the terminal to stop the function code.
 
-
 ## Deploy the function to Azure
 
 A function app and related resources are created in Azure when you first deploy your function app. Before you can deploy, use the [az login](/cli/azure/authenticate-azure-cli) Azure CLI command to sign in to your Azure subscription. 
@@ -126,7 +123,6 @@ The deployment also packages the project files and deploys them to the new funct
 
 The authLevel for HTTP Trigger in sample project is `ANONYMOUS`, which will skip the authentication. However, if you use other authLevel like `FUNCTION` or `ADMIN`, you need to get the function key to call the function endpoint over HTTP. The easiest way to get the function key is from the [Azure portal].
 
-
 ## Get the HTTP trigger URL
 
 You can get the URL required to trigger your function, with the function key, from the Azure portal. 
@@ -154,7 +150,6 @@ This sends a POST request to the function endpoint with `AzureFunctions` in the 
 <pre>
 Hello, AzureFunctions
 </pre>
-
 
 ## Next steps
 
