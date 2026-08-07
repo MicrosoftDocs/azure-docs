@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: azure-vmware
 author: jobingeorge-microsoft
 ms.author: jobingeorge
-ms.date: 08/05/2026
+ms.date: 08/07/2026
 # Customer intent: "As a cloud or storage administrator, I want to attach elastic SAN with an Azure VMware Solution private cloud using a service endpoint."
 ---
 
@@ -201,7 +201,7 @@ ESXi iSCSI Configuration:
 
 ### 2.5 Connectivity Path
 
-Norway east fleet native is routed through SE, while other regions are routed through the private endpoint. Otherwise, the private endpoint is used.
+Norway East fleet native routes through SE, while other regions route through the private endpoint. Otherwise, the private endpoint is used.
 
 **Key Differences**:
 
