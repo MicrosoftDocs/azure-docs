@@ -20,7 +20,7 @@ You can check the expiration date of your Identity Validation on the Identity Va
 >[!Note]
 >Failure to renew Identity Validation before the expiration date will stop certificate renewal, effectively halting the signing process associated with those specific certificate profiles.
 >EKU are unique at the certificate profile level. 
->Identity validation renewal includes a full review of the legal entity or individual developer, as applicable. Additional documentation may be required, and the review can take 1–20 business days. Plan accordingly. 
+>Identity validation renewal includes a full review of the legal entity or individual developer, as applicable. You might need to provide additional documentation, and the review can take 1–20 business days. Plan accordingly. 
 
 1. Navigate to your Artifact Signing account in the [Azure portal](https://portal.azure.com/).
 1. Confirm you have the **Artifact Signing Identity Verifier role**.
