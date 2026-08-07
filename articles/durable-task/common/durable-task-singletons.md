@@ -41,6 +41,8 @@ The following example shows an HTTP-trigger function that creates a singleton ba
 
 # [C#](#tab/csharp)
 
+This C# code uses the isolated worker model, which is the recommended model for .NET apps. For more information about the differences between the in-process and isolated worker models, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
+
 ```cs
 [Function("HttpStartSingle")]
 public static async Task<HttpResponseData> RunSingle(
@@ -75,8 +77,7 @@ public static async Task<HttpResponseData> RunSingle(
 }
 ```
 
-> [!NOTE]
-> The previous C# code is for the isolated worker model, which is the recommended model for .NET apps. For more information about the differences between the in-process and isolated worker models, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
+
 
 # [JavaScript](#tab/javascript)
 

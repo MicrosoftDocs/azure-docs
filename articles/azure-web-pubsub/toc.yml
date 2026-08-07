@@ -7,6 +7,8 @@
       href: overview.md
     - name: About hubs, groups, and connections
       href: key-concepts.md
+    - name: Choose Web PubSub capability
+      href: choose-web-pubsub-capability.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/web-pubsub/
     - name: Region availability

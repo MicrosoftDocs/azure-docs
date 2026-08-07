@@ -25,7 +25,7 @@ Supported product (subscriptions, reservations and savings plans) billing owners
 
 This feature is available only to the following partners:
 
-- CSP authorized direct-bill partners that earn an [Azure Solutions Partner designation](https://partner.microsoft.com/partnership/solutions-partner) or enroll in the [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) program.
+- CSP authorized direct-bill partners that earn an [Azure Solutions Partner designation](https://partner.microsoft.com/partnership/solutions-partner) or CSP authorized direct-bill partner enrolled in the [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) program.
 
 - CSP authorized distributors that earn the [Frontier Distributor designation](https://partner.microsoft.com/asset/collection/frontier-distributor-collection).
 

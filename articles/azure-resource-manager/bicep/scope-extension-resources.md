@@ -3,7 +3,7 @@ title: Scope on extension resource types (Bicep)
 description: Describes how to use the scope property when deploying extension resource types with Bicep.
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 12/10/2025
+ms.date: 07/28/2026
 ---
 
 # Set scope for extension resources in Bicep
@@ -128,6 +128,25 @@ resource createStorageLock 'Microsoft.Authorization/locks@2020-05-01' = {
 }
 ```
 
+You can also apply an extension resource to another extension resource by setting the `scope` property to the symbolic name of that extension resource. The following example applies a lock to an existing role assignment.
+
+```bicep
+resource existingRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' existing = {
+  name: '00000000-0000-0000-0000-000000000000'
+}
+
+resource roleAssignmentLock 'Microsoft.Authorization/locks@2020-05-01' = {
+  name: 'roleAssignmentLock'
+  scope: existingRoleAssignment
+  properties: {
+    level: 'CanNotDelete'
+    notes: 'Role assignment should not be deleted.'
+  }
+}
+```
+
+When any resource uses the `scope` property, Bicep generates the fully qualified resource ID for the scope. This ensures the compiled ARM template correctly resolves the scope when calling `extensionResourceId`, which **requires** a fully qualified resource ID as its first argument. This behavior applies to extension resources and any other resource type that uses the `scope` property. It also enables deployment scenarios that previously weren't supported, such as deploying tenant-level resources from a lower deployment scope like a subscription or resource group.
+
 The same requirements apply to extension resources as other resource when targeting a scope that is different than the target scope of the deployment. To learn about deploying to more than one scope, see:
 
 * [Resource group deployments](deploy-to-resource-group.md)
@@ -158,11 +177,11 @@ The following example shows how to apply a lock on a storage account that reside
 
     ```bicep
     param storageAccountName string
-    
+
     resource storage 'Microsoft.Storage/storageAccounts@2023-05-01' existing = {
       name: storageAccountName
     }
-    
+
     resource storeLock 'Microsoft.Authorization/locks@2020-05-01' = {
       scope: storage
       name: 'storeLock'

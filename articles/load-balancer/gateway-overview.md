@@ -5,7 +5,7 @@ description: Overview of gateway load balancer SKU for Azure Load Balancer.
 ms.service: azure-load-balancer
 author: mbender-ms
 ms.author: mbender
-ms.date: 07/07/2026
+ms.date: 07/17/2026
 ms.topic: concept-article
 # Customer intent: "As a network administrator, I want to implement Gateway Load Balancer with my Network Virtual Appliances, so that I can enhance network performance, simplify management, and ensure seamless integration of advanced network functionalities."
 ---
@@ -60,17 +60,13 @@ When you use Gateway Load Balancer, traffic intended for the consumer applicatio
 
 ## Components
 
-Gateway Load Balancer consists of the following components:
+Gateway Load Balancer consists of the following components. For general Azure Load Balancer component definitions, see [Azure Load Balancer components](components.md).
 
 * **Frontend IP configuration** - The IP address of your Gateway Load Balancer. This IP is private only. 
 
-* **Load-balancing rules** - A load balancer rule is used to define how incoming traffic is distributed to all the instances within the backend pool. A load-balancing rule maps a given frontend IP configuration and port to multiple backend IP addresses and ports. 
+* **Load-balancing rules** - Gateway Load Balancer rules can only be HA port rules, and a rule can be associated with up to two backend pools.
 
-    * Gateway Load Balancer rules can only be HA port rules. 
-
-    * A Gateway Load Balancer rule can be associated with up to two backend pools. 
-
-* **Backend pools** - The group of virtual machines or instances in a Virtual Machine Scale Set that's serving the incoming request. To scale cost-effectively to meet high volumes of incoming traffic, computing guidelines generally recommend adding more instances to the backend pool. Load Balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without extra operations. The scope of the backend pool is any virtual machine in a single virtual network. 
+* **Backend pools** - The group of virtual machines or instances in a Virtual Machine Scale Set that's serving the incoming request. Gateway Load Balancer backend pools also use tunnel interfaces, described next.
 
 * **Tunnel interfaces** - Gateway Load balancer backend pools have another component called the tunnel interfaces. The tunnel interface enables the appliances in the backend to ensure network flows are handled as expected. Each backend pool can have up to two tunnel interfaces. Tunnel interfaces can be either internal or external. For traffic coming to your backend pool, use the external type. For traffic going from your appliance to the application, use the internal type.
 

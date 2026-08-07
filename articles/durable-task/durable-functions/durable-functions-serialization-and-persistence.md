@@ -80,6 +80,59 @@ Before you run these examples, upload a blob to any container in your storage ac
 > [!IMPORTANT]
 > Never include storage credentials or a shared access signature (SAS) in the reference. The system persists the reference in orchestration history. These examples use an app setting named `PAYLOAD_STORAGE_CONNECTION_STRING` to keep the storage code concise. For production workloads, use Microsoft Entra ID to [authorize access to blob data](/azure/storage/blobs/authorize-access-azure-active-directory).
 
+# [C# (Isolated)](#tab/csharp-isolated-large-payload)
+
+This example requires the [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs) NuGet package.
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using Azure.Storage.Blobs;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.DurableTask;
+
+public record BlobReference(string Container, string BlobName);
+
+public static class LargePayloadFunctions
+{
+    [Function("ProcessLargePayload")]
+    public static async Task<BlobReference> RunOrchestrator(
+        [OrchestrationTrigger] TaskOrchestrationContext context)
+    {
+        BlobReference inputReference = context.GetInput<BlobReference>()
+            ?? throw new InvalidOperationException("A blob reference is required.");
+
+        return await context.CallActivityAsync<BlobReference>(
+            nameof(ProcessLargePayloadActivity), inputReference);
+    }
+
+    [Function(nameof(ProcessLargePayloadActivity))]
+    public static async Task<BlobReference> ProcessLargePayloadActivity(
+        [ActivityTrigger] BlobReference inputReference)
+    {
+        string connectionString =
+            Environment.GetEnvironmentVariable("PAYLOAD_STORAGE_CONNECTION_STRING")
+            ?? throw new InvalidOperationException("Payload storage is not configured.");
+        BlobServiceClient service = new BlobServiceClient(connectionString);
+
+        BlobClient inputBlob = service
+            .GetBlobContainerClient(inputReference.Container)
+            .GetBlobClient(inputReference.BlobName);
+        BinaryData inputData = (await inputBlob.DownloadContentAsync()).Value.Content;
+
+        BlobContainerClient outputContainer =
+            service.GetBlobContainerClient("processed-payloads");
+        await outputContainer.CreateIfNotExistsAsync();
+
+        string outputName = $"processed/{Guid.NewGuid():N}.json";
+        await outputContainer.GetBlobClient(outputName)
+            .UploadAsync(inputData, overwrite: true);
+
+        return new BlobReference(outputContainer.Name, outputName);
+    }
+}
+```
+
 # [C# (InProc)](#tab/csharp-inproc-large-payload)
 
 This example requires the [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs) NuGet package.
@@ -137,59 +190,6 @@ public static class LargePayloadFunctions
             Container = outputContainer.Name,
             BlobName = outputName,
         };
-    }
-}
-```
-
-# [C# (Isolated)](#tab/csharp-isolated-large-payload)
-
-This example requires the [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs) NuGet package.
-
-```csharp
-using System;
-using System.Threading.Tasks;
-using Azure.Storage.Blobs;
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.DurableTask;
-
-public record BlobReference(string Container, string BlobName);
-
-public static class LargePayloadFunctions
-{
-    [Function("ProcessLargePayload")]
-    public static async Task<BlobReference> RunOrchestrator(
-        [OrchestrationTrigger] TaskOrchestrationContext context)
-    {
-        BlobReference inputReference = context.GetInput<BlobReference>()
-            ?? throw new InvalidOperationException("A blob reference is required.");
-
-        return await context.CallActivityAsync<BlobReference>(
-            nameof(ProcessLargePayloadActivity), inputReference);
-    }
-
-    [Function(nameof(ProcessLargePayloadActivity))]
-    public static async Task<BlobReference> ProcessLargePayloadActivity(
-        [ActivityTrigger] BlobReference inputReference)
-    {
-        string connectionString =
-            Environment.GetEnvironmentVariable("PAYLOAD_STORAGE_CONNECTION_STRING")
-            ?? throw new InvalidOperationException("Payload storage is not configured.");
-        BlobServiceClient service = new BlobServiceClient(connectionString);
-
-        BlobClient inputBlob = service
-            .GetBlobContainerClient(inputReference.Container)
-            .GetBlobClient(inputReference.BlobName);
-        BinaryData inputData = (await inputBlob.DownloadContentAsync()).Value.Content;
-
-        BlobContainerClient outputContainer =
-            service.GetBlobContainerClient("processed-payloads");
-        await outputContainer.CreateIfNotExistsAsync();
-
-        string outputName = $"processed/{Guid.NewGuid():N}.json";
-        await outputContainer.GetBlobClient(outputName)
-            .UploadAsync(inputData, overwrite: true);
-
-        return new BlobReference(outputContainer.Name, outputName);
     }
 }
 ```
@@ -493,6 +493,13 @@ Apply the following best practices to protect your task hub storage:
 
 Serialization customization options vary by language. Select your language tab to see the available options.
 
+# [C# (Isolated)](#tab/csharp-isolated)
+### .NET Isolated and System.Text.Json
+
+Durable Functions running in the [.NET Isolated worker process](../../azure-functions/dotnet-isolated-process-guide.md) use the same object serializer configured globally for your Azure Functions app (see [WorkerOptions](/dotnet/api/microsoft.azure.functions.worker.workeroptions)). This serializer is [System.Text.Json](/dotnet/api/system.text.json) by default rather than Newtonsoft.Json. Any changes to `WorkerOptions.Serializer` transitively apply to Durable Functions.
+
+For more information on the built-in support for JSON serialization in .NET, see the [JSON serialization and deserialization in .NET overview documentation](/dotnet/standard/serialization/system-text-json-overview).
+
 # [C# (InProc)](#tab/csharp-inproc)
 
 ### Default serialization logic
@@ -574,13 +581,6 @@ namespace MyApplication
     }
 }
 ```
-
-# [C# (Isolated)](#tab/csharp-isolated)
-### .NET Isolated and System.Text.Json
-
-Durable Functions running in the [.NET Isolated worker process](../../azure-functions/dotnet-isolated-process-guide.md) uses the same object-serializer configured globally for your Azure Functions app (see [WorkerOptions](/dotnet/api/microsoft.azure.functions.worker.workeroptions)). This serializer happens to be [System.Text.Json](/dotnet/api/system.text.json) by default rather than Newtonsoft.Json. Any changes to `WorkerOptions.Serializer` will transitively apply to Durable Functions.
-
-For more information on the built-in support for JSON serialization in .NET, see the [JSON serialization and deserialization in .NET overview documentation](/dotnet/standard/serialization/system-text-json-overview).
 
 # [JavaScript](#tab/javascript)
 

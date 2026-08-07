@@ -137,6 +137,10 @@
       href: vnet-flow-logs-tutorial.md
     - name: Manage VNet flow logs
       href: vnet-flow-logs-manage.md
+    - name: Create using Bicep
+      href: vnet-flow-logs-bicep.md
+    - name: Create using an ARM template
+      href: vnet-flow-logs-template.md
     - name: VNet flow logs managed identity
       href: vnet-flow-logs-managed-identity.md
     - name: VNet flow logs filtering
@@ -149,14 +153,6 @@
       href: nsg-flow-logs-overview.md
     - name: Manage NSG flow logs
       href: nsg-flow-logs-manage.md
-    - name: Deploy NSG flow logs
-      items:
-      - name: ARM template
-        href: nsg-flow-logs-template.md
-      - name: Bicep
-        href: nsg-flow-logs-bicep.md
-      - name: REST
-        href: /previous-versions/azure/network-watcher/nsg-flow-logs-rest?toc=/azure/network-watcher/toc.json
     - name: Audit and deploy using Azure Policy
       href: nsg-flow-logs-policy-portal.md
     - name: Analyze NSG flow logs

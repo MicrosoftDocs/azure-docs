@@ -3,7 +3,7 @@ title: Deploy an update by using Azure Device Update for IoT Hub | Microsoft Doc
 description: Learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
 author: sethmanheim
 ms.author: sethm
-ms.date: 01/24/2025
+ms.date: 08/06/2026
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
@@ -13,6 +13,9 @@ ms.subservice: device-update
 # Deploy an update by using Azure Device Update for IoT Hub
 
 In this article, you learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
+
+> [!IMPORTANT]
+> Migrate to Device Update data plane API version `2026-06-01` ahead of the scheduled retirement dates: **February 8, 2027** for preview API versions, and **August 7, 2029** for API version `2022-10-01`. This version adds _download security_, which lets you choose, for each new deployment, whether devices download update content over HTTPS (the default) or HTTP. For more information, see [Understand download security (TLS) in Device Update for IoT Hub](device-update-tls-download.md).
 
 ## Prerequisites
 
@@ -26,7 +29,7 @@ This section describes how to deploy the update by using the Azure portal or Azu
 
 # [Azure portal](#tab/portal)
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
 
 1. Select **Updates** under **Device management** in the left navigation.
 
@@ -37,7 +40,7 @@ This section describes how to deploy the update by using the Azure portal or Azu
 1. Under **Status** in the group list, select **Deploy** next to **One or more new updates are available for this group**.
 
    :::image type="content" source="media/deploy-update/compliance-1.png" alt-text="Screenshot of the compliance view for Groups and Deployments." lightbox="media/deploy-update/compliance-1.png":::
-   
+
 1. View the update compliance chart and group list. You should see a new update available for your tag based or default group. You might need to refresh once. For more information, see [Device Update compliance](device-update-compliance.md).
 
 1. Select **Deploy** next to the **one or more updates available** status.
@@ -45,7 +48,11 @@ This section describes how to deploy the update by using the Azure portal or Azu
 1. From the list on the right, select the desired update to deploy.
 
    :::image type="content" source="media/deploy-update/deploy-3.png" alt-text="Screenshot of the deployment view for selecting updates." lightbox="media/deploy-update/deploy-3.png":::
-   
+
+1. For **Download security**, select **HTTPS** (recommended) or **HTTP**. This setting controls the protocol that devices use to download the update content. **HTTPS** is the default and encrypts update content in transit.
+
+   For guidance on choosing a protocol and preparing your devices, see [Understand download security (TLS) in Device Update for IoT Hub](device-update-tls-download.md).
+
 1. Schedule your deployment to start immediately or in the future.
 
    > [!TIP]
@@ -58,7 +65,7 @@ This section describes how to deploy the update by using the Azure portal or Azu
 1. In the **Current updates** tab, you can view the status of your deployment.
 
    :::image type="content" source="media/deploy-update/current-updates-4.png" alt-text="A screenshot of the Current updates view." lightbox="media/deploy-update/current-updates-4.png":::
-   
+
 1. In the **Group basics** view, the compliance chart shows that the update is now in progress.
 
    After your device successfully updates, your compliance chart and deployment details update to reflect that status.
@@ -78,7 +85,7 @@ Or, if you prefer, you can run the Azure CLI commands locally:
 >[!TIP]
 >The Azure CLI commands in this article use the backslash \\ character for line continuation so that the command arguments are easier to read. This syntax works in Bash environments. If you run these commands in PowerShell, replace each backslash with a backtick \`, or remove them entirely.
 
-### Verify update availability
+## Verify update availability
 
 1. Use the [`az iot du device group list`](/cli/azure/iot/du/device/group#az-iot-du-device-group-list) command to identify your device group.
 
@@ -98,7 +105,7 @@ Or, if you prefer, you can run the Azure CLI commands locally:
    - `--update-compliance`: Returns device group update compliance information, such as how many devices are on their latest update, how many need new updates, and how many are currently receiving a new update.
 
    To verify the best available update for your group, run the command as follows:
-   
+
    ```azurecli
    az iot du device group show \
        --account <Device Update account name> \
@@ -107,7 +114,7 @@ Or, if you prefer, you can run the Azure CLI commands locally:
        --best-updates
    ```
 
-### Create the deployment
+## Create the deployment
 
 Use [`az iot du device deployment create`](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-create) to create a deployment for the device group. The command takes the following arguments:
 
@@ -130,7 +137,9 @@ az iot du device deployment create \
     --update-version <update version>
 ```
 
-### Use optional arguments
+Devices download update content over HTTPS by default. To use HTTP instead, add the optional `--download-security` parameter described in [Use optional arguments](#use-optional-arguments).
+
+## Use optional arguments
 
 Optional arguments allow you to further configure the deployment. For the full list of optional arguments, see [Optional parameters](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-create-optional-parameters).
 
@@ -172,6 +181,20 @@ az iot du device deployment create \
     --start-time "2022-12-20T01:00:00"
 ```
 
+To choose the protocol that devices use to download the update content, add the optional `--download-security` parameter. Accepted values are `HTTPS` (recommended) and `HTTP`. If you omit the parameter, the deployment uses the default `HTTPS`. For guidance on choosing a protocol and preparing your devices, see [Understand download security (TLS) in Device Update for IoT Hub](device-update-tls-download.md).
+
+```azurecli
+az iot du device deployment create \
+    --account <Device Update account name> \
+    --instance <Device Update instance name> \
+    --group-id <device group ID> \
+    --deployment-id <deployment ID> \
+    --update-name <update name> \
+    --update-provider <update provider> \
+    --update-version <update version> \
+    --download-security <HTTPS or HTTP>
+```
+
 ---
 
 ## Monitor deployment status
@@ -189,6 +212,9 @@ az iot du device deployment create \
 1. Select **Refresh** to view the latest status details.
 
    :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Screenshot that shows deployment details." lightbox="media/deploy-update/deployment-details.png":::
+
+> [!NOTE]
+> The deployment details show the download security setting. You can open the deployment details from the **Current deployment** and **Deployment history** tabs. You can't change this setting after you create the deployment. To use a different protocol, create a new deployment.
 
 Go to the **Group basics** tab of the **Group details** page to search for the status of a particular device, or filter to view devices that failed the deployment.
 
@@ -212,6 +238,9 @@ az iot du device deployment show \
     --group-id <device group ID> \
     --deployment-id <deployment ID>
 ```
+
+> [!NOTE]
+> The `az iot du device deployment show` command output includes the `downloadSecurity` property, which shows the protocol you selected for the deployment. You can't change this setting after you create the deployment. To use a different protocol, create a new deployment.
 
 Add the `--status` flag to return information about how many devices in the deployment are in progress, completed, or failed.
 
@@ -240,7 +269,7 @@ If your deployment fails, you can retry the deployment for failed devices.
 
 Use [az iot du device deployment retry](/cli/azure/iot/du/device/deployment#az-iot-du-device-deployment-retry) to retry a deployment for a target subgroup of devices.
 
-This command takes the `--class-id` argument, which is generated from the model ID and compatibility properties reported by the device update agent.
+This command takes the `--class-id` argument, which is generated from the model ID and compatibility properties reported by the device update agent:
 
 ```azurecli
 az iot du device deployment retry \

@@ -5,16 +5,18 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: include
-ms.date: 03/26/2026
+ms.date: 08/05/2026
 ms.author: allensu
 ms.custom: include file
 ---
 
 ## Deploy Azure Bastion
 
-Azure Bastion uses your browser to connect to virtual machines in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The virtual machines don't need public IP addresses, client software, or special configuration.
+Azure Bastion uses your browser to connect to virtual machines (VMs) in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The virtual machines don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](/azure/bastion/bastion-overview).
 
-[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)] For more information about Azure Bastion, see [What is Azure Bastion?](~/articles/bastion/bastion-overview.md).
+[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+This procedure deploys the **Basic** SKU, which requires a dedicated **AzureBastionSubnet** and a Standard SKU public IP address. The Azure portal version of this procedure deploys the **Developer** tier, which requires neither. For a comparison of features and deployment requirements, see [Choose the right Azure Bastion SKU](/azure/bastion/bastion-sku-comparison).
 
 1. Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) to create a Bastion subnet for your virtual network. This subnet is reserved exclusively for Bastion resources and must be named **AzureBastionSubnet**.
 

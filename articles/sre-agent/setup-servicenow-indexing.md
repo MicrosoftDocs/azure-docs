@@ -2,7 +2,7 @@
 title: Set up ServiceNow incident indexing in Azure SRE Agent
 description: Connect ServiceNow to Azure SRE Agent so your agent automatically indexes, investigates, and responds to ServiceNow incidents.
 ms.topic: tutorial
-ms.date: 06/08/2026
+ms.date: 07/20/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.service: azure-sre-agent
@@ -55,6 +55,8 @@ The ServiceNow configuration form appears with authentication fields.
 ## Choose authentication and enter credentials
 
 Select your authentication type from the **Authentication Type** dropdown.
+
+The **Assignment group** applies to both authentication types. Enter the group that scopes incident indexing. This field is required. The agent filters ServiceNow incident queries by this group's name (`assignment_group.name`), so it indexes only incidents assigned to that team. A response plan's handler scope can override this value; otherwise, the agent uses this assignment group. If the agent can't read the assignment group, it doesn't run an unscoped tenant-wide query.
 
 ### Option A: Basic authentication
 
@@ -200,6 +202,7 @@ Use the following table to resolve common issues during ServiceNow setup.
 | Issue | Solution |
 |---|---|
 | Unable to connect to ServiceNow | Verify the endpoint URL, username, and password. Also, check that the account has the `itil` role. |
+| "Assignment group is required" error when saving | Enter a valid ServiceNow assignment group. Indexing must be scoped to a specific team; the agent won't run an unscoped tenant-wide query. |
 | No incidents appear after connecting | Ensure you selected the **Quickstart response plan** checkbox during setup. The agent needs at least one response plan to start scanning. |
 | OAuth authorization popup fails | Ensure the redirect URL is registered in ServiceNow under **System OAuth** > **Application Registry**. |
 | Connectivity indicator stays on "Connecting" | Wait up to 2 minutes. If the indicator times out, recheck your credentials. |

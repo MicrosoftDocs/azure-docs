@@ -25,6 +25,7 @@ The following table lists the Azure regions where you can deploy Azure SRE Agent
 | Canada Central | `canadacentral` | Canada |
 | East US 2 | `eastus2` | United States |
 | France Central | `francecentral` | Europe |
+| Italy North | `italynorth` | Europe |
 | Korea Central | `koreacentral` | Asia Central |
 | South Africa North | `southafricanorth` | Africa |
 | Southeast Asia | `southeastasia` | Asia Pacific |

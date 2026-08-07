@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: troubleshooting
-ms.date: 07/07/2026
+ms.date: 07/17/2026
 ms.author: mbender
 ms.custom:
   - devx-track-python
@@ -165,7 +165,7 @@ In this section, you verify that the health probe is working as expected by chec
     | **Scope** | Select the load balancer to monitor. |
     | **Metric Namespace** | Select **Load balancer standard** |
     | **Metric** | Select **Health Probe status** |
-    | **Aggregation** | Select **Max** |
+    | **Aggregation** | Select **Avg** |
 
 1. Select **checkmark** to add the metric.
 
