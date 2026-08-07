@@ -16,7 +16,7 @@ If a volume create-read-update-delete (CRUD) operation is performed on a volume 
 
 ## Understand authentication and authorization errors
 
-When troubleshooting access issues with Azure NetApp Files SMB volumes, distinguish between authentication failures and authorization failures:
+When troubleshooting access problems with Azure NetApp Files SMB volumes, distinguish between authentication failures and authorization failures:
 
 * **Authentication failures** occur when a user account can't be validated by Active Directory. Common causes include invalid credentials, disabled accounts, failed name mapping, or user accounts that don't exist. Clients typically return authentication-specific error messages.
 * **Authorization failures** occur when a user successfully authenticates but doesn't have the required share-level or NTFS permissions to access the requested resource. Clients typically return a permissions-related error, such as "You do not have permission to access...".
