@@ -27,6 +27,8 @@ To enable IP allowlisting controls on the supercomputer management plane, the `M
 az feature register --namespace Microsoft.ContainerService --name EnableServiceTagAuthorizedIPPreview
 ```
 
+---
+
 ## Enable connectivity to platform services
 
 After setting up your virtual network with user defined routing, you must configure certain allowlisting rules to ensure that your Microsoft Discovery Supercomputer instance continues to function. Configure these rules before you create the Supercomputer resource to ensure successful creation.
