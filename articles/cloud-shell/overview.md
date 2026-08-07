@@ -1,6 +1,6 @@
 ---
 description: Overview of the Azure Cloud Shell.
-ms.date: 04/01/2026
+ms.date: 08/07/2026
 ms.topic: overview
 tags: azure-resource-manager
 title: What is Azure Cloud Shell?
@@ -66,4 +66,4 @@ mounted Azure Files share. Regular storage costs apply.
 [06]: https://portal.azure.com
 [07]: https://shell.azure.com
 [08]: get-started/ephemeral.md
-[09]: use-cloud-shell-editor-new.md
+[09]: use-cloud-shell-editor.md
