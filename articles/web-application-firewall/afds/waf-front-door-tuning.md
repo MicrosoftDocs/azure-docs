@@ -31,6 +31,18 @@ This article describes what you can do if requests that should pass through your
 
 Read the [Azure Front Door WAF overview](afds-overview.md) and the [WAF Policy for Azure Front Door](waf-front-door-create-portal.md) documents. Also, enable [WAF monitoring and logging](waf-front-door-monitor.md). These articles explain how the WAF functions, how the WAF rule sets work, and how to access WAF logs.
 
++## Understand policy scope impact before tuning
+
+Before you tune rules, exclusions, or actions, identify the scope where the policy is associated:
+
+- **Profile level**: changes can affect all protected traffic in the profile.
+- **Domain level**: changes affect traffic for the selected domain associations.
+- **Route level**: changes affect only matched routes and are the most targeted option.
+
+If multiple scopes apply to a request, route-level policy takes precedence over domain-level policy, and domain-level policy takes precedence over profile-level policy.
+
+For most deployments, start with baseline tuning at profile scope and move exceptions to domain or route scope to reduce operational blast radius.
+
 ## Understand WAF logs
 
 The purpose of WAF logs is to show every request that's matched or blocked by the WAF. It's a collection of all evaluated requests that are matched or blocked. If you notice that the WAF blocks a request that it shouldn't (a false positive), you can do a few things.
@@ -313,7 +325,7 @@ Another way to get around a false positive is to disable the rule that matched t
 
 Disabling a rule is a benefit when you're sure that all requests meeting that specific condition are legitimate requests, or when you're sure the rule doesn't apply to your environment (such as disabling a SQL injection rule because you have non-SQL back ends).
 
-Disabling a rule is a global setting that applies to all front-end hosts associated to the WAF policy. When you choose to disable a rule, you might be leaving vulnerabilities exposed without protection or detection for any other front-end hosts associated to the WAF policy.
+Disabling a rule applies to all traffic evaluated by that policy association scope. When you choose to disable a rule, you might be leaving vulnerabilities exposed without protection or detection for other traffic covered by the same scope.
 
 If you want to use Azure PowerShell to disable a managed rule, see the [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject) object documentation. If you want to use the Azure CLI, see the [`az network front-door waf-policy managed-rules override`](/cli/azure/network/front-door/waf-policy/managed-rules/override) documentation.
 
@@ -442,8 +454,16 @@ If you see rule ID 949110 during the process of tuning your WAF, its presence in
 
 Review the other WAF log entries for the same request by searching for the log entries with the same tracking reference. Look at each of the rules that were triggered. Tune each rule by following the guidance in this article.
 
+When tuning requests in mixed-scope deployments, capture the effective policy scope in your incident notes (profile, domain, or route). This helps prevent future regressions when teams add or modify associations.
+
    > [!WARNING]
    > When assigning a new managed ruleset to a WAF policy, all the previous customizations from the existing managed rulesets such as rule state, rule actions and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules and policy settings will remain unaffected during the new ruleset assignment.
+> 
+
+## Related content
+
+- [Policy settings for Web Application Firewall in Azure Front Door](waf-front-door-policy-settings.md)
+- [Azure Web Application Firewall on Azure Front Door - Frequently Asked Questions](waf-faq.yml)
 
 ## Next steps
 
