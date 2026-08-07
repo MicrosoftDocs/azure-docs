@@ -29,7 +29,7 @@ In this article, you learn how to import Microsoft Foundry model deployments and
 
 Follow these steps to start discovering assets in your environment:
 
-1. Open the `AI Gateway tier portal` and sign in with Microsoft Entra ID.
+1. Open the [AI Gateway tier portal](https://ai.gateway.azure.com) and sign in with Microsoft Entra ID.
 
 1. Select the gateway you want to configure.
 
