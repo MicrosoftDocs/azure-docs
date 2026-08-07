@@ -22,7 +22,7 @@ In this article, you:
 - Create Azure resources and prepare a layered network environment
 - Prepare Kubernetes clusters at each network layer
 - Configure private endpoints and DNS for Azure services
-- Arc-enable clusters with Arc Gateway and explicit proxy routing
+- Arc-enable clusters with an Azure Arc gateway and explicit proxy routing
 - Deploy Azure IoT Operations on Arc-enabled clusters
 - Assign RBAC roles required by Azure IoT Operations components
 - Validate end-to-end telemetry flow from OPC UA sources to Azure Event Grid
@@ -52,7 +52,7 @@ This tutorial also uses environment variables for the network and Azure resource
 This deployment aligns with the Purdue Model, implementing a physically segmented, multi-level architecture spanning Levels 2 through 4.
 
 Each level is separated by network firewalls that restrict communication to adjacent layers only (for example, L2 ↔ L3 ↔ L4), ensuring tight segmentation. 
-Outbound traffic to Azure is routed through an explicit proxy and Private Link (optionally through Arc Gateway), ensuring no internet-exposed endpoints are used at any layer.
+Outbound traffic to Azure is routed through an explicit proxy and Private Link (optionally through an Azure Arc gateway), ensuring no internet-exposed endpoints are used at any layer.
 
 :::image type="content" source="media/layered-network-private-connectivity-architecture.png" alt-text="Diagram showing Layered Network Guidance for Azure IoT Operations in segmented industrial-style network environments, with a Purdue model pyramid spanning Levels 2 through 5 on the left and an Azure Arc architecture on the right showing CoreDNS, Envoy, and Azure IoT Operations deployed across Levels 3 and 4.":::
 
@@ -78,8 +78,8 @@ Before deploying to the edge, create the following Azure resources:
 - [Resource group(s)](/azure/azure-resource-manager/management/manage-resource-groups-portal)
 - [Azure Blob Storage](/azure/storage/blobs/storage-quickstart-blobs-portal) account with containers for schemas
 - [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
-- [Event Grid Namespace and Topic Space](/azure/event-grid/create-view-manage-namespaces)
-- [Azure Arc Gateway](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking) resource
+- [Event Grid namespace and topic space](/azure/event-grid/create-view-manage-namespaces)
+- [Azure Arc gateway](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking) resource
 
 After creating these resources, disable public network access on Key Vault, the Storage account, and the Event Grid namespace.
 
@@ -122,8 +122,8 @@ sudo netplan apply
 
 | Layer | Purpose | Example Hostname | Example IP | Notes |
 | ----- | ------- | ---------------- | ---------- | ----- |
-| L2 | OPC UA simulator, Azure IoT Operations (MQTT Broker, Dataflows), Arc, CoreDNS | p3tiny-01 | 172.22.232.X | Arc-enabled, Azure IoT Operations deployed |
-| L3 | Azure IoT Operations (MQTT Broker, Dataflows), CoreDNS, Arc | p3tiny-02 | 172.22.232.Y | Arc-enabled, Azure IoT Operations deployed |
+| L2 | OPC UA simulator, Azure IoT Operations (MQTT Broker, Dataflows), Azure Arc, CoreDNS | p3tiny-01 | 172.22.232.X | Arc-enabled, Azure IoT Operations deployed |
+| L3 | Azure IoT Operations (MQTT Broker, Dataflows), CoreDNS, Azure Arc | p3tiny-02 | 172.22.232.Y | Arc-enabled, Azure IoT Operations deployed |
 | L4 | Envoy Proxy (egress only, outbound access) | p3tiny-03 | 172.22.232.Z | Not Arc-enabled, handles egress through Azure Firewall Explicit Proxy over ExpressRoute |
 
 ### Step 3: Enforce network isolation between layers
@@ -180,13 +180,13 @@ kubectl get nodes
 ```
 
 > [!NOTE]
-> Level 4 only runs Envoy Proxy and doesn't require Azure IoT Operations or Arc. A lightweight K3s install is sufficient.
+> Level 4 only runs Envoy Proxy and doesn't require Azure IoT Operations or Azure Arc. A lightweight K3s install is sufficient.
 
 ## Configure Private Link and DNS
 
-Configure Azure Private Link to connect securely to Event Grid and Azure Storage, using Private Endpoints and CoreDNS-based name resolution. All traffic to these services remains on private IPs, with no internet exposure.
+Configure Azure Private Link to connect securely to Event Grid, Azure Storage, and Azure Key Vault by using Private Endpoints and CoreDNS-based name resolution. All traffic to these services remains on private IPs, with no internet exposure.
 
-### Step 1: Create Private Endpoints for Event Grid and Azure Storage
+### Step 1: Create private endpoints
 
 Create a private endpoint for the Event Grid namespace:
 
@@ -214,7 +214,20 @@ az network private-endpoint create \
   --connection-name pe-conn-storage-blob
 ```
 
-### Step 2: Create Private DNS Zones
+Create a private endpoint for the Azure Key Vault instance:
+
+```azurecli
+az network private-endpoint create \
+  --name pe-keyvault \
+  --resource-group $RESOURCE_GROUP \
+  --location $LOCATION \
+  --subnet "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$VNET_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME" \
+  --private-connection-resource-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEY_VAULT_NAME" \
+  --group-id vault \
+  --connection-name pe-conn-keyvault
+```
+
+### Step 2: Create private DNS zones
 
 For each service, create the appropriate Azure Private DNS Zone and link it to the Level 4 virtual network. CoreDNS at L3 (and optionally L2) forwards requests to Azure's internal DNS resolver (`168.63.129.16`), which resolves names based on the L4 zone's DNS zone linkage.
 
@@ -274,6 +287,13 @@ az network private-endpoint dns-zone-group create \
   --name storage-zone-group \
   --private-dns-zone "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net" \
   --zone-name blob
+
+az network private-endpoint dns-zone-group create \
+  --resource-group $RESOURCE_GROUP \
+  --endpoint-name pe-keyvault \
+  --name keyvault-zone-group \
+  --private-dns-zone "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net" \
+  --zone-name keyvault
 ```
 
 For the full list of private DNS zone names, see [Azure Private DNS Zone values](/azure/private-link/private-endpoint-dns).
@@ -372,15 +392,15 @@ Verify that:
 - Traffic flows through Envoy and Private Link, not public endpoints.
 
 > [!NOTE]
-> Arc requires working DNS resolution (through CoreDNS) to complete onboarding.
+> Azure Arc requires working DNS resolution (through CoreDNS) to complete onboarding.
 
-## Arc-enable clusters with Arc Gateway (optional)
+## Arc-enable clusters with an Azure Arc gateway (optional)
 
-With DNS resolution and private connectivity in place, Arc-enable your Kubernetes clusters behind the explicit proxy. This step connects each cluster to Azure Arc and associates it with the Arc Gateway resource created in [Step 1](#step-1-create-azure-resources).
+With DNS resolution and private connectivity in place, Arc-enable your Kubernetes clusters behind the explicit proxy. This step connects each cluster to Azure Arc and associates it with the Azure Arc gateway resource created in [Step 1](#step-1-create-azure-resources).
 
 ### Step 1: Set proxy environment variables
 
-On the Arc Gateway VM hosting the Azure Arc services, set the proxy environment variables. The `HTTPS_PROXY` variable must point to your network's firewall explicit proxy:
+On the Azure Arc gateway VM hosting the Azure Arc services, set the proxy environment variables. The `HTTPS_PROXY` variable must point to your network's firewall explicit proxy:
 
 ```bash
 export HTTP_PROXY=http://$PROXY_SERVER:$PROXY_PORT
@@ -390,7 +410,7 @@ export NO_PROXY=localhost,127.0.0.1,.svc,.local,$PRIVATE_DNS_ZONE
 
 ### Step 2: Retrieve the service principal Object ID
 
-The `--custom-locations-oid` parameter requires the Object ID (OID) of the Azure Arc Custom Locations service principal.
+The `--custom-locations-oid` parameter requires the Object ID (OID) of the Azure Arc custom locations service principal.
 
 To find it in the Azure portal:
 
@@ -399,9 +419,9 @@ To find it in the Azure portal:
 1. Search for **Azure Arc Kubernetes Custom Locations**.
 1. Open the application, go to **Properties**, and copy the **Object ID**.
 
-### Step 3: Connect the cluster with Arc Gateway
+### Step 3: Connect the cluster with the Azure Arc gateway
 
-Connect the cluster behind the proxy and associate it with the Arc Gateway:
+Connect the cluster behind the proxy and associate it with the Azure Arc gateway:
 
 ```azurecli
 az connectedk8s connect \
@@ -419,11 +439,11 @@ az connectedk8s connect \
 ```
 
 > [!NOTE]
-> Omit `--gateway-resource-id` if you aren't using Arc Gateway (for example, if you use ExpressRoute with Private Endpoints only).
+> Omit `--gateway-resource-id` if you aren't using an Azure Arc gateway (for example, if you use ExpressRoute with Private Endpoints only).
 
-### Step 4: Verify Arc connectivity
+### Step 4: Verify Azure Arc connectivity
 
-1. Run `kubectl logs` on the Arc gateway pod to confirm it reaches Azure.
+1. Run `kubectl logs` on the Azure Arc gateway pod to confirm it reaches Azure.
 1. Verify that DNS resolution and TLS handshake are successful through the proxy.
 
 ## Deploy Azure IoT Operations
@@ -675,7 +695,7 @@ The following limitations are specific to the layered network tutorial:
 Subscription: <subscription-id>
 Tenant: <tenant-id>
 
-Arc Clusters:
+Azure Arc clusters:
 - Level2: <L2-cluster-name>
 - Level3: <L3-cluster-name>
 
