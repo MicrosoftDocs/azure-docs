@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 08/06/2026
+ms.date: 08/07/2026
 ms.subservice: device-update
 ---
 
@@ -16,7 +16,7 @@ Devices download update content from Device Update for IoT Hub over either **HTT
 > [!IMPORTANT]
 > Device Update data plane API version `2026-06-01` introduces download security, which lets you choose whether deployments download update content over **HTTPS** (recommended) or **HTTP**. Deployments created with this version use HTTPS unless you select HTTP. Existing deployments are unaffected.
 >
-> Migrate to API version `2026-06-01` ahead of the scheduled retirement dates: **February 8, 2027** for preview API versions, and **August 7, 2029** for API version `2022-10-01`. Migration applies to direct REST API calls and to the Device Update data plane SDKs. If you use Azure CLI, update the `azure-iot` extension to the latest version.
+> Migrate to API version `2026-06-01` ahead of the scheduled retirement dates: **February 28, 2027** for preview API versions, and **August 31, 2029** for API version `2022-10-01`. Migration applies to direct REST API calls and to the Device Update data plane SDKs. If you use Azure CLI, update the `azure-iot` extension to the latest version.
 
 Download security is a self-service setting that applies per deployment. You select it when you create a deployment, by using any of the following methods:
 
