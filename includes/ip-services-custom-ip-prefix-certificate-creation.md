@@ -88,7 +88,7 @@ The following steps show the steps required to prepare sample customer range (1.
     
     * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - edit the *Remarks* of the inetnum record using MyAPNIC.
     
-    * [AFRINIC](https://afrinic.net/support.html) - edit the *Remarks* of the inetnum record using MyAFRINIC.
+    * [AFRINIC](https://afrinic.net/support.html) - edit the *Remarks* of the inetnum record by using MyAFRINIC.
     
     * For ranges from LACNIC registry, create a support ticket with Microsoft.
      
