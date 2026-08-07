@@ -70,6 +70,16 @@ In this section, you specify each resource for which you want to create a sharea
 
    :::image type="content" source="./media/shareable-link/copy-link.png" alt-text="Screenshot of shareable links page to show all available resource links." lightbox="./media/shareable-link/copy-link.png":::
 
+### Set an expiration for a shareable link
+
+When you create a shareable link, you must specify when the link expires. After the configured expiration date and time, the link can no longer be used to connect to the target resource.
+
+- On the **Create shareable link** page, select the subscription, resource group, and resource.
+- Under **Expiration**, select the date and time when the link should expire.
+- Select **Apply** to create the shareable link.
+
+The expiration date and time for each link are displayed in the **Expiration** column on the **Shareable links** page. After a link expires, its **Resource status** changes to **Link expired**. You can use the resource status filter to view expired links.
+
 ## Connect to a VM
 
 1. After the user receives the link, the user opens the link in their browser.
