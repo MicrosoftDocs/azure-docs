@@ -23,7 +23,7 @@ This page is updated with the details about the upcoming release approximately a
 <hr width = 100%>
 
 ## July 2026
-### Seismic Single File Restore - Preview
+### Seismic single file restore - Preview
 
 Azure Data Manager for Energy now supports point-in-time restore of an individual Seismic dataset as a preview feature. You can recover a single Seismic dataset to a prior state using a timestamp, without performing a full data partition restore and without maintaining your own external backups before modifying datasets. To trigger a restore, call the restore API with the dataset path and target restore timestamp; the operation restores both the dataset metadata and its underlying files, and runs asynchronously so you can track progress with the returned operation ID. This feature is available on request on the Standard SKU. To enable it, raise a support request in the Azure portal.
 
