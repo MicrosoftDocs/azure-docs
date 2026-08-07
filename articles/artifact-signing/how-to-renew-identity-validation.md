@@ -14,12 +14,13 @@ You can renew or delete your Artifact Signing Identity Validations with an Artif
 
 ## Renew Identity Validation
 
-You can check the expiration date of your Identity Validation on the Identity Validation page under an Artifact Signing account. You can renew your Artifact Signing Identity Validation **60 days** before the expiration. A notification email is sent to the primary and secondary email addresses with the reminder to renew your Identity Validation.
+You can check the expiration date of your Identity Validation on the Identity Validation page under an Artifact Signing account. You can renew your Artifact Signing Identity Validation starting at **60 days** before the expiration. A notification email is sent to the primary and secondary email addresses with the reminder to renew your Identity Validation. The identity validation renewal process validates the legal entity or the individual developer as applicable in entirety, so you might need to provide additional documents. The process can take 1-20 business days, so plan accordingly. 
 **Identity Validation can only be completed in the Azure portal – it can not be completed with Azure CLI.**
 
 >[!Note]
 >Failure to renew Identity Validation before the expiration date will stop certificate renewal, effectively halting the signing process associated with those specific certificate profiles.
->EKU does not change when you renew Identity Validation. 
+>EKU values are unique at the certificate profile level. 
+>Identity validation renewal includes a full review of the legal entity or individual developer, as applicable. You might need to provide additional documentation, and the review can take 1–20 business days. Plan accordingly. 
 
 1. Navigate to your Artifact Signing account in the [Azure portal](https://portal.azure.com/).
 1. Confirm you have the **Artifact Signing Identity Verifier role**.
@@ -59,4 +60,4 @@ You can delete an Identity Validation that is not in "In Progress" state from th
     
     :::image type="content" source="media/artifact-signing-delete-identity-validation-linked-profiles.png" alt-text="Screenshot of artifact signing delete identity-validation showing linked-profiles.png." lightbox="media/artifact-signing-delete-identity-validation-linked-profiles.png"::: 
 
-1. Select **Delete**, if you wish to continue with the deletion of the certificate profile. A deleted Identity Validation request cannot be recovered.
+1. Select **Delete**, if you want to continue with the deletion of the certificate profile. A deleted identity validation request can't be recovered.
