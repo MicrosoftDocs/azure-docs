@@ -60,4 +60,4 @@ You can delete an Identity Validation that is not in "In Progress" state from th
     
     :::image type="content" source="media/artifact-signing-delete-identity-validation-linked-profiles.png" alt-text="Screenshot of artifact signing delete identity-validation showing linked-profiles.png." lightbox="media/artifact-signing-delete-identity-validation-linked-profiles.png"::: 
 
-1. Select **Delete**, if you wish to continue with the deletion of the certificate profile. A deleted Identity Validation request cannot be recovered.
+1. Select **Delete**, if you want to continue with the deletion of the certificate profile. A deleted identity validation request can't be recovered.
