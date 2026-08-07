@@ -17,12 +17,12 @@ Workloads and resources created in enclaves follow existing [name resolution for
 
 ## Common Design Patterns
 
-Some enterprise systems require more control over DNS resolution and need a custom, customer-managed DNS solution for all resources in a community. This is necessary when using a custom DNS server that isn't configured to forward queries about private endpoints to Azure DNS. In these scenarios, Azure Enclave advises you to:
+Some enterprise systems require more control over DNS resolution and need a custom, customer-managed DNS solution for all resources in a community. This requirement arises when you use a custom DNS server that isn't configured to forward queries about private endpoints to Azure DNS. In these scenarios, Azure Enclave advises you to:
 
-- **Deploy a DNS solution** as a [workload](./what-workload.md) within an enclave. An example would be deploying an Active Directory Domain Controller [Virtual Machine](https://aka.ms/vm).
+- **Deploy a DNS solution** as a [workload](./what-workload.md) within an enclave. An example solution is deploying an Active Directory Domain Controller [Virtual Machine](https://aka.ms/vm).
 - Specify that DNS server's private IP address as a custom DNS server for your community.
 - Deploy a DNS resolver or forwarder Virtual Machine in each enclave to handle local private endpoint resolution.
-- Connect to each DNS resolver VM and manually add conditional forwarder DNS zone records for private endpoint resources in that enclave. This configuration enables the custom DNS server to forward queries it cannot resolve directly to Azure DNS (168.63.129.16).
+- Connect to each DNS resolver VM and manually add conditional forwarder DNS zone records for private endpoint resources in that enclave. This configuration enables the custom DNS server to forward queries it can't resolve directly to Azure DNS (168.63.129.16).
 
 ## Steps to manually add private endpoint DNS records to an enclave DNS forwarder VM
 
