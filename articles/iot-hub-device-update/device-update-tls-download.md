@@ -56,12 +56,6 @@ Before you select HTTPS for a deployment, make sure your devices are ready to do
 - The device must support TLS 1.2 or TLS 1.3 and a supported cipher suite. See [TLS versions and cipher suites](#tls-versions-and-cipher-suites).
 - Constrained or embedded devices might need code changes. See [Additional considerations for constrained or embedded devices](#additional-considerations-for-constrained-or-embedded-devices).
 
-Before you select HTTPS (TLS) for a deployment, make sure your devices are ready to download content over TLS:
-
-- The device, and its Device Update agent or SDK, must support HTTPS downloads and parse HTTPS update URLs.
-- The device must be provisioned with the appropriate root certificate. See [Certificate information](#certificate-information).
-- Constrained or embedded devices might need code changes. See [Additional considerations for constrained or embedded devices](#additional-considerations-for-constrained-or-embedded-devices).
-
 ## Additional considerations for constrained or embedded devices
 
 If you're using FreeRTOS, the [Azure IoT Middleware for FreeRTOS](https://github.com/Azure/azure-iot-middleware-freertos) and [FreeRTOS samples](https://github.com/Azure-Samples/iot-middleware-freertos-samples) available from Microsoft currently support HTTP URLs and need to be modified for TLS (HTTPS) URLs:
@@ -76,6 +70,8 @@ The Device Update for IoT Hub implementation in the Azure IoT Middleware for Fre
 To add HTTPS support, modify **azure_iot_http_port.h** to use the coreHTTP library over a TLS transport. For an example, see the [coreHTTP mutual authentication demo](https://github.com/FreeRTOS/FreeRTOS/tree/main/FreeRTOS-Plus/Demo/coreHTTP_Windows_Simulator/HTTP_Mutual_Auth). The demo shows mutual authentication, but Device Update content downloads use server authentication only, so you don't need to configure a client certificate.
 
 The Device Update for IoT Hub samples also include URL parsing functions that you need to revise. See [sample_azure_iot_adu.c](https://github.com/Azure-Samples/iot-middleware-freertos-samples/blob/main/demos/sample_azure_iot_adu/sample_azure_iot_adu.c) in the Device Update sample for FreeRTOS.
+
+Make sure the device's trust store includes the required root CAs. The FreeRTOS samples don't include them by default, so HTTPS downloads fail during certificate validation until you add them. See [Certificate information](#certificate-information).
 
 Finally, you might also need to make changes to your own implementation, such as changing the HTTPS header buffer to manage the update URL format that your device receives from Device Update.
 
