@@ -164,7 +164,7 @@ To learn how to configure storage mounts, see [Mount file shares](./storage-cons
 
 ## Deployment
 
-Deployments in the Flex Consumption plan follow a single path. There's no longer a need for app settings to influence deployment behavior. You build and zip your project code into an application package, and then deploy it to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
+Deployments in the Flex Consumption plan follow a single path. You no longer need app settings to influence deployment behavior. You build and zip your project code into an application package, and then deploy it to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (`AzureWebJobsStorage`) also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
 
 > [!TIP]
 > The Azure portal provides a **Flex Consumption Deployment** diagnostic tool. Open your Flex Consumption app, select **Diagnose and solve problems**, and search for `Flex Consumption Deployment`. This tool displays detailed information about your deployments, including deployment history, package status, and troubleshooting recommendations.
@@ -180,7 +180,7 @@ Flex Consumption provides zero-downtime deployments through rolling updates as t
 
 [!INCLUDE [functions-flex-consumption-billing-table](../../includes/functions-flex-consumption-billing-table.md)]
 
-The minimum billable execution period for both execution modes is 1,000 ms. Past that point, the billing rounds up to the nearest 100 ms. You can find details on the Flex Consumption plan billing meters in the [Monitoring reference](monitor-functions-reference.md?tab=flex-consumption-plan#metrics).
+The minimum billable execution period for both execution modes is 1,000 ms. After that point, the billing rounds up to the nearest 100 ms. You can find details on the Flex Consumption plan billing meters in the [Monitoring reference](monitor-functions-reference.md?tab=flex-consumption-plan#metrics).
 
 For details about how costs are calculated when you run in a Flex Consumption plan, including examples, see [Consumption-based costs](functions-consumption-costs.md?tabs=flex-consumption-plan#consumption-based-costs) and [Viewing cost-related data](functions-consumption-costs.md?tabs=flex-consumption-plan#viewing-and-estimating-costs-from-metrics).
 
