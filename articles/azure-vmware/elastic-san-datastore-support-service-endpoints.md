@@ -201,7 +201,7 @@ ESXi iSCSI Configuration:
 
 ### 2.5 Connectivity Path
 
-Norway east fleet native is routed through SE, while other regions are routed through the private endpoint. Otherwise, the private endpoint is used.
+Norway East fleet native routes through SE, while other regions route through the private endpoint. Otherwise, the private endpoint is used.
 
 **Key Differences**:
 
