@@ -71,6 +71,8 @@ To add HTTPS support, modify **azure_iot_http_port.h** to use the coreHTTP libra
 
 The Device Update for IoT Hub samples also include URL parsing functions that you need to revise. See [sample_azure_iot_adu.c](https://github.com/Azure-Samples/iot-middleware-freertos-samples/blob/main/demos/sample_azure_iot_adu/sample_azure_iot_adu.c) in the Device Update sample for FreeRTOS.
 
+Make sure the device's trust store includes the required root CAs. The FreeRTOS samples don't include them by default, so HTTPS downloads fail during certificate validation until you add them. See [Certificate information](#certificate-information).
+
 Finally, you might also need to make changes to your own implementation, such as changing the HTTPS header buffer to manage the update URL format that your device receives from Device Update.
 
 ## Certificate information
