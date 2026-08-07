@@ -177,6 +177,8 @@ In this section, you assign the [Azure Device Registry Contributor](../articles/
     az iot hub create --name <HUB_NAME> --resource-group <RESOURCE_GROUP> --location <HUB_LOCATION> --sku GEN2 --mi-user-assigned $UAMI_RESOURCE_ID --ns-resource-id $NAMESPACE_RESOURCE_ID --ns-identity-id $UAMI_RESOURCE_ID
     ```
 
+    This command creates an IoT hub with SKU = GEN2 and links a user-assigned managed identity to the IoT hub.
+
     [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
 1. Verify that the IoT hub has correct identity and Device Registry properties configured.
