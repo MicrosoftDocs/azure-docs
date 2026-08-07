@@ -201,8 +201,6 @@ ESXi iSCSI Configuration:
 
 ### 2.5 Connectivity Path
 
-Norway East fleet native routes through SE, while other regions route through the private endpoint. Otherwise, the private endpoint is used.
-
 **Key Differences**:
 
 - **No Private Endpoint resource** needed
@@ -210,7 +208,11 @@ Norway East fleet native routes through SE, while other regions route through th
 - **DNS-based discovery** using Azure-provided hostnames
 - **Zero data processing charges**
 
-### 2.6 Security Considerations
+### 2.6 Fleet native
+
+Norway East fleet native routes through SE, while other regions route through the private endpoint.
+
+### 2.7 Security Considerations
 
 **No security degradation**:
 - Traffic remains on Azure backbone (both approaches)
@@ -224,7 +226,7 @@ Norway East fleet native routes through SE, while other regions route through th
 - Reduced operational overhead
 - Same security posture as Private Endpoints
 
-### 2.7 Limitations & Considerations
+### 2.8 Limitations & Considerations
 
 - **AVS Gen 2 Exclusive**: Service endpoint approach for Elastic SAN is:
     - **Default and only option** for AVS Gen 2 deployments
