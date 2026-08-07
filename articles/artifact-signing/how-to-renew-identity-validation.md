@@ -14,12 +14,13 @@ You can renew or delete your Artifact Signing Identity Validations with an Artif
 
 ## Renew Identity Validation
 
-You can check the expiration date of your Identity Validation on the Identity Validation page under an Artifact Signing account. You can renew your Artifact Signing Identity Validation **60 days** before the expiration. A notification email is sent to the primary and secondary email addresses with the reminder to renew your Identity Validation.
+You can check the expiration date of your Identity Validation on the Identity Validation page under an Artifact Signing account. You can renew your Artifact Signing Identity Validation starting at **60 days** before the expiration. A notification email is sent to the primary and secondary email addresses with the reminder to renew your Identity Validation. The identity validation renewal validates the legal entity or the individual developer as applicable in entirety so additional documents maybe required and may take the same 1-20 business days, hence plan accordingly. 
 **Identity Validation can only be completed in the Azure portal – it can not be completed with Azure CLI.**
 
 >[!Note]
 >Failure to renew Identity Validation before the expiration date will stop certificate renewal, effectively halting the signing process associated with those specific certificate profiles.
->EKU does not change when you renew Identity Validation. 
+>EKU are unique at the certificate profile level. 
+>Identity validation renewal includes a full review of the legal entity or individual developer, as applicable. Additional documentation may be required, and the review can take 1–20 business days. Plan accordingly. 
 
 1. Navigate to your Artifact Signing account in the [Azure portal](https://portal.azure.com/).
 1. Confirm you have the **Artifact Signing Identity Verifier role**.
