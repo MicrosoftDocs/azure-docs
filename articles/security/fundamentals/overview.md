@@ -504,7 +504,7 @@ Microsoft uses multiple security practices and technologies across its products 
 
 - [Microsoft Authenticator](https://www.microsoft.com/security/mobile-authenticator-app) provides a user-friendly multifactor authentication experience that works with both Microsoft Entra ID and Microsoft accounts. It includes support for wearables and fingerprint-based approvals.
 
-- [Password policy enforcement](/entra/identity/authentication/concept-sspr-policy) increases the security of traditional passwords by imposing length and complexity requirements, forced periodic rotation, and account lockout after failed authentication attempts.
+- [Password protection](/entra/identity/authentication/concept-password-ban-bad) helps block weak and commonly attacked passwords. Use sufficiently long passwords, multifactor authentication, account lockout, and risk-based controls. Follow current [password policy recommendations](/microsoft-365/admin/misc/password-policy-recommendations): avoid routine password expiration for cloud-only accounts, and require a password change when compromise is suspected or confirmed.
 
 - [Token-based authentication](/entra/identity-platform/authentication-vs-authorization) enables authentication through Microsoft Entra ID.
 
