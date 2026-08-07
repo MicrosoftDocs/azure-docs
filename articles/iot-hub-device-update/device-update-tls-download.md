@@ -49,13 +49,6 @@ Use **HTTP** only when the Device Update agent on the device can't download from
 
 ### Device readiness considerations
 
-Before you select HTTPS for a deployment, make sure your devices are ready to download update content over HTTPS:
-
-- The Device Update agent on the device must be able to parse and download from HTTPS URLs. Selecting HTTPS changes the URL that Device Update sends to the device, but it doesn't change the agent, so an agent that handles only HTTP URLs fails to download the update.
-- The device must trust the required root certificate authorities. See [Certificate information](#certificate-information).
-- The device must support TLS 1.2 or TLS 1.3 and a supported cipher suite. See [TLS versions and cipher suites](#tls-versions-and-cipher-suites).
-- Constrained or embedded devices might need code changes. See [Additional considerations for constrained or embedded devices](#additional-considerations-for-constrained-or-embedded-devices).
-
 Before you select HTTPS (TLS) for a deployment, make sure your devices are ready to download content over TLS:
 
 - The device, and its Device Update agent or SDK, must support HTTPS downloads and parse HTTPS update URLs.
