@@ -1,12 +1,12 @@
 ---
-description: Overview of how to use the Azure Cloud Shell editor in the new interface.
-ms.date: 04/01/2026
+description: Overview of how to use the Azure Cloud Shell editor.
+ms.date: 08/07/2026
 ms.topic: how-to
 tags: azure-resource-manager
-title: How to use the Azure Cloud Shell editor (New)
+title: How to use the Azure Cloud Shell editor
 ---
 
-# How to use the Azure Cloud Shell editor (New)
+# How to use the Azure Cloud Shell editor
 
 Azure Cloud Shell includes an integrated file editor built from the open source [Monaco Editor][03].
 The Cloud Shell editor supports features such as language highlighting, the command palette, and a
@@ -44,13 +44,13 @@ To close the editor, select the <kbd>X</kbd> in the top right of the editor. Alt
 **File** menu and select **Close editor**, or use <kbd>Ctrl+Q</kbd>.
 
 
-:::image type="content" source="media/use-cloud-shell-editor-new/close-editor.png" alt-text="Screenshot of the Close editor menu selection." lightbox="media/use-cloud-shell-editor-new/close-editor-large.png":::
+:::image type="content" source="media/use-cloud-shell-editor/close-editor.png" alt-text="Screenshot of the Close editor menu selection." lightbox="media/use-cloud-shell-editor/close-editor-large.png":::
 
 ## Command palette
 
 To launch the command palette, use the <kbd>F1</kbd> key when focus is set on the editor.
 
-:::image type="content" source="media/use-cloud-shell-editor-new/command-palette.png" alt-text="Screenshot of the command palette." lightbox="media/use-cloud-shell-editor-new/command-palette-large.png":::
+:::image type="content" source="media/use-cloud-shell-editor/command-palette.png" alt-text="Screenshot of the command palette." lightbox="media/use-cloud-shell-editor/command-palette-large.png":::
 
 ## Keyboard Shortcuts
 
@@ -79,4 +79,4 @@ When the editor is in focus, the following keyboard shortcuts are available.
 [01]: features.md
 [02]: get-started/ephemeral.md
 [03]: https://github.com/Microsoft/monaco-editor
-[04]: media/use-cloud-shell-editor-new/open-editor.png
+[04]: media/use-cloud-shell-editor/open-editor.png

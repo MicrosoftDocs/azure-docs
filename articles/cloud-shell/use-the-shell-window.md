@@ -1,16 +1,15 @@
 ---
-description: Overview of how to use Azure Cloud Shell in the new user interface.
-ms.date: 05/11/2026
+description: Overview of how to use Azure Cloud Shell.
+ms.date: 08/07/2026
 ms.topic: how-to
 tags: azure-resource-manager
-title: How to use Azure Cloud Shell in the new user interface
+title: How to use Azure Cloud Shell
 ---
 
-# How to use Azure Cloud Shell in the new user interface
+# How to use Azure Cloud Shell
 
-This document explains how to use the Cloud Shell window. Cloud Shell recently updated the user
-interface for the Cloud Shell terminal window. The new toolbar uses text-based menu items rather
-than icons, making it easier to find the desired action.
+This article explains how to use Azure Cloud Shell. The toolbar uses text-based menu items to identify
+each action.
 
 [![Screenshot of the new Cloud Shell user experience.][05i]][05x]
 
@@ -189,27 +188,27 @@ The Cloud Shell terminal has the following keyboard shortcuts available when the
 [Using the Azure Cloud Shell editor][12]
 
 <!-- link references -->
-[01i]: media/use-the-shell-window-new/close-port.png
-[01x]: media/use-the-shell-window-new/close-port.png#lightbox
-[03i]: media/use-the-shell-window-new/manage-files.png
-[03x]: media/use-the-shell-window-new/manage-files.png#lightbox
-[04i]: media/use-the-shell-window-new/new-session.png
-[04x]: media/use-the-shell-window-new/new-session.png#lightbox
-[05i]: media/use-the-shell-window-new/new-ui-fullscreen.png
-[05x]: media/use-the-shell-window-new/new-ui-fullscreen.png#lightbox
-[06i]: media/use-the-shell-window-new/restart-cloud-shell.png
-[06x]: media/use-the-shell-window-new/restart-cloud-shell.png#lightbox
-[07i]: media/use-the-shell-window-new/settings-menu.png
-[07x]: media/use-the-shell-window-new/settings-menu.png#lightbox
-[08i]: media/use-the-shell-window-new/switch-to-bash.png
-[08x]: media/use-the-shell-window-new/switch-to-bash.png#lightbox
-[09i]: media/use-the-shell-window-new/toolbar.png
-[09x]: media/use-the-shell-window-new/toolbar.png#lightbox
-[10i]: media/use-the-shell-window-new/web-preview.png
-[10x]: media/use-the-shell-window-new/web-preview.png#lightbox
-[11i]: media/use-the-shell-window-new/help-menu.png
-[11x]: media/use-the-shell-window-new/help-menu.png#lightbox
-[12i]: media/use-the-shell-window-new/editor.png
-[12x]: media/use-the-shell-window-new/editor.png#lightbox
+[01i]: media/use-the-shell-window/close-port.png
+[01x]: media/use-the-shell-window/close-port.png#lightbox
+[03i]: media/use-the-shell-window/manage-files.png
+[03x]: media/use-the-shell-window/manage-files.png#lightbox
+[04i]: media/use-the-shell-window/new-session.png
+[04x]: media/use-the-shell-window/new-session.png#lightbox
+[05i]: media/use-the-shell-window/new-ui-fullscreen.png
+[05x]: media/use-the-shell-window/new-ui-fullscreen.png#lightbox
+[06i]: media/use-the-shell-window/restart-cloud-shell.png
+[06x]: media/use-the-shell-window/restart-cloud-shell.png#lightbox
+[07i]: media/use-the-shell-window/settings-menu.png
+[07x]: media/use-the-shell-window/settings-menu.png#lightbox
+[08i]: media/use-the-shell-window/switch-to-bash.png
+[08x]: media/use-the-shell-window/switch-to-bash.png#lightbox
+[09i]: media/use-the-shell-window/toolbar.png
+[09x]: media/use-the-shell-window/toolbar.png#lightbox
+[10i]: media/use-the-shell-window/web-preview.png
+[10x]: media/use-the-shell-window/web-preview.png#lightbox
+[11i]: media/use-the-shell-window/help-menu.png
+[11x]: media/use-the-shell-window/help-menu.png#lightbox
+[12i]: media/use-the-shell-window/editor.png
+[12x]: media/use-the-shell-window/editor.png#lightbox
 [12]: using-cloud-shell-editor.md
 [14]: https://code.visualstudio.com/docs/azure/vscodeforweb

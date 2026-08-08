@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 07/27/2026
+ms.date: 08/07/2026
 ms.topic: release-notes
 ---
 
@@ -24,6 +24,10 @@ criteria, see [Cloud Shell Package inclusion guide][12].
 
 You can install any tool you need in your Cloud Shell session as long as it doesn't require root
 access. For installation instructions, consult the documentation for the package you require.
+
+## August 2026
+
+As of August 7, 2026, the classic user interface has been removed from all regions.
 
 ## July 2026
 
@@ -236,6 +240,6 @@ require.
 [13]: https://github.com/Azure/generator-az-terra-module
 [14]: https://inspektor-gadget.io/
 [15]: https://yeoman.io/
-[16]: use-the-shell-window-new.md
-[17]: use-cloud-shell-editor-new.md
-[18]: use-the-shell-window-new.md
+[16]: use-the-shell-window.md
+[17]: use-cloud-shell-editor.md
+[18]: use-the-shell-window.md
