@@ -17,6 +17,15 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## August 2026
+### FHIR service
+
+**Security enhancements for FHIR resource narrative content**: Improved security protections for FHIR resource narrative content to help prevent potential cross-site scripting (XSS) scenarios.
+
+#### Bug fixes:
+
+**Fix for date filtering in bulk delete jobs**: Fixed an issue where the date filter was not correctly applied to bulk delete jobs, which could result in deletions beyond the intended date range.
+
 ## July 2026
 ### FHIR service
 
