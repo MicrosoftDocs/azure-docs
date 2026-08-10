@@ -297,6 +297,8 @@
         href: understand-data-encryption.md
       - name: Understand AES in Azure NetApp Files
         href: understand-advanced-encryption-standard.md  
+      - name: Understand double encryption at rest
+        href: double-encryption-at-rest.md    
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
   - name: Solutions and benefits
@@ -595,6 +597,8 @@
       href: troubleshoot-user-access-ldap.md
     - name: Troubleshoot file locks
       href: troubleshoot-file-locks.md
+    - name: Troubleshoot SMB authentication and CIFS password reset failures
+      href: troubleshoot-authentication-password-reset-failure.md
 - name: FAQs
   items:
   - name: Networking FAQs

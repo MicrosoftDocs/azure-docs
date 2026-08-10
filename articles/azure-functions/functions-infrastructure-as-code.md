@@ -161,13 +161,13 @@ The function app needs a connection to this storage account. Configure this conn
 ::: zone pivot="flex-consumption-plan"
 
 > [!TIP]
-> For better security, add `allowSharedKeyAccess: false` to your storage account properties and use managed identity-based connections instead of connection strings. The Flex Consumption plan examples in this article use this approach, including the `AzureWebJobsStorage__*` identity-based settings and a system-assigned managed identity. For more information, see [Connecting to host storage with an identity](./functions-reference.md#connecting-to-host-storage-with-an-identity).
+> For better security, add `allowSharedKeyAccess: false` to your storage account properties and use managed identity-based connections instead of connection strings. The Flex Consumption plan examples in this article use this approach, including the `AzureWebJobsStorage__*` identity-based settings and a system-assigned managed identity. For more information, see [Connecting to host storage with an identity](./manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 ::: zone-end
 ::: zone pivot="dedicated-plan"
 
 > [!TIP]
-> For better security, set `allowSharedKeyAccess` to `false` on your storage account and use managed identity-based connections instead of connection strings. For more information, see [Connecting to host storage with an identity](./functions-reference.md#connecting-to-host-storage-with-an-identity).
+> For better security, set `allowSharedKeyAccess` to `false` on your storage account and use managed identity-based connections instead of connection strings. For more information, see [Connecting to host storage with an identity](./manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 ::: zone-end
 ::: zone pivot="premium-plan,consumption-plan"
@@ -759,7 +759,7 @@ resource functionAppName_resource 'Microsoft.Web/sites@2024-04-01' = {
         }
         {
           name: 'WEBSITE_NODE_DEFAULT_VERSION'
-          value: '~20'
+          value: '~22'
         }
       ]
     }
@@ -814,7 +814,7 @@ For a complete end-to-end example, see this [main.bicep file](https://github.com
           },
           {
             "name": "WEBSITE_NODE_DEFAULT_VERSION",
-            "value": "~20"
+            "value": "~22"
           }
         ]
       }
@@ -836,7 +836,7 @@ resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
     reserved: true
     serverFarmId: hostingPlan.id
     siteConfig: {
-      linuxFxVersion: 'node|20'
+      linuxFxVersion: 'node|22'
       appSettings: [
         {
           name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
@@ -889,7 +889,7 @@ For a complete end-to-end example, see this [main.bicep file](https://github.com
       "reserved": true,
       "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
       "siteConfig": {
-        "linuxFxVersion": "node|20",
+        "linuxFxVersion": "node|22",
         "appSettings": [
           {
             "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
@@ -958,7 +958,7 @@ resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
         }
         {
           name: 'WEBSITE_NODE_DEFAULT_VERSION'
-          value: '~20'
+          value: '~22'
         }
       ]
     }
@@ -1006,7 +1006,7 @@ For a complete end-to-end example, see this [main.bicep file](https://github.com
           },
           {
             "name": "WEBSITE_NODE_DEFAULT_VERSION",
-            "value": "~20"
+            "value": "~22"
           }
         ]
       }
@@ -1030,7 +1030,7 @@ resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
     serverFarmId: hostingPlan.id
     siteConfig: {
       alwaysOn: true
-      linuxFxVersion: 'node|20'
+      linuxFxVersion: 'node|22'
       appSettings: [
         {
           name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
@@ -1076,7 +1076,7 @@ For a complete end-to-end example, see this [main.bicep file](https://github.com
       "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
       "siteConfig": {
         "alwaysOn": true,
-        "linuxFxVersion": "node|20",
+        "linuxFxVersion": "node|22",
         "appSettings": [
           {
             "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
@@ -1392,7 +1392,7 @@ resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
         }
         {
           name: 'WEBSITE_NODE_DEFAULT_VERSION'
-          value: '~20'
+          value: '~22'
         }
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
@@ -1452,7 +1452,7 @@ resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
           },
           {
             "name": "WEBSITE_NODE_DEFAULT_VERSION",
-            "value": "~20"
+            "value": "~22"
           },
           {
             "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -1591,7 +1591,7 @@ You maintain these application configurations in `functionAppConfig`:
 | [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency) | `scaleAndConcurrency.triggers.http.perInstanceConcurrency` |
 | [Language runtime](functions-app-settings.md#functions_worker_runtime) | `runtime.name` |
 | [Language version](supported-languages.md) | `runtime.version` |
-| [Maximum instance count](event-driven-scaling.md#flex-consumption-plan) | `scaleAndConcurrency.maximumInstanceCount` |
+| [Maximum instance count](event-driven-scaling.md#limit-scale-out) | `scaleAndConcurrency.maximumInstanceCount` |
 | [Site update strategy](flex-consumption-site-updates.md) | `siteUpdateStrategy.type` |
 
 The Flex Consumption plan also supports these application settings:
@@ -1774,7 +1774,7 @@ Keep these considerations in mind when working with site and application setting
 
 + When adding or updating application settings by using templates, make sure that you include all existing settings with the update. You must do this because the underlying update REST API calls replace the entire `/config/appsettings` resource. If you remove the existing settings, your function app won't run. To programmatically update individual application settings, you can instead use the Azure CLI, Azure PowerShell, or the Azure portal to make these changes. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
-+ When possible, use managed identity-based connections to other Azure services, including the `AzureWebJobsStorage` connection. For more information, see [Configure an identity-based connection](functions-reference.md#configure-an-identity-based-connection).
++ When possible, use managed identity-based connections to other Azure services, including the `AzureWebJobsStorage` connection. For more information, see [Configure an identity-based connection](manage-connections.md?pivots=functions-auth-identity&tabs=bindings#define-connections).
 ::: zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 ## Slot deployments
 

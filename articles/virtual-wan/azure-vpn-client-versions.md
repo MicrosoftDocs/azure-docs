@@ -2,12 +2,12 @@
 title: 'Azure VPN Client versions for point-to-site User VPN'
 description: This article shows the Azure VPN Client versions and features.
 titleSuffix: Azure Virtual WAN
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 02/11/2025
-ms.author: cherylmc
+ms.author: duau
 ---
 # Azure VPN Client - versions
 

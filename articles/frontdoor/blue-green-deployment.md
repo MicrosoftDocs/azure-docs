@@ -1,20 +1,20 @@
 ---
-title: Blue/Green deployments using Azure Front Door
+title: Blue/Green Deployments Using Azure Front Door
 description: Learn how to use Azure Front Door to implement a blue/green deployment strategy for your web applications.
 author: halkazwini
 ms.author: halkazwini
 ms.reviewer: gamullen, hmb
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 11/18/2024
+ms.date: 07/24/2026
 ms.custom: sfi-image-nochange
 ---
 
-# Blue/Green Deployments Using Azure Front Door
+# Blue/green deployments using Azure Front Door
 
-**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
-*Blue/Green deployment* is a software release strategy that gradually introduces application updates to a small group of users. If the updates are successful, the number of users accessing the new deployment is gradually increased until all users are on the new version. If issues arise, traffic can be redirected to the old version, ensuring minimal disruption. This approach is safer than deploying updates to all users at once.
+*Blue/green deployment* is a software release strategy that gradually introduces application updates to a small group of users. If the updates are successful, you gradually increase the number of users accessing the new deployment until all users are on the new version. If problems arise, you can redirect traffic to the old version, ensuring minimal disruption. This approach is safer than deploying updates to all users at once.
 
 Azure Front Door is Microsoft's modern cloud Content Delivery Network (CDN) that offers fast, reliable, and secure access to your application's static and dynamic web content globally. This article explains how to use Azure Front Door's global load balancing capabilities to implement a blue/green deployment model for your backends.
 
@@ -82,7 +82,7 @@ Azure Front Door is Microsoft's modern cloud Content Delivery Network (CDN) that
     > [!NOTE]
     > *Session affinity* ensures the end user is routed to the same origin after the first request. Enable this feature based on your application and the type of enhancements being rolled out. For major revisions, enable session affinity to keep users on the new codebase. For minor enhancements, you can leave session affinity disabled. When in doubt, enable session affinity.
 
-1. Health probe settings can be left at the default values. Adjust the probe settings based on your application's needs. For more information, see [Health probes](health-probes.md).
+1. You can keep the default settings for the health probe. Adjust these settings based on your application's needs. For more information, see [Health probes](health-probes.md).
 
 1. Under **Load balancing settings**, enter the following information:
 
@@ -97,18 +97,19 @@ Azure Front Door is Microsoft's modern cloud Content Delivery Network (CDN) that
 
 1. Select **Add** to add the origin group. Then select **Review + create** to review the settings of your Front Door profile. Select **Create** to create the profile.
 
-## Start Blue/Green Deployment
+## Start blue/green deployment
 
 To begin the blue/green deployment, enable the new origin to start routing traffic to it while retaining the option to revert to the old origin if necessary.
 
-1. Once the Front Door profile is created, navigate to the origin group you set up earlier. Select the new origin and check **Enable this origin** to start routing traffic to it.
+1. Once the Front Door profile is created, go to the origin group you set up earlier. Select the new origin and check **Enable this origin** to start routing traffic to it.
 
     :::image type="content" source="./media/blue-green-deployment/enable-new-origin.png" alt-text="Screenshot of enabling the new origin to receive traffic.":::
 
 1. Monitor the new origin to ensure it functions correctly. Gradually increase the weight of the new origin while decreasing the weight of the old origin as you gain confidence in the new origin's performance. Continue adjusting the weights until all traffic is routed to the new origin.
 
-1. If any issues arise with the new origin, disable it to route all traffic back to the old origin. This allows you to address and resolve issues without affecting users.
+1. If any issues arise with the new origin, disable it to route all traffic back to the old origin. This step allows you to address and resolve issues without affecting users.
 
-## Next steps
+## Next step
 
-[Secure traffic to your Azure Front Door origins](origin-security.md)
+> [!div class="nextstepaction"]
+> [Secure traffic to your Azure Front Door origins](origin-security.md)

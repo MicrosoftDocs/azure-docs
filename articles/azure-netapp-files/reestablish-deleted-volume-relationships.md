@@ -11,57 +11,18 @@ ms.date: 02/21/2025
 ---
 # Re-establish deleted volume replication relationships in Azure NetApp Files (preview)
 
-Azure NetApp Files allows you to re-establish a replication relationship between two volumes in case you had previously deleted it. This condition occurs if the source volume had become unavailable and you are replicating a source volume to two destination volumes with cross-zone-region replication. While reversing the replication direction, the second replication relationship cannot continue to exist and needs to be deleted. After the source volume is available again, and the reverse resync has completed, you can return to normal operation and re-establish the relationship from the destination volume.
+Azure NetApp Files enables you to re-establish a replication relationship between two volumes if you previously deleted it. This condition occurs if the source volume becomes unavailable and you're replicating a source volume to two destination volumes with cross-zone-region replication. While reversing the replication direction, the second replication relationship can't continue to exist and needs to be deleted. After the source volume is available again, and the reverse resync completes, you can return to normal operation and re-establish the relationship from the destination volume.
 
-If the destination volume remains operational and no snapshots were deleted, the replication re-establish operation uses the last common snapshot. The operation incrementally synchronizes the destination volume based on the last known good snapshot. In this condition, a baseline snapshot isn't required.
+If the destination volume remains operational and no snapshots are deleted or lost, the replication reestablish operation uses the last common snapshot. The operation incrementally synchronizes the destination volume based on the last known good snapshot. In this condition, a baseline transfer isn't required.
 
 ## Considerations
 
-* You can only re-establish relationships when there's a common snapshot on source and destination volumes generated either [manually](azure-netapp-files-manage-snapshots.md) or by a [snapshot policy](snapshots-manage-policy.md). 
+The re-establish replication operation requires the following conditions:
 
-## Register the feature 
-
-The re-establish deleted volume replication relationships capability is currently in preview. If you're using this feature for the first time, you need to register the feature first.
-
-# [Azure CLI](#tab/azurecli)
-
-1.  Register the feature by running the following commands:
-
-    ```azurecli
-    az account set --subscription <subscriptionId>
-    az feature register --namespace Microsoft.NetApp --name ANFReestablishReplication
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurecli
-    az feature show --namespace Microsoft.NetApp --name ANFReestablishReplication
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
-# [Azure PowerShell](#tab/azurepowershell)
-
-1.  Register the feature by running the following commands:
-
-    ```azurepowershell
-    Set-AzContext -SubscriptionId <subscriptionId>
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFReestablishReplication
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurepowershell
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFReestablishReplication
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
----
+* A common replication snapshot exists on both the source and destination volumes. Typically, this snapshot is previously replicated from the source volume.
+* The destination volume is in a clean replication state, meaning that the last replication update completed successfully.
+* If backups exist on the destination volume, the re-establish operation can't proceed. In this case, delete the destination backups before attempting to re-establish the replication relationship.
+* If no common replication snapshot exists between the source and destination volumes, the replication relationship can't be re-established. To resume replication, delete the existing destination replication volume and create a new replication relationship, which initiates a new baseline transfer.
 
 
 ## Re-establish the relationship

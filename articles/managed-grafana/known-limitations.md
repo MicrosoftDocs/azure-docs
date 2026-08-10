@@ -4,10 +4,11 @@ titlesuffix: Azure Managed Grafana
 description: Learn about current service limits, quotas, and constraints you may encounter using Azure Managed Grafana.
 ms.service: azure-managed-grafana
 ms.topic: troubleshooting
-ms.date: 06/24/2026
+ms.date: 07/20/2026
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
+ai-usage: ai-assisted
 ---
 
 # Service limits, quotas, and constraints
@@ -22,11 +23,13 @@ Azure Managed Grafana has the following known limitations:
 
 * You can't install, uninstall, or upgrade plugins from the Grafana Catalog.
 
+* In Grafana 12, the **Metrics** drilldown requires the `grafana-metricsdrilldown-app` plugin, which isn't installed by default. For more information about installing it after an upgrade, see [Restore the Metrics drilldown](how-to-upgrade-grafana-12.md#restore-the-metrics-drilldown).
+
 * Querying Azure Data Explorer might take a long time or return 50x errors. To resolve these problems, use a table format instead of a time series, shorten the time duration, or avoid having many panels querying the same data cluster that can trigger throttling.
 
 * You can assign users the following Grafana Organization level roles: Admin, Editor, or Viewer. The Grafana Server Admin role isn't available to customers.
 
-Some Data plane APIs require Grafana Server Admin permissions and can't be called by users. This requirement includes the [Admin API](https://grafana.com/docs/grafana/latest/developers/http_api/admin/), the [User API](https://grafana.com/docs/grafana/latest/developers/http_api/user/#user-api), and the [Admin Organizations API](https://grafana.com/docs/grafana/latest/developers/http_api/org/#admin-organizations-api).
+* Some Data plane APIs require Grafana Server Admin permissions and can't be called by users. This requirement includes the [Admin API](https://grafana.com/docs/grafana/latest/developers/http_api/admin/), the [User API](https://grafana.com/docs/grafana/latest/developers/http_api/user/#user-api), and the [Admin Organizations API](https://grafana.com/docs/grafana/latest/developers/http_api/org/#admin-organizations-api).
 
 * Azure Managed Grafana currently doesn't support the Grafana Role Based Access Control (RBAC) feature and the [RBAC API](https://grafana.com/docs/grafana/latest/developers/http_api/access_control/) is therefore disabled.
 
@@ -35,6 +38,20 @@ Some Data plane APIs require Grafana Server Admin permissions and can't be calle
 * Only Azure subscriptions billed directly through Microsoft are eligible for the purchase of Grafana Enterprise. CSP subscriptions, i.e., Azure subscriptions billed through Cloud Solution Providers (CSP), aren't eligible.
 
 * An Azure Managed Grafana workspace can use only one managed identity: user-assigned or system-assigned.
+
+* [Git Sync](how-to-create-dashboard.md#manage-dashboards-as-code-with-git-sync) requires Grafana version 13 or later and supports GitHub repositories only, with up to 10 repositories and 1,000 resources per repository.
+### Annotation retention
+
+Azure Managed Grafana automatically removes annotations that exceed the following age and count limits.
+
+| Configuration section | Setting | Limit |
+|-----------------------|---------|-------|
+| `[unified_alerting.state_history.annotations]` | [max_age](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#max_age) | 90 days |
+| `[unified_alerting.state_history.annotations]` | [max_annotations_to_keep](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#max_annotations_to_keep) | 10,000 |
+| `[annotations.dashboard]` | [max_age](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#max_age-1) | 90 days |
+| `[annotations.dashboard]` | [max_annotations_to_keep](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#max_annotations_to_keep-1) | 10,000 |
+| `[annotations.api]` | [max_age](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#max_age-2) | 90 days |
+| `[annotations.api]` | [max_annotations_to_keep](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#max_annotations_to_keep-2) | 10,000 |
 
 ### Current User authentication
 

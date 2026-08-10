@@ -2,11 +2,12 @@
 title: Copy data from SAP BW
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP Business Warehouse to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
-author: jianleishen
+author: simplywilson
 ms.author: ulrichchrist
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 06/22/2026
+ms.update-cycle: 1095-days
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -14,6 +15,8 @@ ms.custom:
 
 # Copy data from SAP Business Warehouse using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from an SAP Business Warehouse (BW). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -44,7 +47,7 @@ Specifically, this SAP Business Warehouse connector supports:
 - Copying data using basic authentication.
 
 >[!NOTE]
->The SAP Business Warehouse connector does not currently support parameters with MDX.  If filtering with MDX parameters is required you can consider using the alternative [SAP Open Hub connector](connector-sap-business-warehouse-open-hub.md) instead.
+>The SAP Business Warehouse connector doesn't currently support parameters with MDX.  If filtering with MDX parameters is required you can consider using the alternative [SAP Open Hub connector](connector-sap-business-warehouse-open-hub.md) instead.
 
 ## Prerequisites
 
@@ -66,7 +69,7 @@ To use this SAP Business Warehouse connector, you need to:
 
 Use the following steps to create a linked service to SAP BW in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -150,7 +153,7 @@ To copy data from SAP BW, set the type property of the dataset to **SapBwCube**.
 }
 ```
 
-If you were using `RelationalTable` typed dataset, it is still supported as-is, while you are suggested to use the new one going forward.
+If you were using `RelationalTable` typed dataset, it's still supported as-is, while you're suggested to use the new one going forward.
 
 ## Copy activity properties
 
@@ -197,7 +200,7 @@ To copy data from SAP BW, the following properties are supported in the copy act
 ]
 ```
 
-If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
+If you were using `RelationalSource` typed source, it's still supported as-is, while you're suggested to use the new one going forward.
 
 ## Data type mapping for SAP BW
 

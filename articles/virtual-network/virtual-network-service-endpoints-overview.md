@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 07/22/2025
+ms.date: 07/08/2026
 ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network administrator, I want to configure service endpoints in Azure virtual networks, so that I can ensure secure, direct connectivity to Azure services and optimize routing while minimizing management complexity."
@@ -18,6 +18,9 @@ Azure virtual network service endpoints provide secure and direct connectivity t
 
 > [!NOTE]
 > Microsoft recommends use of Azure Private Link and private endpoints for secure and private access to services hosted on the Azure platform. Azure Private Link deploys a network interface into a virtual network of your choosing for Azure services such as Azure Storage or Azure SQL. For more information, see [Azure Private Link](../private-link/private-link-overview.md) and [What is a private endpoint?](../private-link/private-endpoint-overview.md)
+
+> [!TIP]
+> For large-scale architectures that need centralized access control across multiple virtual networks, consider [standard service endpoint](../private-link/service-endpoint-standard-overview.md). Standard service endpoint extends classic service endpoints with network identifiers and network security perimeter integration, enabling scalable IaaS-to-PaaS connectivity.
 
 Service endpoints are available for the following Azure services and regions. The *Microsoft.\** resource is in parenthesis. Enable this resource from the subnet side while configuring service endpoints for your service:
 
@@ -48,6 +51,8 @@ Service endpoints are available for the following Azure services and regions. Th
 - **[Azure Container Registry](/azure/container-registry/container-registry-vnet)** (*Microsoft.ContainerRegistry*): Generally available in all Azure regions where Azure Container Registry is available.
 
 **Public Preview**
+
+- **[Standard service endpoint](../private-link/service-endpoint-standard-overview.md)**: Extends service endpoints with network identifiers and network security perimeter integration. Available for Azure Storage (*Microsoft.Storage*), Azure Key Vault (*Microsoft.KeyVault*), Azure SQL Database (*Microsoft.Sql* — preview), and Azure Cosmos DB (*Microsoft.AzureCosmosDB* — preview).
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
@@ -180,6 +185,8 @@ For FAQs, see [Virtual Network Service Endpoint FAQs](./virtual-networks-faq.md#
 - [Secure an Azure Synapse Analytics to a virtual network](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 
 - [Compare Private Endpoints and Service Endpoints](./vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints)
+
+- [Standard service endpoint overview](../private-link/service-endpoint-standard-overview.md)
 
 - [Virtual Network Service Endpoint Policies](./virtual-network-service-endpoint-policies-overview.md)
 

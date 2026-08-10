@@ -84,7 +84,7 @@ We updated Azure Health Data Services GitHub samples repo to include a [Te
 
 #### Bug fixes
 
-- **Fixed:  Added support for [_sort](././../healthcare-apis/fhir/overview-of-search.md#search-result-parameters) on strings and dateTime**. See
+- **Fixed:  Added support for [_sort](././../healthcare-apis/fhir/overview-of-search.md#fhir-search-result-parameters) on strings and dateTime**. See
 [PR #2169](https://github.com/microsoft/fhir-server/pull/2169).
 
 

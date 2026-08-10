@@ -23,6 +23,10 @@ MQTT data flow endpoints are used for MQTT sources and destinations. You can con
 
 [!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for values that you choose: `ENDPOINT` (the name of the data flow endpoint), `MQTT_HOST` (the MQTT broker hostname), `MQTT_PORT` (the MQTT broker port), `EVENT_GRID_NAMESPACE` (the Event Grid namespace), `ENDPOINT_TYPE` (the endpoint type, such as `custom-mqtt`), `AUDIENCE` (the authentication audience), `CLIENT_ID` and `TENANT_ID` (the user-assigned managed identity identifiers), `X509_SECRET_NAME` (the name of the X.509 certificate secret), and `CLIENT_CERT_FILE`, `PRIVATE_KEY_FILE`, and `INTERMEDIATE_CERT_FILE` (the X.509 certificate file names). Set each one before you run the related commands.
+
 ## Azure IoT Operations local MQTT broker
 
 Azure IoT Operations provides a [built-in local MQTT broker](../manage-mqtt-broker/overview-broker.md) that you can use with data flows. You can use the MQTT broker as a source to receive messages from other systems or as a destination to send messages to other systems.
@@ -58,7 +62,7 @@ To view or edit the default MQTT broker endpoint settings:
 Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change the default MQTT broker data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name default --config-file <ConfigFilePathAndName>
+az iot ops dataflow endpoint apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name default --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -133,7 +137,7 @@ resource defaultMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/da
 Then, deploy via Azure CLI.
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -178,7 +182,7 @@ You can also create new local MQTT broker endpoints with custom settings. For ex
 Use the [az iot ops dataflow endpoint create fabric-onelake](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-local-mqtt) command to create or replace a local MQTT broker data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint create local-mqtt --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --port <Port> --host <Host>
+az iot ops dataflow endpoint create local-mqtt --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --port $MQTT_PORT --host $MQTT_HOST
 ```
 
 This command creates a local MQTT broker endpoint with default settings. You can specify additional options as needed.
@@ -194,7 +198,7 @@ az iot ops dataflow endpoint create local-mqtt --resource-group myResourceGroup 
 Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change a local MQTT broker data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow endpoint apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -366,7 +370,7 @@ Once the Event Grid namespace is configured, you can create a data flow endpoint
 Use the [az iot ops dataflow endpoint create eventgrid](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-eventgrid) command to create or replace an Azure Event Grid MQTT data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint create eventgrid --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host <Namespace>.<Region>-1.ts.eventgrid.azure.net --port 9092
+az iot ops dataflow endpoint create eventgrid --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --host $EVENT_GRID_NAMESPACE.$LOCATION-1.ts.eventgrid.azure.net --port 8883
 ```
 
 This command creates an Event Grid MQTT broker endpoint with default settings and system-assigned managed identity authentication. You can specify additional options as needed.
@@ -374,7 +378,7 @@ This command creates an Event Grid MQTT broker endpoint with default settings an
 Here's an example command to create or replace an Event Grid MQTT broker data flow endpoint named `event-grid-endpoint`:
 
 ```azurecli
-az iot ops dataflow endpoint create eventgrid --resource-group myResourceGroup --instance myAioInstance --name event-grid-endpoint --host mynamespace.eastus-1.ts.eventgrid.azure.net --port 9092
+az iot ops dataflow endpoint create eventgrid --resource-group myResourceGroup --instance myAioInstance --name event-grid-endpoint --host mynamespace.eastus-1.ts.eventgrid.azure.net --port 8883
 ```
 
 #### Create or change
@@ -382,7 +386,7 @@ az iot ops dataflow endpoint create eventgrid --resource-group myResourceGroup -
 Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Event Grid MQTT broker data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow endpoint apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -393,7 +397,7 @@ In this example, assume a configuration file named `event-grid-endpoint.json` wi
 {
     "endpointType": "Mqtt",
     "mqttSettings": {
-        "host": "mynamespace.eastus-1.ts.eventgrid.azure.net:9092",
+        "host": "mynamespace.eastus-1.ts.eventgrid.azure.net:8883",
         "authentication": {
             "method": "SystemAssignedManagedIdentity",
             "systemAssignedManagedIdentitySettings": {}
@@ -453,7 +457,7 @@ resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dat
 Then, deploy via Azure CLI.
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -482,7 +486,7 @@ spec:
 Then apply the manifest file to the Kubernetes cluster.
 
 ```bash
-kubectl apply -f <FILE>.yaml
+kubectl apply -f main.yaml
 ```
 
 ---
@@ -539,7 +543,7 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
 Use the [az iot ops dataflow endpoint create custom-mqtt](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-custom-mqtt) command to create or replace a custom MQTT broker data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint create custom-mqtt --resource-group <ResourceGroupName> --instance <AioInstanceName>  --name <EndpointName> --host <Host> --port <Port>
+az iot ops dataflow endpoint create custom-mqtt --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --host $MQTT_HOST --port $MQTT_PORT
 ```
 
 This command creates a custom MQTT broker endpoint with default settings and system-assigned managed identity authentication. You can specify additional options as needed.
@@ -555,7 +559,7 @@ az iot ops dataflow endpoint create custom-mqtt --resource-group myResourceGroup
 Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change a custom MQTT broker data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow endpoint apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -648,7 +652,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `SystemAssignedManagedIdentity` for system-assigned managed identity authentication.
 
 ```azurecli
-az iot ops dataflow endpoint create <Command> --auth-type SystemAssignedManagedIdentity --audience <Audience> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+az iot ops dataflow endpoint create $ENDPOINT_TYPE --auth-type SystemAssignedManagedIdentity --audience $AUDIENCE --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT
 ```
 
 #### Create or change
@@ -722,7 +726,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `UserAssignedManagedIdentity` for user-assigned managed identity authentication.
 
 ```azurecli
-az iot ops dataflow endpoint create <Command> --auth-type UserAssignedManagedIdentity --client-id <ClientId> --tenant-id <TenantId> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+az iot ops dataflow endpoint create $ENDPOINT_TYPE --auth-type UserAssignedManagedIdentity --client-id $CLIENT_ID --tenant-id $TENANT_ID --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT
 ```
 
 #### Create or change
@@ -798,7 +802,7 @@ Enter the service audience.
 Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `ServiceAccountToken` for Kubernetes service account token authentication.
 
 ```azurecli
-az iot ops dataflow endpoint create <Command> --auth-type ServiceAccountToken --audience <Audience> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+az iot ops dataflow endpoint create $ENDPOINT_TYPE --auth-type ServiceAccountToken --audience $AUDIENCE --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT
 ```
 
 #### Create or change
@@ -865,7 +869,7 @@ Before configuring the data flow endpoint, create a secret with the certificate 
 - If you use Bicep or Kubernetes, manually create the secret with the certificate and private key in the same namespace as the MQTT data flow endpoint.
 
   ```bash
-  kubectl create secret generic <X509_SECRET_NAME> -n azure-iot-operations --from-file=client_cert.pem=<CLIENT_CERT_FILE>.pem --from-file=client_key.pem=<PRIVATE_KEY_FILE>.pem --from-file=client_intermediate_certs.pem=<INTERMEDIATE_CERT_FILE>.pem
+  kubectl create secret generic $X509_SECRET_NAME -n azure-iot-operations --from-file=client_cert.pem=$CLIENT_CERT_FILE --from-file=client_key.pem=$PRIVATE_KEY_FILE --from-file=client_intermediate_certs.pem=$INTERMEDIATE_CERT_FILE
   ```
 
   Here, the secret must have `client_cert.pem` and `client_key.pem` as the key names for the certificate and private key. Optionally, the secret can also have `client_intermediate_certs.pem` as the key name for the intermediate certificates.
@@ -902,7 +906,7 @@ To learn more about secrets, see [Create and manage secrets in Azure IoT Operati
 Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `X509Certificate` for X.509 certificate authentication.
 
 ```azurecli
-az iot ops dataflow endpoint create <Command> --auth-type X509Certificate --secret-name <X509SecretName> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+az iot ops dataflow endpoint create $ENDPOINT_TYPE --auth-type X509Certificate --secret-name $X509_SECRET_NAME --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT
 ```
 
 #### Create or change
@@ -966,7 +970,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--no-auth` parameter for anonymous authentication.
 
 ```azurecli
-az iot ops dataflow endpoint create <Command> --no-auth --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+az iot ops dataflow endpoint create $ENDPOINT_TYPE --no-auth --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT
 ```
 
 #### Create or change

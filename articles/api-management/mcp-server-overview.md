@@ -73,6 +73,8 @@ API Management provides two built-in ways to expose MCP servers:
 
 See the linked articles for step-by-step instructions and limitations.
 
+You can also create and manage MCP servers in Azure API Management by using the REST API, ARM templates, Bicep, the Azure CLI, and Terraform. For more information, see [Manage MCP servers programmatically in API Management](manage-mcp-servers-rest-api.md).
+
 
 ## Govern MCP servers
 
@@ -96,11 +98,14 @@ For more information and examples, see [Secure access to MCP servers](secure-mcp
 
 To monitor MCP servers in Azure API Management, use API Management's built-in [integration with Azure Monitor](monitor-api-management.md) for gateway activity.
 
-* Configure [Azure Application Insights](api-management-howto-app-insights.md) or Azure Monitor to capture MCP server requests, responses, and detailed diagnostics.
+* Configure [Azure Application Insights](api-management-howto-app-insights.md) or Azure Monitor to capture MCP server requests, responses, and detailed telemetry.
 * Include correlation IDs in request headers to track requests across multiple systems and components.  
 * Configure [trace](trace-policy.md) policies for your MCP servers to add a custom trace into the request tracing output in the test console, Application Insights telemetries,  or resource logs.
 
-For more information, see [Monitor API Management](monitor-api-management.md).
+For more information, see:
+
+* [Monitor MCP server traffic](monitor-mcp-servers.md)
+* [Monitor API Management](monitor-api-management.md)
 
 ## Discover MCP servers
 

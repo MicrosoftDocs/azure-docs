@@ -2,11 +2,11 @@
 title: Create a site-to-site VPN connection in dual stack - Azure PowerShell
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a site-to-site VPN gateway connection in IPv4 and IPv6 dual stack from your on-premises network to a virtual network using Azure PowerShell.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 04/08/2026
-ms.author: cherylmc
+ms.author: duau
 ---
 
 # Create a site-to-site VPN connection in dual stack using Azure PowerShell
@@ -19,15 +19,7 @@ A site-to-site VPN gateway connection is used to connect your on-premises networ
 
 The steps in this article create two connections between the VPN gateway and the on-premises VPN device using a shared key. You can also use [CLI](site-to-site-ipv6-azure-cli.md) for this configuration. If you aren't configuring IPv4 addresses along with IPv6 addresses, you can optionally use the [Azure portal](ipv6-configuration.md). For more information about VPN gateways, see [About VPN gateway](vpn-gateway-about-vpngateways.md).
 
-> [!IMPORTANT]
-> IPv6 in dual stack configuration is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-
 ## Before you begin
-
-> [!NOTE]
-> During Preview, you can opt in to configure IPv6 in dual stack. To opt in, send your subscription ID to **vpngwipv6preview@microsoft.com** and request your subscription to be enabled for IPv6.
 
 Verify that your environment meets the following criteria before beginning configuration:
 
@@ -47,7 +39,7 @@ Verify that your environment meets the following criteria before beginning confi
 
 ### Azure PowerShell
 
-This article uses PowerShell cmdlets. To run the cmdlets, you can use Azure Cloud Shell or PowerShell installed locally on your computer. If you use PowerShell locally, make sure you have the latest Azure PowerShell module installed. For installation instructions, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+This article uses PowerShell cmdlets. To run the cmdlets, you can use Azure Cloud Shell or PowerShell installed locally on your computer. If you use PowerShell locally, make sure you have the latest Azure PowerShell module installed. For installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 Assign the variables used in the configuration.
 

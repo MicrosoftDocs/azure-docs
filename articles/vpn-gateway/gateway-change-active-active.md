@@ -2,11 +2,11 @@
 title: 'Change a gateway to active-active mode'
 titleSuffix: Azure VPN Gateway
 description: Learn how to change a VPN gateway from active-standby to active-active.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 12/05/2024
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: As a network administrator, I want to change a VPN gateway from active-standby to active-active mode, so that I can ensure high availability and improved performance for my network connections.
 ---

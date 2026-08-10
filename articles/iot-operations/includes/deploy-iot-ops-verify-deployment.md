@@ -13,7 +13,7 @@ After the deployment finishes, use [az iot ops check](/cli/azure/iot/ops#az-iot-
 az iot ops check
 ```
 
-The `check` command displays a warning about missing data flows, which is normal and expected until you create a data flow. For more information, see [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md).
+The `check` command reports the data flow checks as skipped when there are no data flows yet, which is normal and expected until you create a data flow. For more information, see [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md).
 
 To check the configurations of topic maps, QoS, and message routes, add the `--detail-level 2` parameter to the `check` command for a verbose view.
 

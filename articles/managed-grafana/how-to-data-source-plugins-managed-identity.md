@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: azure-managed-grafana
 ms.topic: how-to
-ms.date: 06/24/2026
+ms.date: 07/03/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -50,6 +50,9 @@ Azure Managed Grafana supports many popular core data sources. The following tab
 | [Tempo](https://grafana.com/docs/grafana/latest/datasources/tempo/)                                                           | -         | ✔       |
 | [TestData](https://grafana.com/docs/grafana/latest/datasources/testdata/)                                                     | ✔         | ✔       |
 | [Zipkin](https://grafana.com/docs/grafana/latest/datasources/zipkin/)                                                         | -         | ✔       |
+
+> [!NOTE]
+> To use Azure authentication with Prometheus (for example, to query Azure Monitor managed service for Prometheus), use the **Azure Monitor Managed Service for Prometheus** data source plugin. Starting with Grafana 13, Azure authentication is no longer supported on the core (open-source) Prometheus data source and is available only through this plugin. Existing Azure-authenticated Prometheus data sources are migrated to the plugin automatically, and dashboards remain fully compatible across both data sources. Prometheus data sources that use non-Azure authentication are unaffected. For the background to this change, see [Prometheus data source update: Redefining our big tent philosophy](https://grafana.com/blog/prometheus-data-source-update-redefining-our-big-tent-philosophy/); for migration details, see [Migrate from Prometheus Azure AD to Azure Monitor Managed Service for Prometheus](https://grafana.com/docs/grafana/latest/datasources/prometheus/configure/azure-authentication/).
 
 ### Grafana Enterprise data sources
 

@@ -1,8 +1,8 @@
 ---
 title: Examples for better understanding pricing model under different integration runtime types
 description: Learn about pricing model under different integration runtime types from some examples.
-ms.author: lle
-author: lrtoyou1223
+ms.author: makromer
+author: kromerm
 ms.subservice: integration-runtime
 ms.topic: concept-article
 ms.date: 01/05/2024
@@ -11,6 +11,8 @@ ms.date: 01/05/2024
 # Examples for better understanding pricing model under different integration runtime types
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In this article, we'll illustrate the pricing model using different integration runtime through some concrete examples. These examples only focus on copy activity, pipeline activity and external activity running on the integration runtime. It doesn't involve charges for Data Factory Pipeline Orchestration, Data Factory Operations and Data Factory Operations. For all pricing details, see [Data Pipeline Pricing and FAQ](pricing-concepts.md).
 

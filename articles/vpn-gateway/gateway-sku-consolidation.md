@@ -2,13 +2,13 @@
 title: Gateway SKU Mappings
 titleSuffix: Azure VPN Gateway
 description: Learn about the changes for virtual network gateway SKUs for VPN Gateway.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 05/13/2026
+ms.date: 07/23/2026
 
-ms.author: cherylmc
+ms.author: duau
 
 #customer intent: As a network administrator, I want to understand the migration process and benefits of VPN Gateway SKUs transitioning to availability zone support, so that I can ensure my organization's VPN solutions are optimized for reliability and cost-efficiency.
 ---
@@ -39,6 +39,25 @@ The following diagram shows current SKUs and the new SKUs that they'll automatic
 * We recommend that you [manually upgrade](gateway-sku-upgrade.md) gateway SKUs that aren't supported by availability zones to those that are. You can use the Azure portal, PowerShell, or the Azure CLI. There's no downtime expected to manually upgrade SKUs that currently use Standard public IP addresses. If you're still using a Basic IP address, upgrade to a Standard IP address.
 * If your gateway currently uses legacy SKUs, see [Working with VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md).
 
+### How do I verify my gateway's current SKU?
+
+Before you decide whether you need to take action, check which SKU your gateway uses:
+
+* **Azure portal**: Go to your virtual network gateway and select **Configuration**. The gateway's SKU is listed under **SKU**.
+* **Azure PowerShell**: Run [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) and check the SKU name.
+
+  ```azurepowershell
+  (Get-AzVirtualNetworkGateway -Name "vpn-gateway" -ResourceGroupName "test-rg").Sku.Name
+  ```
+
+* **Azure CLI**: Run [az network vnet-gateway show](/cli/azure/network/vnet-gateway#az-network-vnet-gateway-show) and query the SKU name.
+
+  ```azurecli
+  az network vnet-gateway show --name "vpn-gateway" --resource-group "test-rg" --query "sku.name"
+  ```
+
+If the SKU name ends in `AZ` (for example, `VpnGw2AZ`), your gateway already uses a SKU that supports an availability zone, and you don't need to migrate it. If it doesn't (for example, `VpnGw2`), [manually upgrade](gateway-sku-upgrade.md) to the corresponding availability zone SKU.
+
 ### How long will my existing gateway SKUs be supported?
 
 The existing gateway SKUs are supported until they're migrated to the new SKUs. The old SKUs are currently scheduled for deprecation after September, 2026. There will be no impact to existing SKUs that are supported by availability zones.
@@ -65,7 +84,7 @@ There is no announced retirement date for Gen1 SKUs.
 Customers **do not** need to run any separate migration to move to Generation 2. The only required action is upgrading from a Basic to a Standard public IP address (if applicable). There is no retirement date announced for Generation 1 SKUs.
 
 * *For gateways that use a Basic public IP address*: You'll need to migrate your Basic IP address to a Standard public IP address using the [migration tool for VPN Gateway](basic-public-ip-migrate-howto.md?tabs=portal). As part of this IP address upgrade, your gateway is automatically upgraded to the next generation (Generation 2). **No separate Gen2 migration or additional steps are required.**
-* *For gateways that already use a Standard public IP address*: **No customer action is required.** These gateways will be automatically upgraded to the next generation (Generation 2) as part of regular service updates, prior to September 2026. This process is seamless and does not involve downtime.
+* *For gateways that already use a Standard public IP address*: **No customer action is required.** These gateways are automatically upgraded to the next generation (Generation 2) as part of regular service updates, ~end of Mar'27. This process is seamless and doesn't involve downtime.
 
 ### Will there be downtime during migration?
 

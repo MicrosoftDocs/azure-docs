@@ -6,13 +6,22 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom:
 ms.topic: troubleshooting
-ms.date: 01/12/2026
+ms.date: 08/07/2026
 ms.author: anfdocs
 # Customer intent: "As a system administrator, I want to troubleshoot volume errors for Azure NetApp Files, so that I can ensure reliable performance and resolve issues effectively."
 ---
 # Troubleshoot volume errors for Azure NetApp Files
 
 If a volume create-read-update-delete (CRUD) operation is performed on a volume not in a terminal state, the operation will fail. Automation workflows and portal users should check for the terminal state of the volume before executing subsequent asynchronous operations on the volume.
+
+## Understand authentication and authorization errors
+
+When troubleshooting access problems with Azure NetApp Files SMB volumes, distinguish between authentication failures and authorization failures:
+
+* **Authentication failures** occur when Active Directory can't validate a user account. Common causes include invalid credentials, disabled accounts, failed name mapping, or user accounts that don't exist. Clients typically return authentication-specific error messages.
+* **Authorization failures** occur when a user successfully authenticates but doesn't have the required share-level or NTFS permissions to access the requested resource. Clients typically return a permissions-related error, such as "You do not have permission to access...".
+
+Identifying whether the failure occurs during authentication or authorization can help determine whether to investigate Active Directory configuration, user credentials, name mapping, share permissions, or NTFS permissions.
 
 ## Errors for SMB and dual-protocol volumes
 
@@ -85,6 +94,8 @@ This section explains the causes of some of the common allocation failures and s
 |     Warnings    |     Resolutions    |
 |-|-|
 | The `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ScaleUp` operation displays a warning: <br> `Percentage Volume Consumed Size reached 90%`  | The used size of an Azure NetApp Files volume has reached 90% of the volume quota. You should [resize the volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) soon. |
+
+If you copy large datasets into a volume that has cross-region replication enabled and you have spare capacity in the capacity pool, set the replication interval to 10 minutes, increase the volume size to allow for the changes to be stored, and temporarily disable replication.
 
 ## Next steps
 

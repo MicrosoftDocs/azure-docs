@@ -28,6 +28,15 @@ For information on release notes for the connected machine agent, see
 The following sections of this article detail the notes for each release of the agent. The heading
 for each section includes the specific version for that release and the date for the release.
 
+## Version 1.26.113.0 - July 2026
+
+<a id="1.26.113.0"></a>
+<a id="2026-07"></a>
+
+### Updated
+
+- Updated OpenSSL library from version 3.6.2 to 3.6.3.
+
 ## Version 1.26.111.0 - June 2026
 
 <a id="1.26.111.0"></a>

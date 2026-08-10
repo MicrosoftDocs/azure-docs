@@ -4,7 +4,7 @@ description: How to configure a point-to-site VPN on Windows for use with SMB Az
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 10/10/2025
+ms.date: 07/28/2026
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -16,9 +16,11 @@ ms.custom:
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
-You can use a point-to-site VPN connection to mount your Azure file shares over SMB from outside of Azure, without opening up port 445. A point-to-site VPN connection is a VPN connection between Azure and an individual client. To use a point-to-site VPN connection with Azure Files, you must configure a VPN connection for each client that wants to connect. If you have many clients that need to connect to your Azure file shares from your on-premises network, you can use a site-to-site VPN connection instead of a point-to-site connection for each client. To learn more, see [Configure a site-to-site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
+A point-to-site VPN is primarily useful for devices that aren't part of your organization's on-premises network, such as telecommuters who want to mount their Azure file share from home, a coffee shop, or a hotel while traveling. It lets you mount Azure file shares over SMB from outside of Azure without opening port 445. Because a point-to-site VPN connects Azure to an individual client, you must configure a connection for each client that wants to connect.
 
-We strongly recommend that you read [Networking considerations for direct Azure file share access](storage-files-networking-overview.md) before continuing with this how-to article for a complete discussion of the networking options available for Azure Files.
+If you have many clients on your on-premises network that need to connect to your Azure file shares, use a site-to-site VPN connection instead. To learn more, see [Configure a site-to-site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
+
+Before continuing, read [Networking considerations for direct Azure file share access](storage-files-networking-overview.md) for a complete discussion of the networking options available for Azure Files.
 
 The article details the steps to configure a point-to-site VPN on Windows (Windows client and Windows Server) to mount Azure file shares directly on-premises. If you want to route Azure File Sync traffic over a VPN, see [configuring Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
 
@@ -26,27 +28,27 @@ The article details the steps to configure a point-to-site VPN on Windows (Windo
 
 - The most recent version of the Azure PowerShell module. See [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
-- An Azure file share you would like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources. Learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
+- An Azure classic file share you want to mount on-premises. See [Create an Azure classic file share](create-classic-file-share.md).
 
-- A [virtual network](../../vpn-gateway/point-to-site-certificate-gateway.md) with a private endpoint for the storage account that contains the Azure file share you want to mount on-premises. To learn how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-powershell).
+- A [virtual network](../../vpn-gateway/point-to-site-certificate-gateway.md) with a private endpoint for the storage account that contains the Azure file share you want to mount on-premises. To learn how to create a private endpoint, see [Configure Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-powershell).
 
-- You must create a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) on the virtual network. To create a gateway subnet, sign into the Azure portal, navigate to the virtual network, select **Settings > Subnets**, and then select **+ Gateway subnet**. When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The number of IP addresses needed depends on the VPN gateway configuration that you want to create. It's best to specify /27 or larger (/26, /25 etc.) to allow enough IP addresses for future changes, such as adding an ExpressRoute gateway.
+- You must create a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) on the virtual network. To create a gateway subnet, sign in to the Azure portal, go to the virtual network, select **Settings > Subnets**, and then select **+ Gateway subnet**. When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The number of IP addresses needed depends on the VPN gateway configuration that you want to create. It's best to specify /27 or larger (/26, /25, and so on) to allow enough IP addresses for future changes, such as adding an ExpressRoute gateway.
 
-## Collect environment information
+## Collect environment information for your VPN setup
 
 Before setting up the point-to-site VPN, you need to collect some information about your environment. 
 
 # [Portal](#tab/azure-portal)
 
-In order to set up a point-to-site VPN using the Azure portal, you'll need to know your resource group name, virtual network name, gateway subnet name, and storage account name.
+To set up a point-to-site VPN by using the Azure portal, you need to know your resource group name, virtual network name, gateway subnet name, and storage account name.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Run this script to collect the necessary information. Replace `<resource-group>`, `<vnet-name>`, `<subnet-name>`, and `<storage-account-name>` with the appropriate values for your environment.
+Run this script to collect the necessary information. Replace `<resource-group>`, `<virtual-network-name>`, `<subnet-name>`, and `<storage-account-name>` with the appropriate values for your environment.
 
 ```azurepowershell
 $resourceGroupName  = '<resource-group-name>'
-$virtualNetworkName = '<vnet-name>'
+$virtualNetworkName = '<virtual-network-name>'
 $subnetName         = '<subnet-name>'
 $storageAccountName = '<storage-account-name>'
 
@@ -85,9 +87,9 @@ $privateEndpoint = Get-AzPrivateEndpoint |
 
 ## Create root certificate for VPN authentication
 
-In order for VPN connections from your on-premises Windows machines to be authenticated to access your virtual network, you must create two certificates:
+For VPN connections from your on-premises Windows machines to authenticate and access your virtual network, you must create two certificates:
 
-1. A root certificate, which will be provided to the virtual machine gateway
+1. A root certificate, which you provide to the virtual network gateway
 1. A client certificate, which will be signed with the root certificate
 
 You can either use a root certificate that was generated with an enterprise solution, or you can generate a self-signed certificate. If you're using an enterprise solution, acquire the .cer file for the root certificate from your IT organization.
@@ -171,7 +173,7 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
    * **Region**: Select the region in which you want to create this resource. The region for the gateway must be the same as the virtual network.
    * **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**.
    * **SKU**: Select the gateway SKU that supports the features you want to use from the dropdown. See [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Don't use the Basic SKU because it doesn't support IKEv2 authentication.
-   * **Generation**: Select the generation you want to use. We recommend using a Generation2 SKU. For more information, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
+   * **Generation**: Select the generation you want to use. Generation2 SKUs are recommended. For more information, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
    * **Virtual network**: From the dropdown, select the virtual network to which you want to add this gateway. If you can't see the virtual network for which you want to create a gateway, make sure you selected the correct subscription and region.
    * **Subnet**: This field should be grayed out and list the name of the gateway subnet you created, along with its IP address range. If you instead see a **Gateway subnet address range** field with a text box, then you haven't yet configured a gateway subnet (see [Prerequisites](#prerequisites).)
 
@@ -186,7 +188,7 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
    * **Enable active-active mode**: Select **Disabled**. Only enable this setting if you're creating an active-active gateway configuration.
    * **Configure BGP**: Select **Disabled**, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this value can be changed.
 
-1. Select **Review + create** to run validation. Once validation passes, select **Create** to deploy the virtual network gateway. Deployment can take up to 45 minutes to complete.
+1. Select **Review + create** to run validation. After validation passes, select **Create** to deploy the virtual network gateway. Deployment can take up to 45 minutes to complete.
 
 1. When deployment is complete, select **Go to resource**.
 
@@ -195,7 +197,7 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
    :::image type="content" source="media/storage-files-configure-p2s-vpn-windows/point-to-site-configuration.png" alt-text="Screenshot showing how to configure a point-to-site VPN using the Azure portal." lightbox="media/storage-files-configure-p2s-vpn-windows/point-to-site-configuration.png":::
 
    * **Address pool**: Add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
-   * **Tunnel type**: Specify the tunnel type you want to use. Computers connecting via the native Windows VPN client will try IKEv2 first. If that doesn't connect, they fall back to SSTP (if you select both IKEv2 and SSTP from the dropdown). If you select the OpenVPN tunnel type, you can connect using an OpenVPN Client or the Azure VPN Client.
+   * **Tunnel type**: Specify the tunnel type you want to use. Computers connecting through the native Windows VPN client try IKEv2 first. If that protocol doesn't connect, they fall back to SSTP (if you select both IKEv2 and SSTP from the dropdown). If you select the OpenVPN tunnel type, you can connect by using an OpenVPN Client or the Azure VPN Client.
    * **Authentication type**: Specify the authentication type you want to use (in this case, choose Azure certificate).
    * **Root certificate name**: The file name of the root certificate (.cer file).
    * **Public certificate data**: Open the root certificate with NotePad and copy/paste the public certificate data in this text field. If you used the PowerShell script in this article to generate a self-signed root certificate, it will be located in `C:\vpn-temp`. Be sure to only paste the text that's in between -----BEGIN CERTIFICATE----- and -----END CERTIFICATE-----. Don't include any additional spaces or characters.
@@ -246,7 +248,6 @@ $virtualNetGatewayParams = @{
     IpConfigurations          = $gatewayIpConfig
     GatewayType               = 'Vpn'
     VpnType                   = 'RouteBased'
-    IpConfigurations          = $gatewayIpConfig
     VpnClientAddressPool      = '172.16.201.0/24'
     VpnClientProtocol         = 'IkeV2'
     VpnClientRootCertificates = $azRootCertificate
@@ -257,7 +258,7 @@ $vpn = New-AzVirtualNetworkGateway @virtualNetGatewayParams
 
 ## Create client certificate
 
-Each client computer that you connect to a virtual network with a point-to-site connection must have a client certificate installed. You generate the client certificate from the root certificate and install it on each client computer. If you don't install a valid client certificate, authentication will fail when the client tries to connect. You can either create a client certificate from a root certificate that was generated with an enterprise solution, or you can create a client certificate from a self-signed root certificate.
+Each client computer that you connect to a virtual network with a point-to-site connection must have a client certificate installed. You generate the client certificate from the root certificate and install it on each client computer. If you don't install a valid client certificate, authentication fails when the client tries to connect. You can either create a client certificate from a root certificate that an enterprise solution generated, or you can create a client certificate from a self-signed root certificate.
 
 ### Create client certificate using an enterprise solution
 
@@ -273,7 +274,7 @@ If you want to install a client certificate on another client computer, export t
 
 If you're using the same PowerShell session that you used to create your self-signed root certificate, you can skip ahead to [Generate a client certificate](#generate-a-client-certificate).
 
-If not, use the following steps to identify the self-signed root certificate that's installed on your computer.
+If not, follow these steps to identify the self-signed root certificate that's installed on your computer.
 
 1. Get a list of the certificates that are installed on your computer.
 
@@ -290,7 +291,7 @@ If not, use the following steps to identify the self-signed root certificate tha
    7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
    ```
 
-1. Declare a variable for the root certificate using the thumbprint from the previous step. Replace THUMBPRINT with the thumbprint of the root certificate from which you want to generate a client certificate.
+1. Declare a variable for the root certificate using the thumbprint from the previous step. Replace `<THUMBPRINT>` with the thumbprint of the root certificate from which you want to generate a client certificate.
 
    ```powershell
    $rootcert = Get-ChildItem -Path 'Cert:\CurrentUser\My\<THUMBPRINT>'
@@ -304,7 +305,7 @@ If not, use the following steps to identify the self-signed root certificate tha
 
 #### Generate a client certificate
 
-Use the `New-AzVpnClientConfiguration` PowerShell cmdlet to generate a client certificate. If you're not using the same PowerShell session that you used to create your self-signed root certificate, you'll need to [identify the self-signed root certificate](#identify-the-self-signed-root-certificate) as described in the previous section. Before running the script, replace `<resource-group-name>` with your resource group name and `<vpn-gateway-name>` with the name of the virtual network gateway you just deployed.
+Use the `New-AzVpnClientConfiguration` PowerShell cmdlet to generate a client certificate. If you're not using the same PowerShell session that you used to create your self-signed root certificate, you need to [identify the self-signed root certificate](#identify-the-self-signed-root-certificate) as described in the previous section. Before running the script, replace `<resource-group-name>` with your resource group name and `<vpn-gateway-name>` with the name of the virtual network gateway you just deployed.
 
 > [!IMPORTANT]
 > Run this PowerShell script as administrator from the on-premises Windows machine that you want to connect to the Azure file share. The computer must be running Windows 10/Windows Server 2016 or later. Don't run the script from a Cloud Shell in Azure. Make sure you sign in to your Azure account before running the script (`Connect-AzAccount`).
@@ -379,9 +380,9 @@ To install the client certificate required for authentication against the virtua
 
 This section helps you configure the native VPN client that's part of your Windows operating system to connect to your virtual network (IKEv2 and SSTP). This configuration doesn't require additional client software.
 
-### View configuration files
+### View VPN client configuration files
 
-On the client computer, navigate to `C:\vpn-temp` and open the **vpnclientconfiguration** folder to view the following subfolders:
+On the client computer, go to `C:\vpn-temp` and open the **vpnclientconfiguration** folder to view the following subfolders:
 
 * **WindowsAmd64** and **WindowsX86**, which contain the Windows 64-bit and 32-bit installer packages, respectively. The **WindowsAmd64** installer package is for all supported 64-bit Windows clients, not just Amd.
 * **Generic**, which contains general information used to create your own VPN client configuration. The Generic folder is provided if IKEv2 or SSTP+IKEv2 was configured on the gateway. If only SSTP is configured, then the Generic folder isn't present.
@@ -391,7 +392,7 @@ On the client computer, navigate to `C:\vpn-temp` and open the **vpnclientconfig
 You can use the same VPN client configuration package on each Windows client computer, as long as the version matches the architecture for the client.
 
 >[!NOTE]
->You must have Administrator rights on the Windows client computer from which you want to connect in order to run the installer package.
+>You must have Administrator rights on the Windows client computer from which you want to connect to run the installer package.
 
 1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the `VpnClientSetupAmd64` installer package. For a 32-bit processor architecture, choose the `VpnClientSetupX86` installer package.
 
@@ -501,7 +502,7 @@ Now that you've set up your point-to-site VPN, you can use it to mount the Azure
 
 ## Rotate VPN root certificate
 
-If a root certificate needs to be rotated due to expiration or new requirements, you can add a new root certificate to the existing virtual network gateway without redeploying the virtual network gateway. After adding the root certificate using the following script, you'll need to re-create the [VPN client certificate](#create-client-certificate).  
+If you need to rotate a root certificate due to expiration or new requirements, you can add a new root certificate to the existing virtual network gateway without redeploying the virtual network gateway. After adding the root certificate by using the following script, you need to re-create the [VPN client certificate](#create-client-certificate).  
 
 Replace `<resource-group-name>`, `<desired-vpn-name-here>`, and `<new-root-cert-name>` with your own values, then run the script.
 
@@ -567,7 +568,7 @@ Add-AzVpnClientRootCertificate @vpnClientRootCertParams
 
 ## See also
 
-- [Configure server settings for point-to-site VPN Gateway connections](../../vpn-gateway/point-to-site-certificate-gateway.md)
+- [Configure server settings for point-to-site VPN gateway connections](../../vpn-gateway/point-to-site-certificate-gateway.md)
 - [Networking considerations for direct Azure file share access](storage-files-networking-overview.md)
 - [Configure a point-to-site VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)
 - [Configure a site-to-site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md)

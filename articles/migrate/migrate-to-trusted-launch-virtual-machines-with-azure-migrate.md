@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 03/16/2026
+ms.update-cycle: 1825-days
 ms.custom: engagement-fy26
 # Customer intent: "As an IT administrator, I want to migrate servers to Azure Trusted Launch Virtual Machines or Confidential Virtual Machines so that I can ensure enhanced security for my Virtual Machines."
 ---
@@ -23,7 +24,7 @@ Azure Migrate now supports migrating generation 2 virtual machines to Azure Virt
 Azure Migrate supports all Operating systems that are supported for Trusted Launch in Azure. For more information, See [Azure supported OS list and Virtual Machine sizes](/azure/virtual-machines/trusted-launch#operating-systems-supported).
 
 >[!Note]
->Trusted Launch is a security feature for generation 2 virtual machines. Generation 1 Virtual Machines use BIOS and MBR, and they don't support Secure Boot or vTPM by design. As a result, Generation 1 Virtual Machines can't use Trusted Launch and Azure Migrate doesn't support migrating Gen 1 Virtual Machines to Trusted Launch virtual Machines.
+>Trusted Launch is a security feature for generation 2 virtual machines. generation 1 Virtual Machines use BIOS and MBR, and they don't support Secure Boot or vTPM by design. As a result, generation 1 virtual machines can't use Trusted Launch and Azure Migrate doesn't support migrating generation 1 virtual machines to Trusted Launch virtual machines.
 
 ## Secure boot
 At the root of Trusted Launch is Secure Boot, 
@@ -49,7 +50,7 @@ Azure Migrate currently supports the migration of the following operating system
  - RHEL 9.4
 
 >[!Note]
-> - Both Generation 1 and Generation 2 virtual machines are supported.
+> - Confidential VMs are a generation 2 VMs capability. Azure Migrate supports both generation 1 and generation 2 VMs via agent-based migrations, but only supports generation 2 VMs via agent-less migrations.
 > - Ensure the latest updates are installed for the respective OS at source before beginning migration. Otherwise, migration to confidential compute fails.
 > - If you choose confidential virtual machines (CVM) as the target security type during migration, only CVM-eligible VMs are available for selection and the rest are greyed out.
 

@@ -194,6 +194,8 @@ items:
             items:
               - name: Terminology
                 href: concepts-event-grid-namespaces.md
+              - name: Autoscale
+                href: namespace-autoscale-overview.md
               - name: Event handlers (Push delivery)
                 href: namespace-topics-event-handlers.md
                 items:
@@ -234,6 +236,10 @@ items:
             items:
               - name: Create, view, and manage namespaces
                 href: create-view-manage-namespaces.md
+              - name: Enable Autoscale
+                href: namespace-enable-autoscale.md
+              - name: Enable manual scale
+                href: namespace-enable-manual-scale.md
               - name: Create, view, and manage namespace topics
                 href: create-view-manage-namespace-topics.md
               - name: Create, view, and manage event subscriptions
@@ -401,8 +407,6 @@ items:
                     href: event-schema-container-registry.md
                   - name: Azure Data Box
                     href: event-schema-data-box.md
-                  - name: Azure Data Manager for Agriculture
-                    href: event-schema-data-manager-for-agriculture.md
                   - name: Azure Event Grid
                     href: event-schema-event-grid-namespace.md
                   - name: Azure Event Hubs

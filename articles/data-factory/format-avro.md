@@ -2,17 +2,19 @@
 title: Avro format
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This topic describes how to deal with Avro format in Azure Data Factory and Synapse Analytics.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: reference
 ms.date: 01/05/2024
-ms.author: jianleishen
+ms.author: tinglee
 ---
 
 # Avro format in Azure Data Factory and Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Follow this article when you want to **parse Avro files or write the data into Avro format**. 
 

@@ -102,7 +102,7 @@ Storage Mover is a maturing service and the supported source - target pairings w
 
 - [Copy or move data to Azure Storage with AzCopy](../../../common/storage-use-azcopy-v10.md)
 
-- [Migrate large datasets to Azure Blob Storage with AzReplicate (sample application)](/samples/azure/azreplicate/azreplicate/)
+- [Migrate large datasets to Azure Blob Storage with AzReplicate (sample application)](/rest/api/datareplication/)
 
 > [!IMPORTANT]
 > Support provided by ISV, not Microsoft

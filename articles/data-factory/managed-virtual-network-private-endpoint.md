@@ -1,11 +1,11 @@
 ---
 title: Managed virtual network and managed private endpoints
 description: Learn about managed virtual network and managed private endpoints in Azure Data Factory.
-ms.author: lle
-author: lrtoyou1223
+ms.author: makromer
+author: kromerm
 ms.subservice: integration-runtime
 ms.topic: concept-article
-ms.date: 02/13/2025
+ms.date: 07/29/2026
 ms.custom:
   - references_regions
   - devx-track-azurepowershell
@@ -15,6 +15,8 @@ ms.custom:
 # Azure Data Factory managed virtual network
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article explains managed virtual networks and managed private endpoints in Azure Data Factory.
 
@@ -28,10 +30,10 @@ Creating an integration runtime within a managed virtual network ensures the dat
 Benefits of using a managed virtual network:
 
 - With a managed virtual network, you can offload the burden of managing the virtual network to Data Factory. You don't need to create a subnet for an integration runtime that could eventually use many private IPs from your virtual network and would require prior network infrastructure planning.
-- Deep Azure networking knowledge isn't required to do data integrations securely. Instead, getting started with secure ETL is much simpler for data engineers.
+- You don't need deep Azure networking knowledge to securely do data integrations. Instead, getting started with secure extract, transform, and load (ETL) is much simpler for data engineers.
 - A managed virtual network along with managed private endpoints protects against data exfiltration.
 
-Currently, the managed virtual network is only supported in the same region as the Data Factory region.
+The data factory supports the managed virtual network only in the same region as the data factory.
 
 > [!Note]
 > An existing global integration runtime can't switch to an integration runtime in a Data Factory managed virtual network and vice versa.
@@ -45,46 +47,46 @@ There are two ways to enable managed virtual network in your data factory:
 
 2. Enable managed virtual network in integration runtime.
 
-:::image type="content" source="./media/managed-vnet/managed-vnet-creation-2.png" alt-text="Screenshot of enabling managed virtual network in integration runtime":::
+:::image type="content" source="./media/managed-vnet/managed-vnet-creation-2.png" alt-text="Screenshot of enabling managed virtual network in integration runtime.":::
 
 
 ## Managed private endpoints
 
-Managed private endpoints are private endpoints created in the Data Factory managed virtual network that establishes a private link to Azure resources. Data Factory manages these private endpoints on your behalf.
+Managed private endpoints are private endpoints you create in the Data Factory managed virtual network that establish a private link to Azure resources. Data Factory manages these private endpoints for you.
 
-Data Factory supports private links. You can use Azure private link to access Azure platform as a service (PaaS) services like Azure Storage, Azure Cosmos DB, and Azure Synapse Analytics.
+Data Factory supports private links. You can use Azure Private Link to access Azure platform as a service (PaaS) services like Azure Storage, Azure Cosmos DB, and Azure Synapse Analytics.
 
 When you use a private link, traffic between your data stores and managed virtual network traverses entirely over the Microsoft backbone network. Private link protects against data exfiltration risks. You establish a private link to a resource by creating a private endpoint.
 
-A private endpoint uses a private IP address in the managed virtual network to effectively bring the service into it. Private endpoints are mapped to a specific resource in Azure and not the entire service. Customers can limit connectivity to a specific resource approved by their organization. For more information, see [Private links and private endpoints](../private-link/index.yml).
+A private endpoint uses a private IP address in the managed virtual network to bring the service into it. Private endpoints are mapped to a specific resource in Azure and not the entire service. You can limit connectivity to a specific resource that your organization approves. For more information, see [Private links and private endpoints](../private-link/index.yml).
 
 > [!NOTE]
 > The resource provider Microsoft.Network must be registered to your subscription.
 
 1. Make sure you enable managed virtual network in your data factory.
-2. Create a new managed private endpoint in **Manage Hub**.
+1. Create a new managed private endpoint in **Manage hub**.
 
-:::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="Screenshot that shows new managed private endpoints.":::
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png" alt-text="Screenshot that shows new managed private endpoints.":::
 
-3. A private endpoint connection is created in a **Pending** state when you create a managed private endpoint in Data Factory. An approval workflow is initiated. The private link resource owner is responsible for approving or rejecting the connection.
+1. When you create a managed private endpoint in Data Factory, you create a private endpoint connection in a **Pending** state. This state initiates an approval workflow. The private link resource owner is responsible for approving or rejecting the connection.
 
-:::image type="content" source="./media/tutorial-copy-data-portal-private/manage-private-endpoint.png" alt-text="Screenshot that shows the option Manage approvals in Azure portal.":::
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/manage-private-endpoint.png" alt-text="Screenshot that shows the option Manage approvals in Azure portal.":::
 
-4. If the owner approves the connection, the private link is established. Otherwise, the private link won't be established. In either case, the managed private endpoint is updated with the status of the connection.
+1. If the owner approves the connection, the private link is established. Otherwise, the private link isn't established. In either case, the managed private endpoint is updated with the status of the connection.
 
-:::image type="content" source="./media/tutorial-copy-data-portal-private/approve-private-endpoint.png" alt-text="Screenshot that shows approving a managed private endpoint.":::
+    :::image type="content" source="./media/tutorial-copy-data-portal-private/approve-private-endpoint.png" alt-text="Screenshot that shows approving a managed private endpoint.":::
 
 Only a managed private endpoint in an approved state can send traffic to a specific private link resource.
 
 > [!NOTE]
-> Custom DNS is not supported in managed virtual network.
+> Custom DNS isn't supported in managed virtual network.
 
 > [!NOTE]
 > Both managed virtual network and managed private endpoint are under Microsoft subscription.
 
 ## Interactive authoring
 
-Interactive authoring capabilities are used for functionalities like test connection, browse folder list and table list, get schema, and preview data. You can enable interactive authoring when creating or editing an Azure integration runtime, which is in Azure Data Factory managed virtual network. The backend service will pre-allocate compute for interactive authoring functionalities. Otherwise, the compute will be allocated every time any interactive operation is performed which will take more time. The time to live (TTL) for interactive authoring is 60 minutes by default, which means it will automatically become disabled after 60 minutes of the last interactive authoring operation. You can change the TTL value according to your actual needs.
+Interactive authoring capabilities support functionalities like test connection, browse folder list and table list, get schema, and preview data. You can enable interactive authoring when you create or edit an Azure integration runtime in an Azure Data Factory managed virtual network. The backend service preallocates compute for interactive authoring functionalities. Otherwise, the compute is allocated every time you perform an interactive operation, which takes more time. The time to live (TTL) for interactive authoring is 60 minutes by default, which means it automatically becomes disabled 60 minutes after the last interactive authoring operation. You can change the TTL value according to your needs.
 
 :::image type="content" source="./media/managed-vnet/interactive-authoring.png" alt-text="Screenshot that shows interactive authoring.":::
 
@@ -93,33 +95,33 @@ Interactive authoring capabilities are used for functionalities like test connec
 
 ### Copy activity
 
-By default, every copy activity spins up a new compute based upon the configuration in copy activity. With managed virtual network enabled, cold computes start-up time takes a few minutes and data movement can't start until it's complete. If your pipelines contain multiple sequential copy activities or you have many copy activities in foreach loop and can’t run them all in parallel, you can enable a time to live (TTL) value in the Azure integration runtime configuration. Specifying a time to live value and DIU numbers required for the copy activity keeps the corresponding computes alive for a certain period of time after its execution completes. If a new copy activity starts during the TTL time, it will reuse the existing computes, and start-up time will be greatly reduced. After the second copy activity completes, the computes will again stay alive for the TTL time.
-You have the flexibility to select from the pre-defined compute sizes, ranging from small to medium to large. Alternatively, you also have the option to customize the compute size based on your specific requirements and real-time needs.
+By default, every copy activity spins up a new compute based on the copy activity configuration. With managed virtual network enabled, the cold compute startup time takes a few minutes, and data movement can't start until it's complete. If your pipelines contain multiple sequential copy activities, or you have many copy activities in a foreach loop and can't run them all in parallel, you can enable a time to live (TTL) value in the Azure integration runtime configuration. Specifying a TTL value and the data integration unit (DIU) numbers required for the copy activity keeps the corresponding computes alive for a period of time after execution completes. If a new copy activity starts during the TTL time, it reuses the existing computes, and startup time is greatly reduced. After the second copy activity completes, the computes stay alive again for the TTL time.
+You can select from the predefined compute sizes, ranging from small to medium to large. Alternatively, you can customize the compute size based on your requirements and real-time needs.
 
 > [!NOTE]
-> Reconfiguring the DIU number will not affect the current copy activity execution. 
+> Reconfiguring the DIU number doesn't affect the current copy activity execution. 
 
 > [!NOTE]
-> The data integration unit (DIU) measure of 2 DIU isn't supported for the Copy activity in a managed virtual network.
+> The DIU measure of 2 DIU isn't supported for the Copy activity in a managed virtual network.
 
-The DIU you select in TTL will be used to run all copy activities, the size of the DIU won't be auto-scaled according to actual needs. So you have to choose enough DIUs. 
+Data Factory uses the DIU that you select in TTL to run all copy activities. The size of the DIU isn't autoscaled according to actual needs, so you have to choose enough DIUs. 
 
 > [!WARNING] 
-> Selecting few DIUs to run many activities will cause many activities to be pending in the queue, which will seriously affect the overall performance.
+> Selecting too few DIUs to run many activities causes many activities to remain pending in the queue, which seriously affects the overall performance.
 
 
 ### Pipeline and external activity
 
-Similar to the copy, you have the ability to tailor the compute size and TTL duration according to your specific requirements. However, unlike the copy, please note that pipeline and external TTL cannot be disabled.
+Similar to copy, you can tailor the compute size and TTL duration according to your requirements. However, unlike copy, you can't disable pipeline and external TTL.
 
 > [!NOTE]
 > Time to live (TTL) is only applicable to managed virtual network.
 
 :::image type="content" source="./media/managed-vnet/time-to-live-configuration.png" alt-text="Screenshot that shows the TTL configuration.":::
 
-You can utilize the table below as a reference to determine the optimal number of nodes for executing both Pipelines and external activities.
+Use the following table as a reference to determine the optimal number of nodes for running both pipelines and external activities.
 
-| Activity Type | Capacity |
+| Activity type | Capacity |
 | --------------------------- | --------------------------------------------- |
 | Pipeline activity | Approximately 50 per node <br> Script activity and Lookup activity with SQL alwaysEncrypted tend to consume more resources compared to other pipeline activities, with the suggested number being around 4 per node |
 | External activity | Approximately 800 per node |
@@ -127,7 +129,7 @@ You can utilize the table below as a reference to determine the optimal number o
 
 ### Comparison of different TTL
 
-The following table lists the differences between different types of TTL：
+The following table lists the differences between the types of TTL:
 
 | Feature | Interactive authoring | Copy compute scale | Pipeline & External compute scale |
 | ----------------- | ---------- | -------- | --------------- |
@@ -139,7 +141,7 @@ The following table lists the differences between different types of TTL：
 > You can't enable TTL in default auto-resolve Azure integration runtime. You can create a new Azure integration runtime for it.
 
 > [!NOTE]
-> When Copy/Pipeline/External compute scale TTL is activated, the billing is determined by the reserved compute resources. As a result, the output of the activity does not include the **billingReference**, as this is exclusively relevant in non-TTL scenarios.
+> When Copy, Pipeline, or External compute scale TTL is activated, reserved compute resources determine the billing. As a result, the activity output doesn't include the **billingReference**, as this value is exclusively relevant in non-TTL scenarios.
 
 ## Create a managed virtual network via Azure PowerShell
 
@@ -234,12 +236,12 @@ The column **Using private endpoint** is always shown as blank even if you creat
 
 :::image type="content" source="./media/managed-vnet/akv-pe.png" alt-text="Screenshot that shows a private endpoint for Key Vault.":::
 
-### Fully Qualified Domain Name (FQDN) of Azure HDInsight
+### Fully qualified domain name (FQDN) of Azure HDInsight
 
-If you created a custom private link service, FQDN should end with **azurehdinsight.net**  without leading *privatelink* in domain name when you create a private end point. If you use privatelink in domain name, make sure it is valid and you are able to resolve it.  
+If you created a custom private link service, the FQDN should end with **azurehdinsight.net**  without leading *privatelink* in domain name when you create a private endpoint. If you use privatelink in domain name, make sure it's valid and you're able to resolve it.  
 
 ### Access constraints in managed virtual network with private endpoints
-You're unable to access each PaaS resource when both sides are exposed to Private Link and a private endpoint. This issue is a known limitation of Private Link and private endpoints.
+You're unable to access each PaaS resource when both sides are exposed to private link and a private endpoint. This issue is a known limitation of private link and private endpoints.
 
 For example, you have a managed private endpoint for storage account A. You can also access storage account B through public network in the same managed virtual network. But when storage account B has a private endpoint connection from other managed virtual network or customer virtual network, then you can't access storage account B in your managed virtual network through public network.
 

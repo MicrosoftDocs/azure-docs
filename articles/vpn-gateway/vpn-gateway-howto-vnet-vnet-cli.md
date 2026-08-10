@@ -2,11 +2,11 @@
 title: 'Connect a VNet to a VNet using a VNet-to-VNet connection: Azure CLI'
 description: Learn how to connect virtual networks together by using a VNet-to-VNet connection and Azure CLI.
 titleSuffix: Azure VPN Gateway
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/10/2026
-ms.author: cherylmc 
+ms.author: duau
 ms.custom: devx-track-azurecli
 
 # Customer intent: "As a cloud architect, I want to configure VNet-to-VNet connections using command-line tools, so that I can establish secure communication between virtual networks across different regions and subscriptions efficiently."

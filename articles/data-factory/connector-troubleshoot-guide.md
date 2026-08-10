@@ -2,11 +2,11 @@
 title: Troubleshoot connectors
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot connector issues in Azure Data Factory and Azure Synapse Analytics.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 06/17/2026
-ms.author: jianleishen
+ms.author: tinglee
 ai-usage: ai-assisted
 ms.custom:
   - synapse
@@ -17,6 +17,8 @@ ms.custom:
 # Troubleshoot Azure Data Factory and Azure Synapse Analytics connectors
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article describes how to troubleshoot connectors in Azure Data Factory and Azure Synapse Analytics. If you don't see your specific error message listed here, you can follow these steps:
 

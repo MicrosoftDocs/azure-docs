@@ -1,8 +1,8 @@
 ---
 title: About Azure Bastion configuration settings
 description: Learn about the available configuration settings for Azure Bastion.
-author: cherylmc
-ms.author: cherylmc
+author: asudbring
+ms.author: allensu
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 11/24/2025

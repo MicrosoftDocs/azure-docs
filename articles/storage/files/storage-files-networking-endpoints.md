@@ -1,10 +1,10 @@
 ---
 title: Configure Azure Files Network Endpoints
-description: Learn how to configure public and private network endpoints for Server Message Block (SMB) and Network File System (NFS) Azure file shares. Restrict access by setting up a privatelink.
+description: Learn how to configure public and private network endpoints for Azure file shares. Restrict access to file shares by setting up a private link.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/17/2026
+ms.date: 07/15/2026
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: "As a cloud administrator, I want to configure network endpoints for Azure file shares, so that I can manage access and enhance security for my organization's data storage solutions."
@@ -23,23 +23,23 @@ Azure Files provides two main types of endpoints for accessing Azure file shares
 
 For classic file shares (created with the `Microsoft.Storage` resource provider), the Azure storage account has public and private endpoints. For file shares created with the `Microsoft.FileShares` resource provider, you create public and private endpoints at the file share level rather than the storage account level.
 
-This article focuses on how to configure a private endpoint for accessing the Azure file share directly. Much of this article also applies to how Azure File Sync interoperates with public and private endpoints for the storage account. For more information about networking considerations for Azure File Sync, see [configuring Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
+This article focuses on how to configure a private endpoint for accessing the Azure file share directly. Much of this article also applies to how Azure File Sync interoperates with public and private endpoints for the storage account. For more information about networking considerations for Azure File Sync, see [configure Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
 
 Before reading this guide, review [Azure Files networking considerations](storage-files-networking-overview.md).
 
 ## Prerequisites
 
 - This article assumes that you already created an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- This article assumes that you already created an Azure file share in a storage account that you want to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](storage-how-to-create-file-share.md).
+- You'll need an Azure file share that you want to connect to. To learn how to create an Azure file share, see [Create a classic file share](create-classic-file-share.md) or [Create an Azure file share with Microsoft.FileShares](create-file-share.md).
 - If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-azure-powershell).
 - If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
-## Endpoint configurations
+## Create and configure endpoints
 
-You can configure your endpoints to restrict network access to your storage account. To restrict access to a storage account to a virtual network, use one of the following approaches:
+You can configure your endpoints to restrict network access to your storage account and file shares. To restrict access to a virtual network, use one of the following approaches:
 
-- [Create one or more private endpoints](#create-a-private-endpoint) and restrict all access to the public endpoint. This approach ensures that only traffic originating from within the desired virtual networks can access the Azure file shares. See [Private Link cost](https://azure.microsoft.com/pricing/details/private-link/).
-- [Restrict the public endpoint to one or more virtual networks](#restrict-public-endpoint-access). This approach uses a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account through a service endpoint, you're accessing the storage account through the public IP address, but access is only possible from the locations you specify in your configuration.
+- [Create one or more private endpoints](#create-a-private-endpoint) and restrict all access to the public endpoint (recommended). This approach ensures that only traffic originating from within the desired virtual networks can access the Azure file shares. See [Private Link cost](https://azure.microsoft.com/pricing/details/private-link/).
+- [Restrict the public endpoint to one or more virtual networks](#restrict-public-endpoint-access). This approach uses a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account through a service endpoint, you're accessing the storage account or file share through the public IP address, but access is only possible from the locations you specify in your configuration.
 
 ### Create a private endpoint
 
@@ -53,17 +53,17 @@ When you create a private endpoint for your file shares, you deploy the followin
 > This article uses the DNS suffix for the Azure public regions, `core.windows.net`. This commentary also applies to Azure Sovereign clouds such as the Azure US Government cloud and the Azure operated by 21Vianet cloud. Just substitute the appropriate suffixes for your environment.
 
 #### Classic vs. new file share experience
+
+The private endpoint creation process differs slightly depending on whether you're using classic file shares or the new file share model. For classic file shares, you create a private endpoint for the storage account that contains the file shares. For file shares created with Microsoft.FileShares, you create a private endpoint for the file share itself.
+
+Many of the steps are identical for both experiences. Only the resource reference, group ID, and DNS record name differ, as shown in the following table.
  
- The private endpoint creation process differs slightly depending on whether you're using classic file shares or the new file share:
- 
- | | Classic file shares (`Microsoft.Storage`) | New file shares (`Microsoft.FileShares`) |
- |---|---|---|
- | **Private endpoint target** | Storage account | File share |
- | **Resource cmdlet** | `Get-AzStorageAccount` | `Get-AzFileShare` |
- | **Group ID (sub-resource)** | `file` | `FileShare` |
- | **DNS A record name** | Storage account name | Host name prefix (for example, `fs-xxxxxxxxxxxxxxxxx`) |
- 
- The virtual network setup, private endpoint creation, and DNS zone configuration steps are identical for both experiences. Only the resource reference, group ID, and DNS record name differ.
+| | Classic file shares (`Microsoft.Storage`) | New file shares (`Microsoft.FileShares`) |
+|---|---|---|
+| **Private endpoint target** | Storage account | File share |
+| **Resource cmdlet** | `Get-AzStorageAccount` | `Get-AzFileShare` |
+| **Group ID (sub-resource)** | `file` | `FileShare` |
+| **DNS A record name** | Storage account name | Host name prefix (for example, `fs-xxxxxxxxxxxxxxxxx`) |
 
 # [Portal](#tab/azure-portal)
 Go to the resource group where you want to create a private endpoint. Select **+ Create** and search for **Private Endpoint**. Select the private endpoint resource, and then select **Create**.
@@ -72,36 +72,38 @@ The wizard has multiple pages to complete.
 
 In the **Basics** page, select the subscription, resource group, name, network interface name, and region for your private endpoint. You must create the private endpoint in the same region as the virtual network you want to create the private endpoint in. Then select **Next: Resource**.
 
-[![Screenshot showing how to provide the project and instance details for a new private endpoint.](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-basics.png)](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-basics.png#lightbox)
+:::image type="content" source="media/storage-files-networking-endpoints/private-endpoint-basics.png" alt-text="Screenshot showing how to provide the project and instance details for a new private endpoint." lightbox="media/storage-files-networking-endpoints/private-endpoint-basics.png":::
 
-If you're using classic file shares: 
+If you're using classic file shares in a storage account:
 
-In the **Resource** page, choose **Microsoft.Storage/storageAccounts** from the drop-down menu for the resource type. Then select the specific storage account you want to connect to as Resource. The target sub-resource auto-populates with `file`. Then select **Next: Virtual Network**.
+On the **Resource** page, select **Microsoft.Storage/storageAccounts** from the drop-down menu for **Resource type**. For **Resource**, select the specific storage account you want to connect to. For **Target sub-resource**, select `file`. Then select **Next: Virtual Network**.
 
-If you're using the new file share: 
+:::image type="content" source="media/storage-files-networking-endpoints/private-endpoint-resources.png" alt-text="Screenshot showing how to select the resource type, resource, and target sub-resource for the new private endpoint." lightbox="media/storage-files-networking-endpoints/private-endpoint-resources.png":::
 
-In the **Resource** page, choose **Microsoft.FileShares/fileShares** from the drop-down menu for the resource type. Then select the specific file share you want to connect to as Resource. The target sub-resource auto-populates with `FileShare`. Then select **Next: Virtual Network**.
+If you're using file shares created with the Microsoft.FileShares resource provider:
+
+On the **Resource** page, select **Microsoft.FileShares/fileShares** from the drop-down menu for **Resource type**. For **Resource**, select the specific file share you want to connect to. The target sub-resource auto-populates with `FileShare`. Then select **Next: Virtual Network**.
 
 The **Virtual Network** page allows you to select the specific virtual network and subnet you want to add your private endpoint to. Select dynamic or static IP address allocation for the new private endpoint. If you select static, you also need to provide a name and a private IP address. You can also optionally specify an application security group. When you're finished, select **Next: DNS**.
 
-[![Screenshot showing how to provide virtual network, subnet, and IP address details for the new private endpoint.](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-virtual-network.png)](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-virtual-network.png#lightbox)
+:::image type="content" source="media/storage-files-networking-endpoints/private-endpoint-virtual-network.png" alt-text="Screenshot showing how to provide virtual network, subnet, and IP address details for the new private endpoint." lightbox="media/storage-files-networking-endpoints/private-endpoint-virtual-network.png":::
 
 The **DNS** page contains the information for integrating your private endpoint with a private DNS zone. Make sure the subscription and resource group are correct, and then select **Next: Tags**.
 
-[![Screenshot showing how to integrate your private endpoint with a private DNS zone.](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-dns.png)](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-dns.png#lightbox)
+:::image type="content" source="media/storage-files-networking-endpoints/private-endpoint-dns.png" alt-text="Screenshot showing how to integrate your private endpoint with a private DNS zone." lightbox="media/storage-files-networking-endpoints/private-endpoint-dns.png":::
 
 You can optionally apply tags to categorize your resources, such as applying the name **Environment** and the value **Test** to all testing resources. Enter name/value pairs if desired, and then select **Next: Review + create**.
 
-[![Screenshot showing how to optionally tag your private endpoint with name/value pairs for easy categorization.](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-tags.png)](../../../includes/media/storage-files-networking-endpoints-private-portal/private-endpoint-tags.png#lightbox)
+:::image type="content" source="media/storage-files-networking-endpoints/private-endpoint-tags.png" alt-text="Screenshot showing how to optionally tag your private endpoint with name/value pairs for easy categorization." lightbox="media/storage-files-networking-endpoints/private-endpoint-tags.png":::
 
 Select **Create** to create the private endpoint.
 
 # [PowerShell](#tab/azure-powershell)
 
 To create a private endpoint, first get a reference to your storage account or your file share and the virtual network subnet where you want to add the private endpoint. Replace the placeholder values in the following code with your own values.
- 
+
  For classic file shares, get a reference to the storage account:
- 
+
  ```PowerShell
  $storageAccountResourceGroupName = "<storage-account-resource-group-name>"
  $storageAccountName = "<storage-account-name>"
@@ -208,8 +210,7 @@ To create a private endpoint, you must create a private link service connection.
          -ErrorAction Stop
 ```
 
-If you create an Azure private DNS zone, the original host name resolves to the private IP inside of the virtual network. Although optional from the perspective of creating a private endpoint, it is explicitly required for mounting
-the Azure file share directly using an AD user principal or accessing via the REST API.
+If you create an Azure private DNS zone, the original host name resolves to the private IP inside of the virtual network. Although optional from the perspective of creating a private endpoint, it's explicitly required for mounting the Azure file share directly using an Active Directory (AD) user principal or accessing through the REST API.
 
 ```PowerShell
  # Get the host name suffix (core.windows.net for public cloud).
@@ -372,7 +373,7 @@ privateEndpoint=$(az network private-endpoint create \
         --query "id" --output tsv)
 ```
 
-If you create an Azure private DNS zone, the original host name resolves to the private IP inside the virtual network. Although optional from the perspective of creating a private endpoint, it's required for mounting the Azure file share by using an AD user principal or accessing via the FileREST API.
+If you create an Azure private DNS zone, the original host name resolves to the private IP inside the virtual network. Although optional from the perspective of creating a private endpoint, it's required for mounting the Azure file share by using an AD user principal or accessing through the FileREST API.
 
 ```bash
 # Get the desired storage account suffix (core.windows.net for public cloud).
@@ -611,19 +612,23 @@ Address: 192.168.0.5
 
 To limit public endpoint access, first disable general access to the public endpoint. Disabling access to the public endpoint doesn't affect private endpoints. After you disable the public endpoint, select specific networks or IP addresses that can continue to access it. In general, most firewall policies for a storage account restrict networking access to one or more virtual networks.
 
-#### Disable access to the public endpoint
+You can also use a [network security perimeter](files-network-security-perimeter.md) to centrally manage inbound and outbound access rules.
 
-When you disable access to the public endpoint, you can still access the storage account through its private endpoints. Otherwise, valid requests to the storage account's public endpoint are rejected, unless they're from [a specifically allowed source](#restrict-access-to-the-public-endpoint-to-specific-virtual-networks).
+### Disable access to the public endpoint
+
+When you disable public network access, you restrict inbound access while allowing outbound access. You can still access the storage account through its private endpoints. Otherwise, requests to the storage account's public endpoint are rejected, unless they're from [a specifically allowed source](#restrict-access-to-the-public-endpoint-to-specific-networks).
 
 # [Portal](#tab/azure-portal)
 
-For classic file shares:
+To disable public network access for classic file shares, follow these steps:
 
-Go to the storage account where you want to restrict all access to the public endpoint. In the table of contents for the storage account, select **Networking**.
+1. Go to the storage account where you want to restrict all inbound access to the public endpoint.
+1. From the service menu, under **Security + networking**, select **Networking**.
+1. Under **Public network access**, select **Manage**.
+1. Select **Disable**, and then select **Proceed**.
+1. Select **Save**.
 
-At the top of the page, select the **Enabled from selected virtual networks and IP addresses** option. This selection reveals settings for controlling the restriction of the public endpoint. Select **Allow Azure services on the trusted services list to access this storage account** to allow trusted first-party Microsoft services such as Azure File Sync to access the storage account.
-
-:::image type="content" source="../../../includes/media/storage-files-networking-endpoints-public-disable-portal/disable-public-endpoint.png" alt-text="Screenshot of the Networking blade with the required settings to disable access to the storage account public endpoint." lightbox="../../../includes/media/storage-files-networking-endpoints-public-disable-portal/disable-public-endpoint.png":::
+:::image type="content" source="media/storage-files-networking-endpoints/disable-public-network-access.png" alt-text="Screenshot showing how to disable public network access for a storage account." lightbox="media/storage-files-networking-endpoints/disable-public-network-access.png":::
 
 For file shares created with the Microsoft.FileShares resource provider:
 
@@ -690,25 +695,27 @@ az fileshare update \
 
 ---
 
-#### Restrict access to the public endpoint to specific virtual networks
+### Restrict access to the public endpoint to specific networks
 
-When you restrict the storage account to specific virtual networks, you allow requests to the public endpoint from within the specified virtual networks. This restriction works by using a capability of the virtual network called *service endpoints*. You can use this capability with or without private endpoints.
+When you restrict access to the public endpoint to specific networks, you allow requests to the public endpoint from within specified virtual networks or IP addresses. This restriction works by using a capability called *service endpoints*. You can use service endpoints with or without private endpoints.
 
 # [Portal](#tab/azure-portal)
 
-For classic file shares:
+For classic file shares, follow these steps to restrict the public endpoint to specific networks.
 
-Go to the storage account where you want to restrict the public endpoint to specific virtual networks. In the table of contents for the storage account, select **Networking**.
+1. Go to the storage account where you want to restrict the public endpoint to specific networks.
+1. From the service menu, under **Security + networking**, select **Networking**.
+1. Under **Public network access scope**, select **Enable from selected networks**. This selection reveals a number of settings for controlling the restriction of the public endpoint. 
+1. Under **Virtual networks**, select **Add a virtual network** > **Add existing virtual network** to select the virtual network that should be allowed to access the storage account through the public endpoint. Select a virtual network and a subnet for that virtual network, and then select **Enable**. If you want to create a new virtual network for this purpose, select **Add a virtual network** > **Add new virtual network**, provide the details, and then select **Create**.
+1. Under **IPv4 Addresses**, specify any public internet IP addresses that you want to be able to access the storage account.
+1. Select the **Allow trusted Microsoft services to access this resource** checkbox to allow trusted first-party Microsoft services such as Azure File Sync to access the storage account.
+1. Select **Save**.
 
-At the top of the page, select the **Enabled from selected virtual networks and IP addresses** option. This selection reveals a number of settings for controlling the restriction of the public endpoint. Select **+Add existing virtual network** to select the specific virtual network that should be allowed to access the storage account through the public endpoint. Select a virtual network and a subnet for that virtual network, and then select **Enable**.
-
-Select **Allow Azure services on the trusted services list to access this storage account** to allow trusted first-party Microsoft services such as Azure File Sync to access the storage account.
-
-:::image type="content" source="../../../includes/media/storage-files-networking-endpoints-public-restrict-portal/restrict-public-endpoint.png" alt-text="Screenshot of the Networking blade with a specific virtual network allowed to access the storage account via the public endpoint." lightbox="../../../includes/media/storage-files-networking-endpoints-public-restrict-portal/restrict-public-endpoint.png":::
+:::image type="content" source="media/storage-files-networking-endpoints/restrict-public-endpoint.png" alt-text="Screenshot showing how to restrict the public endpoint to specific networks." lightbox="media/storage-files-networking-endpoints/restrict-public-endpoint.png":::
 
 For file shares created with the Microsoft.FileShares resource provider:
 
-Go to the file share where you want to restrict public access. In the service menu, under **Settings**, select **Configuration**. Under **Public network access**, select **Enabled from selected virtual networks**, add the virtual networks and subnets allowed to access the share, and select **Save**.
+Go to the file share where you want to restrict public access. From the service menu, under **Settings**, select **Configuration**. Under **Public network access**, select **Enabled from selected virtual networks**, add the virtual networks and subnets allowed to access the share, and select **Save**.
 
 # [PowerShell](#tab/azure-powershell)
 

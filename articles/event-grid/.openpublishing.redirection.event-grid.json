@@ -1,6 +1,11 @@
 {
   "redirections": [    
     {
+      "source_path": "event-schema-data-manager-for-agriculture.md",
+      "redirect_url": "/azure/event-grid/system-topics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "mqtt-automotive-connectivity-and-data-solution.md",
       "redirect_url": "/industry/mobility/architecture/automotive-messaging-data-analytics-content",
       "redirect_document_id": false

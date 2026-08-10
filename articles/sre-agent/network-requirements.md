@@ -3,7 +3,7 @@ title: Network Requirements for Azure SRE Agent
 description: Review firewall allow list domains, authentication requirements, and network configuration for Azure SRE Agent connectivity.
 ms.topic: reference
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 07/20/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -24,6 +24,12 @@ Add the following domains to your firewall allow list for both HTTP and WebSocke
 | `sre.azure.com` | Agent management portal |
 | `portal.azure.com` | Azure portal (for Monitor, Logs, and managed identity) |
 | `api.applicationinsights.io` | Application Insights query API |
+| `api.loganalytics.io` | Log Analytics query API |
+| `api.loganalytics.azure.com` | Log Analytics query API (Azure domain) |
+| `*.ods.opinsights.azure.com` | Log Analytics workspace data ingestion |
+| `management.azure.com` | Azure Resource Manager (ARM) API |
+| `login.microsoftonline.com` | Microsoft Entra ID authentication |
+| `*.login.microsoft.com` | Microsoft Entra ID authentication (regional endpoints) |
 
 > [!WARNING]
 > Zscaler and some corporate proxies block `*.azuresre.ai` by default. If the portal doesn't load or the chat interface is unresponsive:
