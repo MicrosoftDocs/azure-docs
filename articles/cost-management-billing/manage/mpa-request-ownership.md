@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/09/2026
+ms.date: 07/09/2026
 ms.author: jkinma
 ms.custom:
 - sfi-image-nochange
