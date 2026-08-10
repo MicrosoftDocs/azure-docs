@@ -5,6 +5,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
+ms.update-cycle: 1095-days
 ms.topic: upgrade-and-migration-article
 ms.date: 11/04/2025
 ---
