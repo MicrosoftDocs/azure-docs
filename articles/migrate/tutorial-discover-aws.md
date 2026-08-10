@@ -1,5 +1,5 @@
 ---
-title: Discover AWS instances with Azure Migrate Discovery and assessment 
+title: Discover AWS Instances with Azure Migrate Discovery and Assessment 
 description: Learn how to discover AWS instances with Azure Migrate Discovery and assessment.
 author: Vikram1988
 ms.author: vibansa
