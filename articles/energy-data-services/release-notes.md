@@ -21,12 +21,12 @@ Azure Data Manager for Energy is updated on an ongoing basis. To stay up to date
 
 This page is updated with the details about the upcoming release approximately a week before the actual deployment.
 <hr width = 100%>
-
-## July 2026
+## August 2026
 ### Seismic single file restore - Preview
 
 Azure Data Manager for Energy now supports point-in-time restore of an individual Seismic dataset as a preview feature. You can recover a single Seismic dataset to a prior state by using a timestamp, without performing a full data partition restore and without maintaining your own external backups before modifying datasets. To trigger a restore, call the restore API by using the dataset path and target restore timestamp. The operation restores both the dataset metadata and its underlying files. It runs asynchronously so you can track progress by using the returned operation ID. This feature is available on request on the Standard SKU. To enable it, raise a support request in the Azure portal.
 
+## July 2026
 ### Manifest Ingestion by Reference DAG - Generally Available
 Manifest Ingestion by Reference DAG is now generally available on Azure Data Manager for Energy. This capability supports ingestion of a large number of records by referencing a large manifest uploaded to the Dataset service for processing.
 
