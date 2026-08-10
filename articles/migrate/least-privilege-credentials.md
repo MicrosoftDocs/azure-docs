@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 02/06/2025
-ms.update-cycle: 1825-days
+ms.update-cycle: 1095-days
 ms.custom:
   - engagement-fy23
   - sfi-ropc-nochange

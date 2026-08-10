@@ -2,12 +2,12 @@
 title: Hydration process
 description: Learn about the hydration process in Azure Migrate.
 author: uhabiba
-ms.author: vijain
+ms.author: v-uhabiba
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 05/15/2025
-ms.update-cycle: 1825-days
+ms.update-cycle: 365-days
 ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
 # Customer intent: "As a system administrator, I want to understand the hydration process in Azure Migrate so that I can ensure my VMs are properly configured for successful migration to Azure."
 ---

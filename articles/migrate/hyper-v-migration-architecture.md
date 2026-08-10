@@ -8,7 +8,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 06/30/2023
-ms.update-cycle: 1825-days
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 # Customer intent: As a cloud administrator, I want to understand the Hyper-V migration process using agentless replication, so that I can efficiently migrate on-premises workloads to Azure without installing agents on individual VMs.
 ---
