@@ -21,6 +21,7 @@ Azure Data Manager for Energy is updated on an ongoing basis. To stay up to date
 
 This page is updated with the details about the upcoming release approximately a week before the actual deployment.
 <hr width = 100%>
+
 ## August 2026
 ### Seismic single file restore - Preview
 
