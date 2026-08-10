@@ -6,6 +6,9 @@
  ms.author: duau
 ---
 
+### What certificate types are supported for Point-to-Site (P2S) certificate authentication in Azure VPN Gateway?
+
+Azure VPN Gateway supports RSA-based X.509 certificates for Point-to-Site (P2S) certificate authentication. At this time, ECC/ECDSA certificates are not supported for IKEv2-based P2S authentication. 
 
 ### What should I do if I get a certificate mismatch for a point-to-site certificate authentication connection?
 
