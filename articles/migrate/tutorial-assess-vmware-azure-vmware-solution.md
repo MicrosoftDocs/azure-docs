@@ -1,5 +1,5 @@
 ---
-title: Assess VMware servers for migration to Azure VMware Solution (AVS) with Azure Migrate
+title: Assess VMware Servers for Migration to Azure VMware Solution (AVS) with Azure Migrate
 description: Learn how to assess servers in VMware environment for migration to AVS with Azure Migrate.
 author: jobingeorge-microsoft
 ms.author: jobingeorge

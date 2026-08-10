@@ -1,5 +1,5 @@
 ---
-title: Assess VMware servers for migration to Azure VMs in Azure Migrate
+title: Assess VMware Servers for Migration to Azure VMs in Azure Migrate
 description: Learn how to assess VMware servers for migration to Azure VMs with Azure Migrate.
 ms.topic: tutorial
 ms.date: 05/09/2025
