@@ -33,7 +33,9 @@ The following table shows the default IPsec parameters for Point-to-site VPN con
 When working with custom IPsec policies, keep in mind the following requirements:
 
 * **IKE** - For Phase 1 IKE, you can select any parameter from IKE Encryption, plus any parameter from IKE Integrity, plus any parameter from DH Group.
-* **IPsec** - For Phase 2 IPsec, you can select any parameter from IPsec Encryption, plus any parameter from IPsec Integrity, plus PFS. If any of the parameters for IPsec Encryption or IPsec Integrity is GCM, then both IPsec Encryption and Integrity must use the same algorithm. For example, if GCMAES128 is chosen for IPsec Encryption, GCMAES128 must also be chosen for IPsec Integrity.  
+* **IPsec** - For Phase 2 IPsec, you can select any parameter from IPsec Encryption, plus any parameter from IPsec Integrity, plus PFS. If any of the parameters for IPsec Encryption or IPsec Integrity is GCM, then both IPsec Encryption and Integrity must use the same algorithm. For example, if GCMAES128 is chosen for IPsec Encryption, GCMAES128 must also be chosen for IPsec Integrity.
+
+Custom IKE main mode policies support Diffie-Hellman Group 14, Group 24, or ECP (Elliptic Curve Groups) ECP256 (Group 19) and ECP384 (Group 20). Similar cryptographic group requirements apply to IPsec quick mode policies.
 
 The following table shows the available IPsec parameters for Point-to-site VPN connections.
 
@@ -45,6 +47,15 @@ The following table shows the available IPsec parameters for Point-to-site VPN c
 | Phase 2 IPsec Encryption | GCMAES128, GCMAES256, SHA256|
 | Phase 2 IPsec Integrity | GCMAES128, GCMAES256 |
 | PFS Group |PFS14, PFS24, ECP256, ECP384|
+
+The following table lists the corresponding Diffie-Hellman groups that the custom policy supports:
+
+| Diffie-Hellman group | DHGroup | PFSGroup | Key length |
+|--- |--- |--- |--- |
+| 14 | DHGroup14 | PFS14 | 2048-bit MODP |
+| 19 | ECP256 | ECP256 | 256-bit ECP |
+| 20 | ECP384 | ECP384 | 384-bit ECP |
+| 24 | DHGroup24 | PFS24 | 2048-bit MODP |
 
 ## Next steps
 
