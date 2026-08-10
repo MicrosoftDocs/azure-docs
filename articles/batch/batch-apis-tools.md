@@ -2,7 +2,7 @@
 title: APIs and tools for developers
 description: Learn about the APIs and tools available for developing solutions with the Azure Batch service.
 ms.topic: concept-article
-ms.date: 08/11/2026
+ms.date: 08/10/2026
 # Customer intent: As a developer, I want to utilize Batch APIs and tools for parallel workload processing, so that I can efficiently manage compute resources and automate job scheduling in my applications.
 ---
 
