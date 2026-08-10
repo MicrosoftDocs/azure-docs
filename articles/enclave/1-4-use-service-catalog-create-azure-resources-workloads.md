@@ -71,14 +71,14 @@ In this tutorial, part four of eight, you create Azure resources using service c
 1. Select `App Service` from the service catalog dropdown list and select `Next`.
     [ ![Screenshot showing the App Service template selected in the workload portal view.](./media/service-catalog-app-service-catalog-page.png) ](./media/service-catalog-app-service-catalog-page.png#lightbox)
 1. Enter all the required parameters on each tab.
-   - `Web App Site Name`: Enter `webapp-frontend-fabrikam`
-   - `App Service Sku Name`: Select an option from the dropdown, `P1v2`, or the lowest option for this tutorial. See this table for a full list of options: https://azure.microsoft.com/pricing/details/app-service/linux/#pricing
+   - `Web App Site Name`: Enter `webapp-frontend-fabrikam`.
+   - `App Service Sku Name`: Select an option from the dropdown, such as `P1v2`, or choose the lowest option for this tutorial. For a full list of options, see [App Service pricing details](https://azure.microsoft.com/pricing/details/app-service/linux/#pricing).
    - `App Service Sku Tier`: Enter `PremiumV2`.
    - `Number of Worker Instances`: Enter `2`.
 
    [ ![Screenshot showing the basics input screen for an App Service web app.](./media/service-catalog-app-service-basics.png) ](./media/service-catalog-app-service-basics.png#lightbox)
 
-1. Select `Next` then enter the networking information. Ensure the App Service subnet has a delegation to `Microsoft.Web/serverFarms` and the private link subnet doesn't.
+1. Select **Next** and enter the networking information. Ensure the App Service subnet has a delegation to `Microsoft.Web/serverFarms` and the private link subnet doesn't.
    - `Virtual Network Resource Group Name`: Enter the resource group that contains your enclave virtual network.
    - `Virtual Network Name`: Enter the name of your enclave virtual network.
    - `Dedicated App Service Subnet Name`: Enter `webapp-Subnet` for the subnet delegated in the previous step.
