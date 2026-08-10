@@ -4,7 +4,9 @@ description: Create Azure resources from the service catalog in an Azure Enclave
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
-ms.date: 9/30/2025
+ms.service: azure-enclave
+ai-usage: ai-assisted
+ms.date: 08/10/2026
 ---
 
 # Tutorial 1-4: Create Azure resources from the service catalog in an Azure Enclave workload
@@ -24,7 +26,7 @@ In this tutorial, part four of eight, you create Azure resources using service c
 - This tutorial assumes a basic understanding of networking and Azure Enclave concepts. For more information, see [Best practices for Azure Enclave](./best-practices.md).
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 - You need a [community](./what-community.md), [enclave](./what-enclave.md), [workload](./what-workload.md), and at least one [workload resource group](./what-workload.md#workload-resource-group) and permissions to create resources inside the workload resource group.
-- Complete the [prerequisites](./deploy-app-service-web-app-service-catalog.md#prerequisites) for an App Service Web App. Including subnet delegation for the
+- Complete the [prerequisites](./deploy-app-service-web-app-service-catalog.md#prerequisites) for an App Service Web App, including subnet delegation for the App Service subnet, as shown in the following screenshot.
 
 ![Screenshot showing the subnet delegation prerequisite step.](./media/tutorial-step-four-service-catalog-app-service-subnet-delegate.png)
 
@@ -37,16 +39,16 @@ In this tutorial, part four of eight, you create Azure resources using service c
 1. Navigate to the `ve-Enclave-WebApp` enclave and select `Maintenance Mode`.
 
 1. Enter the information needed to enable maintenance mode:
-   - **Maintenance Mode:** Select `General`
-   - **Principals:** Select `Choose Microsoft Entra principal` and enter your username
-   - **Justification:** Select `Networking`
+   - `Maintenance Mode`: Select `General`
+   - `Principals`: Select `Choose Microsoft Entra principal` and enter your username
+   - `Justification`: Select `Networking`
    - Select `Save`
 
    [ ![Screenshot showing the maintenance mode screen.](./media/service-catalog-app-service-maintenance-mode-input.png) ](./media/service-catalog-app-service-maintenance-mode-input.png#lightbox)
 
 1. Select `Confirm` and allow a few minutes for the enclave to return to `Succeeded` state.
 
-   ![Screenshow showing the popup confirmation box for maintenance mode confirmation.](./media/service-catalog-app-service-maintenance-mode-confirm.png)
+   ![Screenshot showing the popup confirmation box for maintenance mode confirmation.](./media/service-catalog-app-service-maintenance-mode-confirm.png)
 
 ## Create App Service required resources
 
@@ -69,14 +71,16 @@ In this tutorial, part four of eight, you create Azure resources using service c
 1. Select `App Service` from the service catalog dropdown list and select `Next`.
     [ ![Screenshot showing the App Service template selected in the workload portal view.](./media/service-catalog-app-service-catalog-page.png) ](./media/service-catalog-app-service-catalog-page.png#lightbox)
 1. Enter all the required parameters on each tab.
-   - **Web App Site Name:** Enter `webapp-frontend-fabrikam`
-   - **App Service Sku Name:** Select an option from the dropdown, `P1v2`, or the lowest option for this tutorial. See this table for a full list of options: https://azure.microsoft.com/pricing/details/app-service/linux/#pricing
-   - **App Service Sku Tier:** Enter `PremiumV2`.
-   - **Number of Worker Instances:** Enter `2`.
+   - `Web App Site Name`: Enter `webapp-frontend-fabrikam`
+   - `App Service Sku Name`: Select an option from the dropdown, `P1v2`, or the lowest option for this tutorial. See this table for a full list of options: https://azure.microsoft.com/pricing/details/app-service/linux/#pricing
+   - `App Service Sku Tier`: Enter `PremiumV2`.
+   - `Number of Worker Instances`: Enter `2`.
 
    [ ![Screenshot showing the basics input screen for an App Service web app.](./media/service-catalog-app-service-basics.png) ](./media/service-catalog-app-service-basics.png#lightbox)
 
-1. Select `Next` then enter the networking information. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet doesn't.
+1. Select `Next` then enter the networking information. Ensure the App Service subnet has a delegation to `Microsoft.Web/serverFarms` and the private link subnet doesn't.
+   - `Virtual Network Resource Group Name`: Enter the resource group that contains your enclave virtual network.
+   - `Virtual Network Name`: Enter the name of your enclave virtual network.
    - `Dedicated App Service Subnet Name`: Enter `webapp-Subnet` for the subnet delegated in the previous step.
    - `Private Link Subnet Name`: Enter `common-subnet` for the subnet containing the private endpoints.
    - `Private Dns Zone Resource Group Name`: Enter `rg-webapp-frontend`.
