@@ -116,7 +116,7 @@ Azure Container Apps ensures compatibility with Dapr open-source tooling, such a
 
 <!-- Links External -->
 
-[dapr-concepts]: https://docs.dapr.io/concepts/overview/
+[dapr-concepts]: https://docs.dapr.io/concepts/
 [dapr-pubsub]: https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview
 [dapr-statemgmt]: https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/
 [dapr-serviceinvo]: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/
