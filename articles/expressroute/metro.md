@@ -45,7 +45,7 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 |--|--|--|--|--|--|
 | Amsterdam Metro | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<br>DE-CIX<br>Digital Realty<br>Equinix<br>euNetworks<br>Eurofiber<br>Megaport<br>NL-IX<br>SURF<br>GTT<sup>1</sup> |
 | Atlanta Metro | Equinix AT1<br>Digital Realty ATL14 | 1 | &cross; | &check; |  Equinix<br>Megaport<br>|
-| Brussels Metro | Digital Realty BR4<br>LCL Brussels North | 1 | Belgium Central | &cross; | Belnet<br>Colt<br>Eurofiber<br>Megaport<sup>1</sup> |
+| Brussels Metro | Digital Realty BR4<br>LCL Brussels North | 1 | Belgium Central | &check; | Belnet<br>Colt<br>Eurofiber<br>Megaport<sup>1</sup> |
 | Chicago Metro | Equinix CH1<br>CoreSite CH1 | 1 | North Central US | &check; |  Crown Castle<br>Equinix<br>Megaport<br>CenturyLink Cloud Connect<sup>1</sup><br>Digital Realty<sup>1</sup><br>Zayo<sup>1</sup> |
 | Copenhagen Metro | Digital Realty CPH1<br>Global Connect Copenhagen | 1 | Denmark East | &check; | GlobalConnect<sup>1</sup><br>Megaport |
 | Dallas Metro | Equinix DA6 <br>Digital Realty DFW10 | 1 | &cross; | &check; | Megaport |
