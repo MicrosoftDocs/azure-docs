@@ -20,7 +20,12 @@ By using the *OPC UA write capability*, industrial developers and operations eng
 
 The write capability is useful in scenarios where latency, autonomy, or local decision making is critical such as in manufacturing lines, predictive maintenance, or in AI-driven control loops.
 
-The connector for OPC UA is an optional part of Azure IoT Operations. The connector for OPC UA connects to OPC UA servers to retrieve data that it publishes to topics in the MQTT broker and write data based in values from an MQTT broker topic subscription. The connector for OPC UA enables your industrial OPC UA environment to ingress data into your local workloads running on a Kubernetes cluster, and into your cloud workloads.
+The connector for OPC UA is an optional part of Azure IoT Operations that:
+
+- Connects to OPC UA servers to retrieve data that it publishes to topics in the MQTT broker.
+- Writes data based on values from an MQTT broker topic subscription.
+
+The connector for OPC UA enables your industrial OPC UA environment to ingress data into your local workloads running on a Kubernetes cluster, and into your cloud workloads.
 
 > [!TIP]
 > If you didn't include the connector for OPC UA when you deployed Azure IoT Operations, you can add it to your existing instance from the Azure portal. For instructions, see [Manage components using the Azure portal](../manage-iot-ops/howto-manage-update-uninstall.md#manage-instance-components).
@@ -32,6 +37,7 @@ The connector for OPC UA is a client application that runs as a middleware servi
 As part of Azure IoT Operations, the connector for OPC UA is a native Kubernetes application that:
 
 - Connects existing OPC UA servers and assets to a native Kubernetes cluster at the edge.
+- Can automatically [discover assets](./howto-detect-opc-ua-assets.md) connected to an OPC UA server and add the asset configurations into Azure Device Registry.
 - Publishes JSON-encoded messages from OPC UA servers in OPC UA PubSub format, using a JSON payload. By using this standard format for data exchange, you can reduce the risk of future compatibility issues.
 - Can synchronize OPC UA node properties to the [distributed state store](../develop-edge-apps/overview-edge-apps.md#state-store).
 - Writes values directly to nodes in a connected OPC UA server based on MQTT subscriptions.
@@ -277,7 +283,7 @@ For example:
 | `-1` | 1000 | Connector default behavior |
 | `0` | 1000 | No key frames |
 | `1` | 1000 | Key frame every one second |
-| `10` | 500 | Key frame every five seconds |
+| `10` | 5000 | Key frame every five seconds |
 
 For the key frame count setting, choose:
 
@@ -292,7 +298,7 @@ To learn more about configuring key frames, see [Add a dataset to an asset](howt
 
 ## How does it relate to Azure IoT Operations?
 
-The connector for ONVIF is part of Azure IoT Operations. You deploy the connector to an Arc-enabled Kubernetes cluster on the edge as part of an Azure IoT Operations deployment. The connector interacts with other Azure IoT Operations elements, such as:
+The connector for OPC UA is part of Azure IoT Operations. You deploy the connector to an Arc-enabled Kubernetes cluster on the edge as part of an Azure IoT Operations deployment. The connector interacts with other Azure IoT Operations elements, such as:
 
 - [Assets and devices](./concept-assets-devices.md)
 - [The MQTT broker](../connect-to-cloud/overview-dataflow.md)

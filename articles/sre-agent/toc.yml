@@ -30,8 +30,6 @@ items:
         href: agent-identity.md
       - name: Security overview
         href: security-overview.md
-      - name: Network integration
-        href: network-integration.md
       - name: Tool access policies
         href: tool-access-policies.md
       - name: Run modes
@@ -56,8 +54,6 @@ items:
         href: tools.md
       - name: Default agent override info
         href: default-agent-override-info.md
-      - name: Deep context
-        href: workspace-tools.md
       - name: Agent reasoning
         href: agent-reasoning.md
   - name: Capabilities
@@ -150,6 +146,8 @@ items:
             href: docsguide.md
           - name: Favorites and Mine filter
             href: favorites-mine-filter.md
+          - name: Network integration
+            href: network-integration.md
       - name: Measure & govern
         items:
           - name: Operations Hub
@@ -232,6 +230,12 @@ items:
             href: setup-mcp-server.md
           - name: Set up a managed connector
             href: setup-managed-connector.md
+          - name: Connect a source code service
+            href: connect-code-service.md
+          - name: Connect a notification or work-tracking service
+            href: connect-notification-service.md
+          - name: Connect a telemetry source
+            href: connect-telemetry-source.md
           - name: Set up Log Analytics connector
             href: setup-log-analytics-connector.md
           - name: Create a Kusto tool

@@ -9,6 +9,7 @@ ms.service: azure-migrate
 ms.date: 09/09/2024
 ms.reviewer: v-uhabiba
 ms.custom: engagement-fy25
+ms.update-cycle: 1825-days
 # Customer intent: As a cloud migration specialist, I want to understand the differences between agent-based and agentless dependency analysis in Azure Migrate so that I can choose the best approach for assessing my organization's server migration needs.
 ---
 

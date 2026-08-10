@@ -4,7 +4,7 @@ description: Learn how to mount an Azure file share over SMB on Linux and review
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/19/2026
+ms.date: 07/08/2026
 ms.author: kendownie
 ms.custom:
   - linux-related-content
@@ -19,7 +19,7 @@ ms.custom:
 
 You can mount Azure file shares in Linux distributions by using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS).
 
-This article shows how to mount an SMB Azure file share by using NTLMv2 authentication (storage account key). For security reasons, identity-based authentication is preferred. See [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
+This article shows how to mount an SMB Azure file share by using NTLMv2 authentication (storage account key). For security reasons, Microsoft recommends identity-based authentication. See [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
 
 ## Protocols
 
@@ -42,6 +42,8 @@ uname -r
 ## Prerequisites
 
 <a id="smb-client-reqs"></a>
+
+### Install cifs-utils
 
 * <a id="install-cifs-utils"></a>**Ensure the cifs-utils package is installed.**
     Install the latest version of the cifs-utils package by using the package manager on the Linux distribution of your choice.
@@ -81,6 +83,8 @@ sudo zypper install cifs-utils
 ---
 
 On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
+
+### Verify port 445 connectivity
 
 * **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you can. However, the instructions in this article are for the Azure CLI.
 
@@ -131,7 +135,7 @@ For workloads that hand off files between an SMB writer and a REST-based reader,
 
 ## Mount the Azure file share on-demand with mount
 
-When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/media` path. You can change this to your preferred path by modifying the `$MNT_ROOT` variable.
+When you mount a file share on a Linux OS, your remote file share appears as a folder in your local file system. You can mount file shares anywhere on your system. The following example mounts under the `/media` path. You can change this path by modifying the `$MNT_ROOT` variable.
 
 Replace `<resource-group-name>`, `<storage-account-name>`, and `<file-share-name>` with the appropriate information for your environment:
 
@@ -242,7 +246,7 @@ When you're done using the Azure file share, use `sudo umount $mntPath` to unmou
 
 ## Automatically mount file shares
 
-When you mount a file share on a Linux OS, your remote file share is represented as a folder in your local file system. You can mount file shares to anywhere on your system. The following example mounts under the `/media` path. You can change this to your preferred path by modifying the `$MNT_ROOT` variable.
+When you mount a file share on a Linux OS, your remote file share appears as a folder in your local file system. You can mount file shares anywhere on your system. The following example mounts under the `/media` path. You can change this path by modifying the `$MNT_ROOT` variable.
 
 ```bash
 MNT_ROOT="/media"
@@ -251,7 +255,7 @@ sudo mkdir -p $MNT_ROOT
 
 Use the storage account name as the username of the file share, and the storage account key as the password. Because the storage account credentials might change over time, you should store the credentials for the storage account separately from the mount configuration.
 
-The following example shows how to create a file to store the credentials. Remember to replace `<resource-group-name>` and `<storage-account-name>` with the appropriate information for your environment.
+If you already created the credential file in the [previous section](#mount-the-azure-file-share-on-demand-with-mount), skip to [static mount](#static-mount-with-etcfstab) or [dynamic mount with autofs](#dynamically-mount-with-autofs). Otherwise, follow these steps to create it. Remember to replace `<resource-group-name>` and `<storage-account-name>` with the appropriate information for your environment.
 
 ```bash
 RESOURCE_GROUP_NAME="<resource-group-name>"
@@ -296,7 +300,7 @@ MNT_PATH="$MNT_ROOT/$STORAGE_ACCOUNT_NAME/$FILE_SHARE_NAME"
 sudo mkdir -p $MNT_PATH
 ```
 
-Finally, create a record in the `/etc/fstab` file for your Azure file share. In the following command, the default 0755 Linux file and folder permissions are used. These permissions mean read, write, and execute for the owner (based on the file or directory Linux owner), read and execute for users in the owner group, and read and execute for others on the system. You might wish to set alternate `uid` and `gid` or `dir_mode` and `file_mode` permissions on mount as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation). See [mount options](#mount-options) for a list of SMB mount options.
+Finally, create a record in the `/etc/fstab` file for your Azure file share. In the following command, the default 0755 Linux file and folder permissions are used. These permissions mean read, write, and execute for the owner (based on the file or directory Linux owner), read and execute for users in the owner group, and read and execute for others on the system. You might want to set alternate `uid` and `gid` or `dir_mode` and `file_mode` permissions on mount as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation). See [mount options](#mount-options) for a list of SMB mount options.
 
 > [!TIP]
 > If you want Docker containers running .NET Core applications to be able to write to the Azure file share, include **nobrl** in the SMB mount options to avoid sending byte range lock requests to the server.
@@ -395,10 +399,9 @@ You can supply `password2` in one of two ways:
 
 You need cifs-utils version 7.4 or higher to use the `password2` mount option. In addition to the correct cifs-utils package, your Linux distribution must support the minimum required kernel versions as highlighted in the following table:
 
-| **Distribution** | **Release**  |**Supported Kernel Version** |
-|***********************************************|
+| **Distribution** | **Release** | **Supported kernel version** |
+|---|---|---|
 | Ubuntu | 22.04 LTS | 6.8-1027 |
-| Ubuntu | 24.04 LTS | 6.14.0-1006 |
 | Ubuntu | 24.04 LTS | 6.14.0-1006 |
 | RHEL | 9.5 | 5.14.0-503.11.1.el9_5 |
 | RHEL | 9.6 | 5.14.0-570.12.1.el9_6 |
@@ -433,7 +436,7 @@ sudo mount -o remount,password2=<new-rotating-key> /mnt/share
 Use the following mount options when mounting SMB Azure file shares on Linux.
 
 | **Mount option** | **Recommended value** | **Description** |
-|******************|***********************|*****************|
+|---|---|---|
 | `username=` | Storage account name | Required for NTLMv2 authentication. |
 | `password=` | Storage account primary key | Required for NTLMv2 authentication. |
 | `password2=` | Storage account secondary key | Use for no-downtime key rotation. |

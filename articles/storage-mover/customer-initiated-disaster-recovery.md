@@ -24,7 +24,7 @@ Storage Mover doesn't move your source data by itself. Your end-to-end DR outcom
 - Storage account resiliency and replication choices.
 - Agent VM or host availability, network path, and permissions.
 
-For reliability architecture and Azure-initiated recovery details, see [Reliability in Azure Storage Mover](/azure/reliability/reliability-azure-storage-mover?toc=/azure/storage-mover/toc.json).
+For reliability architecture and Azure-initiated recovery details, see [Reliability in Azure Storage Mover](/azure/reliability/reliability-storage-mover?toc=/azure/storage-mover/toc.json).
 
 ## Before a regional outage
 
@@ -96,6 +96,6 @@ Before resuming production workloads:
 
 ## Next steps
 
-- [Reliability in Azure Storage Mover](/azure/reliability/reliability-azure-storage-mover?toc=/azure/storage-mover/toc.json)
+- [Reliability in Azure Storage Mover](/azure/reliability/reliability-storage-mover?toc=/azure/storage-mover/toc.json)
 - [Troubleshoot network issues](network-troubleshooting.md)
 - [Job run error codes](status-code.md)

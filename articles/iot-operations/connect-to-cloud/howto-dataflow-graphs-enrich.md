@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/23/2026
+ms.date: 07/24/2026
 ai-usage: ai-assisted
 
 ---
@@ -17,21 +17,46 @@ Sometimes the incoming message doesn't contain everything you need. A temperatur
 
 For an overview of data flow graphs, see [Data flow graphs overview](concept-dataflow-graphs.md).
 
+[!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
+
+Enrichment is optional, and it's a separate feature from the datasets you might define on an asset. In data flow graphs, a *dataset* always means a contextualization dataset that's read from the [state store](../develop-edge-apps/overview-state-store.md). If your messages already contain the fields you need, you don't need to configure datasets at all.
+
+Enrichment works with **map**, **filter**, and **branch** transforms, and with **trigger rules in window transforms** for version 1.1 or later.
+
 ## Prerequisites
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 
 - A default registry endpoint named `default` that points to `mcr.microsoft.com` is automatically created during deployment.
 
-## What is enrichment
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
 
-You can augment incoming messages with data from an external state store, called a *contextualization dataset*. During processing, the runtime looks up records in the dataset and matches them against the incoming message using a condition you define. The matched fields then become available to your rules.
+## Set up the state store
 
-Enrichment works with **map**, **filter**, and **branch** transforms. It isn't supported in window transforms.
+The runtime reads dataset records from the Azure IoT Operations distributed state store. Each dataset key maps to one or more records in NDJSON format (one JSON object per line). The runtime caches records and receives change notifications, so state store updates are reflected in processing.
+
+For information on configuring the distributed state store, see [State store overview](../develop-edge-apps/overview-state-store.md).
+
+### Populate the state store key
+
+The state store isn't prepopulated. You write dataset records to it yourself over MQTT by using the state store's `SET` command. For the `device-metadata as device` dataset configured later in this article, publish the following request to seed two NDJSON records (one per line) under the `device-metadata` key. Include every field referenced by rules that use this dataset - including `location`, used by the [Deploy a data flow graph with enrichment](#deploy-a-data-flow-graph-with-enrichment) example later in this article - otherwise, the field resolves to `null` for every message:
+
+```console
+mosquitto_pub -h <BROKER_HOST> -p <BROKER_PORT> -V mqttv5 -q 1 \
+  -t 'statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke' \
+  -D publish response-topic 'clients/dataflow-docs-client/services/statestore/_any_/command/invoke/response' \
+  -D publish correlation-data '1' \
+  -D publish user-property __ts "$(date +%s%3N):0:dataflow-docs-client" \
+  -m $'*3\r\n$3\r\nSET\r\n$15\r\ndevice-metadata\r\n$153\r\n{"deviceId":"dev-001","displayName":"Line 1 Sensor","location":"Building A"}\n{"deviceId":"dev-002","displayName":"Line 2 Sensor","location":"Building B"}\r\n'
+```
+
+The `$15` and `$153` values are the byte lengths of the key (`device-metadata`) and value that follow. A successful `SET` responds with `+OK` on the response topic. For the full request format, required MQTT v5 properties, and response codes, see the [state store protocol reference](../develop-edge-apps/reference-state-store-protocol.md).
 
 ## Configure a dataset
 
-Datasets are defined in the `datasets` array at the top level of your rules configuration, alongside `map`, `filter`, or `branch`.
+Define datasets in the `datasets` array at the top level of your rules configuration for `map`, `filter`, and `branch` transforms.
+
+For window transforms (version 1.1 or later), configure datasets inside the `triggers` configuration. For details, see [Aggregate data with window transforms in data flow graphs](howto-dataflow-graphs-window.md).
 
 # [Operations experience](#tab/portal)
 
@@ -78,8 +103,7 @@ These rules go in the `value` field as an escaped string:
 ]
 ```
 
-> [!TIP]
-> To generate the escaped string, save the rules to a file like `rules.json`, then run `jq -c . rules.json` and paste the single-line output into the `value` field.
+[!INCLUDE [dataflow-jq-tip](../includes/dataflow-jq-tip.md)]
 
 # [Bicep](#tab/bicep)
 
@@ -122,13 +146,169 @@ Each dataset entry has these properties:
 
 | Property | Required | Description |
 |----------|----------|-------------|
-| `key` | Yes | The state store key where the dataset records are stored. Supports an optional alias with the `as` keyword. |
+| `key` | Yes | The state store key where the dataset records are stored. Supports an optional alias with the `as` keyword. To populate this key, publish a `SET` request over MQTT (see [Populate the state store key](#populate-the-state-store-key)). |
+| `dynamicValues` | No | List of message field paths substituted into `$N` placeholders in `key`, letting the state store key be derived per message. See [Dynamic keys](#dynamic-keys). |
 | `inputs` | Yes | List of field references used in the match expression. Each entry uses a `$source.` or `$context.` prefix. |
 | `expression` | Yes | A boolean expression that determines which dataset record matches the incoming message. |
 
 ### Key and alias
 
 The `key` value is the state store key that the runtime reads. Assign a shorter alias with the `as` keyword. For example, `datasets.parag10.rule42 as position` lets you reference fields as `$context(position).WorkingHours`.
+
+A key can also be a template that's resolved separately for every message. For more information, see [Dynamic keys](#dynamic-keys).
+
+### Dynamic keys
+
+A static `key` works well when every message should be enriched from the same state store record. But sometimes each message needs a different record - for example, per-device calibration data, where the record to look up depends on a field in the incoming message.
+
+Instead of deploying a separate dataset (and a separate graph) for every possible lookup value, make `key` a template with `$1`, `$2`, and so on, placeholders. Add a `dynamicValues` property that lists the message field to substitute for each placeholder. The runtime resolves the template for every message before it queries the state store.
+
+> [!TIP]
+> Pair a dynamic `key` with an alias by using `as`. The alias - not the resolved key - is the fixed name you reference in rules as `$context(<alias>).<field>`. Keep the alias a stable identifier even though the underlying key changes per message.
+
+#### Prerequisite: Populate a dynamic state store key
+
+Because the resolved key is data-driven, you need to populate the state store with a record for each resolved value you expect to look up. In the example provided in the following section, for a message with `sensorId: "TEMP-42"`, the runtime looks up `calibration:TEMP-42`, so publish a `SET` request for that exact key. The record must include every field used by the dataset's match `inputs` - here, `sensorId`, compared against the incoming message's `$source.sensorId` - in addition to any field the rules enrich with, such as `offset`. Otherwise, the match never succeeds and the enrichment fields stay unavailable:
+
+```console
+mosquitto_pub -h <BROKER_HOST> -p <BROKER_PORT> -V mqttv5 -q 1 \
+  -t 'statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke' \
+  -D publish response-topic 'clients/dataflow-docs-client/services/statestore/_any_/command/invoke/response' \
+  -D publish correlation-data '1' \
+  -D publish user-property __ts "$(date +%s%3N):0:dataflow-docs-client" \
+  -m $'*3\r\n$3\r\nSET\r\n$19\r\ncalibration:TEMP-42\r\n$33\r\n{"sensorId":"TEMP-42","offset":5}\r\n'
+```
+
+The `$19` and `$33` values are the byte lengths of the key (`calibration:TEMP-42`) and value that follow. A successful `SET` responds with `+OK` on the response topic. For the full request format, required MQTT v5 properties, and response codes, see the [state store protocol reference](../develop-edge-apps/reference-state-store-protocol.md).
+
+#### Configure a dataset with dynamic values
+
+# [Operations experience](#tab/portal)
+
+In the transform configuration, add a dataset and configure:
+
+| Setting | Description |
+|---------|-------------|
+| **State store key** | A template such as `calibration:$1 as calibration`, where `$1` is replaced by a message field at processing time. To populate the resolved key, publish a `SET` request over MQTT (see [Populate a dynamic state store key](#prerequisite-populate-a-dynamic-state-store-key)). |
+| **Dynamic values** | The message field to substitute for each placeholder, in order (for example, `sensorId`). |
+| **Match inputs / Match expression** | Configure the same way as a static-key dataset. |
+
+# [Azure CLI](#tab/cli)
+Add `dynamicValues` alongside `key` in the dataset entry:
+
+```json
+{
+  "datasets": [
+    {
+      "key": "calibration:$1 as calibration",
+      "dynamicValues": ["sensorId"],
+      "inputs": ["$source.sensorId", "$context.sensorId"],
+      "expression": "$1 == $2"
+    }
+  ],
+  "map": [
+    {
+      "inputs": ["$context(calibration).offset"],
+      "output": "calibrationOffset"
+    }
+  ]
+}
+```
+
+Add this property to the transform node's `configuration` in your `graph.json` as an escaped string in the `value` field. Then apply it by using [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
+
+```json
+"configuration": [
+  {
+    "key": "rules",
+    "value": "{\"datasets\":[{\"key\":\"calibration:$1 as calibration\",\"dynamicValues\":[\"sensorId\"],\"inputs\":[\"$source.sensorId\",\"$context.sensorId\"],\"expression\":\"$1 == $2\"}],\"map\":[{\"inputs\":[\"$context(calibration).offset\"],\"output\":\"calibrationOffset\"}]}"
+  }
+]
+```
+
+# [Bicep](#tab/bicep)
+```bicep
+configuration: [
+  {
+    key: 'rules'
+    value: '{"datasets":[{"key":"calibration:$1 as calibration","dynamicValues":["sensorId"],"inputs":["$source.sensorId","$context.sensorId"],"expression":"$1 == $2"}],"map":[{"inputs":["$context(calibration).offset"],"output":"calibrationOffset"}]}'
+  }
+]
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+```yaml
+datasets:
+  - key: "calibration:$1 as calibration"
+    dynamicValues:
+      - sensorId
+    inputs:
+      - $source.sensorId
+      - $context.sensorId
+    expression: "$1 == $2"
+
+map:
+  - inputs:
+      - "$context(calibration).offset"
+    output: calibrationOffset
+```
+
+---
+
+For a message with `sensorId: "TEMP-42"`, the runtime resolves the template to `calibration:TEMP-42` before querying the state store. The matched record's `offset` field becomes available as `$context(calibration).offset`.
+
+#### Default values for missing fields
+
+Each entry in `dynamicValues` can include a `??` default, used when the message field is missing or `null`. Without a default, a missing or `null` field fails processing for that message.
+
+```json
+{
+  "key": "calibration:$1 as calibration",
+  "dynamicValues": ["sensorId ?? \"unknown\""]
+}
+```
+
+#### Escaping a literal `$`
+
+If the state store keys in your system already contain a literal `$` character, escape it as `$$` in the template. Only `$N` (a `$` followed by digits) is treated as a placeholder. `$$` always produces a single literal `$`.
+
+```json
+{
+  "key": "rate:$$USD:$1",
+  "dynamicValues": ["region ?? \"us\""]
+}
+```
+
+For a message with `region: "eu"`, this resolves to `rate:$USD:eu`.
+
+#### Composite keys
+
+A template can reference more than one message field. Each `$N` maps to the corresponding entry in `dynamicValues`, in order:
+
+```json
+{
+  "key": "line:$1:station:$2 as lineStatus",
+  "dynamicValues": ["lineId ?? \"unknown\"", "stationId ?? \"0\""]
+}
+```
+
+For a message with `lineId: "L-3"` and `stationId: "7"`, this resolves to `line:L-3:station:7`.
+
+> [!NOTE]
+> Only string, number, and boolean message fields can be substituted into a key. Object and array fields aren't supported as dynamic key values. Using one results in an error when the message is processed.
+
+> [!IMPORTANT]
+> The following errors are validated when the graph is applied, not when messages are processed:
+> - A `$N` placeholder whose index is greater than the number of entries in `dynamicValues`.
+> - A `dynamicValues` list configured on a `key` that contains no unescaped `$N` placeholder.
+> - A malformed placeholder, such as `$0` or a `$` not followed by a digit.
+>
+> Fix these errors before applying the graph. They don't surface later as message-processing failures.
+
+Because the resolved key is data-driven, it can be different for every message. If you enable diagnostic logging or tracing for enrichment lookups, expect to see the *resolved* key (for example, `calibration:TEMP-42`), not the configured template.
 
 ### Dataset inputs
 
@@ -143,7 +323,7 @@ Inputs can appear in any order and you can mix `$source` and `$context` referenc
 
 The `expression` evaluates to a boolean. The runtime loads the dataset from the state store as NDJSON (one JSON object per line), iterates through the records, and returns the first record where the expression evaluates to `true`.
 
-If no record matches, the enrichment fields aren't available and any rule that depends on them is skipped for that message.
+If no record matches, the enrichment fields aren't available. Rules that depend on them still run, but they write their output field with a `null` value instead of failing the message. The rule isn't removed from the output, only its resolved value is `null`.
 
 ## Use enriched data in rules
 
@@ -403,12 +583,6 @@ You can also target a nested object within the dataset record. For example, `$co
 
 Wildcard enrichment inputs are supported only in map rules. Filter and branch rules don't support wildcard inputs.
 
-## Set up the state store
-
-The runtime reads dataset records from the Azure IoT Operations distributed state store. Each dataset key maps to one or more records in NDJSON format (one JSON object per line). The runtime caches records and receives change notifications, so state store updates are reflected in processing.
-
-For information on configuring the distributed state store, see [State store overview](../develop-edge-apps/overview-state-store.md).
-
 ## Deploy a data flow graph with enrichment
 
 # [Operations experience](#tab/portal)
@@ -443,7 +617,7 @@ The Azure CLI applies a data flow graph from a single JSON config file. Create a
       "name": "enrich-and-map",
       "graphSettings": {
         "registryEndpointRef": "default",
-        "artifact": "azureiotoperations/graph-dataflow-map:1.0.0",
+        "artifact": "azureiotoperations/graph-dataflow-map:1.1.0",
         "configuration": [
           {
             "key": "rules",
@@ -487,8 +661,8 @@ Apply the config file. The `extendedLocation` is added automatically from the in
 ```azurecli
 az iot ops dataflowgraph apply \
   --name enrich-example \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
   --config-file graph.json
 ```
 
@@ -514,7 +688,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
         name: 'enrich-and-map'
         graphSettings: {
           registryEndpointRef: 'default'
-          artifact: 'azureiotoperations/graph-dataflow-map:1.0.0'
+          artifact: 'azureiotoperations/graph-dataflow-map:1.1.0'
           configuration: [
             {
               key: 'rules'
@@ -564,7 +738,7 @@ spec:
       name: enrich-and-map
       graphSettings:
         registryEndpointRef: default
-        artifact: azureiotoperations/graph-dataflow-map:1.0.0
+        artifact: azureiotoperations/graph-dataflow-map:1.1.0
         configuration:
           - key: rules
             value: |
@@ -600,9 +774,9 @@ spec:
 
 ## Limitations
 
-- **Not supported in window transforms.** Enrichment datasets aren't available in window (accumulate) transforms.
+- **Window support is trigger-only.** In window transforms, dataset enrichment is available for trigger rules (`triggers.datasets`) in `azureiotoperations/graph-dataflow-window:1.1.0` or later, not for accumulation rules.
 - **First match wins.** The runtime uses the first record where the expression evaluates to `true`.
-- **Missing matches skip enriched rules.** If no dataset record matches, rules that reference `$context(<alias>)` fields are skipped. The transformation doesn't fail.
+- **Missing matches don't fail the message.** If no dataset record matches, rules that reference `$context(<alias>)` fields still run but resolve to `null` - the output field is present with a `null` value, not omitted. The transformation doesn't fail.
 - **State store errors propagate.** If the state store is unreachable, the transformation fails for that message.
 - **No wildcard inputs in dataset definitions.** Each input must be a specific `$source.<field>` or `$context.<field>` reference.
 
@@ -611,6 +785,7 @@ spec:
 - [Transform data with map](howto-dataflow-graphs-map.md)
 - [Filter and route data](howto-dataflow-graphs-filter-route.md)
 - [Aggregate data over time](howto-dataflow-graphs-window.md)
+- [Throttle data](howto-dataflow-graphs-throttle.md)
 - [Expressions reference](concept-dataflow-graphs-expressions.md)
 - [Configure a source](howto-configure-dataflow-source.md)
 - [Configure a destination](howto-configure-dataflow-destination.md)

@@ -1,8 +1,8 @@
 ---
 title: Data access strategies
 description: Azure Data Factory now supports Static IP address ranges.
-ms.author: lle
-author: lrtoyou1223
+ms.author: makromer
+author: kromerm
 ms.subservice: integration-runtime
 ms.topic: concept-article
 ms.date: 01/05/2024
@@ -11,6 +11,8 @@ ms.date: 01/05/2024
 # Data access strategies
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 A vital security goal of an organization is to protect their data stores from random access over the internet, may it be an on-premises or a Cloud/ SaaS data store.
 

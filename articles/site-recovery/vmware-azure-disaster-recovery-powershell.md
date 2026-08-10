@@ -317,6 +317,9 @@ Errors           : {}
 
 ## Create storage accounts for replication
 
+> [!IMPORTANT]
+> You can no longer replicate to a target storage account. Replicating to a storage account was deprecated in 2019, and only replication to managed disks is supported. You still need to create a log storage account as described in this section.
+
 **To write to managed disk, use [PowerShell Az.RecoveryServices module 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) onwards.** It only requires creation of a log storage account. It's recommended to use a standard account type and LRS redundancy since it's used to store only temporary logs. Ensure that the storage account is created in the same Azure region as the vault.
 
 If you are using a version of Az.RecoveryServices module older than 2.0.0, use the following steps to create storage accounts. These storage accounts are used later to replicate virtual machines. Ensure that the storage accounts are created in the same Azure region as the vault. You can skip this step if you plan to use an existing storage account for replication.

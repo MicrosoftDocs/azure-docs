@@ -1,33 +1,34 @@
 ### YamlMime:FAQ
 metadata:
   title: Microsoft Azure Maps Weather service frequently asked questions (FAQ) 
-  description: Find answer to common questions about Azure Maps Weather service data and features.
+  description: Find answers to common questions about Azure Maps Weather service data and features.
   author: FarazGIS
   ms.author: fsiddiqui
-  ms.date: 06/23/2021
+  ms.date: 06/23/2026
   ms.topic: faq
   ms.service: azure-maps
   ms.subservice: weather
   services: azure-maps
 title: Azure Maps Weather service frequently asked questions (FAQ)
 summary: |
-  This article answers to common questions about Azure Maps [Weather service](/rest/api/maps/weather) data and features. The following topics are covered:
+  This article answers common questions about Azure Maps [Weather service](/rest/api/maps/weather) data and features. The following topics are covered:
   
   * Data sources and data models
   * Weather service coverage and availability
   * Data update frequency
   * Timestamps and time zones
+  * Input requirements, pricing, and rate limits
   * Developing with Azure Maps SDKs
+  * Severe weather alerts
   * Options to visualize weather data, including Microsoft Power BI integration
-  
 
 sections:
   - name: Data sources and data models
     questions:
       - question: |
-          How does Azure Maps source Weather data? 
+          How does Azure Maps source weather data?
         answer: |
-          Azure Maps is built with the collaboration of world-class mobility and location technology partners, including AccuWeather, who provides the underlying weather data. To read the announcement of Azure Map's collaboration with AccuWeather, see [Rain or shine: Azure Maps Weather service will bring insights to your enterprise](https://azure.microsoft.com/blog/rain-or-shine-azure-maps-weather-services-will-bring-insights-to-your-enterprise/).
+          Azure Maps is built in collaboration with world-class mobility and location technology partners, including AccuWeather, which provides the underlying weather data. To read the announcement of Azure Maps collaboration with AccuWeather, see [Rain or shine: Azure Maps Weather service will bring insights to your enterprise](https://azure.microsoft.com/blog/rain-or-shine-azure-maps-weather-services-will-bring-insights-to-your-enterprise/).
           
           AccuWeather has real-time weather and environmental information available anywhere in the world, largely because of their partnerships with many governmental weather agencies and other proprietary arrangements. A list of this foundational information is provided below.
           
@@ -55,57 +56,96 @@ sections:
       - question: |
           What kind of coverage can I expect for different countries/regions? 
         answer: |
-          Weather service coverage varies by country/region. All features aren't available in every country/region. For more information, see [coverage documentation](./weather-coverage.md).
+          Weather service coverage varies by country/region. All features aren't available in every country/region. For more information, see [Azure Maps Weather service coverage](./weather-coverage.md).
           
   - name: Data update frequency
     questions:
       - question: |
           How often is Current Conditions data updated? 
         answer: |
-          Current Conditions data is updated at least once an hour, but can be updated more frequently with rapidly changing conditions – such as large temperature changes, sky conditions changes, precipitation changes, and so on. Most observation stations around the world report many times per hour as conditions change. However, a few areas will still only update once, twice, or four times an hour at scheduled intervals.  
+          Current Conditions data is updated at least once an hour, but can be updated more frequently with rapidly changing conditions - such as large temperature changes, sky conditions changes, precipitation changes, and so on. Most observation stations around the world report many times per hour as conditions change. However, a few areas will still only update once, twice, or four times an hour at scheduled intervals.  
           
-          Azure Maps caches the Current Conditions data for up to 10 minutes to help capture the near real-time update frequency of the data as it occurs. To see when the cached response expires and avoid displaying outdated data, you can use the Expires Header information in the HTTP header of the Azure Maps API response.
+          Azure Maps caches Current Conditions data for up to 10 minutes to help capture the near real-time update frequency of the data as it occurs. To see when the cached response expires and avoid displaying outdated data, use the Expires header in the HTTP response.
           
       - question: |
           How often is Daily and Hourly Forecast data updated? 
         answer: |
           Daily and Hourly Forecast data is updated multiple times per day, as updated observations are received.  For example, if a forecasted high/low temperature is surpassed, our Forecast data will adjust at the next update cycle. Updates happen at different intervals but typically happens within an hour. Many sudden weather conditions may cause a forecast data change. For example, on a hot summer afternoon, an isolated thunderstorm might suddenly emerge, bringing heavy cloud coverage and rain. The isolated storm could effectively drop temperature by as much as 10 degrees. This new temperature value will impact the Hourly and Daily Forecasts for the rest of the day, and as such, will be updated in our datasets.
           
-          Azure Maps Forecast APIs are cached for up to 30 mins. To see when the cached response expires and avoid displaying outdated data, you can look at the Expires Header information in the HTTP header of the Azure Maps API response. We recommend updating as necessary based on a specific product use case and UI (user interface).
-          
+          Azure Maps Forecast APIs are cached for up to 30 minutes. To see when the cached response expires and avoid displaying outdated data, use the Expires header in the HTTP response. Update data as needed based on your product use case and UI (user interface).
+
   - name: Timestamps and time zones
     questions:
       - question: |
-          During the Daylight Saving Time spring-forward transition, the Current Conditions API returned an observation for the 2:00–3:00 AM hour, even though that hour is skipped. Is this expected?
+          During the Daylight Saving Time spring-forward transition, the Current Conditions API returned an observation for the 2:00-3:00 AM hour, even though that hour is skipped. Is this expected?
         answer: |
-          Yes, this is expected behavior. The Current Conditions API returns the most recent cached observation for a location — it is not a time-series archive.
+          Yes. This behavior is expected. The Current Conditions API returns the most recent cached observation for a location. It is not a time-series archive.
 
-          During the spring-forward transition, the API may temporarily return a cached observation whose timestamp falls within the skipped hour. This occurs because responses can be cached for up to 10 minutes, and the `LocalObservationDateTime` reflects the time the observation was recorded, not the time of the API request.
+          During the spring-forward transition, the API can temporarily return a cached observation whose timestamp falls within the skipped hour. This happens because responses can be cached for up to 10 minutes, and `LocalObservationDateTime` reflects the observation time, not the API request time.
 
-          As the cache refreshes with newer observations after the transition, the returned timestamp will reflect the updated time and DST offset.
+          As the cache refreshes with newer observations after the transition, the returned timestamp reflects the updated time and DST offset.
 
       - question: |
           During the Daylight Saving Time fall-back transition, will the Current Conditions API return two distinct records for the repeated hour?
         answer: |
-          No. The Current Conditions API returns the most recent observation for a location and is not a time-series archive. It will not return two separate records for the repeated hour.
+          No. The Current Conditions API returns the most recent observation for a location and is not a time-series archive. It does not return two separate records for the repeated hour.
 
-          Instead, the response reflects whichever cached observation is being served at the time of the API call. Around the transition window, the timestamp may appear to repeat or move backward as the cache refreshes within the 10-minute cache window. This is expected behavior.
+          Instead, the response reflects whichever cached observation is returned at the time of the API call. Around the transition window, the timestamp can appear to repeat or move backward as the cache refreshes within the 10-minute cache window. This behavior is expected.
 
-          To determine which side of the transition an observation belongs to, examine the UTC offset included in the `LocalObservationDateTime` field. This field is returned in ISO 8601 format and includes the offset from UTC.
+          To determine which side of the transition an observation belongs to, examine the UTC offset in `LocalObservationDateTime`. This field is returned in ISO 8601 format and includes the offset from UTC.
 
-          Before the fall-back, the offset reflects the daylight saving time (for example, UTC-4 for Eastern Daylight Time). After the transition and once the cache refreshes, the offset reflects the standard time offset (for example, UTC-5 for Eastern Standard Time).
+          Before the fall-back, the offset reflects daylight saving time (for example, UTC-4 for Eastern Daylight Time). After the transition and once the cache refreshes, the offset reflects standard time (for example, UTC-5 for Eastern Standard Time).
 
+  - name: Input requirements, pricing, and rate limits
+    questions:
+      - question: |
+          Can I pass a city name or address directly to the Weather APIs?
+        answer: |
+          No. Azure Maps Weather APIs require geographic coordinates (latitude and longitude).
+
+          If you have a city name or address, first use an Azure Maps Search API to geocode the location, and then pass the resulting coordinates to the Weather API.
+
+      - question: |
+          Is there a free tier for Azure Maps Weather service, and are limits measured per hour?
+        answer: |
+          Azure Maps Weather service is a paid service with usage-based billing. Pricing includes a monthly allowance of free transactions, but there is no unlimited free tier.
+
+          Rate limits are enforced as queries per second (QPS), not as hourly quotas. For current limits, see [Azure Maps QPS rate limits](./azure-maps-qps-rate-limits.md). For pricing details, see [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps/).
+          
   - name: Developing with Azure Maps SDKs
     questions:
       - question: |
-          Does Azure Maps  Web SDK  natively support Weather service integration? 
+          Does Azure Maps Web SDK natively support Weather service integration?
         answer: |
-          The Azure Maps Web SDK provides a services module. The services module is a helper library that makes it easy to use the Azure Maps REST services in web or Node.js applications. by using JavaScript or TypeScript. To get started, see our [documentation](./how-to-use-services-module.md).
+          The Azure Maps Web SDK provides a services module. The services module is a helper library that makes it easy to use Azure Maps REST services in web or Node.js applications by using JavaScript or TypeScript. To get started, see [Use the Azure Maps services module](./how-to-use-services-module.md).
           
       - question: |
           Does Azure Maps Android SDK natively support Weather service integration? 
         answer: |
           The Azure Maps Android SDK is no longer supported. To integrate Azure Maps Weather services into Android apps, refer to [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+
+  - name: Severe weather alerts
+    questions:
+      - question: |
+          Why does the Severe Weather Alerts API sometimes return multiple records for the same alert type?
+        answer: |
+          This behavior is expected. The API can return multiple records for the same alert type when records differ in one or more attributes, such as area, time window, priority, or status.
+
+          Each returned record represents a distinct alert instance, even if the `description` is the same.
+
+      - question: |
+          Can I query Severe Weather Alerts for an entire city or region in one request?
+        answer: |
+          No. The Severe Weather Alerts API is point-based and accepts coordinates as input.
+
+          If you provide a coordinate, the service returns alerts that intersect that point. To monitor a larger region, query multiple representative points.
+
+      - question: |
+          Is there a complete list of all possible severe weather alert categories?
+        answer: |
+          There is no single definitive global list. Alert names and categories vary by country/region and by the official weather agency providing the source data.
+
+          Because providers can introduce new alert types over time, applications should treat values such as alert category and description as data-driven fields rather than relying on a fixed enumeration.
 
   - name: Data visualizations  
     questions:
@@ -117,7 +157,7 @@ sections:
       - question: |
           How do I interpret colors used for radar and satellite tiles? 
         answer: |
-          The Azure Maps [Weather concept article](./weather-services-concepts.md#radar-and-satellite-imagery-color-scale) includes a guide to help interpret colors used for radar and satellite tiles. The article covers color samples and HEX color codes.
+          The [Weather service in Azure Maps](./weather-services-concepts.md#radar-and-satellite-imagery-color-scale) article includes a guide to help interpret colors used for radar and satellite tiles. The article covers color samples and HEX color codes.
            
       - question: |
           Can I create radar and satellite tile animations? 
@@ -127,7 +167,11 @@ sections:
       - question: |
           Do you offer icons for different weather conditions? 
         answer: |
-          Yes. You can find icons and their respective codes [here](./weather-services-concepts.md#weather-icons). Notice that only some of the Weather service APIs, such as  [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditions), return the *iconCode* in the response. For more information, see the [Get current weather at a location](https://samples.azuremaps.com/?search=Get%20current%20weather%20at%20a%20location) sample.
+          Yes. For icons and their respective codes, see the [Weather service in Azure Maps](./weather-services-concepts.md#weather-icons) article. Notice that only some Weather service APIs, such as [Get Current Conditions](/rest/api/maps/weather/getcurrentconditions), return the *iconCode* in the response.
+
+          The documented weather icons are reference assets. If you need a different visual style or higher-resolution icon set, use your own icon library and map it to returned `iconCode` values.
+
+          For more information, see the [Get current weather at a location](https://samples.azuremaps.com/?search=Get%20current%20weather%20at%20a%20location) sample.
           
 additionalContent: |
 
@@ -140,12 +184,14 @@ additionalContent: |
   * Microsoft Support. To create a new support request, in the [Azure portal](https://portal.azure.com/), on the Help tab, select the **Help +** support button, and then select **New support request**.
   
   Learn how to request real-time and forecasted weather data using Azure Maps Weather service:
+
   > [!div class="nextstepaction"]
-  > [Request Real-time weather data ](how-to-request-weather-data.md)
+  > [Request real-time and forecasted weather data using Azure Maps Weather service](how-to-request-weather-data.md)
   
   Azure Maps Weather service concepts article:
+
   > [!div class="nextstepaction"]
-  > [Weather service concepts](weather-coverage.md)
+  > [Weather service concepts](weather-services-concepts.md)
   
   Explore the Azure Maps Weather service API documentation:
   

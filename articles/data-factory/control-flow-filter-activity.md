@@ -15,6 +15,9 @@ ms.date: 09/26/2024
 You can use a Filter activity in a pipeline to apply a filter expression to an input array. 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Filter activity](/fabric/data-factory/filter-activity).
+
 ## Syntax
 
 ```json

@@ -129,7 +129,7 @@ Application gateway supports the following server variables:
 | received_bytes            | The length of the request (including the request line,   header, and request body). |
 | request_query             | The arguments in the request line.                           |
 | request_scheme            | The request scheme: http or https.                           |
-| request_uri               | The full original request URI (with arguments). Example:   in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*`, request_uri value is `/article.aspx?id=123&title=fabrikam` |
+| request_uri               | The full original request URI (with arguments). Example:   in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, request_uri value is `/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | The number of bytes sent to a client.                        |
 | server_port               | The port of the server that accepted a request.              |
 | ssl_connection_protocol   | The protocol of an established TLS connection.               |
@@ -149,7 +149,7 @@ Application Gateway supports the following server variables for mutual authentic
 | client_certificate_serial | The serial number of the client certificate for an established SSL connection.  |
 | client_certificate_start_date| The start date of the client certificate. |
 | client_certificate_subject| The "subject DN" string of the client certificate for an established SSL connection. |
-| client_certificate_verification| The result of the client certificate verification: *SUCCESS*, *FAILED:\<reason\>*, or *NONE* if a certificate wasn't present. | 
+| client_certificate_verification| The result of the client certificate verification. In mTLS passthrough mode: *PASSTHROUGH* when the client presents a certificate, or *NONE* when it doesn't. In mTLS strict mode: *SUCCESS* when the client presents a valid certificate. In strict mode, Application Gateway returns HTTP 400 for a missing or invalid client certificate before it forwards the request, so the backend never receives a value. To review those outcomes, use the `sslClientVerify` property in the [access log](monitor-application-gateway-reference.md#access-log-category). |
 
 
 ## Common scenarios for header rewrite

@@ -27,19 +27,19 @@ Watch the [Manage access to your MCA billing account](https://www.youtube.com/wa
 The following table describes the billing roles you use to manage your billing account, billing profiles, and invoice sections. Permissions granted at the billing account level have the highest level of permission and will inherit permission on all billing groups and invoice sections under that billing account. These inherited permissions cannot be removed at the lower level as they are linked to the role granted at the higher level. If a user only needs access to a specific billing profile or invoice section, grant permission at that level rather than providing access at the billing account scope.
 
 
-|Role|Description|
-|---|---|
-|Billing account owner |Manage everything for billing account|
-|Billing account contributor|Manage everything except permissions on the billing account|
-|Billing account reader|Read-only view of everything on billing account|
-|Billing profile owner|Manage everything for billing profile|
-|Billing profile contributor|Manage everything except permissions on the billing profile|
-|Billing profile reader|Read-only view of everything on billing profile|
-|Invoice manager|View and pay invoices for billing profile|
-|Invoice section owner|Manage everything on invoice section|
-|Invoice section contributor|Manage everything except permissions on the invoice section|
-|Invoice section reader|Read-only view of everything on the invoice section|
-|Azure subscription creator|Create Azure subscriptions|
+|Role|Description|Role ID|
+|---|---|---|
+|Billing account owner |Manage everything for billing account|50000000-aaaa-bbbb-cccc-100000000000|
+|Billing account contributor|Manage everything except permissions on the billing account|50000000-aaaa-bbbb-cccc-100000000001|
+|Billing account reader|Read-only view of everything on billing account|50000000-aaaa-bbbb-cccc-100000000002|
+|Billing profile owner|Manage everything for billing profile|40000000-aaaa-bbbb-cccc-100000000000|
+|Billing profile contributor|Manage everything except permissions on the billing profile|40000000-aaaa-bbbb-cccc-100000000001 |
+|Billing profile reader|Read-only view of everything on billing profile|40000000-aaaa-bbbb-cccc-100000000002|
+|Invoice manager|View and pay invoices for billing profile|40000000-aaaa-bbbb-cccc-100000000004|
+|Invoice section owner|Manage everything on invoice section|30000000-aaaa-bbbb-cccc-100000000000 |
+|Invoice section contributor|Manage everything except permissions on the invoice section|30000000-aaaa-bbbb-cccc-100000000001|
+|Invoice section reader|Read-only view of everything on the invoice section|30000000-aaaa-bbbb-cccc-100000000002|
+|Azure subscription creator|Create Azure subscriptions|30000000-aaaa-bbbb-cccc-100000000006 |
 
 ## Billing account roles and tasks
 

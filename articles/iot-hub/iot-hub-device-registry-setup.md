@@ -7,14 +7,14 @@ ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to
-ms.date: 04/15/2026
+ms.date: 08/04/2026
 zone_pivot_groups: iot-hub-deployment-methods
 #Customer intent: As a developer new to IoT, I want to understand what Azure Device Registry is and how it can help me manage my IoT devices.
 ---
 
 # Deploy Azure IoT Hub with Device Registry integration and certificate management (preview)
 
-This article explains how to deploy Azure IoT Hub with [Azure Device Registry](iot-hub-device-registry-overview.md) integration and [Microsoft-backed X.509 certificate management](iot-hub-certificate-management-overview.md).
+This article explains how to deploy Azure IoT Hub with [Azure Device Registry](iot-hub-device-registry-overview.md) integration and [Microsoft-backed X.509 certificate management](../iot/iot-certificate-management-overview.md).
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 
@@ -58,8 +58,8 @@ To set up your IoT Hub instance with Device Registry integration and certificate
 
 1. Your IoT hub with Device Registry integration and certificate management is set up and ready to use. You can now start onboarding your IoT devices to the hub by using a DPS instance. You can use your Device Registry policies to issue certificates to your devices:
 
-   - [Certificate issuance in Azure IoT Hub certificate management](concept-certificate-issuance.md)
-   - [Certificate renewal in Azure IoT Hub certificate management](concept-certificate-renewal.md)
+   - [Certificate issuance in Azure IoT Hub certificate management](../iot/concept-certificate-issuance.md)
+   - [Certificate renewal in Azure IoT Hub certificate management](../iot/concept-certificate-renewal.md)
 
 1. Certificate management is supported across select [IoT Hub SDKs and DPS for device SDKs](../iot-dps/libraries-sdks.md#device-sdks). You can now onboard devices by using Microsoft-backed X.509 certificate management with the following SDK samples:
 

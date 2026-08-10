@@ -2,12 +2,12 @@
 title: 'Azure Virtual WAN and working remotely'
 description: Learn how you can leverage Azure Virtual WAN to enable working remotely.
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/27/2025
-ms.author: cherylmc
+ms.author: duau
 
 
 ---

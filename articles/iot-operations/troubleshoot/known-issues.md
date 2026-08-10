@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 05/21/2026
+ms.date: 07/30/2026
 ---
 
 # Known issues for Azure IoT Operations
@@ -14,67 +14,6 @@ ms.date: 05/21/2026
 This article lists the current known issues you might encounter when using Azure IoT Operations. The guidance helps you identify these issues and provides workarounds where available.
 
 For general troubleshooting guidance, see [Troubleshoot Azure IoT Operations](troubleshoot.md).
-
-## Deployment and upgrade issues
-
-This section lists current known issues with deploying and upgrading Azure IoT Operations.
-
-### Upgrade to Azure IoT Operations 2603 can silently fail
-
----
-
-Log signature: N/A
-
----
-
-When you run `az iot ops upgrade` to upgrade to Azure IoT Operations 2603, the upgrade can silently fail to reach the cluster. You then observe the following symptoms:
- 
-- `provisioningState: Failed` on the Azure IoT Operations extension.
-- All on-cluster workloads remain healthy (no upgrade activity occurs).
-- `az iot ops upgrade` might report nothing to upgrade on subsequent attempts.
-
-#### Root cause
- 
-During the upgrade, if a dependent system extension, such as `microsoft.extensiondiagnostics` experiences a transient Helm timeout, Azure Resource Manager marks it as **Failed**. Even if the extension eventually succeeds on-cluster, the cloud-side state remains **Failed**. This blocks the dependency chain — Azure Resource Manager never delivers the updated Azure IoT Operations or secret-store extension config to the cluster's config agent.
- 
-Symptoms include:
- 
-- Config agent PostStatus returns `400: "Configuration spec has been modified"`
-- `getPendingConfigs` returns empty results
-- Extension manager never receives Helm upgrade instructions
-
-#### Workaround
- 
-The workaround is to force Azure Resource Manager to re-submit the extension specs by running a no-op update on both the Azure IoT Operations and secret-store extensions, then retrying the upgrade:
- 
-```azurecli
-az k8s-extension update --name <aio-extension-name> \
-    --cluster-name <cluster-name> \
-    --resource-group <resource-group> \
-    --cluster-type connectedClusters \
-    --configuration-settings AgentOperationTimeoutInMinutes=120
-
-az k8s-extension update --name azure-secret-store \
-    --cluster-name <cluster-name> \
-    --resource-group <resource-group> \
-    --cluster-type connectedClusters \
-    --configuration-settings AgentOperationTimeoutInMinutes=120
-
-az iot ops upgrade
-```
-
-To identify the Azure IoT Operations extension name, which includes a random suffix (for example, `azure-iot-operations-cym7h`), find your specific extension name by running:
-
-```azurecli
-az k8s-extension list \
-    --cluster-name <cluster-name> \
-    --resource-group <resource-group> \
-    --cluster-type connectedClusters \
-    --query "[?extensionType=='microsoft.iotoperations'].name" -o tsv
-```
-
-> [!IMPORTANT]
-> After the upgrade completes, reset `AgentOperationTimeoutInMinutes` back to a lower value like five minutes to avoid long wait times on future operations if something else fails.
 
 ## Azure Device Registry issues
 
@@ -194,7 +133,7 @@ Fixed in version 1.2.154 (2512) and later
 
 Users may encounter an error regarding expired webhook certificates with Akri when deleting/upgrading instances of Azure IoT Operations or performing CRUD operations on Akri resources such as *Connector* and *ConnectorTemplates* instances. 
 
-Workaround: run `kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found` to delete and restart the webhook pods to enable the pod to pick up the new certificate.
+Workaround: Run `kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found` to delete and restart the webhook pods to enable the pod to pick up the new certificate.
 
 ### Device inbound endpoints don't enforce authentication when none is specified
 
@@ -239,6 +178,20 @@ Log signature: `2025-10-22T14:51:59.338Z aio-opc-opc.tcp-1-68ff6d4c59-nj2s4 - Up
 
 Schema generation fails if event names contain special characters such as `#`, `%`, or `&`. Avoid using these characters in event names to prevent schema generation issues.
 
+### OPC connector template missing
+
+---
+
+Issue ID: 1330
+
+---
+
+Log signature: N/A
+
+---
+
+Azure IoT Operations instance deployment should install an **OPC ConnectorTemplate** by default. Following the deployment, the connector template is missing from the Azure portal and the `ConnectorTemplate` resource isn't present in the cluster.
+
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.
@@ -277,7 +230,7 @@ Log signature similar to:
 
 Currently, ONVIF asset event destinations are only recognized at the event group or asset level. Configuring destinations at the individual event level results in log entries similar to the example, and no event data is published to the MQTT broker.
 
-As a workaround, configure the event destination at the event group or asset level instead of the individual event level. For example, using `defaultEventsDestinations` at the event group level:
+Workaround: Configure the event destination at the event group or asset level instead of the individual event level. For example, use `defaultEventsDestinations` at the event group level:
 
 ```yaml
 eventGroups:
@@ -316,7 +269,29 @@ Log signature: N/A
 
 ---
 
+Fixed in release 2606 and later
+
+---
+
 When updating to version 2605, existing MQTT connector templates may display mismatched metadata versions in the portal. To resolve, delete and recreate the connector template. Alternatively, use the Azure CLI to update the connector.
+
+### MQTT connector can't connect to external MQTT brokers that have private IP addresses
+
+---
+
+Issue ID: 7791
+
+---
+
+Log signature: N/A
+
+---
+
+Fixed in release 2607 and later
+
+---
+
+Starting in release 2605, the MQTT connector can't connect to external MQTT brokers that use private IP addresses.  
 
 
 ## Data flows issues
@@ -356,27 +331,6 @@ Log signature:
 If you create more than 70 data flows for a single data flow profile, deployments fail with the error `exec /bin/main: argument list too long`.
 
 To work around this issue, create multiple data flow profiles and distribute the data flows across them. Don't exceed 70 data flows per profile.
-
-### Data flow graphs only support specific endpoint types
-
----
-
-Issue ID: 5693
-
----
-
-Log signature: N/A
-
----
-
-Data flow graphs (WASM) currently only support MQTT, Kafka, and OpenTelemetry (OTel) data flow endpoints. OpenTelemetry endpoints can only be used as destinations in data flow graphs. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported for data flow graphs.
-
-To work around this issue, use one of the supported endpoint types:
-- [MQTT endpoints](../connect-to-cloud/howto-configure-mqtt-endpoint.md) for bi-directional messaging with MQTT brokers
-- [Kafka endpoints](../connect-to-cloud/howto-configure-kafka-endpoint.md) for bi-directional messaging with Kafka brokers, including Azure Event Hubs
-- [OpenTelemetry endpoints](../connect-to-cloud/open-telemetry.md) for sending metrics and logs to observability platforms (destination only)
-
-For more information about data flow graphs, see [Use WebAssembly (WASM) with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
 
 ### Can't use the same graph definition multiple times in a chained graph scenario
 
@@ -433,22 +387,42 @@ You create a chained graph scenario by using the output of one data flow graph a
 
 To solve this error, push the graph definition to the ACR as many times as needed with the scenario with a different name or tag each time. For example, in the scenario described, the graph definition need to be pushed twice with either a different name or a different tag, such as `graph-passthrough-one:1.3.6` and `graph-passthrough-two:1.3.6`.
 
-## Broker listener issues
+## Federated identity issues
 
-This section lists current known issues for broker listeners    .
+This section lists current known issues for federated identity.
 
-### Azure portal fails to fetch broker authentications
-
----
-
-Issue ID: 3072
+### Federated identity credential issuer mismatch can cause secret sync authentication failures
 
 ---
 
-Log signature: Azure portal message `Fetch broker authentications: Failed to fetch broker authentications`
+Issue ID: 1190
 
 ---
 
-When you configure a broker listener in the Azure portal and select a value in the "Authentication" dropdown, the portal tries to fetch the list of broker authentications. The portal displays the error message `Fetch broker authentications: Failed to fetch broker authentications`.
+Fixed in version 2607 and later
 
-To workaround this issue, upgrade to the 2603 release.
+---
+
+Log signature: Similar to `AADSTS700211: No matching federated identity record found for presented assertion issuer 'https://northamerica.oic.prod-arc.azure.com/1f5f7baf-633d-4eb5-9be1-8cf1e9c6fcc9/f512e8f6-0c47-48a1-91f3-aeb5422dd766'. Please check your federated identity credential Subject, Audience and Issuer against the presented assertion.`
+
+---
+
+Azure IoT Operations encounters 401 Unauthorized errors when retrieving secrets from Azure Key Vault.
+
+Root cause: The error occurs because the federated identity credential issuer URL doesn't match the issuer (iss) claim in the Kubernetes service account token.
+
+When the `az iot ops secretsync enable` command creates a federated identity credential (FIC) on the user-assigned managed identity that Azure IoT Operations uses to access Azure Key Vault, it sets the FIC issuer URL to the cluster's OIDC issuer URL. In some deployments, this URL includes a trailing slash ('/') that the cluster-issued service account token's iss (issuer) claim omits.
+
+Because the issue affects token exchange during secret retrieval, the failure typically doesn't occur when you run `az iot ops secretsync enable`. Instead, it surfaces later when Azure IoT Operations attempts to access a secret, which can make the root cause difficult to identify.
+
+Workaround: Verify that the issuer URL configured on the federated identity credential doesn't end with a slash. If it does, update the federated identity credential to remove the trailing slash.
+
+You can use the Azure CLI [az identity federated-credential](/cli/azure/identity/federated-credential) commands to view and, if necessary, update the federated identity credential issuer value, for example:
+
+```azurecli
+az identity federated-credential show --name <fic-name> --identity-name <managed-identity-name> --resource-group <resource-group-name>
+
+az identity federated-credential update --name <fic-name> --identity-name <managed-identity-name> --resource-group <resource-group> --issuer <new-issuer-url-without-trailing-slash>
+```
+
+As a best practice, perform this validation during setup after you run the `az iot ops secretsync enable` command to help avoid potentially difficult-to-diagnose authentication failures later.

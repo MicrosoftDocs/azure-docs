@@ -5,7 +5,7 @@ author: v-dihans
 ms.author: rymend
 ms.topic: how-to
 ms.date: 08/21/2024
-ms.service: azure-education
+ms.service: azure-education-hub
 ---
 
 # Download software developer tools

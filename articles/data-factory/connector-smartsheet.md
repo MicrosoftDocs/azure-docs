@@ -2,17 +2,20 @@
 title: Transform data in Smartsheet (Preview)
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to transform data in Smartsheet (Preview) by using Data Factory or Azure Synapse Analytics.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 06/22/2026
+ms.update-cycle: 1095-days
 ---
 
-#  Transform data in Smartsheet (Preview) using Azure Data Factory or Synapse Analytics
+# Transform data in Smartsheet (Preview) using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article outlines how to use Data Flow to transform data in Smartsheet (Preview). To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 

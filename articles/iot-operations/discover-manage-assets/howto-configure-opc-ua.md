@@ -27,7 +27,7 @@ This article describes how to use the operations experience web UI and the Azure
 
 These assets, data points, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and data flows.
 
-The connector can use `anonymous` or `username password` user authentication when it connects to an OPC UA server.
+The connector can use `anonymous`, `username password`, or `X.509certificate` user authentication when it connects to an OPC UA server.
 
 > [!NOTE]
 > This user authentication is separate from the certificate-based application authentication that's used to establish a secure channel between the connector for OPC UA and the OPC UA server. To learn more, see [Understand the OPC UA certificates infrastructure](overview-opc-ua-connector-certificates-management.md).
@@ -45,10 +45,6 @@ The connector can use `anonymous` or `username password` user authentication whe
 Your IT administrator must configure the OPC UA connector template for your Azure IoT Operations instance in the Azure portal or by using the Azure CLI.
 
 An OPC UA server that you can reach from your Azure IoT Operations cluster. If you don't have an OPC UA server, use the OPC PLC simulator from the Azure IoT Operations samples repository.
-
-## Configure a certificate trust list for the connector
-
-[!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
 ## Create a device
 

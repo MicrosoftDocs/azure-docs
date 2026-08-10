@@ -1,12 +1,12 @@
 ---
 title: 'Azure Virtual WAN Overview'
 description: Learn about Virtual WAN automated scalable branch-to-branch connectivity, available regions, and partners.
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: overview
 ms.date: 03/26/2025
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
 

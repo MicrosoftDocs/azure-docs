@@ -5,8 +5,8 @@ description: Learn how to create Azure integration runtime in Azure Data Factory
 ms.subservice: integration-runtime
 ms.topic: how-to
 ms.date: 02/13/2025
-author: lrtoyou1223
-ms.author: lle 
+author: kromerm
+ms.author: makromer
 ms.custom:
   - synapse
   - sfi-ropc-nochange
@@ -14,6 +14,8 @@ ms.custom:
 
 # How to create and configure Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory and Synapse pipelines to provide data integration capabilities across different network environments. For more information about IR, see [Integration runtime](concepts-integration-runtime.md).
 

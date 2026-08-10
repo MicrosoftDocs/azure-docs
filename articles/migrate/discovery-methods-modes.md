@@ -7,6 +7,7 @@ ms.author: v-uhabiba
 ms.manager: molir
 ms.service: azure-migrate
 ms.date: 10/21/2025
+ms.update-cycle: 1095-days
 ms.custom: engagement-fy24
 ---
 

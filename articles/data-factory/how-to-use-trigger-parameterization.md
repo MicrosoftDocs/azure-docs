@@ -12,6 +12,8 @@ ms.date: 02/13/2025
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article describes how trigger metadata, such as the trigger start time, can be used in a pipeline run.
 
 A pipeline sometimes needs to understand and read metadata from the trigger that invokes it. For instance, with a tumbling window trigger run, based on the window start and end time, the pipeline processes different data slices or folders. In Azure Data Factory, we use parameterization and [system variables](control-flow-system-variables.md) to pass metadata from triggers to pipelines.

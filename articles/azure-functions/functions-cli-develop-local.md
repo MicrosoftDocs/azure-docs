@@ -25,10 +25,26 @@ Examples are currently unavailable due to lack of language stack support.
 
 ## Install the Azure Functions CLI
 
-The Azure Functions CLI is distributed as a small base install plus workloads that you add for the stacks you develop in. Microsoft publishes installer packages for Windows, macOS, and Linux. After installation, the `func` binary is on your `PATH`.
+The Azure Functions CLI is distributed as a small base install plus workloads that you add for the stacks you develop in. After installation, the `func` binary is on your `PATH`.
 
 > [!NOTE]
-> While the Azure Functions CLI is in preview, install the latest preview build from the [Azure Functions Core Tools releases page](https://github.com/Azure/azure-functions-core-tools/releases). Final installation guidance is published with the general availability release.
+> The installation method might change between preview and general availability.
+
+### [Windows](#tab/windows)
+
+```powershell
+iex "& { $(irm https://aka.ms/func-cli/install.ps1) } -Prerelease"
+```
+
+### [macOS/Linux](#tab/linux)
+
+```bash
+curl -sSL https://aka.ms/func-cli/install.sh | bash -s -- --prerelease
+```
+
+---
+
+If you're upgrading from a previous install, add `-Force` (PowerShell) or `--force` (Bash) to the command.
 
 Verify the install:
 

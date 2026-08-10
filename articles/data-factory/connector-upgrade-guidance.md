@@ -1,8 +1,8 @@
 ---
 title: Connector upgrade guidance
 description: This article describes the guidance for upgrading connectors of Azure Data Factory.
-author: jianleishen
-ms.author: jianleishen
+author: simplywilson
+ms.author: tinglee
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
@@ -15,6 +15,8 @@ ms.date: 10/20/2025
 # Connector upgrade guidance
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article provides guidance for upgrading connectors in Azure Data Factory.  
 

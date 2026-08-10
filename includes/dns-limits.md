@@ -1,9 +1,9 @@
 ---
-author: greg-lindsay
+author: asudbring
 ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 10/08/2024
-ms.author: greglin
+ms.author: allensu
 ---
 #### Public DNS
 

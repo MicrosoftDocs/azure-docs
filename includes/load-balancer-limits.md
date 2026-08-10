@@ -5,7 +5,7 @@
  author: anavinahar
  ms.service: networking
  ms.topic: include
- ms.date: 10/24/2024
+ ms.date: 06/30/2026
  ms.author: anavin
  ms.custom: include file
 
@@ -21,6 +21,7 @@
 | High-availability ports rule            | 1 per internal frontend       |
 | Outbound rules per Load Balancer        | 600                           |
 | Backend pool size                       | 5,000                         |
+| IP configurations per Load Balancer (across all backend pools) | 20,000 |
 | Azure global Load Balancer Backend pool size                       | 300                         |
 | Backend IP configurations per frontend <sup>2<sup> | 10,000                        |
 | Backend IP configurations across all frontends | 500,000 |

@@ -2,11 +2,11 @@
 title: Copy and transform data in SFTP server using Azure Data Factory or Azure Synapse Analytics
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from and to SFTP server, and transform data in SFTP server using Azure Data Factory or Azure Synapse Analytics.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 02/13/2025
+ms.date: 07/29/2026
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -16,7 +16,9 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity to copy data from and to the secure FTP (SFTP) server, and use Data Flow to transform data in SFTP server. To learn more read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
+This article outlines how to use Copy Activity to copy data from and to the secure FTP (SFTP) server, and use Data Flow to transform data in SFTP server. To learn more, see the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 > [!NOTE]
 > This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric SFTP connector documentation](/fabric/data-factory/connector-sftp-overview).
@@ -38,7 +40,7 @@ This SFTP connector is supported for the following capabilities:
 
 Specifically, the SFTP connector supports:
 
-- Copying files from and to the SFTP server by using **Basic**, **SSH public key** or **multifactor** authentication.
+- Copying files from and to the SFTP server by using **Basic**, **SSH public key**, or **multifactor** authentication.
 - Copying files as is or by parsing or generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Prerequisites
@@ -53,7 +55,7 @@ Specifically, the SFTP connector supports:
 
 Use the following steps to create an SFTP linked service in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the **Manage** tab in your Azure Data Factory or Synapse workspace and select **Linked Services**, then select **New**:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -71,6 +73,8 @@ Use the following steps to create an SFTP linked service in the Azure portal UI.
 
     :::image type="content" source="media/connector-sftp/configure-sftp-linked-service.png" alt-text="Screenshot of configuration for an SFTP linked service.":::
 
+After the connection test succeeds, the SFTP linked service appears under **Linked services** and is ready to use in datasets and pipelines.
+
 ## Connector configuration details
 
 The following sections provide details about properties that are used to define entities specific to SFTP.
@@ -86,7 +90,7 @@ The following properties are supported for the SFTP linked service:
 | port | The port on which the SFTP server is listening.<br/>The allowed value is an integer, and the default value is *22*. |No |
 | skipHostKeyValidation | Specify whether to skip host key validation.<br/>Allowed values are *true* and *false* (default).  | No |
 | hostKeyFingerprint | Specify the fingerprint of the host key. | Yes, if the "skipHostKeyValidation" is set to false.  |
-| authenticationType | Specify the authentication type.<br/>Allowed values are *Basic*, *SshPublicKey* and *MultiFactor*. For more properties, see the [Use basic authentication](#use-basic-authentication) section. For JSON examples, see the [Use SSH public key authentication](#use-ssh-public-key-authentication) section. |Yes |
+| authenticationType | Specify the authentication type.<br/>Allowed values are *Basic*, *SshPublicKey*, and *MultiFactor*. For more properties, see the [Use basic authentication](#use-basic-authentication) section. For JSON examples, see the [Use SSH public key authentication](#use-ssh-public-key-authentication) section. |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. To learn more, see the [Prerequisites](#prerequisites) section. If the integration runtime isn't specified, the service uses the default Azure Integration Runtime. |No |
 
 ### Use basic authentication
@@ -109,7 +113,7 @@ To use basic authentication, set the *authenticationType* property to *Basic*, a
             "host": "<sftp server>",
             "port": 22,
             "skipHostKeyValidation": false,
-            "hostKeyFingerPrint": "ssh-rsa 2048 xx:00:00:00:xx:00:x0:0x:0x:0x:0x:00:00:x0:x0:00",
+            "hostKeyFingerprint": "ssh-rsa 2048 xx:00:00:00:xx:00:x0:0x:0x:0x:0x:00:00:x0:x0:00",
             "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
@@ -171,7 +175,6 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -197,11 +200,11 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 }
 ```
 
-### Use multi-factor authentication
+### Use multifactor authentication
 
-To use multi-factor authentication which is a combination of basic and SSH public key authentications, specify the user name, password and the private key info described in above sections.
+To use multifactor authentication, which is a combination of basic and SSH public key authentications, specify the user name, password, and the private key info described in the preceding sections.
 
-**Example: multi-factor authentication**
+**Example: multifactor authentication**
 
 ```json
 {
@@ -294,11 +297,11 @@ The following properties are supported for SFTP under the `storeSettings` settin
 | OPTION 3: a list of files<br>- fileListPath | Indicates to copy a specified file set. Point to a text file that includes a list of files you want to copy (one file per line, with the relative path to the path configured in the dataset).<br/>When you use this option, don't specify the file name in the dataset. For more examples, see [File list examples](#file-list-examples). |No |
 | ***Additional settings*** |  | |
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When recursive is set to true and the sink is a file-based store, an empty folder or subfolder isn't copied or created at the sink. <br>Allowed values are *true* (default) and *false*.<br>This property doesn't apply when you configure `fileListPath`. |No |
-| deleteFilesAfterCompletion | Indicates whether the binary files will be deleted from source store after successfully moving to the destination store. The file deletion is per file, so when copy activity fails, you will see some files have already been copied to the destination and deleted from source, while others are still remaining on source store. <br/>This property is only valid in binary files copy scenario. The default value: false. |No |
+| deleteFilesAfterCompletion | Indicates whether the binary files are deleted from source store after successfully moving to the destination store. The file deletion is per file, so when copy activity fails, you see some files are already copied to the destination and deleted from source, while others are still remaining on source store. <br/>This property is only valid in binary files copy scenario. The default value: false. |No |
 | modifiedDatetimeStart    | Files are filtered based on the attribute *Last Modified*. <br>The files are selected if their last modified time is greater than or equal to `modifiedDatetimeStart` and less than `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of *2018-12-01T05:00:00Z*. <br> The properties can be NULL, which means that no file attribute filter is applied to the dataset.  When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected.  When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected.<br/>This property doesn't apply when you configure `fileListPath`. | No                                            |
-| modifiedDatetimeEnd      | Same as above.                                               | No                                            |
+| modifiedDatetimeEnd      | Files are filtered based on the attribute *Last Modified*, the same as `modifiedDatetimeStart`. Files are selected if their last modified time is less than `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format *2018-12-01T05:00:00Z*. This property doesn't apply when you configure `fileListPath`. | No                                            |
 | enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as additional source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
-| partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it is not specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity will generate two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path is not specified, no extra column will be generated. | No                                            |
+| partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it's not specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity generates two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path isn't specified, no extra column is generated. | No                                            |
 | maxConcurrentConnections | The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No                                            |
 | disableChunking | When copying data from SFTP, the service tries to get the file length first, then divide the file into multiple parts and read them in parallel. Specify whether your SFTP server supports getting file length or seeking to read from a certain offset. <br/>Allowed values are **false** (default), **true**. | No |
 
@@ -427,23 +430,23 @@ When you're transforming data in mapping data flows, you can read and write file
 - [Parquet](format-parquet.md#mapping-data-flow-properties)
 - [XML](format-xml.md#mapping-data-flow-properties)
 
-Format specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md) and [Sink transformation in mapping data flow](data-flow-sink.md).
+Format-specific settings are located in the documentation for each format. For more information, see [Source transformation in mapping data flow](data-flow-source.md) and [Sink transformation in mapping data flow](data-flow-sink.md).
 
 > [!Note]
-> SSH host key validation is not supported in mapping data flow now.
+> Mapping data flow doesn't support SSH host key validation.
 
 > [!Note]
-> To access on premise SFTP sever, you need to use Azure Data Factory or Synapse workspace [Managed Virtual Network](managed-virtual-network-private-endpoint.md) using a private endpoint. Refer to this [tutorial](tutorial-managed-virtual-network-on-premise-sql-server.md) for detailed steps. 
+> To access an on-premises SFTP server, you need to use Azure Data Factory or Synapse workspace [Managed Virtual Network](managed-virtual-network-private-endpoint.md) by using a private endpoint. For detailed steps, see this [tutorial](tutorial-managed-virtual-network-on-premise-sql-server.md).
 
 ### Source transformation
 
-The below table lists the properties supported by SFTP source. You can edit these properties in the **Source options** tab. When using inline dataset, you will see additional settings, which are the same as the properties described in [dataset properties](#dataset-properties) section. 
+The following table lists the properties supported by the SFTP source. You can edit these properties in the **Source options** tab. When you use an inline dataset, you see additional settings, which are the same as the properties described in the [dataset properties](#dataset-properties) section. 
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Wildcard path | Using a wildcard pattern will instruct ADF to loop through each matching folder and file in a single source transformation. This is an effective way to process multiple files within a single flow. | No | String[] | wildcardPaths  |
+| Wildcard path | Using a wildcard pattern instructs the service to loop through each matching folder and file in a single source transformation. This method is an effective way to process multiple files within a single flow. | No | String[] | wildcardPaths  |
 | Partition Root Path | If you have partitioned folders in your file source with  a ```key=value``` format (for example, `year=2019`), then you can assign the top level of that partition folder tree to a column name in your data flow data stream.  | No | String | partitionRootPath  |
-| Allow no files found |If true, an error is not thrown if no files are found. | No | `true` or `false` | ignoreNoFilesFound  |
+| Allow no files found | If true, the service doesn't throw an error if it doesn't find any files. | No | `true` or `false` | ignoreNoFilesFound  |
 | List of files |This is a file set. Create a text file that includes a list of relative path files to process. Point to this text file.  | No | `true` or `false` | fileList  |
 | Column to store file name | Store the name of the source file in a column in your data. Enter a new column name here to store the file name string.  | No | String | rowUrlColumn |
 | After completion | Choose to do nothing with the source file after the data flow runs, delete the source file, or move the source file. The paths for the move are relative. | No | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles<br/>moveFiles |
@@ -467,7 +470,7 @@ source(allowSchemaDrift: true,
 
 ### Sink transformation
 
-The below table lists the properties supported by SFTP sink. You can edit these properties in the **Settings** tab. When using inline dataset, you will see additional settings, which are the same as the properties described in [dataset properties](#dataset-properties) section. 
+The following table lists the properties supported by the SFTP sink. You can edit these properties in the **Settings** tab. When you use an inline dataset, you see additional settings, which are the same as the properties described in the [dataset properties](#dataset-properties) section. 
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -518,10 +521,10 @@ For information about Delete activity properties, see [Delete activity](delete-a
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Supported types are *GZip*, *Deflate*, *BZip2*, and *ZipDeflate*.<br/>Supported levels are *Optimal* and *Fastest*. |No |
 
 >[!TIP]
->To copy all files under a folder, specify *folderPath* only.<br>To copy a single file with a specified name, specify *folderPath* with the folder part and *fileName* with the file name.<br>To copy a subset of files under a folder, specify *folderPath* with the folder part and *fileName* with the wildcard filter.
+>To copy all files under a folder, specify *folderPath* only.<br />To copy a single file with a specified name, specify *folderPath* with the folder part and *fileName* with the file name.<br />To copy a subset of files under a folder, specify *folderPath* with the folder part and *fileName* with the wildcard filter.
 
 >[!NOTE]
->If you were using *fileFilter* property for the file filter, it is still supported as is, but we recommend that you use the new filter capability added to *fileName* from now on.
+>If you were using *fileFilter* property for the file filter, it's still supported as is, but use the new filter capability added to *fileName* from now on.
 
 **Example:**
 

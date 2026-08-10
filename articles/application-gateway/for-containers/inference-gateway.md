@@ -3,7 +3,7 @@ title: Application Gateway for Containers - Inference gateway
 description: Learn how Application Gateway for Containers inference gateway supports self-hosted AI inference workloads with Gateway API Inference Extension resources.
 services: application-gateway
 author: jackstromberg
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: concept-article
 ms.date: 6/24/2026
 ms.author: jstrom

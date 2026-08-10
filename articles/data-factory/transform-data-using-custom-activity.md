@@ -17,6 +17,9 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> The Fabric equivalent of Custom activity is Azure Batch activity. For configuration details, see [Azure Batch activity](/fabric/data-factory/azure-batch-activity).
+
 There are two types of activities that you can use in an Azure Data Factory or Synapse pipeline.
 
 - [Data movement activities](copy-activity-overview.md) to move data between [supported source and sink data stores](copy-activity-overview.md#supported-data-stores-and-formats).

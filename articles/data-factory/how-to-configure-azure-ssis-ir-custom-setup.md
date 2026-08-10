@@ -3,14 +3,16 @@ title: Customize the setup for an Azure-SSIS Integration Runtime
 description: This article describes how to use the custom setup interface for an Azure-SSIS Integration Runtime to install additional components or change settings
 ms.subservice: integration-services
 ms.topic: how-to
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ms.date: 05/15/2024
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 You can customize your Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines via custom setups. They allow you to add your own steps during the provisioning or reconfiguration of your Azure-SSIS IR. 
 
@@ -272,7 +274,7 @@ To provision or reconfigure your Azure-SSIS IR with custom setups using Azure Po
 
       * A *BCP* folder, which contains a custom setup script (*main.cmd*) to install SQL Server command-line utilities (*MsSqlCmdLnUtils.msi*) on each node of your Azure-SSIS IR. One of those utilities is the bulk copy program (*bcp*).
 
-      * A *DNS SUFFIX* folder, which contains a custom setup script (*main.cmd*) to append your own DNS suffix (for example `test.com`) to any unqualified single label domain name and turn it into a Fully Qualified Domain Name (FQDN) before using it in DNS queries from your Azure-SSIS IR.
+      * A *DNS SUFFIX* folder, which contains a custom setup script (*main.cmd*) to append your own DNS suffix (for example `contoso.com`) to any unqualified single label domain name and turn it into a Fully Qualified Domain Name (FQDN) before using it in DNS queries from your Azure-SSIS IR.
 
       * An *EXCEL* folder, which contains a custom setup script (*main.cmd*) to install some C# assemblies and libraries on each node of your Azure-SSIS IR. You can use them in Script Tasks to dynamically read and write Excel files. 
       

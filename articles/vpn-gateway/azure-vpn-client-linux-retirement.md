@@ -6,7 +6,7 @@ author: flapinski
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 05/27/2026
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: As a Linux user, I want to migrate from the Azure VPN Client for Linux to a supported client so that I can securely connect to my organization's virtual network.
 ---
 # Azure VPN Client for Linux: Retirement overview and migration guide - VPN Gateway

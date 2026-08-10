@@ -1,11 +1,11 @@
 ---
 title: 'Azure Virtual WAN FAQ'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: faq
 ms.date: 05/27/2026
-ms.author: cherylmc
+ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
   - build-2025

@@ -24,6 +24,9 @@ Custom orchestration status lets you attach arbitrary JSON metadata to a running
 > The custom status payload is limited to 16 KB of UTF-16 JSON text. If you need a larger payload, use external storage and store a reference (such as a blob URL) in the custom status instead.
 
 ::: zone pivot="durable-functions"
+
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 In Azure Functions, this status is available via the [HTTP GetStatus API](../durable-functions/durable-functions-http-api.md#get-instance-status) or the equivalent [SDK API](durable-task-instance-management.md#query-instances) on the orchestration client object.
 ::: zone-end
 
@@ -57,6 +60,43 @@ The following sample demonstrates progress sharing using the Durable Functions H
 > [!NOTE]
 > These examples are written for Durable Functions 2.x and aren't compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
+<br>
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("E1_HelloSequence")]
+public static async Task<List<string>> Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    var outputs = new List<string>();
+
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
+    context.SetCustomStatus("Tokyo");
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
+    context.SetCustomStatus("Seattle");
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
+    context.SetCustomStatus("London");
+
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+    return outputs;
+}
+
+[Function("E1_SayHello")]
+public static string SayHello([ActivityTrigger] string name)
+{
+    return $"Hello {name}!";
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("E1_HelloSequence")]
 public static async Task<List<string>> Run(
@@ -81,6 +121,10 @@ public static string SayHello([ActivityTrigger] string name)
     return $"Hello {name}!";
 }
 ```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -374,6 +418,45 @@ The following client code polls the orchestration status and waits until `Custom
 
 # [C#](#tab/csharp)
 
+<br>
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("HttpStart")]
+public static async Task<HttpResponseData> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "post", Route = "orchestrators/{functionName}")] HttpRequestData req,
+    [DurableClient] DurableTaskClient client,
+    string functionName,
+    FunctionContext executionContext)
+{
+    ILogger log = executionContext.GetLogger("HttpStart");
+    string? eventData = await req.ReadFromJsonAsync<string>();
+    string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(functionName, eventData);
+
+    log.LogInformation("Started orchestration with ID = '{InstanceId}'.", instanceId);
+
+    OrchestrationMetadata? metadata = await client.GetInstanceAsync(instanceId, getInputsAndOutputs: true);
+    while (metadata is null || metadata.ReadCustomStatusAs<string>() != "London")
+    {
+        await Task.Delay(200);
+        metadata = await client.GetInstanceAsync(instanceId, getInputsAndOutputs: true);
+    }
+
+    HttpResponseData response = req.CreateResponse(HttpStatusCode.OK);
+    await response.WriteAsJsonAsync(metadata);
+    return response;
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
@@ -404,6 +487,10 @@ public static async Task<HttpResponseMessage> Run(
   }
 }
 ```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -507,6 +594,53 @@ You can use custom orchestration status to return structured data — like perso
 
 # [C#](#tab/csharp)
 
+<br>
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("CityRecommender")]
+public static void Run([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    int userChoice = context.GetInput<int>();
+
+    switch (userChoice)
+    {
+        case 1:
+            context.SetCustomStatus(new
+            {
+                recommendedCities = new[] { "Tokyo", "Seattle" },
+                recommendedSeasons = new[] { "Spring", "Summer" }
+            });
+            break;
+        case 2:
+            context.SetCustomStatus(new
+            {
+                recommendedCities = new[] { "Seattle", "London" },
+                recommendedSeasons = new[] { "Summer" }
+            });
+            break;
+        case 3:
+            context.SetCustomStatus(new
+            {
+                recommendedCities = new[] { "Tokyo", "London" },
+                recommendedSeasons = new[] { "Spring", "Summer" }
+            });
+            break;
+    }
+
+    // Wait for user selection and refine the recommendation
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("CityRecommender")]
 public static void Run(
@@ -542,6 +676,10 @@ public static void Run(
   // Wait for user selection and refine the recommendation
 }
 ```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -845,6 +983,44 @@ In this pattern, the orchestrator surfaces time-sensitive information — such a
 
 # [C#](#tab/csharp)
 
+<br>
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("ReserveTicket")]
+public static async Task<bool> Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    string userId = context.GetInput<string>();
+
+    int discount = await context.CallActivityAsync<int>("CalculateDiscount", userId);
+
+    context.SetCustomStatus(new
+    {
+        discount,
+        discountTimeout = 60,
+        bookingUrl = "https://www.myawesomebookingweb.com",
+    });
+
+    bool isBookingConfirmed = await context.WaitForExternalEvent<bool>("BookingConfirmed");
+
+    context.SetCustomStatus(isBookingConfirmed
+        ? new { message = "Thank you for confirming your booking." }
+        : new { message = "The booking was not confirmed on time. Please try again." });
+
+    return isBookingConfirmed;
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("ReserveTicket")]
 public static async Task<bool> Run(
@@ -870,6 +1046,10 @@ public static async Task<bool> Run(
   return isBookingConfirmed;
 }
 ```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 

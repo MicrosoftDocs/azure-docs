@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: virtual-wan
- author: cherylmc
+ author: duongau
  ms.service: azure-virtual-wan
  ms.topic: include
  ms.date: 03/27/2025
- ms.author: cherylmc
+ ms.author: duau
  ms.custom: include file
 ---
 

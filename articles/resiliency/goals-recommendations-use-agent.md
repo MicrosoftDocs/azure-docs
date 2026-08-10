@@ -31,7 +31,7 @@ Describe your application architecture to the agent. The agent evaluates your de
 
 ### Generate Infrastructure as Code (IaC) templates
 
-Ask the agent to generate Azure Resource Manager (ARM), Bicep, or Terraform templates with resiliency configurations already included.
+Ask the agent to generate Azure Resource Manager (ARM) or Bicep templates with resiliency configurations already included.
 
 ## Get Resilient for existing applications
 

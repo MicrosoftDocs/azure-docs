@@ -90,9 +90,9 @@ You also need these prerequisites to [run and debug your functions locally](#run
 + [Node.js](https://nodejs.org/), one of the [supported versions](functions-reference-node.md#node-version). Use the `node --version` command to check your version.
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-+ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
++ [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 
-+ [.NET 6.0 runtime](https://dotnet.microsoft.com/download).
++ [.NET 8 runtime](https://dotnet.microsoft.com/download/dotnet/8.0).
 
 + The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
 ::: zone-end  
@@ -169,7 +169,7 @@ Files generated depend on the chosen Node.js programming model for Functions:
 +  An HttpExample folder that contains: 
 
     + The [function.json definition file](functions-reference-node.md#folder-structure)
-    + An [index.js file](functions-reference-node.md#exporting-a-function), which contains the function code.
+    + An [index.js file](functions-reference-node.md?pivots=nodejs-model-v3#programming-model), which contains the function code.
 
 ---
 
@@ -234,7 +234,7 @@ Visual Studio Code creates a new folder in the project. The folder contains a ne
 This action creates a new folder in the project. The folder contains a new **function.json** file and the new PowerShell code file.
 ::: zone-end
 ::: zone pivot="programming-language-python"
-This action's results depends on the Python model version.
+This action's results depend on the Python model version.
 
 ### [v2](#tab/python-v2)
 

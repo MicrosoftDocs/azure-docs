@@ -6,14 +6,14 @@ author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 04/30/2026
+ms.date: 08/04/2026
 ms.author: mbender
 #customer intent: As a DevOps engineer, I want to migrate my Azure Application Gateway and Web Application Firewall deployments from V1 to V2 so that I can take advantage of the improved features and performance while ensuring minimal downtime during the transition.
 ---
 
 # Migrate Azure Application Gateway and Web Application Firewall from V1 to V2
 
-Microsoft announced the deprecation of Application Gateway V1 (Standard and Web Application Firewall) on April 28, 2023. Application Gateway V1 will retire on April 28, 2026.
+Microsoft announced the deprecation of Application Gateway V1 (Standard and Web Application Firewall) on April 28, 2023. Application Gateway V1 retired on April 28, 2026.
 
 In this article, you learn how to migrate Azure Application Gateway and Azure Web Application Firewall from V1 to V2 by using Azure PowerShell scripts. Migration has two stages: configuration migration and traffic migration. You can use the enhanced cloning script (recommended) or the legacy cloning script to clone your V1 gateway configuration to a new V2 gateway, and then redirect client traffic with minimal downtime.
 
@@ -166,6 +166,8 @@ Private Application Gateway deployments must have subnet delegation configured t
 - You must provide an IP address space for another subnet within the virtual network that contains your V1 gateway. The script can't create the V2 gateway in a subnet that already has a V1 gateway. If the subnet already has a V2 gateway, the script might still work if enough IP address space is available.
 
 - If you have a network security group (NSG) or user-defined routes (UDRs) associated with the V2 gateway subnet, make sure they adhere to the [NSG requirements](../application-gateway/configuration-infrastructure.md#network-security-groups) and [UDR requirements](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) for a successful migration.
+
+- [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
 
 - If you have FIPS mode enabled for your V1 gateway, it isn't migrated to your new V2 gateway.
 
@@ -320,7 +322,7 @@ The legacy script takes the following parameters:
 
 - If you have an NSG or UDRs associated with the V2 gateway subnet, make sure they adhere to the [NSG requirements](../application-gateway/configuration-infrastructure.md#network-security-groups) and [UDR requirements](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) for a successful migration.
 
-- [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+- [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
 
 - To migrate a TLS/SSL configuration, you must specify all the TLS/SSL certificates used in your V1 gateway.
 

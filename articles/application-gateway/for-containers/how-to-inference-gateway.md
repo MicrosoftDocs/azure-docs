@@ -3,9 +3,9 @@ title: Application Gateway for Containers - Configure the inference gateway
 description: Learn how to expose a self-hosted vLLM model server through Application Gateway for Containers inference gateway by using Gateway API Inference Extension resources.
 services: application-gateway
 author: jackstromberg
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: how-to
-ms.date: 06/24/2026
+ms.date: 07/10/2026
 ms.author: jstrom
 # Customer intent: As a platform engineer, I want to configure Application Gateway for Containers inference gateway, so that I can route traffic to self-hosted AI model servers on Kubernetes.
 ---
@@ -36,6 +36,10 @@ Before you begin, complete the following tasks:
 
 1. Deploy Application Gateway for Containers and ALB Controller. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 1. Enable the inference gateway feature on ALB Controller. For new installations or upgrades of ALB Controller, include `--set albController.aiGateway=true` in the Helm command. When you enable this setting, ALB Controller also installs v1.3.1 of the Gateway API Inference Extension CRDs.
+
+  >[!Note]
+  >Inference gateway isn't currently supported through the Application Gateway for Containers' AKS add-on. You must deploy the Application Gateway for Containers' ALB Controller by Helm chart to configure this feature.
+
 1. Prepare an AKS cluster with a GPU node pool that has at least one schedulable GPU and the NVIDIA device plugin installed. For instructions, see [Use GPUs for compute-intensive workloads on AKS](/azure/aks/gpu-cluster).
 1. Install the following tools on your workstation or use Azure Cloud Shell where available:
    - Azure CLI
@@ -282,7 +286,7 @@ You see the following message when it's ready:
 
 ## Deploy the InferencePool and Endpoint Picker
 
-Deploy the EPP and `InferencePool` together by using the [`inferencepool` Helm chart](https://github.com/kubernetes-sigs/gateway-api-inference-extension/tree/main/config/charts/inferencepool) published by the Kubernetes Gateway API Inference Extension project. The chart creates an EPP `Deployment`, a `Service` on port `9002`, the `ServiceAccount`, `Role`, and `RoleBinding` that let the EPP watch pods, and the `InferencePool` resource itself (named after the Helm release).
+Deploy the EPP and `InferencePool` together by using the [`inferencepool` Helm chart](https://github.com/kubernetes-sigs/gateway-api-inference-extension/tree/release-1.5/config/charts/inferencepool) published by the Kubernetes Gateway API Inference Extension project. The chart creates an EPP `Deployment`, a `Service` on port `9002`, the `ServiceAccount`, `Role`, and `RoleBinding` that let the EPP watch pods, and the `InferencePool` resource itself (named after the Helm release).
 
 ```bash
 IGW_CHART_VERSION='v1.3.1'
@@ -539,5 +543,5 @@ kubectl delete namespace $NAMESPACE --ignore-not-found
 ## Next steps
 
 - [Application Gateway for Containers - Inference gateway](inference-gateway.md)
-- [Gateway API Inference Extension guides](https://gateway-api-inference-extension.sigs.k8s.io/guides/)
+- [Gateway API Inference Extension guides](https://gateway-api-inference-extension.sigs.k8s.io/guides/implementers/)
 - [Troubleshoot Application Gateway for Containers](troubleshooting-guide.md)
