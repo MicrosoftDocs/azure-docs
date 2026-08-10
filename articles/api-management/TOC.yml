@@ -116,7 +116,7 @@
       items:
       - name: Import agent-to-agent (A2A) API
         href: agent-to-agent-api.md
-  - name: AI Gateway tier
+  - name: AI Gateway tier (preview)
     items:
     - name: Overview
       href: ai-gateway-overview.md
@@ -128,8 +128,6 @@
       href: ai-gateway-manage-models-tools.md
     - name: Govern, secure, and operate
       href: ai-gateway-govern-secure-assets.md
-    - name: Configure private networking
-      href: ai-gateway-configure-private-networking.md
 - name: Create and import APIs
   items:
   - name: Add an API manually
@@ -294,6 +292,8 @@
         href: inject-vnet-v2.md
       - name: Virtual network integration (v2 tiers)
         href: integrate-vnet-outbound.md
+    - name: Private networking - AI Gateway tier (preview)
+      href: ai-gateway-configure-private-networking.md
     - name: Virtual network for workspace gateways
       href: virtual-network-workspaces-resources.md
     - name: Connect privately using private endpoint
