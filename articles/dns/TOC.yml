@@ -156,8 +156,8 @@
           href: private-resolver-endpoints-rulesets.md
         - name: Private resolver architecture
           href: private-resolver-architecture.md
-        - name: Resiliency in Azure DNS Private Resolver
-          href: private-resolver-reliability.md
+        - name: Reliability in Azure DNS Private Resolver
+          href: /azure/reliability/reliability-dns-private-resolver?toc=%2fazure%2fdns%2ftoc.json
 - name: Security
   items:
     - name: Secure DNS
