@@ -3,7 +3,7 @@ title: Shared disks in Azure Site Recovery
 description: This article describes how to enable replication, failover, and failback Azure virtual machines for shared disks.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 05/15/2025
+ms.date: 08/10/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 ms.custom:
