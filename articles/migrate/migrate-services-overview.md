@@ -9,6 +9,7 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 05/18/2026
 ms.custom: mvc, engagement-fy25
+ms.update-cycle: 180-days
 ms.collection:
   - migration
   - aws-to-azure
