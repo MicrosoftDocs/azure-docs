@@ -73,7 +73,7 @@ C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip 
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | VMware- OVA file (13 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | B9A4F42F570A9DADFBA4A9CF9BCF1C87CB677BEFE29A1DCABDB1CD2684B9BCB1   |
+    | VMware- OVA file (12.8 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 5E94BF55CAC7E209188478734359469A3C9EBC424A9DA191A53FE6425ED6738F   |
 
     - Use the VHD file to set up the Hyper-V appliance in Azure public cloud.
 
@@ -85,7 +85,7 @@ C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip 
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | ZIP file (844 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | F9716CABB970C0C86FA08E9A8263280A8F00009D6E37E68CFCC2E3BCC107052B  |
+    | ZIP file (746 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  |  D7CC59E5C16A34155C53CDDFF9710D9F07EC1CE51EA802E9354641A602484C7C  |
 
 
 ## Appliance services
