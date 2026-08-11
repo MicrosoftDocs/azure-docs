@@ -6,7 +6,7 @@ author: asudbring
 ms.service: azure-bastion
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 03/12/2026
+ms.date: 08/10/2026
 ms.author: allensu
 # Customer intent: "As a cloud administrator, I want to securely connect to a Linux VM using SSH through a managed service, so that I can ensure safe access without exposing RDP/SSH ports to the internet."
 ---
@@ -224,7 +224,7 @@ For supported authentication types, see [Authentication details](#authentication
 
 ## Limitations
 
-* **IP-based connections:** IP-based connection doesn't work with force tunneling over VPN, or when a default route is advertised over an ExpressRoute circuit. Azure Bastion requires access to the internet. Force tunneling or default route advertisement results in traffic being dropped.
+* **IP-based connections:** IP-based connection doesn't work with force tunneling over VPN, or when a default route is advertised over an ExpressRoute circuit. In these routing scenarios, Bastion can't reach the internet, so force tunneling or default route advertisement results in traffic being dropped. This internet-access requirement applies to these specific routing configurations and isn't a blanket requirement for every deployment mode. For example, a [private-only Bastion deployment](private-only-deployment.md) is designed to operate without outbound access outside the virtual network.
 * **IP-based connections:** UDR isn't supported on the Bastion subnet, including with IP-based connections.
 * **IP-based connections:** Microsoft Entra ID authentication isn't supported for IP-based SSH connections. For more information, see [Microsoft Entra ID authentication](bastion-entra-id-authentication.md).
 * **Native client:** Signing in using an SSH private key stored in Azure Key Vault isn't supported with native client connections.
