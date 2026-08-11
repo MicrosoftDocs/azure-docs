@@ -26,7 +26,7 @@ If your source is a text file without a header line, you need to use [explicit m
 
 ### Explicit mapping
 
-You can specify explicit mapping to customize the column and field mapping from source to sink based on your needs. By using explicit mapping, you can copy only part of the source data to the sink, map source data to sink with different names, or reshape tabular or hierarchical data. The copy activity:
+Specify explicit mapping to customize the column and field mapping from source to sink. By using explicit mapping, you can copy only part of the source data to the sink, map source data to sink with different names, or reshape tabular or hierarchical data. The copy activity:
 
 1. Reads the data from the source and determines the source schema.
 1. Applies your defined mapping.
@@ -38,15 +38,17 @@ Learn more about:
 - [Hierarchical source to tabular sink](#hierarchical-source-to-tabular-sink)
 - [Tabular/Hierarchical source to hierarchical sink](#tabularhierarchical-source-to-hierarchical-sink)
 
-You can configure the mapping in the Authoring UI by going to the copy activity and selecting the **mapping** tab. Or, you can programmatically specify the mapping in the copy activity by using the `translator` property. The following properties are supported in `translator` -> `mappings` array -> objects -> `source` and `sink`, which point to the specific column or field to map data.
+Configure the mapping in the Authoring UI by going to the copy activity and selecting the **mapping** tab. Or, programmatically specify the mapping in the copy activity by using the `translator` property. The following properties are supported in `translator` -> `mappings` array -> objects -> `source` and `sink`, which point to the specific column or field to map data.
 
 | Property | Description                                                  | Required |
 | -------- | ------------------------------------------------------------ | -------- |
-| name | Name of the source or sink column or field. Apply for tabular source and sink. | Yes |
-| ordinal  | Column index. Start from 1. <br>Apply and required when using delimited text without header line. | No       |
-| path     | JSON path expression for each field to extract or map. Apply for hierarchical source and sink, for example, Azure Cosmos DB, Azure DocumentDB (with MongoDB compatibility), MongoDB, or REST connectors.<br>For fields under the root object, the JSON path starts with root `$`; for fields inside the array chosen by `collectionReference` property, JSON path starts from the array element without `$`. | No       |
+| name | Name of the source or sink column or field. Applies to tabular source and sink. | Yes |
+| ordinal | Column index. Starts from 1.
+Applies and required when using delimited text without header line. | No |
+| path | JSON path expression for each field to extract or map. Applies to hierarchical source and sink, for example, Azure Cosmos DB, Azure DocumentDB (with MongoDB compatibility), MongoDB, or REST connectors.
+For fields under the root object, the JSON path starts with root `$`; for fields inside the array chosen by `collectionReference` property, JSON path starts from the array element without `$`. | No |
 | type | Interim data type of the source or sink column. In general, you don't need to specify or change this property. To learn more, see [data type mapping](#data-type-mapping). | No |
-| culture | Culture of the source or sink column. Apply when type is `Datetime` or `Datetimeoffset`. The default is `en-us`.
+| culture | Culture of the source or sink column. Applies when type is `Datetime` or `Datetimeoffset`. The default is `en-us`.
 In general, you don't need to specify or change this property. To learn more, see [data type mapping](#data-type-mapping). | No |
 | format | Format string to use when type is `Datetime` or `Datetimeoffset`. Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) on how to format datetime. In general, you don't need to specify or change this property. To learn more, see [data type mapping](#data-type-mapping). | No |
 
@@ -54,7 +56,8 @@ The following properties are supported under `translator` in addition to `mappin
 
 | Property            | Description                                                  | Required |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| collectionReference | Apply when copying data from a hierarchical source, such as Azure Cosmos DB, Azure DocumentDB (with MongoDB compatibility), MongoDB, or REST connectors.<br>If you want to iterate and extract data from the objects **inside an array field** with the same pattern and convert to per row per object, specify the JSON path of that array to do cross-apply. | No       |
+| collectionReference | Applies when copying data from a hierarchical source, such as Azure Cosmos DB, Azure DocumentDB (with MongoDB compatibility), MongoDB, or REST connectors.
+If you want to iterate and extract data from the objects **inside an array field** with the same pattern and convert to per row per object, specify the JSON path of that array to do cross-apply. | No |
 
 #### Tabular source to tabular sink
 
@@ -66,7 +69,7 @@ For example, to copy data from Salesforce to Azure SQL Database and explicitly m
 
 :::image type="content" source="media/copy-activity-schema-and-type-mapping/map-tabular-to-tabular.png" alt-text="Map tabular to tabular":::
 
-You can configure the same mapping in the copy activity payload (see `translator`).
+Configure the same mapping in the copy activity payload (see `translator`).
 
 ```json
 {
@@ -164,7 +167,7 @@ For example, if you have source Azure DocumentDB or MongoDB document with the fo
 }
 ```
 
-And you want to copy it into a text file in the following format with header line, by flattening the data inside the array *(order_pd and order_price)* and cross join with the common root info *(number, date, and city)*:
+To copy the data into a text file, use the following format with a header line. Flatten the data inside the arrays *(order_pd and order_price)* and use a cross join with the common root information *(number, date, and city)*:
 
 | orderNumber | orderDate | order_pd | order_price | city    |
 | ----------- | --------- | -------- | ----------- | ------- |
@@ -172,11 +175,11 @@ And you want to copy it into a text file in the following format with header lin
 | 01          | 20170122  | P2       | 13          | Seattle |
 | 01          | 20170122  | P3       | 231         | Seattle |
 
-You can define this mapping in Data Factory authoring UI:
+Define this mapping in the Data Factory authoring UI:
 
-1. On copy activity > mapping tab, select **Import schemas** to import both source and sink schemas. As the service samples the top few objects when importing schema, if any field doesn't appear, add it to the correct layer in the hierarchy - hover on an existing field name and choose to add a node, an object, or an array.
+1. On copy activity, go to the **Mapping** tab and select **Import schemas** to import both source and sink schemas. As the service samples the top few objects when importing schema, if any field doesn't appear, add it to the correct layer in the hierarchy - hover on an existing field name and choose to add a node, an object, or an array.
 
-1. Select the array from which you want to iterate and extract data. The UI autpopulates **Collection reference**. Note that only a single array is supported for this operation.
+1. Select the array from which you want to iterate and extract data. The UI autopopulates **Collection reference**. Note that this operation supports only a single array.
 
 1. Map the needed fields to sink. The service automatically determines the corresponding JSON paths for the hierarchical side.
 
@@ -234,9 +237,9 @@ You can configure the same mapping in copy activity payload (see `translator`):
 
 The user experience flow is similar to [Hierarchical source to tabular sink](#hierarchical-source-to-tabular-sink). 
 
-When copying data from tabular source to hierarchical sink, writing to array inside object isn't supported.
+When copying data from a tabular source to a hierarchical sink, the service doesn't support writing to an array inside an object.
 
-When copying data from hierarchical source to hierarchical sink, you can preserve entire layer's hierarchy by selecting the object or array and mapping to sink without touching the inner fields.
+When copying data from a hierarchical source to a hierarchical sink, you can preserve an entire layer's hierarchy by selecting the object or array and mapping to sink without touching the inner fields.
 
 For more advanced data reshape transformation, use [Data Flow](concepts-data-flow-overview.md).
 
@@ -360,11 +363,11 @@ For existing copy activities created before this feature is released, you won't 
 
 ### Alternative column-mapping (legacy model)
 
-To map between tabular-shaped data, specify `copy activity -> translator -> columnMappings`. In this case, both input and output datasets require the "structure" section. Column mapping supports **mapping all or a subset of columns in the source dataset "structure" to all columns in the sink dataset "structure"**. The following error conditions result in an exception:
+To map between tabular-shaped data, specify `copy activity -> translator -> columnMappings`. In this case, both input and output datasets require the **structure** section. Column mapping supports **mapping all or a subset of columns in the source dataset structure to all columns in the sink dataset structure**. The following error conditions result in an exception:
 
-- Source data store query result doesn't have a column name that you specified in the input dataset "structure" section.
-- Sink data store (if with pre-defined schema) doesn't have a column name that you specified in the output dataset "structure" section.
-- Either fewer columns or more columns in the "structure" of sink dataset than specified in the mapping.
+- Source data store query result doesn't have a column name that you specified in the input dataset structure section.
+- Sink data store (if with predefined schema) doesn't have a column name that you specified in the output dataset structure section.
+- Either fewer columns or more columns in the structure of sink dataset than specified in the mapping.
 - Duplicate mapping.
 
 In the following example, the input dataset has a structure, and it points to a table in an on-premises Oracle database.
@@ -452,7 +455,7 @@ The following JSON defines a copy activity in a pipeline. The columns from sourc
 
 If you use the syntax `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` to specify column mapping, it's still supported as-is.
 
-### Alternative schema-mapping (legacy model)
+### Alternative schema mapping (legacy model)
 
 You can specify copy activity -> `translator` -> `schemaMapping` to map between hierarchical-shaped data and tabular-shaped data. For example, you can copy from MongoDB or REST to a text file, and copy from Oracle to Azure Cosmos DB for MongoDB or Azure DocumentDB (with MongoDB compatibility). The copy activity `translator` section supports the following properties:
 
@@ -502,7 +505,7 @@ and you want to copy it into an Azure SQL table in the following format by flatt
 | 01          | 20170122  | P2       | 13          | Seattle |
 | 01          | 20170122  | P3       | 231         | Seattle |
 
-Configure the schema-mapping rule as the following copy activity JSON sample:
+Configure the schema mapping rule as the following copy activity JSON sample:
 
 ```json
 {
