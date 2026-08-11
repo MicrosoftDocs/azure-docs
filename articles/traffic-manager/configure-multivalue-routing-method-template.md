@@ -14,7 +14,7 @@ ms.custom:
 # Customer intent: As a cloud engineer, I want to configure Traffic Manager nested endpoints with the min-child feature using an ARM template, so that I can efficiently manage traffic distribution in my Azure environment.
 ---
 
-# Configure nested endpoints with the min-child feature using an ARM template
+# Configure nested endpoints with the min-child feature by using an ARM template
 
 This article describes how to use an Azure Resource Manager template (ARM template) to create a Traffic Manager profile with nested endpoints and the min-child feature. The parent profile in this template uses the Priority routing method.
 
