@@ -1,6 +1,6 @@
 ---
-title: Aggregate data with window transforms in data flow graphs
-description: Learn how to compute averages, sums, min/max, counts, and other aggregations over duration, count, memory, and trigger-based windows in Azure IoT Operations data flow graphs.
+title: Window transforms in data flow graphs
+description: Aggregate high-frequency device data over duration, count, memory, and trigger-based windows in Azure IoT Operations data flow graphs to cut message volume.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
@@ -8,6 +8,8 @@ ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 07/24/2026
 ai-usage: ai-assisted
+
+#customer intent: As an operator, I want to aggregate high-frequency device data over configurable windows so that I can reduce message volume and send consolidated statistics downstream.
 
 ---
 
@@ -17,22 +19,14 @@ A window transform groups incoming messages and produces a single output message
 
 Currently, a window can close based on duration, count, memory, or trigger conditions.
 
+For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md).
+
 > [!NOTE]
 > Non-duration-based windowing requires `azureiotoperations/graph-dataflow-window:1.1.0` or later.
 
 [!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
 
 Window transforms add aggregation functions such as `average`, `min`, and `max`, which are available only in accumulation rules. For the full list, see [Aggregation functions](concept-dataflow-graphs-expressions.md#aggregation-functions-window-transforms-only).
-
-[!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
-
-Window transforms add aggregation functions such as `average`, `min`, and `max`, which are available only in accumulation rules. For the full list, see [Aggregation functions](concept-dataflow-graphs-expressions.md#aggregation-functions-window-transforms-only).
-
-[!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
-
-Window transforms add aggregation functions such as `average`, `min`, and `max`, which are available only in accumulation rules. For the full list, see [Aggregation functions](concept-dataflow-graphs-expressions.md#aggregation-functions-window-transforms-only).
-
-<!-- For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md). -->
 
 ## Prerequisites
 
@@ -43,10 +37,7 @@ Window transforms add aggregation functions such as `average`, `min`, and `max`,
 
 ## Scaling limitation for stateful graphs
 
-> [!IMPORTANT]
-> Data flow graphs that contain a window transform are *stateful*—each instance accumulates messages independently. When the data flow profile has an instance count greater than one, messages are distributed across instances through [shared subscriptions](howto-configure-dataflow-source.md#shared-subscriptions). Because each instance maintains its own aggregation state and the instances don't share state with each other, each instance only sees a subset of the messages. This means aggregation results such as averages, sums, and counts are computed over a partial data set and are incorrect.
->
-> To ensure correct aggregation results, set the data flow profile [instance count](howto-configure-dataflow-profile.md#scaling) to **1** for any data flow graph that uses a window transform.
+[!INCLUDE [dataflow-graphs-scaling-limitation](../includes/dataflow-graphs-scaling-limitation.md)]
 
 ## When to use a window transform
 
@@ -63,14 +54,14 @@ Use a window transform when you receive high-frequency sensor data and want to r
 The window transform has two internal steps connected in sequence:
 
 1. **Window**: Buffers messages until one of the configured closing conditions fires.
-2. **Accumulate**: Applies your aggregation rules when the window closes. All messages in the window are reduced to a single output message.
+2. **Accumulate**: Applies your aggregation rules when the window closes. The transform reduces all messages in the window to a single output message.
 
 > [!NOTE]
 > A window transform must configure at least one closing condition: `delay`, `count`, `memory`, or `triggers`.
 
 ## Configure window closing conditions
 
-Starting from version `1.1.0`, the window graph adds three new peer configuration keys alongside the existing `delay` key:
+Starting from version `1.1.0`, the window transform adds three configuration keys alongside the existing `delay` key:
 
 | Configuration key | Window type | Purpose |
 | --- | --- | --- |
@@ -81,13 +72,13 @@ Starting from version `1.1.0`, the window graph adds three new peer configuratio
 
 ### Duration-based window
 
-The `delay` configuration controls how long each tumbling window lasts.
+Use the `delay` configuration to close the window after a fixed duration. This setting controls how long each tumbling window lasts.
 
 > [!NOTE]
 > The delay step aligns message timestamps to window boundaries. If a message arrives 7 seconds into a 10-second window, it belongs to the 10-second boundary.
 
 > [!NOTE]
-> If you don't provide `delay`, a 60-second default window timeout is used as a safety valve.
+> If you don't provide `delay`, the window uses a 60-second default timeout as a safety valve.
 
 # [Operations experience](#tab/portal)
 
@@ -95,7 +86,7 @@ In the window transform configuration, set the **Window duration** in seconds. F
 
 # [Azure CLI](#tab/cli)
 
-The CLI applies the whole graph from one config file, so add this to the window transform node's `configuration` in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
+The CLI applies the whole graph from one config file. Add this configuration to the window transform node's `configuration` in your `graph.json` file. Then, apply it by using [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
 
 The rules are a JSON object:
 
@@ -584,7 +575,7 @@ Each function takes a single positional variable as its argument (`$1` for the f
 
 ## Combine aggregations
 
-You can combine multiple aggregation functions in a single expression:
+Combine multiple aggregation functions in a single expression:
 
 # [Operations experience](#tab/portal)
 
@@ -646,7 +637,7 @@ Each aggregation function must reference a single positional variable directly. 
 
 ## Full configuration example
 
-A complete window configuration that closes the window after 30 seconds, 5 messages, 1048576 buffered bytes, or when `running_sum($1) + $1 > 100`, with `boundaryMessage` set to `messageInCurrent` for the last three conditions and then computes temperature statistics.
+This example shows a complete window configuration that closes the window after 30 seconds, 5 messages, 1,048,576 buffered bytes, or when `running_sum($1) + $1 > 100`. The example sets the `boundaryMessage` value to `messageInCurrent` for the last three conditions, and the window computes temperature statistics when it closes.
 
 Which condition closes the window depends on message timing, count, payload size, and content. The following examples show the resulting output for each closing condition.
 
@@ -749,7 +740,7 @@ In the Operations experience, create a data flow graph with a window transform:
 
 # [Azure CLI](#tab/cli)
 
-The Azure CLI applies a data flow graph from a single JSON config file. Create a `graph.json` file with the graph properties. In the `graph.json` file, each transform's rules are stored in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
+The Azure CLI applies a data flow graph from a single JSON config file. Create a `graph.json` file with the graph properties. In the `graph.json` file, store each transform's rules in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
 
 ```json
 {
@@ -825,7 +816,7 @@ The Azure CLI applies a data flow graph from a single JSON config file. Create a
 }
 ```
 
-Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
+Apply the config file.
 
 ```azurecli
 az iot ops dataflowgraph apply \
