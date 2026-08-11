@@ -1,6 +1,6 @@
 ---
-title: Filter and route data in data flow graphs
-description: Learn how to filter, branch, and merge messages using data flow graphs in Azure IoT Operations.
+title: Filter, branch, and merge messages in data flow graphs
+description: Learn how to use data flow graphs in Azure IoT Operations to filter, branch, and merge messages so only relevant data reaches your destination.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
@@ -9,11 +9,15 @@ ms.topic: how-to
 ms.date: 08/03/2026
 ai-usage: ai-assisted
 
+#customer intent: As a solution developer, I want to filter, branch, and merge messages in a data flow graph so that only the relevant data reaches my destination.
+
 ---
 
-# Filter and route data in data flow graphs
+# Filter, branch, and merge data in data flow graphs
 
 Data flow graphs provide two ways to control which messages flow through your pipeline: **filter** transforms drop unwanted messages, and **branch** transforms route each message down one of two paths based on a condition. After branching, a **concatenate** transform merges the paths back together.
+
+These transforms route messages *within* the graph. To instead route messages to different MQTT topics based on their content, see [Route messages to different MQTT topics](howto-dataflow-graphs-topic-routing.md).
 
 For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md).
 
@@ -45,7 +49,7 @@ Each filter rule has these properties:
 | `expression` | Yes | Formula applied to the input values. Must return a boolean. When it returns true, the message is dropped. |
 | `description` | No | Human-readable label used in error messages. |
 
-Inputs are assigned positional variables based on their order: the first input is `$1`, the second is `$2`, and so on.
+Each input maps to a positional variable based on its order: the first input is `$1`, the second is `$2`, and so on.
 
 When you define multiple rules, they use **OR logic**: if *any* rule evaluates to true, the message is dropped. The engine short-circuits once a rule matches.
 
@@ -72,7 +76,7 @@ In the filter transform configuration, add a rule:
 
 # [Azure CLI](#tab/cli)
 
-The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+The CLI applies the whole graph from one config file. Add this snippet to the corresponding place in your `graph.json` and apply it by using [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
 
 ```json
 "filter": [
@@ -128,7 +132,7 @@ In the filter transform configuration, add a rule:
 
 # [Azure CLI](#tab/cli)
 
-The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+The CLI applies the whole graph from one config file. Add this snippet to the corresponding place in your `graph.json` and apply it by using [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
 
 ```json
 "filter": [
@@ -187,7 +191,7 @@ Add two rules:
 
 # [Azure CLI](#tab/cli)
 
-The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+The CLI applies the whole graph from one config file. Add this snippet to the corresponding place in your `graph.json` and apply it by using [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
 
 ```json
 "filter": [
@@ -262,7 +266,7 @@ Add a rule with inputs `temperature` and `humidity`, and expression `$1 > 30 && 
 
 # [Azure CLI](#tab/cli)
 
-The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+The CLI applies the whole graph from one config file. Add this snippet to the corresponding place in your `graph.json` and apply it by using [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
 
 ```json
 "filter": [
@@ -305,9 +309,9 @@ filter: [
 
 For the full list of operators and functions, see [Expressions reference](concept-dataflow-graphs-expressions.md).
 
-### Validate messages against a schema
+### Validate filter messages against a schema
 
-You can configure a filter transform to validate incoming messages against a JSON schema before filter rules run. Messages that don't conform to the schema are dropped immediately.
+Configure a filter transform to validate incoming messages against a JSON schema before filter rules run. The process drops messages that don't conform to the schema.
 
 To enable schema validation, set `validateSchema` to `true` in the filter configuration. When enabled, the filter retrieves the schema from the `schemaRef` on the incoming node connection (the `from` side of the `nodeConnections` entry that feeds into the filter node).
 
@@ -539,12 +543,12 @@ Every message goes to exactly one of the two paths. Nothing is dropped.
 
 Key constraints:
 
-- The branch expression **must return a boolean**. Non-boolean results cause an error (unlike filter, which also errors on non-boolean).
+- The branch expression **must return a boolean**. Non-boolean results cause an error.
 - **No wildcard inputs.**
 - **Exactly one branch rule.** The `branch` key takes a single object, not an array.
 
 > [!IMPORTANT]
-> Branching splits messages into separate processing paths, but all paths must merge back together using a concatenate transform before reaching the destination. Think of branching as a way to apply different transformations to different messages, not as a way to route to multiple endpoints.
+> Branching splits messages into separate processing paths, but all paths must merge back together by using a concatenate transform before reaching the destination. Think of branching as a way to apply different transformations to different messages, not as a way to route to multiple endpoints.
 
 ### Define a branch rule
 
@@ -615,14 +619,14 @@ configuration: [
 
 Messages where `severity` is greater than 5 go to the `true` path. All others go to the `false` path.
 
-### Validate messages against a schema
+### Validate branch messages against a schema
 
 Starting from version `1.1.0`, you can configure a branch transform to validate incoming messages against a JSON schema before evaluating the branch expression.
 
 To enable schema validation, set `validateSchema` to `true` in the branch configuration. The `validateSchema` field is optional and defaults to `false`. When enabled, the branch retrieves the schema from the `schemaRef` on the incoming node connection (the `from` side of the `nodeConnections` entry that feeds into the branch node).
 
 - Messages that pass schema validation continue to branch evaluation.
-- Messages that fail schema validation are routed to the `false` path.
+- Messages that fail schema validation go to the `false` path.
 
 # [Operations experience](#tab/portal)
 
@@ -861,7 +865,7 @@ This end-to-end example filters out bad readings, branches by severity, applies 
 
 :::image type="content" source="media/howto-dataflow-graphs-filter-route/filter-branch-pipeline.png" alt-text="Screenshot of the operations experience canvas showing a filter, branch, map, concat, and destination pipeline." lightbox="media/howto-dataflow-graphs-filter-route/filter-branch-pipeline.png":::
 
-To build this pipeline in the Operations experience:
+To build this pipeline in the operations experience:
 
 1. Create a data flow graph and add a **source** that reads from `telemetry/sensors`.
 1. Add a **filter** transform. Configure a rule that drops messages where `temperature > 1000`.
@@ -1024,7 +1028,7 @@ The Azure CLI applies a data flow graph from a single JSON config file. Create a
 }
 ```
 
-Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
+Apply the config file.
 
 ```azurecli
 az iot ops dataflowgraph apply \
@@ -1254,7 +1258,7 @@ spec:
 
 ---
 
-## Next steps
+## Related content
 
 - [Transform data with map](howto-dataflow-graphs-map.md)
 - [Aggregate data over time](howto-dataflow-graphs-window.md)

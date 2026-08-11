@@ -1,5 +1,5 @@
 ---
-title: Transform data with map in data flow graphs
+title: Map and transform data in data flow graphs
 description: Learn how to define map rules that rename, restructure, compute, and copy fields in Azure IoT Operations data flow graphs.
 author: dominicbetts
 ms.author: dobett
@@ -9,11 +9,15 @@ ms.topic: how-to
 ms.date: 07/24/2026
 ai-usage: ai-assisted
 
+#customer intent: As an operator, I want to define map rules in a data flow graph so that I can rename, restructure, compute, and copy fields in my messages.
+
 ---
 
 # Transform data with map in data flow graphs
 
-A map transform takes each incoming message and produces an output message based on your rules. You can rename fields, reorganize them into new structures, compute derived values, or remove unwanted fields. Wildcard rules let you copy all fields at once.
+In Azure IoT Operations, a map transform takes each incoming message in a data flow graph and produces an output message based on your rules. You can rename fields, reorganize them into new structures, compute derived values, or remove unwanted fields. By using wildcard rules, you can copy all fields at once.
+
+
 
 For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md).
 
@@ -33,15 +37,15 @@ Each map rule has four parts:
 | Property | Required | Description |
 |----------|----------|-------------|
 | `inputs` | Yes | List of field paths to read from the incoming message. |
-| `output` | Yes | Field path where the result is written in the output message. |
-| `expression` | No | Formula applied to the input values. If omitted, the first input value is copied directly. |
+| `output` | Yes | Field path where the result appears in the output message. |
+| `expression` | No | Formula applied to the input values. If you omit it, the first input value copies directly. |
 | `description` | No | Human-readable label for the rule, included in error messages. |
 
-Inputs are assigned positional variables in order. For example, if `inputs` is `['Position', 'Office']`, then `$1` is the value of `Position` and `$2` is the value of `Office`.
+The map transform assigns positional variables to inputs in order. For example, if `inputs` is `['Position', 'Office']`, then `$1` is the value of `Position` and `$2` is the value of `Office`.
 
 ## Rename a field
 
-To rename `BirthDate` to `DateOfBirth`, map one input to a different output path. No expression is needed. The value copies as-is.
+To rename `BirthDate` to `DateOfBirth`, map one input to a different output path. You don't need an expression. The value copies as-is.
 
 # [Operations experience](#tab/portal)
 
@@ -170,11 +174,11 @@ These two rules produce:
 }
 ```
 
-Only fields listed in a rule's output appear in the result. The `Position` field isn't included because no rule maps it.
+Only fields listed in a rule's output appear in the result. The result doesn't include the `Position` field because no rule maps it.
 
 ## Combine multiple inputs
 
-When you list multiple inputs, their positional variables let you merge them in an expression.
+When you list multiple inputs, use their positional variables to merge them in an expression.
 
 # [Operations experience](#tab/portal)
 
@@ -231,7 +235,7 @@ Given `Position: "Analyst"` and `Office: "Kent, WA"`, the output is `"Analyst, K
 
 Use the `expression` field to apply built-in functions or arithmetic. The following example uses `cToF`, a built-in unit conversion function that converts a Celsius value to Fahrenheit. Remember that `$1` refers to the first input, not to a field name.
 
-For the complete list of operators, functions, and advanced features, see the [Expressions reference](concept-dataflow-graphs-expressions.md). Functions are grouped by category, such as [unit conversion](concept-dataflow-graphs-expressions.md#unit-conversion-functions), [scaling and rounding](concept-dataflow-graphs-expressions.md#scaling-and-rounding-functions), [math](concept-dataflow-graphs-expressions.md#math-functions), and [string](concept-dataflow-graphs-expressions.md#string-functions) functions.
+For the complete list of operators, functions, and advanced features, see the [Expressions reference](concept-dataflow-graphs-expressions.md). The reference groups functions by category, such as [unit conversion](concept-dataflow-graphs-expressions.md#unit-conversion-functions), [scaling and rounding](concept-dataflow-graphs-expressions.md#scaling-and-rounding-functions), [math](concept-dataflow-graphs-expressions.md#math-functions), and [string](concept-dataflow-graphs-expressions.md#string-functions) functions.
 
 # [Operations experience](#tab/portal)
 
@@ -358,12 +362,12 @@ The CLI applies the whole graph from one config file, so add this to the corresp
 ### Wildcard rule requirements
 
 - A wildcard rule must be the **first rule** in your map configuration.
-- Only one wildcard rule is allowed per map transform.
-- The asterisk matches one or more path segments and must represent a complete segment. Patterns like `partial*` aren't supported.
+- A map transform supports only one wildcard rule.
+- The asterisk matches one or more path segments and must represent a complete segment. The map transform doesn't support partial patterns like `partial*`.
 
 ### Prefix wildcards
 
-You can scope the wildcard to a specific prefix. To flatten all fields from `ColorProperties` to the root level:
+Scope the wildcard to a specific prefix. To flatten all fields from `ColorProperties` to the root level:
 
 # [Operations experience](#tab/portal)
 
@@ -427,7 +431,7 @@ The output is:
 
 ## Remove fields from the output
 
-Set the `output` to an empty string to exclude specific fields. This approach is typically used after a wildcard rule: copy everything, then remove what you don't need.
+Set the `output` to an empty string to exclude specific fields. Typically, use this approach after a wildcard rule: copy everything, then remove what you don't need.
 
 # [Operations experience](#tab/portal)
 
@@ -484,7 +488,7 @@ The CLI applies the whole graph from one config file, so add this to the corresp
 
 ---
 
-No expression is allowed on a removal rule.
+A removal rule can't include an expression.
 
 ## Override wildcards for specific fields
 
@@ -550,7 +554,7 @@ The CLI applies the whole graph from one config file, so add this to the corresp
 
 ## Use metadata fields
 
-You can read from and write to message metadata like MQTT topics and user properties. See [Metadata fields](concept-dataflow-graphs-expressions.md#metadata-fields) in the expressions reference.
+Read from and write to message metadata like MQTT topics and user properties. See [Metadata fields](concept-dataflow-graphs-expressions.md#metadata-fields) in the expressions reference.
 
 # [Operations experience](#tab/portal)
 
@@ -726,12 +730,12 @@ In the Operations experience, create a data flow graph and add a map transform. 
 1. **Copy all fields** with a wildcard passthrough.
 1. **Remove sensitive fields** by setting the output to empty for `password` and `secret_key`.
 1. **Restructure** the `BirthDate` field to `Employee.DateOfBirth`.
-1. **Compute** a Fahrenheit conversion using the formula `cToF($1)` on the `temperature` field.
+1. **Compute** a Fahrenheit conversion by using the formula `cToF($1)` on the `temperature` field.
 1. **Merge** the `Position` and `Office` fields with the formula `$1 + ", " + $2`.
 
 # [Azure CLI](#tab/cli)
 
-The Azure CLI applies a data flow graph from a single JSON config file. Create a `graph.json` file with the graph properties. In the `graph.json` file, each transform's rules are stored in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
+The Azure CLI applies a data flow graph from a single JSON config file. Create a `graph.json` file with the graph properties. In the `graph.json` file, the `value` field stores each transform's rules as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
 
 ```json
 {
@@ -793,7 +797,7 @@ The Azure CLI applies a data flow graph from a single JSON config file. Create a
 
 [!INCLUDE [dataflow-jq-tip](../includes/dataflow-jq-tip.md)]
 
-Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
+Apply the config file.
 
 ```azurecli
 az iot ops dataflowgraph apply \
@@ -899,11 +903,11 @@ The rules configuration is a JSON string placed as the `value` for the `rules` k
 }
 ```
 
-For the full `DataflowGraph` resource structure, see [Data flow graphs overview](concept-dataflow-graphs.md#how-configuration-works).
+For the full `DataflowGraph` resource structure, see [Data flow graphs overview](concept-dataflow-graphs.md).
 
 ---
 
-## Next steps
+## Related content
 
 - [Filter and route data](howto-dataflow-graphs-filter-route.md)
 - [Aggregate data over time](howto-dataflow-graphs-window.md)

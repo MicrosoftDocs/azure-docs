@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-opcua-connector
 ms.topic: how-to
-ms.date: 05/12/2026
+ms.date: 08/10/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an OT user, I want configure my Azure IoT Operations environment so that data can flow from my OPC UA servers through to the MQTT broker.
@@ -411,6 +411,129 @@ resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
 ```
 
 ---
+
+## Configure dataset triggering
+
+Starting with Azure IoT Operations 2607, you can configure one data point to trigger publication of the other sampled data points in the same dataset. Dataset triggering is supported only for assets that reference a namespaced device endpoint. To learn about reporting modes, requirements, and fallback behavior, see [Control dataset publishing with a triggering item](overview-opc-ua-connector.md#control-dataset-publishing-with-a-triggering-item).
+
+The following examples configure a `telemetry` dataset with `dataPoint-SlowUInt1` as the triggering item. The default `Sampling` reporting mode means that the trigger controls publication but its own value isn't included in the published output.
+
+# [Operations experience](#tab/portal)
+
+1. In the operations experience, select **Assets**, and then open or create the `my-triggered-asset` asset. Select the `opc-ua-connector-0` inbound endpoint on the namespaced device that you created previously.
+
+1. On the **Datasets** page, select or create the `telemetry` dataset. Set the destination topic to `azure-iot-operations/data/my-triggered-asset`, the publishing interval to `1000` milliseconds, and the sampling interval to `500` milliseconds.
+
+1. Add the following data points to the dataset. Data point names are case-sensitive.
+
+    | Data point name | Data source |
+    | --- | --- |
+    | `dataPoint-SlowUInt1` | `nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt1` |
+    | `dataPoint-FastUInt1` | `nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1` |
+    | `dataPoint-FastUInt2` | `nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2` |
+
+1. In the dataset settings, set **Triggering item** to `dataPoint-SlowUInt1` and **Triggering item reporting mode** to **Sampling**.
+
+    :::image type="content" source="media/howto-configure-opc-ua/triggering-item-configuration.png" alt-text="Screenshot of Azure IoT Operations dataset settings with dataPoint-SlowUInt1 as the triggering item and Sampling as the reporting mode." lightbox="media/howto-configure-opc-ua/triggering-item-configuration.png":::
+
+1. Save the asset configuration.
+
+# [Azure CLI](#tab/cli)
+
+Azure CLI doesn't currently support setting `triggeringItem` or `triggeringItemReportingMode`. Use the operations experience or Bicep to configure dataset triggering. Don't use a generic asset update command to modify these connector-specific dataset properties.
+
+# [Bicep](#tab/bicep)
+
+Deploy the following Bicep template to create a namespaced asset with dataset triggering. Replace `<IOT_OPERATIONS_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace and custom location names:
+
+```bicep
+param iotOperationsNamespaceName string = '<IOT_OPERATIONS_NAMESPACE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource iotOperationsNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: iotOperationsNamespaceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
+  name: 'my-triggered-asset'
+  parent: iotOperationsNamespace
+  location: resourceGroup().location
+  extendedLocation: {
+    type: 'CustomLocation'
+    name: customLocation.id
+  }
+  properties: {
+    displayName: 'my-triggered-asset'
+    enabled: true
+    deviceRef: {
+      deviceName: 'opc-ua-connector-bicep'
+      endpointName: 'opc-ua-connector-0'
+    }
+    defaultDatasetsConfiguration: '{}'
+    defaultEventsConfiguration: '{}'
+    datasets: [
+      {
+        name: 'telemetry'
+        datasetConfiguration: '{"publishingInterval":1000,"samplingInterval":500,"triggeringItem":"dataPoint-SlowUInt1","triggeringItemReportingMode":"Sampling"}'
+        dataPoints: [
+          {
+            name: 'dataPoint-SlowUInt1'
+            dataSource: 'nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt1'
+            dataPointConfiguration: '{}'
+          }
+          {
+            name: 'dataPoint-FastUInt1'
+            dataSource: 'nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1'
+            dataPointConfiguration: '{}'
+          }
+          {
+            name: 'dataPoint-FastUInt2'
+            dataSource: 'nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2'
+            dataPointConfiguration: '{}'
+          }
+        ]
+        destinations: [
+          {
+            target: 'Mqtt'
+            configuration: {
+              topic: 'azure-iot-operations/data/my-triggered-asset'
+              qos: 'Qos1'
+              retain: 'Never'
+              ttl: 3600
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+---
+
+To include the triggering data point in the published output, change `triggeringItemReportingMode` to `Reporting`. The `triggeringItem` value is case-sensitive and must match exactly one data point name in the same dataset.
+
+### Verify dataset triggering
+
+1. Subscribe to the dataset's destination MQTT topic. For an example, see [Connector for OPC UA message format](overview-opc-ua-connector.md#connector-for-opc-ua-message-format).
+
+1. Change either `dataPoint-FastUInt1` or `dataPoint-FastUInt2` without changing `dataPoint-SlowUInt1`. Verify that the connector samples the changed value but doesn't publish the dataset.
+
+1. Change `dataPoint-SlowUInt1`. Verify that the connector publishes the sampled fast data point values together.
+
+1. Review the asset status for trigger validation errors. If the status reports an error, inspect the connector logs. For information about viewing pod logs, see [`kubectl`](../troubleshoot/tips-tools.md#kubectl).
+
+### Troubleshoot dataset triggering
+
+| Symptom | Resolution |
+| --- | --- |
+| The dataset publishes on every value change. | Verify that `triggeringItem` is in the dataset's own `datasetConfiguration` and exactly matches one data point name. Check the connector logs for validation or trigger-link errors. |
+| Triggering is unexpectedly disabled. | Check the asset status for an `Unprocessable telemetry.TriggeringItem` error. Verify that the trigger name has exactly one match and that the dataset doesn't exceed `subscription.maxItems`. |
+| The triggering data point is missing from the output. | Set `triggeringItemReportingMode` to `Reporting`. In the default `Sampling` mode, the trigger controls publication but doesn't report its own value. |
 
 ## Add events and event groups
 
