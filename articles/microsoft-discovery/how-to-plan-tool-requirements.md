@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/07/2026
+ms.date: 08/11/2026
 
 #CustomerIntent: As a tool publisher, I want to plan my tool's requirements and structure before building it so that I can produce a well-designed, efficient containerized tool for Microsoft Discovery.
 ---
@@ -52,6 +52,7 @@ Record the compute resources your tool needs to run reliably. These values feed 
 | **GPU** | Whether the tool requires GPU; if so, GPU memory and compute level |
 | **InfiniBand** | Whether tightly coupled Message Passing Interface (MPI) workloads require high-speed interconnect |
 | **Scalability** | Whether to use a static pool (fixed number of containers) or elastic scaling |
+| **Runtime** | Expected and worst-case execution time. A job can run for a maximum of 42 days after it is scheduled. If you have jobs that can run longer than this, checkpointing may be necessary. |
 
 Capture both a **minimum** (what the tool needs to start at all) and a **maximum** (the most it will ever use). The platform enforces max resource limits. Tools that exceed them will be forcefully stopped.
 
