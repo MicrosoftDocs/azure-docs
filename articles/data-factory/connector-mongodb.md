@@ -26,8 +26,8 @@ This article outlines how to use the Copy Activity in Azure Data Factory and Syn
 
 
 >[!IMPORTANT]
->The new MongoDB connector provides improved native MongoDB support. If you're using the legacy MongoDB connector in your solution, supported as-is for backward compatibility only, see [MongoDB connector (legacy)](connector-mongodb-legacy.md).
->You can use this connector to copy data from and to an Azure DocumentDB (with MongoDB compatibility).
+> The new MongoDB connector provides improved native MongoDB support. If you're using the legacy MongoDB connector in your solution, supported as-is for backward compatibility only, see [MongoDB connector (legacy)](connector-mongodb-legacy.md).
+> You can use this connector to copy data from and to an Azure DocumentDB (with MongoDB compatibility).
 
 
 ## Supported capabilities
@@ -82,7 +82,7 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The following properties are supported for MongoDB linked service:
+The following table lists the supported properties for a MongoDB linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -114,7 +114,7 @@ You can also put a connection string in Azure Key Vault. For more details, see [
 
 ## Dataset properties
 
-For a full list of sections and properties that you can use to define datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). The following properties are supported for MongoDB dataset:
+For a full list of sections and properties that you can use to define datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). The following table lists the supported properties for a MongoDB dataset:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -160,7 +160,7 @@ The copy activity **source** section supports the following properties:
 | batchSize | Specifies the number of documents to return in each batch of the response from MongoDB instance. In most cases, modifying the batch size doesn't affect the user or the application. Azure Cosmos DB limits each batch can't exceed 40 MB in size, which is the sum of the batchSize number of documents' size, so decrease this value if your document size is large. | No<br/>(the default is **100**) |
 
 >[!TIP]
->The service supports consuming BSON document in **Strict mode**. Make sure your filter query is in Strict mode instead of Shell mode. More description can be found at [MongoDB manual](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
+> The service supports consuming BSON document in **Strict mode**. Ensure your filter query is in Strict mode instead of Shell mode. For more information, see [MongoDB manual](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
 
 **Example:**
 
@@ -285,7 +285,9 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage           | Change log |
 | :------- | :---------------------- |:---------- |
 | MongoDB (legacy) | Removed | Not applicable. |
-| MongoDB | GA version available | • Support the equivalent MongoDB queries only. <br><br>• Double is read as String data type. |
+| MongoDB | GA version available | • Supports the equivalent MongoDB queries only.
+
+• Reads Double as String data type. |
 
 ### Upgrade the MongoDB linked service
 
