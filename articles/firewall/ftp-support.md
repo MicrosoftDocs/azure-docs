@@ -17,7 +17,7 @@ To support FTP, a firewall must consider the following key aspects:
 - Client and server location - Internet or intranet
 - Flow direction - inbound or outbound
 
-Azure Firewall supports both Active and Passive FTP scenarios. For more information about FTP mode, see [Active FTP vs. Passive FTP, a Definitive Explanation](https://slacksite.com/other/ftp.html).
+Azure Firewall supports both Active and Passive FTP scenarios. For more information about FTP mode, see [Active FTP vs. Passive FTP, a Definitive Explanation](https://www.rigacci.org/docs/biblio/online/ftp_active_passive/ftp.html).
 
 By default, Azure Firewall enables Passive FTP and disables Active FTP support to protect against FTP bounce attacks that use the FTP PORT command.
 
