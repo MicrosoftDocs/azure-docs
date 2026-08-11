@@ -18,7 +18,7 @@ Reserved instances are available with some exceptions:
 
 - **Clouds**: Reservations are available only in the regions listed on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) page.
 - **Insufficient quota**: A reservation scoped to a single or shared subscription must have hosts quota available in the subscription for the new reserved instance. You can [create a quota increase request](request-host-quota-azure-vmware-solution.md) to resolve this issue.
-- **Offer eligibility**: You need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) or a [Microsoft Customer Agreement (MCA)](https://learn.microsoft.com/en-us/azure/cost-management-billing/understand/mca-overview) with Microsoft.
+- **Offer eligibility**: You need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) or a [Microsoft Customer Agreement (MCA)](../cost-management-billing/understand/mca-overview.md) with Microsoft.
 - **Capacity restrictions**: In rare circumstances, Azure limits the purchase of new reservations for Azure VMware Solution host SKUs because of low capacity in a region.
 
 ## Buy a reservation
