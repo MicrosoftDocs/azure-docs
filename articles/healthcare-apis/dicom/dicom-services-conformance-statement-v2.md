@@ -692,7 +692,7 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
 > [!NOTE]
-> For Delete Study and Delete Series, a `204 (No Content)` response indicates that background cleanup started, not that it completed. Until cleanup is complete, a Store request using the same study or series identifiers fails with reason code `45074`. After cleanup, the identifiers can be reused.
+> For Delete Study and Delete Series, a `204` response indicates that they have been marked for deletion and will be cleaned up asynchronously. Until cleanup is complete, a Store request using the same study or series identifiers fails with reason code `45074`. After cleanup, the identifiers can be reused.
 
 ### Delete response payload
 
