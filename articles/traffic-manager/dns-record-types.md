@@ -3,7 +3,7 @@ title: DNS Record Types and IPv6 Support in Azure Traffic Manager
 description: Configure DNS record types in Azure Traffic Manager. Learn how AAAA, A, and CNAME records enable IPv6 and IPv4 support for dual-stack environments. Start routing traffic today.
 author: asudbring
 ms.topic: concept-article
-ms.date: 06/19/2025
+ms.date: 08/10/2026
 ms.author: allensu
 ms.service: azure-traffic-manager
 #customer intent: As a network administrator, I want to understand which DNS record types Azure Traffic Manager supports, so that I can choose the right configuration for my environment.
@@ -43,11 +43,11 @@ For example, a domain like `www.contoso.com` can point to `contoso.trafficmanage
 
 ## Dual-stack support in Traffic Manager
 
-Azure Traffic Manager is dual stack at the DNS level, so it responds to both A (IPv4) and AAAA (IPv6) DNS queries. This dual stack capability is available only when you use CNAME-based endpoints, because A and AAAA records respond only to their respective query types. Clients connect over the protocol their network or device prefers, based on standard DNS resolution behavior.
+Azure Traffic Manager is dual stack at the DNS level, so it responds to both A (IPv4) and AAAA (IPv6) DNS queries. For endpoints addressed by a single record type, this dual-stack behavior relies on CNAME-based endpoints, because an A or AAAA record answers only its matching query type. The **MultiValue** routing method is an exception, as described in the following note. Clients connect over the protocol their network or device prefers, based on standard DNS resolution behavior.
 
 For most production scenarios, use DNS-based (CNAME) endpoints. This approach gives you flexibility, simplifies management, and ensures compatibility with both IPv4 and IPv6 clients.
 
 > [!NOTE]
-> Traffic Manager doesn't support setting up separate endpoints within the same profile that use different DNS record types (like one A and one AAAA). This setup ensures that DNS responses from Traffic Manager match the record type the client requests.
+> Traffic Manager always answers a DNS query with the record type the client requests: an A (IPv4) query returns A records and an AAAA (IPv6) query returns AAAA records. Most routing methods return a single endpoint of the matching type. The **MultiValue** routing method is different: a MultiValue profile can include both IPv4 (A) and IPv6 (AAAA) address endpoints, and it returns all healthy endpoints that match the query's record type. Nested MultiValue profiles require at least one IPv4 and one IPv6 endpoint. For more information, see [Multivalue traffic-routing method](./traffic-manager-routing-methods.md#multivalue) and [Nested Traffic Manager profiles](./traffic-manager-nested-profiles.md).
 
 
