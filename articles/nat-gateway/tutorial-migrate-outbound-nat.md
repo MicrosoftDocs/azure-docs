@@ -115,7 +115,7 @@ In this section, you learn how to change your outbound connectivity method from 
 
 1. Select **Next**.
 
-1. In the **Networking** tab, in **Virtual network**, select your virtual network. In this example, it's **vnet-1**.
+1. In the **Networking** tab, in **Virtual network**, select your virtual network. In this example, it's **lb-vnet**.
 
 1. Leave the checkbox for **Default to all subnets** unchecked.
 
@@ -176,7 +176,7 @@ In this section, you create a NAT gateway with the IP address previously used fo
 
 1. Select **Next**.
 
-1. In the **Networking** tab, in **Virtual network**, select your virtual network. In this example, it's **vnet-1**.
+1. In the **Networking** tab, in **Virtual network**, select your virtual network. In this example, it's **lb-vnet**.
 
 1. Leave the checkbox for **Default to all subnets** unchecked.
 
