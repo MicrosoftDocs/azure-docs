@@ -5,7 +5,7 @@ services: traffic-manager
 author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 08/08/2024
+ms.date: 08/10/2026
 ms.author: allensu
 ms.custom:
   - template-how-to
@@ -41,7 +41,7 @@ In this section, you create two website instances that provide the two service e
 #### Create VMs for running websites
 In this section, you create two VMs *myEndpointVMEastUS* and *myEndpointVMWEurope* in the **East US** and **West Europe** Azure regions.
 
-1. On the upper, left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2016 VM**.
+1. On the upper, left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2019 Datacenter**.
 2. Enter, or select, the following information for **Basics**, accept the defaults for the remaining settings, and then select **Create**:
 
     |Setting|Value|
@@ -127,7 +127,7 @@ Traffic Manager routes user traffic based on DNS name of the service endpoints. 
 
 In this section, you create a VM (*mVMEastUS* and *myVMWestEurope*) in each Azure region (**East US** and **West Europe**. You will use these VMs to test how Traffic Manager routes traffic to the nearest IIS server when you browse to the website.
 
-1. On the upper, left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2016 VM**.
+1. On the upper, left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2019 Datacenter**.
 2. Enter, or select, the following information for **Basics**, accept the defaults for the remaining settings, and then select **Create**:
 
     |Setting|Value|
