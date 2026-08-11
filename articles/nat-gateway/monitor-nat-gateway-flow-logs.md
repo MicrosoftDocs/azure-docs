@@ -6,13 +6,13 @@ author: cozhang
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: how-to
-ms.date: 11/04/2025
+ms.date: 08/10/2026
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 #Customer intent: As a network administrator, I want to learn how to enable StandardV2 NAT Gateway flow logs and how the data can be analyzed.
 ---
 
 # Monitor with StandardV2 NAT Gateway Flow Logs
-In this article, you learn how to set up, monitor, and troubleshoot with Azure StandardV2 NAT Gateway flow logs. These logs can help you monitor and analyze the traffic flows going through your NAT gateway resource. The health event logs are provided through the Azure Monitor resource log category NatGatwayFlowlogsV1, which is enabled through Diagnostic Settings.
+In this article, you learn how to set up, monitor, and troubleshoot with Azure StandardV2 NAT Gateway flow logs. These logs can help you monitor and analyze the traffic flows going through your NAT gateway resource. The health event logs are provided through the Azure Monitor resource log category NatGatewayFlowlogsV1, which is enabled through Diagnostic Settings.
 
 ## Prerequisites
 
