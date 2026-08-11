@@ -81,6 +81,8 @@
       href: front-door-rules-engine-actions.md?pivots=front-door-standard-premium
     - name: Configure a rule set
       href: standard-premium/how-to-configure-rule-set.md
+    - name: Batch rule updates for rule sets
+      href: rule-set-batch.md
     - name: Configure delivery rules
       href: standard-premium/front-door-add-rules-cli.md
     - name: Rules engine scenarios
