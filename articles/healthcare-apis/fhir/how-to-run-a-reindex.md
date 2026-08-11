@@ -5,22 +5,26 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 06/24/2026
+ms.date: 08/10/2026
 ms.author: kesheth
 ai-usage: ai-assisted
 ---
 # Run a reindex job in FHIR service
 
-Some scenarios require reindexing search parameters in the FHIR&reg; service in Azure Health Data Services. This scenario is relevant when you define your own custom search parameters. Until a search parameter is indexed, you can't use it in live production. This article explains how to run a reindex job to index any custom search parameters in your FHIR service database.
+Some scenarios require reindexing search parameters in the FHIR&reg; service in Azure Health Data Services. This scenario is relevant when you define your own custom search parameters. Until a search parameter is indexed, you can't use it in live production. This article explains how to run a reindex job on your FHIR service database.
 
 > [!Warning]
 > Read this entire article before getting started. A reindex job can be very performance intensive. This article discusses options for how to throttle and control a reindex job.
+
+> [!NOTE]
+> Running a reindex job against specific custom search parameters is deprecated.
 
 ## How to run a reindex job 
 
 You can run a reindex job against an entire FHIR service database or against specific custom search parameters.
 
 ### Run a reindex job on entire FHIR service database
+
 To run a reindex job, use the following `POST` call with the JSON formatted `Parameters` resource in the request body.
 
 ```json
@@ -34,8 +38,6 @@ content-type: application/fhir+json
 
 }
  ```
-
-If you don't need to adjust the resources allocated to the reindex job, leave the `"parameter": []` field blank (as shown).
 
 If the request is successful, you receive a **201 Created** status code in addition to a `Parameters` resource in the response.
 
@@ -90,29 +92,6 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 }
 ```
 
-### Run a reindex job against a specific custom search parameter
-
-
-To run a reindex job against a specific custom search parameter, use the following `POST` call with the JSON formatted `Parameters` resource in the request body.
-
-```json
-POST {{FHIR_URL}}/$reindex 
-content-type: application/fhir+json
-{ 
-
-"resourceType": "Parameters",  
-
-"parameter": [
-    {
-      "name": "targetSearchParameterTypes",
-      "valueString": "{url of custom search parameter. In case of multiple custom search parameters, url list can be comma separated.}"
-    }
-] 
-
-}
- ```
-> [!NOTE]
-> To check the status of or cancel a reindex job, you need the reindex ID. The reindex ID is the `"id"` carried in the `"parameter"` value of the response. In the preceding example, the ID for the reindex job is `560c7c61-2c70-4c54-b86d-c53a9d29495e`.
 
  ## How to check the status of a reindex job
 
@@ -201,6 +180,8 @@ The preceding response shows the following information:
 | `resources` | All the resource types that the reindex job impacts. |
 | `resourceReindexProgressByResource (CountReindexed of Count)` | The reindexed count of the total count, per resource type. If reindexing for a specific resource type is queued, only Count is provided. |
 | `searchParams` | The URL of the search parameters that the reindex job impacts. |
+| `maximumNumberOfResourcesPerQuery` | The maximum number of resources number of resources processed in a data unit. |
+| `maximumNumberOfResourcesPerWrite` | The maximum number of resources updated in the data store in a single transaction. |
 
 ## Cancel a reindex job
 
@@ -210,19 +191,20 @@ To cancel a reindex job, use a `DELETE` call and specify the reindex job ID.
 
 ## Performance considerations
 
-A reindex job can be quite performance intensive. The FHIR service offers throttling controls to help manage how a reindex job runs on your database. Use the `MaximumResourcesPerQuery` parameter to either speed up the process (use more compute) or slow down the process (use less compute). The `MaximumResourcesPerQuery` parameter sets the maximum number of resources included in the batch to be reindexed. The default value is 100 and you can set value between 1 and 5,000. 
+A reindex job can be quite performance intensive. Though FHIR service automatically scales backend distributed compute infrastructure depending on load, running reindex can still affect API operations. If this is not acceptable, reindex compute consumption can be throttled by reducing write transaction size controlled by `maximumNumberOfResourcesPerWrite`. Other consideration is resource size which affects amount of memory required to process singe write transaction, and is controlled by the same `maximumNumberOfResourcesPerWrite`. Default value for m`aximumNumberOfResourcesPerWrite` is 200. You can set between 1-5000. Reduce to 1 (one resource per write) to handle very large resources or to throttle reindex. 
+
 Sample request with the parameter:
 
-```json
 
-POST {{FHIR_URL}}/$reindex 
+```json
+POST {{FHIR_URL}}/$reindex
 content-type: application/fhir+json
 {
   "resourceType": "Parameters",
   "parameter": [
     {
-      "name": "maximumNumberOfResourcesPerQuery",
-      "valueInteger": "1"
+      "name": "maximumNumberOfResourcesPerWrite",
+      "valueInteger": 1
     }
   ]
 }
