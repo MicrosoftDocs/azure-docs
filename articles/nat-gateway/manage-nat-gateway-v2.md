@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: how-to
-ms.date: 04/08/2026
+ms.date: 08/11/2026
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep, devx-track-terraform
 #Customer intent: As a network administrator, I want to learn how to create and remove a NAT gateway resource from a virtual network subnet. I also want to learn how to add and remove public IP addresses and prefixes used for outbound connectivity.
 ---
@@ -25,7 +25,7 @@ This article explains how to manage the following aspects of NAT gateway:
 
 > [!NOTE]
 > Associating a NAT Gateway with a subnet makes it the preferred outbound connectivity method for all new connections. NAT Gateway takes precedence over other explicit outbound configurations, including load balancer outbound rules, firewalls, and instance‑level public IP addresses.
-> Existing connections are not interrupted and continue to use their original outbound path until they are re‑established.
+> Existing connections are not interrupted and continue to use their original outbound path until they are re‑established. Two exceptions apply to StandardV2 NAT gateways: IPv6 outbound traffic that uses load balancer outbound rules is disrupted, and existing outbound connections that use a load balancer, Azure Firewall, or instance-level public IP addresses might be interrupted. For more information, see [Known issues](nat-sku.md#known-issues).
 
 ## Prerequisites
 
