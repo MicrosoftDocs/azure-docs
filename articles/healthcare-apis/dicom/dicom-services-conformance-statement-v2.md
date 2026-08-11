@@ -677,19 +677,22 @@ Parameters `study`, `series`, and `instance` correspond to the DICOM attributes 
 There are no restrictions on the request's `Accept` header, `Content-Type` header, or body content.
 
 > [!NOTE]
-> After a Delete transaction, the deleted instances won't be recoverable. Until cleanup is complete, a Store request using the same study or series identifiers fails with reason code `45074`. After cleanup, the identifiers can be reused.
+> After a Delete transaction, the deleted instances won't be recoverable.
 
 ### Response status codes
 
 | Code | Description |
 | -------------- | --------------------------------------- |
-| `204 (No Content)` | The delete request succeeded. For Delete Study and Delete Series, the resource is marked as deleting and background cleanup has started; this status doesn't indicate that cleanup is complete. |
+| `204 (No Content)` | The delete request succeeded. |
 | `400 (Bad Request)` | The request was badly formatted. |
 | `401 (Unauthorized)` | The client isn't authenticated. |
 | `403 (Forbidden)` | The user isn't authorized. |
 | `404 (Not Found)` | When the specified series wasn't found within a study or the specified instance wasn't found within the series. |
 | `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
+
+> [!NOTE]
+> For Delete Study and Delete Series, a `204 (No Content)` response indicates that background cleanup started, not that it completed. Until cleanup is complete, a Store request using the same study or series identifiers fails with reason code `45074`. After cleanup, the identifiers can be reused.
 
 ### Delete response payload
 
