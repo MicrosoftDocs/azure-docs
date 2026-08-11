@@ -203,6 +203,8 @@
       href: standard-premium/tls-policy.md
     - name: Configure TLS policy
       href: standard-premium/tls-policy-configure.md
+  - name: Mutual TLS authentication
+    href: mutual-tls.md
   - name: Set up managed identity
     href: managed-identity.md
   - name: Sensitive data protection
