@@ -26,7 +26,7 @@ The following diagram shows the dedicated deployment architecture using an RDP c
 
 Before you begin, verify that you meet the following criteria:
 
-* An Azure Bastion host deployed in the virtual network where the virtual machine is located, or in a [peered virtual network](vnet-peering.md). To set up a Bastion host, see [Create a bastion host](quickstart-host-portal.md#createhost). The [Standard SKU](bastion-sku-comparison.md) or higher is required for RDP connections to Linux VMs, including browser-based connections from the Azure portal. The following table shows the requirements for each connection method:
+* An Azure Bastion host deployed in the virtual network where the virtual machine is located, or in a [peered virtual network](vnet-peering.md). To set up a Bastion host, see [Create a bastion host](quickstart-host-portal.md#createhost). You need the [Standard SKU](bastion-sku-comparison.md) or higher for RDP connections to Linux VMs, including browser-based connections from the Azure portal. The following table shows the requirements for each connection method:
 
   | Connection method | Minimum SKU | Additional configuration |
   |---|---|---|
