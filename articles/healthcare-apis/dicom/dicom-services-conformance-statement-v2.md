@@ -6,7 +6,7 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: reference
-ms.date: 07/15/2025
+ms.date: 08/11/2026
 ms.author: buchvarun
 ---
 
@@ -133,12 +133,12 @@ The `RelativeToNow` expiry option will calculate the expiry time based on the ti
 | Code                           | Description                                                                                                                                                                                                        |
 | :----------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `200 (OK)`                     | All the SOP instances in the request were stored.                                                                                                                                                                  |
-| `202 (Accepted)`               | The origin server stored some of the Instances and others failed or returned warnings. Additional information regarding this error might be found in the response message body.                                    |
+| `202 (Accepted)`               | The origin server stored some of the instances and others failed or returned warnings. An instance that targets a study or series with pending delete cleanup fails with reason code `45074`, while unaffected instances can succeed. Additional information might be found in the response message body. |
 | `204 (No Content)`             | No content was provided in the store transaction request.                                                                                                                                                          |
 | `400 (Bad Request)`            | The request was badly formatted. For example, the provided study instance identifier didn't conform the expected UID format.                                                                                       |
 | `401 (Unauthorized)`           | The client isn't authenticated.                                                                                                                                                                                    |
 | `406 (Not Acceptable)`         | The specified `Accept` header isn't supported.                                                                                                                                                                     |
-| `409 (Conflict)`               | None of the instances in the store transaction request were stored.                                                                                                                                                |
+| `409 (Conflict)`               | None of the instances in the store transaction request were stored. This status is returned if all instances target studies or series with pending delete cleanup and fail with reason code `45074`.                 |
 | `415 (Unsupported Media Type)` | The provided `Content-Type` isn't supported.                                                                                                                                                                       |
 | `424 (Failed Dependency)`      | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `500 (Internal Server Error)`  | The server encountered an unknown internal error. Try again later.                                                                                                                                                 |
@@ -163,6 +163,8 @@ Each dataset in the `FailedSOPSequence` has the following elements (if the DICOM
 | (0008, 1197) | `FailureReason`            | The reason code why this instance failed to store.                                                                      |
 | (0008, 1196) | `WarningReason`            | A `WarningReason` indicates validation issues that were detected but weren't severe enough to fail the store operation. |
 | (0074, 1048) | `FailedAttributesSequence` | The sequence of `ErrorComment` that includes the reason for each failed attribute.                                      |
+
+If an instance targets a study or series with pending delete cleanup, the instance appears in the `FailedSOPSequence` with `(0008, 1197) FailureReason` set to `45074`. The service continues to process unaffected instances in the same Store request.
 
 Each dataset in the `ReferencedSOPSequence` has the following elements:
 
@@ -298,6 +300,7 @@ An example response with `Accept` header `application/dicom+json` with a FailedA
 | `45070` | A DICOM instance with the same `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID` was already stored. If you want to update the contents, delete this instance first. |
 | `45071` | A DICOM instance is being created by another process, or the previous attempt to create failed and the cleanup process isn't complete. Delete the instance first before attempting to create again. |
 | `45073` | A DICOM instance was deleted by the user, before the write operation for that instance could be committed successfully. |
+| `45074` | The target study or series is being deleted and background cleanup isn't complete. The affected instance can't be stored while cleanup is pending. |
 
 #### Store warning reason codes
 
@@ -678,11 +681,15 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 > [!NOTE]
 > After a Delete transaction, the deleted instances won't be recoverable.
 
+Delete Study and Delete Series are asynchronous. The service marks the study or series as deleting, makes the resource unavailable to Search (QIDO-RS) and Retrieve (WADO-RS), and returns `204 (No Content)` while index and file cleanup continues in the background.
+
+While cleanup is pending, a Store request that targets the study or series fails for each affected instance with reason code `45074`. Unaffected instances in the same Store request continue to be processed. Reason code `45074` is a Store failure reason and isn't returned by the Delete transaction.
+
 ### Response status codes
 
 | Code | Description |
 | -------------- | --------------------------------------- |
-| `204 (No Content)` | When all the SOP instances are deleted. |
+| `204 (No Content)` | The delete request succeeded. For Delete Study and Delete Series, the resource is marked as deleting and background cleanup has started; this status doesn't indicate that cleanup is complete. |
 | `400 (Bad Request)` | The request was badly formatted. |
 | `401 (Unauthorized)` | The client isn't authenticated. |
 | `403 (Forbidden)` | The user isn't authorized. |
@@ -692,7 +699,7 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 
 ### Delete response payload
 
-The response body is empty. The status code is the only useful information returned.
+The response body is empty. Delete Study and Delete Series don't return an operation URL, a completion resource, a `Retry-After` header, or a polling API.
 
 ## Worklist Service (UPS-RS)
 
