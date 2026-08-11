@@ -683,6 +683,9 @@
             - name: CONCAT_WS
               href: /stream-analytics-query/concat-ws-azure-stream-analytics
               maintainContext: true
+            - name: JSON_PARSE
+              href: /stream-analytics-query/json-parse-azure-stream-analytics
+              maintainContext: true
             - name: LEFT
               href: /stream-analytics-query/left-azure-stream-analytics
               maintainContext: true
