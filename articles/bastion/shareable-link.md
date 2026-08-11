@@ -78,7 +78,7 @@ When you create a shareable link, specify when the link expires. After the confi
 - Under **Expiration**, select the date and time when the link should expire.
 - Select **Apply** to create the shareable link.
 
-The **Expiration** column on the **Shareable links** page displays the expiration date and time for each link. After a link expires, its **Resource status** changes to **Link expired**. You can use the resource status filter to view expired links.
+The **Expiration** column on the **Shareable links** page displays the expiration date and time for each link. After a link expires, its **Resource status** changes to **Link expired**. Use the resource status filter to view expired links.
 
 ## Connect to a VM
 
