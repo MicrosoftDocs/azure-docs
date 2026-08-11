@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: tutorial
-ms.date: 09/11/2025
+ms.date: 08/11/2026
 ms.custom: template-tutorial
 # Customer intent: As a network administrator, I want to integrate a NAT gateway with Azure Firewall in a hub and spoke network, so that I can ensure scalable outbound connectivity for my workloads while optimizing resource usage.
 ---
@@ -365,7 +365,7 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
    | Region | Select **West US**. |
    | Name | Enter **public-ip-nat**. |
    | IP version | Select **IPv4**. |
-   | SKU | Select **StandardV2**. |
+   | SKU | Select **Standard V2**. |
    | Availability zone | Select **Zone-redundant**. |
    | Tier | Select **Regional**. |
 
@@ -388,7 +388,7 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
     | **Instance details** |  |
     | NAT gateway name | Enter **nat-gateway**. |
     | Region | Select **West US**. |
-    | SKU | Select **StandardV2**. |
+    | SKU | Select **Standard V2**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
 1. Select **Next**.
