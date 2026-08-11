@@ -74,7 +74,7 @@ In this section, you specify each resource for which you want to create a sharea
 
 When you create a shareable link, specify when the link expires. After the configured expiration date and time, the link can't be used to connect to the target resource.
 
-- On the **Create shareable link** page, select the subscription, resource group, and resource.
+- On **Create shareable link**, select the subscription, resource group, and resource.
 - Under **Expiration**, select the date and time when the link should expire.
 - Select **Apply** to create the shareable link.
 
