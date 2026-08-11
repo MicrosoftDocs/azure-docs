@@ -677,9 +677,7 @@ Parameters `study`, `series`, and `instance` correspond to the DICOM attributes 
 There are no restrictions on the request's `Accept` header, `Content-Type` header, or body content.
 
 > [!NOTE]
-> After a Delete transaction, the deleted instances won't be recoverable.
-
-A Store request that targets a study or series marked for deletion fails with reason code `45074`.
+> After a Delete transaction, the deleted instances won't be recoverable. Until cleanup is complete, a Store request using the same study or series identifiers fails with reason code `45074`. After cleanup, the identifiers can be reused.
 
 ### Response status codes
 
