@@ -97,6 +97,67 @@ Use these resources to better understand and plan for language support-related c
 | **Configuring language versions** | Go version selection is controlled by the Go toolchain you use to build your function app. |
 ::: zone-end
 
+## OS-level migrations
+
+Azure Functions Linux images are built on specific Debian or Ubuntu base OS versions. When a base OS reaches end-of-life, affected language stacks are migrated to a newer supported OS. This ensures continued security updates and compliance.
+
+For **managed plans** (Consumption, Flex Consumption, Elastic Premium, Dedicated):
+- The platform automatically migrates your function app to the newer OS image
+- No action is required from you
+- Your `linuxFxVersion` or function app configuration remains unchanged
+
+For **custom containers**:
+- You must update your Dockerfile to use a newer base image tag
+- The existing tag (e.g., `:4-python3.11`) will be updated to point to the new OS image
+- A legacy OS-suffixed tag (e.g., `:4-python3.11-bullseye`) will remain available temporarily but will not receive security updates
+
+### Current OS migrations
+
+| Stack | Previous OS | New OS | Migration date | Notes |
+|-------|------------|--------|---------------|-------|
+| Python 3.11 | Debian 11 (Bullseye) | Debian 12 (Bookworm) | August 2026 | Platform auto-migrates managed plans |
+| Java 8 | Debian 11 (Bullseye) | Ubuntu 24.04 (Noble) | August 2026 | Platform auto-migrates managed plans |
+| Java 11 | Debian 11 (Bullseye) | Ubuntu 24.04 (Noble) | August 2026 | Platform auto-migrates managed plans |
+| Java 17 | Debian 11 (Bullseye) | Ubuntu 24.04 (Noble) | August 2026 | Platform auto-migrates managed plans |
+
+### Reverting to the previous OS version
+
+After the migration, your function app defaults to the newer OS image. If your app experiences compatibility issues, you can revert to the previous OS by explicitly setting the **environment version** (`envVersion`).
+
+For **Linux Dedicated and Elastic Premium** plans, set the environment version in `linuxFxVersion` using the format:
+
+```
+runtime|version|envVersion
+```
+
+For example, to pin Python 3.11 to the Bullseye-based image:
+
+```
+Python|3.11|2.0
+```
+
+For **Flex Consumption** plans, set the `envVersion` property in `functionAppConfig`:
+
+```json
+{
+  "runtime": "Python",
+  "runtimeVersion": "3.11",
+  "envVersion": "2.0"
+}
+```
+
+The following environment versions are available:
+
+| Stack | envVersion for previous OS (Bullseye) | envVersion for new OS |
+|-------|--------------------------------------|----------------------|
+| Python 3.11 | `2.0` | `3.0` (Bookworm) |
+| Java 8 | `2.0` | `4.0` (Noble) |
+| Java 11 | `2.0` | `4.0` (Noble) |
+| Java 17 | `2.0` | `4.0` (Noble) |
+
+> [!IMPORTANT]
+> The previous OS version (Bullseye) will not receive security updates after August 31, 2026. Use the rollback option only as a temporary measure while you resolve compatibility issues with the newer OS.
+
 ## Frequently asked questions
 
 This section provides you with answers to questions that are frequently asked about language support policies.
@@ -138,3 +199,7 @@ To learn more about how to upgrade your function app's language version, see the
 
 + [Update language stack versions](./update-language-versions.md)
 + [Currently supported language versions](./supported-languages.md#languages-by-runtime-version)
+
+### What happens when the base OS of my function app image reaches end-of-life?
+
+When a base OS (such as Debian Bullseye) reaches end-of-life, Azure Functions migrates affected stacks to a newer OS version. For managed plans, this happens automatically. If your app experiences issues after the migration, you can temporarily revert to the previous OS by setting the `envVersion` in your app configuration (see [Reverting to the previous OS version](#reverting-to-the-previous-os-version)). For custom container deployments, you should update your base image reference. The standard image tag (e.g., `:4-python3.11`) will be updated to the newer OS, while a legacy tag with the OS suffix (e.g., `:4-python3.11-bullseye`) remains available temporarily without security updates. See [OS-level migrations](#os-level-migrations) for current migration details.

@@ -74,6 +74,9 @@ The Functions team is committed to publishing monthly updates for these base ima
 
 Choose your base image based on the language stack you're using in your function app. The following table provides examples for each stack. In general, the tag should start with `4-` to indicate the V4 Functions runtime. When new minor versions are released, this tag will be updated to point to the new version. As you periodically rebuild your custom image, you will pull the new versions through that same tag, allowing your app to have the same updates. You shouldn't use tags that specify minor runtime versions, as these will not receive updates, and your app will potentially remain on an unpatched version, no matter how often you rebuild your custom image.
 
+> [!IMPORTANT]
+> **Debian Bullseye EOL (August 31, 2026):** Base images for Java 8/11/17 and Python 3.11 are being migrated from Bullseye to newer OS versions. If you reference these images, your next pull will get the updated OS. See [OS-level migrations](language-support-policy.md#os-level-migrations) for details.
+
 | Language Stack | Example recommended base image tags |
 |----------------|----------------|
 | .NET (isolated worker model) | `mcr.microsoft.com/azure-functions/dotnet-isolated:4-dotnet-isolated8.0` or<br/>`mcr.microsoft.com/azure-functions/dotnet-isolated:4-dotnet-isolated8.0-appservice`<br/><br/>(These examples target .NET 8. Select the appropriate image for the .NET version you need.) |

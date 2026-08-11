@@ -22,6 +22,9 @@ This article explains the levels of support offered for your preferred language 
 
 The following table shows which languages supported by Functions can run on Linux or Windows. It also indicates whether there's support for editing each language in the Azure portal. The language is based on the **Runtime stack** option you select when you [create your function app in the Azure portal](functions-create-function-app-portal.md#create-a-function-app). This value is the same as the `--worker-runtime` option that you specify when you use the `func init` command in Azure Functions Core Tools.
 
+> [!NOTE]
+> Some language stacks are undergoing a base OS migration as Debian Bullseye reaches end-of-life. See the [language support policy](language-support-policy.md#os-level-migrations) for affected stacks and migration details.
+
 | Language | Runtime stack | Linux | Windows | In-portal editing<sup>1</sup> |
 |:--- |:-- |:--|:--- |:--- |
 | [C# (isolated worker model)](dotnet-isolated-process-guide.md) |.NET|✓ |✓ | |

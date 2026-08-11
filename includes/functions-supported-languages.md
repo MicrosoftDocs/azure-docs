@@ -91,6 +91,9 @@ The following table shows the language versions supported for Java function apps
 | **Java 8** | GA | September 2027 |
 
 > [!NOTE]
+> Java 8, 11, and 17 are currently hosted on Debian Bullseye-based images on Linux plans. As Debian Bullseye reaches end-of-life on August 31, 2026, these stacks will be migrated to newer OS images (Ubuntu Noble). The platform handles this migration automatically for managed plans (Linux Dedicated/EP and Flex Consumption). Custom container customers should update their base images. See the [language support policy](../articles/azure-functions/language-support-policy.md) for details.
+
+> [!NOTE]
 > Java 21 is the last Java version supported for Linux Consumption plan apps. Newer Java versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
 
 For more information on developing and running Java function apps, see [Azure Functions Java developer guide](../articles/azure-functions/functions-reference-java.md).
@@ -134,6 +137,8 @@ The following table shows the language versions supported for Python function ap
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
 
+> [!NOTE]
+> Python 3.11 is currently hosted on Debian Bullseye-based images on Linux plans. As Debian Bullseye reaches end-of-life on August 31, 2026, this stack will be migrated to a newer OS image (Debian Bookworm). The platform handles this migration automatically for managed plans. Custom container customers should update their base images. See the [language support policy](../articles/azure-functions/language-support-policy.md) for details.
 
 > [!NOTE]
 > Python 3.12 is the last Python version supported for Linux Consumption plan apps. Newer Python versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
