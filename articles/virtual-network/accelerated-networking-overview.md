@@ -53,6 +53,7 @@ Accelerated Networking is available in all global Azure regions and the Azure Go
 
 The following versions of Windows support Accelerated Networking for all interfaces:
 
+- Windows Server 2025
 - Windows Server 2022
 - Windows Server 2019
 - Windows Server 2016
