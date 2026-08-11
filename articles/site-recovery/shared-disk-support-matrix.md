@@ -3,7 +3,7 @@ title: Support matrix for shared disks in Azure VM disaster recovery
 ms.reviewer: v-gajeronika
 description: This article summarizes the scenarios that shared disk in Azure Site Recovery supports for each workload type.
 ms.topic: article
-ms.date: 05/26/2026
+ms.date: 08/12/2026
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
