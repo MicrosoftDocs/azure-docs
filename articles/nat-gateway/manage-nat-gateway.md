@@ -25,7 +25,7 @@ This article explains how to manage the following aspects of NAT gateway:
 - Add or remove a public IP address or public IP prefix.
 
 > [!NOTE]
-> Associating a NAT Gateway with a subnet makes it the preferred outbound connectivity method for all new connections. NAT Gateway takes precedence over other explicit outbound configurations, including load balancer outbound rules, firewalls, and instance‑level public IP addresses.
+> Associating a NAT Gateway with a subnet makes it the preferred outbound connectivity method for all new connections. NAT Gateway takes precedence over other explicit outbound configurations, including load balancer outbound rules, firewalls, and instance‑level public IP addresses. This precedence applies to outbound connectivity configurations, not to custom routing: if a user-defined route (UDR) sends `0.0.0.0/0` traffic to a virtual appliance (such as a firewall) as the next hop, that route overrides the NAT gateway and outbound traffic is sent to the appliance instead. For more information, see [Design virtual networks with NAT gateway](nat-gateway-design.md).
 > Existing connections aren't interrupted and continue to use their original outbound path until they're re‑established. Exceptions apply to StandardV2 NAT gateways. For more information, see [Known issues](nat-sku.md#known-issues).
 
 ## Prerequisites
