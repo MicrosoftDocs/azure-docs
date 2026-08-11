@@ -164,8 +164,6 @@ Each dataset in the `FailedSOPSequence` has the following elements (if the DICOM
 | (0008, 1196) | `WarningReason`            | A `WarningReason` indicates validation issues that were detected but weren't severe enough to fail the store operation. |
 | (0074, 1048) | `FailedAttributesSequence` | The sequence of `ErrorComment` that includes the reason for each failed attribute.                                      |
 
-If an instance targets a study or series marked for deletion, the instance appears in the `FailedSOPSequence` with `(0008, 1197) FailureReason` set to `45074`.
-
 Each dataset in the `ReferencedSOPSequence` has the following elements:
 
 | Tag          | Name                       | Description                                                         |
@@ -680,8 +678,6 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 
 > [!NOTE]
 > After a Delete transaction, the deleted instances won't be recoverable.
-
-Delete Study and Delete Series are asynchronous.
 
 A Store request that targets a study or series marked for deletion fails with reason code `45074`.
 
