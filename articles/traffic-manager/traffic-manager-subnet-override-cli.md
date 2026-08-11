@@ -19,6 +19,8 @@ Traffic Manager subnet override allows you to alter the routing method of a prof
 
 When subnet overrides are added to a traffic manager profile, Traffic Manager first checks if there's a subnet override for the source IP address of the DNS query (usually the caller's DNS resolver). If one is found, the user’s DNS query is directed to the corresponding endpoint. If a mapping is not found, Traffic Manager falls back to the profile’s original routing method.
 
+If the DNS query includes EDNS Client Subnet (ECS) information, Traffic Manager uses that client subnet address instead of the source IP address of the query. Resolvers that support ECS pass along a truncated form of the end user's subnet, which lets Traffic Manager match the user's network more accurately. For more information, see the [Traffic Manager FAQ](traffic-manager-faqs.md).
+
 The IP address ranges can be specified as either CIDR ranges (for example, 1.2.3.0/24) or as address ranges (for example, 1.2.3.4-5.6.7.8). The IP ranges associated with each endpoint must be unique to that endpoint. Any overlap of IP address ranges among different endpoints causes the profile to be rejected by Traffic Manager.
 
 There are two types of routing profiles that support subnet overrides:
