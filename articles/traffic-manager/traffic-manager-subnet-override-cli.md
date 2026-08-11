@@ -1,11 +1,11 @@
 ---
 title: Azure Traffic Manager subnet override using Azure CLI
-description: This article helps you understand the Traffic Manager subnet override feature. This feature is used to override the routing method of a Traffic Manager profile. Traffic is directed to an endpoint based upon the end-user IP address using predefined IP range to endpoint mappings.
+description: This article helps you understand the Traffic Manager subnet override feature. This feature is used to override the routing method of a Traffic Manager profile. Traffic is directed to an endpoint based upon the source IP address of the DNS query, usually the caller's DNS resolver, using predefined IP range to endpoint mappings.
 services: traffic-manager
 author: asudbring
 ms.topic: how-to
 ms.service: azure-traffic-manager
-ms.date: 06/03/2024
+ms.date: 08/10/2026
 ms.author: allensu
 ms.custom: template-how-to, devx-track-azurecli
 # Customer intent: As a network administrator, I want to configure subnet overrides in Traffic Manager profiles using Azure CLI, so that I can control traffic routing based on the end user's IP address for improved performance and reliability.
@@ -13,11 +13,11 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Traffic Manager subnet override using Azure CLI
 
-Traffic Manager subnet override allows you to alter the routing method of a profile. The addition of an override directs traffic based upon the end user's IP address with a predefined IP address range to endpoint mapping. 
+Traffic Manager subnet override allows you to alter the routing method of a profile. The addition of an override directs traffic based upon the source IP address of the DNS query—usually the caller's recursive DNS resolver, which is commonly used as a proxy for the user's location and network—with a predefined IP address range to endpoint mapping. 
 
 ## How subnet override works
 
-When subnet overrides are added to a traffic manager profile, Traffic Manager first checks if there's a subnet override for the end user’s IP address. If one is found, the user’s DNS query ix directed to the corresponding endpoint. If a mapping is not found, Traffic Manager falls back to the profile’s original routing method. 
+When subnet overrides are added to a traffic manager profile, Traffic Manager first checks if there's a subnet override for the source IP address of the DNS query (usually the caller's DNS resolver). If one is found, the user’s DNS query is directed to the corresponding endpoint. If a mapping is not found, Traffic Manager falls back to the profile’s original routing method. 
 
 The IP address ranges can be specified as either CIDR ranges (for example, 1.2.3.0/24) or as address ranges (for example, 1.2.3.4-5.6.7.8). The IP ranges associated with each endpoint must be unique to that endpoint. Any overlap of IP address ranges among different endpoints causes the profile to be rejected by Traffic Manager.
 
