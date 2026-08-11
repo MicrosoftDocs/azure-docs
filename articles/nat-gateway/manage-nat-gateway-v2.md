@@ -25,7 +25,7 @@ This article explains how to manage the following aspects of NAT gateway:
 
 > [!NOTE]
 > Associating a NAT Gateway with a subnet makes it the preferred outbound connectivity method for all new connections. NAT Gateway takes precedence over other explicit outbound configurations, including load balancer outbound rules, firewalls, and instance‑level public IP addresses.
-> Existing connections are not interrupted and continue to use their original outbound path until they are re‑established. Two exceptions apply to StandardV2 NAT gateways: IPv6 outbound traffic that uses load balancer outbound rules is disrupted, and existing outbound connections that use a load balancer, Azure Firewall, or instance-level public IP addresses might be interrupted. For more information, see [Known issues](nat-sku.md#known-issues).
+> Existing connections aren't interrupted and continue to use their original outbound path until they're re‑established. Two exceptions apply to StandardV2 NAT gateways: IPv6 outbound traffic that uses load balancer outbound rules is disrupted, and existing outbound connections that use a load balancer, Azure Firewall, or instance-level public IP addresses might be interrupted. For more information, see [Known issues](nat-sku.md#known-issues).
 
 ## Prerequisites
 
