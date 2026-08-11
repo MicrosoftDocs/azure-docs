@@ -26,7 +26,7 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 
 >[!NOTE]
->This connector only supports Azure Cosmos DB for NoSQL. For Azure Cosmos DB for MongoDB, refer to [connector for Azure Cosmos DB for MongoDB](connector-azure-cosmos-db-mongodb-api.md). For Azure DocumentDB (with MongoDB compatibility), use the [native MongoDB connector](connector-mongodb.md). Other API types aren't supported now.
+> This connector only supports Azure Cosmos DB for NoSQL. For Azure Cosmos DB for MongoDB, refer to [connector for Azure Cosmos DB for MongoDB](connector-azure-cosmos-db-mongodb-api.md). For Azure DocumentDB (with MongoDB compatibility), use the [native MongoDB connector](connector-mongodb.md). Other API types aren't supported now.
 
 ## Supported capabilities
 
@@ -83,7 +83,7 @@ The following sections provide details about properties you can use to define en
 
 ## Linked service properties
 
-The Azure Cosmos DB for NoSQL connector supports the following authentication types. See the corresponding sections for details:
+The Azure Cosmos DB for NoSQL connector supports the following authentication types. For details, see the corresponding sections:
 
 - [Key authentication](#key-authentication)
 - [Service principal authentication](#service-principal-authentication)
@@ -96,9 +96,9 @@ The Azure Cosmos DB for NoSQL connector supports the following authentication ty
 |:--- |:--- |:--- |
 | type | Set the **type** property to **CosmosDb**. | Yes |
 | connectionString | Specify information that's required to connect to the Azure Cosmos DB database.
-**Note**: You must specify database information in the connection string as shown in the examples that follow.
-You can also put account key in Azure Key Vault and pull the `accountKey` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If you don't specify this property, the default Azure Integration Runtime is used. |No |
+**Note**: You must specify database information in the connection string as shown in the following examples.
+You can also store the account key in Azure Key Vault and remove the `accountKey` configuration from the connection string. For more information, see the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Use the Azure Integration Runtime or a self-hosted integration runtime (if your data store is in a private network). If you don't specify this property, the default Azure Integration Runtime is used. |No |
 
 **Example**
 
@@ -339,7 +339,7 @@ The following properties are supported for Azure Cosmos DB for NoSQL dataset:
 | type | Set the **type** property of the dataset to **CosmosDbSqlApiCollection**. |Yes |
 | collectionName |Enter the name of the Azure Cosmos DB document collection. |Yes |
 
-If you use the "DocumentDbCollection" type dataset, Azure Data Factory still supports it as-is for backward compatibility for Copy and Lookup activity. It's not supported for Data Flow. Use the new model going forward.
+If you use the **DocumentDbCollection** type dataset, Azure Data Factory still supports it as-is for backward compatibility for Copy and Lookup activity. It's not supported for Data Flow. Use the new model going forward.
 
 **Example**
 
@@ -367,8 +367,6 @@ This section provides a list of properties that the Azure Cosmos DB for NoSQL so
 ### Azure Cosmos DB for NoSQL as source
 
 The Copy Activity **source** section supports the following properties:
-
-The following properties are supported in the Copy Activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -540,20 +538,20 @@ Use this Azure Cosmos DB for NoSQL connector to easily:
 * Import JSON documents from various sources to Azure Cosmos DB, including from Azure Blob storage, Azure Data Lake Store, and other file-based stores that the service supports.
 * Export JSON documents from an Azure Cosmos DB collection to various file-based stores.
 
-To achieve schema-agnostic copy:
+To achieve a schema-agnostic copy:
 
 * When you use the Copy Data tool, select the **Export as-is to JSON files or Azure Cosmos DB collection** option.
 * When you use activity authoring, choose JSON format with the corresponding file store for source or sink.
 
 ## Migrate from relational database to Azure Cosmos DB
 
-When migrating from a relational database, such as SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Azure Cosmos DB. In some cases, you might want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](/azure/cosmos-db/modeling-data), such as de-normalizing the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this article](/azure/cosmos-db/migrate-relational-to-cosmos-db-sql-api) with a walk-through on how to achieve it using the copy activity.
+When you migrate from a relational database, such as SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from the source to flatten JSON documents in Azure Cosmos DB. In some cases, you might want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](/azure/cosmos-db/modeling-data), such as de-normalizing the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this article](/azure/cosmos-db/migrate-relational-to-cosmos-db-sql-api) with a walkthrough on how to achieve it by using the copy activity.
 
 ## Azure Cosmos DB change feed 
 
 Azure Data Factory can get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) by enabling it in the mapping data flow source transformation. By using this connector option, you can read change feeds and apply transformations before loading transformed data into destination datasets of your choice. You don't have to use Azure functions to read the change feed and then write custom transformations. Use this option to move data from one container to another, prepare change feed driven material views for fit purpose, automate container backup or recovery based on change feed, and enable many more such use cases by using the visual drag and drop capability of Azure Data Factory.
 
-Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can be recorded by ADF for you to get changed data from the last run automatically. If you change your pipeline name or activity name, the checkpoint will be reset, which leads you to start from beginning or get changes from now in the next run. When you debug the pipeline, this feature works the same. Be aware that the checkpoint resets when you refresh your browser during the debug run. After you're satisfied with the pipeline result from debug run, you can go ahead to publish and trigger the pipeline. At the moment when you trigger your published pipeline for the first time, it automatically restarts from the beginning or gets changes from now on.
+Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can be recorded by ADF for you to get changed data from the last run automatically. If you change your pipeline name or activity name, the checkpoint resets, which leads you to start from beginning or get changes from now in the next run. When you debug the pipeline, this feature works the same. Be aware that the checkpoint resets when you refresh your browser during the debug run. After you're satisfied with the pipeline result from debug run, you can go ahead to publish and trigger the pipeline. At the moment when you trigger your published pipeline for the first time, it automatically restarts from the beginning or gets changes from now on.
 
 In the monitoring section, you always have the chance to rerun a pipeline. When you're doing so, the changed data is always captured from the previous checkpoint of your selected pipeline run.
 
