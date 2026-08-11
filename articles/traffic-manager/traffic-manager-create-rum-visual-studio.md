@@ -91,7 +91,7 @@ To use Real User Measurements, complete the following procedure:
 
 ## Next steps
 - Learn more about [Real User Measurements](traffic-manager-rum-overview.md)
-- Learn [how to send Real User Measurements with web pages](traffic-manager-create-rum-web-pages.md)
+- Learn [how to send Real User Measurements with web pages](traffic-manager-create-rum-web-pages.md).
 - Learn [how Traffic Manager works](traffic-manager-overview.md)
 - Learn more about [App Center](/appcenter)
 - [Set up](/appcenter/dashboard/#set-up-your-app-center-account) an App Center account
