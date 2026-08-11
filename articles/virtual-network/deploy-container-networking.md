@@ -167,9 +167,9 @@ The CNI network configuration file is described in JSON format. It is, by defaul
 
 Download the plug-in from [GitHub](https://github.com/Azure/azure-container-networking/releases). Download the latest version for the platform that you're using:
 
-- **Linux**: `azure-vnet-cni-linux-amd64-<version no.>.tgz`
+- **Linux**: `azure-vnet-cni-linux-amd64-<version number>.tgz`
 
-- **Windows**: `azure-vnet-cni-windows-amd64-<version no.>.zip`
+- **Windows**: `azure-vnet-cni-windows-amd64-<version number>.zip`
 
 Copy the install script for [Linux](https://github.com/Azure/azure-container-networking/blob/master/scripts/install-cni-plugin.sh) or [Windows](https://github.com/Azure/azure-container-networking/blob/master/scripts/Install-CniPlugin.ps1) to your computer. Save the script to a `scripts` directory on your computer and name the file `install-cni-plugin.sh` for Linux, or `install-cni-plugin.ps1` for Windows.
 
@@ -182,7 +182,7 @@ The Linux script accepts an optional second argument, the [containernetworking C
    ```
 
    ```powershell
-   scripts\\ install-cni-plugin.ps1 <azure-cni-plugin-version>
+   scripts\install-cni-plugin.ps1 <azure-cni-plugin-version>
    ```
 
 The script installs the plug-in under `/opt/cni/bin` for Linux and `c:\cni\bin` for Windows. The installed plug-in comes with a simple network configuration file that works after installation. It doesn't need to be updated. To learn more about the settings in the file, see [CNI network configuration file](#cni-network-configuration-file).
