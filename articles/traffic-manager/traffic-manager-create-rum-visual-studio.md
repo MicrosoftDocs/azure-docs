@@ -6,7 +6,7 @@ author: asudbring
 ms.service: azure-traffic-manager
 ms.devlang: java
 ms.topic: how-to
-ms.date: 07/13/2023
+ms.date: 08/10/2026
 ms.author: allensu
 ms.custom: template-how-to, devx-track-java
 # Customer intent: As a mobile app developer, I want to integrate Real User Measurements into my app using Traffic Manager, so that I can analyze user interactions and optimize performance effectively.
@@ -17,7 +17,7 @@ ms.custom: template-how-to, devx-track-java
 You can set up your mobile application developed using Visual Studio App Center to send Real User Measurements to Traffic Manager by following the steps:
 
 >[!NOTE]
-> Currently, sending Real User Measurements to Traffic manager is only supported for Android.
+> This Visual Studio App Center (mobile SDK) integration currently supports only Android. This Android-only limitation applies to the App Center mobile SDK integration described in this article, not to Traffic Manager Real User Measurements overall. To collect Real User Measurements from a website, see [How to send Real User Measurements to Traffic Manager with web pages](traffic-manager-create-rum-web-pages.md).
 
 To configure Real User Measurements, you need to obtain a key and instrument your app with the RUM package.
 
@@ -91,6 +91,7 @@ To use Real User Measurements, complete the following procedure:
 
 ## Next steps
 - Learn more about [Real User Measurements](traffic-manager-rum-overview.md)
+- Learn [how to send Real User Measurements with web pages](traffic-manager-create-rum-web-pages.md)
 - Learn [how Traffic Manager works](traffic-manager-overview.md)
 - Learn more about [App Center](/appcenter)
 - [Set up](/appcenter/dashboard/#set-up-your-app-center-account) an App Center account
