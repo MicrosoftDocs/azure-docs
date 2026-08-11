@@ -169,7 +169,7 @@ Create a Traffic Manager profile that allows you to return specific endpoints ba
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
-    | Name                   | This name needs to be unique within the `trafficmanager.net` zone and results in the DNS name `<name>.trafficmanager.net` that is used to access your Traffic Manager profile.                                   |
+    | Name                   | Enter a name that's unique within the `trafficmanager.net` zone. This name creates the DNS name `<name>.trafficmanager.net` that you use to access your Traffic Manager profile.                                   |
     | Routing method          | Select the **Subnet** routing method.                                       |
     | Subscription            | Select your subscription.                          |
     | Resource group          | Select **Existing** and enter *myResourceGroupTM1*. |
