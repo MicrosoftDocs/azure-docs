@@ -120,7 +120,7 @@ For more information about application binding requirements, see [How Accelerate
 
 #### Configure drivers to be unmanaged
 
-Accelerated Networking requires configuring the SR-IOV drivers as unmanaged devices in your network settings. This requirement applies to the NVIDIA/Mellanox `mlx4_core` and `mlx5_core` drivers and to the MANA driver. Images using cloud-init version 23.2 or later automatically apply the correct network configuration to support Accelerated Networking during provisioning. We strongly recommend avoiding concurrent network interface management tools (such as ifupdown and networkd) on custom images, and not running dhcpclient directly on multiple interfaces.
+Accelerated Networking requires configuring the SR-IOV drivers as unmanaged devices in your network settings. This requirement applies to the NVIDIA/Mellanox `mlx4_core` and `mlx5_core` drivers and to the MANA driver. Images using cloud-init version 23.2 or later automatically apply the correct network configuration to support Accelerated Networking during provisioning. Avoid concurrent network interface management tools (such as ifupdown and networkd) on custom images, and don't run dhcpclient directly on multiple interfaces.
 
 # [NetworkManager](#tab/NetworkManager)
 Ensure azure-vm-utils version 0.6.0 or later is installed. 
