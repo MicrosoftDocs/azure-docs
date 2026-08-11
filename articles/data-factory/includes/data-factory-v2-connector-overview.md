@@ -1,12 +1,12 @@
 ---
 author: simplywilson
 ms.topic: include
-ms.date: 08/06/2026
+ms.date: 07/12/2024
 ms.author: tinglee
 ---
 
 > [!NOTE]
-> Connectors marked *Preview* are available to try, but aren't recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Connectors marked *Preview* are available to try, but are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 | Category              | Data store                                                   | [Copy activity](../copy-activity-overview.md)  (source/sink) | [Mapping Data Flow](../concepts-data-flow-overview.md) (source/sink) | [Lookup Activity](../control-flow-lookup-activity.md) | [Get Metadata Activity](../control-flow-get-metadata-activity.md)/[Validation Activity](../control-flow-validation-activity.md) | [Delete Activity](../delete-activity.md) |[Managed private endpoint](../managed-virtual-network-private-endpoint.md#managed-private-endpoints) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
@@ -22,7 +22,6 @@ ms.author: tinglee
 | &nbsp;                | [Azure Database for MySQL](../connector-azure-database-for-mysql.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            |                                                              |                                                              |✓ |
 | &nbsp;                | [Azure Database for PostgreSQL](../connector-azure-database-for-postgresql.md) | ✓/✓                                                          | ✓/✓                                                          | ✓                                                            |                                                              |                                                              |✓ |
 | &nbsp;                | [Azure Databricks Delta Lake](../connector-azure-databricks-delta-lake.md) | ✓/✓                                                          | ✓/✓ Use [delta format](../format-delta.md) | ✓                                                            |                                                              |                                                              ||
-| &nbsp;                | [Azure DocumentDB(with MongoDB compatibility)](../connector-mongodb.md) | ✓/✓ Use native MongoDB connector                                                         |                                                              |                                                              | 
 | &nbsp;                | [Azure Files](../connector-azure-file-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            | ✓                                                            |✓Exclude storage account V1 |
 | &nbsp;                | [Azure SQL Database](../connector-azure-sql-database.md) | ✓/✓                                                          | ✓/✓ <br>                                                     | ✓                                                            | ✓                                                            |                                                              |✓ |
 | &nbsp;                | [Azure SQL Managed Instance](../connector-azure-sql-managed-instance.md) | ✓/✓                                                          | ✓/✓ <br>                                                     | ✓                                                             | ✓                                                            |                                                             |✓|
