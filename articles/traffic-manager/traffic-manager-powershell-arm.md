@@ -5,7 +5,7 @@ services: traffic-manager
 author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 08/08/2024
+ms.date: 08/10/2026
 ms.author: allensu
 ms.custom: template-how-to, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to manage Azure Traffic Manager profiles using PowerShell commands, so that I can efficiently configure and monitor traffic routing for my applications."
@@ -56,7 +56,7 @@ The following table describes the parameters:
 | --- | --- |
 | Name |The resource name for the Traffic Manager profile resource. Profiles in the same resource group must have unique names. This name is separate from the DNS name used for DNS queries. |
 | ResourceGroupName |The name of the resource group containing the profile resource. |
-| TrafficRoutingMethod |Specifies the traffic-routing method used to determine which endpoint is returned in response a DNS query. Possible values are 'Performance', 'Weighted' or 'Priority'. |
+| TrafficRoutingMethod |Specifies the traffic-routing method used to determine which endpoint is returned in response a DNS query. Possible values are 'Priority', 'Weighted', 'Performance', 'Geographic', 'Multivalue', and 'Subnet'. For method-specific requirements and constraints, see [Traffic Manager routing methods](traffic-manager-routing-methods.md). |
 | RelativeDnsName |Specifies the hostname portion of the DNS name provided by this Traffic Manager profile. This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully qualified domain name (FQDN) of the profile. For example, setting the value of 'contoso' becomes 'contoso.trafficmanager.net.' |
 | TTL |Specifies the DNS Time-to-Live (TTL), in seconds. This TTL informs the Local DNS resolvers and DNS clients how long to cache DNS responses for this Traffic Manager profile. |
 | MonitorProtocol |Specifies the protocol to use to monitor endpoint health. Possible values are 'HTTP' and 'HTTPS'. |
