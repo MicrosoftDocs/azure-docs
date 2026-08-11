@@ -1,22 +1,22 @@
 ---
-title: Configure the Multivalue routing method - Azure Resource Manager template (ARM template)
+title: Configure nested endpoints with the min-child feature - Azure Resource Manager template (ARM template)
 titlesuffix: Azure Traffic Manager
-description: Learn how to configure the Multivalue routing method with nested endpoints and the min-child feature.
+description: Learn how to configure Traffic Manager nested endpoints with the min-child feature by using an ARM template.
 author: asudbring
 ms.author: allensu
 ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 08/08/2024
+ms.date: 08/10/2026
 ms.custom:
   - template-how-to
   - devx-track-arm-template
   - sfi-image-nochange
-# Customer intent: As a cloud engineer, I want to configure a Multivalue routing method with nested endpoints using an ARM template, so that I can efficiently manage traffic distribution in my Azure environment.
+# Customer intent: As a cloud engineer, I want to configure Traffic Manager nested endpoints with the min-child feature using an ARM template, so that I can efficiently manage traffic distribution in my Azure environment.
 ---
 
-# Configure the Multivalue routing method using an ARM template
+# Configure nested endpoints with the min-child feature using an ARM template
 
-This article describes how to use an Azure Resource Manager template (ARM template) to create a nested, Multivalue profile with the min-child feature.
+This article describes how to use an Azure Resource Manager template (ARM template) to create a Traffic Manager profile with nested endpoints and the min-child feature. The parent profile in this template uses the Priority routing method.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -100,7 +100,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-In this quickstart, you added a Multivalue routing method with nested endpoints and the min-child feature.
+In this quickstart, you added nested endpoints with the min-child feature to a Traffic Manager profile.
 
 To learn more about routing traffic, continue to the Traffic Manager tutorials.
 
