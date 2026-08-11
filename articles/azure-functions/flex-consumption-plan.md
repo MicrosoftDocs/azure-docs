@@ -100,6 +100,8 @@ For example, if you set always ready to 2 for your HTTP group of functions, the 
 
 You can configure no fewer than two always-ready instances per function or function group while [zone redundancy is enabled](/azure/reliability/reliability-functions?pivots=flex-consumption-plan#availability-zone-support). 
 
+Always ready instances are separate from on-demand instances: the [maximum instance count](#maximum-instance-count-the-ceiling) limits only on-demand instances and doesn't apply to always ready instances.
+
 To learn how to configure always ready instances, see [Set always ready instance counts](flex-consumption-how-to.md#set-always-ready-instance-counts).
 
 ## Concurrency
@@ -134,7 +136,7 @@ The scale curve applies to on-demand instances only. The exact shape and rate ar
 
 ### Maximum instance count (the ceiling)
 
-Regardless of the rate, your app never scales beyond its [maximum instance count](event-driven-scaling.md#limit-scale-out). When an app reaches that ceiling, the platform stops adding on-demand instances no matter how much demand remains, until running instances free up. Always ready instances count toward this ceiling.
+Regardless of the rate, your app never scales beyond its [maximum instance count](event-driven-scaling.md#limit-scale-out). When an app reaches that ceiling, the platform stops adding on-demand instances no matter how much demand remains, until running instances free up. The maximum instance count limits on-demand instances only. [Always ready instances](#always-ready-instances) don't count toward this ceiling, so your app can run its always ready instances in addition to the maximum number of on-demand instances.
 
 You configure the maximum instance count on the app, but the platform applies it to each independently-scaling function group rather than to the app's combined instances. A *function group* is a set of functions that scale together on the same instances, as described in [per-function scaling](event-driven-scaling.md#per-function-scaling). Many apps scale as a single group, so the ceiling behaves like one per-app limit. An app that scales some functions on their own instances has more than one function group, and the maximum instance count applies to each group.
 

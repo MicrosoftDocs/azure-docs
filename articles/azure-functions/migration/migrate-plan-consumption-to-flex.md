@@ -945,7 +945,7 @@ The migration command supports several options to customize the migration:
 | Option | Description |
 |--------|-------------|
 | `--storage-account` | Specify a different storage account for the new app |
-| `--maximum-instance-count` | Set the maximum number of instances for scaling |
+| `--maximum-instance-count` | Set the maximum number of on-demand instances per function group |
 | `--skip-access-restrictions` | Skip migrating IP access restrictions |
 | `--skip-cors` | Skip migrating CORS settings |
 | `--skip-hostnames` | Skip migrating custom domains |
