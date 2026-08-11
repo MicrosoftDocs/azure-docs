@@ -5,7 +5,7 @@ services: traffic-manager
 author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 08/08/2024
+ms.date: 08/10/2026
 ms.author: allensu
 ms.custom:
   - template-how-to
@@ -169,7 +169,7 @@ Create a Traffic Manager profile that allows you to return specific endpoints ba
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
-    | Name                   | This name needs to be unique within the `trafficmanager.net` zone and results in the DNS name, `trafficmanager.net` that is used to access your Traffic Manager profile.                                   |
+    | Name                   | This name needs to be unique within the `trafficmanager.net` zone and results in the DNS name `<name>.trafficmanager.net` that is used to access your Traffic Manager profile.                                   |
     | Routing method          | Select the **Subnet** routing method.                                       |
     | Subscription            | Select your subscription.                          |
     | Resource group          | Select **Existing** and enter *myResourceGroupTM1*. |
