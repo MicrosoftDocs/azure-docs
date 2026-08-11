@@ -5,7 +5,7 @@ description: Learn how to configure Microsoft Entra ID authentication for RDP an
 author: asudbring
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 03/09/2026
+ms.date: 08/11/2026
 ms.author: allensu
 
 # Customer intent: "As a cloud administrator, I want to configure Microsoft Entra ID authentication with Azure Bastion, so that I can use identity-based access policies and MFA for my virtual machines."
@@ -239,7 +239,7 @@ az network bastion ssh \
 ## Limitations
 
 * RDP and Entra ID authentication in the portal can't be used concurrently with [graphical session recording](session-recording.md).
-* Microsoft Entra ID authentication isn't supported for [IP-based](connect-ip-address.md) RDP or SSH connections.
+* Microsoft Entra ID authentication isn't supported for [IP-based](connect-ip-address.md) RDP connections. For IP-based SSH connections, Microsoft Entra ID authentication is supported through the [native client](native-client.md).
 * Microsoft Entra ID authentication for portal connections is supported for RDP to Windows virtual machines and SSH to Linux virtual machines only.
 * For [native client](connect-vm-native-client-windows.md) RDP connections, remote connection to virtual machines joined to Microsoft Entra ID is allowed only from Windows 10 or later PCs that are [Microsoft Entra registered, Microsoft Entra joined, or Microsoft Entra hybrid joined](/entra/identity/devices/overview) to the *same* directory as the virtual machine.
 
