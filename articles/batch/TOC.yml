@@ -354,8 +354,12 @@
       href: batch-task-complete-event.md
     - name: Task fail event
       href: batch-task-fail-event.md
+    - name: Task requeue event
+      href: batch-task-requeue-event.md
     - name: Task schedule fail event
       href: batch-task-schedule-fail-event.md
+    - name: Special task event
+      href: batch-special-task-event.md
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
