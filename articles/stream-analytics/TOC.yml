@@ -231,6 +231,8 @@
       href: stream-analytics-job-reliability.md
     - name: Geo-redundancy
       href: geo-redundancy.md
+    - name: Move job to another region
+      href: move-across-regions.md
     - name: Encrypt your data (CMK)
       href: data-protection.md
   - name: Manage Stream Analytics clusters
