@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-opcua-connector
 ms.topic: overview
-ms.date: 11/04/2025
+ms.date: 08/10/2026
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to to understand what the connector for OPC UA is and how it works with OPC UA industrial assets to enable me to add them as resources to my Kubernetes cluster. I want to understand how to read data from OPC UA servers and write data to implement process control.
 
@@ -64,6 +64,7 @@ The connector for OPC UA supports the following features as part of Azure IoT Op
 | State store synchronization | Yes | Sync OPC UA node properties to distributed state store |
 | [Shared endpoint mode](#shared-endpoint-mode) | Yes | Multiple assets share a single OPC UA session |
 | [Key frame generation](#understand-key-frames-for-opc-ua-data-points) | Yes | Enables downstream services to recover state more quickly |
+| [Dataset triggering](#control-dataset-publishing-with-a-triggering-item) | Yes | Publishes sampled data points when a selected data point changes |
 
 ## How it works
 
@@ -256,6 +257,30 @@ The relative browse paths must use numeric OPC UA namespace indexes. There's cur
 
 > [!IMPORTANT]
 > Namespace indexes can change within the server. If namespace indexes change, you must reconfigure them in the asset definition.
+
+## Control dataset publishing with a triggering item
+
+Dataset triggering lets one data point control when the connector publishes the other sampled data points in the same dataset. Use dataset triggering when you want the dataset output cadence to follow a specific signal instead of publishing whenever any data point changes.
+
+For each dataset, the `triggeringItem` setting identifies the data point that acts as the trigger. The value must exactly match the name of one data point in that dataset. Empty or whitespace values are treated as unset. When the trigger changes, the connector publishes the sampled values for the other data points together.
+
+The `triggeringItemReportingMode` setting controls how the connector monitors the trigger data point:
+
+| Mode | Behavior |
+| --- | --- |
+| `Sampling` | The trigger data point controls dataset publishing but doesn't report its own value. This mode is the default. |
+| `Reporting` | The trigger data point controls dataset publishing and reports its own value. |
+| `Disabled` | The trigger data point is disabled. |
+
+Dataset triggering has the following requirements and fallback behavior:
+
+- Triggering applies to a single dataset. Configure each dataset with its own triggering item.
+- All data points in the dataset must fit in a single OPC UA subscription. If the dataset exceeds `subscription.maxItems`, the connector disables triggering, returns the data points to normal reporting, and publishes an asset status error.
+- The asset must reference a namespaced device endpoint. For a classic asset that doesn't use a namespace, the connector ignores the triggering settings.
+- If `triggeringItem` doesn't match exactly one data point name, the connector disables triggering for the dataset and publishes an asset status error.
+- If the connector can't link the trigger to the target data points at runtime, it leaves the target data points in reporting mode to avoid silent data loss.
+
+To configure a triggering item for a dataset, see [Configure the connector for OPC UA](howto-configure-opc-ua.md).
 
 ## Understand key frames for OPC UA data points
 
