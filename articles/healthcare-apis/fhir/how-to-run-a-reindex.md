@@ -39,14 +39,6 @@ content-type: application/fhir+json
 }
  ```
 
-If you don't need to adjust the resources allocated to the reindex job, leave the `"parameter": []` field blank (as shown). If needed you can adjust the resources allocated to the reindex job by specifying the following parameters in the request body:
-
-- `maximumNumberOfResourcesPerQuery` - The maximum number of resources processed in a data unit. Default value is 100. You can set between 1-5000. Reduce the value to handle very large resources or to throttle reindex.
-- `maximumNumberOfResourcesPerWrite` - The maximum number of resources updated in the data store in a single transaction. Default value is 200. You can set between 1-5000. Reduce to the value to handle very large resources or to throttle reindex.
-
-For more information, see [Performance considerations](#performance-considerations).
-
-
 If the request is successful, you receive a **201 Created** status code in addition to a `Parameters` resource in the response.
 
 ```json
@@ -210,10 +202,6 @@ content-type: application/fhir+json
 {
   "resourceType": "Parameters",
   "parameter": [
-    {
-      "name": "maximumNumberOfResourcesPerQuery",
-      "valueInteger": 1
-    },
     {
       "name": "maximumNumberOfResourcesPerWrite",
       "valueInteger": 1
