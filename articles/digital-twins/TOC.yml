@@ -280,18 +280,10 @@
       href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/DeleteModels
     - name: OWL2DTDL Converter
       href: https://github.com/Azure/opendigitaltwins-tools/tree/main/OWL2DTDL
-    - name: SignalR integration sample
-      href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
-    - name: Multivariate Anomaly Detection Toolkit
-      href: /samples/azure-samples/digital-twins-mvad-integration/adt-mvad-integration/
   - name: Ontologies
     items:
     - name: Smart buildings
       href: https://github.com/Azure/opendigitaltwins-building
-    - name: Smart cities
-      href: https://github.com/Azure/opendigitaltwins-smartcities
-    - name: Energy grids
-      href: https://github.com/Azure/opendigitaltwins-energygrid/
     - name: Manufacturing
       href: https://github.com/digitaltwinconsortium/ManufacturingOntologies
   - name: DTDL

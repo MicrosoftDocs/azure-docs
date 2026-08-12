@@ -2,8 +2,8 @@
   "redirections": [
     {
       "source_path": "quickstart-3d-scenes-studio.md",
-      "redirect_url": "/azure/digital-twins/how-to-use-3d-scenes-studio",
-      "redirect_document_id": false
+      "redirect_url": "/previous-versions/azure/digital-twins/quickstart-3d-scenes-studio",
+      "redirect_document_id": true
     },
     {
       "source_path": "how-to-integrate-azure-signalr.md",
