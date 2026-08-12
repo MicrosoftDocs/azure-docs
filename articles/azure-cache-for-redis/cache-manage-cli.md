@@ -10,7 +10,7 @@ ms.custom: engagement-fy23
 ---
 # Manage Azure Cache for Redis using the Azure CLI
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 <a name="scale"></a>
 For Azure CLI sample scripts for Azure Cache for Redis, see the following articles:
