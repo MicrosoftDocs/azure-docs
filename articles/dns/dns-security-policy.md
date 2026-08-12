@@ -5,7 +5,7 @@ author: asudbring
 manager: KumuD
 ms.service: azure-dns
 ms.topic: article
-ms.date: 07/28/2026
+ms.date: 08/11/2026
 ms.author: allensu
 # Customer intent: "As a network administrator, I want to configure DNS resolver policies for my virtual network, so that I can filter and log DNS queries to protect against malicious domains and optimize DNS traffic."
 ---
@@ -123,7 +123,7 @@ The following example shows the DNS domain lists that are associated with the DN
 
 [  ![Screenshot of the list of DNS domain lists.](./media/dns-security-policy/domain-list.png) ](./media/dns-security-policy/domain-list.png#lightbox)
 
-You can associate a domain list to multiple DNS traffic rules in different resolver policies. A resolver policy must contain at least one domain list. The following is an example of a DNS domain list (**blocklist-1**) that contains two domains (**malicious.contoso.com**, **exploit.adatum.com**):
+You can associate a domain list with multiple DNS traffic rules in different resolver policies. Each DNS traffic rule must reference at least one domain list. You can create a DNS resolver policy before you create or associate any domain lists, and add them when you create the traffic rules. The following example shows a DNS domain list (**blocklist-1**) that contains two domains (**malicious.contoso.com**, **exploit.adatum.com**):
 
 ![Screenshot of domains inside a domain list.](./media/dns-security-policy/domain-list-detailed.png)
 
