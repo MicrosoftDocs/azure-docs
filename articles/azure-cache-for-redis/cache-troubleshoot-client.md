@@ -8,7 +8,7 @@ appliesto:
 ---
 # Troubleshoot Azure Cache for Redis client-side issues
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 The following links provide troubleshooting information for issues that occur because of conditions on the Redis client that your application uses.
 

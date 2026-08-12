@@ -14,7 +14,7 @@ ms.custom: engagement-fy23
 
 # How to configure Azure Cache for Redis
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 This article describes the configurations available for your Azure Cache for Redis instances. This article also covers the [default Redis server configuration](#default-redis-server-configuration) for Azure Cache for Redis instances.
 

@@ -10,7 +10,7 @@ ms.custom: template-concept, ignite-2024
 
 # Troubleshoot Azure Cache for Redis connectivity
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 This article explains how to troubleshoot common issues with connecting your client application to Azure Cache for Redis. Connectivity issues might be caused by intermittent conditions, or by incorrect cache configuration. This article is divided into intermittent issues and cache configuration issues.
 
