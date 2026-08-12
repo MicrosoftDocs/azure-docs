@@ -1,6 +1,6 @@
 ---
-title: Connect and control industrial assets using the connector for OPC UA
-description: Use the connector for OPC UA to connect to OPC UA servers and exchange messages and data with the MQTT broker in a Kubernetes cluster.
+title: What is the connector for OPC UA?
+description: Learn how the connector for OPC UA connects industrial assets, manages OPC UA sessions, and exchanges data with the MQTT broker.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
@@ -8,7 +8,7 @@ ms.subservice: azure-opcua-connector
 ms.topic: overview
 ms.date: 08/10/2026
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to to understand what the connector for OPC UA is and how it works with OPC UA industrial assets to enable me to add them as resources to my Kubernetes cluster. I want to understand how to read data from OPC UA servers and write data to implement process control.
+# CustomerIntent: As an industrial edge IT or operations user, I want to understand what the connector for OPC UA is and how it works with OPC UA industrial assets to enable me to add them as resources to my Kubernetes cluster. I want to understand how to read data from OPC UA servers and write data to implement process control.
 
 ---
 
@@ -60,10 +60,11 @@ The connector for OPC UA supports the following features as part of Azure IoT Op
 | CloudEvents headers | Yes | Message headers as MQTT user properties |
 | OPC UA events | Yes | Predefined event fields |
 | Payload compression | Yes | Supports `gzip` and `brotli` |
-| [Dynamic node resolution](#resolve-nodes-dynamically-by-using-browse-paths) | Yes | Using `TranslateBrowsePathToNodeId` service |
+| [Dynamic node resolution](#dynamic-node-resolution-with-browse-paths) | Yes | Uses the `TranslateBrowsePathToNodeId` service |
 | State store synchronization | Yes | Sync OPC UA node properties to distributed state store |
 | [Shared endpoint mode](#shared-endpoint-mode) | Yes | Multiple assets share a single OPC UA session |
-| [Key frame generation](#understand-key-frames-for-opc-ua-data-points) | Yes | Enables downstream services to recover state more quickly |
+| [High availability](#high-availability-for-opc-ua-connections) | Yes | Uses active and passive connector instances to reduce interruptions |
+| [Key frame generation](#key-frames-for-opc-ua-data-points) | Yes | Enables downstream services to recover state more quickly |
 | [Dataset triggering](#control-dataset-publishing-with-a-triggering-item) | Yes | Publishes sampled data points when a selected data point changes |
 
 ## How it works
@@ -112,60 +113,17 @@ By default, each asset that connects to an OPC UA server opens its own independe
 
 When you set the `shared` flag to `true` on a device's inbound endpoint, the connector establishes a single OPC UA session for the endpoint and reuses it across all assets that reference that endpoint. This behavior is called *shared* mode.
 
-```
-Dedicated mode (default)           Shared mode
-─────────────────────────          ─────────────────────────
-Asset A  →  Session A              Asset A ─┐
-Asset B  →  Session B              Asset B ──┼─→  Session (shared)
-Asset C  →  Session C              Asset C ─┘
-(3 sessions to the server)         (1 session to the server)
-```
+Shared mode reduces the number of sessions and connections on the OPC UA server, but it also increases the effect of a session interruption because every asset on the endpoint uses the same session. You can use shared and dedicated endpoints on the same device to balance server capacity and asset isolation.
 
-### When to use shared mode
+To compare session modes and configure a shared endpoint, see [Configure OPC UA sessions and high availability](howto-configure-opc-ua-sessions-high-availability.md).
 
-Use shared mode when:
+## High availability for OPC UA connections
 
-- The OPC UA server enforces a low session limit, for example a PLC that allows only a few simultaneous connections.
-- You have many assets pointing to the same server and want to minimize the connection footprint.
-- You want to reduce resource consumption (memory, TCP connections, licensing) on the OPC UA server.
+High availability uses active and passive connector instances for an OPC UA inbound endpoint. The active instance owns the server session and subscriptions. If the active instance becomes unavailable, a passive instance takes over the endpoint and attempts to restore data collection.
 
-The `shared` flag is independent of the authentication method. The single shared session uses whichever authentication method you configure on the endpoint. Telemetry payload, topic structure, and message schema are identical regardless of session mode.
+You can combine high availability with dedicated or shared session mode. High availability reduces interruptions caused by connector failures, but it doesn't make the OPC UA server itself highly available and it doesn't guarantee that no data is lost during failover.
 
-You can mix shared and dedicated assets on the same device. Create separate endpoints, for example `my-opcua-endpoint-shared` and `my-opcua-endpoint-dedicated`, each with its own `shared` flag. Assets reference a specific endpoint by name through `deviceRef.endpointName`.
-
-### Constraints and trade-offs
-
-| Aspect | Dedicated mode | Shared mode |
-|---|---|---|
-| Sessions to server | One per asset | One per endpoint |
-| Server session limit impact | High | Low |
-| Isolation between assets | Full (each asset has its own session) | None (all assets share the same session) |
-| Session disconnect impact | Only the affected asset reconnects | All assets on the endpoint are affected |
-| Certificate update | Each asset reconnects independently | The single shared session is recreated; all assets on the endpoint are briefly interrupted |
-
-> [!IMPORTANT]
-> When the shared OPC UA session disconnects because of a network failure, server restart, or certificate rotation, all assets that reference the endpoint temporarily lose telemetry until the session is reestablished.
-
-### Shared endpoint lifecycle
-
-1. When you create or update a device resource, the connector reads the `shared` flag.
-1. If `shared` is `true`, the connector opens one OPC UA session before any asset connects. The endpoint transitions to the `Shared` state.
-1. When an asset connects, its `ConnectedAsset` record links to the existing session—no second session opens.
-1. When you remove an asset, the OPC UA session stays open for other assets. Only the removed asset's subscriptions are torn down.
-1. When you delete or update the device, the shared session disconnects and all linked assets are requeued.
-
-If you change `shared` from `true` to `false` on a running device, the connector disconnects the shared session and requeues all affected assets. Each asset then establishes its own dedicated session. Expect a brief interruption in telemetry.
-
-### Health states for shared endpoints
-
-- The **InboundEndpoint** health state reports `Available` or `Unavailable` for the single shared session.
-- Each **Asset** health state also reports `Available` or `Unavailable`. Because all assets share the same session, a session drop marks all linked assets as `Unavailable` simultaneously.
-
-### Certificate rotation for shared endpoints
-
-When the connector's application certificate is renewed, it recreates the secure channel of the shared session once. All assets on the endpoint are briefly interrupted, then automatically recover without requiring individual reconnects.
-
-To learn how to configure a shared endpoint, see [Configure a shared endpoint](howto-configure-opc-ua.md#configure-a-shared-endpoint).
+To plan capacity, configure redundant connectors, and verify failover, see [Configure OPC UA sessions and high availability](howto-configure-opc-ua-sessions-high-availability.md).
 
 ## Connector for OPC UA message format
 
@@ -226,37 +184,11 @@ The subject field contains the name of the asset that the message relates to. Th
 > [!NOTE]
 > For assets you create in the operations experience web UI, the subject property for any messages the asset sends is set to the `externalAssetId` value. In this case, the `subject` property contains a GUID rather than a friendly asset name.
 
-## Resolve nodes dynamically by using browse paths
+## Dynamic node resolution with browse paths
 
-When you configure OPC UA data points or events in an asset, you typically add an OPC UA server node ID in the **Data source** field. This approach assumes that node IDs are stable across server restarts and deployments. However, some OPC UA servers create node IDs dynamically at runtime or on demand. You can't persist these dynamic node IDs in an asset configuration because they might change over time.
+Some OPC UA servers create node IDs dynamically, so the identifiers can change after a server restart or deployment. For these servers, the connector can use the OPC UA `TranslateBrowsePathToNodeId` service to resolve a target node from a stable starting node and a relative browse path at runtime.
 
-To address this scenario, the connector can resolve dynamic nodes at runtime by using the OPC UA `TranslateBrowsePathToNodeId` service. This service resolves a target node ID from a starting object and a relative browse path. When you configure a **Start instance** value in a dataset or event configuration, each data point or event requires a valid relative browse path in its **Data source** property. The connector translates the relative browse path to a concrete node ID at runtime.
-
-> [!NOTE]
-> If you don't provide a **Start instance** value, the connector uses the **Data source** property as a fixed node ID.
-
-Example **Start instance** values:
-
-* `i=2555`
-* `nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1`
-* `nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=5`
-* `ns=10;s=System.Pump1`
-* `ns=1;b=M/RbKBsRVkePCePcx24oRA==`
-
-Example relative browse paths to use in the **Data source** field:
-
-* `/1:SYSTEM/1:PUMP/1:P1`
-* `/2:Block&.Output`
-* `/3:Truck.0:NodeVersion`
-* `<!HasChild>Truck`
-* `<1:ConnectedTo>1:Boiler/`
-
-For more information about the relative browse path syntax, see [OPC Foundation Part 4 A.2](https://reference.opcfoundation.org/Core/Part4/v105/docs/A.2).
-
-The relative browse paths must use numeric OPC UA namespace indexes. There's currently no support for namespace names in string format.
-
-> [!IMPORTANT]
-> Namespace indexes can change within the server. If namespace indexes change, you must reconfigure them in the asset definition.
+To configure start instances and relative browse paths, see [Configure advanced OPC UA data collection](howto-configure-opc-ua-advanced-data-collection.md#resolve-dynamic-nodes-by-using-browse-paths).
 
 ## Control dataset publishing with a triggering item
 
@@ -280,46 +212,13 @@ Dataset triggering has the following requirements and fallback behavior:
 - If `triggeringItem` doesn't match exactly one data point name, the connector disables triggering for the dataset and publishes an asset status error.
 - If the connector can't link the trigger to the target data points at runtime, it leaves the target data points in reporting mode to avoid silent data loss.
 
-To configure a triggering item for a dataset, see [Configure the connector for OPC UA](howto-configure-opc-ua.md).
+To configure a triggering item for a dataset, see [Configure the connector for OPC UA](howto-configure-opc-ua.md#configure-dataset-triggering).
 
-## Understand key frames for OPC UA data points
+## Key frames for OPC UA data points
 
-Use the *key frame count* setting to control how often the connector for OPC UA sends a key frame. By default, when the connector sends a message, it only includes data points whose value changed since the last message. A key frame is a message that contains values for all the data points in the dataset, regardless of whether they changed since the last message.
+Normally, the connector includes only changed data-point values in a message. A key frame includes every data-point value in the dataset, which helps consumers recover the current state after missed messages, restarts, or reconnections. More frequent key frames improve recovery time but increase message size and bandwidth use.
 
-If a consumer misses messages (due to restarts, reconnects, or network problems), it can't reliably reconstruct the current state until it receives a key frame with all the data point values. Key frames enable consumers to recover state faster, but they make message sizes larger.
-
-For more information about key frames, see [OPC UA Part 14 – PubSub](https://reference.opcfoundation.org/Core/Part14/v105/docs/).
-
-### Key frame count behavior
-
-| Value | Behavior |
-|-------|----------|
-| `-1` | Default (not set) |
-| `0` | Disable key frames |
-| `1` | Every frame is a key frame |
-| `>1` | Emit a key frame every *n* frames |
-
-The key frame interval is approximately: `KeyFrameCount * PublishingIntervalMs`
-
-For example:
-
-| KeyFrameCount | PublishingIntervalMs | Result |
-|---------------|----------------------|--------|
-| `-1` | 1000 | Connector default behavior |
-| `0` | 1000 | No key frames |
-| `1` | 1000 | Key frame every one second |
-| `10` | 5000 | Key frame every five seconds |
-
-For the key frame count setting, choose:
-
-- Larger values (30–60): Lower bandwidth, slower recovery
-- Smaller values (5–10): Faster recovery for frequently reconnecting consumers
-- Zero: Only if consumers don't require snapshots
-
-To learn more about configuring key frames, see [Add a dataset to an asset](howto-configure-opc-ua.md#add-a-dataset-to-an-asset).
-
-> [!NOTE]
-> Changing the publishing interval affects the effective key frame interval. Configuration updates can require reconciliation or a pod restart.
+To choose and configure a key-frame interval, see [Configure advanced OPC UA data collection](howto-configure-opc-ua-advanced-data-collection.md#configure-key-frames-for-state-recovery).
 
 ## How does it relate to Azure IoT Operations?
 
