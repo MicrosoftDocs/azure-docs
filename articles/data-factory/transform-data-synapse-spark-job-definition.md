@@ -15,6 +15,8 @@ ms.custom:
 # Transform data by running a Synapse Spark job definition
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 The Azure Synapse Spark job definition Activity in a [pipeline](concepts-pipelines-activities.md) runs a Synapse Spark job definition in your Azure Synapse Analytics workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 ## Set Apache Spark job definition canvas

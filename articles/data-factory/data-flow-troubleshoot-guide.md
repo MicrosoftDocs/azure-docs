@@ -13,6 +13,8 @@ ms.date: 06/03/2025
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article explores common troubleshooting methods for mapping data flows in Azure Data Factory.
 
 ## General troubleshooting guidance

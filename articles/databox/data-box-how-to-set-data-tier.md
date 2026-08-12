@@ -4,7 +4,7 @@ description: Describes how to use Azure Data Box, Data Box Next-Gen, and Azure D
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/06/2025

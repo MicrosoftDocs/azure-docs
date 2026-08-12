@@ -127,7 +127,7 @@ For details, see [Bookshelf & Knowledge Bases](concept-bookshelf-knowledge-bases
 ## Related content
 
 - [What is Microsoft Discovery?](overview-what-is-microsoft-discovery.md)
-- [Quickstart: Deploy infrastructure using Azure portal](quickstart-infrastructure-portal.md)
+- [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md)
 - [Projects and investigations](concept-projects-investigations.md)
 - [Discovery Tool concepts](concept-tools-model-integration.md)
 - [Bookshelf & Knowledge Bases](concept-bookshelf-knowledge-bases.md)

@@ -4,7 +4,7 @@ description: Learn how to manage student access to subscriptions in Azure Dev To
 author: v-shmck
 ms.author: rymend
 ms.topic: overview
-ms.service: azure-education
+ms.service: azure-education-hub
 ms.date: 06/30/2020
 ---
 

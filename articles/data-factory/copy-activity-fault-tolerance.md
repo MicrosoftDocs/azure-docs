@@ -2,16 +2,18 @@
 title: Fault tolerance of copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to add fault tolerance to copy activity in Azure Data Factory and Synapse Analytics pipelines by skipping the incompatible data.
-author: dearandyxu
+author: kromerm
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: how-to
 ms.date: 09/26/2024
-ms.author: yexu
+ms.author: makromer
 ---
 #  Fault tolerance of copy activity in Azure Data Factory and Synapse Analytics pipelines
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 When you copy data from source to destination store, the copy activity provides certain level of fault tolerances to prevent interruption from failures in the middle of data movement. For example, you are copying millions of rows from source to destination store, where a primary key has been created in the destination database, but source database does not have any primary keys defined. When you happen to copy duplicated rows from source to the destination, you will hit the PK violation failure on the destination database. At this moment, copy activity offers you two ways to handle such errors: 
 - You can abort the copy activity once any failure is encountered. 

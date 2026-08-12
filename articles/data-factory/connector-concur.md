@@ -6,7 +6,7 @@ author: simplywilson
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.date: 06/22/2026
-ms.update-cycle: 1095
+ms.update-cycle: 1095-days
 ms.author: tinglee
 ms.custom:
   - synapse
@@ -15,6 +15,8 @@ ms.custom:
 # Copy data from Concur using Azure Data Factory or Synapse Analytics(Preview)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 > [!IMPORTANT]
 > This connector is at [End of Support stage](connector-deprecation-plan.md). You're recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver.

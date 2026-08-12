@@ -191,17 +191,6 @@ SUBSYSTEM=="net", DRIVERS=="hv_pci", ACTION=="add",  RUN+="/usr/sbin/ethtool -G 
 SUBSYSTEM=="net", DRIVERS=="hv_netvsc*", ACTION=="add",  RUN+="/usr/sbin/ethtool -G $env{INTERFACE} rx 1024 tx 1024"
 ````
   
-### UDEV rule for qdisc on interface events
-
-After you finish benchmarking and select your preferred qdisc, create a udev rule in `/etc/udev/rules.d/99-azure-qdisc.rules` to apply that qdisc when network interfaces are added or changed.
-
-Replace `<qdisc_choice>` with the qdisc you selected during testing (for example, `fq` or `pfifo_fast`):
-
-```plaintext
-ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="enp*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root noqueue"
-ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="eth*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root <qdisc_choice>"
-```
-
 ### UDEV rule for NIC transmit queue length
 
 Create the following rule in `/etc/udev/rules.d/99-azure-txqueue-len.rules` to increase transmit queue length:
@@ -209,12 +198,6 @@ Create the following rule in `/etc/udev/rules.d/99-azure-txqueue-len.rules` to i
 ```plaintext
 SUBSYSTEM=="net", ACTION=="add|change", KERNEL=="eth*", ATTR{tx_queue_len}="10000" 
 ```
-
-### IRQ scheduling (irqbalance)
-
-Depending on your workload, you might want to restrict the irqbalance service from scheduling IRQs on specific nodes. When using IRQBalance, update `/etc/default/irqbalance` to specify which CPUs shouldn't have IRQs scheduled. You'll need to determine [the mask](https://manpages.debian.org/testing/irqbalance/irqbalance.1.en.html#IRQBALANCE_BANNED_CPUS) that excludes those CPUs.
-
-More information about how to calculate the mask is available [here](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_real_time/7/html/tuning_guide/interrupt_and_process_binding).
 
 ### SR-IOV dual-interface behavior and side effects
 

@@ -13,6 +13,8 @@ ms.subservice: orchestration
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 [Microsoft Purview](../purview/overview.md) is a unified data governance service that helps you manage and govern your on-premises, multicloud, and software-as-a-service (SaaS) data. You can connect your data factory to Microsoft Purview. That connection allows you to use Microsoft Purview for capturing lineage data, and to discover and explore Microsoft Purview assets.
 
 ## Connect Data Factory to Microsoft Purview

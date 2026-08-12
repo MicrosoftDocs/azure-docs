@@ -14,6 +14,8 @@ ms.custom: devx-track-azurecli
 
 # Configure Durable Functions publishing to Azure Event Grid
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Publishing orchestration lifecycle events to [Azure Event Grid](../../event-grid/overview.md) enables DevOps automation (such as blue/green deployments), real-time monitoring dashboards, and tracking of long-running background processes.
 
 > [!NOTE]

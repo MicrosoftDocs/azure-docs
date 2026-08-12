@@ -24,7 +24,7 @@
         }
     ],
     "notification_subscribers": ["azure-docs-publish@microsoft.com"],
-    "sync_notification_subscribers": ["angrobe_extended_dir@microsoft.com"],
+    "sync_notification_subscribers": ["azure-docs-publish@microsoft.com"],
     "branches_to_filter": [],
     "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs",
     "git_repository_branch_open_to_public_contributors": "main",
@@ -411,12 +411,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "digital-twins-docs-samples-getting-started",
-            "url": "https://github.com/Azure-Samples/azure-digital-twins-getting-started",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "function-app-arm-templates",
             "url": "https://github.com/Azure-Samples/function-app-arm-templates",
             "branch": "main",
@@ -506,6 +500,42 @@
             "branch": "main",
             "branch_mapping": {}
         },        
+        {
+            "path_to_root": "functions-scenarios-durable-dotnet",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-dotnet-azd",
+            "branch": "main",
+            "branch_mapping": {}
+        },        
+        {
+            "path_to_root": "functions-scenarios-durable-python",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-python-azd",
+            "branch": "main",
+            "branch_mapping": {}
+        },  
+        {
+            "path_to_root": "functions-scenarios-durable-typescript",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-typescript-azd",
+            "branch": "main",
+            "branch_mapping": {}
+        },         
+        {
+            "path_to_root": "functions-scenarios-durable-java",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-java-azd",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-durable-javascript",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-javascript-azd",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-durable-powershell",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-powershell-azd",
+            "branch": "main",
+            "branch_mapping": {}
+        }, 
         {    "path_to_root": "functions-sql-todo-sample",
             "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
             "branch": "docs-snippets",

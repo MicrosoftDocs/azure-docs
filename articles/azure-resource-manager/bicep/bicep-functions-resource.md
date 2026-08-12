@@ -5,7 +5,7 @@ ms.topic: reference
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 06/26/2026
+ms.date: 08/06/2026
 ---
 
 # Resource functions for Bicep
@@ -76,7 +76,9 @@ Returns the resource ID for an [extension resource](../management/extension-reso
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
-You can use the `extensionResourceId` function in Bicep files, but you typically don't need it. Instead, use the symbolic name for the resource and access the `id` property.
+The first argument must be the fully qualified resource ID of the resource that the extension resource applies to. This requirement is especially important when you deploy a tenant-level resource from a lower scope, such as a subscription or resource group. A value that resolves at tenant scope can fail when the deployment starts from a lower scope.
+
+You can use the `extensionResourceId` function in Bicep files, but you typically don't need it. Instead, use the symbolic name for the resource and access the `id` property. The `id` property returns the fully qualified resource ID.
 
 The basic format of the resource ID returned by this function is:
 

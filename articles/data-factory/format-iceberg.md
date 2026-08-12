@@ -14,6 +14,8 @@ ms.author: tinglee
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Follow this article when you want to **write the data into Iceberg format**. 
 
 Iceberg format is supported for the following connectors: 

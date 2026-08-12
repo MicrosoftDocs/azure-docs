@@ -4,8 +4,9 @@ description: See answers to frequently asked questions about Azure Enclave.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
-ms.date: 6/23/2026
+ms.service: azure-enclave
 ai-usage: ai-assisted
+ms.date: 6/23/2026
 ---
 
 # Azure Enclave frequently asked questions
@@ -20,7 +21,7 @@ Azure Enclave is a hub-and-spoke network architecture with built-in network isol
 
 ### Why should I use Azure Enclave?
 
-Azure Enclave creates a secure foundation in a known configuration so you can pursue compliance approval faster and deploy workloads with platform-managed boundaries. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md).
+Azure Enclave creates a secure foundation in a known configuration so you can pursue compliance approval faster and deploy workloads with Azure Enclave-managed boundaries. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md)
 
 ### How does Azure Enclave work?
 
@@ -32,7 +33,7 @@ Azure Enclave pricing includes an hourly charge per enclave plus charges for the
 
 ### What are the benefits of using Azure Enclave?
 
-Azure Enclave helps you deploy secure-by-design network boundaries, enforce policy consistently, and separate workloads with controlled connectivity. It can reduce setup effort for regulated environments by using a known architecture and managed platform components. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md).
+Azure Enclave helps you deploy secure-by-design network boundaries, enforce policy consistently, and separate workloads with controlled connectivity. It can reduce setup effort for regulated environments by using a known architecture and managed Azure Enclave components. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md)
 
 ### Where can I learn to use Azure Enclave?
 
@@ -129,7 +130,7 @@ Adding a virtual network firewall isn't a recommended pattern. Azure Enclave man
 
 ### What access is allowed by default?
 
-Azure Enclave configures required platform egress for managed resources. For communities using a non-Basic firewall, a default outbound firewall policy rule is created for Key Management Service (KMS) over TCP port 1688.
+Azure Enclave configures the required Azure egress for managed resources. For communities that use a non-Basic firewall, it creates a default outbound firewall policy rule for Key Management Service (KMS) over TCP port 1688.
 
 ### How can I quickly stop resource access to a URL or IP?
 

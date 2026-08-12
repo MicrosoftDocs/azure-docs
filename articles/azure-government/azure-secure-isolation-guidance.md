@@ -6,7 +6,7 @@ ms.author: jken
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 07/08/2026
+ms.date: 07/20/2026
 ai-usage: ai-assisted
 ms.custom: sfi-image-nochange
 ---
@@ -256,7 +256,7 @@ Commands generated through all steps of the process identified in this section a
 ### Logical isolation implementation options
 Azure provides isolation of compute processing through a multilayered approach, including:
 
-- **Hypervisor isolation** for services that provide cryptographically certain isolation by using separate virtual machines and using Azure Hypervisor isolation. Examples: *App Service, Azure Container Instances, Azure Databricks, Azure Functions, Azure Kubernetes Service, Azure Machine Learning, Cloud Services, Data Factory, Service Fabric, Virtual Machines, Virtual Machine Scale Sets.*
+- **Hypervisor isolation** for services that provide cryptographically certain isolation by using separate virtual machines and using Azure Hypervisor isolation. Examples: *App Service,Azure Container Apps, Azure Container Instances, Azure Databricks, Azure Functions, Azure Kubernetes Service, Azure Machine Learning, Cloud Services, Data Factory, Service Fabric, Virtual Machines, Virtual Machine Scale Sets.*
 - **Drawbridge isolation** inside a VM for services that provide cryptographically certain isolation to workloads running on the same virtual machine by using isolation provided by [Drawbridge](https://www.microsoft.com/research/project/drawbridge/). These services provide small units of processing using customer code. To provide security isolation, Drawbridge runs a user process together with a lightweight version of the Windows kernel (library OS) inside a *pico-process*. A pico-process is a secured process with no direct access to services or resources of the Host system. Examples: *Automation, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database, Azure Stream Analytics.*
 - **User context-based isolation** for services that are composed solely of Microsoft-controlled code and customer code isn't allowed to run. Examples: *API Management, Application Gateway, Microsoft Entra ID, Azure Backup, Azure Managed Redis, Azure DNS, Azure Information Protection, Azure IoT Hub, Azure Key Vault, Azure portal, Azure Monitor (including Log Analytics), Microsoft Defender for Cloud, Azure Site Recovery, Container Registry, Content Delivery Network, Event Grid, Event Hubs, Load Balancer, Service Bus, Storage, Virtual Network, VPN Gateway, Traffic Manager.*
 
@@ -578,7 +578,7 @@ TLS provides strong authentication, message privacy, and integrity. [Perfect For
 **In-transit encryption for VMs** -  Remote sessions to Windows and Linux VMs deployed in Azure can be conducted over protocols that ensure data encryption in transit. For example, the [Remote Desktop Protocol (RDP)](/windows/win32/termserv/remote-desktop-protocol) initiated from your client computer to Windows and Linux VMs enables TLS protection for data in transit. You can also use [Secure Shell](/azure/virtual-machines/linux/ssh-from-windows) (SSH) to connect to Linux VMs running in Azure. SSH is an encrypted connection protocol available by default for remote management of Linux VMs hosted in Azure.
 
 > [!IMPORTANT]
-> Review best practices for network security, including guidance for **[disabling RDP/SSH access to Virtual Machines](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines)** from the Internet to mitigate brute force attacks to gain access to Azure Virtual Machines. Accessing VMs for remote management can then be accomplished via **[point-to-site VPN](../vpn-gateway/point-to-site-about.md)**, **[site-to-site VPN](../vpn-gateway/tutorial-site-to-site-portal.md)**, or **[Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)**.
+> Review best practices for network security, including guidance for **[disabling RDP/SSH access to Virtual Machines](../security/fundamentals/network-best-practices.md#disable-rdp-and-ssh-access-to-virtual-machines)** from the Internet to mitigate brute force attacks to gain access to Azure Virtual Machines. Accessing VMs for remote management can then be accomplished via **[point-to-site VPN](../vpn-gateway/point-to-site-about.md)**, **[site-to-site VPN](../vpn-gateway/tutorial-site-to-site-portal.md)**, or **[Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)**.
 
 **Azure Storage transactions** -  When interacting with Azure Storage through the Azure portal, all transactions take place over HTTPS. Moreover, you can configure your storage accounts to accept requests only from secure connections by setting the "[secure transfer required](../storage/common/storage-require-secure-transfer.md)" property for the storage account. The "secure transfer required" option is enabled by default when creating a Storage account in the Azure portal.
 

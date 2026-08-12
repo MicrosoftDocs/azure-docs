@@ -1,9 +1,11 @@
 ---
 title: Azure Enclave Pricing
-description: Learn how pricing works for Azure Enclave, including enclave charges, platform-managed resources, and workload resources.
+description: Learn how pricing works for Azure Enclave, including enclave charges, Azure Enclave-managed resources, and workload resources.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
+ms.service: azure-enclave
+ai-usage: ai-assisted
 ms.date: 06/08/2026
 ---
 
@@ -22,7 +24,7 @@ Customers pay for:
 - Azure resources managed by Azure Enclave to create and operate community and enclave boundaries.
 - Workload resources that you deploy inside enclaves, such as virtual machines, Azure Kubernetes Service, Azure App Service web apps, storage accounts, databases, or other Azure services.
 
-## Platform-managed resources
+## Azure Enclave managed resources
 
 Azure Enclave deploys and manages resources that support community and enclave boundaries.
 

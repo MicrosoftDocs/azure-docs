@@ -4,12 +4,14 @@ description: "This article describes the features of Enterprise Edition for the 
 ms.subservice: integration-services
 ms.topic: how-to
 ms.date: 05/15/2024
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ---
 # Provision Enterprise Edition for the Azure-SSIS Integration Runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 The Enterprise Edition of the Azure-SSIS Integration Runtime lets you use the following advanced and premium features:
 -   Change Data Capture (CDC) components

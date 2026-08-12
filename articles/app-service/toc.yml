@@ -304,6 +304,8 @@ items:
       href: ../sre-agent/troubleshoot-azure-app-service.md  
     - name: Monitor App Service
       href: monitor-app-service.md
+    - name: Use the App Service site status page
+      href: use-app-service-site-status-page.md
     - name: Monitoring data reference
       href: monitor-app-service-reference.md
     - name: Azure Monitor tutorial

@@ -2,7 +2,7 @@
 title: About Azure Elastic SAN backup (preview)
 description: Learn how the Elastic SAN backup (preview) works.
 ms.topic: overview
-ms.date: 07/15/2025
+ms.date: 02/10/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy24

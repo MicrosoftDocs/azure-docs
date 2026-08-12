@@ -24,7 +24,7 @@ Data flows use schemas in three places:
 - **Destination**: Specify an output schema and serialization format when sending data to storage endpoints.
 
 > [!NOTE]
-> For data flow graphs, schemas are configured differently. See [Use schemas in data flow graphs](concept-dataflow-graphs-schema.md).
+> For data flow graphs, configure schemas differently. See [Configure schemas on node connections](concept-dataflow-graphs.md#configure-schemas-on-node-connections).
 
 ## Schema formats
 
@@ -202,15 +202,15 @@ resource version 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersio
 }
 ```
 
-Deploy the Bicep file:
+Deploy the Bicep file. Set the `RESOURCE_GROUP` environment variable to your resource group name, and then run:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file schema.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file schema.bicep
 ```
 
 ## Related content
 
-- [Use schemas in data flow graphs](concept-dataflow-graphs-schema.md)
+- [Configure schemas on node connections](concept-dataflow-graphs.md#configure-schemas-on-node-connections)
 - [Configure a data flow source](howto-configure-dataflow-source.md)
 - [Configure a data flow destination](howto-configure-dataflow-destination.md)
 - [Create a data flow](howto-create-dataflow.md)

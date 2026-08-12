@@ -11,6 +11,8 @@ ms.author: azfuncdf
 
 # Versioning challenges and mitigation strategies in Durable Functions 
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Versioning in Durable Functions is essential because functions are inevitably added, removed, and changed over the lifetime of an application. [Durable Functions](../common/what-is-durable-task.md) lets you chain functions together in ways that weren't previously possible, and this chaining affects how you handle versioning.
 
 This article helps you:
@@ -50,14 +52,39 @@ As an example, consider the following orchestrator function.
 
 # [C#](#tab/csharp)
 
+<br>
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
 ```csharp
-[FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+[Function("FooBar")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+```csharp
+[FunctionName("FooBar")]
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    bool result = await context.CallActivityAsync<bool>("Foo");
+    await context.CallActivityAsync("Bar", result);
+}
+```
+
+</details>
+
+<br>
 
 # [PowerShell](#tab/powershell)
 
@@ -85,14 +112,39 @@ This function takes the result of **Foo** and passes it to **Bar**. Assume you n
 
 # [C#](#tab/csharp)
 
+<br>
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
 ```csharp
-[FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+[Function("FooBar")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
 {
     string result = await context.CallActivityAsync<string>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+```csharp
+[FunctionName("FooBar")]
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    string result = await context.CallActivityAsync<string>("Foo");
+    await context.CallActivityAsync("Bar", result);
+}
+```
+
+</details>
+
+<br>
 
 # [PowerShell](#tab/powershell)
 
@@ -128,14 +180,39 @@ Consider the following orchestrator function:
 
 # [C#](#tab/csharp)
 
+<br>
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
 ```csharp
-[FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+[Function("FooBar")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+```csharp
+[FunctionName("FooBar")]
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    bool result = await context.CallActivityAsync<bool>("Foo");
+    await context.CallActivityAsync("Bar", result);
+}
+```
+
+</details>
+
+<br>
 
 # [PowerShell](#tab/powershell)
 
@@ -163,9 +240,14 @@ Now assume you want to add a new function call between the two existing function
 
 # [C#](#tab/csharp)
 
+<br>
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
 ```csharp
-[FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+[Function("FooBar")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     if (result)
@@ -176,6 +258,31 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
     await context.CallActivityAsync("Bar", result);
 }
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+```csharp
+[FunctionName("FooBar")]
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    bool result = await context.CallActivityAsync<bool>("Foo");
+    if (result)
+    {
+        await context.CallActivityAsync("SendNotification");
+    }
+
+    await context.CallActivityAsync("Bar", result);
+}
+```
+
+</details>
+
+<br>
 
 # [PowerShell](#tab/powershell)
 

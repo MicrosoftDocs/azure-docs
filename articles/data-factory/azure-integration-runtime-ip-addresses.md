@@ -1,8 +1,8 @@
 ---
 title: Azure Integration Runtime IP addresses
 description: Learn which IP addresses you must allow inbound traffic from, in order to properly configure firewalls for securing network access to data stores.
-ms.author: lle
-author: lrtoyou1223
+ms.author: makromer
+author: kromerm
 ms.subservice: integration-runtime
 ms.topic: reference
 ms.date: 02/13/2025
@@ -11,6 +11,8 @@ ms.date: 02/13/2025
 # Azure Integration Runtime IP addresses
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 The IP addresses that Azure Integration Runtime uses depends on the region where your Azure integration runtime is located. *All* Azure integration runtimes that are in the same region use the same IP address ranges.
 

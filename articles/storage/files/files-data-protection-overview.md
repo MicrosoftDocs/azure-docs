@@ -80,7 +80,7 @@ Azure Files offers multiple redundancy options, including geo-redundancy, to hel
 ## Disaster recovery and failover
 In the case of a disaster or unplanned outage, restoring access to file share data is critical to keeping the business operational. Depending on the criticality of the data hosted in your file shares, you might need a disaster recovery strategy that includes failing your Azure file shares over to a secondary region.
 
-Azure Files offers customer-managed unplanned failover for HDD file shares if the data center in the primary region becomes unavailable. Customer-managed planned failover can also be utilized in multiple scenarios, including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from non-storage related outages.
+Azure Files offers customer-managed unplanned failover for HDD file shares if the data center in the primary region becomes unavailable. Customer-managed planned failover can also be used in multiple scenarios, including planned disaster recovery testing, a proactive approach to large-scale disasters, or to recover from non-storage related outages.
 
 [!INCLUDE [storage-failover.planned-preview](../../../includes/storage-failover.planned-preview.md)]
 
@@ -109,7 +109,7 @@ You can recover an accidentally deleted storage account if the following criteri
 - A new storage account with the same name hasn't been created since the original account was deleted.
 - The user who is recovering the storage account must be assigned an Azure RBAC role that provides the Microsoft.Storage/storageAccounts/write permission. 
 
-Storage account recovery is a feature and can't be disabled. For more information and step-by-step instructions, see [Recover a deleted storage account](../common/storage-account-recover.md).
+Storage account recovery is a built-in capability that you can't disable. For more information and step-by-step instructions, see [Recover a deleted storage account](../common/storage-account-recover.md).
 
 ### Soft delete
 
@@ -117,7 +117,7 @@ Soft delete works on a file share level to protect Azure file shares against acc
 
 For more information, see [Enable soft delete on Azure file shares](storage-files-enable-soft-delete.md) and [Prevent accidental deletion of Azure file shares](storage-files-prevent-file-share-deletion.md).
 
-## Share snapshots
+## Azure Files share snapshots
 
 File share snapshots are point-in-time copies of your Azure file share that you can take manually or automatically via Azure Backup. You can then restore individual files from these snapshots. You can take up to 200 snapshots per file share.
 
@@ -131,7 +131,7 @@ Using Azure File Sync with Azure Backup is an easy solution for hybrid cloud bac
 
 :::image type="content" source="media/files-data-protection-overview/azure-file-sync-with-azure-backup.png" alt-text="Architecture diagram for using Azure File Sync along with Azure Backup to back up multiple file servers." border="false":::
 
-This method simplifies disaster recovery and gives you multiple options. You can recover single files or directories, or perform a rapid restore of your entire file share. Just bring up a new server on the primary and point it to the centralized Azure file share where it can access the data. Over time, files will be locally cached or tiered to the cloud based on Azure File Sync settings.
+This method simplifies disaster recovery and gives you multiple options. You can recover single files or directories, or perform a rapid restore of your entire file share. Just bring up a new server on the primary and point it to the centralized Azure file share where it can access the data. Over time, files are locally cached or tiered to the cloud based on Azure File Sync settings.
 
 ## See also
 

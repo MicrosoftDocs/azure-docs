@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 08/16/2023
-ms.author: danlep
+ms.author: patricka
 ---
 
 As an administrator, you can customize the content of the portal using the visual editor. 

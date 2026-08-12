@@ -129,6 +129,4 @@ For instructions on how to configure the minimum refresh rate for the viewer, se
 
 ## Next steps
 
-Try out 3D Scenes Studio with a sample scenario in [Get started with 3D Scenes Studio](quickstart-3d-scenes-studio.md).
-
-Or, learn how to use the studio's full feature set in [Use 3D Scenes Studio](how-to-use-3d-scenes-studio.md).
+To learn how to use the studio's full feature set, see [Use 3D Scenes Studio](how-to-use-3d-scenes-studio.md).

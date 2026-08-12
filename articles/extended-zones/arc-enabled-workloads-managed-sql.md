@@ -3,6 +3,7 @@ title: "Deploy Arc-enabled workloads in an Extended Zone: Managed SQL Instance"
 description: Learn how to deploy Arc-enabled Managed SQL Instance in an Extended Zone.
 author: svaldesgzz
 ms.author: svaldes
+ms.reviewer: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
 ms.date: 04/30/2026

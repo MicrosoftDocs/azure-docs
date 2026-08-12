@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: tutorial
-ms.date: 03/30/2026
+ms.date: 07/29/2026
 ms.author: cshoe
 ---
 
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account with an active subscription. If you don't already have one, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Considerations
@@ -162,7 +162,7 @@ Now that you have an existing environment, you can create your container app and
    az containerapp env java-component eureka-server-for-spring update \
        --environment $ENVIRONMENT \
        --resource-group $RESOURCE_GROUP \
-       --name $EUREKA_COMPONENT_NAME
+       --name $EUREKA_COMPONENT_NAME \
        --configuration eureka.server.renewal-percent-threshold=0.85 eureka.server.eviction-interval-timer-in-ms=10000
    ```
 
@@ -256,7 +256,7 @@ To remove a binding from a container app, use the `--unbind` option.
 ``` azurecli
 az containerapp update \
     --name $APP_NAME \
-    --unbind $JAVA_COMPONENT_NAME \
+    --unbind $EUREKA_COMPONENT_NAME \
     --resource-group $RESOURCE_GROUP
 ```
 
@@ -278,10 +278,10 @@ az containerapp update \
 
 ---
 
-## View the application through a dashboard
+## Monitor and operate applications through a dashboard
 
 > [!IMPORTANT]
-> To view the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account.
+> To access the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account. This permission isn't read-only. Anyone with dashboard access can both monitor and operate the apps registered to this component.
 
 > [!NOTE]
 > The dashboard isn't available in Azure operated by 21Vianet.
@@ -292,7 +292,7 @@ az containerapp update \
    az role definition create --role-definition '{
        "Name": "<YOUR_ROLE_NAME>",
        "IsCustom": true,
-       "Description": "Can access managed Java Component dashboards in managed environments",
+       "Description": "Can monitor and operate applications through managed Java component dashboards in managed environments",
        "Actions": [
            "Microsoft.App/managedEnvironments/write"
        ],
@@ -411,7 +411,7 @@ The example creates two applications, a caller and a callee. Both applications c
        SpringApplication.run(CalleeApplication.class, args);
      }
    }
-   ````
+   ```
 
 1. Create an endpoint in the callee application that is called by the caller application.
 

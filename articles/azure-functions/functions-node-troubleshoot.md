@@ -83,7 +83,59 @@ If you get the following error in your function app logs:
 > WARNING: Failed to detect the Azure Functions runtime. Switching "@azure/functions" package to test mode - not all features are supported.
 
 Check your `package.json` file for a reference to `applicationinsights` and make sure the version is `^2.7.1` or higher. After updating the version, run `npm install`
+
+## HTTP streams not working
+
+If HTTP streaming isn't working:
+
+- Verify `@azure/functions` package version is 4.3.0 or later.
+- Ensure Azure Functions runtime version is 4.28 or later.
+- Check that `app.setup({ enableHttpStream: true })` is called.
+- Verify `FUNCTIONS_REQUEST_BODY_SIZE_LIMIT` is set appropriately for large data.
+
+## Hooks not executing
+
+If your hooks aren't running:
+
+- Confirm you're using programming model v4.
+- Verify hook registration syntax: `app.hook.preInvocation()` or `app.hook.appStart()`.
+- Check that you register hooks before function definitions.
+- Review trigger filtering if hooks should only run for specific function types.
 ::: zone-end
+
+## TypeScript compilation issues
+
+For TypeScript-specific problems:
+
+**Build failures:**
+- Verify `tsconfig.json` has correct `outDir` pointing to your build output
+- Ensure `scriptFile` in v3 model points to compiled `.js` files, not `.ts`
+- Check that all TypeScript dependencies are installed: `npm install --save-dev typescript @types/node`
+
+**Type errors:**
+- Update `@azure/functions` package for latest type definitions
+- Use proper imports: `import { app, HttpRequest, InvocationContext } from '@azure/functions'`
+- Verify function signatures match expected types
+
+## Module resolution problems
+
+**Cannot find module errors:**
+- Run `npm install` to ensure all dependencies are installed
+- Check `node_modules` folder exists in deployment package
+- For ES modules, ensure filenames use `.mjs` extension or `package.json` has `"type": "module"`
+- Verify relative import paths are correct after TypeScript compilation
+
+## Environment and configuration issues
+
+**Missing environment variables:**
+- Add variables to `local.settings.json` for local development
+- Set Application Settings in Azure portal for cloud deployment
+- Use `process.env["VARIABLE_NAME"]` to access values
+
+**Logging problems:**
+- Use `context.log()` instead of `console.log()` for function-specific logs
+- Check Application Insights connection string is configured
+- Verify log levels in `host.json` for filtering
 
 ## Get help from Microsoft
 

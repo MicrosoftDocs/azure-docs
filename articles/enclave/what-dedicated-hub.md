@@ -4,6 +4,7 @@ description: Learn how dedicated hubs provide customer-reserved hub capacity for
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
+ms.service: azure-enclave
 ms.date: 06/30/2026
 ---
 
@@ -11,11 +12,11 @@ ms.date: 06/30/2026
 
 Dedicated hubs let an Azure Enclave community use customer-reserved hub capacity instead of pooled regional Azure Virtual WAN hub capacity. In simple terms, pooled hubs allow customers in a region to share hub capacity, whereas dedicated hubs can be reserved for one customer's own use. Dedicated hubs improve network isolation for customers who need stronger separation at the community hub layer.
 
-Dedicated hubs don't change [transit hubs](./what-transit-hub.md). Transit hubs still provide secure connectivity between a community and external private networks. Dedicated hubs control whether the community uses reserved hub capacity or pooled regional hub capacity for the community's platform-managed hub resources.
+Dedicated hubs don't change [transit hubs](./what-transit-hub.md). Transit hubs still provide secure connectivity between a community and external private networks. Dedicated hubs control whether the community uses reserved hub capacity or pooled regional hub capacity for the community's Azure Enclave managed hub resources.
 
 ## How dedicated hubs work
 
-Azure Enclave uses platform-managed hub resources to support community networking, governance, and monitoring. Without dedicated hubs, a community can use pooled regional hub capacity provided by the service. With dedicated hubs, a customer can reserve dedicated hub capacity for communities that require stronger network isolation.
+Azure Enclave uses Azure Enclave managed hub resources to support community networking, governance, and monitoring. Without dedicated hubs, a community can use pooled regional hub capacity provided by the service. With dedicated hubs, a customer can reserve dedicated hub capacity for communities that require stronger network isolation.
 
 Dedicated hubs are community child resources. In Azure Resource Manager, dedicated hubs use the resource type `Microsoft.Mission/communities/dedicatedHubs`.
 
@@ -33,7 +34,7 @@ Use `Reserved` when your organization requires dedicated hub capacity for strong
 Consider dedicated hubs when:
 
 - Your organization requires stronger hub-level network isolation than pooled regional capacity provides.
-- Your governance model requires customer-reserved platform-managed hub capacity.
+- Your governance model requires customer-reserved Azure Enclave managed hub capacity.
 - You need to separate community hub capacity for regulated or sensitive workloads.
 
 ## Related content

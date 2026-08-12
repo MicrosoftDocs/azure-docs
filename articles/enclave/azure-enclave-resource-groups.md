@@ -1,51 +1,62 @@
 ---
-title: Azure Enclave Resource Groups
-description: Azure Enclave Resource Groups.
+title: Azure Enclave resource groups
+description: Learn how Azure Enclave uses community, enclave, and workload resource groups.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
-ms.date: 9/30/2025
+ms.service: azure-enclave
+ai-usage: ai-assisted
+ms.date: 8/3/2026
 ---
 
 # Azure Enclave resource groups
-Azure Enclave simplifies the creation of complex secure environments and includes a few resource groups to help manage and organize those resources. Resource groups are created during the creation of the Azure Enclave resources and this guide will explain the purposes of those resource groups.
+
+Azure Enclave uses a small set of resource groups to organize community, enclave, and workload resources. This article explains what each resource group is for and how Azure Enclave manages it.
 
 ## Single subscription deployment architecture
-For a deployment into a single subscription, the Azure Enclave resources can be organized in one resource group. This example shows a community, an enclave, a workload with one workload resource group, and a workload with three workload resource groups.
 
-[ ![Diagram showing Azure Enclave organized into the different resource groups used in a deployment in one subscription.](./media/azure-enclave-resource-groups-one-subscription.svg) ](./media/azure-enclave-resource-groups-one-subscription.svg#lightbox)
- 
-1.	The resource group where the Azure Enclave resources are deployed. The Azure Enclave resources can be organized into resource groups according to your needs. 
-1.	Community managed resource group - The managed resource group deployed with the community for the community resources like the firewall and Log Analytics workspace. Our documentation refers to this resource group as the `community managed resource group` and one is created for each community. You shouldn't normally deploy new Azure resources to this resource group manually. Azure Enclave manages the resources in this resource group. This resource group is deleted when the community is deleted. [What gets deployed](./what-azure-enclave.md#what-gets-deployed)
-3.	Enclave managed resource group - The managed resource group deployed with the enclave for the enclave resources like the virtual network, subnet network security groups, and Log Analytics workspace. Our documentation refers to this resource group as the `enclave managed resource group` and one is created for each enclave. You shouldn't normally deploy new Azure resources to this resource group manually. Azure Enclave manages the resources in this resource group. This resource group is deleted when the enclave is deleted. [What gets deployed](./what-azure-enclave.md#what-gets-deployed)
-4.	Workload resource group - The managed resource group for your resources. Our documentation refers to this resource group as the `workload resource group` and you can create many per workload. You manage the resources inside this resource group and Azure Enclave manages the policy and deletion of the resource group itself because it's linked to the workload. These resource groups are deleted when the workload is deleted or when the resource group is detached from the workload. These workload resource groups must be empty before deletion can complete successfully.
-5.	Workload resource groups - Another example of workload resource groups showing one workload with three resource groups linked. You may choose to add more resources groups to a workload to logically organize your resources.
+For a single-subscription deployment, Azure Enclave uses managed resource groups for the community and enclave, plus workload resource groups for customer resources. This example shows a community, an enclave, and workloads with one and three workload resource groups.
+
+[![Diagram showing Azure Enclave organized into the different resource groups used in a deployment in one subscription.](./media/azure-enclave-resource-groups-one-subscription.svg)](./media/azure-enclave-resource-groups-one-subscription.svg#lightbox)
+
+- An Azure resource group contains the Azure Enclave resources for the deployment (for example, the community or enclave resource itself).
+- The `community managed resource group` contains community resources such as the firewall and Log Analytics workspace. Azure Enclave creates one for each community, manages the resources in it, and deletes it when the community is deleted. See [What gets deployed](./what-azure-enclave.md#what-gets-deployed).
+- The `enclave managed resource group` contains enclave resources such as the virtual network, subnet network security groups, and Log Analytics workspace. Azure Enclave creates one for each enclave, manages the resources in it, and deletes it when the enclave is deleted. See [What gets deployed](./what-azure-enclave.md#what-gets-deployed).
+- The `workload resource group` contains your resources. You manage the resources in this group, and Azure Enclave manages the policy and lifecycle of the resource group itself because it is linked to the workload. Azure Enclave deletes the group when the workload is deleted or when the group is detached from the workload. The workload resource group must be empty before deletion can complete successfully.
+- The three workload resource groups example shows how you can add more than one workload resource group to a workload to organize resources.
 
 ## Community and enclave managed resource group naming
-During the creation of a community or enclave, a new resource group is also created for the resources required for the community or enclave to function that Azure Enclave manages. These managed resource groups are easy to identify because they have the name of the community or enclave at the beginning and then “HostedResources” followed by characters to make the name unique.
+
+During community or enclave creation, Azure Enclave creates a managed resource group for the resources required for that community or enclave to function. These managed resource groups are easy to identify because they begin with the community or enclave name, followed by `HostedResources`, and then characters that make the name unique.
 
 ## Multi-subscription deployment architecture
-For a deployment into two subscriptions, the Azure Enclave resources can be organized into two resource groups. This example shows a community in one subscription and an enclave, a workload with one workload resource group, and a workload with three workload resource groups in another subscription.
 
-[ ![Diagram showing Azure Enclave organized into the different resource groups used in a deployment in two subscriptions.](./media/azure-enclave-resource-groups-two-subscriptions.svg) ](./media/azure-enclave-resource-groups-two-subscriptions.svg#lightbox)
- 
-In this architecture with two subscriptions the Azure Enclave resources are organized into two resource groups, one in each subscription (labeled each with a `#1`). The other resource groups are aligned with the subscription as shown. If you wanted to deploy more enclaves, you could deploy all of the enclaves in this second subscription, each enclave could have its own subscription, or a combination to fit yours needs.
+For a deployment across two subscriptions, Azure Enclave uses managed resource groups and workload resource groups in each subscription. This example shows a community in one subscription and an enclave with workloads in another subscription.
+
+[![Diagram showing Azure Enclave organized into the different resource groups used in a deployment in two subscriptions.](./media/azure-enclave-resource-groups-two-subscriptions.svg)](./media/azure-enclave-resource-groups-two-subscriptions.svg#lightbox)
+
+In this architecture, the `#1` label marks the primary deployment resource group in each subscription. The `#2` label marks the community managed resource group, and the `#3` label marks the enclave managed resource group. The remaining resource groups align with the subscription that owns them. If you want to deploy more enclaves, you can place all of the enclaves in the second subscription, give each enclave its own subscription, or use a combination that fits your needs.
 
 ## Frequently asked questions
+
 Frequently asked questions about Azure Enclave resource groups.
 
-### How do I access the enclave portal page for management?
-If you wanted to manage the enclave, you would navigate to the enclave resource located in the #1 resource group with the enclave icon. You could then perform management tasks on the enclave like enabling maintenance mode or adding an enclave endpoint. You can also navigate to this resource by searching for the enclave name in the list of all enclave resources in the portal.
+### How do I access the enclave management area?
 
-### How do I manage the enclave resources (for example, virtual network)?
-Some tasks like adding a subnet can be performed at the enclave portal page for management. If you need to perform a manual action on the enclave resources, understanding that these changes can break enclave functionality, you would navigate to the #3 enclave managed resource group. Changes to this managed resource group require maintenance mode and you must be added as one of the maintenance mode principals.
+Manage the enclave through the enclave resource in the primary deployment resource group. From there, you can perform tasks such as enabling maintenance mode or adding an enclave endpoint.
 
-### How do I access the community portal page for management?
-If you wanted to manage the community, you would navigate to the community resource located in the #1 resource group. You could then perform management tasks on the community like enabling maintenance mode or adding a community endpoint. You can also navigate to this resource by searching for the community name in the list of all community resources in the portal.
+### How do I manage the enclave resources, such as the virtual network?
 
-### How do I manage the community resources (for example, virtual WAN)?
-Some tasks like adding a virtual WAN hub are handled by Azure Enclave for enclave regions. Other tasks like changing the default routing preference require a manual change. If you need to perform a manual change on the community resources, you would navigate to the #2 community managed resource group. Changes to this managed resource group require maintenance mode and you must be added as one of the maintenance mode principals.
+Some tasks, such as adding a subnet, can be performed at the enclave resource. If you need to make a manual change to the enclave managed resource group, be aware that these changes can break enclave functionality. Changes to this managed resource group require maintenance mode, and you must be added as one of the maintenance mode principals.
+
+### How do I access the community management area?
+
+Manage the community through the community resource in the primary deployment resource group. From there, you can perform tasks such as enabling maintenance mode or adding a community endpoint.
+
+### How do I manage the community resources, such as virtual WAN?
+
+Some tasks, such as adding a virtual WAN hub, are handled by Azure Enclave for enclave regions. Other tasks, such as changing the default routing preference, require a manual change. If you need to change the community managed resource group, be aware that manual changes can affect community functionality. Changes to this managed resource group require maintenance mode, and you must be added as one of the maintenance mode principals.
 
 > [!WARNING]
-> 
-> Changes to the community or enclave managed resource group can break community or enclave functionality so care should be taken when making manual changes to these resources.
+>
+> Changes to the community or enclave managed resource groups can break community or enclave functionality. Make manual changes only when necessary and only in maintenance mode.

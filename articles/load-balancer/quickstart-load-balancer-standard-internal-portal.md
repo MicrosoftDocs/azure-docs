@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 01/28/2026
+ms.date: 07/17/2026
 ms.author: mbender
 ms.custom:
   - mvc
@@ -75,10 +75,6 @@ During the creation of the load balancer, you configure:
     | ------- | ----- |
     | Name | Enter **lb-frontend**. |
     | Private IP address version | Select **IPv4** or **IPv6** depending on your requirements. |
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **lb-frontend**. |
     | Virtual network | Select **lb-vnet**. |
     | Subnet | Select **backend-subnet**. |
     | Assignment | Select **Dynamic**. |
