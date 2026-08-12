@@ -69,11 +69,10 @@ Azure Enclave includes roles to help you manage your environments with least pri
 
 ## Using Azure Enclave
 
-### Why would I use a dedicated hub?
+### Why use a dedicated hub?
 
-A dedicated hub is useful when you need either a predictable internet egress SNAT IP for a group of enclaves or higher VNet-to-VNet throughput than pooled capacity is designed for. A dedicated hub has a specific Azure Firewall public IP, so enclaves using that hub share the same SNAT public IP for internet egress.
+Use a dedicated hub when you need either a predictable internet egress SNAT IP for a group of enclaves or higher VNet-to-VNet throughput than pooled capacity provides. A dedicated hub has a specific Azure Firewall public IP, so enclaves that use that hub share the same SNAT public IP for internet egress.
 
-If your design expects high east-west traffic (for example, more than 30 Gbps of VNet-to-VNet throughput), evaluate dedicated hubs and your firewall architecture together. For more information, see [What are dedicated hubs?](./what-dedicated-hub.md).
 
 ### How do I create a resource that isn't in the Azure service allow list?
 
