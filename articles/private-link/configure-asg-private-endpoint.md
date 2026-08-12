@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: azure-private-link
 ms.topic: how-to 
-ms.date: 03/30/2026
+ms.date: 08/10/2026
 ms.custom:
   - template-how-to
   - devx-track-azurepowershell
@@ -85,7 +85,7 @@ You can associate an ASG with a private endpoint when it's created. The followin
     | **Networking** |   |
     | Virtual network | Select **myVNet**. |
     | Subnet | Select your subnet. </br> In this example, it's **myVNet/myBackendSubnet(10.0.0.0/24)**. |
-    | Enable network policies for all private endpoints in this subnet. | Leave the default selected. |
+    | Enable network policies for all private endpoints in this subnet. | Enable network policies for network security groups. Network policies are disabled by default; they must be enabled for the network security group rules that reference the application security group to apply to the private endpoint. |
     | **Application security group** |   |
     | Application security group | Select **myASG**. |
 
