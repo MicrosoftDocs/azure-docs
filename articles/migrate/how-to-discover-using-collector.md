@@ -78,6 +78,29 @@ Before you set up the collector, [create a new Azure Migrate project](quickstart
 
 7.  After successful execution, the appliance configuration manager launches automatically and creates a desktop shortcut.
 
+### Verify security
+
+To verify that the downloaded collector installer ZIP file is secure, check its hash value:
+
+1. On the server where you downloaded the file, open a Command Prompt window by using the **Run as administrator** option.
+1. Run this command to create the hash for the ZIP file:
+
+   ```
+   C:\>CertUtil -HashFile <file_location> SHA256
+   ```
+
+   For example:
+
+   ```
+   C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\AzureMigratecollector.zip SHA256
+   ```
+
+1. Verify the latest collector version and hash value:
+
+   | Algorithm | Version | Download | SHA256 |
+   | --- | --- | --- | --- |
+   | Collector zip file (651.26 MB) | 20260804.1 | [Latest version](https://aka.ms/Migrate/DownloadCollector) | 4CA4E3965D5744462CF3C123EE9C5A9F20B278C265CC18A8B1CF3D60DE404865 |
+
 ### Provide vCenter credentials
 
 1.	Select **Add credentials**, and then enter a name for the credentials.
