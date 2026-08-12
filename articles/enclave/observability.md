@@ -14,7 +14,7 @@ ms.custom: references_region
 
 Azure Enclave provides observability features to support monitoring of workloads and network resources across communities and enclaves. This article describes the available logging destinations, how destinations affect diagnostic settings and flow logs, and how to prepare the `NetworkWatcherRG` resource group.
 
-Monitoring destinations are configurable. The Azure Enclave resource provider creates a Community or Enclave Log Analytics workspace when the corresponding monitoring destination is selected. Flow-log setup can create or reuse a storage account in the enclave managed resource group. The exact defaults and available properties depend on the Mission Management API version. For the `2025-05-01-preview` API, don't assume that every workspace, storage account, flow log, or diagnostic setting is created for every enclave.
+You can configure monitoring destinations. The Azure Enclave resource provider creates a Community or Enclave Log Analytics workspace when you select the corresponding monitoring destination. Flow-log setup can create or reuse a storage account in the enclave managed resource group. The exact defaults and available properties depend on the Mission Management API version. For the `2025-05-01-preview` API, don't assume that every workspace, storage account, flow log, or diagnostic setting is created for every enclave.
 
 ## Centralized and isolated observability
 
@@ -22,26 +22,26 @@ Observability in Azure Enclave is built on a dual-tier logging model that suppor
 
 ### Community-level observability
 
-When configured, a **Community** can include a **centralized Log Analytics workspace**. This workspace is designed to:
+When you configure it, a **Community** can include a **centralized Log Analytics workspace**. This workspace is designed to:
 
 - Aggregate diagnostics and metrics from all enclaves within the community.
 - Provide a single pane of glass for monitoring and querying diagnostics and flow logs.
 - Support cross-enclave analytics, alerting, and compliance tracking.
 
-The workspace is created when the Community workspace destination is selected. The workspace can then be used as a diagnostic destination for supported enclave or workload resources. Runtime-created workspaces currently enable public network access for ingestion and query; network isolation isn't enabled by these provider operations. To configure private access, see [Azure Monitor Private Link scope](/azure/azure-monitor/logs/private-link-security).
+The workspace is created when you select the Community workspace destination. You can use the workspace as a diagnostic destination for supported enclave or workload resources. Runtime-created workspaces currently enable public network access for ingestion and query; network isolation isn't enabled by these provider operations. To configure private access, see [Azure Monitor Private Link scope](/azure/azure-monitor/logs/private-link-security).
 
 > [!Note]
 > Diagnostic settings from enclave resources (such as workloads, public IPs, or Application Gateways) can be configured to send logs to the centralized workspace to support unified monitoring.
 
 ### Enclave-level observability
 
-When configured, an **Enclave** can include an **isolated Log Analytics workspace** scoped specifically to that enclave. This workspace supports enclave-level logging use cases and can provide:
+When you configure an **Enclave**, it can include an **isolated Log Analytics workspace** that's scoped specifically to that enclave. This workspace supports enclave-level logging use cases and can provide:
 
-- **Storage of virtual network flow logs** when flow-log setup is enabled and the enclave workspace is selected as the destination.
+- **Storage of virtual network flow logs** when you enable flow-log setup and select the enclave workspace as the destination.
 - Optional diagnostic settings for enclave-scoped resources, such as internal workloads and networking components.
 - Designed to meet isolation or regulatory requirements that prevent cross-enclave log aggregation.
 
-Administrators can choose to keep enclave diagnostics within this workspace when the enclave workspace is selected as the destination.
+Administrators can choose to keep enclave diagnostics within this workspace when they select the enclave workspace as the destination.
 
 ## Configurable logging destinations
 
