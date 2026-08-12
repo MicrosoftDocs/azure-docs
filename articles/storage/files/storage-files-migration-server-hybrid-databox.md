@@ -51,10 +51,10 @@ With this migration guide, you must continue to use the on-premises direct attac
 
 You determine what syncs by setting up Azure File Sync *sync groups* that each determine where a set of files syncs between. Each sync group has at least one server location, called a *server endpoint* and one Azure file share, called the *cloud endpoint*. 
 
-You can sync sub paths of a set of files to each their own Azure file share. This means setting up several sync groups to cover a set of files completely. The remainder of the section describes your options. If you need to restructure your data, do so before you continue with this guide, order a Data Box, or set up sync. 
+You can sync sub paths of a set of files to each their own Azure file share. This setup means several sync groups to cover a set of files completely. The remainder of the section describes your options. If you need to restructure your data, do so before you continue with this guide, order a Data Box, or set up sync. 
 
 > [!CAUTION]
-> Make sure your file and folder structure is how you want it to be long-term before you begin the migration. Avoid any unnecessary folder restructuring during the migration. This decreases the positive effects of using Azure Data Box for initial, bulk transport of files to Azure.
+> Ensure your file and folder structure is how you want it to be long-term before you begin the migration. Avoid any unnecessary folder restructuring during the migration. This restructuring decreases the positive effects of using Azure Data Box for initial, bulk transport of files to Azure.
 
 [!INCLUDE [storage-files-migration-namespace-mapping](../../../includes/storage-files-migration-namespace-mapping.md)]
 
@@ -68,14 +68,14 @@ In this phase, consult the mapping table from Phase 1 and use it to provision th
 
 Start this step only after you've finished the previous phase. Your Azure storage resources (storage accounts and file shares) should be created at this time. When you order your Data Box, you need to specify the storage accounts into which the Data Box is moving data.
 
-In this phase, you need to map the results of the migration plan from the previous phase to the limits of the available Data Box options. These considerations will help you make a plan for which Data Box options to choose and how many of them you'll need to move your server shares to Azure file shares.
+In this phase, map the results of the migration plan from the previous phase to the limits of the available Data Box options. These considerations help you make a plan for which Data Box options to choose and how many of them you need to move your server shares to Azure file shares.
 
 To determine how many devices you need and their types, consider these important limits:
 
 * Any Azure Data Box appliance can move data into up to 10 storage accounts. 
 * Each Data Box option comes with its own usable capacity. See [Data Box options](#data-box-options).
 
-Consult your migration plan to find the number of storage accounts you've decided to create and the shares in each one. Then look at the size of each of the shares on your server. Combining this information will allow you to optimize and decide which appliance should be sending data to which storage accounts. Two Data Box devices can move files into the same storage account, but don't split content of a single file share across two Data Boxes.
+Consult your migration plan to find the number of storage accounts you decide to create and the shares in each one. Then look at the size of each of the shares on your server. Combining this information allows you to optimize and decide which appliance should send data to which storage accounts. Two Data Box devices can move files into the same storage account, but don't split content of a single file share across two Data Boxes.
 
 ### Data Box options
 
@@ -83,7 +83,7 @@ For a standard migration, choose one or a combination of these Data Box options:
 
 | Option | Description | Usable capacity | More information |
 |---|---|---|---|
-| **Data Box Disk** | Microsoft sends you between one and five SSD disks that have a capacity of 8 TiB each, for a maximum total of 40 TiB. | About 20% less than raw capacity due to encryption and file-system overhead. | [Data Box Disk documentation](../../databox/data-box-disk-overview.md) |
+| **Data Box Disk** | Microsoft sends you between one and five SSD disks that each have a capacity of 8 TiB, for a maximum total of 40 TiB. | About 20% less than raw capacity due to encryption and file-system overhead. | [Data Box Disk documentation](../../databox/data-box-disk-overview.md) |
 | **Data Box** | The most common option. Microsoft sends you a ruggedized appliance that works similarly to a NAS. | 80, 120, or 525 TiB depending on SKU. | [Data Box documentation](../../databox/data-box-overview.md?pivots=dbx-ng) |
 | **Data Box Heavy** | A ruggedized appliance on wheels that works similarly to a NAS. | 1 PiB (about 20% less usable due to encryption and file-system overhead). | [Data Box Heavy documentation](../../databox/data-box-heavy-overview.md) |
 
@@ -92,7 +92,7 @@ For a standard migration, choose one or a combination of these Data Box options:
 
 ## Phase 4: Copy files onto your Data Box
 
-When your Data Box arrives, you need to set it up with unimpeded network connectivity to your Windows Server. Follow the setup documentation for the type of Data Box you ordered:
+When your Data Box arrives, set it up with unimpeded network connectivity to your Windows Server. Follow the setup documentation for the type of Data Box you ordered:
 
 * [Set up Data Box](../../databox/data-box-quickstart-portal.md).
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
@@ -147,11 +147,11 @@ Once you configured authoritative upload for this new server endpoint, you can o
 
 Cloud tiering is the Azure File Sync feature that allows the local server to have less storage capacity than is stored in the cloud but have the full namespace available. Locally interesting data is also cached locally for fast access performance. Cloud tiering is optional. You can set it individually for each Azure File Sync server endpoint. Use this feature to achieve a fixed storage footprint on-premises, yet still give users a local performance cache, and store cooler data in the cloud.
 
-For more information, see the [cloud tiering overview](../file-sync/file-sync-cloud-tiering-overview.md) or take a closer look at the different [cloud tiering policies](../file-sync/file-sync-cloud-tiering-policy.md) you can use to fine-tune what is cached / tiered on the local server.
+For more information, see the [cloud tiering overview](../file-sync/file-sync-cloud-tiering-overview.md) or take a closer look at the different [cloud tiering policies](../file-sync/file-sync-cloud-tiering-policy.md) you can use to fine-tune what is cached and tiered on the local server.
 
 ## Complete your migration
 
-After you create a server endpoint, sync is working. But sync needs to enumerate (discover) the files and folders you moved via Azure Data Box into the Azure file share. Depending on the size of the namespace, it can take a long time before the latest server changes are synced to the cloud. Your users aren't affected and can continue to work with the data on the server. This strategy achieves a zero-downtime cloud migration.
+After you create a server endpoint, sync works. But sync needs to enumerate (discover) the files and folders you moved by using Azure Data Box into the Azure file share. Depending on the size of the namespace, it can take a long time before the latest server changes sync to the cloud. Your users aren't affected and can continue to work with the data on the server. This strategy achieves a zero-downtime cloud migration.
 
 For all Azure file shares / server locations that you need to configure for sync, repeat the steps to create sync groups and to add the matching server folders as server endpoints. You used Azure Data Box to move your files into several Azure file shares. Your migration is complete once you have created all the server endpoints that connect your on-premises data to these Azure file shares.
 
