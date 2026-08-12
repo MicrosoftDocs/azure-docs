@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 08/10/2026
+ms.date: 08/12/2026
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -371,6 +371,7 @@ Resize a disk on a replicated VM. | Resizing up on the source VM is supported. R
 Add a disk to a replicated VM. | Supported.
 Offline changes to protected disks. | Disconnecting disks and making offline modifications to them require triggering a full resync.
 Disk caching. | Disk caching isn't supported for disks 4 TB and larger. If multiple disks are attached to your VM, each disk that's smaller than 4 TB supports caching. Changing the cache setting of an Azure disk detaches and reattaches the target disk. If it's the operating system disk, the VM is restarted. Before you change the disk cache setting, stop all applications or services that this disruption might affect. Not following the recommendations could lead to data corruption.
+Change source disk SKU. | Supported. Changing the source disk SKU doesn't impact ongoing replication or failover operations. However, the replica disk SKU isn't automatically updated. The failover VM uses the disk SKU that existed when replication was enabled.
 
 ## <a name = "replicated-machines---storage"></a>Replicated machines: Storage
 
