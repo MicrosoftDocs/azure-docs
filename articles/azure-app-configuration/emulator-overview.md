@@ -44,7 +44,7 @@ The following table lists the features supported by the latest Azure App Configu
 Use [Docker](https://hub.docker.com/) to pull the latest [App Configuration emulator image](https://mcr.microsoft.com/artifact/mar/azure-app-configuration/app-configuration-emulator/about) by using the following console command:
 
 ```console
-docker pull mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.0.2
+docker pull mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.2.0
 ```
 
 ### [GitHub](#tab/github)
@@ -80,7 +80,7 @@ The following command runs the App Configuration emulator Docker image. The `-p 
 docker run -d -p 8483:8483 \
     -e Tenant:AnonymousAuthEnabled=true \
     -e Authentication:Anonymous:AnonymousUserRole=Owner \
-    mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.0.2
+    mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.2.0
 ```
 
 If you want to have persisted data for the emulator, you can use a [bind mount](https://docs.docker.com/engine/storage/bind-mounts).
@@ -90,7 +90,7 @@ docker run -d -p 8483:8483 \
     -v "C:\aace:/app/.aace" \
     -e Tenant:AnonymousAuthEnabled=true \
     -e Authentication:Anonymous:AnonymousUserRole=Owner \
-    mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.0.2
+    mcr.microsoft.com/azure-app-configuration/app-configuration-emulator:1.2.0
 ```
 
 ### [GitHub](#tab/github)
