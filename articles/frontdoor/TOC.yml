@@ -107,7 +107,7 @@
       href: health-probes.md
     - name: Add origins to origin group
       href: how-to-configure-origin.md
-    - name: Add origin authentication
+    - name: Use managed identities to authenticate to origins
       href: origin-authentication-with-managed-identities.md
   - name: Private Link
     items:
