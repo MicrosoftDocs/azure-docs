@@ -66,7 +66,7 @@ The Application Gateway retains this cached information for the period equivalen
 
 ### Modifications to the request
 
-Application gateway inserts six additional headers to all requests before it forwards the requests to the backend. These headers are x-forwarded-for, x-forwarded-port, x-forwarded-proto, x-original-host, x-original-url, and x-appgw-trace-id. If your TLS handshake uses a predefined SSL policy from `AppGwSslPolicy20220101` or later, or a custom SSL policy of type `CustomV2` or later your request will have an additional header: x-azure-ja4-fingerprint. The format for x-forwarded-for header is a comma-separated list of IP:port.
+Application gateway inserts six additional headers to all requests before it forwards the requests to the backend. These headers are `x-forwarded-for`, `x-forwarded-port`, `x-forwarded-proto`, `x-original-host`, `x-original-url`, and `x-appgw-trace-id`. If your TLS handshake uses a predefined SSL policy from `AppGwSslPolicy20220101` or later, or a custom SSL policy of type `CustomV2` or later your request will have an additional header: `x-azure-ja4-fingerprint`. The format for `x-forwarded-for` header is a comma-separated list of IP:port.
 
 The valid values for x-forwarded-proto are HTTP or HTTPS. X-forwarded-port specifies the port where the request reached the application gateway. X-original-host header contains the original host header with which the request arrived. This header is useful in Azure website integration, where the incoming host header is modified before traffic is routed to the backend. If session affinity is enabled as an option, then it adds a gateway-managed affinity cookie.
 
