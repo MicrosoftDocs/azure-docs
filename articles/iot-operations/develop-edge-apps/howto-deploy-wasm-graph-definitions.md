@@ -20,7 +20,7 @@ Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for cus
 > [!IMPORTANT]
 > Currently the only connector that supports graph definitions for custom processing is the HTTP/REST connector.
 > [!IMPORTANT]
-> Currently, the operations experience web UI only supports creating or viewing data flow graph artifacts sourced from Azure Container Registry (ACR) or mcr.microsoft.com. You can use the Azure CLI to work with data flow graph artifacts sourced from non-ACR registries like GHCR, or you can import such artifacts into an ACR registry to use them in the Operations experience web UI. To learn more, see [Operations experience web UI only displays data flow graph artifacts sourced from Azure Container Registry (ACR) and mcr.microsoft.com](../troubleshoot/known-issues.md#operations-experience-web-ui-only-displays-data-flow-graph-artifacts-sourced-from-azure-container-registry-acr-and-mcrmicrosoftcom).
+> Currently, the operations experience web UI only supports creating and viewing data flow graph artifacts sourced from Azure Container Registry (ACR) and, for built-in transforms, mcr.microsoft.com. To learn more, see [Operations experience web UI only displays data flow graph artifacts sourced from Azure Container Registry (ACR) and mcr.microsoft.com](../troubleshoot/known-issues.md#operations-experience-web-ui-only-displays-data-flow-graph-artifacts-sourced-from-azure-container-registry-acr-and-mcrmicrosoftcom).
 
 ## Prerequisites
 

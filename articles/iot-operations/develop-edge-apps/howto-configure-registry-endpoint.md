@@ -17,7 +17,7 @@ ai-usage: ai-assisted
 Data flow graphs and the HTTP/REST connector use registry endpoints to pull WebAssembly (WASM) modules and graph definitions from container registries. Azure IoT Operations pulls any custom connector templates you develop from container registries. You can configure the endpoint settings, authentication, and other settings to connect to Azure Container Registry (ACR), Microsoft Container Registry (MCR), or GitHub Container Registry (ghcr.io).
 
 > [!IMPORTANT]
-> Currently, the operations experience web UI only supports creating or viewing data flow graph artifacts sourced from Azure Container Registry (ACR) or mcr.microsoft.com. You can use the Azure CLI to work with data flow graph artifacts sourced from non-ACR registries like GHCR, or you can import such artifacts into an ACR registry to use them in the Operations experience web UI. To learn more, see [Operations experience web UI only displays data flow graph artifacts sourced from Azure Container Registry (ACR) and mcr.microsoft.com](../troubleshoot/known-issues.md#operations-experience-web-ui-only-displays-data-flow-graph-artifacts-sourced-from-azure-container-registry-acr-and-mcrmicrosoftcom).
+> Currently, the operations experience web UI only supports creating and viewing data flow graph artifacts sourced from Azure Container Registry (ACR) and, for built-in transforms, mcr.microsoft.com. To learn more, see [Operations experience web UI only displays data flow graph artifacts sourced from Azure Container Registry (ACR) and mcr.microsoft.com](../troubleshoot/known-issues.md#operations-experience-web-ui-only-displays-data-flow-graph-artifacts-sourced-from-azure-container-registry-acr-and-mcrmicrosoftcom).
 
 ## Prerequisites
 
