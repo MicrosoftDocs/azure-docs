@@ -173,6 +173,12 @@ items:
               - name: Configure OPC UA assets and devices
                 href: discover-manage-assets/howto-configure-opc-ua.md
                 displayName: operations, experience, device, data points, events, southbound
+              - name: Configure OPC UA sessions and high availability
+                href: discover-manage-assets/howto-configure-opc-ua-sessions-high-availability.md
+                displayName: shared endpoint, dedicated session, redundant connector, failover, active passive, high availability
+              - name: Configure advanced OPC UA data collection
+                href: discover-manage-assets/howto-configure-opc-ua-advanced-data-collection.md
+                displayName: browse path, dynamic node, start instance, key frame, event filter, select clause
               - name: Discover OPC UA assets
                 href: discover-manage-assets/howto-detect-opc-ua-assets.md
                 displayName: connector, akri, southbound
