@@ -312,15 +312,15 @@ Log signature: N/A
 
 Even though you've configured a container registry endpoint for a non-ACR container registry, like GHCR:
 
-- Data flow graph artifacts from the non-ACR registry don't appear in the Operations experience web UI, so you can't create a data flow graph that uses them.
+- Data flow graph artifacts from the non-ACR registry don't appear in the operations experience web UI, so you can't create a data flow graph that uses them.
 
-- Selecting a data flow graph from the list of data flows in the Operations experience web UI that contains elements from a non-ACR registry produces an error similar to: "Can't load data flow graph. The contents of this data flow graph are unavailable. Please ensure that it still exists, then work with your administrator to get 'AcrPull' access to required registry endpoints."
+- Selecting a data flow graph from the list of data flows in the operations experience web UI that contains elements from a non-ACR registry produces an error similar to: "Can't load data flow graph. The contents of this data flow graph are unavailable. Please ensure that it still exists, then work with your administrator to get 'AcrPull' access to required registry endpoints."
 
 Workaround: You have two options:
 
-- If you don't need to use the Operations experience UI, you can use the Azure CLI to perform CRUD operations on data flow graphs, defined in JSON or Bicep files, that contain artifacts sourced from non-ACR registries.
+- If you don't need to use the operations experience UI, you can use the Azure CLI to perform CRUD operations on data flow graphs, defined in JSON or Bicep files, that contain artifacts sourced from non-ACR registries.
 
-- If you want to use the Operations experience web UI, you need to import data flow artifacts and graphs from non-ACR registries into an ACR registry. To learn more, see [Push modules to your registry](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md#push-modules-to-your-registry).
+- If you want to use the operations experience web UI, you need to import data flow artifacts and graphs from non-ACR registries into an ACR registry. To learn more, see [Push modules to your registry](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md#push-modules-to-your-registry).
 
 ### Data flow resources aren't visible in the operations experience web UI
 
