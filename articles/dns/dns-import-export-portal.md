@@ -5,7 +5,7 @@ description: Learn how to import and export a DNS (Domain Name System) zone file
 services: dns
 author: asudbring
 ms.service: azure-dns
-ms.date: 02/05/2025
+ms.date: 08/11/2026
 ms.author: allensu
 ms.topic: how-to
 ms.custom: sfi-image-nochange
@@ -55,7 +55,7 @@ The following notes provide more details about the zone import process.
 * The following record types are supported: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV, and TXT.
 * The SOA record is created automatically by Azure DNS when a zone is created. When you import a zone file, all SOA parameters are taken from the zone file *except* the `host` parameter. This parameter uses the value provided by Azure DNS because it needs to refer to the primary name server provided by Azure DNS.
 * The name server record set at the zone apex is also created automatically by Azure DNS when the zone is created. Only the TTL of this record set is imported. These records contain the name server names provided by Azure DNS. The record data isn't overwritten by the values contained in the imported zone file.
-* Azure DNS supports only single-string TXT records. Multistring TXT records are to be concatenated and truncated to 255 characters.
+* Azure DNS supports TXT records that contain multiple strings, each up to 255 characters in length, with a total of up to 4,096 characters in each TXT record set. Multistring TXT records in a zone file might not be imported with the same string structure, so verify your TXT records after the import finishes. For more information, see [TXT records](dns-zones-records.md#txt-records).
 * The zone file to be imported must contain 10k or fewer lines with no more than 3k record sets.
 
 ## Import a zone file
