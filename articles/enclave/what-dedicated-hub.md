@@ -5,7 +5,7 @@ author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
 ms.service: azure-enclave
-ms.date: 06/30/2026
+ms.date: 08/11/2026
 ---
 
 # What are dedicated hubs?
@@ -36,6 +36,8 @@ Consider dedicated hubs when:
 - Your organization requires stronger hub-level network isolation than pooled regional capacity provides.
 - Your governance model requires customer-reserved Azure Enclave managed hub capacity.
 - You need to separate community hub capacity for regulated or sensitive workloads.
+- You need a predictable internet egress source IP address for a set of enclaves. Each dedicated hub has a specific Azure Firewall public IP, so enclaves on that hub share the same SNAT public IP for internet egress.
+- You expect high VNet-to-VNet throughput (for example, more than 30 Gbps) and want to scale throughput capacity by using dedicated hubs or by using a Premium Azure Firewall design.
 
 ## Related content
 
