@@ -41,7 +41,7 @@ Resource Record Signatures (RRSIGs) and other cryptographic records are added to
 [DNSSEC validation](#dnssec-validation) of DNS responses occurs by using these digital signatures with an unbroken [chain of trust](#chain-of-trust).
 
 > [!NOTE]
-> The DNSSEC-related resource records that Azure generates when it signs a zone, such as DNSKEY, RRSIG, and NSEC, aren't displayed in the Azure portal. Azure manages these records for you. For more information, see [View DNSSEC-related resource records](#view-dnssec-related-resource-records). This restriction doesn't apply to delegation signer (DS) records that you create yourself. If the parent zone of a signed zone is an Azure Public DNS zone, you add and manage the child zone's DS record set in that parent zone using the Azure portal, Azure CLI, or Azure PowerShell, the same as any other record set.
+> The Azure portal doesn't display the DNSSEC-related resource records that Azure generates when it signs a zone, such as DNSKEY, RRSIG, and NSEC. Azure manages these records for you. For more information, see [View DNSSEC-related resource records](#view-dnssec-related-resource-records). This restriction doesn't apply to delegation signer (DS) records that you create yourself. If the parent zone of a signed zone is an Azure Public DNS zone, you add and manage the child zone's DS record set in that parent zone by using the Azure portal, Azure CLI, or Azure PowerShell, the same as any other record set.
 
 ## Why sign a zone with DNSSEC?
 
@@ -143,7 +143,7 @@ The following table provides a short description of DNSSEC-related records. For 
 
 ### View DNSSEC-related resource records
 
-The DNSSEC-related records that Azure generates when it signs a zone, such as DNSKEY, RRSIG, and NSEC, are not displayed in the Azure portal. To view these records, use command line tools such as Resolve-DnsName or dig.exe. These tools are available using Cloud Shell, or locally if installed on your device. Be sure to set the DO flag in your query by using the `-dnssecok` option in Resolve-DnsName or the `+dnssec` option in dig.exe. 
+The Azure portal doesn't display DNSSEC-related records that Azure generates when it signs a zone, such as DNSKEY, RRSIG, and NSEC. To view these records, use command line tools such as Resolve-DnsName or dig.exe. You can access these tools through Cloud Shell or install them locally on your device. Be sure to set the DO flag in your query by using the `-dnssecok` option in Resolve-DnsName or the `+dnssec` option in dig.exe. 
 
 Delegation signer (DS) records that you create in a parent zone are different. When the parent zone is an Azure Public DNS zone, its DS record sets are ordinary record sets that you can view and manage in the Azure portal, Azure CLI, or Azure PowerShell. For an example, see [Sign a zone with DNSSEC](dnssec-how-to.md).
 
