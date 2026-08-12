@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 05/25/2026
+ms.date: 08/10/2026
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -415,7 +415,7 @@ FIPS encryption | Not supported.
 Azure Disk Encryption for Windows OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. |
 Azure Disk Encryption for Linux OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. <br><br> Known issue with enabling replication. For more information, see [Enable protection failed because the installer is unable to find the root disk](Azure-to-Azure-troubleshoot-errors.md). |
 Shared access signature key rotation | Supported. | If the shared access signature key for storage accounts is rotated, you must disable and re-enable replication. |
-Host caching | Supported. | |
+Host caching | Supported. | Host caching isn't supported for Premium SSD v2 disks. For more information, see [Premium SSD v2 limitations](/azure/virtual-machines/disks-deploy-premium-v2?tabs=portal#limitations). |
 Hot add | Supported. | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks. <br/><br/> Use hot add to add only one disk at a time to an Azure VM. Parallel addition of multiple disks isn't supported. |
 Hot remove disk | Not supported. | If you remove a data disk on the VM, you need to disable replication and enable replication again for the VM.
 Exclude disk | Supported. Use [Azure PowerShell](Azure-to-Azure-exclude-disks.md) or go to the **Advanced Setting** > **Storage Settings** > **Disk to Replicate** option from the portal. | Temporary disks are excluded by default.
