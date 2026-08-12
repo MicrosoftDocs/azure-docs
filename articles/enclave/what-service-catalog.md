@@ -43,7 +43,7 @@ To update the destination for other clouds, use the values in [Deploy service ca
 
 You can create a service catalog template for an Azure service that isn't currently listed in the catalog. Use an Azure Resource Manager template in JSON format and make sure that every resource and property complies with Azure Enclave policy and isolation requirements.
 
-1. Define the resources that the template deploys and add parameters for values that must be provided by the workload administrator.
+1. Define the resources that the template deploys and add parameters for values that the workload administrator must provide.
 1. Add secure defaults wherever possible. Don't include secrets, credentials, or environment-specific values in the template.
 1. Deploy and test the template in an Azure Enclave workload. Verify that the template creates only the intended resources and that the resulting workload can access the required dependencies.
 1. Create a how-to article that documents prerequisites, required permissions, parameter values, deployment steps, and cleanup instructions. Use the existing [service catalog template articles](./list-service-catalog-templates.md) as examples.
