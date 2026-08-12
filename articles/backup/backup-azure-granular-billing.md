@@ -30,11 +30,11 @@ You can select one of the following granularity levels as per the requirements:
 
 - **Protected item level**: Shows backup costs for each protected item.
 
-- **Tag level**: Aggregates backup costs based on a selected tag. The default tag **MS-resourceParent** applies when you choose tag level granularity. You can also create Custom tags under the **CS-resourceParent** tag that helps to:
+- **Tag level**: Aggregate backup costs by a tag to view and analyze spend at the resource level.
 
-   - View backup costs aggregated using existing tags.
-   - Group costs by application, environment, or cost center.
-   - Avoid creating separate vaults per department.
+  - **Default tag (recommended)**: When you select **Tag level**, Azure Backup automatically passes the built-in `ms-resource-parent` tag to Azure Cost Management. Backup charges for each protected item appear under the associated resource in Azure Cost Management, so you get a consolidated view of resource and backup costs without extra configuration.
+
+  - **Custom tag**: To attribute backup costs to a different resource, add the `cm-resource-parent` tag and set its value to the **Azure Resource Manager (ARM) resource ID** of the target resource where you want the backup costs to appear. Azure Backup then aggregates the backup charges under that resource in Azure Cost Management, so you can support custom chargeback and cost reporting scenarios.
 
 ## Set up granular billing
 
@@ -63,7 +63,7 @@ After you configure granular billing for Azure Backup, verify that the updated b
 
 To validate backup charges in Cost Analysis, follow these steps:
 
-1. Go to the **target subscription** and select **Cost Management** \> **Cost analysis**.
+1. Go to the **Cost Management + Billing** in Azure Portal and select **Cost Management** \> **Cost analysis**. Set the scope to the **target subscription**.
 
 1. On the **Cost analysis** pane, set the **View** as **Resources** and verify if the new backup charges appear in the selected granularity format.
 
