@@ -13,11 +13,11 @@ ms.custom: template-how-to, devx-track-azurecli
 
 # Traffic Manager subnet override using Azure CLI
 
-Traffic Manager subnet override allows you to alter the routing method of a profile. The addition of an override directs traffic based upon the source IP address of the DNS query—usually the caller's recursive DNS resolver, which is commonly used as a proxy for the user's location and network—with a predefined IP address range to endpoint mapping.
+Traffic Manager subnet override allows you to change the routing method of a profile. When you add an override, you direct traffic based on the source IP address of the DNS query—usually the caller's recursive DNS resolver, which often serves as a proxy for the user's location and network—with a predefined IP address range to endpoint mapping.
 
 ## How subnet override works
 
-When subnet overrides are added to a traffic manager profile, Traffic Manager first checks if there's a subnet override for the source IP address of the DNS query (usually the caller's DNS resolver). If one is found, the user’s DNS query is directed to the corresponding endpoint. If a mapping is not found, Traffic Manager falls back to the profile’s original routing method.
+When you add subnet overrides to a Traffic Manager profile, Traffic Manager checks if there's a subnet override for the source IP address of the DNS query (usually the caller's DNS resolver). If it finds one, it directs the user’s DNS query to the corresponding endpoint. If it doesn't find a mapping, Traffic Manager uses the profile’s original routing method.
 
 If the DNS query includes EDNS Client Subnet (ECS) information, Traffic Manager uses that client subnet address instead of the source IP address of the query. Resolvers that support ECS pass along a truncated form of the end user's subnet, which lets Traffic Manager match the user's network more accurately. For more information, see the [Traffic Manager FAQ](traffic-manager-faqs.md).
 
