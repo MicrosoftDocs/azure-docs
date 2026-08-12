@@ -6,7 +6,7 @@ author: asudbring
 ms.service: azure-bastion
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 08/10/2026
+ms.date: 08/11/2026
 ms.author: allensu
 # Customer intent: "As a cloud administrator, I want to securely connect to a Linux VM using SSH through a managed service, so that I can ensure safe access without exposing RDP/SSH ports to the internet."
 ---
@@ -201,7 +201,7 @@ After IP-based connection is enabled, you specify the IP address of the target v
 1. Available authentication types for IP-based SSH connections from the portal are **Password** and **SSH Private Key from Local File**. Configure your authentication settings. For details, see [Authentication details](#authentication-details). Select **Connect**.
 
 > [!NOTE]
-> Microsoft Entra ID authentication isn't supported for IP-based SSH connections. For more information, see [IP-based connections](connect-ip-address.md).
+> Microsoft Entra ID authentication isn't supported for IP-based SSH connections from the Azure portal. To use Microsoft Entra ID authentication with an IP-based SSH connection, connect through the native client. For more information, see [IP-based connections](connect-ip-address.md).
 
 # [Native client](#tab/native-client)
 
@@ -226,7 +226,7 @@ For supported authentication types, see [Authentication details](#authentication
 
 * **IP-based connections:** IP-based connection doesn't work with force tunneling over VPN, or when a default route is advertised over an ExpressRoute circuit. In these routing scenarios, force tunneling or default route advertisement results in traffic being dropped. This limitation is a property of the routing configuration applied to the virtual network, not of a particular Bastion SKU or deployment mode. Separately, a [private-only Bastion deployment](private-only-deployment.md) is a distinct deployment mode that operates without outbound access outside the virtual network and supports IP-based connections over ExpressRoute or VPN private peering.
 * **IP-based connections:** UDR isn't supported on the Bastion subnet, including with IP-based connections.
-* **IP-based connections:** Microsoft Entra ID authentication isn't supported for IP-based SSH connections. For more information, see [Microsoft Entra ID authentication](bastion-entra-id-authentication.md).
+* **IP-based connections:** Microsoft Entra ID authentication isn't supported for IP-based SSH connections from the Azure portal. Microsoft Entra ID authentication is supported for IP-based SSH connections through the native client. For more information, see [Microsoft Entra ID authentication](bastion-entra-id-authentication.md).
 * **Native client:** Signing in using an SSH private key stored in Azure Key Vault isn't supported with native client connections.
 * **Native client:** This feature isn't supported in Cloud Shell.
 
