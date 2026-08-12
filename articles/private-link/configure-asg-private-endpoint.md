@@ -22,7 +22,7 @@ Azure Private Link private endpoints support application security groups (ASGs) 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An Azure web app with a Premium V2 tier or higher app service plan deployed in your Azure subscription.
+- An Azure web app on a Basic, Standard, Premium v2, Premium v3, Premium v4, or Isolated v2 App Service plan (or a function app on the Functions Premium plan) deployed in your Azure subscription. For the App Service plan tiers that support private endpoints, see [Use private endpoints for Azure App Service apps](../app-service/overview-private-endpoint.md).
 
     - For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md).
     - The example web app in this article is named **myWebApp1979**. Replace the example with your web app name.
