@@ -81,6 +81,8 @@ items:
       href: configure-port-mirroring-azure-vmware-solution.md
     - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
+    - name: Configure IPv6 Layer 3 forwarding
+      href: configure-ipv6-layer-3-forwarding.md
   - name: Tutorials
     items:
     - name: 1 - Network planning checklist
@@ -139,6 +141,9 @@ items:
       href: native-network-routing-architecture.md
     - name: Automatic peering sync for Gen 2 (Preview)
       href: native-auto-peering-sync.md
+    - name: Configure IPv6 Layer 3 forwarding
+      href: configure-ipv6-layer-3-forwarding.md
+    
       
 - name: Cost optimization
   items:

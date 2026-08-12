@@ -9,7 +9,7 @@ appliesto:
 ---
 # Data persistence in Azure Cache for Redis
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 If an Azure Cache for Redis cache failure occurs, data loss is possible when nodes are down. [Redis persistence](https://redis.io/topics/persistence) allows you to persist the data stored in cache instances. If there's a hardware failure, the cache instance rehydrates with data from the persistence file when it comes back online.
 

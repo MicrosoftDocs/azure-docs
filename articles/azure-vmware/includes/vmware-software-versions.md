@@ -3,7 +3,7 @@ title: VMware Solution software versions
 description: Supported software versions that are used for Azure VMware Solution.
 ms.topic: include
 ms.service: azure-vmware
-ms.date: 7/29/2026
+ms.date: 8/10/2026
 author: jjaygbay1 
 ms.author: jacobjaygbay
 ms.custom: engagement-fy23
@@ -16,8 +16,8 @@ The following table lists the software versions that are used in new deployments
 
 | Software                         |    Version   |    Build number   |
 | :---                             |     :---:    |     :---:         |
-| VMware vCenter Server            |    [8.0 U3e](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3e-release-notes.html) | 24674346 |
-| VMware ESXi                      |    [8.0 U3f + Hot Patch (VAIO bug fix)](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3f-release-notes.html) | 24797835 |
+| VMware vCenter Server            |    [8.0 U3k](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3k-release-notes.html) | 25600417 |
+| VMware ESXi                      |    [8.0 U3k](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3k-release-notes.html) | 25595708 |
 | VMware vSAN                      |    [8.0 U3](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) | 24797835 |
 | VMware vSAN Witness              |    [8.0 U3](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) | 24797835 |
 | VMware vSAN on-disk format       |    [20](https://knowledge.broadcom.com/external/article?legacyId=2148493) | N/A |

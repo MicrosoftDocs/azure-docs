@@ -9,24 +9,18 @@ items:
         href: release-notes.md
   - name: Get started with Azure Cloud Shell
     items:
-      - name: Get started (Classic)
-        href: get-started/classic.md
-      - name: Get started (New UI)
+      - name: Get started
         href: get-started/ephemeral.md
-      - name: Get started with new storage account (New UI)
+      - name: Get started with new storage account
         href: get-started/new-storage.md
-      - name: Get started with existing storage account (New UI)
+      - name: Get started with existing storage account
         href: get-started/existing-storage.md
   - name: How to use Azure Cloud Shell
     items:
-      - name: Use the window (New UI)
-        href: use-the-shell-window-new.md
-      - name: Use the Cloud Shell editor (New UI)
-        href: use-cloud-shell-editor-new.md
-      - name: Use the window (Classic UI)
-        href: use-the-shell-window-classic.md
-      - name: Use the Cloud Shell editor (Classic UI)
-        href: use-cloud-shell-editor-classic.md
+      - name: Use the window
+        href: use-the-shell-window.md
+      - name: Use the Cloud Shell editor
+        href: use-cloud-shell-editor.md
       - name: Persist files in storage
         href: persisting-shell-storage.md
       - name: Predictive IntelliSense in Cloud Shell

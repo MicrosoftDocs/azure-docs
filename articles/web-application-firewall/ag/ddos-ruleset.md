@@ -3,20 +3,20 @@ title: HTTP DDoS Ruleset (Preview) - Application Gateway WAF
 description: Learn about HTTP DDoS Ruleset in Application Gateway Azure Web Application Firewall (WAF).
 author: joeolerich
 ms.author: joeolerich
+ms.reviewer: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 01/22/2026
+ms.date: 08/12/2026
 ---
 
-# HTTP DDoS Ruleset in Azure Application Gateway WAF (preview)
+# HTTP DDoS ruleset in Azure Application Gateway WAF (preview)
 
 **Applies to:** :heavy_check_mark: Application Gateway V2
 
 > [!IMPORTANT]
-> The Microsoft HTTP DDoS Ruleset in the Azure Application Gateway Web Application Firewall (WAF) v2 is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft HTTP DDoS ruleset in the Azure Application Gateway Web Application Firewall (WAF) v2 is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-HTTP‑layer floods remain the most frequent driver of application availability incidents, and static controls (IP/geo filters, fixed rate limits) often can't keep pace with distributed botnets. The new HTTP DDoS ruleset is Azure Web Application Firewall's (WAF) first automated layer 7 protection model that learns, detects, and defends with minimal user configuration. Once assigned, the ruleset continuously baselines normal traffic for each application gateway and when surges indicate an attack, selectively blocks offending clients with no emergency tuning required.
+HTTP‑layer floods remain the most frequent driver of application availability incidents, and static controls (IP and geo filters, fixed rate limits) often can't keep pace with distributed botnets. The new HTTP DDoS ruleset is Azure Web Application Firewall's (WAF) first automated layer 7 protection model that learns, detects, and defends with minimal user configuration. Once assigned, the ruleset continuously baselines normal traffic for each application gateway and when surges indicate an attack, selectively blocks offending clients with no emergency tuning required.
 
 ## How the HTTP DDoS ruleset works
 
@@ -35,26 +35,29 @@ The HTTP DDoS ruleset is the first ruleset evaluated by the Azure WAF, even befo
 
 ## Ruleset rules
 
-The HTTP DDoS ruleset currently has two rules, and each can be configured with different sensitivity and action settings. Each rule maintains different traffic baselines for traffic that matches the rule criteria.
+The HTTP DDoS ruleset currently has two rules. You can configure each rule with different sensitivity and action settings. Each rule maintains different traffic baselines for traffic that matches the rule criteria.
 
-- **Rule 500100: Anomaly detected on high rate of client requests:** This rule tracks and establishes a baseline for all traffic on the Application Gateway a policy is attached to. When a client exceeds the established threshold, it's placed in the penalty box and blocked for the defined time (15 minutes).
 
-- **Rule 501100: Suspected bots sending high rates of requests:** This rule tracks and establishes a baseline for traffic that's coming from suspected bots based on Microsoft Threat Intelligence. Generally, the thresholds for this traffic are much stricter than the thresholds for traffic in rule 500100. When bot's requests exceed the established threshold, it's placed in the penalty box and blocked for the defined time (15 minutes). Bots classified as high risk are blocked immediately by this rule when the global gateway threshold is breached.
+- **Rule 500100: Anomaly detected on high rate of client requests:** This rule tracks and establishes a baseline for all traffic on the Application Gateway a policy is attached to. When a client exceeds the established threshold, the client is placed in the penalty box and blocked for the defined time (15 minutes).
+
+- **Rule 500110: Suspected bots sending high rates of requests:** This rule tracks and establishes a baseline for traffic that comes from suspected bots based on Microsoft Threat Intelligence. Generally, the thresholds for this traffic are much stricter than the thresholds for traffic in rule 500100. When bot requests exceed the established threshold, the bot is placed in the penalty box and blocked for the defined time (15 minutes). Bots classified as high risk are blocked immediately by this rule when the global gateway threshold is breached.
 
 ## The penalty box
 
-Once traffic from a client exceeds the threshold for one of the rules in the HTTP DDoS ruleset, they're placed in a penalty box for a period of time (15 minutes), and during that time the client IP is blocked by the WAF. Once the penalty box time is up, the IP will be allowed to access the site unless it exceeds the threshold again, which then will result in going back into the penalty box.
+Once traffic from a client exceeds the threshold for one of the rules in the HTTP DDoS ruleset, the client is placed in a penalty box for a period of time (15 minutes), and during that time the WAF blocks the client IP. When the penalty box time ends, the IP can access the site unless it exceeds the threshold again, which results in going back into the penalty box.
 
 When an IP address exceeds a threshold, a rule hit for the HTTP DDoS ruleset is logged, and the IP is placed in the penalty box. Additional blocks while that IP is in the penalty box aren't logged.
 
 ## Monitoring the HTTP DDoS ruleset
 
-- When an IP address breaches a threshold, a log entry is recorded with a *Block* action for the HTTP DDoS ruleset, and the WAF Managed Rule Match metric is incremented by one. Each subsequent blocked request from an IP in the Penalty Box is logged and increments the WAF Managed Rule Match metric.
-- Two new metrics have also been introduced for Azure monitor, Penalty box size and Penalty box blocks.  These metrics track the number of IPs currently in the penalty box as well as the number of blocks that occur due to IPs in the penalty box.
+- When an IP address breaches a threshold, the WAF logs a *Block* action for the HTTP DDoS ruleset and increments the WAF Managed Rule Match metric by one. Each subsequent blocked request from an IP in the penalty box increments the WAF Managed Rule Match metric.
+- Azure Monitor introduces two new metrics: penalty box size and penalty box blocks. These metrics track the number of IPs currently in the penalty box as well as the number of blocks that occur due to IPs in the penalty box.
+
 
 ## Limitations
 
-During the preview, there is no ability for traffic from specific IP addresses to bypass the DDoS ruleset or penalty box.
+During the preview, you can't bypass the DDoS ruleset or penalty box for traffic from specific IP addresses.
+
 
 ## Related content
 

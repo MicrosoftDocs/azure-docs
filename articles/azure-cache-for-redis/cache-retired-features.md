@@ -11,7 +11,7 @@ appliesto:
 
 # Redis version 4 retirement in Azure Cache for Redis
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 On June 30, 2023, Redis version 4 was retired for Azure Cache for Redis instances. All new Azure Redis instances are version 6.
 

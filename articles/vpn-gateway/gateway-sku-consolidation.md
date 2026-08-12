@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 07/23/2026
+ms.date: 08/11/2026
 
 ms.author: duau
 
@@ -83,7 +83,8 @@ There is no announced retirement date for Gen1 SKUs.
 
 Customers **do not** need to run any separate migration to move to Generation 2. The only required action is upgrading from a Basic to a Standard public IP address (if applicable). There is no retirement date announced for Generation 1 SKUs.
 
-* *For gateways that use a Basic public IP address*: You'll need to migrate your Basic IP address to a Standard public IP address using the [migration tool for VPN Gateway](basic-public-ip-migrate-howto.md?tabs=portal). As part of this IP address upgrade, your gateway is automatically upgraded to the next generation (Generation 2). **No separate Gen2 migration or additional steps are required.**
+* *For Basic gateway SKU gateways that use a Basic SKU public IP address*: **Don't use the migration tool.** Remove the Basic SKU public IP reference from your gateway instead. Your gateway continues to use the same public IP address. For steps, see [Remove the Basic SKU public IP reference from a Basic SKU VPN gateway](basic-sku-public-ip-remove.md).
+* *For VpnGw1-5 and legacy gateway SKUs that use a Basic public IP address*: Migrate your Basic IP address to a Standard public IP address by using the [migration tool for VPN Gateway](basic-public-ip-migrate-howto.md?tabs=portal). As part of this IP address upgrade, your gateway is automatically upgraded to the next generation (Generation 2). **No separate Gen2 migration or additional steps are required.**
 * *For gateways that already use a Standard public IP address*: **No customer action is required.** These gateways are automatically upgraded to the next generation (Generation 2) as part of regular service updates, ~end of Mar'27. This process is seamless and doesn't involve downtime.
 
 ### Will there be downtime during migration?

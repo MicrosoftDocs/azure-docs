@@ -5,6 +5,7 @@ author: habibaum
 ms.author: v-uhabiba 
 ms.topic: faq
 ms.date: 06/20/2024
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 # Customer intent: As a cloud administrator, I want to find comprehensive answers to common questions about Azure Migrate, so that I can effectively manage and execute the migration of on-premises infrastructure and applications to Azure.
 ---

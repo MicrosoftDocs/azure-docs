@@ -81,6 +81,8 @@
       href: front-door-rules-engine-actions.md?pivots=front-door-standard-premium
     - name: Configure a rule set
       href: standard-premium/how-to-configure-rule-set.md
+    - name: Batch rule updates for rule sets
+      href: rule-set-batch.md
     - name: Configure delivery rules
       href: standard-premium/front-door-add-rules-cli.md
     - name: Rules engine scenarios
@@ -105,7 +107,7 @@
       href: health-probes.md
     - name: Add origins to origin group
       href: how-to-configure-origin.md
-    - name: Add origin authentication
+    - name: Use managed identities to authenticate to origins
       href: origin-authentication-with-managed-identities.md
   - name: Private Link
     items:
@@ -203,6 +205,8 @@
       href: standard-premium/tls-policy.md
     - name: Configure TLS policy
       href: standard-premium/tls-policy-configure.md
+  - name: Mutual TLS authentication
+    href: mutual-tls.md
   - name: Set up managed identity
     href: managed-identity.md
   - name: Sensitive data protection

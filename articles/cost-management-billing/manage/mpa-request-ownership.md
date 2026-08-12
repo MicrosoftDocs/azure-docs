@@ -23,6 +23,8 @@ Supported product (subscriptions, reservations and savings plans) billing owners
 - A Direct Enterprise Agreement transfer to an Azure plan under the MPA
 - An Enterprise Microsoft Customer Agreement transfer to an Azure plan under the MPA
 
+The tool doesn't support transfers from an indirect Enterprise Agreement to an Azure plan under the MPA or transfers from Web Direct to an Azure plan under the MPA.
+
 This feature is available only to the following partners:
 
 - CSP authorized direct-bill partners that earn an [Azure Solutions Partner designation](https://partner.microsoft.com/partnership/solutions-partner) or CSP authorized direct-bill partner enrolled in the [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) program.

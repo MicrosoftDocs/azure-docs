@@ -48,9 +48,9 @@
           href: dns-private-resolver-get-started-terraform.md
         - name: Create a private resolver - ARM Template
           href: dns-private-resolver-get-started-template.md
-    - name: DNS security policy
+    - name: DNS resolver policy
       items:
-        - name: What is DNS security policy?
+        - name: What is DNS resolver policy?
           href: dns-security-policy.md
         - name: How-to secure and view DNS traffic
           href: dns-traffic-log-how-to.md
@@ -156,8 +156,8 @@
           href: private-resolver-endpoints-rulesets.md
         - name: Private resolver architecture
           href: private-resolver-architecture.md
-        - name: Resiliency in Azure DNS Private Resolver
-          href: private-resolver-reliability.md
+        - name: Reliability in Azure DNS Private Resolver
+          href: /azure/reliability/reliability-dns-private-resolver?toc=%2fazure%2fdns%2ftoc.json
 - name: Security
   items:
     - name: Secure DNS

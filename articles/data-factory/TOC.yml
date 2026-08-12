@@ -1386,10 +1386,6 @@ items:
     href: secure-your-azure-data-factory.md
   - name: Business continuity and disaster recovery
     href: pipelines-disaster-recovery.md
-- name: Workflow Orchestration Manager
-  items:
-  - name: Tutorials
-  - name: How-to
 - name: Reference
   items:
   - name: Data flow script
