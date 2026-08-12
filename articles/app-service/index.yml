@@ -66,8 +66,8 @@ landingContent:
             url: overview-ai-integration.md
       - linkListType: tutorial
         links:
-          - text: Build a RAG application with Azure OpenAI and Azure AI Search (.NET)
-            url: tutorial-ai-openai-search-dotnet.md
+          - text: Build grounded agent applications with RAG
+            url: scenario-ai-chatbot-retrieval-augmented-generation.md
           - text: Build a chatbot with Azure OpenAI (Blazor)
             url: tutorial-ai-openai-chatbot-dotnet.md            
           - text: Build a chatbot with Azure OpenAI (Spring Boot)

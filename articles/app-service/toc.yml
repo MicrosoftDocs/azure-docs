@@ -82,8 +82,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-dotnet.md
-        - name: RAG with Azure OpenAI and your data
-          href: tutorial-ai-openai-search-dotnet.md
         - name: RAG Azure OpenAI and Azure SQL
           href: deploy-intelligent-apps-dotnet-to-azure-sql.md
         - name: Add MCP server to app
@@ -141,8 +139,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-java.md
-        - name: RAG with Azure OpenAI with your data
-          href: tutorial-ai-openai-search-java.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-spring-boot.md
         - name: Add MCP server to app
@@ -171,8 +167,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-node.md
-        - name: RAG with Azure OpenAI and your data
-          href: tutorial-ai-openai-search-nodejs.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-expressjs.md
         - name: Add MCP server to app
@@ -201,8 +195,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-python.md
-        - name: RAG with Azure OpenAI and your data
-          href: tutorial-ai-openai-search-python.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-fastapi.md
         - name: Add MCP server to app
