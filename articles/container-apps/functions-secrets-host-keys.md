@@ -101,7 +101,7 @@ Set the `AzureWebJobsSecretStorageType` environment variable to control where th
 | **Azure Blob Storage** | `blob` | Yes | Storage account | Legacy apps or existing `AzureWebJobsStorage` account |
 
 > [!NOTE]
-> For Functions on Azure Container Apps, the platform defaults to `containerapp` (Container Apps secret store) when `AzureWebJobsSecretStorageType` isn't explicitly set. You don't need to configure a backend unless you want to use Key Vault or Blob Storage instead.
+> For Functions on Azure Container Apps, Blob storage is the default behavior when `AzureWebJobsSecretStorageType` isn't set.
 
 > [!WARNING]
 > Don't set `AzureWebJobsSecretStorageType` to `files`. On Azure Container Apps, the file system is **ephemeral**, so host keys stored with the `files` backend are lost every time the app scales to zero, restarts, or deploys a new revision. Always use one of the three production backends listed above.
