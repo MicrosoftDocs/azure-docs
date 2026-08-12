@@ -285,7 +285,7 @@ The following table shows the release stage and change logs for different versio
 | Version  | Release stage           | Change log |
 | :------- | :---------------------- |:---------- |
 | MongoDB (legacy) | Removed | Not applicable. |
-| MongoDB | GA version available | • Supports the equivalent MongoDB queries only.
+| MongoDB | GA version available | • Support the equivalent MongoDB queries only. <br><br>• Double is read as String data type. |
 
 • Reads Double as String data type. |
 
