@@ -39,6 +39,16 @@ Since Azure Enclave deploys with connections denied by default, you need to crea
 
 To update the destination for other clouds, use the values in [Deploy service catalog templates using Azure CLI](./deploy-template-service-catalog-azure-cli.md).
 
+## Create a new service catalog template
+
+You can create a service catalog template for an Azure service that isn't currently listed in the catalog. Use an Azure Resource Manager template in JSON format and make sure that every resource and property complies with Azure Enclave policy and isolation requirements.
+
+1. Define the resources that the template deploys and add parameters for values that must be provided by the workload administrator.
+1. Add secure defaults wherever possible. Don't include secrets, credentials, or environment-specific values in the template.
+1. Deploy and test the template in an Azure Enclave workload. Verify that the template creates only the intended resources and that the resulting workload can access the required dependencies.
+1. Create a how-to article that documents prerequisites, required permissions, parameter values, deployment steps, and cleanup instructions. Use the existing [service catalog template articles](./list-service-catalog-templates.md) as examples.
+1. Add the template and its documentation to the service catalog inventory. Repeat the validation for each Azure cloud environment where the template will be available.
+
 ## Next steps
 
 - [Service catalog list: how-to guides and tips for each template](./list-service-catalog-templates.md)
