@@ -4,7 +4,7 @@ description: Learn how to configure a point-to-site virtual private network (VPN
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/21/2026
+ms.date: 08/13/2026
 ms.author: kendownie
 ms.custom:
   - devx-track-azurecli
@@ -27,18 +27,18 @@ This article details the steps to configure a point-to-site VPN on Linux to moun
 
 ## Prerequisites
 
-- The most recent version of the Azure CLI. For information on how to install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. You can use the Azure PowerShell module on Linux instead, but the instructions in this article are for Azure CLI.
+- The most recent version of the Azure CLI. To install the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli) and select your operating system. You can use the Azure PowerShell module on Linux instead, but the instructions in this article are for Azure CLI.
 
-- An Azure file share you intend to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares. You can learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
+- An Azure file share you intend to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares. To learn how to deploy Azure file shares and storage accounts, see [Create an Azure file share](storage-how-to-create-file-share.md).
 
 - A private endpoint for the storage account containing the Azure file share you want to mount on-premises. To learn how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md?tabs=azure-cli). 
 
 ## Install required software
 
-The Azure virtual network gateway can provide VPN connections using several VPN protocols, including IPsec and OpenVPN. This article shows how to use IPsec and uses the strongSwan package to provide the support on Linux.
+The Azure virtual network gateway can provide VPN connections by using several VPN protocols, including IPsec and OpenVPN. This article shows how to use IPsec and uses the strongSwan package to provide the support on Linux.
 
 > [!NOTE]
-> These instructions were tested on Ubuntu 18.10 and should work on Ubuntu 18.04 LTS and later, as well as Debian 10+. Other distributions that support strongSwan (such as Fedora, CentOS, or openSUSE) might require different package names or installation commands.
+> These instructions should work on Ubuntu 20.04 LTS and later, as well as Debian 10+. Other distributions that support strongSwan (such as Fedora, CentOS, or openSUSE) might require different package names or installation commands.
 
 ```bash
 # For Ubuntu/Debian-based distributions (Ubuntu 18.04+, Debian 10+)
@@ -52,11 +52,15 @@ If the installation fails or you get an error such as `EAP_IDENTITY not supporte
 sudo apt install -y libcharon-extra-plugins
 ```
 
-### Deploy a virtual network
+## Deploy a virtual network
 
 To access your Azure file share and other Azure resources from on-premises via a point-to-site VPN, you must create a virtual network. The point-to-site VPN connection establishes a secure tunnel between your on-premises Linux client machine and this Azure virtual network.
 
-The following script creates an Azure virtual network with three subnets: one for your storage account's service endpoint, one for your storage account's private endpoint, which is required to access the storage account on-premises without creating custom routing for the public IP of the storage account that may change, and one for your virtual network gateway that provides the VPN service.
+The following script creates an Azure virtual network with three subnets:
+
+- One for your storage account's service endpoint
+- One for your storage account's private endpoint (required to access the storage account on-premises without creating custom routing for the public IP address, which might change)
+- One for your virtual network gateway that provides the VPN service
 
 ```bash
 # Variables - replace <region>, <resource-group>, and <desired-vnet-name> with your values
@@ -110,7 +114,7 @@ GATEWAY_SUBNET=$(az network vnet subnet create \
 
 For VPN connections from your on-premises Linux client machines to authenticate with the virtual network gateway, you must create two certificates: 
 
-- A root certificate, which is provided to the virtual machine gateway
+- A root certificate, which is provided to the virtual network gateway
 - A client certificate, which is signed with the root certificate and installed on each client machine
 
 Set the certificate variables and create a working directory:
