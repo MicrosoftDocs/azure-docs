@@ -47,7 +47,7 @@ You can create a service catalog template for an Azure service that isn't curren
 1. Add secure defaults wherever possible. Don't include secrets, credentials, or environment-specific values in the template.
 1. Deploy and test the template in an Azure Enclave workload. Verify that the template creates only the intended resources and that the resulting workload can access the required dependencies. Repeat the validation for each Azure cloud environment where the template will be available.
 1. Create a how-to article that documents prerequisites, required permissions, parameter values, deployment steps, and cleanup instructions. Use the existing [service catalog template articles](./list-service-catalog-templates.md) as examples.
-1. Add the template and its documentation to a location where your administrators can access it (for example, a storage account).
+1. Add the template and its documentation to a location where your administrators can access it (for example, an Azure Container Registry).
 
 ## Request new service catalog templates
 
