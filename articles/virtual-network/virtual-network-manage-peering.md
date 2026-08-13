@@ -317,7 +317,7 @@ az network vnet peering delete \
 
 - Resources in one virtual network can't communicate with the front-end IP address of a basic load balancer (internal or public) in a globally peered virtual network. Support for basic load balancer only exists within the same region. Support for standard load balancer exists for both, Virtual Network Peering and Global Virtual Network Peering. Some services that use a basic load balancer don't work over global virtual network peering. For more information, see [Constraints related to Global Virtual Network Peering and Load Balancers](virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers).
 
-- You can use remote gateways or allow gateway transit in globally peered virtual networks and locally peered virtual networks.
+- You can use remote gateways or allow gateway transit in globally peered virtual networks and locally peered virtual networks. To use a gateway that's in a different Azure region from your workload virtual networks, see [Use a VPN or ExpressRoute gateway in a different region](../vpn-gateway/vpn-gateway-different-region.md).
 
 - The virtual networks can be in the same, or different [subscriptions](#next-steps). When you peer virtual networks in different subscriptions, both subscriptions can be associated to the same or different Microsoft Entra tenant. If you don't already have an AD tenant, you can [create one](../active-directory/develop/quickstart-create-new-tenant.md).
 

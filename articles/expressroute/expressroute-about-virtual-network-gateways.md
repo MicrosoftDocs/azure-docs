@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 03/31/2026
+ms.date: 08/12/2026
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -157,6 +157,8 @@ For technical resources and specific syntax requirements when using REST APIs an
 ## Virtual network-to-virtual network connectivity
 
 By default, connectivity between virtual networks is enabled when you link multiple virtual networks to the same ExpressRoute circuit. We don't recommend using your ExpressRoute circuit for communication between virtual networks. Instead, we recommend that you use [virtual network peering](../virtual-network/virtual-network-peering-overview.md). For more information about why virtual network-to-virtual network connectivity isn't recommended over ExpressRoute, see [Connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
+
+To use an ExpressRoute gateway that's in a different Azure region from your workload virtual networks, see [Use a VPN or ExpressRoute gateway in a different region](../vpn-gateway/vpn-gateway-different-region.md).
 
 ### Virtual network peering limits
 
