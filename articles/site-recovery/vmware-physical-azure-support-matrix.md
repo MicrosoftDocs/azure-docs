@@ -106,6 +106,9 @@ Windows 7 with SP1 64-bit | Supported.
 ### For Linux
 
 > [!NOTE]
+> Supported Linux kernel versions are no longer updated in a support matrix. For the latest supported kernel versions, see [Azure Site Recovery supported kernels](https://github.com/Azure/Azure-SiteRecovery/tree/main/MobilityAgent/OnPremiseToAzure).
+
+> [!NOTE]
 > Mobility service versions `9.62`, `9.63`, `9.64`, `9.65`' and `9.66`  are only available for Modernized experience. <br>
 > Mobility service versions `9.59` is only available for Classic experience.
 
@@ -124,153 +127,6 @@ Rocky Linux | [See supported versions](#rocky-linux-server-supported-kernel-vers
 >- For each of the Windows versions, Azure Site Recovery only supports [Long-Term Servicing Channel (LTSC)](/windows-server/get-started/servicing-channels-comparison#long-term-servicing-channel-ltsc) builds. [Semi-Annual Channel](/windows-server/get-started/servicing-channels-comparison#semi-annual-channel) releases are currently unsupported at this time.
 >- Ensure that for Linux versions, Azure Site Recovery doesn't support customized OS images. Only the stock kernels that are part of the distribution minor version release/update are supported.
 >- Oracle Linux 6.10 isn't supported as a Generation 2 virtual machine on Azure. Generation 2 VM support for Oracle Linux begins with version 7.0 and later.
-
-#### Supported kernel versions for Red Hat Enterprise Linux for Azure virtual machines 
-
-**Release** | **Mobility service version** | **Red Hat kernel version** |
---- | --- | --- |
-RHEL 10.0 <br> RHEL 10.1 | 9.66 | 6.12.0-55.9.1 and later <br> 6.12.0-124.8.1 and later|
-RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 <br> RHEL 9.5 <br> RHEL 9.6 <br> RHEL 9.7 | 9.66 |  5.14.0-611.5.1 and later|
-RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 <br> RHEL 9.5 <br> RHEL 9.6 | 9.65 | 5.14.0-570.12.1 and later |
-RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 <br> RHEL 9.5 | 9.64 | 5.14.0-503.11.1 and higher. |
-RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 | 9.63 | 5.14.0-284.73.1.el9_2.x86_64 <br> 5.14.0-284.75.1.el9_2.x86_64 <br>5.14.0-284.77.1.el9_2.x86_64 <br>5.14.0-284.79.1.el9_2.x86_64 <br>5.14.0-284.80.1.el9_2.x86_64 <br>5.14.0-284.82.1.el9_2.x86_64 <br> 5.14.0-284.84.1.el9_2.x86_64 <br>5.14.0-284.85.1.el9_2.x86_64 <br> 5.14.0-284.86.1.el9_2.x86_64 <br> 5.14.0-427.24.1.el9_4.x86_64 <br> 5.14.0-427.26.1.el9_4.x86_64 <br> 5.14.0-427.28.1.el9_4.x86_64 <br> 5.14.0-427.31.1.el9_4.x86_64 <br> 5.14.0-427.33.1.el9_4.x86_64 <br> 5.14.0-427.35.1.el9_4.x86_64 <br> 5.14.0-427.37.1.el9_4.x86_64 |
-RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 | 9.62 | 5.14.0-70.97.1.el9_0.x86_64 <br>  5.14.0-70.101.1.el9_0.x86_64 <br>  5.14.0-284.62.1.el9_2.x86_64 <br>  5.14.0-284.64.1.el9_2.x86_64 <br>  5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64  <br> 5.14.0-284.69.1.el9_2.x86_64  <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64 | 
-
-### Ubuntu kernel versions
-
-> [!NOTE]
-> Mobility service versions `9.62`, `9.63`, `9.64`, `9.65`' and `9.66`  are only available for Modernized experience. <br>
-> Mobility service versions `9.59` is only available for Classic experience.
-
-
-**Supported release** | **Mobility service version** | **Kernel version** |
---- | --- | --- |
-14.04 LTS | 9.66 <br> 9.65 | No new kernels in this release. |
-14.04 LTS | 9.62, 9.63, 9.64 | 3.13.0-24-generic to 3.13.0-170-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-148-generic,<br/>4.15.0-1023-azure to 4.15.0-1045-azure |
-|||
-16.04 LTS | 9.66 <br> 9.65 | No new kernels in this release. |
-16.04 LTS | 9.62, 9.63, 9.64 | 4.4.0-21-generic to 4.4.0-210-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic, 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-142-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1113-azure </br> 4.15.0-101-generic to 4.15.0-107-generic |
-|||
-18.04 LTS | 9.66 | 4.15.0-1188-azure <br> 4.15.0-1189-azure <br> 4.15.0-1190-azure <br> 4.15.0-1191-azure <br> 4.15.0-1192-azure <br> 4.15.0-237-generic <br> 4.15.0-238-generic <br> 4.15.0-239-generic <br> 4.15.0-240-generic <br> 4.15.0-241-generic <br> 4.15.0-242-generic <br> 4.15.0-243-generic <br> 4.15.0-245-generic  <br> 5.4.0-1150-azure <br> 5.4.0-1151-azure <br> 5.4.0-1152-azure <br> 5.4.0-1153-azure <br> 5.4.0-215-generic <br> 5.4.0-216-generic <br> 5.4.0-218-generic <br> 5.4.0-219-generic <br> 5.4.0-220-generic <br> 5.4.0-221-generic <br> 5.4.0-222-generic <br> 5.4.0-223-generic |
-18.04 LTS | 9.65 | 4.15.0-1185-azure <br> 4.15.0-1186-azure <br> 4.15.0-234-generic <br> 4.15.0-235-generic <br> 5.4.0-1143-azure <br> 5.4.0-1144-azure <br> 5.4.0-1145-azure <br> 5.4.0-206-generic <br> 5.4.0-207-generic <br> 5.4.0-209-generic |
-18.04 LTS | 9.64 | 4.15.0-1181-azure <br> 4.15.0-1182-azure <br> 4.15.0-1183-azure <br> 4.15.0-1184-azure <br> 4.15.0-229-generic <br> 4.15.0-230-generic <br> 4.15.0-231-generic <br> 4.15.0-232-generic <br> 5.4.0-1137-azure <br> 5.4.0-1138-azure <br> 5.4.0-1139-azure <br> 5.4.0-1140-azure <br> 5.4.0-195-generic <br> 5.4.0-196-generic <br> 5.4.0-198-generic <br> 5.4.0-200-generic <br> 5.4.0-202-generic <br> 5.4.0-204-generic |
-18.04 LTS | 9.63 | 4.15.0-1180-azure <br> 4.15.0-228-generic <br> 5.4.0-1136-azure <br> 5.4.0-193-generic |
-18.04 LTS | 9.62 | 4.15.0-1178-azure <br>4.15.0-1179-azure <br>4.15.0-226-generic <br> 4.15.0-227-generic  <br> 5.4.0-1131-azure <br> 5.4.0-1132-azure <br> 5.4.0-1133-azure <br>5.4.0-1134-azure  <br>5.4.0-1135-azure  <br> 5.4.0-186-generic  <br>5.4.0-187-generic <br> 5.4.0-189-generic  <br> 5.4.0-190-generic  <br> 5.4.0-192-generic  |
-|||
-20.04 LTS | 9.66 | 5.15.0-1088-azure <br> 5.15.0-1089-azure <br> 5.15.0-1091-azure <br> 5.15.0-1094-azure <br> 5.15.0-1095-azure <br> 5.15.0-1096-azure <br> 5.15.0-1097-azure <br> 5.15.0-1098-azure <br> 5.15.0-139-generic <br> 5.15.0-142-generic <br> 5.15.0-143-generic <br> 5.15.0-144-generic <br> 5.15.0-145-generic <br> 5.15.0-151-generic <br> 5.15.0-152-generic <br> 5.15.0-153-generic <br> 5.15.0-156-generic <br> 5.15.0-157-generic <br> 5.15.0-160-generic <br> 5.15.0-161-generic <br> 5.4.0-1150-azure <br> 5.4.0-1151-azure <br> 5.4.0-1152-azure <br> 5.4.0-1153-azure <br> 5.4.0-1154-azure <br> 5.4.0-215-generic <br> 5.4.0-216-generic <br> 5.4.0-218-generic <br> 5.4.0-219-generic <br> 5.4.0-220-generic <br> 5.4.0-221-generic <br> 5.4.0-222-generic <br> 5.4.0-223-generic |
-20.04 LTS | 9.65 | 5.15.0-1080-azure <br> 5.15.0-1081-azure <br> 5.15.0-1083-azure <br> 5.15.0-133-generic <br> 5.15.0-135-generic <br> 5.4.0-1143-azure <br> 5.4.0-1144-azure <br> 5.4.0-1145-azure <br> 5.4.0-206-generic <br> 5.4.0-207-generic <br> 5.4.0-209-generic |
-20.04 LTS | 9.64 | 5.15.0-1072-azure <br> 5.15.0-1073-azure <br> 5.15.0-1074-azure <br> 5.15.0-1075-azure <br> 5.15.0-1078-azure <br> 5.15.0-121-generic <br> 5.15.0-122-generic <br> 5.15.0-124-generic <br> 5.15.0-125-generic <br> 5.15.0-126-generic <br> 5.15.0-127-generic <br> 5.15.0-130-generic <br> 5.4.0-1137-azure <br> 5.4.0-1138-azure <br> 5.4.0-1139-azure <br> 5.4.0-1140-azure <br> 5.4.0-1142-azure <br> 5.4.0-195-generic <br> 5.4.0-196-generic <br> 5.4.0-198-generic <br> 5.4.0-200-generic <br> 5.4.0-202-generic <br> 5.4.0-204-generic |
-20.04 LTS | 9.63 | 5.15.0-1071-azure <br> 5.15.0-119-generic <br> 5.4.0-1136-azure <br> 5.4.0-193-generic  |
-20.04 LTS | 9.62 | 5.15.0-1065-azure <br>5.15.0-1067-azure <br>5.15.0-1068-azure <br>5.15.0-1070-azure <br>5.15.0-113-generic <br>5.15.0-116-generic <br>5.15.0-117-generic <br>5.15.0-118-generic  <br>5.4.0-1131-azure <br>5.4.0-1132-azure <br>5.4.0-1133-azure <br> 5.4.0-1134-azure <br>5.4.0-1135-azure <br>5.4.0-186-generic <br>5.4.0-187-generic  <br>5.4.0-189-generic <br> 5.4.0-190-generic <br> 5.4.0-192-generic |
-|||
-22.04 LTS <br> **Note**: Support for Ubuntu 22.04 is available for Modernized experience only and not available for Classic experience yet. | 9.66 | 5.15.0-1088-azure <br> 5.15.0-1089-azure <br> 5.15.0-1090-azure <br> 5.15.0-1091-azure <br> 5.15.0-1092-azure <br> 5.15.0-1094-azure <br> 5.15.0-1095-azure <br>  5.15.0-1096-azure <br> 5.15.0-1097-azure <br> 5.15.0-1098-azure <br> 5.15.0-1099-azure <br> 5.15.0-1101-azure <br> 5.15.0-139-generic <br> 5.15.0-140-generic <br> 5.15.0-141-generic <br> 5.15.0-142-generic <br> 5.15.0-143-generic <br> 5.15.0-144-generic <br> 5.15.0-151-generic <br> 5.15.0-152-generic <br> 5.15.0-153-generic <br> 5.15.0-156-generic <br> 5.15.0-157-generic <br> 5.15.0-160-generic <br> 5.15.0-161-generic <br> 6.8.0-1028-azure <br> 6.8.0-1029-azure <br> 6.8.0-1030-azure <br> 6.8.0-1031-azure <br> 6.8.0-1034-azure <br> 6.8.0-1036-azure <br> 6.8.0-1040-azure <br> 6.8.0-1041-azure <br> 6.8.0-58-generic <br> 6.8.0-59-generic <br> 6.8.0-60-generic <br> 6.8.0-63-generic <br> 6.8.0-64-generic <br> 6.8.0-65-generic <br> 6.8.0-78-generic <br> 6.8.0-79-generic <br> 6.8.0-83-generic <br> 6.8.0-84-generic <br> 6.8.0-85-generic <br> 6.8.0-86-generic <br> 6.8.0-87-generic |
-22.04 LTS <br> **Note**: Support for Ubuntu 22.04 is available for Modernized experience only and not available for Classic experience yet. | 9.65 | 5.15.0-1080-azure <br> 5.15.0-1081-azure <br> 5.15.0-1083-azure <br> 5.15.0-133-generic <br> 5.15.0-135-generic <br> 6.8.0-1022-azure <br> 6.8.0-1023-azure <br> 6.8.0-52-generic <br> 6.8.0-54-generic |
-22.04 LTS <br> **Note**: Support for Ubuntu 22.04 is available for Modernized experience only and not available for Classic experience yet. | 9.64 | 5.15.0-1072-azure <br> 5.15.0-1073-azure <br> 5.15.0-1074-azure <br> 5.15.0-1075-azure <br> 5.15.0-1078-azure <br> 5.15.0-121-generic <br> 5.15.0-122-generic <br> 5.15.0-124-generic <br> 5.15.0-125-generic <br> 5.15.0-126-generic <br> 5.15.0-127-generic <br> 5.15.0-128-generic <br> 5.15.0-130-generic <br> 6.8.0-1008-azure <br> 6.8.0-1009-azure <br> 6.8.0-1010-azure <br> 6.8.0-1012-azure <br> 6.8.0-1013-azure <br> 6.8.0-1014-azure <br> 6.8.0-1015-azure <br> 6.8.0-1017-azure <br> 6.8.0-1018-azure <br> 6.8.0-1020-azure <br> 6.8.0-38-generic <br> 6.8.0-39-generic <br> 6.8.0-40-generic <br> 6.8.0-45-generic <br> 6.8.0-47-generic <br> 6.8.0-48-generic <br> 6.8.0-49-generic <br> 6.8.0-50-generic <br> 6.8.0-51-generic |
-22.04 LTS <br> **Note**: Support for Ubuntu 22.04 is available for Modernized experience only and not available for Classic experience yet. | 9.63 | 5.15.0-1071-azure <br> 5.15.0-119-generic |
-22.04 LTS <br> **Note**: Support for Ubuntu 22.04 is available for Modernized experience only and not available for Classic experience yet. | 9.62 | 5.15.0-1066-azure <br> 5.15.0-1067-azure <br>5.15.0-1068-azure <br>5.15.0-1070-azure <br>5.15.0-112-generic <br>5.15.0-113-generic <br>5.15.0-116-generic <br>5.15.0-117-generic <br>5.15.0-118-generic <br>6.5.0-1022-azure <br>6.5.0-1023-azure <br>6.5.0-1024-azure <br>6.5.0-1025-azure <br>6.5.0-41-generic <br>6.5.0-44-generic <br>6.5.0-45-generic  | 
-|||
-24.04 LTS <br> **Note**: Support for Ubuntu 24.04 is available for Modernized experience only and not available for Classic experience yet. | 9.66 | 6.14.0-1012-azure <br> 6.14.0-1013-azure <br> 6.14.0-1014-azure <br> 6.14.0-24-generic <br> 6.14.0-27-generic <br> 6.14.0-28-generic <br> 6.14.0-29-generic <br> 6.14.0-32-generic <br> 6.14.0-33-generic <br> 6.14.0-34-generic <br> 6.14.0-35-generic <br> 6.14.0-36-generic <br> 6.11.0-1008-azure <br> 6.11.0-1012-azure <br> 6.11.0-1013-azure <br> 6.11.0-1014-azure <br> 6.11.0-1015-azure <br> 6.11.0-1017-azure <br> 6.11.0-1018-azure <br> 6.11.0-17-generic <br> 6.11.0-19-generic <br> 6.11.0-21-generic <br> 6.11.0-24-generic <br> 6.11.0-25-generic <br> 6.11.0-26-generic <br> 6.11.0-28-generic <br> 6.11.0-29-generic <br> 6.8.0-1028-azure <br> 6.8.0-1029-azure <br> 6.8.0-1030-azure <br> 6.8.0-1031-azure <br> 6.8.0-1034-azure <br> 6.8.0-59-generic <br> 6.8.0-60-generic <br> 6.8.0-63-generic <br> 6.8.0-64-generic <br> 6.8.0-71-generic <br> 6.8.0-78-generic <br> 6.8.0-79-generic <br> 6.8.0-83-generic <br> 6.8.0-84-generic <br> 6.8.0-85-generic <br> 6.8.0-86-generic <br> 6.8.0-87-generic <br> 6.8.0-88-generic |
-24.04 LTS <br> **Note**: Support for Ubuntu 24.04 is available for Modernized experience only and not available for Classic experience yet. | 9.65 | 6.8.0-1022-azure <br> 6.8.0-1023-azure <br> 6.8.0-52-generic <br> 6.8.0-54-generic |
-24.04 LTS <br> **Note**: Support for Ubuntu 24.04 is available for Modernized experience only and not available for Classic experience yet. | 9.64 | 6.8.0-1007-azure <br> 6.8.0-1008-azure <br> 6.8.0-1009-azure <br> 6.8.0-1010-azure <br> 6.8.0-1012-azure <br> 6.8.0-1013-azure <br> 6.8.0-1014-azure <br> 6.8.0-1015-azure <br> 6.8.0-1016-azure <br> 6.8.0-1017-azure <br> 6.8.0-1018-azure <br> 6.8.0-1020-azure <br> 6.8.0-31-generic <br> 6.8.0-35-generic <br> 6.8.0-36-generic <br> 6.8.0-38-generic <br> 6.8.0-39-generic <br> 6.8.0-40-generic <br> 6.8.0-41-generic <br> 6.8.0-44-generic <br> 6.8.0-45-generic <br> 6.8.0-47-generic <br> 6.8.0-48-generic <br> 6.8.0-49-generic <br> 6.8.0-50-generic <br> 6.8.0-51-generic |
-
-### Debian kernel versions
-
-> [!NOTE]
-> Mobility service versions `9.62`, `9.63`, `9.64`, `9.65`' and `9.66`  are only available for Modernized experience. <br>
-> Mobility service versions `9.59` is only available for Classic experience. 
-
-
-**Supported release** | **Mobility service version** | **Kernel version** |
---- | --- | --- |
-Debian 7 | 9.66 | No new Debian kernels in this release. |
-Debian 7 | 9.65 | No new Debian kernels in this release. |
-Debian 7 | 9.62, 9.63, 9.64 | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
-|||
-Debian 8 | 9.66 | No new Debian kernels in this release. |
-Debian 8 | 9.65 | No new Debian kernels in this release. |
-Debian 8 | 9.62, 9.63, 9.64 | 3.16.0-4-amd64 to 3.16.0-11-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.12-amd64 |
-|||
-Debian 9.1 | 9.66 | No new Debian kernels in this release. |
-Debian 9.1 | 9.65 | No new Debian kernels in this release. |
-Debian 9.1 | 9.64 | No new Debian 9.1 kernels supported in this release. |
-Debian 9.1 | 9.63 | No new Debian 9.1 kernels supported in this release. |
-Debian 9.1 | 9.62 | No new Debian 9.1 kernels supported in this release. |
-|||
-Debian 10 | 9.66 | No new Debian kernels in this release. |
-Debian 10 | 9.65 | No new Debian kernels in this release. |
-Debian 10 | 9.64 | No new Debian kernels in this release. |
-Debian 10 | 9.63 | No new Debian kernels in this release. |
-Debian 10 | 9.62 | 4.19.0-27-amd64 <br> 4.19.0-27-cloud-amd64 <br> 5.10.0-0.deb10.30-amd64 <br> 5.10.0-0.deb10.30-cloud-amd64  |
-|||
-Debian 11 | 9.66 | 5.10.0-35-amd64 <br> 5.10.0-35-cloud-amd64 <br> 5.10.0-36-amd64 <br> 5.10.0-36-cloud-amd64 <br> 6.1.0-0.deb11.35-amd64 <br> 6.1.0-0.deb11.35-cloud-amd64 <br> 6.1.0-0.deb11.37-amd64 <br> 6.1.0-0.deb11.37-cloud-amd64 <br> 6.1.0-0.deb11.38-amd64 <br> 6.1.0-0.deb11.38-cloud-amd64 <br> 6.1.0-0.deb11.39-amd64 <br> 6.1.0-0.deb11.39-cloud-amd64 <br> 6.1.0-0.deb11.40-amd64 <br> 6.1.0-0.deb11.40-cloud-amd64 <br> 6.1.0-0.deb11.41-amd64 <br> 6.1.0-0.deb11.41-cloud-amd64 |
-Debian 11 | 9.65 | 6.1.0-0.deb11.32-amd64 <br> 6.1.0-0.deb11.32-cloud-amd64 |
-Debian 11 | 9.64 | 5.10.0-33-amd64 <br> 5.10.0-33-cloud-amd64 <br> 6.1.0-0.deb11.25-amd64 <br> 6.1.0-0.deb11.25-cloud-amd64 <br> 6.1.0-0.deb11.26-amd64 <br> 6.1.0-0.deb11.26-cloud-amd64 <br> 6.1.0-0.deb11.28-amd64 <br> 6.1.0-0.deb11.28-cloud-amd64 |
-Debian 11 | 9.63 | No new Debian kernels in this release. |
-Debian 11 | 9.62 | **Debian 11 kernels support added for Modernized experience:** <br> 5.10.0-30-amd64 <br> 5.10.0-30-cloud-amd64 <br> 6.1.0-0.deb11.21-amd64 <br> 6.1.0-0.deb11.21-cloud-amd64 <br> 5.10.0-31-amd64 <br> 5.10.0-31-cloud-amd64 <br> 5.10.0-32-amd64 <br> 5.10.0-32-cloud-amd64 <br> 6.1.0-0.deb11.13-amd64 <br> 6.1.0-0.deb11.13-cloud-amd64 <br> 6.1.0-0.deb11.17-amd64 <br> 6.1.0-0.deb11.17-cloud-amd64 <br> 6.1.0-0.deb11.18-amd64 <br> 6.1.0-0.deb11.18-cloud-amd64 <br> 6.1.0-0.deb11.21-amd64 <br> 6.1.0-0.deb11.21-cloud-amd64 <br> 6.1.0-0.deb11.22-amd64 <br> 6.1.0-0.deb11.22-cloud-amd64   <br> <br> **Debian 11 kernels support added for Classic experience:** <br> No new Debian 11 kernels supported for Classic version. |
-|||
-Debian 12 <br> **Note**: Support for Debian 12 isn't available for Classic experience. | 9.66 | 6.1.0-34-amd64 <br> 6.1.0-34-cloud-amd64 <br> 6.1.0-35-amd64 <br> 6.1.0-35-cloud-amd64 <br> 6.1.0-37-amd64 <br> 6.1.0-37-cloud-amd64 <br> 6.1.0-38-amd64 <br> 6.1.0-38-cloud-amd64 <br> 6.1.0-39-amd64 <br> 6.1.0-39-cloud-amd64 <br> 6.1.0-40-amd64 <br> 6.1.0-40-cloud-amd64 <br> 6.1.0-41-amd64 <br> 6.1.0-41-cloud-amd64 |
-Debian 12 <br> **Note**: Support for Debian 12 isn't available for Classic experience. | 9.65 | 6.1.0-32-amd64 <br> 6.1.0-32-cloud-amd64 <br> 6.1.0-33-amd64 <br> 6.1.0-33-cloud-amd64 |
-Debian 12 <br> **Note**: Support for Debian 12 isn't available for Classic experience. | 9.64 | 6.1.0-15-cloud-amd64 <br> 6.1.0-26-amd64 <br> 6.1.0-26-cloud-amd64 <br> 6.1.0-27-amd64 <br> 6.1.0-27-cloud-amd64 <br> 6.1.0-28-amd64 <br> 6.1.0-28-cloud-amd64 |
-Debian 12 <br> **Note**: Support for Debian 12 is available for Modernized experience only and not available for Classic experience. | 9.63 | 6.1.0-25-amd64 <br> 6.1.0-25-cloud-amd64 |
-Debian 12 <br> **Note**: Support for Debian 12 is available for Modernized experience only and not available for Classic experience. | 9.62 | 6.1.0-15-cloud-amd64 <br> 6.1.0-22-amd64 <br> 6.1.0-22-cloud-amd64 <br> 6.1.0-23-amd64 <br> 6.1.0-23-cloud-amd64 |
-
-### SUSE Linux Enterprise Server 12 supported kernel versions
-
-> [!NOTE]
-> Mobility service versions `9.62`, `9.63`, `9.64`, `9.65`' and `9.66`  are only available for Modernized experience. <br>
-> Mobility service versions `9.59` is only available for Classic experience.
-
-
-**Release** | **Mobility service version** | **Kernel version** |
---- | --- | --- |
-SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | 9.66 | New SUSE 12 kernels aren't supported in this release. |
-SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | 9.65 | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. <br> 4.12.14-16.197-azure:5 <br> 4.12.14-16.200-azure:5 |
-SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | 9.64 | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 4.12.14-16.197-azure:5 <br> 4.12.14-16.200-azure:5 |
-SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | 9.63 | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new kernels in this release. | 
-SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | 9.62 | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> **SUSE 12 Azure kernels support added for Modernized experience:** <br> 4.12.14-16.185-azure:5 <br> 4.12.14-16.188-azure:5 <br> 4.12.14-16.191azure:5 <br> 4.12.14-16.194-azure:5  |
-
-
-### SUSE Linux Enterprise Server 15 supported kernel versions
-
-> [!NOTE]
-> Mobility service versions `9.62`, `9.63`, `9.64`, `9.65`' and `9.66`  are only available for Modernized experience. <br>
-> Mobility service versions `9.59` is only available for Classic experience.
-
-
-**Release** | **Mobility service version** | **Kernel version** |
---- | --- | --- |
-SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5, SP6, SP7 | 9.66 | By default, all [stock SUSE 15 SP1, SP2, SP3, SP4, SP5, SP6, SP7 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. <br> 6.4.0-150600.8.37-azure:6 <br> 6.4.0-150600.8.40-azure:6 <br> 6.4.0-150600.8.43-azure:6 <br> 6.4.0-150600.8.48-azure:6 <br> 6.4.0-150600.8.52-azure:6 <br> 6.4.0-150700.18-azure:7 <br> 6.4.0-150700.20.11-azure:7 <br> 6.4.0-150700.20.3-azure:7 <br> 6.4.0-150700.20.6-azure:7 <br> 6.4.0-150700.20.15-azure:7 <br> 6.4.0-150700.20.18-azure:7 |
-SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5, SP6 | 9.65 | By default, all [stock SUSE 15 SP1, SP2, SP3, SP4, SP5, SP6 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. <br> 6.4.0-150600.8.23-azure:6 <br> 6.4.0-150600.8.26-azure:6 <br> 6.4.0-150600.8.31-azure:6 <br> 6.4.0-150600.8.34-azure:6 |
-SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 | 9.64 | By default, all [stock SUSE 15 SP1, SP2, SP3, SP4, SP5, SP6 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 5.14.21-150500.33.66-azure:5 <br> 5.14.21-150500.33.69-azure:5 <br> 5.14.21-150500.33.72-azure:5 <br> 5.14.21-150500.33.75-azure:5 <br> 6.4.0-150600.6-azure:6 <br> 6.4.0-150600.8.11-azure:6 <br> 6.4.0-150600.8.14-azure:6 <br> 6.4.0-150600.8.17-azure:6 <br> 6.4.0-150600.8.20-azure:6 <br> 6.4.0-150600.8.5-azure:6 <br> 6.4.0-150600.8.8-azure:6 |
-SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 | 9.63 | By default, all [stock SUSE 15 SP1, SP2, SP3, SP4, SP5, SP6 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new kernels in this release. | 
-SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 | 9.62 | By default, all [stock SUSE 15 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> **SUSE 15 Azure kernels support added for Modernized experience:** <br> 5.14.21-150500.33.54-azure:5 <br> 5.14.21-150500.33.57-azure:5 <br> 5.14.21-150500.33.60-azure:5 <br> 5.14.21-150500.33.63-azure:5  |
-
-
-#### Supported Red Hat Linux kernel versions for Oracle Linux on Azure virtual machines 
-
-**Release** | **Mobility service version** | **Red Hat kernel version** |
---- | --- | --- |
-Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linux 9.3 <br> Oracle Linux 9.4 <br> Oracle Linux 9.5 <br> Oracle Linux 9.6 | 9.66 | 5.14.0-503.11.1 and later |
-Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linux 9.3 <br> Oracle Linux 9.4 <br> Oracle Linux 9.5 | 9.65 | 5.14.0-503.11.1 and later |
-Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linux 9.3 <br> Oracle Linux 9.4  | 9.64 | No new kernels in this release.|
-Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linux 9.3 <br> Oracle Linux 9.4  | 9.63 | 5.14.0-284.73.1.el9_2.x86_64 <br> 5.14.0-284.75.1.el9_2.x86_64 <br> 5.14.0-284.77.1.el9_2.x86_64 <br> 5.14.0-284.79.1.el9_2.x86_64 <br> 5.14.0-284.80.1.el9_2.x86_64 <br> 5.14.0-284.82.1.el9_2.x86_64 <br> 5.14.0-284.84.1.el9_2.x86_64 <br> 5.14.0-284.85.1.el9_2.x86_64 <br> 5.14.0-284.86.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64 <br>5.14.0-427.24.1.el9_4.x86_64 <br> 5.14.0-427.26.1.el9_4.x86_64 <br> 5.14.0-427.28.1.el9_4.x86_64 <br> 5.14.0-427.31.1.el9_4.x86_64 <br> 5.14.0-427.33.1.el9_4.x86_64 <br> 5.14.0-427.35.1.el9_4.x86_64 <br> 5.14.0-427.37.1.el9_4.x86_64 |
-Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linux 9.3 | 9.62 |  5.14.0-70.97.1.el9_0.x86_64 <br>  5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br>  5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 |
-
-
-### Rocky Linux Server supported kernel versions
-
-> [!IMPORTANT]
-> Support for Rocky Linux is available for Modernized experience only and not available for Classic experience.
-
-**Release** | **Mobility service version** | **Red Hat kernel version** |
---- | --- | --- |
-Rocky Linux 10.0 <br> Rocky Linux 10.1 | 9.66 | 6.12.0-55.9.1 and later <br> 6.12.0-124.8.1 and later |
-Rocky Linux 9.0 <br> Rocky Linux 9.1 <br> Rocky Linux 9.2 <br> Rocky Linux 9.3 <br> Rocky Linux 9.4 <br> Rocky Linux 9.5 <br>  Rocky linux 9.6 <br> Rocky linux 9.7 | 9.66 | 5.14.0-611.5.1 and later |
-Rocky Linux 9.0 <br> Rocky Linux 9.1 <br> Rocky Linux 9.2 <br> Rocky Linux 9.3 <br> Rocky Linux 9.4 <br> Rocky Linux 9.5 | 9.65 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64 |
-Rocky Linux 9.0 <br> Rocky Linux 9.1 | 9.64 | No new kernels in this release. |
-Rocky Linux 9.0 <br> Rocky Linux 9.1 | 9.63 | No new kernels in this release. |
-Rocky Linux 9.0 <br> Rocky Linux 9.1 | 9.62 |  5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br>  5.14.0-284.67.1.el9_2.x86_64<br>  5.14.0-284.69.1.el9_2.x86_64<br> 5.14.0-284.71.1.el9_2.x86_64<br> 5.14.0-427.13.1.el9_4.x86_64<br> 5.14.0-427.16.1.el9_4.x86_64<br> 5.14.0-427.18.1.el9_4.x86_64<br> 5.14.0-427.20.1.el9_4.x86_64<br> 5.14.0-427.22.1.el9_4.x86_64 |
-
 
 
 ## Linux file systems/guest storage
