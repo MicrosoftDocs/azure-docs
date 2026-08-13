@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 02/06/2025
+ms.update-cycle: 365-days
 ms.custom: engagement-fy24
 
 # Customer intent: As a cloud solutions architect, I want to review business case reports by using a migration assessment tool so that I can effectively plan and evaluate the cost savings and operational benefits of migrating on-premises workloads to the cloud.

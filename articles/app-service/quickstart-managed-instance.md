@@ -48,7 +48,7 @@ You can quickly deploy all the necessary resources in this quickstart using Azur
 ```bash
 mkdir managed-instance-quickstart
 cd managed-instance-quickstart
-azd init --template https://github.com/Azure-Samples/managed-instance-azure-app-service-quickstart.git
+azd init --template https://github.com/Azure-Samples/managed-instance-azure-app-service-quickstart.git .
 azd env set AZURE_LOCATION northeurope
 azd up
 ```

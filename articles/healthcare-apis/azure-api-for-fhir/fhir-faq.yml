@@ -6,7 +6,7 @@ metadata:
   ms.service: azure-health-data-services
   ms.subservice: fhir
   ms.topic: faq
-  ms.date: 05/30/2025
+  ms.date: 05/18/2026
   ms.author: kesheth
 title: Frequently asked questions about Azure API for FHIR
 summary: |
@@ -86,7 +86,7 @@ sections:
       - question: |
           Does Azure API for FHIR support SMART on FHIR?
         answer: |
-          Yes, SMART on FHIR capability is supported using [AHDS samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/blob/main/samples/patientandpopulationservices-smartonfhir-oncg10-smart-v1/docs/deployment.md). This is referred to as SMART on FHIR(Enhanced). SMART on FHIR(Enhanced) can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg). For more information, visit [SMART on FHIR(Enhanced) Documentation](smart-on-fhir.md).
+          Azure Health Data Services (AHDS) FHIR service provides native support for SMART on FHIR. The SMART App Launch Implementation Guide defines the industry standard for launching healthcare applications using OAuth 2.0 and OpenID Connect, enabling secure, interoperable access to FHIR resources across EHRs and FHIR servers. For more information, see the [SMART App Launch Implementation Guide v2.0.0](https://hl7.org/fhir/smart-app-launch/STU2/).
       - question: |
           Can I create a custom FHIR resource?
         answer: |

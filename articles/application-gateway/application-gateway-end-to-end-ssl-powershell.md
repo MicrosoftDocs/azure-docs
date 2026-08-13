@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 07/16/2026
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 # Customer intent: As a cloud architect, I want to configure end-to-end TLS with an application gateway using PowerShell so that I can ensure secure communication between clients and backend servers.
@@ -78,7 +78,7 @@ The following example creates a virtual network and two subnets. One subnet is u
    ```
 
    > [!NOTE]
-   > Subnets configured for an application gateway should be properly sized. An application gateway can be configured for up to 10 instances. Each instance takes one IP address from the subnet. Too small of a subnet can adversely affect scaling out an application gateway.
+   > Properly size subnets configured for an application gateway. A v1 application gateway supports up to 32 instances, while a v2 application gateway scales out to up to 125 instances. Each instance takes one IP address from the subnet, so size the subnet to accommodate the maximum scale-out for your SKU. A subnet that's too small can adversely affect scaling out an application gateway. For v2 autoscaling and instance limits, see [Scale Application Gateway v2 and WAF v2](application-gateway-autoscaling-zone-redundant.md).
    >
 
 2. Assign an address range to be used for the backend address pool.
@@ -199,7 +199,7 @@ All configuration items are set before creating the application gateway. The fol
    $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. Configure the instance size of the application gateway. The available sizes are **Standard\_Small**, **Standard\_Medium**, and **Standard\_Large**.  For capacity, the available values are **1** through **10**.
+1. Configure the instance size of the application gateway. For the v1 SKU, the available sizes are **Standard\_Small**, **Standard\_Medium**, and **Standard\_Large**, and the capacity values are **1** through **32**. The v2 SKU (Standard_v2 or WAF_v2) supports up to 125 instances. For more information, see [Scale Application Gateway v2 and WAF v2](application-gateway-autoscaling-zone-redundant.md).
 
     ```powershell
     $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2

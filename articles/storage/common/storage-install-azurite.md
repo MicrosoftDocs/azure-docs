@@ -89,7 +89,7 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 
 ### [GitHub](#tab/github)
 
-This installation method requires that you have [Git](https://git-scm.com/) and [Node.js version 8.0 or later](https://nodejs.org) installed. Clone the [GitHub repository](https://github.com/azure/azurite) for the Azurite project by using the following console command.
+This installation method requires that you have [Git](https://git-scm.com/) and [Node.js version 21.0 or later](https://nodejs.org) installed. Clone the [GitHub repository](https://github.com/azure/azurite) for the Azurite project by using the following console command.
 
 ```console
 git clone https://github.com/Azure/Azurite.git
@@ -176,7 +176,7 @@ This configuration option can be changed later by modifying the project's **Conn
 
 The Azurite extension supports the following Visual Studio Code commands. To open the command palette, press **F1** in Visual Studio Code.
 
-   - **Azurite: Clean** - Reset all Azurite services persistency data
+- **Azurite: Clean** - Reset all Azurite services persistency data
    - **Azurite: Clean Blob Service** - Clean blob service
    - **Azurite: Clean Queue Service** - Clean queue service
    - **Azurite: Clean Table Service** - Clean table service

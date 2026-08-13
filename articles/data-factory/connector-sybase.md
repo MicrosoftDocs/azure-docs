@@ -2,17 +2,20 @@
 title: Copy data from Sybase
 description: Learn how to copy data from Sybase to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 10/20/2023
-ms.author: jianleishen
+ms.date: 06/22/2026
+ms.update-cycle: 1095-days
+ms.author: tinglee
 ms.custom:
   - synapse
   - sfi-image-nochange
 ---
 # Copy data from Sybase using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from a Sybase database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -34,7 +37,7 @@ Specifically, this Sybase connector supports:
 - SAP Sybase SQL Anywhere (ASA) **version 16 and above**.
 - Copying data using **Basic** or **Windows** authentication.
 
-Sybase IQ and ASE are not supported. You can use generic ODBC connector with Sybase driver instead.
+Sybase IQ and ASE aren't supported. You can use generic ODBC connector with Sybase driver instead.
 
 ## Prerequisites
 
@@ -51,7 +54,7 @@ To use this Sybase connector, you need to:
 
 Use the following steps to create a linked service to Sybase in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -141,7 +144,7 @@ To copy data from Sybase, the following properties are supported:
 }
 ```
 
-If you were using `RelationalTable` typed dataset, it is still supported as-is, while you are suggested to use the new one going forward.
+If you were using `RelationalTable` typed dataset, it's still supported as-is, while you're suggested to use the new one going forward.
 
 ## Copy activity properties
 
@@ -188,7 +191,7 @@ To copy data from Sybase, the following properties are supported in the copy act
 ]
 ```
 
-If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
+If you were using `RelationalSource` typed source, it's still supported as-is, while you're suggested to use the new one going forward.
 
 ## Data type mapping for Sybase
 

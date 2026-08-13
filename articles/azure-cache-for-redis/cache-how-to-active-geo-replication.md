@@ -10,7 +10,7 @@ appliesto:
 
 # Configure active geo-replication for Enterprise Azure Cache for Redis instances
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 In this article, you learn how to configure an active geo-replicated cache using the Azure portal.
 

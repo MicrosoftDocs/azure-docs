@@ -354,8 +354,6 @@ some of them are encapsulated in build tasks that you can chain together in a bu
 [08]: automation-dsc-onboarding.md
 [09]: automation-dsc-overview.md
 [10]: https://aka.ms/wmf5latest
-[11]: https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/
-[12]: https://azure.microsoft.com/blog/automating-vm-configuration-using-powershell-dsc-extension/
 [13]: https://azure.microsoft.com/pricing/details/automation/
 [14]: https://chocolatey.org/
 [15]: /nuget/create-packages/creating-a-package

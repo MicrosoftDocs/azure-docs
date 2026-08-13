@@ -3,7 +3,7 @@ title: Azure Functions Premium plan
 description: Learn about details and configuration options (virtual network, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
 author: nzthiago
 ms.topic: concept-article
-ms.date: 05/15/2026
+ms.date: 07/14/2026
 ms.author: thalme
 ms.custom: references_regions, fasttrack-edit, devx-track-azurepowershell, build-2024
 ---
@@ -219,11 +219,11 @@ Update-AzFunctionAppPlan -ResourceGroupName <RESOURCE_GROUP> -Name <PREMIUM_PLAN
 
 When you create or scale your plan, choose from three instance sizes. You're billed for the total number of cores and memory you provision, per second for each instance allocated to you. Your app can automatically scale out to multiple instances as needed.
 
-|SKU|Cores|Memory|Storage|
-|--|--|--|--|
-|EP1|1|3.5 GB|250 GB|
-|EP2|2|7 GB|250 GB|
-|EP3|4|14 GB|250 GB|
+|SKU|Cores|Memory|Storage|Local storage|
+|--|--|--|--|--|
+|EP1|1|3.5 GB|250 GB|11 GB|
+|EP2|2|7 GB|250 GB|21 GB|
+|EP3|4|14 GB|250 GB|61 GB|
 
 ### Memory usage considerations
 

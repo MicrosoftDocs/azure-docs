@@ -14,6 +14,8 @@ ms.reviewer: azfuncdf
 
 # Durable Functions packages, extensions, and SDKs overview
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 [Durable Functions](../common/what-is-durable-task.md) is available for all first-party Azure Functions languages, including .NET, Node.js, Python, Java, and PowerShell. This article helps you find the right package to install for your language and hosting model.
 
 In this article, *extension* refers to the binary that runs inside the Azure Functions host and implements the Durable Task protocol. *SDK* refers to the language-specific library you call in your application code. For .NET, the extension and SDK are combined in a single NuGet package.

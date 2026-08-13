@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: javascript
 ms.topic: tutorial
-ms.date: 12/12/2025
+ms.date: 08/11/2026
 ms.custom:
   - devx-track-javascript
 ms.collection: ce-skilling-ai-copilot
@@ -246,6 +246,8 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 :::image type="content" source="media/tutorial-ai-agent-web-app-langgraph-foundry-node/foundry-agent.png" alt-text="Screenshot of a chat completion session with a Microsoft Foundry agent.":::
 
 -----
+
+[!INCLUDE [rag-faq](includes/foundry-iq-rag-faq.md)]
 
 ## Clean up resources
 

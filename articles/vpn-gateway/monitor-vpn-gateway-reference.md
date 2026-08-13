@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 07/26/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-vpn-gateway
 # Customer intent: As a network administrator, I want to access detailed monitoring data for Azure VPN Gateway, so that I can effectively manage connectivity, diagnose issues, and ensure optimal performance of the VPN services.
 ---

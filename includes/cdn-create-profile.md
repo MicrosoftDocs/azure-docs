@@ -1,7 +1,7 @@
 ---
-author: SyntaxC4
-ms.author: cfowler
-ms.service: azure-cdn
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-content-delivery-network
 ms.topic: include
 ms.date: 04/06/2022
 ms.custom: include file

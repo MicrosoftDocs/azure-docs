@@ -1,8 +1,9 @@
 ---
 title: Microsoft HPC Pack Integration
-description: Microsoft HPC Pack configuration in Azure CycleCloud
+description: Learn how to configure and integrate Microsoft HPC Pack with Azure CycleCloud to schedule HPC workloads.
 author: padmalathas
-ms.date: 06/10/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: padmalathas
 monikerRange : '>= cyclecloud-8'
 ---

@@ -33,7 +33,7 @@ landingContent:
       - text: What is Azure Device Registry?
         url: iot-hub-device-registry-overview.md
       - text: What is certificate management?
-        url: iot-hub-certificate-management-overview.md
+        url: ../iot/iot-certificate-management-overview.md
       - text: "FAQ: What is new in IoT Hub?"
         url: iot-hub-faq.md
     - linkListType: how-to-guide
@@ -89,7 +89,7 @@ landingContent:
    - linkListType: tutorial
      links:
      - text: Create and upload certificates for testing
-       url: tutorial-x509-test-certs.md
+       url: ../iot-hub/tutorial-x509-test-certs.md
    - linkListType: concept
      links:
      - text: Security best practices

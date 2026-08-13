@@ -2,12 +2,12 @@
 title: 'P2S VPN client profile configuration files - Microsoft Entra authentication'
 titleSuffix: Azure VPN Gateway
 description: Learn how to generate P2S VPN client profile configuration files for Microsoft Entra ID authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/31/2025
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: "As a network administrator, I want to generate VPN client profile configuration files for Microsoft Entra ID authentication, so that I can properly configure VPN clients for secure point-to-site connections."
 ---
 # Generate VPN Client profile configuration files - Microsoft Entra ID authentication

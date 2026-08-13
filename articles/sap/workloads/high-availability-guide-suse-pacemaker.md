@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurepowershell, linux-related-content
-ms.date: 03/19/2026
+ms.date: 07/22/2026
 ms.author: radeltch
 # Customer intent: "As a system administrator, I want to set up Pacemaker with fencing on SUSE Linux Enterprise Server in Azure, so that I can ensure high availability and reliability for my applications running in the cloud."
 ---
@@ -80,7 +80,7 @@ To use an SBD device that uses an iSCSI target server for fencing, follow the in
 
 You first need to create the iSCSI target virtual machines. You can share iSCSI target servers with multiple Pacemaker clusters.
 
-1. Deploy new SLES 12 SP3 or higher virtual machines and connect to them via SSH. The machines don't need to be large. Virtual machine sizes Standard_E2s_v3 or Standard_D2s_v3 are sufficient. Be sure to use Premium storage for the OS disk.
+1. Deploy virtual machines with a supported SLES version and connect to them via SSH. The machines don't need to be large. Virtual machine sizes Standard_E2s_v4 or Standard_D2s_v4 are sufficient. Use Premium storage for the OS disk.
 2. On **iSCSI target virtual machines**, run the following commands:
 
    a. Update SLES.  
@@ -94,7 +94,7 @@ You first need to create the iSCSI target virtual machines. You can share iSCSI 
 
    b. Remove packages.
 
-   To avoid a known issue with targetcli and SLES 12 SP3, uninstall the following packages. You can ignore errors about packages that can't be found.
+   To avoid a known issue with targetcli, uninstall the following packages. You can ignore errors about packages that can't be found.
 
    ```bash
    sudo zypper remove lio-utils python-rtslib python-configshell targetcli
@@ -366,52 +366,18 @@ Run the following commands on the nodes of the new cluster that you want to crea
 
 1. **[A]** Adapt the SBD configuration.
 
-     a. Open the SBD config file.
-
      ```bash
      sudo vi /etc/sysconfig/sbd
-     ```
 
-     b. Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of SBD. Also, adjust SBD_DELAY_START value, if necessary
-
-     ```bash
+     # Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of SBD.
      [...]
      SBD_DEVICE="/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-360014053fe4da371a5a4bb69a419a4df;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf"
-     [...]
-     # In some cases, a longer delay than the default "msgwait" seconds is needed. So, set a specific delay value, in seconds. See, `man sbd` for more information. 
-     SBD_DELAY_START=216
      [...]
      SBD_PACEMAKER="yes"
      [...]
      SBD_STARTMODE="always"
      [...]
      ```
-
-     > [!NOTE]
-     > If the `SBD_DELAY_START` property value is set to "no" or "yes", then update it to specific delay value, in seconds. For more information, see the `Configuration via environment` section in the `man sbd` manual.
-
-     c. Ensure that the `TimeoutStartSec` value in the SBD service file is greater than the value of SBD_DELAY_START. See the [SBD file configuration documentation](https://documentation.suse.com/sle-ha/15-SP6/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config) for details.
-
-     ```bash
-     sudo systemctl show sbd | grep -i Timeout
-     # TimeoutStartUSec=4min 19s
-     # TimeoutStopUSec=4min 19s
-     # TimeoutAbortUSec=4min 19s
-     ```
-
-     If the value is default (90 seconds) or it's set less than SBD_DELAY_START, follow steps to adjust the value.
-
-     ```bash
-     sudo mkdir /etc/systemd/system/sbd.service.d
-     echo -e "[Service]\nTimeoutSec=259" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
-     sudo systemctl daemon-reload
-     ```
-
-     > [!NOTE]
-     >
-     > In the new cluster build, both `SBD_DELAY_START` and `TimeoutStartSec` values are automatically set.
-     >
-     > On existing cluster configuration, the value of `SBD_DELAY_START` could be set as "no" or "yes", and `TimeoutStartSec` would be different. Upgrading the SLES version doesn't update the value, so you'll need to adjust these settings manually.
 
 1. **[A]** Create the `softdog` configuration file.
 
@@ -520,52 +486,18 @@ foreach ($vmName in $vmNames) {
 
 5. **[A]** Adapt the SBD configuration.
 
-   a. Open the SBD config file.
-
    ```bash
    sudo vi /etc/sysconfig/sbd
-   ```
 
-   b. Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of SBD. Also, adjust SBD_DELAY_START value, if necessary
-
-   ```bash
+   # Change the property of the SBD device, enable the Pacemaker integration, and change the start mode of SBD.
    [...]
    SBD_DEVICE="/dev/disk/by-id/scsi-3600224804208a67da8073b2a9728af19"
-   [...]
-   # # In some cases, a longer delay than the default "msgwait" seconds is needed. So, set a specific delay value, in seconds. See, `man sbd` for more information. 
-   SBD_DELAY_START=216
    [...]
    SBD_PACEMAKER="yes"
    [...]
    SBD_STARTMODE="always"
    [...]
    ```
-
-   > [!NOTE]
-   > If the `SBD_DELAY_START` property value is set to "no" or "yes", update it to specific delay value, in seconds. For more information, see the `Configuration via environment` section in the `man sbd` manual.
-
-   c. Ensure that the `TimeoutStartSec` value in the SBD service file is greater than the value of `SBD_DELAY_START`. See the [SBD file configuration documentation](https://documentation.suse.com/sle-ha/15-SP6/html/SLE-HA-all/cha-ha-storage-protect.html#pro-ha-storage-protect-sbd-config) for details.
-
-   ```bash
-   sudo systemctl show sbd | grep -i Timeout
-   # TimeoutStartUSec=4min 19s
-   # TimeoutStopUSec=4min 19s
-   # TimeoutAbortUSec=4min 19s
-   ```
-
-   If the value is default (90 seconds) or it's set less than SBD_DELAY_START, follow steps to adjust the value.
-
-   ```bash
-   sudo mkdir /etc/systemd/system/sbd.service.d
-   echo -e "[Service]\nTimeoutSec=259" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
-   sudo systemctl daemon-reload
-   ```
-
-   > [!NOTE]
-   >
-   > In the new cluster build, both `SBD_DELAY_START` and `TimeoutStartSec` values are automatically set.
-   >
-   > On existing cluster configuration, the value of `SBD_DELAY_START` could be set as "no" or "yes", and `TimeoutStartSec` would be different. Upgrading the SLES version doesn't update the value, so you need to adjust these settings manually.
 
 6. Create the `softdog` configuration file.
 
@@ -692,12 +624,6 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    sudo zypper in resource-agents
    ```
 
-   > [!NOTE]
-   > Check the version of the *resource-agents* package, and make sure that the minimum version requirements are met:
-   >
-   > - **SLES 12 SP4/SP5**: The version must be resource-agents-4.3.018.a7fb5035-3.30.1 or later.  
-   > - **SLES 15/15 SP1**: The version must be resource-agents-4.3.0184.6ee15eb2-4.13.1 or later.  
-
 4. **[A]** Configure the operating system.
 
    a. Pacemaker occasionally creates many processes, which can exhaust the allowed number. When this happens, a heartbeat between the cluster nodes might fail and lead to a failover of your resources. We recommend increasing the maximum number of allowed processes by setting the following parameter:
@@ -752,40 +678,29 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    CLOUD_NETCONFIG_MANAGE="no"
    ```
 
-6. **[1]** Enable SSH access.
+6. **[A]** Generate SSH key pairs. Run the command on all cluster nodes to generate a default SSH key pair.
 
    ```bash
-   sudo ssh-keygen
-   
-   # Enter file in which to save the key (/root/.ssh/id_rsa), and then select Enter
-   # Enter passphrase (empty for no passphrase), and then select Enter
-   # Enter same passphrase again, and then select Enter
-   
-   # copy the public key
-   sudo cat /root/.ssh/id_rsa.pub
+   sudo ssh-keygen -t ed25519 -N "" -f /root/.ssh/id_ed25519
    ```
 
-7. **[2]** Enable SSH access.
+7. **[A]** Retrieve public keys. Display the public key on each node and copy the output.
 
    ```bash
-   sudo ssh-keygen
-   
-   # Enter file in which to save the key (/root/.ssh/id_rsa), and then select Enter
-   # Enter passphrase (empty for no passphrase), and then select Enter
-   # Enter same passphrase again, and then select Enter
-   
-   # Insert the public key you copied in the last step into the authorized keys file on the second server
-   sudo vi /root/.ssh/authorized_keys   
-   
-   # copy the public key
-   sudo cat /root/.ssh/id_rsa.pub
+   sudo cat /root/.ssh/id_ed25519.pub
+
+   # Output
+   # <node_1_public_key>
+   # <node_2_public_key>
    ```
 
-8. **[1]** Enable SSH access.
+8. **[A]** Authorize node access. Append the collected public keys from all nodes into the `authorized_keys` file on each node.
 
    ```bash
-   # insert the public key you copied in the last step into the authorized keys file on the first server
-   sudo vi /root/.ssh/authorized_keys
+   sudo tee -a /root/.ssh/authorized_keys << 'EOF'
+   <node_1_public_key>
+   <node_2_public_key>
+   EOF
    ```
 
 9. **[A]** Install the *fence-agents* package if you're using a fencing device, based on the Azure fence agent.  
@@ -801,7 +716,6 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > If using managed identity, the installed version of the *fence-agents* package must be -
    >
    > - SLES 12 SP5: fence-agents 4.9.0+git.1624456340.8d746be9-3.35.2 or later
-   > - SLES 15 SP1 and higher: fence-agents 4.5.2+git.1592573838.1eee0863 or later.
    >
    > Earlier versions don't work correctly with a managed identity configuration.  
 
@@ -821,18 +735,13 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 11. **[A]** Install the Azure Python SDK and Azure Identity Python module.
 
-    For **SLES 12 SP5**, if your `fence-agents` version is lower than `4.9.0+git.1624456340.8d746be9-3.41.3`, and for **SLES 15 SP3 and lower**, you need to install below additional packages.
+    For **SLES 12 SP5**, if your `fence-agents` version is lower than `4.9.0+git.1624456340.8d746be9-3.41.3`, install the following additional packages.
 
     ```bash
     # You might need to activate the public cloud extension first
     SUSEConnect -p sle-module-public-cloud/12/x86_64
     sudo zypper install python-azure-mgmt-compute
     sudo zypper install python-azure-identity
-    
-    # You might need to activate the public cloud extension first. In this example, the SUSEConnect command is for SLES 15 SP1
-    SUSEConnect -p sle-module-public-cloud/15.1/x86_64
-    sudo zypper install python3-azure-mgmt-compute
-    sudo zypper install python3-azure-identity
     ```
 
     > [!IMPORTANT]
@@ -943,11 +852,6 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
       join:           60
       consensus:      36000
       max_messages:   20
-    
-      interface { 
-         [...] 
-      }
-      transport:      udpu
     } 
     nodelist {
       node {
@@ -969,10 +873,57 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     }
     ```
 
-    b. Restart the corosync service.
+17. **[A]** To prevent premature cluster rejoins caused by fast Azure VM reboots, delay the Pacemaker startup on boot by using a systemd timer (`pacemaker.timer`).
+
+    1. Set SBD_DELAY_START to `no`. This step applies only when SBD is the fencing mechanism.
+
+        ```bash
+        vi /etc/sysconfig/sbd
+
+        [...]
+        SBD_DELAY_START=no
+        [...]
+        ```
+
+    1. Create a `pacemaker.timer` unit that delays `pacemaker.service` startup.
+
+        ```bash
+        cat <<'EOF' > /etc/systemd/system/pacemaker.timer
+        [Unit]
+        Description=Delay start of pacemaker.service after boot
+        [Timer]
+        OnBootSec=216
+        Unit=pacemaker.service
+        [Install]
+        WantedBy=timers.target
+        EOF
+        ```
+
+    1. Reload systemd and enable `pacemaker.timer`.
+
+        ```bash
+        systemctl daemon-reload
+        systemctl enable pacemaker.timer
+        ```
+
+    1. Disable the cluster services from starting on boot. `pacemaker.timer` starts `pacemaker.service` after the configured delay.
+
+        ```bash
+        crm cluster disable --all
+     
+        systemctl is-enabled pacemaker.timer pacemaker corosync
+
+        # Example output
+        # enabled
+        # disabled
+        # disabled
+        ```
+
+18. **[1]** Restart cluster
 
     ```bash
-    sudo service corosync restart
+    # Use the --all option to restart all cluster nodes
+    crm cluster restart --all
     ```
 
 ### Create a fencing device on the Pacemaker cluster
@@ -990,16 +941,37 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    sudo crm resource list
    sudo crm resource stop stonith-sbd
    sudo crm configure delete stonith-sbd
+   ```
 
+   #### [SLES 16](#tab/sles16)
+
+   ```bash
+   sudo crm configure primitive stonith-sbd stonith:fence_sbd \
+     params pcmk_delay_max="15" \
+     op monitor interval="600" timeout="120"
+
+   # For SAP HANA scale-out only, configure stonith-sbd by using the following command
+   sudo crm configure primitive stonith-sbd stonith:fence_sbd \
+     params pcmk_action_limit=-1 \
+     op monitor interval="600" timeout="120"
+   ```
+
+   #### [SLES 15.x/12.x](#tab/sles15-12)
+
+   ```bash
    sudo crm configure primitive stonith-sbd stonith:external/sbd \
-      params pcmk_delay_max="15" \
-      op monitor interval="600" timeout="120"
+     params pcmk_delay_max="15" \
+     op monitor interval="600" timeout="120"
 
    # For SAP HANA scale-out only, configure stonith-sbd using following command
    sudo crm configure primitive stonith-sbd stonith:external/sbd \
-      params pcmk_action_limit=-1 \
-      op monitor interval="600" timeout="120"
+     params pcmk_action_limit=-1 \
+     op monitor interval="600" timeout="120"
+   ```
 
+    ---
+
+   ```bash
    sudo crm configure property stonith-timeout=210
    sudo crm configure property stonith-enabled=true
    ```
@@ -1065,7 +1037,7 @@ If you're using fencing device, based on service principal configuration, read [
 
 Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events.
 
-Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a node-level health attribute `#health-azure` to `-1000000`. 
+Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If the agent detects events and determines that another cluster node is available, it sets a node-level health attribute `#health-azure` to `-1000000`.
 
 When this special cluster health attribute is set for a node, the node is considered unhealthy by the cluster and all resources are migrated away from the affected node. The location constraint ensures resources with name starting with ‘health-‘ are excluded, as the agent needs to run in this unhealthy state. Once the affected cluster node is free of running cluster resources, scheduled event can execute its action, such as restart, without risk to running resources.
 
@@ -1084,9 +1056,6 @@ The `#heath-azure` attribute is set back to `0` on pacemaker startup once all ev
    Minimum version requirements:
 
    - SLES 12 SP5: `resource-agents-4.3.018.a7fb5035-3.98.1`
-   - SLES 15 SP1: `resource-agents-4.3.0184.6ee15eb2-150100.4.72.1`
-   - SLES 15 SP2: `resource-agents-4.4.0+git57.70549516-150200.3.56.1`
-   - SLES 15 SP3: `resource-agents-4.8.0+git30.d0077df0-150300.8.31.1`
    - SLES 15 SP4 and newer: `resource-agents-4.10.0+git40.0f4de473-150400.3.19.1`
 
 1. **[1]** Configure the resources in Pacemaker.

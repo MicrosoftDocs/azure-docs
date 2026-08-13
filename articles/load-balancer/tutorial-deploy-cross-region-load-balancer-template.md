@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 In this section, you review the template and the parameters that are used to deploy the global load balancer. 
 The template used in this quickstart is from the Azure Quickstart Templates.
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/2-vms-internal-load-balancer/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/load-balancer-cross-region/azuredeploy.json":::
 
 > [!NOTE] 
 > When you create a standard load balancer, you must also create a new standard public IP address that is configured as the frontend for the standard load balancer. Also, the Load balancers and public IP SKUs must match. In our case, we will create two standard public IP addresses, one for the regional level load balancer and another for the global load balancer.  

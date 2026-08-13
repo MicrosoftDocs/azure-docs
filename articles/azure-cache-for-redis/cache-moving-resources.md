@@ -11,7 +11,7 @@ appliesto:
 
 # Move Azure Cache for Redis instances to different regions
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 In this article, you learn how to move Azure Cache for Redis instances to a different Azure region. You might move your resources to another region for many reasons:
 

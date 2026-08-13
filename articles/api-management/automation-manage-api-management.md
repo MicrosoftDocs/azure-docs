@@ -2,13 +2,11 @@
 title: Manage Azure API Management using Azure Automation
 description: Learn about how the Azure Automation service can be used to manage Azure API Management.
 services: api-management, automation
-author: dlepow
 manager: eamono
 ms.assetid: 2e53c9af-f738-47f8-b1b6-593050a7c51b
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 09/25/2025
-ms.author: danlep
 ---
 # Manage Azure API Management using Azure Automation
 

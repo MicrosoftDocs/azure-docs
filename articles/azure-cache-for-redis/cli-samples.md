@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ---
 # Manage Azure Cache for Redis with Azure CLI
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 The following table includes links to bash scripts built using the Azure CLI.
 

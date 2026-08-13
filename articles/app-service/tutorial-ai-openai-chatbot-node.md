@@ -249,6 +249,6 @@ This approach lets your code run securely and seamlessly in both local and cloud
 
 ## Related content
 
-- [Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (Express.js)](tutorial-ai-openai-search-nodejs.md)
+- [Build grounded agent applications with Foundry Agent Service and Foundry IQ](scenario-ai-chatbot-retrieval-augmented-generation.md)
 - [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (Express.js)](tutorial-ai-slm-expressjs.md)
 - [Use managed identities for App Service and Azure Functions](overview-managed-identity.md)

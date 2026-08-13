@@ -2,7 +2,7 @@
 title: About the SAP HANA database backup on Azure VMs
 description: In this article, you'll learn about backing up SAP HANA databases that are running on Azure virtual machines.
 ms.topic: overview
-ms.date: 01/09/2026
+ms.date: 07/16/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -77,7 +77,13 @@ You can use [an Azure VM backup](backup-azure-vms-introduction.md) to back up th
 
 ## Back up a HANA system with replication enabled
 
-Azure Backup now supports backing up databases that have HSR enabled. This means that backups are managed automatically when a failover occurs, which eliminates the necessity for manual intervention. Backup also offers immediate protection with no remedial full backups, so you can protect HANA instances or HSR setup nodes as a single HSR container. 
+Azure Backup now supports backing up databases that have HSR enabled. When a failover occurs, Azure Backup automatically handles failovers, so you don't need to intervene manually. Backup also offers immediate protection with no remedial full backups, so you can protect HANA instances or HSR setup nodes as a single HSR container.
+
+For HSR-enabled systems, Azure Backup supports both Backint-based database backups and instance snapshot backups by using the Enhanced policy (Preview). Snapshot backups allow fast operational recovery, and Backint-based backups support long-term retention and point-in-time recovery.
+
+For snapshot backup, Azure Backup supports **Standard** (Generally Available) and **Enhanced** (Preview) policy subtypes. HSR snapshot support is currently available only with the **Enhanced (Preview)** policy.
+
+When you use snapshot backups with HSR, both nodes remain registered with the same vault and Azure Backup considers the HSR pair as one logical backup container.
 
 Although there are multiple physical nodes (primary and secondary), the backup service now considers them a single HSR container.
 
@@ -89,8 +95,17 @@ A database-consistent, snapshot-based approach helps to solve both issues, and i
 
 HANA Snapshot backup now comes with vault-support giving you the option to retain your snapshot backups for long term and enabling security features like immutability, soft-delete and multi-user authorisation.
 
-## Back up HANA Scale-out system (PREVIEW)
-Azure Backup, now supports backing up a "Scale-out" HANA system distributed across multiple servers. Reach out to AskAzureBackupTeam@microsoft.com to gain access to the preview.
+## Back up HANA Scale-out system (Preview)
+
+Azure Backup now supports backing up SAP HANA databases with scale-out topology, where a single HANA system is distributed across multiple nodes. Instead of managing backups separately for each node, Azure Backup treats the entire scale-out system as a single logical backup unit with a unified backup chain.
+
+In a scale-out configuration, Azure Backup recognizes the following node roles and their responsibilities:
+- **Primary node**: Hosts the system database and coordinates backup operations
+- **Worker nodes**: Host tenant databases and services but do not run the active system database
+
+Azure Backup provides seamless backup and restore across all nodes, with automatic handling of node failover scenarios and flexible restore options (same system or alternate location). Scale-out backups use streaming backups only; instance snapshot backups are not supported.
+
+For detailed configuration and restore procedures, see [Back up SAP HANA Scale-out databases on Azure VMs](sap-hana-database-scale-out-backup.md).
 
 ### Pricing
 

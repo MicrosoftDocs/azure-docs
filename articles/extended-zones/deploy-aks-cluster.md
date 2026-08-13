@@ -3,6 +3,7 @@ title: Deploy an Azure Kubernetes Service (AKS) Cluster in an Extended Zone
 description: Learn how to deploy an Azure Kubernetes Service (AKS) cluster in an Azure extended zone by using the Azure portal.
 author: svaldesgzz
 ms.author: svaldes
+ms.reviewer: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
 ms.date: 06/11/2026

@@ -6,6 +6,7 @@ ms.author: v-uhabiba
 ms.service: azure-migrate 
 ms.topic: tutorial
 ms.date: 08/05/2025
+ms.update-cycle: 1095-days
 ms.custom: engagement-fy24 
 # Customer intent: Customers want to assess on-premises PostgreSQL workloads using Azure Migrate to prepare for migration to Azure Database for PostgreSQL flexible server. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
 ---

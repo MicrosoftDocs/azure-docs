@@ -223,7 +223,7 @@ Use [az network watcher flow-log create](/cli/azure/network/watcher/flow-log#az-
 > If you configure virtual network flow logs at the NIC, subnet, and virtual network levels, the enablement preference follows this order: NIC > subnet > virtual network.
 
 > [!NOTE]
-> - If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+> - If the storage account is in a different subscription, the resource that you're logging (virtual network, subnet, or network interface) and the storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](rbac-permissions.md).
 > - Currently, a storage account supports 100 rules, and each rule can accommodate 10 blob prefixes. For more information, see [How many retention policy rules can a storage account have?](frequently-asked-questions.yml#how-many-retention-policy-rules-can-a-storage-account-have-)
 > - All Azure Storage redundancy configurations are supported, including locally redundant storage (LRS), zone‑redundant storage (ZRS), geo‑redundant storage (GRS), and geo‑zone‑redundant storage (GZRS).
 

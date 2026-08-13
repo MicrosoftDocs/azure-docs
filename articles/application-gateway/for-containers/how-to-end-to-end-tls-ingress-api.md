@@ -3,7 +3,7 @@ title: End-to-end TLS Azure Application Gateway for Containers - Ingress API
 description: Learn how to encrypt traffic to and from Application Gateway for Containers using Ingress API.
 services: application gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: how-to
 ms.date: 11/05/2024
 ms.author: mbender

@@ -2,11 +2,9 @@
 title: Azure API Management terminology | Microsoft Docs
 description: This article gives definitions for the terms that are specific to API Management.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 09/29/2025
-ms.author: danlep
 ---
 
 # Azure API Management terminology

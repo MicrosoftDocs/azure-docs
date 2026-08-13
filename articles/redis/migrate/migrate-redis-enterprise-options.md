@@ -34,7 +34,7 @@ The [Self-service migration](migrate-redis-enterprise-self-service.md) article p
 
 ## Option 2: Use migration tooling 
 
-Azure provides built-in migration tooling that transforms your existing Azure Cache for Redis Enterprise instance into Azure Managed Redis instance, while keeping the same hostname and access key, so your client applications reconnect automatically to the Azure Managed Redis instance using the same hostname and access key. After you validate the migration, update your client applications to use the new Azure Managed Redis hostname and decommission the old Azure Cache for Redis Enterprise hostname
+Azure provides built-in migration tooling that transforms your existing Azure Cache for Redis Enterprise instance into Azure Managed Redis instance, while keeping the same hostname and access key, so your client applications reconnect automatically to the Azure Managed Redis instance using the same hostname and access key. With data sync enabled, all data is migrated as part of the migration process. After you validate the migration, update your client applications to use the new Azure Managed Redis hostname and decommission the old Azure Cache for Redis Enterprise hostname.
 
 > [!IMPORTANT]
 > Review the limitations below carefully before choosing this approach.
@@ -43,7 +43,6 @@ Azure provides built-in migration tooling that transforms your existing Azure Ca
 
 - **No control over when cutover happens.** You can use the tool to initiate migration, but have no control on when the traffic cutover exactly happens during the migration.
 - **All client applications impacted simultaneously.** All the client applications that connect to the migrating Redis instance will migrate simultaneously. You cannot migrate one application or service at a time.
-- **Data sync not supported.** This tooling will orchestrate hostname/endpoint migration but does not migrate any data.
 - **No support rollback.** Once the migration begins, it cannot be paused, canceled or rolled back.
 - **Limited window to keep both hostnames.** Once migration is successful, we highly recommend you update your applications to use the new Azure Managed Redis hostname. The hostname from your old Azure Cache for Redis Enterprise instance will be automatically deleted in future.
 - **Temporary management lock during migration.** While status is **Migrating**, other management operations are blocked until migration completes.

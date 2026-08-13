@@ -3,11 +3,11 @@
 title: include file
 description: include file
 services: api-management
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 08/20/2021
-ms.author: danlep
+ms.author: patricka
 ---
 
 Once you've configured your OAuth 2.0 authorization server and configured your API to use that server, you can test it by going to the developer portal and calling an API. 

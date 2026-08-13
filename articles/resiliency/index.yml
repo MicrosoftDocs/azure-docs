@@ -60,15 +60,17 @@ landingContent:
             url: tutorial-monitor-protection-summary.md
 
   # Card (optional)
-  - title: Zonal resiliency (preview)
+  - title: Infrastructure Resiliency Manager (preview)
     linkLists:
       - linkListType: overview
         links:
-          - text: Availability Zone Down Drills (preview)
-            url: availability-zone-down-drills-about.md
-          - text: goals and recommendations (preview)
+          - text: Infrastructure Resiliency Manager overview
+            url: infrastructure-resiliency-manager-overview.md
+          - text: Goals and recommendations
             url: goals-recommendations-about.md
-          - text: Azure Recovery Orchestration Plan (preview)
+          - text: Availability Zone Down Drills
+            url: availability-zone-down-drills-about.md
+          - text: Azure Recovery Orchestration Plan
             url: recovery-orchestration-plan-about.md 
 
   # Card (optional)

@@ -12,7 +12,7 @@ appliesto:
 
 # Configure passive geo-replication for Premium Azure Cache for Redis instances
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 In this article, you learn how to configure passive geo-replication on a pair of Azure Cache for Redis instances using the Azure portal.
 

@@ -110,26 +110,29 @@ Before creating an SMB volume, you need to create an Active Directory connection
         - It can contain only letters, numbers, or dashes (`-`). 
         - The length must not exceed 80 characters.   
     
-    * <a name="smb3-encryption"></a>If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
+    * <a name="smb3-encryption"></a>If you want to enable encryption for SMB3, enable **SMB3 Protocol Encryption**.   
 
         This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.   
         See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for additional information.
 
-    * <a name="access-based-enumeration"></a> If you want to enable access-based enumeration, select **Enable Access Based Enumeration**.
+    * <a name="access-based-enumeration"></a> If you want to enable access-based enumeration, enable **Access Based Enumeration**.
 
         Hide directories and files created under a share from users who don't have access permissions to the files or folders under the share. Users are still able to view the share.
 
+    * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, enable **Continuous Availability**.    
+      
+        [!INCLUDE [SMB Continuous Availability warning](includes/smb-continuous-availability.md)]
+
+        **Custom applications aren't supported with SMB Continuous Availability.**
     * <a name="non-browsable-share"></a> You can enable the **non-browsable-share feature.**
 
         Prevent the Windows client from browsing the share. The share doesn't show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
 
-    * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
-      
-        [!INCLUDE [SMB Continuous Availability warning](includes/smb-continuous-availability.md)]
-
-        **Custom applications are not supported with SMB Continuous Availability.**
-
-    :::image type="content" source="./media/azure-netapp-files-create-volumes-smb/azure-netapp-files-protocol-smb.png" alt-text="Screenshot showing the Protocol tab of creating an SMB volume." lightbox="./media/azure-netapp-files-create-volumes-smb/azure-netapp-files-protocol-smb.png":::
+    * To enable opportunistic locks (oplocks) on new or existing volumes, select **Enabled** from the dropdown menu. 
+    
+      Oplocks improve compatibility with legacy applications that require client caching behavior to be disabled. By default, oplocks is enabled and **System default** is selected. Cross-region replication destination volumes can be configured with an oplock setting that is independent of the source volume.
+   
+    :::image type="content" source="./media/azure-netapp-files-create-volumes-smb/azure-netapp-files-protocol-smb.png" alt-text="Screenshot showing the Protocol tab of creating an SMB volume." lightbox="./media/azure-netapp-files-create-volumes-smb/azure-netapp-files-protocol-smb.png":::   
 
 5. [!INCLUDE [Create volume protection tab](includes/create-volume-protection.md)]
 

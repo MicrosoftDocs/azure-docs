@@ -2,12 +2,12 @@
 title: API Management service limits - classic and v2 tiers
 description: Include file
 services: api-management
-author: dlepow
+author: PatAltimore
 
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 05/20/2026
-ms.author: danlep
+ms.author: patricka
 ms.custom: Include file
 ---
 

@@ -14,6 +14,8 @@ ai-usage: ai-assisted
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Event triggers in Azure Data Factory allow you to automate the execution of pipelines based on specific events occurring in your data sources. This is a key feature of event-driven architecture, enabling real-time data integration and processing. 
 
 Event-driven architecture is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require Azure Data Factory customers to trigger pipelines when certain events occur. Data Factory native integration with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) now covers [custom topics](../event-grid/custom-topics.md). You send events to an Event Grid topic. Data Factory subscribes to the topic, listens, and then triggers pipelines accordingly.

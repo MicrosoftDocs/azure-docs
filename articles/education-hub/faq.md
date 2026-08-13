@@ -3,7 +3,7 @@ title: Frequently asked questions about Azure for Education
 description: Get answers to frequently asked questions about Azure for Students, Azure for Students Starter, and Azure Dev Tools for Teaching.
 author: vinnieangel
 ms.author: vangellotti
-ms.service: azure-education
+ms.service: azure-education-hub
 ms.topic: tutorial
 ms.date: 7/31/2025
 ms.custom: template-tutorial

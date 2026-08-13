@@ -1,39 +1,55 @@
 ---
-title: 'Azure Event Grid Namespace MQTT client authentication'
-description: 'Describes how MQTT clients are authenticated and mTLS connection is established when a client connects to Azure Event Grid’s MQTT broker feature.'
+title: MQTT client authentication in Azure Event Grid
+description: Learn how the MQTT broker feature in Azure Event Grid authenticates clients by using certificates, Microsoft Entra ID, OAuth 2.0 JSON Web Tokens, and custom webhooks.
 ms.topic: concept-article
-ms.date: 05/01/2025
+ms.date: 06/22/2025
 author: Connected-Seth
 ms.author: seshanmugam
 ms.subservice: mqtt
-# Customer intent: I want to learn about different types of authentication that MQTT broker in Azure Event Grid supports.
 ms.custom:
   - build-2025
 ---
 
-# Client authentication
+# MQTT client authentication in Azure Event Grid
 
-Azure Event Grid's MQTT broker supports the following authentication modes. 
+MQTT client authentication is the process by which the MQTT broker feature in Azure Event Grid verifies a client's identity before allowing it to connect and exchange messages. The MQTT broker authenticates clients during the connection handshake. Authentication is a prerequisite for the authorization checks that govern publish and subscribe operations.
 
-- Certificate-based authentication
-- Microsoft Entra ID authentication
-- OAuth 2.0 (JSON Web Token) authentication
-- Customer Webhook authentication 
+The MQTT broker supports several authentication modes, so you can match the method to your client's capabilities, deployment location, and identity provider.
 
 ## Certificate-based authentication
-You can use Certificate Authority (CA) signed certificates or self-signed certificates to authenticate clients. For more information, see [MQTT Client authentication using certificates](mqtt-client-certificate-authentication.md).
+
+You can authenticate clients by using Certificate Authority (CA)-signed certificates or self-signed certificates. The MQTT broker validates the client certificate as part of the mutual TLS (mTLS) connection handshake.
+
+For more information, see [MQTT client authentication using certificates](mqtt-client-certificate-authentication.md).
 
 ## Microsoft Entra ID authentication
-You can authenticate MQTT clients with Microsoft Entra JWT to connect to Event Grid namespace. You can use Azure role-based access control (Azure RBAC) to enable MQTT clients, with Microsoft Entra identity, to publish or subscribe access to specific topic spaces. For more information, see [Microsoft Entra JWT authentication and Azure RBAC authorization to publish or subscribe MQTT messages](mqtt-client-microsoft-entra-token-and-rbac.md). 
 
-## OAuth 2.0 JWT authentication 
-You can authenticate MQTT clients using JSON Web Tokens (JWT) issued by any third-party OpenID Connect (OIDC) identity provider. This authentication method provides a lightweight, secure, and flexible option for MQTT clients that aren't provisioned in Azure. For more information, see [Authenticate client using OAuth 2.0 JWT](mqtt-client-custom-jwt.md). 
+You can authenticate MQTT clients that have a Microsoft Entra identity by using a Microsoft Entra JSON Web Token (JWT). Azure role-based access control (Azure RBAC) determines whether the client can publish to or subscribe to specific topic spaces. This method suits clients that run in Azure or in environments that can acquire Microsoft Entra tokens.
 
-## Custom Webhook Authentication  
-Webhook authentication allows external HTTP endpoints (webhooks or functions) to authenticate MQTT connections dynamically. This method uses Entra ID JWT (JSON Web Tokens)  validation to ensure secure access. When a device or client attempts to connect, Event Grid transmits relevant connection details to the configured webhook. The webhook is responsible for evaluating the authentication request and returning a response that determines whether the connection is permitted. Additionally, the webhook can enrich the response with metadata that Event Grid will use to authorize subsequent MQTT packets, ensuring fine-grained control over actions such as topic access and message publishing. This approach enables seamless integration with custom authentication systems, identity providers, and enterprise security policies. For more information, see [Authenticate with the MQTT broker by using custom webhook authentication](authenticate-with-namespaces-using-webhook-authentication.md).
+For more information, see [Microsoft Entra JWT authentication and Azure RBAC authorization to publish or subscribe MQTT messages](mqtt-client-microsoft-entra-token-and-rbac.md).
+
+## OAuth 2.0 JWT authentication
+
+You can authenticate MQTT clients by using JWTs issued by a third-party OpenID Connect (OIDC) identity provider. Use this method for MQTT clients that aren't provisioned in Azure but already have an identity in an external identity provider.
+
+For more information, see [Authenticate a client by using OAuth 2.0 JWT](mqtt-client-custom-jwt.md).
+
+## Custom webhook authentication
+
+Webhook authentication enables external HTTPS endpoints, such as a webhook or an Azure function that you control, to dynamically authenticate MQTT connections. The webhook validates a JWT issued by Microsoft Entra ID and returns the authentication decision to the Event Grid namespace. Use this mode when you need to integrate the MQTT broker with custom authentication systems, third-party identity providers, or enterprise security policies.
+
+The authentication flow works like this:
+
+1. An MQTT client attempts to connect to the Event Grid namespace.
+1. Event Grid sends the connection details to the configured webhook.
+1. The webhook evaluates the authentication request and returns a response that permits or denies the connection.
+1. The webhook can include metadata in the response. Event Grid uses this metadata to authorize subsequent MQTT packets, which provides fine-grained control over topic access and message publishing.
+
+For more information, see [Authenticate with the MQTT broker by using custom webhook authentication](authenticate-with-namespaces-using-webhook-authentication.md).
 
 ## Related content
-- Learn how to [authenticate clients using certificate chain](mqtt-certificate-chain-client-authentication.md)
-- Learn how to [authenticate client using Microsoft Entra ID token](mqtt-client-azure-ad-token-and-rbac.md)
-- Learn how to [authenticate client using OAuth 2.0 JWT](mqtt-client-custom-jwt.md) 
-- See [Transport layer security with MQTT broker](mqtt-transport-layer-security-flow.md)
+
+- [Authenticate a client by using a certificate chain](mqtt-certificate-chain-client-authentication.md)
+- [Authenticate a client by using a Microsoft Entra ID token](mqtt-client-microsoft-entra-token-and-rbac.md)
+- [Authenticate a client by using OAuth 2.0 JWT](mqtt-client-custom-jwt.md)
+- [Transport Layer Security with the MQTT broker](mqtt-transport-layer-security-flow.md)

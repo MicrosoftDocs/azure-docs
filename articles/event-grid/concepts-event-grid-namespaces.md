@@ -68,25 +68,40 @@ An Event Grid namespace is a management container for the following resources:
 | CA Certificates | MQTT |
 | Permission bindings | MQTT |
 
-With an Azure Event Grid namespace, you can group related resources and manage them as a single unit in your Azure subscription. It gives you a unique fully qualified domain name (FQDN). 
+By using an Azure Event Grid namespace, you can group related resources and manage them as a single unit in your Azure subscription. It gives you a unique fully qualified domain name (FQDN). 
 
 A namespace exposes two endpoints:
 
-* An HTTP endpoint to support general messaging requirements using namespace topics.
+* An HTTP endpoint to support general messaging requirements by using namespace topics.
 * An MQTT endpoint for IoT messaging or solutions that use MQTT.
   
 A namespace also provides DNS-integrated network endpoints. It also provides a range of access control and network integration management features such as public IP ingress filtering and private links. It's also the container of managed identities used for contained resources in the namespace.
 
 Here are a few more points about namespaces:
 
-- Namespace is a tracked resource with `tags` and `location` properties, and once created, it can be found on `resources.azure.com`.  
-- The name of the namespace can be 3-50 characters long. It can include alphanumeric, and hyphen(-), and no spaces.  
+- A namespace is a tracked resource with `tags` and `location` properties. After you create it, you can find it on `resources.azure.com`.  
+- The name of the namespace can be 3-50 characters long. It can include alphanumeric characters, hyphens (-), and no spaces.  
 - The name needs to be unique per region.
 
 
 ## Throughput units
 
 Throughput units (TUs) define the ingress and egress event rate capacity in namespaces. For more information, see [Azure Event Grid quotas and limits](quotas-limits.md).
+
+## Autoscale
+
+Autoscale automatically adjusts the number of throughput units assigned to an Event Grid namespace based on real-time traffic and resource utilization. It continuously monitors key performance indicators and scales capacity within the minimum and maximum limits you configure. This behavior helps maintain consistent performance during workload spikes and reduces cost during low-activity periods without requiring manual intervention.
+
+To use Autoscale, you enable it on the namespace and specify:
+
+- **Minimum throughput units**: The floor for capacity. The namespace doesn't scale below this value.
+- **Maximum throughput units**: The ceiling for capacity. The namespace doesn't scale above this value.
+
+Event Grid evaluates utilization across event ingress, event egress, MQTT inbound and outbound publish rates, and MQTT registered client counts. When any category exceeds the scale-up threshold, more TUs are provisioned. When all categories fall below the scale-down threshold, TUs are released. Cooldown periods between scaling operations prevent rapid oscillation.
+
+Autoscale is useful for MQTT workloads, where message fan-out and subscription growth can change rapidly as devices connect and disconnect. It's also valuable for event broker workloads with bursty traffic patterns.
+
+For configuration details and per-TU capacity limits, see the [Autoscale overview](namespace-autoscale-overview.md) and [how-to guide](namespace-enable-autoscale.md).
 
 ## Topics
 
@@ -99,14 +114,14 @@ Namespace topics support [pull delivery](pull-delivery-overview.md#pull-delivery
 
 ## Event subscriptions
 
-An event subscription is a configuration resource associated with a single topic. Among other things, you use an event subscription to set the event selection criteria to define the event collection available to a subscriber out of the total set of events available in a topic. You can filter events according to the subscriber's requirements. For example, you can filter events by their event type. You can also define filter criteria on event data properties if using a JSON object as the value for the *data* property. For more information on resource properties, look for control plane operations in the Event Grid [REST API](/rest/api/eventgrid).
+An event subscription is a configuration resource associated with a single topic. Among other things, use an event subscription to set the event selection criteria to define the event collection available to a subscriber out of the total set of events available in a topic. You can filter events according to the subscriber's requirements. For example, you can filter events by their event type. You can also define filter criteria on event data properties if you use a JSON object as the value for the *data* property. For more information on resource properties, see the Event Grid [REST API](/rest/api/eventgrid) documentation.
 
 :::image type="content" source="media/pull-and-push-delivery-overview/topic-event-subscriptions-namespace.png" alt-text="Diagram showing a topic and associated event subscriptions." lightbox="media/pull-and-push-delivery-overview/topic-event-subscriptions-namespace.png" border="false":::
 
 For an example of creating subscriptions for namespace topics, see [Publish and consume messages using namespace topics using CLI](publish-events-using-namespace-topics.md).
 
 > [!NOTE]
-> The event subscriptions under a namespace topic feature a simplified resource model when compared to that used for custom, domain, partner, and system topics (Event Grid Basic). For more information, see Create, view, and manage [event subscriptions](create-view-manage-event-subscriptions.md#simplified-resource-model).
+> The event subscriptions under a namespace topic feature a simplified resource model when compared to the model used for custom, domain, partner, and system topics (Event Grid Basic). For more information, see Create, view, and manage [event subscriptions](create-view-manage-event-subscriptions.md#simplified-resource-model).
 
 
 ## Pull delivery

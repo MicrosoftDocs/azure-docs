@@ -1,8 +1,8 @@
 ---
 title: Secure your Azure Data Factory
 description: Learn how to secure Azure Data Factory, with best practices for network security, identity management, data protection, and recovery.
-author: lrtoyou1223
-ms.author: lle
+author: kromerm
+ms.author: makromer
 ms.service: azure-data-factory
 ms.topic: concept-article 
 ms.custom: horz-security

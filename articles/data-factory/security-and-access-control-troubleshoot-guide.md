@@ -2,11 +2,11 @@
 title: Troubleshoot security and access control issues
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory and Synapse Analytics. 
-author: lrtoyou1223
+author: kromerm
 ms.subservice: integration-runtime
 ms.topic: troubleshooting
 ms.date: 01/05/2024
-ms.author: lle
+ms.author: makromer
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -15,6 +15,8 @@ ms.custom:
 # Troubleshoot Azure Data Factory and Synapse Analytics security and access control issues
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article explores common troubleshooting methods for security and access control in Azure Data Factory and Synapse Analytics pipelines.
 

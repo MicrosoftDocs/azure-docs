@@ -6,12 +6,14 @@ ms.service: azure-expressroute
 ms.topic: concept-article
 ms.author: rmareddy
 author: duongau
-ms.date: 03/02/2026
+ms.date: 06/15/2026
 ms.custom: references_regions
 # Customer intent: As a network administrator, I want to understand the features of ExpressRoute FastPath so that I can determine if it meets my organization's performance needs.
 ---
 
 # Azure ExpressRoute FastPath: Features, availability, and limitations
+
+
 
 Your ExpressRoute virtual network gateway exchanges network routes and directs traffic between your on-premises network and Azure virtual networks. When you enable FastPath, network traffic bypasses the gateway and goes directly to virtual machines in your virtual network, improving data path performance.
 
@@ -21,6 +23,11 @@ This article helps you understand FastPath features, requirements, and limitatio
 
 ## When to use FastPath
 
+> [!NOTE]
+> If you're using ExpressRoute FastPath with Azure Virtual WAN is **enabled by default** for ExpressRoute direct circuits connected to Virtual WAN ExpressRoute Gateways deployed with a minimum of 5 scale units. No additional configuration is required.
+> See [ExpressRoute FastPath in Virtual WAN](../virtual-wan/virtual-wan-expressroute-about.md#expressroute-fastpath-in-virtual-wan) for Virtual WAN-specific eligibility and supported scenarios.
+
+
 Use FastPath when you need:
 
 - **Improved latency**: Direct connectivity to virtual machines reduces network hops and improves response times
@@ -28,6 +35,7 @@ Use FastPath when you need:
 - **Optimized performance**: Reduce processing overhead for high-volume data transfers between on-premises and Azure
 
 FastPath is available in all Azure public cloud regions and supports both ExpressRoute Direct and provider circuits.
+
 
 ## Prerequisites
 
@@ -49,6 +57,7 @@ The following table shows feature availability for each circuit type:
 | Virtual network peering over FastPath | ✓ | ✗ |
 | User-Defined Routes (UDR) over FastPath | ✓ | ✗ |
 | Private Link and private endpoints | ✓ (limited GA) | ✗ |
+| FastPath in Virtual WAN | ✓ (automatically enabled) | ✗ |
 
 ### Gateway SKUs
 
@@ -57,8 +66,11 @@ To use FastPath, you need an ExpressRoute virtual network gateway to exchange ro
 - Ultra Performance
 - ErGw3AZ
 - ErGwScale with a minimum of 10 scale units
+- Virtual WAN ExpressRoute Gateway with a minimum of 5 scale units (enabled by default for ExpressRoute direct circuits)
 
 For more information about gateway performance and available SKUs, see [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
+
+
 
 ### IP address capacity
 

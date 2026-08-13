@@ -51,7 +51,7 @@ Azure Advisor surfaces 1- and 3-year savings plan recommendations for each billi
 
 Azure portal presents up to 10 savings plan commitment recommendations for each savings plan term and benefit scope. Each recommendation includes the commitment amount, the estimated savings percentage (off your current pay-as-you-go costs), and the percentage of your compute usage costs that would be covered by this savings plan, as well as any other previously purchased savings plans and reservations.
 
-By default, the recommendations are for the entire billing scope (billing profile for MCA and enrollment account for EA). You can also view separate subscription and resource group-level recommendations by changing benefit application to one of those levels. We don't currently support management group-level recommendations.
+By default, the recommendations are for the entire billing scope (billing profile for MCA and enrollment account for EA). You can also view separate management group, subscription, and resource group-level recommendations by changing benefit application to one of those levels.
 
 Currently, all savings plan recommendations in the Azure portal are based on a 30-day look back period.
 

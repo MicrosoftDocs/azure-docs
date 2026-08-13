@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 03/30/2026
+ms.date: 07/08/2026
 ms.author: allensu
 ms.custom: template-overview, fasttrack-edit, references_regions, FY23 content-maintenance, ignite-2024
 # Customer intent: As a network architect, I want to implement Azure Private Link to access Azure services privately, so that I can enhance security and eliminate data leakage risks while maintaining seamless connectivity across my organization's virtual networks.
@@ -23,12 +23,15 @@ Traffic between your virtual network and the service travels the Microsoft backb
 > [!NOTE]
 > The feature Private Link Service Direct Connect, which allows you to connect to any privately routable destination IP address, is now in public preview. For more information and known limitations, see [Private Link Service Direct Connect](configure-private-link-service-direct-connect.md)
 
+> [!IMPORTANT]
+> Azure Private Link support over IPv6 is now in public preview in limited regions. For more information, see [Azure Private Link over IPv6 (Preview)](private-link-ipv6.md).
+
 :::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Screenshot of Azure Private Link center in Azure portal." :::
 
 > [!NOTE]
 > Azure Private Link is one of the services that make up the Network Foundations category in Azure. Other services in this category include [Azure DNS](../dns/dns-overview.md) and [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Foundations](../networking/foundations/network-foundations-overview.md).
 
-For scenarios that involve public internet PaaS traffic, configure [network security perimeter](network-security-perimeter-concepts.md) to set up a secure logical boundary. Network security perimeter restricts communication to services within its perimeter, and it allows nonperimeter public traffic through inbound and outbound access rules.
+For scenarios that involve public internet PaaS traffic, configure [network security perimeter](network-security-perimeter-concepts.md) to set up a secure logical boundary. Network security perimeter restricts communication to services within its perimeter, and it allows nonperimeter public traffic through inbound and outbound access rules. For scalable IaaS-to-PaaS connectivity with centralized access control, see [standard service endpoint](service-endpoint-standard-overview.md).
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 

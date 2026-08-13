@@ -2,7 +2,7 @@
 title: Load data from SAP Business Warehouse
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Copy data from SAP Business Warehouse (BW) with Azure Data Factory or Synapse Analytics
-author: jianleishen
+author: simplywilson
 ms.author: ulrichchrist
 ms.subservice: data-movement
 ms.topic: how-to
@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 
 # Copy data from SAP Business Warehouse with Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article shows how to use Azure Data Factory or Synapse Analytics pipelines to copy data from SAP Business Warehouse (BW) via Open Hub to Azure Data Lake Storage Gen2. You can use a similar process to copy data to other [supported sink data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 

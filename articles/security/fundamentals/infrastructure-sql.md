@@ -10,49 +10,50 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 12/03/2025
 ms.author: mbaldwin
+ai-usage: ai-assisted
 
 ---
 
-# Azure SQL Database security features    
-Azure SQL Database provides a relational database service in Azure. To protect customer data and provide strong security features that customers expect from a relational database service, SQL Database has its own sets of security capabilities. These capabilities build upon the controls that are inherited from Azure.
+# Azure SQL Database security features
+Azure SQL Database provides a relational database service in Azure. To protect customer data and provide strong security features that you expect from a relational database service, SQL Database has its own set of security capabilities. These capabilities build on the controls that Azure provides.
 
 ## Security capabilities
 
 ### Usage of the TDS protocol
-Azure SQL Database supports only the tabular data stream (TDS) protocol, which requires the database to be accessible over only the default port of TCP/1433.
+Azure SQL Database supports only the tabular data stream (TDS) protocol, which requires the database to be accessible only over the default port of TCP/1433.
 
 ### Azure SQL Database firewall
-To help protect customer data, Azure SQL Database includes a firewall functionality, which by default prevents all access to SQL Database.
+To help protect customer data, Azure SQL Database includes firewall functionality that, by default, prevents all access to SQL Database.
 
 ![Azure SQL Database firewall](./media/infrastructure-sql/sql-database-firewall.png)
 
-The gateway firewall can limit addresses, which allows customers granular control to specify ranges of acceptable IP addresses. The firewall grants access based on the originating IP address of each request.
+The gateway firewall can limit addresses, which gives you granular control to specify acceptable IP address ranges. The firewall grants access based on the originating IP address of each request.
 
-Customers can achieve firewall configuration by using a management portal or programmatically using the Azure SQL Database Management REST API. The Azure SQL Database gateway firewall by default prevents all customer TDS access to Azure SQL Database. Customers must configure access by using access-control lists (ACLs) to permit Azure SQL Database connections by source and destination internet addresses, protocols, and port numbers.
+You can configure the firewall by using a management portal or programmatically by using the Azure SQL Database Management REST API. The Azure SQL Database gateway firewall by default prevents all customer TDS access to Azure SQL Database. You must configure access by using access-control lists (ACLs) to permit Azure SQL Database connections by source and destination internet addresses, protocols, and port numbers.
 
 ### DoSGuard
-DosGuard, a SQL Database gateway service, reduces denial of service (DoS) attacks. DoSGuard actively tracks failed logins from IP addresses. If there are multiple failed logins from an IP address within a period of time, the IP address is blocked from accessing any resources in the service for a predefined time period.
+DosGuard, a SQL Database gateway service, reduces denial of service (DoS) attacks. DoSGuard actively tracks failed logins from IP addresses. If multiple failed sign-in attempts occur from an IP address within a time period, DoSGuard blocks the IP address from accessing any resources in the service for a predefined time period.
 
-In addition, the Azure SQL Database gateway performs:
+The Azure SQL Database gateway also performs these actions:
 
-- Secure channel capability negotiations to implement TDS FIPS 140-2 validated encrypted connections when it connects to the database servers.
-- Stateful TDS packet inspection while it accepts connections from clients. The gateway validates the connection information. The gateway passes on the TDS packets to the appropriate physical server based on the database name that's specified in the connection string.
+- Negotiates secure channel capabilities to implement TDS FIPS 140-2 validated encrypted connections when it connects to the database servers
+- Inspects stateful TDS packets while it accepts connections from clients. The gateway validates the connection information and passes on the TDS packets to the appropriate physical server based on the database name that's specified in the connection string
 
-The overarching principle for network security of the Azure SQL Database offering is to allow only the connection and communication that is necessary to allow the service to operate. All other ports, protocols, and connections are blocked by default. Virtual local area networks (VLANs) and ACLs are used to restrict network communications by source and destination networks, protocols, and port numbers.
+The overarching principle for Azure SQL Database network security is to allow only the connections and communication that the service needs to operate. Azure blocks all other ports, protocols, and connections by default. Azure uses virtual local area networks (VLANs) and ACLs to restrict network communications by source and destination networks, protocols, and port numbers.
 
-Mechanisms that are approved to implement network-based ACLs include ACLs on routers and load balancers. These mechanisms are managed by Azure networking, guest VM firewall, and Azure SQL Database gateway firewall rules configured by the customer.
+Approved mechanisms to implement network-based ACLs include ACLs on routers and load balancers. Azure networking, the guest VM firewall, and customer-configured Azure SQL Database gateway firewall rules manage these mechanisms.
 
 ## Data segregation and customer isolation
-The Azure production network is structured such that publicly accessible system components are segregated from internal resources. Physical and logical boundaries exist between web servers that provide access to the public-facing Azure portal and the underlying Azure virtual infrastructure, where customer application instances and customer data reside.
+Azure structures the production network to segregate publicly accessible system components from internal resources. Physical and logical boundaries exist between web servers that provide access to the public-facing Azure portal and the underlying Azure virtual infrastructure, where customer application instances and customer data reside.
 
-All publicly accessible information is managed within the Azure production network. The production network is:
+Azure manages all publicly accessible information within the Azure production network. The production network is:
 
 - Subject to two-factor authentication and boundary protection mechanisms
 - Uses the firewall and security feature set described in the previous section
 - Uses data isolation functions noted in the next sections
 
 ### Unauthorized systems and isolation of the FC
-Because the fabric controller (FC) is the central orchestrator of the Azure fabric, significant controls are in place to mitigate threats to it, especially from potentially compromised FAs within customer applications. The FC doesn't recognize any hardware whose device information (for example, MAC address) isn't preloaded within the FC. The DHCP servers on the FC have configured lists of MAC addresses of the nodes they're willing to boot. Even if unauthorized systems are connected, they're not incorporated into fabric inventory, and therefore not connected or authorized to communicate with any system within the fabric inventory. This reduces the risk of unauthorized systems' communicating with the FC and gaining access to the VLAN and Azure.
+Because the fabric controller (FC) is the central orchestrator of the Azure fabric, significant controls are in place to mitigate threats to it, especially from potentially compromised FAs within customer applications. The FC doesn't recognize any hardware whose device information (for example, MAC address) isn't preloaded within the FC. The DHCP servers on the FC maintain configured lists of MAC addresses of the nodes they're willing to boot. Even if unauthorized systems connect, the FC doesn't incorporate them into fabric inventory and doesn't connect or authorize them to communicate with any system within the fabric inventory. This restriction reduces the risk of unauthorized systems communicating with the FC and gaining access to the VLAN and Azure.
 
 ### VLAN isolation
 The Azure production network is logically segregated into three primary VLANs:
@@ -62,30 +63,30 @@ The Azure production network is logically segregated into three primary VLANs:
 - The device VLAN: Contains trusted network and other infrastructure devices.
 
 ### Packet filtering
-The IPFilter and the software firewalls that are implemented on the root OS and guest OS of the nodes enforce connectivity restrictions and prevent unauthorized traffic between VMs.
+The IPFilter and the software firewalls on the root OS and guest OS of the nodes enforce connectivity restrictions and prevent unauthorized traffic between VMs.
 
 ### Hypervisor, root OS, and guest VMs
-The hypervisor and the root OS manages the isolation of the root OS from the guest VMs and the guest VMs from one another.
+The hypervisor and the root OS manage the isolation of the root OS from the guest VMs and the guest VMs from one another.
 
 ### Types of rules on firewalls
-A rule is defined as:
+Azure defines a rule as:
 
 {Src IP, Src Port, Destination IP, Destination Port, Destination Protocol, In/Out, Stateful/Stateless, Stateful Flow Timeout}.
 
-Synchronous idle character (SYN) packets are allowed in or out only if any one of the rules permits it. For TCP, Azure uses stateless rules where the principle is that it allows only all non-SYN packets into or out of the VM. The security premise is that any host stack is resilient of ignoring a non-SYN if it hasn't seen a SYN packet previously. The TCP protocol itself is stateful, and in combination with the stateless SYN-based rule achieves an overall behavior of a stateful implementation.
+Rules allow synchronous idle character (SYN) packets in or out only if one of the rules permits it. For TCP, Azure uses stateless rules where the principle allows only non-SYN packets into or out of the VM. The security premise is that any host stack is resilient to ignoring a non-SYN if it hasn't seen a SYN packet previously. The TCP protocol itself is stateful, and in combination with the stateless SYN-based rule achieves an overall behavior of a stateful implementation.
 
-For User Datagram Protocol (UDP), Azure uses a stateful rule. Every time a UDP packet matches a rule, a reverse flow is created in the other direction. This flow has a built-in timeout.
+For User Datagram Protocol (UDP), Azure uses a stateful rule. Every time a UDP packet matches a rule, Azure creates a reverse flow in the other direction. This flow has a built-in timeout.
 
-Customers are responsible for setting up their own firewalls on top of what Azure provides. Here, customers are able to define the rules for inbound and outbound traffic.
+You're responsible for setting up your own firewalls on top of what Azure provides. You can define the rules for inbound and outbound traffic.
 
 ### Production configuration management
-Standard secure configurations are maintained by respective operations teams in Azure and Azure SQL Database. All configuration changes to production systems are documented and tracked through a central tracking system. Software and hardware changes are tracked through the central tracking system. Networking changes that relate to ACL are tracked using an ACL management service.
+Respective operations teams in Azure and Azure SQL Database maintain standard secure configurations. A central tracking system documents and tracks all configuration changes to production systems. The central tracking system tracks software and hardware changes. An ACL management service tracks networking changes that relate to ACL.
 
-All configuration changes to Azure are developed and tested in the staging environment, and they're thereafter deployed in production environment. Software builds are reviewed as part of testing. Security and privacy checks are reviewed as part of entry checklist criteria. Changes are deployed on scheduled intervals by the respective deployment team. Releases are reviewed and signed off by the respective deployment team personnel before they're deployed into production.
+Teams develop and test all configuration changes to Azure in the staging environment, and then deploy them in the production environment. Teams review software builds as part of testing. Teams review security and privacy checks as part of entry checklist criteria. The respective deployment team deploys changes on scheduled intervals. The respective deployment team personnel review and sign off releases before deployment into production.
 
-Changes are monitored for success. On a failure scenario, the change is rolled back to its previous state or a hotfix is deployed to address the failure with approval of the designated personnel. Source Depot, Git, TFS, Master Data Services (MDS), runners, Azure security monitoring, the FC, and the WinFabric platform are used to centrally manage, apply, and verify the configuration settings in the Azure virtual environment.
+Teams monitor changes for success. In a failure scenario, teams roll back the change to its previous state or deploy a hotfix to address the failure with approval of the designated personnel. Source Depot, Git, TFS, Master Data Services (MDS), runners, Azure security monitoring, the FC, and the WinFabric platform centrally manage, apply, and verify the configuration settings in the Azure virtual environment.
 
-Similarly, hardware and network changes have established validation steps to evaluate their adherence to the build requirements. The releases are reviewed and authorized through a coordinated change advisory board (CAB) of respective groups across the stack.
+Similarly, established validation steps evaluate hardware and network changes for adherence to the build requirements. A coordinated change advisory board (CAB) of respective groups across the stack reviews and authorizes the releases.
 
 ## Next steps
 To learn more about what Microsoft does to secure the Azure infrastructure, see:

@@ -59,8 +59,6 @@ To manually install binding extensions:
 
 1. Use the [`func extensions install`](functions-core-tools-reference.md#func-extensions-install) command in Azure Functions Core Tools to generate the required `extensions.csproj` file in the root of your local project.
 
-    For portal-only development, you need to manually create an `extensions.csproj` file in the root of your function app in Azure. To learn more, see [Manually install extensions](functions-how-to-use-azure-function-app-settings.md#manually-install-extensions).
-
 1. Edit the `extensions.csproj` file by explicitly adding a `PackageReference` element for every specific binding extension and version that your app requires.
 
 1. Validate your app functionality locally and then redeploy your project, including `extensions.csproj`, to your function app in Azure.  

@@ -43,8 +43,8 @@ Docker configuration:
 - Images used by the extension must be pulled and tagged locally before you use the extension:
 
     ```bash
-    docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9
-    docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9 devx-runtime
+    docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.10
+    docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.10 devx-runtime
     ```
 
 - All the containers the extension launches are configured to run on a custom network named `aio_akri_network` for network isolation purpose:
@@ -184,7 +184,18 @@ Use the **Azure IoT Operations Akri connectors: Publish Akri Connector Image or 
 
 ## Author connector metadata configuration
 
-Use the VS Code workspace created from the **Create an Akri Connector** command to author the `connector-metadata.json` file that complies with the [JSON schema for Azure IoT Operations Connector Metadata 9.0-preview](https://raw.githubusercontent.com/SchemaStore/schemastore/refs/heads/master/src/schemas/json/aio-connector-metadata-9.0-preview.json) schema. You can place this file anywhere in your connector workspace. The extension provides a static validation capability using the `connector-metadata.json` file and shows warnings in the `PROBLEMS` panel if any required properties are missing.
+Use the VS Code workspace created from the **Create an Akri Connector** command to author the `connector-metadata.json` file that complies with the [JSON schema for Azure IoT Operations Connector Metadata 11.0-preview](https://json.schemastore.org/aio-connector-metadata-11.0-preview.json) schema. You can place this file anywhere in your connector workspace. The extension provides a static validation capability using the `connector-metadata.json` file and shows warnings in the `PROBLEMS` panel if any required properties are missing.
+
+## Author additional configuration
+
+Use the VS Code workspace created from the **Create an Akri Connector** command to author the `additionalConfig.json` file. You can place this file anywhere in your connector workspace. The extension provides the **Azure IoT Operations Akri Connectors: Preview Additional Configuration** command that lets you preview the file as it will be rendered in the operations experience:
+
+:::image type="content" source="media/howto-build-akri-connectors-vscode/additional-configuration-preview.png" alt-text="Screenshot that shows the configuration preview active in VS Code." lightbox="media/howto-build-akri-connectors-vscode/additional-configuration-preview.png":::
+
+[!INCLUDE [Example additional configuration for Akri connectors](../includes/akri-additional-configuration-example.md)]
+
+> [!NOTE]
+> Currently, the extension only lets you preview a standalone `additionalConfig.json` file. The extension doesn't preview embedded additional configuration in the `connector-metadata.json` file.
 
 ## Publish metadata artifacts
 

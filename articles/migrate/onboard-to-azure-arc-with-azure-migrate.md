@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 04/17/2025
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
+ms.update-cycle: 1825-days
 monikerRange:
 ms.custom:
   - engagement-fy23

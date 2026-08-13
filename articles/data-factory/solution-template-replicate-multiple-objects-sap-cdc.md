@@ -1,8 +1,8 @@
 ---
 title: Replicate multiple objects from SAP via SAP CDC
 description: Learn how to use a solution template to replicate multiple objects from SAP via SAP CDC in Azure Data Factory.
-author: dearandyxu
-ms.author: yexu
+author: kromerm
+ms.author: makromer
 ms.topic: how-to
 ms.date: 10/03/2024
 ms.subservice: data-movement
@@ -11,6 +11,8 @@ ms.subservice: data-movement
 # Replicate multiple objects from SAP via SAP CDC
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article describes a solution template that you can use to replicate multiple ODP objects from SAP via SAP CDC connector to Azure Data Lake Gen2 in Delta format with key partition.
 

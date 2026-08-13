@@ -1,34 +1,37 @@
 ---
 title: Azure Certificate Authority details
-description: Certificate Authority details for Azure services that utilize x509 certs and TLS encryption.
+description: Review Certificate Authority details for Azure services that use X.509 certificates and TLS encryption, including root and subordinate CAs.
 services: security
 ms.service: security
 ms.subservice: security-fundamentals
 ms.custom: devx-track-extended-java
 ms.topic: concept-article
 ms.date: 04/29/2026
-ms.author: sarahlipsey
-author: shlipsey3
-manager: pmwongera
+author: msmbaldwin
+ms.author: mbaldwin
+manager: femila
 ms.reviewer: quentinb
+ai-usage: ai-assisted
 ---
+
 # Azure Certificate Authority details
 
-This article outlines the specific root and subordinate Certificate Authorities (CAs) that are employed by Azure's service endpoints. It is important to note that this list is distinct from the trust anchors provided on Azure VMs and hosted services, which leverage the trust anchors provided by the operating systems themselves. The scope includes government and national clouds. The minimum requirements for public key encryption and signature algorithms, links to certificate downloads and revocation lists, and information about key concepts are provided below the CA details tables. The host names for the URIs that should be added to your firewall allowlists are also provided.
+This article outlines the specific root and subordinate Certificate Authorities (CAs) that Azure service endpoints use. This CA list is distinct from the trust anchors on Azure VMs and hosted services, which use the trust anchors provided by the operating systems. The scope includes government and national clouds. The sections after the CA details tables provide the minimum requirements for public key encryption and signature algorithms, links to certificate downloads and revocation lists, and information about key concepts. These sections also provide the host names for the URIs that you should add to your firewall allowlists.
 
 ## Certificate Authority details
 
-Any entity trying to access Microsoft Entra identity services via the TLS/SSL protocols will be presented with certificates from the CAs listed in this article. Different services may use different root or intermediate CAs. The following root and subordinate CAs are relevant to entities that use [certificate pinning](certificate-pinning.md).
+Any entity trying to access Microsoft Entra identity services through the TLS/SSL protocols receives certificates from the CAs listed in this article. Different services might use different root or intermediate CAs. The following root and subordinate CAs are relevant to entities that use [certificate pinning](certificate-pinning.md).
 
 **How to read the certificate details:**
 
 - The Serial Number (top string in the table) contains the hexadecimal value of the certificate serial number.
 - The Thumbprint (bottom string in the table) is the SHA1 thumbprint.
-- For those CAs that must be downloaded over HTTP and not HTTPS, copy the link and paste into the URL field on a new tab.
+- For CAs that you must download over HTTP instead of HTTPS, copy the link and paste it into the URL field in a new tab.
 
 **How to find certificate validity (expiry) dates:**
 
-To determine when a certificate expires, download the certificate file and view its properties. On Windows, double-click the downloaded `.crt` file and check the **Valid from** and **Valid to** fields under the **General** tab. On Linux or macOS, use `openssl x509 -in <certificate-file> -noout -dates` to display the validity period. Root CAs typically have validity periods of 15-25 years, while subordinate CAs have shorter validity periods of 3-10 years. 
+To determine when a certificate expires, download the certificate file and view its properties. On Windows, double-click the downloaded `.crt` file and check the **Valid from** and **Valid to** fields under the **General** tab. On Linux or macOS, use `openssl x509 -in <certificate-file> -noout -dates` to display the validity period. Root CAs typically have validity periods of 15 to 25 years, while subordinate CAs have shorter validity periods of 3 to 10 years.
+
 
 # [Root and Subordinate CAs list](#tab/root-and-subordinate-cas-list)
 
@@ -66,7 +69,7 @@ To determine when a certificate expires, download the certificate file and view 
 | Microsoft Azure ECC TLS Issuing CA 07 | `https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2007.crt` | 0x3300000034c732435db22a0a2b000000000034<br>AB3490B7E37B3A8A1E715036522AB42652C3CFFE |
 | Microsoft Azure ECC TLS Issuing CA 08 | `https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2008%20-%20xsign.crt` | 0x0ef2e5d83681520255e92c608fbc2ff4<br>716DF84638AC8E6EEBE64416C8DD38C2A25F6630 |
 | Microsoft Azure ECC TLS Issuing CA 08 | `https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2008.crt` | 0x3300000031526979844798bbb8000000000031<br>CF33D5A1C2F0355B207FCE940026E6C1580067FD |
-| Microsoft Azure RSA TLS Issuing CA 03 | `https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2003%20-%20xsign.crt` | 0x05196526449a5e3d1a38748f5dcfebcc<br>F9388EA2C9B7D632B66A2B0B406DF1D37D3901F6 | 
+| Microsoft Azure RSA TLS Issuing CA 03 | `https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2003%20-%20xsign.crt` | 0x05196526449a5e3d1a38748f5dcfebcc<br>F9388EA2C9B7D632B66A2B0B406DF1D37D3901F6 |
 | Microsoft Azure RSA TLS Issuing CA 03 | `https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2003.crt` | 0x330000003968ea517d8a7e30ce000000000039<br>37461AACFA5970F7F2D2BAC5A659B53B72541C68 |
 | Microsoft Azure RSA TLS Issuing CA 04 | `https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2004%20-%20xsign.crt` | 0x09f96ec295555f24749eaf1e5dced49d<br>BE68D0ADAA2345B48E507320B695D386080E5B25 |
 | Microsoft Azure RSA TLS Issuing CA 04 | `https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20RSA%20TLS%20Issuing%20CA%2004.crt` | 0x330000003cd7cb44ee579961d000000000003c<br>7304022CA8A9FF7E3E0C1242E0110E643822C45E |
@@ -159,11 +162,11 @@ The CAs used by Azure are compatible with the following OS versions:
 Review the following action steps when CAs expire or change:
 
 - Update to a supported version of the required OS.
-- If you can't change the OS version, you may need to manually update the trusted root store to include the new CAs. Refer to documentation provided by the manufacturer.
+- If you can't change the OS version, you might need to manually update the trusted root store to include the new CAs. See the documentation provided by the manufacturer.
 - If your scenario includes disabling the trusted root store or running the Windows client in disconnected environments, ensure that all root CAs are included in the Trusted Root CA store and all sub CAs listed in this article are included in the Intermediate CA store.
-- Many distributions of **Linux** require you to add CAs to /etc/ssl/certs. Refer to the distribution’s documentation.
-- Ensure that the **Java** key store contains the CAs listed in this article.  For more information, see the [Java applications](#java-applications) section of this article.
-- If your application explicitly specifies a list of acceptable CAs, check to see if you need to update the pinned certificates when CAs change or expire. For more information, see [Certificate pinning](certificate-pinning.md).
+- Many distributions of **Linux** require you to add CAs to `/etc/ssl/certs`. See the distribution documentation.
+- Ensure that the **Java** key store contains the CAs listed in this article. For more information, see the [Java applications](#java-applications) section of this article.
+- If your application explicitly specifies a list of acceptable CAs, check whether you need to update the pinned certificates when CAs change or expire. For more information, see [Certificate pinning](certificate-pinning.md).
 
 ## Public key encryption and signature algorithms
 
@@ -192,7 +195,7 @@ Key sizes:
 
 ## Certificate downloads and revocation lists
 
-The following domains (HTTP/Port 80) may need to be included in your firewall allowlists to optimize connectivity:
+To optimize connectivity, add the following domains (HTTP on port 80) to your firewall allowlist:
 
 AIA:
 - `cacerts.digicert.com`
@@ -212,23 +215,23 @@ OCSP:
 - `ocsp.digicert.cn`
 - `oneocsp.microsoft.com`
 
-## Certificate Pinning
+## Certificate pinning
 
-Certificate Pinning is a security technique where only authorized, or *pinned*, certificates are accepted when establishing a secure session. Any attempt to establish a secure session using a different certificate is rejected. Learn about the history and implications of [certificate pinning](certificate-pinning.md).
+Certificate pinning is a security technique where you accept only authorized, or *pinned*, certificates when establishing a secure session. The process rejects any attempt to establish a secure session using a different certificate. For more information, see [certificate pinning](certificate-pinning.md).
 
 ### How to address certificate pinning
 
-If your application explicitly specifies a list of acceptable CAs, you may periodically need to update pinned certificates when Certificate Authorities change or expire.
+If your application explicitly specifies a list of acceptable CAs, you might need to periodically update pinned certificates when Certificate Authorities change or expire.
 
-To detect certificate pinning, we recommend the taking the following steps:
+To detect certificate pinning, take the following steps:
 
 - If you're an application developer, search your source code for references to certificate thumbprints, Subject Distinguished Names, Common Names, serial numbers, public keys, and other certificate properties of any of the Sub CAs involved in this change.
     - If there's a match, update the application to include the missing CAs.
-- If you have an application that integrates with Azure APIs or other Azure services and you're unsure if it uses certificate pinning, check with the application vendor.
+- If you have an application that integrates with Azure APIs or other Azure services and you're unsure whether it uses certificate pinning, check with the application vendor.
 
-## Java Applications
+## Java applications
 
-To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Microsoft RSA Root Certificate Authority 2017** root certificates are trusted by your Java application, you can check the list of trusted root certificates used by the Java Virtual Machine (JVM).
+To determine if your Java application trusts the **Microsoft ECC Root Certificate Authority 2017** and **Microsoft RSA Root Certificate Authority 2017** root certificates, check the list of trusted root certificates that the Java Virtual Machine (JVM) uses.
 
 1. Open a terminal window on your system.
 1. Run the following command:
@@ -238,16 +241,15 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
     ```
 
     - `$JAVA_HOME` refers to the path to the Java home directory.
-    - If you're unsure of the path, you can find it by running the following command:
-    
+    - If you're unsure of the path, find it by running the following command:
+
     ```bash
     readlink -f $(which java) | xargs dirname | xargs dirname
     ```
 
-1. Look for the **Microsoft RSA Root Certificate Authority 2017** in the output. It should look something like this:
+1. Look for the **Microsoft RSA Root Certificate Authority 2017** in the output. The output should look similar to the following sample:
     - If the **Microsoft ECC Root Certificate Authority 2017** and **Microsoft RSA Root Certificate Authority 2017** root certificates are trusted, they should appear in the list of trusted root certificates used by the JVM.
-    - If it's not in the list, you'll need to add it.
-    - The output should look like the following sample:
+    - If the certificate isn't in the list, add it.
 
     ```bash
         ...
@@ -256,7 +258,7 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
         ...
     ```
 
-1. To add a root certificate to the trusted root certificate store in Java, you can use the `keytool` utility. The following example adds the **Microsoft RSA Root Certificate Authority 2017** root certificate:
+1. To add a root certificate to the trusted root certificate store in Java, use the `keytool` utility. The following example adds the **Microsoft ECC Root Certificate Authority 2017** and **Microsoft RSA Root Certificate Authority 2017** root certificates:
 
     ```bash
     keytool -import -file microsoft-ecc-root-ca.crt -alias microsoft-ecc-root-ca -keystore $JAVA_HOME/jre/lib/security/cacerts
@@ -268,7 +270,7 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
 
 ## Past changes
 
-The CA/Browser Forum updated the Baseline Requirements to require all publicly trusted Public Key Infrastructures (PKIs) to end usage of the SHA-1 hash algorithms for Online Certificate Standard Protocol (OCSP) on May 31, 2022. Microsoft updated all remaining OCSP Responders that used the SHA-1 hash algorithm to use the SHA-256 hash algorithm.
+The CA/Browser Forum updated the Baseline Requirements to require all publicly trusted public key infrastructures (PKIs) to stop using the SHA-1 hash algorithms for Online Certificate Status Protocol (OCSP) on May 31, 2022. Microsoft updated all remaining OCSP responders that used the SHA-1 hash algorithm to use the SHA-256 hash algorithm.
 
 Microsoft updated Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs) on February 15, 2021, to comply with changes set forth by the CA/Browser Forum Baseline Requirements. Some services finalized these updates in 2022. For the latest information regarding managed TLS and Azure, see [Managed TLS changes](managed-tls-changes.md).
 
@@ -280,7 +282,7 @@ Microsoft updated Azure services to use TLS certificates from a different set of
     | Certificate Authority | Serial Number<br>Thumbprint |
     |---- |---- |
     | [Microsoft TLS G2 ECC CA OCSP 04](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20ECC%20CA%20OCSP%2004.crt) | 0x3300000008d690fff489d9c4d7000000000008<br>5BFF3CC51FB9C1CCE0D52F754427347545E583C5 |
-    | [Microsoft TLS G2 ECC CA OCSP 08](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20ECC%20CA%20OCSP%2008.crt) | 0x3300000007737deb49d007dc64000000000007<br>F1C0A1828C10B43F9C651FDFC494832174BE8D07 |    
+    | [Microsoft TLS G2 ECC CA OCSP 08](https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20ECC%20CA%20OCSP%2008.crt) | 0x3300000007737deb49d007dc64000000000007<br>F1C0A1828C10B43F9C651FDFC494832174BE8D07 |
     | [Microsoft Azure ECC TLS Issuing CA 03](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2003.crt) | 0x330000003322a2579b5e698bcc000000000033<br>91503BE7BF74E2A10AA078B48B71C3477175FEC3 |
     | [Microsoft Azure ECC TLS Issuing CA 04](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2004.crt) | 0x33000000322164aedab61f509d000000000032<br>406E3B38EFF35A727F276FE993590B70F8224AED |
     | [Microsoft Azure ECC TLS Issuing CA 07](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20ECC%20TLS%20Issuing%20CA%2007.crt) | 0x3300000034c732435db22a0a2b000000000034<br>AB3490B7E37B3A8A1E715036522AB42652C3CFFE |

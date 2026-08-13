@@ -94,6 +94,8 @@ items:
     href: tutorial-private-ip-dnat.md
   - name: Firewall with DDoS protection
     href: tutorial-protect-firewall.md
+  - name: Deploy dual-stack firewall (IPv6)
+    href: deploy-dual-stack-firewall.md
   - name: Integrate NAT gateway with Azure Firewall
     href: ../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md?toc=%2fazure%2ffirewall%2ftoc.json
   - name: Deploy with IP Groups
@@ -168,6 +170,8 @@ items:
       href: fqdn-tags.md
     - name: Service tags
       href: service-tags.md
+  - name: HTTP header insertion
+    href: configure-http-header-insertion.md
   - name: Application rules with SQL FQDNs
     href: sql-fqdn-filtering.md
   - name: SNAT

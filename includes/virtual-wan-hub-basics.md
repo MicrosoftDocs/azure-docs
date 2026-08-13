@@ -1,6 +1,6 @@
 ---
-ms.author: cherylmc
-author: cherylmc
+ms.author: duau
+author: duongau
 ms.date: 01/14/2025
 ms.service: azure-virtual-wan
 ms.topic: include

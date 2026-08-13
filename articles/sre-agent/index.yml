@@ -125,7 +125,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Workspace tools overview
-            url: workspace-tools.md
+            url: agent-reasoning.md
           - text: Persistent memory
             url: memory.md
           - text: Source code integration

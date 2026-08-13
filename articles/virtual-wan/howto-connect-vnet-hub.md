@@ -2,11 +2,11 @@
 title: 'Connect a VNet to a Virtual WAN hub - portal'
 titleSuffix: Azure Virtual WAN
 description: Learn how to connect a VNet to a Virtual WAN hub using the portal.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/26/2025
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # Connect a virtual network to a Virtual WAN hub - portal

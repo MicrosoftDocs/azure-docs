@@ -6,7 +6,7 @@ summary: Use the Education Hub to provide students with all the software, learni
 metadata:
   title: Azure Education Hub documentation
   description: Use the Education Hub to provide students with all the software, learning materials, and Azure services that they need to become cloud proficient.
-  ms.service: azure-education
+  ms.service: azure-education-hub
   ms.topic: landing-page
   author: tfosmark 
   ms.author: rymend 

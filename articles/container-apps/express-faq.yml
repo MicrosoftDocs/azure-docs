@@ -6,7 +6,7 @@ metadata:
   author: craigshoemaker
   ms.topic: faq
   ms.service: azure-container-apps
-  ms.date: 05/18/2026
+  ms.date: 08/04/2026
   ms.author: cshoe
 title: Azure Container Apps express frequently asked questions (FAQs)
 summary: |
@@ -199,20 +199,59 @@ sections:
       - question: |
           Do my existing Azure Container Apps environments automatically migrate to express?
         answer: |
-          Some existing environments may be eligible for migration to express. Migration is performed in phases, starting with environments that are inactive, empty (no running apps or jobs), and belong to subscriptions with low Azure Container Apps usage. The criteria are designed to minimize disruption.
-
-          If your environment is selected for migration, you are notified in advance with details about the timeline and any action required. You can opt-out of any migration if you choose.
+          Some existing environments are selected for automatic migration. If your environment is selected, you receive a notice 25 to 30 days before the migration. The environment is migrated automatically unless you opt out.
 
       - question: |
-          What criteria are used to select environments for migration?
+          Why was my environment selected for automatic migration?
         answer: |
-          Migration candidates are selected based on multiple factors:
+          Your environment was selected because the features it uses are supported by express. Express provides faster provisioning and faster scale from zero.
 
-          - **Activity level**: Environments with no running applications or jobs are prioritized.
-          - **Feature usage**: Environments that don't use advanced features (such as VNet integration, Dapr, dedicated workload profiles, or session pools) are considered first.
-          - **Subscription with low usage**: Low-usage subscriptions are migrated before high-usage ones to minimize revenue risk.
+      - question: |
+          How does Microsoft determine whether my environment is compatible with express before an automatic migration?
+        answer: |
+          Only environments that use features supported by express are selected. Eligibility is assessed when the migration notice is sent.
 
-          Environments that use advanced features not yet available in express, or that belong to high-usage subscriptions, aren't auto-migrated.
+          If you change the environment or an app after receiving the notice and it no longer meets the eligibility criteria, submit the opt-out form.
+
+      - question: |
+          Can an environment that uses features not available in express be automatically migrated?
+        answer: |
+          Express doesn't yet support the full Azure Container Apps feature set. Migration notices are sent only for apps and environments whose detected features are supported by express.
+
+      - question: |
+          Are non-HTTP workloads eligible for automatic migration?
+        answer: |
+          No. Jobs, TCP services, MQTT consumers, and other long-running workloads aren't currently in scope for automatic migration.
+
+      - question: |
+          Are related development, staging, and production environments migrated together?
+        answer: |
+          No. Only the environments listed in the migration notice are migrated.
+
+      - question: |
+          How much notice will I receive before an automatic migration?
+        answer: |
+          Migration notices are sent 25 to 30 days before the migration.
+
+      - question: |
+          Do I need to approve an automatic migration before it starts?
+        answer: |
+          No. Environments listed in the migration notice are migrated automatically unless you opt out.
+
+      - question: |
+          How do I opt out of or defer an automatic migration?
+        answer: |
+          The migration notice includes an opt-out form. Submit the environment's full resource URI to exclude it from automatic migration.
+
+      - question: |
+          Can I choose the date and time of an automatic migration?
+        answer: |
+          No. Automatic migrations can't be scheduled. To control the timing, opt out and self-migrate.
+
+      - question: |
+          What should I do if migration requires internal change approval or coordination with a vendor or partner?
+        answer: |
+          Migration preserves the existing app and environment configuration. If you need additional approval or coordination, use the opt-out form in the migration notice.
 
       - question: |
           What is environment archiving?
@@ -225,33 +264,82 @@ sections:
           Yes. Self-migration is available so you can move to express on your own terms without contacting support. You can use the archive and restore mechanism to migrate your environment: archive your existing environment, then restore it as an express environment. This process gives you full control over the migration process and timing.
 
       - question: |
-          Can I opt out of automatic migration?
+          What benefit does migration provide if my app is already stable?
         answer: |
-          If you receive a migration notification and your environment relies on features not yet available in express, or if migration would disrupt your workloads, you can reach out to Azure support to discuss your options. Environments using advanced features that aren't supported in express aren't auto-migrated. You also have the option to self-migrate at a time that works for you using the archive and restore workflow.
+          Migration provides faster provisioning and faster scale from zero. It doesn't change the Azure Container Apps consumption free grant.
 
       - question: |
-          Will I lose any functionality if my environment is migrated to express?
+          How much downtime should I expect during an automatic migration?
         answer: |
-          Automatic migration is only performed for environments where express supports all the features currently in use. If your environment uses features not available in express, such as VNet integration, Dapr, dedicated workload profiles, or custom domains, the app isn't a candidate for automatic migration.
-
-          If you self-migrate using archive and restore, review the express feature support matrix to confirm that all features your application depends on are available before proceeding.
+          The migration is expected to take about 15 minutes. Your app may be unavailable for only part of that time.
 
       - question: |
-          What happens to my apps and data during migration?
+          Does automatic migration change my app configuration or data?
         answer: |
-          During migration, expect up to 15 minutes of downtime. The migration process is designed to be transparent and without data loss. You'll receive advance notification before any automatic migration takes place. If you self-migrate using archive and restore, you control the process and timing directly.
+          No data is affected. App configuration, URLs, and resource URIs remain unchanged.
+
+          Migration sets `EnvironmentMode = Express` on the environment. Existing infrastructure-as-code deployments that target the same environment don't need to set this property. The property is required only when creating a new express environment.
+
+      - question: |
+          Does automatic migration change my app's URL or Azure resource IDs?
+        answer: |
+          No. Automatic migration preserves app URLs and Azure resource IDs.
+
+      - question: |
+          Does automatic migration change minimum replicas, maximum replicas, or other scaling settings?
+        answer: |
+          No. App configuration, including replica and scaling settings, is preserved.
+
+      - question: |
+          Will automatic migration break my infrastructure-as-code deployment or create state drift?
+        answer: |
+          No change is required when your infrastructure-as-code deployment continues to target the same environment.
+
+          Templates that create a new environment create a standard Azure Container Apps environment by default. To create a new express environment, set `EnvironmentMode = Express` on the environment.
+
+      - question: |
+          Does automatic migration move my environment to another Azure region?
+        answer: |
+          No. Automatic migration keeps the environment in its current Azure region.
+
+      - question: |
+          Can my environment be automatically migrated if express isn't publicly available in its region?
+        answer: |
+          Only environments that can remain in their current region are selected. If you receive a migration notice before the public region list is updated, the documentation may be lagging behind the service rollout.
+
+      - question: |
+          What happens if an automatic migration fails?
+        answer: |
+          The product team investigates and fixes the issue, then retries the migration. The team has completed thousands of migrations without issues.
+
+      - question: |
+          Do I need to validate my app after an automatic migration?
+        answer: |
+          No additional validation is required. The automated process includes post-migration checks.
+
+      - question: |
+          What should I do if the environment is no longer needed or will be deleted soon?
+        answer: |
+          You can delete the environment before migration. Otherwise, no action is required and it will be migrated as scheduled.
 
   - name: Production readiness
     questions:
       - question: |
-          Is express ready for production workloads?
+          Can production environments be automatically migrated while express is in preview?
         answer: |
-          Express is currently in preview. While it provides production-ready defaults (ingress, scaling, secrets, observability), preview services do not come with an SLA guarantee. Express is suitable for development, testing, prototyping, and production workloads that don't require features only available in Azure Container Apps with workload profiles (such as VNet integration or managed identity).
+          Yes. Express is in public preview, and general availability is planned within the next few months. Express builds on Azure Container Apps consumption, and Microsoft may migrate production apps that meet the eligibility criteria.
+
+          You can opt out before migration or self-migrate at any time.
 
       - question: |
-          Does express have an SLA?
+          Is express ready for production workloads?
         answer: |
-          Express is in preview and doesn't currently have an SLA. SLA commitments are emerging as express moves toward General Availability. For workloads that require an SLA today, use Azure Container Apps with workload profiles.
+          Express is in preview and has no SLA. It can run production workloads that use supported features, but support is provided on a best-effort basis during preview.
+
+      - question: |
+          What SLA and support apply to express during preview?
+        answer: |
+          Express has no SLA during preview. Microsoft provides best-effort support, which doesn't match production-level support.
 
       - question: |
           How do I provide feedback or report issues?

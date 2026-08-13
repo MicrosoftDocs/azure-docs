@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/10/2026
+ms.date: 07/01/2026
 ms.update-cycle: 365-days
 ms.custom: sfi-image-nochange
 # Customer intent: As a developer using Azure Logic Apps, I want to perform various data operations on various data types for my workflow in Azure Logic Apps.
@@ -42,7 +42,7 @@ The following actions help you work with data in JavaScript Object Notation (JSO
 
 | Action | Description |
 |--------|-------------|
-| [**Compose**](#compose-action) | Create a message, or string, from multiple inputs that can have various data types. You can then use this string as a single input, rather than repeatedly entering the same inputs. For example, you can create a single JSON message from various inputs. |
+| [**Compose**](#compose-action) | Create a message, or string, from multiple inputs that can have various data types. Use this string as a single input, rather than repeatedly entering the same inputs. For example, you can create a single JSON message from various inputs. |
 | [**Parse JSON**](#parse-json-action) | Create user-friendly data tokens for properties in JSON content so that you can more easily use the properties in your logic apps. |
 
 To create more complex JSON transformations, see [Perform advanced JSON transformations with Liquid templates](logic-apps-enterprise-integration-liquid-transform.md).
@@ -59,11 +59,9 @@ The following actions help you work with data in arrays.
 | [**Join**](#join-action) | Create a string from all the items in an array and separate each item with the specified character. |
 | [**Select**](#select-action) | Create an array from the specified properties for all the items in a different array. |
 
-<a name="compose-action"></a>
-
 ## Compose action
 
-To construct a single output such as a JSON object from multiple inputs, use the action named **Compose**. Your inputs can have various types such as integers, Booleans, arrays, JSON objects, and any other native type that Azure Logic Apps supports, for example, binary and XML. You can then use the output in actions that follow after the **Compose** action. The **Compose** action also helps you avoid repeatedly entering the same inputs while you build your logic app's workflow.
+Use the **Compose** action to create a single output, such as a JSON object, from multiple inputs. Your inputs can have various types, such as integers, Booleans, arrays, JSON objects, and any other native type that Azure Logic Apps supports, including binary and XML. You can use the output in actions that follow the **Compose** action. The **Compose** action also helps you avoid repeatedly entering the same inputs while you build your logic app's workflow.
 
 For example, you can construct a JSON message from multiple variables, such as string variables that store people's first names and last names, and an integer variable that stores people's ages. In this example, the **Compose** action accepts the following inputs:
 
@@ -73,19 +71,21 @@ And creates the following output:
 
 `{"age":35,"fullName":"Owens,Sophia"}`
 
-To try the **Compose** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Compose** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Compose](logic-apps-data-operations-code-samples.md#compose-action-example). For more information about the **Compose** action in the underlying JSON workflow definition, see the [Compose action](logic-apps-workflow-actions-triggers.md#compose-action).
+To try the **Compose** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Compose** action and variable definitions for the **Initialize variables** action from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Compose](logic-apps-data-operations-code-samples.md#compose-action-example). For more information about the **Compose** action in the underlying JSON workflow definition, see the [Compose action](logic-apps-workflow-actions-triggers.md#compose-action).
 
 ### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by several **Variables** actions named **Initialize variable**. These actions are set up to create two string variables and an integer variable.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable and then select **+ Add a Variable** to enter the next one. 
+
+   In this example, you create two string variables and an integer variable.
 
    | Operation | Properties and values |
    |-----------|-----------------------|
-   | **Initialize variable** | - **Name**: firstNameVar <br>- **Type**: String <br>- **Value**: Sophia |
-   | **Initialize variable** | - **Name**: lastNameVar <br>- **Type**: String <br>- **Value**: Owens |
-   | **Initialize variable** | - **Name**: ageVar <br>- **Type**: Integer <br>- **Value**: 35 |
+   | **Initialize variables** | - **Name**: firstNameVar <br>- **Type**: String <br>- **Value**: Sophia |
+   | **Initialize variables** | - **Name**: lastNameVar <br>- **Type**: String <br>- **Value**: Owens |
+   | **Initialize variables** | - **Name**: ageVar <br>- **Type**: Integer <br>- **Value**: 35 |
 
    :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-compose-action-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and example workflow for Compose action." lightbox="media/logic-apps-perform-data-operations/sample-start-compose-action-consumption.png":::
 
@@ -111,10 +111,6 @@ To try the **Compose** action, follow these steps by using the workflow designer
       | **`age`** | **ageVar** |
       | **`fullName`** | "**lastNameVar**, **firstNameVar**" |
 
-      The following example shows both added and not yet added variables:
-
-      :::image type="content" source="media/logic-apps-perform-data-operations/configure-compose-action.png" alt-text="Screenshot shows Consumption workflow, Compose action, dynamic content list, and selected inputs to use." lightbox="media/logic-apps-perform-data-operations/configure-compose-action.png":::
-
       The following example shows definitions added for two variables, and the process to add the third variable: 
 
       :::image type="content" source="media/logic-apps-perform-data-operations/configure-compose-action.png" alt-text="Screenshot shows Consumption workflow, Compose action, dynamic content list, and selected inputs to use." lightbox="media/logic-apps-perform-data-operations/configure-compose-action.png":::
@@ -125,13 +121,15 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by several **Variables** actions named **Initialize variable**. These actions are set up to create two string variables and an integer variable.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable and then select **+ Add a Variable** to enter the next one. 
+
+   In this example, you create two string variables and an integer variable.
 
    | Operation | Properties and values |
    |-----------|-----------------------|
-   | **Initialize variable** | - **Name**: firstNameVar <br>- **Type**: String <br>- **Value**: Sophia |
-   | **Initialize variable** | - **Name**: lastNameVar <br>- **Type**: String <br>- **Value**: Owens |
-   | **Initialize variable** | - **Name**: ageVar <br>- **Type**: Integer <br>- **Value**: 35 |
+   | **Initialize variables** | - **Name**: firstNameVar <br>- **Type**: String <br>- **Value**: Sophia |
+   | **Initialize variables** | - **Name**: lastNameVar <br>- **Type**: String <br>- **Value**: Owens |
+   | **Initialize variables** | - **Name**: ageVar <br>- **Type**: Integer <br>- **Value**: 35 |
 
    :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-compose-action-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example workflow for Compose action." lightbox="media/logic-apps-perform-data-operations/sample-start-compose-action-standard.png":::
 
@@ -161,7 +159,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
       :::image type="content" source="media/logic-apps-perform-data-operations/compose-lightning-insert-cursor.png" alt-text="Screenshot shows Standard workflow, Compose action, insert cursor location, and lightning icon." lightbox="media/logic-apps-perform-data-operations/compose-lightning-insert-cursor.png":::
 
-      The following example shows definitions added for two variables, and the process to add the third variable: 
+      This example shows definitions added for two variables, and the process to add the third variable: 
 
       :::image type="content" source="media/logic-apps-perform-data-operations/configure-compose-action.png" alt-text="Screenshot shows Standard workflow, Compose action, dynamic content list, and selected inputs to use." lightbox="media/logic-apps-perform-data-operations/configure-compose-action.png":::
 
@@ -183,31 +181,31 @@ To confirm whether the **Compose** action creates the expected results, send you
 
    For this example, the result appears in the email body, so you add the **Outputs** field to the **Body** box:
 
-   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-compose-action.png" alt-text="Screenshot shows workflow designer, the action named Send an email, and output from the preceding Compose action." lightbox="media/logic-apps-perform-data-operations/send-email-compose-action.png":::
+   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-compose-action.png" alt-text="Screenshot shows workflow designer, the Send an email (V2) action, and output from the preceding Compose action." lightbox="media/logic-apps-perform-data-operations/send-email-compose-action.png":::
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**.
 
-If you use the Office 365 Outlook - Send an email action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email (V2) action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/compose-email-results.png" alt-text="Screenshot shows email with results from the Compose action.":::
-
-<a name="create-csv-table-action"></a>
 
 ## Create CSV table action
 
 To create a comma-separated value (CSV) table that has the properties and values from JavaScript Object Notation (JSON) objects in an array, use the action named **Create CSV table**. You can then use the resulting table in actions that follow the **Create CSV table** action.
 
-To try the  **Create CSV table** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Create CSV table** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Create CSV table](logic-apps-data-operations-code-samples.md#create-csv-table-action-example). For more information about the **Create CSV table** action in the underlying JSON workflow definition, see the [Table action](logic-apps-workflow-actions-triggers.md#table-action).
+To try the  **Create CSV table** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Create CSV table** action and variable definitions for the **Initialize variables** action from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Create CSV table](logic-apps-data-operations-code-samples.md#create-csv-table-action-example). For more information about the **Create CSV table** action in the underlying JSON workflow definition, see the [Table action](logic-apps-workflow-actions-triggers.md#table-action).
 
 ### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable. To enter more variables, select **+ Add a Variable**. 
+
+   The **Create CSV table** action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
 
    | Operation | Properties and values |
    |-----------|-----------------------|
-   | **Initialize variable** | - **Name**: myJSONArray <br>- **Type**: Array <br>- **Value**: `[ { "Description": "Apples", "Product_ID": 1 }, { "Description": "Oranges", "Product_ID": 2 }]` |
+   | **Initialize variables** | - **Name**: myJSONArray <br>- **Type**: Array <br>- **Value**: `[ { "Description": "Apples", "Product_ID": 1 }, { "Description": "Oranges", "Product_ID": 2 }]` |
 
    :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-create-table-action-consumption.png" alt-text="Screenshot shows Consumption workflow designer, and example workflow for action named Create CSV table." lightbox="media/logic-apps-perform-data-operations/sample-start-create-table-action-consumption.png":::
 
@@ -235,11 +233,13 @@ To try the  **Create CSV table** action, follow these steps by using the workflo
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable. To enter more variables, select **+ Add a Variable**. 
+
+   The **Create CSV table** action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
 
    | Operation | Properties and values |
    |-----------|-----------------------|
-   | **Initialize variable** | - **Name**: myJSONArray <br>- **Type**: Array <br>- **Value**: `[ { "Description": "Apples", "Product_ID": 1 }, { "Description": "Oranges", "Product_ID": 2 }]` |
+   | **Initialize variables** | - **Name**: myJSONArray <br>- **Type**: Array <br>- **Value**: `[ { "Description": "Apples", "Product_ID": 1 }, { "Description": "Oranges", "Product_ID": 2 }]` |
 
    :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-create-table-action-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example workflow for action named Create CSV table." lightbox="media/logic-apps-perform-data-operations/sample-start-create-table-action-standard.png":::
 
@@ -267,7 +267,7 @@ To try the  **Create CSV table** action, follow these steps by using the workflo
 
 ### Customize table format
 
-By default, the **Columns** property is set to automatically create the table columns based on the array items. To specify custom headers and values, follow these steps:
+By default, the **Columns** property automatically creates the table columns based on the array items. To specify custom headers and values, follow these steps:
 
 1. If the **Columns** property doesn't appear in the action information box, from the **Advanced parameters** list, select **Columns**.
 
@@ -275,11 +275,11 @@ By default, the **Columns** property is set to automatically create the table co
 
 1. Open the **Columns** list, and select **Custom**.
 
-1. In the **Header** property, specify the custom header text to use instead.
+1. In the **Header** property, enter the custom header text to use.
 
-1. In the **Value** property, specify the custom value to use instead.
+1. In the **Value** property, enter the custom value to use.
 
-To return values from the array, you can use the [**`item()`** function](workflow-definition-language-functions-reference.md#item) with the **Create CSV table** action. In a **`For_each`** loop, you can use the [**`items()`** function](workflow-definition-language-functions-reference.md#items).
+To return values from the array, use the [**`item()`** function](workflow-definition-language-functions-reference.md#item) with the **Create CSV table** action. In a **`For_each`** loop, use the [**`items()`** function](workflow-definition-language-functions-reference.md#items).
 
 For example, suppose you want table columns that have only the property values and not the property names from an array. To return only these values, follow these steps for working in designer view or in code view.
 
@@ -307,7 +307,7 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
    * `item()?['Description']`
    * `item()?['Product_ID']`
 
-   :::image type="content" source="media/logic-apps-perform-data-operations/csv-table-expression.png" alt-text="Screenshot shows workflow designer, action named Create CSV table, and how to dereference array property named Description." lightbox="media/logic-apps-perform-data-operations/csv-table-expression.png":::
+   :::image type="content" source="media/logic-apps-perform-data-operations/csv-table-expression.png" alt-text="Screenshot shows workflow designer, action named Create CSV table, and how to dereference the array property named Description." lightbox="media/logic-apps-perform-data-operations/csv-table-expression.png":::
 
    For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
 
@@ -319,7 +319,7 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
 
 #### Work in code view
 
-In the action's JSON definition, within the `columns` array, set the `header` property to an empty string. For each `value` property, dereference each array property that you want.
+In the **Create CSV table** action's JSON definition, within the `columns` array, set the `header` property to an empty string. For each `value` property, dereference each array property that you want.
 
 1. On the designer toolbar, select **Code view**.
 
@@ -371,11 +371,11 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
 1. In this action, for each box where you want the results to appear, select inside each box, which opens the dynamic content list. From that list, under the **Create CSV table** action, select **Output**.
 
-   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png" alt-text="Screenshot shows workflow with action named Send an email. The Body property contains the field named Output from preceding action named Create CSV table." lightbox="media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png":::
+   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png" alt-text="Screenshot shows workflow with the Send an email (V2) action. The Body property contains the field named Output from preceding action named Create CSV table." lightbox="media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png":::
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**.
 
-If you use the Office 365 Outlook - Send an email action, the following example shows the result:
+If you use the **Office 365 Outlook - Send an email (V2)** action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/create-csv-table-email-results.png" alt-text="Screenshot shows email with results from action named Create CSV table." lightbox="media/logic-apps-perform-data-operations/create-csv-table-email-results.png":::
 
@@ -389,17 +389,19 @@ If you use the Office 365 Outlook - Send an email action, the following example 
 
 To create an HTML table that has the properties and values from JavaScript Object Notation (JSON) objects in an array, use the **Create HTML table** action. You can then use the resulting table in actions that follow the **Create HTML table** action.
 
-To try the **Create HTML table** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Create HTML table** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Create HTML table](logic-apps-data-operations-code-samples.md#create-html-table-action-example). For more information about the **Create HTML table** action in the underlying JSON workflow definition, see the [Table action](logic-apps-workflow-actions-triggers.md#table-action).
+To try the **Create HTML table** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Create HTML table** action and variable definitions for the **Initialize variables** action from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Create HTML table](logic-apps-data-operations-code-samples.md#create-html-table-action-example). For more information about the **Create HTML table** action in the underlying JSON workflow definition, see the [Table action](logic-apps-workflow-actions-triggers.md#table-action).
 
 ### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable. To enter more variables, select **+ Add a Variable**. 
+
+   The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
 
    | Operation | Properties and values |
    |-----------|-----------------------|
-   | **Initialize variable** | - **Name**: myJSONArray <br>- **Type**: Array <br>- **Value**: `[ { "Description": "Apples", "Product_ID": 1 }, { "Description": "Oranges", "Product_ID": 2 }]` |
+   | **Initialize variables** | - **Name**: myJSONArray <br>- **Type**: Array <br>- **Value**: `[ { "Description": "Apples", "Product_ID": 1 }, { "Description": "Oranges", "Product_ID": 2 }]` |
 
    :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-create-table-action-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and sample workflow for action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/sample-start-create-table-action-consumption.png":::
 
@@ -427,11 +429,13 @@ To try the **Create HTML table** action, follow these steps by using the workflo
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable. To enter more variables, select **+ Add a Variable**. 
+
+   The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
 
    | Operation | Properties and values |
    |-----------|-----------------------|
-   | **Initialize variable** | - **Name**: myJSONArray <br>- **Type**: Array <br>- **Value**: `[ { "Description": "Apples", "Product_ID": 1 }, { "Description": "Oranges", "Product_ID": 2 }]` |
+   | **Initialize variables** | - **Name**: myJSONArray <br>- **Type**: Array <br>- **Value**: `[ { "Description": "Apples", "Product_ID": 1 }, { "Description": "Oranges", "Product_ID": 2 }]` |
 
    :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-create-table-action-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and sample workflow for action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/sample-start-create-table-action-standard.png":::
 
@@ -459,17 +463,17 @@ To try the **Create HTML table** action, follow these steps by using the workflo
 
 ### Customize table format
 
-By default, the **Columns** property is set to automatically create the table columns based on the array items. To specify custom headers and values, follow these steps:
+By default, the **Columns** property automatically creates the table columns based on the array items. To specify custom headers and values, follow these steps:
 
 1. If the **Columns** property doesn't appear in the action information box, from the **Advanced parameters** list, select **Columns**.
 
 1. Open the **Columns** list, and select **Custom**.
 
-1. In the **Header** property, specify the custom header text to use instead.
+1. In the **Header** property, enter the custom header text to use.
 
-1. In the **Value** property, specify the custom value to use instead.
+1. In the **Value** property, enter the custom value to use.
 
-To return values from the array, you can use the [`item()` function](workflow-definition-language-functions-reference.md#item) with the **Create HTML table** action. In a `For_each` loop, you can use the [`items()` function](workflow-definition-language-functions-reference.md#items).
+To return values from the array, use the [`item()` function](workflow-definition-language-functions-reference.md#item) with the **Create HTML table** action. In a `For_each` loop, use the [`items()` function](workflow-definition-language-functions-reference.md#items).
 
 For example, suppose you want table columns that have only the property values and not the property names from an array. To return only these values, follow these steps for working in designer view or in code view.
 
@@ -495,7 +499,7 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
    * `item()?['Description']`
    * `item()?['Product_ID']`
 
-   :::image type="content" source="media/logic-apps-perform-data-operations/html-table-expression.png" alt-text="Screenshot shows workflow designer, action named Create HTML table, and how to dereference array property named Description." lightbox="media/logic-apps-perform-data-operations/html-table-expression.png":::
+   :::image type="content" source="media/logic-apps-perform-data-operations/html-table-expression.png" alt-text="Screenshot shows workflow designer, action named Create HTML table, and how to dereference the array property named Description." lightbox="media/logic-apps-perform-data-operations/html-table-expression.png":::
 
    For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
 
@@ -505,7 +509,7 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
 
 #### Work in code view
 
-In the action's JSON definition, within the `columns` array, set the `header` property to an empty string. For each `value` property, dereference each array property that you want.
+In the **Create HTML table** action's JSON definition, within the `columns` array, set the `header` property to an empty string. For each `value` property, dereference each array property that you want.
 
 1. On the designer toolbar, select **Code view**.
 
@@ -557,11 +561,11 @@ To confirm whether the **Create HTML table** action creates the expected results
 
 1. In this action, for each box where you want the results to appear, select inside each box, and then select the lightning icon, which opens the dynamic content list. From that list, under the **Create HTML table** action, select **Output**.
 
-   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-create-html-table-action.png" alt-text="Screenshot shows workflow with action named Send an email. The Body property contains the Output field from preceding action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/send-email-create-html-table-action.png":::
+   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-create-html-table-action.png" alt-text="Screenshot shows workflow with the Send an email (V2) action. The Body property contains the Output field from preceding action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/send-email-create-html-table-action.png":::
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**.
 
-If you use the Office 365 Outlook - Send an email action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email (V2) action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/create-html-table-email-results.png" alt-text="Screenshot shows email with results from action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/create-html-table-email-results.png":::
 
@@ -569,9 +573,9 @@ If you use the Office 365 Outlook - Send an email action, the following example 
 
 ## Filter array action
 
-To create a subset array from an existing array where the subset items meet specific criteria, use the **Filter array** action. You can then use resulting filtered array in actions that follow the **Filter array** action.
+Use the **Filter array** action to create a subset array from an existing array where the subset items meet specific criteria. You can then use the resulting filtered array in actions that follow the **Filter array** action.
 
-To try the **Filter array** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Filter array** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Filter array](logic-apps-data-operations-code-samples.md#filter-array-action-example). For more information about the **Filter array** action in the underlying JSON workflow definition, see the [Query action](logic-apps-workflow-actions-triggers.md#query-action).
+To try the **Filter array** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Filter array** action and variable definitions for the **Initialize variables** action from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Filter array](logic-apps-data-operations-code-samples.md#filter-array-action-example). For more information about the **Filter array** action in the underlying JSON workflow definition, see the [Query action](logic-apps-workflow-actions-triggers.md#query-action).
 
 > [!NOTE]
 >
@@ -591,11 +595,13 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create where the initial value is an array that has some sample integer values.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable. To enter more variables, select **+ Add a Variable**. 
+
+   The action is set up to create an initial value that's an array with some sample integer values.
 
    | Operation | Properties and values |
    |-----------|-----------------------|
-   | **Initialize variable** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
+   | **Initialize variables** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
 
    > [!NOTE]
    >
@@ -624,11 +630,13 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create where the initial value is an array that has some sample integer values.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable. To enter more variables, select **+ Add a Variable**. 
+
+   The action is set up to create an initial value that's an array with some sample integer values.
 
    | Operation | Properties and values |
    |-----------|-----------------------|
-   | **Initialize variable** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
+   | **Initialize variables** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
 
    > [!NOTE]
    >
@@ -657,7 +665,7 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
 ### Test your workflow
 
-To confirm whether **Filter array** action creates the expected results, send yourself a notification that includes output from the **Filter array** action.
+To confirm whether the **Filter array** action creates the expected results, send yourself a notification that includes output from the **Filter array** action.
 
 1. In your workflow, add an action that can send you the results from the **Filter array** action.
 
@@ -665,13 +673,13 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
 1. In this action, complete the following steps:
 
-   1. For each box where you want the results to appear, select inside each box, and then select the function icon, which opens the expression editor. Make sure that the **Function** list appears selected.
+   1. For each box where you want the results to appear, select the box, and then select the function icon. The icon opens the expression editor. Make sure that the **Function** list appears selected.
 
    1. To get the array output from the **Filter array** action, enter the following expression, which uses the [**body()** function](workflow-definition-language-functions-reference.md#body) with the **Filter array** action name, and then select **Add**.
 
       `body('Filter_array')`
 
-      :::image type="content" source="media/logic-apps-perform-data-operations/send-email-filter-array-action.png" alt-text="Screenshot shows workflow with action named Send an email. The Body property contains the body() function, which gets the body content from the preceding action named Filter array." lightbox="media/logic-apps-perform-data-operations/send-email-filter-array-action.png":::
+      :::image type="content" source="media/logic-apps-perform-data-operations/send-email-filter-array-action.png" alt-text="Screenshot shows workflow with the Send an email (V2) action. The Body property contains the body() function, which gets the body content from the preceding action named Filter array." lightbox="media/logic-apps-perform-data-operations/send-email-filter-array-action.png":::
 
       The resolved expression specifies to show the outputs from the **Filter_array** action in the email body when sent:
 
@@ -679,7 +687,7 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**.
 
-If you use the Office 365 Outlook - Send an email action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email (V2) action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/filter-array-email-results.png" alt-text="Screenshot shows email with results from action named Filter array." lightbox="media/logic-apps-perform-data-operations/filter-array-email-results.png":::
 
@@ -689,17 +697,19 @@ If you use the Office 365 Outlook - Send an email action, the following example 
 
 To create a string that has all the items from an array and separate those items with a specific delimiter character, use the **Join** action. You can then use the string in actions that follow the **Join** action.
 
-To try the **Join** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Join** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Join](logic-apps-data-operations-code-samples.md#join-action-example). For more information about the **Join** action in your underlying workflow definition, see the [Join action](logic-apps-workflow-actions-triggers.md#join-action).
+To try the **Join** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Join** action and variable definitions for the **Initialize variables** action from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Join](logic-apps-data-operations-code-samples.md#join-action-example). For more information about the **Join** action in your underlying workflow definition, see the [Join action](logic-apps-workflow-actions-triggers.md#join-action).
 
 ### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. This action is set up to create a variable where the initial value is an array that has some sample integer values.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable. To enter more variables, select **+ Add a Variable**. 
+
+   The action is set up to create an initial value that's an array with some sample integer values.
 
    | Operation | Properties and values |
    |-----------|-----------------------|
-   | **Initialize variable** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
+   | **Initialize variables** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
 
    :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-join-action-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and example workflow for the action named Join." lightbox="media/logic-apps-perform-data-operations/sample-start-join-action-consumption.png":::
 
@@ -725,11 +735,13 @@ To try the **Join** action, follow these steps by using the workflow designer. O
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create where the initial value is an array that has some sample integer values.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable. To enter more variables, select **+ Add a Variable**. 
+
+   The action is set up to create an initial value that's an array with some sample integer values.
 
    | Operation | Properties and values |
    |-----------|-----------------------|
-   | **Initialize variable** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
+   | **Initialize variables** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
 
    :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-join-action-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example workflow for the action named Join." lightbox="media/logic-apps-perform-data-operations/sample-start-join-action-standard.png":::
 
@@ -765,7 +777,7 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**. 
 
-If you use the Office 365 Outlook - Send an email action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email (V2) action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/join-email-results.png" alt-text="Screenshot shows email with results from the Join action." lightbox="media/logic-apps-perform-data-operations/join-email-results.png":::
 
@@ -773,16 +785,18 @@ If you use the Office 365 Outlook - Send an email action, the following example 
 
 ## Parse JSON action
 
-To reference or access properties in JavaScript Object Notation (JSON) content, you can create user-friendly fields or tokens for those properties by using the **Parse JSON** action. That way, you can select those properties from the dynamic content list when you specify inputs for subsequent actions in your workflow. For this action, you can either provide a JSON schema or generate a JSON schema from your sample JSON content or payload.
+To reference or access properties in JavaScript Object Notation (JSON) content, create user-friendly fields or tokens for those properties by using the **Parse JSON** action. You can select these properties from the dynamic content list when you specify inputs for subsequent actions in your workflow. For this action, you can either provide a JSON schema or generate a JSON schema from your sample JSON content or payload.
 
-To try the **Parse JSON** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Parse JSON** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Parse JSON](logic-apps-data-operations-code-samples.md#parse-json-action-example). 
+To try the **Parse JSON** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Parse JSON** action and variable definitions for the **Initialize variables** action from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Parse JSON](logic-apps-data-operations-code-samples.md#parse-json-action-example). 
 For more information about this action in your underlying workflow definition, see [Parse JSON action](logic-apps-workflow-actions-triggers.md).
 
 ### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with a **Recurrence** trigger followed by an **Initialize variable** action. This action is set up to create a variable whose initial value is the following JSON object with properties and values:
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable. To enter more variables, select **+ Add a Variable**. 
+
+   This action is set up to create a variable whose initial value is the following JSON object with properties and values:
 
    ```json
    {
@@ -856,7 +870,9 @@ For more information about this action in your underlying workflow definition, s
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with a **Recurrence** trigger followed by an **Initialize variable** action. This action is set up to create a variable whose initial value is the following JSON object with properties and values:
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable. To enter more variables, select **+ Add a Variable**. 
+
+   This action is set up to create a variable whose initial value is the following JSON object with properties and values:
 
    ```json
    {
@@ -878,7 +894,7 @@ For more information about this action in your underlying workflow definition, s
 
    :::image type="content" source="media/logic-apps-perform-data-operations/configure-parse-json-action.png" alt-text="Screenshot shows Standard workflow, action named Parse JSON, and the selected JSON object variable to parse." lightbox="media/logic-apps-perform-data-operations/configure-parse-json-action.png":::
 
-1. In the **Schema** box, enter the JSON schema that describes the JSON object, or *payload*. that you want to parse.
+1. In the **Schema** box, enter the JSON schema that describes the JSON object, or *payload*, that you want to parse.
 
    For this example, use the following schema for the sample JSON object:
 
@@ -938,7 +954,7 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
 1. In this action, for each box where you want the results to appear, select inside each edit box, and then select the lightning icon, which opens the dynamic content list. From that list, under the **Parse JSON** action, select the properties from the parsed JSON object.
 
-   This example selects the following properties: **Body FirstName**, **Body LastName**, and **Body Email**
+   This example selects the following properties: **Body FirstName**, **Body LastName**, and **Body Email**.
 
    :::image type="content" source="media/logic-apps-perform-data-operations/send-email-parse-json-action.png" alt-text="Screenshot shows Standard workflow with JSON properties in the action named Send an email." lightbox="media/logic-apps-perform-data-operations/send-email-parse-json-action.png":::
 
@@ -948,7 +964,7 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**. 
 
-If you use the Office 365 Outlook - Send an email action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email (V2) action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/parse-json-email-results.png" alt-text="Screenshot shows email with results from action named Parse JSON." lightbox="media/logic-apps-perform-data-operations/parse-json-email-results.png":::
 
@@ -958,7 +974,7 @@ If you use the Office 365 Outlook - Send an email action, the following example 
 
 By default, the **Select** action creates an array that contains JSON objects built from the values in an existing array. For example, you can create a JSON object for each value in an integer array. Specify the properties that each JSON object must have and map the values from the source array to the properties. Although you can change the component JSON objects, the output array always has the same number of items as the source array. To use the output array from the **Select** action, subsequent actions must either accept arrays as input, or you might have to transform the output array into another compatible format.
 
-To try the **Select** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Select** and **Initialize variable** action definitions from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Select](logic-apps-data-operations-code-samples.md#select-action-example). For more information about this action in your underlying workflow definition, see [Select action](logic-apps-workflow-actions-triggers.md#select-action).
+To try the **Select** action, follow these steps by using the workflow designer. Or, if you prefer working in the code view editor, you can copy the example **Select** action and variable definitions for the **Initialize variables** action from this guide into your own logic app's underlying workflow definition: [Data operation code examples - Select](logic-apps-data-operations-code-samples.md#select-action-example). For more information about this action in your underlying workflow definition, see [Select action](logic-apps-workflow-actions-triggers.md#select-action).
 
 > [!TIP]
 >
@@ -970,11 +986,13 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up for create a variable where the initial value is an array that has some sample integers.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable. To enter more variables, select **+ Add a Variable**. 
+
+   The action is set up to create a variable where the initial value is an array that has some sample integers.
 
    | Operation | Properties and values |
    |-----------|-----------------------|
-   | **Initialize variable** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
+   | **Initialize variables** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
 
    :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-select-action-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and example workflow for the action named Select." lightbox="media/logic-apps-perform-data-operations/sample-start-select-action-consumption.png":::
 
@@ -988,7 +1006,7 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
 1. For the **Map** property, in the left column, enter a property name to describe all the values in the source array.
 
-   This example uses **Product_ID** as the property name for the integer values in the source array. So, each value, for example, **1**, **2**, **3**, and **4**, is a product ID.
+   This example uses **Product_ID** as the property name for the integer values in the source array. So, each value, such as **1**, **2**, **3**, and **4**, is a product ID.
 
 1. In the right column, enter an expression that specifies the value in the source array for the property name in the left column.
 
@@ -1010,11 +1028,13 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your logic app workflow in the designer.
 
-   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up for create a variable where the initial value is an array that has some sample integers.
+   This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by the **Initialize variables** action. Within the **Initialize variables** action, you enter the **Name**, **Type**, and **Value** of a variable. To enter more variables, select **+ Add a Variable**. 
+
+   The action is set up to create a variable where the initial value is an array that has some sample integers.
 
    | Operation | Properties and values |
    |-----------|-----------------------|
-   | **Initialize variable** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
+   | **Initialize variables** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
 
    :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-select-action-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example workflow for the action named Select." lightbox="media/logic-apps-perform-data-operations/sample-start-select-action-standard.png":::
 
@@ -1028,7 +1048,7 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
 1. For the **Map** property, in the left column, enter a property name to describe all the values in the source array.
 
-   This example uses **Product_ID** as the property name for the integer values in the source array. So, each value, for example, **1**, **2**, **3**, and **4**, is a product ID.
+   This example uses **Product_ID** as the property name for the integer values in the source array. So, each value, such as **1**, **2**, **3**, and **4**, is a product ID.
 
 1. In the right column, enter an expression that specifies the value in the source array for the property name in the left column.
 
@@ -1054,13 +1074,13 @@ To confirm whether the **Select** action creates the expected results, send your
 
 1. In this action, complete the following steps:
 
-   1. For each box where you want the results to appear, select inside each box, and then select the function icon, which opens the expression editor. Make sure that the **Function** list appears selected.
+   1. For each box where you want the results to appear, select the box, and then select the function icon. The icon opens the expression editor. Make sure that the **Function** list appears selected.
 
    1. To get the array output from the **Select** action, enter the following expression, which uses the [**body()** function](workflow-definition-language-functions-reference.md#body) with the **Select** action name, and select **Add**:
 
       `body('Select')`
 
-      :::image type="content" source="media/logic-apps-perform-data-operations/send-email-select-action.png" alt-text="Screenshot shows workflow with action named Send an email, and action outputs from the Select action.":::
+      :::image type="content" source="media/logic-apps-perform-data-operations/send-email-select-action.png" alt-text="Screenshot shows workflow with the Send an email (V2) action, and action outputs from the Select action.":::
 
       The resolved expression specifies to show the outputs from the **Select** action in the email body when sent:
 
@@ -1068,7 +1088,7 @@ To confirm whether the **Select** action creates the expected results, send your
 
 1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run** > **Run**. 
 
-If you use the Office 365 Outlook - Send an email action, the following example shows the result:
+If you use the Office 365 Outlook - Send an email (V2) action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/select-email-results.png" alt-text="Screenshot shows email with results from the Select action." lightbox="media/logic-apps-perform-data-operations/select-email-results.png":::
 
@@ -1076,7 +1096,7 @@ If you use the Office 365 Outlook - Send an email action, the following example 
 
 ### Format table data
 
-If your [CSV table](#create-csv-table-action) or [HTML table](#create-html-table-action) is returned with incorrect formatting, make sure your input data has line breaks between rows. 
+If your [CSV table](#create-csv-table-action) or [HTML table](#create-html-table-action) returns incorrectly formatted data, make sure your input data includes line breaks between rows. 
 
 Incorrect formatting:
 

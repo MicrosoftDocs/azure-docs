@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 07/28/2026
 ms.custom: sfi-image-nochange
 
 # Customer intent: As an Internet Service Provider, I want to create or modify Direct peering connections in the cloud, so that I can efficiently manage my network resources and ensure optimal connectivity to Microsoft's infrastructure.
@@ -28,15 +28,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a Direct peering
 
-As an Internet Service Provider or Internet Exchange Provider, you can create a new direct peering using the Azure portal:
+As an Internet Service Provider or Internet Exchange Provider, you can create a new direct peering by using the Azure portal:
 
 1. In the search box at the top of the portal, enter ***peering***. Select **Peerings** from the search results.
 
     :::image type="content" source="./media/internet-peering-portal-search.png" alt-text="Screenshot of searching for internet peerings in the Azure portal." lightbox="./media/internet-peering-portal-search.png":::
 
-1. On the **Peerings** page, select **+ Create**.
+1. On **Peerings**, select **+ Create**.
 
-1. On the **Basics** tab of **Create a Peering** page, enter, or select the following values:
+1. On the **Basics** tab of **Create a Peering**, enter or select the following values:
 
     | Setting | Value |
     | --- | --- |
@@ -50,7 +50,7 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
     :::image type="content" source="./media/create-peering-basics.png" alt-text="Screenshot that shows the Basics tab of creating a peering in the Azure portal." lightbox="./media/create-peering-basics.png":::
 
     >[!IMPORTANT]
-    >You can only choose an ASN with ValidationState as Approved before you submit a peering request. If you just submitted your PeerAsn request, wait for 12 hours or so for ASN association to be approved. If the ASN you select is pending validation, you'll see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you have already created PeerAsn by using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
+    >You can only choose an ASN with `ValidationState` as **Approved** before you submit a peering request. If you just submitted your PeerAsn request, wait for about 12 hours for ASN association to be approved. If the ASN you select is pending validation, you see an error message. If you don't see the ASN you need to choose, check that you selected the correct subscription. If so, check if you already created PeerAsn by using **[Associate Peer ASN to Azure subscription](https://go.microsoft.com/fwlink/?linkid=2129592)**.
 
 1. Select **Next: Configuration** to continue.
 
@@ -61,7 +61,7 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
     | Peering type | Select **Direct**. |
     | Microsoft network | Select **AS8075**. |
     | SKU | Select **Basic Free**. Don't select **Premium Free** as it's reserved for special applications. |
-    | Metro | Select the metro location where you want to convert a peering to an Azure resource. If you have peering connections with Microsoft in the selected location that aren't converted, you can see them listed in the **Peering connections**. |
+    | Metro | Select the metro location where you want to convert a peering to an Azure resource. If you have peering connections with Microsoft in the selected location that aren't converted, you see them listed in the **Peering connections**. |
 
     :::image type="content" source="./media/create-peering-configuration-direct.png" alt-text="Screenshot that shows the Configuration tab of creating a peering in the Azure portal." lightbox="./media/create-peering-configuration-direct.png":::
 
@@ -129,7 +129,7 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
 
 ## Deprovision a Direct peering
 
-Currently, deprovisioning isn't supported using the Azure portal or PowerShell. To deprovision, contact [Microsoft peering](mailto:peeringexperience@microsoft.com).
+Currently, the Azure portal and PowerShell don't support deprovisioning. To deprovision, contact [Microsoft peering](mailto:peering@microsoft.com).
 
 ## Related content
 

@@ -4,7 +4,7 @@ description: Configure access to APIs in your Azure API Center inventory using A
 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 03/10/2026
+ms.date: 8/07/2026
  
 ms.custom: 
 # Customer intent: As an API program manager, I want to store API authorization information in my API center and enable authorized users to test APIs in the API Center portal.
@@ -14,14 +14,14 @@ ms.custom:
 
 Configure settings to authorize access to APIs in your [API center](overview.md). These settings:
 
-* Enable API authentication and authorization using API keys, OAuth 2.0 authorization, or another HTTP security scheme
+* Enable API authentication and authorization by using API keys, OAuth 2.0 authorization, or another HTTP security scheme
 * Associate authentication configurations with API versions in your inventory
 * Manage access to API versions for designated users or groups through access policies
 * Enable authorized users to test APIs in the [API Center portal](set-up-api-center-portal.md)
 
 ## Prerequisites
 
-* An API center in your Azure subscription. If you haven't created one, see [Quickstart: Create your API center](set-up-api-center.md).
+* An API center in your Azure subscription. If you didn't create one, see [Quickstart: Create your API center](set-up-api-center.md).
 
 * At least one API registered in your API center. See [Tutorial: Register APIs in your API inventory](./tutorials/register-apis.md).
 
@@ -42,7 +42,7 @@ For an API that supports API key authentication, complete the following steps.
 
 To store the API key as a secret in the key vault, see [Set and retrieve secret in Key Vault](/azure/key-vault/secrets/quick-create-portal).
 
-Access the key vault using your API center's managed identity. 
+Access the key vault by using your API center's managed identity. 
 
 
 #### Enable a managed identity in your API center
@@ -56,9 +56,13 @@ Access the key vault using your API center's managed identity.
 
 ### 2. Add API key configuration
 
+> [!CAUTION]
+> Extra care is required when using a client credentials flow with the developer portal test console. See [security considerations](../api-management/api-management-howto-oauth2.md#security-considerations).
+> When using API keys and OAuth 2.0 secrets, any user with access to the developer portal can use APIs. OAuth 2.0 authorization code flow with PKCE is recommended to prevent exposing secrets.
+
 1. In the [portal](https://azure.microsoft.com), go to your API center.
 1. Under **Governance**, select **Authorization** > **+ Add configuration**.
-1. On the **Add configuration** page, set the following values:
+1. On **Add configuration**, set the following values:
     :::image type="content" source="media/authorize-api-access/configure-api-key.png" alt-text="Screenshot of configuring an API key in the portal.":::
 
     | **Setting**            | **Description**                                                                                                                                               |
@@ -72,7 +76,7 @@ Access the key vault using your API center's managed identity.
 
 1. Select **Create**.
 
-After completing this configuration, go to the [Add authentication configuration to an API version](#add-authentication-configuration-to-an-api-version) section to associate the API key configuration with an API version. 
+After you complete this configuration, go to the [Add authentication configuration to an API version](#add-authentication-configuration-to-an-api-version) section to associate the API key configuration with an API version. 
 
 ## Option 2: Configure OAuth 2.0 authorization
 
@@ -80,6 +84,13 @@ For an API that supports OAuth 2.0 authorization, complete the following steps. 
 
 * **Authorization code flow with PKCE (Proof Key for Code Exchange)** - Authenticate users in the browser, such as in the API Center portal.
 * **Client credentials flow** - For applications that don't require a specific user's permissions.
+
+> [!IMPORTANT]
+> You can't use API keys and OAuth 2.0 secrets if you enable anonymous access for the customer portal. If you configure anonymous access for the customer portal, the setting is ignored and test console authorization fails.
+
+> [!CAUTION]
+> Extra care is required when using a client credentials flow with the developer portal test console. See [security considerations](../api-management/api-management-howto-oauth2.md#security-considerations).
+> When using API keys and OAuth 2.0 secrets, any user with access to the developer portal can use APIs. OAuth 2.0 authorization code flow with PKCE is recommended to prevent exposing secrets.
 
 ### 1. Create an OAuth 2.0 app
 
@@ -91,8 +102,8 @@ The following example shows how to create an app registration in Microsoft Entra
 1. Go to **Microsoft Entra ID** > **+ New registration**.     
 1. On the **Register an application** page:
     1. In **Name**, enter a meaningful name.
-    1. In **Supported account types**, select an appropriate option, for example, **Accounts in this organizational directory only (Single tenant)**.
-    1. (For authorization code flow) In **Redirect URI**, select **Single-page application (SPA)** and enter the URI of your API Center portal: `https://<service-name>.portal.<location>.azure-api-center.ms`. Replace `<service-name>` and `<location>` with your API center name and deployment location. Example: `https://myapicenter.portal.eastus.azure-api-center.ms`
+    1. In **Supported account types**, select an appropriate option, such as **Accounts in this organizational directory only (Single tenant)**.
+    1. For authorization code flow, in **Redirect URI**, select **Single-page application (SPA)** and enter the URI of your API Center portal: `https://<service-name>.portal.<location>.azure-api-center.ms`. Replace `<service-name>` and `<location>` with your API center name and deployment location. Example: `https://myapicenter.portal.eastus.azure-api-center.ms`
     1. Select **Register**.
 1. Under **Manage**, select **Certificates & secrets** > **+ New client secret**.    
     1. Enter a **Description**.
@@ -113,7 +124,7 @@ When configuring OAuth 2.0 in your API center, you need the following values fro
 
 To store the client secret in the key vault, see [Set and retrieve secret in Key Vault](/azure/key-vault/secrets/quick-create-portal).
 
-Access the key vault using your API center's managed identity. 
+Access the key vault by using your API center's managed identity. 
 
 
 #### Enable a managed identity in your API center
@@ -128,7 +139,7 @@ Access the key vault using your API center's managed identity.
 
 1. In the [portal](https://azure.microsoft.com), go to your API center.
 1. Under **Governance**, select **Authorization** > **+ Add configuration**.
-1. On the **Add configuration** page, set the following values:
+1. On **Add configuration**, set the following values:
 
     :::image type="content" source="media/authorize-api-access/configure-oauth.png" lightbox="media/authorize-api-access/configure-oauth.png" alt-text="Screenshot of configuring OAuth 2.0 in the portal.":::
 
@@ -159,7 +170,7 @@ For APIs that use another HTTP security scheme, such as Basic authentication or 
 
 In the [portal](https://azure.microsoft.com), go to your API center.
 1. Under **Governance**, select **Authorization** > **+ Add configuration**.
-1. On the **Add configuration** page, set the following values:
+1. On **Add configuration**, set the following values:
 
     | **Setting**            | **Description**                                                                                                                                               |
     |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -184,20 +195,20 @@ After configuring an authentication scheme, associate the configuration with an 
 1. In the [portal](https://azure.microsoft.com), go to your API center.
 1. Under **Inventory**, select **Assets**.
 1. Select the API to associate the configuration with.
-1. Under **Details**, select **Versions**, then select the target API version.
+1. Under **Details**, select **Versions**, and then select the target API version.
 1. In the context menu for the API version, select **Manage Access**.
     :::image type="content" source="media/authorize-api-access/add-authentication-to-version.png" alt-text="Screenshot of associating an authentication configuration with an API version in the portal.":::
 
-1. On the **Manage Access** page, select **+ Add authentication**.
+1. On **Manage Access**, select **+ Add authentication**.
 1. Select an available **Authentication configuration**.
 1. Select **Create**.
 
 > [!NOTE]
-> You can add multiple authentication configurations to an API version (for example, both API key and OAuth 2.0), if supported by the API. You can also add the same configuration to multiple API versions.
+> You can add multiple authentication configurations to an API version (for example, both API key and OAuth 2.0), if the API supports it. You can also add the same configuration to multiple API versions.
 
 ## Manage access for specific users or groups
 
-Configure an access policy that assigns users or groups the **API Center Credential Access Reader** role, scoped to specific authentication configurations in an API version. This role allows only designated users to test an API in the API Center portal.
+Configure an access policy that assigns users or groups the **API Center Credential Access Reader** role, scoped to specific authentication configurations in an API version. This role grants designated users the ability to test an API in the API Center portal.
 
 1. In the [portal](https://azure.microsoft.com), go to your API center.
 1. Go to an API version with an authentication configuration.

@@ -14,6 +14,8 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Use the *fan-out/fan-in* pattern to run multiple functions in parallel and then aggregate the results. This pattern is a common approach for parallel processing in Azure serverless workflows. In this tutorial, you implement the fan-out/fan-in pattern with [Durable Functions](what-is-durable-task.md) to back up an app's site content to Azure Storage.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
@@ -82,7 +84,7 @@ This article describes the components in the example code:
 
 ::: zone pivot="durable-functions"
 
-This orchestrator function does the following tasks:
+This orchestrator function performs the following tasks:
 
 1. Takes `rootDirectory` as input.
 1. Calls a function to get a recursive list of files under `rootDirectory`.
@@ -180,13 +182,13 @@ After the orchestrator yields `context.df.Task.all`, all function calls are comp
 The following code demonstrates implementing the orchestrator function:
 
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js" range="1,4,7-35":::
-
-Notice the `yield context.df.Task.all(tasks);` line. All the individual calls to the `copyFileToBlob` function weren't yielded, which allows them to run in parallel. When we pass this concept array of tasks to `context.df.Task.all`, we get back a task that doesn't complete *until all the copy operations are completed*. If you're familiar with [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, then this concept isn't new to you. With the Durable Functions extension, these tasks run on multiple virtual machines concurrently, and the end-to-end execution is resilient to process recycling.
+-->
+Notice the `yield context.df.Task.all(tasks);` line. All the individual calls to the `copyFileToBlob` function weren't yielded, which allows them to run in parallel. When you pass this array of tasks to `context.df.Task.all`, you get back a task that doesn't complete *until all the copy operations are completed*. If you're familiar with [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, then this concept isn't new to you. With the Durable Functions extension, these tasks run on multiple virtual machines concurrently, and the end-to-end execution is resilient to process recycling.
 
 > [!NOTE]
 > Although tasks are conceptually similar to JavaScript promises, orchestrator functions should use `context.df.Task.all` and `context.df.Task.any` instead of `Promise.all` and `Promise.race` to manage task parallelization.
 
-After yielding from `context.df.Task.all`, we know all function calls are completed and returned values back to us. Each call to `copyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all the return values together.
+After yielding from `context.df.Task.all`, you know all function calls are completed and returned values back to you. Each call to `copyFileToBlob` returns the number of bytes uploaded, so calculating the sum total byte count is a matter of adding all the return values together.
 
 </details>
 
@@ -198,22 +200,70 @@ The function uses the standard *function.json* for orchestrator functions.
 
 The following code demonstrates implementing the orchestrator function:
 
-[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/__init__.py)]
 
 Notice the `yield context.task_all(tasks);` line. The code doesn't yield the individual calls to `E2_CopyFileToBlob`, so they run in parallel. When the orchestrator passes the task array to `context.task_all`, it returns a task that doesn't complete until all copy operations complete. If you're familiar with [`asyncio.gather`](https://docs.python.org/3/library/asyncio-task.html#asyncio.gather) in Python, then this concept isn't new to you. With the Durable Functions extension, these tasks run on multiple virtual machines concurrently, and the end-to-end execution is resilient to process recycling.
 
 > [!NOTE]
 > Although tasks are conceptually similar to Python await-ables, orchestrator functions should use `yield` and the `context.task_all` and `context.task_any` APIs to manage task parallelization.
 
-After the orchestrator yields `context.task_all`, all function calls are complete and return values. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so we can calculate the sum total byte count by adding all the return values together.
+After the orchestrator yields `context.task_all`, all function calls complete and return values. Each call to `E2_CopyFileToBlob` returns the number of bytes uploaded, so you can calculate the sum total byte count by adding all the return values together.
 
 # [PowerShell](#tab/powershell)
 
-A PowerShell sample isn't available yet.
+The orchestrator gets a list of files, then fans out to copy each file to blob storage in parallel by using `-NoWait`. After all parallel tasks complete, the results are summed.
+
+```powershell
+param($Context)
+
+$rootDirectory = $Context.Input
+
+# Get all files in the directory
+$files = Invoke-DurableActivity -FunctionName 'E2_GetFileList' -Input $rootDirectory
+
+# Fan-out: schedule parallel uploads for each file
+$parallelTasks = @()
+foreach ($file in $files) {
+    $parallelTasks += Invoke-DurableActivity -FunctionName 'E2_CopyFileToBlob' -Input $file -NoWait
+}
+
+# Fan-in: wait for all uploads and sum the results
+$results = Wait-DurableTask -Task $parallelTasks
+$totalBytes = ($results | Measure-Object -Sum).Sum
+
+$totalBytes
+```
 
 # [Java](#tab/java)
 
-A Java sample isn't available yet.
+```java
+@FunctionName("E2_BackupSiteContent")
+public long backupSiteContent(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+
+    String rootDirectory = ctx.getInput(String.class);
+
+    // Get all files in the directory
+    List<String> files = ctx.callActivity("E2_GetFileList", rootDirectory, List.class).await();
+
+    // Fan-out: schedule parallel uploads for each file
+    List<Task<Long>> parallelTasks = new ArrayList<>();
+    for (String file : files) {
+        parallelTasks.add(ctx.callActivity("E2_CopyFileToBlob", file, Long.class));
+    }
+
+    // Fan-in: wait for all uploads and sum the results
+    List<Long> results = ctx.allOf(parallelTasks).await();
+    long totalBytes = 0;
+    for (Long bytes : results) {
+        totalBytes += bytes;
+    }
+
+    return totalBytes;
+}
+```
+
+The individual calls to `E2_CopyFileToBlob` aren't awaited individually, so they run in parallel. When the orchestrator passes the task list to `ctx.allOf(parallelTasks)`, it returns a task that doesn't complete until all copy operations complete. After all tasks complete, the orchestrator sums the results to get the total bytes uploaded.
 
 ---
 
@@ -221,7 +271,7 @@ A Java sample isn't available yet.
 
 ::: zone pivot="durable-task-sdks"
 
-The orchestrator does the following tasks:
+The orchestrator performs the following tasks:
 
 1. Takes a list of work items as input.
 1. Fans out by creating a task for each work item and processing them in parallel.
@@ -367,7 +417,7 @@ Use `ctx.allOf(tasks).await()` to wait for all parallel tasks to complete. The D
 
 ::: zone pivot="durable-functions"
 
-The helper activity functions are regular functions using the `activityTrigger` binding.
+The helper activity functions are regular functions that use the `activityTrigger` binding.
 
 ### E2_GetFileList activity function
 
@@ -456,11 +506,40 @@ Here's the implementation:
 
 # [PowerShell](#tab/powershell)
 
-PowerShell sample coming soon.
+The `E2_GetFileList` activity recursively collects file paths from the specified directory:
+
+```powershell
+param($rootDirectory)
+
+Get-ChildItem -Path $rootDirectory -Recurse -File | Select-Object -ExpandProperty FullName
+```
 
 # [Java](#tab/java)
 
-Java sample coming soon.
+```java
+@FunctionName("E2_GetFileList")
+public List<String> getFileList(
+        @DurableActivityTrigger(name = "rootDirectory") String rootDirectory) {
+
+    File root = new File(rootDirectory);
+    List<String> files = new ArrayList<>();
+    collectFiles(root, files);
+    return files;
+}
+
+private void collectFiles(File directory, List<String> files) {
+    File[] entries = directory.listFiles();
+    if (entries != null) {
+        for (File entry : entries) {
+            if (entry.isDirectory()) {
+                collectFiles(entry, files);
+            } else {
+                files.add(entry.getAbsolutePath());
+            }
+        }
+    }
+}
+```
 
 ---
 
@@ -572,15 +651,54 @@ The *function.json* file for `E2_CopyFileToBlob` is similarly simple:
 
 The Python implementation uses the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) to upload the files to Azure Blob Storage.
 
-[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_CopyFileToBlob/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_CopyFileToBlob/__init__.py)]
 
 # [PowerShell](#tab/powershell)
 
-PowerShell sample coming soon.
+The `E2_CopyFileToBlob` activity reads a file and uploads it to Azure Blob Storage:
+
+```powershell
+param($filePath)
+
+$storageContext = New-AzStorageContext -ConnectionString $env:AzureWebJobsStorage
+$container = "backups"
+
+# Create the container if it doesn't exist
+New-AzStorageContainer -Name $container -Context $storageContext -ErrorAction SilentlyContinue
+
+$blobName = $filePath.Substring([System.IO.Path]::GetPathRoot($filePath).Length).Replace('\', '/')
+Set-AzStorageBlobContent -File $filePath -Container $container -Blob $blobName -Context $storageContext -Force
+
+(Get-Item $filePath).Length
+```
 
 # [Java](#tab/java)
 
-Java sample coming soon.
+```java
+@FunctionName("E2_CopyFileToBlob")
+public long copyFileToBlob(
+        @DurableActivityTrigger(name = "filePath") String filePath) throws Exception {
+
+    File file = new File(filePath);
+    long byteCount = file.length();
+
+    String blobPath = filePath
+            .substring(File.listRoots()[0].getPath().length())
+            .replace('\\', '/');
+
+    String connectionString = System.getenv("AzureWebJobsStorage");
+    BlobContainerClient containerClient = new BlobContainerClientBuilder()
+            .connectionString(connectionString)
+            .containerName("backups")
+            .buildClient();
+    containerClient.createIfNotExists();
+
+    BlobClient blobClient = containerClient.getBlobClient(blobPath);
+    blobClient.uploadFromFile(filePath, true);
+
+    return byteCount;
+}
+```
 
 ---
 

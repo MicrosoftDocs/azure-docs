@@ -2,7 +2,8 @@
 title: Overview
 description: In this overview, learn about Azure CycleCloud, an enterprise-friendly tool to orchestrate and manage High Performance Computing (HPC) environments on Azure.
 author: jermth
-ms.date: 07/01/2025
+ms.date: 07/09/2026
+ms.topic: overview
 ms.author: jechia
 ---
 
@@ -86,4 +87,5 @@ You can deploy an entire CycleCloud HPC system on Azure infrastructure. You inst
 * [Install Azure CycleCloud using an ARM template](~/articles/cyclecloud/how-to/install-arm.md)
 * [Install CycleCloud manually](~/articles/cyclecloud/how-to/install-manual.md)
 * [Explore CycleCloud features with the tutorial](./tutorials/tutorial.md)
+* [Create a new cluster](./how-to/create-cluster.md)
 * [Plan your Production Deployment](/azure/cyclecloud/how-to/plan-prod-deployment)

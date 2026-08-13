@@ -5,7 +5,7 @@ author: mattreatMSFT
 ms.author: mareat
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 02/05/2026
+ms.date: 08/11/2026
 ms.custom: linux-related-content
 # Customer intent: "As a cloud architect, I want to implement Accelerated Networking on Azure VMs, so that I can enhance networking performance by reducing latency and CPU utilization for my high-demand applications."
 ---
@@ -53,6 +53,7 @@ Accelerated Networking is available in all global Azure regions and the Azure Go
 
 The following versions of Windows support Accelerated Networking for all interfaces:
 
+- Windows Server 2025
 - Windows Server 2022
 - Windows Server 2019
 - Windows Server 2016
@@ -65,10 +66,11 @@ The following Linux and FreeBSD distributions from Azure Marketplace support Acc
 - Ubuntu 22.04 LTS
 - Red Hat Enterprise Linux 10.0
 - Red Hat Enterprise Linux 9.6
+- Red Hat Enterprise Linux 8.10 (Technical Preview Only)
 - AlmaLinux 10.0
 - AlmaLinux 9.6
 - Rocky Linux 10.0
-- Rocky Linux 9.6
+- Rocky Linux 9.7
 - SUSE Linux Enterprise Server 16
 - SUSE Linux Enterprise Server 15 SP7
 - SUSE Linux Enterprise Server 15 SP6
@@ -119,7 +121,7 @@ For more information about application binding requirements, see [How Accelerate
 
 #### Configure drivers to be unmanaged
 
-Accelerated Networking requires configuring the NVIDIA drivers as unmanaged devices in your network settings. Images using cloud-init version 23.2 or later automatically apply the correct network configuration to support Accelerated Networking during provisioning. We strongly recommend avoiding concurrent network interface management tools (such as ifupdown and networkd) on custom images, and not running dhcpclient directly on multiple interfaces.
+Accelerated Networking requires configuring the SR-IOV drivers as unmanaged devices in your network settings. This requirement applies to the NVIDIA/Mellanox `mlx4_core` and `mlx5_core` drivers and to the MANA driver. Images using cloud-init version 23.2 or later automatically apply the correct network configuration to support Accelerated Networking during provisioning. Avoid concurrent network interface management tools (such as ifupdown and networkd) on custom images, and don't run dhcpclient directly on multiple interfaces.
 
 # [NetworkManager](#tab/NetworkManager)
 Ensure azure-vm-utils version 0.6.0 or later is installed. 

@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 03/18/2026
+ms.date: 08/04/2026
 ms.custom:
   - references_regions
   - build-2024
@@ -24,6 +24,7 @@ The Flex Consumption plan builds on the strengths of the serverless Consumption 
 
 + **Reduced cold start times**: Enable [always-ready instances](#always-ready-instances) to achieve faster cold start times compared to the Consumption plan. 
 + **Virtual network support**: [Virtual network integration](#virtual-network-integration) enables your serverless app to run in a virtual network.
++ **End-to-end TLS encryption (preview)**: Encrypt traffic between the platform front ends and the workers that run your functions. For more information, see [Configure end-to-end TLS encryption](flex-consumption-how-to.md#configure-end-to-end-tls-encryption).
 + **Per-function scaling**: Each function in your app [scales independently based on its workload](#per-function-scaling), potentially resulting in more efficient resource allocation.
 + **Improved concurrency handling**: Better handling of concurrent executions with configurable concurrency settings per function.
 + **Flexible memory configuration**: Flex Consumption offers multiple [instance sizes](#instance-sizes) size options, so you can optimize for your specific workload requirements.
@@ -99,6 +100,8 @@ For example, if you set always ready to 2 for your HTTP group of functions, the 
 
 You can configure no fewer than two always-ready instances per function or function group while [zone redundancy is enabled](/azure/reliability/reliability-functions?pivots=flex-consumption-plan#availability-zone-support). 
 
+Always ready instances are separate from on-demand instances: the [maximum instance count](#maximum-instance-count-the-ceiling) limits only on-demand instances and doesn't apply to always ready instances.
+
 To learn how to configure always ready instances, see [Set always ready instance counts](flex-consumption-how-to.md#set-always-ready-instance-counts).
 
 ## Concurrency
@@ -106,6 +109,48 @@ To learn how to configure always ready instances, see [Set always ready instance
 Concurrency refers to the number of parallel executions of a function on an instance of your app. You can set a maximum number of concurrent executions that each instance handles at any given time. Concurrency directly affects how your app scales. At lower concurrency levels, you need more instances to handle the event-driven demand for a function. While you can control and fine-tune the concurrency, the platform provides defaults that work for most cases. 
 
 To learn how to set concurrency limits for HTTP trigger functions, see [Set HTTP concurrency limits](flex-consumption-how-to.md#set-http-concurrency-limits). To learn how to set concurrency limits for non-HTTP trigger functions, see [Target Base Scaling](./functions-target-based-scaling.md).
+
+## Scale-out rate
+
+The number of desired instances for the app is constantly evaluated and defined by the [concurrency](#concurrency) per instance setting.
+
+As event demand increases, the Flex Consumption platform scales your app out automatically. The platform constantly evaluates how many instances your app needs—the *desired instance count*—from the volume of incoming events and your [per-instance concurrency](#concurrency) setting, which controls how many events each instance processes at once. Raising concurrency lets each instance do more work, so your app needs fewer instances to handle the same load.
+
+Two *separate* platform limits then shape how your app reaches that desired count, and it helps to think of them independently:
+
+* The **scale-out rate** governs *how fast* new instances are added.
+* The **maximum instance count** governs *how many* instances your app can reach.
+
+You don't configure the scale-out rate—the platform manages it for you. You do configure the [maximum instance count](event-driven-scaling.md#limit-scale-out) and [per-instance concurrency](#concurrency). Understanding these helps you design workloads that scale smoothly and predictably.
+
+### How the scale curve works
+
+Rather than adding every requested instance at once, the platform adds new instances in short, repeated bursts and decides how many an app may add during each brief interval. The size of that per-interval allowance follows a *scale curve* that depends on how many instances the app is already running:
+
+* When an app is running **only a few instances**, the allowance is at its largest, so a small app scales up very quickly and can add many instances per minute.
+* As an app grows to run **more and more instances**, the platform grants each additional batch more gradually. This deceleration keeps very large scale-outs stable and keeps a single app from destabilizing the region it shares with other apps.
+
+The scale curve applies to on-demand instances only. The exact shape and rate are managed by the platform and can change over time, so don't design against specific per-interval numbers—design for the *pattern*: fast at first, then progressively more measured at very high instance counts.
+
+[Always ready instances](#always-ready-instances) aren't subject to this on-demand scale-out rate. If you need capacity ahead of a predictable burst, configure always ready instances so that capacity is already in place before the load arrives.
+
+### Maximum instance count (the ceiling)
+
+Regardless of the rate, your app never scales beyond its [maximum instance count](event-driven-scaling.md#limit-scale-out). When an app reaches that ceiling, the platform stops adding on-demand instances no matter how much demand remains, until running instances free up. The maximum instance count limits on-demand instances only. [Always ready instances](#always-ready-instances) don't count toward this ceiling, so your app can run its always ready instances in addition to the maximum number of on-demand instances.
+
+You configure the maximum instance count on the app, but the platform applies it to each independently-scaling function group rather than to the app's combined instances. A *function group* is a set of functions that scale together on the same instances, as described in [per-function scaling](event-driven-scaling.md#per-function-scaling). Many apps scale as a single group, so the ceiling behaves like one per-app limit. An app that scales some functions on their own instances has more than one function group, and the maximum instance count applies to each group.
+
+A high maximum instance count doesn't guarantee your app reaches it: the [regional subscription memory quota](#regional-subscription-memory-quotas) can cap total scale-out for all apps in a region below the sum of their configured maximums. If your app needs to scale to a large instance count, confirm the subscription quota is high enough and [request an increase](#regional-subscription-memory-quotas) if needed.
+
+### Throttling responses
+
+At any moment, the platform grants the smallest allowance across all of these limits - the scale curve, the maximum instance count, and the regional memory quota. When one of these limits temporarily holds scale-out back, the platform throttles individual scale-out requests briefly. A throttled scale-out is a transient, expected part of high-rate scaling: the platform keeps retrying automatically and your app continues to scale toward demand. You don't need to take any action for an occasional throttle.
+
+### Design for smooth scaling at high rates
+
+* Use [always ready instances](#always-ready-instances) to pre-provision capacity for known bursts and to reduce cold starts, since they bypass the on-demand scale-out rate.
+* Right-size [concurrency](functions-concurrency.md#concurrency-in-azure-functions) so each instance does more work, which reduces the number of instances you need for a given load.
+* Set a [maximum instance count](event-driven-scaling.md#limit-scale-out) high enough for your peak, and confirm your [subscription memory quota](#regional-subscription-memory-quotas) can support that target.
 
 ## Mount file shares
 
@@ -121,7 +166,7 @@ To learn how to configure storage mounts, see [Mount file shares](./storage-cons
 
 ## Deployment
 
-Deployments in the Flex Consumption plan follow a single path. There's no longer a need for app settings to influence deployment behavior. You build and zip your project code into an application package, and then deploy it to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
+Deployments in the Flex Consumption plan follow a single path. You no longer need app settings to influence deployment behavior. You build and zip your project code into an application package, and then deploy it to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (`AzureWebJobsStorage`) also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
 
 > [!TIP]
 > The Azure portal provides a **Flex Consumption Deployment** diagnostic tool. Open your Flex Consumption app, select **Diagnose and solve problems**, and search for `Flex Consumption Deployment`. This tool displays detailed information about your deployments, including deployment history, package status, and troubleshooting recommendations.
@@ -137,7 +182,7 @@ Flex Consumption provides zero-downtime deployments through rolling updates as t
 
 [!INCLUDE [functions-flex-consumption-billing-table](../../includes/functions-flex-consumption-billing-table.md)]
 
-The minimum billable execution period for both execution modes is 1,000 ms. Past that point, the billing rounds up to the nearest 100 ms. You can find details on the Flex Consumption plan billing meters in the [Monitoring reference](monitor-functions-reference.md?tab=flex-consumption-plan#metrics).
+The minimum billable execution period for both execution modes is 1,000 ms. After that point, the billing rounds up to the nearest 100 ms. You can find details on the Flex Consumption plan billing meters in the [Monitoring reference](monitor-functions-reference.md?tab=flex-consumption-plan#metrics).
 
 For details about how costs are calculated when you run in a Flex Consumption plan, including examples, see [Consumption-based costs](functions-consumption-costs.md?tabs=flex-consumption-plan#consumption-based-costs) and [Viewing cost-related data](functions-consumption-costs.md?tabs=flex-consumption-plan#viewing-and-estimating-costs-from-metrics).
 
@@ -151,7 +196,7 @@ This table shows the language stack versions that are currently supported for Fl
 | Java | Java 8, Java 11, Java 17, Java 21, Java 25 |
 | Node.js | Node.js 22, Node.js 24   |
 | PowerShell | PowerShell 7.4   |
-| Python | Python 3.10, Python 3.11, Python 3.12, Python 3.13  | 
+| Python | Python 3.10, Python 3.11, Python 3.12, Python 3.13, Python 3.14  | 
 | Custom handlers | 1.0 |
 
 1. The [C# in-process model](./functions-dotnet-class-library.md) isn't supported. You need to [migrate your .NET project to the isolated worker model](migrate-dotnet-to-isolated-model.md).  
@@ -207,11 +252,11 @@ Keep these considerations in mind when using the Flex Consumption plan:
 + **Virtual network integration and resource provider registration**: You must have the `Microsoft.App` Azure resource provider registered in your subscription to integrate to a virtual network, which is needed for subnet delegation. The Azure portal and Azure CLI enforce registration at app creation time since you can enable virtual network integration at any point after your app is created. To register this provider, [follow these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
 + **Triggers**: While all triggers are fully supported in a Flex Consumption plan, the Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./extension-bundles.md), or a later version.
 + **Regions**: While the Flex Consumption plan is available in many Azure regions, it doesn't currently support all regions. To learn more, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).
-+ **Deployments**: Deployment slots aren't currently supported. For zero downtime deployments by using Flex Consumption, see [Site update strategies in Flex Consumption](flex-consumption-site-updates.md).
++ **Deployments**: Deployment slots aren't currently supported. For zero downtime deployments by using Flex Consumption, see [Site update strategies in Flex Consumption](flex-consumption-site-updates.md). To recover from a bad deployment, see [Recover from a bad Flex Consumption plan deployment](functions-rollback-deployments.md).
 + **Azure Storage as a local share**: Network File System (NFS) file shares aren't available for Flex Consumption. Only Server Message Block (SMB) and Azure Blobs (read-only) are supported. For more information, see [Mount file shares](#mount-file-shares).
 + **Scale**: The lowest maximum scale is currently `1`. The highest currently supported value is `1000`.
 + **PowerShell managed dependencies**: Flex Consumption doesn't support [managed dependencies in PowerShell](functions-reference-powershell.md#managed-dependencies-feature). You must instead [upload modules with app content](functions-reference-powershell.md#including-modules-in-app-content).
-+ **Certificates (preview)**: Flex Consumption introduces site-scoped certificates, a new model where certificates are scoped to your individual app rather than shared across a webspace. Managed certificates and App Service certificates are supported in preview. End-to-end (E2E) encryption isn't currently supported. For more information, see [Configure site-scoped certificates](flex-consumption-how-to.md#configure-site-scoped-certificates).
++ **Certificates (preview)**: Flex Consumption introduces site-scoped certificates, a new model where certificates are scoped to your individual app rather than shared across a webspace. Managed certificates and App Service certificates are supported in preview. For more information, see [Configure site-scoped certificates](flex-consumption-how-to.md#configure-site-scoped-certificates).
 + **Time zones**: `WEBSITE_TIME_ZONE` and `TZ` app settings aren't currently supported when running on Flex Consumption plan.
 + **Azure Functions runtime version and proxies**: Flex Consumption only supports version 4.x and later of the Azure Functions runtime. Azure Functions proxies was a feature of versions 1.x through 3.x of the Azure Functions runtime and isn't available in Flex Consumption.
 + **Plan migration**: In-place migration of an existing function app from another hosting plan to the Flex Consumption plan isn't supported. You also can't migrate your app from Flex Consumption to another plan. To move to Flex Consumption, you must create a new function app in a Flex Consumption plan and redeploy your code.

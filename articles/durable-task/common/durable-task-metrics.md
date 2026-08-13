@@ -2,7 +2,7 @@
 title: Monitor action metrics for Durable Task Scheduler
 description: Learn about the action metrics emitted by the Durable Task Scheduler for monitoring billing and workload breakdown.
 ms.service: durable-task
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/03/2026
 ms.author: kaibocai
 author: kaibocai

@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 05/14/2026
+ms.date: 07/17/2026
 ms.custom:
   - devx-track-dotnet
 ms.collection: ce-skilling-ai-copilot
@@ -25,7 +25,8 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Deploy a multi-agent ASP.NET Core app along with an Application Insights resource and an Azure OpenAI deployment.
-> * Wire up the Azure Monitor OpenTelemetry distro in your app.
+> * Wire up Microsoft OpenTelemetry in your app.
+> * Assign stable, configuration-driven IDs to your agents.
 > * Enable the OpenTelemetry GenAI semantic conventions on Microsoft Agent Framework so per-agent attributes are emitted.
 > * View per-agent metrics in the App Service **AI (preview)** → **Agents** tab.
 > * Drill into the **Agents (preview)** view in Application Insights for tool calls, token consumption, and traces.
@@ -53,8 +54,8 @@ The repository is laid out so the OpenTelemetry wiring and the agent definitions
 ├── azure.yaml                        # azd config (App Service host)
 ├── infra/                            # Bicep: App Service plan, Web App, App Insights, Azure OpenAI
 └── src/MultiAgentTravelPlanner/
-    ├── Program.cs                    # OpenTelemetry distro + agent registration
-    ├── Agents/AgentCatalog.cs        # Coordinator + 5 specialist agents
+    ├── Program.cs                    # Microsoft OpenTelemetry configuration
+    ├── Agents/AgentCatalog.cs        # Coordinator + 5 specialist agents and their IDs
     ├── Tools/TravelTools.cs          # Function tools the agents call
     └── wwwroot/index.html            # Minimal chat UI
 ```
@@ -80,7 +81,47 @@ When deployment finishes, `azd` prints the web app URL. Open it and send 3–5 m
 
 The sample wires three things to make the Agents tab work:
 
-**a. Wrap each agent with `UseOpenTelemetry`.**
+**a. Give each agent a stable, configurable ID.**
+
+Use a stable logical name as the default ID, and read the effective ID from configuration. This approach keeps the ID consistent across restarts while allowing an App Service application setting to override it without a source-code change. See `Agents/AgentCatalog.cs`:
+
+```csharp
+private static AIAgent CreateAgent(
+    ChatClient chat,
+    IConfiguration configuration,
+    string logicalName,
+    string description,
+    string instructions,
+    IList<AITool>? tools = null)
+    => chat.AsAIAgent(new ChatClientAgentOptions
+    {
+        Id = AgentIdConfiguration.Resolve(configuration, logicalName),
+        Name = logicalName,
+        Description = description,
+        ChatOptions = new ChatOptions
+        {
+            Instructions = instructions,
+            Tools = tools,
+        },
+    });
+```
+
+For .NET apps, double underscores in App Service application settings map to nested configuration keys. The sample uses the following convention:
+
+| Agent | App Service application setting | Default value |
+| --- | --- | --- |
+| Coordinator | `Agents__Coordinator__Id` | `Coordinator` |
+| WeatherAdvisor | `Agents__WeatherAdvisor__Id` | `WeatherAdvisor` |
+| CurrencyConverter | `Agents__CurrencyConverter__Id` | `CurrencyConverter` |
+| BudgetOptimizer | `Agents__BudgetOptimizer__Id` | `BudgetOptimizer` |
+| LocalKnowledge | `Agents__LocalKnowledge__Id` | `LocalKnowledge` |
+| ItineraryPlanner | `Agents__ItineraryPlanner__Id` | `ItineraryPlanner` |
+
+Use a unique value for every agent. Don't generate a new ID each time the
+application starts. The sample validates at startup that every configured ID is
+nonempty and unique.
+
+**b. Wrap each agent with `UseOpenTelemetry`.**
 
 Microsoft Agent Framework emits `gen_ai.*` spans only when you wrap an agent with the `OpenTelemetryAgent` delegating wrapper. The easiest way is through `AsBuilder().UseOpenTelemetry(sourceName)`. See `Agents/AgentCatalog.cs`:
 
@@ -90,39 +131,59 @@ private static AIAgent WithTelemetry(AIAgent agent) =>
         .UseOpenTelemetry(TelemetrySourceName, otel => otel.EnableSensitiveData = true)
         .Build();
 
-AIAgent weather = WithTelemetry(chat.AsAIAgent(
-    instructions: "...",
-    name: "WeatherAdvisor",
+AIAgent weather = WithTelemetry(CreateAgent(
+    chat,
+    configuration,
+    logicalName: "WeatherAdvisor",
     description: "...",
+    instructions: "...",
     tools: [AIFunctionFactory.Create(tools.GetWeatherForecast)]));
 ```
 
-The agent's `name` ends up in the `gen_ai.agent.name` attribute and is exactly what the Agents tab groups on. `EnableSensitiveData = true` opts in to including message content in spans (off by default — set to `false` in production, or control it with the `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` environment variable).
+The agent's name ends up in the `gen_ai.agent.name` attribute and is what the Agents tab displays. Its configured ID is emitted as `gen_ai.agent.id`. `EnableSensitiveData = true` opts in to including message content in spans (off by default - set to `false` in production, or control it with the `OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT` environment variable).
 
-**b. Send everything to Application Insights with the Azure Monitor distro and subscribe to the agent activity source.**
+**c. Send telemetry to Application Insights with Microsoft OpenTelemetry and subscribe to the agent activity source.**
+
+The `Microsoft.OpenTelemetry` package provides one configuration API for OpenTelemetry instrumentation and exporters. This tutorial enables its Azure Monitor exporter:
+
+```bash
+dotnet add package Microsoft.OpenTelemetry
+```
 
 ```csharp
+using Microsoft.OpenTelemetry;
+using OpenTelemetry.Resources;
+
+var appInsightsConnectionString =
+    builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"];
+
 builder.Services.AddOpenTelemetry()
-    .UseAzureMonitor()
-    .ConfigureResource(r => r.AddService(serviceName: "multi-agent-travel-planner"))
     .WithTracing(t => t
+        .ConfigureResource(r => r.AddService("multi-agent-travel-planner"))
         .AddSource(AgentCatalog.TelemetrySourceName)
         .AddSource("Microsoft.Extensions.AI*")
         .AddSource("OpenAI*")
         .AddSource("Experimental.OpenAI*")
         .AddSource("Azure.AI.OpenAI*"))
     .WithMetrics(m => m
+        .ConfigureResource(r => r.AddService("multi-agent-travel-planner"))
         .AddMeter(AgentCatalog.TelemetrySourceName)
         .AddMeter("Microsoft.Extensions.AI*")
         .AddMeter("OpenAI*"));
+
+builder.UseMicrosoftOpenTelemetry(options =>
+{
+    options.Exporters = ExportTarget.AzureMonitor;
+    options.AzureMonitor.ConnectionString = appInsightsConnectionString;
+});
 ```
 
-`UseAzureMonitor()` automatically reads `APPLICATIONINSIGHTS_CONNECTION_STRING` from configuration and wires traces, logs, and metrics to Application Insights. The `AddSource` and `AddMeter` calls register the activity sources and meters that Microsoft Agent Framework and the underlying OpenAI SDK emit on.
+The `AddSource` and `AddMeter` calls register the activity sources and meters that Microsoft Agent Framework and the underlying OpenAI SDK emit. Exporter selection is separate from agent instrumentation, so you can change or add supported telemetry destinations without redefining your agents.
 
-That's it. Each agent's name and ID are emitted on every span as `gen_ai.agent.name` / `gen_ai.agent.id`, token usage flows through `gen_ai.usage.input_tokens` and `gen_ai.usage.output_tokens`, and tool invocations and model calls show up as `execute_tool` and chat-completion child spans.
+Each agent's name and ID are emitted on every span as `gen_ai.agent.name` / `gen_ai.agent.id`, token usage flows through `gen_ai.usage.input_tokens` and `gen_ai.usage.output_tokens`, and tool invocations and model calls show up as `execute_tool` and chat-completion child spans.
 
 > [!IMPORTANT]
-> The Bicep template in this sample sets `ApplicationInsightsAgent_EXTENSION_VERSION=disabled` on the web app. This disables the App Service codeless attach for .NET so that the in-process Azure Monitor OpenTelemetry distro isn't competing for the same activity sources. If you instrument your app in code, always disable the codeless agent.
+> The Bicep template in this sample sets `ApplicationInsightsAgent_EXTENSION_VERSION=disabled` on the web app. This setting disables the App Service codeless attach for .NET so that in-process OpenTelemetry isn't competing for the same activity sources. If you instrument your app in code, always disable the codeless agent.
 
 ## 4. View per-agent metrics in App Service
 
@@ -130,7 +191,7 @@ That's it. Each agent's name and ID are emitted on every span as `gen_ai.agent.n
 2. In the left navigation, select **AI (preview)**.
 3. Select the **Agents** tab.
 
-You should see one row per registered agent (Coordinator, WeatherAdvisor, CurrencyConverter, BudgetOptimizer, LocalKnowledge, ItineraryPlanner) with calls, tokens, and error rate over the selected date range. Use the search box, agent-name, and agent-ID filters to narrow the list. Select **View logs** on any row to open Application Insights with a query scoped to that agent.
+You see one row per instrumented agent (Coordinator, WeatherAdvisor, CurrencyConverter, BudgetOptimizer, LocalKnowledge, ItineraryPlanner) with calls, tokens, and error rate over the selected date range. Use the search box, agent-name, and agent-ID filters to narrow the list. Select **View logs** on any row to open Application Insights with a query scoped to that agent.
 
 :::image type="content" source="media/tutorial-agent-monitoring-dotnet/app-service-agents-tab.png" alt-text="Screenshot of the App Service AI (preview) Agents tab populated with the six agents from this tutorial." lightbox="media/tutorial-agent-monitoring-dotnet/app-service-agents-tab.png":::
 
@@ -157,7 +218,13 @@ If the **Agents** tab is empty or incomplete, check the following.
 
 - Confirm the web app's **Application Insights** resource is connected. Open the web app's **Application Insights** blade (under **Settings**) and verify the connection.
 - Confirm `APPLICATIONINSIGHTS_CONNECTION_STRING` is present as an App Service application setting. The `azd` template sets it automatically; if you adapted the Bicep, double-check.
-- In the app, confirm you call `.UseAzureMonitor()` and `.AddSource("Microsoft.Agents.AI")` (and the `Microsoft.Extensions.AI` sources). If either is missing, agent spans won't be exported.
+- Confirm the app calls `UseMicrosoftOpenTelemetry()`, enables `ExportTarget.AzureMonitor`, and registers the agent and `Microsoft.Extensions.AI` activity sources. If any are missing, agent spans aren't exported.
+
+**Agents appear with missing, duplicate, or unexpected IDs.**
+
+- Confirm each agent has a nonempty, unique ID.
+- Check whether an `Agents__<agent-name>__Id` App Service application setting overrides the default value.
+- Keep the setting name stable when you change its value so operational configuration doesn't require a source-code change.
 
 **Agents appear but tokens or calls are zero.**
 
@@ -189,7 +256,7 @@ If the **Agents** tab is empty or incomplete, check the following.
 
 **Sampling is dropping data.**
 
-- The Azure Monitor OpenTelemetry distro applies adaptive sampling by default. If you're testing with low volume and rows are missing, set `o.SamplingRatio = 1.0f` in `UseAzureMonitor` for the duration of your test.
+- The Azure Monitor exporter applies adaptive sampling by default. If you're testing with low volume and rows are missing, temporarily configure its sampling ratio to `1.0`.
 
 ## 7. Clean up resources
 
@@ -203,6 +270,6 @@ This deletes the resource group, the App Service, the Application Insights resou
 
 - [Build agentic web applications](scenario-ai-agentic-web-apps.md)
 - [Microsoft Agent Framework documentation](/agent-framework/overview/agent-framework-overview)
-- [Enable Azure Monitor OpenTelemetry for ASP.NET Core](/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore)
+- [Microsoft OpenTelemetry for .NET](https://github.com/microsoft/opentelemetry-distro-dotnet)
 - [OpenTelemetry generative AI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/)
 - [Agents (preview) in Application Insights](/azure/azure-monitor/app/agents-view)

@@ -3,6 +3,7 @@ title: What is Azure Extended Zones?
 description: Learn about Azure Extended Zones and how it can help you run latency-sensitive and throughput-intensive applications close to users.
 author: svaldesgzz
 ms.author: svaldes
+ms.reviewer: halkazwini
 ms.service: azure-extended-zones
 ms.topic: overview
 ms.date: 06/11/2026

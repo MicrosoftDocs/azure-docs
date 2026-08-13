@@ -38,7 +38,7 @@ When you enable ingress, you can choose between two types of ingress:
 
 - **External**: Exposes the app through the Container Apps environment's inbound IP address. If the environment uses a public inbound IP, the app can receive traffic from the public internet, and it's also reachable from other container apps in the same environment.
 
-- **Internal**: Makes the app reachable only from within the same Container Apps environment, such as from other container apps. The app isn't directly accessible from the public internet.
+- **Internal**: Makes the app's own fully qualified domain name (FQDN) reachable only from within the same Container Apps environment, such as from other container apps. The app's FQDN isn't directly accessible from the public internet. However, the app can still receive external traffic if it's referenced as a target in an environment-level HTTP route configuration. To fully isolate an app from external traffic, make sure it isn't included as a target in any HTTP route configuration, or place it in a separate environment. For more information, see [Use rule-based routing with Azure Container Apps](rule-based-routing.md).
 
 Each container app within an environment can be configured with different ingress settings. For example, in a scenario with multiple microservice apps, to increase security you might have a single container app that receives public requests and passes the requests to a background service. In this scenario, you would configure the public-facing container app with external ingress and the internal-facing container app with internal ingress.
 

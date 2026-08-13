@@ -2,11 +2,11 @@
 title: 'Configure VPN gateway for P2S certificate authentication: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN Gateway server settings for point-to-site configurations - certificate authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/10/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network administrator, I want to configure a point-to-site VPN gateway with certificate authentication, so that I can securely connect remote clients to our Azure virtual network."
 ---

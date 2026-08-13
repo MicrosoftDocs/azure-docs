@@ -56,9 +56,9 @@ Several built-in Azure role-based access control (RBAC) roles are intended for u
 
 ## Share-level permissions for specific Microsoft Entra users or groups
 
-If you want to use a specific Microsoft Entra user or group to access Azure file share resources, that identity can be either a cloud-only identity (Entra only), or it can be a [hybrid identity](/entra/identity/hybrid/whatis-hybrid-identity) that exists in both on-premises AD DS and Microsoft Entra ID.
+To access Azure file share resources, use a specific Microsoft Entra user or group as the identity. This identity can be either a cloud-only identity (Microsoft Entra ID only) or a [hybrid identity](/entra/identity/hybrid/whatis-hybrid-identity) that exists in both on-premises AD DS and Microsoft Entra ID.
 
-Assigning specific share-level permissions to cloud-only identities is currently supported only for Microsoft Entra Kerberos authentication in a [subset of Azure public cloud regions](storage-files-identity-auth-hybrid-identities-enable.md#regional-availability-for-microsoft-entra-kerberos). If the region you want to deploy in isn't supported, reach out to the [Azure Files team](mailto:azurefiles@microsoft.com) for assistance or use a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
+Assigning specific share-level permissions to cloud-only identities is currently supported only for Microsoft Entra Kerberos authentication in a [subset of Azure public cloud regions](storage-files-identity-auth-hybrid-identities-enable.md#regional-availability-for-microsoft-entra-kerberos). If the region you want to deploy in isn't supported, contact the [Azure Files team](mailto:azurefiles@microsoft.com) for assistance or use a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
 
 For hybrid identities, if you have a user in Active Directory named user1@onprem.contoso.com and you sync to Microsoft Entra ID as user1@contoso.com by using Microsoft Entra Connect Sync or Microsoft Entra Connect Cloud Sync, the user must have the share-level permissions assigned to user1@contoso.com to access the file share. The same concept applies to groups and service principals.
 
@@ -95,7 +95,7 @@ To assign an Azure role to a Microsoft Entra identity by using the [Azure portal
 
 1. Keep **Assign access to** at the default setting: **Microsoft Entra user, group, or service principal**. Select the target Microsoft Entra identity by name or email address.
 
-   The selected Microsoft Entra identity must be a hybrid identity and can't be a cloud-only identity. This requirement means that the same identity is also represented in AD DS.
+   The selected Microsoft Entra identity must be a hybrid identity and can't be a cloud-only identity. This requirement means that the same Microsoft Entra identity is also represented in AD DS.
 
 1. Select **Save** to complete the role assignment operation.
 
@@ -106,11 +106,11 @@ The following PowerShell sample shows how to assign an Azure role to a Microsoft
 Before you run the following sample script, replace placeholder values (including brackets) with your values.
 
 ```powershell
-#Get the name of the custom role
+#Get the name of the role
 $FileShareContributorRole = Get-AzRoleDefinition "<role-name>" #Use one of the built-in roles: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor, Storage File Data SMB Share Elevated Contributor, Storage File Data Privileged Contributor, Storage File Data Privileged Reader, Storage File Data SMB Admin
 #Constrain the scope to the target file share
 $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
-#Assign the custom role to the target identity with the specified scope.
+#Assign the role to the target identity with the specified scope.
 New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
@@ -186,15 +186,15 @@ az storage account update --name $storageAccountName --resource-group $resourceG
 
 ---
 
-## What happens if you use both configurations
+## Behavior when both permission types are assigned
 
 You can assign permissions to all authenticated Microsoft Entra users and to specific Microsoft Entra users or groups. When you use this configuration, a specific user or group gets the higher-level permission between the default share-level permission and the RBAC assignment.
 
-For example, suppose you grant a user the Storage File Data SMB Reader role on the target file share. You also grant the default share-level permission Storage File Data SMB Share Elevated Contributor to all authenticated users. With this configuration, that particular user has Storage File Data SMB Share Elevated Contributor access to the file share. Higher-level permissions always take precedence.
+For example, suppose you grant a user the Storage File Data SMB Share Reader role on the target file share. You also grant the default share-level permission Storage File Data SMB Share Elevated Contributor to all authenticated users. With this configuration, that particular user has Storage File Data SMB Share Elevated Contributor access to the file share. Higher-level permissions always take precedence.
 
-## Understanding group-based access for non-synced users
+## Group-based access for non-synced AD DS users
 
-This section applies only to storage accounts that use AD DS authentication.
+This section applies only to storage accounts that use AD DS authentication. Use this approach if you have users who can't be synced individually to Microsoft Entra ID but whose AD DS group memberships can be synced.
 
 Users who aren't synced to Microsoft Entra ID can still access Azure file shares through group membership. If a user belongs to an on-premises AD DS group that's synced to Microsoft Entra ID and has an Azure RBAC role assignment, the user gets the group's permissions, even though they don't appear as a group member in the Microsoft Entra admin center.
 

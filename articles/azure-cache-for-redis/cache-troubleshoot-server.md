@@ -9,7 +9,7 @@ appliesto:
 
 # Troubleshoot Azure Cache for Redis server issues
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 
 The following links provide troubleshooting information for issues caused by conditions on an Azure Cache for Redis server or the virtual machines that host it.

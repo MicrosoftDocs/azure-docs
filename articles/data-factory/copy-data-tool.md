@@ -2,11 +2,11 @@
 title: Copy Data tool
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the Copy Data tool in the Azure Data Factory and Synapse Analytics UI.
-author: dearandyxu
+author: kromerm
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.date: 03/31/2025
-ms.author: yexu
+ms.author: makromer
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -15,6 +15,8 @@ ms.custom:
 # Copy Data tool in Azure Data Factory and Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 The Copy Data tool eases and optimizes the process of ingesting data into a data lake, which is usually a first step in an end-to-end data integration scenario. It saves time, especially when you use the service to ingest data from a data source for the first time. Some of the benefits of using this tool are:
 

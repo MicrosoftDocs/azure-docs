@@ -2,11 +2,11 @@
 title: 'Connect VPN gateways to multiple on-premises policy-based VPN devices'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure an Azure route-based VPN gateway to multiple policy-based VPN devices using PowerShell.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/10/2026
-ms.author: cherylmc
+ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange

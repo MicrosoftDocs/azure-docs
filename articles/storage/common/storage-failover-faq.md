@@ -98,6 +98,15 @@ This chart describes the changes to a storage account's redundancy after a failo
 
 Whether your account will experience data loss after a failover depends on which failover operation you initiated. For Planned Failover, there's no data loss expected after completing a planned failover. With Unplanned Failover, users might experience data loss. Users can utilize the Last Sync Time (LST) property to determine the last time a full synchronization completed between their primary and secondary region. Any data or metadata written before the LST successfully replicates to the secondary region and will be available after the unplanned failover. However, any data or metadata written after the LST might be lost.
 
+## Does Azure Backup support customer-managed failover?
+
+The following table lists the behavior of Azure Backup due to customer-initiated failovers:
+
+| Failover type | Backups | Restore | Enabling protection (reprotection) of failed over account in secondary region |
+| --- | --- | --- | --- |
+| Customer-managed planned failover | Supported | Supported | Not supported |
+| Customer-managed unplanned failover | Not supported | Only cross-region restore from the vault is supported. | Not supported |
+
 ## How long will it take to convert my account from LRS to GRS after an unplanned failover?
 
 There's currently no service level agreement (SLA) for completion of a geo conversion, and it isn't possible to expedite this process by submitting a support request. The timeframe it takes to complete these conversions can vary depending on various factors, including:

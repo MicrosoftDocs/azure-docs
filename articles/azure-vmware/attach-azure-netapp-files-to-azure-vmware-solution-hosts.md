@@ -3,7 +3,7 @@ title: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
 description: Learn how to create Azure NetApp Files-based NFS datastores for Azure VMware Solution hosts.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/14/2025
+ms.date: 06/24/2026
 ms.custom: "references_regions, engagement-fy23"
 # Customer intent: "As an IT administrator, I want to attach Azure NetApp Files NFS datastores to Azure VMware Solution hosts, so that I can optimize storage performance and manage virtual machine workloads effectively in a cloud environment."
 ---
@@ -83,8 +83,11 @@ Azure NetApp Files datastores for Azure VMware Solution are currently supported 
 * Italy North 
 * Japan East
 * Japan West
+* Korea Central
+* Malaysia West
 * North Central US
 * North Europe
+* Norway East
 * Qatar Central
 * South Africa North
 * South Central US
@@ -93,6 +96,7 @@ Azure NetApp Files datastores for Azure VMware Solution are currently supported 
 * Sweden Central
 * Switzerland North
 * Switzerland West
+* UAE North
 * UK South
 * UK West
 * US Gov Arizona
@@ -125,7 +129,7 @@ There are some important best practices to follow for optimal performance of NFS
 - Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. See [Service levels for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md) to understand the throughput allowed per provisioned TiB for each service level. 
 
     >[!IMPORTANT]
-    > If you've changed the Azure NetApp Files volumes performance tier or the volume size after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in the portal or the API due to metadata mismatch. To do any kind of change to the volume you can use Azure portal or any other supported solution (CLI\PowerShell\API).
+    > If you've changed the Azure NetApp Files volumes performance tier or the volume size after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in the portal or the API due to metadata mismatch. To do any kind of change to the volume you can use Azure portal or any other supported solution (CLI\Powershell\API).
     
 - Create one or more volumes based on the required throughput and capacity. See [Performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) for Azure NetApp Files to understand how volume size, service level, and capacity pool QoS type determines volume throughput. For assistance calculating workload capacity and performance requirements, contact your Azure VMware Solution or Azure NetApp Files field expert. The default maximum number of Azure NetApp Files datastores is 64.
 
@@ -133,13 +137,14 @@ There are some important best practices to follow for optimal performance of NFS
  
 For performance benchmarks that Azure NetApp Files datastores deliver for VMs on Azure VMware Solution, see [Azure NetApp Files datastore performance benchmarks for Azure VMware Solution](../azure-netapp-files/performance-benchmarks-azure-vmware-solution.md).
 
-**nConnect support for Azure NetApp Files:**
 
-Azure NetApp Files supports **nConnect** to enhance the performance of NFS datastores used with Azure VMware Solution (AVS). nConnect enables multiple TCP connections between ESXi hosts and Azure NetApp Files volumes, increasing parallelism and improving throughput for high-performance and latency-sensitive workloads.
+**Support for nconnect for Azure NetApp Files**
 
-By distributing NFS traffic across multiple connections, nConnect helps reduce bottlenecks associated with single-session limits and improves overall efficiency for applications such as databases, analytics, and large-scale virtualized environments. Increasing the number of connections per datastore allows workloads to achieve higher levels of concurrent I/O operations, which can significantly improve throughput and reduce latency in environments with high concurrency requirements.
+Azure NetApp Files supports nconnect to enhance the performance of NFS datastores used with Azure VMware Solution (AVS). The nconnect option enables multiple TCP connections between ESXi hosts and Azure NetApp Files volumes, increasing parallelism and improving throughput for high-performance and latency-sensitive workloads.
 
-To enable nConnect for Azure NetApp Files datastores in your Azure VMware Solution, submit a support request with below information in the "Add additional details" section:
+By distributing NFS traffic across multiple connections, nconnect helps reduce bottlenecks associated with single-session limits and improves overall efficiency for applications such as databases, analytics, and large-scale virtualized environments. Increasing the number of connections per datastore allows workloads to achieve higher levels of concurrent I/O operations, which can significantly improve throughput and reduce latency in environments with high concurrency requirements.
+
+To enable nconnect for Azure NetApp Files datastores in your Azure VMware Solution, submit a support request with the following information in the **Add additional details** section:
 
 1. Resource group name
 
@@ -150,9 +155,7 @@ To enable nConnect for Azure NetApp Files datastores in your Azure VMware Soluti
 1. Datastore name (Multiple datastores connect to the same cluster can be requested)
 
 > [!NOTE]
-> nConnect is enabled with a default connection value of **4** for NFS datastores. This value cannot be modified to any other setting. If required, nConnect can only be reverted to the default configuration with a connection value of **1**.
-> 
-> nConnect is configured at the ESXi host level and is applied to all the ESXi hosts within the cluster the datastore(s) are attached to.
+> Enabling nconnect on NFS datastores is a non-disruptive operation that you can perform without affecting active workloads. The nconnect option is enabled with a fixed connection value of 4, which you can't customize. If necessary, you can disable it to restore the default single-connection configuration (nconnect=1).
 
 Authorized users can use the `Get-NFSDatastoreNConnectValue` run command to get the configured nConnect values on the datastores after nConnect is deployed.
 

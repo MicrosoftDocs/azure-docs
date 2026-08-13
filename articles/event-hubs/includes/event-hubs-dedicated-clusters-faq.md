@@ -10,40 +10,14 @@ ms.custom: "include file"
 
 ---
 
-### What can I achieve with a cluster?
-
-For an Event Hubs cluster, how much you can ingest and stream depends on factors such as your producers, consumers, and the rate at which you're ingesting and processing.
-
-The following table shows the benchmark results that we achieved during our testing with a legacy dedicated cluster.
-
-| Payload shape | Receivers | Ingress bandwidth| Ingress messages | Egress bandwidth | Egress messages | Total TUs | TUs per CU |
-| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batches of 100x1KB | 2 | 400 MB/sec | 400k messages/sec | 800 MB/sec | 800k messages/sec | 400 TUs | 100 TUs | 
-| Batches of 10x10KB | 2 | 666 MB/sec | 66.6k messages/sec | 1.33 GB/sec | 133k messages/sec | 666 TUs | 166 TUs |
-| Batches of 6x32KB | 1 | 1.05 GB/sec | 34k messages/sec | 1.05 GB/sec | 34k messages/sec | 1,000 TUs | 250 TUs |
-
-In the testing, the following criteria were used:
-
-- A Dedicated-tier Event Hubs cluster with four CUs was used.
-- The event hub used for ingestion had 200 partitions.
-- The data that was ingested was received by two receiver applications receiving from all partitions.
-
 ### Can I scale up or scale down my cluster?
 
-If you create the cluster with the **Support scaling** option set, you can use the [self-serve experience](../event-hubs-dedicated-cluster-create-portal.md#scale-a-dedicated-cluster) to scale out and scale in, as needed. You can scale up to 10 CUs with self-serve scalable clusters. Self-serve scalable dedicated clusters are based on new infrastructure, so they perform better than dedicated clusters that don't support self-serve scaling. The performance of dedicated clusters depends on factors such as resource allocation, number of partitions, and storage. We recommend that you determine the required number of CUs after you test with a real workload.
+Use the [self-serve experience](../event-hubs-dedicated-cluster-create-portal.md#scale-a-dedicated-cluster) to scale out and scale in your dedicated cluster, as needed. You can scale up to 10 CUs. The performance of dedicated clusters depends on factors such as resource allocation, number of partitions, and storage. Test with a real workload to determine the required number of CUs.
 
-[Submit a support request](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to scale out or scale in your dedicated cluster in the following scenarios:
-
-- You need more than 10 CUs for a self-serve scalable dedicated cluster (a cluster that was created with the **Support scaling** option set).
-- You need to scale out or scale in a cluster that was created without selecting the **Support scaling** option.
-- You need to scale out or scale in a dedicated cluster that was created before the self-serve experience was released.
+If you need more than 10 CUs for your dedicated cluster, [submit a support request](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to scale out your cluster.
 
 > [!WARNING]
 > You won't be able to delete the cluster for at least four hours after you create it. You're charged for a minimum of four hours of usage of the cluster. For more information on pricing, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
-
-### Can I migrate from a legacy cluster to a self-serve scalable cluster?
-
-Because of the difference in the underlying hardware and software infrastructure, we don't currently support migration of clusters that don't support self-serve scaling to self-serve scalable dedicated clusters. If you want to use self-serve scaling, you must re-create the cluster. To learn how to create a scalable cluster, see [Create an Event Hubs dedicated cluster](../event-hubs-dedicated-cluster-create-portal.md).
 
 ### When should I scale my dedicated cluster?
 
@@ -70,8 +44,8 @@ You can geo-pair a namespace under a Dedicated-tier cluster with another namespa
 
 We don't currently support an automated migration process for migrating your Event Hubs data from a Standard or Premium namespace to a dedicated one.
 
-### Why does a legacy zone-redundant dedicated cluster have a minimum of eight CUs?
+### How do I create a zone-redundant dedicated cluster?
 
-To provide zone redundancy for the Dedicated offering, all compute resources must have three replicas across three datacenters in the same region. This minimum requirement supports zone redundancy (so that the service can still function when two zones or datacenters are down) and results in a compute capacity equivalent to eight CUs.
+To provide zone redundancy for the Dedicated offering, all compute resources must have replicas across three datacenters in the same region.
 
-We can't change this quota. It's a restriction of the current architecture with a Dedicated tier.
+You can't currently create zone-redundant dedicated clusters through the Azure portal or ARM templates. [Submit a support request](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to create one. Once a zone-redundant cluster is created, you can't scale it below 3 CUs.

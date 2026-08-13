@@ -7,7 +7,7 @@ ms.reviewers: estfan, azla
 ms.topic: tutorial
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
-ms.date: 03/10/2026
+ms.date: 07/21/2026
 ms.custom:
   - mvc
   - sfi-image-nochange
@@ -18,9 +18,9 @@ ms.custom:
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-This tutorial shows how to build an example workflow that automates an approval-based task by using Azure Logic Apps. This example specifically creates a Consumption logic app workflow that processes subscription requests for a mailing list that's managed by [MailChimp](https://mailchimp.com/).
+This tutorial shows how to build an example workflow that automates an approval-based task by using Azure Logic Apps. This example specifically creates a Consumption logic app workflow that processes subscription requests for a mailing list managed by [MailChimp](https://mailchimp.com/).
 
-The workflow starts with monitoring an email account for requests, sends received requests for approval, checks whether or not the request gets approval, adds approved members to the mailing list, and confirms whether or not new members get added to the list.
+The workflow starts by monitoring an email account for requests and sending the received requests for approval. If the recipient approves the request, and the member is successfully added to the mailing list, the workflow sends a confirmation email. Otherwise, the workflow sends a failure email.
 
 When you finish, your workflow looks like the following high level example:
 
@@ -62,9 +62,9 @@ You can create a similar workflow with a Standard logic app resource where some 
 
 1. In the Azure portal search box, enter **logic app**, and select **Logic apps**.
 
-   :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/find-select-logic-apps.png" alt-text="Screenshot shows Azure portal search box with logic app entered and selected option for Logic apps." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/find-select-logic-apps.png":::
+   :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/find-select-logic-apps.png" alt-text="Screenshot shows Azure portal search box with logic app entered and the option selected for Logic apps." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/find-select-logic-apps.png":::
 
-1. On the **Logic apps** page toolbar, select **Add**.
+1. On the **Logic apps** page toolbar, select **+ Create**.
 
    The **Create Logic App** page appears and shows the following options:
 
@@ -130,7 +130,7 @@ The following steps add a trigger that waits for incoming emails that have subsc
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-Your workflow is now live but doesn't do anything other check your emails. Next, add an action that responds when the trigger fires.
+Your workflow is now live but doesn't do anything other than check your emails. Next, add an action that responds when the trigger fires.
 
 ## Add an action to send approval email
 
@@ -167,13 +167,13 @@ Next, add a condition that checks the approver's selected response.
 
       :::image type="content" source="media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-selected-option.png" alt-text="Screenshot shows condition action, second row with cursor in leftmost box, open dynamic content list, and SelectedOption selected." lightbox="media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-selected-option.png":::
 
-   1. In the middle box, keep the operator named **is equal to**.
+   1. In the middle box, keep the equals (**=**) operator.
 
    1. In the right box, enter **Approve**.
 
    When you finish, the condition looks like the following example:
 
-   :::image type="content" source="media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-done.png" alt-text="Screenshot shows the finished condition for example approval workflow." lightbox="media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-done.png":::
+   :::image type="content" source="media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-done.png" alt-text="Screenshot shows the finished condition for the example approval workflow." lightbox="media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-done.png":::
 
 1. Save your workflow.
 
@@ -213,7 +213,7 @@ The following steps add a condition to check whether the new member successfully
 
    1. On the **Parameters** tab, in the first row under the **AND** list, select inside the left box, and then select the dynamic content list (lightning icon). From this list, in the **Add member to list** section, select the **Status** output.
 
-   1. In the middle box, keep the operator named **is equal to**.
+   1. In the middle box, keep the **=** operator.
 
    1. In the right box, enter **subscribed**.
 

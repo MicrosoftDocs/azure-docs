@@ -1,20 +1,21 @@
 ---
-title: How to control OPC UA assets
-description: Learn how to configure OPC UA assets and devices to enable you to control and OPC UA server.
+title: Control OPC UA server data
+description: Learn how to read and write data to OPC UA servers in Azure IoT Operations by using datasets, management groups, and sub-path (subtree) actions.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-opcua-connector
 ms.topic: how-to
-ms.date: 10/08/2025
+ai-usage: ai-assisted
+ms.date: 07/27/2026
 
 
-#CustomerIntent: As an OT user, I want configure my Azure IoT Operations environment so that I can control my OPC UA server. I also want to see a sample application that lets me do this.
+#CustomerIntent: As an OT user, I want to configure my Azure IoT Operations environment so that I can control my OPC UA server. I also want to see a sample application that lets me do this.
 ---
 
-# Control OPC UA servers
+# Control OPC UA servers in Azure IoT Operations
 
-_OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent tags. You can read and write values to some tags to control the behavior of your OPC UA server and physical assets.
+_OPC UA servers_ are software applications that communicate with assets. OPC UA servers expose _OPC UA tags_ that represent data points on the physical assets. You can read and write values to some tags to control the behavior of your OPC UA server and physical assets.
 
 This article describes:
 
@@ -42,11 +43,11 @@ param deviceName string
 @description('The name of the device endpoint to reference.')
 param endpointName string
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
   name: aioNamespace
 }
 
-resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
   name: 'process-control-dataset-actions'
   parent: namespace
   location: location
@@ -177,10 +178,10 @@ param deviceName string
 @description('The name of the device endpoint to reference.')
 param endpointName string
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
   name: aioNamespace
 }
-resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
   name: 'management-actions-asset'
   parent: namespace
   location: location
@@ -322,6 +323,55 @@ When you publish a message to the topic `azure-iot-operations/asset-operations/<
 
 The message must include the required [metadata](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/message-metadata.md).
 
+### Sub-path write using a management group
+
+A *sub-path action* applies a single `Read` or `Write` action to a node and all of its children, instead of a single explicitly configured node. A sub-path action differs from an explicit write in the following ways:
+
+- A single action targets the root node of a subtree and every writable node beneath it.
+- You address each target node by its relative browse path from the root node rather than by `nodeId`.
+
+Configure a sub-path action by setting the management group `dataSource` to the root node of the subtree and the action `targetUri` to `#`:
+
+```yaml
+managementGroups:
+  - name: managementGroup
+    dataSource: "nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=5"   # root node of the subtree
+    actions:
+      - name: subpath-read
+        actionType: Read
+        targetUri: "#"
+      - name: subpath-write
+        actionType: Write
+        targetUri: "#"
+```
+
+An action always has the following properties:
+
+- `name`: Name of the action in a management group.
+- `targetUri`: Set to `#` to apply the action to the root node and all of its children.
+- `actionType`: The type of action. For sub-path writes, this property is always `Write`.
+
+A sub-path write addresses each target by its relative browse path from the root node. The value is what to write to the node. When you publish a message to the topic `azure-iot-operations/asset-operations/<asset name>/<management group name>/<action name>`, the commander service writes to each node identified by its relative browse path. For example, to set the target temperature by using the `subpath-write` action, publish a message with the following payload to the topic `azure-iot-operations/asset-operations/management-actions-asset/managementGroup/subpath-write`:
+
+```json
+{
+  "/4:Boiler &#2/2:ParameterSet/4:TargetTemperature": 42.5
+}
+```
+
+> [!TIP]
+> The previous example shows a single relative browse path and value. You can include multiple relative browse paths and values in the same message to write to multiple nodes at once. 
+
+The commander service accepts only relative paths that stay within the subtree. It rejects absolute node IDs and paths that leave the subtree, returning `BadInvalidArgument`. As with other write actions, the response is empty on full success. Otherwise, the response reports each failed path with its OPC UA status:
+
+```json
+{
+  "/4:Boiler &#2/2:ParameterSet/4:DoesNotExist": "BadNoMatch"
+}
+```
+
+The message must include the required [metadata](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/message-metadata.md).
+
 ## How to read data from an OPC UA server
 
 Typically, to read data from an OPC UA server, you create a dataset that includes data points that map to the nodes you want to read. You then configure the dataset to send values as telemetry, such as by publishing to an MQTT topic.
@@ -335,7 +385,7 @@ The `opc-ua-commander` service in the Azure IoT Operations cluster connects to y
 
 The commander service can perform the following types of read operations:
 
-### Explicit reads by using a management group
+### Explicit read using a management group
 
 Use *explicit reads* to read data points that aren't part of a dataset. Compared to a standard dataset read, the differences are:
 
@@ -357,6 +407,28 @@ When you publish a message to the topic `azure-iot-operations/asset-operations/<
 ```
 
 After the commander executes the action, its response is a JSON representation of the OPC UA read response.
+
+The message must include the required [metadata](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/message-metadata.md).
+
+### Sub-path read using a management group
+
+A *sub-path (subtree) action* applies a single action to a node and all of its children. For a full description of sub-path actions, see [Sub-path write using a management group](#sub-path-write-using-a-management-group).
+
+Use a sub-path read to read a root node and every readable node beneath it with a single action. Configure a sub-path read the same way as a sub-path write: set the management group `dataSource` to the root node of the subtree and the action `targetUri` to `#`. The example configuration includes a `subpath-read` action in the management group `managementGroup`. The action type is `Read`, and the `targetUri` is `#`.
+
+An action always has the following properties:
+
+- `name`: Name of the action in a management group.
+- `targetUri`: Set to `#` to apply the action to the root node and all of its children.
+- `actionType`: The type of action. For sub-path reads, this property is always `Read`.
+
+When you publish an empty message, `{}`, to the topic `azure-iot-operations/asset-operations/<asset name>/<management group name>/<action name>`, the commander service reads every readable node under the root node. For example, to read the subtree by using the `subpath-read` action, publish a message with the following payload to the topic `azure-iot-operations/asset-operations/management-actions-asset/managementGroup/subpath-read`:
+
+```json
+{}
+```
+
+The response returns every readable node under the root node, keyed by its relative browse path. Nodes that can't be read carry a `StatusCode` instead of a value. For more information, see [Error reporting](#error-reporting).
 
 The message must include the required [metadata](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/message-metadata.md).
 
@@ -429,6 +501,95 @@ For example, the DTDL model for the `call` actions the sample uses looks like th
   ]
 }
 ```
+
+## Error reporting
+
+The commander service reports the outcome of every request through two independent channels of the MQTT RPC response:
+
+1. **Response message metadata** (MQTT user properties): Carries the overall result of the RPC call and, when applicable, an *application error*.
+1. **Response payload** (the JSON body): Carries the result for each data point, such as read values or the OPC UA status of individual data points that failed.
+
+A client should always inspect *both* channels. A request can complete as a normal RPC response and still contain data point failures inside the payload.
+
+### General errors compared to application errors
+
+The response [message metadata](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/message-metadata.md) distinguishes two kinds of problems:
+
+- **General errors** come from the Azure IoT Operations SDK itself. Examples include a malformed request payload that can't be deserialized, or a lost session. These errors surface through the RPC status user properties (`__stat` and `__stMsg`), and the generated client raises them as an error.
+- **Application errors** come from the commander service when it receives and understands the request but can't fulfill it. They appear in the user properties `AppErrCode` (a short reason string, always present when an application error occurs) and, optionally, `AppErrPayload`. Retrieve them with the `TryGetApplicationError` method of the `ExtendedResponse` in the Azure IoT Operations SDK.
+
+> [!NOTE]
+> `AppErrCode` is a free-form string, not a fixed enumeration. It's either a well-known constant (see the following table), an OPC UA status code name (for example, `BadNodeIdUnknown`), or a diagnostic message.
+
+#### Well-known application error codes
+
+| AppErrCode value | Meaning |
+|---|---|
+| `NoActionName` | The request doesn't include an action name in the topic. |
+| `UnknownAction` | The action name doesn't exist in the management group of the asset. |
+| `CustomTopicExecutorExists` | The action uses a custom topic, but the request targets the default topic instead. |
+| `Bad...` (an OPC UA status name) | The OPC UA server, or the commander service's prevalidation, rejected the request or a node. See [OPC UA status codes](#opc-ua-status-codes). |
+| A diagnostic message | An unexpected condition. The string describes the reason, such as a lost OPC UA session. |
+
+### Results for each data point in the response payload
+
+For requests that address multiple data points, the payload reports the outcome of *each* data point individually, keyed by the data point or argument name. With this behavior, a caller can match every result back to its request even when the order differs, and *partial success* is possible.
+
+#### Write results (dataset write, explicit write, sub-path write)
+
+A write response reports only the data points that failed:
+
+- On *full success*, the response payload is an empty JSON object, `{}`. Every data point has a `Good` status.
+- On *partial or full failure*, the payload contains one entry per failed data point, keyed by the data point name, whose value is the OPC UA status name. The payload omits data points that succeeded:
+
+```json
+{
+  "TargetTemperature": "BadTypeMismatch",
+  "MaintenanceInterval": "BadNotWritable"
+}
+```
+
+Request-level problems that prevent any per-datapoint processing use the reserved key `_ErrorMessage`:
+
+```json
+{ "_ErrorMessage": "BadNothingToDo" }
+```
+
+#### Read results (dataset read, explicit read, sub-path read)
+
+A read response is the keyframe of the requested data points. Data points that are read successfully carry their value. Data points that can't be read carry an OPC UA `StatusCode` instead of a value, so a bad node doesn't fail the whole read:
+
+```json
+{
+  "CurrentTemperature": { "Value": 21.5 },
+  "BadNode":            { "StatusCode": "BadNodeIdUnknown" }
+}
+```
+
+#### Method call results
+
+For a method call, the payload on success is a JSON object with all output arguments of the method. On failure, the payload is empty, and the commander service reports the reason as an application error (`AppErrCode`).
+
+### Where errors appear for each operation
+
+Because a single request can touch many data points, multiple data points can fail independently. Which channel carries the failure differs by operation:
+
+| Operation | Full success | Some data points fail | Whole request fails |
+|---|---|---|---|
+| Dataset write | Empty payload, no `AppErrCode` | Failed data points in payload, no `AppErrCode` | `AppErrCode` set, empty payload |
+| Explicit or sub-path write | Empty payload, no `AppErrCode` | Failed data points in payload and `AppErrCode` set | `AppErrCode` set, empty payload |
+| Dataset or sub-path read | Values in payload, no `AppErrCode` | Bad data points carry `StatusCode` in payload, no `AppErrCode` | `AppErrCode` set, empty payload |
+| Method call | Output arguments in payload | Not applicable (single call) | `AppErrCode` set, empty payload |
+
+> [!IMPORTANT]
+> For dataset write and read operations, only the payload reports data point failures. The RPC response is still a normal (non-error) response, and no `AppErrCode` is present. A client that checks only for an application error would miss these failures. Always inspect the payload as well.
+
+### OPC UA status codes
+
+The commander service reports all OPC UA statuses by their symbolic name, such as `Good`, `BadNodeIdUnknown`, `BadNodeIdInvalid`, `BadNoMatch`, `BadTypeMismatch`, `BadNotWritable`, `BadUserAccessDenied`, and `BadOutOfRange`. It also rejects some clearly invalid requests before contacting the OPC UA server and reports them with the matching status name. Examples include `BadNothingToDo` (empty request), `BadTooManyArguments` or `BadArgumentsMissing` (wrong number of method or explicit-write arguments), and `BadNodeClassInvalid` (the target node isn't a variable). For the meaning of each code, see the [OPC UA status code specification](https://reference.opcfoundation.org/specs/OPC-10000-4/7.38).
+
+> [!NOTE]
+> `_ErrorMessage` is a reserved name. Don't use it as a data point name in a dataset or as an action name in a management group. The commander service uses it as a request-level error key in the response payload.
 
 ## Related content
 

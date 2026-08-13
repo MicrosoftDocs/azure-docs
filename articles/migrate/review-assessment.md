@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.reviewer: v-uhabiba
 ms.date: 04/17/2025
+ms.update-cycle: 365-days
 monikerRange:
 # Customer intent: "As a cloud architect, I want to review the assessment of on-premises VMs for Azure migration, so that I can ensure readiness, optimize sizing, and estimate costs effectively before proceeding with migration."
 ---

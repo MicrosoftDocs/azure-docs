@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett 
 ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
-ms.date: 10/22/2024
+ms.date: 07/10/2026
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ms.service: azure-iot-operations
@@ -13,22 +13,22 @@ ms.service: azure-iot-operations
 
 # Tutorial: Build an event-driven app with Dapr and MQTT broker
 
-In this walkthrough, you deploy a Dapr application to the cluster. The Dapr application consumes simulated MQTT data published to MQTT broker, applies a windowing function, and then publishes the result back to MQTT broker. The published output represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and uses the MQTT broker state store to cache past values needed for the window calculations.
+In this tutorial, you deploy a Dapr application to the cluster. The Dapr application consumes simulated MQTT data published to MQTT broker, applies a windowing function, and then publishes the result back to MQTT broker. The published output represents how high volume data can be aggregated on the edge to reduce message frequency and size. The Dapr application is stateless, and uses the MQTT broker state store to cache past values needed for the window calculations.
 
 The Dapr application performs the following steps:
 
 1. Subscribes to the `sensor/data` topic for sensor data.
 1. When data is receiving on the topic, it's published to the MQTT broker state store.
-2. Every **10 seconds**, it fetches the data from the state store and calculates the *min*, *max*, *mean*, *median*, and *75th percentile* values on any sensor data timestamped in the last **30 seconds**.
-3. Data older than **30 seconds** is expired from the state store.
-4. The result is published to the `sensor/window_data` topic in JSON format.
+1. Every **10 seconds**, it fetches the data from the state store and calculates the *min*, *max*, *mean*, *median*, and *75th percentile* values on any sensor data timestamped in the last **30 seconds**.
+1. Data older than **30 seconds** is expired from the state store.
+1. The result is published to the `sensor/window_data` topic in JSON format.
 
 > [!NOTE]
 > This tutorial [disables Dapr CloudEvents](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-raw/) which enables it to publish and subscribe using raw MQTT.
 
 ## Prerequisites
 
-* Azure IoT Operations installed - [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
+* An Azure Arc-enabled Kubernetes cluster with Azure IoT Operations deployed. If you don't have one, you can follow the instructions in [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) to quickly create one in GitHub Codespaces.
 * MQTT broker Dapr components installed - [Install MQTT broker Dapr Components](./howto-deploy-dapr.md)
  
 ## Deploy the Dapr application
@@ -128,23 +128,24 @@ Simulate test data by deploying a Kubernetes workload. It simulates a sensor by 
 1. Confirm the simulator is running correctly:
 
     ```bash
-    kubectl logs deployment/mqtt-publisher-deployment -n azure-iot-operations -f
+    kubectl logs deployment/mqtt-publisher -n azure-iot-operations -f
     ```
 
     With the following output:
 
     ```output
-    Get:1 http://deb.debian.org/debian stable InRelease [151 kB]
-    Get:2 http://deb.debian.org/debian stable-updates InRelease [52.1 kB]
-    Get:3 http://deb.debian.org/debian-security stable-security InRelease [48.0 kB]
-    Get:4 http://deb.debian.org/debian stable/main amd64 Packages [8780 kB]
-    Get:5 http://deb.debian.org/debian stable-updates/main amd64 Packages [6668 B]
-    Get:6 http://deb.debian.org/debian-security stable-security/main amd64 Packages [101 kB]
-    Fetched 9139 kB in 3s (3570 kB/s)
-    ...
-    Messages published in the last 10 seconds: 10
-    Messages published in the last 10 seconds: 10
-    Messages published in the last 10 seconds: 10
+    (1/4) Installing cjson (1.7.19-r1)
+    (2/4) Installing c-ares (1.34.8-r0)
+    (3/4) Installing mosquitto-libs (2.1.2-r1)
+    (4/4) Installing mosquitto-clients (2.1.2-r1)
+    Executing busybox-1.37.0-r31.trigger
+    OK: 8787 KiB in 20 packages
+    Starting simulator
+    Published 5 messages
+    Published 10 messages
+    Published 15 messages
+    Published 20 messages
+    Published 25 messages
     ```
 
 ## Deploy an MQTT client
@@ -199,6 +200,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
     Verify output:
 
     ```output
+    serviceaccount/mqtt-client created
     pod/mqtt-client created
     ```
 
@@ -213,14 +215,26 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 1. Subscribe to the `sensor/window_data` topic to observe the published output from the Dapr application:
 
     ```bash
-    mosquitto_sub -L mqtt://aio-broker/sensor/window_data
+    TOKEN=$(cat /var/run/secrets/tokens/mqtt-client-token)
+    
+    mosquitto_sub \
+      -h aio-broker \
+      -p 18883 \
+      --cafile /var/run/certs/aio-internal-ca-cert/ca.crt \
+      -u K8S-SAT \
+      -P "$TOKEN" \
+      -t "sensor/window_data" \
+      -v
     ```
+
+    > [!NOTE]
+    > The preceding command works for the [quickstart codespace](../get-started-end-to-end-sample/quickstart-deploy.md). If you're using a different environment, you might need to adjust the parameters.
 
 1. Verify the application is outputting a sliding windows calculation for the various sensors every 10 seconds:
 
     ```json
     {
-        "timestamp": "2023-11-16T21:59:53.939690+00:00",
+        "timestamp": "2026-07-09T05:20:39.462675+00:00",
         "window_size": 30,
         "temperature": {
             "min": 553.024,
@@ -269,7 +283,7 @@ This tutorial uses a prebuilt container of the Dapr application. If you would li
 1. Change to the Dapr tutorial directory:
 
     ```bash
-    cd explore-iot-operations/tutorials/mq-event-driven-dapr/src
+    cd explore-iot-operations/tutorials/mq-event-driven-dapr
     ```
 
 1. Build the docker image:

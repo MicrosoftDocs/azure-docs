@@ -63,3 +63,4 @@ To update Runtime environment of runbook, follow these steps:
 ## Next steps
 
 - See [Manage Runtime environment](manage-runtime-environment.md) to view the various operations through portal and REST API.
+- For information on runtime version support and its impact on runbooks, see [Language runtime support and retirement policy for Azure Automation](automation-runtime-retirement-policy.md).

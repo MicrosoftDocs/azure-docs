@@ -1,5 +1,9 @@
 - name: What is Azure Compute Fleet?
   href: overview.md
+- name: Managed mode
+  href: managed-mode.md
+- name: Launch mode (Preview)
+  href: launch-mode.md
 - name: Quickstarts
   items:
   - name: Create in the Azure portal
@@ -15,8 +19,6 @@
   href: spot-vm-configuration.md
 - name: Attribute based VM selection (Preview)
   href: attribute-based-vm-selection.md
-- name: Modify a Compute Fleet
-  href: modify-fleet.md
 - name: Multi-region Compute Fleet (Preview)
   href: multi-region-compute-fleet.md
 - name: FAQ

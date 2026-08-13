@@ -3,7 +3,7 @@ title: Configure Azure IoT Edge device settings
 description: This article shows you how to configure Azure IoT Edge device settings and options using the config.toml file.
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/14/2025
+ms.date: 07/16/2026
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -341,7 +341,7 @@ type = "docker"
 imagePullPolicy = "..."   # "on-create" or "never". Defaults to "on-create"
 
 [agent.config]
-image = "mcr.microsoft.com/azureiotedge-agent:1.5"
+image = "mcr.microsoft.com/azureiotedge-agent:1.6"
 createOptions = { HostConfig = { Binds = ["/iotedge/storage:/iotedge/storage"] } }
 
 [agent.config.auth]

@@ -7,7 +7,7 @@ ms.topic: concept-article
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
 ms.date: 05/01/2026
-ms.author: franlanglois
+ms.author: hannahhunter
 ---
 # Durable Task Scheduler billing
 
@@ -26,7 +26,7 @@ The following table compares the two pricing models at a glance.
 | **High availability** | Supported (requires 3 CUs) | Not available |
 | **Best for** | Production workloads with predictable volume | Dev/test and variable workloads |
 
-For current pricing, see the [Durable Task Scheduler pricing page](https://azure.microsoft.com/pricing/details/functions/).
+For current pricing, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) (which includes Durable Task Scheduler pricing information).
 
 ## What is an action?
 
@@ -142,6 +142,47 @@ An e-commerce application experiences dynamic scaling during promotional sales e
 | - | ----------- | ------ |
 | Monthly actions | 20,000 × 7 | 140,000 actions |
 
+## Monthly spend examples
+
+Use your regional prices from the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) (which includes Durable Task Scheduler pricing information), then apply the formulas in this section.
+
+### Consumption SKU monthly spend example
+
+The Consumption SKU bills you by actions dispatched.
+
+| Step | Calculation |
+| - | - |
+| 1. Monthly actions | `orchestrations per month × actions per orchestration` |
+| 2. Convert to million actions | `monthly actions ÷ 1,000,000` |
+| 3. Monthly scheduler spend | `(monthly actions ÷ 1,000,000) × regional price per million actions` |
+
+Using the existing consumption examples in this article:
+
+| Workload | Monthly actions | Monthly scheduler spend |
+| - | - | - |
+| Example 1 (10,000 runs × 3 actions) | 30,000 | `(30,000 ÷ 1,000,000) × regional price per million actions` |
+| Example 2 (20,000 runs × 7 actions) | 140,000 | `(140,000 ÷ 1,000,000) × regional price per million actions` |
+
+### Dedicated SKU monthly spend example
+
+The Dedicated SKU bills by provisioned CUs, not by actions.
+
+| Step | Calculation |
+| - | - |
+| 1. Determine required CUs | From the capacity calculation section |
+| 2. Monthly scheduler spend | `provisioned CUs × regional monthly price per CU` |
+
+Using the existing dedicated examples in this article:
+
+| Workload | Required CUs | Monthly scheduler spend |
+| - | - | - |
+| Example 1 | 1 | `1 × regional monthly price per CU` |
+| Example 2 | 2 | `2 × regional monthly price per CU` |
+| Example 3 | 3 | `3 × regional monthly price per CU` |
+
+> [!TIP]
+> Your total monthly cost = Durable Task Scheduler spend + compute platform spend. For compute pricing, see [Compute costs](#compute-costs).
+
 ## Compute costs
 
 In addition to the Durable Task Scheduler, you pay for the compute platform that hosts your application. Your compute costs depend on the orchestration framework you use.
@@ -178,7 +219,7 @@ For detailed pricing information, see the billing documentation for each compute
 ## Related content
 
 - [Quickstart: Host a Durable Task SDK app on Azure Container Apps](../sdks/quickstart-container-apps-durable-task-sdk.md)
-- [Durable Task Scheduler pricing](https://azure.microsoft.com/pricing/details/durable-task-scheduler/)
+- [Azure Functions pricing (includes Durable Task Scheduler pricing information)](https://azure.microsoft.com/pricing/details/functions/)
 - [Throughput performance benchmarks](./durable-task-scheduler-work-item-throughput.md)
 - [Choose your orchestration framework](../common/choose-orchestration-framework.md)
 - [Durable Functions billing](../durable-functions/durable-functions-billing.md)

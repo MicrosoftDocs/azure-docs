@@ -1,8 +1,9 @@
 ---
 title: Network Connectivity Configuration
-description: Configure Azure CycleCloud to access your Virtual Machines
+description: Learn how to configure network connectivity so Azure CycleCloud can access the virtual machines in your clusters.
 author: adriankjohnson
-ms.date: 06/10/2025
+ms.date: 06/19/2026
+ms.topic: concept-article
 ms.author: adjohnso
 ---
 

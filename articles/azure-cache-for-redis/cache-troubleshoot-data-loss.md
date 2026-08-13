@@ -11,7 +11,7 @@ appliesto:
 
 This article discusses how to diagnose [partial](#partial-key-loss) or [complete](#complete-key-loss) data loss that occurs in Azure Cache for Redis.
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 ## Partial key loss
 

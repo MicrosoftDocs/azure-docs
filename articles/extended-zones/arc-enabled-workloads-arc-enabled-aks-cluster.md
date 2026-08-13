@@ -3,6 +3,7 @@ title: "Create an Arc-enabled AKS cluster in an Extended Zone"
 description: Learn how to creat an Arc-enabled AKS cluster in an Extended Zone.
 author: svaldesgzz
 ms.author: svaldes
+ms.reviewer: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
 ms.date: 04/30/2026

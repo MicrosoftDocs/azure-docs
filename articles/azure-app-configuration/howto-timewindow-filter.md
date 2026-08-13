@@ -7,7 +7,7 @@ ms.devlang: csharp
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
-ms.date: 07/08/2025
+ms.date: 06/25/2026
 #customer intent: As an application developer, I want to enable a recurring time window filter in a feature flag so that I can enable or disable features on a schedule.
 ---
 
@@ -20,6 +20,9 @@ In this article, you learn how to add and configure a time window filter for you
 ## Add a time window filter
 
 1. Create a feature flag named *Beta* in the **Feature Manager** menu of your App Configuration store and move to the right end of the feature flag you want to modify, then select the **More actions** ellipsis (**...**) action and **Edit**. For more information about how to add and edit a feature flag, see [Manage feature flags](./manage-feature-flags.md).
+
+> [!NOTE] 
+> If you already created a *Beta* feature flag for testing other feature filters, consider creating a separate feature flag for the time window filter. Reusing the same flag can make evaluations harder to troubleshoot and might produce unexpected behavior when multiple filters are configured.
 
 1. In the **Edit** pane that opens, check the **Enable feature flag** checkbox if it's currently unchecked, then check the **Use feature filter** checkbox and select **Create**.
 

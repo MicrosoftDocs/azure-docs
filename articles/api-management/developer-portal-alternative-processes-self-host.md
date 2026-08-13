@@ -2,8 +2,6 @@
 title: Alternatives for self-hosting developer portal
 titleSuffix: Azure API Management
 description: Learn about alternative approaches you can use when you self-host a developer portal in Azure API Management.
-author: dlepow
-ms.author: danlep
 ms.date: 05/20/2026
 ms.service: azure-api-management
 ms.topic: how-to

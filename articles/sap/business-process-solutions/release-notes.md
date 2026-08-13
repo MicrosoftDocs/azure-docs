@@ -14,6 +14,15 @@ ms.author: momakhij
 
 The following document outlines the changes to Business Process Solutions. Changes can include bug fixes and updates to existing notebooks, pipelines, and environments. The document is updated with each release of the solution and is intended to keep users informed about the latest updates and breaking changes to the solution.
 
+## Version 1.0.3
+
+- Update spark configurations in all notebooks to handle issues with date time parsing and processing.
+- Fixed Query bugs for view creation in ECC view creation notebook.
+- Added exception handling and logging to all notebooks for better error tracking and debugging.
+- Updated ECC B2S pipelines to run the fiscal period processing notebook and hierarchy processing notebook as part of the pipeline.
+- Added new parameter in open mirroring pipeline to allow users to pass mirror database workspace ID as a parameter instead of hardcoding it in the notebook.
+- Updated Salesforce pipeline to enable high concurrency sessions for notebook execution to improve performance and reduce execution time.
+
 ## Version 1.0.2
 
 - Added new helper functions to common environment file.

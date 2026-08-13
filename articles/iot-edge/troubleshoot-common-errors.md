@@ -3,7 +3,7 @@ title: Troubleshoot Azure IoT Edge common errors
 description: Resolve common issues in Azure IoT Edge solutions. Learn how to troubleshoot issues with provisioning, deployment, the IoT Edge runtime, and networking.
 author: sethmanheim
 ms.author: sethm
-ms.date: 06/16/2026
+ms.date: 07/16/2026
 ms.topic: troubleshooting-general
 ms.service: azure-iot-edge
 services: iot-edge
@@ -279,7 +279,7 @@ In the deployment.json file:
      "edgeHub": {
          "restartPolicy": "always",
          "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
             "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
          },
          "status": "running",
@@ -293,7 +293,7 @@ In the deployment.json file:
      "edgeHub": {
          "restartPolicy": "always",
          "settings": {
-         "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+         "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
          "status": "running",
          "type": "docker"
    }
@@ -354,7 +354,7 @@ In the Azure portal:
          },
          "restartPolicy": "always",
          "settings": {
-               "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+               "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
          },
          "status": "running",

@@ -1,11 +1,11 @@
 ---
-title: Configure HTTPS on Front Door (classic) custom domain
-description: Learn how to enable and disable HTTPS on your Azure Front Door (classic) configuration for a custom domain.
+title: Configure HTTPS on an Azure Front Door Custom Domain
+description: Learn how to enable and disable HTTPS on an existing Azure Front Door (classic) custom domain by using your own certificate.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 05/04/2026
+ms.date: 07/30/2026
 ms.custom:
   - build-2025
   - sfi-image-nochange
@@ -19,22 +19,14 @@ ms.custom:
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-This article explains how to enable HTTPS for a custom domain associated with your Front Door (classic). Using HTTPS on your custom domain (for example, `https://www.contoso.com`) ensures secure data transmission via TLS/SSL encryption. When a web browser connects to a website using HTTPS, it validates the website's security certificate and verifies its legitimacy, providing security and protecting your web applications from malicious attacks.
+This article explains how to enable HTTPS for a custom domain associated with your Front Door (classic). Using HTTPS on your custom domain (for example, `https://www.contoso.com`) ensures secure data transmission through TLS/SSL encryption. When a web browser connects to a website by using HTTPS, it validates the website's security certificate and verifies its legitimacy, providing security and protecting your web applications from malicious attacks.
 
 Azure Front Door supports HTTPS by default on its default hostname (for example, `https://contoso.azurefd.net`). However, you need to enable HTTPS separately for custom domains like `www.contoso.com`.
 
-Key attributes of the custom HTTPS feature include:
-
-- **No extra cost**: No costs for certificate acquisition, renewal, or HTTPS traffic.
-- **Simple enablement**: One-select provisioning via the [Azure portal](https://portal.azure.com), REST API, or other developer tools.
-- **Complete certificate management**: Automatic certificate procurement and renewal, eliminating the risk of service interruption due to expired certificates.
-
-In this tutorial, you learn to:
+In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Enable HTTPS on your custom domain.
-> - Use an AFD-managed certificate.
-> - Use your own TLS/SSL certificate.
-> - Validate the domain.
+> - Use your own TLS/SSL certificate stored in Azure Key Vault.
 > - Disable HTTPS on your custom domain.
 
 ## Prerequisites
@@ -43,21 +35,21 @@ In this tutorial, you learn to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- An Azure Front Door with at least one custom domain onboarded. For more information, see [Tutorial: Add a custom domain to your Front Door](front-door-custom-domain.md).
+- An Azure Front Door with at least one custom domain onboarded. For more information, see [Add a custom domain to your Front Door](front-door-custom-domain.md).
 
-- Azure Cloud Shell or Azure PowerShell to register Front Door service principal in your Microsoft Entra ID when [using your own certificate](#option-2-use-your-own-certificate).
+- Azure Cloud Shell or Azure PowerShell to register Front Door service principal in your Microsoft Entra ID.
 
     The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the cmdlets in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-    You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+    You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. If you run PowerShell locally, sign in to Azure by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 # [**Azure CLI**](#tab/cli)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- An Azure Front Door with at least one custom domain onboarded. For more information, see [Tutorial: Add a custom domain to your Front Door](front-door-custom-domain.md).
+- An Azure Front Door with at least one custom domain onboarded. For more information, see [Add a custom domain to your Front Door](front-door-custom-domain.md).
 
-- Azure Cloud Shell or Azure CLI to register Front Door service principal in your Microsoft Entra ID when [using your own certificate](#option-2-use-your-own-certificate).
+- Azure Cloud Shell or Azure CLI to register Front Door service principal in your Microsoft Entra ID.
 
     The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
@@ -67,55 +59,25 @@ In this tutorial, you learn to:
 
 ## TLS/SSL certificates
 
-To enable HTTPS on a Front Door (classic) custom domain, you need a TLS/SSL certificate. You can either use a certificate managed by Azure Front Door or your own certificate.
+Azure Front Door uses Server Name Indication (SNI) TLS/SSL. To enable HTTPS on an existing Front Door (classic) custom domain, use your own TLS/SSL certificate through an integration with Azure Key Vault. Ensure your certificate is from a [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT) and has a complete certificate chain.
 
-### Option 1 (default): Use a certificate managed by Front Door
+### Prepare your key vault and certificate
 
-If you use a certificate managed by Azure Front Door Classic, you can turn on HTTPS by changing a few settings. Azure Front Door Classic takes care of all certificate management tasks, including getting and renewing the certificate. This option supports custom domains that use direct CNAME to Azure Front Door Classic endpoint.
-
-> [!IMPORTANT]
-> - As of May 8, 2025, DigiCert no longer supports the WHOIS-based domain validation method. If your domain uses an indirect CNAME mapping to Azure Front Door Classic endpoint, you must use the **Bring Your Own Certificate (BYOC)** feature.
-> - Due to changes in WHOIS-based domain validation, managed certificates issued using WHOIS-based domain validation can't be autorenewed until you have a direct CNAME pointing to Azure Front Door Classic.
-> - Managed certificates aren't available for root or apex domains (for example, `contoso.com`). If your Azure Front Door Classic custom domain is a root or apex domain, you must use the **Bring Your Own Certificate (BYOC)** feature.
-> - Managed certificate autorenewal requires that your custom domain be directly mapped to your Azure Front Door Classic endpoint using a CNAME record.
-
-To enable HTTPS on a custom domain:
-
-1. In the [Azure portal](https://portal.azure.com), go to your **Front Door** profile.
-
-1. Select the custom domain you want to enable HTTPS for from the list of frontend hosts.
-
-1. Under **Custom domain HTTPS**, select **Enabled** and choose **Front Door managed** as the certificate source.
-
-1. Select **Save**.
-
-1. Proceed to [Validate the domain](#validate-the-domain).
-
-> [!NOTE]
-> - DigiCert’s 64 character limit is enforced for Azure Front Door-managed certificates. Validation fails if this limit is exceeded.
-> - Enabling HTTPS via Front Door managed certificate isn't supported for apex/root domains (for example, contoso.com). Use your own certificate for this scenario (see Option 2).
-
-### Option 2: Use your own certificate
-
-You can use your own certificate through an integration with Azure Key Vault. Ensure your certificate is from a [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT) and has a complete certificate chain.
-
-#### Prepare your key vault and certificate
-
-- Create a key vault account in the same Azure subscription as your Front Door.
-- Configure your key vault to allow trusted Microsoft services to bypass the firewall if network access restrictions are enabled.
-- Use the *Key Vault access policy* permission model.
-- Upload your certificate as a **certificate** object, not a **secret**.
+1. Create a Key Vault account in the same Azure subscription as your Front Door.
+1. Configure your key vault to allow trusted Microsoft services to bypass the firewall if network access restrictions are enabled.
+1. Use the *Key Vault access policy* permission model.
+1. Upload your certificate as a **certificate** object, not a **secret**.
 
 > [!NOTE]
 > Front Door doesn't support certificates with elliptic curve (EC) cryptography algorithms. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA list](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT).
 
-#### Register Azure Front Door
+### Register Azure Front Door
 
-Register the Azure Front Door service principal in your Microsoft Entra ID using Azure PowerShell or Azure CLI.
+Register the Azure Front Door service principal in your Microsoft Entra ID by using Azure PowerShell or Azure CLI.
 
 # [**PowerShell**](#tab/powershell)
 
-Use [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) cmdlet to register the Front Door service principal in your Microsoft Entra ID.
+Use the [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) cmdlet to register the Front Door service principal in your Microsoft Entra ID.
 
 ```azurepowershell-interactive
 New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"
@@ -131,7 +93,7 @@ az ad sp create --id ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037
 
 ---
 
-#### Grant Azure Front Door access to your key vault
+### Grant Azure Front Door access to your key vault
 
 1. In your key vault account, select **Access policies**.
 
@@ -150,7 +112,7 @@ az ad sp create --id ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037
 > [!NOTE]
 > If your key vault has network access restrictions, allow trusted Microsoft services to access your key vault.
 
-#### Select the certificate for Azure Front Door to deploy
+### Select the certificate for Azure Front Door to deploy
 
 1. Return to your Front Door in the portal.
 
@@ -158,7 +120,7 @@ az ad sp create --id ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037
 
 1. Under **Certificate management type**, select **Use my own certificate**.
 
-1. Select a key vault, Secret, and Secret version.
+1. Select a key vault, secret, and secret version.
 
     > [!NOTE]
     > To enable automatic certificate rotation, set the secret version to **Latest**. If you select a specific version, you must manually update it for certificate rotation.
@@ -166,79 +128,9 @@ az ad sp create --id ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037
     > [!WARNING]
     > Ensure your service principal has **GET** permission on the Key Vault. To see the certificate in the portal drop-down, your user account must have **LIST** and **GET** permissions on the Key Vault.
 
-1. When you use your own certificate, domain validation isn't required. Proceed to [Wait for propagation](#wait-for-propagation).
-
-## Validate the domain
-
-If your CNAME record still exists and doesn't contain the `afdverify` subdomain, DigiCert automatically validates ownership of your custom domain.
-
-Your CNAME record should be in the following format:
-
-| Name            | Type  | Value                 |
-|-----------------|-------|-----------------------|
-| <www.contoso.com> | CNAME | contoso.azurefd.net |
-
-For more information about CNAME records, see [Create the CNAME DNS record](../cdn/cdn-map-content-to-custom-domain.md).
-
-If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a certificate for your domain. The certificate is valid for one year and is autorenewed before it expires. Automatic validation typically takes a few hours. If you don't see your domain validated in 24 hours, open a support ticket.
-
-Continue to [Wait for propagation](#wait-for-propagation).
-
-> [!NOTE]
-> If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. For more information, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/).
-
-
 ## Wait for propagation
 
-After domain validation, it can take up to 6-8 hours for the custom domain HTTPS feature to activate. When complete, the custom HTTPS status in the Azure portal is set to **Enabled**.
-
-### Operation progress
-
-The following table shows the operation progress when enabling HTTPS:
-
-| Operation step | Operation substep details |
-| --- | --- |
-| 1. Submitting request | Submitting request |
-| | Your HTTPS request is being submitted. |
-| | Your HTTPS request was submitted successfully. |
-| 2. Domain validation | Domain is automatically validated if CNAME mapped to the default .azurefd.net frontend host. |
-| | Your domain ownership was successfully validated. |
-| | Domain ownership validation request expired (customer likely didn't respond within six days). HTTPS isn't enabled on your domain. * |
-| | Domain ownership validation request rejected by the customer. HTTPS isn't enabled on your domain. * |
-| 3. Certificate provisioning | The certificate authority is issuing the certificate needed to enable HTTPS on your domain. |
-| | The certificate was issued and is being deployed for your Front Door. This process could take several minutes to an hour. |
-| | The certificate was successfully deployed for your Front Door. |
-| 4. Complete | HTTPS was successfully enabled on your domain. |
-
-\* This message appears only if an error occurs.
-
-If an error occurs before the request is submitted, the following error message is displayed:
-
-<code>
-We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
-</code>
-
-## Frequently asked questions
-
-1. **Who is the certificate provider and what type of certificate is used?**
-
-    A dedicated/single certificate, provided by DigiCert, is used for your custom domain.
-
-1. **Do you use IP-based or SNI TLS/SSL?**
-
-    Azure Front Door uses SNI TLS/SSL.
-
-1. **What if I don't receive the domain verification email from DigiCert?**
-
-    If you have a CNAME entry for your custom domain that points directly to your endpoint hostname and you aren't using the afdverify subdomain name, you don't receive a domain verification email. Validation occurs automatically. Otherwise, if you don't have a CNAME entry and didn't receive an email within 24 hours, contact Microsoft support.
-
-1. **Is using a SAN certificate less secure than a dedicated certificate?**
-
-    A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued TLS/SSL certificates use SHA-256 for enhanced server security.
-
-1. **Do I need a Certificate Authority Authorization record with my DNS provider?**
-
-    No, you don't currently need a Certificate Authority Authorization record. However, if you have one, it must include DigiCert as a valid CA.
+After you save the HTTPS configuration, it can take up to 6-8 hours for the custom domain HTTPS feature to activate. When complete, the custom HTTPS status in the Azure portal is set to **Enabled**.
 
 ## Clean up resources
 
@@ -256,7 +148,7 @@ To disable HTTPS on your custom domain:
 
 After disabling the custom domain HTTPS feature, it can take up to 6-8 hours to take effect. When complete, the custom HTTPS status in the Azure portal is set to **Disabled**.
 
-#### Operation progress
+### Operation progress
 
 The following table shows the operation progress when disabling HTTPS:
 

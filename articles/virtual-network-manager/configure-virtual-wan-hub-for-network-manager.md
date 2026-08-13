@@ -1,18 +1,18 @@
 ---
-title: Configure Virtual WAN Hub for Azure Virtual Network Manager
+title: Configure a Virtual WAN hub for Azure Virtual Network Manager
 description: "Configure hub-and-spoke with Virtual WAN: Step-by-step instructions to specify a Virtual WAN hub as the hub in your Azure Virtual Network Manager topology."
 #customer intent: As a network admin, I want to specify a Virtual WAN hub as the central hub in a hub-and-spoke topology so that I can centralize connectivity for my virtual networks.
 author: mbender-ms
 ms.author: mbender
 ms.reviewer: mbender
-ms.date: 05/15/2026
+ms.date: 07/29/2026
 ms.topic: article
 ms.service: azure-virtual-network-manager
 ms.custom: references_regions
 ---
 # Configure Azure Virtual WAN hub for Azure Virtual Network Manager
 
-In this article, you learn how to specify an Azure Virtual WAN hub as the central hub in an Azure Virtual Network Manager (Azure Virtual Network Manager) hub-and-spoke connectivity configuration.
+In this article, you learn how to specify an Azure Virtual WAN hub as the central hub in an Azure Virtual Network Manager hub-and-spoke connectivity configuration.
 
 In environments that use Azure Virtual WAN, the central network transit point is a Virtual WAN hub rather than a hub virtual network. Azure Virtual Network Manager lets you use that existing Virtual WAN hub as the connectivity target for spoke virtual networks that belong to your network groups — so you can centralize and manage connectivity without duplicating your network infrastructure.
 
@@ -31,7 +31,7 @@ Before you begin, make sure you have:
 
 ### Create a network group
 
-Azure Virtual Network Manager provides two methods for adding membership to a network group:[static membership](concept-network-groups.md#static-membership) and [dynamic membership](concept-network-groups.md#dynamic-membership) with Azure Policy. Use network managers to manage connectivity to Virtual WAN for network group members.
+This how-to article shows you how to create the network group by using [static membership](concept-network-groups.md#static-membership). For information on defining group membership with Azure Policy, see [dynamic membership](concept-network-groups.md#dynamic-membership). Use network managers to manage connectivity to Virtual WAN for network group members.
 
 ### Manually add virtual networks
 
@@ -84,13 +84,13 @@ To have this configuration take effect in your environment, deploy the configura
 
 ### Modify Virtual WAN routing properties
 
-Use Virtual Network Manager to change the connection policy that governs the Virtual WAN routing behavior of network group members.
+Use Azure Virtual Network Manager to change the connection policy that governs the Virtual WAN routing behavior of network group members.
 
 1.  Select **Configurations** under **Settings**.
 
 1.  Select the connectivity configuration you want to modify.
 
-1.  Under **Essentials** -> **Virtual WAN connection policy**, select **Edit** to create a new connection policy or switch to a different connection policy associated to the same Virtual Hub.
+1.  Under **Essentials** -> **Virtual WAN connection policy**, select **Edit** to create a new connection policy or switch to a different connection policy associated to the same Virtual WAN hub.
 
 1.  Re-deploy the configuration to apply the new connection policy to the network group members.
 
@@ -99,7 +99,7 @@ Use Virtual Network Manager to change the connection policy that governs the Vir
 > [!NOTE] 
 >Moving a network group from one Virtual WAN hub to another is a disruptive operation. All virtual networks that are members of the network group disconnect from the old Virtual WAN hub and reconnect to the new Virtual WAN hub. Plan for this operation and schedule it during a maintenance window.
 
-Use Virtual Network Manager to change the connection policy that governs the Virtual WAN routing behavior of network group members.
+Use Azure Virtual Network Manager to move a network group to a different Virtual WAN hub.
 
 1.  Select **Configurations** under **Settings**.
 

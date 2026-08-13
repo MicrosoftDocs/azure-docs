@@ -4,7 +4,7 @@ description: This article describes how to define a module in a Bicep file and h
 ms.topic: article
 ms.custom:
   - devx-track-bicep
-ms.date: 06/02/2026
+ms.date: 06/26/2026
 ---
 
 # Bicep modules
@@ -250,6 +250,28 @@ module storage 'br/public:avm/res/storage/storage-account:0.18.0' = {
 ```
 
 You can override the public alias in the *bicepconfig.json* file.
+
+Starting with **Bicep CLI v0.43.1**, the Bicep explicitly blocks the use of custom domains when referencing or restoring modules from an Azure Container Registry (ACR). This safeguard prevents the use of unsupported configurations that would otherwise cause compliance issues.
+
+If you try to reference a custom domain, such as `moduleStore.myCompany.com`, the Bicep CLI returns diagnostic error **[BCP446](./bicep-core-diagnostics.md#BCP446)**. For example:
+
+```bicep
+module foo 'br:moduleStore.myCompany.com/networking/hub:1.0.0' = { ... }
+```
+
+Bicep validates all registry hostnames against a built-in allowlist. Currently, only the following domains are permitted:
+
+- `*.azurecr.io`
+- `*.azurecr.cn`
+- `*.azurecr.us`
+- `mcr.microsoft.com`
+- `mcr.azure.cn`
+- `ghcr.io`
+
+If your organization uses custom domains, update your Bicep files to comply with these restrictions:
+
+- **Revert to native hostnames:** Update all Bicep module references to use the native `.azurecr.io` (or relevant cloud-specific) domain.
+- **Clear local cache:** After updating your references, you might need to clear your local module cache. Run `bicep restore` again to pull the modules by using the corrected native hostnames.
 
 ### File in template spec
 

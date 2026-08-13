@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 07/17/2026
 ms.custom:
   - devx-track-azurecli
   - devx-track-azurepowershell
@@ -147,7 +147,7 @@ az vmss create \
     --backend-pool-name myBackendPool
 ```
 > [!NOTE]
-> After the scale set has been created, the backend port can't be modified for a load-balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
+> After you create the scale set, you can't modify the backend port for a load-balancing rule that a health probe uses. For details and the workaround, see [Port forwarding and inbound NAT rules](load-balancer-standard-virtual-machine-scale-sets.md#port-forwarding-and-inbound-nat-rules).
 
 
 # [Azure PowerShell](#tab/powershell)
@@ -189,7 +189,7 @@ $img = <image-name>
 
 $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
 
-New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualNetworkName $vnt -SubnetName $sub -LoadBalancerName $lb -UpgradePolicyMode $pol
+New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualNetworkName $vnt -SubnetName $sub -LoadBalancerName $lb.Name -UpgradePolicyMode $pol
 
 ```
 
@@ -216,11 +216,11 @@ $img = "Ubuntu2204"
 
 $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
 
-New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualNetworkName $vnt -SubnetName $sub -LoadBalancerName $lb -UpgradePolicyMode $pol -BackendPoolName $bep -ImageName $img
+New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualNetworkName $vnt -SubnetName $sub -LoadBalancerName $lb.Name -UpgradePolicyMode $pol -BackendPoolName $bep -ImageName $img
 
 ```
 > [!NOTE]
-> After the scale set has been created, the backend port can't be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
+> After you create the scale set, you can't modify the backend port for a load balancing rule that a health probe uses. For details and the workaround, see [Port forwarding and inbound NAT rules](load-balancer-standard-virtual-machine-scale-sets.md#port-forwarding-and-inbound-nat-rules).
 
 ## Next steps
 

@@ -13,17 +13,17 @@ ms.custom: sfi-image-nochange
 
 # Deploy SAP BusinessObjects BI platform on Azure for Windows
 
-This article describes the strategy to deploy the SAP BusinessObjects Business Intelligence (BOBI) platform on Azure for Windows. In this example, two virtual machines (VMs) with Azure Premium SSD managed disks as their installation directory are configured. Azure SQL Database, a platform as a service (PaaS) offering, is used for the central management server (CMS) and audit databases. Azure Premium Files, an SMB protocol, is used as a filestore shared across both VMs. The default Tomcat Java web application and business intelligence (BI) platform application are installed together on both VMs. To load balance the user requests, Azure Application Gateway is used, which has native TLS/SSL offloading capabilities.
+This article describes the strategy to deploy the SAP BusinessObjects Business Intelligence (BOBI) platform on Azure for Windows. In this example, you configure two virtual machines (VMs) with Azure Premium SSD managed disks as their installation directory. Use Azure SQL Database, a platform as a service (PaaS) offering, for the central management server (CMS) and audit databases. Use an Azure file share on SSD storage, accessed over the SMB protocol, as a filestore shared across both VMs. The default Tomcat Java web application and business intelligence (BI) platform application are installed together on both VMs. To load balance the user requests, use Azure Application Gateway, which has native TLS/SSL offloading capabilities.
 
 This type of architecture is effective for small deployment or nonproduction environments. For production or large-scale deployment, you should separate hosts for web applications, and you can have multiple SAP BOBI application hosts, which allows the server to process more information.
 
 ![Diagram that shows an SAP BOBI deployment on Azure for Windows.](media/businessobjects-deployment-guide/businessobjects-deployment-windows.png)
 
-| File system        | Description                                                                                                               | Size (GB)             | Required access  | Storage                    |
-|--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|---------------|----------------------------|
-| F:          | The file system for installation of an SAP BOBI instance, default Tomcat web application, and database drivers (if necessary). | SAP sizing guidelines | Local administrative privileges | Azure Premium SSD managed disks|
-| \\\azusbobi.file.core.windows.net\frsinput  | The mount directory is for the shared files across all SAP BOBI hosts that is used as the Input Filestore directory. | Business need         | Local administrative privileges | Azure NetApp Files         |
-| \\\azusbobi.file.core.windows.net\frsoutput | The mount directory is for the shared files across all SAP BOBI hosts that is used as the Output Filestore directory. | Business need         | Local administrative privileges | Azure NetApp Files         |
+| File system | Description | Size (GB) | Required access  | Storage |
+|-|-|-|-|-|
+| `F:` | The file system for installation of an SAP BOBI instance, default Tomcat web application, and database drivers (if necessary). | SAP sizing guidelines | Local administrative privileges | Azure Premium SSD managed disks |
+| `\\azusbobi.file.core.windows.net\frsinput`  | The mount directory is for the shared files across all SAP BOBI hosts that is used as the Input Filestore directory. | Business need | Local administrative privileges | Azure Files |
+| `\\azusbobi.file.core.windows.net\frsoutput` | The mount directory is for the shared files across all SAP BOBI hosts that is used as the Output Filestore directory. | Business need | Local administrative privileges | Azure Files |
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ This type of architecture is effective for small deployment or nonproduction env
 - A [Microsoft ODBC driver](/sql/connect/odbc/windows/release-notes-odbc-sql-server-windows?preserve-view=true) compatible with Azure SQL Database. This article uses version 13.1.
 - Windows Server 2019 or a supported OS version per the [SAP Product Availability Matrix](https://support.sap.com/pam).
 - Outbound network access on port **1433** from SAP BOBI application servers to Azure SQL Database.
-- Outbound network access on port **445** from SAP BOBI application servers if you use Azure Premium Files (SMB).
+- Outbound network access on port **445** from SAP BOBI application servers if you use SMB file shares.
 
 ## Deploy a Windows VM by using the Azure portal
 
@@ -62,13 +62,13 @@ In this section, you create two VMs with a Windows operating system (OS) image f
 1. Create VM 2 (azuswinboap2).
 1. Add one Premium SSD. It's used as an SAP BOBI installation directory.
 
-## Provision Azure Premium Files
+## Provision Azure Files
 
 Before you continue with the setup for Azure Files, familiarize yourself with the [Azure Files](../../storage/files/storage-files-introduction.md) documentation.
 
-Azure Files offers standard file shares hosted on HDD-based hardware and premium file shares hosted on SSD-based hardware. For an SAP BusinessObjects filestore, use Azure Premium Files.
+Azure Files offers file shares on two media tiers, HDD and SSD. For an SAP BusinessObjects filestore, use Azure Files SSD.
 
-Azure premium file shares are available with local and zone redundancy in a subset of regions. To find out whether premium file shares are currently available in your region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage). For information about regions that support zone-redundant storage (ZRS), see [Azure Storage redundancy](../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Azure Files SSD shares are available with local and zone redundancy in a subset of regions. To find out whether SSD file shares are currently available in your region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage). For information about regions that support zone-redundant storage (ZRS), see [Azure Storage redundancy](../../storage/common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ### Deploy an Azure Files storage account and NFS shares
 
@@ -129,12 +129,12 @@ For details on how to create a storage account, see [Create a FileStorage storag
 
 #### Create Azure file shares
 
-The next step is to create Azure file shares in the storage account. Azure file shares use a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. To understand more about this model, see [Provisioned model](../../storage/files/understanding-billing.md#provisioned-v1-model). In this example, you create two Azure file shares: frsinput (256 GB) and frsoutput (256 GB) for the SAP BOBI filestore.
+The next step is to create Azure file shares in the storage account. Azure file shares use a provisioned model for SSD file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. To understand more about this model, see [Provisioned model](../../storage/files/understanding-billing.md#provisioned-v1-model). In this example, you create two Azure file shares: frsinput (256 GiB) and frsoutput (256 GiB) for the SAP BOBI filestore.
 
 1. Go to the storage account **azusbobi** > **File shares**.
 1. Select **New file share**.
 1. Enter the **Name** of the file share. For example, enter **frsinput** or **frsoutput**.
-1. Enter the required file share size in **Provisioned capacity**. For example, enter **256 GB**.
+1. Enter the required file share size in **Provisioned capacity**. For example, enter **256 GiB**.
 1. Select **SMB** as **Protocol**.
 1. Select **Create**.
 
@@ -153,7 +153,7 @@ In this example, an SAP BOBI application is installed on a separate partition (F
 1. **[A]** If no data disk is attached to the VM (azuswinboap1 and azuswinboap2), follow the steps in [Add a data disk](/azure/virtual-machines/windows/attach-managed-disk-portal#add-a-data-disk) to attach a new managed data disk.
 1. **[A]** After the managed disk is attached to the VM, initialize the disk by following the steps in [Initialize a new data disk](/azure/virtual-machines/windows/attach-managed-disk-portal#initialize-a-new-data-disk).
 
-### Mount Azure Premium Files
+### Mount the Azure file share
 
 To use Azure Files as a filestore, you must mount it, which means you assign it a drive letter or mount point path.
 
@@ -318,14 +318,14 @@ In a multi-instance deployment of the SAP BOBI platform, you want to run several
 
 To configure the cluster name on Windows, follow the instructions in the [SAP Business Intelligence Platform Administrator Guide](https://help.sap.com/viewer/2e167338c1b24da9b2a94e68efd79c42/4.3.1/en-US). After you configure the cluster name, follow SAP Note [1660440](https://launchpad.support.sap.com/#/notes/1660440) to set the default system entry on the CMC or BI Launchpad sign-in page.
 
-### Configure the input and output filestore location to Azure Premium Files
+### Configure the input and output filestore location on Azure Files
 
-Filestore refers to the disk directories where the actual SAP BusinessObjects BI files are located. The default location of the file repository server for the SAP BOBI platform is located in the local installation directory. In a multi-instance deployment, it's important to set up a filestore on shared storage like Azure Premium Files or Azure NetApp Files so that it can be accessed from all storage tier servers.
+Filestore refers to the disk directories where the actual SAP BusinessObjects BI files are located. The default location of the file repository server for the SAP BOBI platform is located in the local installation directory. In a multi-instance deployment, set up a filestore on shared storage like Azure Files SSD or Azure NetApp Files so that it can be accessed from all storage tier servers.
 
-1. If not created, follow the instructions provided in the preceding section, "Provision Azure Premium Files," to create and mount Azure Premium Files.
+1. If you haven't already, follow the instructions in the preceding section, "Provision Azure Files," to create and mount the Azure file share.
 
    > [!TIP]
-   > Based on whether the VM is deployed in a zonal or regional manner, the selection of storage redundancy for Azure Premium Files (ZRS or LRS) should be determined.
+   > Select the storage redundancy for Azure Files SSD (ZRS or LRS) based on whether you deploy the VM in a zonal or regional manner.
 
 1. Follow SAP Note [2512660](https://launchpad.support.sap.com/#/notes/0002512660) to change the path of the file repository (Input and Output).
 
@@ -380,7 +380,7 @@ The backup and restore process creates periodic copies of data and applications 
 To develop a comprehensive backup and restore strategy for an SAP BOBI platform, identify the components that lead to system downtime or disruption in the application. In an SAP BOBI platform, backup of the following components is vital to protect the application:
 
 - SAP BOBI installation directory (Managed Premium Disks)
-- Filestore (Azure Premium Files or Azure NetApp Files for distributed installation)
+- Filestore (Azure Files SSD or Azure NetApp Files for distributed installation)
 - CMS and audit database (SQL Database, Azure Database for MySQL, or a database on Azure VMs)
 
 The following section describes how to implement a backup and restore strategy for each component on an SAP BOBI platform.
@@ -409,7 +409,7 @@ For an SAP BOBI platform running on Windows VMs, the CMS and audit database can 
 
   Users can choose an option to configure backup storage redundancy between LRS, ZRS, or GRS blobs. Storage redundancy mechanisms store multiple copies of your data to protect it from planned and unplanned events, which includes transient hardware failure, network or power outages, or massive natural disasters. By default, SQL Database stores backup in [GRS blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](/azure/reliability/cross-region-replication-azure). It can be changed based on the business requirement to either LRS or ZRS blobs. For more up-to-date information on SQL Database backup scheduling, retention, and storage consumption, see [Automated backups: Azure SQL Database and Azure SQL Managed Instance](/azure/azure-sql/database/automated-backups-overview).
 
-- **Azure Database for MySQL** automatically creates server backups and stores in user-configured LRS or GRS. Azure Database for MySQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, it either takes full and differential backups (4-TB max storage servers) or snapshot backups (up to 16-TB max storage servers). These backups allow you to restore a server at any point in time within your configured backup retention period. The default backup retention period is **seven** days, which you can [optionally configure](/azure/mysql/howto-restore-server-portal#set-backup-configuration) up to 35 days. All backups are encrypted by using AES 256-bit encryption. These backup files aren't user exposed and can't be exported. These backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](/azure/mysql/concepts-migrate-dump-restore) to copy a database. For more information, see [Backup and restore in Azure Database for MySQL](/azure/mysql/concepts-backup).
+- **Azure Database for MySQL** automatically creates server backups and stores them in user-configured LRS or GRS. Azure Database for MySQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, it either takes full and differential backups (4 TB max storage servers) or snapshot backups (up to 16 TB max storage servers). These backups allow you to restore a server at any point in time within your configured backup retention period. The default backup retention period is **seven** days, which you can [optionally configure](/azure/mysql/howto-restore-server-portal#set-backup-configuration) up to 35 days. All backups are encrypted by using AES 256-bit encryption. These backup files aren't user exposed and can't be exported. These backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](/azure/mysql/concepts-migrate-dump-restore) to copy a database. For more information, see [Backup and restore in Azure Database for MySQL](/azure/mysql/concepts-backup).
 
 - **For a database installed on an Azure VM**, you can use standard backup tools or [Backup](../../backup/sap-hana-db-about.md) for supported databases. Also, if the Azure services and tools don't meet your requirements, you can use supported third-party backup tools that provide an agent for backup and recovery of all SAP BOBI platform components.
 
@@ -445,7 +445,7 @@ See [DBMS deployment guides for SAP workload](dbms-guide-general.md) for insight
 
 Filestore refers to the disk directories where contents like reports, universes, and connections are stored. It's being shared across all application servers of that system. So, you must make sure that it's highly available, alongside other SAP BOBI platform components.
 
-For an SAP BOBI platform running on Windows, you can choose either [Azure Premium Files](../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) for filestore. Both options are designed to be highly available and highly durable. Azure Premium Files support ZRS, which can be useful for cross-zone deployment of an SAP BOBI platform. For more information, see the [Redundancy](../../storage/files/storage-files-planning.md#redundancy) section for Azure Files.
+For an SAP BOBI platform running on Windows, choose either [Azure Files SSD](../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) for filestore. Both options are designed to be highly available and highly durable. Azure Files SSD supports ZRS, which can be useful for cross-zone deployment of an SAP BOBI platform. For more information, see the [Redundancy](../../storage/files/storage-files-planning.md#redundancy) section for Azure Files.
 
 Because the file share service isn't available in all regions, make sure you see the list of [products available by region](https://azure.microsoft.com/global-infrastructure/services/) to find up-to-date information. If the service isn't available in your region, you can create an NFS server from which you can share the file system to an SAP BOBI application. But you also need to consider its high availability.
 
@@ -463,9 +463,9 @@ To distribute traffic across a web server, you can use Load Balancer or Applicat
 
 ### Reference high-availability architecture for the SAP BusinessObjects BI platform
 
-The following reference architecture describes the setup of an SAP BOBI platform across availability zones running on a Windows server. The architecture showcases the use of different Azure services like Application Gateway, Azure Premium Files (filestore), and SQL Database (CMS and audit database). The SAP BOBI platform offers built-in zone redundancy, which reduces the complexity of managing different high-availability solutions.
+The following reference architecture describes the setup of an SAP BOBI platform across availability zones running on a Windows server. The architecture showcases the use of different Azure services like Application Gateway, Azure Files SSD (filestore), and SQL Database (CMS and audit database). The SAP BOBI platform offers built-in zone redundancy, which reduces the complexity of managing different high-availability solutions.
 
-In the following figure, the incoming traffic (HTTPS - TCP/443) is load balanced by using Application Gateway v2 SKU, which spans multiple availability zones. The application gateway distributes the user request across web servers, which are distributed across availability zones. The web server forwards the request to management and processing server instances that are deployed in separate VMs across availability zones. Azure premium files with ZRS are attached via private link to management and storage tier VMs to access the contents like reports, universe, and connections. The application accesses the CMS and audit database running on a zone-redundant instance of SQL Database, which replicates databases across multiple physical locations within an Azure region.
+In the following figure, the incoming traffic (HTTPS - TCP/443) is load balanced by using Application Gateway v2 SKU, which spans multiple availability zones. The application gateway distributes the user request across web servers, which are distributed across availability zones. The web server forwards the request to management and processing server instances that are deployed in separate VMs across availability zones. Azure file shares with ZRS are attached via private link to management and storage tier VMs to access the contents like reports, universe, and connections. The application accesses the CMS and audit database running on a zone-redundant instance of SQL Database, which replicates databases across multiple physical locations within an Azure region.
 
 ![Diagram that shows high-availability architecture for an SAP BOBI platform on Windows.](media/businessobjects-deployment-guide/businessobjects-deployment-windows-high-availability-availability-zone.png)
 
@@ -489,7 +489,7 @@ In this section, the second option is covered to implement a DR environment. Thi
 
 ### Reference DR architecture for an SAP BusinessObjects BI platform
 
-This reference architecture is running a multi-instance deployment of the SAP BOBI platform with redundant application servers. For DR, you should fail over all the components of the SAP BOBI platform to a secondary region. In the following figure, Azure Premium Files is used as the filestore, SQL Database is used as the CMS and audit repository, and Application Gateway is used to load balance traffic. The strategy to achieve DR protection for each component is different, which is described in the following section.
+This reference architecture runs a multi-instance deployment of the SAP BOBI platform with redundant application servers. For DR, fail over all the components of the SAP BOBI platform to a secondary region. In the following figure, Azure Files SSD is the filestore, SQL Database is the CMS and audit repository, and Application Gateway load balances traffic. The strategy to achieve DR protection for each component is different, as described in the following section.
 
 ![Diagram that shows SAP BusinessObjects BI platform DR for Windows.](media\businessobjects-deployment-guide\businessobjects-deployment-windows-disaster-recovery.png)
 
@@ -505,7 +505,7 @@ Load Balancer is used to distribute traffic across web application servers of an
 
 Filestore is a disk directory where actual files like reports and BI documents are stored. Make sure all files in the filestore are synced to the DR region. The DR strategy you use to sync content depends on the type of file share service for your SAP BOBI platform on Windows. For example:
 
-- **Azure Premium Files** only supports LRS and ZRS. For Azure Premium Files DR strategy, you can use [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or [Azure PowerShell](/powershell/module/az.storage/?preserve-view=true&view=azps-5.8.0) to copy your files to another storage account in a different region. For more information, see [Disaster recovery and storage account failover](../../storage/common/storage-disaster-recovery-guidance.md).
+- **Azure Files SSD** only supports LRS and ZRS. For an Azure Files SSD DR strategy, use [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or [Azure PowerShell](/powershell/module/az.storage/?preserve-view=true&view=azps-5.8.0) to copy your files to another storage account in a different region. For more information, see [Disaster recovery and storage account failover](../../storage/common/storage-disaster-recovery-guidance.md).
 
 - **Azure NetApp Files** provides NFS and SMB volumes, so any file-based copy tool can be used to replicate data between Azure regions. For more information on how to copy Azure NetApp Files volume in another region, see [FAQs about Azure NetApp Files](../../azure-netapp-files/faq-data-migration-protection.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-zone-or-region).
 
@@ -556,7 +556,7 @@ The following table lists the recommendations for DR for each tier used in this 
 | Azure Application Gateway or Azure Load Balancer | Parallel setup of Application Gateway on a secondary region    |
 | Web application servers                          | Replicate by using Azure Site Recovery                             |
 | BI application servers                           | Replicate by using Site Recovery                             |
-| Azure Premium Files                              | AzCopy *or* Azure PowerShell                               |
+| Azure Files SSD                                  | AzCopy *or* Azure PowerShell                               |
 | Azure NetApp Files                               | File-based copy tool to replicate data to a secondary region *or* Azure NetApp Files cross-region replication |
 | Azure SQL Database                               | Geo-replication/auto-failover groups *or* geo-restore     |
 | Azure Database for MySQL                         | Cross-region read replicas *or* restore backup from geo-redundant backups |

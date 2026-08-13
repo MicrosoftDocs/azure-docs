@@ -1,9 +1,9 @@
-﻿---
+---
 title: Template functions in scoped deployments
 description: Describes how template functions are resolved in scoped deployments. The scope can be a tenant, management groups, subscriptions, and resource groups.
 ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 08/05/2025
+ms.date: 08/06/2026
 ---
 
 # ARM template functions in deployment scopes
@@ -33,12 +33,12 @@ Consider the following when deploying to different scopes:
   "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
   ```
 
-* Use the [`extensionResourceId()`](template-functions-resource.md#extensionresourceid) function for resources that implement as extensions of the management group. Custom policy definitions that are deployed to the management group are extensions of the management group.
+* Use the [`extensionResourceId()`](template-functions-resource.md#extensionresourceid) function for resources that are implemented as extensions of the management group. Custom policy definitions that you deploy to the management group are extensions of the management group. The first argument to `extensionResourceId()` must be the fully qualified resource ID of the management group.
 
   To get the resource ID for a custom policy definition at the management-group level, use:
 
   ```json
-  "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
+  "policyDefinitionId": "[extensionResourceId(tenantResourceId('Microsoft.Management/managementGroups', parameters('managementGroupName')), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
   ```
 
 * Use the [`tenantResourceId()`](template-functions-resource.md#tenantresourceid) function to get the ID for a resource deployed at the tenant. Built-in policy definitions are tenant-level resources. When assigning a built-in policy at the management-group level, use the `tenantResourceId` function.

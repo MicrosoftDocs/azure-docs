@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/10/2026
+ms.date: 06/18/2026
 ai-usage: ai-assisted
 ms.custom:
   - sfi-image-nochange
@@ -25,6 +25,10 @@ To set up bi-directional communication between Azure IoT Operations and Apache K
 
 [!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for values that you choose: `ENDPOINT`, `EVENT_HUBS_NAMESPACE`, `SASL_TYPE`, `SECRET_NAME`, `EVENT_HUBS_CONNECTION_STRING`, `KAFKA_BROKER_HOSTNAME`, `KAFKA_PORT`, `ENDPOINT_TYPE`, `AUDIENCE`, `CLIENT_ID`, `TENANT_ID`, and `SASL_TOKEN`. Set each one before you run the related commands.
+
 ## Azure Event Hubs
 
 [Azure Event Hubs is compatible with the Kafka protocol](../../event-hubs/azure-event-hubs-apache-kafka-overview.md) and can be used with data flows with some limitations.
@@ -38,6 +42,8 @@ Next, [create an event hub in the namespace](../../event-hubs/event-hubs-create.
 ### Assign permission to managed identity
 
 To configure a data flow endpoint for Azure Event Hubs, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
+
+[!INCLUDE [data-flow-graph-uami-usage](../includes/data-flow-graph-uami-usage.md)]
 
 After the Azure Event Hubs namespace and event hub are created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to send or receive messages to the event hub.
 
@@ -79,7 +85,7 @@ Once the Azure Event Hubs namespace and event hub are configured, you can create
 Use the [az iot ops dataflow endpoint create eventgrid](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-eventhub) command to create or replace an Azure Event Hubs data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint create eventhub --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --eventhub-namespace <EventHubsNamespace>
+az iot ops dataflow endpoint create eventhub --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --eventhub-namespace $EVENT_HUBS_NAMESPACE
 ```
 
 This command creates an Azure Event Hubs endpoint with default settings. You can specify additional options as needed.
@@ -95,7 +101,7 @@ az iot ops dataflow endpoint create eventhub --resource-group myResourceGroup --
 Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Event Hubs data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow endpoint apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -166,7 +172,7 @@ resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026
 Then, deploy via Azure CLI.
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -195,7 +201,7 @@ spec:
 Then apply the manifest file to the Kubernetes cluster.
 
 ```bash
-kubectl apply -f <FILE>.yaml
+kubectl apply -f main.yaml
 ```
 
 ---
@@ -239,7 +245,7 @@ To learn more about secrets, see [Create and manage secrets in Azure IoT Operati
 Use the [az iot ops dataflow endpoint create eventgrid](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-eventhub) command to create or replace an Azure Event Hubs data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint create eventhub --auth-type Sasl --sasl-type <SaslType> --secret-name <SecretName> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --eventhub-namespace <EventHubsNamespace>
+az iot ops dataflow endpoint create eventhub --auth-type Sasl --sasl-type $SASL_TYPE --secret-name $SECRET_NAME --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --eventhub-namespace $EVENT_HUBS_NAMESPACE
 ```
 
 This command creates an Azure Event Hubs endpoint with default settings. You can specify additional options as needed.
@@ -255,7 +261,7 @@ az iot ops dataflow endpoint create eventhub --resource-group myResourceGroup --
 Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Event Hubs data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow endpoint apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -310,9 +316,9 @@ To use connection string for authentication to Event Hubs, use the SASL authenti
 First, create a Kubernetes secret that contains the connection string. The secret must be in the same namespace as the Kafka data flow endpoint. The secret must have both the username and password as key-value pairs. For example:
 
 ```bash
-kubectl create secret generic <SECRET_NAME> -n azure-iot-operations \
+kubectl create secret generic $SECRET_NAME -n azure-iot-operations \
   --from-literal=username='$ConnectionString' \
-  --from-literal=password='Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY-NAME>;SharedAccessKey=<KEY>'
+  --from-literal=password="$EVENT_HUBS_CONNECTION_STRING"
 ```
 > [!TIP]
 > Scoping the connection string to the namespace (as opposed to individual event hubs) allows a data flow to send and receive messages from multiple different event hubs and Kafka topics.
@@ -369,7 +375,7 @@ To configure a data flow endpoint for non-Event-Hub Kafka brokers, set the host,
 Use the [az iot ops dataflow endpoint create custom-kafka](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-custom-kafka) command to create or replace a custom Kafka broker data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint create custom-kafka --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --hostname <KafkaBrokerHostName> --port <Port>
+az iot ops dataflow endpoint create custom-kafka --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --hostname $KAFKA_BROKER_HOSTNAME --port $KAFKA_PORT
 ```
 
 This command creates a custom Kafka broker endpoint with default settings. You can specify additional options as needed.
@@ -385,7 +391,7 @@ az iot ops dataflow endpoint create custom-kafka --resource-group myResourceGrou
 Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change a custom Kafka broker data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow endpoint apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -498,7 +504,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 Use the [az iot ops dataflow endpoint create custom-kafka](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-custom-kafka) command with the `--auth-type` parameter set to `SystemAssignedManagedIdentity` for system-assigned managed identity authentication.
 
 ```azurecli
-az iot ops dataflow endpoint create <Command> --auth-type SystemAssignedManagedIdentity --audience <Audience> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+az iot ops dataflow endpoint create $ENDPOINT_TYPE --auth-type SystemAssignedManagedIdentity --audience $AUDIENCE --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT
 ```
 
 #### Create or change
@@ -621,7 +627,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `UserAssignedManagedIdentity` for with user-assigned managed identity authentication.
 
 ```azurecli
-az iot ops dataflow endpoint create <Command> --auth-type UserAssignedManagedIdentity --client-id <ClientId> --tenant-id <TenantId> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+az iot ops dataflow endpoint create $ENDPOINT_TYPE --auth-type UserAssignedManagedIdentity --client-id $CLIENT_ID --tenant-id $TENANT_ID --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT
 ```
 
 #### Create or change
@@ -709,7 +715,7 @@ Enter the following settings for the endpoint:
 Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `Sasl` for SASL authentication.
 
 ```azurecli
-az iot ops dataflow endpoint create <Command> --auth-type Sasl --sasl-type <SaslType> --secret-name <SecretName> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+az iot ops dataflow endpoint create $ENDPOINT_TYPE --auth-type Sasl --sasl-type $SASL_TYPE --secret-name $SECRET_NAME --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT
 ```
 
 #### Create or change
@@ -753,7 +759,7 @@ kafkaSettings: {
 
 ```bash
 kubectl create secret generic sasl-secret -n azure-iot-operations \
-  --from-literal=token='<YOUR_SASL_TOKEN>'
+  --from-literal=token="$SASL_TOKEN"
 ```
 
 ```yaml
@@ -790,7 +796,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--no-auth` parameter for anonymous authentication.
 
 ```azurecli
-az iot ops dataflow endpoint create <Command> --no-auth --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+az iot ops dataflow endpoint create $ENDPOINT_TYPE --no-auth --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT
 ```
 
 #### Create or change
@@ -1244,7 +1250,6 @@ This setting takes effect only if the endpoint is used as a destination (that is
 
 | Value | Description |
 | ----- | ----------- |
-| `None` | The data flow doesn't wait for any acknowledgments from the Kafka broker. This setting is the fastest but least durable option. |
 | `All` | The data flow waits for the message to be written to the leader partition and all follower partitions. This setting is the slowest but most durable option. This setting is also the default option|
 | `One` | The data flow waits for the message to be written to the leader partition and at least one follower partition. |
 | `Zero` | The data flow waits for the message to be written to the leader partition but doesn't wait for any acknowledgments from the followers. This is faster than `One` but less durable. |
@@ -1263,7 +1268,7 @@ In the operations experience data flow endpoint settings page, select the **Adva
 {
     "endpointType": "Kafka",
     "kafkaSettings": {
-        "kafkaAcks": "All" // Or None, One, Zero
+        "kafkaAcks": "All" // Or One, Zero
     }
 }
 ```
@@ -1272,7 +1277,7 @@ In the operations experience data flow endpoint settings page, select the **Adva
 
 ```bicep
 kafkaSettings: {
-  kafkaAcks: 'All' // Or None, One, Zero
+  kafkaAcks: 'All' // Or One, Zero
 }
 ```
 
@@ -1282,7 +1287,7 @@ kafkaSettings: {
 
 ```yaml
 kafkaSettings:
-  kafkaAcks: All # Or None, One, Zero
+  kafkaAcks: All # Or One, Zero
 ```
 
 ---

@@ -4,7 +4,7 @@ description: This article explains how Azure Enterprise Agreement (Azure EA) cus
 author: prashantsaini4
 ms.reviewer: prsaini
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: enterprise-agreement
 ms.topic: get-started
 ms.date: 04/21/2026
 ms.author: prsaini

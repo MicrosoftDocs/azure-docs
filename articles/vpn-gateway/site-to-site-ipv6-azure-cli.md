@@ -2,15 +2,15 @@
 title: Configure a Site-to-site VPN Connection in IPv4 and IPv6 Dual Stack - Azure CLI
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure a site-to-site VPN connection with IPv4 and IPv6 dual stack for VPN Gateway using Azure CLI.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 04/08/2026
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: "As a network administrator, I want to configure IPv6 in dual-stack mode for Azure VPN Gateway, so that I can support seamless IPv6 traffic alongside IPv4 within my organization's VPN infrastructure."
 ---
 
-# Create a site-to-site IPv6 VPN connection in dual stack using Azure CLI - Preview
+# Create a site-to-site IPv6 VPN connection in dual stack using Azure CLI
 
 This article helps you create a site-to-site VPN gateway connection in IPv4 and IPv6 dual stack from your on-premises network to a virtual network (VNet) using the Azure CLI.
 
@@ -20,14 +20,7 @@ A site-to-site VPN gateway connection is used to connect your on-premises networ
 
 The steps in this article create two connections between the VPN gateway and the on-premises VPN device using a shared key. You can also use [PowerShell](site-to-site-ipv6-azure-powershell.md) for this configuration. If you aren't configuring IPv4 addresses along with IPv6 addresses, you can optionally use the [Azure portal](ipv6-configuration.md). For more information about VPN gateways, see [About VPN gateway](vpn-gateway-about-vpngateways.md).
 
-> [!IMPORTANT]
-> IPv6 in dual stack configuration is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Before you begin
-
-> [!NOTE]
-> During Preview, you can opt in to configure IPv6 in dual stack. To opt in, send your subscription ID to **vpngwipv6preview@microsoft.com** and request your subscription to be enabled for IPv6.
 
 Verify that your environment meets the following criteria before beginning configuration:
 

@@ -6,7 +6,7 @@ author: siddomala
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 12/13/2024
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # About roles and permissions for Azure Virtual WAN

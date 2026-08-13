@@ -2,11 +2,11 @@
 title: Create S2S VPN connection - shared key authentication - Azure PowerShell
 description: Learn how to create a site-to-site VPN Gateway IPsec connection between your on-premises network and a virtual network using shared key authentication and PowerShell.
 titleSuffix: Azure VPN Gateway
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/25/2025
-ms.author: cherylmc 
+ms.author: duau
 ms.custom: devx-track-azurepowershell
 
 # Customer intent: "As a network administrator, I want to establish a site-to-site VPN connection using PowerShell, so that I can securely link my on-premises network to an Azure virtual network for seamless data access and management."

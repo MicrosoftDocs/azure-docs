@@ -9,7 +9,7 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
-ms.update-cycle: 180-days
+ms.update-cycle: 365-days
 # Customer intent: "As a system administrator, I want to deploy the Azure Migrate appliance for server discovery and assessment, so that I can evaluate the infrastructure and plan for migration to the cloud."
 ---
 
@@ -36,7 +36,7 @@ The Azure Migrate appliance is used in the following scenarios.
 
 The appliance can be deployed using a couple of methods:
 
-- The appliance can be deployed using a template for servers running in VMware or Hyper-V environment ([OVA template for VMware](how-to-set-up-appliance-vmware.md) or [VHD for Hyper-V](how-to-set-up-appliance-hyper-v.md)).
+- Use a template for servers running in VMware or Hyper-V environments. For example, use the [OVA template for VMware](tutorial-discover-vmware.md#set-up-the-appliance)or [VHD for Hyper-V](tutorial-discover-hyper-v.md#set-up-the-appliance).
 - If you don't want to use a template, you can deploy the appliance for VMware or Hyper-V environment using a [PowerShell installer script](deploy-appliance-script.md).
 - In Azure Government, you should deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](deploy-appliance-script-government.md).
 - For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
@@ -73,19 +73,19 @@ C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip 
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | VMware- OVA file (11.9 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 79679469041FD9E474B03A3AEEA0D554552EFD57F79B322E61595EC58F5FF625   |
+    | VMware- OVA file (12.8 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 5E94BF55CAC7E209188478734359469A3C9EBC424A9DA191A53FE6425ED6738F   |
 
     - Use the VHD file to set up the Hyper-V appliance in Azure public cloud.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Hyper-V -  VHD file (9.46Gb)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | AD3C72FB21037B10969548228B4F651BF5A79CD0A34D608CD470B75329A24A24   |
+    | Hyper-V -  VHD (Zip file) (11.4 GB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | AD3C72FB21037B10969548228B4F651BF5A79CD0A34D608CD470B75329A24A24      |
 
     - Use the Zip file to set up the VMware, Hyper-V, or Physical appliance stack in Azure public cloud and Azure Government.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Zip file (839 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | 42CF83E265D54E4D014658DAB36457C83B630A2EA22C8150AD41C607DE7A0476   |
+    | ZIP file (746 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  |  D7CC59E5C16A34155C53CDDFF9710D9F07EC1CE51EA802E9354641A602484C7C  |
 
 
 ## Appliance services

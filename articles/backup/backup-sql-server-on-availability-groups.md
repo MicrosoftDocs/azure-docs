@@ -14,8 +14,13 @@ Azure Backup offers an end-to-end support for backing up SQL Server always on av
 To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 >[!Note]
-> Backup of Basic Availability Group databases is not supported by Azure Backup.
+> Azure Backup doesn't support backing up Basic Availability Group databases.
 
+## Backup preference behavior by SQL Server version
+
+Full and differential backup support on secondary replicas depends on SQL Server version. AG backup preference and SQL Server version determine the node chosen for each backup type.
+
+### SQL Server 2022 and earlier
 
 The backup preference used by Azure Backup SQL AG supports full and differential backups only from the primary replica. So, these backup jobs always run on the Primary node irrespective of the backup preference. For copy-only full and transaction log backups, the AG backup preference is considered while deciding the node where backup will run.
 
@@ -26,7 +31,18 @@ The backup preference used by Azure Backup SQL AG supports full and differential
 | Prefer Secondary | Primary replica | Secondary replicas are preferred, but backups can run on primary replica also. |
 | None/Any | Primary replica | Any replica |
 
-The workload backup extension is installed on the node when you register it with the Azure Backup service. When an AG database is configured for backup, the backup schedules are pushed to all the registered nodes of the AG. The schedules fire on all the AG nodes and the workload backup extensions on these nodes synchronize between themselves to decide which node can perform the backup. The node selection depends on the backup type and the backup preference as explained in section 1. 
+### SQL Server 2025 and later
+
+In SQL Server 2025 and later, secondary replicas also support full and differential backups. The backup preference now governs both backup types uniformly. When you set *Secondary Only* or *Prefer Secondary*, full and differential backups no longer require the primary node.
+
+| AG Backup preference | Full and Diff backups run on | Copy-Only and Log backups are taken from |
+| -------------------- | ---------------------------- | ---------------------------------------- |
+| Primary | Primary replica | Primary replica |
+| Secondary only | Any one of the secondary replicas | Any one of the secondary replicas |
+| Prefer Secondary | Secondary replicas are preferred, but backups can run on primary replica also. | Secondary replicas are preferred, but backups can run on primary replica also. |
+| None/Any | Any replica | Any replica |
+
+When you register a node with the Azure Backup service, you install the workload backup extension on that node. When you configure an AG database for backup, the backup schedules are pushed to all the registered nodes of the AG. The schedules fire on all the AG nodes, and the workload backup extensions on these nodes synchronize between themselves to decide which node can perform the backup. The node selection depends on the backup type and the backup preference described in [Backup preference behavior by SQL Server version](#backup-preference-behavior-by-sql-server-version). 
 
 The selected node proceeds with the backup job, whereas the job triggered on the other nodes bails out, that is, it skips the job.
 
@@ -37,10 +53,21 @@ The selected node proceeds with the backup job, whereas the job triggered on the
 
 A Recovery Services vault supports backup of databases only from VMs in the same region and subscription as of the vault.
 
+**SQL Server 2022 and earlier:**
+
 - Register the primary node to the vault (otherwise, full backups can't happen).
 - Register at least one secondary node to the vault (otherwise, log/copy-only full backups can't happen) if the backup preference is _secondary only_.
 
 Configuring backups for AG databases fail with the error code _FabricSvcBackupPreferenceCheckFailedUserError_ if the above conditions aren't met.
+
+**SQL Server 2025 and later:**
+
+- Primary node registration is **no longer mandatory** for AG backup configuration. Since full and differential backups can now run on secondary replicas, you can configure backups with only secondary nodes registered (when backup preference is *Secondary Only* or *Prefer Secondary*).
+- For *Primary* backup preference, the primary node must still be registered.
+- Register at least one node that satisfies the chosen backup preference.
+
+> [!NOTE]
+> The relaxation of the primary node registration requirement is gated by the SQL Server version detected during AG database discovery. If any replica in the AG is running SQL Server 2022 or earlier, the primary node registration requirement remains in effect for that AG.
 
 Let’s consider the following AG deployment as a reference.
 
@@ -51,15 +78,16 @@ Based on the given sample AG deployment, following are various considerations:
 - As the primary node is in region 1 and subscription 1, the Recovery Services vault (Vault 1) must be in Region 1 and Subscription 1 for protecting this AG.
 - `VM3` can't be registered to Vault 1 as it's in a different subscription.
 - `VM4` can't be registered to Vault 1 as it's in a different region.
-- If the backup preference is _secondary only_, VM1 (Primary) and VM2 (Secondary) must be registered to the Vault 1 (because full backups require the primary node and logs require a secondary node). For other backup preferences, VM1 (Primary) must be registered to Vault 1, VM2 is optional (because all backups can run on primary node).
-- While VM3 could be registered to vault 2 in subscription 2 and the AG databases would then show up for protection in vault 2 but due to absence of the primary node in vault 2, configuring backups would fail.
-- Similarly, while VM4 could be registered to vault 4 in region 2, configuring backups would fail since the primary node isn't registered in vault 4.
+- If the backup preference is _secondary only_, register VM1 (Primary) and VM2 (Secondary) to Vault 1. On SQL Server 2022 and earlier, full backups require the primary node so register both nodes; on SQL Server 2025 and later, VM2 alone is sufficient. For other backup preferences, register VM1 (Primary) to Vault 1; VM2 is optional.
+- While you can register VM3 to vault 2 in subscription 2 and the AG databases would then show up for protection in vault 2, configuring backups would fail on SQL Server 2022 and earlier due to the absence of the primary node in vault 2. On SQL Server 2025 and later, you can configure backups in vault 2 if the backup preference is *Secondary Only* or *Prefer Secondary*.
+- Similarly, while you can register VM4 to vault 4 in region 2, configuring backups would fail on SQL Server 2022 and earlier since the primary node isn't registered in vault 4. On SQL Server 2025 and later, you can configure backups in vault 4 if the backup preference is *Secondary Only* or *Prefer Secondary*.
 
 ## Handle failover
 
 After the AG has failed over to one of the secondary nodes:
 
-- The full and differential backups will continue from the new primary node if it's registered to the vault.
+- **SQL Server 2022 and earlier**: Full and differential backups continue from the new primary node if it's registered to the vault.
+- **SQL Server 2025 and later**: Full and differential backups continue from the node that satisfies the backup preference. For *Secondary Only* or *Prefer Secondary*, these backups can run on a secondary replica.
 - The log and copy-only full backups will continue from primary/secondary node based on the backup preference.
 
 >[!Note]
@@ -72,10 +100,10 @@ Based on the above sample AG deployment, following are the various failover poss
   - Log and copy-only full backups will happen from VM1 or VM2 based on backup preference.
 - Failover to VM3 (another subscription)
   - As backups aren't configured in Vault 2, no backups would happen.
-  - If the backup preference isn't secondary-only, backups can be configured now in Vault 2, because the primary node is registered in this vault. But this can lead to conflicts/backup failures. More about this in [Configure backups for a multi-region AG](#configure-backups-for-a-multi-region-ag).
+  - On SQL Server 2022 and earlier, if the backup preference isn't secondary-only, you can now configure backups in Vault 2 because the primary node is registered in this vault. On SQL Server 2025 and later, you can also configure backups when the registered node in Vault 2 satisfies the selected backup preference. This condition can lead to conflicts or backup failures. For more information, see [Configure backups for a multi-region AG](#configure-backups-for-a-multi-region-ag).
 - Failover to VM4 (another region)
   - As backups aren't configured in Vault 4, no backups would happen.
-  - If the backup preference isn't secondary-only, backups can be configured now in Vault 4, because the primary node is registered in this vault. But this can lead to conflicts/backup failures. More about this in [Configure backups for a multi-region AG](#configure-backups-for-a-multi-region-ag).
+  - On SQL Server 2022 and earlier, if the backup preference isn't secondary-only, you can now configure backups in Vault 4 because the primary node is registered in this vault. On SQL Server 2025 and later, you can also configure backups when the registered node in Vault 4 satisfies the selected backup preference. This condition can lead to conflicts or backup failures. For more information, see [Configure backups for a multi-region AG](#configure-backups-for-a-multi-region-ag).
 
 ## Configure backups for a multi-region AG
 
@@ -85,7 +113,7 @@ Recovery services vault doesn’t support cross-subscription or cross-region bac
 
 - Each vault where the backup gets enabled will have its own set of recovery point chains. Restores from these recovery points can be done to VMs registered in that vault only.
 
-- Full/differential backups will happen successfully only in the vault that has the primary node. These backups in other vaults will keep failing.
+- **SQL Server 2022 and earlier**: Full and differential backups work only in the vault that has the primary node. These backups in other vaults keep failing. On SQL Server 2025 and later, this behavior changes for *Secondary Only* and *Prefer Secondary* preferences - see [SQL Server 2025: Multi-Region AG backup changes](#sql-server-2025-multi-region-ag-backup-changes).
 
 - Log backups will keep working in the previous vault until a log backup runs in the new vault (that's, in the vault where the new primary node is present) and _breaks_ the log chain for old vault.
   >[!Note]
@@ -96,6 +124,23 @@ Recovery services vault doesn’t support cross-subscription or cross-region bac
 - Protection in each vault is treated as a distinct data source and is billed separately.
 
 To avoid log backup conflicts between the two vaults, we recommend you to set the backup preference to Primary. Then, whichever vault has the primary node will also take the log backups.
+
+### SQL Server 2025: Multi-region AG backup changes
+
+With SQL Server 2025, full and differential backups no longer require the primary node. This change means:
+
+- **Primary node registration isn't required** — If your backup preference is *Secondary Only* or *Prefer Secondary*, you can configure and run backups from any registered secondary node, even if the primary node is in a different region or subscription.
+
+- **Reduced failover impact** — After failover to a node in a different region, backups can continue in the original vault as long as a registered node satisfying the backup preference is available.
+
+However, the fundamental cross-vault coordination limitation remains — **backups can't be coordinated between multiple vaults**. If you register AG nodes in different vaults across regions, simultaneous backup schedules can conflict and cause log chain breaks or duplicate backups.
+
+**Recommendation to avoid cross-vault conflicts:**
+
+- **2-node AG**: Set backup preference to *Secondary Only* or *Primary*.
+- **3+ node AG**: Set backup preference to *Primary*.
+
+This configuration ensures only one vault's node is eligible for backups at any time.
 
 Based on the above sample AG deployment, here are the steps to enable backup from all the nodes. The assumption is that backup preference is satisfied in all the steps.
 
@@ -116,7 +161,7 @@ As the primary node is in region and subscription, the usual steps to enable bac
 
 Same as Step 2.
 
-## Backup an AG that spans Azure and on-premises
+## Back up an AG that spans Azure and on-premises
 
 Azure Backup for SQL Server can’t be run on-premises. If the primary node is in Azure and the backup preference is satisfied by the nodes in Azure, you can follow the above guidance for multi-region AG to enable backups for the replicas in Azure. 
 If a failover to on-premises node happens, the full and differential backups in Azure will start failing. Log backups may continue until the log chain break happens/15 days pass.
@@ -130,7 +175,7 @@ You can change this value to a smaller value if the concurrent backups are causi
 
 For example, the first node has 50 standalone databases protected and both the nodes have 5 AG databases protected. Effectively, Node 1 has 55 database backup jobs scheduled whereas Node 2 has only 5. Also, all these backups are configured to run at the same time, every hour. At a point, all 55 backups will trigger on Node 1 and 35 of these will get queued. Some of these would be the AG database backups. But on Node 2, the AG database backups would go ahead without any queuing.
 
-As the AG database jobs are queued on one node and running on another, the backup synchronization (mentioned in section 6) won’t work properly. Node 2 might assume that Node 1 is down and therefore jobs from there aren't coming up for synchronization. This can lead to log chain breaks or extra backups as both nodes can take backups independently.
+As the AG database jobs queue on one node and run on another, backup synchronization doesn't work properly. Node 2 might assume that Node 1 is down and therefore jobs from Node 1 aren't coming up for synchronization. This problem can lead to log chain breaks or extra backups as both nodes can take backups independently.
 
 Similar problem can happen if the number of AG databases protected is more than the throttling limit. In such case, backup for, say, DB1 can be queued on Node 1 whereas it runs on Node 2. 
 
@@ -155,7 +200,7 @@ The protected instances are calculated as follows:
 | VM3 | DB6 |
 | VM4 | DB5 |
 
-## Moving a protected database in or out of an AG
+## Move a protected database in or out of an AG
 
 Azure Backup considers **SQL instance or AG name\Database name** as the database unique name. When the standalone DB was protected, its unique name was _StandAloneInstanceName\DBName_. When it moves under an AG, the unique name changes to _AGName\DBName_. The backups for the standalone database will start failing with error code: _UserErrorBackupFailedStandaloneDatabaseMovedInToAG_.
 
@@ -163,13 +208,13 @@ The database must be configured for protection from under the AG. This will be t
 
 The database must be configured for protection from under the standalone instance. This will be treated as a new data source with a separate recovery point chain. The older protection of AG database can be stopped with retain data to avoid future backups from triggering and failing on it.
 
-## Addition/Removal of a node to an AG
+## Addition or removal of a node to an AG
 
 When a new node gets added to an AG that is configured for backups, the workload backup extensions running on the already registered AG nodes detect the AG topology change and inform the Azure Backup service during the next scheduled database discovery job. When this new node gets registered for backups to the same Recovery Services vault as the other existing nodes, Azure Backup service triggers a workflow that configures this new node with the necessary metadata for performing AG backups.
 
-After this, the new node syncs the AG backup schedule information from the Azure Backup service and starts participating in the synchronized backup process. If the new node isn't able to sync the backup schedules and participate in backups, triggering a re-registration on the node forces reconfiguration of the node for AG backups as well. Similarly, node addition, the workload extensions detect the AG topology change in this case and inform the Azure Backup service. The service starts a node _un-configuration_ workflow in the removed node to clear the backup schedules for AG databases and delete the AG related metadata.
+After this step, the new node syncs the AG backup schedule information from the Azure Backup service and starts participating in the synchronized backup process. If the new node isn't able to sync the backup schedules and participate in backups, triggering a re-registration on the node forces reconfiguration of the node for AG backups as well. Similarly, during node removal, the workload extensions detect the AG topology change and inform the Azure Backup service. The service starts a node _un-configuration_ workflow on the removed node to clear the backup schedules for AG databases and delete the AG related metadata.
 
-## Un-register an AG node from Azure Backup
+## Unregister an AG node from Azure Backup
 
 If a node is part of an AG that has one or more databases configured for backup, then Azure Backup doesn’t allow un-registration of that node. This is to prevent future backup failures in case the backup preference can’t be met without this node. To unregister the node, first you need to remove it from the AG. When the node _un-configuration_ workflow completes, cleaning up that node, you can unregister it.
 
@@ -192,6 +237,20 @@ Re-creation of Availability group (AG), duplicate AGs, and the backup items get 
   >Stop protection and delete data is a destructive operation.
 
 - You can recreate the AG after performing one of the above Stop protection process to avoid backup failures.
+
+## SQL Server 2025 AG backup considerations
+
+### Backup preference changes after configuration
+
+If you change the AG backup preference but don't register the required node to the vault, backups fail. For example, if you change the preference from *Primary* to *Secondary Only* but no secondary node is registered, log and Full/Diff backups fail. Always ensure that nodes satisfying the new backup preference are registered to the vault before making the change.
+
+### Multi-region AG backup coordination
+
+When you protect AG nodes across multiple vaults in different regions, vaults **can't coordinate** backups between them, regardless of the SQL Server version. For guidance on backup preference settings that avoid log chain breaks and duplicate backups in this scenario, see [SQL Server 2025: Multi-Region AG backup changes](#sql-server-2025-multi-region-ag-backup-changes).
+
+### Snapshot backup support
+
+Snapshot backups are **not supported on secondary replicas** of an AG. When you enable snapshot backup on the backup policy, primary node registration remains mandatory regardless of SQL Server version.
 
 ## Next steps
 

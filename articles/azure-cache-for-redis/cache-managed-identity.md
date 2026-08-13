@@ -14,7 +14,7 @@ ms.custom:
 
 # Managed identity for storage accounts
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 A [managed identity](/entra/identity/managed-identities-azure-resources/overview) helps Azure services connect to each other by making authentication more streamlined and secure. Instead of managing authorization between the services, a managed identity uses [Microsoft Entra ID](/entra/fundamentals/whatis) to provide authentication. This article describes how to use managed identity to connect Azure Cache for Redis caches to Azure Storage accounts.
 

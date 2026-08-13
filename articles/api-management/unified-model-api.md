@@ -4,8 +4,6 @@ description: Learn how to create a unified model API in Azure API Management to 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/29/2026
-author: dlepow
-ms.author: danlep
 ai-usage: ai-assisted
 ---
 

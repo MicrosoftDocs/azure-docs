@@ -12,7 +12,6 @@ ms.custom:
 ms.collection: 
   - ce-skilling-ai-copilot
 ms.date: 05/14/2024
-ms.update-cycle: 180-days
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -74,73 +73,30 @@ When using a vector database for storing content, you should also install at lea
 
 ::: zone-end
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-<!---At GA, replace with:
-[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
--->
-[!INCLUDE [functions-extension-bundles-json-preview](../../includes/functions-extension-bundles-json-preview.md)]  
+
+## Install bundle
+
+You can add the preview extension by adding or replacing the following code in your `host.json` file, which specifically targets a preview version of the 4.x bundle that contains the OpenAI extension:
+<!---verify this bundle info-->
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+``` 
+
+---
+
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
 Go isn't currently supported for this feature.
 ::: zone-end
 
-## Connecting to OpenAI
-
-To use the Azure OpenAI binding extension, you need to specify a connection to OpenAI. This connection is defined using application settings, and the `AIConnectionName` property of the trigger or binding. You can also use environment variables to define key-based connections. 
-
-We recommend that you use managed identity-based connections and the `AIConnectionName` property. 
-
-### [AIConnectionName Property](#tab/ai-connection-name)
-
-The OpenAI bindings have an `AIConnectionName` property that you can use to specify the `<ConnectionNamePrefix>` for this group of app settings that define the connection to Azure OpenAI:
-
-| Setting name |   Description |
-|---|---|
-| `<CONNECTION_NAME_PREFIX>__endpoint` | Sets the URI endpoint of the Azure OpenAI in Foundry Models. This setting is always required. |
-| `<CONNECTION_NAME_PREFIX>__clientId` | Sets the specific user-assigned identity to use when obtaining an access token. Requires that `<CONNECTION_NAME_PREFIX>__credential` is set to `managedidentity`. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a Resource ID and a client ID. If not specified, the system-assigned identity is used. This property is used differently in [local development scenarios](functions-reference.md#local-development-with-identity-based-connections), when `credential` shouldn't be set. |
-|  `<CONNECTION_NAME_PREFIX>__credential` | Defines how an access token is obtained for the connection. Use `managedidentity` for managed identity authentication. This value is only valid when a managed identity is available in the hosting environment. |
-|  `<CONNECTION_NAME_PREFIX>__managedIdentityResourceId` | When `credential` is set to `managedidentity`, this property can be set to specify the resource Identifier to be used when obtaining a token. The property accepts a resource identifier corresponding to the resource ID of the user-defined managed identity. It's invalid to specify both a resource ID and a client ID. If neither are specified, the system-assigned identity is used. This property is used differently in [local development scenarios](functions-reference.md#local-development-with-identity-based-connections), when `credential` shouldn't be set. |
-| `<CONNECTION_NAME_PREFIX>__key` | Sets the shared secret key required to access the endpoint of Azure OpenAI using key-based authentication. As a security best practice, you should always use Microsoft Entra ID with managed identities for authentication. | 
-
-Consider these managed identity connection settings when then `AIConnectionName` property is set to `myAzureOpenAI`:
-
-+ `myAzureOpenAI__endpoint=https://contoso.openai.azure.com/`
-+ `myAzureOpenAI__credential=managedidentity`
-+ `myAzureOpenAI__clientId=aaaaaaaa-bbbb-cccc-1111-222222222222`
-
-At runtime, these settings are collectively interpreted by the host as a single `myAzureOpenAI` setting like this:
-
-```json
-"myAzureOpenAI":
-{
-    "endpoint": "https://contoso.openai.azure.com/",
-    "credential": "managedidentity",
-    "clientId": "aaaaaaaa-bbbb-cccc-1111-222222222222"
-}
-```
-
-When using managed identities, make sure to add your identity to the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) role.
-
-When running locally, you must add these settings to the *local.settings.json* project file. For more information, see [Local development with identity-based connections](functions-reference.md#local-development-with-identity-based-connections).
-
-### [Environment variables](#tab/envars)
-
-To support legacy apps and for providers other than Azure OpenAI, you can also define key-based authentication to OpenAI using these environment variables. 
-
-| Variable name |   Description |
-|---|---|
-| `AZURE_OPENAI_ENDPOINT` | Sets the URI endpoint of your Azure OpenAI instance. Don't use with `Open_API_Key`. |
-| `AZURE_OPENAI_KEY` | Sets the shared secret key required to access your Azure OpenAI endpoint (`AZURE_OPENAI_ENDPOINT`) using key-based authentication.  |
-| `Open_API_Key` | Sets the shared secret key required to access the `https://api.openai.com` endpoint using key-based authentication.  |
-
-You can set these variables in your app settings. 
-
-When running locally, you must add these settings to the *local.settings.json* project file. 
-
----
-
-For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings). 
-
+[!INCLUDE [functions-openai-connections](../../includes/functions-openai-connections.md)]
  
 <!---Include this section if there are any host.json settings defined by the extension:
 ## host.json settings

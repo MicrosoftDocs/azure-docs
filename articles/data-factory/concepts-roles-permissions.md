@@ -12,6 +12,8 @@ ms.author: abnarain
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Most roles needed for Azure Data Factory are some of the standard [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference): Owner, Contributor, Reader, etc.
 
 Though there is one special Azure Data Factory role: [**Data Factory Contributor**](#scope-of-the-data-factory-contributor-role)

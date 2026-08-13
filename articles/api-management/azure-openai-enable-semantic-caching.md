@@ -1,14 +1,12 @@
 ---
 title: Enable Semantic Caching for LLM APIs in Azure API Management
 description: Prerequisites and configuration steps to enable semantic caching for Azure OpenAI and other LLM APIs in Azure API Management.
-author: dlepow
 ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: how-to
 ms.date: 10/28/2025
 ms.update-cycle: 180-days
-ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ---
 

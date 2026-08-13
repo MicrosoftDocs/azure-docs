@@ -1,12 +1,12 @@
 ---
 title: Available Regions and SKUs for Nutanix Cloud Clusters on Azure
-author: riperez123
+author: jjaygbay1
 ms.author: rickyperez
 description: Learn about available regions and SKUs for NC2 Cloud Clusters on Azure.
 ms.topic: reference
 ms.custom: references_regions
 ms.date: 06/15/2026
-ms.service: nc2-on-azure
+ms.service: nutanix-on-azure
 # Customer intent: As a cloud architect, I want to understand the available SKUs and regions for Nutanix Cloud Clusters on Azure, so that I can properly plan the deployment of my infrastructure to meet organizational needs.
 ---
 
@@ -50,6 +50,7 @@ When planning your NC2 on Azure design, use the following table to understand wh
 | North Europe | AN64 | 
 | Qatar Central | AN36P |
 | Southeast Asia | AN36P |
+| South Central US | AN64 |
 | South India | AN36P |
 | UAE North | AN36P |
 | UK South | AN36P, AN64 |

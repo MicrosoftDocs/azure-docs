@@ -28,7 +28,7 @@ Before you start, make sure you have the following items:
 - A development environment set up for WebAssembly module development. For options and detailed environment setup instructions, see [Develop WebAssembly modules](./howto-build-wasm-modules.md).
 
 > [!IMPORTANT]
-> Data flow graphs currently only support MQTT (Message Queuing Telemetry Transport), Kafka, and OpenTelemetry endpoints. Other endpoint types like Azure Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and local storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+> Data flow graphs currently only support MQTT (Message Queuing Telemetry Transport), Kafka, and OpenTelemetry endpoints. Other endpoint types like Azure Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and local storage aren't supported.
 
 ## Benefits of in-band ONNX inference
 

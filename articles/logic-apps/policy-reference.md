@@ -1,10 +1,10 @@
 ---
-title: Built-in policy definitions for Azure Logic Apps
-description: Lists Azure Policy built-in policy definitions for Azure Logic Apps. These built-in policy definitions provide common approaches to managing your Azure resources.
-services: logic-apps
+title: Built-in Policy Definitions
+description: Learn about built-in policy definitions in Azure Policy for Azure Logic Apps. These definitions provide common approaches to managing your Azure resources.
 ms.suite: integration
 ms.topic: concept-article
-ms.date: 07/18/2025
+ms.update-cycle: 365-days
+ms.date: 07/10/2026
 ms.custom: subject-policy-reference
 ---
 

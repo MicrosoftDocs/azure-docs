@@ -24,7 +24,7 @@ In this article, you learn how to use topology to visualize virtual networks and
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- The necessary [role-based access control (RBAC) permissions](required-rbac-permissions.md) to use Azure Network Watcher capabilities.
+- The necessary [role-based access control (RBAC) permissions](rbac-permissions.md) to use Azure Network Watcher capabilities.
 
 ## Supported resource types
 

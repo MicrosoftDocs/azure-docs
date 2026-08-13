@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -669,7 +669,7 @@ Allows full access to App Configuration data.
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/delete |  |
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/action |  |
 > | **NotDataActions** |  |
-> | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/useSasAuth/action |  |
+> | *none* |  |
 
 ```json
 {
@@ -689,9 +689,7 @@ Allows full access to App Configuration data.
         "Microsoft.AppConfiguration/configurationStores/*/delete",
         "Microsoft.AppConfiguration/configurationStores/*/action"
       ],
-      "notDataActions": [
-        "Microsoft.AppConfiguration/configurationStores/useSasAuth/action"
-      ]
+      "notDataActions": []
     }
   ],
   "roleName": "App Configuration Data Owner",
@@ -2766,7 +2764,7 @@ Lets you read, enable, and disable logic apps, but not edit or update them.
 }
 ```
 
-## Logic Apps Standard Contributor (Preview)
+## Logic Apps Standard Contributor
 
 You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership.
 
@@ -2825,13 +2823,13 @@ You can manage all aspects of a Standard logic app and workflows. You can't chan
       "notDataActions": []
     }
   ],
-  "roleName": "Logic Apps Standard Contributor (Preview)",
+  "roleName": "Logic Apps Standard Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Logic Apps Standard Developer (Preview)
+## Logic Apps Standard Developer
 
 You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope.
 
@@ -2914,13 +2912,13 @@ You can create and edit workflows, connections, and settings for a Standard logi
       "notDataActions": []
     }
   ],
-  "roleName": "Logic Apps Standard Developer (Preview)",
+  "roleName": "Logic Apps Standard Developer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Logic Apps Standard Operator (Preview)
+## Logic Apps Standard Operator
 
 You can enable and disable the logic app, resubmit workflow runs, as well as create connections. You can't edit workflows or settings.
 
@@ -2949,7 +2947,8 @@ You can enable and disable the logic app, resubmit workflow runs, as well as cre
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/stop/Action | Stop a Web App |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/write | Create a new Web App or update an existing one |
 > | **NotActions** |  |
-> | *none* |  |
+> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/hostruntime/host/_master/read | Get Function App's master key for admin operations |
+> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/hostruntime/host/action | Perform Function App runtime action like sync triggers, add functions, invoke functions, delete functions etc. |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -2986,18 +2985,21 @@ You can enable and disable the logic app, resubmit workflow runs, as well as cre
         "Microsoft.Web/sites/stop/Action",
         "Microsoft.Web/sites/write"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.Web/sites/hostruntime/host/_master/read",
+        "Microsoft.Web/sites/hostruntime/host/action"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
   ],
-  "roleName": "Logic Apps Standard Operator (Preview)",
+  "roleName": "Logic Apps Standard Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Logic Apps Standard Reader (Preview)
+## Logic Apps Standard Reader
 
 You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history.
 
@@ -3044,7 +3046,7 @@ You have read-only access to all resources in a Standard logic app and workflows
       "notDataActions": []
     }
   ],
-  "roleName": "Logic Apps Standard Reader (Preview)",
+  "roleName": "Logic Apps Standard Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

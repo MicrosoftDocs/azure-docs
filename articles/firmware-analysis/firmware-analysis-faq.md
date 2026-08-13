@@ -5,7 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: faq
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 05/26/2026
+ms.date: 07/29/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -58,34 +58,40 @@ Firmware analysis supports unencrypted images that contain file systems with emb
 
 **Component** | **Component** | **Component** | **Component**
  ---|---|---|---
- acpid           | gtk               | miniupnpd         | radvd
- apache          | harfbuzz          | mit_kerberos      | readline
- avahi_daemon    | heimdal           | mosquitto         | redis
- axios           | hostapd           | msmtp             | rp_pppoe
- backbonejs      | inetutils_telnetd | mstpd             | samba
- bash            | iperf3            | ncurses           | sqlite
- bftpd           | iproute2          | neon              | ssmtp
- bluetoothd      | iptables          | netatalk          | strongswan
- busybox         | jquery            | netkit_telnetd    | stunnel
- bzip2           | json-c            | netsnmp           | sudo
- cairo           | libcurl           | nettools          | tcpdump
- chrony          | libevent          | nginx             | uclibc
- codesys         | libexpat          | nss               | underscorejs
- coreutils       | libgcrypt         | openldap          | usbutils
- dhcpd           | libidn            | openssh           | util_linux
- dnsmasq         | libmicrohttpd     | openssl           | vim
- dropbear        | libpcap           | openvpn           | vsftpd
- e2fsprogs       | libpng            | openvswitch       | vuejs
- element         | libsoup           | p7zip             | wget
- extJS           | libvorbis         | pango             | wolfssl
- ffmpeg          | libxml2           | pcre              | wpa_supplicant
- fribidi         | lighttpd          | pcre2             | xinetd
- gdbserver       | lodash            | perl              | xl2tpd
- gdkpixbuf       | logrotate         | php               | zebra
- glibc           | lua               | polarssl          | zeptojs
- gmp             | matrixssl         | pppd              | zlib
- gnutls          | mbedtls           | proftpd           |
- gpg             | mcproxy           | python            |
+ acpid             | gtk               | mcproxy           | readline
+ apache            | harfbuzz          | miniupnpd         | redis
+ avahi_daemon      | hdparm            | mit_kerberos      | rngd
+ axios             | heimdal           | mosquitto         | rngtest
+ backbonejs        | hostapd           | msmtp             | rp_pppoe
+ bash              | i2c-tools         | mstpd             | samba
+ bftpd             | inetutils_telnetd | mtd-utils         | setserial
+ bluetoothd        | iperf3            | nano              | sqlite
+ bridge-utils      | iproute2          | ncurses           | ssmtp
+ busybox           | ipset             | neon              | strace
+ bzip2             | iptables          | netatalk          | strongswan
+ cairo             | jansson           | netkit_telnetd    | stunnel
+ chrony            | jquery            | netsnmp           | sudo
+ codesys           | json-c            | nettools          | tcpdump
+ conntrack-tools   | libarchive        | nginx             | uclibc
+ coreutils         | libcap            | nss               | underscorejs
+ dhcpd             | libcurl           | openldap          | usbutils
+ dnsmasq           | libevent          | openssh           | util_linux
+ dropbear          | libexpat          | openssl           | vim
+ e2fsprogs         | libgcrypt         | openvpn           | vsftpd
+ ebtables          | libidn            | openvswitch       | vuejs
+ eeprog            | libmicrohttpd     | p7zip             | wget
+ element           | libpcap           | pango             | wolfssl
+ ethtool           | libpng            | pcre              | wpa_supplicant
+ exfat             | libsoup           | pcre2             | xinetd
+ extJS             | libvorbis         | perl              | xl2tpd
+ ffmpeg            | libxml2           | php               | zebra
+ fribidi           | lighttpd          | polarssl          | zeptojs
+ gdbserver         | lodash            | pppd              | zip
+ gdkpixbuf         | logrotate         | procps            | zipcloak
+ glibc             | lspci             | proftpd           | zipnote
+ gmp               | lua               | protobuf-c        | zlib
+ gnutls            | matrixssl         | python            |
+ gpg               | mbedtls           | radvd             |
 
 
 

@@ -5,30 +5,30 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to 
-ms.date: 03/15/2024
+ms.date: 07/29/2026
 ms.custom:
   - template-how-to
   - sfi-image-nochange
 ---
 # Protect high-risk network ports with Security Admin Rules in Azure Virtual Network Manager
 
-In this article, you learn to block high risk network ports using [Azure Virtual Network Manager](overview.md) and Security Admin Rules. You walk through the creation of an Azure Virtual Network Manager instance, group your virtual networks (VNets) with [network groups](concept-network-groups.md), and create & deploy security admin configurations for your organization. You deploy a general block rule for high risk ports. Then you create an exception rule for managing a specific application's VNet using network security groups.
+In this article, you learn how to block high-risk network ports by using [Azure Virtual Network Manager](overview.md) and Security Admin Rules. You walk through the creation of an Azure Virtual Network Manager instance, group your virtual networks (VNets) with [network groups](concept-network-groups.md), and create and deploy security admin configurations for your organization. You deploy a general block rule for high-risk ports. Then you create an exception rule for managing a specific application's VNet by using network security groups.
 
-While this article focuses on a single port, SSH, you can protect any high-risk ports in your environment with the same steps. To learn more, review this list of [high risk ports](concept-security-admins.md#protect-high-risk-ports)
+While this article focuses on a single port, RDP, you can protect any high-risk ports in your environment by using the same steps. To learn more, review this list of [high risk ports](concept-security-admins.md#protect-high-risk-ports).
 
 ## Prerequisites
 
-- You understand how to create an [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md)
+- You understand how to create an [Azure Virtual Network Manager](./create-virtual-network-manager-portal.md) instance.
 - You understand each element in a [Security admin rule](concept-security-admins.md).
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- A group of virtual networks that can be split into network groups for applying granular security admin rules.
-- To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization is not supported
+- A group of virtual networks that you can split into network groups for applying granular security admin rules.
+- To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization isn't supported.
 
 ## Deploy virtual network environment
 
-You need a virtual network environment that includes virtual networks that can be segregated for allowing and blocking specific network traffic. You may use the following table or your own configuration of virtual networks:
+You need a virtual network environment that includes virtual networks that you can segregate for allowing and blocking specific network traffic. You can use the following table or your own configuration of virtual networks:
 
-| Name | IPv4 address space | subnet |
+| Name | IPv4 address space | Subnet |
 | ---- | ----| ---- |
 | vnetA-gen | 10.0.0.0/16 | default - 10.0.0.0/24 |
 | vnetB-gen | 10.1.0.0/16 | default - 10.1.0.0/24 |
@@ -36,7 +36,7 @@ You need a virtual network environment that includes virtual networks that can b
 | vnetD-app | 10.3.0.0/16 | default - 10.3.0.0/24 |
 | vnetE-app | 10.4.0.0/16 | default - 10.4.0.0/24 |
 
-* Place all virtual networks in the same subscription, region, and resource group
+* Place all virtual networks in the same subscription, region, and resource group.
 
 Not sure how to build a virtual network? Learn more in [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
@@ -53,30 +53,28 @@ In this section, you deploy a Virtual Network Manager instance with the Security
     | Subscription | Select the subscription you want to deploy Azure Virtual Network Manager to. |
     | Resource group | Select or create a resource group to store Azure Virtual Network Manager. This example uses the **myAVNMResourceGroup** previously created. |
     | Name | Enter a name for this Azure Virtual Network Manager instance. This example uses the name **myAVNM**. |
-    | Region | Select the region for this deployment. Azure Virtual Network Manager can manage virtual networks in any region. The region selected is for where the Virtual Network Manager instance will be deployed. |
+    | Region | Select the region for this deployment. Azure Virtual Network Manager can manage virtual networks in any region. The region you select is where the Virtual Network Manager instance is deployed. |
     | Description | *(Optional)* Provide a description about this Virtual Network Manager instance and the task it's managing. |
     | [Scope](concept-network-manager-scope.md#scope) | Define the scope for which Azure Virtual Network Manager can manage. This example uses a subscription-level scope. |
     | [Features](concept-network-manager-scope.md#features) | Select the features you want to enable for Azure Virtual Network Manager. Available features are *Connectivity*, *SecurityAdmin*, or *Select All*. </br> Connectivity - Enables the ability to create a full mesh or hub and spoke network topology between virtual networks within the scope. </br> SecurityAdmin - Enables the ability to create global network security rules. |
 
-1. Select **Review + create** and then select **Create** once validation has passed.
-1. Select **Go to resource** when deployment is complete and review the virtual network manager configuration
+1. Select **Review + create** and then select **Create** once validation passes.
+1. Select **Go to resource** when deployment is complete and review the virtual network manager configuration.
 
 ## Create a network group for all virtual networks
 
-With your virtual network manager created, you now create a network group containing all of the VNets in the organization, and you manually add all of the VNets.
+After you create your virtual network manager, create a network group containing all of the VNets in the organization, and manually add all of the VNets.
 1. Select **Network Groups**, under **Settings**.
 1. Select **+ Create**, enter a *name* for the network group, and select **Add**.
 1. On the *Network groups* page, select the network group you created.
 1. Select **Add**, under **Static Membership** to manually add all the VNets.
-1. On the **Add static members** page, select all of the virtual networks you wish to include, and select **Add**.
+1. On the **Add static members** page, select all of the virtual networks you want to include, and select **Add**.
 
 ## Create a security admin configuration for all virtual networks
 
-It’s time to construct our security admin rules within a configuration in order to apply those rules to all the VNets within your network group at once. In this section, you create a security admin configuration. Then you create a rule collection and add rules for high risks ports like SSH or RDP. This configuration denies network traffic to all virtual networks in the network group.
+Create security admin rules within a configuration to apply those rules to all the virtual networks within your network group at once. In this section, you create a security admin configuration. Then you create a rule collection and add a rule that denies RDP traffic on port 3389, the port this article uses as its example. This configuration denies network traffic to all virtual networks in the network group.
 1. Return to your virtual network manager resource.
-1. Select **Configurations** under *Settings* and then select **+ Create**.
-1. Select **Security configuration** from the drop-down menu.
-1. On the **Basics** tab, enter a *Name* to identify this security configuration and select **Next: Rule collections**.
+1. [Create a SecurityAdmin configuration](how-to-block-network-traffic-portal.md#create-a-securityadmin-configuration), entering a name to identify this security configuration.
 1. Select **+ Add** from the *Add a security configuration page*.
 1. Enter a *Name* to identify this rule collection and then select the *Target network groups* you want to apply the set of rules to. The target group is the network group containing all of your virtual networks.
 
@@ -85,44 +83,44 @@ It’s time to construct our security admin rules within a configuration in orde
 In this section, you define the security rule to block high-risk network traffic to all virtual networks. When assigning priority, keep in mind future exception rules. Set the priority so that exception rules are applied over this rule.
 
 1. Select **+ Add** under **Security admin rules**.
-1. Enter the information needed to define your security rule, then select **Add** to add the rule to the rule collection.
+1. Enter the information needed to define your security rule, and then select **Add** to add the rule to the rule collection.
 
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter a rule name. |
     | Description | Enter a description about the rule. |
-    | Priority* | Enter a value between 1 and 4096 to determine the priority of the rule. The lower the value the higher the priority.|
-    | Action* | Select **Deny** to block traffic. For more information, see [Action](concept-security-admins.md#action)
-    | Direction* | Select **Inbound** as you want to deny inbound traffic with this rule. |
-    | Protocol* | Select the network protocol for the port. |
+    | Priority | Enter a value between 1 and 4096 to determine the priority of the rule. The lower the value the higher the priority.|
+    | Action | Select **Deny** to block traffic. For more information, see [Action](concept-security-admins.md#action).
+    | Direction | Select **Inbound** as you want to deny inbound traffic with this rule. |
+    | Protocol | Select the network protocol for the port. Select **TCP** for this example, because RDP uses TCP on port 3389. |
     |**Source**| |
     | Source type | Select the source type of either **IP address** or **Service tags**. |
-    | Source IP addresses | This field appears when you select the source type of *IP address*. Enter an IPv4 or IPv6 address or a range using CIDR notation. When defining more than one address or blocks of addresses separate using a comma. Leave blank for this example.|
-    | Source service tag | This field appears when you select the source type of *Service tag*. Select service tag(s) for services you want to specify as the source. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags. |
+    | Source IP addresses | This field appears when you select the source type of *IP address*. Enter an IPv4 or IPv6 address or a range using CIDR notation. When defining more than one address or blocks of addresses, separate them using a comma. Leave blank for this example.|
+    | Source service tag | This field appears when you select the source type of *Service tag*. Select service tags for services you want to specify as the source. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags. |
     | Source port | Enter a single port number or a port range such as (1024-65535). When defining more than one port or port ranges, separate them using a comma. To specify any port, enter *. Leave blank for this example.|
     |**Destination**| |
     | Destination type | Select the destination type of either **IP address** or **Service tags**. |
-    | Destination IP addresses | This field appears when you select the destination type of *IP address*. Enter an IPv4 or IPv6 address or a range using CIDR notation. When defining more than one address or blocks of addresses separate using a comma. |
-    | Destination service tag | This field appears when you select the destination type of *Service tag*. Select service tag(s) for services you want to specify as the destination. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags. |
+    | Destination IP addresses | This field appears when you select the destination type of *IP address*. Enter an IPv4 or IPv6 address or a range using CIDR notation. When defining more than one address or blocks of addresses, separate them using a comma. |
+    | Destination service tag | This field appears when you select the destination type of *Service tag*. Select service tags for services you want to specify as the destination. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags. |
     | Destination port | Enter a single port number or a port range such as (1024-65535). When defining more than one port or port ranges, separate them using a comma. To specify any port, enter *. Enter **3389** for this example. |
 
-1. Repeat steps 1-3 again if you want to add more rules to the rule collection.
-1. Once you're satisfied with all the rules you wanted to create, select **Add** to add the rule collection to the security admin configuration.
+1. If you want to add more rules to the rule collection, repeat steps 1-3.
+1. When you're satisfied with all the rules you want to create, select **Add** to add the rule collection to the security admin configuration.
 1. Then select **Review + Create** and **Create** to complete the security configuration.
 
 ## Deploy a security admin configuration for blocking network traffic
 
-In this section, the rules created take effect when you deploy the security admin configuration.
+In this section, the rules you create take effect when you deploy the security admin configuration.
 
-1. Select **Deployments** under *Settings*, then select **Deploy configuration**.
-1. Select the **Include security admin in your goal state** checkbox and choose the security configuration you created in the last section from the dropdown menu. Then choose the region(s) you would like to deploy this configuration to.
+1. Select **Deployments** under *Settings*, and then select **Deploy configuration**.
+1. Select the **Include security admin in your goal state** checkbox. Choose the security configuration you created in the last section from the dropdown menu. Then choose the regions you want to deploy this configuration to.
 1. Select **Next** and **Deploy** to deploy the security admin configuration.
 
 ## Create a network group for traffic exception rule
 
-With traffic blocked across all of your VNets, you need an exception to allow traffic to specific virtual networks. You create a network group specifically for the VNets needing exclusion from the other security admin rule.
+When you block traffic across all of your VNets, you need an exception to allow traffic to specific virtual networks. You create a network group specifically for the VNets needing exclusion from the other security admin rule.
 
-1. From your virtual network manager, select **Network Groups**, under **Settings**.
+1. From your virtual network manager, select **Network Groups** under **Settings**.
 1. Select **+ Create**, enter a *name* for the application network group, and select **Add**.
 1. Under **Define Dynamic Membership**, select **Define**.
 1. Enter or select the values to allow traffic to your application virtual network. 
@@ -133,31 +131,31 @@ With traffic blocked across all of your VNets, you need an exception to allow tr
 
 ## Create a traffic exception security admin rule and collection
 
-In this section, you create a new rule collection and security admin rule that allows high-risk traffic to the subset of virtual networks you've defined as exceptions. Next, you add it to your existing security admin configuration.
+In this section, you create a new rule collection and security admin rule that allows high-risk traffic to the subset of virtual networks you define as exceptions. Next, you add it to your existing security admin configuration.
 
 > [!IMPORTANT]
-> In order for your security admin rule to allow traffic to your application virtual networks, the priority needs to be set to a **lower number** than existing rules blocking traffic. 
+> For your security admin rule to allow traffic to your application virtual networks, set the priority to a **lower number** than existing rules that block traffic. 
 >
->For example, an all network rule blocking **SSH** has a priority of **10** so your allow rule should have a priority from **1 to 9**.
+>For example, an all network rule blocking **RDP** has a priority of **10** so your allow rule should have a priority from **1 to 9**.
 1. From your virtual network manager, select **Configurations** and select your security configuration.
-1. Select **Rule collections** under **Settings**, then select **+ Create** to create a new rule collection.
-1. On the **Add a rule collection page**, enter a name for your application rule collection and choose the application network group you created.
-1. Under the **Security admin rules**, select + Add.
+1. Select **Rule collections** under **Settings**, and then select **+ Create** to create a new rule collection.
+1. On **Add a rule collection**, enter a name for your application rule collection and choose the application network group you created.
+1. Under the **Security admin rules** section, select + **Add**.
 1. Enter or select the values to allow specific network traffic to your application network group, and select **add** when completed.
 1. Repeat the add rule process for all traffic needing an exception.
 1. Select **Save** when you're done.
    
 ## Redeploy the security admin configuration with exception rule
 
-To apply the new rule collection, you redeploy your security admin configuration since it was modified by adding a rule collection.
+To apply the new rule collection, redeploy your security admin configuration since you modified it by adding a rule collection.
 
 1. From your virtual network manager, select **Configurations**.
-1. Select your security admin configuration and select **Deploy**
-1. On the **Deploy Configuration** page, select all target regions receiving the deployment and 
+1. Select your security admin configuration and select **Deploy**.
+1. On **Deploy Configuration**, select all target regions receiving the deployment. 
 1. Select **Next** and **Deploy**.
 
 ## Next steps
 
-- Learn how to [create a mesh network topology with Azure Virtual Network Manager using the Azure portal](how-to-create-mesh-network.md)
+- Learn how to [create a mesh or hub-and-spoke topology with Azure Virtual Network Manager](how-to-create-network-manager-topologies.md).
 
-- Check out the [Azure Virtual Network Manager FAQ](faq.md)
+- Check out the [Azure Virtual Network Manager FAQ](faq.md).

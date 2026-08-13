@@ -99,7 +99,7 @@ public async Task PlaceOutboundCallAsync(string targetPhoneNumber, Uri baseUri)
     // Configure call options with TeamsAppSource (Resource Account OID)
     var options = new CreateCallOptions(callInvite, baseUri)
     {
-        TeamsAppSource = new MicrosoftTeamsAppIdentifier("xxxxxxxxxxxxxxxxxxxxx") // Replace with Resource Account OID
+        TeamsAppSource = new MicrosoftTeamsAppIdentifier("00000000-0000-0000-0000-000000000000") // Replace with Resource Account OID
     };
 
     // Place the call

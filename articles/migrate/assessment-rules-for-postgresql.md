@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article 
 ms.date: 09/19/2025
 ms.custom: engagement-fy24 
+ms.update-cycle: 1825-days
 # Customer intent: Customers want to ensure a smooth migration of PostgreSQL databases to Azure by identifying blockers, compatibility issues, and required configuration changes.
 ---
 

@@ -1,6 +1,6 @@
 ---
 author: sipastak
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: include
 ms.date: 04/11/2025
 ms.author: sipastak

@@ -3,14 +3,16 @@ title: Self-hosted integration runtime autoupdate and expire notification
 description: Learn about self-hosted integration runtime autoupdate and expire notification.
 ms.subservice: integration-runtime
 ms.topic: how-to
-author: lrtoyou1223
-ms.author: lle
+author: kromerm
+ms.author: makromer
 ms.date: 09/26/2024
 ---
 
 # Self-hosted integration runtime autoupdate and expire notification
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article describes how to let self-hosted integration runtime autoupdate to the latest version and how Azure Data Factory (ADF) manages the versions of self-hosted integration runtime.
 

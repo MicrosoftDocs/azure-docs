@@ -2,11 +2,11 @@
 title: 'Configure P2S VPN clients - certificate authentication - macOS OpenVPN client'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure the VPN client for VPN Gateway P2S configurations that use certificate authentication. This article applies to macOS OpenVPN client.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/18/2024
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: As a macOS user configuring a VPN client, I want to set up certificate authentication with an OpenVPN client, so that I can securely connect to my Azure virtual network.
 ---
 

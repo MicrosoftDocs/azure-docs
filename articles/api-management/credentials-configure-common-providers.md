@@ -2,11 +2,9 @@
 title: Configure Credential Providers - Azure API Management | Microsoft Docs
 description: Learn how to configure common credential providers in the Azure API Management credential manager. Providers include Microsoft Entra and generic OAuth.  
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 04/09/2026
-ms.author: danlep
 ms.custom: sfi-image-nochange
 # Customer intent: As an Azure service administrator, I want to learn how to configure common credential providers in the API Management credential manager.
 ---

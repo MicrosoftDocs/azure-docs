@@ -1,6 +1,6 @@
 ---
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.date: 05/26/2026
 ms.service: azure-virtual-wan
 ms.custom: linux-related-content

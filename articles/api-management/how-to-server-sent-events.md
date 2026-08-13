@@ -1,10 +1,8 @@
 ---
 title: Configure API for Server-Sent Events in Azure API Management 
 description: How to configure an API for server-sent events (SSE) in Azure API Management.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.author: danlep
 ms.date: 10/08/2025
 ---
 

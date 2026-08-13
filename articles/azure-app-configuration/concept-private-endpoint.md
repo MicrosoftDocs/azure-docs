@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: concept-article
-ms.date: 07/29/2025
+ms.date: 06/22/2026
 
 # customer intent: As a developer using Azure App Configuration, I want to find out how to use private endpoints so that I can improve the security of communication with my App Configuration instance.
 ---
@@ -68,7 +68,7 @@ Azure relies on DNS resolution to route connections from the virtual network to 
 > By default, when you add a private endpoint to your App Configuration store, all requests for your App Configuration data over the public network are denied. You can enable public network access by using the following Azure CLI command. It's important to consider the security implications of enabling public network access in this scenario.
 >
 > ```azurecli-interactive
-> az appconfig update --resource-group <resource-group-name> --name <App-Configuration-store-name> --enable-public-network true
+> az appconfig update --resource-group <ResourceGroupName> --name <AppConfigurationStoreName> --enable-public-network true
 > ```
 
 ## DNS changes for private endpoints
@@ -79,8 +79,8 @@ When you resolve the endpoint URL from within the virtual network that hosts the
 
 If you use a custom DNS server on your network, you need to configure it to delegate your `privatelink` subdomain to the private DNS zone for the virtual network. Alternatively, you can configure the A records for your store's private link URLs. Those A records use the following formats:
 
-- `<App-Configuration-store-name>.privatelink.azconfig.io` for your origin store.
-- `<App-Configuration-store-name>-<replica-name>.privatelink.azconfig.io` for each replica if geo-replication is enabled. Each private endpoint has a unique private IP address.
+- `<AppConfigurationStoreName>.privatelink.azconfig.io` for your origin store.
+- `<AppConfigurationStoreName>-<ReplicaName>.privatelink.azconfig.io` for each replica if geo-replication is enabled. Each private endpoint has a unique private IP address.
 
 ## Pricing
 
@@ -90,7 +90,7 @@ Enabling private endpoints requires an App Configuration store with a [Developer
 
 If you connect a private endpoint to an App Configuration store in a subscription where the App Configuration resource provider isn't registered, the following message appears:
 
-"The private endpoint's subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' is not registered to use resource provider 'Microsoft.AppConfiguration.'"
+> The private endpoint's subscription '\<SubscriptionId\>' is not registered to use resource provider 'Microsoft.AppConfiguration'. See https://aka.ms/appconfig/PrivateEndpointTroubleshooting for instructions on how to register a subscription to a resource provider.
 
 This message typically appears when the private endpoint and the App Configuration store are in different subscriptions. To resolve the situation, take the following steps:
 

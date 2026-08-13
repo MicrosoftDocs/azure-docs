@@ -5,7 +5,7 @@ ms.author: mbender
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 06/17/2024
+ms.date: 08/05/2026
 # Customer intent: As a network administrator, I want to use a decision tree to select a secure network topology, so that I can ensure optimal security and routing for my organization’s workloads.
 ---
 
@@ -19,9 +19,9 @@ A network topology defines the basic routing and traffic flow architecture for y
 
 ## Decision tree
 
-The following decision tree helps you to choose a network topology for your security requirements. The decision tree guides you through a set of key decision criteria to reach a recommendation.
+The following decision tree helps you choose a network topology that meets your security requirements. It works through the considerations described earlier in this article, such as whether your workload spans multiple regions and whether you plan to use network virtual appliances for routing and security.
 
-Treat this decision tree as a starting point. Every deployment has unique requirements, so use the recommendation as a starting point. Then perform a more detailed evaluation.
+Use the resulting topology as an initial direction for your architecture. Because routing and security requirements differ for every workload, evaluate the recommendation in more detail before you commit to a topology.
 
 :::image type="content" source="media/secure-network-topology/secure-network-topology-decision-tree.png" alt-text="Secure network topology decision tree.":::
 

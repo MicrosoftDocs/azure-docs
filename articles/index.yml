@@ -10,7 +10,7 @@ metadata:
   ms.topic: hub-page
   author: fossygirl
   ms.author: carols
-  ms.date: 06/18/2026
+  ms.date: 07/21/2026
   adobe-target: true
   learn-experiments: true
   featureFlags:
@@ -1187,6 +1187,13 @@ productDirectory:
         - networking
       url: virtual-wan/index.yml
     # Card
+    - title: Azure Enclave
+      summary: Quickly deploy secure and compliant virtual networking environments 
+      imageSrc: ./media/index/enclave.svg
+      azureCategories:
+        - networking
+      url: enclave/index.yml
+    # Card
     - title: VPN Gateway
       summary: Establish secure, cross-premises connectivity
       imageSrc: ./media/index/virtual-network-gateways.svg
@@ -1460,12 +1467,16 @@ additionalContent:
         - title: Microsoft Azure operated by 21Vianet
           summary: A dedicated cloud located in China and operated by 21Vianet.
           url: /azure/china/
-    - title: Partner solutions
+    - title: Discover Microsoft partner solutions
       items:
         # Card
-        - title: Commercial marketplace
-          summary: An online marketplace of applications and services from independent software vendor (ISV) partners.
-          url: ./marketplace/index.yml
+        - title: Microsoft Marketplace
+          summary: Microsoft Marketplace is your trusted source for cloud solutions, apps, and agents.
+          url: https://marketplace.microsoft.com
+        # Card
+        - title: Microsoft Marketplace customer documentation
+          summary: Align third-party cloud and AI investments to your Microsoft contract to get the most value while increasing security and governance.
+          url: /marketplace/
         # Card
         - title: Azure Native ISV Services
           summary: Integrated partner solutions that you can use in Azure to enhance your cloud infrastructure.

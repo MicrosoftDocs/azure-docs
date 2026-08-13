@@ -62,6 +62,8 @@ Azure Data Lake Storage protection has the following supported scenarios:
 
 Azure Data Lake Storage protection has the following unsupported scenarios:
 
+- Azure Backup is not supported for Storage Accounts enabled with Network Security Perimeter (NSP). We recommend not associating an account with NSP if you have backup enabled or you plan to use Azure backup.
+
 - Any new containers that get created after backup configuration for the storage account aren't backed up automatically. To enable the backup operation for the new containers, modify the protection of the storage account. 
 - The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error might appear when you configure backup.
 - Backup vaults with User-Assigned Managed Identity (UAMI) aren't compatible with Azure Blob Vaulted backups.

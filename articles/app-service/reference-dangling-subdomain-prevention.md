@@ -57,7 +57,7 @@ When you create a resource with a unique default hostname, you choose a **scope*
 
 | Scope | Description |
 |---|---|
-| **Tenant Reuse** | Same hash for the same app name across all subscriptions in your Microsoft Entra tenant. Use this when you redeploy resources across subscriptions within the same tenant. |
+| **Tenant Reuse** | Same hash for the same app name across all subscriptions in your Microsoft Entra tenant. |
 | **Subscription Reuse** | Same hash for the same app name within the same subscription. |
 | **Resource Group Reuse** | Same hash for the same app name within the same resource group. |
 | **No Reuse** | Unique hash every time. Maximum isolation. |
@@ -77,7 +77,10 @@ Slots are always created with the same scope as the production site.
 
 ### How to enable
 
-You can enable secure unique default hostnames when creating a new resource through the Azure portal, Azure CLI, ARM templates, or REST API. The feature can only be enabled during resource creation — it can't be applied to existing resources retroactively.
+You configure secure unique default hostnames when you create the resource. You can't apply them to existing resources retroactively. The way you enable them depends on the client you use:
+
+- **Azure portal**: New Web Apps, Function Apps, and Logic Apps (Standard) created in the Azure portal use secure unique default hostnames automatically on all supported SKUs. No extra configuration is required.
+- **Azure CLI, ARM templates, and REST API**: You must opt in explicitly by setting the hostname scope on the create request. Set this value for every new deployment so that resources created outside the portal use the same default hostname format as resources created in the portal.
 
 #### [Azure CLI](#tab/cli)
 
@@ -93,12 +96,10 @@ The `--domain-name-scope` parameter accepts the following values: `NoReuse`, `Re
 
 #### [Azure portal](#tab/portal)
 
-1. Go to the **Create Web App** page.
-2. Toggle the option to enable **Unique default hostname**.
-3. Complete the remaining configuration and create the resource.
+New Web Apps, Function Apps, and Logic Apps (Standard) created in the Azure portal use secure unique default hostnames automatically on all supported SKUs. Complete the standard **Create** flow. The generated hostname is shown on the **Basics** tab in the format `<AppName>-<Hash>.<Region>.azurewebsites.net`.
 
 > [!NOTE]
-> Resources created through the Azure portal use **Tenant Reuse** by default. To use a different scope, use the Azure CLI or ARM templates.
+> Portal-created resources use the **Tenant Reuse** hash scope. To choose a different scope (**Subscription Reuse**, **Resource Group Reuse**, or **No Reuse**), create the resource with the Azure CLI, ARM templates, or REST API.
 
 #### [ARM template / REST API](#tab/arm)
 
@@ -136,7 +137,7 @@ Secure unique default hostnames provide **protection by default**. Unlike other 
 - Dangling DNS entries can't be exploited for subdomain takeover.
 - No additional configuration steps are needed beyond enabling the feature at creation time.
 
-We strongly recommend enabling secure unique default hostnames for all new App Service deployments.
+Use secure unique default hostnames for every new App Service deployment. The Azure portal already applies this configuration automatically for new resources on supported SKUs. Aligning your Azure CLI, ARM template, and REST API deployments with the same default hostname format keeps your provisioning consistent with the recommended App Service configuration.
 
 > [!NOTE]
 > The region identifier in the hostname (for example, `eastus-01`) may use different number suffixes for future deployments. Don't take hard dependencies on the exact region-number combination.

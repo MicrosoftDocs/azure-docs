@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-author: lrtoyou1223
+author: kromerm
 ms.subservice: integration-runtime
 ms.topic: include
 ms.date: 10/09/2019
-ms.author: lle
+ms.author: makromer
 ---
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |

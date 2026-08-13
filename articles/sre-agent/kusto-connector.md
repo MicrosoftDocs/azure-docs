@@ -1,17 +1,20 @@
 ---
-title: "Tutorial: Connect to Azure Data Explorer (ADX) in Azure SRE Agent"
-description: Connect your SRE agent to Azure Data Explorer (Kusto) clusters with per-cluster connectivity testing before saving.
+title: "Tutorial: Connect to Azure Data Explorer (ADX) through Azure MCP in Azure SRE Agent"
+description: Connect your SRE agent to Azure Data Explorer (Kusto) through the Azure MCP Kusto path, configure cluster groups, and test connectivity before saving.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 04/01/2026
+ms.date: 07/17/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
-#customer intent: As an SRE, I want to connect my agent to Azure Data Explorer so that it can query logs and telemetry during incident investigations.
+#customer intent: As an SRE, I want to connect my agent to Azure Data Explorer through Azure MCP so that it can query logs and telemetry during incident investigations.
 ---
 
-# Tutorial: Connect to Azure Data Explorer (ADX) in Azure SRE Agent
-In this tutorial, you connect your SRE agent to an Azure Data Explorer (Kusto) cluster. The connector wizard tests connectivity per-cluster before saving, so you can verify access before committing the configuration.
+# Connect to Azure Data Explorer (Kusto) through Azure MCP
+
+In this tutorial, you connect your SRE agent to Azure Data Explorer (Kusto) by using the Azure MCP Kusto path. The connector wizard creates the Azure MCP Kusto parent connector, lets you add Kusto cluster groups, and tests cluster connectivity before saving.
+
+Use this article for new Azure Data Explorer connections. The standard connector picker no longer uses the legacy Azure Data Explorer card for new connectors.
 
 **Estimated time**: 15 minutes
 
@@ -20,7 +23,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Locate your Azure Data Explorer cluster URL and database name
 > - Grant the agent's managed identity access to the database
-> - Add an Azure Data Explorer connector with cluster groups
+> - Add Azure Data Explorer through the Telemetry tab
+> - Configure Kusto cluster groups for Azure MCP
 > - Test per-cluster connectivity and save the connector
 
 ## Prerequisites
@@ -43,7 +47,7 @@ To configure the connector, you need the cluster URL and at least one database n
 
 ## Grant the agent database permissions
 
-The agent's managed identity needs at least viewer-level access to the database.
+The managed identity that runs Kusto queries needs at least viewer-level access to the database. Use the connector-level managed identity, or the group-level managed identity if you assign a different identity to a cluster group.
 
 Run the following KQL command to grant the required permissions:
 
@@ -51,49 +55,53 @@ Run the following KQL command to grant the required permissions:
 .add database <DATABASE_NAME> viewers ('aadapp=<AGENT_MANAGED_IDENTITY_ID>')
 ```
 
-Replace `<DATABASE_NAME>` with your database name and `<AGENT_MANAGED_IDENTITY_ID>` with the agent's managed identity client ID.
+Replace `<DATABASE_NAME>` with your database name and `<AGENT_MANAGED_IDENTITY_ID>` with the managed identity client ID.
 
 ## Add the connector in the portal
 
-Configure the Azure Data Explorer connector in the SRE Agent portal.
+Configure Azure Data Explorer in the SRE Agent portal.
 
 1. Go to **Builder** > **Connectors**.
 1. Select **Add connector**.
-1. Select the **Azure Data Explorer** card.
+1. Select the **Telemetry** tab.
+1. Select the **Azure Data Explorer** card. This card uses the Azure MCP Kusto path.
 1. Select **Next**.
 
 ### Set up the connector
 
 1. Enter a **Name** for the connector, such as "production-logs".
-1. Select a **Managed identity** from the dropdown.
+1. Select a **Managed identity** from the dropdown. This identity is the default for Kusto cluster groups unless a group uses a different identity.
 1. Select **Next**.
 
-### Add clusters
+### Add cluster groups
 
-1. Enter a **Group name** for the cluster group (such as "production").
-1. Select a **Managed identity** for this cluster group, or leave as **(inherit)** to use the connector-level identity.
+Cluster groups let you organize Kusto clusters that share the same schema or managed identity.
+
+1. Select **Create new group**.
+1. Enter a **Group name**, such as "production".
+1. Select a **Managed identity** for this cluster group, or leave it as **(inherit)** to use the connector-level identity.
 1. Under **Clusters**, enter your cluster URL in the format `https://<CLUSTER_NAME>.<REGION>.kusto.windows.net/<DATABASE_NAME>`.
-1. To add more clusters to the same group, type each URL in the next row — a new row appears automatically when you fill the current one.
-1. To add a second group with different clusters or a different identity, select **+ Create new group**.
+1. To add more clusters to the same group, type each URL in the next row. A new row appears automatically when you fill the current one.
+1. To add another group with different clusters or a different identity, select **Create new group** again.
 1. Select **Next**.
 
-### Test connection and save
+### Review, test, and save
 
-1. Review your connector details—connector type, name, managed identity, and cluster groups.
+1. Review your connector details: connector type, name, managed identity, and cluster groups.
+1. Decide whether the Kusto connector should be visible to the meta agent.
 1. Each cluster group shows a **Not tested** label.
 1. Select **Test connection**. The button changes to **Testing connection...** while connectivity is verified.
 1. After testing completes, each cluster shows a result:
-   - A green checkmark icon means the cluster is reachable.
-   - A red X icon means the cluster is unreachable, with an error message displayed inline.
-1. Once testing completes, the button changes to **Add connector**.
-1. Select **Add connector** to save.
+   - A **Connected** badge means the cluster is reachable.
+   - A **Failed** badge means the cluster is unreachable. Select **See details** to view the error.
+1. Once testing completes, select **Add connector** to save.
 
 > [!TIP]
 > If a cluster fails the test, go back to verify the cluster URL format and that the managed identity has the correct permissions on that cluster.
 
 ## Edit an existing connector
 
-To modify an existing Azure Data Explorer connector, select the connector name or the edit icon in the Connectors list. The wizard opens directly at the **Add clusters** step, skipping the connector picker.
+To modify an existing Azure Data Explorer connector, select the connector name or the edit icon in the Connectors list. The wizard opens with the Azure MCP Kusto configuration so you can update the connector details, cluster groups, and visibility setting.
 
 ## Verify the connection
 
@@ -105,7 +113,7 @@ Ask your agent:
 List the tables in the production-logs database
 ```
 
-The agent returns a list of tables from the connected database.
+The agent uses the Azure MCP Kusto tools and returns a list of tables from the connected database.
 
 ## Troubleshoot common issues
 
@@ -123,14 +131,15 @@ If you encounter problems during setup, review the following common causes.
 
 ### Not tested badge remains after clicking Test connection
 
-- Wait for the test to complete. Large clusters may take a few seconds to respond.
+- Wait for the test to complete. Large clusters might take a few seconds to respond.
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Create a Kusto tool](./create-kusto-tool.md)
+> [Diagnose with external observability](diagnose-observability.md)
 
 ## Related content
 
-- [Create Kusto tool](create-kusto-tool.md)
+- [Connect a telemetry source](connect-telemetry-source.md)
+- [Set up a managed connector](setup-managed-connector.md)
 - [Diagnose with external observability](diagnose-observability.md)

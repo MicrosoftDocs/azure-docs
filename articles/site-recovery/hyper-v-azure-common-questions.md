@@ -29,6 +29,10 @@ You will typically see an increase in the transactions cost incurred on GPv2 sto
 
 Yes, you can purchase [reserved Azure virtual machines](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the disaster recovery region, and Site Recovery failover operations use them. No additional configuration is needed.
 
+### Can I use On-demand Capacity Reservation with Hyper-V to Azure (H2A) disaster recovery?
+
+No. Azure Site Recovery supports On-demand Capacity Reservation only for Azure-to-Azure (A2A) disaster recovery scenarios. It isn't supported for Hyper-V to Azure (H2A) disaster recovery.
+
 ## Azure
 
 ### What do I need in Hyper-V to orchestrate replication with Site Recovery?

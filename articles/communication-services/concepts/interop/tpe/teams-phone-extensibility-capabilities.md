@@ -21,17 +21,19 @@ This article describes which Microsoft Teams Phone capabilities Azure Communicat
 
 - Teams users must have a Teams Phone license.
 - Teams users must be Enterprise Voice enabled.
-- Agents in Azure Communication Services applications support the capabilities in the following table. Teams users aren't supported.
+- Dual Persona Agents in Azure Communication Services applications support the capabilities in the following table. Teams users aren't supported.
 
 ## Teams Phone capabilities
 
 The following list of capabilities is supported for scenarios where at least one phone number participates in 1:1 or group calls:
 
+**Legend:** ✔️ supported · ❌ not supported · N/A not applicable to that SDK.
+
 | **Group of features** | **Capability (from TPE perspective)** | **Client Calling SDK** | **Call Automation**  |
 | --- | --- | --- | --- |
-| Connectivity | Teams calling plans | ✔️ | ✔️ |
-| | Teams direct routings | ✔️ | ✔️ |
-| | Teams operator connect | ✔️ | ✔️ |
+| Connectivity | Teams Calling Plans | ✔️ | ✔️ |
+| | Direct Routing | ✔️ | ✔️ |
+| | Operator Connect | ✔️ | ✔️ |
 | Outbound Calling | Place outbound calls using Teams service phone number | ✔️ | ✔️ |
 | | Receive early media when placing outbound calls | ✔️ | N/A |
 | Inbound calling  | Support incoming PSTN call to Teams service phone number answered by call automation app and routed to agent | ✔️ | ✔️ |
@@ -39,15 +41,15 @@ The following list of capabilities is supported for scenarios where at least one
 | Mid-call actions (signaling)  | Leave a connected call (without terminating the call) | ✔️  | ✔️  |
 | | Terminate the entire call (ending the call for all participants) | ✔️ | ✔️ |
 | | Add an agent to an ongoing call | ✔️ | ✔️ |
-| | Add external phone number from an ongoing call | ✔️  | ✔️ |
-| | Add a Teams user to an ongoing call | ❌ | ❌ |
-| | Cancel an already initiated add participant request, as long as the the target agent / phone number has yet to accept the call invite | ❌ | ✔️ |
+| | Add external phone number to an ongoing call | ✔️  | ✔️ |
+| | Consult with a Teams Subject Matter Expert (SME) | ✔️ | ✔️ |
+| | Cancel an already initiated add participant request, as long as the target agent / phone number has yet to accept the call invite | ❌ | ✔️ |
 | | Remove a call participant from ongoing call | ✔️ | ✔️  |
 | | Dial out to same phone number multiple times in a call | ❌ | ❌ |
 | | Transfer the end user from ongoing 1:1 call to another agent or external phone number | ✔️ | ✔️ |
 | | Transfer the end user from ongoing group call to another agent or external phone number | ❌ | ✔️ |
-| | Transfer the end user from ongoing 1:1 call to a Teams user | ❌ | ❌ |
-| | Transfer the end user from ongoing group call to a Teams user | ❌ | ❌ |
+| | Transfer the end user from ongoing 1:1 call to a Teams user | ✔️ | ✔️ |
+| | Transfer the end user from ongoing group call to a Teams user | ✔️ | ✔️ |
 | | Retrieve call properties (`GetCall`) | N/A  | ✔️ |
 | | Send custom context as part of call invite  (AddParticipant and Transfer) | ✔️ | ✔️ |
 | | Receive custom context as part of call invite (AddParticipant and Transfer) | ✔️ | ✔️ |
@@ -72,13 +74,13 @@ The following list of capabilities is supported for scenarios where at least one
 | Accessibility  | Agent can turn on Teams closed captions | ❌ | N/A |
 | Emergency calling  | Agent can make an emergency call | ✔️ | N/A |
 | | Honor Security desk policy for emergency calls | ✔️ | N/A |
-| | Provide a statically registered emergency address for Teams calling plans, Operator Connect, and Direct Routing for emergency calls | ✔️ | N/A |
+| | Provide a statically registered emergency address for Teams Calling Plans, Operator Connect, and Direct Routing for emergency calls | ✔️ | N/A |
 | Roster management  | List call participants | ✔️  | ✔️  |
 | | Adding Teams user honors Teams federation & external access configuration (tenant to tenant federation) | ❌ | ❌ |
 | Recording | Teams convenience and compliance recording | ❌  | ❌  |
 | | Azure Communication Services Recording | ✔️ | ✔️ |
-| Conversational AI | Developers can use the Recognize API to build conversational AI experiences in their IVRs or conversational AI bots. Recognize API uses Azure AI speech models for NLU | N/A | ✔️ |
-| | Developers can use their custom AI models when using the Recognize API so that industry/organization specific speech recognition can be used for conversational AI experiences. Recognize API would use custom AI speech models for NLU | N/A | ✔️  |
+| Conversational AI | Developers can use the Recognize API to build conversational AI experiences in their IVRs or conversational AI bots. Recognize API uses Azure AI Speech models for speech recognition (speech-to-text) | N/A | ✔️ |
+| | Developers can use their custom AI models when using the Recognize API so that industry/organization specific speech recognition can be used for conversational AI experiences. Recognize API would use custom AI Speech models for speech recognition (speech-to-text) | N/A | ✔️  |
 | | Developers can use Outbound Audio Streaming to connect their IVRs for conversational AI experiences | N/A | ✔️ |
 | | Developers can use Play API to play audio prompts for conversational AI experiences | N/A | ✔️ |
 | Advanced call routing | Does start a call and add user operations honor forwarding rules | ❌ | ❌ |
@@ -104,8 +106,6 @@ The following list of capabilities is supported for scenarios where at least one
 | | Replace the caller ID with Teams Phone service number | ✔️ | ✔️ |
 | Dial Plan | Outbound PSTN call from the Teams Resource account honors its assigned Dial plan policy in the Teams Admin Center | N/A | ✔️ |
 | | Outbound emergency call from the Teams user account honors its assigned dial plan policy in the Teams Admin center | ✔️ | N/A | -->
-
-\* Participants joining via phone number can't see video content. So actions involving video don't affect them but can apply when VoIP participants join.
 
 ## Next steps
 

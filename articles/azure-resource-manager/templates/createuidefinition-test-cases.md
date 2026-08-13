@@ -1,9 +1,9 @@
-﻿---
+---
 title: createUiDefinition.json test cases for Azure Resource Manager test toolkit
 description: Describes the createUiDefinition.json tests that are run by the Azure Resource Manager template test toolkit.
 ms.topic: concept-article
 ms.custom: devx-track-arm-template
-ms.date: 07/23/2025
+ms.date: 06/26/2026
 ---
 
 # Test cases for createUiDefinition.json

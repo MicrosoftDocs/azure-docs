@@ -100,7 +100,6 @@ For more information, see the following articles:
 
 * [Configure Network Performance Monitor for monitoring Service Endpoints](/previous-versions/azure/azure-monitor/insights/network-performance-monitor-service-connectivity#configuration)
 
-* [Blog post](https://aka.ms/svcendptmonitor)
 
 ## Traffic Analytics
 

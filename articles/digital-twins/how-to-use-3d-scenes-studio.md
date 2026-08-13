@@ -76,7 +76,7 @@ In this section, you set the environment in *3D Scenes Studio* and customize you
 
 The 3D representation of an environment in 3D Scenes Studio is called a *scene*. A scene consists of a 3D file and a configuration file, created for you automatically.
 
-To create a scene, start with a segmented 3D file in *.GLTF* or *.GLB* format. You can view and download a sample 3D file from this link: [RobotArms.glb](https://github.com/Azure-Samples/azure-digital-twins-getting-started/blob/main/3dscenes/RobotArms.glb). 
+To create a scene, start with a segmented 3D file in *.GLTF* or *.GLB* format. 
 
 >[!TIP]
 >3D Scenes Studio supports animation. If you use a 3D model file that contains animations, they play in the scene.
@@ -420,8 +420,6 @@ When the recipient pastes this URL into their browser, the specified scene opens
 >[!NOTE]
 >When a scene is shared with someone in this way, the recipient is able to leave this scene and view other scenes in your environment if they choose.
 
-## Next steps 
+## Next steps
 
-Try out 3D Scenes Studio with a sample scenario in [Get started with 3D Scenes Studio](quickstart-3d-scenes-studio.md).
-
-Or, visualize your Azure Digital Twins graph differently using [Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).
+Visualize your Azure Digital Twins graph by using [Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).

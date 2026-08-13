@@ -223,8 +223,7 @@ If the role assignment is missing, contact Microsoft Support — autoassigned ro
 ## Related content
 
 - [Role assignments in Microsoft Discovery](concept-role-assignments.md)
-- [Quickstart: Deploy infrastructure using Azure portal](quickstart-infrastructure-portal.md)
-- [Quickstart: Deploy infrastructure using Bicep](quickstart-infrastructure-bicep.md)
+- [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md)
 - [Manage workspaces](how-to-manage-workspaces.md)
 - [Manage supercomputers](how-to-manage-supercomputers.md)
 - [Configure network security](how-to-configure-network-security.md)

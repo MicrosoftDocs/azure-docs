@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.topic: how-to
 ms.date: 05/18/2026
+ms.update-cycle: 1825-days
 ms.custom: engagement-fy23
 # Customer intent: "As a cloud architect, I want to create a new Azure Migrate project via the portal, so that I can manage the migration of on-premises assets to Azure effectively."
 ---

@@ -69,6 +69,9 @@ The following example shows the rules that you can configure.
         "no-hardcoded-location": {
           "level": "off"
         },
+        "no-hardcoded-outputs": {
+          "level": "off"
+        },
         "no-loc-expr-outside-params": {
           "level": "off"
         },
@@ -85,6 +88,9 @@ The following example shows the rules that you can configure.
           "level": "warning"
         },
         "no-unused-params": {
+          "level": "warning"
+        },
+        "no-unused-types": {
           "level": "warning"
         },
         "no-unused-vars": {
@@ -108,6 +114,9 @@ The following example shows the rules that you can configure.
         "secure-params-in-nested-deploy": {
           "level": "warning"
         },
+        "secure-params-in-parameters-file": {
+          "level": "warning"
+        },
         "secure-secrets-in-params": {
           "level": "warning"
         },
@@ -128,6 +137,9 @@ The following example shows the rules that you can configure.
         "use-recent-module-versions": {
           "level": "off"
         },
+        "use-recognized-resource-type": {
+          "level": "warning"
+        },
         "use-resource-id-functions": {
           "level": "off"
         },
@@ -135,9 +147,6 @@ The following example shows the rules that you can configure.
           "level": "warning"
         },
         "use-safe-access": {
-          "level": "warning"
-        },
-        "use-recognized-resource-type": {
           "level": "warning"
         },
         "use-secure-value-for-secure-inputs": {

@@ -1,8 +1,8 @@
 ---
 title: Azure VPN Gateway Support and Help Options 
 description: How to obtain help and support for questions or problems when you create solutions using Azure VPN Gateway. 
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/03/2026
@@ -18,7 +18,7 @@ Here are suggestions for where you can get help when developing your Azure VPN G
 
 Various articles explain how to determine, diagnose, and fix issues that you might encounter when using Azure VPN Gateway. Use these articles to troubleshoot deployment failures, connection issues, performance problems, and more.
 
-For a full list of self help troubleshooting content, see [Azure VPN Gateway troubleshooting documentation](https://learn.microsoft.com/troubleshoot/azure/vpn-gateway/welcome-vpn-gateway).
+For a full list of self help troubleshooting content, see [Azure VPN Gateway troubleshooting documentation](/troubleshoot/azure/vpn-gateway/welcome-vpn-gateway).
 
 ## Post a question on Microsoft Q&A
 
@@ -28,7 +28,7 @@ If you can't find an answer to your problem using search, submit a new question 
 
 | Area | Tag |
 | --- | --- |
-| [Azure VPN Gateway](./vpn-gateway-about-vpngateways.md) | [azure-vpn-gateway](https://learn.microsoft.com/answers/tags/102/azure-vpn-gateway) |
+| [Azure VPN Gateway](./vpn-gateway-about-vpngateways.md) | [azure-vpn-gateway](/answers/tags/102/azure-vpn-gateway) |
 
 ## Create an Azure support request
 

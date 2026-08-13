@@ -2,11 +2,11 @@
 title: 'Enable MFA for VPN users - Microsoft Entra ID authentication'
 titleSuffix: Azure VPN Gateway
 description: Learn how to enable multifactor authentication (MFA) for VPN users.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 01/17/2025
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: As a network administrator, I want to enable multifactor authentication for VPN users so that I can enhance security and protect sensitive data accessed through the VPN.
 ---

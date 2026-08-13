@@ -3,7 +3,7 @@ title: Set Up an Outlook Connector in Azure SRE Agent
 description: Connect your agent to Microsoft Outlook so it can send emails, read your inbox, and reply to threads during investigations.
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 07/17/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -14,6 +14,9 @@ ms.custom: outlook, email, connector, notifications, send email, office 365, set
 # Set up an Outlook connector in Azure SRE Agent
 
 In this article, you connect your agent to Microsoft Outlook so it can send emails, reply to threads, and read your inbox during investigations. For more information, see [Send notifications](send-notifications.md).
+
+> [!NOTE]
+> This article covers the legacy Outlook connector, which uses a managed identity and a Contributor role assignment. To set up Outlook with single sign-in, per-tool approval, and parameter locking, see [Connect a notification service](connect-notification-service.md). Use this article if you need the managed-identity path or your agent already relies on it.
 
 **Estimated time**: 5 minutes
 
@@ -46,10 +49,10 @@ The connectors list shows any existing connectors for your agent.
 Select the Outlook connector type from the wizard.
 
 1. Select **Add connector** in the toolbar.
-1. In the connector picker, select **Outlook Tools** (Office 365 Outlook).
+1. In the connector picker, select **Office 365 Outlook**.
 1. Select **Next**.
 
-:::image type="content" source="media/outlook-connector/oauth-connector-picker-all.png" alt-text="Screenshot of the connector picker showing Outlook Tools (Office 365 Outlook) option alongside other connector types." lightbox="media/outlook-connector/oauth-connector-picker-all.png":::
+:::image type="content" source="media/outlook-connector/oauth-connector-picker-all.png" alt-text="Screenshot of the connector picker showing Office 365 Outlook option alongside other connector types." lightbox="media/outlook-connector/oauth-connector-picker-all.png":::
 
 > [!NOTE]
 > Your agent can have only one Outlook connector. If you already have a connector, the card is disabled with the message "Your agent can only have one Outlook connector." To change the connected account, edit the existing connector.
@@ -79,8 +82,8 @@ The Outlook connector requires both OAuth sign-in and a managed identity.
 - **Managed identity** lets the agent securely access the connector at runtime through Azure Resource Manager.
 
 1. From the **Managed identity** dropdown, select an identity:
-   - **System assigned**—simplest option. Automatically created with your agent and tied to its lifecycle. Use this option if you don't need to share the identity across multiple resources.
-   - **User assigned**—an independent Azure resource you manage separately. Use this option if you share identities across services or need the identity to persist independently of the agent.
+   - **System assigned**: the simplest option. Automatically created with your agent and tied to its lifecycle. Use this option if you don't need to share the identity across multiple resources.
+   - **User assigned**: an independent Azure resource you manage separately. Use this option if you share identities across services or need the identity to persist independently of the agent.
 1. If no identities appear, select **Add identity** below the dropdown to configure one in the Azure portal.
 
 ## Review and add
@@ -123,7 +126,7 @@ After the agent deletes the Outlook connector, your agent can't send or read ema
 
 ## Troubleshooting
 
-Use the following information to resolve common issues when setting up an Outlook connector.
+Use the following information to resolve common issues when you set up an Outlook connector.
 
 | Issue | Solution |
 |-------|----------|
@@ -136,6 +139,7 @@ Use the following information to resolve common issues when setting up an Outloo
 ## Related content
 
 - [Send notifications](send-notifications.md)
+- [Connect a notification service](connect-notification-service.md)
 - [Set up a Teams bot](teams-bot.md)
 - [Create a scheduled task](create-scheduled-task.md)
 - [Connectors](connectors.md)

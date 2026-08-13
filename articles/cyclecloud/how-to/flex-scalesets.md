@@ -1,8 +1,9 @@
 ---
 title: Using Flex ScaleSets
-description: Create VMs using VMSS Flex
+description: Learn how to create virtual machines in Azure CycleCloud using Virtual Machine Scale Sets (VMSS) Flex orchestration.
 author: dougclayton
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: doclayto
 monikerRange: '>= cyclecloud-8'
 ---

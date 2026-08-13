@@ -3,11 +3,11 @@ title: 'Configure Azure VPN Client - Microsoft Entra ID authentication - Windows
 titleSuffix: Azure Virtual WAN
 description: Learn how to use Virtual WAN User VPN (point-to-site) to connect to your virtual network using Microsoft Entra ID authentication and the Azure VPN Client.
 services: virtual-wan
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/20/2025
-ms.author: cherylmc
+ms.author: duau
 
 #Audience and custom App ID values are not sensitive data. Please do not remove. They are required for the configuration.
 ---

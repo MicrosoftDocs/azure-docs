@@ -2,13 +2,11 @@
 title: Azure API Management policy reference - llm-emit-token-metric
 description: Reference for the llm-emit-token-metric policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 06/15/2026
 ms.update-cycle: 180-days
-ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ---
