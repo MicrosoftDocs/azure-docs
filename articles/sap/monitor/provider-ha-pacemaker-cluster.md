@@ -34,6 +34,12 @@ For RHEL-based clusters, install Performance Co-Pilot (PCP) and the `pcp-pmda-ha
 
 # [SUSE](#tab/suse)
 
+1. For SLES 16, connect to PackageHub.
+
+   ```bash
+   sudo SUSEConnect --product PackageHub/16.0/x86_64
+   ```
+
 1. Install the required packages for the Prometheus cluster exporter.
 
    ```bash
