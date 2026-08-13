@@ -99,7 +99,7 @@ When your Data Box arrives, you need to set it up with unimpeded network connect
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
 * [Set up Data Box Heavy](../../databox/data-box-heavy-quickstart-portal.md).
 
-Depending on the type of Data Box, Data Box copy tools might be available. These generic copy tools aren't recommended for migrations to Azure file shares because they don't preserve full file and folder fidelity. Use Robocopy or the [Data Box data copy service](../../databox/data-box-deploy-copy-data-via-copy-service.md) instead.
+Depending on the type of Data Box, Data Box copy tools might be available. Don't use these generic copy tools for migrations to Azure file shares because they don't preserve full file and folder fidelity. Use Robocopy or the [Data Box data copy service](../../databox/data-box-deploy-copy-data-via-copy-service.md) instead.
 
 When your Data Box arrives, it will have pre-provisioned SMB shares available for each storage account you specified when you ordered it.
 
@@ -109,11 +109,11 @@ When your Data Box arrives, it will have pre-provisioned SMB shares available fo
 Follow the steps in the Azure Data Box documentation:
 
 1. [Connect to Data Box](../../databox/data-box-deploy-copy-data.md).
-1. Copy data to Data Box. <br>You can use Robocopy (follow instruction below) or the new [Data Box data copy service](../../databox/data-box-deploy-copy-data-via-copy-service.md).
+1. Copy data to Data Box. <br>You can use Robocopy (follow instruction in the next section) or the new [Data Box data copy service](../../databox/data-box-deploy-copy-data-via-copy-service.md).
 1. [Prepare your Data Box for upload to Azure](../../databox/data-box-deploy-picked-up.md).
 
 > [!TIP]
-> As an alternative to Robocopy, you can use the Data Box data copy service to load files onto your Data Box with full fidelity. [Follow this data copy service tutorial](../../databox/data-box-deploy-copy-data-via-copy-service.md) and make sure to set the correct Azure file share target.
+> As an alternative to Robocopy, use the Data Box data copy service to load files onto your Data Box with full fidelity. [Follow this data copy service tutorial](../../databox/data-box-deploy-copy-data-via-copy-service.md) and ensure you set the correct Azure file share target.
 
 Data Box documentation specifies a Robocopy command. That command isn't suitable for preserving the full file and folder fidelity. Use this command instead:
 
