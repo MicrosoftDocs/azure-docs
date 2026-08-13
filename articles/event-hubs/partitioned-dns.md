@@ -9,9 +9,9 @@ ms.topic: concept-article
 
 Azure Event Hubs and Azure Service Bus are deprecating their dependency on a single shared legacy DNS zone (e.g. `servicebus.windows.net` for Azure Public Cloud) in favor of a set of **partitioned, service-specific DNS zones** (e.g. `eventhubs.azure.net` and `servicebus.azure.net` for Azure Public Cloud).
 
-The legacy DNS zone contains DNS records for Event Hubs, Relay, and Service Bus. Migration to Partitioned DNS pertains to Event Hubs and Service Bus only.
+The legacy DNS zone contains DNS records for Event Hubs, Relay, and Service Bus. Migration to Partitioned DNS and deprecation of legacy DNS pertain to Event Hubs and Service Bus only.
 
-This deprecation introduces a risk of breaking change to services that depend on newly
+This deprecation is a potentially breaking change to services that depend on newly created namespaces. This article explains the required actions to ensure resilience against deprecation.
 
 ## Partitioned FQDN
 
@@ -30,7 +30,7 @@ New namespaces are scheduled to support only the partitioned FQDN. This introduc
 
 For example:
 
-- Services using connection strings that are hardcoded instead of read from resource APIs likely use the deprecated legacy fqdn.
+- Services using connection strings that are hardcoded instead of read from resource APIs likely use the deprecated legacy FQDN.
 
 - Services accessing namespaces via private endpoints require a new private DNS zone.
 
@@ -40,7 +40,7 @@ Event Hubs and Service Bus is scheduled to automatically transition to this depr
 
 1. **Dual Provisioning of DNS records**: All namespaces, existing and new, support both the partitioned FQDN and the legacy FQDN. Legacy DNS records have a backfilled equivalent record in the partitioned DNS zone.
 
-1. [GET private link resources API returns partitioned private DNS Zone](#get-private-link-resources-api-returns-partitioned-private-dns-zone). This step is to advertise the new resource dependency for new namespaces on private endpoints when the legacy fqdn is deprecated. If your service accesses newly created namespaces via private endpoints, [Configure the partitioned private DNS zone](#configure-the-partitioned-private-dns-zone).
+1. [GET private link resources API returns partitioned private DNS zone](#get-private-link-resources-api-returns-partitioned-private-dns-zone). This step is to advertise the new resource dependency for new namespaces on private endpoints when the legacy FQDN is deprecated. If your service accesses newly created namespaces via private endpoints, [configure the partitioned private DNS zone](#configure-the-partitioned-private-dns-zone).
 
 1. [Private endpoint resources are backfilled with partitioned FQDN](#private-endpoint-resources-are-backfilled-with-partitioned-fqdn). As a consequence, API responses on these resources contain the partitioned FQDN.
 Ensure that your service is resilient against additional values in the resource API response.
@@ -65,7 +65,7 @@ All new namespaces are scheduled to return the partitioned FQDN in resource APIs
 
 If your service accesses a namespace via private endpoint, [configure the partitioned private DNS zone](#configure-the-partitioned-private-dns-zone) before this change.
 
-Optionally, [Register the AFEC feature](#register-the-afec-feature) named `LegacyDns` to revert to the legacy FQDN in API responses
+Optionally, [Register the AFEC feature](#register-the-afec-feature) named `LegacyDns` to revert to the legacy FQDN in API responses.
 
 ### Event Hubs and Service Bus namespaces
 
@@ -103,11 +103,11 @@ Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=RootManage
 
 ## Private endpoints
 
-### GET private link resources API returns partitioned private DNS Zone
+### GET private link resources API returns partitioned private DNS zone
 
-The property `requiredZoneNames` in [GET private link resources](/rest/api/eventhub/private-link-resources/get) API is scheduled to include a newly required private DNS zone name for the partitioned fqdn.
+The property `requiredZoneNames` in [GET private link resources](/rest/api/eventhub/private-link-resources/get) API is scheduled to include a newly required private DNS zone name for the partitioned FQDN.
 
-This is to advertise the new resource dependency for new namespaces on private endpoints when the legacy fqdn is deprecated.
+This is to advertise the new resource dependency for new namespaces on private endpoints when the legacy FQDN is deprecated.
 
 For example:
 
@@ -128,7 +128,7 @@ instead of
 
 In the preceding example, `privatelink.servicebus.windows.net` is the legacy private DNS zone and `privatelink.eventhubs.azure.net` is the partitioned private DNS zone.
 
-When new namespaces no longer support the legacy fqdn, they require only the partitioned private DNS zone (and not the legacy private DNS zone).
+When new namespaces no longer support the legacy FQDN, they require only the partitioned private DNS zone (and not the legacy private DNS zone).
 
 ### Configure the partitioned private DNS zone
 
