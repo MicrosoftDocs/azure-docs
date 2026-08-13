@@ -42,7 +42,7 @@ To learn about Application Gateway infrastructure, see [Azure Application Gatewa
 
 ## Security
 
-* Protect your applications against L7 layer DDoS protection by using WAF. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
+* Protect your applications against L7 layer DDoS protection by using WAF. For more information, see [Application DDoS protection](../web-application-firewall/application-ddos-protection.md).
 
 * Protect your apps from malicious actors with Bot manager rules based on Microsoft’s own Threat Intelligence.
 
