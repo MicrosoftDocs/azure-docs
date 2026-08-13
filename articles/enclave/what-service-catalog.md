@@ -51,7 +51,7 @@ You can create a service catalog template for an Azure service that isn't curren
 
 ## Request new service catalog templates
 
-If you have a requirement to deploy an Azure service that isn't in the service catalog, you can [create a new Azure service template](#create-a-new-azuresservicettemplate) or submit a request for future templates through the Azure Enclave feedback or support methods.
+If you need to deploy an Azure service that's not in the service catalog, you can [create a new Azure service template](#create-a-new-azuresservicettemplate) or submit a request for future templates through the Azure Enclave feedback or support methods.
 
 ## Next steps
 
