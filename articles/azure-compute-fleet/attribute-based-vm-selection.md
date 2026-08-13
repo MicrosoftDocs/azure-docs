@@ -8,7 +8,7 @@ ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
 ms.date: 04/21/2025
-ms.reviewer: cynthn
+ms.reviewer: wwilliams
 # Customer intent: "As an IT administrator, I want to configure virtual machine requirements using attributes like memory and vCPU, so that I can streamline VM selection and automatically incorporate newer VM generations for my workloads."
 ---
 
@@ -26,6 +26,8 @@ Attribute based VM selection is ideal for scenarios such as stateless web servic
 ## Prerequisites
  
 To use attribute based VM selection, you must [sign-up for Azure Compute Fleet preview features](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRyYHv8J_khRKqQeYhVEgwSVUMFU1V0M0WU9ZNlA3UFA1SzdIUVY0TEVYSS4u&origin=lprLink&route=shorturl). After you complete the sign-up form and are approved, you will be contacted with next steps and onboarding details. 
+
+Attribute-based VM selection requires a minimum API version of `2024-11-01`.
 
 ## Benefits
 

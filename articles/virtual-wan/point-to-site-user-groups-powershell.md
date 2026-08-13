@@ -2,11 +2,11 @@
 title: 'Configure address pools for Virtual WAN point-to-site VPN - PowerShell'
 titleSuffix: Azure Virtual WAN
 description: Learn how to assign users connecting to a Virtual WAN P2S VPN gateway IP addresses from specific address pools by using Azure PowerShell.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 06/15/2026
-ms.author: cherylmc
+ms.author: duau
 ---
 
 # Configure address pools for Virtual WAN point-to-site VPN by using PowerShell

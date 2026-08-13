@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with PowerShell
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 Azure Event Grid is an eventing service for the cloud. In this quickstart, you'll use Azure PowerShell to subscribe to Azure Cache for Redis events, trigger an event, and view the results. 
 

@@ -274,7 +274,6 @@ Deleting all the resources can take some time. The `--no-wait` argument allows t
 If you have issues running this tutorial, see the following resources:
 
 - [Troubleshoot Linux Python apps for Azure App Service](/azure/app-service/configure-language-python#troubleshooting)
-- [Request support](https://aka.ms/DjangoCLITutorialHelp)
 
 ## Related content
 

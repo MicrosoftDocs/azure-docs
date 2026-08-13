@@ -3,7 +3,7 @@ title: Host a Web App in an App Service Environment
 description: Create a web app that uses an App Service Environment, and host the isolated app in a virtual network/subnet configuration. Follow procedures in the Azure portal to create the web app, enable encryption, diagnostic logging, and more.
 author: seligj95
 ms.topic: how-to
-ms.date: 03/06/2026
+ms.date: 08/03/2026
 ms.author: jordanselig
 ms.service: azure-app-service
 # customer intent: As a developer, I want to use an App Service Environment for my App Service web app, so I can host isolated apps in my virtual network.
@@ -201,13 +201,28 @@ You have 1 TB of storage for all the apps in your App Service Environment. An Ap
 
 ## Monitor the App Service Environment
 
-Microsoft monitors and manages the platform infrastructure in App Service Environment v3, and scales as needed. As a customer, you should monitor only the App Service plans and your individual running apps, and take the appropriate actions. You can [configure diagnostic settings for monitoring](#enable-diagnostic-logging) to support your scenario.
+Microsoft monitors and manages the platform infrastructure in App Service Environment v3, and scales it as needed. Use Azure Monitor to view the following metrics for the front ends that serve traffic to your App Service Environment:
 
-In the Azure portal, you can see some metrics for an App Service Environment. However, these metrics are for App Service Environment v1 and two resources. Metrics for App Service Environment v3 resources aren't visible. For earlier versions of App Service Environment, review the feature differences in the [App Service Environment overview](overview.md#feature-differences).
+| Metric | Description | Instance-level view |
+| --- | --- | --- |
+| **Total Front Ends** | Number of front-end instances. | No |
+| **CPU Percentage** | CPU used across the front-end instances. | Yes |
+| **Memory Percentage** | Memory used across the front-end instances. | Yes |
+| **Disk Queue Length** | Number of read and write requests queued on storage. | Yes |
+
+To view the metrics:
+
+1. In the [Azure portal](https://portal.azure.com), go to **Monitor**.
+1. Select **Metrics**.
+1. For **Scope**, select your App Service Environment.
+1. Select the metric that you want to view. The default aggregation for these metrics is **Average**.
+1. For **CPU Percentage**, **Memory Percentage**, or **Disk Queue Length**, select **Apply splitting**, and then select **Instance** to view a separate series for each front end.
+
+These metrics describe the front ends, not the workers in your App Service plans. Continue to monitor your App Service plans and individual apps separately. You can also [configure diagnostic settings for monitoring](#enable-diagnostic-logging) to support your scenario. For the complete metric definitions, see [Supported metrics for Microsoft.Web/hostingEnvironments](/azure/azure-monitor/reference/supported-metrics/microsoft-web-hostingenvironments-metrics).
 
 ## Review logging scenarios and messages
 
-You can integrate with Azure Monitor to send logs to Azure Storage, Azure Event Hubs, or Azure Monitor Logs.
+You can integrate with Azure Monitor to send the [App Service Environment Platform Logs](/azure/azure-monitor/reference/supported-logs/microsoft-web-hostingenvironments-logs) resource log category to Azure Storage, Azure Event Hubs, or Azure Monitor Logs. In a Log Analytics workspace, the logs are stored in the [AppServiceEnvironmentPlatformLogs](/azure/azure-monitor/reference/tables/appserviceenvironmentplatformlogs) table.
 
 The following tables show the scenarios and messages you can log.
 
@@ -234,9 +249,9 @@ The following tables show the scenarios and messages you can log.
 
 ### Enable diagnostic logging
 
-To enable diagnostic logging for your web app, follow these steps:
+To enable diagnostic logging for your App Service Environment, follow these steps:
 
-1. In the Azure portal, go to the **Overview** page for your web app.
+1. In the Azure portal, go to the **Overview** page for your App Service Environment.
 
 1. In the left menu, select **Monitoring** > **Diagnostic settings**.
 
@@ -246,7 +261,7 @@ To enable diagnostic logging for your web app, follow these steps:
 
 1. In the **Diagnostic setting** pane, provide a **Diagnostic setting name** for the log integration, such as `networking-logs`.
 
-1. Select and configure your preferred **Logs**. For this example, select **App Service Platform Logs**.
+1. Select and configure your preferred **Logs**. For this example, select **App Service Environment Platform Logs**.
 
 1. Select your preferred **Destinations**.
 
@@ -256,13 +271,13 @@ To enable diagnostic logging for your web app, follow these steps:
 
 The **Diagnostic settings** page refreshes to show the new log added to the list.
 
-If you integrate with Azure Monitor Logs, you can see the logs by selecting **Logs** from the App Service Environment portal, and creating a query against **AppServicePlatformLogs**. Logs are only emitted when your App Service Environment has an event that triggers the logs. If your App Service Environment doesn't have such an event, no logs are gathered. To quickly see an example of logs, perform a scale operation with an App Service plan. You can then run a query against **AppServicePlatformLogs** to see the generated logs.
+If you integrate with Azure Monitor Logs, you can see the logs by selecting **Logs** from the App Service Environment portal, and creating a query against **AppServiceEnvironmentPlatformLogs**. Logs are only emitted when your App Service Environment has an event that triggers the logs. If your App Service Environment doesn't have such an event, no logs are gathered. To quickly see an example of logs, perform a scale operation with an App Service plan. You can then run a query against **AppServiceEnvironmentPlatformLogs** to see the generated logs.
 
 ### Create alert rule
 
-To create an alert against your web app logs, follow the detailed instructions in [Create or edit a log search alert rule - Azure Monitor](/azure/azure-monitor/alerts/alerts-create-log-alert-rule).
+To create an alert for your App Service Environment logs, see [Create or edit a log search alert rule - Azure Monitor](/azure/azure-monitor/alerts/alerts-create-log-alert-rule).
 
-Here are basic steps to create an alert rule for your hosted web app:
+Here are the basic steps to create an alert rule for your App Service Environment:
 
 1. In the Azure portal, go to the **Monitoring** > **Alerts** page for your App Service Environment, and select **Create alert rule**.
 
@@ -272,7 +287,7 @@ Here are basic steps to create an alert rule for your hosted web app:
 
    1. Set the **Signal name** to use a **Custom log search**. The **Logs** pane opens.
 
-   1. In the **Logs** pane, build a query for the alert. For example, `AppServicePlatformLogs | where ResultDescription contains 'has begun scaling'`. You can also start with a predefined query and modify as needed. Save your query.
+   1. In the **Logs** pane, build a query for the alert. For example, `AppServiceEnvironmentPlatformLogs | where ResultDescription contains 'has begun scaling'`. You can also start with a predefined query and modify it as needed. Save your query.
 
    1. Configure other conditions for the rule, such as the **Threshold value** in the **Alert logic** group. 
 
@@ -290,7 +305,7 @@ Here are basic steps to create an alert rule for your hosted web app:
 
    - **Actions**: Add or create an action group. The action group is where you define the response to the alert, such as sending an email or an SMS message.
 
-   - **Tags**: Define tags for the web app alert rule.
+   - **Tags**: Define tags for the App Service Environment alert rule.
 
 1. Select **Review + create**. Confirm the alert configuration is correct, and select **Create**.
 

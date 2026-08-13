@@ -67,17 +67,10 @@ If you want to enable the MQTT capabilities in the Azure Event Grid namespace, s
 
 ## Configure throughput units (TUs) for a namespace
 
-If you already created a namespace and want to increase or decrease TUs, follow the next steps:
+You can configure throughput units (TUs) for a namespace either manually or by enabling autoscale:
 
-1. Navigate to the Azure portal and select the Azure Event Grid namespace you would like to configure the throughput units.
-2. On the **Event Grid Namespace** page, select **Scale** on the left navigation menu.
-3. Enter the number of **throughput units** in the edit box or use the scroller to increase or decrease the number.
-4. Select **Apply** to apply the changes.
-
-    :::image type="content" source="media/create-view-manage-namespaces/namespace-scale.png" alt-text="Screenshot showing Event Grid scale page." lightbox="media/create-view-manage-namespaces/namespace-scale.png":::
-
-    > [!NOTE]
-    > For quotas and limits for resources in a namespace including maximum TUs in a namespace, See [Azure Event Grid quotas and limits](quotas-limits.md).
+- To manually set the number of TUs for a namespace, see [Configure manual scale for an Azure Event Grid namespace](namespace-enable-manual-scale.md).
+- To let Event Grid automatically adjust TUs based on workload demand, see [Enable autoscale for an Event Grid namespace](namespace-enable-autoscale.md).
 
 ## Delete a namespace
 

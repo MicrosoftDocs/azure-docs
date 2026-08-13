@@ -3,11 +3,11 @@ title: 'How to monitor P2S connections'
 titleSuffix: Azure Virtual WAN
 description: Learn how to set up an Azure workbook for P2S monitoring.
 services: virtual-wan
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/28/2023
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 ---
 
@@ -40,7 +40,7 @@ To configure the above architecture, we'll use the following P2S VPN logs and Po
 ## Create Azure function app
 
 1. [Create an Azure function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app) and select **PowerShell Core** as your runtime stack
-1. [Assign a system assigned managed identity to the function app](../azure-functions/functions-identity-access-azure-sql-with-managed-identity.md#enable-system-assigned-managed-identity-on-azure-function)
+1. [Assign a system assigned managed identity to the function app](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json#add-a-system-assigned-identity).
 1. [Create an application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md) with the following 7 entries by inputting the **Name** and **Value** and then select **OK** after each value.
 
    | Name | Value|

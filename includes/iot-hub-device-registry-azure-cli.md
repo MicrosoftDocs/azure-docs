@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 01/27/2026
+ms.date: 08/04/2026
 ---
 
 ## More prerequisites for the Azure CLI
@@ -112,7 +112,7 @@ To create a resource group, role, and permissions for your IoT solution, follow 
 
 ## Create a new Device Registry namespace
 
-In this section, you create a new Device Registry namespace with a system-assigned managed identity. This process automatically generates a root CA credential and an issuing CA policy for the namespace. For more information on how credentials and policies are used to sign device leaf certificates during provisioning, see [Certificate management](../articles/iot-hub/iot-hub-certificate-management-overview.md).
+In this section, you create a new Device Registry namespace with a system-assigned managed identity. This process automatically generates a root CA credential and an issuing CA policy for the namespace. For more information on how credentials and policies are used to sign device leaf certificates during provisioning, see [Certificate management](../articles/iot/iot-certificate-management-overview.md).
 
 Credentials are optional. You can also create a namespace without a managed identity by omitting the `--enable-certificate-management` and `--policy-name` flags.
 
@@ -163,6 +163,12 @@ In this section, you assign the [Azure Device Registry Contributor](../articles/
     az role assignment create --assignee $UAMI_PRINCIPAL_ID --role "a5c3590a-3a1a-4cd4-9648-ea0a32b15137" --scope $NAMESPACE_RESOURCE_ID
     ```
 
+1. Assign the [Azure Device Registry Onboarding](../articles/role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-onboarding) role to the managed identity:
+
+    ```azurecli-interactive
+    az role assignment create --assignee "$UAMI_PRINCIPAL_ID" --role "547f7f0a-69c0-4807-bd9e-0321dfb66a84" --scope "$NAMESPACE_RESOURCE_ID"
+    ```
+
 ## Create an IoT hub with Device Registry integration
 
 1. Create a new IoT hub that's linked to the Device Registry namespace and with the user-assigned managed identity that you created earlier.
@@ -170,6 +176,8 @@ In this section, you assign the [Azure Device Registry Contributor](../articles/
     ```azurecli-interactive
     az iot hub create --name <HUB_NAME> --resource-group <RESOURCE_GROUP> --location <HUB_LOCATION> --sku GEN2 --mi-user-assigned $UAMI_RESOURCE_ID --ns-resource-id $NAMESPACE_RESOURCE_ID --ns-identity-id $UAMI_RESOURCE_ID
     ```
+
+    This command creates an IoT hub with SKU = GEN2 and links a user-assigned managed identity to the IoT hub.
 
     [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 

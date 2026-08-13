@@ -13,6 +13,8 @@ ms.author: ulrichchrist
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 > [!IMPORTANT]
 > A recent update of SAP Note 3255746 announces a security patch that blocks incoming calls to the ODP RFC API from third-party clients including Azure Data Factory’s SAP CDC connector. We advise customers to review this note for potential impacts before installing it in their SAP system. More information can be found in SAP notes 3255746 and 3439624.
 

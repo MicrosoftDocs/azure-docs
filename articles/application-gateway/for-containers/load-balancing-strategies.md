@@ -3,7 +3,7 @@ title: Load balancing strategies in Application Gateway for Containers
 description: Learn about different load balancing strategies to help build resilient and performant workloads.
 services: application-gateway
 author: JackStromberg
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: concept-article
 ms.date: 4/22/2026
 ms.author: jstrom

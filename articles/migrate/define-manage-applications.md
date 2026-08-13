@@ -7,6 +7,7 @@ ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 05/7/2026
+ms.update-cycle: 1825-days
 ms.custom:
   - engagement-fy25
   - sfi-image-nochange

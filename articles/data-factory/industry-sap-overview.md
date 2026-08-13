@@ -13,6 +13,8 @@ ms.subservice: data-movement
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Azure Data Factory and Azure Synapse Analytics pipelines provide a collection of assets to power your SAP workloads. These assets include SAP connectors and templates as well upcoming solution accelerators provided by both Microsoft and partners. The SAP knowledge center is a consolidated location summarizing the available assets along with giving a comparison of when to use which solution.
 
 ## SAP connectors

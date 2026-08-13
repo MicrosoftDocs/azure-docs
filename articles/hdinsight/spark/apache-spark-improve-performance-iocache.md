@@ -75,4 +75,4 @@ If that doesn't work, disable IO Cache.
 
 ## Next Steps
 
-Read more about IO Cache, including performance benchmarks in this blog post: [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+To learn more about IO Cache, including performance benchmarks, see the following blog post: [Apache Spark jobs gain up to 9x speed up with HDInsight IO Cache](https://learn.microsoft.com/azure/hdinsight/spark/apache-spark-improve-performance-iocache)

@@ -2,11 +2,11 @@
 title: 'About client address pools for P2S User VPN'
 titleSuffix: Azure Virtual WAN
 description: Learn about client address pools for P2S User VPN.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 02/15/2023
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # About client address pools for Virtual WAN point-to-site configurations

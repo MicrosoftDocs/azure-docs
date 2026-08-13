@@ -85,7 +85,7 @@ sections:
         answer: No, "AVS-vendor-folders" is a reserved name within Azure VMware Solution and using it might lead to conflicts with the intended functionality or cause unexpected behavior within the vCenter management environment specific to Azure VMware Solution. Choose an alternative folder name that aligns with your organizational needs while avoiding conflicts with predefined naming conventions in Azure VMware Solution.
 
       - question: Can I configure Mail Sender Settings on Azure VMware Solution?
-        answer: No, configuration of SMTP authentication isn't permitted within the Azure VMware Solution. 
+        answer: In Azure VMware Solution, this capability is intentionally not exposed. This design is based on how the platform is operated and supported, and it helps ensure a consistent and reliable experience for all customers. Instead of configuring email directly in vCenter, we recommend using Azure-native or VM-based notification solutions such as Azure Monitor alerts, Log Analytics with event-based alerting, or automation workflows (for example, sending email via external services).
 
   - name: VMware solution software
     questions:
@@ -140,6 +140,9 @@ sections:
       - question: Does Azure VMware Solution support VMware vDefend with Advanced Threat Protection (ATP)?
         answer: Azure VMware Solution supports VMware vDefend Firewall with the Advanced Threat Prevention (ATP) add-on via a BYOL model. Customers must purchase the Advanced Threat Protection (ATP) license from Broadcom. Microsoft applies the license to the Azure VMware Solution private cloud with a support request. On Azure VMware Solution, this license only supports NSX Distributed IDS/IPS functionality and doesn't cover other features listed by Broadcom. 
 
+      - question: Does Azure VMware Solution all advanced vDefend features with supported vDefend BYOL license?
+        answer: Azure VMware Solution does not support every feature included with the vDefend license. More specifically, the following advanced vDefend capabilities are not supported on Azure VMware Solution, even with a valid vDefend BYOL license, because they require additional infrastructure that is not currently supported on Azure VMware Solution, Security Intelligence, Malicious IP Filtering, Distributed Malware Detection and Prevention, Cloud Sandboxing and Artifact Analysis, Network Detection and Response (NDR), Malware File Event Forwarding to NDR, and Gateway Malware Detection.
+        
       - question: Is VMware NSX Service Insertion supported with Azure VMware Solution?
         answer: No.
         

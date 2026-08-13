@@ -4,13 +4,15 @@ description: Learn how to configure a virtual network for express injection of A
 ms.subservice: integration-services
 ms.topic: concept-article
 ms.date: 06/03/2026
-author: chugugrace
-ms.author: chugu 
+author: kromerm
+ms.author: makromer
 ---
 
 # Express virtual network injection method
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 > [!NOTE]
 > Express virtual network injection feature isn't supported for SSIS integration runtime in below regions yet:
 >

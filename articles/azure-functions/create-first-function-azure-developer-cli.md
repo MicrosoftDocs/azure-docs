@@ -137,7 +137,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
         "Values": {
             "AzureWebJobsStorage": "UseDevelopmentStorage=true",
             "FUNCTIONS_WORKER_RUNTIME": "powershell",
-            "FUNCTIONS_WORKER_RUNTIME_VERSION": "7.2"
+            "FUNCTIONS_WORKER_RUNTIME_VERSION": "7.4"
         }
     }
     ```

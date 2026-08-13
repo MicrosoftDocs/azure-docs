@@ -65,6 +65,13 @@ The following requirements and considerations apply to large volumes. For perfor
         <td>6,400</td>
         <td>12,800</td>
       </tr>
+      <tr>
+        <td>Flexible - independently configurable (0-640 MiB/s)</td>
+        <td>50</td>
+        <td>1,024*</td>
+        <td>128</td>
+        <td>12,800</td>
+      </tr>  
     </tbody>
     </table>
 

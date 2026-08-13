@@ -228,7 +228,7 @@ Stay up to date on Azure Maps:
 
 <!---------   External Links     --------------->
 [Azure Maps account]: https://azure.microsoft.com/services/azure-maps/
-[Azure Maps blog]: https://azure.microsoft.com/blog/topics/azure-maps/
+[Azure Maps blog]: https://learn.microsoft.com/azure/azure-maps/
 [Azure portal]: https://portal.azure.com
 [IANA ID]: https://www.iana.org/
 [Microsoft Trust Center]: https://www.microsoft.com/trust-center/privacy

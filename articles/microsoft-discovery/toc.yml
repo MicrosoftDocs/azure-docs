@@ -20,12 +20,9 @@ items:
         displayName: Microsoft Discovery, Studio, web interface, investigations
   - name: Quickstarts
     items:
-      - name: Quickstart - Deploy infrastructure using Azure portal
-        href: quickstart-infrastructure-portal.md
-        displayName: Microsoft Discovery, quickstart, infrastructure, portal, getting started
-      - name: Quickstart - Deploy infrastructure using Bicep
-        href: quickstart-infrastructure-bicep.md
-        displayName: Microsoft Discovery, quickstart, Bicep, infrastructure, deployment, getting started
+      - name: Quickstart - Deploy infrastructure (portal or Bicep)
+        href: quickstart-infrastructure.md
+        displayName: Microsoft Discovery, quickstart, infrastructure, portal, Bicep, getting started
       - name: Quickstart - First set of Agent and investigation
         href: quickstart-agents-studio.md
         displayName: Microsoft Discovery, quickstart, project, studio, getting started
@@ -85,6 +82,9 @@ items:
           - name: Projects and Investigations
             href: concept-projects-investigations.md
             displayName: Microsoft Discovery, projects, investigations, workspace, research, organization
+          - name: GitHub Copilot & Microsoft Discovery
+            href: concept-copilot.md
+            displayName: Microsoft Discovery, projects, investigations, GitHub Copilot
       - name: Agents
         items:
           - name: Discovery Agent concepts
@@ -126,9 +126,9 @@ items:
           - name: Responsible AI in Microsoft Discovery
             href: concept-responsible-ai.md
             displayName: Microsoft Discovery, responsible AI, safety, limitations, best practices, evaluations
-          - name: Transparency note
+          - name: Platform card
             href: concept-platform-card.md
-            displayName: Microsoft Discovery, transparency note, responsible AI, intended uses, target users, capabilities
+            displayName: Microsoft Discovery, platform card, responsible AI, intended uses, target users, capabilities
           - name: Code of conduct
             href: concept-code-of-conduct.md
             displayName: Microsoft Discovery, responsible AI, code of conduct
@@ -153,6 +153,9 @@ items:
           - name: Run and manage jobs on Supercomputer using REST APIs
             href: how-to-run-jobs-supercomputer-rest-api.md
             displayName: Microsoft Discovery, services, how to, jobs, supercomputers
+          - name: Configure secure networking for Supercomputer
+            href: how-to-configure-supercomputer-network-security.md
+            displayName: Microsoft Discovery, supercomputer, secure networking, virtual network, subnets, egress
           - name: Manage Workspaces
             href: how-to-manage-workspaces.md
             displayName: Microsoft Discovery, workspace, create, update, delete, networking, supercomputers
@@ -200,6 +203,9 @@ items:
           - name: Debug task execution
             href: how-to-debug-task-execution.md
             displayName: debug, troubleshoot, stuck tasks, validation, errors
+          - name: Use GitHub Copilot in Microsoft Discovery
+            href: how-to-copilot.md
+            displayName: Microsoft Discovery, GitHub Copilot
       - name: Tools
         items:
           - name: Plan tool requirements
@@ -246,6 +252,9 @@ items:
           - name: Query Bookshelf query logs
             href: how-to-query-bookshelf-logs.md
             displayName: Microsoft Discovery, Bookshelf, query logs, KQL
+          - name: Get operation correlation ID from Activity Log
+            href: how-to-get-correlation-id.md
+            displayName: Microsoft Discovery, operation correlation ID, Activity Log
   - name: Operate & Support
     items:
       - name: Observability overview
@@ -254,6 +263,8 @@ items:
       - name: Billing overview
         href: concept-discovery-billing.md
         displayName: Microsoft Discovery, billing, pricing, User Messages, cost management
+      - name: Business Continuity and Disaster Recovery 
+        href: concept-discovery-business-continuity-disaster-recovery.md
   - name: Tutorials
     items:
       - name: Tutorials & how-to videos
@@ -266,3 +277,5 @@ items:
     items:
     - name: REST API
       href: /rest/api/discovery/
+    - name: Python SDKs
+      href: reference-python-sdks.md

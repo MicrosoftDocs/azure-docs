@@ -60,6 +60,8 @@ landingContent:
             url: /azure/sentinel/migration
           - text: Google Cloud Platform IAM connector for Microsoft Sentinel
             url: /azure/sentinel/connect-google-cloud-platform
+          - text: Migrate Google Cloud Storage to Azure Blob Storage
+            url: /azure/storage-mover/google-migration
 
   - title: Migration tools and training
     linkLists:

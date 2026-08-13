@@ -58,11 +58,11 @@ The following table describes the permission required to cancel a subscription.
 
 |Subscription type     |Who can cancel  |
 |---------|---------|
-|Subscriptions created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn), [account with pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) or as a [Visual Studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Subscription owner  |
-|[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  Subscription owner       |
-|[Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g/) and [Azure plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  Subscription owners      |
+|Subscriptions created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn), [account with pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) or as a [Visual Studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/). |  Subscription owner without a condition |
+|[Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) and [Enterprise Dev/Test](https://azure.microsoft.com/pricing/offers/ms-azr-0148p/?cid=msft_learn)     |  Subscription owner without a condition  |
+|[Azure plan](https://azure.microsoft.com/pricing/offers/ms-azr-0017g/?cid=msft_learn) and [Azure plan for DevTest](https://azure.microsoft.com/pricing/offers/ms-azr-0148g?cid=msft_learn)     |  Subscription owner without a condition    |
 
-An account administrator without the subscription owner role can’t cancel an Azure subscription. For more information, see [Azure classic subscription administrators](../../role-based-access-control/classic-administrators.md).
+An account administrator without the subscription owner role that has no condition can’t cancel an Azure subscription. For more information, see [Azure classic subscription administrators](../../role-based-access-control/classic-administrators.md) and [../../role-based-access-control/conditions-role-assignments-portal.md#view-edit-or-delete-a-condition].
 
 ## Cancel a subscription in the Azure portal
 

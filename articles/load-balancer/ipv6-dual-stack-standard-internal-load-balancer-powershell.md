@@ -307,8 +307,6 @@ You can view the IPv6 dual stack virtual network in Azure portal as follows:
 2. When **dsVnet** appears in the search results, select it. This launches the **Overview** page of the dual stack virtual network named *dsVnet*. The dual stack virtual network shows the two NICs with both IPv4 and IPv6 configurations located in the dual stack subnet named *dsSubnet*.
 
 
-> [!NOTE]
-> The IPv6 for Azure virtual network is available in the Azure portal in read-only for this preview release.
 
 ## Clean up resources
 

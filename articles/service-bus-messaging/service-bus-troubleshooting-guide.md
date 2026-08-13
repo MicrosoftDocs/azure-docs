@@ -2,13 +2,22 @@
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus.
 ms.topic: article
-ms.date: 07/17/2025
+ms.date: 08/07/2026
 ms.custom:
   - build-2025
 ---
 
 # Troubleshooting guide for Azure Service Bus
 This article provides troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus. 
+
+
+## Check service health before troubleshooting your client
+Start by confirming whether Azure Service Bus is healthy in your region. This quick check tells you where to focus your troubleshooting. Begin with these two checks:
+
+1. **Check Azure Service Health.** In the Azure portal, open [Azure Service Health][AzureServiceHealth], or go to the [Azure status page](https://azure.status.microsoft), to see whether Service Bus has an active health event or advisory in your region. Service Health reports service-side events that affect a targeted set of customers, such as a subset of customers in a region.
+1. **Check Resource Health for your namespace.** In the Azure portal, open your Service Bus namespace and select **Resource health**. Resource Health shows the current and recent health of your specific namespace. For more information, see [Azure Resource Health overview][AzureResourceHealth].
+
+If either check shows an active service-side event, the service is the likely source. The Service Bus SDK's built-in [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus) automatically retries transient failures and reconnects after brief interruptions. A longer outage can exceed the built-in retry limits, so make sure your application also retries or resumes processing once the service recovers. If both checks show the service is healthy, continue with the client-side troubleshooting in the rest of this article.
 
 
 ## Resource health
@@ -25,11 +34,54 @@ Depending on the host environment and network, a connectivity issue might presen
 To troubleshoot:
 
 - Verify that the connection string or fully qualified domain name that you specified when creating the client is correct. For information on how to acquire a connection string, see [Get a Service Bus connection string](service-bus-dotnet-get-started-with-queues.md?tabs=connection-string#get-the-connection-string).
+- If your namespace uses a private endpoint with public access disabled, confirm from a host inside the virtual network that the namespace resolves to the private IP address. For details, see [Troubleshoot private endpoint connectivity](private-link-service.md#troubleshoot-private-endpoint-connectivity).
 - Check the firewall and port permissions in your hosting environment. Check that the Advanced Message Queuing Protocol (AMQP) ports 5671 and 5672 are open and that the endpoint is allowed through the firewall.
 - Try using the Web Socket transport option, which connects using port 443. For details, see [configure the transport](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample13_AdvancedConfiguration.md#configuring-the-transport).
 - See if your network is blocking specific IP addresses. For details, see [What IP addresses do I need to allow?](/azure/service-bus-messaging/service-bus-faq#what-ip-addresses-do-i-need-to-add-to-allowlist-)
 - If applicable, verify the proxy configuration. For details, see: [Configuring the transport](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample13_AdvancedConfiguration.md#configuring-the-transport)
 - For more information about troubleshooting network connectivity, see: [Connectivity, certificate, or timeout issues](#connectivity-certificate-or-timeout-issues).
+
+### Send or receive operation times out
+Most send and receive timeouts are transient and resolve on their own. Some timeouts point to conditions on the service side that you should check. This section helps you distinguish between these two types of timeouts and choose the right response.
+
+#### Transient timeouts resolve automatically
+A transient timeout is a brief interruption, such as a momentary network blip, a link that's being reestablished, or a short-lived spike in load. The client libraries automatically retry transient failures, including timeouts, by using the built-in [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus). The default policy retries up to three times with exponential back-off and a per-attempt timeout (`TryTimeout`) of 60 seconds, so most transient timeouts clear on their own with no action from you.
+
+To let the SDK handle this work:
+
+- Keep the default retry policy. It gives the SDK room to recover transient failures for you. Lowering the maximum retry count or `TryTimeout` reduces that room, so keep the defaults unless you have a specific reason to change them.
+- A `ServiceBusException` with a `Reason` of `ServiceTimeout` (or the equivalent transient error in your SDK) is safe to retry, so let the SDK retry it or retry the operation yourself.
+- A single timeout that succeeds on the next call can be expected and needs no action.
+
+#### When to check the service side
+If timeouts continue across retries and client restarts rather than clearing on their own, check the health of the service. Look for two patterns:
+
+- **An unresponsive entity.** A single queue, topic, or subscription stops responding while the rest of the namespace continues to work. Send and receive operations against that one entity time out even though connectivity to the namespace is healthy.
+- **A rise in internal server errors.** Requests across the namespace begin returning internal server errors, such as a `ServiceBusException` with a `Reason` of `ServiceCommunicationProblem`, or an AMQP `amqp:internal-error`. A sustained rise, as opposed to the occasional retryable error, points to a service-side condition.
+
+To confirm and get help:
+
+- Open the **Resource health** page for your namespace in the Azure portal to check the health that the service reports. For more information, see [Resource health](#resource-health).
+- In the Azure portal, watch the **Server Errors** metric. A sustained rise in server errors points to the service side rather than your client. For the metric definitions, see [Monitoring Azure Service Bus data reference](monitor-service-bus-reference.md).
+- If you also see a rise in the **Throttled Requests** metric, the namespace is reaching its throughput or resource limits. That's a capacity condition rather than a service fault, so address it by reducing load or scaling up, such as by adding messaging units on the Premium tier. For more information, see [Throttling in Azure Service Bus](service-bus-throttling.md).
+- Confirm the client isn't the cause by working through [Connectivity, certificate, or timeout issues](#connectivity-certificate-or-timeout-issues).
+- If Resource health reports a problem, the platform detects it and works to mitigate it. The SDK automatically reconnects through brief interruptions, but a longer service-side event can exceed the retry limits, so have your application retry or resume processing once the service recovers. Monitor Resource health until it does.
+- If Resource health shows the namespace as healthy but you still see a single unresponsive entity or a sustained rise in server errors, open a support request so the team can investigate the service side.
+
+#### Set how long a receive waits
+How long a receive call waits for a message before it returns depends on the SDK. If a receive waits longer than you expect, it's usually because no wait limit is set rather than a problem with the service.
+
+- In the .NET, Java, and JavaScript libraries, a receive is bounded by default. The maximum wait time defaults to 60 seconds, after which the call returns an empty result if no message arrived.
+- In the Python library, `max_wait_time` defaults to `None`, so the call waits until a message arrives or the connection is closed. Set a `max_wait_time` value to bound it.
+- In the Go library, `ReceiveMessages` takes its timeout from the `context.Context` that you pass in, and it waits until at least one message arrives or the context is canceled. Pass a context with a deadline to set how long a receive waits:
+
+    ```go
+    ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+    defer cancel()
+    messages, err := receiver.ReceiveMessages(ctx, 10, nil)
+    ```
+
+In Go and Python, setting a context deadline (Go) or a `max_wait_time` value (Python) gives you predictable receive behavior.
 
 ### Secure socket layer (SSL) handshake failures
 This error can occur when an intercepting proxy is used. To verify, We recommend that you test the application in the host environment with the proxy disabled.
@@ -49,6 +101,31 @@ To configure Web Sockets as the transport type, see [Configuring the transport](
 
 #### "Authentication=Managed Identity" Alternative
 To authenticate with Managed Identity, see: [Identity and Shared Access Credentials](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus/Azure.Messaging.ServiceBus#authenticating-with-azureidentity). For more information about the `Azure.Identity` library, see [Authentication and the Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk).
+
+### Managed identity authentication failures
+When your application authenticates with a managed identity instead of a connection string, connection attempts can fail with an authorization error even when the network path to the service is healthy. Depending on the SDK, the failure surfaces as an `Unauthorized` error, a `ServiceBusException` with an authorization-related reason, or a "Put token failed" error.
+
+These failures come from token acquisition or role assignment in your host environment, not from the Service Bus client. The same causes apply to every Service Bus SDK (.NET, Java, JavaScript, Python, and Go), because each one acquires Microsoft Entra tokens through the Azure Identity library.
+
+To troubleshoot this problem:
+
+- Confirm that the identity has an Azure role assignment on the namespace, queue, or topic. Sending requires the **Azure Service Bus Data Sender** role and receiving requires the **Azure Service Bus Data Receiver** role. For steps, see [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](service-bus-managed-service-identity.md).
+- Confirm that the client requests the token scope `https://servicebus.azure.net/.default`. The issued token's `aud` (audience) claim is then `https://servicebus.azure.net`. The role assignment is a separate requirement from the scope, so verify it as well.
+- Verify that `DefaultAzureCredential` selects the intended credential. When multiple credentials are available in the host, `DefaultAzureCredential` uses the first one in its resolution order. Enable Azure Identity logging or specify the credential explicitly to confirm which identity is used. For the .NET credential resolution order and more troubleshooting steps, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) and [Troubleshoot Azure Identity authentication issues](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/TROUBLESHOOTING.md). The Azure Identity library for each language follows the same credential chain.
+- Allow time for a new role assignment to propagate, which can take several minutes.
+- Check that the host clock is accurate and synchronized. Microsoft Entra ID validates tokens against their issue and expiry times.
+
+> [!NOTE]
+> The Azure Service Bus data roles (**Azure Service Bus Data Sender**, **Azure Service Bus Data Receiver**, and **Azure Service Bus Data Owner**) control data-plane access. They're separate from management-plane roles such as **Owner** and **Contributor**, which manage the resource rather than its data.
+
+#### Azure Kubernetes Service (AKS) workload identity
+When you run on AKS with workload identity, the preceding checks still apply. Also verify the workload identity configuration:
+
+- The Kubernetes service account is annotated with the identity's client ID.
+- The pod has the `azure.workload.identity/use` label.
+- A federated identity credential links the managed identity or Microsoft Entra application to the cluster's OpenID Connect (OIDC) issuer.
+
+To assign a managed identity to an AKS cluster, see the **Azure Kubernetes Service** tab in [Migrate an application to use passwordless connections](service-bus-migrate-azure-credentials.md).
 
 ## Logging and diagnostics
 The Service Bus client library is fully instrumented for logging information at various levels of detail using the .NET `EventSource` to emit information. Logging is performed for each operation and follows the pattern of marking the starting point of the operation, its completion, and any exceptions encountered. Additional information that might offer insight is also logged in the context of the associated operation.
@@ -109,7 +186,7 @@ A message batch is either [`ServiceBusMessageBatch`][ServiceBusMessageBatch] con
 When attempting to do a batch receive operation, that is, passing a `maxMessages` value of two or greater to the [ReceiveMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.receivemessagesasync) method, you aren't guaranteed to receive the number of messages requested, even if the queue or subscription has that many messages available at that time, and even if the entire configured `maxWaitTime` hasn't yet elapsed. To maximize throughput and avoid lock expiration, once the first message comes over the wire, the receiver waits an extra 20 milliseconds for any extra messages before dispatching the messages for processing. The `maxWaitTime` controls how long the receiver waits to receive the *first* message - subsequent messages are waited for 20 milliseconds. Therefore, your application shouldn't assume that all messages available are received in one call.
 
 ### Message or session lock is lost before lock expiration time
-The Service Bus service uses the AMQP protocol, which is stateful. Due to the nature of the protocol, if the link that connects the client and the service is detached after a message is received, but before the message is settled, the message isn't able to be settled on reconnecting the link. Links can be detached due to a short-term transient network failure, a network outage, or due to the service enforced 10-minute idle timeout. The reconnection of the link happens automatically as a part of any operation that requires the link, that is, settling or receiving messages. In this situation, you receive a `ServiceBusException` with `Reason` of `MessageLockLost` or `SessionLockLost` even if the lock expiration time isn't yet passed. 
+The Service Bus service uses the AMQP protocol, which is stateful. Due to the nature of the protocol, if the link that connects the client and the service is detached after a message is received, but before the message is settled, the message isn't able to be settled on reconnecting the link. Links can be detached due to a short-term transient network failure, a network outage, or due to the service enforced 10-minute idle timeout. The reconnection of the link happens automatically as a part of any operation that requires the link, that is, settling or receiving messages. In this situation, you receive a `ServiceBusException` with `Reason` of `MessageLockLost` or `SessionLockLost` even if the lock expiration time isn't yet passed. If a message is received repeatedly but never settled because of lock loss, its delivery count increases until the message is moved to the dead-letter queue. For more information, see [Why did my message go to the dead-letter queue?](service-bus-dead-letter-queues.md#why-did-my-message-go-to-the-dead-letter-queue).
 
 ### How to browse scheduled or deferred messages
 Scheduled and deferred messages are included when peeking messages. They're identified by the [ServiceBusReceivedMessage.State](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.state) property. Once you have the [SequenceNumber](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage.sequencenumber) of a deferred message, you can receive it with a lock via the [ReceiveDeferredMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.receivedeferredmessagesasync) method.
@@ -121,6 +198,11 @@ You can use a regular [ServiceBusReceiver][ServiceBusReceiver] to peek across al
 
 ### NotSupportedException thrown when accessing message body
 This issue occurs most often in interop scenarios when receiving a message sent from a different library that uses a different AMQP message body format. If you're interacting with these types of messages, see the [AMQP message body sample][MessageBody] to learn how to access the message body. 
+
+### Server busy errors when many receivers are open
+If you open a large number of receivers on the same queue, topic, or subscription and keep them active at the same time, you might see a `ServiceBusException` with a `Reason` of `ServiceBusy`. Service Bus allows up to 5,000 concurrent receive requests on a single entity, combined across all subscriptions of a topic. Each open receiver issues credit and continually polls for messages - even when the entity is empty - so a large number of idle receivers can push the combined receive requests past this limit, and additional requests are rejected.
+
+The Service Bus SDKs automatically retry server busy responses using exponential backoff, so transient occurrences are handled for you. To avoid reaching the limit, keep the number of concurrent receivers on a single entity well below 5,000, close receivers you no longer need instead of leaving them idle, and scale out across multiple entities if you need a very large number of consumers. For more information, see [Throttling operations on Azure Service Bus][ServiceBusThrottling].
 
 ## Troubleshoot processor issues
 
@@ -170,6 +252,7 @@ Information about Service Bus quotas can be found [here][ServiceBusQuotas].
 ## Connectivity, certificate, or timeout issues
 The following steps help you with troubleshooting connectivity/certificate/timeout issues for all services under *.servicebus.windows.net. 
 
+- If your namespace uses a private endpoint with public access disabled, confirm name resolution before you run the connectivity checks that follow. A port check can succeed against the public endpoint even in that configuration, so resolution to a public IP address from inside the virtual network points to a DNS problem. For details, see [Troubleshoot private endpoint connectivity](private-link-service.md#troubleshoot-private-endpoint-connectivity).
 - Browse to or [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues, which are common when using Java SDK.
 
     An example of successful message:
@@ -207,6 +290,21 @@ The following steps help you with troubleshooting connectivity/certificate/timeo
     You can use equivalent commands if you're using other tools such as `tnc`, `ping`, and so on. 
 - Obtain a network trace if the previous steps don't help and analyze it using tools such as [Wireshark](https://www.wireshark.org/). Contact [Microsoft Support](https://support.microsoft.com/) if needed. 
 - To find the right IP addresses to add to allowlist for your connections, see [What IP addresses do I need to add to allowlist](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allowlist-). 
+
+### TLS certificate chain and intermediate certificate issues
+Service Bus endpoints (`*.servicebus.windows.net`) present a TLS certificate that chains to a public root certificate authority (CA). Microsoft periodically rotates the TLS certificates and the intermediate CAs in that chain. If your client's trust store is missing an updated intermediate CA, or if your client pins a specific intermediate or leaf certificate, the TLS handshake fails after a rotation even though nothing changed in your application.
+
+Symptoms include a TLS or SSL handshake failure, a certificate chain validation error such as `unable to get local issuer certificate`, or a connection that worked before a certificate rotation and starts failing afterward.
+
+To troubleshoot this problem:
+
+- Trust the root CAs rather than pinning intermediate or leaf certificates. Microsoft rotates intermediate certificates, so trusting the root keeps your client working across rotations. For the current root and intermediate CAs used by Azure services, see [Azure Certificate Authority details](/azure/security/fundamentals/azure-certificate-authority-details).
+- Update the operating system or runtime trust store to include the current CA certificates. On Linux, update the CA bundle, for example, the `ca-certificates` package. For Java, make sure the JRE `cacerts` truststore is current, because Java validates certificates against its own truststore rather than the operating system's.
+- If you use a custom or corporate trust store, add the current Azure root and intermediate CAs to it.
+- Confirm that any intercepting proxy or TLS-inspection appliance presents a certificate chain your client trusts.
+
+> [!IMPORTANT]
+> Resolve certificate chain failures by updating the trust store with the correct CA certificates. Keep TLS certificate validation enabled. Bypassing validation removes protection against man-in-the-middle attacks, for example by setting `NODE_TLS_REJECT_UNAUTHORIZED=0` in Node.js or by installing a certificate validation callback that accepts any certificate.
 
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
@@ -317,3 +415,8 @@ See the following articles:
 [Transactions]: /azure/service-bus-messaging/service-bus-transactions
 [TransactionOperations]: /azure/service-bus-messaging/service-bus-transactions#operations-within-a-transaction-scope
 [ServiceBusQuotas]: /azure/service-bus-messaging/service-bus-quotas
+[TransactionOperations]: /azure/service-bus-messaging/service-bus-transactions#operations-within-a-transaction-scope
+[ServiceBusQuotas]: /azure/service-bus-messaging/service-bus-quotas
+[ServiceBusThrottling]: /azure/service-bus-messaging/service-bus-throttling#throttling-when-concurrent-receive-requests-exceed-the-limit
+[AzureServiceHealth]: /azure/service-health/service-health-overview
+[AzureResourceHealth]: /azure/service-health/resource-health-overview

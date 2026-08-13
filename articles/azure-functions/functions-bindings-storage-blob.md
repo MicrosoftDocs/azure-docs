@@ -1,7 +1,6 @@
 ---
 title: Azure Blob storage trigger and bindings for Azure Functions
 description: Learn to use the Azure Blob storage trigger and bindings in Azure Functions.
-
 ms.topic: reference
 ms.custom:
   - devx-track-extended-java
@@ -9,7 +8,7 @@ ms.custom:
   - devx-track-python
   - devx-track-ts
   - build-2025
-ms.date: 11/11/2022
+ms.date: 04/20/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -22,6 +21,9 @@ Azure Functions integrates with [Azure Storage](../storage/index.yml) via [trigg
 | Run a function as blob storage data changes | [Trigger](./functions-bindings-storage-blob-trigger.md) |
 | Read blob storage data in a function | [Input binding](./functions-bindings-storage-blob-input.md) |
 | Allow a function to write blob storage data |[Output binding](./functions-bindings-storage-blob-output.md) |
+
+>[!IMPORTANT]  
+>Blob Storage bindings don't support [Premium Blob storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts). You should instead use a Standard general-purpose v2 account. 
 
 ::: zone pivot="programming-language-csharp"
 

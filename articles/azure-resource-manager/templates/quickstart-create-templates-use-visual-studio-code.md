@@ -1,7 +1,7 @@
 ---
 title: Create template - Visual Studio Code
 description: Use Visual Studio Code to work on Azure Resource Manager templates (ARM templates).
-ms.date: 07/23/2025
+ms.date: 06/26/2026
 ms.topic: quickstart
 ms.custom:
   - mode-ui

@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: vpn-gateway
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 12/06/2018
- ms.author: cherylmc
+ ms.author: duau
  ms.custom: include file
 ---
 Create a Remote Desktop Connection to connect to a VM that's deployed to your VNet. The best way to verify you can connect to your VM is to connect with its private IP address, rather than its computer name. That way, you're testing to see if you can connect, not whether name resolution is configured properly. 

@@ -10,7 +10,7 @@ appliesto:
 
 # Enable zone redundancy for Azure Cache for Redis
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 In this article, you learn how to configure a zone-redundant Azure Cache instance using the Azure portal.
 

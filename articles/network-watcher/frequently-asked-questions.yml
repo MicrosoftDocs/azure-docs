@@ -53,7 +53,7 @@ sections:
       - question: |
           What permissions are required to use Network Watcher?
         answer: |
-          See [Azure RBAC permissions required to use Network Watcher](required-rbac-permissions.md) for a detailed list of required permissions for each of capability of Network Watcher.
+          See [Azure RBAC permissions required to use Network Watcher](rbac-permissions.md) for a detailed list of required permissions for each of capability of Network Watcher.
           
       - question: |
           How do I enable Network Watcher?
@@ -430,7 +430,12 @@ sections:
           Is traffic analytics supported in a Log Analytics workspace with Network Security Perimeter enabled?
         answer: |
           No, it's currently not supported. If a Log Analytics workspace is deployed behind a network security perimeter, traffic analytics won't be able to ingest data from it.
-
+      
+      - question: |
+          Why do my network flows appear as "Unknown" instead of being correctly tagged
+        answer: |
+          Traffic Analytics (TA) can only correctly classify and tag flows for resources in subscriptions where at least one flow log is enabled and sending data to the same Log Analytics (LA) workspace used by Traffic Analytics. If a flow originates from or terminates at a resource in a subscription that has no flow log configured against the Traffic Analytics enabled Log Analytics workspace, Traffic Analytics has no visibility into that subscription's resources and will mark the associated flows as "Unknown".
+ 
   - name: Network diagnostic tools
     questions:
       - question: | 

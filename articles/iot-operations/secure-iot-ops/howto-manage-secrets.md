@@ -165,7 +165,7 @@ If you use the operations experience to select existing secrets that were previo
 
 To add a PEM certificate secret to Azure Key Vault, you can use a command like the following example:
 
-```azcli
+```azurecli
 az keyvault secret set \
   --vault-name <your-key-vault-name> \
   --name client-cert-pem \
@@ -176,7 +176,7 @@ az keyvault secret set \
 
 To add a binary DER certificate secret to Azure Key Vault, you can use a command like the following example:
 
-```azcli
+```azurecli
 az keyvault secret set \
   --vault-name <your-key-vault-name> \
   --name cert-file-der \

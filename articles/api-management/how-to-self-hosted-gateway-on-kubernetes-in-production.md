@@ -1,11 +1,9 @@
 ---
 title: Run Self-Hosted Gateway on Kubernetes in Production
 description: Learn about guidance to run an API Management self-hosted gateway on Kubernetes for production workloads.
-author: tomkerkhove
 manager: mrcarlosdev
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.author: tomkerkhove
 ms.date: 02/20/2026
 ms.custom:
   - build-2025

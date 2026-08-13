@@ -42,7 +42,7 @@ To learn how to configure OpenTelemetry in your function app, see [Use OpenTelem
 
 You can try out Application Insights integration with Azure Functions for free featuring a daily limit to how much data is processed for free.
 
-If you enable Applications Insights during development, you might hit this limit during testing. Azure provides portal and email notifications when you're approaching your daily limit. If you miss those alerts and hit the limit, new logs don't appear in Application Insights queries. Be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Application Insights billing](/azure/azure-monitor/logs/cost-logs#application-insights-billing).
+If you enable Application Insights during development, you might hit this limit during testing. Azure provides portal and email notifications when you're approaching your daily limit. If you miss those alerts and hit the limit, new logs don't appear in Application Insights queries. Be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Application Insights billing](/azure/azure-monitor/logs/cost-logs#application-insights-billing).
 
 > [!IMPORTANT]
 > Application Insights has a [sampling](/azure/azure-monitor/app/sampling) feature that can protect you from producing too much telemetry data on completed executions at times of peak load. Sampling is enabled by default. If you appear to be missing data, you might need to adjust the sampling settings to fit your particular monitoring scenario. To learn more, see [Configure sampling](configure-monitoring.md#configure-sampling).
@@ -107,6 +107,8 @@ By assigning logged items to a category, you have more control over telemetry ge
 To write custom telemetry data from your functions, the recommended approach is to use the [OpenTelemetry exporter](opentelemetry-howto.md), which provides standards-based telemetry that can be sent to Application Insights and any OTLP-compliant endpoint.
 
 You can also use language-specific classic Application Insights SDKs to write custom telemetry in [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#track-custom-data), and [Python](functions-reference-python.md#logging-and-monitoring). However, these classic SDKs are legacy and won't receive new feature updates. Plan to [migrate to OpenTelemetry](opentelemetry-howto.md) for long-term support.
+
+You can also use language-specific classic Application Insights SDKs to write custom telemetry in [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#track-custom-data), and [Python](functions-reference-python.md#logging-and-monitoring). However, these classic SDKs are legacy and don't receive new feature updates. Plan to [migrate to OpenTelemetry](opentelemetry-howto.md) for long-term support.
 
 ### Dependencies
 

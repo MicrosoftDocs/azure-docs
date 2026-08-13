@@ -133,9 +133,9 @@ Receiving multiple HTTP responses simultaneously with body contents has implicat
 
 During a download, the Storage client libraries make one download range request using `InitialTransferSize` before doing anything else. During this initial download request, the client libraries know the total size of the resource. If the initial request successfully downloaded all of the content, the operation is complete. Otherwise, the client libraries continue to make range requests up to `MaximumTransferSize` until the full download is complete.
 
-## Transfer validation with CRC64
+## Transfer validation with CRC64-NVME
 
-In addition to performance tuning with `StorageTransferOptions`, you can configure transfer validation to verify data integrity for uploads (`UploadTransferValidationOptions`) and downloads (`DownloadTransferValidationOptions`). While CRC64 is generally performant to compute, enabling transfer validation may have performance implications that should be considered alongside other tuning decisions.
+In addition to performance tuning with `StorageTransferOptions`, you can configure transfer validation to verify data integrity for uploads (`UploadTransferValidationOptions`) and downloads (`DownloadTransferValidationOptions`). While CRC64-NVME is generally performant to compute, enabling transfer validation may have performance implications that should be considered alongside other tuning decisions.
 
 [!INCLUDE [storage-dev-guide-transfer-validation](../../../includes/storage-dev-guides/storage-dev-guide-transfer-validation.md)]
 

@@ -2,11 +2,11 @@
 title: 'Copy and paste to and from a virtual machine via Azure Bastion'
 titleSuffix: Azure Bastion
 description: Learn how to copy and paste text between your local device and a remote VM session using Azure Bastion, including browser Clipboard API support and the clipboard tool palette.
-author: cherylmc
+author: asudbring
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 04/28/2026
-ms.author: cherylmc
+ms.author: allensu
 # Customer intent: As an administrator or developer connecting to VMs through Azure Bastion, I want to copy and paste text between my local device and the remote session, so that I can efficiently transfer commands, configuration values, and other text without manually retyping them.
 
 ---

@@ -70,7 +70,7 @@ var dynatraceApiKey = '<DYNATRACE_INGEST_TOKEN>'
 var dynatraceAuthHeader = 'Api-Token ${dynatraceApiKey}'
 var dynatraceOtlpDestinationName = 'dynatrace-otlp'
 
-resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
+resource environment 'Microsoft.App/managedEnvironments@2026-03-02-preview' = {
   name: '<managed-environment-name>'
   location: '<region>'
   properties: {

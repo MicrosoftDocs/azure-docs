@@ -62,6 +62,10 @@ To learn how to configure a new data flow profile, see [Configure data flow prof
 
 You need data flow endpoints to configure the source and destination for the data flow. To get started quickly, use the [default data flow endpoint for the local MQTT broker](./howto-configure-mqtt-endpoint.md#default-endpoint). You can also create other types of data flow endpoints like Kafka, Event Hubs, OpenTelemetry, or Azure Data Lake Storage. For more information, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for resource names that you choose: `DATAFLOW` (the name of the data flow), `PROFILE` (the name of the data flow profile). Set each one to a value that you want before you run the related commands.
+
 ## Get started
 
 When you have the prerequisites, you can start creating a data flow.
@@ -87,7 +91,7 @@ When you have the prerequisites, you can start creating a data flow.
 Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
 
 ```azurecli
-az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --profile $PROFILE --name $DATAFLOW --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -727,7 +731,7 @@ The following example is a data flow configuration that uses the MQTT endpoint f
 Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
 
 ```azurecli
-az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --profile $PROFILE --name $DATAFLOW --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -1016,7 +1020,7 @@ Select the data flow you want to export, then select **Export** from the toolbar
 Use the [az iot ops dataflow show](/cli/azure/iot/ops/dataflow/#az-iot-ops-dataflow-show) command to export a data flow.
 
 ```azurecli
-az iot ops dataflow show --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <DataflowName> --profile <DataflowProfileName> --output json > my-dataflow.json
+az iot ops dataflow show --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $DATAFLOW --profile $PROFILE --output json > my-dataflow.json
 ```
 
 Here's an example command to export a data flow named `data-flow` to a JSON file named `data-flow.json`:

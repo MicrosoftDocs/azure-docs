@@ -4,7 +4,7 @@ description: Learn how to read and understand your usage and bill for Azure Ente
 author: SandeepReddyAcc
 ms.reviewer: v-salin
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: enterprise-agreement
 ms.topic: tutorial
 ms.date: 04/20/2026
 ms.author: v-salin

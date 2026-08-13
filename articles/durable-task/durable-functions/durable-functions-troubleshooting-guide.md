@@ -11,6 +11,8 @@ ms.author: azfuncdf
 
 # Durable Functions troubleshooting guide
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 This article helps you troubleshoot common scenarios in [Durable Functions](../common/what-is-durable-task.md) apps. Find your symptom in the following list and follow the linked steps to diagnose and resolve the issue.
 
 ## Common symptoms

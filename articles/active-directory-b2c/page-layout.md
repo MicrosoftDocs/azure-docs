@@ -9,8 +9,8 @@ manager: CelesteDG
 ms.service: entra-id
 
 ms.topic: reference
-ms.date: 07/09/2025
-ms.author: kengaderdus
+ms.date: 08/07/2025
+ms.author: bernaw
 ms.subservice: b2c
 
 
@@ -34,36 +34,49 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 |Element |Page layout version range |jQuery version  |Handlebars Runtime version |Handlebars Compiler version |
 |---------|---------|------|--------|----------|
-|multifactor |>= 1.2.8 | 3.5.1 | 4.7.7 |4.7.7 |
+|multifactor |>= 1.2.24 | 3.5.1 | 4.7.9 |4.7.9 |
+|            |>= 1.2.8 | 3.5.1 | 4.7.7 |4.7.7 |
 |            |>= 1.2.4 | 3.5.1 | 4.7.6 |4.7.7 |
 |            |< 1.2.4 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|selfasserted |>= 2.1.11 | 3.5.1 |4.7.7 |4.7.7 |
+|selfasserted |>= 2.1.38 | 3.5.1 |4.7.9 |4.7.9 |
+|            |>= 2.1.11 | 3.5.1 |4.7.7 |4.7.7 |
 |            |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|unifiedssp |>= 2.1.7 | 3.5.1 |4.7.7 |4.7.7 |
+|unifiedssp |>= 2.1.25 | 3.5.1 |4.7.9 |4.7.9 |
+|            |>= 2.1.7 | 3.5.1 |4.7.7 |4.7.7 |
 |            |>= 2.1.4 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 2.1.4 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|globalexception |>= 1.2.3 | 3.5.1 |4.7.7 |4.7.7 |
+|globalexception |>= 1.2.7 | 3.5.1 |4.7.9 |4.7.9 |
+|            |>= 1.2.3 | 3.5.1 |4.7.7 |4.7.7 |
 |            |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|providerselection |>= 1.2.3 | 3.5.1 |4.7.7 |4.7.7 |
+|providerselection |>= 1.2.7 | 3.5.1 |4.7.9 |4.7.9 |
+|            |>= 1.2.3 | 3.5.1 |4.7.7 |4.7.7 |
 |            |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|claimsconsent |>= 1.2.2 | 3.5.1 |4.7.7 |4.7.7 |
+|claimsconsent |>= 1.2.6 | 3.5.1 |4.7.9 |4.7.9 |
 |            |>= 1.2.2 | 3.5.1 |4.7.7 |4.7.7 |
+|            |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.6 |
 |            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
-|unifiedssd |>= 1.2.3 | 3.5.1 |4.7.7 |4.7.7 |
+|unifiedssd |>= 1.2.7 | 3.5.1 |4.7.9 |4.7.9 |
+|            |>= 1.2.3 | 3.5.1 |4.7.7 |4.7.7 |
 |            |>= 1.2.1 | 3.5.1 |4.7.6 |4.7.7 |
 |            |< 1.2.1 | 3.4.1 |4.0.12 |2.0.1 |
 |            |< 1.2.0 | 1.12.4 |
 
 ## Self-asserted page (selfasserted)
+
+**2.1.38**
+- Updated HandlebarJS version to 4.7.9.
+
+**2.1.37**
+- Introduced telemetry for redirection flows and improved error-request handling.
 
 **2.1.36** 
 - The CAPTCHA input now displays French accented characters correctly. This update resolves previous font encoding and localization errors that affected character rendering
@@ -230,6 +243,9 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 > [!TIP]
 > If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
 
+**2.1.25**
+- Updated HandlebarJS version to 4.7.9.
+
 **2.1.24**
 - This release resolves issues with French accents in the CAPTCHA input. Accented characters now appear correctly, and font and encoding limitations no longer affect their display. All French-specific characters show as intended.
 
@@ -336,6 +352,12 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 ## MFA page (multifactor)
 
+**1.2.24**
+- Updated HandlebarJS version to 4.7.9.
+
+**1.2.23**
+- Introduced telemetry for redirection flows and improved error-request handling.
+
 **1.2.22**
 - This release resolves issues with French accents in the CAPTCHA input. Accented characters now appear correctly, and font and encoding limitations no longer affect their display. All French-specific characters show as intended.
 
@@ -433,6 +455,12 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 ## Exception Page (globalexception)
 
+**1.2.7**
+- Updated HandlebarJS version to 4.7.9.
+
+**1.2.6**
+- Added handling for iframe injection in HTML content.
+
 **1.2.5**
 - Removed `ReplaceAll` function for IE11 compatibility.
 
@@ -467,14 +495,23 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 ## Other pages (ProviderSelection, ClaimsConsent, UnifiedSSD)
 
-**1.2.4**
-- Remove `ReplaceAll` function for IE11 compatibility.
+**1.2.7**
+- Updated HandlebarJS version to 4.7.9.
 
-**1.2.3**
+**1.2.6**
+- Added handling for iframe injection in HTML content.
+
+**1.2.5**
+- Removed `ReplaceAll` function for IE11 compatibility.
+
+**1.2.4**
 - Fixed accessibility bugs.
 
+**1.2.3**
+- Updated HandlebarJS version to 4.7.7.
+
 **1.2.2**
-- Updated HandlebarJS version to 4.7.7
+- Set up `H1` heading and enable by default.
 
 **1.2.1**
 - Updated jQuery version to 3.5.1.

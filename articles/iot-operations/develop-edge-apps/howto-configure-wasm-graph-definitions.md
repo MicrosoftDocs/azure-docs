@@ -23,7 +23,7 @@ Graph definitions are central to WASM development because they define how your m
 This article focuses on creating and configuring the YAML graph definitions. For information about deploying and testing data flow graphs, see [Deploy WebAssembly (WASM) modules and graph definitions](howto-deploy-wasm-graph-definitions.md).
 
 > [!IMPORTANT]
-> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported.
 
 > [!IMPORTANT]
 > Currently the only connector that supports graph definitions for custom processing is the HTTP/REST connector.

@@ -66,33 +66,6 @@
     - name: Regenerate access keys
       href: regenerate-keys.md
       displayName: access keys, primary key, secondary key, rotate keys
-- name: Manage certificate lifecycle
-  expanded: true
-  items:
-    - name: Microsoft certificate management (preview)
-      href: iot-hub-certificate-management-overview.md
-    - name: Key concepts for certificate management
-      href: iot-hub-certificate-management-concepts.md
-    - name: Set up certificate management
-      items:
-        - name: Configure a credential
-          href: how-to-configure-credential.md
-        - name: Create a policy with a Microsoft root CA
-          href: how-to-create-policy.md
-        - name: Create a policy with an external root CA
-          href: how-to-create-policy-external-certificate.md
-    - name: Manage certificates and policies
-      items:
-        - name: Issuance of device certificates
-          href: concept-certificate-issuance.md
-        - name: Renewal of device certificates
-          href: concept-certificate-renewal.md
-        - name: Certificate revocation and policy management
-          href: concepts-certificate-policy-management.md
-        - name: Revoke certificates and delete policies 
-          href: how-to-revoke-certificate-delete-policy.md
-        - name: Disable or enable a device
-          href: how-to-disable-enable-device.md
     - name: Customer-managed X.509 certificates
       items:
       - name: Third-party X.509 certificates
@@ -257,6 +230,9 @@
     - name: Transport Layer Security (TLS) support
       href: iot-hub-tls-support.md
       displayName: security, Transport Layer Security
+    - name: Update private endpoints for TLS 1.3
+      href: iot-hub-tls-1-3-update-private-endpoint.md
+      displayName: security, Transport Layer Security, TLS 1.3, Private Link, private endpoint
     - name: Migrate to a new TLS certificate root
       href: migrate-tls-certificate.md
     - name: Virtual networks support with Azure Private Link

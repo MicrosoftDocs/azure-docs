@@ -2,7 +2,8 @@
 title: SSL Configuration
 description: Enable SSL for secure transfers in Azure CycleCloud. Review self-generated certificates. Work with Let's Encrypt or CA-generated certificates.
 author: adriankjohnson
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 

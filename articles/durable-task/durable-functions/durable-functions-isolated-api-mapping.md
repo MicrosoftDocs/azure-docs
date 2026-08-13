@@ -13,6 +13,8 @@ ms.subservice: durable-functions
 
 # Durable Functions: in-process to isolated worker API mapping
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 This reference provides a comprehensive mapping between the in-process (2.x) SDK and the isolated worker SDK for Durable Functions. Use this page alongside the [migration guide](./durable-functions-migrate.md) when updating your code.
 
 ## Client APIs

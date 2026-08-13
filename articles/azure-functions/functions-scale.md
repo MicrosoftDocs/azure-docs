@@ -93,7 +93,7 @@ For details on current native language stack support in Functions, see [Supporte
 ## Scale
 
 The following table compares the scaling behaviors of the various hosting plans.  
-Maximum instances are given on a per-function app (Consumption) or per-plan (Premium/Dedicated) basis, unless otherwise indicated. 
+Maximum instances are given on a per-function app (Consumption), per-plan (Premium/Dedicated), or per-function group (Flex Consumption) basis, unless otherwise indicated. In the [Flex Consumption plan](flex-consumption-plan.md), the maximum instance count applies to the on-demand instances in each [function group](./flex-consumption-plan.md#per-function-scaling) rather than to the app's combined instances, and it doesn't include [always ready instances](flex-consumption-plan.md#always-ready-instances). 
 
 | Plan | Scale out | Max # instances | 
 | --- | --- | --- |

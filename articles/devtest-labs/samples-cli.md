@@ -34,7 +34,7 @@ This Azure CLI script creates a virtual machine in a lab.
 The VM created based on a marketplace image with SSH authentication.
 The script then verifies that the VM is available for use.
 
-:::code language="powershell" source="../../cli_scripts/devtest-lab/create-verify-virtual-machine-in-lab/create-verify-virtual-machine-in-lab.sh":::
+:::code language="powershell" source="~/cli_scripts/devtest-lab/create-verify-virtual-machine-in-lab/create-verify-virtual-machine-in-lab.sh":::
 
 This script uses the following commands:
 
@@ -48,7 +48,7 @@ This script uses the following commands:
 
 This Azure CLI script starts a virtual machine in a lab.
 
-:::code language="powershell" source="../../cli_scripts/devtest-lab/start-connect-virtual-machine-in-lab/start-connect-virtual-machine-in-lab.sh":::
+:::code language="powershell" source="~/cli_scripts/devtest-lab/start-connect-virtual-machine-in-lab/start-connect-virtual-machine-in-lab.sh":::
 
 This script uses the following commands:
 
@@ -63,7 +63,7 @@ This Azure CLI script stops and deletes a virtual machine in a lab.
 > [!CAUTION]
 > Deleting VMs and labs is permanent, and cannot be undone.
 
-:::code language="powershell" source="../../cli_scripts/devtest-lab/stop-delete-virtual-machine-in-lab/stop-delete-virtual-machine-in-lab.sh":::
+:::code language="powershell" source="~/cli_scripts/devtest-lab/stop-delete-virtual-machine-in-lab/stop-delete-virtual-machine-in-lab.sh":::
 
 This script uses the following commands:
 

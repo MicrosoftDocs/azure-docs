@@ -67,6 +67,32 @@ These conditions apply:
 | StandardV2 | Yes, supports IPv4 public IP addresses and prefixes. | Yes, supports IPv6 public IP addresses and prefixes. |
 | Standard | Yes, supports IPv4 public IP addresses and prefixes. | No, does not support IPv6 public IP addresses and prefixes. |
 
+## NAT64
+
+:::image type="content" source="./media/nat-gateway-resource/nat64.png" alt-text="Diagram of IPv6 traffic to IPv4 destination with NAT64 enabled on StandardV2 NAT Gateway." lightbox="./media/nat-gateway-resource/nat64.png":::
+
+StandardV2 NAT gateways support NAT64 to enable IPv6 workloads to communicate with IPv4-only internet destinations by translating outbound IPv6 traffic destined for the [Well-Known Prefix](https://www.rfc-editor.org/info/rfc6052/#page-5)`64:ff9b::/96` into IPv4 traffic.
+
+### How to enable NAT64
+
+To enable NAT64, go to your StandardV2 NAT Gateway resource in the Azure portal, go to **Configuration**, set **NAT64** to **Enabled**, and save. Alternatively, set the `nat64` property to `Enabled` on the NAT gateway resource via ARM/REST API. For PowerShell and CLI support, visit [az network nat gateway | Microsoft Learn](/cli/azure/network/nat/gateway/#az-network-nat-gateway-create) and [New-AzNatGateway (Az.Network) | Microsoft Learn](/powershell/module/az.network/new-aznatgateway#-nat64).
+
+NAT64 requires at least one StandardV2 IPv4 public IP address attached to the NAT gateway for outbound translation.
+
+### DNS64 requirement
+
+> [!NOTE]
+> NAT64 requires a third-party DNS64 solution to synthesize AAAA records for IPv4-only destinations.
+
+DNS64 synthesizes AAAA (IPv6) records for domains that only have A (IPv4) records. Without DNS64, IPv6 clients can't resolve IPv4-only destinations to the NAT64 well-known prefix.
+
+### How NAT64 works
+
+1. A client resolves a hostname via a DNS64 resolver. If only an A (IPv4) record exists, the resolver synthesizes an AAAA record by embedding the IPv4 address into the `64:ff9b::/96` prefix.
+2. The client sends an IPv6 packet to the synthesized address, treating it as a normal IPv6 destination.
+3. NAT Gateway recognizes the `64:ff9b::/96` prefix, extracts the embedded IPv4 address from the last 32 bits, and translates the packet from IPv6 to IPv4 using SNAT with its configured public IPv4 address.
+4. The IPv4 response is translated back to IPv6 and returned to the client.
+
 ## SNAT ports
 
 SNAT port inventory is provided by the public IP addresses, public IP prefixes, or both attached to a NAT gateway. SNAT port inventory is available on demand to all instances within a subnet attached to the NAT gateway. No preallocation of SNAT ports per instance is required.
@@ -99,7 +125,10 @@ After you deploy a NAT gateway, you can't change the zone selection.
 
 ## Protocols
 
-A NAT gateway interacts with IP and IP transport headers of UDP and TCP flows. A NAT gateway is agnostic to application-layer payloads. Other IP protocols, such as ICMP, aren't supported.
+A NAT gateway interacts with IP and IP transport headers of UDP and TCP flows. A NAT gateway is agnostic to application-layer payloads. StandardV2 NAT Gateway also supports ICMP Echo Request and Echo Reply (ping). Other ICMP message types aren't supported.
+
+> [!NOTE]
+> Azure StandardV2 NAT Gateway supports outbound Internet Control Message Protocol (ICMP) Echo Request and Echo Reply (ping) for both IPv4 and IPv6. This capability is provided by default and requires no additional configuration. You can use the ping tool (ICMP Echo) to validate outbound connectivity and quickly diagnose reachability issues from your workloads. For steps to validate connectivity, see [Validate NAT gateway connectivity](/azure/nat-gateway/troubleshoot-nat#validate-nat-gateway-connectivity).
 
 ## TCP reset
 
@@ -155,7 +184,9 @@ For UDP traffic, after a connection closes, the port is in hold-down for 65 seco
 
 Each SKU of Azure NAT Gateway has bandwidth limits:
 
-* A StandardV2 NAT gateway supports up to 100 Gbps of data throughput per NAT gateway resource.
+* A StandardV2 NAT gateway supports up to 100 Gbps of total data throughput per NAT gateway resource.
+
+* A StandardV2 NAT gateway supports up to 10 million packets per second (PPS) per NAT gateway resource. The PPS limit is aggregated across all traffic processed by the NAT gateway, including outbound traffic and inbound response traffic.
 
 * A Standard NAT gateway provides 50 Gbps of throughput, which is split between outbound and inbound (response) data. Data throughput is rate limited at 25 Gbps for outbound and 25 Gbps for inbound (response) data per Standard NAT gateway resource.
 
@@ -181,7 +212,7 @@ A StandardV2 NAT gateway can process up to 10 million packets per second. A Stan
   
   To upgrade a public IP address from Basic to Standard, see [Upgrade a Basic public IP address to Standard](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md).
 
-* Azure NAT Gateway doesn't support ICMP.
+* Azure StandardV2 NAT Gateway supports outbound ICMP Echo Request and Echo Reply traffic (ping) for IPv4 and IPv6 scenarios. Other ICMP message types aren't supported.
 
 * IP fragmentation isn't available for Azure NAT Gateway.
 

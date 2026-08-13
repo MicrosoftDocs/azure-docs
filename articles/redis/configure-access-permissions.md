@@ -1,7 +1,7 @@
 ---
 title: Configure custom data access permissions in Azure Managed Redis
 description: Learn how to assign per-user Redis ACL permissions using custom access strings on access policy assignments in Azure Managed Redis.
-ms.date: 06/01/2026
+ms.date: 08/12/2026
 author: flang-msft
 ms.author: franlanglois
 ms.reviewer: franlanglois
@@ -14,19 +14,20 @@ appliesto:
 
 # Configure custom data access permissions (preview)
 
-By default, each user or service principal you add to your Azure Managed Redis cache gets full access to all commands and keys. Starting with API version `2026-05-01-preview`, you can assign custom Redis ACL permissions to individual users by specifying an _access string_ on the access policy assignment.
+By default, each user or service principal you add to your Azure Managed Redis instance gets full access to all commands and keys. Starting with API version `2026-05-01-preview`, you can assign custom Redis ACL permissions to individual users by specifying an _access string_ on the access policy assignment.
 
-Custom access strings (preview) let you control which commands a user can execute and which keys they can access. This control enables fine-grained, per-user data access control for your cache.
+Custom access strings (preview) let you control which commands a user can execute and which keys they can access. This control enables fine-grained, per-user data access control for your Redis instance.
 
 ## Prerequisites
 
-- An Azure Managed Redis cache. To create one, see [Quickstart: Create an Azure Managed Redis instance](quickstart-create-managed-redis.md).
+- An Azure Managed Redis instance. To create one, see [Quickstart: Create an Azure Managed Redis instance](quickstart-create-managed-redis.md).
 - Access to the REST API with API version `2026-05-01-preview`.
 
 ## Limitations
 
 - Custom access strings require API version `2026-05-01-preview` or later. Earlier API versions always assign full access.
-- Each user can have one access policy assignment per database.
+- Custom access strings aren't supported on a Redis instance that has [Redis modules](redis-modules.md) enabled. Azure Managed Redis plans to adopt Redis 8, which brings module commands under the standard ACL categories such as `@read` and `@write`. Applying access strings to module-enabled instances beforehand would make that adoption a [breaking change](https://redis.io/docs/latest/develop/whats-new/8-0/#breaking-changes) for them.
+- Each user can have one access policy assignment per Redis instance.
 - Access string comparison is case-sensitive because Redis key patterns are case-sensitive.
 - Some Redis commands are blocked in Azure Managed Redis regardless of ACL configuration. For more information, see [Blocked commands](best-practices-client-libraries.md#blocked-commands).
 
@@ -143,7 +144,7 @@ az deployment group create \
 You can also use the REST API directly:
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Cache/redisEnterprise/{cacheName}/databases/{databaseName}/accessPolicyAssignments/{assignmentName}?api-version=2026-05-01-preview
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Cache/redisEnterprise/{cacheName}/databases/default/accessPolicyAssignments/{assignmentName}?api-version=2026-05-01-preview
 
 {
   "properties": {
@@ -167,10 +168,10 @@ To change a user's access permissions, run the same create or PUT command with a
 Delete the access policy assignment to revoke a user's access:
 
 ```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Cache/redisEnterprise/{cacheName}/databases/{databaseName}/accessPolicyAssignments/{assignmentName}?api-version=2026-05-01-preview
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Cache/redisEnterprise/{cacheName}/databases/default/accessPolicyAssignments/{assignmentName}?api-version=2026-05-01-preview
 ```
 
-Deleting one user's assignment doesn't affect other users on the same cache.
+Deleting one user's assignment doesn't affect other users on the same Redis instance.
 
 ## Error handling
 
@@ -187,7 +188,7 @@ If you provide an invalid Redis ACL string, provisioning fails with an `InvalidA
 }
 ```
 
-Existing users on the cache aren't affected when a new assignment fails.
+Existing users on the Redis instance aren't affected when a new assignment fails.
 
 ## Related content
 

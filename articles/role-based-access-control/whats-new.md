@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 05/25/2026
+ms.date: 07/01/2026
 ms.author: rolyon
 
 ---
@@ -18,6 +18,8 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| July 2026 | Roles and permissions | Added the Azure Device Registry Administrator role and updated conditions for the Azure IoT Operations Onboarding role. See [Azure Device Registry Administrator](./built-in-roles/internet-of-things.md#azure-device-registry-administrator) and [Azure IoT Operations Onboarding](./built-in-roles/internet-of-things.md#azure-iot-operations-onboarding). <br/><br/>Updated permissions for several other roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md).|
+| June 2026 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
 | May 2026 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). Removed Microsoft.ClassicNetwork and Microsoft.ClassicStorage permissions. |
 | May 2026 | Roles | Added [Semantic Reranker User](./built-in-roles/databases.md#semantic-reranker-user) role. |
 | May 2026 | Roles | Updated Microsoft Foundry roles.<br/>[Foundry Account Owner](./built-in-roles/ai-machine-learning.md#foundry-account-owner)<br/>[Foundry Owner](./built-in-roles/ai-machine-learning.md#foundry-owner)<br/>[Foundry Project Manager](./built-in-roles/ai-machine-learning.md#foundry-project-manager)<br/>[Foundry User](./built-in-roles/ai-machine-learning.md#foundry-user) |

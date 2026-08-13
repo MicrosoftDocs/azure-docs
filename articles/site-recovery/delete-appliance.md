@@ -94,7 +94,7 @@ You can reset the Azure Site Recovery replication appliance only if all componen
 1. If no machines are associated with the appliance, the reset begins.
 1. Once completed successfully, ensure the following:
    - Open `Services.msc` and restart the service `World Wide Web Publishing Service`.
-   - Clear the cache for Microsoft Edge or other browsers you're using. Restart the browser after the cache cleanup. Learn more [here](https://www.microsoft.com/edge/learning-center/how-to-manage-and-clear-your-cache-and-cookies).
+   - Clear the cache for Microsoft Edge or other browsers you're using. Restart the browser after the cache cleanup. Learn more [here](https://support.microsoft.com/edge/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use).
    - Restart the machine.
 
 

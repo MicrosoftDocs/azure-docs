@@ -1,10 +1,8 @@
 ---
 title: Send events from Azure API Management to Event Grid
 description: In this quickstart, you enable Event Grid events for your Azure API Management instance, then send  events to a sample application.
-author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
-ms.author: danlep
 ms.date: 05/07/2025
 ms.custom:
   - devx-track-azurecli
@@ -62,7 +60,7 @@ Once the deployment has succeeded (it might take a few minutes), open a browser 
 
 You should see the sample app rendered with no event messages displayed.
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../articles/event-grid/includes/register-provider.md)]
+[!INCLUDE [event-grid-register-provider-portal.md](~/reusable-content/ce-skilling/azure/includes/event-grid/register-provider.md)]
 
 ## Subscribe to API Management events
 

@@ -436,9 +436,9 @@ For more information, see [Understand and invoke direct methods from IoT Hub](..
 
 ```json
 {       
-	"id": "device1", // Required. The ID for the device requesting the certificate. This may only be the active authenticated device.
-	"csr": "MIICYTCCAUkCAQAwHDEaMBgGA1wRZGAw...yM1X8USCtPz/1nRYDOtA==", // Required. The base64 encoded PKCS#10 CSR, without PEM header/footers or new lines.
-	"replace": "*", // Optional. Default null. "*" is accepted to replace any active request.
+    "id": "device1", // Required. The ID for the device requesting the certificate. This ID is the active authenticated device.
+    "csr": "MIICYTCCAUkCAQAwHDEaMBgGA1wRZGAw...yM1X8USCtPz/1nRYDOtA==", // Required. The base64 encoded PKCS#10 CSR, without PEM header or footers or new lines.
+    "replace": "*", // Optional. Default null. "*" is accepted to replace any active request.
   } 
 ```
 
@@ -472,7 +472,7 @@ The possible status codes are:
 | 429 | Too many requests (throttled). For more information, see [IoT Hub quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md) |
 | 5** | Server errors |
 
-**For more information, see [Device certificate renewal in Azure IoT Hub certificate management](../iot-hub/concept-certificate-renewal.md)
+**For more information, see [Device certificate renewal in Azure IoT Hub certificate management](../iot/concept-certificate-renewal.md)
 
 ## Next steps
 

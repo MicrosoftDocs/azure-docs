@@ -40,7 +40,7 @@ To learn more about deployments to Azure Container Apps, see [Azure Container Ap
 :::zone-end
 >
 >[!IMPORTANT]
->This article currently shows how to connect to the default storage account by using a connection string. For the best security, instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see [Connections](./functions-reference.md#connections).
+>This article currently shows how to connect to the default storage account by using a connection string. For the best security, instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see [Connections](./manage-connections.md).
 
 <a name="creating-containerized-function-apps"></a>
 

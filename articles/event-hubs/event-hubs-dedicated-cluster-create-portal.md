@@ -76,7 +76,7 @@ To create a cluster in your resource group using the Azure portal, complete the 
 
 ## Scale a Dedicated cluster
 
-For clusters created with the **Support Scaling** option set, use the following steps to scale out or scale in your cluster. 
+Use the following steps to scale out or scale in your cluster. 
 
 1. On the **Event Hubs Cluster** page for your Dedicated cluster, select **Scale** on the left menu.
 
@@ -84,7 +84,7 @@ For clusters created with the **Support Scaling** option set, use the following 
 1. Use the slider to increase (scale out) or decrease (scale in) capacity units assigned to the cluster. 
 1. Then, select **Save** on the command bar. 
 
-    The **Scale** tab is available only for the Event Hubs clusters created with the **Support scaling** option checked. You don't see the **Scale** tab for clusters that were created before this feature was released or for the clusters you created without selecting the **Support scaling** option. If you wish to change the size of a cluster that you can't scale yourself, or if your preferred region isn't available, submit a support request by using the following steps. 
+    If you need a cluster larger than 10 CUs, or if your preferred region isn't available, submit a support request by using the following steps. 
 
 ### Submit a support request
 

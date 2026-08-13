@@ -9,7 +9,7 @@ ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Cache for Redis
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 
 This article is an index of [Azure Policy](../governance/policy/overview.md) built-in policy

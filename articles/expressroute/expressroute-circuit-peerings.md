@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 01/10/2025
+ms.date: 06/23/2026
 ms.author: duau 
 ---
 
@@ -26,11 +26,20 @@ ExpressRoute circuits are identified by a standard GUID called a service key (s-
 
 New ExpressRoute circuits can include two independent peerings: Private peering and Microsoft peering. Each peering consists of a pair of independent BGP sessions, configured redundantly for high availability. An ExpressRoute circuit can have one or both peerings enabled.
 
-Each circuit has a fixed bandwidth (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps) shared across all circuit peerings and is mapped to a connectivity provider and a peering location.
+Each circuit has a fixed bandwidth that's shared across all circuit peerings and is mapped to a connectivity provider and a peering location. The supported bandwidths are:
+
+* 50 Mbps
+* 100 Mbps
+* 200 Mbps
+* 500 Mbps
+* 1 Gbps
+* 2 Gbps
+* 5 Gbps
+* 10 Gbps
 
 ### <a name="quotas"></a>Quotas, limits, and limitations
 
-Default quotas and limits apply to every ExpressRoute circuit. Refer to the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) page for up-to-date information.
+Default quotas and limits apply to every ExpressRoute circuit. For current information, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ### Circuit SKU upgrade and downgrade
 
@@ -53,9 +62,9 @@ An ExpressRoute circuit has two routing domains/peerings: Azure Private and Micr
 
 ### <a name="privatepeering"></a>Azure private peering
 
-Azure compute services, such as virtual machines (IaaS) and cloud services (PaaS), deployed within a virtual network can be connected through the private peering domain. This domain is considered a trusted extension of your core network into Microsoft Azure. You can set up bi-directional connectivity between your core network and Azure virtual networks (VNets), allowing you to connect to virtual machines and cloud services directly on their private IP addresses.
+Azure compute services, such as virtual machines (IaaS) and cloud services (PaaS), deployed within a virtual network connect through the private peering domain. This domain is a trusted extension of your core network into Microsoft Azure. You can set up bi-directional connectivity between your core network and Azure virtual networks (VNets), so you can connect to virtual machines and cloud services directly on their private IP addresses.
 
-You can connect multiple virtual networks to the private peering domain. Review the [FAQ page](expressroute-faqs.md) for information on limits and limitations. Visit the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-resource-manager/management/azure-subscription-service-limits.md) page for up-to-date information. Refer to the [Routing](expressroute-routing.md) page for detailed routing configuration information.
+You can connect multiple virtual networks to the private peering domain. For information on limits and limitations, see the [FAQ page](expressroute-faqs.md). For current information, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). For detailed routing configuration information, see the [Routing](expressroute-routing.md) page.
 
 ### <a name="microsoftpeering"></a>Microsoft peering
 
@@ -83,11 +92,11 @@ Each peering requires separate BGP sessions (one pair for each peering type). Th
 
 ## <a name="health"></a>ExpressRoute health
 
-ExpressRoute circuits can be monitored for availability, connectivity to VNets, and bandwidth utilization using [ExpressRoute Network Insights](expressroute-network-insights.md).
+You can monitor ExpressRoute circuits for availability, connectivity to VNets, and bandwidth utilization by using [ExpressRoute Network Insights](expressroute-network-insights.md).
 
 Connection Monitor for ExpressRoute monitors the health of Azure private peering and Microsoft peering. For more information on configuration, see [Configure Connection Monitor for ExpressRoute](how-to-configure-connection-monitor.md).
 
-## Next steps
+## Related content
 
 * Find a service provider. See [ExpressRoute service providers and locations](expressroute-locations.md).
 * Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).

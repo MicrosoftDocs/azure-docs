@@ -6,12 +6,14 @@
     href: resiliency-overview.md
   - name: What's new
     href: resiliency-whats-new.md  
-  - name: Zonal resiliency
+  - name: Infrastructure Resiliency Manager
     items:
-    - name: Availability Zone Down Drills
-      href: availability-zone-down-drills-about.md
+    - name: Overview
+      href: infrastructure-resiliency-manager-overview.md
     - name: Goals and recommendations
       href: goals-recommendations-about.md
+    - name: Availability Zone Down Drills
+      href: availability-zone-down-drills-about.md
     - name: Recovery orchestration plan
       href: recovery-orchestration-plan-about.md
   expanded: true
@@ -49,7 +51,7 @@
   items:
   - name: Resiliency support matrix
     href: resiliency-support-matrix.md
-  - name: Zonal resiliency support metrics  
+  - name: Infrastructure Resiliency Manager support matrices
     items:
     - name: Availability zone down drills
       href: availability-zone-down-drills-support-matrix.md
@@ -83,7 +85,7 @@
       href: ../backup/azure-elastic-storage-area-network-backup-restore.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json  
     - name: Manage
       href: ../backup/azure-elastic-storage-area-network-backup-manage.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json      
-  - name: Zonal resiliency
+  - name: Infrastructure Resiliency Manager
     items:
     - name: Define and execute Zone Down Drill
       items:

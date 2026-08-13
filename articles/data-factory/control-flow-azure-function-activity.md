@@ -16,6 +16,9 @@ ai-usage: ai-assisted
 # Azure Function activity in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Functions activity](/fabric/data-factory/functions-activity).
 The Azure Function activity allows you to run [Azure Functions](../azure-functions/functions-overview.md) in an Azure Data Factory or Synapse pipeline. To run an Azure Function, you must create a linked service connection. Then you can use the linked service with an activity that specifies the Azure Function that you plan to execute.
 
 ## Create an Azure Function activity with UI

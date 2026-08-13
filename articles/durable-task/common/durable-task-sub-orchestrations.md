@@ -31,6 +31,8 @@ In this article:
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 > [!NOTE]
 > In PowerShell, sub-orchestrations are supported only in the standalone SDK: [`AzureFunctions.PowerShell.Durable.SDK`](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK). For the differences between the standalone SDK and the legacy built-in SDK, see the [migration guide](../durable-functions/durable-functions-powershell-v2-sdk-migration-guide.md).
 
@@ -211,7 +213,25 @@ public class DeviceProvisioningOrchestration : TaskOrchestrator<string, object?>
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET, Java, and Python.
+```typescript
+import { OrchestrationContext, TOrchestrator } from "@microsoft/durabletask-js";
+
+const deviceProvisioningOrchestrator: TOrchestrator = async function* (
+    ctx: OrchestrationContext,
+    deviceId: string
+): any {
+    // Step 1: Create an installation package in blob storage and return a SAS URL.
+    const sasUrl: string = yield ctx.callActivity(createInstallationPackage, deviceId);
+
+    // Step 2: Notify the device that the installation package is ready.
+    yield ctx.callActivity(sendPackageUrlToDevice, { id: deviceId, url: sasUrl });
+
+    // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+    yield ctx.waitForExternalEvent("DownloadCompletedAck");
+
+    // Step 4: ...
+};
+```
 
 # [Python](#tab/python)
 
@@ -233,7 +253,7 @@ def device_provisioning_orchestrator(ctx: task.OrchestrationContext, device_id: 
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, and Python.
 
 # [Java](#tab/java)
 
@@ -466,7 +486,20 @@ public class ProvisionNewDevices : TaskOrchestrator<object?, object?>
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET, Java, and Python.
+```typescript
+import { OrchestrationContext, TOrchestrator, whenAll } from "@microsoft/durabletask-js";
+
+const provisionNewDevices: TOrchestrator = async function* (ctx: OrchestrationContext): any {
+    const deviceIds: string[] = yield ctx.callActivity(getNewDeviceIds);
+
+    // Run multiple device provisioning flows in parallel
+    const provisioningTasks = deviceIds.map((deviceId: string) =>
+        ctx.callSubOrchestrator(deviceProvisioningOrchestrator, deviceId)
+    );
+
+    yield whenAll(provisioningTasks);
+};
+```
 
 # [Python](#tab/python)
 
@@ -487,7 +520,7 @@ def provision_new_devices(ctx: task.OrchestrationContext, _):
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, and Python.
 
 # [Java](#tab/java)
 

@@ -68,20 +68,20 @@ The following table lists the limits that apply to IoT Hub (preview) instances.
 
 |Feature|Limit|
 |----------------------------------|-------------------------------|
-|Number of devices per IoT Hub (preview) instance	| 10,000|
+|Number of devices per IoT Hub (preview) instance    | 10,000|
 |Number of IoT Hub (preview) instances per ADR namespace | 3|
 |Protocols supported for certificate provisioning|HTTP, MQTT, and MQTT-Web-Sockets protocols. |
 
 All other throttles, limits to IoT Hub preview resources are equivalent to a S1 standard IoT Hub
 
-The following table lists the limits that apply to [ADR integration](../articles/iot-hub/iot-hub-device-registry-overview.md) and [certificate management](../articles/iot-hub/iot-hub-certificate-management-overview.md) preview features.
+The following table lists the limits that apply to [ADR integration](../articles/iot-hub/iot-hub-device-registry-overview.md) and [certificate management](../articles/iot/iot-certificate-management-overview.md) preview features.
 
-| Feature	| Limit|
+| Feature    | Limit|
 |----------------------------------|-------------------------------|
-|Number of ADR namespaces per Azure subscription	| 100|
-|Number of device create per minute	| 500 devices per minute per subscription|
-|Number of devices to be disabled per minute	| 500|
-|Number of devices to be enabled per minute	| 500|
+|Number of ADR namespaces per Azure subscription    | 100|
+|Number of device create per minute    | 500 devices per minute per subscription|
+|Number of devices to be disabled per minute    | 500|
+|Number of devices to be enabled per minute    | 500|
 |Number of certificates issued by PKI (by a device DPS instance) during provisioning|500 per minute|
 |Number of certificate renewals|500 per minute|
 |Number of credential resources per tenant|2|

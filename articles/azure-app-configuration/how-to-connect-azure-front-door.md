@@ -85,17 +85,6 @@ Create a new Azure Front Door profile and connect it to your App Configuration s
 
 1. **Cache Duration for Azure Front Door**: Configure cache duration to balance performance and origin load. We recommend a minimum TTL of 10 minutes, but you can choose a value that fits your application. Content loaded from AFD will be eventually consistent. Setting the cache duration too short may increase origin requests and lead to throttling. For more details about caching, see [Caching with Azure Front Door](/azure/frontdoor/front-door-caching).
 
-1. **Filter Configuration to scope the request**: Configure one or more filters to control which requests pass through Azure Front Door. This prevents accidental exposure of sensitive configuration and ensures only the settings your application needs are accessible. The filters here must exactly match those used in your application code; otherwise, requests will be rejected by Azure Front Door.
-   
-   > [!NOTE]
-   > To configure scoping filters correctly, ensure that the prefix filter in Azure Front Door exactly matches the selector your application uses to load keys from App Configuration. For example, if your application loads keys using the prefix "App1:", configure the same Starts with = "App1:" key filter in Azure Front Door. If your application instead uses a more specific key prefix such as "App1:Version", but Azure Front Door is allowlisted for "App1:" key filter (or vice versa), the request will be rejected because the selectors do not match exactly. See [examples for matching application filters with endpoint filters](https://github.com/Azure/AppConfiguration/blob/main/docs/AzureFrontDoor/readme.md).
-
-   - **Key of key-value filter**: The key filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), and backslash (`\`) must be escaped using a backslash (`\`) when filtering multiple key-values.
-   - **Label**: The label filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), and backslash (`\`) must be escaped using a backslash (`\`) when filtering multiple key-values.
-   - **Tags**: The tag name and value filter to apply when querying Azure App Configuration for key-values. Reserved characters: asterisk (`*`), comma (`,`), backslash (`\`), and equals (`=`) must always be escaped using a backslash (`\`).
-   - **Key of feature flag filter**: The filter to apply to feature flag names when querying Azure App Configuration for feature flags. Reserved characters: asterisk (`*`), comma (`,`), and backslash (`\`) must be escaped using a backslash (`\`) when filtering multiple feature flags. The reserved feature flag prefix `.appconfig.featureflag/` will be automatically appended to every feature flag key filter.
-   - **Snapshot name**: Name of snapshot whose content should be accessible through this Azure Front Door endpoint. You can select one or more snapshots to restrict access to specific snapshots.
-
 
 1. Select **Create & Connect** to create the profile and establish the connection.
 

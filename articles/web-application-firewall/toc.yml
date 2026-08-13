@@ -78,6 +78,8 @@ items:
         href: ruleset-support-policy.md?pivots=application-gateway
       - name: Exclusion lists
         href: ./ag/application-gateway-waf-configuration.md
+      - name: Exception lists
+        href: ./ag/application-gateway-exceptions.md
       - name: Upgrade ruleset version
         href: ./ag/upgrade-ruleset-version.md
       - name: Customize managed rules
@@ -134,6 +136,8 @@ items:
         href: ./afds/waf-front-door-exclusion.md
       - name: Configure exclusion lists
         href: ./afds/waf-front-door-exclusion-configure.md
+      - name: Exception lists
+        href: ./afds/front-door-exceptions.md
     - name: HTTP DDoS protection
       href: ./afds/http-ddos-ruleset.md
     - name: Configure bot protection

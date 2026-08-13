@@ -1,9 +1,9 @@
 ---
 title: "Set Up a Managed Connector in Azure SRE Agent"
-description: "Learn how to set up a managed connector in Azure SRE Agent to connect to Jira, Slack, Outlook, GitLab, and other services with per-tool governance and approval controls."
+description: "Learn how to set up a managed connector in Azure SRE Agent to connect to Office 365 Outlook, Microsoft Teams, Google Gmail, Yammer/Viva Engage, Box, Confluence, OneDrive, SharePoint, and other services with per-tool governance and approval controls."
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 06/02/2026
+ms.date: 07/17/2026
 author: dchelupati
 ms.author: dchelupati
 ms.reviewer: cshoe
@@ -12,13 +12,19 @@ ms.ai-usage: ai-assisted
 
 # Set up a managed connector
 
-Create an authenticated connection to an external service (like Jira, Slack, or Outlook) with per-tool approval controls and parameter locking. Your agent gains access to only the operations you enable with the governance settings you configure.
+Create an authenticated connection to an external service, such as Office 365 Outlook, Microsoft Teams, Google Gmail, Yammer/Viva Engage, Box, Confluence, OneDrive, or SharePoint, with per-tool approval controls and parameter locking. Your agent gains access to only the operations you enable with the governance settings you configure.
 
 ## Prerequisites
 
 - An agent in the [Azure SRE Agent portal](https://sre.azure.com)
 - **SRE Agent Author** or **Administrator** role on the agent (see [User roles](user-roles.md))
-- An account on the service you want to connect (for example, a Jira account, Slack workspace membership, or Microsoft 365 account)
+- An account on the service you want to connect (for example, a Microsoft 365 account, Google Gmail account, Viva Engage access, or Box workspace membership)
+
+## How managed connectors protect your credentials
+
+When you authenticate a connector, SRE Agent stores your token or key in a secure connection resource that's separate from the agent runtime. At runtime, the agent authenticates by using its own identity and calls the service through that connection. The agent never sees your credentials. If the agent's environment is compromised, your token isn't exposed. You can revoke the agent's access without changing your own password.
+
+The service you connect to still sees the identity that authorized the connection. Actions the agent takes, such as sending an email or posting a channel update, appear under your name.
 
 ## Step 1: Open the managed connector wizard
 
@@ -27,9 +33,12 @@ Create an authenticated connection to an external service (like Jira, Slack, or 
 1. Select **Connectors**.
 1. Select **Add connector**.
 
-The connector picker opens, showing available connectors organized by tab: **Telemetry**, **Notification**, **Code Repository**, **MCP**, **Incidents**, **Deployment**, and **Other**.
+The connector picker opens, showing available connectors organized by tab: **Telemetry**, **Notification**, **MCP**, **Incidents**, **Deployment**, and **Other**.
 
-Managed connectors show a **Preview** badge. Use the search box to find a connector by name across all tabs.
+> [!NOTE]
+> Source code services (GitHub, Azure DevOps, GitLab) are connected on the **Builder** > **Code Access** page, not through this wizard. See [Connect a source code service](connect-code-service.md).
+
+Preview connector cards show a **Preview** badge. Use the search box to find a connector by name across all tabs.
 
 ## Step 2: Select a managed connector and authenticate
 
@@ -39,28 +48,26 @@ The authentication step appears. What you see depends on the connector:
 
 ### OAuth connectors (most services)
 
-For Slack, Box, Confluence, OneDrive, SharePoint, and similar services:
+For Office 365 Outlook, Microsoft Teams, Google Gmail, Yammer/Viva Engage, Box, Confluence, OneDrive, SharePoint, and similar services:
 
 1. Select **Sign in** (or **Sign in to [Service]**).
 1. An OAuth popup opens. Sign in with your account for that service.
 1. When the popup closes, the connection card shows a green checkmark and your authenticated name.
 
-### Multi-auth connectors (Jira, GitHub, Azure DevOps)
+### Multi-auth connectors
 
-Some connectors offer multiple authentication methods:
+Some connectors offer multiple authentication methods as radio buttons:
 
-1. Open the **Authentication method** dropdown.
-1. Choose your preferred method (for example, **Oauth** or **API Token** for Jira).
-1. Complete the sign-in or enter your credentials.
+1. Choose your preferred method.
+1. Complete the sign-in, token, app, or managed identity fields shown by the wizard.
 
-### API key connectors (GitLab, Notion)
+### Runtime-defined connectors
 
-1. Enter your API key in the text field.
-1. Select **Connect**.
+Some connectors fetch their authentication methods and operations from the managed API at setup time. Follow the choices shown by the wizard instead of assuming a fixed auth list.
 
-### Credential connectors (SQL Server, PostgreSQL)
+### Token and header-based connectors
 
-1. Enter the server address, database name, username, and password.
+1. Enter the token, header, or connection values that the connector shows.
 1. Select **Connect**.
 
 After successful authentication, select **Next** to continue.
@@ -68,34 +75,24 @@ After successful authentication, select **Next** to continue.
 > [!TIP]
 > If the OAuth popup doesn't appear, check your browser's popup blocker. Allow popups from `sre.azure.com`.
 
-## Step 3: Select operations
+## Step 3: Set up tools
 
-The operations step shows every available tool for the connector as a grid of clickable cards.
+The **Set up tools** step shows every available tool for the connector in a table with **Tool name**, **Parameter policy**, and **Permission** columns.
 
-1. Select individual operation cards to select or deselect them.
-1. Use **Select all** to enable every operation at once.
-1. Use the search box to filter operations by name.
+1. Select the check box for each operation you want the agent to use.
+1. Use the check box in the **Tool name** header to select or clear all currently filtered operations.
+1. Use the search box to filter tools by name or description.
 
-The count badge (for example, **12 / 47**) shows how many operations you selected out of the total available.
+The selected count (for example, **12 of 47 selected**) shows how many tools you selected out of the total available.
 
 > [!NOTE]
 > Select only the operations you need. Fewer tools means better governance and more accurate agent behavior.
 
-Select **Next** when you're done selecting operations.
-
-## Step 4: Configure governance
-
-The governance step shows a three-column table for every selected operation:
-
-| Column | What it controls |
-|--------|-----------------|
-| **Tool Name** | Which tools are enabled (toggle on/off) |
-| **Parameter Policy** | Whether to lock parameter values |
-| **Permission** | Whether the agent needs approval to run this tool |
+Configure governance for each selected operation in the same table:
 
 ### Lock parameter values (Parameter Policy)
 
-1. Toggle the **Parameter Policy** switch **ON** for a tool.
+1. Turn on the **Parameter policy** switch for a selected tool.
 1. The tool expands to show all its parameters.
 1. **Type a value** in any parameter field to lock it. The agent uses this exact value every time.
 1. **Leave a field empty** for the agent to fill it at runtime based on context.
@@ -104,7 +101,7 @@ For more on how parameter locking works, see [Managed connectors](managed-connec
 
 ### Set approval requirements (Permission)
 
-For each tool, toggle the **Permission** between:
+For each selected tool, toggle the **Permission** between:
 
 - **Allow**: Agent executes freely (default). Use for read operations.
 - **Ask**: Agent pauses and requests your approval before each execution. Use for write operations that create, modify, or delete resources.
@@ -112,20 +109,20 @@ For each tool, toggle the **Permission** between:
 > [!WARNING]
 > In Autonomous mode (scheduled tasks, HTTP triggers), every tool set to **Ask** executes without human approval. Only enable Autonomous mode for workflows where you trust all enabled operations. See [Run modes](run-modes.md).
 
-Select **Next** when governance is configured.
+Select **Next** after you select tools and configure governance.
 
-## Step 5: Review and create
+## Step 4: Review and create
 
-The review step shows a summary:
+The **Review & Create** step shows a summary:
 
-- **MCP Server name** (auto-generated)
-- **Connector name** and icon
-- **Operation count** and parameter count
+- **MCP Server** name (auto-generated)
+- **Connectors & Operations**
+- Operation and parameter counts
 
 1. Review the summary.
 1. Select **Create**.
 
-The connector is created immediately. It appears in your connectors list and your agent can start using the enabled tools right away.
+SRE Agent creates the connector immediately. It appears in your connectors list, and your agent can start using the enabled tools right away.
 
 ## Verify the connector works
 
@@ -134,9 +131,9 @@ After creating the connector:
 1. Check the connectors list. Your new connector should show a **Connected** status.
 1. Open a chat with your agent and ask it to use one of the enabled operations.
 
-For example, if you connected Jira with "Get Issue" enabled:
+For example, if you connected a notification service with a send operation enabled:
 
-> "Get the details of Jira issue OPS-1234"
+> "Send a summary of the last incident to the on-call channel"
 
 ## Edit or delete a connector
 
@@ -162,59 +159,57 @@ ENDPOINT="https://{agentEndpoint}"
 ### 2. List available connectors
 
 ```bash
-curl -s -H "Authorization: Bearer $TOKEN" \
+curl -s -H "Authorization: ******" \
   "$ENDPOINT/api/v2/connectorV2/managedApis"
 ```
 
 ### 3. Get operations for a connector
 
 ```bash
-curl -s -H "Authorization: Bearer $TOKEN" \
-  "$ENDPOINT/api/v2/connectorV2/connectors/jira/operations"
+CONNECTOR_NAME="{connectorName}"
+curl -s -H "Authorization: ******" \
+  "$ENDPOINT/api/v2/connectorV2/connectors/$CONNECTOR_NAME/operations"
 ```
+
+Use the operations response as the source of truth for operation names and parameters. Preview connectors can change what they return.
 
 ### 4. Create a connection (OAuth connectors require portal sign-in)
 
 ```bash
-curl -X PUT -H "Authorization: Bearer $TOKEN" \
+curl -X PUT -H "Authorization: ******" \
   -H "Content-Type: application/json" \
-  "$ENDPOINT/api/v2/connectorV2/connections/jira" \
+  "$ENDPOINT/api/v2/connectorV2/connections/$CONNECTOR_NAME" \
   -d '{ "properties": {} }'
 ```
 
 ### 5. Create the MCP server config with governance
 
 ```bash
-curl -X PUT -H "Authorization: Bearer $TOKEN" \
+curl -X PUT -H "Authorization: ******" \
   -H "Content-Type: application/json" \
-  "$ENDPOINT/api/v2/connectorV2/mcpservers/jira" \
+  "$ENDPOINT/api/v2/connectorV2/mcpservers/$CONNECTOR_NAME" \
   -d '{
     "properties": {
-      "description": "Jira connector",
+      "description": "Managed connector",
       "state": "Enabled",
       "connectors": [{
-        "name": "jira",
-        "connectionName": "jira",
-        "displayName": "Jira",
+        "name": "{connectorName}",
+        "connectionName": "{connectorName}",
+        "displayName": "{Connector display name}",
         "operations": [
           {
-            "name": "GetIssue",
-            "displayName": "Get Issue",
-            "agentParameters": [
-              { "name": "issueId", "schema": { "type": "string", "required": true } }
-            ]
+            "name": "{ReadOperationName}",
+            "displayName": "{Read operation display name}",
+            "agentParameters": []
           },
           {
-            "name": "AddComment",
-            "displayName": "Add Comment",
+            "name": "{WriteOperationName}",
+            "displayName": "{Write operation display name}",
             "requiresApproval": true,
             "userParameters": [
-              { "name": "projectKey", "value": "OPS" }
+              { "name": "{DestinationParameter}", "value": "{Locked destination}" }
             ],
-            "agentParameters": [
-              { "name": "issueId", "schema": { "type": "string", "required": true } },
-              { "name": "body", "schema": { "type": "string", "required": true } }
-            ]
+            "agentParameters": []
           }
         ]
       }]
@@ -222,10 +217,7 @@ curl -X PUT -H "Authorization: Bearer $TOKEN" \
   }'
 ```
 
-In this example:
-
-- **GetIssue** is enabled with no approval required.
-- **AddComment** requires approval (`requiresApproval: true`) and has `projectKey` locked to `OPS`.
+In this example, the read operation runs without approval. The write operation requires approval (`requiresApproval: true`) and locks the destination parameter.
 
 For the full list of endpoints, see [API reference](api-reference.md).
 
@@ -241,5 +233,8 @@ For the full list of endpoints, see [API reference](api-reference.md).
 
 ## Related content
 
+- [Connect a source code service](connect-code-service.md)
+- [Connect a notification service](connect-notification-service.md)
+- [Connect a telemetry source](connect-telemetry-source.md)
 - [Managed connectors](managed-connectors.md)
 - [MCP connectors and tools](mcp-connectors.md)

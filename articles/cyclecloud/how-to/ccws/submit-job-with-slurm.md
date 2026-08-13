@@ -1,8 +1,9 @@
 ---
 title: Submit job on CycleCloud with Slurm
-description: How to submit your first job on CycleCloud with Slurm
+description: Learn how to submit, monitor, and manage your first job on an Azure CycleCloud cluster that runs the Slurm scheduler.
 author: xpillons
-ms.date: 12/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: padmalathas
 ---
 

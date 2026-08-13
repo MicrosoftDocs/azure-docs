@@ -180,6 +180,15 @@ az network private-endpoint create \
   --group-id blob --connection-name pe-blob-conn
 ```
 
+If you use a storage account with hierarchical namespaces enabled, you also need to create a private endpoint for the dfs endpoint:
+```azurecli
+az network private-endpoint create \
+  --resource-group {rg} --name pe-dfs-storage \
+  --vnet-name {vnet} --subnet pe-storage \
+  --private-connection-resource-id "/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}" \
+  --group-id dfs --connection-name pe-dfs-conn
+```
+
 ### Register the storage with Discovery
 
 Create a Discovery storage container resource that references your blob storage:

@@ -69,7 +69,7 @@ Backend pods handle message storage and delivery. There are three main settings 
 > The effectiveness of partition scaling depends on how evenly the topic space is spread across partitions. A highly skewed distribution can create hotspots on a single partition.
 
 > [!IMPORTANT]
-> The backend redundancy factor must be **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling update support. Setting the redundancy factor to `1` results in a deployment validation error.
+> The backend redundancy factor must be **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling update support.
 
 #### Throughput estimate
 

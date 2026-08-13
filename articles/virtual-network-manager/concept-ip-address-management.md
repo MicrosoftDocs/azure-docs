@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 04/27/2026
+ms.date: 07/29/2026
 ms.custom:
   - references_regions
   - ai-gen-docs-bap
@@ -90,7 +90,7 @@ The system ensures that the automatically allocated CIDRs don't overlap within t
 
 ## Managing IP address spaces across multiple regions
 
-You can now associate a single IPAM pool with virtual networks in multiple regions. This feature simplifies governance and ensures consistent CIDR allocation globally. Azure PowerShell and Azure CLI support this capability in the preview regions listed in the preceding note.
+You can associate a single IPAM pool with virtual networks in multiple regions. This capability simplifies governance and ensures consistent CIDR allocation globally. Azure PowerShell and Azure CLI support associating a virtual network with an IPAM pool in a different region. For current information about the regions where Azure Virtual Network Manager is available, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=virtual-network-manager).
 
 ### Create a virtual network in Region A and associate it with an IPAM pool located in Region B
 

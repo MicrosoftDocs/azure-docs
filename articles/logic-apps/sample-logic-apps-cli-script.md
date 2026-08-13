@@ -1,15 +1,16 @@
 ---
-title: Azure CLI script sample - create a logic app
-description: Sample script to create a logic app through the Logic Apps extension in the Azure CLI.
+title: Azure CLI Script Sample - Create Consumption Workflow
+description: Sample script to create a Consumption logic app workflow by using the Azure Logic Apps extension in the Azure CLI.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 ms.custom: mvc, devx-track-azurecli
-ms.date: 07/18/2025
 ---
 
-# Azure CLI script sample - create a logic app
+# Azure CLI script sample - create a Consumption logic app workflow
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 

@@ -94,7 +94,7 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 | Germany          | –         | –          | –     | –              | ✅             | –              |
 | France           | –         | –          | –     | –              | ✅             | –              |
 | Italy            | –         | –          | –     | –              | –              | ✅             |
-| Ireland          | –         | –          | –     | ✅             | ✅             | –              |
+| Ireland          | –         | –          | –     | ✅             | –             | ✅              |
 | Finland          | –         | –          | –     | ✅             | –              | ✅             |
 | Denmark          | –         | –          | –     | ✅             | ✅             | –              |
 | Netherlands      | –         | –          | –     | ✅             | ✅             | –              |

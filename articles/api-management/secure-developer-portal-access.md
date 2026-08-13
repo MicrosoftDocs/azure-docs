@@ -2,12 +2,10 @@
 title: Secure access to developer portal
 titleSuffix: Azure API Management
 description: Learn about options to secure access to the API Management developer portal, including Microsoft Entra ID, Microsoft Entra External ID, and basic authentication
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 03/04/2026
-ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
 

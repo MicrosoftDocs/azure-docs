@@ -419,6 +419,9 @@ items:
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
+  - name: Connector Namespace
+    tocHref: /azure/connector-namespace/
+    topicHref: /azure/connector-namespace/    
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/

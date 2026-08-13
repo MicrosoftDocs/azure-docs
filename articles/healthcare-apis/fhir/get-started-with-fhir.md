@@ -42,15 +42,15 @@ You can delete a client application. Before you delete a client application, ens
 
 ### Grant access permissions
 
-You can grant access permissions or assign roles in the [Azure portal](../configure-azure-rbac.md), or by using [PowerShell and Azure CLI scripts](../configure-azure-rbac-using-scripts.md).
+Grant access permissions or assign roles in the [Azure portal](../configure-azure-rbac.md), or use [PowerShell and Azure CLI scripts](../configure-azure-rbac-using-scripts.md).
 
 ### Perform create, read, update, and delete (CRUD) transactions
 
-You can perform Create, Read (search), Update, and Delete - CRUD - transactions against the FHIR service in your applications or by using tools such as REST Client and cURL. Because the FHIR service is secured by default, you need to obtain an access token and include it in your transaction request.
+Perform Create, Read (search), Update, and Delete - CRUD - transactions against the FHIR service in your applications or by using tools such as REST Client and cURL. Because the FHIR service is secured by default, you need to obtain an access token and include it in your transaction request.
 
 #### Get an access token
 
-You can obtain a Microsoft Entra access token by using PowerShell, Azure CLI, REST CCI, or .NET SDK. For more information, see [Get an access token](../get-access-token.md).
+Get a Microsoft Entra access token by using PowerShell, Azure CLI, REST CCI, or .NET SDK. For more information, see [Get an access token](../get-access-token.md).
 
 #### Access using existing tools
 
@@ -62,13 +62,16 @@ You can obtain a Microsoft Entra access token by using PowerShell, Azure CLI, RE
 
 You can load data directly using the POST or PUT method against the FHIR service. To bulk load data, use the $import operation. For information, see [import operation](import-data.md).
 
+> [!NOTE]
+> FHIR service randomly generates resource ID ([Logical ID](https://www.hl7.org/fhir/R4/resource.html#id)) when you create a resource. You can provide your own FHIR resource IDs when using update operations. **Resource IDs are technical identifiers and must not contain or infer Protected Health Information (PHI) or Personally Identifiable Information (PII).**
+
 ### CMS, search, profile validation, and reindex
 
 To learn more about how to configure the FHIR service for the Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, see [Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule](centers-for-medicare-tutorial-introduction.md).   
 
 To learn more about search parameters, see [Selectable search parameters for the FHIR service in Azure Health Data Services](selectable-search-parameters.md) and [Custom search parameters](how-to-do-custom-search.md). In cases where you need to reindex your FHIR service database, see [Running a reindex job](how-to-run-a-reindex.md).
 
-The FHIR service in Azure Health Data Services allows you to validate resources against profiles to see if the resources conform to the profiles. For more information, see [Validate FHIR resources against profiles in Azure Health Data Services](validation-against-profiles.md).
+The FHIR service in Azure Health Data Services validates resources against profiles to check if the resources conform to the profiles. For more information, see [Validate FHIR resources against profiles in Azure Health Data Services](validation-against-profiles.md).
 
 ### Export data
 

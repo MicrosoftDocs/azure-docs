@@ -6,6 +6,7 @@ ms.author: karenguo
 ms.topic: article
 ms.date: 04/10/2026
 ms.service: azure
+ms.subservice: azure-firmware-analysis
 ---
 
 # Using Firmware analysis along with Azure Device Registry

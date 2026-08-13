@@ -12,7 +12,7 @@ ms.custom:
 
 # Azure Monitor insights for Azure Cache for Redis
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 Azure Monitor insights for Azure Cache for Redis provide a unified, interactive view of cache performance, failures, capacity, and operational health. This article shows you how to view Azure Cache for Redis insights across all of your subscriptions, and how to modify and adapt insights to fit the unique needs of your organization.
 

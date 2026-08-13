@@ -69,7 +69,7 @@ This single objective involves multiple knowledge domains, requires coordinating
 ### 2. Start the Discovery Engine
 
 > [!IMPORTANT]
-> Before starting the Discovery Engine, ensure your workspace has a chat model deployment. The default model for a new project is `gpt-5-4` (model: `gpt-5.4`). The Discovery Engine requires this model for task validation. Without it, the engine doesn't start. See [Create chat model deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment) for setup instructions.
+> Before starting the Discovery Engine, ensure your workspace has a chat model deployment. The default model for a new project is `gpt-5-4` (model: `gpt-5.4`). The Discovery Engine requires this model for task validation. Without it, the engine doesn't start. See [Create chat model deployment](quickstart-infrastructure.md#6-create-chat-model-deployment) for setup instructions.
 
 When you start the Discovery Engine, cognition begins its continuous reasoning loop and starts assigning tasks to agents.
 

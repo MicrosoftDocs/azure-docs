@@ -1,8 +1,9 @@
 ---
 title: Common Issues - Marketplace Images
-description: Azure CycleCloud common issue - Marketplace Images
+description: Troubleshoot Azure Marketplace image errors in Azure CycleCloud, including purchase validation failures.
 author: adriankjohnson
-ms.date: 06/30/2025
+ms.date: 06/19/2026
+ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso
 ---
 # Common issues: Marketplace images

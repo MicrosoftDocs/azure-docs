@@ -2,8 +2,6 @@
 title: Migrate Amazon API Gateway to Azure API Management
 description: This step-by-step guide for migrating Amazon API Gateway to Azure API Management includes assessment, preparation, evaluation, process, and iterative optimization.
 #customer intent: As the administrator of an Amazon API Gateway service, I want to migrate to Azure API Management and need detailed guidance.
-author: dlepow
-ms.author: danlep
 ms.reviewer: 
 ms.service: azure-api-management
 ms.date: 11/10/2025

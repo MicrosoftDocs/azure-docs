@@ -2,7 +2,8 @@
 title: Run CycleCloud in a Container Instance
 description: Know how to run Azure CycleCloud in a container instance, which is useful for intermittent CycleCloud users who want to shut it down between job runs.
 author: mvrequa
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 

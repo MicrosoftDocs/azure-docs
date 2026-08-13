@@ -237,7 +237,7 @@ When you upload your root certificate authority (CA) certificate or subordinate 
     openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
     ```
 
-    For more information, see [Tutorial - Create and upload certificates for testing](tutorial-x509-test-certs.md).
+    For more information, see [Tutorial - Create and upload certificates for testing](../iot-hub/tutorial-x509-test-certs.md).
 
 1. Select the new certificate in the **Certificate Details** view.
 
@@ -247,5 +247,5 @@ When you upload your root certificate authority (CA) certificate or subordinate 
 
 For more information about X.509 certificates and how they're used in IoT Hub, see the following articles:
 
-* [The layman’s guide to X.509 certificate jargon](https://techcommunity.microsoft.com/t5/internet-of-things/the-layman-s-guide-to-x-509-certificate-jargon/ba-p/2203540)
+* [The layman's guide to X.509 certificate jargon](https://techcommunity.microsoft.com/t5/internet-of-things/the-layman-s-guide-to-x-509-certificate-jargon/ba-p/2203540)
 * [Understand how X.509 CA certificates are used in IoT](./iot-hub-x509ca-concept.md)

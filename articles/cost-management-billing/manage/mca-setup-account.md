@@ -280,7 +280,9 @@ When you transfer a subscription from an Enterprise Agreement to a Microsoft Cus
 
 - All other assets in the source subscription must also be able to successfully be transferred. Otherwise, the transfer fails. 
 
-- Please note Marketplace purchased through AppSource is not associated with any subscription, and cannot be transferred with this method. 
+- Marketplace purchased through Microsoft AppSource isn't associated with any subscription, and can't be transferred with this method.
+
+Software as a service (SaaS) products are an exception. A SaaS subscription is billed through the Azure subscription but doesn't move with it, so you transfer SaaS billing ownership separately. For more information, see [Software as a Service (SaaS) transfer](mpa-request-ownership.md#software-as-a-service-saas-transfer).
 
 ### Support plan
 
@@ -414,7 +416,7 @@ Enterprise administrators and department administrators are listed as invoice se
 - Changes to **subscription vending using Terraform** - For more information, see:
     - [Azure/lz-vending/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest?tab=inputs)
     - [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
-    - [Azure Landing Zones Subscription Vending with Terraform, Terraform Cloud, and GitHub](/samples/azure-samples/alz-terraform-sub-vending-demo-with-terraform-cloud-and-github/alz-terraform-sub-vending/)
+    - [Azure Landing Zones Subscription Vending with Terraform, Terraform Cloud, and GitHub](/azure/architecture/)
 - **Cost Management** using third-party providers like Cloud health and Cloud easier - Organizations transitioning to MCA need to update their provider that they're transitioning to MCA. Most of them have a documented process to pull the MCA cost data.
 - Historical data – It isn’t available to account owners or users with the Subscription owner Azure role-based access control (RBAC) role after migration. Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
     - Cost data transition - Cost data before the transition remains in the EA scope. It doesn't move to the MCA scope. You can access the data by switching scopes.

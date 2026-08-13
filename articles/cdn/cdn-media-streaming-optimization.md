@@ -6,7 +6,7 @@ services: cdn
 author: halkazwini
 ms.author: halkazwini
 manager: kumudd
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: how-to
 ms.date: 02/28/2026
 # Customer intent: As a media content manager, I want to optimize media streaming delivery through a content delivery network, so that I can ensure smooth playback and minimize latency for live and on-demand viewers worldwide.

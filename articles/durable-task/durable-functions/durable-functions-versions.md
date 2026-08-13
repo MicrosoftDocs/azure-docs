@@ -13,6 +13,8 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # Durable Functions versions and migration guide
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 *Durable Functions* is an extension of [Azure Functions](../../azure-functions/functions-overview.md) and [Azure WebJobs](../../app-service/webjobs-create.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you. If you aren't already familiar with Durable Functions, see the [overview documentation](../common/what-is-durable-task.md).
 
 ## Version summary

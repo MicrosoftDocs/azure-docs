@@ -3,7 +3,7 @@ title: Deploy Azure Stream Analytics as an Azure IoT Edge Module
 description: Deploy Azure Stream Analytics to IoT Edge devices to process data locally, reduce cloud traffic, and react to insights faster. Learn how in this step-by-step guide.
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/05/2026
+ms.date: 07/16/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge
 ms.custom:
@@ -179,7 +179,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
    1. Select **+ Add** and choose **IoT Edge Module**.
    1. For the name, type **SimulatedTemperatureSensor**.
-   1. For the image URI, enter **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.5**.
+   1. For the image URI, enter **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.6**.
    1. Leave the other default settings, then select **Add**.
 
 1. Add your Azure Stream Analytics Edge job with the following steps:

@@ -24,7 +24,7 @@ This article shows you how to:
 
 - A container image published to Azure Container Registry. See [Publish a tool container image to Azure Container Registry](how-to-publish-tool-to-acr.md).
 - A tool definition YAML file. See [Create a tool definition for Microsoft Discovery](how-to-create-tool-definition.md).
-- An existing Microsoft Discovery workspace and a resource group in a [supported region](quickstart-infrastructure-portal.md#prerequisites).
+- An existing Microsoft Discovery workspace and a resource group in a [supported region](quickstart-infrastructure.md#prerequisites).
 - Permissions to create resources of type `Microsoft.Discovery/tools` in your target resource group. The **Microsoft Discovery Platform Administrator (Preview)** or **Contributor** role is sufficient.
 - For REST API calls: Azure CLI 2.50+ or another HTTP client (`curl`, Postman) able to send authenticated requests.
 

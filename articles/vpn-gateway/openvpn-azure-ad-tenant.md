@@ -2,11 +2,11 @@
 title: 'Configure a P2S VPN - Microsoft Entra ID authentication - manually registered Azure VPN Client App ID'
 titleSuffix: Azure VPN Gateway
 description: Learn how to set up a Microsoft Entra tenant and P2S gateway for P2S Microsoft Entra authentication - OpenVPN protocol.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 02/25/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 #Note that Audience values are not sensitive data. 

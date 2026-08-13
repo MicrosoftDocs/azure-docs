@@ -71,13 +71,13 @@ When you configure tools and skills on this page, every custom agent that doesn'
 
 | Level | Feature | What it controls |
 |-------|---------|-----------------|
-| **What tools exist** | [Deep context](workspace-tools.md) | The underlying capabilities, including file operations, terminal, Python, and Azure CLI |
+| **What tools exist** | [Deep context](agent-reasoning.md#deep-context) | The underlying capabilities, including file operations, terminal, Python, and Azure CLI |
 | **Space-wide on/off** | **Tools page** (this page) | Which tools are enabled or disabled for the entire space |
 | **Per-subagent** | Subagent tool configuration | Which specific tools each subagent can use |
 
 ## Related content
 
-- [Deep context](workspace-tools.md)
+- [Deep context](agent-reasoning.md#deep-context)
 - [Kusto tools](kusto-tools.md)
 - [Plugin marketplace](plugin-marketplace.md)
 - [Workflow automation](workflow-automation.md)

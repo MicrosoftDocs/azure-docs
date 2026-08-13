@@ -1,5 +1,5 @@
 ---
-title: Azure Security Services and Technologies | Microsoft Docs
+title: Security services and technologies in Azure
 description: This article provides an overview of the main Azure security services and technologies with links to detailed documentation.
 services: security
 author: msmbaldwin
@@ -10,14 +10,14 @@ ms.subservice: security-fundamentals
 ms.topic: overview
 ms.date: 05/05/2026
 ms.author: mbaldwin
+ai-usage: ai-assisted
 
 ---
-# Security services and technologies available on Azure
+# Security services and technologies in Azure
 
-Azure provides comprehensive security services and technologies across all layers of your cloud deployments. This article introduces the main security capabilities organized by domain, with links to detailed overview articles for more information.
+Azure provides comprehensive security services and technologies across all layers of your cloud deployments. This article introduces the main security capabilities organized by domain, with links to detailed overview articles.
 
-For specific security best practices and detailed implementation guidance, refer to the domain-specific overview articles linked throughout this document.
-
+For specific security best practices and detailed implementation guidance, see the domain-specific overview articles linked throughout this article.
 
 ## Identity and access management
 
@@ -28,7 +28,7 @@ For specific security best practices and detailed implementation guidance, refer
 |[Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure)|Just-in-time privileged access to Azure and Microsoft Entra roles with approval workflows, access reviews, and audit history.|
 |[Microsoft Entra access reviews](/entra/id-governance/access-reviews-overview)|Scheduled reviews of group memberships, application access, and role assignments with automated recommendations and remediation.|
 |[Microsoft Entra application proxy](/entra/identity/app-proxy/overview-what-is-app-proxy)|Secure remote access to on-premises web applications without VPN, using Microsoft Entra authentication and Conditional Access.|
-|[Microsoft Entra Connect / Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)|Hybrid identity synchronization between on-premises Active Directory and Microsoft Entra ID for unified identity management.|
+|[Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync)|Hybrid identity synchronization between on-premises Active Directory and Microsoft Entra ID for unified identity management.|
 
 For detailed identity security capabilities and best practices, see [Azure identity management security overview](identity-management-overview.md).
 
@@ -70,7 +70,7 @@ For detailed encryption options and best practices, see [Azure encryption overvi
 
 |Service|Description|
 |--------|--------|
-|[Azure Key Vault](/azure/key-vault/general/overview)| Secure storage for keys, secrets, and certificates with FIPS 140-2 Level 1 (Standard tier) or FIPS 140-3 Level 3 (Premium tier with HSM) validation.|
+|[Azure Key Vault](/azure/key-vault/general/overview)| Secure storage for keys, secrets, and certificates. Premium tier supports HSM-protected keys backed by FIPS 140 validated HSMs.|
 |[Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview)| Single-tenant, FIPS 140-3 Level 3 validated HSM service offering full customer control with confidential key support. Integrates with Azure PaaS services.|
 |[Azure Cloud HSM](/azure/cloud-hsm/overview)| Fully managed, single-tenant FIPS 140-3 Level 3 validated HSM cluster supporting PKCS#11, SSL/TLS offloading, and on-premises migration scenarios. IaaS only.|
 |[Azure Payment HSM](/azure/payment-hsm/overview)| Single-tenant, FIPS 140-2 Level 3 validated, PCI HSM v3 compliant HSM for payment processing operations.|
@@ -110,7 +110,7 @@ For detailed platform security architecture, see [Azure platform integrity and s
 |[Azure confidential computing](../../confidential-computing/overview.md)|Hardware-based trusted execution environments (TEE) using AMD SEV-SNP or Intel TDX for data protection while in use.|
 |[Confidential VMs](../../confidential-computing/confidential-vm-overview.md)|Full VM memory encryption with hardware-enforced isolation from the hypervisor and host management code.|
 |[Microsoft Defender for Servers](/azure/defender-for-cloud/defender-for-servers-introduction)|Threat detection with Microsoft Defender for Endpoint integration, vulnerability assessment, just-in-time VM access, and file integrity monitoring.|
-|[Just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-usage)|Reduces attack surface by locking down inbound traffic and enabling time-limited access to management ports on-demand.|
+|[Just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-usage)|Reduces attack surface by locking down inbound traffic and enabling time-limited access to management ports on demand.|
 |[Adaptive application controls](/azure/defender-for-cloud/adaptive-application-controls)|Machine learning-based application allowlisting to control which applications can run on your VMs.|
 |[Azure Backup](../../backup/backup-overview.md)|Independent, isolated backups with ransomware protection, soft delete, and Recovery Services vault management.|
 |[Azure Site Recovery](../../site-recovery/site-recovery-overview.md)|Disaster recovery orchestration for replication, failover, and recovery to Azure or a secondary site.|
@@ -140,7 +140,7 @@ For comprehensive container security guidance, see [Container security in Micros
 |[Row-Level Security (RLS)](/sql/relational-databases/security/row-level-security)|Restricts row access based on user identity, role, or execution context for fine-grained data access control.|
 |[Dynamic Data Masking](/azure/azure-sql/database/dynamic-data-masking-overview)|Masks sensitive data to non-privileged users without changing underlying data, reducing exposure risk.|
 |[Azure SQL Database Ledger](/sql/relational-databases/security/ledger/ledger-overview)|Tamper-evident capabilities with immutable transaction records for data integrity verification and compliance.|
-|[Azure Cosmos DB security](/azure/cosmos-db/database-security)|Encryption at rest and in transit, network isolation, RBAC, and audit logging for NoSQL and multi-model workloads.|
+|[Azure Cosmos DB security](/azure/cosmos-db/database-security)|Encryption at rest and in transit, network isolation, RBAC, and audit logging for NoSQL and multimodel workloads.|
 
 For a comprehensive database security checklist, see [Azure database security checklist](database-security-checklist.md).
 
@@ -165,7 +165,7 @@ For DevOps security best practices, see [DevOps security in Defender for Cloud](
 |[Azure Activity Log](/azure/azure-monitor/essentials/activity-log)|Subscription-level audit log recording administrative operations, service health events, and resource changes with 90-day retention.|
 |[Azure Update Manager](../../update-manager/overview.md)|Unified patch management for Windows and Linux VMs across Azure, on-premises, and multicloud with scheduled patching and hotpatching.|
 |[Azure Resource Graph](../../governance/resource-graph/overview.md)|Fast cross-subscription querying to identify resources with specific configurations or security postures at scale.|
-|[Microsoft Cost Management](../../cost-management-billing/costs/overview-cost-management.md)|Cost monitoring, budgets, and anomaly detection to identify unauthorized resource deployments that may indicate security incidents.|
+|[Microsoft Cost Management](../../cost-management-billing/costs/overview-cost-management.md)|Cost monitoring, budgets, and anomaly detection to identify unauthorized resource deployments that might indicate security incidents.|
 
 For detailed security management capabilities and best practices, see [Azure security management and monitoring overview](management-monitoring-overview.md).
 
@@ -183,10 +183,9 @@ For comprehensive backup guidance, see [Azure Backup documentation](../../backup
 For guidance on securing platform-as-a-service deployments, including App Service, Azure Functions, and container services, see [Securing PaaS deployments](paas-deployments.md).
 
 
-
 ## Next steps
 
 - [End-to-end security in Azure](end-to-end.md) - Comprehensive overview of Azure's security architecture and capabilities
 - [Azure security best practices and patterns](best-practices-and-patterns.md) - Collection of security best practices for various scenarios
-- [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) - Comprehensive security guidance for Azure services
+- [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction) - Comprehensive security guidance for Azure services.
 - [Shared responsibility in the cloud](shared-responsibility.md) - Understanding the security responsibilities shared between you and Microsoft

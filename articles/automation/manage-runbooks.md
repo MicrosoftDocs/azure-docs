@@ -522,5 +522,6 @@ foreach ($item in $output) {
 
 * For sample queries, see [Sample queries for job logs and job streams](automation-manage-send-joblogs-log-analytics.md#job-streams)
 * To learn details of runbook management, see [Runbook execution in Azure Automation](automation-runbook-execution.md).
+* For information on runtime version support and retirement when managing runbooks, see [Language runtime support and retirement policy for Azure Automation](automation-runtime-retirement-policy.md).
 * To prepare a PowerShell runbook, see [Edit textual runbooks in Azure Automation](automation-edit-textual-runbook.md).
 * To troubleshoot issues with runbook execution, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).

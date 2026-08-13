@@ -137,6 +137,7 @@ Resource specific table entry:
 | ListenerAcceptingHttpRequestFailed  | The listener accepting HTTP request failed due to an exception. |
 | ListenerAcceptingRequestTimeout     | The listener accepting request has timed out.                   |
 | ListenerClosingFromExpiredToken     | The listener is closing because the security token has expired. |
+| ListenerClosingFromUnauthorizedRenewToken | The listener is closing because a token renewal request failed with an Unauthorized response. |
 | ListenerRejectedConnection          | The listener has rejected the connection.                       |
 | ListenerReturningHttpResponse       | The listener is returning an HTTP response.                     |
 | ListenerReturningHttpResponseFailed | The listener is returning an HTTP response with a failure code. |

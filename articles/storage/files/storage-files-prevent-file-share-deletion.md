@@ -1,16 +1,16 @@
 ---
-title: Azure file share soft delete
-description: Learn about soft delete for Azure Files and how you can use it for data recovery and preventing accidental deletion of Azure file shares.
+title: Azure File Share Soft Delete
+description: Learn about soft delete for Azure Files, how it works, and how to enable, restore, and disable it to protect file shares from accidental deletion.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 01/21/2025
+ms.date: 07/20/2026
 ms.author: kendownie
 services: storage
 # Customer intent: As a cloud storage administrator, I want to enable soft delete for Azure file shares, so that I can recover files and protect against accidental deletions in my storage account.
 ---
 
-# Azure file share soft-delete
+# Azure file share soft delete
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
@@ -19,10 +19,10 @@ services: storage
 Azure Files offers soft delete, which allows you to recover your file share if you mistakenly deleted it.
 
 ## How soft delete works
-When soft delete is enabled, deleted file shares are retained in a soft deleted state for the defined retention period before being permanently deleted. When you undelete a file share, the file share and all of contents, including snapshots, are restored to their state prior to deletion. 
+When you enable soft delete, the system retains deleted file shares in a soft deleted state for the defined retention period before permanently deleting them. When you undelete a file share, the file share and all of its contents, including snapshots, are restored to their state prior to deletion. 
 
 > [!IMPORTANT]
-> Soft delete only works on a file share level. If you want to be able to restore deleted files, you can use [share snapshots](storage-snapshots-files.md) or [Azure file share backup](../../backup/azure-file-share-backup-overview.md).
+> Soft delete works only at the file share level. If you want to restore deleted files, you can use [share snapshots](storage-snapshots-files.md) or [Azure file share backup](../../backup/azure-file-share-backup-overview.md).
 
 Soft delete for file shares is enabled at the storage account level so the soft delete settings apply to all file shares within a storage account. New storage accounts have soft delete enabled by default, but you can enable or disable soft delete as desired for new or existing storage accounts. If you disable soft delete, any file shares deleted before disabling soft delete can still be undeleted.
 
@@ -39,7 +39,7 @@ Billing for soft delete depends on the billing model of the file share. For more
 - [Provisioned v1 soft-delete](./understanding-billing.md#provisioned-v1-soft-delete)
 - [Pay-as-you-go soft-delete](./understanding-billing.md#pay-as-you-go-soft-delete)
 
-## Toggle soft delete settings
+## Enable soft delete
 The following sections show how to enable and use soft delete for Azure file shares on an existing storage account:
 
 # [Portal](#tab/azure-portal)
@@ -92,8 +92,8 @@ You can verify if soft delete is enabled and view its retention policy with the 
 
 ```azurecli
 az storage account file-service-properties show \
-    -resource-group $resourceGroupName \
-    -account-name $storageAccountName
+    --resource-group $resourceGroupName \
+    --account-name $storageAccountName
 ```
 ---
 
@@ -101,7 +101,7 @@ az storage account file-service-properties show \
 # [Portal](#tab/azure-portal)
 To restore a soft deleted file share:
 
-1. Navigate to your storage account and select **File shares**.
+1. Go to your storage account and select **File shares**.
 1. On the file share blade, enable **Show deleted shares** to display any shares that are soft deleted.
 
     This displays any shares currently in a **Deleted** state.
@@ -143,10 +143,14 @@ az storage share-rm list \
     --include-deleted
 ```
 
-Once you identify the share you'd like to restore, you can restore it with the following command:
+After you identify the share you want to restore, restore it by using the following command:
 
 ```azurecli
-az storage share-rm restore -n deletedshare --deleted-version 01D64EB9886F00C4 -g yourResourceGroup --storage-account yourStorageaccount
+az storage share-rm restore \
+    --name deletedshare \
+    --deleted-version 01D64EB9886F00C4 \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName
 ```
 
 ---

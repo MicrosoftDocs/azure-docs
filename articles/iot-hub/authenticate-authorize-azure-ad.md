@@ -23,7 +23,7 @@ You can use Microsoft Entra ID to authenticate requests to Azure IoT Hub service
 Authenticating access by using Microsoft Entra ID and controlling permissions by using Azure RBAC provides improved security and ease of use over security tokens. To minimize potential security issues inherent in security tokens, we recommend that you [enforce Microsoft Entra authentication](#enforce-azure-ad-authentication)  whenever possible.
 
 > [!NOTE]
-> Authentication with Microsoft Entra ID isn't supported for the IoT Hub *device APIs* (like device-to-cloud messages and update reported properties). Use [symmetric keys](authenticate-authorize-sas.md) or [X.509](authenticate-authorize-x509.md) to authenticate devices to IoT Hub.
+> Authentication with Microsoft Entra ID isn't supported for the IoT Hub *device APIs* (like device-to-cloud messages and update reported properties). Use [symmetric keys](authenticate-authorize-sas.md) or [X.509](../iot-hub/authenticate-authorize-x509.md) to authenticate devices to IoT Hub.
 
 ## Authentication and authorization
 

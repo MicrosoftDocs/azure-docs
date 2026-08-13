@@ -2,11 +2,11 @@
 title: View or upgrade an Azure Bastion SKU
 titleSuffix: Azure Bastion
 description: Learn how to view your current Azure Bastion SKU and upgrade to a higher tier using the Azure portal or Azure CLI.
-author: cherylmc
+author: asudbring
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 02/10/2026
-ms.author: cherylmc
+ms.author: allensu
 
 # Customer intent: As an Azure administrator, I want to view and upgrade my Bastion SKU so that I can enhance the features and capabilities of my secure remote access setup.
 ---

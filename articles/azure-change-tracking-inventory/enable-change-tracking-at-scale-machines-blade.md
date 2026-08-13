@@ -5,6 +5,7 @@ description: This article describes how to enable Azure Change Tracking and Inve
 ms.date: 04/29/2025
 ms.topic: how-to
 ms.service: azure-change-tracking-inventory
+ms.update-cycle: 1095-days
 author: RochakSingh-blr
 ms.author: v-rochak2
 ms.custom: sfi-image-nochange

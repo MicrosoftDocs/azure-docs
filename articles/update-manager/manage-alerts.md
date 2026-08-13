@@ -82,7 +82,7 @@ To view the alerts, follow these steps:
 
    :::image type="content" source="./media/manage-alerts/view-alerts-inline.png" alt-text="Screenshot that shows how to view alerts." lightbox="./media/manage-alerts/view-alerts-expanded.png":::
     
-1. In the **Monitor | Alerts** page, you can view all the alerts.
+1. In the **Monitor | Alerts** page, you can view all the alerts. For more information, see [Configure alert rule conditions](/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-alert-rule-conditions).
 
    :::image type="content" source="./media/manage-alerts/display-view-alerts-inline.png" alt-text="Screenshot that displays the list of alerts." lightbox="./media/manage-alerts/display-view-alerts-expanded.png":::
 

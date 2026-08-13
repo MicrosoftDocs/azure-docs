@@ -2,12 +2,10 @@
 title: Manually Add an API by Using the Azure portal | Microsoft Docs
 description: Learn how to use Azure API Management in the Azure portal to manually add an API. Add and test various operations.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/16/2025
-ms.author: danlep
 ms.custom: fasttrack-edit, devdivchpfy22
 
 

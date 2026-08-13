@@ -1,12 +1,12 @@
 ---
 title: Secure Your Azure Bastion Deployment
 description: Learn how to secure your Azure Bastion deployment using actionable guidance aligned to the Microsoft Cloud Security Benchmark.
-author: cherylmc
+author: asudbring
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.custom: subject-security-benchmark
-ms.date: 08/28/2025
-ms.author: cherylmc
+ms.date: 08/10/2026
+ms.author: allensu
 ai-usage: ai-assisted
 ---
 
@@ -24,7 +24,7 @@ Azure Bastion is a network security service that provides secure remote access t
 
 * **Deploy Bastion in a dedicated virtual network**: Create or use an existing virtual network that follows enterprise segmentation principles aligned to business risks. Isolate high-risk systems within their own virtual networks and secure them with network security groups. For more information, see [How to create a network security group with security rules](../virtual-network/tutorial-filter-network-traffic.md).
 
-* **Configure required port access correctly**: Enable port 443 inbound on the Bastion public IP for ingress traffic from the public internet. Don't open ports 3389 or 22 on the AzureBastionSubnet, as these aren't required. This reduces your attack surface significantly.
+* **Configure required port access correctly**: Enable port 443 inbound on the Bastion public IP for ingress traffic from the public internet. For standard portal-based Bastion connections, you don't need to open inbound ports 3389 or 22 on the AzureBastionSubnet, which significantly reduces your attack surface. Native client scenarios can be an exception: to restrict or allow specific inbound ports (such as 22/3389) for native client connections, you deploy targeted NSG rules on the AzureBastionSubnet as described in [Secure your native client connection](native-client.md#secure).
 
 * **Configure data plane communication**: Enable ports 8080 and 5701 inbound and outbound from the VirtualNetwork service tag to the VirtualNetwork service tag. This allows internal components of Azure Bastion to communicate with each other securely.
 

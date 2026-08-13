@@ -15,7 +15,7 @@ ms.custom:
 
 # Monitor Azure Cache for Redis using diagnostic settings
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 Azure Cache for Redis offers two monitoring options in **Diagnostic settings**:
 

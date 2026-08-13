@@ -47,7 +47,8 @@ The following table shows connectivity locations and the service providers for e
 > If you are a service provider interested in becoming an ExpressRoute partner, please complete and submit this [Microsoft Form](https://aka.ms/erproviderform). 
 
 ### Global commercial Azure
-
+> [!NOTE]
+> Creation of new standard resiliency ExpressRoute Circuits has been disabled for some locations and providers due to availability of corresponding high resiliency or Metro locations. High resiliency Circuits are the same cost as a standard resiliency Circuit but offer improved availability. Microsoft recommends high resiliency (also known as ExpressRoute Metro) as a minimum for all workloads.
 #### [A-C](#tab/a-c)
 
 | Location | Address | Zone | Local Azure regions | ER Direct | Service providers |

@@ -23,7 +23,7 @@ This article describes how to configure import settings for the FHIR service and
 - An [Azure Blob or Azure Data Lake Storage Gen2 (ADLS Gen2)](../../storage/common/storage-account-create.md) account. 
 - You need to have the **FHIR Data importer role** application role. To learn more about application roles, see [Authentication and Authorization for FHIR service](../../healthcare-apis/authentication-authorization.md).
 
-## Step 1:Enable a managed identity on the FHIR service for import
+## Step 1: Enable a managed identity on the FHIR service for import
 
 First, enable a system-assigned managed identity on the service. Use this identity to grant the FHIR service access to the storage account. For more information about managed identities in Azure, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -55,14 +55,11 @@ Now you're ready to select the storage account for import.
 
 ## Step 3: Set the import configuration for the FHIR service
 
-You can set the import configuration for the FHIR service through the import settings in the Azure portal, or by using an Azure Resource Manager template (ARM template), or a REST API.
+Set the import configuration for the FHIR service through the import settings in the Azure portal.
 
 > [!NOTE]
 > If you don't assign storage access permissions to the FHIR service, the `import` operation fails.
 
-# [Azure portal](#tab/azure-portal)
-
-To set the import configuration through the portal:
 
 1. In the Azure portal, browse to your FHIR service.
 1. On the left menu, select **Import**.
@@ -71,52 +68,6 @@ To set the import configuration through the portal:
 
 :::image type="content" source="media/configure-import-data/fhir-import-portal.png" alt-text="Screenshot of the FHIR import settings in the Azure portal." lightbox="media/configure-import-data/fhir-import-portal.png":::
 
-# [ARM template](#tab/arm-template)
-
-You can also set the import configuration by using an ARM template that updates the FHIR service configuration for `import`. You can deploy the template through the portal or the [REST API](/rest/api/healthcareapis/services/create-or-update).
-
-
-Select the following button to deploy the ARM template. The template updates the FHIR service configuration for `import`. 
-
-[![Screenshot that shows the Deploy to Azure button.](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Ffhir-import%2Fazuredeploy.json)
-
-To update an existing FHIR service, you need to provide the following information in the template:
-
-1. Select the **Resource group** from the dropdown list. This resource group is where your FHIR service is located.
-1. Enter the **Workspace Name** where the FHIR service is located.
-1. Enter the **Fhir Name**.
-1. Enter the **Storage Name**. 
-1. Select the **Import Mode**. The import mode can be either initial or incremental. For more information about the two import modes, see [Import FHIR data](import-data.md).
-1. Select **Existing** for the **Deployment mode**.
-1. Select **Review + create**. Review the settings, and then select **Create** to apply the configuration.
-
-:::image type="content" source="media/configure-import-data/import-template-portal.png" alt-text="Screenshot of the Deploy to Azure page with parameters for the ARM template." lightbox="media/configure-import-data/import-template-portal.png":::
-
-# [REST API](#tab/rest-api)
-
-You can set the import configuration by using the REST API to update the FHIR service. This method is helpful if you want to automate the configuration process through scripting.
-
-First, get the request URL and JSON body for the FHIR service.
-
-1. In the Azure portal, browse to your FHIR service.
-1. Select **Overview**.
-1. Select **JSON View**.
-
-    :::image type="content" source="media/bulk-import/fhir-json-view.png" alt-text="Screenshot of selections for opening the JSON view." lightbox="media/bulk-import/fhir-json-view.png":::
-
-1. Select the API version as **2022-06-01** or later.
-1. Copy the request URL and JSON body.
-1. Make the following changes to the JSON body:
-   1. In `importConfiguration`, set `enabled` to `true`.
-   1. Update `integrationDataStore` with the target storage account name.
-   1. Set `initialImportMode` to `true` or `false` based on your import mode choice.
-   1. Delete the `provisioningState` line.
-
-    :::image type="content" source="media/bulk-import/import-url-json-body.png" alt-text="Screenshot of a code example for import configuration." lightbox="media/bulk-import/import-url-json-body.png":::
-
-1. Use the request URL with the [REST API Update API](/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
-
----
 
 ## Secure the FHIR service import operation
 

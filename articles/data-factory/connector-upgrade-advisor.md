@@ -16,6 +16,8 @@ ms.date: 10/28/2025
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article describes Connector upgrade advisor in Azure Data Factory and Azure Synapse Analytics.
 
 To learn more, see [Upgrade plan for Azure Data Factory connectors](connector-deprecation-plan.md).

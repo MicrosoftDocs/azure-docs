@@ -12,6 +12,8 @@ ms.author: makromer
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article highlights how to copy data to and from a delta lake stored in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) or [Azure Blob Storage](connector-azure-blob-storage.md) using the delta format. This connector is available as an [inline dataset](data-flow-source.md#inline-datasets) in mapping data flows as both a source and a sink.
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=5dd270a4-6cc0-4b60-8041-b1e835ab8a50]

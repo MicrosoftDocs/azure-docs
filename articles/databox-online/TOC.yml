@@ -43,13 +43,6 @@
     - name: Review specifications
       href: azure-stack-edge-pro-2-technical-specifications-compliance.md
     - name: Clustering (preview)
-      items:
-      - name: What is clustering?
-        href: azure-stack-edge-gpu-clustering-overview.md
-      - name: Cluster witness
-        href: azure-stack-edge-gpu-cluster-witness-overview.md
-      - name: Kubernetes failover on clustered device
-        href: azure-stack-edge-gpu-kubernetes-failover-scenarios.md
     - name: How to
       items:
       - name: Mount your device
@@ -110,17 +103,6 @@
     - name: FAQ - Billing model
       href: azure-stack-edge-gpu-faq-billing-model.yml
     - name: Clustering (preview)
-      items:
-      - name: What is clustering?
-        href: azure-stack-edge-gpu-clustering-overview.md
-      - name: Cluster witness
-        href: azure-stack-edge-gpu-cluster-witness-overview.md
-      - name: Cluster failover scenarios
-        href: azure-stack-edge-gpu-cluster-failover-scenarios.md
-      - name: Cluster management
-        href: azure-stack-edge-gpu-manage-cluster.md
-      - name: Kubernetes failover on clustered device
-        href: azure-stack-edge-gpu-kubernetes-failover-scenarios.md
 - name: Azure Stack Edge Pro R
   items:
   - name: Overview

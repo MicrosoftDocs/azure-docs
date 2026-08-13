@@ -13,9 +13,9 @@ ms.date: 11/17/2023
 # Azure Synapse Runtime for Apache Spark 3.4 (deprecated)
 
 > [!CAUTION]
-> Azure Synapse Runtime for Apache Spark 3.4 was deprecated, with support ending on March 31, 2026. While it may continue to run for a limited period beyond this date, it is no longer supported and does not receive bug fixes, security updates, or vulnerability patches.
->   If you do not upgrade, workloads running on Azure Synapse Runtime for Apache Spark 3.4 will continue to operate on an unsupported runtime. This increases both operational and security risks, as the runtime will no longer receive critical fixes or updates.
-> **We strongly recommend you upgrade your Apache Spark 3.4 based workloads to [Azure Synapse Runtime for Apache Spark 3.5 (GA)](./apache-spark-35-runtime.md).**
+> Azure Synapse Runtime for Apache Spark 3.4 reached end of support on March 31, 2026. Although existing workloads may continue to run for a limited period beyond this date, the runtime is no longer supported and no longer receives bug fixes, security updates, or vulnerability remediations. As a result, workloads running on Spark 3.4 are exposed to increasing operational and security risks over time.
+>
+> In addition, the phased disablement of Spark 3.4 jobs will begin shortly, and there is no guarantee that Spark 3.4 workloads will continue to run in the future. To minimize disruption and remain on a supported platform, **We strongly recommend you upgrade your Apache Spark 3.4 based workloads to [Azure Synapse Runtime for Apache Spark 3.5 (GA)](./apache-spark-35-runtime.md)** as soon as possible.
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.4.
 

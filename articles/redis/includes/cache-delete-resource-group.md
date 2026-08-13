@@ -23,12 +23,12 @@ Otherwise, if you're finished with the resources, you can delete the Azure resou
 
    If there are many resource groups, use the **Filter for any field...** box, type the name of your resource group you created for this article. Select the resource group in the results list.
 
-   :::image type="content" source="media/cache-delete-resource-group/cache-delete-resource-group.png" alt-text="Screenshot showing a list of resource groups to delete in the working pane.":::
+   :::image type="content" source="media/cache-delete-resource-group/cache-delete-resource-group.png" alt-text="Screenshot showing a list of resource groups to delete in the working pane." lightbox="media/cache-delete-resource-group/cache-delete-resource-group.png":::
 
 1. Select **Delete resource group**.
 
 1. You're asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and then select **Delete**.
 
-   :::image type="content" source="media/cache-delete-resource-group/cache-confirm-deletion.png" alt-text="Screenshot showing a form that requires the resource name to confirm deletion.":::
+   :::image type="content" source="media/cache-delete-resource-group/cache-confirm-deletion.png" alt-text="Screenshot showing a form that requires the resource name to confirm deletion." lightbox="media/cache-delete-resource-group/cache-confirm-deletion.png":::
 
 After a few moments, the resource group and all of its resources are deleted.

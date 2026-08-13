@@ -2,17 +2,19 @@
 title: ORC format support 
 description: This topic describes how to deal with ORC format in Azure Data Factory and Synapse Analytics pipelines.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: reference
 ms.date: 05/15/2024
-ms.author: jianleishen
+ms.author: tinglee
 ---
 
 # ORC format in Azure Data Factory and Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Follow this article when you want to **parse the ORC files or write the data into ORC format**. 
 

@@ -94,6 +94,7 @@ The following table shows the compatibility between server and computer operatin
 
 |Server OS | Compatible client OS  |
 | --------------- | ---- |
+| Windows Server 2025    | Windows 11 and Windows 10 |
 | Windows Server 2022    | Windows 11 and Windows 10 |
 | Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |

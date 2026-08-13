@@ -58,6 +58,8 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 
 # [Vaulted backup](#tab/vaulted-backup)
 
+- Azure Backup is not supported for Storage Accounts enabled with Network Security Perimeter (NSP). We recommend not associating an account with NSP if you have backup enabled or you plan to use Azure backup.
+
 - You can back up only block blobs in a *standard general-purpose v2 storage account* using the vaulted backup solution for blobs.
 - Blob vaulted backup is also supported when the storage account has private endpoints.
 - Storage accounts using NFS 3.0*, and *SFTP protocols* for blobs are currently not supported. 

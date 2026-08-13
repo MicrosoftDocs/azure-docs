@@ -17,9 +17,9 @@ sections:
       - question: |
           What is Azure Web Application Firewall?
         answer: |
-          Azure Web Application Firewall is a web application firewall (WAF) that helps protect your web applications from common threats such as SQL injection, cross-site scripting, and other web exploits. You can define a WAF policy that consists of a combination of custom and managed rules to control access to your web applications.
+          Azure Web Application Firewall (WAF) helps protect your web applications from common threats such as SQL injection, cross-site scripting, and other web exploits. You can define a WAF policy that consists of a combination of custom and managed rules to control access to your web applications.
           
-          You can apply a WAF policy to web applications hosted on Azure Application Gateway or Azure Front Door.
+          You can apply a WAF policy to web applications hosted on Azure Application Gateway, Application Gateway for Containers or Azure Front Door.
           
       - question: |
           What features does the WAF product tier support?
@@ -60,7 +60,7 @@ sections:
       - question: |
           What content types does the WAF support?
         answer: |
-          The Application Gateway WAF supports the following content types for managed rules:
+          The Application Gateway and Application Gateway for Containers WAF supports the following content types for managed rules:
           
           * `application/json`
           * `application/xml`
@@ -97,9 +97,9 @@ sections:
           Yes, air-gapped clouds are supported. However, geo-filtering custom rules, bot protection rulesets and rate limiting custom rules are not supported on air-gapped clouds.
     
       - question: |
-          Can I disable request buffering on my Application Gateway running WAF?
+          Can I disable request buffering on my Application Gateway or Application Gateway for Containers running WAF?
         answer: |
-          Request buffering can't be disabled if you're running the WAF SKU of Application Gateway. The WAF requires the full request to buffer as part of processing, therefore, even if you disable request buffering within Application Gateway the WAF still buffers the request. Response buffering isn't impacted by the WAF.
+          Request buffering can't be disabled if you're running the WAF SKU of Application Gateway or Application Gateway for Containers. The WAF requires the full request to buffer as part of processing, therefore, even if you disable request buffering within Application Gateway or Application Gateway for Containers the WAF still buffers the request. Response buffering isn't impacted by the WAF.
 
 
 additionalContent: |

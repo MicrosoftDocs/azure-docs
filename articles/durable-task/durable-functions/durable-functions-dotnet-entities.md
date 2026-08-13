@@ -45,8 +45,7 @@ The following example is an implementation of a `Counter` entity that stores a s
 
 ::: zone pivot="in-proc"
 
-> [!IMPORTANT]
-> The .NET in-process model is in maintenance mode. For new projects, use the **.NET isolated worker model** (select the pivot at the top of this page). See [Migrate to the isolated worker model](../../azure-functions/migrate-dotnet-to-isolated-model.md) for guidance.
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]

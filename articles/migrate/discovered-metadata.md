@@ -6,6 +6,7 @@ ms.author: vibansa
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.reviewer: v-uhabiba
+ms.update-cycle: 1825-days
 ms.date: 09/11/2025
 ms.custom: engagement-fy25, devx-track-extended-java
 # Customer intent: As a systems administrator, I want to understand the metadata collected by the Azure Migrate appliance for server discovery, so that I can assess server readiness for migration to the cloud and optimize resource allocation.

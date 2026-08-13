@@ -11,6 +11,8 @@ ms.author: azfuncdf
 
 # Performance and scale in Durable Functions
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Use this article to tune the performance and scaling behavior of your [Durable Functions](../common/what-is-durable-task.md) app. It covers the main levers you can adjust:
 
 - **[Worker scaling](#worker-scaling)**: How the Azure Functions host adds and removes workers based on load.

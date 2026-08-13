@@ -1,11 +1,11 @@
 ---
 title: 'About gateway SKUs'
 description: Learn about VPN Gateway SKUs.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 06/11/2026
-ms.author: cherylmc 
+ms.author: duau
 
 # Customer intent: As a cloud network architect, I want to choose the appropriate VPN Gateway SKU, so that I can optimize the performance and reliability of our network connections based on workload requirements and feature support.
 ---

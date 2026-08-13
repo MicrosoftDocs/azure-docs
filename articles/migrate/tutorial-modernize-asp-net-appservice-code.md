@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.topic: tutorial
 ms.date: 02/07/2025
+ms.update-cycle: 365-days
 ms.custom:
   - template-tutorial
   - sfi-image-nochange

@@ -12,6 +12,8 @@ ms.date: 05/15/2024
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
 In this tutorial, you'll learn best practices that can be applied when writing files to ADLS Gen2 or Azure Blob Storage using data flows. You'll need access to an Azure Blob Storage Account or Azure Data Lake Store Gen2 account for reading a parquet file and then storing the results in folders.

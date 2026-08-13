@@ -15,7 +15,7 @@ appliesto:
 
 # What are the best practices for the Enterprise and Enterprise Flash tiers
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 Here are the best practices when using the Enterprise and Enterprise Flash tiers of Azure Cache for Redis.
 

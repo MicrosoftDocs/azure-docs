@@ -4,7 +4,7 @@ description: Learn how to change runtime and environment settings for Standard l
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/15/2026
+ms.date: 08/01/2026
 ms.custom:
   - fasttrack-edit
   - sfi-image-nochange
@@ -182,30 +182,32 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Jobs.BackgroundJobs.NumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core. This value affects the number of workflow runs per core. |
 | `Jobs.BackgroundJobs.StatelessNumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core, per stateless run. This value affects the number of concurrent workflow actions that are processed per run. |
 
-The following settings are used to manually stop and immediately delete the specified workflows in Standard logic app.
+The following settings let you manually stop and immediately delete specific workflows in a Standard logic app resource. You must use uppercase to specify any alphabetical characters.
 
 > [!NOTE]
 >
 > Use these settings with caution and only in nonproduction environments, such as load 
 > or performance test environments, as you can't undo or recover from these operations.
+>
+
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Jobs.CleanupJobPartition` | None | Immediately deletes all the run jobs for the specified workflows. |
-| `Jobs.SuspendedJobPartition` | None | Stops the run jobs for the specified workflows. |
-| `SequencerJobs.SuspendedSequencerPartition` | None | Stops the sequencer run jobs for the specified workflows. |
+| `Jobs.CleanupJobPartitionPrefix` | None | Immediately deletes all the run jobs for the specified workflows. |
+| `Jobs.SuspendedJobPartitionPrefix` | None | Stops the run jobs for the specified workflows. |
+| `SequencerJobs.SuspendedSequencerPartitionPrefix` | None | Stops the sequencer run jobs for the specified workflows. |
 
 To specify individual workflows, use the following syntax where each workflow ID is followed by a colon (`:`) and is separated by a semicolon (`;`):
 
 ```json
-"Jobs.CleanupJobPartition": "<workflow-ID-1>:;<workflow-ID-2>",
-"Jobs.SuspendedJobPartition": "<workflow-ID-1>:;<workflow-ID-2>:",
-"SequencerJobs.SuspendedSequencerPartition": "<workflow-ID-1>:;<workflow-ID-2>:"
+"Jobs.CleanupJobPartitionPrefix": "<workflow-ID-1>:;<workflow-ID-2>:",
+"Jobs.SuspendedJobPartitionPrefix": "<workflow-ID-1>:;<workflow-ID-2>:",
+"SequencerJobs.SuspendedSequencerPartitionPrefix": "<workflow-ID-1>:;<workflow-ID-2>:"
 ```
 
 To cancel a specific run, provide the run ID following the workflow ID with **2D** as the separator, for example:
 
-`"Jobs.SuspendedJobPartition": "<workflow-ID-1>:2D<run-ID>;",`
+`"Jobs.SuspendedJobPartition": "<workflow-ID-1>:2D<run-ID>",`
 
 <a name="recurrence-triggers"></a>
 

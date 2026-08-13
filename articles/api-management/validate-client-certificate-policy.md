@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - validate-client-certificate | Microsoft Docs
 description: Reference for the validate-client-certificate policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 01/30/2025
-ms.author: danlep
 ---
 
 # Validate client certificate

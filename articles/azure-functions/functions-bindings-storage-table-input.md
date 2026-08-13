@@ -734,7 +734,7 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end  
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-[!INCLUDE [functions-table-connections](../../includes/functions-table-connections.md)]
+[!INCLUDE [functions-storage-connections](../../includes/functions-storage-connections.md)]
 
 ## Usage
 

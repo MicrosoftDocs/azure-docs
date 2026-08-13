@@ -13,7 +13,7 @@ ms.custom:
 
 # How to upgrade the version of your Redis instance
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 New versions of Redis server software are frequently released with new features, more commands, and stability improvements. Maintaining Redis instances using the latest version of Redis is a good way to ensure that you get the best possible Redis experience.
 

@@ -27,7 +27,7 @@ Select **Open Cloud Shell** to open Azure Cloud Shell on the right pane. Select 
 az group create --name gridResourceGroup --location westus2
 ```
 
-[!INCLUDE [register-provider-cli.md](./includes/register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](~/reusable-content/ce-skilling/azure/includes/event-grid/register-provider-cli.md)]
 
 ## Create a custom topic
 

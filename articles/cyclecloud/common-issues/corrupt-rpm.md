@@ -1,8 +1,8 @@
 ---
 title: Common Issues - Corrupt RPM database
-description: Azure CycleCloud common issue - Corrupt RPM database
+description: Troubleshoot the 'Corrupt RPM database' error on Azure CycleCloud nodes and how to rebuild the database.
 author: andyhoward
-ms.date: 06/30/2025
+ms.date: 06/19/2026
 ms.update-cycle: 3650-days
 ms.author: anhoward
 ms.topic: troubleshooting-problem-resolution

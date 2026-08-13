@@ -1,12 +1,12 @@
 ---
-title: Access Control Lists in Azure Data Lake Storage
+title: Access control lists (ACLs) in Azure Data Lake Storage
 titleSuffix: Azure Storage
-description: Understand how POSIX-like ACLs access control lists work in Azure Data Lake Storage.
+description: Learn how access control lists (ACLs) work in Azure Data Lake Storage. Understand POSIX-like ACL permissions, types, inheritance, and how to set ACLs to secure your data.
 author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: concept-article
-ms.date: 05/18/2026
+ms.date: 07/02/2026
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.devlang: python
@@ -18,9 +18,12 @@ ms.custom: engagement-fy23
 
 Azure Data Lake Storage implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). This article describes access control lists in Data Lake Storage. To learn about how to incorporate Azure RBAC together with ACLs, and how the system evaluates them to make authorization decisions, see [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md).
 
+> [!NOTE]
+> You can't use ACLs to authorize an NFS 3.0 request. However, you can use ACLs to authorize SSH File Transfer Protocol (SFTP) requests. See [Known Issues and limitations for authorizing SFTP access to blobs with Microsoft Entra ID](secure-file-transfer-protocol-support-entra-id-based-access.md#known-issues-and-limitations).
+
 <a id="access-control-lists-on-files-and-directories"></a>
 
-## About ACLs
+## About ACLs in Azure Data Lake Storage
 
 You can associate a [security principal](../../role-based-access-control/overview.md#security-principal) with an access level for files and directories. Each association is an entry in an *access control list (ACL)*. Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, an ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.
 
@@ -28,8 +31,9 @@ You can associate a [security principal](../../role-based-access-control/overvie
 > ACLs apply only to security principals in the same tenant. ACLs don't apply to users who use Shared Key authorization because no identity is associated with the caller and therefore security principal permission-based authorization can't be performed. The same rule applies to shared access signature (SAS) tokens except when a user delegated SAS token is used. In that case, Azure Storage performs a POSIX ACL check against the object ID before it authorizes the operation as long as the optional parameter suoid is used. To learn more, see [Construct a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas#construct-a-user-delegation-sas).
 
 <a id="set-access-control-lists"></a>
+<a id="how-to-set-acls"></a>
 
-## How to set ACLs
+## How to set ACLs in Azure Data Lake Storage
 
 To set file and directory level permissions, see any of the following articles:
 
@@ -48,9 +52,11 @@ To set file and directory level permissions, see any of the following articles:
 > [!IMPORTANT]
 > If the security principal is a *service* principal, use the object ID of the service principal and not the object ID of the related app registration. To get the object ID of the service principal, open the Azure CLI, and then use this command: `az ad sp show --id <Your App ID> --query objectId`. Replace the `<Your App ID>` placeholder with the App ID of your app registration. The service principal is treated as a named user. Add this ID to the ACL as you would any named user. Named users are described later in this article.
 
-## Types of ACLs
+<a id="types-of-acls"></a>
 
-There are two kinds of access control lists: *access ACLs* and *default ACLs*.
+## Types of ACLs: access ACLs and default ACLs
+
+Two kinds of access control lists exist: *access ACLs* and *default ACLs*.
 
 Access ACLs control access to an object. Files and directories both have access ACLs.
 
@@ -63,7 +69,7 @@ Both access ACLs and default ACLs have the same structure.
 
 ## Levels of permission
 
-The permissions on directories and files in a container are **Read**, **Write**, and **Execute**. You can use these permissions on files and directories as shown in the following table:
+The permissions on directories and files in a container are **Read**, **Write**, and **Execute**. Use these permissions on files and directories as shown in the following table:
 
 |            |    File     |   Directory |
 |------------|-------------|----------|
@@ -87,9 +93,9 @@ Use **RWX** to show **Read + Write + Execute** permissions. There's also a numer
 
 ### Permissions inheritance
 
-In the POSIX-style model that's used by Data Lake Storage, permissions for an item are stored on the item itself. In other words, permissions for an item cannot be inherited from the parent items if the permissions are set after the child item has already been created. Permissions are only inherited if default permissions have been set on the parent items before the child items have been created.
+In the POSIX-style model that Data Lake Storage uses, you store permissions for an item on the item itself. In other words, if you set the permissions after creating the child item, the child item can't inherit permissions from parent items. Items inherit permissions only if you set default permissions on parent items before creating child items. For example, if you create a directory and then set a default ACL on it later, files that already exist in that directory don't inherit the new default ACL. Only files created after you set the ACL inherit it.
 
-## Common scenarios related to ACL permissions
+## Common scenarios for ACL permissions in Azure Data Lake Storage
 
 The following table shows the ACL entries required to enable a security principal to perform the operations listed in the **Operation** column.
 
@@ -112,12 +118,14 @@ This table shows a column that represents each level of a fictitious directory h
 
 ### Delete files and directories
 
-As shown in the previous table, you don't need write permissions on the file to delete it as long as the directory permissions are set properly. However, to delete a directory and all of its contents, the parent directory must have Write + Execute permissions. The directory to be deleted, and every directory within it, requires Read + Write + Execute permissions.
+To delete a file, you don't need write permissions on the file itself. The parent directory only needs `-WX` permissions. However, to delete a directory and all of its contents, the parent directory must have Write + Execute permissions. The directory to be deleted, and every directory within it, requires Read + Write + Execute permissions.
 
 > [!NOTE]
 > You can never delete the root directory "/".
 
-## Users and identities
+<a id="users-and-identities"></a>
+
+## Users and identities in ACLs
 
 Every file and directory has distinct permissions for these identities:
 
@@ -172,12 +180,12 @@ The owning group can be changed by:
 > [!NOTE]
 > The owning group can't change the ACLs of a file or directory. While the owning group is set to the user who created the account in the case of the root directory, **Case 1** earlier, a single user account isn't valid for providing permissions via the owning group. You can assign this permission to a valid user group if applicable.
 
-## How permissions are evaluated
+## How the system evaluates ACL permissions
 
 The system evaluates identities in the following order:
 
-1. Superuser
-2. Owning user
+1. Super-user
+1. Owning user
 1. Named user, service principal, or managed identity
 1. Owning group or named group
 1. All other users
@@ -228,15 +236,15 @@ def access_check( user, desired_perms, path ) :
   return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-### The mask
+### The ACL mask
 
 The mask applies only to the ACL entry of a named user, named group, and the owning group. The mask specifies which of the permissions in the ACL entry are used to authorize access. These applied permissions are called the _effective_ permissions of the ACL entry. The system ignores all other permissions in the ACL entry. By using the mask, you can establish an upper limit on permission levels.
 
 You can specify the mask on a per-call basis. This flexibility allows different consuming systems, such as clusters, to have different effective masks for their file operations. If you specify a mask on a given request, it completely overrides the default mask.
 
-### The sticky bit
+### The sticky bit in Data Lake Storage
 
-The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage, it's unlikely that you need the sticky bit. In summary, if you enable the sticky bit on a directory, only the child item's owning user, the directory's owner, or the Superuser ($superuser) can delete or rename a child item.
+The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage, it's unlikely that you need the sticky bit. In summary, if you enable the sticky bit on a directory, only the child item's owning user, the directory's owner, or the superuser ($superuser) can delete or rename a child item.
 
 The Azure portal doesn't show the sticky bit. To learn more about the sticky bit and how to set it, see [What is the sticky bit Data Lake Storage?](/troubleshoot/azure/azure-storage/blobs/authentication/adls-gen2-sticky-bit-403-access-denied#what-is-the-sticky-bit-in-adls-gen2)
 
@@ -259,7 +267,7 @@ When you create a new file or directory under an existing directory, the default
 - A child directory's default ACL and access ACL.
 - A child file's access ACL (files don't have a default ACL).
 
-### umask
+### The umask in Data Lake Storage
 
 When you create a default ACL, the system applies the umask to the access ACL to determine the initial permissions for the default ACL. If you define a default ACL on the parent directory, the system ignores the umask and uses the default ACL of the parent directory to set the initial values.  
 
@@ -329,7 +337,7 @@ The owning user can change the permissions of the file to give themselves any RW
 
 ### Why do I sometimes see GUIDs in ACLs?
 
-A GUID is shown if the entry represents a user and that user doesn't exist in Microsoft Entra anymore. Usually this happens when the user has left the company or if their account has been deleted in Microsoft Entra ID. Additionally, service principals and security groups do not have a User Principal Name (UPN) to identify them and so they are represented by their OID attribute (a guid). To clean up the ACLs, manually delete these GUID entries. 
+You see a GUID if the entry represents a user who no longer exists in Microsoft Entra. This situation usually happens when the user leaves the company or if their account is deleted in Microsoft Entra ID. Additionally, service principals and security groups don't have a User Principal Name (UPN), so the system identifies them by their OID attribute (a GUID). To clean up the ACLs, manually delete these GUID entries. 
 
 ### How do I set ACLs correctly for a service principal?
 
@@ -341,15 +349,15 @@ To get the OID for the service principal that corresponds to an app registration
 az ad sp show --id 00001111-aaaa-2222-bbbb-3333cccc4444 --query objectId
 ```
 
-OID will be displayed.
+The command displays the OID.
 
 When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**
 
 ### Can I set the ACL of a container?
 
-No. A container does not have an ACL. However, you can set the ACL of the container's root directory. Every container has a root directory, and it shares the same name as the container. For example, if the container is named `my-container`, then the root directory is named `my-container/`.
+No. A container doesn't have an ACL. However, you can set the ACL of the container's root directory. Every container has a root directory, and it shares the same name as the container. For example, if the container is named `my-container`, the root directory is named `my-container/`.
 
-The Azure Storage REST API does contain an operation named [Set Container ACL](/rest/api/storageservices/set-container-acl), but that operation cannot be used to set the ACL of a container or the root directory of a container. Instead, that operation is used to indicate whether blobs in a container may be accessed with an anonymous request. We recommend requiring authorization for all requests to blob data. For more information, see [Overview: Remediating anonymous read access for blob data](anonymous-read-access-overview.md).
+The Azure Storage REST API contains an operation named [Set Container ACL](/rest/api/storageservices/set-container-acl), but you can't use that operation to set the ACL of a container or the root directory of a container. Instead, that operation is used to indicate whether blobs in a container can be accessed with an anonymous request. Require authorization for all requests to blob data. For more information, see [Overview: Remediating anonymous read access for blob data](anonymous-read-access-overview.md).
 
 ### Where can I learn more about POSIX access control model?
 

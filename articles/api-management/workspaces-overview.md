@@ -2,12 +2,10 @@
 title: Workspaces in Azure API Management | Microsoft Docs
 description: Learn about Azure API Management workspaces. With workspaces, decentralized API development teams manage and productize APIs in a common service infrastructure.
 services: api-management
-author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 06/12/2026
-ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 ms.custom:
   - build-2025

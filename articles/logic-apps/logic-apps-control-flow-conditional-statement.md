@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/25/2025
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 ---
 
 # Add conditions to control workflow action execution in Azure Logic Apps

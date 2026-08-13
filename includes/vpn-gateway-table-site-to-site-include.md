@@ -1,10 +1,10 @@
 ---
  services: vpn-gateway
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 01/15/2025
- ms.author: cherylmc
+ ms.author: duau
 ---
 
 |Authentication method| Article |

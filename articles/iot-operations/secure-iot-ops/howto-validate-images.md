@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 11/01/2024
+ms.date: 07/02/2026
 
 #CustomerIntent: As an IT professional, I want to ensure that the images I download for Azure IoT Operations are legitimate.
 ---
@@ -14,12 +14,12 @@ ms.date: 11/01/2024
 
 Azure IoT Operations signs its docker and helm images to allow users to verify the integrity and origin of the images they use. Signing utilizes a public/private key pair to prove that Microsoft built a container image by creating a digital signature and adding it to the image. This article provides the steps to verify that an image was signed by Microsoft.
 
-1. Download Notation.
+1. Download Notation. Update the version number in the command to the latest version of Notation. You can find the latest version on the [Notation releases page](https://github.com/notaryproject/notation/releases/latest).
 
    ```sh
-   export NOTATION_VERSION=1.1.0
+   export NOTATION_VERSION=1.3.2
    curl -LO https://github.com/notaryproject/notation/releases/download/v$NOTATION_VERSION/notation_$NOTATION_VERSION\_linux_amd64.tar.gz
-   sudo tar xvzf notation_1.1.0_linux_amd64.tar.gz -C /usr/bin/ notation
+   sudo tar xvzf notation_${NOTATION_VERSION}_linux_amd64.tar.gz -C /usr/bin/ notation
    ```
 
 1. Download the Microsoft signing public certificate: `https://www.microsoft.com/pkiops/certs/Microsoft%20Supply%20Chain%20RSA%20Root%20CA%202022.crt`.
@@ -34,9 +34,9 @@ Azure IoT Operations signs its docker and helm images to allow users to verify t
 
 1. Check the certificate in notation.
 
-   ```sh 
+   ```sh
    notation cert ls
-   ```   
+   ```
 
    The output of the command looks like the following example:
 
@@ -76,8 +76,7 @@ Azure IoT Operations signs its docker and helm images to allow users to verify t
 
    ```sh
    notation policy import <TRUSTPOLICY_FILE>.json
-   export NOTATION_EXPERIMENTAL=1
-   notation verify --allow-referrers-api mcr.microsoft.com/azureiotoperations/aio-operator:<AZURE_IOT_OPERATIONS_VERSION>
+   notation verify mcr.microsoft.com/azureiotoperations/aio-operator:<AZURE_IOT_OPERATIONS_VERSION>
    ```
 
    The output of the command looks like the following example:

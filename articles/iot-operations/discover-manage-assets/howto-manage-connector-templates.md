@@ -35,6 +35,8 @@ To create a template for a custom Akri connector that you build yourself, see [B
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
 ## Create a basic connector template instance
 
 To make a built-in connector available to OT users, create a connector template instance from the connector's metadata artifact.
@@ -84,8 +86,8 @@ The following example creates a template for the HTTP/REST connector:
 ```azurecli
 az iot ops connector template create \
     --name my-rest-template \
-    --resource-group <ResourceGroupName> \
-    --instance <AioInstanceName> \
+    --resource-group $RESOURCE_GROUP \
+    --instance $AIO_INSTANCE_NAME \
     --connector-metadata-ref mcr.microsoft.com/azureiotoperations/akri-connectors/rest-metadata:1.0.6
 ```
 
@@ -96,8 +98,8 @@ To verify that the connector template instance was created, run the [az iot ops 
 
 ```azurecli
 az iot ops connector template list \
-    --resource-group <ResourceGroupName> \
-    --instance <AioInstanceName> \
+    --resource-group $RESOURCE_GROUP \
+    --instance $AIO_INSTANCE_NAME \
     --output table
 ```
 
@@ -127,8 +129,8 @@ Use the `--storage-volumes` parameter to attach a PVC when you create or update 
 ```azurecli
 az iot ops connector template create \
     --name my-media-template \
-    --resource-group <ResourceGroupName> \
-    --instance <AioInstanceName> \
+    --resource-group $RESOURCE_GROUP \
+    --instance $AIO_INSTANCE_NAME \
     --connector-metadata-ref mcr.microsoft.com/azureiotoperations/akri-connectors/media-metadata:1.0.6 \
     --storage-volumes claimName=media-pvc mountPath=/data
 ```
@@ -156,8 +158,8 @@ Use the `--secrets` parameter to add runtime secrets. Each secret requires `secr
 ```azurecli
 az iot ops connector template update \
     --name my-media-template \
-    --resource-group <ResourceGroupName> \
-    --instance <AioInstanceName> \
+    --resource-group $RESOURCE_GROUP \
+    --instance $AIO_INSTANCE_NAME \
     --secrets secretRef=rtsps-creds secretKey=password secretAlias=northboundPassword
 ```
 
@@ -182,8 +184,8 @@ Use `az iot ops secretsync secret set` to create a synced secret on the cluster 
 ```azurecli
 az iot ops connector template update \
     --name my-rest-template \
-    --resource-group <ResourceGroupName> \
-    --instance <AioInstanceName> \
+    --resource-group $RESOURCE_GROUP \
+    --instance $AIO_INSTANCE_NAME \
     --trust-settings-secret-ref my-trust-bundle
 ```
 
@@ -206,8 +208,8 @@ For example, the following command creates a template with three replicas and de
 ```azurecli
 az iot ops connector template create \
     --name my-rest-template \
-    --resource-group <ResourceGroupName> \
-    --instance <AioInstanceName> \
+    --resource-group $RESOURCE_GROUP \
+    --instance $AIO_INSTANCE_NAME \
     --connector-metadata-ref mcr.microsoft.com/azureiotoperations/akri-connectors/rest-metadata:1.0.6 \
     --replicas 3 \
     --log-level debug
@@ -223,8 +225,8 @@ Use the following commands to inspect and update connector template instances in
 
   ```azurecli
   az iot ops connector template list \
-      --resource-group <ResourceGroupName> \
-      --instance <AioInstanceName> \
+      --resource-group $RESOURCE_GROUP \
+      --instance $AIO_INSTANCE_NAME \
       --output table
   ```
 
@@ -233,8 +235,8 @@ Use the following commands to inspect and update connector template instances in
   ```azurecli
   az iot ops connector template show \
       --name my-rest-template \
-      --resource-group <ResourceGroupName> \
-      --instance <AioInstanceName>
+      --resource-group $RESOURCE_GROUP \
+      --instance $AIO_INSTANCE_NAME
   ```
 
 - Update a template. You can change deployment parameters such as `--replicas`, `--log-level`, `--secrets`, `--storage-volumes`, and `--trust-settings-secret-ref`. To upgrade a Microsoft connector to a newer patch or minor version, use `--connector-metadata-ref`:
@@ -242,8 +244,8 @@ Use the following commands to inspect and update connector template instances in
   ```azurecli
   az iot ops connector template update \
       --name my-rest-template \
-      --resource-group <ResourceGroupName> \
-      --instance <AioInstanceName> \
+      --resource-group $RESOURCE_GROUP \
+      --instance $AIO_INSTANCE_NAME \
       --connector-metadata-ref mcr.microsoft.com/azureiotoperations/akri-connectors/rest-metadata:1.0.7
   ```
 
@@ -254,8 +256,8 @@ Use the following commands to inspect and update connector template instances in
   ```azurecli
   az iot ops connector template delete \
       --name my-rest-template \
-      --resource-group <ResourceGroupName> \
-      --instance <AioInstanceName>
+      --resource-group $RESOURCE_GROUP \
+      --instance $AIO_INSTANCE_NAME
   ```
 
 In the Azure portal, you can list, view, and delete connector template instances on the **Connector templates** page of your Azure IoT Operations instance.

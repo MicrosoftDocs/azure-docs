@@ -29,7 +29,8 @@ Access behavior, performance characteristics, and SLAs of the underlying capacit
 
 ## Known issues and considerations
 
-- Smart tier is **generally available** in nearly all public regions with zonal redundancies. The Azure regions Israel Central, Qatar Central, and UAE North remain in **Public Preview**.
+- Smart tier is **generally available** in all public cloud regions with zonal redundancies.
+
 - Smart tier is in **Public Preview** for the Azure Government cloud regions as well as Microsoft Azure operated by 21Vianet (Azure in China).
 - **Redundancy conversions** to non-zone redundant (LRS or GRS) accounts aren't supported. 
 - When a GZRS account **fails over**, convert the LRS account to zone-redundant within **60 days** to continue smart tier support.
@@ -45,7 +46,7 @@ You can move objects out of smart tier by setting a different online tier or cha
 To set the default access tier setting for a storage account, see [Set a blob's access tier](access-tiers-online-manage.md).
 
 > [!NOTE]
-> In regions where smart tier remains in Public Preview (Israel Central, Qatar Central, UAE North, Azure Government, and Azure operated by 21Vianet), enable access by registering the "Smart Tier (account level)" preview feature in the Azure portal [preview features blade](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal/).
+> In clouds where smart tier remains in Public Preview (Azure Government, and Azure operated by 21Vianet), enable access by registering the "Smart Tier (account level)" preview feature in the Azure portal [preview features blade](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal/).
 
 #### [Portal](#tab/azure-portal)
 
@@ -73,27 +74,18 @@ To update the default access tier to *Smart* for an existing storage account in 
 
 #### [PowerShell](#tab/azure-powershell)
 
-To configure `Smart` as the default access tier setting for a storage account with PowerShell, call the Azure REST API directly.
+To configure `Smart` as the default access tier setting for a storage account by using PowerShell, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command.
 
 ```azurepowershell-interactive
-# Set variables
-$SubscriptionId = <subscription-id>
-$ResourceGroup = <resource-group>
-$StorageAccountName = <storage-account-name>
-
-# Update the storage account access tier to Smart
-$Path = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroup/providers/Microsoft.Storage/storageAccounts/${StorageAccountName}?api-version=2025-08-01"
-$Payload = @{ properties = @{ accessTier = "Smart" } } | ConvertTo-Json -Depth 3
-
-Invoke-AzRestMethod -Method PATCH -Path $Path -Payload $Payload
+Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -AccessTier Smart
 ```
 
 #### [Azure CLI](#tab/azure-cli)
 
-To configure `Smart` as the default access tier setting for a storage account with Azure CLI, call the Azure REST API directly.
+To configure `Smart` as the default access tier setting for a storage account by using Azure CLI, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command.
 
 ```azurecli-interactive
-az rest --method patch --url "https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>?api-version=2025-08-01" --body '{"properties":{"accessTier":"Smart"}}'
+az storage account update --resource-group <resource-group> --name <storage-account-name> --access-tier Smart
 ```
 
 ---

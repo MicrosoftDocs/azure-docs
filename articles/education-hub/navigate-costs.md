@@ -4,7 +4,7 @@ description: Learn how to track usage and create budgets in Microsoft Cost Manag
 author: vinnieangel
 ms.author: vangellotti
 ms.topic: how-to
-ms.service: azure-education
+ms.service: azure-education-hub
 ms.date: 10/31/2023
 ---
 

@@ -6,7 +6,7 @@ metadata:
   author: asudbring
   ms.service: azure-dns
   ms.topic: faq
-  ms.date: 03/25/2026
+  ms.date: 06/01/2026
   ms.author: allensu
 title: Azure DNS FAQ
 summary: |
@@ -160,10 +160,78 @@ sections:
         answer: |
           Yes. To point to a Traffic Manager profile as an alias from an A or AAAA record set, the Traffic Manager profile must use only external endpoints. When you create the external endpoints in Traffic Manager, provide the actual IP addresses of the endpoints.
 
+          For new configurations, consider using [Traffic Manager Linked Records](dns-traffic-manager-linked-records.md), which provide stronger type enforcement and return IP addresses directly without a CNAME hop.
+
       - question: |
           Is there an additional charge to use alias records?
         answer: |
           Alias records are a qualification on a valid DNS record set. There's no additional billing for alias records.
+
+  - name: Traffic Manager Linked Records
+    questions:
+      - question: |
+          What are Traffic Manager Linked Records?
+        answer: |
+          Traffic Manager Linked Records is an Azure DNS feature that creates a direct link between a DNS record set (A, AAAA, or CNAME) and an Azure Traffic Manager profile using the `trafficManagementProfile` property. Unlike alias records, Traffic Manager Linked Records always use integrated resolution mode—returning endpoint IP addresses directly to the client without an intermediate CNAME lookup to `trafficmanager.net`.
+
+          Traffic Manager Linked Records is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply.
+
+          For more information, see [Traffic Manager Linked Records overview](dns-traffic-manager-linked-records.md).
+
+      - question: |
+          What is the difference between alias records and Traffic Manager Linked Records?
+        answer: |
+          Both can reference a Traffic Manager profile, but they differ in key ways:
+
+          - **Resolution mode:** Alias records (for CNAME) return a `trafficmanager.net` FQDN, requiring a second DNS lookup. Traffic Manager Linked Records always return IP addresses directly.
+          - **TTL source:** For Traffic Manager Linked Records, the TTL is always inherited from the Traffic Manager profile. Alias records use the TTL set on the DNS record set.
+          - **Type enforcement:** Traffic Manager Linked Records use [Strictly Typed Profiles](../traffic-manager/traffic-manager-strictly-typed-profiles.md) to enforce endpoint IP type consistency at the Traffic Manager level. Alias records perform a weaker check at record creation time only.
+
+          Use Traffic Manager Linked Records for new configurations. Alias records remain supported for backward compatibility and for targeting resources other than Traffic Manager.
+
+      - question: |
+          What record types are supported for Traffic Manager Linked Records?
+        answer: |
+          Traffic Manager Linked Records support the following record types:
+
+          - **A** – All enabled Traffic Manager endpoints must have IPv4 targets.
+          - **AAAA** – All enabled Traffic Manager endpoints must have IPv6 targets.
+          - **CNAME** – All enabled Traffic Manager endpoints must have FQDN targets.
+
+      - question: |
+          Can I use Traffic Manager Linked Records at the zone apex?
+        answer: |
+          Yes. Like alias records, Traffic Manager Linked Records work at the DNS zone apex (naked domain). This is the recommended way to use Traffic Manager at your root domain (for example, `contoso.com`).
+
+      - question: |
+          Do Traffic Manager Linked Records support nested Traffic Manager profiles?
+        answer: |
+          Yes. Traffic Manager Linked Records support nested Traffic Manager profiles for all profile types.
+
+      - question: |
+          How do Traffic Manager Linked Records improve security?
+        answer: |
+          Traffic Manager Linked Records resolve the Traffic Manager profile internally within Azure DNS, so the `trafficmanager.net` domain is never returned in the DNS response. With alias records or CNAME records, clients receive the `trafficmanager.net` FQDN and must resolve it separately—which means firewalls must allow access to this shared domain that hosts profiles for all Azure customers. Traffic Manager Linked Records remove this requirement, reducing your attack surface.
+
+      - question: |
+          Are Traffic Manager Linked Records compatible with DNSSEC?
+        answer: |
+          Yes. Because Azure DNS resolves the Traffic Manager profile internally, there's no unsigned intermediate DNS hop to `trafficmanager.net`. This preserves the DNSSEC chain of trust, making Traffic Manager Linked Records a good choice for DNSSEC-signed zones.
+
+      - question: |
+          Is there a limit on how many Traffic Manager Linked Records can point to a single profile?
+        answer: |
+          Both alias records and Traffic Manager Linked Records support up to 50 links per Traffic Manager profile.
+
+      - question: |
+          What happens if the Traffic Manager profile is deleted while Linked Records exist?
+        answer: |
+          A Traffic Manager profile is blocked from being deleted while Traffic Manager Linked Records still reference it. You must remove all linked DNS records before the profile can be deleted. This prevents customers from accidentally breaking DNS record links.
+
+      - question: |
+          Is there an additional charge for Traffic Manager Linked Records?
+        answer: |
+          DNS queries resolved via Traffic Manager Linked Records count toward your Traffic Manager profile billing. There's no additional charge specific to the DNS record itself. For more information, see [Traffic Manager pricing](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
   - name: Use Azure DNS
     questions:

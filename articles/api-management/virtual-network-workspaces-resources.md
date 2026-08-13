@@ -1,12 +1,10 @@
 ---
 title: Azure API Management workspace gateways - virtual network requirements
 description: Learn about requirements for network resources when you integrate or inject an API Management workspace gateway resource in an Azure virtual network.
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/20/2026
-ms.author: danlep
 ---
 
 # Network resource requirements to integrate or inject a workspace gateway resource into a virtual network

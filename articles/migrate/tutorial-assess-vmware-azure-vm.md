@@ -1,12 +1,12 @@
 ---
-title: Assess VMware servers for migration to Azure VMs in Azure Migrate
+title: Assess VMware Servers for Migration to Azure VMs in Azure Migrate
 description: Learn how to assess VMware servers for migration to Azure VMs with Azure Migrate.
 ms.topic: tutorial
 ms.date: 05/09/2025
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.custom: vmware-scenario-422, MVC, engagement-fy24
-ms.update-cycle: 180-days
+ms.update-cycle: 365-days
 # Customer intent: As a VMware VM administrator, I want to assess my on-premises VMware servers using a cloud migration tool so that I can evaluate their readiness for migration to Azure VMs, estimate costs, and identify any potential risks.
 ---
 

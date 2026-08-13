@@ -23,6 +23,8 @@ items:
     href: ./concepts/core.md
   - name: Clusters & Nodes
     href: ./concepts/clusters.md
+  - name: Plan and size HPC clusters
+    href: ./concepts/plan-and-size-hpc-clusters.md
   - name: Scheduling
     href: ./concepts/scheduling.md
   - name: Multi-region Cluster Deployment
@@ -139,6 +141,8 @@ items:
       href: ./how-to/create-fileserver.md
     - name: Mount a Network Fileserver
       href: ./how-to/mount-fileserver.md
+    - name: Mount Azure Blob Storage on cluster nodes
+      href: ./how-to/mount-blob-storage.md
     - name: Enable Return Proxy
       href: ./how-to/return-proxy.md
     - name: Configure Network Security
@@ -267,22 +271,22 @@ items:
         href: /previous-versions/azure/cyclecloud/release-notes-previous
       - name: Older Releases
         href: /previous-versions/azure/cyclecloud/release-notes-archive
+      - name: 8.9.2 Release Notes
+        href: ./release-notes/8-9-2.md
+      - name: 8.9.1 Release Notes
+        href: ./release-notes/8-9-1.md
       - name: 8.9.0 Release Notes
         href: ./release-notes/8-9-0.md
       - name: 8.8.3 Release Notes
         href: ./release-notes/8-8-3.md
       - name: 8.8.2 Release Notes
         href: ./release-notes/8-8-2.md
-      - name: 8.8.1 Release Notes
-        href: ./release-notes/8-8-1.md
-      - name: 8.8.0 Release Notes
-        href: ./release-notes/8-8-0.md
   - name: Release Notes - CycleCloud Workspace for Slurm
     items:
-      - name: Current Release - 2026.06.02
-        href: ./release-notes/ccws/2026-06-02.md
-      - name: Previous Release - 2026.05.22
-        href: ./release-notes/ccws/2026-05-22.md
+      - name: Current Release - 2026.08.07
+        href: ./release-notes/ccws/2026-08-07.md
+      - name: Previous Release - 2026.07.02
+        href: ./release-notes/ccws/2026-07-02.md
       - name: All Releases
         href: ./release-notes/ccws/release-notes.md
   - name: Service Policy

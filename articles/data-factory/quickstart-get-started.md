@@ -1,11 +1,11 @@
 ---
-title: Get Started and Try Out Your First Data Factory Pipeline
+title: Get started and try out your first Data Factory pipeline
 description: Get started with your first data factory to copy data from one Azure Blob Storage folder to another.
 author: whhender
 ms.subservice: data-movement
 ms.devlang: bicep
 ms.topic: get-started
-ms.date: 02/13/2025
+ms.date: 07/29/2026
 ms.author: whhender
 ms.reviewer: xupzhou
 ms.custom:
@@ -17,13 +17,15 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Welcome to Azure Data Factory! This article helps you create your first data factory and pipeline within five minutes.
 
 The Azure Resource Manager template (ARM template) in this article creates and configures everything you need. Then you can go to your demo data factory and trigger the pipeline, which moves some sample data from one Azure Blob Storage folder to another.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Video summary
 
@@ -33,7 +35,7 @@ The following video provides a walkthrough of the sample in this article:
 
 ## Step 1: Use the demo to create resources
 
-In this demo scenario, you use the [copy activity](copy-activity-overview.md) in a data factory to copy a blob named moviesDB2.csv from an input folder in Azure Blob Storage to an output folder. In a real-world scenario, this copy operation could be between any of the many supported data sources and sinks available in the service. It could also involve transformations in the data.
+In this demo scenario, you use the [copy activity](copy-activity-overview.md) in a data factory to copy a blob named `moviesDB2.csv` from an input folder in Azure Blob Storage to an output folder. In a real-world scenario, this copy operation could be between any of the many supported data sources and sinks available in Azure Data Factory. It could also involve transformations in the data.
 
 1. Select the following button.
 
@@ -55,7 +57,7 @@ In this demo scenario, you use the [copy activity](copy-activity-overview.md) in
    :::image type="content" source="media/quickstart-get-started/deploy-template.png" alt-text="Screenshot of the page for deploying a template for the creation of resources.":::
 
 > [!NOTE]
-> The user who deploys the template needs to assign a role to a managed identity. This step requires permissions that can be granted through the Owner, User Access Administrator, or Managed Identity Operator role.
+> You need to assign a role to a managed identity when you deploy the template. This step requires the Owner, User Access Administrator, or Managed Identity Operator role.
 
 All the resources in this demo are created in the new resource group, so you can easily clean them up later.
 
@@ -85,7 +87,7 @@ All the resources in this demo are created in the new resource group, so you can
 
    :::image type="content" source="media/quickstart-get-started/source-dataset-browse.png" alt-text="Screenshot of the source dataset, with the Browse button highlighted.":::
 
-   Note the moviesDB2.csv file, which was already uploaded into the input folder.
+   Note the `moviesDB2.csv` file, which is already uploaded into the input folder.
 
    :::image type="content" source="media/quickstart-get-started/input-contents.png" alt-text="Screenshot of the contents of the input folder, showing the input file used in the demo.":::
 
@@ -106,7 +108,7 @@ All the resources in this demo are created in the new resource group, so you can
 
    :::image type="content" source="media/quickstart-get-started/copy-activity-run-results.png" alt-text="Screenshot of the run results of a copy activity on the tab for monitoring a data factory.":::
 
-1. Select the **Details** icon to display the detailed copy process. In the results, the **Data read** and **Data written** sizes are the same, and one file was read and written. This information proves that all the data was successfully copied to the destination.
+1. Select the **Details** icon to display the detailed copy process. In the results, the **Data read** and **Data written** sizes are the same, and the activity read and wrote one file. This information proves that Azure Data Factory successfully copied all the data to the destination.
 
    :::image type="content" source="media/quickstart-get-started/copy-activity-detailed-run-results.png" alt-text="Screenshot of detailed run results for a copy activity.":::
 
@@ -124,4 +126,4 @@ You can clean up all the resources that you created in this article in either of
 In this article, you created a data factory that contained a pipeline with a copy activity. To learn more about Azure Data Factory, continue on to the following article and training module:
 
 - [Quickstart: Use the copy data tool in the Azure Data Factory Studio to copy data](quickstart-hello-world-copy-data-tool.md)
-- [Training module: Introduction to Azure Data Factory](/learn/modules/intro-to-azure-data-factory/)
+- [Training module: Introduction to Azure Data Factory](/training/modules/intro-to-azure-data-factory/)

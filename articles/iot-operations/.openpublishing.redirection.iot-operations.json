@@ -1,8 +1,18 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/concept-dataflow-graphs-schema.md",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/concept-dataflow-graphs",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/iot-operations/reference/about-iot-operations-cli.md",
             "redirect_url": "/cli/azure/iot/ops",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/reference/observability-metrics-layered-network.md",
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/howto-configure-observability",
             "redirect_document_id": false
         },
         {

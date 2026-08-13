@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 11/21/2023
- ms.author: cherylmc
+ ms.author: duau
 ---
 1. Go to your virtual network gateway and select **Connections** to open the **Connections** page.
 1. Select the name of the connection you want to configure to open the **Connection** page.

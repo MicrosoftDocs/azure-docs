@@ -75,7 +75,9 @@ _Sample Text: To resolve this error, set up MFA at aka.ms/setupMFA. If you set u
 2. You can use the search bar and scope bar to easily filter.
   
 :::image type="content" source="../media/multifactor-enforcement/assignment-list.png" alt-text="Screenshot of Azure Policy Assignment List View." border="false" lightbox="../media/multifactor-enforcement/assignment-list.png":::
-
+  
+> [!NOTE]
+> Azure Policy assignments that evaluate multifactor enforcement don't provide compliance. To get audit events for your policy assignment without enforcement, see **Audit mode** in the following section.
 
 ## Update the policy assignment to enforcement
 You can enable enforcement by updating the 'Effect' of the policy assignment.
@@ -98,6 +100,15 @@ You can view activity Log events in Azure portal and other supported clients. He
   --output json | \
 jq -r '"ResourceName\tResourceId\tPolicyDefinitionDisplayName", (.[] as $event | ($event.Policies | fromjson[] | "\($event.ResourceId | split("/") | last)\t\($event.ResourceId)\t\(.policyDefinitionDisplayName)"))' | \
 column -t -s $'\t'`
+
+You can also use the Azure portal to pull log events. Here's a sample query:
+`AzureActivity
+| where CategoryValue == "Policy"
+| extend p = parse_json(Properties)
+| extend policies = parse_json(tostring(p.policies))
+| mv-expand policies
+| where tostring(policies.policyDefinitionId) == "/providers/Microsoft.Authorization/policyDefinitions/4e6c27d5-a6ee-49cf-b2b4-d8fe90fa2b8b"
+| project TimeGenerated, ResourceId, OperationNameValue, PolicyDefinitionId = tostring(policies.policyDefinitionId), PolicyAssignmentId = tostring(policies.policyAssignmentId)`
 
   > [!NOTE]
   > Audit events are seen only in Activity Logs with the Policy compliance list showing always 0 resources. This policy identifies non-compliant requests, not resources, which is why the resource compliance list is empty. 

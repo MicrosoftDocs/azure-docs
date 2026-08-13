@@ -70,6 +70,7 @@ The events capture in file access logs depend on the protocol of your volume.
 * Hard link
 * Open object
 * Open object with the intent to delete
+* Permissions changed
 * Read
 * Rename
 * Set attribute 

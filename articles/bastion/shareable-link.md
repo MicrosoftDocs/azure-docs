@@ -1,11 +1,11 @@
 ---
 title: Create a shareable link for Azure Bastion
 description: Learn how to create a shareable link to let a user connect to a target resource via Bastion without using the Azure portal.
-author: cherylmc
+author: asudbring
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 12/09/2024
-ms.author: cherylmc
+ms.author: allensu
 # Customer intent: As an IT administrator, I want to create shareable links for Azure Bastion so that users can connect to target resources without accessing the Azure portal, ensuring secure and convenient access management.
 ---
 
@@ -69,6 +69,16 @@ In this section, you specify each resource for which you want to create a sharea
 1. Once the links are created, you can view them on the **Shareable links** page. The following example shows links for multiple resources. You can see that each resource has a separate link and the link status is **Active**. To share a link, copy it, then send it to the user. The link doesn't contain authentication credentials.
 
    :::image type="content" source="./media/shareable-link/copy-link.png" alt-text="Screenshot of shareable links page to show all available resource links." lightbox="./media/shareable-link/copy-link.png":::
+
+### Set an expiration for a shareable link
+
+When you create a shareable link, specify when the link expires. After the configured expiration date and time, the link can't be used to connect to the target resource.
+
+- On **Create shareable link**, select the subscription, resource group, and resource.
+- Under **Expiration**, select the date and time when the link should expire.
+- Select **Apply** to create the shareable link.
+
+The **Expiration** column on the **Shareable links** page displays the expiration date and time for each link. After a link expires, its **Resource status** changes to **Link expired**. Use the resource status filter to view expired links.
 
 ## Connect to a VM
 

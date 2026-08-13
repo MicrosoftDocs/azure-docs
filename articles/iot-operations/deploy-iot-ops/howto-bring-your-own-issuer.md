@@ -14,6 +14,12 @@ ai-usage: ai-assisted
 
 This article shows you how to bring your own certificate authority (CA) issuer for internal communications in Azure IoT Operations, instead of using the default self-signed issuer.
 
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for values that you choose: `CONFIG_MAP_NAME`, `CA_CERTIFICATE_FILE`, `CUSTOM_LOCATION_NAME`, `SCHEMA_REGISTRY_RESOURCE_ID`, `CONFIG_MAP_KEY`, `ISSUER_KIND`, and `ISSUER_NAME`. Set each one before you run the related commands.
+
 ## Default self-signed issuer and root CA certificate
 
 To help you get started, Azure IoT Operations is deployed with a default self-signed issuer and root CA certificate for TLS server certificates. You can use this issuer for development and testing. Azure IoT Operations uses [cert-manager](https://cert-manager.io/docs/) to manage TLS certificates, and [trust-manager](https://cert-manager.io/docs/trust/) to distribute trust bundles to components.
@@ -67,7 +73,7 @@ To set up Azure IoT Operations with your own issuer for internal communications,
    1. Create the ConfigMap. For example:
 
       ```bash
-      kubectl create configmap -n azure-iot-operations <YOUR_CONFIGMAP_NAME> --from-file=<CA_CERTIFICATE_FILENAME_PEM_OR_DER>
+      kubectl create configmap -n azure-iot-operations $CONFIG_MAP_NAME --from-file=$CA_CERTIFICATE_FILE
       ```
 
 1. Follow steps in [Deploy Azure IoT Operations](howto-deploy-iot-operations.md) to deploy, *with a few changes*.
@@ -75,13 +81,13 @@ To set up Azure IoT Operations with your own issuer for internal communications,
    1. Add the `--user-trust` parameter while preparing cluster. For example:
 
       ```bash
-      az iot ops init --subscription <SUBSCRIPTION_ID> --cluster <CLUSTER_NAME>  -g <RESOURCE_GROUP> --user-trust
+      az iot ops init --subscription $SUBSCRIPTION_ID --cluster $CLUSTER_NAME  -g $RESOURCE_GROUP --user-trust
       ```
 
    1. Add the `--trust-settings` parameter with the necessary information while deploying Azure IoT Operations. For example:
 
       ```bash
-      az iot ops create --subscription <SUBSCRIPTION_ID> -g <RESOURCE_GROUP> --cluster <CLUSTER_NAME> --custom-location <CUSTOM_LOCATION> -n <INSTANCE_NAME> --sr-resource-id <SCHEMAREGISTRY_RESOURCE_ID> --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
+      az iot ops create --subscription $SUBSCRIPTION_ID -g $RESOURCE_GROUP --cluster $CLUSTER_NAME --custom-location $CUSTOM_LOCATION_NAME -n $AIO_INSTANCE_NAME --sr-resource-id $SCHEMA_REGISTRY_RESOURCE_ID --trust-settings configMapName=$CONFIG_MAP_NAME configMapKey=$CONFIG_MAP_KEY issuerKind=$ISSUER_KIND issuerName=$ISSUER_NAME
       ```
 
 For more information on managing certificates, see [Manage certificates for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-certificates.md).

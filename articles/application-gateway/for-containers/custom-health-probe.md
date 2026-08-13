@@ -3,7 +3,7 @@ title: Custom health probe for Azure Application Gateway for Containers
 description: Learn how to configure a custom health probe for Azure Application Gateway for Containers.
 services: application gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: concept-article
 ms.date: 10/28/2024
 ms.author: mbender

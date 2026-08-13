@@ -1,8 +1,8 @@
 ---
 title: Incrementally copy data by using change tracking in the Azure portal
 description: Learn how to create a data factory with a pipeline that loads delta data based on change tracking information from Azure SQL Database and moves it to Azure Blob Storage.
-ms.author: yexu
-author: dearandyxu
+ms.author: makromer
+author: kromerm
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 # Incrementally copy data from Azure SQL Database to Blob Storage by using change tracking in the Azure portal
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In a data integration solution, incrementally loading data after initial data loads is a widely used scenario. The changed data within a period in your source data store can be easily sliced (for example, `LastModifyTime`, `CreationTime`). But in some cases, there's no explicit way to identify the delta data from the last time that you processed the data. You can use the change tracking technology supported by data stores such as Azure SQL Database and SQL Server to identify the delta data.  
 

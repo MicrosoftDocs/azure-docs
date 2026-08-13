@@ -130,11 +130,20 @@ To disable immutability for a Recovery Services vault, follow these steps:
 
    :::image type="content" source="./media/backup-azure-immutable-vault/disable-immutable-vault-settings.png" alt-text="Screenshot showing how to open the Immutable vault settings to disable.":::
 
-1. On the **Immutable vault** blade, clear the **Enable vault Immutability** checkbox.
+1. On the **Immutable vault** pane, clear the **Enable vault Immutability** checkbox.
+
+   This operation is protected and requires verification of access to the Resource Guard.
+
+1. Select the directory containing the Resource Guard and authenticate yourself.
+
+   >[!NOTE]
+   >This action isn't required if the Resource Guard is in the same directory as the vault.
 
 1. Select **Apply** to save the changes.
 
    :::image type="content" source="./media/backup-azure-immutable-vault/backup-azure-disable-immutability.png" alt-text="Screenshot showing how to disable the Immutable vault settings.":::
+
+   The request fails with an error you don't have sufficient permissions on the Resource Guard to perform this operation.
 
 # [Backup vault](#tab/backup-vault)
 
@@ -146,7 +155,7 @@ To disable immutability for a Backup vault, follow these steps:
 
    :::image type="content" source="./media/backup-azure-immutable-vault-how-to-manage/disable-immutable-vault-settings-backup-vault.png" alt-text="Screenshot showing how to open the Immutable vault settings to disable for a Backup vault." lightbox="./media/backup-azure-immutable-vault-how-to-manage/disable-immutable-vault-settings-backup-vault.png":::
 
-1. On the **Immutable vault** blade, clear the **Enable vault Immutability** checkbox.
+1. On the **Immutable vault** pane, clear the **Enable vault Immutability** checkbox.
 
 1. Select **Apply** to save the changes.
 

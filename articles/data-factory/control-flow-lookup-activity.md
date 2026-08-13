@@ -2,8 +2,8 @@
 title: Lookup activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Lookup Activity in Azure Data Factory and Azure Synapse Analytics to look up a value from an external source. This output can be further referenced by succeeding activities. 
-author: jianleishen
-ms.author: jianleishen
+author: simplywilson
+ms.author: tinglee
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: concept-article
@@ -13,6 +13,9 @@ ms.date: 02/13/2025
 # Lookup activity in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Lookup activity](/fabric/data-factory/lookup-activity).
 
 Lookup activity can retrieve a dataset from any of the data sources supported by data factory and Synapse pipelines. You can use it to dynamically determine which objects to operate on in a subsequent activity, instead of hard coding the object name. Some object examples are files and tables.
 
