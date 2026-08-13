@@ -47,7 +47,7 @@ Information in the following table is updated regularly. Capacity availability i
 | Malaysia West | | ✅ | | |
 | New Zealand North | | ✅ | | |
 | North Central US | ✅ | ✅ |  | ✅ |
-| North Europe | ✅ | ✅ |  | ✅ |
+| North Europe | ✅ | ✅ |  | ⚠️ ¹ |
 | Norway East | ✅ | ✅ | ✅ | ✅ |
 | South Africa North | ✅ | ✅ | |  |
 | South Central US | ✅ | ✅ |  |  |
