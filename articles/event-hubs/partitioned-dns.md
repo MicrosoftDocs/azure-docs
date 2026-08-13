@@ -140,7 +140,7 @@ For example, for a namespace having partitioned FQDN `<namespace>.z<N>.eventhubs
 
 ### Private endpoint resources are backfilled with partitioned FQDN
 
-For Event Hubs and Service Bus namespaces [accessed via private endpoints](private-link-service.md) all Microsoft.Network resources that configure the private endpoint are scheduled to be backfilled to include the partitioned FQDN, in addition to the legacy FQDN.
+For all Event Hubs and Service Bus namespaces, existing and new, [accessed via private endpoints](private-link-service.md) all Microsoft.Network resources that configure the private endpoint are scheduled to be backfilled to include the partitioned FQDN, in addition to the legacy FQDN.
 
 As a consequence, API responses on these resources contain the partitioned FQDN.
 Ensure that your service is resilient against additional values in the resource API response.
