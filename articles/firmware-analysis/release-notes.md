@@ -19,7 +19,7 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 ## July 28, 2026
 
-- **SBOM component expansion**: Firmware analysis now supports detection of 20 additional SBOM components: bridge-utils, conntrack-tools, ebtables, eeprog, ethtool, exfat, hdparm, i2c-tools, ipset, libcap, lspci, mtd-utils, procps, rngd, rngtest, setserial, strace, zip, zipcloak, and zipnote. This expansion improves SBOM coverage across firmware images and enhances visibility into potential vulnerabilities.
+- **SBOM component expansion**: Firmware analysis now supports detection of 20 additional SBOM components: bridge-utils, conntrack-tools, ebtables, eeprog, ethtool, exfat, hdparm, i2c-tools, ipset, libcap, lspci, mtd-utils, procps, rngd, rngtest, setserial, strace, zip, zipcloak, and zipnote. This expansion further improves SBOM coverage across firmware images and enhances visibility into potential vulnerabilities.
 
 - **Updated CVE database**: Firmware analysis's CVE database was refreshed on July 17, 2026 to incorporate newer CVE data, including added coverage for nano and protobuf-c.
 
