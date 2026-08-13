@@ -215,5 +215,5 @@ For more diagnostic information, pass the header `X-Azure-DebugInfo:1` with the 
 ## Related content
 
 - [TLS encryption with Azure Front Door](end-to-end-tls.md?pivots=front-door-standard-premium)
-- [Azure Front Door TLS policy](./standard-premium/tls-policy.md)
+- [Azure Front Door TLS policy](./tls-policy.md)
 
