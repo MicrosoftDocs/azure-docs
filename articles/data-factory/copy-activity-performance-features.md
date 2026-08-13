@@ -135,7 +135,7 @@ When you copy data from a source data store to a sink data store, you might choo
 - **Sometimes it takes a while to perform a hybrid data movement (that is, to copy from an on-premises data store to a cloud data store) over a slow network connection.** To improve performance, you can use staged copy to compress the data on-premises so that it takes less time to move data to the staging data store in the cloud. Then you can decompress the data in the staging store before you load into the destination data store.
 
 >[!NOTE]
-> When utilizing Storage Account Key-based authentication, credential values may be inadvertently exposed to downstream database systems that execute customer-provided commands. Customers are strongly advised to consider Managed Identity, Service Principal, or Key Vault-based authentication when supported options are available.
+> When you use Storage Account Key-based authentication, you might inadvertently expose credential values to downstream database systems that execute customer-provided commands. Consider using Managed Identity, Service Principal, or Key Vault-based authentication when supported options are available.
 
 ### How staged copy works
 
