@@ -114,7 +114,7 @@ GATEWAY_SUBNET=$(az network vnet subnet create \
 
 For VPN connections from your on-premises Linux client machines to authenticate with the virtual network gateway, you must create two certificates: 
 
-- A root certificate, which is provided to the virtual network gateway
+- A root certificate, which you provide to the virtual network gateway
 - A client certificate, which is signed with the root certificate and installed on each client machine
 
 Set the certificate variables and create a working directory:
