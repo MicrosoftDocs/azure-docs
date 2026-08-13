@@ -62,11 +62,13 @@ sections:
       - question: How do I update my billing address for Individual identity validation when its formatting cannot be changed in the Azure portal?
         answer: |
           Use Azure CLI to update the billing account’s  sold-to  address. This supports casing changes and removing hyphens that cannot be updated through the portal:
-            az billing account update \
+           ```azurecli
+              az billing account update \
               --name "<billing-account-name>" \
               --sold-to first-name="<first-name>" last-name="<last-name>" \
               address-line1="<address>" city="<city>" region="WA" \
               country="USA" postal-code="123450000"
+            ```
           Enter the address exactly as it should appear. Plan accordingly, as this changes the billing information for the account.
       - question: What if my identity validation expires?
         answer: |
