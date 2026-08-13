@@ -162,6 +162,9 @@
       href: ./security-controls-policy.md
     - name: Network security
       href: network-security.md
+    - name: Partitioned DNS
+      displayName: DNS, FQDN, partitioned, legacy DNS, servicebus.windows.net, servicebus.azure.net
+      href: ../event-hubs/partitioned-dns.md?toc=/azure/service-bus-messaging/TOC.json&bc=/azure/service-bus-messaging/breadcrumb/toc.json
   - name: Integration with other services
     items:
     - name: Azure Service Bus and Azure Event Grid integration
