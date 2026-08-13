@@ -322,7 +322,7 @@ Workaround: You have two options:
 
 - If you want to use the operations experience web UI, import data flow artifacts and graphs from non-ACR registries into an ACR registry. To learn more, see [Push modules to your registry](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md#push-modules-to-your-registry).
 
-### Data flow resources aren't visible in the operations experience web UI
+### Data flow resources created using Kubernetes aren't visible in the operations experience web UI
 
 ---
 
