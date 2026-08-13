@@ -1,5 +1,5 @@
 ---
-title: Mutual TLS authentication (Preview)
+title: Mutual TLS (mTLS) authentication (Preview)
 titleSuffix: Azure Front Door
 description: Learn how to implement and configure mutual TLS authentication in Azure Front Door Premium to verify client identity, validate certificates, and secure bidirectional communication between clients and origins.
 author: halkazwini
@@ -16,7 +16,7 @@ ms.date: 08/11/2026
 > [!IMPORTANT]
 > Mutual TLS in Azure Front Door is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Mutual TLS authentication, or client authentication, ensures that the traffic is secure and trusted in both directions between a client and server. By using mutual TLS, you can configure Azure Front Door to verify client identity by presenting a valid client certificate. Mutual TLS authentication is useful for scenarios where you need to securely identify and manage the clients to target resources, such as business-to-business (B2B) applications, Internet of Things (IoT) applications, banking apps, VPNs, enterprise networks, and more.
+Mutual TLS (mTLS) authentication, or client authentication, ensures that the traffic is secure and trusted in both directions between a client and server. By using mutual TLS, you can configure Azure Front Door to verify client identity by presenting a valid client certificate. Mutual TLS authentication is useful for scenarios where you need to securely identify and manage the clients to target resources, such as business-to-business (B2B) applications, Internet of Things (IoT) applications, banking apps, VPNs, enterprise networks, and more.
 
 You can use mutual TLS along with other authorizations and authentication methods supported by Azure Front Door.
 
