@@ -7,7 +7,6 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
-ms.update-cycle: 90-days
 ms.date: 05/07/2026
 ms.custom: mvc, engagement-fy25
 # Customer intent: As a cloud architect, I want to stay updated on the latest features and enhancements in Azure Migrate, so that I can optimize on-premises migration strategies and ensure successful transitions to the Azure platform.
@@ -16,6 +15,12 @@ ms.custom: mvc, engagement-fy25
 # What's new in Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
+
+## Update (August 2026)
+
+- Public preview: Azure Migrate now supports the discovery of networking resources in VMware and VMware environments that use NSX. During discovery, Azure Migrate collects network inventory information, including subnets, VLANs, NSX segments, VMware port groups, load balancers, firewall policies, and NAT policies. You can view discovered network resources on the Network tab under Infrastructure. This view helps you understand network inventory and the relationships between network resources and virtual machines before you plan your migration.
+
+The dependency map is also enhanced to display network-aware relationships and workload communication paths. By using network discovery, Azure Migrate extends beyond compute-focused discovery to support network-aware migration planning. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
 
 ## Update (June 2026)
 
@@ -110,7 +115,7 @@ Notable aspects of the solution:
     - **Interact with nodes for server insights:** You can interact directly with nodes within the visualization to access detailed server information. This includes viewing immediate dependents and connection details, allowing for a deeper understanding of each server’s properties and dependencies.
     - **Scope and filter visualization:** You can search by server names and apply filters using netstat data, such as process and port information, enabling scoped analysis of network connections.
     - **Switch to per server view:** For more granular analysis, you can switch the visualization to a per-server view. This mode allows analyzing network connections at the process and port levels for individual servers. [Learn more](how-to-create-group-machine-dependencies-agentless.md#visualize-individual-server-dependencies). 
-    - **Identify and group high-affinity servers:** The visualization makes it easy to identify servers that are tightly coupled and exhibit high affinity. You can multi-select these servers and tag them as application groups, supporting logical organization and application-centric migration planning.
+    - **Identify and group high-affinity servers:** The visualization makes it easy to identify servers that are tightly coupled and exhibit high affinity. You can multiselect these servers and tag them as application groups, supporting logical organization and application-centric migration planning.
 
 ## Update (September 2025)
 
