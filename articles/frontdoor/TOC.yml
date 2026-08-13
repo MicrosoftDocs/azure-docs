@@ -200,11 +200,7 @@
   - name: End-to-end TLS encryption
     href: end-to-end-tls.md
   - name: TLS policy
-    items:
-    - name: Front Door TLS policy
-      href: standard-premium/tls-policy.md
-    - name: Configure TLS policy
-      href: standard-premium/tls-policy-configure.md
+    href: tls-policy.md
   - name: Mutual TLS authentication
     href: mutual-tls.md
   - name: Set up managed identity
