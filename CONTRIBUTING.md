@@ -5,7 +5,6 @@ Thank you for taking the time to contribute to the Microsoft Azure documentation
 This guide covers some general topics related to contribution and refers to our [contributor guide](https://learn.microsoft.com/contribute/content) for more detailed explanations when required.
 
 ## Code of Conduct
-
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 
 For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
