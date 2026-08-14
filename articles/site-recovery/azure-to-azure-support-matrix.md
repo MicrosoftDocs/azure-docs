@@ -196,6 +196,149 @@ To update Azure Site Recovery agent manually, follow these steps:
 >[!NOTE]
 >If you upgrade your Linux OS without updating the Azure Site Recovery Mobility Agent to a compatible version, replication may fail. Ensure that the agent version supports your new OS version. After a major Linux OS upgrade, data resynchronization occurs when the agent is updated.
 
+#### Supported kernel versions for Red Hat Enterprise Linux for Azure VMs
+
+Enabling replication when you create a VM deployment workflow isn't supported for VMs with OS RHEL 9 and later.
+
+Release | Mobility service version | Red Hat kernel version |
+--- | --- | --- |
+RHEL 10.0 <br> RHEL 10.1 | 9.66 | 6.12.0-55.9.1 and later <br> 6.12.0-124.8.1 and later |
+RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 <br> RHEL 9.5 <br> RHEL 9.6 <br>  RHEL 9.7 | 9.66 | 5.14.0-611.5.1 and later |
+RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 <br> RHEL 9.5 <br> RHEL 9.6 | 9.65 | 5.14.0-503.11.1 and later <br> 5.14.0-570.12.1 and later |
+RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 <br> RHEL 9.5 | 9.64 | 5.14.0-503.11.1 and later |
+RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 | 9.63 | 5.14.0-284.73.1.el9_2.x86_64 <br> 5.14.0-284.75.1.el9_2.x86_64 <br> 5.14.0-284.77.1.el9_2.x86_64 <br> 5.14.0-284.79.1.el9_2.x86_64 <br> 5.14.0-284.80.1.el9_2.x86_64 <br> 5.14.0-284.82.1.el9_2.x86_64 <br> 5.14.0-284.84.1.el9_2.x86_64 <br> 5.14.0-284.85.1.el9_2.x86_64 <br> 5.14.0-284.86.1.el9_2.x86_64 <br> 5.14.0-427.24.1.el9_4.x86_64 <br> 5.14.0-427.26.1.el9_4.x86_64 <br> 5.14.0-427.28.1.el9_4.x86_64 <br> 5.14.0-427.31.1.el9_4.x86_64 <br> 5.14.0-427.33.1.el9_4.x86_64 <br> 5.14.0-427.35.1.el9_4.x86_64 <br> 5.14.0-427.37.1.el9_4.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 and later |
+RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 | 9.62 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 and later |
+
+
+#### Supported Ubuntu kernel versions for Azure VMs
+
+Release | Mobility service version | Kernel version |
+--- | --- | --- |
+14.04 LTS | 9.66| No new 14.04 LTS kernels supported in this release. |
+14.04 LTS | 9.65| No new 14.04 LTS kernels supported in this release. |
+14.04 LTS | 9.64| No new 14.04 LTS kernels supported in this release. |
+14.04 LTS | 9.63| No new 14.04 LTS kernels supported in this release. |
+14.04 LTS | 9.62| No new 14.04 LTS kernels supported in this release. |
+|||
+16.04 LTS | 9.66| No new 16.04 LTS kernels supported in this release. |
+16.04 LTS | 9.65| No new 16.04 LTS kernels supported in this release. |
+16.04 LTS | 9.64| No new 16.04 LTS kernels supported in this release. |
+16.04 LTS | 9.63| No new 16.04 LTS kernels supported in this release. |
+16.04 LTS | 9.62| No new 16.04 LTS kernels supported in this release. |
+|||
+18.04 LTS | 9.66| 4.15.0-1188-azure <br> 4.15.0-1189-azure <br> 4.15.0-1190-azure <br> 4.15.0-1191-azure <br> 4.15.0-1192-azure <br> 4.15.0-1193-azure <br> 4.15.0-1194-azure <br> 4.15.0-1196-azure <br> 4.15.0-237-generic <br> 4.15.0-238-generic <br> 4.15.0-239-generic <br> 4.15.0-240-generic <br> 4.15.0-241-generic <br> 4.15.0-242-generic <br> 4.15.0-243-generic <br> 4.15.0-245-generic <br> 4.15.0-246-generic <br> 5.4.0-1150-azure <br> 5.4.0-1151-azure <br> 5.4.0-1152-azure <br> 5.4.0-1153-azure <br> <br> 5.4.0-1154-azure <br> 5.4.0-215-generic <br> 5.4.0-216-generic <br> 5.4.0-218-generic <br> 5.4.0-219-generic <br> 5.4.0-220-generic <br> 5.4.0-221-generic <br> 5.4.0-222-generic <br> 5.4.0-223-generic <br> 5.4.0-225-generic |
+18.04 LTS | 9.65| 4.15.0-1186-azure <br> 4.15.0-1187-azure <br> 4.15.0-235-generic <br> 4.15.0-236-generic <br> 5.4.0-1147-azure <br> 5.4.0-1148-azure <br> 5.4.0-1149-azure <br> 5.4.0-211-generic <br> 5.4.0-212-generic <br> 5.4.0-214-generic|
+18.04 LTS | 9.64| 4.15.0-1185-azure <br> 4.15.0-233-generic <br>4.15.0-234-generic <br> 5.4.0-1142-azure <br> 5.4.0-1143-azure <br> 5.4.0-1145-azure <br> 5.4.0-208-generic <br> 4.15.0-1181-azure <br> 4.15.0-1182-azure <br> 4.15.0-1183-azure <br> 4.15.0-1184-azure <br> 4.15.0-229-generic <br> 4.15.0-230-generic <br> 4.15.0-231-generic <br> 4.15.0-232-generic <br> 5.4.0-1137-azure <br> 5.4.0-1138-azure <br> 5.4.0-1139-azure <br> 5.4.0-1140-azure <br> 5.4.0-195-generic <br> 5.4.0-196-generic <br> 5.4.0-198-generic <br> 5.4.0-200-generic <br> 5.4.0-202-generic <br> 5.4.0-204-generic |
+18.04 LTS | 9.63 | 5.4.0-1135-azure <br> 5.4.0-192-generic <br> 4.15.0-1180-azure <br> 4.15.0-228-generic <br> 5.4.0-1136-azure <br> 5.4.0-193-generic <br> 5.4.0-1137-azure <br> 5.4.0-1138-azure <br> 5.4.0-195-generic <br> 5.4.0-196-generic <br> 4.15.0-1181-azure <br> 4.15.0-229-generic <br> 4.15.0-1182-azure  <br> 4.15.0-230-generic <br> 5.4.0-1139-azure <br> 5.4.0-198-generic | 
+18.04 LTS | 9.62| 4.15.0-226-generic <br>5.4.0-1131-azure <br>5.4.0-186-generic <br>5.4.0-187-generic <br> 4.15.0-1178-azure <br> 5.4.0-1132-azure <br> 5.4.0-1133-azure <br> 5.4.0-1134-azure <br> 5.4.0-190-generic <br> 5.4.0-189-generic  |
+|||
+20.04 LTS | 9.66| 5.15.0-1088-azure <br> 5.15.0-1089-azure <br> 5.15.0-1091-azure <br> 5.15.0-1094-azure <br> 5.15.0-1095-azure <br> 5.15.0-1096-azure <br> 5.15.0-1097-azure <br> 5.15.0-1098-azure <br> 5.15.0-1103-azure <br> 5.15.0-139-generic <br> 5.15.0-142-generic <br> 5.15.0-143-generic <br> 5.15.0-144-generic <br> 5.15.0-145-generic <br> 5.15.0-151-generic <br> 5.15.0-152-generic <br> 5.15.0-153-generic <br> 5.15.0-156-generic <br> 5.15.0-157-generic <br> 5.15.0-160-generic <br> 5.15.0-161-generic <br> 5.15.0-168-generic <br> 5.4.0-1150-azure <br> 5.4.0-1151-azure <br> 5.4.0-1152-azure <br> 5.4.0-1153-azure <br> 5.4.0-1154-azure <br> 5.4.0-215-generic <br> 5.4.0-216-generic <br> 5.4.0-218-generic <br> 5.4.0-219-generic <br> 5.4.0-220-generic <br> 5.4.0-221-generic <br> 5.4.0-222-generic <br> 5.4.0-223-generic <br> 5.4.0-225-generic |
+20.04 LTS | 9.65| 5.15.0-1082-azure <br> 5.15.0-1086-azure <br> 5.15.0-1087-azure <br> 5.15.0-136-generic <br> 5.15.0-138-generic <br> 5.4.0-1147-azure <br> 5.4.0-1148-azure <br> 5.4.0-1149-azure <br> 5.4.0-211-generic <br> 5.4.0-212-generic <br> 5.4.0-214-generic|
+20.04 LTS | 9.64| 5.15.0-1079-azure <br> 5.15.0-1081-azure <br> 5.15.0-131-generic <br> 5.15.0-134-generic <br> 5.4.0-1143-azure <br> 5.4.0-1145-azure  <br> 5.4.0-205-generic <br> 5.4.0-208-generic<br> 5.15.0-1072-azure <br> 5.15.0-1073-azure <br> 5.15.0-1074-azure <br> 5.15.0-1075-azure <br> 5.15.0-1078-azure <br> 5.15.0-121-generic <br> 5.15.0-122-generic <br> 5.15.0-124-generic <br> 5.15.0-125-generic <br> 5.15.0-126-generic <br> 5.15.0-127-generic <br> 5.15.0-130-generic <br> 5.4.0-1137-azure <br> 5.4.0-1138-azure <br> 5.4.0-1139-azure <br> 5.4.0-1140-azure <br> 5.4.0-1142-azure <br> 5.4.0-195-generic <br> 5.4.0-196-generic <br> 5.4.0-198-generic <br> 5.4.0-200-generic <br> 5.4.0-202-generic <br> 5.4.0-204-generic |
+20.04 LTS | 9.63| 5.15.0-1070-azure <br> 5.4.0-1135-azure <br> 5.4.0-192-generic <br> 5.15.0-1071-azure <br> 5.15.0-118-generic <br> 5.15.0-119-generic <br> 5.4.0-1136-azure <br> 5.4.0-193-generic <br> 5.15.0-1072-azure <br> 5.15.0-1073-azure <br> 5.15.0-121-generic <br> 5.15.0-122-generic <br> 5.4.0-1137-azure <br> 5.4.0-1138-azure <br> 5.4.0-195-generic <br> 5.4.0-196-generic |
+20.04 LTS | 9.62| 5.15.0-1065-azure <br>5.15.0-1067-azure <br>5.15.0-113-generic <br>5.4.0-1131-azure <br>5.4.0-1132-azure <br>5.4.0-186-generic <br> 5.4.0-187-generic <br> 5.15.0-1068-azure <br> 5.15.0-116-generic <br> 5.15.0-117-generic <br> 5.4.0-1133-azure <br> 5.4.0-1134-azure <br> 5.4.0-189-generic <br> 5.4.0-190-generic <br> 5.15.0-1074-azure <br> 5.15.0-124-generic <br> 5.4.0-1139-azure <br> 5.4.0-198-generic |
+|||
+22.04 LTS | 9.66| 5.15.0-1088-azure <br> 5.15.0-1089-azure <br> 5.15.0-1090-azure <br> 5.15.0-1091-azure <br> 5.15.0-1092-azure <br> 5.15.0-1094-azure <br> 5.15.0-1095-azure <br> 5.15.0-1096-azure <br> 5.15.0-1097-azure <br> 5.15.0-1098-azure <br> 5.15.0-1099-azure <br> 5.15.0-1101-azure <br> 5.15.0-1103-azure <br> 5.15.0-139-generic <br> 5.15.0-140-generic <br> 5.15.0-141-generic <br> 5.15.0-142-generic <br> 5.15.0-143-generic <br> 5.15.0-144-generic <br> 5.15.0-151-generic <br> 5.15.0-152-generic <br> 5.15.0-153-generic <br> 5.15.0-156-generic <br> 5.15.0-157-generic <br> 5.15.0-160-generic <br> 5.15.0-161-generic <br> 5.15.0-168-generic <br> 6.8.0-1028-azure <br> 6.8.0-1029-azure <br> 6.8.0-1030-azure <br> 6.8.0-1031-azure <br> 6.8.0-1034-azure <br> 6.8.0-1036-azure <br> 6.8.0-1040-azure <br> 6.8.0-1041-azure <br> 6.8.0-58-generic <br> 6.8.0-59-generic <br> 6.8.0-60-generic <br> 6.8.0-64-generic <br> 6.8.0-65-generic <br> 6.8.0-78-generic <br> 6.8.0-79-generic <br> 6.8.0-83-generic <br> 6.8.0-84-generic <br> 6.8.0-85-generic <br> 6.8.0-86-generic <br> 6.8.0-87-generic <br> 6.8.0-94-generic |
+22.04 LTS | 9.65| 5.15.0-1082-azure <br> 5.15.0-1084-azure <br> 5.15.0-1086-azure <br> 5.15.0-1087-azure <br> 5.15.0-135-generic <br> 5.15.0-136-generic <br> 5.15.0-138-generic <br> 6.8.0-1025-azure <br> 6.8.0-1026-azure <br> 6.8.0-1027-azure <br> 6.8.0-57-generic|
+22.04 LTS | 9.64| 5.15.0-1079-azure <br> 5.15.0-1081-azure <br> 5.15.0-131-generic <br> 5.15.0-133-generic <br> 5.15.0-134-generic <br> 6.8.0-1021-azure <br> 6.8.0-52-generic <br>5.15.0-1072-azure <br> 5.15.0-1073-azure <br> 5.15.0-1074-azure <br>5.15.0-1075-azure <br> 5.15.0-1078-azure <br> 5.15.0-121-generic <br> 5.15.0-122-generic <br> 5.15.0-124-generic <br> 5.15.0-125-generic <br> 5.15.0-126-generic <br> 5.15.0-127-generic <br> 5.15.0-130-generic <br> 6.8.0-1008-azure <br> 6.8.0-1009-azure <br> 6.8.0-1010-azure <br> 6.8.0-1012-azure <br> 6.8.0-1013-azure <br> 6.8.0-1014-azure <br> 6.8.0-1015-azure <br> 6.8.0-1017-azure <br> 6.8.0-1018-azure <br> 6.8.0-1020-azure <br> 6.8.0-38-generic <br> 6.8.0-39-generic <br> 6.8.0-40-generic <br> 6.8.0-45-generic <br> 6.8.0-47-generic <br> 6.8.0-48-generic <br> 6.8.0-49-generic <br> 6.8.0-50-generic <br> 6.8.0-51-generic |
+22.04 LTS | 9.63| 5.15.0-1070-azure <br> 5.15.0-118-generic <br> 5.15.0-1071-azure <br> 5.15.0-119-generic <br> 5.15.0-1072-azure <br> 5.15.0-1073-azure <br> 5.15.0-121-generic <br> 5.15.0-122-generic <br> 5.15.0-1074-azure <br> 5.15.0-124-generic |
+22.04 LTS | 9.62| 5.15.0-1066-azure <br> 5.15.0-1067-azure <br>5.15.0-112-generic <br>5.15.0-113-generic <br>6.5.0-1022-azure <br>6.5.0-1023-azure <br>6.5.0-41-generic <br> 5.15.0-1068-azure <br> 5.15.0-116-generic <br> 5.15.0-117-generic <br> 6.5.0-1024-azure <br> 6.5.0-1025-azure <br> 6.5.0-44-generic <br> 6.5.0-45-generic |
+|||
+24.04 LTS | 9.66| 6.14.0-1012-azure <br> 6.14.0-1013-azure <br> 6.14.0-1014-azure <br> 6.14.0-24-generic <br> 6.14.0-27-generic <br> 6.14.0-28-generic <br> 6.14.0-29-generic <br> 6.14.0-32-generic <br> 6.14.0-33-generic <br> 6.14.0-34-generic <br> 6.14.0-35-generic <br> 6.14.0-36-generic <br> 6.11.0-1008-azure <br> 6.11.0-1012-azure <br> 6.11.0-1013-azure <br> 6.11.0-1014-azure <br> 6.11.0-1015-azure <br> 6.11.0-1017-azure <br> 6.11.0-1018-azure <br> 6.11.0-17-generic <br> 6.11.0-19-generic <br> 6.11.0-21-generic <br> 6.11.0-24-generic <br> 6.11.0-25-generic <br> 6.11.0-26-generic <br> 6.11.0-28-generic <br> 6.11.0-29-generic <br> 6.8.0-1028-azure <br> 6.8.0-1029-azure <br> 6.8.0-1030-azure <br> 6.8.0-1031-azure <br> 6.8.0-1034-azure <br> 6.8.0-1038-azure <br> 6.8.0-1040-azure <br> 6.8.0-1041-azure <br> 6.8.0-1042-azure <br> 6.8.0-59-generic <br> 6.8.0-60-generic <br> 6.8.0-62-generic <br> 6.8.0-63-generic <br> 6.8.0-64-generic <br> 6.8.0-71-generic <br> 6.8.0-78-generic <br> 6.8.0-79-generic <br> 6.8.0-83-generic <br> 6.8.0-84-generic <br> 6.8.0-85-generic <br> 6.8.0-86-generic <br> 6.8.0-87-generic <br> 6.8.0-88-generic <br> 6.8.0-94-generic <br> 6.8.0-100-generic |
+24.04 LTS | 9.65| 6.8.0-1025-azure <br> 6.8.0-1026-azure <br> 6.8.0-1027-azure <br> 6.8.0-56-generic <br> 6.8.0-57-generic <br> 6.8.0-58-generic|
+24.04 LTS | 9.64| 6.8.0-1021-azure <br> 6.8.0-52-generic <br> 6.8.0-53-generic <br> 6.8.0-54-generic <br> 6.8.0-55-generic <br> 6.8.0-1007-azure <br> 6.8.0-1008-azure <br> 6.8.0-1009-azure <br> 6.8.0-1010-azure <br> 6.8.0-1012-azure <br> 6.8.0-1013-azure <br> 6.8.0-1014-azure <br> 6.8.0-1015-azure <br> 6.8.0-1016-azure <br> 6.8.0-1017-azure <br> 6.8.0-1018-azure <br> 6.8.0-1020-azure <br> 6.8.0-31-generic <br> 6.8.0-35-generic <br> 6.8.0-36-generic <br> 6.8.0-38-generic <br> 6.8.0-39-generic <br> 6.8.0-40-generic <br> 6.8.0-41-generic <br> 6.8.0-44-generic <br> 6.8.0-45-generic <br> 6.8.0-47-generic <br> 6.8.0-48-generic <br> 6.8.0-49-generic <br> 6.8.0-50-generic <br> 6.8.0-51-generic |
+
+#### Supported Debian kernel versions for Azure VMs
+
+Release | Mobility service version | Kernel version |
+--- | --- | --- |
+Debian 7 | 9.66 | No new Debian 7 kernels supported in this release. |
+Debian 7 | 9.65 | No new Debian 7 kernels supported in this release. |
+Debian 7 | 9.64 | No new Debian 7 kernels supported in this release. |
+Debian 7 | 9.63| No new Debian 7 kernels supported in this release. |
+Debian 7 | 9.62| No new Debian 7 kernels supported in this release. |
+|||
+Debian 8 | 9.66 | No new Debian 8 kernels supported in this release. |
+Debian 8 | 9.65 | No new Debian 8 kernels supported in this release. |
+Debian 8 | 9.64 | No new Debian 8 kernels supported in this release. |
+Debian 8 | 9.63| No new Debian kernels supported in this release. |
+Debian 8 | 9.62| No new Debian 8 kernels supported in this release. |
+|||
+Debian 9 | 9.66 | No new Debian 9 kernels supported in this release. |
+Debian 9 | 9.65 | No new Debian 9 kernels supported in this release. |
+Debian 9 | 9.64 | No new Debian 9 kernels supported in this release. |
+Debian 9.1 | 9.63 | No new Debian kernels supported in this release. |
+Debian 9.1 | 9.62 | No new Debian 9.1 kernels supported in this release.|
+|||
+Debian 10 | 9.66| No new Debian 10 kernels supported in this release. |
+Debian 10 | 9.65| No new Debian 10 kernels supported in this release. |
+Debian 10 | 9.64| No new Debian 10 kernels supported in this release. |
+Debian 10 | 9.63| No new Debian 10 kernels supported in this release. |
+Debian 10 | 9.62| 4.19.0-27-amd64 <br>4.19.0-27-cloud-amd64 <br>5.10.0-0.deb10.30-amd64 <br>5.10.0-0.deb10.30-cloud-amd64 |
+|||
+Debian 11 | 9.66 | 5.10.0-35-amd64 <br> 5.10.0-36-amd64 <br> 5.10.0-35-cloud-amd64 <br> 5.10.0-36-cloud-amd64 <br> 6.1.0-0.deb11.35-amd64 <br> 6.1.0-0.deb11.35-cloud-amd64 <br> 6.1.0-0.deb11.37-amd64 <br> 6.1.0-0.deb11.40-amd64 <br> 6.1.0-0.deb11.41-amd64 <br> 6.1.0-0.deb11.37-cloud-amd64 <br> 6.1.0-0.deb11.38-amd64 <br> 6.1.0-0.deb11.38-cloud-amd64 <br> 6.1.0-0.deb11.39-amd64 <br> 6.1.0-0.deb11.39-cloud-amd64 <br> 6.1.0-0.deb11.40-cloud-amd64 <br> 6.1.0-0.deb11.41-cloud-amd64 |
+Debian 11 | 9.65 | 6.1.0-0.deb11.32-amd64 <br> 6.1.0-0.deb11.32-cloud-amd64 |
+Debian 11 | 9.64 | 5.10.0-34-amd64 <br> 5.10.0-34-cloud-amd64 <br> 6.1.0-0.deb11.31-amd64 <br> 6.1.0-0.deb11.31-cloud-amd64 <br> 5.10.0-33-amd64 <br> 5.10.0-33-cloud-amd64 <br> 6.1.0-0.deb11.25-amd64 <br> 6.1.0-0.deb11.25-cloud-amd64 <br> 6.1.0-0.deb11.26-amd64 <br> 6.1.0-0.deb11.26-cloud-amd64 <br> 6.1.0-0.deb11.28-amd64 <br> 6.1.0-0.deb11.28-cloud-amd64 |
+Debian 11 | 9.63 | 5.10.0-26-amd64 <br> 5.10.0-26-cloud-amd64 <br> 5.10.0-31-amd64 <br> 5.10.0-31-cloud-amd64 <br> 5.10.0-32-amd64 <br> 5.10.0-32-cloud-amd64 <br> 6.1.0-0.deb11.13-amd64 <br> 6.1.0-0.deb11.13-cloud-amd64 <br> 6.1.0-0.deb11.17-amd64 <br> 6.1.0-0.deb11.17-cloud-amd64 <br> 6.1.0-0.deb11.18-amd64 <br> 6.1.0-0.deb11.18-cloud-amd64 <br> 6.1.0-0.deb11.21-amd64 <br> 6.1.0-0.deb11.21-cloud-amd64 <br> 6.1.0-0.deb11.22-amd64 <br> 6.1.0-0.deb11.22-cloud-amd64 | 
+Debian 11 | 9.62| 5.10.0-30-amd64 <br> 5.10.0-30-cloud-amd64 <br>6.1.0-0.deb11.21-amd64 <br>6.1.0-0.deb11.21-cloud-amd64 |
+|||
+Debian 12 | 9.66 | 6.1.0-34-amd64 <br> 6.1.0-34-cloud-amd64 <br> 6.1.0-35-amd64 <br> 6.1.0-35-cloud-amd64 <br> 6.1.0-37-amd64 <br> 6.1.0-40-amd64 <br> 6.1.0-41-amd64 <br> 6.1.0-37-cloud-amd64 <br> 6.1.0-38-amd64 <br> 6.1.0-38-cloud-amd64 <br> 6.1.0-39-amd64 <br> 6.1.0-39-cloud-amd64 <br> 6.1.0-40-cloud-amd64 <br> 6.1.0-41-cloud-amd64 |
+Debian 12 | 9.65 | 6.1.0-32-amd64 <br> 6.1.0-32-cloud-amd64 <br> 6.1.0-33-amd64 <br> 6.1.0-33-cloud-amd64|
+Debian 12 | 9.64 | 6.1.0-29-amd64 <br> 6.1.0-29-cloud-amd64 <br> 6.1.0-30-amd64 <br> 6.1.0-30-cloud-amd64 <br> 6.1.0-31-amd64 <br> 6.1.0-31-cloud-amd64 <br>6.1.0-15-cloud-amd64 <br> 6.1.0-26-amd64 <br> 6.1.0-26-cloud-amd64 <br> 6.1.0-27-amd64 <br> 6.1.0-27-cloud-amd64 <br> 6.1.0-28-amd64 <br> 6.1.0-28-cloud-amd64 |
+Debian 12 | 9.63 | 6.1.0-25-amd64 <br>6.1.0-25-cloud-amd64 <br>6.1.0-26-amd64 <br> 6.1.0-26-cloud-amd64 |
+Debian 12 | 9.62| 6.1.0-22-amd64 <br> 6.1.0-22-cloud-amd64 <br> 6.1.0-23-amd64 <br> 6.1.0-23-cloud-amd64 <br> 6.5.0-0.deb12.4-cloud-amd64 |
+
+#### Supported SUSE Linux Enterprise Server 12 kernel versions for Azure VMs
+
+Release | Mobility service version | Kernel version |
+--- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | 9.66 | New SUSE 12 kernels aren't supported in this release. |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | 9.65 | All [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 4.12.14-16.197-Azure: 5 <br> 4.12.14-16.200-Azure: 5 |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | 9.64 | All [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 4.12.14-16.197-Azure: 5 <br> 4.12.14-16.200-Azure: 5 |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | 9.63 | All [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 4.12.14-16.194-Azure: 5 <br> 4.12.14-16.197-Azure: 5 <br> 4.12.14-16.200-Azure: 5 |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | 9.62 | All [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 4.12.14-16.185-Azure: 5 <br> 4.12.14-16.188-Azure: 5 <br> 4.12.14-16.191-Azure: 5 |
+
+
+#### Supported SUSE Linux Enterprise Server 15 kernel versions for Azure VMs
+
+Release | Mobility service version | Kernel version |
+--- | --- | --- |
+SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5, SP6, SP7) | 9.66 | All [stock SUSE 15 SP1, SP2, SP3, SP4, SP5, SP6, SP7 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 6.4.0-150600.8.37-azure:6 <br> 6.4.0-150600.8.40-azure:6 <br> 6.4.0-150600.8.43-azure:6 <br> 6.4.0-150600.8.48-azure:6 <br> 6.4.0-150600.8.52-azure:6 <br> 6.4.0-150700.18-azure:7 <br> 6.4.0-150700.20.11-azure:7 <br> 6.4.0-150700.20.3-azure:7 <br> 6.4.0-150700.20.6-azure:7 <br> 6.4.0-150700.20.15-azure:7 <br> 6.4.0-150700.20.18-azure:7 <br> 6.4.0-150700.20.24-azure:7 |
+SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5, SP6) | 9.65 | All [stock SUSE 15 SP1, SP2, SP3, SP4, SP5, SP6 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 6.4.0-150600.8.23-azure:6 <br> 6.4.0-150600.8.26-azure:6 <br> 6.4.0-150600.8.31-azure:6 <br> 6.4.0-150600.8.34-azure:6 |
+SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5, SP6) | 9.64 | All [stock SUSE 15 SP1, SP2, SP3, SP4, SP5, SP6 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.66-azure:5 <br> 5.14.21-150500.33.69-azure:5 <br> 5.14.21-150500.33.72-azure:5 <br> 5.14.21-150500.33.75-azure:5 <br> 6.4.0-150600.6-azure:6 <br> 6.4.0-150600.8.11-azure:6 <br> 6.4.0-150600.8.14-azure:6 <br> 6.4.0-150600.8.17-azure:6 <br> 6.4.0-150600.8.20-azure:6 <br> 6.4.0-150600.8.5-azure:6 <br> 6.4.0-150600.8.8-azure:6 |
+SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5, SP6) | 9.63 | All [stock SUSE 15 SP1, SP2, SP3, SP4, SP5, SP6 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.63-azure:5 <br> 5.14.21-150500.33.66-azure:5 <br> 6.4.0-150600.6-azure:6 <br>6.4.0-150600.8.11-azure:6 <br> 6.4.0-150600.8.5-azure:6 <br> 6.4.0-150600.8.8-azure:6 <br> 6.4.0-150600.8.14-azure:6 <br> 5.14.21-150500.33.69-azure:5 |
+SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5) | 9.62 | All [stock SUSE 15 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.54-azure:5 <br> 5.14.21-150500.33.57-azure:5 <br> 5.14.21-150500.33.60-azure:5  |
+
+#### Supported Red Hat Linux kernel versions for Oracle Linux on Azure VMs 
+
+Release | Mobility service version | Red Hat kernel version |
+--- | --- | --- |
+Oracle Linux 9.0 <br> Oracle Linux 9.1 <br> Oracle Linux 9.2 <br> Oracle Linux 9.3 <br> Oracle Linux 9.4 <br> Oracle Linux 9.5 <br> Oracle Linux 9.6 | 9.66 | 5.14.0-503.11.1 and later |
+Oracle Linux 9.0 <br> Oracle Linux 9.1 <br> Oracle Linux 9.2 <br> Oracle Linux 9.3 <br> Oracle Linux 9.4 <br> Oracle Linux 9.5 | 9.65 | 5.14.0-503.11.1 and later |
+Oracle Linux 9.0 <br> Oracle Linux 9.1 <br> Oracle Linux 9.2 <br> Oracle Linux 9.3 <br> Oracle Linux 9.4 | 9.64 | 5.14.0-284.73.1.el9_2.x86_64 <br> 5.14.0-284.75.1.el9_2.x86_64 <br> 5.14.0-284.77.1.el9_2.x86_64 <br> 5.14.0-284.79.1.el9_2.x86_64 <br> 5.14.0-284.80.1.el9_2.x86_64 <br> 5.14.0-284.82.1.el9_2.x86_64 <br> 5.14.0-284.84.1.el9_2.x86_64 <br> 5.14.0-284.85.1.el9_2.x86_64 <br> 5.14.0-284.86.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64 <br> 5.14.0-427.24.1.el9_4.x86_64 <br> 5.14.0-427.26.1.el9_4.x86_64 <br> 5.14.0-427.28.1.el9_4.x86_64 <br> 5.14.0-427.31.1.el9_4.x86_64 <br> 5.14.0-427.33.1.el9_4.x86_64 <br> 5.14.0-427.35.1.el9_4.x86_64 <br> 5.14.0-427.37.1.el9_4.x86_64 |
+Oracle Linux 9.0 <br> Oracle Linux 9.1 <br> Oracle Linux 9.2 <br> Oracle Linux 9.3 <br> Oracle Linux 9.4 | 9.63 | 5.14.0-284.73.1.el9_2.x86_64 <br> 5.14.0-284.75.1.el9_2.x86_64 <br> 5.14.0-284.77.1.el9_2.x86_64 <br> 5.14.0-284.79.1.el9_2.x86_64 <br> 5.14.0-284.80.1.el9_2.x86_64 <br> 5.14.0-284.82.1.el9_2.x86_64 <br> 5.14.0-284.84.1.el9_2.x86_64 <br> 5.14.0-284.85.1.el9_2.x86_64 <br> 5.14.0-284.86.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64 <br> 5.14.0-427.24.1.el9_4.x86_64 <br> 5.14.0-427.26.1.el9_4.x86_64 <br> 5.14.0-427.28.1.el9_4.x86_64 <br> 5.14.0-427.31.1.el9_4.x86_64 <br> 5.14.0-427.33.1.el9_4.x86_64 <br> 5.14.0-427.35.1.el9_4.x86_64 <br> 5.14.0-427.37.1.el9_4.x86_64 |
+Oracle Linux 9.0 <br> Oracle Linux 9.1 <br> Oracle Linux 9.2 <br> Oracle Linux 9.3 | 9.62 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 |
+
+#### Supported Rocky Linux kernel versions for Azure VMs
+
+Release | Mobility service version | Red Hat kernel version |
+--- | --- | --- |
+Rocky Linux 10.0 <br> Rocky Linux 10.1 | 9.66 | 6.12.0-55.9.1 and later <br> 6.12.0-124.8.1 and later |
+Rocky Linux 9.0 <br> Rocky Linux 9.1 <br> Rocky Linux 9.2 <br> Rocky Linux 9.3 <br> Rocky Linux 9.4 <br> Rocky Linux 9.5 <br>  Rocky linux 9.6 <br> Rocky linux 9.7 | 9.66 | 5.14.0-611.5.1 and later |
+Rocky Linux 9.0 <br> Rocky Linux 9.1 <br> Rocky Linux 9.2 <br> Rocky Linux 9.3 <br> Rocky Linux 9.4 <br> Rocky Linux 9.5 |9.65 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
+Rocky Linux 9.0 <br> Rocky Linux 9.1 |9.64 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
+Rocky Linux 9.0 <br> Rocky Linux 9.1 |9.63 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
+Rocky Linux 9.0 <br> Rocky Linux 9.1 |9.62 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
+
+#### Supported Alma Linux kernel versions for Azure VMs
+
+Release | Mobility service version | Red Hat kernel version |
+--- | --- | --- |
+Alma Linux 10.0 <br> Alma Linux 10.1 | 9.66 | 6.12.0-55.9.1 and later <br> 6.12.0-124.8.1 and later |
+Alma Linux 9.6 <br> Alma Linux 9.7 | 9.66 | 5.14.0-611.5.1 and later |
+Alma Linux 9.0 <br> Alma Linux 9.1 <br> Alma Linux 9.2 <br> Alma Linux 9.3 <br> Alma Linux 9.4 <br> Alma Linux 9.5 |9.65 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
+Alma Linux 9.0 <br> Alma Linux 9.1 |9.64 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
+
 ## <a name = "replicated-machines---linux-file-systemguest-storage"></a>Replicated machines: Linux file system/guest storage
 
 * **File systems**: ext3, ext4, XFS, and BTRFS
