@@ -33,7 +33,7 @@ Point-to-site VPN can use one of the following protocols:
 
 Due to limited capability and suboptimal performance, we're retiring SSTP protocol:
 
-- **Effective Aug 31, 2026:** Enabling SSTP protocol on VPN gateways will no longer be supported.
+- **Effective Aug 31, 2026:** Microsoft no longer supports enabling the SSTP protocol on VPN gateways.
 - **Effective March 31, 2027:** Existing SSTP-enabled gateways can no longer be used to establish SSTP connections.
 
 The following instructions list out the steps to migrate your SSTP connections:
