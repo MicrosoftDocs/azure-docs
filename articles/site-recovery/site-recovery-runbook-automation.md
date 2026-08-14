@@ -56,6 +56,9 @@ When a script runs, it injects a recovery plan context to the runbook. The conte
 >[!Note]
 >The value for variable 'FailoverDirection' will be 'PrimaryToSecondary' in case of failover and 'SecondaryToPrimary' in case of failback.
 
+>[!NOTE]
+>Recovery Plans automatically invoke Azure Automation runbooks and pass only the RecoveryPlanContext parameter as input. Additional runtime inputs can't be provided through the Recovery Plan workflow. If additional values are required, the runbook must be authored to retrieve them from predefined sources or handle them within the script logic itself.
+
 The following example shows a context variable:
 
 ```json
