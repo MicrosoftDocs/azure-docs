@@ -1,26 +1,40 @@
 # Contributing to Microsoft Azure Documentation
 
-Thank you for taking the time to contribute to the Microsoft Azure documentation.
+Thank you for your interest in contributing to the Microsoft Azure documentation.
 
-This guide covers some general topics related to contribution and refers to our [contributor guide](https://learn.microsoft.com/contribute/content) for more detailed explanations when required.
+This guide provides an overview of the contribution process and links to the [Microsoft contributor guide](https://learn.microsoft.com/contribute/content) for detailed instructions and best practices.
 
 ## Code of Conduct
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 
-For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+This project follows the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 
-## How can I contribute?
+For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/). If you have additional questions or concerns, contact [opencode@microsoft.com](mailto:opencode@microsoft.com).
 
-There are many ways to contribute to the documentation. Review the following sections to find out which one is right for you.
+## How Can I Contribute?
 
-### Report bugs and suggesting enhancements
+There are several ways you can contribute to the Azure documentation. Choose the option that best matches your goal.
 
-Use the Feedback tool at the bottom of any article to submit bugs and suggestions. Select **This product** for product feedback and **This page** for documentation related feedback. 
+### Report Bugs or Suggest Improvements
 
-### Edit in GitHub
+If you find an issue with an article or have a suggestion for improving the documentation, use the **Feedback** tool at the bottom of the article.
 
-Follow the guidance for [editing documentation in the browser](https://learn.microsoft.com/contribute/content/how-to-write-quick-edits) in our contributor guide.
+* Select **This product** for product-related feedback.
+* Select **This page** for documentation-related feedback.
 
-## Pull requests
+### Edit Documentation on GitHub
 
-Review the guidance for [pull-request processing](https://learn.microsoft.com/contribute/content/process-pull-request) in our contributor guide.
+You can make quick documentation improvements directly from your browser using GitHub.
+
+Follow the [guide for editing documentation in the browser](https://learn.microsoft.com/contribute/content/how-to-write-quick-edits) for step-by-step instructions.
+
+### Submit a Pull Request
+
+For larger documentation changes, you can submit a pull request through GitHub.
+
+Before submitting your pull request, review the [pull request processing guidelines](https://learn.microsoft.com/contribute/content/process-pull-request) to understand the review and approval process.
+
+## Getting Started
+
+If you're new to contributing to Microsoft documentation, start with the [Microsoft contributor guide](https://learn.microsoft.com/contribute/content). It provides detailed information about setting up your environment, making changes, submitting pull requests, and following documentation standards.
+
+Thank you for helping improve Microsoft Azure documentation for the community!
