@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.author: v-gajeronika
-ms.date: 08/19/2025
+ms.date: 08/14/2026
 ms.custom: sfi-image-nochange
 # Customer intent: As a disaster recovery manager, I want to integrate Azure Automation runbooks into my recovery plans, so that I can automate complex recovery processes and reduce manual intervention during failover and failback operations.
 ---
