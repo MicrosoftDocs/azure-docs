@@ -425,6 +425,59 @@ Follow the instructions for the Azure portal or PowerShell.
 
 ---
 
+### Install on Azure Arc-enabled servers
+
+You can also deploy the Azure File Sync agent on Azure Arc-enabled Windows servers by using the **Azure File Sync Agent for Windows** extension. This method is useful for managing agent deployment and updates on servers connected through Azure Arc.
+
+> [!IMPORTANT]
+> The Azure File Sync agent extension is only supported on Windows. Linux Arc-enabled servers aren't supported.
+
+# [Azure portal](#tab/azure-portal)
+
+1. In the Azure portal, go to **Azure Arc** > **Machines** and select the Arc-enabled Windows server.
+1. Under **Extensions**, select **+ Add**, find and select the **Azure File Sync Agent for Windows** extension, and then select **Next**.
+1. Configure the agent settings (install directory, auto-update schedule, proxy settings) and select **Review + create**.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```powershell
+$Settings = @{
+  EnableAgentAutoUpdate = "true"
+  AutoUpdateScheduledDayOfWeek = "Monday"
+  AutoUpdateScheduledHourOfDay = 05
+  EnableServerDiagnostics = "true"
+  EnrollInMicrosoftUpdate = "true"
+}
+
+New-AzConnectedMachineExtension `
+  -ResourceGroupName <resource-group-name> `
+  -MachineName <machine-name> `
+  -Name AzureFileSyncExtension `
+  -SubscriptionId <subscriptionId> `
+  -Location <region> `
+  -Publisher Microsoft.StorageSync `
+  -ExtensionType AzureFileSyncExtension `
+  -Settings $settings
+```
+
+To configure proxy settings, add `UseCustomProxy`, `ProxyAddress`, `ProxyPort`, `ProxyAuthRequired`, and `ProxyUsername` to `$Settings`, and pass `ProxyPassword` via `-ProtectedSetting`.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az connectedmachine extension create \
+  --name AzureFileSyncAgentExtension \
+  --machine-name <machine> \
+  --resource-group <resource-group> \
+  --publisher Microsoft.StorageSync \
+  --type AzureFileSyncAgentExtension \
+  --settings '{"EnableAgentAutoUpdate":"true","EnableServerDiagnostics":"true","EnrollInMicrosoftUpdate":"true"}'
+```
+
+---
+
+After installing the extension, [register the server](#register-windows-server-with-storage-sync-service) with a Storage Sync Service to begin syncing.
+
 ## <a name = "register-windows-server-with-storage-sync-service"></a>Register Windows Server with a storage sync service
 
 Registering your Windows Server instance with a storage sync service establishes a trust relationship between your server (or cluster) and the storage sync service. A server can be registered with only one storage sync service. That server can sync with other servers and Azure file shares associated with the same storage sync service.
