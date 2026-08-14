@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 04/11/2025
+ms.date: 07/13/2026
 ms.reviewer: v-uhabiba
 ms.custom: engagement-fy23
 monikerRange: migrate
@@ -121,6 +121,91 @@ To view more attributes that Azure Migrate gathers during the discovery process,
 > The [details of exported inventory data](#export-all-inventory-data) in this article show a complete list of attributes that Azure Migrate discovers.
 
 ---
+
+In **All inventory**, VMware servers include extra network information. The **Subnet** column shows the subnet associated with each workload. The **Network associations** column displays related network resources, such as load balancers, NSX segments, and port groups.
+
+  :::image type="content" source="./media/how-to-review-discovered-inventory/all-inventory.png" alt-text="Screenshot shows the all inventory VMware servers that include additionl network information when NSX credentials are provided." lightbox="./media/how-to-review-discovered-inventory/all-inventory.png":::
+
+The **Network associations** show workloads associated with the selected network resource. Review workload-to-network relationships, including associations with NSX segments, VMware port groups, and load balancers.
+
+  :::image type="content" source="./media/how-to-review-discovered-inventory/network-association.png" alt-text="Screenshot shows the network association details." lightbox="./media/how-to-review-discovered-inventory/network-association.png":::
+
+## Review networking resources under infrastructure 
+
+To view discovered networking resources, follow these steps:
+
+Go to **Infrastructure** > **Network**. The **Network** page provides an inventory of discovered network resources and their relationships to workloads.
+
+The **Network** page includes the following tabs:
+
+- **[Components](#components)**: View discovered network resources, such as networks, subnets, and load balancers.
+- **[Policies](#policies)**: View network policies associated with discovered workloads and resources.
+- **[Logical groups](#logical-groups)**: View logical groupings of network resources and their associated workloads. 
+
+### Components 
+
+The **Components** tab shows the core networking components discovered in your environment, including: 
+
+- NSX Tier-0 Gateways
+- NSX Tier-1 Gateways 
+- Load Balancers 
+
+Select a component to view detailed information, including its associated resources and workload relationships.
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/components.png" alt-text="Screenshot shows the core networking components." lightbox="./media/how-to-review-discovered-inventory/components.png":::
+
+Use the **Associated VMs** pane to review the virtual machines connected to the selected networking resource. The pane lists each VM name and its associated IP address range.
+
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/associate-vms.png" alt-text="Screenshot shows the associated VMs." lightbox="./media/how-to-review-discovered-inventory/associate-vms.png":::
+
+Select a load balancer to view its configuration, associated network resources, and the workloads that use the load balancer for traffic distribution.
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/load-balancer.png" alt-text="Screenshot shows the details of the load balancer." lightbox="./media/how-to-review-discovered-inventory/load-balancer.png":::
+
+### Policies
+
+The **Policies** tab shows discovered networking and security policies, including:
+
+- Gateway policies
+- Gateway firewall rules
+- Distributed firewall policies
+- Distributed firewall rules
+- NAT rules
+
+For firewall policies and rules, select an item to view details such as source, destination, services, scope, and tags. For NAT rules, you can view match conditions and translation details.
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/policies.png" alt-text="Screenshot shows the details of the policies." lightbox="./media/how-to-review-discovered-inventory/policies.png":::
+
+## View distributed firewall rule details
+
+View detailed information about a distributed firewall rule to understand how traffic is filtered and controlled for discovered workloads.
+
+Select a distributed firewall rule to view its source, destination, services, scope, action, and associated tags. This view helps you understand how network traffic is controlled for discovered workloads.
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/distributed-firewall-rule.png" alt-text="Screenshot shows the details of the distributed firewall rule." lightbox="./media/how-to-review-discovered-inventory/distributed-firewall-rule.png":::
+
+Select a NAT rule to view its match conditions, translation details, and associated network resources.
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/nat-rule.png" alt-text="Screenshot shows the details of the NAT rule." lightbox="./media/how-to-review-discovered-inventory/nat-rule.png":::
+
+### Logical groups
+
+The **Logical Groups** tab shows logical network constructs and workload groupings, including:
+
+- VMware port groups
+- NSX segments
+- NS groups
+
+Select a logical group to view its associated workloads and understand the relationships between workloads and network resources.
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/logical-groups.png" alt-text="Screenshot shows the details of the logical groups." lightbox="./media/how-to-review-discovered-inventory/logical-groups.png":::
+
+Select an NSX segment to view its properties, network configuration, and connected workloads. 
+
+:::image type="content" source="./media/how-to-review-discovered-inventory/segment.png" alt-text="Screenshot shows the details of the NSX segment." lightbox="./media/how-to-review-discovered-inventory/segment.png":::
+
+Use the Network experience to review networking resources discovered in your VMware environment. 
 
 ## Perform actions
 
@@ -328,7 +413,7 @@ Use the **Databases Inventory** view to review all the discovered SQL Server dat
 > [!NOTE]
 > If you can't see all the discovered databases, ensure that the software inventory is completed for all servers. [Learn more](add-server-credentials.md).
 
-# [Default columns](#tab/default-col)
+# [Default columns](#tab/default)
 
 The default view shows the discovered databases, along with the following set of attributes:
 
@@ -348,7 +433,7 @@ Attribute name | Details
 **Appliance Name** | Name of the appliance.
 **Total database size (MB)** | Size of the database instance in megabytes.
 
-# [Optional columns](#tab/optional-col)
+# [Optional columns](#tab/optional)
 
 The optional view shows the following optional columns:
 

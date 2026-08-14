@@ -3,7 +3,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: include
-ms.date: 07/10/2026
+ms.date: 07/14/2026
 ms.custom: include file
 ---
 
@@ -69,7 +69,8 @@ In addition to the following limits, there's a [composite limit on the number of
 | Maximum associations per security policy | 110 | 225 |
 | Maximum secrets per profile | 100 | 500 |
 | Maximum key groups per profile | 100 | 200 |
-| HTTP header size limit (per header) | 64 KB | 64 KB|
+| HTTP header size limit (total header size) | 64 KB | 64 KB |
+| HTTP header size limit (total header size - Private Link Service origin) | 32 KB | 32 KB |
 | Web Application Firewall (WAF) policy per subscription | 100 | 100 |
 | WAF custom rules per policy | 100 | 100 |
 | WAF match conditions per custom rule | 10 | 10 |
@@ -83,12 +84,18 @@ In addition to the following limits, there's a [composite limit on the number of
 | WAF exclusion per policy | 100 | 100 |
 | WAF HTTP request body and file upload inspection limit | 128 KB | 128 KB |
 | WAF custom response body length | 32 KB | 32 KB |
+| Edge action code size <sup>4</sup> | 16 KB | 16 KB |
+| Edge action version counts <sup>4</sup> | 3 | 3 |
+| Edge action execution time <sup>4</sup> | 10 ms | 10 ms |
+| Maximum number of Edge Actions resources per subscription <sup>4</sup> | 100 | 100 |
 
 <sup>1</sup> If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limit is needed, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 <sup>2</sup> There's currently a 5,000 requests per second per PoP limit for each Front Door profile. Beyond this limit, the PoP location drops connections. If requests are concentrated in one or more regions and exceed this limit, you can request a higher PoP limit by submitting an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
 <sup>3</sup> If you need more than 3,000 concurrent WebSocket connections, submit an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+<sup>4</sup> Currently, **JavaScript** is the only supported language.
 
 #### Timeout values
 

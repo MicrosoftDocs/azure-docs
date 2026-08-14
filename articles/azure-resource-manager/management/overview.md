@@ -2,7 +2,7 @@
 title: What is Azure Resource Manager?
 description: This overview describes how to use Azure Resource Manager to deploy, manage, and control access to Azure resources.
 ms.topic: overview
-ms.date: 02/27/2026
+ms.date: 08/04/2026
 ms.custom: devx-track-arm-template
 ---
 
@@ -109,17 +109,17 @@ There are some important considerations when defining your resource group:
 
 ## Which location should I use for my resource group?
 
-When you create a resource group, you need to provide a location for that resource group.
-
-You might wonder why a resource group needs a location and why the resource group location matters if resources can have locations outside of a resource group.
+When you create a resource group, you need to provide a location for that resource group. You might wonder why a resource group needs a location and why the resource group location matters if resources can have locations outside of a resource group.
 
 The resource group stores metadata about resources. When you specify a location for the resource group, you're also specifying where that metadata is stored. For compliance reasons, you might need to ensure that your data is stored in a particular region.
 
-Routing all [control plane operations](./control-plane-and-data-plane.md) through the resource group's location can help the resource group to remain in a consistent state. When selecting a resource group location, it's recommended that you select a location close to where your control operations originate. Typically, this location is the one closest to you. This routing requirement only applies to control plane operations for the resource group. It doesn't affect requests that are sent to your applications.
+Routing [control plane operations](./control-plane-and-data-plane.md) that target resources in the resource group through the resource group's location helps the resource group remain in a consistent state. When you select a resource group location, select a location close to where your control operations originate - typically the location closest to you. This routing requirement applies only to ARM control plane operations (such as creating, updating, or deleting resources via the Azure Resource Manager API). It doesn't affect data plane requests sent directly to your resource endpoints, such as HTTP requests to a web app or read/write operations to a storage account.
 
-If a resource group's region is temporarily unavailable, your resource requests will failover to a secondary region. However, if multiple regions are experiencing an outage or the resource's location is also unavailable, you may still be impacted. To reduce the impact of regional outages, it's recommended that you locate your resources and resource group in the same region. See the [Azure Resource Graph table and resource type reference](../../governance/resource-graph/reference/supported-tables-resources.md#resources) list to view the resources and metadata that Resource Manager manages.
+If a resource group's region is temporarily unavailable, Azure Resource Manager automatically reroutes ARM control plane requests to a backup region. This failover is transparent - you use the same API endpoints without any changes. However, this failover covers only ARM control plane operations routed through the resource group. It doesn't cover data plane access to the resources themselves. If the region where a resource is deployed is also unavailable, data plane access to that resource is affected regardless of where its resource group is located. To reduce the impact of regional outages, locate your resources and resource group in the same region. See the [Azure Resource Graph table and resource type reference](../../governance/resource-graph/reference/supported-tables-resources.md#resources) list to view the resources and metadata that Resource Manager manages.
 
-Azure Resource Manager enhances reliability during regional outages, ensuring high availability for both reads and writes with minimal disruption to customers. Service interruptions would only occur in the rare event that both the primary and backup regions of the resource group are affected.
+ARM control plane high availability for resource groups is maintained as long as at least one of the resource group's primary or backup regions remains available. For details about how Resource Manager achieves this across regions and availability zones, see [Resiliency of Resource Manager](#resiliency-of-resource-manager).
+
+For more information about backup regions, see [Azure region pairs and nonpaired regions](/azure/reliability/regions-paired).
 
 For more information about building reliable applications, see the [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service).
 
@@ -144,7 +144,7 @@ Global endpoints typically result in faster response times, as users are directe
 
 ## Resolve concurrent operations
 
-Concurrent resource updates can cause unexpected results. When two or more operations try to update the same resource at the same time, Resource Manager detects the conflict, allows only one operation to complete successfully, blocks the other operations, and returns an error. This resolution ensures that your updates are conclusive and reliable; you know the status of your resources and avoid any inconsistency or data loss.  
+Concurrent resource updates can cause unexpected results. When two or more operations try to update the same resource at the same time, Resource Manager detects the conflict, allows only one operation to complete successfully, blocks the other operations, and returns an error. This resolution ensures that your updates are conclusive and reliable. You know the status of your resources and avoid any inconsistency or data loss.
 
 For example, if you have two requests (A and B) that try to update the same resource at the same time and request A finishes before request B, then request A succeeds and request B fails. Request B returns the 409 error. After getting that error code, you can get the updated status of the resource and determine if you want to send request B again.
 

@@ -97,7 +97,7 @@
       href: migrate-files-storage-mover.md
     - name: Use Robocopy to migrate to SMB Azure file shares
       href: storage-files-migration-robocopy.md
-    - name: Migrate from an on-premises NAS to Azure file shares with DataBox
+    - name: Migrate from an on-premises NAS to Azure file shares using Data Box
       href: storage-files-migration-nas-cloud-databox.md
   - name: Target a hybrid deployment with Azure File Sync
     items:
@@ -107,8 +107,10 @@
       href: storage-files-migration-linux-hybrid.md
     - name: Migrate from on-premises NAS to a hybrid file server using Azure File Sync
       href: storage-files-migration-nas-hybrid.md
-    - name: Migrate from on-premises NAS to a hybrid file server using DataBox
+    - name: Migrate from on-premises NAS to a hybrid file server using Data Box
       href: storage-files-migration-nas-hybrid-databox.md
+    - name: Migrate from on-premises Windows Server to a hybrid file server using Data Box
+      href: storage-files-migration-server-hybrid-databox.md
   - name: Transfer files with AzCopy
     items:
     - name: Get started with AzCopy
@@ -143,8 +145,6 @@
       href: files-manage-namespaces.md
     - name: Disable SMB 1 on the Windows SMB client
       href: /windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3?toc=/azure/storage/files/toc.json
-    - name: Disable SMB on the Linux SMB client
-      href: files-remove-smb1-linux.md
     - name: Network security perimeter
       href: files-network-security-perimeter.md
   - name: Encryption

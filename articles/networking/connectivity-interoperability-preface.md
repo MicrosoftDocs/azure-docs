@@ -4,7 +4,7 @@ description: This article describes a test setup you can use to analyze interope
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 03/26/2023
+ms.date: 08/05/2026
 ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: As a network architect, I want to set up a test environment to analyze the interoperability of Azure networking services, so that I can optimize the connectivity and performance between on-premises and Azure virtual networks.
@@ -62,16 +62,20 @@ In virtual network peering within a region, spoke virtual networks can use hub v
 
 ### Branch virtual network connectivity by using site-to-site VPN
 
-You might want branch virtual networks, which are in different regions, and on-premises networks to communicate with each other via a hub VNet. The native Azure solution for this configuration is site-to-site VPN connectivity by using a VPN. An alternative is to use a network virtual appliance (NVA) for routing in the hub.
+You might want branch virtual networks, which are in different regions, and on-premises networks to communicate with each other via a hub virtual network. The native Azure solution for this configuration is site-to-site VPN connectivity by using a VPN. An alternative is to use a network virtual appliance (NVA) for routing in the hub.
 
 For more information, see [What is VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md) and [Deploy a highly available NVA](/azure/architecture/reference-architectures/dmz/nva-ha).
 
 ## Next steps
 
-See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) to:
+- Learn about the [control plane analysis](./connectivity-interoperability-control-plane.md) of the test setup.
 
-- Learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway.
+- Learn about the [data plane analysis](./connectivity-interoperability-data-plane.md) of the test setup and Azure network monitoring feature views.
 
-- Learn how many ExpressRoute gateways you can connect to an ExpressRoute circuit.
+- See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) to:
 
-- Learn about other scale limits of ExpressRoute.
+    - Learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway.
+
+    - Learn how many ExpressRoute gateways you can connect to an ExpressRoute circuit.
+
+    - Learn about other scale limits of ExpressRoute.

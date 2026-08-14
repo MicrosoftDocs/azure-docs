@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 04/01/2026
+ms.date: 07/16/2026
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
@@ -15,7 +15,7 @@ In this section, you prepare your Linux virtual machine or physical device for I
 Run the following commands to add the package repository and then add the Microsoft package signing key to your list of trusted keys.
 
 > [!IMPORTANT]
-> On June 30, 2022, Raspberry Pi OS Stretch was retired from the Tier 1 OS support list. To avoid potential security vulnerabilities, update your host OS to Bullseye.
+> On June 30, 2022, Raspberry Pi OS Stretch was retired from the Tier 1 OS support list. To avoid potential security vulnerabilities, update your host OS to Bookworm.
 >
 > For [tier 2 supported platform operating systems](../support.md#tier-2), installation packages are available at [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation (optional)](../how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
@@ -48,13 +48,6 @@ You can install it by using APT and running a few commands. Open a terminal and 
 
     ```bash
     curl https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
-    sudo apt install ./packages-microsoft-prod.deb
-    ```
-
-* **11 - Bullseye (arm32v7)**:
-
-    ```bash
-    curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
     sudo apt install ./packages-microsoft-prod.deb
     ```
 

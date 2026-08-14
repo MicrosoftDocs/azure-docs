@@ -4,13 +4,16 @@ description: See answers to frequently asked questions about Azure Enclave.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
-ms.date: 6/23/2026
+ms.service: azure-enclave
 ai-usage: ai-assisted
+ms.date: 8/11/2026
 ---
 
 # Azure Enclave frequently asked questions
 
 This article answers common questions about Azure Enclave, including planning, usage, billing, configuration, and connections.
+
+## Overview
 
 ### What is Azure Enclave?
 
@@ -18,7 +21,7 @@ Azure Enclave is a hub-and-spoke network architecture with built-in network isol
 
 ### Why should I use Azure Enclave?
 
-Azure Enclave creates a secure foundation in a known configuration so you can pursue compliance approval faster and deploy workloads with platform-managed boundaries. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md).
+Azure Enclave creates a secure foundation in a known configuration so you can pursue compliance approval faster and deploy workloads with Azure Enclave-managed boundaries. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md)
 
 ### How does Azure Enclave work?
 
@@ -30,7 +33,7 @@ Azure Enclave pricing includes an hourly charge per enclave plus charges for the
 
 ### What are the benefits of using Azure Enclave?
 
-Azure Enclave helps you deploy secure-by-design network boundaries, enforce policy consistently, and separate workloads with controlled connectivity. It can reduce setup effort for regulated environments by using a known architecture and managed platform components. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md).
+Azure Enclave helps you deploy secure-by-design network boundaries, enforce policy consistently, and separate workloads with controlled connectivity. It can reduce setup effort for regulated environments by using a known architecture and managed Azure Enclave components. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md)
 
 ### Where can I learn to use Azure Enclave?
 
@@ -66,6 +69,11 @@ Azure Enclave includes roles to help you manage your environments with least pri
 
 ## Using Azure Enclave
 
+### Why use a dedicated hub?
+
+Use a dedicated hub when you need either a predictable internet egress SNAT IP for a group of enclaves or higher VNet-to-VNet throughput than pooled capacity provides. A dedicated hub has a specific Azure Firewall public IP, so enclaves that use that hub share the same SNAT public IP for internet egress.
+
+
 ### How do I create a resource that isn't in the Azure service allow list?
 
 If you're deploying an Azure service into a workload resource group and see the error `Do not allow creation of resource types outside of the allowlist`, the service isn't allowed by the assigned Azure Policy. You can create a policy exemption for the workload resource group.
@@ -91,14 +99,6 @@ As an example, to prevent deploying communities to a subscription, assign the `N
 Moving the enclave resource itself isn't supported. Additionally, moves aren't supported for some of the resources deployed in the enclave managed resource group (for example Azure Bastion, IP Groups, and user-assigned managed identity). [Learn more](/azure/azure-resource-manager/management/move-support-resources).
 
 Workload resources that allow moving can be moved according to the move options supported for that resource type. For example, you could make a virtual machine image and move the image to recreate or replicate a virtual machine in a new enclave.
-
-### How can I quickly stop resource access to a URL or IP?
-
-For example, if you need to quickly block or remove access from a resource like a virtual machine to a problematic website, you can:
-
-- Delete the enclave connection, for example, from your enclave to a community endpoint that allows access to a problematic website or IP address.
-- Remove the virtual machine's subnet from the enclave connection.
-- If you have access to the community or enclave endpoint, remove the problematic website or IP address from the endpoint rules.
 
 ## Billing
 
@@ -135,7 +135,15 @@ Adding a virtual network firewall isn't a recommended pattern. Azure Enclave man
 
 ### What access is allowed by default?
 
-Azure Enclave configures required platform egress for managed resources. For communities using a non-Basic firewall, a default outbound firewall policy rule is created for Key Management Service (KMS) over TCP port 1688.
+Azure Enclave configures the required Azure egress for managed resources. For communities that use a non-Basic firewall, it creates a default outbound firewall policy rule for Key Management Service (KMS) over TCP port 1688.
+
+### How can I quickly stop resource access to a URL or IP?
+
+For example, if you need to quickly block or remove access from a resource like a virtual machine to a problematic website, you can:
+
+- Delete the enclave connection, such as from your enclave to a community endpoint that allows access to a problematic website or IP address.
+- Remove the virtual machine's subnet from the enclave connection.
+- If you have access to the community or enclave endpoint, remove the problematic website or IP address from the endpoint rules.
 
 ### How can I make deployments faster?
 

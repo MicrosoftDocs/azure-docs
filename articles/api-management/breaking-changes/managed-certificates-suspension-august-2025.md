@@ -5,7 +5,7 @@ services: api-management
 ms.service: azure-api-management
 ms.topic: reference
 ai-usage: ai-assisted
-ms.date: 04/03/2026
+ms.date: 07/23/2026
 ---
 
 # Creation of managed certificates temporarily suspended for custom domains (August 2025 - June 2026)
@@ -13,7 +13,7 @@ ms.date: 04/03/2026
 [!INCLUDE [premium-dev-standard-basic.md](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 > [!IMPORTANT]
-> The suspension period for managed certificates was recently extended to June 30, 2026. 
+> The suspension period for managed certificates was recently extended to October 30, 2026. 
 
 Creation of Azure-managed certificates for custom domains in API Management will be temporarily turned off from August 15, 2025 to June 30, 2026. Existing managed certificates will be autorenewed as long as your API Management service allows inbound traffic from DigiCert IP addresses on port 80 and DNS is properly configured.
 

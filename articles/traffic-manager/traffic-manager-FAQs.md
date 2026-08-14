@@ -5,7 +5,7 @@ services: traffic-manager
 author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: concept-article
-ms.date: 12/29/2025
+ms.date: 06/01/2026
 ms.author: allensu
 # Customer intent: As a Cloud Architect, I want to understand Azure Traffic Manager functionalities and limitations, so that I can effectively implement it for DNS-based traffic routing and ensure optimal performance of my distributed applications.
 ---
@@ -63,7 +63,7 @@ As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-h
 
 ### Can I use Traffic Manager with a "naked" domain name?
 
-Yes. To learn how to create an alias record for your domain name apex to reference an Azure Traffic Manager profile, see [Configure an alias record to support apex domain names with Traffic Manager](../dns/tutorial-alias-tm.md).
+Yes. To learn how to use Traffic Manager at a domain name apex, see [Traffic Manager Linked Records](../dns/dns-traffic-manager-linked-records.md), which is the recommended approach. Traffic Manager Linked Records return IP addresses directly without a CNAME hop. You can also use an alias record—see [Configure an alias record to support apex domain names with Traffic Manager](../dns/tutorial-alias-tm.md).
 
 ### Does Traffic Manager consider the client subnet address when handling DNS queries? 
 
@@ -144,7 +144,7 @@ Geographic routing type can be used in any scenario where an Azure customer need
 
 The key difference between these two popular routing methods is that in Performance routing method your primary goal is to send traffic to the endpoint that can provide the lowest latency to the caller, whereas, in Geographic routing the primary goal is to enforce a geo fence for your callers so that you can deliberately route them to a specific endpoint. The overlap happens since there’s a correlation between geographical closeness and lower latency, although this isn’t always true. There might be an endpoint in a different geography that can provide a better latency experience for the caller and in that case Performance routing sends the user to that endpoint but Geographic routing always sends them to the endpoint you’ve mapped for their geographic region. To further make it clear, consider the following example - with Geographic routing you can make uncommon mappings such as send all traffic from Asia to endpoints in the US and all US traffic to endpoints in Asia. In that case, Geographic routing deliberately does exactly what you have configured it to do and performance optimization isn’t a consideration. 
 >[!NOTE]
->There may be scenarios where you might need both performance and geographic routing capabilities, for these scenarios nested profiles can be great choice. For example, you can set up a parent profile with geographic routing where you send all traffic from North America to a nested profile that has endpoints in the US and use performance routing to send those traffic to the best endpoint within that set. 
+>There may be scenarios where you might need both performance and geographic routing capabilities, for these scenarios nested profiles can be great choice. For example, you can set up a parent profile with geographic routing where you send all traffic from North America to a nested profile that has endpoints in the US and use performance routing to send that traffic to the best endpoint within that set. 
 
 ### What are the regions that are supported by Traffic Manager for geographic routing?
 
@@ -613,7 +613,54 @@ The following table describes the behavior of Traffic Manager health checks for 
 
 In order to add Azure Cloud Extended endpoints to a Traffic Manager profile, the resource group must have compatibility with the Azure Service Management (ASM) API. Profiles located in the older resource group must adhere to ASM API standards, which prohibit the inclusion of public IP address endpoints or endpoints from a different subscription than that of the profile. To resolve this, consider moving your Traffic Manager profile and associated resources to a new resource group compatible with the ASM API.
 
-## Next steps:
+## Traffic Manager Linked Records
+
+> [!IMPORTANT]
+> Traffic Manager Linked Records and Strictly Typed Profiles are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+### What are Traffic Manager Linked Records?
+
+Traffic Manager Linked Records is an Azure DNS feature that creates a direct link between a DNS record set and a Traffic Manager profile using the `trafficManagementProfile` property. When a client queries the DNS record, Azure DNS resolves the Traffic Manager profile internally and returns endpoint IP addresses directly—without a CNAME redirect to `trafficmanager.net`.
+
+For more information, see [Traffic Manager Linked Records overview](../dns/dns-traffic-manager-linked-records.md).
+
+### How are Traffic Manager Linked Records different from alias records?
+
+Traffic Manager Linked Records is the recommended approach and improves upon alias-to-Traffic Manager in the following ways:
+
+- **Resolution:** Traffic Manager Linked Records always return IP addresses directly. Alias CNAME records return the `trafficmanager.net` name, requiring a second DNS lookup.
+- **TTL:** Traffic Manager Linked Records always inherit the TTL from the Traffic Manager profile. Alias records use the TTL on the DNS record set.
+- **Type enforcement:** Traffic Manager Linked Records use [Strictly Typed Profiles](traffic-manager-strictly-typed-profiles.md) to enforce that endpoint IP types match the DNS record type. Alias records do a weaker check only at creation time.
+
+### What is a Strictly Typed Profile?
+
+A Traffic Manager profile type can be set during creation or configuration of a profile. The profile is locked to the IP address type (IPv4 for A records, IPv6 for AAAA records, or CNAME) and only DNS records of the respective type can be linked to the Traffic Manager profile. Traffic Manager then enforces that all endpoints added to the profile match the declared type. For more information, see [Strictly Typed Profiles](traffic-manager-strictly-typed-profiles.md).
+
+### Can a Traffic Manager profile be linked to both A and AAAA Traffic Manager Linked Records simultaneously?
+
+No. A profile can only be locked to one IP type at a time. The profile type is set when the profile is created or configured. A Traffic Manager Linked Record using a different IP record type than the profile's type will fail. CNAME Traffic Manager Linked Records don't impose an IP type restriction and can coexist with other CNAME records pointing to the same profile.
+
+### Do Traffic Manager Linked Records support nested profiles?
+
+Yes. Traffic Manager Linked Records support nested Traffic Manager profiles for all profile types.
+
+### Why don't Traffic Manager Linked Records expose `trafficmanager.net`?
+
+With Traffic Manager Linked Records, Azure DNS performs the Traffic Manager resolution internally and returns endpoint IP addresses directly to the client. The `trafficmanager.net` domain is never included in the DNS response. This is important for customers who restrict outbound DNS to specific domains—with alias records or CNAME records, clients had to resolve `trafficmanager.net`, a shared domain hosting profiles for all Azure customers. Traffic Manager Linked Records eliminate this requirement.
+
+### Are Traffic Manager Linked Records compatible with DNSSEC?
+
+Yes. Because Azure DNS resolves the Traffic Manager profile internally, there's no unsigned intermediate hop to `trafficmanager.net` in the DNS resolution chain. This preserves the DNSSEC chain of trust, making Traffic Manager Linked Records suitable for DNSSEC-signed zones.
+
+### What is the limit of records linked to Traffic Manager profiles?
+
+Both alias records and Traffic Manager Linked Records support up to 50 links per Traffic Manager profile.
+
+### What happens if I delete a Traffic Manager profile that has Linked Records?
+
+A Traffic Manager profile is blocked from being deleted while Traffic Manager Linked Records still reference it. You must remove all linked DNS records before the profile can be deleted. This prevents customers from accidentally breaking DNS record links and ensures clean management of linked resources.
+
+## Next steps
 
 - Learn more about Traffic Manager [endpoint monitoring and automatic failover](../traffic-manager/traffic-manager-monitoring.md).
 - Learn more about Traffic Manager [traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md).

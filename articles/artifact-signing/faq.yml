@@ -5,7 +5,7 @@ metadata:
   description: Get answers to frequently asked questions about Artifact Signing.
   author: TacoTechSharma
   ms.author: mesharm
-  ms.service: trusted-signing
+  ms.service: azure-artifact-signing
   ms.topic: faq
   ms.date: 05/14/2026
 title: Artifact Signing FAQ
@@ -49,7 +49,7 @@ sections:
         answer: For cases where identity validation exists with a primary email address and another identity validation request is required, contact support to continue onboarding.
       - question: What if my country/region isn't listed in country/region drop-down list on the Identity validation page?
         answer: | 
-          For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation isn't applicable to Private Trust certificates.
+          Check [Pre-requisites](https://learn.microsoft.com/azure/artifact-signing/quickstart?tabs=registerrp-portal%2Caccount-portal%2Corgvalidation%2Ccertificateprofile-portal%2Cdeleteresources-portal#prerequisites) to get the list of supported countries/regions for onboarding. 
       - question: What if my Artifact Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
         answer: |
           For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
@@ -59,6 +59,17 @@ sections:
       - question: What if the "New identity validation" button in the Azure portal is inactive?
         answer: |
           If the **New identity validation** button in the Azure portal is inactive and you can't select it, you don't have the Artifact Signing Identity Verifier role assigned to your account. To assign yourself the role, complete the steps in [Assign roles in Artifact Signing](tutorial-assign-roles.md). 
+      - question: How do I update my billing address for Individual identity validation when its formatting cannot be changed in the Azure portal?
+        answer: |
+          Use Azure CLI to update the billing account’s  sold-to  address. This supports casing changes and removing hyphens that cannot be updated through the portal:
+           ```azurecli
+              az billing account update \
+              --name "<billing-account-name>" \
+              --sold-to first-name="<first-name>" last-name="<last-name>" \
+              address-line1="<address>" city="<city>" region="WA" \
+              country="USA" postal-code="123450000"
+            ```
+          Enter the address exactly as it should appear. Plan accordingly, as this changes the billing information for the account.
       - question: What if my identity validation expires?
         answer: |
           If you don't renew identity validation before the expiration date, certificate renewal stops. All signing processes that are associated with those specific certificate profiles stops. To continue signing by using the Artifact Signing service, create another identity validation and associate it with the relevant certificate profiles. We send multiple reminders starting at 60 days before an identity validation's expiration date to help you begin the process of renewing your identity validation. 
@@ -79,6 +90,9 @@ sections:
         answer: | 
           - For questions about identity validation in Artifact Signing, contact us via Azure Support or by using Microsoft Q&A (use the tag **artifact-signing**).
           - Note: creating more identity validation requests for the same entity that is in progress doesn't help. Identity validation requests can't be expedited.
+      - question: What if I need assistance with AU10TIX?
+        answer: | 
+          - For issues related to the AU10TIX identity-verification experience, contact [AU10TIX Support]((mailto:au10tix.support@au10tix.com) directly. This includes problems uploading identity documents, completing facial verification, or using the AU10TIX verification flow.
       - question: What if the email validation link has expired?
         answer: | 
           If you missed clicking on the email verification within seven days, you need to start a new identity validation request. A new link can't be resent on the same request.
@@ -98,8 +112,18 @@ sections:
       - question: For Individual identity validation, I see an error - address does not match, first name last name not matched or FaceCheck fail.
         answer: |  
           If you encounter one of these errors, delete the existing identity validation request and remove the associated Verified ID from the Microsoft Authenticator app. Then submit a new identity validation request and create a new Verified ID, ensuring that all information is accurate and that the verification environment has adequate lighting.
+      - question: How do I troubleshoot technical errors when completing identity validation with Microsoft Authenticator and Verified ID?
+        answer: |  
+          - Close all open instances of the authenticator app on your mobile, this is usually done by swiping up, finding the app, then swiping up again.  Ensure you close all instances of the authenticator app before relaunching.
+          - Make sure you are using the latest version of Microsoft Authenticator (Android/iOS). Older versions may not fully support Verified ID.
+          - Clear your web cache, if you are accessing the Verified ID setup through a browser, clear your cache or try completing the process using a different browser.
+          - Avoid Weak Internet Connections or VPNs. Do not use a weak Wi‑Fi connection or any VPN/Proxy service. These can interrupt the secure handshake between the browser and Microsoft Authenticator, causing technical errors.
+          - Try a different device. Some device‑specific settings or security policies may interfere with the process. If possible, try completing the setup on another phone.
   - name: Certificate profiles
     questions:
+      - question: Why is the CN/O dropdown empty when I create a certificate profile? 
+        answer: |
+          You need at least one completed identity validation request that matches the certificate profile type you are creating.
       - question: Does deleting a certificate profile revoke the certificates? 
         answer: |
           Deleting a certificate profile doesn't revoke any previously issued certificates or invalidate their signatures; they remain valid.
@@ -122,7 +146,7 @@ sections:
           You can sign [all file types that SignTool supports](https://learn.microsoft.com/windows/win32/seccrypto/cryptography-tools).
       - question: What is the Artifact Signing compliance level?
         answer: |
-          FIPS 140-2 Level 3.
+          FIPS 140-3 Level 3.
       - question: How do I include the appropriate EKU for our certificates in the ELAM driver resources? 
         answer: |
           For information about the Early Launch Antimalware (ELAM) driver configuration for protecting antimalware user-mode services, see the following guidance:  
@@ -172,9 +196,12 @@ sections:
       - question: What if my Artifact Signing account is suspended?
         answer: |
           If a certificate is misused or abused per the service Terms of Use, Artifact Signing suspends the account or revokes a signing certificate or both. In this scenario, we engage with you directly and follow the guidelines in the CA/Browser Forum CSBRs. 
+      - question: What information may help with troubleshooting a signed file?
+        answer: |
+          Consider retaining the corresponding file and its hash. You can also [subscribe to signing transaction events](https://learn.microsoft.com/azure/artifact-signing/how-to-sign-history). This information may assist with troubleshooting signing-related issues.
       - question: What if I change my subscription ID or tenant ID?
         answer: |
-         Currently, Artifact Signing resources can't be migrated across subscriptions or tenants or resource groups or resources. If you want to make any change to your tenant ID or subscription ID, you must create all your Artifact Signing resources again.
+          Currently, Artifact Signing resources can't be migrated across subscriptions or tenants or resource groups or resources. If you want to make any change to your tenant ID or subscription ID, you must create all your Artifact Signing resources again.
       - question: Does Artifact Signing issue EV certificates?
         answer: |
           No, Artifact Signing doesn't issue Extended Validation (EV) certificates. There's no plan to issue EV certificates in the future.

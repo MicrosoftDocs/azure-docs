@@ -1,7 +1,7 @@
 ---
 title: Update IQN Naming Authority on Azure Elastic SAN Volumes
 description: Learn how to transition the iSCSI Qualified Name (IQN) naming authority for Azure Elastic SAN volumes that are already connected to clients.
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 author: shaynasrag
 ms.author: ssragovicz
 ms.reviewer: rogarana
@@ -16,7 +16,8 @@ Elastic SAN volume groups issue a unique identifier called an iSCSI Qualified na
 
 ## Regional availability
 
-The `net.azure.storage` naming authority is currently available in East Asia, Canada Central, South Central US, and West Central US.
+The `net.azure.storage` naming authority is currently available in Australia East, Canada Central, Canada East, Central US, East US, East US 2, Germany West Central, North Europe, Southeast Asia, Sweden Central, UK South, UK West, West Europe, West US 2, and West US 3.
+
 
 ## Prerequisites
 

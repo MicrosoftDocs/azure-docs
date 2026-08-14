@@ -6,7 +6,7 @@ summary: Artifact Signing is a Microsoft fully managed, end-to-end signing solut
 metadata:
   title: Artifact Signing documentation
   description: Artifact Signing is a Microsoft fully managed end-to-end signing solution for partner developers. The service is currently in public preview.
-  ms.service: trusted-signing
+  ms.service: azure-artifact-signing
   ms.topic: landing-page
   author: TacoTechSharma
   ms.author: mesharm

@@ -1,7 +1,7 @@
 ---
 title: Create your first containerized Azure Functions
 description: Get started by deploying your first function app from a Linux image in a container registry to Azure Functions.
-ms.date: 12/29/2023
+ms.date: 08/08/2026
 ms.topic: quickstart
 ms.custom: build-2023, devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions-no-go
@@ -14,7 +14,7 @@ In this article, you create a function app running in a Linux container and depl
 Deploying your function code to Azure Functions in a container requires [Premium plan](functions-premium-plan.md) or [Dedicated (App Service) plan](dedicated-plan.md) hosting. Completing this article incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
 > [!TIP]
-> When you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs, consider instead hosting your containerized function apps in Azure Container Apps. Functions provides integrated support for developing, deploying, and managing containerized function apps on Container Apps. For more information, see [Azure Container Apps hosting of Azure Functions](../container-apps/functions-overview.md). 
+> For most containerized workloads, host your function apps in Azure Container Apps instead of in a Premium or Dedicated plan. Container Apps provides a fully managed, serverless environment with built-in event-driven scaling, scale-to-zero, and GPU support. To get started, see [Create your first containerized functions on Azure Container Apps](../container-apps/functions-usage.md). 
 
 [!INCLUDE [functions-create-container-registry](../../includes/functions-create-container-registry.md)]
 
@@ -27,11 +27,11 @@ Before you can deploy your container to Azure, you need to create three resource
 * A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources. 
 
 >[!IMPORTANT]
->This article currently shows how to connect to both the Azure Storage account and your container registry by using connection strings and other shared secret credentials. For the best security, you should instead use only a managed identity-based connection to both your storage account and to Azure Container Registry using Microsoft Entra authentication. For more information, see the [Functions developer guide](./functions-reference.md#connections).
+>This article currently shows how to connect to both the Azure Storage account and your container registry by using connection strings and other shared secret credentials. For the best security, use only a managed identity-based connection to both your storage account and to Azure Container Registry using Microsoft Entra authentication. For more information, see the [Functions developer guide](./manage-connections.md).
 
-Use the following commands to create these items. Both Azure CLI and PowerShell are supported. To create your Azure resources using Azure PowerShell, you also need the [Az PowerShell module](/powershell/azure/install-az-ps), version 5.9.0 or later.
+Use the following commands to create these items. Both Azure CLI and PowerShell are supported. To create your Azure resources by using Azure PowerShell, you also need the [Az PowerShell module](/powershell/azure/install-az-ps), version 5.9.0 or later.
 
-1. If you haven't done already, sign in to Azure.
+1. If you didn't already, sign in to Azure.
 
     # [Azure CLI](#tab/azure-cli)
     ```azurecli
@@ -57,7 +57,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
     az group create --name AzureFunctionsContainers-rg --location <REGION>
     ```
  
-    The [`az group create`](/cli/azure/group#az-group-create) command creates a resource group. In the above command, replace `<REGION>` with a region near you, using an available region code returned from the [az account list-locations](/cli/azure/account#az-account-list-locations) command.
+    The [`az group create`](/cli/azure/group#az-group-create) command creates a resource group. In the preceding command, replace `<REGION>` with a region near you, using an available region code returned from the [az account list-locations](/cli/azure/account#az-account-list-locations) command.
 
     # [Azure PowerShell](#tab/azure-powershell)
 
@@ -89,7 +89,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
     ---
 
-    In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Storage names must contain 3 to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account [supported by Functions](storage-considerations.md#storage-account-requirements).
+    In the previous example, replace `<STORAGE_NAME>` with a name that you choose and that's unique in Azure Storage. Storage names can contain 3 to 24 characters, numbers, and lowercase letters only. `Standard_LRS` specifies a general-purpose account [supported by Functions](storage-considerations.md#storage-account-requirements).
     
 1. Use the command to create a Premium plan for Azure Functions named `myPremiumPlan` in the **Elastic Premium 1** pricing tier (`--sku EP1`), in your `<REGION>`, and in a Linux container (`--is-linux`).
 
@@ -110,7 +110,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
 A function app on Azure manages the execution of your functions in your Azure Functions hosting plan. In this section, you use the Azure resources from the previous section to create a function app from an image in a container registry and configure it with a connection string to Azure Storage.
 
-1. Create a function app using the following command, depending on your container registry:
+1. Create a function app by using the following command, depending on your container registry:
 
     # [Azure Container Registry](#tab/acr/azure-cli)
     ```azurecli
@@ -138,7 +138,7 @@ A function app on Azure manages the execution of your functions in your Azure Fu
     When you first create the function app, it pulls the initial image from your Docker Hub. You can also [Enable continuous deployment](./functions-how-to-custom-container.md#enable-continuous-deployment-to-azure) to Azure from your container registry.
     
     > [!TIP]  
-    > You can use the [`DisableColor` setting](functions-host-json.md#console) in the *host.json* file to prevent ANSI control characters from being written to the container logs.
+    > Use the [`DisableColor` setting](functions-host-json.md#console) in the *host.json* file to prevent ANSI control characters from being written to the container logs.
 
 1. Use the following command to get the connection string for the storage account you created:
 
@@ -161,7 +161,7 @@ A function app on Azure manages the execution of your functions in your Azure Fu
     ---    
 
     >[!IMPORTANT]
-    >This article currently shows how to connect to the default storage account by using a connection string. For the best security, you should instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see the [Functions developer guide](./functions-reference.md#connections).
+    >This article currently shows how to connect to the default storage account by using a connection string. For the best security, you should instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see the [Functions developer guide](./manage-connections.md).
 
     Replace `<STORAGE_NAME>` with the name of the storage account you created earlier.
 
@@ -171,17 +171,17 @@ A function app on Azure manages the execution of your functions in your Azure Fu
     ```azurecli
     az functionapp config appsettings set --name <APP_NAME> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<CONNECTION_STRING>
     ```
-    The [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-ppsettings-set) command creates the setting.
+    Use the [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command to create the setting.
 
     # [Azure PowerShell](#tab/azure-powershell)
     ```azurepowershell
     Update-AzFunctionAppSetting -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -AppSetting @{"AzureWebJobsStorage"="<CONNECTION_STRING>"}
     ```
-    The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) cmdlet creates the setting.
+    Use the [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) cmdlet to create the setting.
 
     ---
 
-    In this command, replace `<APP_NAME>` with the name of your function app and `<CONNECTION_STRING>` with the connection string from the previous step. The connection should be a long encoded string that begins with `DefaultEndpointProtocol=`.
+    In this command, replace `<APP_NAME>` with the name of your function app and `<CONNECTION_STRING>` with the connection string from the previous step. The connection string is a long encoded string that begins with `DefaultEndpointProtocol=`.
  
 1. The function can now use this connection string to access the storage account.
 
@@ -189,9 +189,9 @@ A function app on Azure manages the execution of your functions in your Azure Fu
 
 ## Clean up resources
 
-If you want to continue working with Azure Function using the resources you created in this article, you can leave all those resources in place. Because you created a Premium Plan for Azure Functions, you'll incur one or two USD per day in ongoing costs.
+If you want to continue working with Azure Functions using the resources you created in this article, you can leave all those resources in place. Because you created a Premium Plan for Azure Functions, you incur ongoing costs of one or two USD per day.
 
-To avoid ongoing costs, delete the `AzureFunctionsContainers-rg` resource group to clean up all the resources in that group:
+To avoid ongoing costs, delete the `AzureFunctionsContainers-rg` resource group to clean up all the resources in that group.
 
 ```azurecli
 az group delete --name AzureFunctionsContainers-rg

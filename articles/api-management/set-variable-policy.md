@@ -37,8 +37,16 @@ The `set-variable` policy declares a [context](api-management-policy-expressions
 
 ## Allowed types
 
-Expressions used in the `set-variable` policy must return one of the following basic types.
+Expressions used in the `set-variable` policy must return one of the following types.
 
+-   Newtonsoft.Json.Linq.JArray
+-   Newtonsoft.Json.Linq.JConstructor
+-   Newtonsoft.Json.Linq.JContainer
+-   Newtonsoft.Json.Linq.JProperty
+-   Newtonsoft.Json.Linq.JObject
+-   Newtonsoft.Json.Linq.JRaw
+-   Newtonsoft.Json.Linq.JToken
+-   Newtonsoft.Json.Linq.JValue
 -   System.Boolean
 -   System.SByte
 -   System.SByte[]

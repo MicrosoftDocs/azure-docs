@@ -4,7 +4,7 @@ description: Configure on-premises Active Directory Domain Services (AD DS) auth
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/03/2026
+ms.date: 07/27/2026
 ms.author: kendownie
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator managing multiple Active Directory forests, I want to configure Azure file shares with identity-based authentication, so that users from different forests can access shared resources seamlessly.
@@ -31,7 +31,7 @@ Azure Files on-premises AD DS authentication only supports the AD forest of the 
 
 A forest trust is a transitive trust between two AD forests that allows users in any of the domains in one forest to be authenticated in any of the domains in the other forest.
 
-## Multi-forest setup
+## Configure multi-forest Azure Files authentication
 
 To configure a multi-forest setup, perform the following steps:
 
@@ -41,7 +41,7 @@ To configure a multi-forest setup, perform the following steps:
 
 ### Collect domain information
 
-For this exercise, we have two on-premises AD DS domain controllers with two different forests and in different virtual networks.
+This example uses two on-premises AD DS domain controllers with two different forests and in different virtual networks.
 
 | **Forest** | **Domain** | **Virtual network** |
 |--------|--------|------|
@@ -88,8 +88,8 @@ After you establish the trust, follow these steps to create a storage account an
    > You don't need to create a second storage account. These instructions show an example of how to access storage accounts that belong to different forests. If you only have one storage account, you can ignore the second storage account setup instructions.
    
 1. [Create an SMB Azure file share and assign share-level permissions](storage-files-identity-assign-share-level-permissions.md) on each storage account.
-1. [Sync your on-premises AD to Microsoft Entra ID](../../active-directory/hybrid/how-to-connect-install-roadmap.md) by using [Microsoft Entra Connect Sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application. 
-1. Domain-join an Azure VM in **Forest 1** to your on-premises AD DS. For information about how to domain-join, refer to [Join a Computer to a Domain](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
+1. [Sync your on-premises AD to Microsoft Entra ID](/entra/identity/hybrid/connect/how-to-connect-install-roadmap) by using [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis). 
+1. Domain-join an Azure VM in **Forest 1** to your on-premises AD DS. For information about how to domain-join, see [Join a Computer to a Domain](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
 1. [Enable AD DS authentication](storage-files-identity-ad-ds-enable.md) on the storage account associated with **Forest 1**, such as **onprem1sa**. This step creates a computer account in your on-premises AD called **onprem1sa** to represent the Azure storage account and joins the storage account to the **onpremad1.com** domain. You can verify that the AD identity representing the storage account was created by looking in **Active Directory Users and Computers** for **onpremad1.com**. In this example, you see a computer account called **onprem1sa**.
 1. Create a user account by navigating to **Active Directory > onpremad1.com**. Right-click on **Users**, select **Create**, enter a user name (for example, **onprem1user**), and check the **Password never expires** box (optional).
 1. Optional: If you want to use Azure RBAC to assign share-level permissions, you must sync the user to Entra ID by using Microsoft Entra Connect. Normally Microsoft Entra Connect Sync updates every 30 minutes. However, you can force it to sync immediately by opening an elevated PowerShell session and running `Start-ADSyncSyncCycle -PolicyType Delta`. You might need to install the ADSync module first by running `Import-Module ADSync`. To verify that the user is synced to Entra ID, sign in to the Azure portal with the Azure subscription associated with your multi-forest tenant and select **Microsoft Entra ID**. Select **Manage > Users** and search for the user you added (for example, **onprem1user**). **On-premises sync enabled** should say **Yes**.
@@ -112,9 +112,9 @@ If icacls fails with an *Access is denied* error, follow these steps to configur
 1. Set icacls permissions for user in **Forest 2** on storage account joined to **Forest 1** from client in **Forest 1**.
 
 > [!NOTE]
-> Don't use File Explorer to configure ACLs in a multi-forest environment. Although users who belong to the forest that's domain-joined to the storage account can have file and directory-level permissions set via File Explorer, it doesn't work for users that don't belong to the same forest that's domain-joined to the storage account.
+> Don't use File Explorer to configure ACLs in a multi-forest environment. Although users who belong to the forest that's domain-joined to the storage account can have file and directory-level permissions set through File Explorer, it doesn't work for users that don't belong to the same forest that's domain-joined to the storage account.
 
-## Configure domain suffixes
+## Configure domain suffix routing
 
 As explained earlier, Azure Files registers in AD DS almost the same as a regular file server. It creates an identity (by default a computer account, but it could also be a service logon account) that represents the storage account in AD DS for authentication. The only difference is that the registered service principal name (SPN) of the storage account ends with **file.core.windows.net**, which doesn't match with the domain suffix. Because of the different domain suffix, you need to configure a suffix routing policy to enable multi-forest authentication.
 
@@ -150,7 +150,7 @@ To use this method, complete the following steps:
     ```
    setspn -s cifs/contosofs.contoso.com contosofs
    ```
-1. Add a CNAME entry by using Active Directory DNS Manager and follow the steps below for each storage account in the domain that the storage account is joined to. If you're using a private endpoint, add the CNAME entry to map to the private endpoint name.
+1. Add a CNAME entry by using Active Directory DNS Manager and follow these steps for each storage account in the domain that the storage account is joined to. If you're using a private endpoint, add the CNAME entry to map to the private endpoint name.
 
    1. Open Active Directory DNS Manager.
    1. Go to your domain (for example, **contoso.com**).
@@ -166,11 +166,13 @@ To use this method, complete the following steps:
 Now, from domain-joined clients, you can use storage accounts joined to any forest.
 
 > [!NOTE]
-> Ensure the hostname part of the FQDN matches the storage account name as described earlier. Otherwise, you get an access denied error: "The filename, directory name, or volume label syntax is incorrect." A network trace shows `STATUS_OBJECT_NAME_INVALID` (0xc0000033) message during the SMB session setup.
+> Make sure the hostname part of the FQDN matches the storage account name as described earlier. Otherwise, you get an access denied error: "The filename, directory name, or volume label syntax is incorrect." A network trace shows `STATUS_OBJECT_NAME_INVALID` (0xc0000033) message during the SMB session setup.
 
 ### Add custom name suffix and routing rule
 
-If you already modified the storage account name suffix and added a CNAME record as described in the previous section, you can skip this step. If you don't want to make DNS changes or modify the storage account name suffix, you can configure a suffix routing rule from **Forest 1** to **Forest 2** for a custom suffix of **file.core.windows.net**.
+This method is an alternative to modifying the SPN suffix and adding a CNAME record. It solves the domain routing problem by (1) registering **file.core.windows.net** as a known UPN suffix on **Forest 2** so that forest claims ownership of that suffix, and (2) configuring **Forest 1** to forward any Kerberos requests for that suffix to **Forest 2**. Use this method if you prefer not to modify DNS records or storage account SPNs.
+
+If you already completed the CNAME method described in the previous section, skip this section.
 
 > [!NOTE]
 > Configuring name suffix routing doesn't affect the ability to access resources in the local domain. It's only required to allow the client to forward the request to the domain matching the suffix when the resource isn't found in its own domain.
@@ -195,7 +197,7 @@ Next, add the suffix routing rule on **Forest 1**, so that it redirects to **For
 
 ## Validate that the trust is working
 
-Validate that the trust is working by running the **klist** command to display the contents of the Kerberos credentials cache and key table.
+After completing the configuration, verify that users in each forest can get Kerberos tickets to authenticate to file shares joined to the other forest. The **klist** command displays the Kerberos credentials cache. Successful cross-forest authentication shows tickets issued by the other forest's KDC.
 
 1. Sign in to a machine or VM that's joined to a domain in **Forest 1** and open a Windows command prompt.
 

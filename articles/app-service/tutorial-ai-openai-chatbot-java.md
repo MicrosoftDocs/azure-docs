@@ -328,7 +328,7 @@ This approach lets your code run securely and seamlessly in both local and cloud
 
 ## Next steps
 
-- [Tutorial: Build a Retrieval Augmented Generation with Azure OpenAI and Azure AI Search (Spring Boot)](tutorial-ai-openai-search-java.md)
+- [Build grounded agent applications with Foundry Agent Service and Foundry IQ](scenario-ai-chatbot-retrieval-augmented-generation.md)
 - [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (Spring Boot)](tutorial-ai-slm-spring-boot.md)
 - [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource)
 - [Configure Azure App Service](/azure/app-service/configure-common)

@@ -4,7 +4,7 @@ description: Learn how to configure bundled Prometheus in Azure Managed Grafana.
 keywords: Azure Managed Grafana, Prometheus, bundled Prometheus
 author: maud-lv
 ms.topic: how-to
-ms.date: 05/11/2026
+ms.date: 07/03/2026
 ms.author: malev
 ms.reviewer: malev
 ms.service: azure-managed-grafana
@@ -48,6 +48,9 @@ Complete the following steps to connect your Grafana workspace to an Azure Monit
 
 1. After enablement completes, the selected Azure Monitor workspace appears in the dropdown menu.
 1. To switch to a different Azure Monitor workspace in the future, repeat steps 2 and 3 above.
+
+> [!NOTE]
+> Starting with Grafana 13, the Azure Monitor Managed Service for Prometheus plugin provides Azure authentication for the `bundled-azure-prometheus` data source. Existing data sources migrate automatically, so your recording rules, dashboards, and alerts keep working. For details, see [How to manage data sources](how-to-data-source-plugins-managed-identity.md#supported-grafana-data-sources).
 
 ## Create a Grafana alert rule
 

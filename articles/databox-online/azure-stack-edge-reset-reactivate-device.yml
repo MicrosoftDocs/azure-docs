@@ -64,7 +64,7 @@ procedureSection:
         > If running AP5GC/SAP Kubernetes workload profiles and you updated your Azure Stack Edge to 2309, and reset your Azure Stack Edge device, you see the following behavior: 
         >   - In the local web UI, if you go to Software updates page, you see that the Kubernetes version is unavailable.
         >   - In Azure portal, you are prompted to apply a Kubernetes update. Go ahead and apply the Kubernetes update.
-        >   - After device reset, you must select a Kubernetes workload profile again. Otherwise, the default "Other workloads" profile will be applied. For more information, see [Configure compute IPs](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1).  
+        >   - After device reset, you must select a Kubernetes workload profile again. Otherwise, the default "Other workloads" profile will be applied. For more information, see [Configure compute IPs](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-compute-ips).  
 
   - title: |  
       Remove Azure resources from your Azure Stack Edge device

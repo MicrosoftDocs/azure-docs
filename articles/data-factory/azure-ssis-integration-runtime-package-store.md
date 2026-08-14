@@ -3,8 +3,8 @@ title: Manage packages with Azure-SSIS Integration Runtime package store
 description: Learn how to manage packages with Azure-SSIS Integration Runtime package store.
 ms.subservice: integration-services
 ms.topic: how-to
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ms.date: 10/20/2023
 ms.custom: sfi-image-nochange
 ---
@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 # Manage packages with Azure-SSIS Integration Runtime package store
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 To lift & shift your on-premises SQL Server Integration Services (SSIS) workloads to the cloud, you can provision Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF). For more information, see [Provision an Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md). An Azure-SSIS IR supports:
 

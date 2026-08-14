@@ -33,7 +33,7 @@ This tutorial assumes you have:
 - Identified the Azure region for your enclaves
 
 > [!IMPORTANT]
-> This tutorial uses placeholder names. Replace `myResourceGroup`, `fabrikam`, `avd-enclave`, `aks-enclave`, etc. with your own naming convention.
+> This tutorial uses placeholder names. Replace `myResourceGroup`, `cmt-fabrikam`, `avd-enclave`, `aks-enclave`, and other placeholder names with your own naming convention.
 
 ## Set up common dependencies
 
@@ -44,7 +44,7 @@ Both Azure Virtual Desktop and AKS workloads require common dependencies for enc
 First, create a workload in your existing enclave (or create a new enclave) to host shared services.
 
 1. In the Azure portal, navigate to your **Azure Enclave** service.
-1. Select **Communities** and open your community (for example, `fabrikam`).
+1. Select **Communities** and open your community (for example, `cmt-fabrikam`).
 1. Select an existing enclave or create a new shared services enclave:
    - **Enclave name**: `shared-services`
    - **Address space**: `10.1.0.0/16` (adjust based on your community IP address range)
@@ -122,7 +122,7 @@ Verify all resources are created and configured correctly:
 
 Now create a dedicated enclave for Azure Virtual Desktop workloads.
 
-1. In your community (for example, `fabrikam`), select `Enclaves` > `+ Create`.
+1. In your community (for example, `cmt-fabrikam`), select `Enclaves` > `+ Create`.
 1. Configure the Azure Virtual Desktop enclave:
    - **Enclave name**: `avd-enclave`
    - **Region**: Same region as your community
@@ -234,7 +234,7 @@ Community endpoints allow traffic from your enclaves to external Azure services 
 
 ### Create Azure Virtual Desktop community endpoint
 
-1. Navigate to your community (for example, `fabrikam`).
+1. Go to your community (for example, `cmt-fabrikam`).
 1. Select `Community endpoints` then select `+ Create`.
 1. Configure the endpoint:
    - **Name**: `ce-avd-services`

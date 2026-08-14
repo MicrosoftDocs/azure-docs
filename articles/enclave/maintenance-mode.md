@@ -4,12 +4,18 @@ description: Maintenance mode explanation.
 author: jadean-msft
 ms.author: jadean
 ms.topic: concept-article
+ms.service: azure-enclave
 ms.date: 9/30/2025
 ---
 
 # Maintenance Mode
 
 Maintenance mode is a feature that allows community or enclave owners to temporarily place their community or enclaves into a "maintenance mode" state where changes are allowed. This mode permits privileged users to make certain changes to the underlying managed resources that are normally protected by Deny Assignments. This helps maintain the community and enclave isolation and network boundary.
+
+## Best practices
+
+- **Limit usage**: Enable maintenance mode only for trusted privileged users during planned maintenance windows. Maintain security and isolation over Azure Enclave resources.
+- **Understand the impact**: Privileged users should fully understand the changes they're making, and the steps to undo or remediate those changes. Making manual changes to underlying managed resources in a community or enclave while in maintenance mode might cause unintended drift in your environment from ideal states.
 
 ## Maintenance mode options
 
@@ -27,9 +33,9 @@ Maintenance mode is a feature that allows community or enclave owners to tempora
 
 Community Maintenance mode is use protect managed resources that make up the Community including Azure vWAN, Azure Firewall, Firewall Policy and Log Analytics Workspace. Deny assignments are used to prevent unauthorized actions over these resources. When maintainance mode is enabled, the specified principals are granted exclusions from the deny assignments to perform privileged RBAC actions.   
 
-### Community Maintanence Mode Scenarios
+### Community Maintenance Mode Scenarios
 
-Common scenarios for Community Maintanence Mode include:
+Common scenarios for Community Maintenance Mode include:
 - Creating/modifying virtual hub route tables to support complex networking configurations.
 - Creating/modifying custom virtual hubs within the Community vWAN
 - Creating/modifying individual network security group rules required for specific Azure services
@@ -41,19 +47,19 @@ When `General` maintenance mode is enabled on a **Community ** resource, the mai
 
 This allows the users identified in the maintenance mode principals to perform that actions that would otherwise be blocked by the `Deny All` deny assignment. The `Allow Dataplane Actions` deny assignments are still in effect for all principals (including the maintenance mode principals). A user may still be limited by their assigned roles.
 
-The following permissions are allowed over the **Community managed resource group** when **general** maintanence mode is enabled.
+The following permissions are allowed over the **Community managed resource group** when **general** maintenance mode is enabled.
 
 Community Deny Assignment: `Deny All` 
 
 | Operation                  | Action Type  | Explanation                                     |
 |----------------------------|--------------|-------------------------------------------------|
 | *	                         | Action       | Deny all actions except specified in this table |
-| */read                     | NotAction    | Allowed | Allow "read" actions on all resources |
+| */read                     | NotAction    | Allow "read" actions on all resources           |
 | Microsoft.Resources/tags/* | NotAction    | Allow "tags" actions on all resources           |   
 
 ### Community - Advanced Maintenance Mode
 
-The following permissions are allowed over the **Communtiy managed resource group** when **advanced** maintanence mode is enabled.
+The following permissions are allowed over the **Communtiy managed resource group** when **advanced** maintenance mode is enabled.
 
 Community Deny Assignment: `Allow Dataplane Actions`
 
@@ -77,9 +83,9 @@ Community Deny Assignment: `Allow Dataplane Actions`
 
 Enclave Maintenance mode is use protect managed resources that make up the Enclave including Azure virtual network, network security groups, and log analytics workspace. Deny assignments are used to prevent unauthorized actions over these resources. When maintainance mode is enabled, the specified principals are granted exclusions from the deny assignments to perform privileged RBAC actions over the enclave managed resource group. 
 
-### Enclave Maintanence Mode Scenarios
+### Enclave Maintenance Mode Scenarios
 
-Common scenarios for using enclave maintanence mode include:
+Common scenarios for using enclave maintenance mode include:
 - Performing subnet/vnet joins operations during workload deployments
 - Creating/modifying individual network security group rules required for specific Azure services
 - Creating resources within the enclave managed resource group to enable private networking (ex - Private DNS Zones, Private Links, etc.) 
@@ -88,7 +94,7 @@ Common scenarios for using enclave maintanence mode include:
 
 When `General` maintenance mode is enabled on an enclave resource, the maintenance mode `principals` (users, groups, or service principals) are excluded from the `Deny All` deny assignment for the **enclave managed resource group**. This allows the users identified in the maintenance mode principals to perform that actions that would otherwise be blocked by the `Deny All` deny assignment. The `Allow Dataplane Actions` deny assignments are still in effect for all principals (including the maintenance mode principals). A user may still be limited by their assigned roles.
 
-The following permissions are allowed over the **enclave managed resource group** when **general** maintanence mode is enabled.
+The following permissions are allowed over the **enclave managed resource group** when **general** maintenance mode is enabled.
 
 Enclave deny assignment: `Deny All` 
 
@@ -100,7 +106,7 @@ Enclave deny assignment: `Deny All`
 
 ### Enclave - Advanced Maintenance Mode
 
-The following permissions are allowed over the **enclave managed resource group** when **advanced** maintanence mode is enabled.
+The following permissions are allowed over the **enclave managed resource group** when **advanced** maintenance mode is enabled.
 
 Enclave deny assignment: `Allow Dataplane Actions`
 
@@ -147,11 +153,6 @@ Enclave deny assignment: `Allow Dataplane Actions`
 1. After completing your tasks, navigate back to the Maintenance mode tab.
 1. Select the `OFF` mode.
 1. Confirm and save.
-
-## Best practices
-
-- **Limit Usage**: Ensure that maintenance mode is only enabled for trusted privileged users during planned mainenance windows and ensure to maintain security and isolation over Azure Enclave resources.
-- **Understand the impact**: Privileged users should fully understand the changes they're making, and steps to undo or remediate those changes. Making manual changes to underlying managed resources in a community or enclave while in maintenance mode might cause unintended drift in your environment from ideal states.
 
 ## Learn more
 

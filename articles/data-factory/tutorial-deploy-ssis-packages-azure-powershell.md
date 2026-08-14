@@ -5,8 +5,8 @@ ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: tutorial
 ms.date: 05/15/2024
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ms.custom:
   - devx-track-azurepowershell
   - sfi-ropc-nochange
@@ -15,6 +15,8 @@ ms.custom:
 # Set up an Azure-SSIS IR in Azure Data Factory by using PowerShell
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This tutorial provides steps for using PowerShell to provision an Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) in Azure Data Factory (ADF). An Azure-SSIS IR supports:
 

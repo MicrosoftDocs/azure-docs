@@ -14,11 +14,11 @@ In this quickstart, you learn how to send and receive large messages (up to 20 M
 ## Prerequisites
 
 - An Azure subscription. To use Azure services, including Event Hubs, you need a subscription. If you don't have an Azure account, you can sign up for a [free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) or activate your [Monthly Azure credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF).
-- A [self-serve scalable dedicated cluster](event-hubs-dedicated-cluster-create-portal.md), an Event Hubs namespace, and an event hub. Use the Azure portal to create a dedicated cluster and namespace inside a cluster. To create an event hub, see [Quickstart: Create an event hub by using the Azure portal](event-hubs-create.md). You can skip this step if you already have a self-serve scalable dedicated cluster.
+- A [dedicated cluster](event-hubs-dedicated-cluster-create-portal.md), an Event Hubs namespace, and an event hub. Use the Azure portal to create a dedicated cluster and namespace inside a cluster. To create an event hub, see [Quickstart: Create an event hub by using the Azure portal](event-hubs-create.md). You can skip this step if you already have a dedicated cluster.
 
 ## Configure an Event Hubs dedicated cluster
 
-To stream large messages, you must configure your self-serve scalable dedicated cluster.
+To stream large messages, you must configure your dedicated cluster.
 
 In the Azure portal, go to the **Settings** section for the dedicated cluster. Under **Settings**, select the **Quota** tab.
 
@@ -30,13 +30,13 @@ In the Azure portal, go to the **Settings** section for the dedicated cluster. U
 After you save the configuration, you're ready to stream large messages with Event Hubs.
 
 > [!IMPORTANT]
-> Large message streaming is only supported with self-serve scalable dedicated clusters built out of the latest infrastructure. The `Supportslargemessages` key reflects this capability.
+> Large message streaming is only supported with dedicated clusters built out of the latest infrastructure. The `supportslargemessages` key reflects this capability.
 >
 > If a cluster value is false, it doesn't support streaming large messages. To enable this feature, you must re-create the cluster. Streaming large messages doesn't incur any extra charges.
 
 ## Stream large messages with Event Hubs
 
-Eligible self serve Event hubs dedicated clusters allow streaming of large messages up to 20 MB, both in batches and as individual publications. You can use any existing Event Hubs SDK or Kafka API to stream large messages to Event Hubs. For existing connections, restart clients or re-establish connection to stream large messages.
+Eligible Event Hubs dedicated clusters support streaming large messages up to 20 MB, both in batches and as individual publications. You can use any existing Event Hubs SDK or Kafka API to stream large messages to Event Hubs. For existing connections, restart clients or re-establish connection to stream large messages.
 
 
 For more information, see [Send events to and receive events from Event Hubs by using .NET](event-hubs-dotnet-standard-getstarted-send.md).

@@ -157,4 +157,4 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 - Visualize counter and event logs by using [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 - [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
-- [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
+- [View and analyze Azure activity logs in Power BI and more](/azure/azure-monitor/logs/log-powerbi) blog post.

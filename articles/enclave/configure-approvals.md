@@ -241,7 +241,7 @@ Before changing approval settings, review:
 
 ## Assign Enclave Approver Role
 
-After enabling Approvals, assign the Enclave Approver Role to users or groups who will review and approve requests.
+After enabling Approvals, assign the `Enclave Approver Role` to users or groups who review and approve requests.
 
 ### [Portal](#tab/portal)
 

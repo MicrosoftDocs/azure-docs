@@ -66,7 +66,7 @@ You can quickly deploy the sample app in this tutorial and see it running in Azu
 ```bash
 mkdir msdocs-tomcat-mysql-sample-app
 cd msdocs-tomcat-mysql-sample-app
-azd init --template msdocs-tomcat-mysql-sample-app
+azd init --template msdocs-tomcat-mysql-sample-app .
 azd up
 ```
 

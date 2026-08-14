@@ -4,14 +4,16 @@ description: Learn how to open and save files on premises and in Azure when you 
 ms.date: 01/05/2024
 ms.topic: how-to
 ms.subservice: integration-services
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ms.reviewer: whhender
 ---
 
 # Open and save files on premises and in Azure with SSIS packages deployed in Azure
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article describes how to open and save files on premises and in Azure when you lift and shift SSIS packages that use local file systems into SSIS in Azure.
 

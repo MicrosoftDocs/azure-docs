@@ -14,6 +14,8 @@ ms.date: 05/15/2024
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 By using data transformation expressions in Azure Data Factory and Azure Synapse Analytics, you can transform expressions in many ways. They're a powerful tool that you can use to customize the behavior of your pipelines in almost every setting and property. You can use them anywhere you find a text field that shows the **Add dynamic content** or **Open expression builder** links within your pipeline.

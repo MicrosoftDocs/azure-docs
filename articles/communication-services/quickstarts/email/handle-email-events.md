@@ -48,7 +48,7 @@ It might take a moment for the registration to finish. Select **Refresh** to upd
 
 For this quickstart, we use an Event Grid viewer to view events in near-real time. The viewer provides the user with the experience of a real-time feed. Also, the payload of each event should be available for inspection.
 
-To set up the viewer, follow the steps in [Azure Event Grid Viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/).
+To set up the viewer, follow the steps in [Azure Event Grid Viewer](/azure/event-grid/).
 
 ## Subscribe to Email events by using web hooks
 
@@ -76,7 +76,7 @@ You can subscribe to specific events to provide Event Grid with information abou
 
 1. For **Endpoint**, select **Select an endpoint**, and then enter the URL of your web app.
 
-   In this case, we use the URL from the [Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) that we set up earlier in the quickstart. The URL for the sample has this format: `https://{{site-name}}.azurewebsites.net/api/updates`
+   In this case, use the URL from the [Event Grid viewer](/azure/event-grid/) that you set up earlier in the quickstart. The URL for the sample has this format: `https://{{site-name}}.azurewebsites.net/api/updates`
 
 1. Select **Confirm Selection**.
 
@@ -98,7 +98,7 @@ Check out the full list of [events that Communication Services supports](../../.
 
 ### Receive Email events
 
-After you generate an event, notice that `Email Delivery Report Received` and `Email Engagement Tracking Report Received` events are sent to your endpoint. These events show up in the [Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) that we set up at the beginning of this quickstart. Select the eye icon next to the event to see the entire payload. Events should look similar to the following data:
+After you generate an event, the `Email Delivery Report Received` and `Email Engagement Tracking Report Received` events are sent to your endpoint. These events show up in the [Event Grid viewer](/azure/event-grid/) that you set up at the beginning of this quickstart. Select the eye icon next to the event to see the entire payload. Events should look similar to the following data:
 
 #### Microsoft.Communication.EmailDeliveryReportReceived event
 :::image type="content" source="./media/handle-email-events/email-delivery-report-received.png" alt-text="Screenshot of the Azure Event Grid viewer that shows the Event Grid schema for an EMAIL delivery report received event.":::

@@ -2894,6 +2894,26 @@
             "source_path_from_root": "/articles/storage/blobs/storage-how-to-mount-container-linux.md",
             "redirect_url": "/previous-versions/azure/storage/blobs/storage-how-to-mount-container-linux",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/classic-account-migration-overview.md",
+            "redirect_url": "/azure/storage/common/storage-account-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/classic-account-migration-process.md",
+            "redirect_url": "/azure/storage/common/storage-account-overview",
+            "redirect_document_id": false
+        },
+       {
+            "source_path_from_root": "/articles/storage/common/classic-account-migrate.md",
+            "redirect_url": "/azure/storage/common/storage-account-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/files-remove-smb1-linux.md",
+            "redirect_url": "/azure/storage/files/files-smb-protocol#disable-smb-1-on-linux-clients",
+            "redirect_document_id": false
         }
     ]
 }

@@ -181,19 +181,6 @@ The following limitations apply during preview.
 
 - **Connectors don't route through the virtual network**: There's no support for routing connector traffic through the virtual network. Connectors are also in preview. During preview, connector traffic routes over the public internet. For more information, see [SRE Agent connectors](mcp-connectors.md).
 
-- **kubectl commands against private clusters require managed identity**: When the agent reaches a private [Azure Kubernetes Service (AKS) API server through virtual network integration](/azure/aks/access-private-cluster), kubectl commands run through the AKS command invoke flow.
-
-  This flow supports the agent's managed identity but doesn't pass on-behalf-of (OBO) user credentials.
-
-  The command also has operational limits, including a 60-second Azure Resource Manager API timeout and a 512-KB output size limit. Long-running or high-output kubectl operations can truncate or fail.
-
-  If you need OBO support for kubectl, or you need to run operations that exceed those limits, keep the AKS API server publicly reachable, and use unrestricted or limited mode.
-
-> [!NOTE]
-> MCP servers and Azure resources behind the VNet are accessible as expected, if your IP address and service tag configuration is correct.
->
-> Connectors are also in preview. During preview, connector traffic routes over the public internet rather than through the VNet. For more information, see [SRE Agent connectors](mcp-connectors.md).
-
 ## Related content
 
 - [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)

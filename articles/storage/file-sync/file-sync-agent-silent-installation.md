@@ -1,65 +1,74 @@
 ---
-title: How to install the Azure File Sync agent silently 
-description: Discusses how to perform a silent installation for a new Azure File Sync agent installation
+title: How to install the Azure File Sync agent Silently 
+description: Learn how to perform a silent (unattended) installation of the Azure File Sync agent by using default or custom settings.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/03/2024
+ms.date: 08/14/2026
 ms.author: kendownie
 ms.custom: sfi-ropc-nochange
 # Customer intent: "As an IT administrator, I want to perform a silent installation of the Azure File Sync agent using default or custom settings, so that I can streamline deployment and minimize user interaction during the setup process."
 ---
 
-# How to perform a silent installation for a new Azure File Sync agent installation 
+# Silently install the Azure File Sync agent
 
-This article covers how to silently install the Azure File Sync agent using default or custom settings.
+This article explains how to silently install the Azure File Sync agent by using default or custom settings. Use silent installation when you need to deploy the agent across multiple servers without manual interaction. For example, use silent installation in automated provisioning scripts, group policy deployments, or configuration management tools like Microsoft Configuration Manager.
 
-## Silent installation that uses default settings
-To run a silent installation for a new agent installation that uses the default settings, run the following command at an elevated command prompt:
 
-```
+You can perform a silent installation that uses either default or custom settings.
+
+## Perform a silent installation that uses default settings
+
+To run a silent installation for a new Azure File Sync agent installation that uses the default settings, run the following command from an elevated command prompt:
+
+```cmd
 msiexec /i packagename.msi /qb /l*v AFSInstaller.log
 ```
 For example, to install the Azure File Sync agent for Windows Server 2016, run the following command:
 
-```
+```cmd
 msiexec /i StorageSyncAgent_WS2016.msi /qb /l*v AFSInstaller.log
 ```
 
 > [!NOTE]
-> Use the /qb switch to display restart prompts (if required), agent update, and server registration screens. To suppress the screens and automatically restart the server (if required), use the /qn switch.
+> Use the `/qb` switch to display restart prompts (if required), agent update, and server registration screens. To suppress the screens and automatically restart the server (if required), use the `/qn` switch.
 
-## Silent installation that uses custom settings
-To run a silent installation for a new agent installation that uses custom settings, use the parameters that are documented in the table below.
+## Perform a silent installation that uses custom settings
+
+To run a silent installation for a new Azure File Sync agent installation that uses custom settings, use the parameters documented in [Azure File Sync agent installation parameters](#azure-file-sync-agent-installation-parameters).
 
 For example, to run a silent installation by using custom proxy settings, run the following command:
 
-```
+```cmd
 msiexec /i StorageSyncAgent_WS2016.msi USE_CUSTOM_PROXY_SETTINGS=1 PROXY_ADDRESS=10.0.0.1 PROXY_PORT=80 PROXY_AUTHREQUIRED_FLAG=1 PROXY_USERNAME=username  PROXY_PASSWORD=password /qb /l*v AFSInstaller.log
 ```
 
 For example, to run a silent installation by using an unattend answer file, run the following command:
 
-```
+```cmd
 msiexec /i StorageSyncAgent_WS2016.msi UNATTEND_ANSWER_FILE=c:\agent\unattend.ini /qb /l*v AFSInstaller.log
 ```
 
 The unattend answer file should have the following format:
 
-ACCEPTEULA=1  
-ENABLE_AZUREFILESYNC_FEATURE=1  
-AGENTINSTALLDIR=%SYSTEMDRIVE%\Program Files\Azure\StorageSyncAgent  
-ENABLE_MU_ENROLL=1  
-ENABLE_DATA_COLLECTION=1  
-ENABLE_AGENT_UPDATE_POSTINSTALL=1  
-USE_CUSTOM_PROXY_SETTINGS=1  
-PROXY_ADDRESS=10.0.0.1  
-PROXY_PORT=80  
-PROXY_AUTHREQUIRED_FLAG=1  
-PROXY_USERNAME=username  
+```ini
+ACCEPTEULA=1
+ENABLE_AZUREFILESYNC_FEATURE=1
+AGENTINSTALLDIR=%SYSTEMDRIVE%\Program Files\Azure\StorageSyncAgent
+ENABLE_MU_ENROLL=1
+ENABLE_DATA_COLLECTION=1
+ENABLE_AGENT_UPDATE_POSTINSTALL=1
+USE_CUSTOM_PROXY_SETTINGS=1
+PROXY_ADDRESS=10.0.0.1
+PROXY_PORT=80
+PROXY_AUTHREQUIRED_FLAG=1
+PROXY_USERNAME=username
 PROXY_PASSWORD=password
+```
 
-**Azure File Sync agent installation parameters**
+### Azure File Sync agent installation parameters
+
+The following table describes the parameters you can use to customize a silent installation of the Azure File Sync agent.
 
 | Parameter | Purpose | Values | Default Value |
 |-----------|---------|--------|-----------|
@@ -71,7 +80,7 @@ PROXY_PASSWORD=password
 |AUTO_UPDATE_POLICY_MODE|To set auto update policy mode|InstallLatest or UpdateBeforeExpiration|UpdateBeforeExpiration|
 |ENABLE_MU_ENROLL|Enroll in Microsoft Update|0 (Do not enroll) or 1 (Enroll)|1|
 |ENABLE_DATA_COLLECTION|Collect data necessary to identify and fix problems|0 (No) or 1 (Yes)|1|
-|ENABLE_AGENT_AUTO_UPDATE|Turns automatic updates on or off|0 (off) or 1 (Auto install latest ) |0|
+|ENABLE_AGENT_AUTO_UPDATE|Turns automatic updates on or off|0 (Off) or 1 (On)|0|
 |ENABLE_AGENT_UPDATE_POSTINSTALL|Check for updates after agent installation completes|0 (No) or 1 (Yes)|1|
 |USE_CUSTOM_PROXY_SETTINGS|Use default proxy settings (if configured) or custom proxy settings|0 (Default Proxy) or 1 (Custom Proxy)|0|
 |PROXY_ADDRESS|Proxy server IP address|IP Address||

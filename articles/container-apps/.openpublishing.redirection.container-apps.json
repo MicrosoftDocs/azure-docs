@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/container-apps/service-connector.md",
+            "redirect_url": "/azure/container-apps/connect-apps",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/container-apps/java-petclinic-ai-overview.md",
             "redirect_url": "/azure/container-apps/index",
             "redirect_document_id": false

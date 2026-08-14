@@ -6,7 +6,7 @@ ms.author: prsaini
 ms.date: 04/21/2026
 ms.topic: how-to
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: enterprise-agreement
 ms.reviewer: prsaini
 ms.custom:
 - sfi-image-nochange

@@ -48,9 +48,9 @@ You can execute the `$bulk-delete` operation at the system level or for individu
 
 #### Parameters for bulk delete
 
-Parameters allow you how to control the behavior of the bulk delete operation and filter the resources that are deleted. You can use these parameters to specify whether the delete is soft or hard, whether to purge history, exclude certain resource types, remove references, and filter resources using FHIR search parameters.
+Parameters allow you to control the behavior of the bulk delete operation and filter the resources that are deleted. Use these parameters to specify whether the delete is soft or hard, whether to purge history, exclude certain resource types, remove references, and filter resources by using FHIR search parameters.
 
-|Parameter        | Default Value   |  Description|
+| Parameter        | Default Value   |  Description|
 |------------------------|---|------------|
 |_hardDelete|False|Deletes a resource permanently. If you don't pass this parameter or set `hardDelete` to false, the operation only soft deletes the resource.|
 |_purgeHistory|False|Deletes history versions associated with resource. It doesn't delete the current version of the resource and soft deleted resources. Note: When you use `_purgeHistory` with the `_hardDelete` parameter set to true, it permanently deletes all versions associated with the resource.|

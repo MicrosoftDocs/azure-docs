@@ -40,6 +40,8 @@ items:
       href: google-migration.md
     - name: Transfer from Azure Blob to Blob
       href: azure-to-azure-migration.md
+    - name: Migrate from AWS FSx to Azure Files
+      href: amazon-files-azure-files-migration.md
     - name: Deploy a storage mover agent
       href: agent-deploy.md
     - name: Register an agent
@@ -71,7 +73,7 @@ items:
 - name: Reliability and resiliency
   items:
   - name: Reliability in Azure Storage Mover
-    href: /azure/reliability/reliability-azure-storage-mover?toc=/azure/storage-mover/toc.json
+    href: /azure/reliability/reliability-storage-mover?toc=/azure/storage-mover/toc.json
   - name: Customer-initiated disaster recovery
     href: customer-initiated-disaster-recovery.md
 - name: Resources

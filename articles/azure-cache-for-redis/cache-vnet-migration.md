@@ -9,7 +9,7 @@ appliesto:
 
 # Migrate from VNet injection caches to Private Link caches
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 This article describes a number of approaches to migrate an Azure Cache for Redis Virtual Network (VNet) injected cache instances to Azure Cache for Redis Private Link cache instances. 
 

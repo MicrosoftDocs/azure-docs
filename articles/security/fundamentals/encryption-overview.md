@@ -32,23 +32,23 @@ Azure supports various encryption models, including server-side encryption that 
 You perform client-side encryption outside of Azure. It includes:
 
 - Data encrypted by an application that's running in your datacenter or by a service application.
-- Data that is already encrypted when Azure receives it.
+- Data that Azure receives already encrypted when Azure receives it.
 
-By using client-side encryption, cloud service providers do not have access to the encryption keys and cannot decrypt the data. You maintain complete control of the keys.
+By using client-side encryption, cloud service providers don't have access to the encryption keys and can't decrypt the data. You maintain complete control of the keys.
 
 ### Server-side encryption
 
 The three server-side encryption models offer different key management characteristics:
 
 - **Service-managed keys**: Provides a combination of control and convenience with low overhead.
-- **Customer-managed keys**: Gives you control over the keys, including Bring Your Own Key (BYOK) support, or allows you to generate new ones.
+- **Customer-managed keys**: Gives you control over the keys, including bring your own key (BYOK) support, or allows you to generate new ones.
 - **Service-managed keys in customer-controlled hardware**: Enables you to manage keys in your proprietary repository outside of Microsoft control. This model is also called Host Your Own Key (HYOK).
 
 ### Azure Disk Encryption
 
 [!INCLUDE [Azure Disk Encryption retirement notice](~/reusable-content/ce-skilling/azure/includes/security/azure-disk-encryption-retirement.md)]
 
-Azure encrypts all managed disks, snapshots, and images by default by using Storage Service Encryption with a service-managed key. For virtual machines, encryption at host provides end-to-end encryption for your VM data, including temporary disks and OS and data disk caches. Azure also offers options to manage keys in Azure Key Vault. For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview).
+Azure encrypts all managed disks, snapshots, and images by default by using Azure Storage Service Encryption with a service-managed key. For virtual machines, encryption at host provides end-to-end encryption for your VM data, including temporary disks and OS and data disk caches. Azure also offers options to manage keys in Azure Key Vault. For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview).
 
 ### Azure Storage encryption
 
@@ -101,7 +101,7 @@ Customers can use [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki
 
 When you interact with Azure Storage through the Azure portal, all transactions take place over HTTPS. You can also use the Storage REST API over HTTPS to interact with Azure Storage. You can enforce the use of HTTPS when you call the REST APIs by enabling the secure transfer requirement for the storage account.
 
-[Shared access signatures (SAS)](../../storage/common/storage-sas-overview.md), which you can use to delegate access to Azure Storage objects, include an option to specify that only the HTTPS protocol can be used.
+[Shared access signatures (SAS)](../../storage/common/storage-sas-overview.md), which you can use to delegate access to Azure Storage objects, include an option to specify that clients use only HTTPS.
 
 ### SMB encryption
 
@@ -117,7 +117,7 @@ You can connect to Azure through a virtual private network that creates a secure
 
 #### Point-to-site VPNs
 
-Point-to-site VPNs allow individual client computers to access an Azure virtual network. Point-to-site VPN can use OpenVPN, Secure Socket Tunneling Protocol (SSTP), or IKEv2, depending on the client and authentication configuration. For more information, see [About Point-to-Site VPN](../../vpn-gateway/point-to-site-about.md).
+Point-to-site VPNs let individual client computers access an Azure virtual network. Point-to-site VPN can use OpenVPN, Secure Socket Tunneling Protocol (SSTP), or IKEv2, depending on the client and authentication configuration. For more information, see [About Point-to-Site VPN](../../vpn-gateway/point-to-site-about.md).
 
 #### Site-to-site VPNs
 
@@ -127,16 +127,16 @@ A site-to-site VPN gateway connection connects your on-premises network to an Az
 
 Encryption depends on proper key protection and management. Azure offers several key management solutions, including Azure Key Vault, Azure Key Vault Managed HSM, Azure Cloud HSM, and Azure Payment HSM.
 
-Key Vault removes the need to configure, patch, and maintain hardware security modules (HSMs) and key management software. By using Key Vault, you maintain control - applications do not have direct access to your keys. You can also import or generate keys in HSMs. For the strongest key isolation guarantees, Azure Key Vault Managed HSM provides a customer-owned security domain where Microsoft has no access to your key material.
+Key Vault removes the need to configure, patch, and maintain hardware security modules (HSMs) and key management software. By using Key Vault, you maintain control - applications don't have direct access to your keys. You can also import or generate keys in HSMs. For the strongest key isolation guarantees, Azure Key Vault Managed HSM provides a customer-owned security domain where Microsoft has no access to your key material.
 
 For more information about key management in Azure, see [Key management in Azure](key-management.md).
 
 ## Next steps
 
-- [Azure security overview](overview.md).
-- [Azure network security overview](network-overview.md).
-- [Azure database security overview](/azure/azure-sql/database/security-overview).
-- [Azure virtual machines security overview](virtual-machines-overview.md).
-- [Data encryption at rest](encryption-atrest.md).
-- [Data security and encryption best practices](data-encryption-best-practices.md).
-- [Key management in Azure](key-management.md).
+- [Azure security overview](overview.md)
+- [Azure network security overview](network-overview.md)
+- [Azure database security overview](/azure/azure-sql/database/security-overview)
+- [Azure virtual machines security overview](virtual-machines-overview.md)
+- [Data encryption at rest](encryption-atrest.md)
+- [Data security and encryption best practices](data-encryption-best-practices.md)
+- [Key management in Azure](key-management.md)

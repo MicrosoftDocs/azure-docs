@@ -75,11 +75,9 @@ The SMB, NFS, and FileREST protocols can all use the public endpoint. However, e
 
 ### Public endpoint firewall settings
 
-The storage account firewall restricts access to the public endpoint for a storage account. Using the storage account firewall, you can restrict access to certain IP addresses/IP address ranges, to specific virtual networks, or disable the public endpoint entirely.
+The storage account firewall restricts access to the public endpoint for a storage account. You can restrict access to certain IP addresses or IP address ranges, to specific virtual networks, or disable the public endpoint entirely.
 
-When you restrict the traffic of the public endpoint to one or more virtual networks, you're using a capability of the virtual network called *service endpoints*. Requests directed to the service endpoint of Azure Files still go to the storage account public IP address. However, the networking layer performs extra verification of the request to validate that it's coming from an authorized virtual network. The SMB, NFS, and FileREST protocols all support service endpoints. Unlike SMB and FileREST, however, NFS file shares can only be accessed by using the public endpoint through use of a *service endpoint*.
-
-To learn more about how to configure the storage account firewall, see [configure Azure storage firewalls and virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks).
+When you [restrict the public endpoint to one or more networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-networks), you're using a capability of the virtual network called *service endpoints*. Requests directed to the service endpoint of Azure Files still go to the storage account public IP address. However, the networking layer performs extra verification of the request to validate that it's coming from an authorized virtual network. The SMB, NFS, and FileREST protocols all support service endpoints. Unlike SMB and FileREST, however, NFS file shares can only be accessed by using the public endpoint through use of a *service endpoint*.
 
 #### Azure portal access and the storage account firewall
 
@@ -88,7 +86,7 @@ When you access Azure file shares through the Azure portal, two separate request
 1. A request from your browser to the Azure portal UI (`https://portal.azure.com`).
 2. A request from your browser directly to the Azure Files data-plane endpoint (for example, `https://<storage-account-name>.file.core.windows.net`), typically using a SAS token issued for the portal experience.
 
-The storage account firewall evaluates only the direct request to the Azure Files data-plane endpoint, not the request to `portal.azure.com`. Therefore, even if you can access the Azure portal without issues, you might receive a **403 (Forbidden)** error when browsing file share data if the public egress IP address on the browser-to-storage request isn't allowed by the firewall. This applies only to FileREST/HTTPS traffic, not SMB or NFS.
+The storage account firewall evaluates only the direct request to the Azure Files data-plane endpoint, not the request to `portal.azure.com`. Therefore, even if you can access the Azure portal without issues, you might receive a **403 (Forbidden)** error when browsing file share data if the public egress IP address on the browser-to-storage request isn't allowed by the firewall. This restriction applies only to FileREST/HTTPS traffic, not SMB or NFS. For more information, see [Authorize access to file data in the Azure portal](authorize-data-operations-portal.md).
 
 > [!NOTE]
 > Due to factors such as proxies, VPNs, NAT, or differences in network routing, the IP address shown in an error message might not match the actual source IP address as seen by the storage account. To verify the source IP address that's actually reaching the storage account, enable **Azure Monitor diagnostic settings** for the storage account and collect **storage resource logs**. Then review the relevant file service request entries and check the **CallerIpAddress** field to confirm which IP address reached the storage account.
@@ -202,7 +200,7 @@ This configuration reflects that the storage account can expose both the public 
 
 Windows Server 2022 Azure Edition supports a transport protocol called QUIC for the SMB server provided by the File Server role. QUIC is a replacement for TCP that's built on top of UDP, providing numerous advantages over TCP while still providing a reliable transport mechanism. One key advantage for the SMB protocol is that instead of using port 445, all transport is done over port 443, which is widely open outbound to support HTTPS. This configuration effectively means that SMB over QUIC offers an "SMB VPN" for file sharing over the public internet. Windows 11 ships with an SMB over QUIC capable client.
 
-Currently, Azure Files doesn't support SMB over QUIC. However, you can get access to Azure file shares via Azure File Sync running on Windows Server as in the diagram following. This configuration also gives you the option to have Azure File Sync caches both on-premises or in different Azure datacenters to provide local caches for a distributed workforce. To learn more about this option, see [Deploy Azure File Sync](../file-sync/file-sync-deployment-guide.md) and [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic).
+Currently, Azure Files doesn't support SMB over QUIC. However, you can get access to Azure file shares via Azure File Sync running on Windows Server as in the diagram following. This configuration also gives you the option to have Azure File Sync caches both on-premises or in different Azure datacenters to provide local caches for a distributed workforce. To learn more about this option, see [the Windows Server documentation](/windows-server/storage/file-server/smb-over-quic). For Azure File Sync-specific networking details, see [SMB over QUIC](../file-sync/file-sync-networking-overview.md#smb-over-quic).
 
 :::image type="content" source="media/storage-files-networking-overview/smb-over-quic.png" alt-text="Diagram for creating a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync." border="false":::
 

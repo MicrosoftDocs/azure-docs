@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 11/07/2024
 ms.reviewer: v-uhabiba
 ms.custom: sfi-image-nochange
+ms.update-cycle: 365-days
 # Customer intent: "As a cloud architect, I want to create an Azure VMware Solution assessment for on-premises VMs so that I can evaluate migration options and ensure compatibility with Azure's infrastructure."
 ---
 
