@@ -63,7 +63,7 @@ After you configure granular billing for Azure Backup, verify that the updated b
 
 To validate backup charges in Cost Analysis, follow these steps:
 
-1. Go to the **Cost Management + Billing** in Azure Portal and select **Cost Management** \> **Cost analysis**. Set the scope to the **target subscription**.
+1. Go to the **Cost Management + Billing** in Azure Portal and select **Cost Management** > **Cost analysis**. Set the scope to the **target subscription**.
 
 1. On the **Cost analysis** pane, set the **View** as **Resources** and verify if the new backup charges appear in the selected granularity format.
 
