@@ -112,7 +112,7 @@ To view the hotpatch (preview) status on a single machine, follow these steps:
 
 ### Check hotpatch (preview) updates
 
-For latest hotpatch updates, enable either [periodic assessment](assessment-options.md#periodic-assessment) or a [one-time update](assessment-options.md#check-for-updates-nowon-demand-assessment).
+For latest hotpatch updates, enable either [periodic assessment](assessment-options.md#periodic-assessment) or a [one-time assessment](assessment-options.md#check-for-updates-nowon-demand-assessment).
 
 Periodic assessment automatically assesses for available updates and ensures that available patches are detected. You can view the results of the assessment on the **Recommended updates** tab, including the time of the last assessment. 
 
