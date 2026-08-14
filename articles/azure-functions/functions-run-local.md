@@ -80,7 +80,7 @@ By default, this command creates a project that runs in-process with the Functio
 func init MyProjFolder --worker-runtime dotnet 
 ```
 
-This command creates a project that runs on the current [Long-Term Support (LTS) version of .NET Core]. For other .NET version, create an app that runs in an isolated worker process from the Functions host. 
+This command creates a project that runs on the current [Long-Term Support (LTS) version of .NET Core]. For other .NET versions, create an app that runs in an isolated worker process from the Functions host. 
 
 ---
 
@@ -259,7 +259,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 </pre>
 
 ::: zone pivot="programming-language-typescript,programming-language-javascript"
-How your functions are loaded depends on your project configuration. To learn more, see [Registering a function](functions-reference-node.md#registering-a-function). 
+How your functions are loaded depends on your project configuration. To learn more, see [Registering a function](functions-reference-node.md#building-your-function-app). 
 ::: zone-end
 
 Keep in mind the following considerations when running your functions locally:

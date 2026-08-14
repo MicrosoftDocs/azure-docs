@@ -4,7 +4,7 @@ description: Describes some example deployments to help you understand how to sc
 author: dominicbetts
 ms.author: dobett
 ms.topic: concept-article
-ms.date: 12/16/2024
+ms.date: 06/22/2026
 ms.service: azure-iot-operations
 
 #CustomerIntent: I want to see some scaling recommendations before I before deploying to production.

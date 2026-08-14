@@ -5,8 +5,7 @@ author: stevenmatthew
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.author: shaas
-ms.reviewer: dineshm
-ms.date: 02/12/2025
+ms.date: 06/16/2026
 # Customer intent: "As a web developer, I want to host a static website using cloud storage, so that I can efficiently serve content without the need for a traditional web server while maintaining scalability and performance."
 ---
 
@@ -24,7 +23,12 @@ If you need a web server to render content, you can use [Azure App Service](http
 
 ## Setting up a static website
 
-You configure static website hosting functionality within a storage account. It's not enabled by default. To enable static website hosting, select a storage account. In the left navigation pane, under **Data management**, select **Static website**, and then select **Enabled**. Enter a name for your *Index document name*. You can optionally provide a path to a custom 404 page. Finally, select **Save** to save your configuration changes.
+You configure static website hosting functionality within a storage account. It's not enabled by default. To enable static website hosting:
+
+1. Select a storage account. 
+1. In the left navigation pane, under **Data management**, select **Static website**, and then select **Enabled**. 
+1. Enter a name for your *Index document name*. You can optionally provide a path to a custom 404 page. 
+1. Finally, select **Save** to save your configuration changes.
 
 :::image type="content" source="media/storage-blob-static-website/storage-blob-static-website-enable-sml.png" alt-text="Screenshot showing the locations used to enable static website hosting on a storage account." lightbox="media/storage-blob-static-website/storage-blob-static-website-enable-lrg.png":::
 
@@ -143,7 +147,7 @@ You can configure the host header for a static website by using [Azure CDN rules
 
 A 404 error can happen if you refer to a file name by using an incorrect case. For example: `Index.html` instead of `index.html`. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP. This can also happen if your Azure CDN endpoint isn't yet provisioned. Wait up to 90 minutes after you provision a new Azure CDN for the propagation to complete.
 
-##### Why isn't the root directory of the website not redirecting to the default index page?
+##### Why isn't the root directory of the website redirecting to the default index page?
 
 In the Azure portal, open the static website configuration page of your account and locate the name and extension that is set in the **Index document name** field. Ensure that this name is exactly the same as the name of the file located in the **$web** container of the storage account. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP.
 

@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - set-variable | Microsoft Docs
 description: Reference for the set-variable policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 07/23/2024
-ms.author: danlep
 ---
 
 # Set variable
@@ -39,11 +37,21 @@ The `set-variable` policy declares a [context](api-management-policy-expressions
 
 ## Allowed types
 
-Expressions used in the `set-variable` policy must return one of the following basic types.
+Expressions used in the `set-variable` policy must return one of the following types.
 
+-   Newtonsoft.Json.Linq.JArray
+-   Newtonsoft.Json.Linq.JConstructor
+-   Newtonsoft.Json.Linq.JContainer
+-   Newtonsoft.Json.Linq.JProperty
+-   Newtonsoft.Json.Linq.JObject
+-   Newtonsoft.Json.Linq.JRaw
+-   Newtonsoft.Json.Linq.JToken
+-   Newtonsoft.Json.Linq.JValue
 -   System.Boolean
 -   System.SByte
+-   System.SByte[]
 -   System.Byte
+-   System.Byte[]
 -   System.UInt16
 -   System.UInt32
 -   System.UInt64

@@ -15,11 +15,11 @@ ms.custom:
 
 # Map each REST operation to a price
 
-This article helps you find the price of each REST operation that clients can execute against the Azure Blob Storage service.
+This article helps you find the price of each REST operation that clients can run against the Azure Blob Storage service.
 
-Each request made by tools such as AzCopy or Azure Storage Explorer arrives to the service in the form of a REST operation. This is also true for a custom application that leverages an Azure Storage Client library. REST operations are not billed for requests with unsuccessful authentication. After an identity is authenticated, all operations and requests made by that identity are billed, including those that don’t succeed.
+Tools such as AzCopy or Azure Storage Explorer send each request to the service as a REST operation. The same is true for a custom application that uses an Azure Storage client library. REST operations aren't billed when authentication fails. After an identity is authenticated, all operations and requests that the identity makes are billed, including the ones that don't succeed.
 
-To determine the price of each operation, you must first determine how that operation is classified in terms of its _type_. That's because the pricing pages list prices only by operation type and not by each individual operation. Use the tables in this article as a guide.
+To find the price of each operation, first determine the operation's _type_. The pricing pages list prices by operation type, not by individual operation. Use the tables in this article as a guide.
 
 ## Operation type of each Blob Storage REST operation
 
@@ -71,7 +71,7 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 | PutBlob                     | [Put Blob](/rest/api/storageservices/put-blob)                                            | Write                     | Write                       | Write                       |
 | PutBlockFromURL             | [Put Block from URL](/rest/api/storageservices/put-block-from-url)                        | Write                     | Write                       | Write                       |
 | PutBlockList                | [Put Block List](/rest/api/storageservices/put-block-list)                                | Write                     | Write                       | Write                       |
-| PutBlock                    | [Put Block](/rest/api/storageservices/put-block-list)                                     | Write                     | Write                       | Write                       |
+| PutBlock                    | [Put Block](/rest/api/storageservices/put-block)                                     | Write                     | Write                       | Write                       |
 | QueryBlobContents           | [Query Blob Contents](/rest/api/storageservices/query-blob-contents)                      | Read<sup>1</sup>          | Read<sup>1</sup>            | N/A                         |
 | RestoreContainer            | [Restore Container](/rest/api/storageservices/restore-container)                          | List and create container | List and create container   | List and create container   |
 | SetBlobExpiry               | [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry)                              | Other                     | Other                       | Write                       |
@@ -99,7 +99,7 @@ The following table maps each Data Lake Storage REST operation to an operation t
 
 The price of each type appears in the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
-| Logged Operation              | REST API                                                                                             | Premium block blob | Standard general purpose v2 |
+| Logged operation              | REST API                                                                                             | Premium block blob | Standard general purpose v2 |
 |-------------------------------|------------------------------------------------------------------------------------------------------|--------------------|-----------------------------|
 | CreateFilesystem              | [Filesystem  Create](/rest/api/storageservices/datalakestoragegen2/filesystem/create)                | Write              | Write                       |
 | DeleteFilesystem              | [Filesystem  Delete](/rest/api/storageservices/datalakestoragegen2/filesystem/delete)                | Free               | Free                        |

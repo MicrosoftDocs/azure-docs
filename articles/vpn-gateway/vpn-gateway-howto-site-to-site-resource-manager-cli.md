@@ -2,12 +2,12 @@
 title: Create S2S VPN connection - shared key authentication - Azure CLI
 description: Learn how to create a site-to-site VPN Gateway IPsec connection between your on-premises network and a virtual network using shared key authentication and Azure CLI.
 titleSuffix: Azure VPN Gateway
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 12/02/2024
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: "As a network administrator, I want to create a site-to-site VPN connection using shared key authentication and Azure CLI, so that I can securely connect my on-premises network to a virtual network in Azure."
 ---
 # Create a site-to-site VPN connection - Azure CLI

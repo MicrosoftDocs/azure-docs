@@ -18,6 +18,10 @@ Semiconductor (or Electronic Design Automation [EDA]) firms are most interested 
 
 Azure NetApp Files helps reduce the time EDA jobs take with a highly performant, parallelized file system solution: [Azure NetApp Files large volumes](large-volumes-requirements-considerations.md). Recent EDA benchmark tests show that a single large volume is 19 times more performant than previously achievable with a single Azure NetApp Files regular volume. Also, when multiple large volumes are added and sufficient compute and storage resources are available in co-located setup, the architecture can scale seamlessly.  
 
+For the most demanding EDA workloads, Azure NetApp Files also supports large volume Breakthrough mode, which extends the performance characteristics of large volumes by enabling significantly higher throughput and operations per second from a single volume.
+
+Breakthrough mode is designed for large scale, metadata intensive EDA workloads that exceed the performance limits of regular and standard large volumes, while maintaining predictable, low latency access.
+
 The Azure NetApp Files large volumes feature is ideal for the storage needs of this most demanding industry, namely:
 
 * **Large capacity single namespace:** Each volume offers up to 1 PiB of usable capacity under a single mount point. You can [request a 2 PiB large volume](large-volumes-requirements-considerations.md).
@@ -49,18 +53,57 @@ A single Large Volume outperforms the scenario with six regular volumes by 249%.
 
 :::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/latency-throughput-graph-six-large-volumes.png" alt-text="Chart comparing latency and throughput between one large, one regular, and six large volumes." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/latency-throughput-graph-six-large-volumes.png":::
 
+## Large volume breakthrough mode – Extreme performance for EDA
+
+Azure NetApp Files large volume breakthrough mode delivers industry-leading performance for the most demanding EDA environments by provisioning multiple dedicated storage endpoints on dedicated backend capacity for a single large volume.
+
+This architecture parallelizes I/O operations across endpoints, enabling substantially higher throughput and IOPS compared to standard large volumes, while preserving low and consistent latency.
+
+The key characteristics of large volume breakthrough mode
+
+* Support for volumes up to 2 PiB of capacity
+* Up to 50 GiB/s throughput from a single volume
+* Up to ~2 million operations per second, ideal for metadata heavy EDA front end workloads
+* Consistently sub millisecond latency maintained under load
+* Near linear performance scaling when additional large volumes are added, provided sufficient compute and network resources are available
+
+## When to use Breakthrough mode
+
+Use large volume Breakthrough mode for:
+
+* Large-scale regression testing with thousands of concurrent simulation jobs
+* Workloads with very high file counts and metadata churn
+* Single namespace deployments where distributing data across many volumes increases operational complexity
+* High performance workloads requiring predictable throughput and latency at scale
+
+> [!IMPORTANT]
+> Availability of large volumes and large volume Breakthrough mode depends on backend storage capacity and regional availability.
+
+While Azure NetApp Files supports large volumes up to published limits, it doesn't guarantee capacity availability for all volume sizes or regions. Customers planning volume sizes beyond 50 TiB or Breakthrough mode usage should engage their Microsoft account team or Azure NetApp Files support early to validate feasibility and deployment timelines.
+
+Tests conducted using an EDA benchmark found that with a single Azure NetApp Files large volume in breakthrough mode, you can achieve a workload as high as 1,296,040 IOPS at the 2ms mark. 
+
+The following table and chart illustrate the results for one large volume in breakthrough mode, and six large volumes in breakthrough mode.
+
+| Scenario	| I/O Rate at 2ms latency | MiB/s at 2ms latency | 
+| - | - | - | 
+| One large volume in breakthrough mode	| 1,296,040| 20,910 | 
+| Six large volumes in breakthrough mode | 7,776,697 | 125,474 | 
+
+:::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/large-volumes-breakthrough-mode.png" alt-text="Diagram of large volumes in breakthrough mode." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/large-volumes-breakthrough-mode.png":::
+
 ## Simplicity at scale
 
-With a large volume, performance isn't the entire story. Simple performance is the end goal. 
+With large volume, and especially with breakthrough mode, performance is only part of the story. Operation simplicity at scale is equally critical for EDA environments.
 
 ## Seamless scaling
 
-The results demonstrate that Azure NetApp Files delivered horizontal scalability for both throughput and operations/second. Each large volume deploys a dedicated storage endpoint which enables performance to scale linearly without sacrificing latency.
+The results demonstrate that Azure NetApp Files delivers horizontal scalability for both throughput and operations per second. Each large volume deploys a dedicated storage endpoint, which enables performance to scale linearly without sacrificing latency. Breakthrough mode extends this capability by enabling multiple dedicated endpoints per volume, simplifying network and mount management while delivering predictable performance for the largest EDA environments.
 
-| Metric	| Large volume | Large volume scale | Factor | 
-| - | - | - | - |  
-| Throughput (MB/s)	| 12,780 | 76,487 | 5.98 | 
-| Operations/second | 792,046 | 4,745,453 | 5.99 |  
+| Metric	| Large volume | Large volume scale | Factor | Large volume breakthrough | Large volume Breakthrough scale | Factor |
+| - | - | - | - |  - | - | - | 
+| Throughput (MB/s)	| 12,780 | 76,487 | 5.98 | 20,910 | 125,474 | 6.00 |
+| Operations/second | 792,046 | 4,745,453 | 5.99 |  1,296,040 | 7,776,697 | 6.00 |
 
 ## Testing tool
 
@@ -109,9 +152,15 @@ Mount options `nocto`, `noatime`, and `actimeo=600` work together to alleviate t
 
 For the six large volume tests, the same configuration was replicated in six Azure availability zones, spread across four Azure regions. Each zone was identically configured with ten virtual machines and one large volume each co-located in one availability zone. Azure’s Virtual Network peering connected the virtual networks across the regions/zones so we could execute a single benchmark run that spanned all the clients simultaneously.
 
+For the large volume breakthrough mode tests, VM scale sets deployed the VMs and workload generators mount one of the six storage endpoints in each of the VMs.
+
+:::image type="content" source="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/benchmark-configuration-single-large-volume.png" alt-text="Architecture diagram for benchmark configuration of a single large volume." lightbox="./media/solutions-benefits-azure-netapp-files-electronic-design-automation/benchmark-configuration-single-large-volume.png":::
+
+For the six large volume breakthrough tests, the same configuration was replicated in six Azure availability zones, spread across different Azure regions.
+
 ## Summary
 
-EDA workloads require file storage that can handle high file counts, large capacity, and a large number of parallel operations across potentially thousands of client workstations. EDA workloads also need to perform at a level that reduces the time it takes for testing and validation to complete, leading to saving money on licenses and expediting time to market the latest and greatest chipsets. Azure NetApp Files large volumes can handle the demands of an EDA workload with performance comparable to what would be seen in on-premises deployments.
+EDA workloads require file storage that can handle high file counts, large capacity, and a large number of parallel operations across potentially thousands of client workstations. EDA workloads also need to perform at a level that reduces the time it takes for testing and validation to complete, which leads to saving money on licenses and expediting time to market the latest and greatest chipsets. Azure NetApp Files large volumes and large volume Breakthrough mode for extreme performance can handle the demands of an EDA workload with performance comparable to what you'd see in on-premises deployments.
 
 ## Next steps
 

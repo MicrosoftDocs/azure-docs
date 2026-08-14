@@ -1,9 +1,7 @@
 ---
-author: chentony
 ms.service: service-connector
 ms.topic: include
-ms.date: 02/27/2025
-ms.author: chentony
+ms.date: 06/18/2026
 ---
 
 ### [.NET](#tab/fabricsql-me-id-dotnet)
@@ -70,7 +68,7 @@ ms.author: chentony
     ```
     For more information, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase%2Csystemassigned%2Cjava%2Cwindowsclient#3-modify-your-code).
 
-### [SpringBoot](#tab/fabricsql-me-id-springBoot)
+### [Spring Boot](#tab/fabricsql-me-id-springBoot)
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the environment variable `FABRIC_SQL_CONNECTIONSTRING` with value format `jdbc:sqlserver://<Fabric-SQL-Identifier>.msit-database.fabric.microsoft.com,1433;databaseName=<SQL-DB-name>-<Fabric-DB-Identifier>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps.
 

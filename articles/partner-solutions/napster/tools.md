@@ -1,14 +1,15 @@
 ---
-title: Napster Companion API developer tools in Azure (preview)
+title: Napster Companion API developer tools in Azure
 description: Explore developer tools for Napster Companion API in Azure, including the Companion API Dashboard, API reference, Playground, and integration guides.
 author: shijoy
 ms.author: shijoy
 ms.topic: overview
-ms.date: 05/20/2026
+ms.subservice: napster
+ms.date: 07/29/2026
 #customer intent: As a developer building with Napster Companion API, I want to know about the available resources and tools so I can create, deploy, and monitor persistent multimodal AI agents (Omniagents).
 ---
 
-# What are some resources and tools you can use with Napster Companion API? (preview)
+# What resources and tools can you use with Napster Companion API?
 
 In this article, you learn about the developer resources and tools available with Napster Companion API on Azure, including the Companion API Dashboard, the Napster developer portal, API reference, Playground, and Omniagent integration and monitoring guides.
 

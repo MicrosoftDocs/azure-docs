@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 04/24/2026
+ms.date: 07/21/2026
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator using Azure NetApp Files, I want to understand the SMB protocol and its configurations, so that I can ensure optimal connectivity and performance for my organization's file sharing and storage needs.
 ---
@@ -55,6 +55,14 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 ## How many Active Directory connections are supported?
 
 Azure NetApp Files supports one AD connection per NetApp account. To integrate with multiple Active Directory forests and domains, you may use multiple NetApp accounts. For more information about AD connections, check the [Active Directory type](create-active-directory-connections.md#netapp-accounts-and-active-directory-type) field of your NetApp account.
+
+## Why does SMB authentication fail after Active Directory changes?
+
+SMB authentication can fail after Active Directory changes if the Azure NetApp Files computer account has an invalid configuration or is missing required attributes. Symptoms can include SMB access failures, CIFS password reset failures, and errors similar to: Password update failed. Reason: SecD Error: LDAP attribute missing.
+
+Verify that the Azure NetApp Files computer account is present and properly configured in Active Directory. Also review any recent Active Directory security hardening activities, updates, or manual modifications that might affect the computer account or its attributes, such as msDS-SupportedEncryptionTypes. If the problem persists, contact Microsoft Support.
+
+For detailed troubleshooting steps, including how to validate the Azure NetApp Files computer account and required Active Directory attributes, see [Troubleshoot Azure NetApp Files SMB authentication and CIFS password reset failures](troubleshoot-authentication-password-reset-failure.md).
 
 ## Does Azure NetApp Files support SMB symbolic links or widelinks?
 
@@ -184,6 +192,21 @@ SMB/CIFS oplocks (opportunistic locks) enable the redirector on a SMB/CIFS clien
 ## Will the access time automatically update when reading files?
 
 No, access time isn't updated when reading files. This behavior ensures low-latency and high-performance access to your data.
+
+## Which Windows features aren't supported in Azure NetApp Files? 
+
+Azure NetApp Files doesn't support the following Windows features:
+
+- Encrypted File System (EFS)
+- LMHOSTS file
+- Logging of NT File System (NTFS) events in the change journal
+- Microsoft File Replication Service (FRS)
+- Microsoft Windows Indexing Service
+- NTFS native compression
+- Quota management from Windows clients
+- Remote storage through Hierarchical Storage Management (HSM)
+- Windows quota semantics
+
 
 ## Next steps  
 

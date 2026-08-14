@@ -28,7 +28,7 @@ The following table shows which migration methods are available for each operati
 
 | Migration method | Description | Linux | Windows |
 | --- | --- | --- | --- |
-| [Azure Skills in GitHub Copilot](https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugin/skills/azure-upgrade/references/services/functions/consumption-to-flex.md).  | Let Copilot guide and automate your migration interactively (recommended for Linux). | ✅ | ❌ |
+| [Azure Skills in GitHub Copilot](https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugins/azure-skills/skills/azure-upgrade/references/services/functions/consumption-to-flex.md).  | Let Copilot guide and automate your migration interactively (recommended for Linux). | ✅ | ❌ |
 | CLI migration command | Use [`az functionapp flex-migration`](/cli/azure/functionapp/flex-migration) to automate migration. | ✅ | ❌ |
 | Standard CLI commands | Stepwise migration using Azure CLI commands. | ➖ | ✅ |
 | [Azure portal](https://portal.azure.com) | Stepwise migration in the Azure portal. | ✅ | ✅ |
@@ -360,7 +360,7 @@ If your region isn't currently supported and you still choose to migrate your fu
 
 ### Verify language stack compatibility
 
-Flex Consumption plans don't yet support all [Functions language stacks](../supported-languages.md). This table indicates which language stacks are currently supported:
+Flex Consumption plans don't support all [Functions language stacks](../supported-languages.md). This table indicates which language stacks are currently supported:
 
 | Stack setting  | Stack name  | Supported |
 |---------|--------|--------------|
@@ -369,6 +369,7 @@ Flex Consumption plans don't yet support all [Functions language stacks](../supp
 | `java`  | [Java](../functions-reference-java.md)  | ✅ Yes |
 | `python` | Python   | ✅ Yes                        |
 | `powershell`  | [PowerShell](../functions-reference-powershell.md)  | ✅ Yes |
+| `go`  | [Go (Preview)](../functions-reference-go.md) | ✅ Yes |
 | `dotnet`  | [.NET (in-process model)](../functions-dotnet-class-library.md) | ❌ No  |
 | `custom`  | [Custom handlers](../functions-custom-handlers.md) | ✅ Yes   |
 
@@ -420,6 +421,7 @@ In this example, replace `<REGION>` with your current region and `<LANGUAGE_STAC
 | [PowerShell](../functions-reference-powershell.md) | `powershell` |
 | [Python](../functions-reference-python.md)     | `python` |
 | [TypeScript](../functions-reference-node.md) | `node` |
+| [Go (Preview)](../functions-reference-go.md) | `go` |
 
  This command displays all versions of the specified language stack  supported by the Flex Consumption plan in your region.
 
@@ -943,7 +945,7 @@ The migration command supports several options to customize the migration:
 | Option | Description |
 |--------|-------------|
 | `--storage-account` | Specify a different storage account for the new app |
-| `--maximum-instance-count` | Set the maximum number of instances for scaling |
+| `--maximum-instance-count` | Set the maximum number of on-demand instances per function group |
 | `--skip-access-restrictions` | Skip migrating IP access restrictions |
 | `--skip-cors` | Skip migrating CORS settings |
 | `--skip-hostnames` | Skip migrating custom domains |
@@ -1514,7 +1516,7 @@ How you configure managed identities in your new app depends on the kind of mana
 Recreating the role assignments correctly is key to ensuring your function app has the same access to Azure resources after the migration.
 
 >[!TIP]  
->If your original app used connection strings or other shared secrets for authentication, this is a great opportunity to improve your app's security by switching to using Microsoft Entra ID authentication with managed identities. For more information, see [Tutorial: Create a function app that connects to Azure services using identities instead of secrets](../functions-identity-based-connections-tutorial.md).
+>If your original app used connection strings or other shared secrets for authentication, this is a great opportunity to improve your app's security by switching to using Microsoft Entra ID authentication with managed identities. For more information, see [Configure connections to remote services in Azure Functions](../manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 #### [System-assigned](#tab/system-assigned/github-copilot)
 

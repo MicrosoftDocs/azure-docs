@@ -2,7 +2,7 @@
 title: Azure Quickstart - Create a Batch account - Bicep file
 description: This quickstart shows how to create a Batch account by using a Bicep file.
 author: FuzziWumpus
-ms.date: 04/02/2025
+ms.date: 06/16/2026
 ms.topic: quickstart
 ms.author: padmalathas
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
@@ -78,7 +78,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-If you plan to continue on with more of our [tutorials](./tutorial-parallel-dotnet.md), you may want to leave these resources in place. When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and all of its resources.
+If you plan to continue with more [tutorials](./tutorial-parallel-dotnet.md), you might want to leave these resources in place. When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and all of its resources.
 
 # [CLI](#tab/CLI)
 

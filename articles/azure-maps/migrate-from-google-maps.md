@@ -122,7 +122,7 @@ Learn the details of how to migrate your Google Maps application with these arti
 > [Migrate a web app](migrate-from-google-maps-web-app.md)
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[Azure Maps Blog]: https://aka.ms/AzureMapsBlog
+[Azure Maps Blog]: https://azure.microsoft.com/blog/product/azure-maps/
 [Azure Maps developer forums]: https://aka.ms/AzureMapsForums
 [Azure Maps pricing page]: https://azure.microsoft.com/pricing/details/azure-maps/
 [Azure Maps product documentation]: https://aka.ms/AzureMapsDocs

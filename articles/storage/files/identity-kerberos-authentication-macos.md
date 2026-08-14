@@ -4,7 +4,7 @@ description: Learn how to configure Microsoft Entra Kerberos authentication for 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/27/2026
+ms.date: 07/23/2026
 ms.author: kendownie
 # Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication for SMB Azure file shares on macOS devices using Platform SSO, so that macOS users can mount and access Azure file shares without being prompted for credentials.
 ---
@@ -15,7 +15,7 @@ ms.author: kendownie
 
 This article explains how to configure Microsoft Entra Kerberos authentication for Azure Files on macOS devices by using [macOS Platform Single Sign-On (PSSO)](/entra/identity/devices/macos-psso) (preview). By using this configuration, Microsoft Entra joined macOS devices can access SMB Azure file shares seamlessly by using cloud-based Kerberos Ticket Granting Tickets (TGTs), without prompting users for credentials.
 
-macOS Platform SSO integrates Mac devices with Microsoft Entra ID and enables users to sign in with their Microsoft Entra ID credentials by using a hardware-bound key, smart card, or Microsoft Entra ID password. In addition to the Platform SSO Primary Refresh Token (PRT), Microsoft Entra ID issues a cloud Kerberos TGT, which is shared with the native macOS Kerberos stack through TGT mapping in PSSO. On-premises Kerberos TGTs can also be obtained when the client is configured (for example, via Intune) to query on-premises domain controllers. This configuration enables seamless single sign-on to Azure Files without prompting users for interactive credentials.
+macOS Platform SSO integrates Mac devices with Microsoft Entra ID and enables users to sign in with their Microsoft Entra ID credentials by using a hardware-bound key, smart card, or Microsoft Entra ID password. In addition to the Platform SSO Primary Refresh Token (PRT), Microsoft Entra ID issues a cloud Kerberos TGT, which is shared with the native macOS Kerberos stack through TGT mapping in PSSO. On-premises Kerberos TGTs can also be obtained when the client is configured (for example, through Intune) to query on-premises domain controllers. This configuration enables seamless single sign-on to Azure Files without prompting users for interactive credentials.
 
 For more information about Microsoft Entra Kerberos authentication for Azure Files, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md#microsoft-entra-kerberos).
 
@@ -28,13 +28,13 @@ Before configuring Azure Files access on macOS by using Platform SSO, complete t
 - macOS Tahoe 26.5 or later with the latest updates installed.
 - [Microsoft Intune Company Portal](/mem/intune/apps/apps-company-portal-macos) version 5.2408.0 or later installed on the device.
 - The macOS device must be enrolled in a mobile device management (MDM) solution.
-- macOS Platform SSO must already be configured and deployed to devices. If you didn't configure Platform SSO, refer to the [Platform SSO documentation](/entra/identity/devices/macos-psso) or the [Intune deployment guide](/mem/intune/configuration/platform-sso-macos) before continuing.
+- macOS Platform SSO must already be configured and deployed to devices. If you didn't configure Platform SSO, see the [Platform SSO documentation](/entra/identity/devices/macos-psso) for general information or the [Intune deployment guide](/mem/intune/configuration/platform-sso-macos) for step-by-step instructions before continuing.
 
 ### Azure Files requirements
 
 - Microsoft Entra Kerberos authentication must be enabled on your Azure storage account. If you didn't enable this feature, follow the instructions in [Enable Microsoft Entra Kerberos authentication for hybrid and cloud-only identities on Azure Files](storage-files-identity-auth-hybrid-identities-enable.md).
 - Admin consent must be granted to the service principal registered by enabling Microsoft Entra Kerberos. For instructions, see [Grant admin consent to the new service principal](storage-files-identity-auth-hybrid-identities-enable.md#grant-admin-consent-to-the-new-service-principal).
-- Multifactor authentication (MFA) must be disabled for the Entra app representing the storage account. For instructions, see [Disable multifactor authentication on the storage account](storage-files-identity-auth-hybrid-identities-enable.md#disable-multifactor-authentication-on-the-storage-account).
+- Multifactor authentication (MFA) must be disabled for the Microsoft Entra app representing the storage account. For instructions, see [Disable multifactor authentication on the storage account](storage-files-identity-auth-hybrid-identities-enable.md#disable-multifactor-authentication-on-the-storage-account).
 
 ### Permissions and tooling requirements
 
@@ -48,7 +48,7 @@ To run the app registration update script described in this article, you need:
 
 This step is only required if you have existing file shares in the storage account. It doesn't apply to newly created file shares. If there are no existing file shares in the storage account, you can skip this step.
 
-In order for macOS clients to access existing Azure file shares by using Microsoft Entra Kerberos with Platform SSO, you must update the `CIFS` identifier URI to lowercase `cifs`, or the file share mount fails.
+For macOS clients to access existing Azure file shares by using Microsoft Entra Kerberos with Platform SSO, you must update the `CIFS` identifier URI to lowercase `cifs`, or the file share mount fails.
 
 When you enable a storage account for Microsoft Entra Kerberos authentication, the system automatically registers a Microsoft Entra application with identifier URIs that include a `CIFS/<storageaccount>.file.core.windows.net` prefix. macOS requires the `cifs` prefix to be **lowercase** when mounting an SMB file share by using Kerberos. If any identifier URI contains the uppercase `CIFS` prefix, macOS clients can't authenticate and mount the share.
 
@@ -92,7 +92,7 @@ $outputFile = "C:\audit\production_update_$timestamp.csv"
 > [!NOTE]
 > The script processes apps in batches of 50, with a 100ms delay between apps and a 2-second delay between batches. It works with up to 20,000 apps. For large runs, test with a small subset first and review the audit log before running at scale.
 
-### Verify the update
+### Verify the identifier URI update
 
 After running the script, verify that the identifier URI was updated successfully.
 
@@ -104,7 +104,7 @@ After running the script, verify that the identifier URI was updated successfull
 
 ## Configure Kerberos SSO MDM profiles on macOS
 
-To enable Kerberos SSO for Azure Files on macOS, deploy a Kerberos SSO MDM profile that points macOS to the Microsoft Entra ID Cloud Kerberos realm. If your users also need to access on-premises Active Directory resources via Kerberos, deploy a separate profile for the on-premises AD realm.
+To enable Kerberos SSO for Azure Files on macOS, deploy a Kerberos SSO MDM profile that points macOS to the Microsoft Entra ID Cloud Kerberos realm. If your users also need to access on-premises Active Directory resources through Kerberos, deploy a separate profile for the on-premises AD realm.
 
 > [!NOTE]
 > If you plan to use both Microsoft Entra ID Cloud Kerberos and on-premises Active Directory realms, deploy the on-premises Active Directory profile before the Microsoft Entra ID Cloud Kerberos profile.
@@ -316,7 +316,7 @@ After you deploy the Kerberos SSO profiles and update the app registration, macO
 
 If the configuration is correct, the share mounts without prompting the user for credentials.
 
-## Test and verify
+## Test and verify Kerberos authentication
 
 After completing the configuration, verify that Kerberos tickets are being issued and that file share access works as expected.
 
@@ -338,7 +338,7 @@ nc -vz exampleaccount.file.core.windows.net 445
 
 ### Verify file share access
 
-Attempt to mount the Azure file share from Finder using the steps in the previous section. The share should mount without prompting for interactive credentials. If a credential prompt appears, see the [troubleshooting section](#users-are-prompted-for-credentials-when-mounting-the-file-share).
+Attempt to mount the Azure file share from Finder by using the steps in the previous section. The share should mount without prompting for interactive credentials. If a credential prompt appears, see the [troubleshooting section](#users-are-prompted-for-credentials-when-mounting-the-file-share).
 
 ## Troubleshoot
 
@@ -346,7 +346,7 @@ Attempt to mount the Azure file share from Finder using the steps in the previou
 
 If users are prompted to enter credentials when connecting to the Azure file share, verify the following conditions:
 
-- The app registration identifier URI is updated from `CIFS/` to `cifs/` (lowercase). See [Update the app registration identifier URI](#update-the-app-registration-identifier-uri) and [Verify the update](#verify-the-update).
+- The app registration identifier URI is updated from `CIFS/` to `cifs/` (lowercase). See [Update the app registration identifier URI](#update-the-app-registration-identifier-uri) and [Verify the identifier URI update](#verify-the-identifier-uri-update).
 - The macOS device has a valid cloud Kerberos TGT, confirmed by running `app-sso platform -s` in Terminal.
 - The Kerberos SSO MDM profiles are applied to the device.
 - Admin consent is granted to the Azure Files app registration in Microsoft Entra ID.
@@ -368,14 +368,6 @@ If users are prompted to enter credentials when connecting to the Azure file sha
 
 When you deploy Kerberos SSO support by using Platform SSO, the macOS Kerberos SSO extension menu bar extra appears in the menu bar. Users don't need to interact with the menu bar extra for Kerberos SSO to work. SSO functionality operates correctly even if the menu bar extra reports "Not signed in." You can instruct users to ignore the menu bar extra.
 
-### Browser support for Kerberos SSO
-
-If your users also access on-premises web resources via Kerberos SSO, some browsers require extra configuration. These settings aren't required for SMB Azure file share access. Deploy the appropriate settings for each browser used in your environment.
-
-- **Safari**: Supports Kerberos SSO by default. No extra configuration required.
-- **Microsoft Edge**: Configure [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) and [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) to include your on-premises Active Directory forest information.
-- **Google Chrome**: Configure [AuthNegotiateDelegateAllowlist](https://chromeenterprise.google/policies/#AuthNegotiateDelegateAllowlist) and [AuthServerAllowlist](https://chromeenterprise.google/policies/#AuthServerAllowlist) to include your on-premises Active Directory forest information.
-- **Mozilla Firefox**: Configure the `network.negotiate-auth.trusted-uris` and `network.automatic-ntlm-auth.trusted-uris` settings to enable Kerberos SSO support.
 
 ## Related content
 

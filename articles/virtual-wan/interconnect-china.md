@@ -1,8 +1,8 @@
 ---
 title: 'Architecture: Interconnect with China using Azure Virtual WAN and secure Hub'
 description: Learn how to interconnect with China using Azure Virtual WAN and a secured hub.
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 02/13/2023

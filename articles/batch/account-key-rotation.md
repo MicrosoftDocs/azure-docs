@@ -2,7 +2,7 @@
 title: Rotate Batch account keys
 description: Learn how to rotate Batch account shared key credentials.
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 06/16/2026
 # Customer intent: As a cloud administrator, I want to rotate the shared keys for my Batch account, so that I can maintain secure access without downtime and follow best practices for key management.
 ---
 # Batch account shared key credential rotation
@@ -22,7 +22,7 @@ Azure Batch accounts have two shared keys, `primary` or `secondary`. It's import
 keys at the same time, and instead regenerate them one at a time to avoid potential downtime.
 
 > [!WARNING]
-> Once a key has been regenerated, it is no longer valid and the prior key cannot be recovered for use. Ensure
+> After a key is regenerated, it's no longer valid and the prior key can't be recovered for use. Ensure
 > that your application update process follows the recommended key rotation procedure to prevent losing access
 > to your Batch account.
 
@@ -32,7 +32,7 @@ The typical key rotation procedure is as follows:
 application simultaneously, then any rotation procedure leads to authentication errors. The following steps assume
 that you're using the `primary` key in your application.
 1. Regenerate the `secondary` key.
-1. Update your application code to utilize the newly regenerated `secondary` key. Deploy these changes and
+1. Update your application code to use the newly regenerated `secondary` key. Deploy these changes and
 ensure that everything is working as expected.
 1. Regenerate the `primary` key.
 1. Optionally update your application code to use the `primary` key and deploy. This step isn't strictly

@@ -2,11 +2,11 @@
 title: Troubleshoot the Azure Data Lake Storage connectors
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Azure Data Lake Storage Gen1 and Gen2 connectors in Azure Data Factory and Azure Synapse Analytics. 
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 09/26/2024
-ms.author: jianleishen
+ms.author: tinglee
 ms.custom:
   - has-adal-ref
   - synapse
@@ -16,6 +16,8 @@ ms.custom:
 # Troubleshoot the Azure Data Lake Storage connectors in Azure Data Factory and Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article provides suggestions to troubleshoot common problems with the Azure Data Lake Storage Gen1 and Gen2 connectors in Azure Data Factory and Azure Synapse.
 

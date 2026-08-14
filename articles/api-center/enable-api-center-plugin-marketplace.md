@@ -1,6 +1,6 @@
 ---
 title: Enable Discovery of Plugins from API Center Plugin Marketplace
-description: Enable discovery of registered plugins through the API Center plugin marketplace endpoint (preview). Developers can configure it in GitHub Copilot or Claude Code to discover and install plugins from your inventory.
+description: Enable discovery of registered plugins through the API Center plugin marketplace endpoint. Developers can configure it in GitHub Copilot or Claude Code to discover and install plugins from your inventory.
 
 ms.service: azure-api-center
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.custom:
 # Customer intent: As an API program manager, I want to create a plugin marketplace from my API center so AI developers can find and install plugins from my inventory.
 ---
 
-# Enable discovery of API center plugins from a plugin marketplace (preview)
+# Enable discovery of API center plugins from a plugin marketplace
 
 
 This article shows how to enable discovery of plugins through a plugin marketplace endpoint in [Azure API Center](overview.md). The plugin marketplace endpoint uses the API Center data plane API to catalog the AI plugins such as MCP servers and skills available in the API center inventory. 

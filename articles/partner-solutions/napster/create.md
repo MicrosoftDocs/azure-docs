@@ -1,24 +1,25 @@
 ---
-title: "Quickstart: Get started with Napster Companion API (preview)"
+title: "Quickstart: Get started with Napster Companion API"
 description: Learn how to create a Napster Companion API resource in the Azure portal to start building persistent multimodal AI agents with unified Azure billing.
 author: shijoy
 ms.author: shijoy
 ms.topic: quickstart
-ms.date: 05/20/2026
+ms.subservice: napster
+ms.date: 07/29/2026
 ms.custom:
   - references_regions
   - ignite-2026
 #customer intent: As an Azure customer, I want to create a Napster Companion API resource in the portal so that I can begin building persistent multimodal AI agents on Azure.
 ---
 
-# Quickstart: Get started with Napster Companion API (preview)
+# Quickstart: Get started with Napster Companion API
 
 In this quickstart, you create an instance of Napster Companion API in the Azure portal. You complete the Basics, Tags, and Review + create tabs to provision the resource in your Azure subscription and associate it with your Napster organization.
 
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [subscribe to Napster Companion API](overview.md#subscribe-to-napster-companion-api).
+- You must [subscribe to Napster Companion API](overview.md#subscribe-to-napster-api).
 
 ## Create a Napster Companion API resource
 

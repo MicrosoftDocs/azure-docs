@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - authentication-managed-identity | Microsoft Docs
 description: Reference for the authentication-managed-identity policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 05/05/2026
-ms.author: danlep
 ---
 
 # Authenticate with managed identity

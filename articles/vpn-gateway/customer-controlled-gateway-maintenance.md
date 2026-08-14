@@ -2,12 +2,12 @@
 title: 'Configure customer-controlled maintenance for your virtual network gateway'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure customer-controlled maintenance for your VPN Gateway virtual network gateways using the Azure portal, or PowerShell.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/16/2025
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: "As a network administrator, I want to configure customer-controlled maintenance windows for my VPN gateways, so that I can schedule updates and maintenance tasks during off-peak hours to minimize disruption in service."
 ---
 

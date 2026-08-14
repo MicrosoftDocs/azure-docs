@@ -2,7 +2,7 @@
 title: Performance Best Practices
 description: Learn best practices for optimizing Service Bus performance, including resource planning, protocol selection, client reuse, batching, and prefetching.
 ms.topic: best-practice
-ms.date: 06/12/2026
+ms.date: 07/16/2026
 ms.devlang: csharp
 ms.custom:
   - devx-track-dotnet
@@ -63,7 +63,20 @@ Service Bus operates several background processes that can affect compute utiliz
 1. Deduplication and look back time window.
 1. Forward to (forwarding from one entity to another).
 
-If your application uses any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace. You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md). It's recommended to increase the number of Message Units (MUs) when CPU usage exceeds 70% to ensure optimal performance.
+If your application uses any of the preceding features and you aren't receiving the expected throughput, review the following resource-utilization guidance.
+
+#### Monitor CPU and memory usage
+
+Both **CPU** and **memory** are critical resources for a Service Bus Premium namespace, so monitor and scale on both. Review the namespace's utilization metrics in Azure Monitor and, when needed, add [messaging units](service-bus-premium-messaging.md). You can also configure Azure Monitor to [automatically scale the namespace](automate-update-messaging-units.md).
+
+Use the following thresholds as a starting point for when to scale up:
+
+| Resource | Scale-up guidance |
+| --- | --- |
+| CPU usage | Add messaging units when CPU usage consistently exceeds **75%**. |
+| Memory usage | Add messaging units when memory usage consistently exceeds **60%**. |
+
+Memory usage can rise quickly. To improve receive throughput, Service Bus keeps some messages in a cache and trims that cache only when memory usage reaches a high threshold (around 80%). Scaling up at 60% memory usage gives the namespace headroom and helps prevent interruptions to message processing. For guidance on setting scale-up and scale-down rules for both metrics, see [Automatically update messaging units](automate-update-messaging-units.md).
 
 ### Sharding across namespaces
 
@@ -366,6 +379,35 @@ Topics with a large number of subscriptions typically expose a low overall throu
 To maximize throughput, try the following steps:
 
 * Set the prefetch count to 20 times the expected rate at which messages are received. This count reduces the number of Service Bus client protocol transmissions.
+
+## Diagnose high latency
+
+When message processing is slower than expected, first determine whether the latency is on the client, in the network, or on the service.
+
+### Check the client first
+
+Latency often originates on the client. Check these items in order:
+
+* **Prefetch and concurrency.** A prefetch count or `MaxConcurrentCalls` that's too low leaves the receiver idle between messages. Set too high, it can cause lock expirations on slow processing. Tune both to your processing rate. See [Prefetch Service Bus messages](#prefetch-service-bus-messages) and [Concurrent operations](#concurrent-operations).
+* **Sync-over-async.** Blocking on async calls (`.Result`, `.Wait()`, `.GetAwaiter().GetResult()`) can starve the thread pool under load and inflate latency. Use `async`/`await` end to end. See [Handle timeouts and configure retries](service-bus-timeouts-retries.md).
+* **Client resource pressure.** High CPU, memory pressure, or frequent garbage collection on the client host can slow message handling independently of the service.
+* **Client reuse.** Reuse a single `ServiceBusClient` to avoid the connection setup cost of creating one per operation. See [Reusing factories and clients](#reusing-factories-and-clients).
+
+### Check the network
+
+* A client in a different region from the namespace adds round-trip latency. Co-locate the client with the namespace where possible.
+* The Web Sockets transport over port 443 adds a small amount of overhead compared to AMQP over 5671. Use AMQP directly when your network allows it. See [Service Bus messaging protocols](#service-bus-messaging-protocols).
+
+### Check the service
+
+* On the **Standard** tier, throughput and latency are best effort on shared infrastructure and can be affected by other tenants. For predictable latency, use the **Premium** tier. See [Pricing tier](#pricing-tier).
+* Open the namespace **Resource health** page in the Azure portal to rule out a service-side condition during the affected window.
+* If requests are throttled (`ServiceBusException` with `Reason` of `ServiceBusy`), latency increases while the client backs off. See [Service Bus throttling](service-bus-throttling.md).
+
+### Use metrics and tracing
+
+* In Azure Monitor, review the namespace metrics for throttled requests, active connections, and server latency to correlate latency with load.
+* The `Azure.Messaging.ServiceBus` library is instrumented for distributed tracing. Enable it to measure where time is spent across send, receive, and settle operations. See [Logging and diagnostics](service-bus-troubleshooting-guide.md#logging-and-diagnostics).
 
 ## Related content
 

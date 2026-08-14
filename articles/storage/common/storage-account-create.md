@@ -3,12 +3,12 @@ title: Create an Azure Storage Account
 titleSuffix: Azure Storage
 description: Create an Azure storage account to store blobs, files, queues, and tables. Use the Azure portal, CLI, PowerShell, or templates to get started.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 05/08/2026
-ms.author: akashdubey
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom:
   - devx-track-azurecli
@@ -632,4 +632,3 @@ You can also delete the resource group. This action deletes the storage account 
 - [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
 - [Move a storage account to another region](storage-account-move.md)
 - [Recover a deleted storage account](storage-account-recover.md)
-- [Migrate a classic storage account](classic-account-migrate.md)

@@ -2,12 +2,10 @@
 title: How to Use Named Values in Azure API Management policies
 description: Learn how to use named values in Azure API Management policies. Named values can contain literal strings, policy expressions, and secrets stored in Azure Key Vault.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/11/2026
-ms.author: danlep
 ms.custom:
   - engagement-fy23
   - devx-track-azurecli

@@ -4,13 +4,15 @@ description: Learn how to create an Azure-SSIS integration runtime in Azure Data
 ms.subservice: integration-services
 ms.topic: concept-article
 ms.date: 03/31/2025
-author: chugugrace
-ms.author: chugu 
+author: kromerm
+ms.author: makromer
 ---
 
 # Create an Azure-SSIS integration runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article provides steps for provisioning an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) and Azure Synapse Pipelines. An Azure-SSIS IR supports:
 

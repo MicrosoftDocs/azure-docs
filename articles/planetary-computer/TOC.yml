@@ -12,7 +12,7 @@
     href: stac-overview.md
   - name: Supported data types
     href: supported-data-types.md
-  - name: Service usage meters
+  - name: Service usage metrics
     href: service-usage-meters.md
   expanded: true
 - name: Deploy & set up

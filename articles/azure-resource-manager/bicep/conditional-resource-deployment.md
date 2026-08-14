@@ -1,11 +1,11 @@
-﻿---
+---
 title: Conditional deployments in Bicep with the if expression
 description: Understand how to use the 'if' expression to conditionally deploy a resource in Bicep.
 ms.topic: article
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 12/10/2025
+ms.date: 06/26/2026
 ---
 
 # Conditional deployments in Bicep with the if expression

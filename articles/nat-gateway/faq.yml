@@ -4,7 +4,7 @@ metadata:
   description: Answers to common questions about using Azure NAT Gateway.
   ms.topic: faq
   ms.service: azure-nat-gateway
-  ms.date: 12/10/2024
+  ms.date: 08/11/2026
 
 title: Frequently asked questions for Azure NAT Gateway
 summary: |
@@ -121,7 +121,7 @@ sections:
         answer: |
           No, there's no disruption in connections. Existing connections with the previous outbound service (Load Balancer, Azure Firewall, instance-level public IP addresses) continues to work until those connections close. After a NAT gateway is added to the subnet of the virtual network, all new connections use a NAT gateway for making outbound connections. 
 
-          However, there is a known issue with StandardV2 NAT Gateway and existing connections using a Load balancer, Firewall, or a virtual machine instance level public IP. Existing connections with other outbound connectivity methods will be disrupted after adding StandardV2 NAT Gateway to a subnet. All net new connections will use the StandardV2 NAT Gateway. To learn more see [known issues](./nat-sku.md#known-issues).
+          However, there is a known issue with StandardV2 NAT Gateway and existing connections using a Load balancer, Firewall, or a virtual machine instance level public IP. Existing connections with those outbound connectivity methods might be interrupted after adding StandardV2 NAT Gateway to a subnet. All net new connections will use the StandardV2 NAT Gateway. To learn more see [known issues](./nat-sku.md#known-issues).
      
       - question: Can a NAT gateway public IP connect directly to a private IP address over the internet?
         answer: |

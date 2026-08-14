@@ -12,14 +12,16 @@ zone_pivot_groups: azure-durable-approach
 
 # Monitor pattern
 
-The *monitor pattern* is a recurring process in a workflow that polls an external system until a condition is met — for example, checking job status until it completes, or watching weather data until skies are clear. Unlike a fixed-schedule timer trigger, a monitor waits between iterations (avoiding overlap), supports dynamic intervals, and can terminate itself once the condition is satisfied or a timeout expires.
+The *monitor pattern* is a recurring process in a workflow that polls an external system until a condition is met. For example, it checks job status until it completes, or watches weather data until skies are clear. Unlike a fixed-schedule timer trigger, a monitor waits between iterations (avoiding overlap), supports dynamic intervals, and can terminate itself once the condition is satisfied or a timeout expires.
 
-This article explains how to implement the monitor pattern using durable orchestrations.
+This article explains how to implement the monitor pattern by using durable orchestrations.
 
 > [!TIP]
-> This article shows the complete implementation. For a conceptual overview of durable orchestration use cases, see [What is Durable Task?](what-is-durable-task.md).
+> This article shows the complete implementation. For a conceptual overview of durable orchestration use cases, see [What is Durable Task?](what-is-durable-task.md)
 
 ::: zone pivot="durable-functions"
+
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
 
 The Durable Functions examples include a weather monitoring scenario (C#/JavaScript) and a GitHub issue monitoring scenario (Python).
 
@@ -29,7 +31,7 @@ The Durable Functions examples include a weather monitoring scenario (C#/JavaScr
 
 ::: zone pivot="durable-task-sdks"
 
-The Durable Task SDKs example demonstrates job status monitoring with configurable polling intervals using .NET, JavaScript, Python, and Java.
+The Durable Task SDKs example demonstrates job status monitoring with configurable polling intervals by using .NET, JavaScript, Python, and Java.
 
 ::: zone-end
 
@@ -40,7 +42,9 @@ The Durable Task SDKs example demonstrates job status monitoring with configurab
 # [C#](#tab/csharp)
 
 * [Complete the quickstart article](../durable-functions/durable-functions-isolated-create-first-csharp.md)
-* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/precompiled)
+* Clone or download the samples project from GitHub
+  * [Isolated model samples](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-functions/dotnet)
+  * [In-process model samples](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/precompiled)
 
 # [JavaScript](#tab/javascript)
 
@@ -122,11 +126,11 @@ Java samples for Durable Functions aren't yet available for this scenario. See t
 
 The monitoring pattern can end its own execution, among other benefits:
 
-* Monitors run on intervals, not schedules: a timer trigger *runs* every hour; a monitor *waits* one hour between actions. A monitor's actions won't overlap unless specified, which can be important for long-running tasks.
+* Monitors run on intervals, not schedules: a timer trigger *runs* every hour; a monitor *waits* one hour between actions. A monitor's actions don't overlap unless you specify otherwise, which can be important for long-running tasks.
 * Monitors can have dynamic intervals: the wait time can change based on some condition.
 * Monitors can terminate when some condition is met or be terminated by another process.
 * Monitors can take parameters. The sample shows how the same monitoring process can be applied to any requested location, phone number, or repository.
-* Monitors are scalable. Because each monitor is an orchestration instance, multiple monitors can be created without having to create new functions or define more code.
+* Monitors are scalable. Because each monitor is an orchestration instance, you can create multiple monitors without having to create new functions or define more code.
 * Monitors integrate easily into larger workflows. A monitor can be one section of a more complex orchestration function, or a [sub-orchestration](durable-task-sub-orchestrations.md).
 
 ::: zone-end
@@ -138,7 +142,7 @@ This sample monitors the status of a long-running job and returns the final resu
 The monitoring pattern provides these benefits:
 
 * **Durable polling**: The orchestration survives process restarts and can continue monitoring even after failures.
-* **Configurable intervals**: The wait time between status checks can be adjusted dynamically.
+* **Configurable intervals**: You can adjust the wait time between status checks dynamically.
 * **Timeout support**: The monitor can terminate when a condition is met or a timeout expires.
 * **Status visibility**: Clients can query the orchestration's custom status to see current monitoring progress.
 * **Scalability**: Multiple monitors can run concurrently, each tracking different jobs.
@@ -157,7 +161,7 @@ The monitoring pattern provides these benefits:
 
 ### Configuring a weather API
 
-The C#/JavaScript samples call a weather API to check current conditions. You need to provide your own weather API key and update the sample code accordingly. The sample code references a `WeatherUndergroundApiKey` app setting — replace this with your chosen weather provider's key.
+The C#/JavaScript samples call a weather API to check current conditions. You need to provide your own weather API key and update the sample code accordingly. The sample code references a `WeatherUndergroundApiKey` app setting - replace this key with your chosen weather provider's key.
 
 | App setting name | Value description |
 | - | - |
@@ -171,7 +175,7 @@ The C#/JavaScript samples call a weather API to check current conditions. You ne
 
 ### Configuring a weather API
 
-The C#/JavaScript samples call a weather API to check current conditions. You need to provide your own weather API key and update the sample code accordingly. The sample code references a `WeatherUndergroundApiKey` app setting — replace this with your chosen weather provider's key.
+The C#/JavaScript samples call a weather API to check current conditions. You need to provide your own weather API key and update the sample code accordingly. The sample code references a `WeatherUndergroundApiKey` app setting - replace this key with your chosen weather provider's key.
 
 | App setting name | Value description |
 | - | - |
@@ -201,9 +205,99 @@ Java samples for Durable Functions aren't yet available for this scenario. See t
 
 # [C#](#tab/csharp)
 
+<br>
+
+<details>
+<summary><b>Isolated model</b></summary>
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.DurableTask;
+using Microsoft.Extensions.Logging;
+
+namespace VSSample;
+
+public static partial class Monitor
+{
+    [Function("E3_Monitor")]
+    public static async Task Run(
+        [OrchestrationTrigger] TaskOrchestrationContext context)
+    {
+        MonitorRequest input = context.GetInput<MonitorRequest>()
+            ?? throw new ArgumentNullException(nameof(context), "An input object is required.");
+        VerifyRequest(input);
+
+        ILogger logger = context.CreateReplaySafeLogger("E3_Monitor");
+        DateTime endTime = context.CurrentUtcDateTime.AddHours(6);
+        logger.LogInformation(
+            "Instantiating monitor for {Location}. Expires: {EndTime}.",
+            input.Location,
+            endTime);
+
+        while (context.CurrentUtcDateTime < endTime)
+        {
+            logger.LogInformation(
+                "Checking current weather conditions for {Location} at {CurrentTime}.",
+                input.Location,
+                context.CurrentUtcDateTime);
+
+            bool isClear = await context.CallActivityAsync<bool>(
+                "E3_GetIsClear",
+                input.Location);
+
+            if (isClear)
+            {
+                await context.CallActivityAsync(
+                    "E3_SendGoodWeatherAlert",
+                    input.Phone);
+                break;
+            }
+
+            DateTime nextCheckpoint = context.CurrentUtcDateTime.AddMinutes(30);
+            await context.CreateTimer(nextCheckpoint, CancellationToken.None);
+        }
+
+        logger.LogInformation("Monitor expiring.");
+    }
+
+    private static void VerifyRequest(MonitorRequest request)
+    {
+        ArgumentNullException.ThrowIfNull(request.Location);
+        ArgumentException.ThrowIfNullOrEmpty(request.Phone);
+    }
+}
+
+public sealed class MonitorRequest
+{
+    public required Location Location { get; init; }
+
+    public required string Phone { get; init; }
+}
+
+public sealed class Location
+{
+    public required string State { get; init; }
+
+    public required string City { get; init; }
+
+    public override string ToString() => $"{City}, {State}";
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
 
-The orchestrator function requires a location to monitor and a phone number to send a message to when the weather becomes clear at the location. This data is passed to the orchestrator function as a strongly typed `MonitorRequest` object.
+</details>
+
+<br>
+
+The orchestrator function requires a location to monitor and a phone number to send a message to when the weather becomes clear at the location. You pass this data to the orchestrator function as a strongly typed `MonitorRequest` object.
 
 # [JavaScript](#tab/javascript)
 
@@ -221,13 +315,35 @@ The **E3_Monitor** function uses the standard *function.json* for orchestrator f
 
 [!code-json[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/function.json)]
 
-Here is the code that implements the function:
+Here's the code that implements the function:
 
-[!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/__init__.py)]
 
 # [PowerShell](#tab/powershell)
 
-Not available for this sample. See the **Durable Task SDKs** pivot for Java coverage.
+The orchestrator function periodically checks a condition and sends an alert if it's met. It uses a durable timer for polling intervals and continues until the monitor expires.
+
+```powershell
+param($Context)
+
+$input = $Context.Input | ConvertFrom-Json
+$expirationTime = (Get-Date).AddHours(6)
+$pollingInterval = New-TimeSpan -Seconds $input.pollingIntervalSeconds
+
+while ((Get-Date) -lt $expirationTime) {
+    # Check current conditions
+    $isClear = Invoke-DurableActivity -FunctionName 'E3_GetIsClear' -Input $input.location
+
+    if ($isClear) {
+        # Condition met - send alert and exit
+        Invoke-DurableActivity -FunctionName 'E3_SendGoodWeatherAlert' -Input $input.phone
+        break
+    }
+
+    # Wait for the next polling interval
+    Start-DurableTimer -Duration $pollingInterval
+}
+```
 
 # [Java](#tab/java)
 
@@ -263,13 +379,13 @@ public void monitorOrchestrator(
 This orchestrator function performs the following actions:
 
 1. Gets the **MonitorRequest** consisting of the *location* to monitor and the *phone number* to which it sends an SMS notification (or *repo* for the Python example).
-2. Determines the expiration time of the monitor. The sample uses a hard-coded value for brevity.
-3. Calls the status-checking activity to determine whether the condition is met.
-4. If the condition is met, calls the alert activity to send a notification.
-5. Creates a durable timer to resume the orchestration at the next polling interval. The sample uses a hard-coded value for brevity.
-6. Continues running until the current UTC time passes the monitor's expiration time, or an alert is sent.
+1. Determines the expiration time of the monitor. The sample uses a hard-coded value for brevity.
+1. Calls the status-checking activity to determine whether the condition is met.
+1. If the condition is met, calls the alert activity to send a notification.
+1. Creates a durable timer to resume the orchestration at the next polling interval. The sample uses a hard-coded value for brevity.
+1. Continues running until the current UTC time passes the monitor's expiration time, or an alert is sent.
 
-Multiple orchestrator function instances can run simultaneously by calling the orchestrator function multiple times. The location to monitor and the phone number to send an alert to can be specified. The orchestrator function isn't running while waiting for the timer, so you won't get charged for it.
+You can run multiple orchestrator function instances simultaneously by calling the orchestrator function multiple times. You can specify the location to monitor and the phone number to send an alert to. The orchestrator function isn't running while waiting for the timer, so you aren't charged for it.
 
 ::: zone-end
 
@@ -507,12 +623,12 @@ DurableTaskGrpcWorker worker = DurableTaskSchedulerWorkerExtensions.createWorker
 This orchestrator performs the following actions:
 
 1. Takes the job ID, polling interval, and timeout as input parameters.
-2. Records the start time and calculates the expiration time.
-3. Enters a polling loop that checks the job status.
-4. Updates the custom status so clients can monitor progress.
-5. If the job completes, returns the final result.
-6. If the timeout is reached, returns a timeout status.
-7. Uses `CreateTimer` to wait between polling attempts without consuming resources.
+1. Records the start time and calculates the expiration time.
+1. Enters a polling loop that checks the job status.
+1. Updates the custom status so clients can monitor progress.
+1. If the job completes, returns the final result.
+1. If the timeout is reached, returns a timeout status.
+1. Uses `CreateTimer` to wait between polling attempts without consuming resources.
 
 ::: zone-end
 
@@ -526,9 +642,42 @@ As with other samples, the helper activity functions are regular functions that 
 
 # [C#](#tab/csharp)
 
-The **E3_GetIsClear** function gets the current weather conditions using the Weather Underground API and determines whether the sky is clear.
+The **E3_GetIsClear** function gets the current weather conditions by using the Weather Underground API and determines whether the sky is clear.
+
+<br>
+
+<details>
+<summary><b>Isolated model</b></summary>
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+
+namespace VSSample;
+
+public static partial class Monitor
+{
+    [Function("E3_GetIsClear")]
+    public static async Task<bool> GetIsClear([ActivityTrigger] Location location)
+    {
+        WeatherCondition currentConditions =
+            await WeatherUnderground.GetCurrentConditionsAsync(location);
+        return currentConditions == WeatherCondition.Clear;
+    }
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=80-85)]
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -536,29 +685,38 @@ The *function.json* is defined as follows:
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_GetIsClear/function.json":::
 
-And here's the implementation.
+Here's the implementation.
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_GetIsClear/index.js":::
 
 # [Python](#tab/python)
 
-The **E3_TooManyOpenIssues** function gets a list of currently open issues on the repo and determines if there are "too many" of them: more than 3 as per our sample.
+The **E3_TooManyOpenIssues** function gets a list of currently open issues on the repo and determines if there are "too many" of them: more than 3 as per the sample.
 
 The *function.json* is defined as follows:
 
 [!code-json[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/function.json)]
 
-And here is the implementation.
+Here's the implementation.
 
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/\_\_init\_\_.py)]
 
 # [PowerShell](#tab/powershell)
 
-Not available for this sample. See the **Durable Task SDKs** pivot for Java coverage.
+The **E3_GetIsClear** function checks whether the condition is met. In this example, it checks weather conditions for a location.
+
+```powershell
+param($location)
+
+# Call weather API to check current conditions
+# In a real app, call an external API here
+$conditions = Get-WeatherConditions -Location $location
+$conditions -eq 'Clear'
+```
 
 # [Java](#tab/java)
 
-The **E3_GetIsClear** function checks the current weather conditions for a location using a weather API.
+The **E3_GetIsClear** function checks the current weather conditions for a location by using a weather API.
 
 ```java
 @FunctionName("E3_GetIsClear")
@@ -576,12 +734,61 @@ public boolean getIsClear(
 
 # [C#](#tab/csharp)
 
-The **E3_SendGoodWeatherAlert** function uses the Twilio binding to send an SMS message notifying the end user that it's a good time for a walk.
+The **E3_SendGoodWeatherAlert** function uses Twilio to send an SMS message that notifies the end user that it's a good time for a walk.
+
+<br>
+
+<details>
+<summary><b>Isolated model</b></summary>
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+
+namespace VSSample;
+
+public static partial class Monitor
+{
+    [Function("E3_SendGoodWeatherAlert")]
+    public static async Task SendGoodWeatherAlert(
+        [ActivityTrigger] string phoneNumber)
+    {
+        string accountSid = Environment.GetEnvironmentVariable("TwilioAccountSid")
+            ?? throw new InvalidOperationException("TwilioAccountSid is not configured.");
+        string authToken = Environment.GetEnvironmentVariable("TwilioAuthToken")
+            ?? throw new InvalidOperationException("TwilioAuthToken is not configured.");
+        string fromNumber = Environment.GetEnvironmentVariable("TwilioPhoneNumber")
+            ?? throw new InvalidOperationException("TwilioPhoneNumber is not configured.");
+
+        TwilioClient.Init(accountSid, authToken);
+        await MessageResource.CreateAsync(
+            to: new PhoneNumber(phoneNumber),
+            from: new PhoneNumber(fromNumber),
+            body: "The weather's clear outside! Go take a walk!");
+    }
+}
+```
+
+> [!NOTE]
+> To run the isolated worker sample code, install the `Twilio` NuGet package.
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
 
 > [!NOTE]
-> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package to run the sample code.
+> To run the in-process sample code, install the `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet package.
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -601,13 +808,21 @@ Its *function.json* is simple:
 
 [!code-json[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/function.json)]
 
-And here is the code that sends the SMS message:
+And here's the code that sends the SMS message:
 
-[!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/\_\_init\_\_.py)]
+[!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/__init__.py)]
 
 # [PowerShell](#tab/powershell)
 
-Not available for this sample. See the **Durable Task SDKs** pivot for Java coverage.
+The **E3_SendGoodWeatherAlert** function sends an SMS notification to the user.
+
+```powershell
+param($phoneNumber)
+
+# Send an SMS alert using your preferred messaging service
+Write-Host "Sending good weather alert to $phoneNumber."
+# In a real app, use Twilio or another SMS provider here
+```
 
 # [Java](#tab/java)
 
@@ -628,7 +843,7 @@ public void sendGoodWeatherAlert(
 
 ::: zone pivot="durable-task-sdks"
 
-The activity checks the current status of the job. In a real application, this would call an external API or service.
+The activity checks the current status of the job. In a real application, this step calls an external API or service.
 
 # [C#](#tab/csharp)
 
@@ -755,7 +970,7 @@ This sample is shown for .NET, JavaScript, Java, and Python.
 
 # [Java](#tab/java)
 
-In the Java sample, the status checking is simulated directly in the orchestrator. In a real application, you would create a separate activity:
+In the Java sample, the orchestrator directly simulates the status check. In a real application, you would create a separate activity:
 
 ```java
 .addActivity(new TaskActivityFactory() {
@@ -787,7 +1002,7 @@ In the Java sample, the status checking is simulated directly in the orchestrato
 
 # [C#](#tab/csharp)
 
-Using the HTTP-triggered functions included in the sample, you can start the orchestration by sending the following HTTP POST request:
+By using the HTTP-triggered functions included in the sample, you can start the orchestration by sending the following HTTP POST request:
 
 ```
 POST https://{host}/orchestrators/E3_Monitor
@@ -799,7 +1014,7 @@ Content-Type: application/json
 
 # [JavaScript](#tab/javascript)
 
-Using the HTTP-triggered functions included in the sample, you can start the orchestration by sending the following HTTP POST request:
+By using the HTTP-triggered functions included in the sample, you can start the orchestration by sending the following HTTP POST request:
 
 ```
 POST https://{host}/orchestrators/E3_Monitor
@@ -813,7 +1028,7 @@ Content-Type: application/json
 
 You need a [GitHub](https://github.com/) account. Create a temporary public repository that you can open issues to.
 
-Using the HTTP-triggered functions included in the sample, you can start the orchestration by sending the following HTTP POST request:
+By using the HTTP-triggered functions included in the sample, you can start the orchestration by sending the following HTTP POST request:
 
 ```
 POST https://{host}/orchestrators/E3_Monitor
@@ -823,15 +1038,22 @@ Content-Type: application/json
 { "repo": "<your GitHub handle>/<a new GitHub repo under your user>", "phone": "+1425XXXXXXX" }
 ```
 
-For example, if your GitHub username is `foo` and your repository is `bar` then your value for `"repo"` should be `"foo/bar"`.
+For example, if your GitHub username is `foo` and your repository is `bar`, set the value for `"repo"` to `"foo/bar"`.
 
 # [PowerShell](#tab/powershell)
 
-Not available for this sample. See the **Durable Task SDKs** pivot for Java coverage.
+By using the HTTP-triggered function included in the sample, you can start the orchestration by sending the following HTTP POST request:
+
+```
+POST https://{host}/api/orchestrators/E3_Monitor
+Content-Type: application/json
+
+{ "location": { "city": "Redmond", "state": "WA" }, "phone": "+1425XXXXXXX" }
+```
 
 # [Java](#tab/java)
 
-Using the HTTP-triggered function included in the sample, you can start the orchestration by sending the following HTTP POST request:
+By using the HTTP-triggered function included in the sample, you can start the orchestration by sending the following HTTP POST request:
 
 ```
 POST https://{host}/api/StartMonitor
@@ -888,9 +1110,9 @@ To run the sample, you need:
    docker run -d -p 8080:8080 -p 8082:8082 --name dts-emulator mcr.microsoft.com/dts/dts-emulator:latest
    ```
 
-2. **Start the worker** to register the orchestrator and activities.
+1. **Start the worker** to register the orchestrator and activities.
 
-3. **Run the client** to schedule a monitoring orchestration.
+1. **Run the client** to schedule a monitoring orchestration.
 
 # [C#](#tab/csharp)
 
@@ -1049,7 +1271,7 @@ System.out.println("Final result: " + result.readOutputAs(JobResult.class).statu
 
 ::: zone pivot="durable-functions"
 
-This sample demonstrates how to use Durable Functions to monitor an external source's status using [durable timers](durable-task-timers.md) and conditional logic. The next sample shows how to use external events and [durable timers](durable-task-timers.md) to handle human interaction.
+This sample demonstrates how to use Durable Functions to monitor an external source's status by using [durable timers](durable-task-timers.md) and conditional logic. The next sample shows how to use external events and [durable timers](durable-task-timers.md) to handle human interaction.
 
 > [!div class="nextstepaction"]
 > [Run the human interaction sample](durable-task-human-interaction.md)
@@ -1058,7 +1280,7 @@ This sample demonstrates how to use Durable Functions to monitor an external sou
 
 ::: zone pivot="durable-task-sdks"
 
-This sample demonstrated how to use the Durable Task SDKs to implement the monitoring pattern with durable timers and status tracking. Learn more about other patterns and features.
+This sample demonstrated how to use the Durable Task SDKs to implement the monitoring pattern with durable timers and status tracking. To learn more about other patterns and features, see:
 
 - [Durable Task JavaScript SDK on GitHub](https://github.com/microsoft/durabletask-js)
 

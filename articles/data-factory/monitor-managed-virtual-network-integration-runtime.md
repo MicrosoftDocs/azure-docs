@@ -4,14 +4,16 @@ description: Learn how to monitor an integration runtime within an Azure Data Fa
 ms.subservice: monitoring
 ms.topic: how-to
 ms.date: 05/15/2024
-author: lrtoyou1223
-ms.author: lle
+author: kromerm
+ms.author: makromer
 ms.custom:
 ---
 
 # Monitor an integration runtime within a managed virtual network
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 You can use an Azure Data Factory managed virtual network to securely connect your data sources to a virtual network that the Data Factory service manages. By using this capability, you can establish a private and isolated environment for your data integration and orchestration processes.
 

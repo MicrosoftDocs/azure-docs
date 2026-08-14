@@ -2,11 +2,11 @@
 title: Copy data From PostgreSQL V2
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from PostgreSQL V2 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 02/09/2026
-ms.author: jianleishen
+ms.author: tinglee
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -14,7 +14,13 @@ ms.custom:
 # Copy data from PostgreSQL V2 using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric PostgreSQL connector documentation](/fabric/data-factory/connector-postgresql-overview).
+
 
 > [!IMPORTANT]
 > The PostgreSQL V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the PostgreSQL connector](#upgrade-the-postgresql-linked-service) from V1 to V2.

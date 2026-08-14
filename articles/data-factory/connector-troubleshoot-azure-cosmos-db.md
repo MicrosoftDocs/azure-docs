@@ -2,17 +2,20 @@
 title: Troubleshoot the Azure Cosmos DB connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Azure Cosmos DB and Azure Cosmos DB for NoSQL connectors in Azure Data Factory and Azure Synapse Analytics.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 01/05/2024
-ms.author: jianleishen
+ms.date: 06/22/2026
+ms.update-cycle: 1095-days
+ms.author: tinglee
 ms.custom: has-adal-ref, synapse
 ---
 
 # Troubleshoot the Azure Cosmos DB connector in Azure Data Factory and Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article provides suggestions to troubleshoot common problems with the Azure Cosmos DB and Azure Cosmos DB for NoSQL connectors in Azure Data Factory and Azure Synapse.
 
@@ -22,8 +25,8 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
 - **Cause**: Azure Cosmos DB limits the size of a single request to 2 MB. The formula is *request size = single document size \* write batch size*. If your document size is large, the default behavior will result in a request size that's too large.
 
-- **Resolution**: <br>
-You can tune the write batch size. In the copy activity sink, reduce the *write batch size* value (the default value is 10000). <br>
+- **Resolution**: <br />
+You can tune the write batch size. In the copy activity sink, reduce the *write batch size* value (the default value is 10000). <br />
 If reducing the *write batch size* value to 1 still doesn't work, change your Azure Cosmos DB SQL API from V2 to V3. To complete this configuration, you have two options:
 
      - **Option 1**: Change your authentication type to service principal or system-assigned managed identity or user-assigned managed identity.
@@ -53,14 +56,14 @@ If reducing the *write batch size* value to 1 still doesn't work, change your Az
 
 ## Error message: Unique index constraint violation
 
-- **Symptoms**: When you copy data into Azure Cosmos DB, you receive the following error:
+- **Symptoms**: When you copy data into Azure Cosmos DB, you receive the following error message:
 
     `Message=Partition range id 0 | Failed to import mini-batch. 
     Exception was Message: {"Errors":["Encountered exception while executing function. Exception = Error: {\"Errors\":[\"Unique index constraint violation.\"]}...`
 
-- **Cause**: There are two possible causes:
+- **Cause**: Two possible causes exist:
 
-    - Cause 1: If you use **Insert** as the write behavior, this error means that your source data has rows or objects with same ID.
+    - Cause 1: If you use **Insert** as the write behavior, this error means that your source data has rows or objects with duplicate IDs.
     - Cause 2: If you use **Upsert** as the write behavior and you set another unique key to the container, this error means that your source data has rows or objects with different IDs but the same value for the defined unique key.
 
 - **Resolution**: 
@@ -97,23 +100,23 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](/azure/co
 
 ## Error message: The GuidRepresentation for the reader is CSharpLegacy
 
-- **Symptoms**: When you copy data from Azure Cosmos DB MongoAPI or MongoDB with the universally unique identifier (UUID) field, you receive the following error:
+- **Symptoms**: When you copy data from Azure Cosmos DB for MongoDB, Azure DocumentDB (with MongoDB compatibility), or MongoDB with the universally unique identifier (UUID) field, you receive the following error message:
 
     `Failed to read data via MongoDB client., 
     Source=Microsoft.DataTransfer.Runtime.MongoDbV2Connector,Type=System.FormatException, 
     Message=The GuidRepresentation for the reader is CSharpLegacy which requires the binary sub type to be UuidLegacy not UuidStandard.,Source=MongoDB.Bson,’“,`
 
-- **Cause**: There are two ways to represent the UUID in Binary JSON (BSON): UuidStandard and UuidLegacy. By default, UuidLegacy is used to read data. You will receive an error if your UUID data in MongoDB is UuidStandard.
+- **Cause**: Two ways exist to represent the UUID in Binary JSON (BSON): UuidStandard and UuidLegacy. By default, the system uses UuidLegacy to read data. You receive an error if your UUID data in MongoDB uses UuidStandard.
 
-- **Resolution**: In the MongoDB connection string, add the *uuidRepresentation=standard* option. For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
+- **Resolution**: In the Azure DocumentDB or MongoDB connection string, add the *uuidRepresentation=standard* option. For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
 
 ## Error code: CosmosDbSqlApiOperationFailed
 
 - **Message**: `CosmosDbSqlApi operation Failed. ErrorMessage: %msg;.`
 
-- **Cause**: A problem with the CosmosDbSqlApi operation.  This applies to the Azure Cosmos DB for NoSQL connector specifically.
+- **Cause**: A problem with the CosmosDbSqlApi operation. This problem specifically applies to the Azure Cosmos DB for NoSQL connector.
 
-- **Recommendation**:  To check the error details, see [Azure Cosmos DB help document](/azure/cosmos-db/troubleshoot-dot-net-sdk). For further help, contact the Azure Cosmos DB team.
+- **Recommendation**: To check the error details, see [Azure Cosmos DB help document](/azure/cosmos-db/troubleshoot-dot-net-sdk). For further help, contact the Azure Cosmos DB team.
 
 ## Error code: CosmosDbSqlApiPartitionKeyExceedStorage
 

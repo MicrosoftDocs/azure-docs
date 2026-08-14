@@ -4,7 +4,7 @@ description: This article provides the data plane analysis of the test setup you
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 03/24/2023
+ms.date: 08/05/2026
 ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network engineer, I want to analyze packet forwarding paths across Azure network configurations, so that I can ensure seamless connectivity and troubleshoot interoperability between on-premises and virtual networks."
@@ -12,7 +12,7 @@ ms.custom: sfi-image-nochange
 
 # Interoperability in Azure - Data plane analysis
 
-This article describes the control plane analysis of the test setup. You can also review the test setup configuration and the data plane analysis of the test setup.
+This article describes the data plane analysis of the test setup. You can also review the [test setup configuration](./connectivity-interoperability-preface.md) and the [control plane analysis](./connectivity-interoperability-control-plane.md) of the test setup.
 
 Data plane analysis examines the path taken by packets that traverse from one local network (LAN or virtual network) to another within a topology. The data path between two local networks isn't necessarily symmetrical. Therefore, in this article, we analyze a forwarding path from a local network to another network that's separate from the reverse path.
 
@@ -319,7 +319,10 @@ Trace complete.
 
 In this traceroute, the first two hops are part of the on-premises network. The third hop is the primary MSEE interface that faces the CE router. The fourth hop is the ExpressRoute gateway of the hub virtual network. The IP range of the ExpressRoute gateway of the hub virtual network isn't advertised to the on-premises network. The fifth hop is the destination VM.
 
-Network Watcher provides only an Azure-centric view. For an on-premises perspective, we use Azure Network Performance Monitor. Network Performance Monitor provides agents that you can install on servers in networks outside Azure for data path analysis.
+Network Watcher provides only an Azure-centric view. For an on-premises perspective, use [Connection Monitor in Azure Network Watcher](/azure/network-watcher/connection-monitor-overview). Connection Monitor provides agents that you can install on servers in networks outside Azure for data path analysis.
+
+> [!NOTE]
+> The topology views in this section were captured by using Azure Network Performance Monitor and are included for historical reference. Network Performance Monitor no longer accepts new tests in an existing workspace or new workspaces. For current analysis, use Connection Monitor. For more information, see [Migrate to Connection Monitor from Network Performance Monitor](/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor).
 
 The following figure shows the topology view of the on-premises Location 1 VM connectivity to the VM on the hub virtual network via ExpressRoute:
 
@@ -455,7 +458,7 @@ Trace complete.
 
 ### Path to the branch virtual network, on-premises Location 1, and the remote virtual network
 
-As we discuss in the control plane analysis, the on-premises Location 1 has no visibility to the branch virtual network, to on-premises Location 1, or to the remote virtual network per the network configuration. 
+As discussed in the control plane analysis, on-premises Location 2 has no visibility to the branch virtual network, to on-premises Location 1, or to the remote virtual network according to the network configuration. 
 
 ## Data path from the remote virtual network
 
@@ -512,40 +515,16 @@ Tracing route to 10.2.30.10 over a maximum of 30 hops
 Trace complete.
 ```
 
-## ExpressRoute and site-to-site VPN connectivity in tandem
-
-###  Site-to-site VPN over ExpressRoute
-
-You can configure a site-to-site VPN by using ExpressRoute Microsoft peering to privately exchange data between your on-premises network and your Azure virtual networks. With this configuration, you can exchange data with confidentiality, authenticity, and integrity. The data exchange also is anti-replay. For more information about how to configure a site-to-site IPsec VPN in tunnel mode by using ExpressRoute Microsoft peering, see [Site-to-site VPN over ExpressRoute Microsoft peering](../expressroute/site-to-site-vpn-over-microsoft-peering.md). 
-
-The primary limitation of configuring a site-to-site VPN that uses Microsoft peering is throughput. Throughput over the IPsec tunnel is limited by the VPN gateway capacity. The VPN gateway throughput is lower than ExpressRoute throughput. In this scenario, using the IPsec tunnel for highly secure traffic and using private peering for all other traffic helps optimize the ExpressRoute bandwidth utilization.
-
-### Site-to-site VPN as a secure failover path for ExpressRoute
-
-ExpressRoute serves as a redundant circuit pair to ensure high availability. You can configure geo-redundant ExpressRoute connectivity in different Azure regions. Also, as demonstrated in our test setup, within an Azure region, you can use a site-to-site VPN to create a failover path for your ExpressRoute connectivity. When the same prefixes are advertised over both ExpressRoute and a site-to-site VPN, Azure prioritizes ExpressRoute. To avoid asymmetrical routing between ExpressRoute and the site-to-site VPN, on-premises network configuration should also reciprocate by using ExpressRoute connectivity before it uses site-to-site VPN connectivity.
-
-For more information about how to configure coexisting connections for ExpressRoute and a site-to-site VPN, see [ExpressRoute and site-to-site coexistence](../expressroute/expressroute-howto-coexist-resource-manager.md).
-
-## Extend back-end connectivity to spoke virtual networks and branch locations
-
-### Spoke virtual network connectivity by using virtual network peering
-
-Hub and spoke virtual network architecture is widely used. The hub is a virtual network in Azure that acts as a central point of connectivity between your spoke virtual networks and to your on-premises network. The spokes are virtual networks that peer with the hub, and which you can use to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN connection. For more information about the architecture, see [Implement a hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
-
-In virtual network peering within a region, spoke virtual networks can use hub virtual network gateways (both VPN and ExpressRoute gateways) to communicate with remote networks.
-
-### Branch virtual network connectivity by using site-to-site VPN
-
-You might want branch virtual networks, which are in different regions, and on-premises networks to communicate with each other via a hub virtual network. The native Azure solution for this configuration is site-to-site VPN connectivity by using a VPN. An alternative is to use a network virtual appliance (NVA) for routing in the hub.
-
-For more information, see [What is VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md) and [Deploy a highly available NVA](/azure/architecture/reference-architectures/dmz/nva-ha).
-
 ## Next steps
 
-See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) to:
+- Review the [test setup](./connectivity-interoperability-preface.md) for the topology, the Azure networking components it uses, and the shared guidance about running ExpressRoute and a site-to-site VPN in tandem and extending back-end connectivity to spoke virtual networks and branch locations.
 
--   Learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway.
+- Learn about the [control plane analysis](./connectivity-interoperability-control-plane.md) of the test setup.
 
--   Learn how many ExpressRoute gateways you can connect to an ExpressRoute circuit.
+- See the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) to:
 
--   Learn about other scale limits of ExpressRoute.
+    - Learn how many ExpressRoute circuits you can connect to an ExpressRoute gateway.
+
+    - Learn how many ExpressRoute gateways you can connect to an ExpressRoute circuit.
+
+    - Learn about other scale limits of ExpressRoute.

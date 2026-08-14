@@ -13,6 +13,8 @@ ms.devlang: csharp
 
 # HTTP features in Durable Functions
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Durable Functions has several features that make it easy to incorporate durable orchestrations and entities into HTTP workflows. This article goes into detail about some of those features.
 
 ## Expose HTTP APIs
@@ -253,6 +255,17 @@ For more information on how to manage orchestrations and entities using client A
 As described in the [orchestrator code constraints](../common/durable-task-code-constraints.md), orchestrator functions can't do I/O directly. Instead, they typically call [activities](../common/programming-model-overview.md#activities) that do I/O operations.
 
 Starting with Durable Functions 2.0, orchestrations can natively consume HTTP APIs by using the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger).
+
+> [!NOTE]
+> Not all Consume HTTP APIs features are available in every language. The following table summarizes availability:
+>
+> | Feature | C# | JavaScript | Python | PowerShell | Java |
+> |---|---|---|---|---|---|
+> | Basic `callHttp` | ✅ | ✅ | ✅ | ❌ | ❌ |
+> | HTTP 202 auto-polling | ✅ | ❌ | ❌ | ❌ | ❌ |
+> | Managed identities | ✅ | ✅ | ✅ | ❌ | ❌ |
+>
+> For languages that don't support `callHttp`, use [activity functions](../common/programming-model-overview.md#activities) with a language-specific HTTP client library to make outbound HTTP calls.
 
 The following example code shows an orchestrator function making an outbound HTTP request:
 

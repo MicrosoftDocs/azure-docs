@@ -1,7 +1,7 @@
 ---
 title: Azure NAT Gateway SKUs
 description: Overview of available Azure NAT Gateway SKUs and their differences.
-ms.date: 05/15/2026
+ms.date: 07/29/2026
 ms.topic: overview
 ms.service: azure-nat-gateway
 author: alittleton
@@ -22,8 +22,9 @@ Azure NAT Gateway has two stock-keeping units (SKUs): Standard and StandardV2. T
 | | Dynamic port allocation | Supported | Supported |
 | | Idle timeout timer | Supported | Supported |
 | | Port reuse timer | Supported | Supported |
-| | Protocols | TCP, UDP | TCP, UDP |
+| | Protocols | TCP, UDP | TCP, UDP, ICMP Echo Request and Reply (ping) |
 | | Public IP version | IPv4 | IPv4, IPv6 |
+| | NAT64 | Not supported | Supported |
 | | Attach point | Subnet | Subnet |
 | Scalability | Public IP addresses | 16 IPv4 addresses | 16 IPv4 addresses, 16 IPv6 addresses |
 | | Public IP prefixes | /28 IPv4 prefix | /28 IPv4 prefix, /124 IPv6 prefix |
@@ -67,6 +68,12 @@ You can attach a StandardV2 NAT gateway to 16 IPv6 public IPs and 16 IPv4 public
 
 A StandardV2 NAT gateway supports flow logs through Azure Monitor. Flow logs provide visibility into the traffic that flows through the NAT gateway. For more information, see [Manage StandardV2 NAT gateway flow logs](./nat-gateway-flow-logs.md).
 
+### NAT64
+
+NAT64 is a translation feature available exclusively on StandardV2 NAT gateways. It enables IPv6 workloads to communicate with IPv4-only destinations by translating outbound IPv6 traffic destined for the well-known prefix 64:ff9b::/96 into IPv4 traffic.
+> [!NOTE]
+> NAT64 requires a third-party DNS64 solution to synthesize AAAA records for IPv4-only destinations.
+
 ### Known limitations
 
 * The StandardV2 SKU requires StandardV2 public IP addresses and prefixes. Standard public IPs aren't supported.
@@ -77,12 +84,9 @@ A StandardV2 NAT gateway supports flow logs through Azure Monitor. Flow logs pro
 
 * The following regions don't support StandardV2 NAT gateways:
 
-  * Canada East  
-  * Chile Central  
-  * Indonesia Central  
-  * Israel Northwest  
-  * Malaysia West  
-  * Qatar Central
+  * Canada East   
+  * India South Central 
+  * Israel Northwest   
   * Sweden South
   * West India
 

@@ -1,12 +1,10 @@
 ---
 title: Deploy Azure API Management instance to internal VNet
 description: Learn how to deploy (inject) your Azure API instance to a virtual network in internal mode and access API backends through it.
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 04/17/2025
-ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
 

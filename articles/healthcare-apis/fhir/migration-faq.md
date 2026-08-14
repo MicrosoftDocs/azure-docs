@@ -1,49 +1,49 @@
 ---
-title: FAQ about migrations from Azure API for FHIR
-description: Find answers to your questions about migrating FHIR data from Azure API for FHIR to the Azure Health Data Services FHIR service.
+title: "FAQ: Migrate from Azure API for FHIR"
+description: "Get answers about migrating FHIR data from Azure API for FHIR to Azure Health Data Services FHIR service. Learn migration strategies, timelines, and next steps."
 services: healthcare-apis
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: evach
 author: evachen96
-ms.date: 02/25/2026
+ms.date: 07/14/2026
 ---
 
 # FAQ about migration from Azure API for FHIR
 
-## When will Azure API for FHIR be retired?
+## When will Azure API for FHIR retire?
 
-Azure API for FHIR&reg; will be retired on September 30, 2026.
+Azure API for FHIR&reg; retires on September 30, 2026.
 
 ## Are new deployments of Azure API for FHIR allowed?
 
-Due to the retirement of Azure API for FHIR after April 1, 2025 customers won't be able to create new deployments of Azure API of FHIR. Until April 1, 2025 new deployments are allowed.
+After April 1, 2025, you can't create new deployments of Azure API for FHIR. Before April 1, 2025, you can create new deployments.
 
 ## Why is Microsoft retiring Azure API for FHIR?
 
-Azure API for FHIR is a service that was purpose built for protected health information (PHI), meeting regional compliance requirements. In March 2022, we announced the general availability of Azure Health Data Services, which enables quick deployment of managed, enterprise-grade FHIR and DICOM services for diverse health data integration. With this new experience, we’re retiring Azure API for FHIR.
+Azure API for FHIR is a service that's purpose built for protected health information (PHI), meeting regional compliance requirements. In March 2022, Microsoft announced the general availability of Azure Health Data Services, which enables quick deployment of managed, enterprise-grade FHIR and DICOM services for diverse health data integration. With this new experience, Microsoft is retiring Azure API for FHIR.
 
 ## What are the benefits of migrating to Azure Health Data Services FHIR service?
 
 Azure Health Data Service FHIR service offers a rich set of capabilities such as:
 
-- Consumption-based pricing model where customers pay only for used storage and throughput.
+- Consumption-based pricing model where you pay only for used storage and throughput.
 - Support for transaction bundles.
 - Chained search improvements.
-- Improved ingress and egress of data with `$import`, and `$export`, including new features such as incremental import.
+- Improved ingress and egress of data by using `$import` and `$export`, including new features such as incremental import.
 - Events to trigger new workflows when FHIR resources are created, updated, or deleted.
-- Connectors to Azure Synapse Analytics, Power BI and Azure Machine Learning for enhanced analytics.
+- Connectors to Azure Synapse Analytics, Power BI, and Azure Machine Learning for enhanced analytics.
 
 ## What are the steps to enable SMART on FHIR in Azure Health Data Service FHIR service?
 
-The SMART on FHIR proxy is retiring. Organizations need to transition to the SMART on FHIR (Enhanced), which uses Azure Health Data and AI OSS samples, by **September 21, 2026**. After September 21, 2026, applications relying on SMART on FHIR proxy will report errors when accessing the FHIR service.
+The SMART on FHIR proxy is retiring. Organizations need to transition to the SMART on FHIR, which uses Azure Health Data and AI OSS samples, by **September 21, 2026**. After September 21, 2026, applications relying on SMART on FHIR proxy report errors when accessing the FHIR service.
 
-SMART on FHIR (Enhanced) provides more capabilities than SMART on FHIR proxy, and meets requirements in the SMART on FHIR Implementation Guide (v 1.0.0) and §170.315(g)(10) Standardized API for patient and population services criterion.
+For information on how to migrate to SMART on FHIR, see [Migrate from SMART on FHIR Proxy to SMART on FHIR](smart-on-fhir.md#migrate-from-smart-on-fhir-proxy-to-smart-on-fhir).
 
-## What will happen after the service is retired on September 30, 2026?
+## What happens after the service is retired on September 30, 2026?
 
-After September 30, 2026 customers won't be able to:
+After September 30, 2026, customers can't:
 
 - Create or manage Azure API for FHIR accounts.
 - Access the data through the Azure portal or APIs/SDKs/client tools.
@@ -60,5 +60,6 @@ Check out these resources if you need further assistance:
 
 - Get answers from community experts in [Microsoft Q&A](/answers/questions/1377356/retirement-announcement-azure-api-for-fhir).
 - If you have a support plan and require technical support, [contact us](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

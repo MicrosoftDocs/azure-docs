@@ -2,11 +2,11 @@
  title: Include file
  description: Include file
  services: vpn-gateway
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 08/06/2024
- ms.author: cherylmc
+ ms.author: duau
  ms.custom: include file
 ---
 The following table lists the requirements for policy-based and route-based VPN gateways. This table applies to both the Azure Resource Manager and classic deployment models. For the classic model, policy-based VPN gateways are the same as static gateways, and route-based gateways are the same as dynamic gateways.

@@ -156,12 +156,12 @@ In C# class library functions, the bindings that the functions use are defined b
    ::: zone pivot="isolated"  
    A `Run()` method is attributed with `Function`. This attribute indicates that the method is the entry point for the function.
 
-   <!--- :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/QueueTrigger-CSharp-Isolated/QueueTriggerCSharp.cs" ::: --->
+   :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/QueueTrigger-CSharp-Isolated/QueueTriggerCSharp.cs" :::
    ::: zone-end  
    ::: zone pivot="in-proc"  
    A static `Run()` method is attributed with `FunctionName`. This attribute indicates that the method is the entry point for the function.
 
-   <!--- :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/QueueTrigger-CSharp-4.x/QueueTriggerCSharp.cs" ::: --->
+   :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/QueueTrigger-CSharp-4.x/QueueTriggerCSharp.cs" :::
    ::: zone-end  
 
 A binding-specific attribute is applied to each binding parameter supplied to the entry point method. The attribute takes the binding information as parameters.

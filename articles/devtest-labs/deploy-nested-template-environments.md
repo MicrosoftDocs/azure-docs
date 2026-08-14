@@ -18,8 +18,6 @@ To deploy complex solutions like environments, you can break a template into sec
 
 For general information about nested templates, including code samples, see [Use linked and nested templates when deploying Azure resources](/azure/azure-resource-manager/templates/linked-templates).
 
-[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
-
 ## Nested template deployment
 
 In DevTest Labs, you can store ARM templates in a Git repository linked to a lab. When you use repository templates to create an environment, DevTest Labs copies all template and artifact files, including nested template files, into the lab's Azure Storage container.

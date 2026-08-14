@@ -2,11 +2,11 @@
 title: 'About gateway settings for Virtual WAN'
 titleSuffix: Azure Virtual WAN
 description: This article answers common questions about Virtual WAN gateway settings.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/26/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 ---

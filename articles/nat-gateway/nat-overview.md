@@ -7,7 +7,7 @@ description: Overview of Azure NAT Gateway features, resources, architecture, an
 author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: overview
-ms.date: 05/15/2026
+ms.date: 07/29/2026
 ms.author: alittleton
 ms.customs: references_regions
 
@@ -44,6 +44,10 @@ The StandardV2 SKU of Azure NAT Gateway provides all the same functionality of t
 * **IPv6 support**: Supports both IPv4 and IPv6 public IP addresses and prefixes for outbound connectivity.
 * **Higher throughput**: Provides up to 100 Gbps of data throughput per NAT gateway, compared to 50 Gbps for Standard NAT gateways.
 * **Flow log support**: Provides IP-based traffic information to help monitor and analyze outbound traffic flows.
+* **NAT64 translation**: Enables IPv6-only workloads to communicate with IPv4-only destinations. NAT64 translates outbound IPv6 packets to IPv4 using the well-known prefix `64:ff9b::/96`, eliminating the need for dual-stack configurations or custom translation appliances.
+
+  > [!NOTE]
+  > NAT64 requires a DNS64 solution to synthesize AAAA records for IPv4-only destinations. You must deploy a third-party DNS64 solution to use NAT64.
 
 To learn more about how to deploy a StandardV2 NAT gateway, see [Create a StandardV2 NAT gateway](./quickstart-create-nat-gateway-v2.md).
 
@@ -58,11 +62,8 @@ To learn more about how to deploy a StandardV2 NAT gateway, see [Create a Standa
 * The following regions don't support StandardV2 NAT gateways:
 
   * Canada East
-  * Chile Central
-  * Indonesia Central
+  * India South Central
   * Israel Northwest
-  * Malaysia West
-  * Qatar Central
   * Sweden South
   * West India
 
@@ -141,7 +142,10 @@ Azure NAT Gateway provides secure, scalable outbound connectivity for resources 
   
 * Azure NAT Gateway doesn't have the same limitations of SNAT port exhaustion as [default outbound access](../virtual-network/ip-services/default-outbound-access.md) and [outbound rules of a load balancer](../load-balancer/outbound-rules.md).
 
-* Azure NAT Gateway supports TCP and User Datagram Protocol (UDP) protocols only. Internet Control Message Protocol (ICMP) isn't supported.
+* Azure NAT Gateway supports TCP, User Datagram Protocol (UDP) and Internet Control Message Protocol (ICMP) (Echo Request and Echo Reply).
+
+  > [!NOTE]
+  > Azure StandardV2 NAT Gateway supports outbound Internet Control Message Protocol (ICMP) Echo Request and Echo Reply (ping) for both IPv4 and IPv6. This capability is provided by default and requires no additional configuration. You can use the ping tool (ICMP Echo) to validate outbound connectivity and quickly diagnose reachability issues from your workloads. For steps to validate connectivity, see [Validate NAT gateway connectivity](/azure/nat-gateway/troubleshoot-nat#validate-nat-gateway-connectivity).
 
 * Azure NAT Gateway supports [Azure App Service instances](/azure/app-service/networking/nat-gateway-integration) (web applications, REST APIs, and mobile back ends) through [virtual network integration](/azure/app-service/overview-vnet-integration).
 

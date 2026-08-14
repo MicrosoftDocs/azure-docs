@@ -2,12 +2,10 @@
 title: How to Send Messages to Azure Service Bus
 description: Learn how to send messages to Azure Service Bus in Azure API Management. Service Bus is a messaging service that allows you to decouple applications and services.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 09/30/2025
-ms.author: danlep
 ms.custom:
 # customer intent: As API service owner I want to send messages to Service Bus so that I can decouple my applications and services.
 ---

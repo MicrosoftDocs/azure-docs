@@ -5,12 +5,14 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 07/23/2025
+ms.date: 07/23/2026
 ---
 
 # Integrate Azure Cache for Redis with Service Connector
 
 This article covers supported authentication methods, clients, and sample code you can use to connect your apps to Azure Cache for Redis using Service Connector. In this article, you'll also find default environment variable names, values, and configuration obtained when creating service connections.
+
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 ## Supported compute services
 
@@ -101,7 +103,7 @@ The following steps and code show you how to use a user-assigned managed identit
 
 | Default environment variable name | Description                | Example value                                                              |
 |-----------------------------------|----------------------------|----------------------------------------------------------------------------|
-| `AZURE_REDIS_CONNECTIONSTRING`      | `redis-py` connection string | `rediss://:<redis-key>@<redis-server-name>.redis.cache.windows.net:6380/0` |
+| `AZURE_REDIS_CONNECTIONSTRING`      | `go-redis` connection string | `rediss://:<redis-key>@<redis-server-name>.redis.cache.windows.net:6380/0` |
 
 #### [Node.js](#tab/nodejs)
 

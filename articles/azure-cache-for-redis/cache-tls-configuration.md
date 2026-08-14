@@ -12,7 +12,7 @@ appliesto:
 
 # Azure Cache for Redis TLS protocol configuration settings
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 Transport Layer Security (TLS) is a cryptographic protocol that provides secure communication over a network. Azure Cache for Redis supports TLS on all tiers, and requires TLS encrypted communications by default. Using TLS is recommended as a best practice across virtually all Azure Redis use cases.
 

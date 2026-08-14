@@ -2,16 +2,18 @@
 title: Data consistency verification in copy activity 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to enable data consistency verification in a copy activity in Azure Data Factory and Synapse Analytics pipelines.
-author: dearandyxu
+author: kromerm
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: how-to
 ms.date: 10/29/2025
-ms.author: yexu
+ms.author: makromer
 ---
 #  Data consistency verification in copy activity
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 When you move data from source to destination store, the copy activity provides an option for you to do further data consistency verification to ensure the data is not only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent files have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. You can get the skipped file names by enabling session log setting in copy activity. You can refer to [session log in copy activity](copy-activity-log.md) for more details.
 

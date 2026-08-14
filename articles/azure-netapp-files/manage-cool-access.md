@@ -34,6 +34,13 @@ There are several considerations to be aware of when using cool access.
 * Files moved to the cool tier remain there after you disable cool access on a volume. You must perform an I/O operation on _each_ file to return it to the warm tier. 
 * For the maximum number of volumes supported for cool access per subscription per region, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits).
 * Flexible service level capacity pools with cool access maintain the user-configured throughput limits. Unlike Premium or Ultra pools, performance isn't reduced when cool access is enabled.
+* When you enable cool access on a newly created or nearly empty volume, a short delay can occur before tiering activity begins while the volume accumulates enough eligible data for the tiering engine to act on.
+* Cool tiering operates on the data blocks present in the volume and packages eligible cold blocks into objects before moving them to the cool tier. Datasets that are very small don't always produce enough eligible data for tiering to begin.
+* During testing, a workload can appear to consume capacity without becoming eligible for tiering. This situation is most common with synthetic test data, which might not accumulate enough eligible data for the tiering engine to act on.
+
+  >[!NOTE]
+  > When testing or validating cool access behavior, the way you generate test data matters. Tools that write zero filled blocks such as the `dd` command when reading from `/dev/zero` can make a volume appear to consume capacity without producing data that the tiering engine treats as eligible. As a result, test data created this way might not move to the cool tier as expected. To validate tiering reliably, generate test data using random content instead of zeros. For example: `dd if=/dev/urandom of=/path/to/target bs=4M status=progress`
+
 
 ### Considerations for large volumes
 

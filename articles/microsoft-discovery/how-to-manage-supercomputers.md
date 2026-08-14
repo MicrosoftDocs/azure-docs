@@ -5,14 +5,14 @@ author: anzaman
 ms.author: alzam
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/01/2026
+ms.date: 08/10/2026
 ---
 
 # How to create a supercomputer and nodepools in Microsoft Discovery
 
 > **Applies to:** Microsoft Discovery (Public Preview)
 
-This article describes how to create a **Supercomputer** and **NodePools** using the Azure portal. It follows Learn.microsoft.com conventions and is safe for public preview documentation.
+This article describes how to create a **Supercomputer** and **NodePools** using the Azure portal. It follows Microsoft Learn conventions and is safe for preview documentation.
 
 ---
 
@@ -37,6 +37,14 @@ Before you begin, make sure the following requirements are met:
   - `supercomputerNodepoolSubnet` – used by Node Pools
 - A **user-assigned managed identity (UAMI)** with the required role assignments.
 - Sufficient quota for the VM type you plan to use in the target region.
+
+If you plan to deploy node pools with GPU capabilities, register the `ManagedGPUExperiencePreview` flag by using the [az feature register](/cli/azure/feature#az-feature-register) command before creating your Supercomputer.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az feature register --namespace Microsoft.ContainerService --name ManagedGPUExperiencePreview
+```
 
 ---
 
@@ -63,6 +71,9 @@ A Supercomputer represents the managed compute cluster that hosts one or more No
 1. On the **Networking** tab:
    - Select the virtual network created during prerequisites.
    - Select the `aksSubnet` subnet.
+   - Set `outboundType` to `User Defined Networking` if you want to route egress traffic through your own virtual network and egress point.
+   - When you set `outboundType` to `User Defined Networking`, you must configure a `Management Subnet`. This setting places the cluster management plane within your virtual network.
+
 2. Select **Next**.
 
 :::image type="content" source="./media/how-to-manage-supercomputers/create-supercomputer-networking.jpg" alt-text="Screenshot of Azure portal showing Networking Settings of supercomputer." lightbox="./media/how-to-manage-supercomputers/create-supercomputer-networking.jpg":::
@@ -78,6 +89,10 @@ A Supercomputer represents the managed compute cluster that hosts one or more No
 This identity allows the Supercomputer to securely access Azure resources such as storage accounts.
 
 :::image type="content" source="./media/how-to-manage-supercomputers/create-supercomputer-identities.jpg" alt-text="Screenshot of Azure portal Assign UAMI page." lightbox="./media/how-to-manage-supercomputers/create-supercomputer-identities.jpg":::
+
+### Encryption
+1. Enable customer-managed keys for extra control over data encryption. See [Configure a Supercomputer resource with CMK](https://learn.microsoft.com/azure/microsoft-discovery/howto-data-encryption-at-rest#configure-a-supercomputer-resource-with-cmk) for details.
+2. Select **Next**.
 
 ### Create the Supercomputer
 
@@ -123,7 +138,7 @@ Nodepools define the compute capacity (VMs) attached to a Supercomputer. You can
 
 1. Choose a **Virtual Machine type** for the Node Pool.
 
-   :::image type="content" source="./media/how-to-manage-supercomputers/create-supercomputer-node-pool-vm-configuration.jpg" alt-text="SCreenshot of Azure portal showing Nodepool select VM type." lightbox="./media/how-to-manage-supercomputers/create-supercomputer-node-pool-vm-configuration.jpg":::
+   :::image type="content" source="./media/how-to-manage-supercomputers/create-supercomputer-node-pool-vm-configuration.jpg" alt-text="Screenshot of Azure portal showing Nodepool select VM type." lightbox="./media/how-to-manage-supercomputers/create-supercomputer-node-pool-vm-configuration.jpg":::
 
 > [!NOTE]
 > The selected Virtual Machine type must be available and quota-approved in the selected region.

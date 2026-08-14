@@ -2,7 +2,7 @@
 title: Create a pool across availability zones
 description: Learn how to create a Batch pool with zonal policy to help protect against failures.
 ms.topic: how-to
-ms.date: 08/12/2024
+ms.date: 06/16/2026
 ms.devlang: csharp
 ms.custom:
 # Customer intent: As a cloud architect, I want to create a Batch pool across multiple Availability Zones, so that I can enhance fault tolerance and ensure my compute resources remain available during datacenter-level failures.
@@ -12,7 +12,7 @@ ms.custom:
 
 Azure regions which support [Availability Zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) have a minimum of three separate zones, each with their own independent power source, network, and cooling system. When you create an Azure Batch pool using Virtual Machine Configuration, you can choose to provision your Batch pool across Availability Zones. Creating your pool with this zonal policy helps protect your Batch compute nodes from Azure datacenter-level failures.
 
-For example, you could create your pool with zonal policy in an Azure region which supports three Availability Zones. If an Azure datacenter in one Availability Zone has an infrastructure failure, your Batch pool will still have healthy nodes in the other two Availability Zones, so the pool will remain available for task scheduling.
+For example, you could create your pool with a zonal policy in an Azure region that supports three Availability Zones. If an Azure datacenter in one Availability Zone has an infrastructure failure, your Batch pool still has healthy nodes in the other two Availability Zones, so the pool remains available for task scheduling.
 
 ## Regional support and other requirements
 
@@ -29,7 +29,7 @@ Also note that you can't create a pool with a zonal policy if it has inter-node 
 The following examples show how to create a Batch pool across Availability Zones.
 
 > [!NOTE]
-> When creating your pool with a zonal policy, the Batch service will try to allocate your pool across all Availability Zones in the selected region; you can't specify a particular allocation across the zones.
+> When creating your pool with a zonal policy, the Batch service tries to allocate your pool across all Availability Zones in the selected region; you can't specify a particular allocation across the zones.
 
 ### Batch Management Client .NET SDK
 

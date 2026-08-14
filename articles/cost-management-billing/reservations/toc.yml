@@ -7,6 +7,8 @@
     href: save-compute-costs-reservations.md
 - name: Concepts
   items:
+  - name: How reservation and pre-purchase plan benefits are applied
+    href: benefit-application-order.md
   - name: Instance size flexibility
     href: instance-size-flexibility.md
   - name: VM instance size flexibility (Virtual Machines)
@@ -137,6 +139,8 @@
       href: /azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Disk Storage
       href: /azure/virtual-machines/disks-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: GitHub AI Credits Pre-Purchase
+      href: github-ai-credits-pre-purchase-plan.md
     - name: GitHub Pre-Purchase
       href: github-pre-purchase.md
     - name: Microsoft Agent Pre-Purchase

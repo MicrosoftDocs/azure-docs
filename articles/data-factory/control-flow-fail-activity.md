@@ -16,6 +16,9 @@ You might occasionally want to throw an error in a pipeline intentionally. A [Lo
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Fail activity](/fabric/data-factory/fail-activity).
+
 ## Create a Fail activity with UI
 
 To use a Fail activity in a pipeline, complete the following steps:

@@ -23,7 +23,7 @@ The following table summarizes the support for different scenarios for SQL Serve
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server manually installed) VMs are supported.
 **Supported regions** | Azure Backup for SQL Server databases is available in all regions, except France South (FRS).
 **Supported operating systems** | Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012 (all versions), Windows Server 2008 R2 SP1 <br/><br/> Other configuration is required for Windows Server 2008 and 2008 R2. Learn how to [set VM permission](backup-azure-sql-database.md#set-vm-permissions). <br><br> Linux isn't currently supported. 
-**Supported SQL Server versions** | SQL Server 2022 Express, SQL Server 2022, SQL Server 2019, SQL Server 2017 as detailed on the [Search product lifecycle page](/lifecycle/products/sql-server-2017), SQL Server 2016, and SPs as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012. <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>Express Local DB versions aren't supported.<br><br>Limited support is available for SQL Server versions that are currently in "End of life", "Extended Security Updates" or any other limited support phases.
+**Supported SQL Server versions** | SQL Server 2025, SQL Server 2022, SQL Server 2019, SQL Server 2017 as detailed on the [Search product lifecycle page](/lifecycle/products/sql-server-2017), SQL Server 2016, and SPs as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012. <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>Express Local DB versions aren't supported.<br><br>Limited support is available for SQL Server versions that are currently in "End of life", "Extended Security Updates" or any other limited support phases.
 **Supported .NET versions** | .NET Framework 4.6.2 or later installed on the VM
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server that is manually installed) VMs are supported. Support for standalone instances is always on [availability groups](backup-sql-server-on-availability-groups.md). <br><br>  Note that the SQL databases that are part of a AlwaysOn AG and are synced from SQL Managed Instance aren't supported.
 **Cross Region Restore** | Supported for databases protected as a standalone instance and/or as part of a SQL availability group. [Learn more](restore-sql-database-azure-vm.md#cross-region-restore).
@@ -50,7 +50,7 @@ The following table summarizes the support for different scenarios for SQL Serve
 
 _*The database size limit depends on the data transfer rate that we support and the backup time limit configuration. It’s not the hard limit. [Learn more](#backup-throughput-performance-for-sql-streaming-backup) on backup throughput performance._
 
-* SQL Server backup can be configured in the Azure portal or **PowerShell**. CLI isn't supported.
+* SQL Server backup can be configured in the Azure portal, **PowerShell**, or **Azure CLI**.
 * The solution is supported on both kinds of [deployments](../azure-resource-manager/management/deployment-models.md) - Azure Resource Manager VMs and classic VMs.
 * All backup types (full/differential/log) and recovery models (simple/full/bulk logged) are supported.
 * For **read-only** databases: full and copy-only full backups are the only supported backup types.
@@ -68,6 +68,7 @@ The following table summarizes the supported and unsupported scenarios for snaps
 
 | **Scenarios** | **Supported** | **Unsupported** |
 |----|----|----|
+| Supported Regions | Australia Central, Australia Central 2, Australia east, Canada Central, Canada East, Central US, East US2, East US, North Central US, North Europe, South Central US, UK South, West Central US, West US, West US2, West Europe, Newzealand North. | All other regions and clouds |
 | SQL Server versions | SQL Server 2016 (and higher) running on Windows Server 2016 (and higher). |  |
 | Backup types for snapshot | Snapshot Full (with or without Log backup), Snapshot-copy-only-full (Adhoc backups at database level) |  |
 | Backup configuration | Standalone instance and Always on AG |  |

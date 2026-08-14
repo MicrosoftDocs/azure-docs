@@ -2,8 +2,6 @@
 title: Add Custom Functionality to Developer Portal - Azure API Management
 titleSuffix: Azure API Management
 description: How to customize the managed API Management developer portal with custom functionality such as custom widgets.
-author: dlepow
-ms.author: danlep
 ms.date: 10/02/2025
 ms.service: azure-api-management
 ms.topic: how-to

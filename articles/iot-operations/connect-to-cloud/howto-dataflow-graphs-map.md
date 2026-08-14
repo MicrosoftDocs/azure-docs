@@ -1,26 +1,34 @@
 ---
-title: Transform data with map in data flow graphs
+title: Map and transform data in data flow graphs
 description: Learn how to define map rules that rename, restructure, compute, and copy fields in Azure IoT Operations data flow graphs.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 04/02/2026
+ms.date: 07/24/2026
 ai-usage: ai-assisted
+
+#customer intent: As an operator, I want to define map rules in a data flow graph so that I can rename, restructure, compute, and copy fields in my messages.
 
 ---
 
 # Transform data with map in data flow graphs
 
-A map transform takes each incoming message and produces an output message based on your rules. You can rename fields, reorganize them into new structures, compute derived values, or remove unwanted fields. Wildcard rules let you copy all fields at once.
+In Azure IoT Operations, a map transform takes each incoming message in a data flow graph and produces an output message based on your rules. You can rename fields, reorganize them into new structures, compute derived values, or remove unwanted fields. By using wildcard rules, you can copy all fields at once.
+
+
 
 For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md).
+
+[!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
 
 ## Prerequisites
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - A default registry endpoint named `default` that points to `mcr.microsoft.com` is automatically created during deployment. The built-in transforms use this endpoint.
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
 
 ## How map rules work
 
@@ -29,15 +37,15 @@ Each map rule has four parts:
 | Property | Required | Description |
 |----------|----------|-------------|
 | `inputs` | Yes | List of field paths to read from the incoming message. |
-| `output` | Yes | Field path where the result is written in the output message. |
-| `expression` | No | Formula applied to the input values. If omitted, the first input value is copied directly. |
+| `output` | Yes | Field path where the result appears in the output message. |
+| `expression` | No | Formula applied to the input values. If you omit it, the first input value copies directly. |
 | `description` | No | Human-readable label for the rule, included in error messages. |
 
-Inputs are assigned positional variables based on their order: the first input is `$1`, the second is `$2`, and so on. Use these variables in the `expression`.
+The map transform assigns positional variables to inputs in order. For example, if `inputs` is `['Position', 'Office']`, then `$1` is the value of `Position` and `$2` is the value of `Office`.
 
 ## Rename a field
 
-To rename `BirthDate` to `DateOfBirth`, map one input to a different output path. No expression is needed. The value copies as-is.
+To rename `BirthDate` to `DateOfBirth`, map one input to a different output path. You don't need an expression. The value copies as-is.
 
 # [Operations experience](#tab/portal)
 
@@ -47,6 +55,19 @@ In the map transform configuration, add a rule:
 |---------|-------|
 | **Input** | `BirthDate` |
 | **Output** | `DateOfBirth` |
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "inputs": [
+    "BirthDate"
+  ],
+  "output": "DateOfBirth"
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -83,6 +104,25 @@ Add two rules:
 |-------|--------|
 | `Name` | `Employee.Name` |
 | `BirthDate` | `Employee.DateOfBirth` |
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "inputs": [
+    "Name"
+  ],
+  "output": "Employee.Name"
+},
+{
+  "inputs": [
+    "BirthDate"
+  ],
+  "output": "Employee.DateOfBirth"
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -134,11 +174,11 @@ These two rules produce:
 }
 ```
 
-Only fields listed in a rule's output appear in the result. The `Position` field isn't included because no rule maps it.
+Only fields listed in a rule's output appear in the result. The result doesn't include the `Position` field because no rule maps it.
 
 ## Combine multiple inputs
 
-When you list multiple inputs, their positional variables let you merge them in an expression.
+When you list multiple inputs, use their positional variables to merge them in an expression.
 
 # [Operations experience](#tab/portal)
 
@@ -149,6 +189,21 @@ Add a rule:
 | **Inputs** | `Position`, `Office` |
 | **Output** | `Employment.Position` |
 | **Expression** | `$1 + ", " + $2` |
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "inputs": [
+    "Position",
+    "Office"
+  ],
+  "output": "Employment.Position",
+  "expression": "$1 + \", \" + $2"
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -178,7 +233,9 @@ Given `Position: "Analyst"` and `Office: "Kent, WA"`, the output is `"Analyst, K
 
 ## Transform values with expressions
 
-Use the `expression` field to apply built-in functions or arithmetic.
+Use the `expression` field to apply built-in functions or arithmetic. The following example uses `cToF`, a built-in unit conversion function that converts a Celsius value to Fahrenheit. Remember that `$1` refers to the first input, not to a field name.
+
+For the complete list of operators, functions, and advanced features, see the [Expressions reference](concept-dataflow-graphs-expressions.md). The reference groups functions by category, such as [unit conversion](concept-dataflow-graphs-expressions.md#unit-conversion-functions), [scaling and rounding](concept-dataflow-graphs-expressions.md#scaling-and-rounding-functions), [math](concept-dataflow-graphs-expressions.md#math-functions), and [string](concept-dataflow-graphs-expressions.md#string-functions) functions.
 
 # [Operations experience](#tab/portal)
 
@@ -191,6 +248,32 @@ Add a compute rule. For example, to convert Celsius to Fahrenheit:
 | **Expression** | `cToF($1)` |
 
 To scale a sensor reading to a 0-100 range, use the expression `scale($1, 0, 4095, 0, 100)`.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "inputs": [
+    "temperature"
+  ],
+  "output": "temperature_f",
+  "expression": "cToF($1)"
+}
+```
+
+To scale a sensor reading:
+
+```json
+{
+  "inputs": [
+    "raw_pressure"
+  ],
+  "output": "pressure_pct",
+  "expression": "scale($1, 0, 4095, 0, 100)"
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -234,8 +317,6 @@ To scale a sensor reading:
 
 ---
 
-For the complete list of operators, functions, and advanced features, see [Expressions reference](concept-dataflow-graphs-expressions.md).
-
 ## Copy all fields with wildcards
 
 When the output should closely match the input with only a few changes, use a wildcard rule to copy every field at once. Then add rules to override, add, or remove specific fields.
@@ -243,6 +324,19 @@ When the output should closely match the input with only a few changes, use a wi
 # [Operations experience](#tab/portal)
 
 Add a passthrough rule that copies all fields. Set the input to `*` and the output to `*`.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "inputs": [
+    "*"
+  ],
+  "output": "*"
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -268,16 +362,29 @@ Add a passthrough rule that copies all fields. Set the input to `*` and the outp
 ### Wildcard rule requirements
 
 - A wildcard rule must be the **first rule** in your map configuration.
-- Only one wildcard rule is allowed per map transform.
-- The asterisk matches one or more path segments and must represent a complete segment. Patterns like `partial*` aren't supported.
+- A map transform supports only one wildcard rule.
+- The asterisk matches one or more path segments and must represent a complete segment. The map transform doesn't support partial patterns like `partial*`.
 
 ### Prefix wildcards
 
-You can scope the wildcard to a specific prefix. To flatten all fields from `ColorProperties` to the root level:
+Scope the wildcard to a specific prefix. To flatten all fields from `ColorProperties` to the root level:
 
 # [Operations experience](#tab/portal)
 
 Add a rule with input `ColorProperties.*` and output `*`.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "inputs": [
+    "ColorProperties.*"
+  ],
+  "output": "*"
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -324,12 +431,32 @@ The output is:
 
 ## Remove fields from the output
 
-Set the `output` to an empty string to exclude specific fields. This approach is typically used after a wildcard rule: copy everything, then remove what you don't need.
+Set the `output` to an empty string to exclude specific fields. Typically, use this approach after a wildcard rule: copy everything, then remove what you don't need.
 
 # [Operations experience](#tab/portal)
 
 1. Add a passthrough rule to copy all fields.
 1. Add a remove rule and select the fields to exclude (for example, `password` and `internal_id`).
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "inputs": [
+    "*"
+  ],
+  "output": "*"
+},
+{
+  "inputs": [
+    "password",
+    "internal_id"
+  ],
+  "output": ""
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -361,7 +488,7 @@ Set the `output` to an empty string to exclude specific fields. This approach is
 
 ---
 
-No expression is allowed on a removal rule.
+A removal rule can't include an expression.
 
 ## Override wildcards for specific fields
 
@@ -373,6 +500,26 @@ When a wildcard rule and a specific rule both match the same field, the more spe
 1. Add a compute rule for `temperature` with the expression `cToF($1)`.
 
 The map transform applies the specific rule to `temperature` and copies all other fields as-is.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "inputs": [
+    "*"
+  ],
+  "output": "*"
+},
+{
+  "inputs": [
+    "temperature"
+  ],
+  "output": "temperature",
+  "expression": "cToF($1)"
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -407,11 +554,30 @@ The map transform applies the specific rule to `temperature` and copies all othe
 
 ## Use metadata fields
 
-You can read from and write to message metadata like MQTT topics and user properties. See [Metadata fields](concept-dataflow-graphs-expressions.md#metadata-fields) in the expressions reference.
+Read from and write to message metadata like MQTT topics and user properties. See [Metadata fields](concept-dataflow-graphs-expressions.md#metadata-fields) in the expressions reference.
 
 # [Operations experience](#tab/portal)
 
 Add a rule with input `region` and output `$metadata.user_property.region` to write a field value to an MQTT user property.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "inputs": [
+    "*"
+  ],
+  "output": "*"
+},
+{
+  "inputs": [
+    "region"
+  ],
+  "output": "$metadata.user_property.region"
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -452,6 +618,19 @@ When sensor data arrives intermittently, you can fill in missing fields with the
 
 Add a rule for the `temperature` field and enable **Last known value**. Set a default value of `0` as a fallback.
 
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "inputs": [
+    "temperature ? $last ?? 0"
+  ],
+  "output": "temperature"
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -477,7 +656,9 @@ This rule uses the current value when present, falls back to the last known valu
 
 ## Enrich with external data
 
-You can augment messages with data from an external state store by configuring datasets. For example, look up a device's metadata by its ID and include it in the output. For details, see [Enrich with external data](howto-dataflow-graphs-enrich.md).
+Enrichment is optional. You only need it if you want to combine incoming messages with reference data that's stored in the state store, such as a lookup table of device metadata. If your messages already contain everything you need, skip this section.
+
+When you need enrichment, configure a *contextualization dataset* that the runtime looks up during processing. For example, look up a device's metadata by its ID and include it in the output. For details, see [Enrich with external data](howto-dataflow-graphs-enrich.md).
 
 ## Data flow graph exclusive features
 
@@ -490,6 +671,19 @@ Use the `?? <default>` syntax on an input to provide a static fallback when a fi
 # [Operations experience](#tab/portal)
 
 In the map transform configuration, set the input to include the `??` syntax followed by the default value. For example, enter `temperature ?? 0` as the input field to use `0` when the temperature field is missing.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "inputs": [
+    "temperature ?? 0"
+  ],
+  "output": "temperature"
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -536,13 +730,87 @@ In the Operations experience, create a data flow graph and add a map transform. 
 1. **Copy all fields** with a wildcard passthrough.
 1. **Remove sensitive fields** by setting the output to empty for `password` and `secret_key`.
 1. **Restructure** the `BirthDate` field to `Employee.DateOfBirth`.
-1. **Compute** a Fahrenheit conversion using the formula `cToF($1)` on the `temperature` field.
+1. **Compute** a Fahrenheit conversion by using the formula `cToF($1)` on the `temperature` field.
 1. **Merge** the `Position` and `Office` fields with the formula `$1 + ", " + $2`.
+
+# [Azure CLI](#tab/cli)
+
+The Azure CLI applies a data flow graph from a single JSON config file. Create a `graph.json` file with the graph properties. In the `graph.json` file, the `value` field stores each transform's rules as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
+
+```json
+{
+  "mode": "Enabled",
+  "nodes": [
+    {
+      "nodeType": "Source",
+      "name": "sensors",
+      "sourceSettings": {
+        "endpointRef": "default",
+        "dataSources": [
+          "telemetry/sensors"
+        ]
+      }
+    },
+    {
+      "nodeType": "Graph",
+      "name": "transform",
+      "graphSettings": {
+        "registryEndpointRef": "default",
+        "artifact": "azureiotoperations/graph-dataflow-map:1.0.0",
+        "configuration": [
+          {
+            "key": "rules",
+            "value": "{\"map\":[{\"inputs\":[\"*\"],\"output\":\"*\",\"description\":\"Copy all fields\"},{\"inputs\":[\"password\",\"secret_key\"],\"output\":\"\",\"description\":\"Remove sensitive fields\"},{\"inputs\":[\"BirthDate\"],\"output\":\"Employee.DateOfBirth\",\"description\":\"Restructure birth date\"},{\"inputs\":[\"temperature\"],\"output\":\"temperature_f\",\"expression\":\"cToF($1)\",\"description\":\"Convert Celsius to Fahrenheit\"},{\"inputs\":[\"Position\",\"Office\"],\"output\":\"Employment.Position\",\"expression\":\"$1 + \\\", \\\" + $2\",\"description\":\"Merge position and office\"}]}"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "Destination",
+      "name": "output",
+      "destinationSettings": {
+        "endpointRef": "default",
+        "dataDestination": "telemetry/processed"
+      }
+    }
+  ],
+  "nodeConnections": [
+    {
+      "from": {
+        "name": "sensors"
+      },
+      "to": {
+        "name": "transform"
+      }
+    },
+    {
+      "from": {
+        "name": "transform"
+      },
+      "to": {
+        "name": "output"
+      }
+    }
+  ]
+}
+```
+
+[!INCLUDE [dataflow-jq-tip](../includes/dataflow-jq-tip.md)]
+
+Apply the config file.
+
+```azurecli
+az iot ops dataflowgraph apply \
+  --name temperature-map-example \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --config-file graph.json
+```
 
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   name: 'temperature-map-example'
   parent: dataflowProfile
   properties: {
@@ -635,14 +903,15 @@ The rules configuration is a JSON string placed as the `value` for the `rules` k
 }
 ```
 
-For the full `DataflowGraph` resource structure, see [Data flow graphs overview](concept-dataflow-graphs.md#how-configuration-works).
+For the full `DataflowGraph` resource structure, see [Data flow graphs overview](concept-dataflow-graphs.md).
 
 ---
 
-## Next steps
+## Related content
 
 - [Filter and route data](howto-dataflow-graphs-filter-route.md)
 - [Aggregate data over time](howto-dataflow-graphs-window.md)
 - [Enrich with external data](howto-dataflow-graphs-enrich.md)
 - [Route messages to different topics](howto-dataflow-graphs-topic-routing.md)
+- [Throttle data](howto-dataflow-graphs-throttle.md)
 - [Expressions reference](concept-dataflow-graphs-expressions.md)

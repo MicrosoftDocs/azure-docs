@@ -4,7 +4,7 @@ description: Overview of DNS hosting service on Microsoft Azure. Host your domai
 author: asudbring
 ms.service: azure-dns
 ms.topic: overview
-ms.date: 08/09/2024
+ms.date: 06/01/2026
 ms.author: allensu
 #Customer intent: As an administrator, I want to evaluate Azure Public DNS so I can determine if I want to use it instead of my current DNS service.
 # Customer intent: As an IT administrator, I want to evaluate Azure Public DNS as a potential DNS hosting solution, so that I can ensure it meets my organization's requirements for reliability, security, and ease of management.
@@ -52,11 +52,20 @@ For more information, see [Use Azure DNS for private domains](private-dns-overvi
 
 ## Alias records
 
-Azure Public DNS supports alias record sets. You can use an alias record set to refer to an Azure resource, such as an Azure public IP address, an Azure Traffic Manager profile, or an Azure Content Delivery Network (CDN) endpoint. If the IP address of the underlying resource changes, the alias record set seamlessly updates itself during DNS resolution. The alias record set points to the service instance, and the service instance is associated with an IP address.
+Azure Public DNS supports alias record sets. You can use an alias record set to refer to an Azure resource, such as an Azure public IP address or an Azure Content Delivery Network (CDN) endpoint. If the IP address of the underlying resource changes, the alias record set seamlessly updates itself during DNS resolution. The alias record set points to the service instance, and the service instance is associated with an IP address.
 
-Also, you can now point your apex or naked domain to a Traffic Manager profile or CDN endpoint using an alias record. An example is contoso.com.
+Also, you can now point your apex or naked domain to a CDN endpoint using an alias record. An example is contoso.com.
 
 For more information, see [Overview of Azure DNS alias records](dns-alias.md).
+
+## Traffic Manager Linked Records
+
+> [!IMPORTANT]
+> Traffic Manager Linked Records is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Traffic Manager Linked Records is an Azure DNS feature that creates a direct link between a DNS record set and an Azure Traffic Manager profile. Unlike alias records, Traffic Manager Linked Records always use integrated resolution mode—returning endpoint IP addresses directly to the client without an intermediate CNAME hop to `trafficmanager.net`. This keeps the shared `trafficmanager.net` domain off the wire, simplifies firewall policies, and preserves the DNSSEC chain of trust for signed zones. [Strictly Typed Profiles](../traffic-manager/traffic-manager-strictly-typed-profiles.md) enforce endpoint type consistency on the Traffic Manager side.
+
+For more information, see [Traffic Manager Linked Records overview](dns-traffic-manager-linked-records.md).
 
 ## Next steps
 

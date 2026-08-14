@@ -3,10 +3,11 @@ title: Quickstart to create an Azure Migrate project using an Azure Resource Man
 description: In this quickstart, you learn how to create an Azure Migrate project using an Azure Resource Manager template (ARM template).
 ms.date: 05/08/2025
 author: vijain
-ms.author: vijain
+ms.author: v-uhabiba
 ms.manager: kmadnani
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
+ms.update-cycle: 1095-days
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template, engagement-fy25
 # Customer intent: As a cloud administrator, I want to create an Azure Migrate project using an ARM template, so that I can efficiently assess and migrate my on-premises servers and applications to Azure.

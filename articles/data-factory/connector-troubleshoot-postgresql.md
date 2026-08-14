@@ -2,17 +2,19 @@
 title: Troubleshoot the Azure Database for PostgreSQL connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Azure Database for PostgreSQL connector in Azure Data Factory and Azure Synapse Analytics. 
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 01/16/2025
-ms.author: jianleishen
+ms.author: tinglee
 ms.custom: has-adal-ref, synapse
 ---
 
 # Troubleshoot the Azure Database for PostgreSQL connector in Azure Data Factory and Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article provides suggestions to troubleshoot common problems with the Azure Database for PostgreSQL connector in Azure Data Factory and Azure Synapse.
 

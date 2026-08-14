@@ -27,6 +27,8 @@ items:
       href: how-to-upgrade-your-azure-data-factory-pipelines-to-fabric-data-factory.md
     - name: Upgrade Azure Synapse Analytics pipelines to Fabric
       href: how-to-upgrade-your-azure-synapse-analytics-pipelines-to-fabric-data-factory.md
+    - name: Upgrade mapping data flows to Fabric
+      href: /fabric/data-factory/dataflow-gen2-mapping-data-flows-transforms-upgrade?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
     - name: Upgrade pipelines with PowerShell
       items:
       - name: Pipeline upgrade with PowerShell overview
@@ -953,6 +955,8 @@ items:
       href: data-factory-private-link.md
     - name: Azure security baseline
       href: /security/benchmark/azure/baselines/data-factory-security-baseline?toc=/azure/data-factory/TOC.json
+    - name: Modern Trusted Service Data Factory
+      href: modern-trusted-service.md
   - name: Settings
     items:
     - name: Manage Azure Data Factory settings and preferences
@@ -1382,10 +1386,6 @@ items:
     href: secure-your-azure-data-factory.md
   - name: Business continuity and disaster recovery
     href: pipelines-disaster-recovery.md
-- name: Workflow Orchestration Manager
-  items:
-  - name: Tutorials
-  - name: How-to
 - name: Reference
   items:
   - name: Data flow script

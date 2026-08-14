@@ -21,7 +21,13 @@ The troubleshooting guidance helps you diagnose and resolve issues you might enc
 
 For information about known issues and temporary workarounds, see [Known issues: Azure IoT Operations](known-issues.md).
 
-## Using health status for troubleshooting
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the `K8_BRIDGE_SP_OID` and `KEY_VAULT_NAME` environment variables. Set each one before you run the related commands.
+
+## Use health status for troubleshooting
 
 Azure IoT Operations provides [built-in health status reporting](../deploy-iot-ops/health-status-reporting.md) to help you understand the health of your edge workloads from the cloud. When a component reports **Degraded** or **Unavailable** health status, use the following approach to investigate and troubleshoot the issue:
 
@@ -32,9 +38,9 @@ Azure IoT Operations provides [built-in health status reporting](../deploy-iot-o
 
 ## Troubleshoot Azure IoT Operations deployment
 
-For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations `check` and `support` commands.
+For general deployment and configuration troubleshooting, use the Azure CLI IoT Operations `check` and `support` commands:
 
-[Azure CLI version 2.62.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 - To evaluate Azure IoT Operations service deployment for health, configuration, and usability, use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check). The `check` command can help you find problems in your deployment and configuration.
 
@@ -64,13 +70,13 @@ To resolve, delete any provisioned resources associated with prior deployments i
 
 If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, the message indicates that you don't have the required permissions on the resource group containing the cluster.
 
-The following message indicates that the logged-in principal doesn't have the required permissions to deploy resources to the resource group specified in the resource sync resource ID.
+The following message indicates that the signed-in principal doesn't have the required permissions to deploy resources to the resource group specified in the resource sync resource ID.
 
 ```output
 Message: The client {principal Id} with object id {principal object Id} has permission to perform action Microsoft.ExtendedLocation/customLocations/resourceSyncRules/write on scope {resource sync resource Id}; however, it does not have permission to perform action(s) Microsoft.Authorization/roleAssignments/write on the linked scope(s) {resource sync resource group} (respectively) or the linked scope(s) are invalid.
 ```
 
-To enable resource sync, the logged-in principal must have the `Microsoft.Authorization/roleAssignments/write` permission against the resource group that resources are being deployed to. This security constraint is necessary because edge to cloud resource hydration creates new resources in the target resource group.
+To enable resource sync, the signed-in principal must have the `Microsoft.Authorization/roleAssignments/write` permission against the resource group that resources are being deployed to. This security constraint is necessary because edge to cloud resource hydration creates new resources in the target resource group.
 
 To resolve the issue elevate principal permissions.
 
@@ -140,13 +146,13 @@ Akri discovery requires that resource sync rules are enabled on your cluster. To
 Run `enable-rsync` to enable resource sync rules on your Azure IoT Operations instance. This command also sets the required permissions on the custom location:
 
 ```bash
-az iot ops enable-rsync - n <my instance> -g <my resource group>
+az iot ops enable-rsync -n $AIO_INSTANCE_NAME -g $RESOURCE_GROUP
 ```
 
 If the signed-in CLI user doesn't have permission to look up the object ID (OID) of the K8 Bridge service principal, you can provide it explicitly using the `--k8-bridge-sp-oid` parameter:
 
 ```bash
-az iot ops enable-rsync --k8-bridge-sp-oid <k8 bridge service principal object ID>
+az iot ops enable-rsync --k8-bridge-sp-oid $K8_BRIDGE_SP_OID
 ```
 
 > [!NOTE]
@@ -186,7 +192,7 @@ To work around this issue, update the device inbound endpoint in the operations 
 You can use the `az iot ops ns device endpoint inbound add opcua` to add endpoints to the device that automatically accept untrusted server certificates.
 
 > [!CAUTION]
-> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDoS attacks.
 
 ## Troubleshoot access to the operations experience web UI
 
@@ -208,6 +214,37 @@ To create a suitable Microsoft Entra ID account in your Azure tenant:
 1. Select **Review and assign** to complete setting up the new user.
 
 You can now use the new user account to sign in to the [operations experience](https://iotoperations.azure.com) web UI.
+
+## Troubleshoot the operations experience and private endpoints
+
+When you use the operations experience web UI, it may need to access Azure resources on your behalf such as:
+
+- Azure Key Vault to manage secrets
+- Azure storage to access the schema registry
+- Azure Container Storage endpoints to access custom connectors and data flow graphs
+
+If you configure these resources to use a private endpoint on a virtual network, the operations experience might not be able to access them. This configuration can cause errors when you try to use the operations experience web UI to manage secrets, connectors, or data flows.
+
+To allow the operations experience to access these resources on your behalf, configure an allow list for the IP addresses used by the operations experience in the resource's firewall. For example, if you restrict access to your Azure Key Vault by using a private endpoint and firewall, add the following IP addresses to the allow list in the firewall:
+
+```azurecli
+# Operations experience location eastus:
+az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 48.211.120.64
+
+# Operations experience location northeurope:
+az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 72.145.25.40
+
+# Operations experience location westcentralus:
+az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 128.24.193.24
+
+# Operations experience location westeurope:
+az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 72.145.132.248
+
+# Operations experience location westus3:
+az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 57.154.126.80
+```
+
+An operations experience request typically comes from the same region as the customer, but it could come from any region. Microsoft recommends that you allow all of the IP addresses for any Azure service that the operations experience uses.
 
 ## Troubleshoot data flows
 

@@ -1,11 +1,9 @@
 ---
 title: Enable Availability Zones for Azure API Management Instances
 description: Learn how to enable and configure availability zone support on your Premium tier Azure API Management instances to help ensure reliability.
-author: dlepow 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 11/13/2025
-ms.author: danlep
+ms.date: 06/16/2026
 ms.custom: references_regions, subject-reliability
 #Customer intent: As an engineer responsible for business continuity, I want to learn how to enable zone redundancy for my Azure API Management instances. 
 ---
@@ -47,6 +45,19 @@ We recommend automatic availability zone configuration in the Premium tier, but 
 
 > [!CAUTION]
 > If you manually configure availability zones on an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. In this case, the number of API Management units in autoscale rules and limits must be a multiple of the number of zones. If you use the automatic availability zone support, you don't need to adjust your autoscale settings. 
+
+### IP address changes when changing availability zone configuration
+
+Changing the availability zone configuration of an existing API Management Premium instance changes the public virtual IP (VIP) address and, if the instance is deployed in internal virtual network mode, the private VIP address.
+ 
+This behavior applies when you:
+ 
+- Add, remove, or change specific zones on a Premium instance with manually selected availability zones.
+
+- Switch between manual and automatic availability zone configuration.
+ 
+**Plan for IP address changes before starting the operation.** After the operation completes, update any dependencies that reference the previous IP addresses. Examples include DNS records, private DNS zones, firewall rules, allowlists, routing rules, Application Gateway backend settings, and any client configurations
+ 
 
 #### [Premium v2](#tab/premv2)
 

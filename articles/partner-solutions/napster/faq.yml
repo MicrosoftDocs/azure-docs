@@ -5,6 +5,7 @@ metadata:
   author: shijoy
   ms.author: shijoy
   ms.topic: faq
+  ms.subservice: napster
   ms.date: 05/20/2026
 
 title: Napster Companion API FAQ
@@ -20,7 +21,7 @@ sections:
 
       - question: How do I subscribe to Napster Companion API?
         answer: |
-          You can start a subscription from the [Azure portal](overview.md#subscribe-to-napster-companion-api) or [Azure Marketplace](https://marketplace.microsoft.com/en-us/product/touchcastinc1655995956899.napster_companion_api). Choose the plan that fits your needs, then complete the subscription flow to enable unified billing through Azure.
+          You can start a subscription from the [Azure portal](overview.md#subscribe-to-napster-api) or [Azure Marketplace](https://marketplace.microsoft.com/en-us/product/touchcastinc1655995956899.napster_companion_api). Choose the plan that fits your needs, then complete the subscription flow to enable unified billing through Azure.
 
       - question: How do I create a Napster Companion API resource in Azure?
         answer: |

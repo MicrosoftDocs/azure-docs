@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: troubleshooting
-ms.date: 09/30/2024
+ms.date: 07/17/2026
 ms.author: mbender
 ms.custom:
   - devx-track-python
@@ -117,7 +117,7 @@ In this section, you create the health probe used to check the health of the bac
     | **Protocol** | Select **HTTP** |
     | **Port** | Enter **5000** |
     | **Path** | Enter **/health_check/** |
-    | **Interval (seconds)** | Enter **5** |
+    | **Interval (seconds)** | Enter **5**. The portal default is 5 seconds; the ARM, REST API, Azure CLI, and PowerShell default is 15 seconds (minimum 5 seconds). |
 
 1. Select **OK** to create the health probe.
 
@@ -165,7 +165,7 @@ In this section, you verify that the health probe is working as expected by chec
     | **Scope** | Select the load balancer to monitor. |
     | **Metric Namespace** | Select **Load balancer standard** |
     | **Metric** | Select **Health Probe status** |
-    | **Aggregation** | Select **Max** |
+    | **Aggregation** | Select **Avg** |
 
 1. Select **checkmark** to add the metric.
 

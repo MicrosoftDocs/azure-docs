@@ -3,7 +3,7 @@ title: Manage private endpoint connections with Azure Batch accounts
 description: Learn how to manage private endpoint connections with Azure Batch accounts, including list, approve, reject and remove.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 06/24/2024
+ms.date: 06/16/2026
 # Customer intent: "As a cloud administrator, I want to manage private endpoint connections for my Batch account, so that I can ensure secure and appropriate access to resources."
 ---
 
@@ -13,7 +13,7 @@ You can query and manage all existing private endpoint connections for your Batc
 
 - Approve a pending connection.
 - Reject a connection (either in pending or approved state).
-- Remove a connection, which will remove the connection from Batch account and mark the associated private endpoint resource as Disconnected state.
+- Remove a connection, which removes the connection from the Batch account and marks the associated private endpoint resource as Disconnected.
 
 ## Azure portal
 

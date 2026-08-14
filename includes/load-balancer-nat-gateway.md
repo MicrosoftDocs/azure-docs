@@ -5,20 +5,20 @@
  author: mbender-ms
  ms.service: azure-load-balancer
  ms.topic: include
- ms.date: 01/28/2026
+ ms.date: 07/07/2026
  ms.author: mbender
  ms.custom: include file
 ---
 
 ## Create NAT gateway
 
-In this section, you create a NAT gateway for outbound internet access for resources in the virtual network. For other options for outbound rules, check out [Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections)
+In this section, you create a NAT gateway. 
 
 1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
 1. Select **+ Create**.
 
-1. In the **Basics** tab of **Create network address translation (NAT) gateway** enter or select the following information:
+1. In the **Basics** tab of **Create network address translation (NAT) gateway**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -28,8 +28,8 @@ In this section, you create a NAT gateway for outbound internet access for resou
     | **Instance details** |    |
     | NAT gateway name | Enter **lb-nat-gateway**. |
     | Region | Select **East US**. |
-    | SKU | Select **Standard**. |
-    | **Availability zone** | Select **None**. |
+    | SKU | Select **Standard V2 (Recommended)**. |
+    | Enable NAT64 | Leave unselected. |
     | TCP idle timeout (minutes) | Enter **15**. |
 
 1. Select the **Outbound IP** tab or select the **Next** button at the bottom of the page.

@@ -4,8 +4,8 @@ description: Learn how to copy data from Amazon Marketplace Web Service to suppo
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.subservice: data-movement
 ms.topic: archived
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.date: 07/12/2024
 ms.custom:
   - synapse
@@ -15,6 +15,8 @@ ms.custom:
 # Copy data from Amazon Marketplace Web Service using Azure Data Factory or Synapse Analytics (Deprecated)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 ## Deprecation
 

@@ -2,15 +2,13 @@
 title: Azure API Management policy reference - llm-content-safety
 description: Reference for the llm-content-safety policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: reference
-ms.date: 05/21/2026
+ms.date: 08/07/2026
 ms.update-cycle: 180-days
-ms.author: danlep
 ---
 
 # Enforce content safety checks on LLM requests
@@ -64,7 +62,7 @@ Use the policy in scenarios such as the following:
 | backend-id	| Identifier (name) of the Azure AI Content Safety backend to route content-safety API calls to. Policy expressions are allowed.	|  Yes	| N/A |
 | shield-prompt	| If set to `true`, check content for user attacks. Otherwise, skip this check. Policy expressions are allowed.	| No	| `false` |
 | enforce-on-completions| If set to `true` when you set the policy in the inbound section for content safety checks on requests, enforce content safety checks also on chat completions for response validation. When you set the policy in the outbound section for content safety checks on responses, this attribute is ignored. Policy expressions are allowed.	| No	| `false` |
-| window-size | The size of the text window in characters that the policy sends to Azure AI Content Safety for evaluation. Configurable only for responses; for requests, the default window size is always used. Policy expressions are allowed. | No | 10,000 characters (Azure AI Content Safety limit) |
+| window-size | The size of the text window in characters that the policy sends to Azure AI Content Safety for evaluation. **Configurable only for responses**; for requests, prompts window size is always 10,000. Policy expressions are allowed. | No | 1,000 characters for responses |
 | window-overlap-size | The size of the overlap in characters between text windows when the content is split by using the `window-size` attribute. If you don't specify a value, windows don't overlap. Policy expressions are allowed. | No | N/A |
 
 

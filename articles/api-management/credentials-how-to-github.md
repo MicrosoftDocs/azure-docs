@@ -2,11 +2,9 @@
 title: Create Connection to GitHub API - Azure API Management | Microsoft Docs
 description: Learn how to create and use a managed connection to a backend GitHub API using the Azure API Management credential manager.  
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 12/08/2025
-ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
 

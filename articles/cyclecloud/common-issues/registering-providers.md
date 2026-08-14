@@ -1,8 +1,8 @@
 ---
 title: Common Issues - Azure Credentials| Microsoft Docs
-description: Azure CycleCloud common issue - Azure Credentials
+description: Troubleshoot Azure resource provider registration errors in Azure CycleCloud and how to resolve them.
 author: adriankjohnson
-ms.date: 06/30/2025
+ms.date: 06/19/2026
 ms.update-cycle: 3650-days
 ms.author: adjohnso
 ms.topic: concept-article

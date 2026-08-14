@@ -2,12 +2,10 @@
 title: Policies in Azure API Management 
 description: Learn about API Management policies, which change API behavior through configuration. Policy statements run sequentially on an API request or response.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/14/2026
-ms.author: danlep
 
 #customer intent: As an API publisher, I want to learn about API Management policies so that I can use them to change API behavior. 
 

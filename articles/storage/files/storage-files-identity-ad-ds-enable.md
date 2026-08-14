@@ -23,7 +23,7 @@ To enable AD DS authentication over SMB for Azure file shares, register your Azu
 
 ## Option one (recommended): Use AzFilesHybrid PowerShell module
 
-The AzFilesHybrid PowerShell module provides cmdlets for domain joining storage accounts to your on-premises AD DS and configuring your DNS servers. The cmdlets make the necessary modifications and enable the feature. Because some parts of the cmdlets interact with your on-premises AD DS, review the explanation of what the cmdlets do. You can then determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. If you're unable to use the AzFilesHybrid module, you can enable the feature using [manual steps](#option-two-manually-perform-the-enablement-actions).
+The AzFilesHybrid PowerShell module provides cmdlets for domain joining storage accounts to your on-premises AD DS and configuring your DNS servers. The cmdlets make the necessary modifications and enable the feature. Because some parts of the cmdlets interact with your on-premises AD DS, review the explanation of what the cmdlets do. You can then determine if the changes align with your compliance and security policies, and ensure you have the proper permissions to execute the cmdlets. If you're unable to use the AzFilesHybrid module, you can enable the feature by using [manual steps](#option-two-manually-perform-the-enablement-actions).
 
 > [!IMPORTANT]
 > The AzFilesHybrid module only supports AES-256 Kerberos encryption. If you previously enabled the feature by using an older AzFilesHybrid version (below v0.2.2) that used RC4 as the default encryption method, update your storage account to AES-256 immediately. For more information about why you should upgrade, see [Troubleshoot Azure Files AD DS authentication support for AES-256 Kerberos encryption](/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-encryption?toc=/azure/storage/files/toc.json).
@@ -45,7 +45,7 @@ The `Join-AzStorageAccount` cmdlet performs the equivalent of an offline domain 
 > [!IMPORTANT]
 > The account that the `Join-AzStorageAccount` creates represents the storage account in your AD DS. Whether you register it as a computer account or service logon account, check the password expiration policy on the AD domain or organizational unit (OU). Service logon account passwords can expire based on a default expiration age, while computer account password changes are driven by the client machine (by default every 30 days) and don't expire in AD. For either account type, you must [update the password](storage-files-identity-ad-ds-update-password.md) before the maximum password age to avoid authentication failures when accessing Azure file shares. Consider [creating a new AD OU](/powershell/module/activedirectory/new-adorganizationalunit) and disabling password expiration on [computer accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)) or service logon accounts accordingly. For more information, see [FAQ](./storage-files-faq.md#security-authentication-and-access-control).
 
-**Run the following script in PowerShell 5.1 on a device that's domain joined to your on-premises AD DS. Use on-premises AD DS credentials that have permissions to create a computer account or service logon account in the target AD (such as domain admin).** To follow the [Least privilege principle](../../role-based-access-control/best-practices.md), the on-premises AD DS credential must have the following Azure roles:
+**Run the following script in PowerShell 5.1 on a device that's domain joined to your on-premises AD DS. Use on-premises AD DS credentials that have permissions to create a computer account or service logon account in the target AD (such as domain admin).** To follow the [principle of least privilege](../../role-based-access-control/best-practices.md), the on-premises AD DS credential must have the following Azure roles:
 
 - **Reader** on the resource group where the target storage account is located.
 - **Contributor** on the storage account to be joined to AD DS.
@@ -127,7 +127,6 @@ If you're unable to use the AzFilesHybrid PowerShell module, you can execute the
 ### Check the environment
 
 First, check the state of your environment.
-
 - [Active Directory PowerShell](/powershell/module/activedirectory/) must be installed, and the shell must be running with administrator privileges.
 - The latest version of the [Az.Storage module](https://www.powershellgallery.com/packages/Az.Storage/) must be installed.
 - Check your AD DS to see if there's either a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or [service logon account](/windows/win32/ad/about-service-logon-accounts) that you created with SPN/UPN such as "cifs/your-storage-account-name-here.file.core.windows.net". If the account doesn't exist, create one as described in the following section.
@@ -149,7 +148,7 @@ New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAcco
 Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -ListKerbKey | where-object{$_.Keyname -contains "kerb1"}
 ```
 
-The cmdlets return the key value. Once you have the kerb1 key, create either a [computer account](/powershell/module/activedirectory/new-adcomputer) or [service account](/powershell/module/activedirectory/new-adserviceaccount) in AD under your OU, and use the key as the password for the AD identity.
+The cmdlets return the key value. After you have the kerb1 key, create either a [computer account](/powershell/module/activedirectory/new-adcomputer) or [service logon account](/powershell/module/activedirectory/new-adserviceaccount) in AD DS under your OU, and use the key as the password for the AD identity.
 
 1. Set the SPN to **cifs/your-storage-account-name-here.file.core.windows.net** either in the Active Directory GUI or by running the `Setspn` command from the Windows command line as administrator. Replace the example text with your storage account name and `<ADAccountName>` with your AD account name.
 
@@ -157,11 +156,15 @@ The cmdlets return the key value. Once you have the kerb1 key, create either a [
    Setspn -S cifs/your-storage-account-name-here.file.core.windows.net <ADAccountName>
    ```
 
+
 1. If you have a user account, modify the UPN to match the SPN for the AD object. You must have AD PowerShell cmdlets installed and execute the cmdlets in PowerShell 5.1 with elevated privileges.
 
    ```powershell
-   Set-ADUser -Identity $UserSamAccountName -UserPrincipalName cifs/<StorageAccountName>.file.core.windows.net@<DNSRoot>
+   Set-ADUser -Identity $UserSamAccountName -Server <domain-name> -UserPrincipalName cifs/<StorageAccountName>.file.core.windows.net@<UPN-suffix>
    ```
+
+   > [!IMPORTANT]
+   > **Setting the UPN is required for `User` account types.** If the UPN doesn't match the `cifs/<StorageAccountName>.file.core.windows.net` SPN, Kerberos authentication to the Azure file share fails with **error 1396 "The target account name is incorrect"** and **`KRB_AP_ERR_MODIFIED`**. This is especially common after you enable **AES-256 Kerberos encryption**, which requires the UPN to align with the SPN. The AzFilesHybrid module (Option one) sets this automatically, so it's easy to miss when performing the manual steps.
 
    > [!IMPORTANT]
    > **Don't sync users with invalid userPrincipalName (UPN) values**. UPNs must not contain special characters such as `/`, spaces, or other unsupported symbols.
@@ -199,13 +202,12 @@ Set-AzStorageAccount `
         -ActiveDirectorySamAccountName "<your-domain-object-sam-account-name without the trailing '$'>" `
         -ActiveDirectoryAccountType "<your-domain-object-account-type, the value could be 'Computer' or 'User'>"
 ```
-
 #### Enable AES-256 encryption (recommended)
 
 To enable AES-256 encryption, the domain object that represents your storage account must be a computer account (default) or service logon account in the Active Directory domain. If your domain object doesn't meet this requirement, delete it and create a new domain object that does. Also, you must have write access to the `msDS-SupportedEncryptionTypes` attribute of the object.
 
 > [!IMPORTANT]
-> An upcoming Windows change (July 2026 Windows Server Update) will change the default Kerberos encryption type in AD DS from RC4 to AES-256. If you're still using RC4, you might experience mount errors when this change rolls out. We upgrading to AES-256 now to ensure uninterrupted access to your Azure file shares.
+> An upcoming Windows change (July 2026 Windows Server Update) changes the default Kerberos encryption type in AD DS from RC4 to AES-256. If you're still using RC4, you might experience mount errors when this change rolls out. Upgrade to AES-256 now to ensure uninterrupted access to your Azure file shares.
 
 The cmdlet you run to configure AES-256 support depends on whether the domain object that represents your storage account is a computer account or service logon account (user account). Either way, you must have AD PowerShell cmdlets installed and execute the cmdlet in PowerShell 5.1 with elevated privileges.
 
@@ -220,6 +222,13 @@ To enable AES-256 encryption on a **service logon account**, run the following c
 ```powershell
 Set-ADUser -Identity <domain-object-identity> -Server <domain-name> -KerberosEncryptionType "AES256"
 ```
+> [!IMPORTANT]
+> If the domain object that represents the storage account is a user account (`ActiveDirectoryAccountType` = `User`), make sure the user principal name (UPN) is set before you refresh the domain object password. In some older manual configurations, the SPN was set but the UPN was left blank. After enabling AES-256, this can cause SMB authentication failures such as `1396 The target account name is incorrect` and `KRB_AP_ERR_MODIFIED`.
+> Run the following command, replacing the placeholder values with your own:
+>
+> ```powershell
+> Set-ADUser -Identity $UserSamAccountName -UserPrincipalName cifs/<StorageAccountName>.file.core.windows.net@<DNSRoot>
+> ```
 
 After you run the preceding cmdlet, replace `<domain-object-identity>` in the following script with your value, then run the script to refresh your domain object password:
 
@@ -235,13 +244,14 @@ Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $Ne
 > [!IMPORTANT]
 > If you previously used RC4 encryption and updated the storage account to use AES-256 (recommended), run `klist purge` on the client and then remount the file share to get new Kerberos tickets with AES-256.
 
+
 ## Confirm the feature is enabled
 
 Check if AD DS is enabled as the identity source on your storage account by using the following script. Replace `<resource-group-name>` and `<storage-account-name>` with your values.
 
 ```PowerShell
 # Get the target storage account
-$storageaccount = Get-AzStorageAccount `
+$storageAccount = Get-AzStorageAccount `
         -ResourceGroupName "<resource-group-name>" `
         -Name "<storage-account-name>"
 
@@ -252,7 +262,7 @@ $storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions
 $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 ```
 
-If successful, the output looks like this:
+If the feature is enabled, the output looks like this:
 
 ```output
 DomainName:<yourDomainHere>
@@ -268,7 +278,7 @@ AzureStorageID:<yourStorageSIDHere>
 
 ## Debugging
 
-To check your AD configuration by using the signed in AD user, run the `Debug-AzStorageAccountAuth` cmdlet. This cmdlet is supported on AzFilesHybrid v0.1.2+ version and higher. This cmdlet works for AD DS and Microsoft Entra Kerberos authentication. It doesn't work for storage accounts that use Microsoft Entra Domain Services as the identity source. For more information, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication#unable-to-mount-azure-file-shares-with-ad-credentials?toc=/azure/storage/files/toc.json).
+To check your AD DS configuration by using the currently signed-in AD DS user, run the `Debug-AzStorageAccountAuth` cmdlet. Replace `$StorageAccountName` and `$ResourceGroupName` with your values before running the command. This cmdlet is supported on AzFilesHybrid v0.1.2 version and higher. This cmdlet works for AD DS and Microsoft Entra Kerberos authentication. It doesn't work for storage accounts that use Microsoft Entra Domain Services as the identity source. For more information, see [Unable to mount Azure file shares with AD credentials](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication#unable-to-mount-azure-file-shares-with-ad-credentials?toc=/azure/storage/files/toc.json).
 
 ```PowerShell
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose

@@ -2,11 +2,11 @@
 title: 'Azure VPN Gateway: About P2S routing'
 titleSuffix: Azure VPN Gateway
 description: Learn about Azure Point-to-Site VPN routing for different operating systems, remote access protocols, and virtual network configurations.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 03/31/2025
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: "As a network engineer, I want to understand Point-to-Site VPN routing behavior across various operating systems and configurations, so that I can ensure proper connectivity and access to my virtual networks."
 ---
@@ -51,6 +51,8 @@ The Point-to-Site VPN gateway connection in this example is for a VNet that isn'
 In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is peered with VNet2. VNet 2 is peered with VNet3. VNet1 is peered with VNet4. There is no direct peering between VNet1 and VNet3. VNet1 has “Allow gateway transit” and VNet2 and VNet4 have “Use remote gateways” enabled.
 
 Clients using Windows can access directly peered VNets, but the VPN client must be downloaded again if any changes are made to VNet peering or the network topology. Non-Windows clients can access directly peered VNets. Access isn't transitive and is limited to only directly peered VNets.
+
+For a gateway that's in a different Azure region than the peered VNets, see [Use a VPN or ExpressRoute gateway in a different region](vpn-gateway-different-region.md).
 
 :::image type="content" source="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg" alt-text="Multiple peered VNets" lightbox="./media/vpn-gateway-about-point-to-site-routing/multiple.jpg":::
 

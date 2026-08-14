@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 05/25/2026
+ms.date: 08/12/2026
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -371,6 +371,7 @@ Resize a disk on a replicated VM. | Resizing up on the source VM is supported. R
 Add a disk to a replicated VM. | Supported.
 Offline changes to protected disks. | Disconnecting disks and making offline modifications to them require triggering a full resync.
 Disk caching. | Disk caching isn't supported for disks 4 TB and larger. If multiple disks are attached to your VM, each disk that's smaller than 4 TB supports caching. Changing the cache setting of an Azure disk detaches and reattaches the target disk. If it's the operating system disk, the VM is restarted. Before you change the disk cache setting, stop all applications or services that this disruption might affect. Not following the recommendations could lead to data corruption.
+Change source disk SKU. | Supported. Changing the source disk SKU doesn't impact ongoing replication or failover operations. However, the replica disk SKU isn't automatically updated. The failover VM uses the disk SKU that existed when replication was enabled.
 
 ## <a name = "replicated-machines---storage"></a>Replicated machines: Storage
 
@@ -399,12 +400,12 @@ Data disk: Standard storage account | Supported. |
 Data disk: Premium storage account | Supported. | If a VM has disks spread across Premium and Standard storage accounts, you can select a different target storage account for each disk to ensure that you have the same storage configuration in the target region.
 Managed disk: Standard | Supported in Azure regions in which Site Recovery is supported. |
 Managed disk: Premium | Supported in Azure regions in which Site Recovery is supported. |
-Disk subscription limits | Up to 3,000 (1,200 in case of Trusted VMs) protected disks per subscription. | Ensure that the source or target subscription doesn't have more than 3,000 (1,200 in case of Trusted VMs) Site Recovery-protected disks (both data and OS).
+Disk subscription limits | Up to 3,000 (1,200 if Trusted VMs) protected disks per subscription. | Ensure that the source or target subscription doesn't have more than 3,000 (1,200 if Trusted VMs) Site Recovery-protected disks (both data and OS).
 Standard SSD | Supported. |
 Redundancy | Locally redundant storage (LRS), ZRS, and geo-redundant storage (GRS) are supported.
 Cool and hot storage | Not supported. | VM disks aren't supported on cool or hot storage.
 Storage Spaces | Supported. |
-NVMe storage interface (preview) | Supported | Supported for Azure-to-Azure for Windows, Linux (RHEL 9, SLES 15, Ubuntu 24) for Gen2 VMs such as Da/Ea/Fa v6-series, Ebsv5/Ebdsv5, and others that use NVMe interface. Ephemeral OS disks and local NVMe disks aren't supported. |
+NVMe storage interface | Supported | Supported for Azure-to-Azure for Windows, Linux (RHEL 9, SLES 15, Ubuntu 24) for Gen2 VMs such as Da/Ea/Fa v6-series, Ddsv6, Edsv6, Ebsv5/Ebdsv5, and others that use NVMe interface. Ephemeral OS disks and local NVMe disks aren't supported. <br><br> Note: NVMe support for Linux VMs is in Preview.|
 Performance Plus disk  | Supported | For VMs using Premium SSD, Standard SSD, Standard HDD disks. Ensure that you use only premium storage accounts during replication. | 
 Mixed controller VMs (SCSI + NVMe) | Not Supported | VMs SKUs such as Lsv3 aren't supported |
 Encryption at host | Not supported. | The VM is protected, but the failed-over VM doesn't have encryption at host enabled. For more information, see [Enable end-to-end encryption by using encryption at host](/Azure/virtual-machines/disks-enable-host-based-encryption-portal).
@@ -415,7 +416,7 @@ FIPS encryption | Not supported.
 Azure Disk Encryption for Windows OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. |
 Azure Disk Encryption for Linux OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. <br><br> Known issue with enabling replication. For more information, see [Enable protection failed because the installer is unable to find the root disk](Azure-to-Azure-troubleshoot-errors.md). |
 Shared access signature key rotation | Supported. | If the shared access signature key for storage accounts is rotated, you must disable and re-enable replication. |
-Host caching | Supported. | |
+Host caching | Supported. | Host caching isn't supported for Premium SSD v2 disks. For more information, see [Premium SSD v2 limitations](/azure/virtual-machines/disks-deploy-premium-v2?tabs=portal#limitations). |
 Hot add | Supported. | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks. <br/><br/> Use hot add to add only one disk at a time to an Azure VM. Parallel addition of multiple disks isn't supported. |
 Hot remove disk | Not supported. | If you remove a data disk on the VM, you need to disable replication and enable replication again for the VM.
 Exclude disk | Supported. Use [Azure PowerShell](Azure-to-Azure-exclude-disks.md) or go to the **Advanced Setting** > **Storage Settings** > **Disk to Replicate** option from the portal. | Temporary disks are excluded by default.

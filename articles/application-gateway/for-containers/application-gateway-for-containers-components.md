@@ -3,9 +3,9 @@ title: Application Gateway for Containers components
 description: This article provides information about how Application Gateway for Containers accepts incoming requests and routes them to a backend target.
 services: application-gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: concept-article
-ms.date: 6/5/2026
+ms.date: 08/04/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand the components of Application Gateway for Containers, so that I can effectively configure and manage traffic routing to backend services in my cloud deployment."
 ---
@@ -59,28 +59,15 @@ For associations created **before April 23, 2026**, inbound NSG rules can be con
 
 #### User defined routes on the association subnet
 
-Fine-grain control over the Application Gateway for Containers' association subnet with route table rules is possible. This can be useful when using a virtual network appliance between Aplication Gateway for Containers and an AKS cluster.
+You can control the Application Gateway for Containers association subnet with route table rules. This control is useful when you place a network virtual appliance between Application Gateway for Containers and an AKS cluster.
 
 > [!WARNING]
-> An incorrect configuration of the route table could result in asymmetrical routing in Application Gateway for Containers. Ensure internet ingress is returned to the internet and not through a virtual appliance.
+> An incorrect route table configuration can cause asymmetrical routing in Application Gateway for Containers. Make sure internet ingress traffic returns to the internet and doesn't go through a virtual appliance.
 
-Here are a few supported scenarios to ensure traffic received on a public (internet) facing frontend is returned back to the internet.
+The association subnet supports two routing patterns that keep traffic received on a public (internet-facing) frontend returning to the internet:
 
-**Scenario 1:** UDR to disable Border Gateway Protocol (BGP) route propagation to the Application Gateway subnet
-
-Sometimes the default gateway route (0.0.0.0/0) is advertised via the ExpressRoute or VPN gateways associated with the Application Gateway for Containers virtual network. This behavior breaks client return traffic to the internet. In such scenarios, you can use a UDR to disable BGP route propagation.
-
-To disable BGP route propagation:
-
-1. Create a route table resource in Azure.
-1. Disable the **Virtual network gateway route propagation** parameter.
-1. Associate the route table to the appropriate subnet.
-
-Enabling the UDR for this scenario shouldn't break any existing setups.
-
-**Scenario 2:** UDR to direct 0.0.0.0/0 to the internet
-
-You can create a UDR to send 0.0.0.0/0 traffic directly to the internet.
+- **Disable BGP route propagation on the association subnet.** When a default route (0.0.0.0/0) advertised through an ExpressRoute or VPN gateway breaks return traffic to the internet, associate a route table that has the **Virtual network gateway route propagation** parameter disabled.
+- **Route 0.0.0.0/0 directly to the internet.** Add a user-defined route on the association subnet that sends 0.0.0.0/0 traffic directly to the internet.
 
 ### Application Gateway for Containers ALB Controller
 
@@ -178,6 +165,12 @@ Application Gateway for Containers enforces the following timeouts as it initiat
 
 > [!NOTE]
 > Request timeout strictly enforces the request to complete in the defined time irrespective if data is actively streaming or the request is idle. For example, if you're serving large file downloads and you expect transfers to take greater than 60 seconds due to size or slow transfer rates, consider increasing the request timeout value or setting it to 0.
+
+When a request timeout is configured in more than one place, Application Gateway for Containers applies the following order of precedence:
+
+1. Gateway API HTTPRoute timeouts (`timeouts.request` and `timeouts.backendRequest`) defined on the `HTTPRouteRule` are preferred.
+2. `RoutePolicy` timeout (`routeTimeout`) is used when no Gateway API HTTPRoute timeout is defined.
+3. Default timeout values are used when neither a Gateway API HTTPRoute timeout nor a `RoutePolicy` timeout is defined.
 
 ## Connectivity
 

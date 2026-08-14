@@ -3,7 +3,7 @@ title: "Tutorial: Connect to Log Analytics & Application Insights in Azure SRE A
 description: Set up Log Analytics and Application Insights connectors so your agent can query your workspaces directly with fewer tokens.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 04/28/2026
+ms.date: 07/17/2026
 author: dchelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -16,6 +16,9 @@ ms.custom: log-analytics, application-insights, connectors, tutorial
 In this tutorial, you connect your agent to a Log Analytics workspace so it can query log data directly with lower latency and fewer tokens. The same flow works for Application Insights, and differences are noted inline.
 
 For background on why you'd add a connector when built-in observability already works, see [Log Analytics & Application Insights connectors](log-analytics-app-insights.md).
+
+> [!NOTE]
+> This article covers the legacy Log Analytics connector, which uses a workspace picker with managed identity and automatic RBAC role assignment. The connector wizard also includes Application Insights as a separate connector with its own resource picker. To connect telemetry sources through the current connector wizard, see [Connect a telemetry source](connect-telemetry-source.md).
 
 In this tutorial, you learn how to:
 
@@ -88,6 +91,7 @@ Results appear as formatted tables with an Azure Monitor badge. The agent can no
 ## Related content
 
 - [Log Analytics & Application Insights connectors](log-analytics-app-insights.md): Capability overview
+- [Connect a telemetry source](connect-telemetry-source.md): Set up Log Analytics through managed connectors
 - [Create a scheduled task](create-scheduled-task.md): Automate recurring log queries
 - [Kusto tools](kusto-tools.md): Deterministic, parameterized queries against ADX clusters
 - [Diagnose with Azure observability](diagnose-azure-observability.md): Built-in monitoring queries

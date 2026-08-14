@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: how-to 
 ms.date: 09/19/2025
 ms.custom: engagement-fy24 
+ms.update-cycle: 180-days
 monikerRange: migrate
 # Customer intent: IT administrators and cloud architects use the Insights (preview) feature in Azure Migrate to identify and mitigate security risks in their datacenter during cloud migration planning. This helps them assess vulnerabilities, outdated software, and missing security tools to ensure a secure and efficient migration to Azure
 ---

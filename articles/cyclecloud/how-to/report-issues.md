@@ -1,8 +1,9 @@
 ---
 title: Report Issues
-description: How to report node startup issues with CycleCloud
+description: Learn how to find, understand, and report node startup and cluster issues in Azure CycleCloud to get faster resolution.
 author: gingi
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: shpaster
 ---
 # Reporting issues with CycleCloud
