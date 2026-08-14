@@ -21,7 +21,7 @@ Some scenarios require reindexing search parameters in the FHIR&reg; service in 
 
 ## How to run a reindex job 
 
-You can run a reindex job against an entire FHIR service database or against specific custom search parameters.
+You can run a reindex job against an entire FHIR service database.
 
 ### Run a reindex job on entire FHIR service database
 

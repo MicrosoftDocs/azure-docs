@@ -185,6 +185,14 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+- id: durable-functions-storage-providers-options
+  title: Storage provider
+  prompt: Choose a storage provider
+  pivots:
+  - id: durable-task-scheduler
+    title: Durable Task Scheduler
+  - id: azure-storage
+    title: Azure Storage
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
