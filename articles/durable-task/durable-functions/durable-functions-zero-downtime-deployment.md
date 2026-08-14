@@ -18,7 +18,7 @@ ms.custom: fasttrack-edit
 The [reliable execution model](../common/durable-task-orchestrations.md) of Durable Functions requires that orchestrations be deterministic, which creates a challenge when you deploy updates. When a deployment contains [breaking changes](durable-functions-versioning.md) — such as modified activity function signatures or altered orchestrator logic — in-flight orchestration instances fail. This situation is especially a problem for long-running orchestrations, which might represent hours or days of work.
 
 > [!NOTE]
-> The strategies in this article assume you're using the default Azure Storage provider for Durable Functions. If you're using a different storage provider, the guidance may not apply. The [orchestration versioning](#orchestration-versioning) strategy is the exception — it works with any storage backend. For more information on storage provider options, see [Durable Functions storage providers](../common/durable-task-storage-providers.md).
+> The strategies in this article assume you're using the Azure Storage provider for Durable Functions. If you're using a different storage provider, the guidance might not apply. The [orchestration versioning](#orchestration-versioning) strategy is the exception - it works with any storage backend. For more information on storage provider options, see [Durable Functions storage providers](../common/durable-task-storage-providers.md).
 
 The following table compares four strategies for achieving zero-downtime deployment. Choose the strategy that best matches your workload:
 
