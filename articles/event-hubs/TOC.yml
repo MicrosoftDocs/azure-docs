@@ -190,6 +190,9 @@
           href: confidential-computing.md
         - name: Network security perimeter
           href: network-security-perimeter.md        
+        - name: Partitioned DNS
+          displayName: DNS, FQDN, partitioned, legacy DNS, servicebus.windows.net, eventhubs.azure.net
+          href: partitioned-dns.md
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
