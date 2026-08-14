@@ -122,21 +122,24 @@ Mobility service versions 9.58 and 9.59 aren't released for Azure to Azure Site 
 
 Operating system | Details
 --- | ---
-Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609/), [8.3](https://support.microsoft.com/help/4597409/), [8.4](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-305.30.1.el8_4.x86_64 or later), [8.5](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-348.5.1.el8_5.x86_64 or later), [8.6](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) (4.18.0-348.5.1.el8_5.x86_64 or later), 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 10.0, 10.1 <br> RHEL `9.x`, `10.x` is supported for the [following kernel versions](#supported-kernel-versions-for-red-hat-enterprise-linux-for-azure-vms).
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609/), [8.3](https://support.microsoft.com/help/4597409/), [8.4](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-305.30.1.el8_4.x86_64 or later), [8.5](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-348.5.1.el8_5.x86_64 or later), [8.6](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) (4.18.0-348.5.1.el8_5.x86_64 or later), 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 9.8, 10.0, 10.1, 10.2 <br> RHEL `9.x`, `10.x` is supported for the [following kernel versions](#supported-kernel-versions-for-red-hat-enterprise-linux-for-azure-vms).
 Ubuntu 14.04 LTS Server | Includes support for all 14.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-vms).
 Ubuntu 16.04 LTS Server | Includes support for all 16.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-vms).<br/><br/> Ubuntu servers using password-based authentication and sign-in, and the `cloud-init` package to configure cloud VMs, might have password-based sign-in disabled on failover (depending on the `cloud-init` configuration). To re-enable password-based sign-in on the VM, reset the password from the **Support** > **Troubleshooting** > **Settings** menu of the failed-over VM in the Azure portal.
 Ubuntu 18.04 LTS Server | Includes support for all 18.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-vms).<br/><br/> Ubuntu servers using password-based authentication and sign-in, and the `cloud-init` package to configure cloud VMs, might have password-based sign-in disabled on failover (depending on the `cloud-init` configuration). To re-enable password-based sign-in on the VM, reset the password from the **Support** > **Troubleshooting** > **Settings** menu of the failed-over VM in the Azure portal.
 Ubuntu 20.04 LTS server | Includes support for all 20.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-vms).
 Ubuntu 22.04 LTS server | Includes support for all 22.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-vms).
 Ubuntu 24.04 LTS server | Includes support for all 24.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-vms).
+Ubuntu 26.04 LTS server | Includes support for all 26.04.*x* versions. [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-vms).
 Debian 7 | Includes support for all 7.*x* versions. [Supported kernel versions](#supported-debian-kernel-versions-for-azure-vms).
 Debian 8 | Includes support for all 8.*x* versions. [Supported kernel versions](#supported-debian-kernel-versions-for-azure-vms).
 Debian 9 | Includes support for 9.1 to 9.13. Debian 9.0 isn't supported. [Supported kernel versions](#supported-debian-kernel-versions-for-azure-vms).
 Debian 10 | [Supported kernel versions](#supported-debian-kernel-versions-for-azure-vms).
 Debian 11 | [Supported kernel versions](#supported-debian-kernel-versions-for-azure-vms).
 Debian 12 | [Supported kernel versions](#supported-debian-kernel-versions-for-azure-vms).
+Debian 13 | [Supported kernel versions](#supported-debian-kernel-versions-for-azure-vms).
 SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5. [(Supported kernel versions.)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-vms)
 SUSE Linux Enterprise Server 15 | 15, SP1, SP2, SP3, SP4, SP5, SP6, SP7. [(Supported kernel versions.)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-vms)
+SUSE Linux Enterprise Server 16 | [(Supported kernel versions.)](#supported-suse-linux-enterprise-server-16-kernel-versions-for-azure-vms)
 SUSE Linux Enterprise Server 11 | SP3.<br/><br/> Upgrade of replicating machines from SP3 to SP4 isn't supported. If a replicated machine was upgraded, disable replication and re-enable replication after the upgrade.
 SUSE Linux Enterprise Server 11 | SP4.
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) (running the Red Hat-compatible kernel or Unbreakable Enterprise Kernel (UEK) Release 3, 4, 5, and 6 (UEK3, UEK4, UEK5, UEK6), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6). <br/><br/>Unbreakable Enterprise Kernel Release 7 (UEK7) is supported from 8.7.<br/><br/>8.1 (running on all UEK kernels and the Red Hat kernel <= 3.10.0-1062.* is supported in [9.35](https://support.microsoft.com/help/4573888/). Support for the rest of the Red Hat kernels is available in [9.36](https://support.microsoft.com/help/4578241/).) <br> Oracle Linux 9.x is supported for the [following kernel versions](#supported-red-hat-linux-kernel-versions-for-oracle-linux-on-azure-vms).
@@ -203,11 +206,13 @@ Enabling replication when you create a VM deployment workflow isn't supported fo
 Release | Mobility service version | Red Hat kernel version |
 --- | --- | --- |
 RHEL 10.0 <br> RHEL 10.1 | 9.66 | 6.12.0-55.9.1 and later <br> 6.12.0-124.8.1 and later |
+RHEL 10.2 | 9.67| [Supported kernels](https://github.com/Azure/Azure-SiteRecovery/blob/main/MobilityAgent/AzureToAzure/SupportedKernels/) |
 RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 <br> RHEL 9.5 <br> RHEL 9.6 <br>  RHEL 9.7 | 9.66 | 5.14.0-611.5.1 and later |
 RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 <br> RHEL 9.5 <br> RHEL 9.6 | 9.65 | 5.14.0-503.11.1 and later <br> 5.14.0-570.12.1 and later |
 RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 <br> RHEL 9.5 | 9.64 | 5.14.0-503.11.1 and later |
 RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 | 9.63 | 5.14.0-284.73.1.el9_2.x86_64 <br> 5.14.0-284.75.1.el9_2.x86_64 <br> 5.14.0-284.77.1.el9_2.x86_64 <br> 5.14.0-284.79.1.el9_2.x86_64 <br> 5.14.0-284.80.1.el9_2.x86_64 <br> 5.14.0-284.82.1.el9_2.x86_64 <br> 5.14.0-284.84.1.el9_2.x86_64 <br> 5.14.0-284.85.1.el9_2.x86_64 <br> 5.14.0-284.86.1.el9_2.x86_64 <br> 5.14.0-427.24.1.el9_4.x86_64 <br> 5.14.0-427.26.1.el9_4.x86_64 <br> 5.14.0-427.28.1.el9_4.x86_64 <br> 5.14.0-427.31.1.el9_4.x86_64 <br> 5.14.0-427.33.1.el9_4.x86_64 <br> 5.14.0-427.35.1.el9_4.x86_64 <br> 5.14.0-427.37.1.el9_4.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 and later |
 RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 | 9.62 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 and later |
+RHEL 9.8 | 9.67| [Supported kernels](https://github.com/Azure/Azure-SiteRecovery/blob/main/MobilityAgent/AzureToAzure/SupportedKernels/) |
 
 
 #### Supported Ubuntu kernel versions for Azure VMs
@@ -247,6 +252,7 @@ Release | Mobility service version | Kernel version |
 24.04 LTS | 9.66| 6.14.0-1012-azure <br> 6.14.0-1013-azure <br> 6.14.0-1014-azure <br> 6.14.0-24-generic <br> 6.14.0-27-generic <br> 6.14.0-28-generic <br> 6.14.0-29-generic <br> 6.14.0-32-generic <br> 6.14.0-33-generic <br> 6.14.0-34-generic <br> 6.14.0-35-generic <br> 6.14.0-36-generic <br> 6.11.0-1008-azure <br> 6.11.0-1012-azure <br> 6.11.0-1013-azure <br> 6.11.0-1014-azure <br> 6.11.0-1015-azure <br> 6.11.0-1017-azure <br> 6.11.0-1018-azure <br> 6.11.0-17-generic <br> 6.11.0-19-generic <br> 6.11.0-21-generic <br> 6.11.0-24-generic <br> 6.11.0-25-generic <br> 6.11.0-26-generic <br> 6.11.0-28-generic <br> 6.11.0-29-generic <br> 6.8.0-1028-azure <br> 6.8.0-1029-azure <br> 6.8.0-1030-azure <br> 6.8.0-1031-azure <br> 6.8.0-1034-azure <br> 6.8.0-1038-azure <br> 6.8.0-1040-azure <br> 6.8.0-1041-azure <br> 6.8.0-1042-azure <br> 6.8.0-59-generic <br> 6.8.0-60-generic <br> 6.8.0-62-generic <br> 6.8.0-63-generic <br> 6.8.0-64-generic <br> 6.8.0-71-generic <br> 6.8.0-78-generic <br> 6.8.0-79-generic <br> 6.8.0-83-generic <br> 6.8.0-84-generic <br> 6.8.0-85-generic <br> 6.8.0-86-generic <br> 6.8.0-87-generic <br> 6.8.0-88-generic <br> 6.8.0-94-generic <br> 6.8.0-100-generic |
 24.04 LTS | 9.65| 6.8.0-1025-azure <br> 6.8.0-1026-azure <br> 6.8.0-1027-azure <br> 6.8.0-56-generic <br> 6.8.0-57-generic <br> 6.8.0-58-generic|
 24.04 LTS | 9.64| 6.8.0-1021-azure <br> 6.8.0-52-generic <br> 6.8.0-53-generic <br> 6.8.0-54-generic <br> 6.8.0-55-generic <br> 6.8.0-1007-azure <br> 6.8.0-1008-azure <br> 6.8.0-1009-azure <br> 6.8.0-1010-azure <br> 6.8.0-1012-azure <br> 6.8.0-1013-azure <br> 6.8.0-1014-azure <br> 6.8.0-1015-azure <br> 6.8.0-1016-azure <br> 6.8.0-1017-azure <br> 6.8.0-1018-azure <br> 6.8.0-1020-azure <br> 6.8.0-31-generic <br> 6.8.0-35-generic <br> 6.8.0-36-generic <br> 6.8.0-38-generic <br> 6.8.0-39-generic <br> 6.8.0-40-generic <br> 6.8.0-41-generic <br> 6.8.0-44-generic <br> 6.8.0-45-generic <br> 6.8.0-47-generic <br> 6.8.0-48-generic <br> 6.8.0-49-generic <br> 6.8.0-50-generic <br> 6.8.0-51-generic |
+26.04 LTS | 9.67| [Supported kernels](https://github.com/Azure/Azure-SiteRecovery/blob/main/MobilityAgent/AzureToAzure/SupportedKernels/) |
 
 #### Supported Debian kernel versions for Azure VMs
 
@@ -287,6 +293,7 @@ Debian 12 | 9.65 | 6.1.0-32-amd64 <br> 6.1.0-32-cloud-amd64 <br> 6.1.0-33-amd64 
 Debian 12 | 9.64 | 6.1.0-29-amd64 <br> 6.1.0-29-cloud-amd64 <br> 6.1.0-30-amd64 <br> 6.1.0-30-cloud-amd64 <br> 6.1.0-31-amd64 <br> 6.1.0-31-cloud-amd64 <br>6.1.0-15-cloud-amd64 <br> 6.1.0-26-amd64 <br> 6.1.0-26-cloud-amd64 <br> 6.1.0-27-amd64 <br> 6.1.0-27-cloud-amd64 <br> 6.1.0-28-amd64 <br> 6.1.0-28-cloud-amd64 |
 Debian 12 | 9.63 | 6.1.0-25-amd64 <br>6.1.0-25-cloud-amd64 <br>6.1.0-26-amd64 <br> 6.1.0-26-cloud-amd64 |
 Debian 12 | 9.62| 6.1.0-22-amd64 <br> 6.1.0-22-cloud-amd64 <br> 6.1.0-23-amd64 <br> 6.1.0-23-cloud-amd64 <br> 6.5.0-0.deb12.4-cloud-amd64 |
+Debian 13 | 9.67| [Supported kernels](https://github.com/Azure/Azure-SiteRecovery/blob/main/MobilityAgent/AzureToAzure/SupportedKernels/) |
 
 #### Supported SUSE Linux Enterprise Server 12 kernel versions for Azure VMs
 
@@ -309,6 +316,12 @@ SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5, SP6) | 9.64 | All [sto
 SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5, SP6) | 9.63 | All [stock SUSE 15 SP1, SP2, SP3, SP4, SP5, SP6 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.63-azure:5 <br> 5.14.21-150500.33.66-azure:5 <br> 6.4.0-150600.6-azure:6 <br>6.4.0-150600.8.11-azure:6 <br> 6.4.0-150600.8.5-azure:6 <br> 6.4.0-150600.8.8-azure:6 <br> 6.4.0-150600.8.14-azure:6 <br> 5.14.21-150500.33.69-azure:5 |
 SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5) | 9.62 | All [stock SUSE 15 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.54-azure:5 <br> 5.14.21-150500.33.57-azure:5 <br> 5.14.21-150500.33.60-azure:5  |
 
+#### Supported SUSE Linux Enterprise Server 16 kernel versions for Azure VMs
+
+Release | Mobility service version | Kernel version |
+--- | --- | --- |
+SUSE Linux Enterprise Server 16 | 9.67| [Supported kernels](https://github.com/Azure/Azure-SiteRecovery/blob/main/MobilityAgent/AzureToAzure/SupportedKernels/) |
+
 #### Supported Red Hat Linux kernel versions for Oracle Linux on Azure VMs 
 
 Release | Mobility service version | Red Hat kernel version |
@@ -324,20 +337,24 @@ Oracle Linux 9.0 <br> Oracle Linux 9.1 <br> Oracle Linux 9.2 <br> Oracle Linux 9
 Release | Mobility service version | Red Hat kernel version |
 --- | --- | --- |
 Rocky Linux 10.0 <br> Rocky Linux 10.1 | 9.66 | 6.12.0-55.9.1 and later <br> 6.12.0-124.8.1 and later |
+Rocky Linux 10.2 | 9.67 | [Supported kernels](https://github.com/Azure/Azure-SiteRecovery/blob/main/MobilityAgent/AzureToAzure/SupportedKernels/) |
 Rocky Linux 9.0 <br> Rocky Linux 9.1 <br> Rocky Linux 9.2 <br> Rocky Linux 9.3 <br> Rocky Linux 9.4 <br> Rocky Linux 9.5 <br>  Rocky linux 9.6 <br> Rocky linux 9.7 | 9.66 | 5.14.0-611.5.1 and later |
 Rocky Linux 9.0 <br> Rocky Linux 9.1 <br> Rocky Linux 9.2 <br> Rocky Linux 9.3 <br> Rocky Linux 9.4 <br> Rocky Linux 9.5 |9.65 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
 Rocky Linux 9.0 <br> Rocky Linux 9.1 |9.64 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
 Rocky Linux 9.0 <br> Rocky Linux 9.1 |9.63 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
 Rocky Linux 9.0 <br> Rocky Linux 9.1 |9.62 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
+Rocky Linux 9.8 | 9.67 | [Supported kernels](https://github.com/Azure/Azure-SiteRecovery/blob/main/MobilityAgent/AzureToAzure/SupportedKernels/) |
 
 #### Supported Alma Linux kernel versions for Azure VMs
 
 Release | Mobility service version | Red Hat kernel version |
 --- | --- | --- |
 Alma Linux 10.0 <br> Alma Linux 10.1 | 9.66 | 6.12.0-55.9.1 and later <br> 6.12.0-124.8.1 and later |
+Alma Linux 10.2 | 9.67 | [Supported kernels](https://github.com/Azure/Azure-SiteRecovery/blob/main/MobilityAgent/AzureToAzure/SupportedKernels/) |
 Alma Linux 9.6 <br> Alma Linux 9.7 | 9.66 | 5.14.0-611.5.1 and later |
 Alma Linux 9.0 <br> Alma Linux 9.1 <br> Alma Linux 9.2 <br> Alma Linux 9.3 <br> Alma Linux 9.4 <br> Alma Linux 9.5 |9.65 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
 Alma Linux 9.0 <br> Alma Linux 9.1 |9.64 | 5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64|
+Alma Linux 9.8 | 9.67 | [Supported kernels](https://github.com/Azure/Azure-SiteRecovery/blob/main/MobilityAgent/AzureToAzure/SupportedKernels/) |
 
 ## <a name = "replicated-machines---linux-file-systemguest-storage"></a>Replicated machines: Linux file system/guest storage
 
