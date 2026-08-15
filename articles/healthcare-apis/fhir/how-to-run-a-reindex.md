@@ -23,8 +23,6 @@ Some scenarios require reindexing search parameters in the FHIR&reg; service in 
 
 You can run a reindex job against an entire FHIR service database.
 
-### Run a reindex job on entire FHIR service database
-
 To run a reindex job, use the following `POST` call with the JSON formatted `Parameters` resource in the request body.
 
 ```json
