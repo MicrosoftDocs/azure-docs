@@ -91,7 +91,7 @@ For users of non endorsed Linux distributions or utilizing custom kernels, we re
 > [!NOTE]
 > MANA’s newer features are actively evolving, and Linux vendors work with Microsoft to bring upstream updates into their kernels. Update frequency varies by distribution, but newer releases generally include the latest improvements.
 > 
-> The table above lists the minimum recommended kernel versions for MANA support.
+> The preceding table lists the minimum recommended kernel versions for MANA support.
 
 
 
