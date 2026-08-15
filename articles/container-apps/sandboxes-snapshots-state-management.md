@@ -93,7 +93,7 @@ These patterns make snapshots easier to operate at scale:
 
 - **Audit snapshot count.** Periodically list snapshots and report on count and label distribution. Storage costs grow with snapshot count.
 
-- **Treat snapshots as immutable (once created, they cannot be changed or updated).** A snapshot is a point-in-time capture. To update a snapshot, capture a new one and delete the old one once consumers are moved over.
+- **Treat snapshots as immutable (once created, they can't be changed or updated).** A snapshot is a point-in-time capture. To update a snapshot, capture a new one and delete the old one when consumers move over.
 
 ## Related content
 
