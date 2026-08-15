@@ -24,7 +24,7 @@ Several Linux images from [Azure Marketplace](/marketplace/azure-marketplace-ove
 
 Operating system support details are listed at [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
 
-Current list with our Endorsed Images and minimum recommended kernels for MANA enabled SKU's:
+Current list with our endorsed images and minimum recommended kernels for MANA-enabled SKUs:
 
 | **Distribution** | **Kernel Series** | **Min Version** |
 |------------------|------------------|-----------------|
