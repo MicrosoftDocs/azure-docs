@@ -2914,6 +2914,11 @@
             "source_path_from_root": "/articles/storage/files/files-remove-smb1-linux.md",
             "redirect_url": "/azure/storage/files/files-smb-protocol#disable-smb-1-on-linux-clients",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/file-sync/file-sync-extension.md",
+            "redirect_url": "/azure/storage/file-sync/file-sync-deployment-guide#install-on-azure-arc-enabled-servers",
+            "redirect_document_id": false
         }
     ]
 }
