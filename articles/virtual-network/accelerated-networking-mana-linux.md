@@ -24,6 +24,27 @@ Several Linux images from [Azure Marketplace](/marketplace/azure-marketplace-ove
 
 Operating system support details are listed at [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
 
+Current list with our endorsed images and minimum recommended kernels for MANA-enabled SKUs:
+
+| **Distribution** | **Kernel Series** | **Min Version** |
+|------------------|------------------|-----------------|
+| **AlmaLinux** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
+| **AlmaLinux** | 6.12 | kernel-6.12.0-108.el10 |
+| **Debian** | 6.12 | 6.12.21 |
+| **Oracle (Red Hat kernel)** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
+| **Oracle (Red Hat kernel)** | 6.12 | kernel-6.12.0-108.el10 |
+| **Oracle (UEK)** | UEK 8/U1 (6.12.0-100.28.2) | UEK8/U1 |
+| **Rocky Linux** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
+| **Rocky Linux** | 6.12 | kernel-6.12.0-108.el10 |
+| **Suse** | SLES 15 SP5 | 5.14.21-150500.55.121.2 |
+| **Suse** | SLES 15 SP6 | 6.4.0-150600.23.73.1 |
+| **Suse** | SLES 15 SP7 | 6.4.0-150700.53.16.1 |
+| **Suse** | SLES 16 | 6.12.0-160000.5.1 |
+| **Ubuntu** | 5.15 | 5.15.0-1096.105 |
+| **Ubuntu** | 6.8 | 6.8.0-1041.47 |
+| **Ubuntu** | 6.14 | 6.14.0-1012.12 |
+| **Ubuntu** | 6.17 | ANY |
+
 > [!NOTE]
 > Newer MANA features are under active development and Linux distribution vendors partner with Microsoft to update their kernels with upstream changes. Cadence of updates varies by distribution vendor. The newer your distribution and kernel is, the more likely it is to have the latest updates. 
 
