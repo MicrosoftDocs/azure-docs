@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.service: azure-storage-mover
 ms.topic: concept-article
 ms.author: shaas
-ms.date: 06/17/2026
+ms.date: 07/10/2026
 zone_pivot_groups: storage-mover-multicloud
 ---
 
@@ -199,16 +199,68 @@ Private Link Service Direct Connect allows Azure to create outbound private conn
 
 After creating the Direct Connect resource, create a private connection in Storage Mover and approve it before use.
 
+### [Azure portal](#tab/portal)
+
 1. In **Storage Mover**, open **Storage Endpoints** and then the **Private Connections** tab.
 2. Create a private connection that references the Direct Connect private link service, then approve it so it can be associated to jobs.
 
+### [Azure CLI](#tab/CLI)
+
+Create a connection that references the Private Link Service Direct Connect resource:
+
+```azurecli
+az storage-mover connection create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "private-connection" --private-link-service-id "/subscriptions/<subscription-id>/resourceGroups/network-rg/providers/Microsoft.Network/privateLinkServices/myPrivateLinkService" --description "Private S3 connection"
+```
+
+Get the resource ID of the private endpoint created for the connection:
+
+```azurecli
+az storage-mover connection show --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "private-connection" --query properties.privateEndpointResourceId --output tsv
+```
+
+List the private endpoint connections on the Private Link Service and identify the entry whose private endpoint ID matches the Storage Mover connection:
+
+```azurecli
+az network private-endpoint-connection list --id "/subscriptions/<subscription-id>/resourceGroups/network-rg/providers/Microsoft.Network/privateLinkServices/myPrivateLinkService" --query "[].{name:name,id:id,privateEndpointId:properties.privateEndpoint.id}" --output table
+```
+
+Approve the matching private endpoint connection:
+
+```azurecli
+az network private-endpoint-connection approve --id "/subscriptions/<subscription-id>/resourceGroups/network-rg/providers/Microsoft.Network/privateLinkServices/myPrivateLinkService/privateEndpointConnections/<private-endpoint-connection-name>" --description "Approved for Azure Storage Mover"
+```
+
+Check the Storage Mover connection status:
+
+```azurecli
+az storage-mover connection show --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "private-connection" --query properties.connectionStatus --output tsv
+```
+
+Only connections with an `Approved` status can be associated with a migration job.
+
+---
+
 ### Use private connections for cloud-to-cloud migration
+
+### [Azure portal](#tab/portal)
 
 1. Use the above Private connection as part of Create job operation. Select ‘Cloud to Cloud' migration type.
 2. When creating a cloud-to-cloud migration job, set the S3 bucket type to **Private** and associate the approved private connection.
 3. Verify the private connection is listed and in **Approved** state.
 4. Only private connections in **Approved** state can be selected.
 5. Remaining job steps are the same as a public S3-to-Blob migration.
+
+### [Azure CLI](#tab/CLI)
+
+Create the cloud-to-cloud job definition and pass the approved connection resource ID:
+
+```azurecli
+az storage-mover job-definition create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-job-definition" --job-type CloudToCloud --copy-mode Additive --source-name "my-s3-endpoint" --target-name "my-blob-endpoint" --source-subpath "/" --target-subpath "/" --connections "/subscriptions/<subscription-id>/resourceGroups/c2c-migration-rg/providers/Microsoft.StorageMover/storageMovers/myStorageMover/connections/private-connection" --description "Private S3 to Azure Blob Storage"
+```
+
+To use multiple approved connections, provide each connection resource ID after `--connections`.
+
+---
 
 ## Architecture
 ### Cloud-to-cloud Migration flow (private networking)
@@ -411,6 +463,8 @@ After creating the PLS Direct Connect resource, create a private connection in S
 
 ### Create a private connection
 
+### [Azure portal](#tab/portal)
+
 1. Navigate to your Storage Mover resource in the Azure portal.
 1. Under Resource management, select Storage endpoints.
 1. Select the Private connections (Preview) tab.
@@ -422,7 +476,25 @@ After creating the PLS Direct Connect resource, create a private connection in S
 > [!TIP]
 > Create multiple private connections (each backed by a separate PLS Direct Connect resource) to maximize bandwidth and avoid single-connection throughput limits.
 
+### [Azure CLI](#tab/CLI)
+
+Create a connection that references the Private Link Service Direct Connect resource:
+
+```azurecli
+az storage-mover connection create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "private-connection" --private-link-service-id "/subscriptions/<subscription-id>/resourceGroups/network-rg/providers/Microsoft.Network/privateLinkServices/myPrivateLinkService" --description "Private GCS connection"
+```
+
+Get the resource ID of the private endpoint created for the connection:
+
+```azurecli
+az storage-mover connection show --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "private-connection" --query properties.privateEndpointResourceId --output tsv
+```
+
+---
+
 ### Approve the private connection
+
+### [Azure portal](#tab/portal)
 
 1. Select the checkbox next to your newly created private connection.
 1. Select Approve.
@@ -431,9 +503,33 @@ After creating the PLS Direct Connect resource, create a private connection in S
 > [!IMPORTANT]
 > Only private connections in Approved state can be used for migration jobs. Connections in pending, rejected, or disconnected states do not appear as options.
 
+### [Azure CLI](#tab/CLI)
+
+List the private endpoint connections on the Private Link Service and identify the entry whose private endpoint ID matches the Storage Mover connection:
+
+```azurecli
+az network private-endpoint-connection list --id "/subscriptions/<subscription-id>/resourceGroups/network-rg/providers/Microsoft.Network/privateLinkServices/myPrivateLinkService" --query "[].{name:name,id:id,privateEndpointId:properties.privateEndpoint.id}" --output table
+```
+
+Approve the matching private endpoint connection:
+
+```azurecli
+az network private-endpoint-connection approve --id "/subscriptions/<subscription-id>/resourceGroups/network-rg/providers/Microsoft.Network/privateLinkServices/myPrivateLinkService/privateEndpointConnections/<private-endpoint-connection-name>" --description "Approved for Azure Storage Mover"
+```
+
+Check the Storage Mover connection status:
+
+```azurecli
+az storage-mover connection show --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "private-connection" --query properties.connectionStatus --output tsv
+```
+
+---
+
 ## Create a migration job with private connections
 
-### Basics tab
+### [Azure portal](#tab/portal)
+
+#### Basics tab
 
 | Field          | Value                             |
 |----------------|-----------------------------------|
@@ -443,17 +539,17 @@ After creating the PLS Direct Connect resource, create a private connection in S
 | Name           | A meaningful name for the job     |
 | Description    | (Optional) Up to 1024 characters  |
 
-#### In the Source section:
+##### In the Source section:
 
 - Source endpoint: select an existing GCS S3-compatible source endpoint, or select Add source endpoint to create one.
 - Source sub-path: (optional) specify a sub-folder to migrate only part of your bucket.
 
-#### In the Target section:
+##### In the Target section:
 
 - Target Endpoint: select an existing Azure Blob Storage target endpoint, or select Add target endpoint.
 - Target sub-path: (optional) specify a target sub-folder.
 
-#### In the Private connections (Preview) section:
+##### In the Private connections (Preview) section:
 
 > [!NOTE]
 > Private buckets require private connections. You can only add private connections in an approved state.
@@ -462,6 +558,18 @@ After creating the PLS Direct Connect resource, create a private connection in S
 - You can associate multiple private connections for load balancing.
 - Only connections in Approved state can be added.
 - Remaining job steps are the same as a public GCS-to-Blob migration.
+
+### [Azure CLI](#tab/CLI)
+
+Create the cloud-to-cloud job definition and pass the approved connection resource ID:
+
+```azurecli
+az storage-mover job-definition create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-job-definition" --job-type CloudToCloud --copy-mode Additive --source-name "my-gcs-endpoint" --target-name "my-blob-endpoint" --source-subpath "/" --target-subpath "/" --connections "/subscriptions/<subscription-id>/resourceGroups/c2c-migration-rg/providers/Microsoft.StorageMover/storageMovers/myStorageMover/connections/private-connection" --description "Private GCS to Azure Blob Storage"
+```
+
+To use multiple approved connections, provide each connection resource ID after `--connections`.
+
+---
 
 ## Troubleshooting
 
@@ -542,9 +650,6 @@ The following benchmarks were measured using Azure VPN Gateway with multiple IPs
 - [Create HA VPN to Azure](https://docs.cloud.google.com/network-connectivity/docs/vpn/tutorials/create-ha-vpn-connections-google-cloud-azure)
 - [Private Service Connect](https://cloud.google.com/vpc/docs/private-service-connect)    
 :::zone-end
-
-
-
 
 
 
