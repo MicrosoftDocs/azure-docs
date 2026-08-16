@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 05/11/2026
+ms.date: 07/10/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -26,6 +26,8 @@ Before you create or schedule a job, make sure that you have:
 ## Create a scheduled job
 
 To define a job schedule while creating a new migration job, complete the following steps.
+
+### [Azure portal](#tab/portal)
 
 1. In the Azure portal, open your Storage Mover resource and select **Projects**.
 1. Select a project, and then select **Create job**.
@@ -57,9 +59,41 @@ To define a job schedule while creating a new migration job, complete the follow
     > [!NOTE]
     > The schedule can be disabled and re-enabled as necessary according to your particular use case.
 
+### [Azure CLI](#tab/CLI)
+
+Use the `--schedule` parameter with `az storage-mover job-definition create` to create and enable a schedule with the job definition.
+
+Create a one-time schedule:
+
+```azurecli
+az storage-mover job-definition create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-onetime-job" --job-type CloudToCloud --copy-mode Additive --source-name "my-source-endpoint" --target-name "my-blob-endpoint" --source-subpath "/" --target-subpath "/" --schedule "{frequency:Onetime,is-active:true,start-date:'2026-08-01T10:00:00Z',execution-time:{hour:10,minute:0}}"
+```
+
+Create a daily schedule:
+
+```azurecli
+az storage-mover job-definition create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-daily-job" --job-type CloudToCloud --copy-mode Additive --source-name "my-source-endpoint" --target-name "my-blob-endpoint" --source-subpath "/" --target-subpath "/" --schedule "{frequency:Daily,is-active:true,start-date:'2026-08-01T01:30:00Z',end-date:'2027-06-30T00:00:00Z',execution-time:{hour:1,minute:30}}"
+```
+
+Create a weekly schedule:
+
+```azurecli
+az storage-mover job-definition create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-weekly-job" --job-type CloudToCloud --copy-mode Additive --source-name "my-source-endpoint" --target-name "my-blob-endpoint" --source-subpath "/" --target-subpath "/" --schedule "{frequency:Weekly,is-active:true,start-date:'2026-08-01T09:00:00Z',end-date:'2027-06-30T00:00:00Z',execution-time:{hour:9,minute:0},days-of-week:[Monday,Wednesday,Friday]}"
+```
+
+Create a monthly schedule:
+
+```azurecli
+az storage-mover job-definition create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-monthly-job" --job-type CloudToCloud --copy-mode Additive --source-name "my-source-endpoint" --target-name "my-blob-endpoint" --source-subpath "/" --target-subpath "/" --schedule "{frequency:Monthly,is-active:true,start-date:'2026-08-01T09:00:00Z',end-date:'2027-06-30T00:00:00Z',execution-time:{hour:9,minute:0},days-of-month:[1,15]}"
+```
+
+---
+
 ## Add or update the schedule for an existing job
 
 To define a schedule for a previously created migration job, or to modify a job with an existing schedule, complete the following steps.
+
+### [Azure portal](#tab/portal)
 
 1. In your Storage Mover resource, select **Projects**, and then select a project.
 1. Select the job you want to update, then select **Edit**.
@@ -81,3 +115,31 @@ To define a schedule for a previously created migration job, or to modify a job 
     > If a schedule for this job was previously enabled, it need not be reeanabled. Otherwise, the job needs to be enabled.
 
     Your job is now configured to run on a new or updated schedule.
+
+### [Azure CLI](#tab/CLI)
+
+Use `az storage-mover job-definition update` to add or replace schedule settings on an existing job definition:
+
+```azurecli
+az storage-mover job-definition update --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-job-definition" --schedule "{frequency:Weekly,is-active:true,start-date:'2026-08-01T09:00:00Z',end-date:'2027-06-30T00:00:00Z',execution-time:{hour:9,minute:0},days-of-week:[Monday,Wednesday,Friday]}"
+```
+
+Show the current schedule:
+
+```azurecli
+az storage-mover job-definition show --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-job-definition" --query schedule --output json
+```
+
+Disable the schedule without deleting its settings:
+
+```azurecli
+az storage-mover job-definition update --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-job-definition" --schedule "{is-active:false}"
+```
+
+Enable the schedule:
+
+```azurecli
+az storage-mover job-definition update --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-job-definition" --schedule "{is-active:true}"
+```
+
+---
