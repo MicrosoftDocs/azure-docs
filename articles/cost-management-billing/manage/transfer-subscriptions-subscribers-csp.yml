@@ -29,8 +29,7 @@ procedureSection:
     - CSP-authorized direct-bill partners enrolled in the Azure Expert MSP program.
     - CSP-authorized distributors with the Frontier Distributor designation.
 
-To get access to this tool, eligible partners must work with a Partner Technical Consultant (PTC) through a consultation using [Technical Presales and Deployment (TPD) benefits](https://partner.microsoft.com/dashboard/v2/benefits/technicalpresales) 
-Subscription transfers are allowed only for customers that accepted an MCA and purchased an Azure plan with the CSP Program.
+To get access to this tool, eligible partners must work with a Partner Technical Consultant (PTC) through a consultation using their [Technical Presales and Deployment (TPD) benefits](https://partner.microsoft.com/dashboard/v2/benefits/technicalpresales).Subscription transfers are allowed only for customers that accepted an MCA and purchased an Azure plan with the CSP Program.
 
       When the request is approved, the CSP can then provide a combined invoice to their customers. To learn more about CSPs transferring subscriptions, see [Get billing ownership of Azure subscriptions for your Microsoft Partner Agreement (MPA) account](mpa-request-ownership.md).
 
