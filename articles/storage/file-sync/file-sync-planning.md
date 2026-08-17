@@ -330,7 +330,7 @@ For Azure File Sync and DFS-R to work side by side:
 - You shouldn't configure server endpoints on DFS-R read-only replication folders.
 - Only a single server endpoint can overlap with a DFS-R location. Multiple server endpoints overlapping with other active DFS-R locations might lead to conflicts.
 
-For more information, see [DFS Namespaces and DFS Replication overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)).
+For more information, see [DFS Replication overview](/windows-server/storage/dfs-replication/dfs-replication-overview).
 
 ### Sysprep
 

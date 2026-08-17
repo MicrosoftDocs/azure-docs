@@ -748,7 +748,7 @@ The maximum number of days depends on how many VSS snapshots you can store on yo
 
 For the new limit to take effect, you need to rerun the cmdlet to enable previous version compatibility on every volume where it was previously enabled. Use the `-Force` flag to take the new maximum number of VSS snapshots per volume into account. This action results in a newly calculated number of compatible days. This change takes effect only on newly tiered files, and it overwrites any customizations on the VSS schedule that you made.
 
-By default, VSS snapshots can consume up to 10% of the volume space. To adjust the amount of storage that can be used for VSS snapshots, use the [`vssadmin resize shadowstorage`](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc788050(v=ws.11)) command.
+By default, VSS snapshots can consume up to 10% of the volume space. To adjust the amount of storage that can be used for VSS snapshots, use the [`vssadmin resize shadowstorage`](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage) command.
 
 <a id="proactive-recall"></a>
 
