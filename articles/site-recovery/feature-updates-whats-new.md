@@ -23,7 +23,7 @@ Azure Site Recovery now supports use of an existing, preprovisioned Network Inte
 
 Previously, Azure Site Recovery always created a new NIC during disaster recovery operations. By using this functionality, you can now select a preprovisioned NIC in the target environment, helping you retain prepared network configurations, preserve network security group associations, and reserve IPs in the target region.
 
-To use this functionality, ensure that the required NIC already exists in the target environment. Then update the network settings for your protected virtual machine and select the appropriate subnet, NIC you want to use for the target. You can independently select an existing target NIC for failover and test failover. If no NIC is selected, Azure Site Recovery continues to create a new NIC during recovery as before.
+To use this functionality, ensure that the required NIC already exists in the target environment. Then update the network settings for your protected virtual machine and select the appropriate subnet and NIC you want to use for the target. You can independently select an existing target NIC for failover and test failover. If you don't select a NIC, Azure Site Recovery continues to create a new NIC during recovery as before.
 
 ## Updates (June 2026)
 
