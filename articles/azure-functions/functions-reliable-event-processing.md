@@ -46,6 +46,13 @@ This behavior reveals a few important points:
 - Functions guarantees _at-least-once_ delivery: 
 
     Your code and dependent systems might need to account for the fact that the same event could be processed twice. For more information, see [Designing Azure Functions for identical input](functions-idempotent.md).
+- Checkpoint state is stored in Azure Storage:
+
+    The checkpoint (processing pointer) is persisted in the storage account configured by the `AzureWebJobsStorage` setting of the function app. This stored checkpoint reference means: 
+
+   + When you change `AzureWebJobsStorage` to reference a different storage account, the function starts processing from a new position, which can result in events being reprocessed. 
+   + When an event hub is deleted and recreated, the event stream position (such as sequence numbers and offsets) is reset while stored checkpoint references remain unchanged. In this scenario, the function might not process new events until the checkpoint is manually deleted.
+
 
 ## Handling exceptions
 
