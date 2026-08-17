@@ -24,7 +24,13 @@ procedureSection:
   - title: |
       Transfer EA or Microsoft Customer Agreement (MCA) enterprise subscriptions to a CSP partner
     summary: | 
-      CSP direct bill partners certified as an [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) can request to transfer Azure subscriptions for their customers. The customers must have a Direct Enterprise Agreement (EA) or a Microsoft account team (Microsoft Customer Agreement enterprise). Subscription transfers are allowed only for customers that accepted an MCA and purchased an Azure plan with the CSP Program.
+      The following partners can request billing ownership transfers:
+    - CSP-authorized direct-bill partners with a Solutions Partner designation for Data & AI, Digital & App Innovation, or Infrastructure.
+    - CSP-authorized direct-bill partners enrolled in the Azure Expert MSP program.
+    - CSP-authorized distributors with the Frontier Distributor designation.
+
+To get access to this tool, eligible partners must work with a Partner Technical Consultant (PTC) through a consultation using [Technical Presales and Deployment (TPD) benefits](https://partner.microsoft.com/dashboard/v2/benefits/technicalpresales) 
+Subscription transfers are allowed only for customers that accepted an MCA and purchased an Azure plan with the CSP Program.
 
       When the request is approved, the CSP can then provide a combined invoice to their customers. To learn more about CSPs transferring subscriptions, see [Get billing ownership of Azure subscriptions for your Microsoft Partner Agreement (MPA) account](mpa-request-ownership.md).
 
