@@ -3,7 +3,7 @@ title: About Azure Site Recovery
 description: Provides an overview of the Azure Site Recovery service, and summarizes disaster recovery and migration deployment scenarios.
 ms.topic: overview
 ms.service: azure-site-recovery
-ms.date: 06/04/2026
+ms.date: 08/17/2026
 ms.custom: MVC
 ms.author: v-gajeronika
 author: Jeronika-MS
@@ -15,6 +15,8 @@ author: Jeronika-MS
 Welcome to the Azure Site Recovery service! This article provides a quick service overview.
 
 As an organization, you need to adopt a business continuity and disaster recovery (BCDR) strategy that keeps your data safe, and your apps and workloads online, when planned and unplanned outages occur.
+
+Azure Site Recovery supports your business continuity and disaster recovery (BCDR) strategy by providing replication, failover, and recovery capabilities for supported workloads. Before you configure replication, define workload-specific recovery time objectives (RTOs) and recovery point objectives (RPOs), identify application and data dependencies, and plan network connectivity, capacity, security, and failover requirements for the recovery environment.
 
 To make Site Recovery resilient to various potential outages and problems, including transient faults, availability zone outages, and region outages, see [Reliability in Azure Site Recovery](/azure/reliability/reliability-site-recovery). 
 
