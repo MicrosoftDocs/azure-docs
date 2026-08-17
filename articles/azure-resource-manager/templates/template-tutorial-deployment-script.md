@@ -1,9 +1,9 @@
 ---
-title: Use template deployment scripts | Microsoft Docs
+title: Use ARM template deployment scripts
 description: Learn how to use deployment scripts in Azure Resource Manager templates (ARM templates).
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.topic: tutorial
-ms.date: 06/26/2026
+ms.date: 08/17/2026
 ---
 
 # Tutorial: Use deployment scripts to create a self-signed certificate
@@ -354,6 +354,9 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 1. Select the storage account with the _azscripts_ suffix.
 1. Select the **File shares** tile. You will see an _azscripts_ folder that contains the deployment script execution files.
 1. Select _azscripts_. You will see two folders _azscriptinput_ and _azscriptoutput_. The input folder contains a system PowerShell script file and the user deployment script files. The output folder contains a _executionresult.json_ and the script output file. You can see the error message in _executionresult.json_. The output file isn't there because the execution failed.
+
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. This information might be retrievable through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that sensitive information isn't exposed in deployment script logs.
 
 Remove the `Write-Output1` line and redeploy the template.
 

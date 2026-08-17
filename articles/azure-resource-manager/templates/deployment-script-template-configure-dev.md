@@ -2,7 +2,7 @@
 title: Configure development environment for deployment scripts in templates | Microsoft Docs
 description: Configure development environment for deployment scripts in Azure Resource Manager templates (ARM templates).
 ms.topic: how-to
-ms.date: 06/26/2026
+ms.date: 08/17/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
@@ -39,6 +39,9 @@ echo $OUTPUT | jq -r '.name.displayName'
 
 > [!NOTE]
 > When you run an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI script](deployment-script-template.md#work-with-outputs-from-cli-scripts).
+
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. This information might be retrievable through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that sensitive information isn't exposed in deployment script logs.
 
 ## Use Azure PowerShell container instance
 

@@ -1,11 +1,11 @@
 ﻿---
-title: Use deployment scripts in Azure Resource Manager templates 
+title: Use deployment scripts in Azure Resource Manager templates
 description: Use deployment scripts in Azure Resource Manager templates.
 ms.custom:
   - devx-track-arm-template
   - build-2025
 ms.topic: article
-ms.date: 01/02/2026
+ms.date: 08/17/2026
 ---
 
 # Use deployment scripts in Azure Resource Manager templates
@@ -545,6 +545,9 @@ The script service creates a [storage account](../../storage/common/storage-acco
 The user script, the execution results, and the stdout file are stored in the files shares of the storage account. There's a folder called `azscripts`. In the folder, there are two more folders for the input and the output files: `azscriptinput` and `azscriptoutput`.
 
 The output folder contains a _executionresult.json_ and the script output file. You can see the script execution error message in _executionresult.json_. The output file is created only when the script is executed successfully. The input folder contains a system PowerShell script file and the user deployment script files. You can replace the user deployment script file with a revised one, and rerun the deployment script from the Azure container instance.
+
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. This information might be retrievable through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that sensitive information isn't exposed in deployment script logs.
 
 ### Use the Azure portal
 

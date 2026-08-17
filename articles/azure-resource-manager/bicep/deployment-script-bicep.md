@@ -3,7 +3,7 @@ title: Use deployment scripts in Bicep
 description: Learn how to create, monitor, and troubleshoot deployment scripts in Bicep.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 01/02/2026
+ms.date: 08/17/2026
 ---
 
 # Use deployment scripts in Bicep
@@ -289,6 +289,9 @@ Select **Outputs** to display outputs of the script.
 :::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-resource-output.png" alt-text="Screenshot of deployment script outputs.":::
 
 Go back to the resource group, select the storage account, select **File shares**, and then select the file share with _azscripts_ appended to the share name. Two folders appear in the list: _azscriptinput_ and _azscriptoutput_. The output folder contains an _executionresult.json_ file and the script output file. The _executionresult.json_ file contains the script execution error message. The output file is created only when you run the script successfully.
+
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. This information might be retrievable through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that sensitive information isn't exposed in deployment script logs.
 
 :::image type="content" source="./media/deployment-script-bicep/bicep-deployment-script-portal-az-script-output.png" alt-text="Screenshot of the contents of a deployment script's output folder.":::
 
