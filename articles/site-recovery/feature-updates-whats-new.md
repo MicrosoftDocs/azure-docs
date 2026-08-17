@@ -15,6 +15,16 @@ The Azure Site Recovery service is updated and improved on an ongoing basis. To 
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates channel](https://azure.microsoft.com/updates/?product=site-recovery).
 
+## Updates (August 2026)
+
+### BYON (Bring Your Own NIC) in Azure Site Recovery
+
+Azure Site Recovery now supports use of an existing, preprovisioned Network Interface Card (NIC) if you precreate it in the target region for test failover and failover in the Azure-to-Azure scenario. 
+
+Earlier, Azure Site Recovery always created a new NIC during disaster recovery operations. By using this functionality, you can now select a preprovisioned NIC in the target environment which helps you retain prepared network configurations, preserve network security group associations, and reserve IPs in the target region.
+
+To use this functionality, ensure that the required NIC already exists in the target environment. Then update the network settings for your protected virtual machine and select the appropriate subnet and NIC you want to use for the target. You can independently select an existing target NIC for failover and test failover. If you don't select a NIC, Azure Site Recovery continues to create a new NIC during recovery as before.
+
 ## Updates (June 2026)
 
 ### Azure Site Recovery support for Windows Azure VMs with NVMe disk controllers

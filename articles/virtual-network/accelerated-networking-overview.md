@@ -53,36 +53,46 @@ Accelerated Networking is available in all global Azure regions and the Azure Go
 
 The following versions of Windows support Accelerated Networking for all interfaces:
 
-- Windows Server 2025
-- Windows Server 2022
-- Windows Server 2019
-- Windows Server 2016
-- Windows 11
+| **Product** |
+|-------------|
+| **Windows 11** |
+| **Windows Server 2016** |
+| **Windows Server 2019** |
+| **Windows Server 2022** |
+| **Windows Server 2025** |
+
 
 The following Linux and FreeBSD distributions from Azure Marketplace support Accelerated Networking out of the box:
 
-- Azure Linux 3
-- Ubuntu 24.04 LTS
-- Ubuntu 22.04 LTS
-- Red Hat Enterprise Linux 10.0
-- Red Hat Enterprise Linux 9.6
-- Red Hat Enterprise Linux 8.10 (Technical Preview Only)
-- AlmaLinux 10.0
-- AlmaLinux 9.6
-- Rocky Linux 10.0
-- Rocky Linux 9.7
-- SUSE Linux Enterprise Server 16
-- SUSE Linux Enterprise Server 15 SP7
-- SUSE Linux Enterprise Server 15 SP6
-- Debian 13 "Trixie"
-- Debian 12 "Bookworm"
-- Oracle Linux UEK R8
-- Oracle Linux UEK R7
+| **Distribution** | **Kernel Series** | **Min Version** |
+|------------------|------------------|-----------------|
+| **AlmaLinux 9.6** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
+| **AlmaLinux 10.0** | 6.12 | kernel-6.12.0-108.el10 |
+| **Azure Linux 4** | 6.18 | ANY |
+| **Debian 12 "Bookworm"** | 6.12 | 6.12.21 |
+| **Debian 13 "Trixie"** | 6.12 | 6.12.21 |
+| **Oracle Linux (Red Hat kernel) 9.x** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
+| **Oracle Linux (Red Hat kernel) 10.x** | 6.12 | kernel-6.12.0-108.el10 |
+| **Oracle Linux UEK R7** | UEK 7 | *Not listed above* |
+| **Oracle Linux UEK R8** | UEK 8/U1 (6.12.0-100.28.2) | UEK8/U1 |
+| **Rocky Linux 9.7** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
+| **Rocky Linux 10.0** | 6.12 | kernel-6.12.0-108.el10 |
+| **Red Hat Enterprise Linux 9.6** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
+| **Red Hat Enterprise Linux 10.0** | 6.12 | kernel-6.12.0-108.el10 |
+| **SUSE Linux Enterprise Server 15 SP6** | 6.4 | 6.4.0-150600.23.73.1 |
+| **SUSE Linux Enterprise Server 15 SP7** | 6.4 | 6.4.0-150700.53.16.1 |
+| **SUSE Linux Enterprise Server 16** | 6.12 | 6.12.0-160000.5.1 |
+| **Ubuntu 22.04 LTS** | 5.15 | 5.15.0-1096.105 |
+| **Ubuntu 24.04 LTS** | 6.8 | 6.8.0-1041.47 |
+
 
 For users of non endorsed Linux distributions or utilizing custom kernels, we recommend the Linux Kernel 6.14 or later found at [kernel.org](https://www.kernel.org/)
 
 > [!NOTE]
-> Newer MANA features are under active development and Linux distribution vendors partner with Microsoft to update their kernels with upstream changes. The Cadence of updates varies by distribution vendor. The newer your distribution and kernel is, the more likely it is to have the latest updates.
+> MANA’s newer features are actively evolving, and Linux vendors work with Microsoft to bring upstream updates into their kernels. Update frequency varies by distribution, but newer releases generally include the latest improvements.
+> 
+> The preceding table lists the minimum recommended kernel versions for MANA support.
+
 
 
 ### Supported VM instances

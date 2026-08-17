@@ -21,11 +21,11 @@ ms.date: 08/13/2026
 
 After you build an agent in Microsoft Foundry, you need the agent to run at the right time, respond to business events, access services and systems to perform work, and execute processes that might span durations or multiple teams. Without an orchestration layer, agents remain isolated from the production workflows that customers need to automate.
 
-Azure Logic Apps and Microsoft Foundry together solve this problem as a single *agentic stack*. Foundry provides the intelligence for the agent, including models, instructions, knowledge, and guardrails. Azure Logic Apps provides the automation layer that orchestrates and invokes the agent through workflows and connections to enterprise systems.
+Azure Logic Apps and Microsoft Foundry together solve this problem as a single *agentic stack*. Foundry provides the intelligence for the agent, including models, instructions, knowledge, and guardrails. Azure Logic Apps provides the automation layer that orchestrates and invokes the agent through workflows and connections to enterprise systems. Together, Microsoft Foundry and Azure Logic Apps help you move from just having an agent to running that agent in a production-level business workflow after a few steps - without custom integration code.
 
-Together, Microsoft Foundry and Azure Logic Apps help you move from just having an agent to running that agent in a production-level business workflow after a few steps - without custom integration code.
+This guide shows how to connect and call Foundry agents from workflows in Azure Logic Apps so you can automate business processes without custom integration code. For example, the following screenshot shows the workflow designer in Azure Logic Apps with a sample automated business process for a loan application workload, which includes calling an auto loan agent hosted in Foundry:
 
-This guide shows how to connect and call Foundry agents from workflows Azure Logic Apps so you can automate business processes without custom integration code.
+:::image type="content" source="media/automate-foundry-agents-with-workflows/foundry-agent-workflow.png" alt-text="Screenshot shows the Azure portal, Standard workflow designer, and an example automated business process that calls an agent in Foundry." lightbox="media/automate-foundry-agents-with-workflows/foundry-agent-workflow.png":::
 
 ## How agents work with logic app workflows
 
@@ -117,11 +117,17 @@ When you pair Foundry agents with workflows in Azure Logic Apps, agents can auto
 
 1. In the **Create connection** pane, provide the following information:
 
-   - **Connection name**: Enter a name for the connection.
-   - **Agent Model Source**: Select **Foundry project**.
-   - **Subscription**: Select the Azure subscription for your Azure OpenAI resource.
-   - **AI Foundry Project**: Select your Foundry project.
-   - **API Endpoint**: The automatically populated API endpoint for your Foundry project.
+   | Property | Value | Description |
+   |---|---|---|
+   | **Connection name** | <*descriptive-name*> | A name that identifies the connection. |
+   | **Agent Model Source** | **Foundry project** | The source type with the Foundry model. |
+   | **Subscription** | <*subscription-name*> | The Azure subscription for your Azure OpenAI resource. |
+   | **AI Foundry Project** | <*Foundry-project-name*> | Your Foundry project. |
+   | **API Endpoint** | <*API-endpoint*> | The automatically populated API endpoint for your Foundry project. |
+
+   The following screenshot shows the connection information for an example Foundry project:
+
+   :::image type="content" source="media/automate-foundry-agents-with-workflows/create-connection.png" alt-text="Screenshot shows the Create connection pane and example connection information for a Foundry project." lightbox="media/automate-foundry-agents-with-workflows/create-connection.png":::
 
    For more information, see [Set up the AI model](create-autonomous-agent-workflows.md?tabs=standard#set-up-or-view-the-ai-model).
 
@@ -135,18 +141,27 @@ When you pair Foundry agents with workflows in Azure Logic Apps, agents can auto
 
    - If you have an agent, on the **Parameters** tab, from the **Agent** list, select your Foundry agent.
    
-     The agent list defaults to latest version and shows the agent's configured model and instructions. You can call the agent as configured, or make changes such as adding connector actions as tools to the agent.
+     The agent list defaults to latest version and shows the agent's preconfigured model and instructions. You can call the agent as configured, or make changes by editing the agent in the Foundry portal or adding connector actions as tools to the agent.
+
+     The following screenshot shows the agent action information pane automatically populated with an example agent hosted in Foundry:
+
+     :::image type="content" source="media/automate-foundry-agents-with-workflows/existing-agent.png" alt-text="Screenshot shows agent information pane with automatically populated example details and instructions for an existing agent in Foundry." lightbox="media/automate-foundry-agents-with-workflows/existing-agent.png":::
 
    - If you don't have an agent, follow these steps to create an agent in Foundry:
 
      1. On the **Parameters** tab, under **Agent**, select **Create new agent**.
-     1. For **Agent Name**, enter the name you want.
+     1. For **Agent name**, enter the name you want.
      1. For **Model**, select the model to use.
+     1. For **Instructions**, enter the agent's role and job description.
      1. When you finish, select **Create**.
+
+     The following screenshot shows the agent action information pane with details to create and host a new agent in Foundry:
+
+     :::image type="content" source="media/automate-foundry-agents-with-workflows/new-agent.png" alt-text="Screenshot shows agent information pane with details to create a new agent in Foundry." lightbox="media/automate-foundry-agents-with-workflows/new-agent.png":::
  
      The designer now shows an action for your created agent. You can call your agent from a workflow in Azure Logic Apps or from the Foundry portal.
 
-1. Optionally, for **User instructions**, enter the instructions for the agent to use as prompts.
+1. Optionally, for **User instructions**, enter any instructions for the agent to use as prompts.
 
    For the best results, make each user instruction focus on a specific task, for example:
 
