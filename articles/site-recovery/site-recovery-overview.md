@@ -18,6 +18,8 @@ As an organization, you need to adopt a business continuity and disaster recover
 
 Azure Site Recovery supports your business continuity and disaster recovery (BCDR) strategy by providing replication, failover, and recovery capabilities for supported workloads. Before you configure replication, define workload-specific recovery time objectives (RTOs) and recovery point objectives (RPOs), identify application and data dependencies, and plan network connectivity, capacity, security, and failover requirements for the recovery environment.
 
+For broader BCDR planning and guidance, see [Business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery#design-recommendations).
+
 To make Site Recovery resilient to various potential outages and problems, including transient faults, availability zone outages, and region outages, see [Reliability in Azure Site Recovery](/azure/reliability/reliability-site-recovery). 
 
 Azure Recovery Services contributes to your BCDR strategy:
