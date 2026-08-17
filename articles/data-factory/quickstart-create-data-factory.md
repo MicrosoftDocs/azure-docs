@@ -4,7 +4,7 @@ description: Learn how to create a data factory using Azure Data Factory Studio 
 author: whhender
 ms.topic: quickstart
 ms.subservice: authoring
-ms.date: 04/23/2025
+ms.date: 07/29/2026
 ms.author: whhender
 ms.reviewer: xupzhou
 ms.custom: sfi-image-nochange
@@ -28,7 +28,7 @@ If you're new to Azure Data Factory, see the [introduction to the service](intro
 
 ## Create a data factory in Azure Data Factory Studio
 
-Using Azure Data Factory Studio, you can create a data factory in seconds:
+By using Azure Data Factory Studio, you can create a data factory in seconds:
 
 1. Open the Microsoft Edge or Google Chrome web browser. Currently, the Data Factory UI is supported only in these browsers.
 

@@ -3,7 +3,7 @@ title: Security overview for Azure SRE Agent
 description: Learn how Azure SRE Agent isolates execution, handles credentials, stores data, and protects your environment with built-in security architecture.
 ms.topic: article
 ms.service: azure-sre-agent
-ms.date: 04/29/2026
+ms.date: 07/30/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -75,7 +75,7 @@ Three properties make credential theft structurally impossible:
 | Type | Lifetime | Refresh |
 |---|---|---|
 | **Managed identity tokens** | ~1 hour (Azure platform standard) | Automatic via Azure SDK |
-| **OAuth tokens** (GitHub, ADO) | Varies by provider | Refreshed 20 minutes before expiry |
+| **OAuth tokens** (GitHub, Azure DevOps) | Varies by provider | Refreshed 20 minutes before expiry |
 | **Action tokens** (per tool call) | Single use | Issued fresh per invocation |
 | **Blob storage SAS tokens** | 1 hour | Refreshed 15 minutes before expiry |
 

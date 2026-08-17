@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 03/31/2026
+ms.date: 07/30/2026
 zone_pivot_groups: flow-log-types
 
 # Customer intent: As a network administrator, I want to visualize flow logs in a business intelligence tool, so that I can gain insights into IP traffic patterns and enhance network security management.
@@ -16,9 +16,9 @@ zone_pivot_groups: flow-log-types
 
 ::: zone pivot="virtual-network"
 
-Virtual Network flow logs allow you to view information about ingress and egress IP traffic on Virtual Networks. These flow logs show outbound and inbound flows on a per rule basis, the network interface (NIC) the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
+Virtual Network flow logs provide information about ingress and egress IP traffic on virtual networks. These flow logs show outbound and inbound flows on a per rule basis, the network interface (NIC) the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
-It can be difficult to gain insights into flow logging data by manually searching the log files. In this article, you learn how to visualize your most recent flow logs to learn more about traffic on your network.
+It's difficult to gain insights into flow logging data by manually searching the log files. In this article, you learn how to visualize your most recent flow logs to learn more about traffic on your network.
 
 ::: zone-end
 
@@ -26,12 +26,12 @@ It can be difficult to gain insights into flow logging data by manually searchin
 
 [!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
-Network security group flow logs allow you to view information about ingress and egress IP traffic on network security groups. These flow logs show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
+Network security group flow logs provide information about ingress and egress IP traffic on network security groups. These flow logs show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
-It can be difficult to gain insights into flow logging data by manually searching the log files. In this article, you learn how to visualize your most recent flow logs to learn more about traffic on your network.
+It's difficult to gain insights into flow logging data by manually searching the log files. In this article, you learn how to visualize your most recent flow logs to learn more about traffic on your network.
 
 > [!Warning]  
-> The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](nsg-flow-logs-overview.md). The following instructions will not work with version 2 of the log files, without modification.
+> The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](nsg-flow-logs-overview.md). The following instructions don't work with version 2 of the log files, without modification.
 
 ::: zone-end
 
@@ -51,11 +51,11 @@ It can be difficult to gain insights into flow logging data by manually searchin
 
 ## Scenario
 
-In the following scenario, you connect Power BI desktop to your storage account configured as the sink for your flow logging data. After you connect to the storage account, Power BI downloads and parses the logs to provide a visual representation of logged traffic.
+In this scenario, you connect Power BI Desktop to your storage account configured as the sink for your flow logging data. After you connect to the storage account, Power BI downloads and parses the logs to provide a visual representation of logged traffic.
 
 :::image type="content" source="./media/flow-logs-power-bi/scenario.png" alt-text="Diagram of the scenario.":::
 
-Using the visuals supplied in the template you can examine:
+By using the visuals supplied in the template, you can examine:
 
 - Top talkers
 
@@ -71,38 +71,38 @@ Using the visuals supplied in the template you can examine:
 - Flows by network security group and rule
 ::: zone-end
 
-The template is editable so you can modify it to add new data, visuals, or edit queries to suit your needs.
+The template is editable, so you can modify it to add new data, visuals, or edit queries to suit your needs.
 
 ### Set up your Power BI dashboard
 
 ::: zone pivot="virtual-network"
-1. Download and open the following Power BI template in your Power BI Desktop [Network Watcher Power BI flow logs template](https://github.com/Azure/NWPublicScripts/raw/main/nw-public-docs-artifacts/vnet-flow-logs/PowerBI_VNetFlowLogs_Storage_Template.pbit)
+1. Download and open the following Power BI template in your Power BI Desktop: [Network Watcher Power BI flow logs template](https://github.com/Azure/NWPublicScripts/raw/main/nw-public-docs-artifacts/vnet-flow-logs/PowerBI_VNetFlowLogs_Storage_Template.pbit).
 ::: zone-end
 
 ::: zone pivot="network-security-group"
-1. Download and open the following Power BI template in your Power BI Desktop [Network Watcher Power BI flow logs template](https://github.com/Azure/NWPublicScripts/raw/main/nw-public-docs-artifacts/nsg-flow-logs/PowerBI_FlowLogs_Storage_Template.pbit)
+1. Download and open the following Power BI template in your Power BI Desktop: [Network Watcher Power BI flow logs template](https://github.com/Azure/NWPublicScripts/raw/main/nw-public-docs-artifacts/nsg-flow-logs/PowerBI_FlowLogs_Storage_Template.pbit).
 ::: zone-end
 
 ::: zone pivot="virtual-network"
-2. Enter the required query parameters:
+1. Enter the required query parameters:
 
    - **StorageAccountName:** the name of the storage account containing the flow logs that you want to load and visualize.
 
    - **NumberOfLogFiles:** the number of log files that you want to download and visualize in Power BI. For example, if you enter 50, then you can view the latest 50 log files. If you have two virtual networks enabled and configured to send flow logs to this account, then you can view the past 25 hours of logs.
 ::: zone-end
 ::: zone pivot="network-security-group"
-2. Enter the required query parameters:
+1. Enter the required query parameters:
 
    - **StorageAccountName:** the name of the storage account containing the flow logs that you want to load and visualize.
 
-   - **NumberOfLogFiles:** the number of log files that you want to download and visualize in Power BI. For example, if you enter 50, then you can view the latest 50 log files. If you have two network security groups enabled and configured to send flow logs to this account, then you can view the past 25 hours of logs.
+   - **NumberOfLogFiles:** the number of log files that you want to download and visualize in Power BI. For example, if you enter 50, you can view the latest 50 log files. If you have two network security groups enabled and configured to send flow logs to this account, you can view the past 25 hours of logs.
 ::: zone-end
 
-3. Enter the access key for your storage account. You can find valid access keys by going to your storage account in the Azure portal and selecting **Access keys** under **Security + networking**.
+1. Enter the access key for your storage account. You can find valid access keys by going to your storage account in the Azure portal and selecting **Access keys** under **Security + networking**.
 
-4. Select **Connect** then apply changes.
+1. Select **Connect** then apply changes.
 
-5. Use the precreated visuals to view your logs.
+1. Use the precreated visuals to view your logs.
 
 ## Understand the visuals
 
@@ -119,7 +119,7 @@ The template includes a set of visuals that help you analyze your flow log data.
 
 ### Top talkers
  
-The top talkers visual shows the IPs that have initiated the most connections over the period specified. The size of the boxes corresponds to the relative number of connections. 
+The top talkers visual shows the IPs that initiate the most connections over the specified period. The size of the boxes corresponds to the relative number of connections. 
 
 ::: zone pivot="virtual-network"
 :::image type="content" source="./media/flow-logs-power-bi/top-talkers1.png" alt-text="Screenshot of virtual network flow logs top talkers." lightbox="./media/flow-logs-power-bi/top-talkers1.png":::
@@ -129,9 +129,9 @@ The top talkers visual shows the IPs that have initiated the most connections ov
 :::image type="content" source="./media/flow-logs-power-bi/top-talkers2.png" alt-text="Screenshot of network security group flow logs top talkers." lightbox="./media/flow-logs-power-bi/top-talkers2.png":::
 ::: zone-end
 
-### Flows over time and by direction/decision
+### Flows over time and by direction or decision
 
-The following time series graphs show the number of flows over the period. The first graph is segmented by the flow direction, and the second one is segmented by the decision made (allow or deny). With this visual, you can examine your traffic trends over time, and spot any abnormal spikes or decline in traffic or traffic segmentation.
+The following time series graphs show the number of flows over the period. The first graph is segmented by the flow direction, and the second one is segmented by the decision made (allow or deny). By using this visual, you can examine your traffic trends over time, and spot any abnormal spikes or decline in traffic or traffic segmentation.
 
 ::: zone pivot="virtual-network"
 :::image type="content" source="./media/flow-logs-power-bi/flows-time1.png" alt-text="Screenshot of virtual network flows over time and by direction/decision." lightbox="./media/flow-logs-power-bi/flows-time1.png":::
@@ -143,7 +143,7 @@ The following time series graphs show the number of flows over the period. The f
 
 ### Flows by network interface
 
-The following graphs show the flows per network interface. The first graph is segmented by flow direction and the second one is segmented by decision made. With this information, you can gain insights into which of your virtual machines (VMs) communicated the most relative to others, and if traffic to a specific VM is being allowed or denied.
+The following graphs show the flows per network interface. The first graph is segmented by flow direction and the second one is segmented by decision made. By using this information, you can gain insights into which of your virtual machines (VMs) communicated the most relative to others, and if traffic to a specific VM is allowed or denied.
 
 ::: zone pivot="virtual-network"
 :::image type="content" source="./media/flow-logs-power-bi/flows-time1.png" alt-text="Screenshot of virtual network flows over time and by direction/decision." lightbox="./media/flow-logs-power-bi/flows-time1.png":::
@@ -155,7 +155,7 @@ The following graphs show the flows per network interface. The first graph is se
 
 ### Flows by destination port
 
-The following wheel chart shows a breakdown of flows by destination port. With this information, you can view the most commonly used destination ports used within the specified period.
+The following wheel chart shows a breakdown of flows by destination port. With this information, you can view the most commonly used destination ports within the specified period.
 
 ::: zone pivot="virtual-network"
 :::image type="content" source="./media/flow-logs-power-bi/flows-destination-port1.png" alt-text="Screenshot of virtual network flows by destination port." lightbox="./media/flow-logs-power-bi/flows-destination-port1.png":::
@@ -188,20 +188,16 @@ The following bar chart shows the flow by network security group and rule. With 
 ## Considerations
 
 ::: zone pivot="virtual-network"
-- Logs by default are stored in `https://{storageAccountName}.blob.core.windows.net/insights-logs-insights-logs-flowlogflowevent/`
-
-    - Modify the queries if your data exists in a different directory.
+- Logs are stored by default in `https://{storageAccountName}.blob.core.windows.net/insights-logs-flowlogflowevent/`. Modify the queries if your data exists in a different directory.
 ::: zone-end
 
 ::: zone pivot="network-security-group"
-- Logs by default are stored in `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`
-
-    - Modify the queries if your data exists in a different directory.
+- Logs are stored by default in `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`. Modify the queries if your data exists in a different directory.
 ::: zone-end
 
-- The provided template isn't recommended for use with more than 1 GB of logs.
+- Don't use the provided template for more than 1 GB of logs.
 
-- If you have a large amount of log data, we recommend that you investigate a solution using another data store like Data Lake or SQL server.
+- If you have a large amount of log data, consider a solution that uses another data store like Data Lake or SQL server.
 
 ## Next step
 

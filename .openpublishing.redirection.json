@@ -7847,6 +7847,11 @@
       "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/faq.md",
       "redirect_url": "/azure/nutanix/faq",
       "redirect_document_id": false
-    }    
+    },
+    {
+      "source_path": "articles/container-apps/deployment-errors.md",
+      "redirect_url": "/azure/container-apps/troubleshoot-deployment-errors",
+      "redirect_document_id": false
+    }
   ]
 }

@@ -96,12 +96,12 @@ The connector metadata configuration file describes the connector and its capabi
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/refs/heads/master/src/schemas/json/aio-connector-metadata-9.0-preview.json",
+  "$schema": "https://json.schemastore.org/aio-connector-metadata-11.0-preview.json",
   "name": "MyRestConnector",
   "description": "Connector for polling a REST server for information - with property",
   "version": "1.0.0",
   "imageConfigurationSettings": {
-    "imageName": "my-connector",
+    "imageName": "<YOUR ACR NAME>.azurecr.io/<YOUR CONNECTOR NAME>",
     "tag": "latest"
   },
   "supportedArchitectures": [
@@ -132,6 +132,16 @@ The connector metadata configuration file describes the connector and its capabi
           },
           "typeRef": {
             "input": "unsupported"
+          }
+        },
+        "destinations": {
+          "supportedDestinations": ["Mqtt"],
+          "defaultDestination": {
+            "destination": "Mqtt",
+            "topic": "mqtt/{deviceName}/{inboundEndpointName}/{assetName}/{datasetName}",
+            "qos": 1,
+            "ttl": 3600,
+            "retain": "never"
           }
         },
         "datasetConfigurationSchema": {
@@ -192,7 +202,7 @@ In the previous file, some of the key settings are:
 - `datasetConfigurationSchema` and `dataPointConfigurationSchema`: The JSON schema definitions for the dataset and data point configuration options exposed in the operations experience UI. Currently, the example connector code doesn't read these configuration options - `SamplingInterval` and `HttpRequestMethod` - to control its behavior. Instead, the connector code uses hard-coded values for these settings. However, you can modify the connector code to read these configuration options and use them to control its behavior. If a user sets these values in the UI, currently they're ignored.
 
 > [!TIP]
-> Review the schema for connector metadata files at [Connector metadata schema](https://raw.githubusercontent.com/SchemaStore/schemastore/refs/heads/master/src/schemas/json/aio-connector-metadata-9.0-preview.json) to learn more about the available settings.
+> Review the schema for connector metadata files at [Connector metadata schema](https://json.schemastore.org/aio-connector-metadata-11.0-preview.json) to learn more about the available settings.
 
 To publish this file to your container registry, run the following command from the folder where the file is located:
 
@@ -202,6 +212,12 @@ oras push --config /dev/null:application/vnd.microsoft.akri-connector.v1+json <Y
 
 In the previous command, the `--config` parameter specifies the `application/vnd.microsoft.akri-connector.v1+json` media type. The media type indicates that this file is an Akri connector metadata file. Without this parameter, the Azure IoT Operations instance can't recognize the file as connector metadata.
 
+## Author additional configuration
+
+If your connector supports extra configuration options, define a JSON schema for these options. The schema specifies the fields and their types that appear on the **Advanced** tab of the **Inbound endpoint** definition in the operations experience. The connector code reads these extra configuration options to control its behavior.
+
+[!INCLUDE [Example additional configuration for Akri connectors](../includes/akri-additional-configuration-example.md)]
+
 ## Create a connector template instance
 
 A connector template instance defines a reusable configuration of a connector type. An operator uses a connector template instance when they create an inbound endpoint on a device in the operations experience. To create a connector template instance from your connector, use either the Azure portal or the Azure CLI.
@@ -210,7 +226,7 @@ A connector template instance defines a reusable configuration of a connector ty
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to your Azure IoT Operations instance.
 
-1. In your Azure IoT Operations instance, go to **Components** > **Connector templates** and select **+ Create a connector template**. Your new connector type appears in the list of available connectors.
+1. In your Azure IoT Operations instance, go to **Components** > **Connector templates** and select **+ Create a connector template**. Your new connector type appears in the list of available connectors. Check that the status of your connector shows as **Valid** before you continue.
 
     :::image type="content" source="media/howto-develop-akri-connectors/available-connectors.png" alt-text="Screenshot of available connectors in Azure IoT Operations in the Azure portal." lightbox="media/howto-develop-akri-connectors/available-connectors.png":::
 

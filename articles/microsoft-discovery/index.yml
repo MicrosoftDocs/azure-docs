@@ -34,10 +34,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy infrastructure using Azure portal
-            url: quickstart-infrastructure-portal.md
-          - text: Deploy infrastructure using Bicep
-            url: quickstart-infrastructure-bicep.md
+          - text: Deploy Microsoft Discovery infrastructure
+            url: quickstart-infrastructure.md
           - text: Run your first agent and investigation
             url: quickstart-agents-studio.md
 
