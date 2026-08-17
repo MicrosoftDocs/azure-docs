@@ -62,6 +62,10 @@ In this example, create a basic Chemistry Agent that answers questions about che
    - **Name**: `ChemistryAgent`
    - **Description**: `A chemistry expert agent that answers questions about chemical properties of molecules and provides high-level plans for computational needs.`
 1. Under **Chat model**, select the model deployment created in the [previous tutorial](./quickstart-infrastructure.md#6-create-chat-model-deployment).
+
+   > [!NOTE]
+   > The following parameters are currently unsupported with reasoning models: `temperature`, `top_p`. To learn more about reasoning models, see [Azure OpenAI reasoning models](/azure/foundry/openai/how-to/reasoning#not-supported).
+
 1. Enter the agent **Instructions**. For example:
    ```
    You are a chemistry expert agent who can answer questions about chemical properties of molecules and provide high-level plans for the user's computational needs.
