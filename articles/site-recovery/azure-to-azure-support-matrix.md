@@ -69,7 +69,7 @@ Setting | Support | Details
 --- | --- | ---
 General-purpose V2 (GPv2) storage accounts (hot and cool tiers) | Supported | Use GPv2 because GPv1 doesn't support zone-redundant storage (ZRS).
 Premium storage | Supported | Use Premium block blob storage accounts to get high-churn support. For more information, see [Azure VM disaster recovery: High-churn support](./concepts-Azure-to-Azure-high-churn-support.md).
-Region | Same region as VM | Cache storage account should be in the same region as the VM you're protecting
+Region | Same region as VM | Cache storage account should be in the same region as the VM you're protecting.
 Subscription | Can be different from source VMs | Cache storage account must be in the same subscription as the source VMs. To use cache storage from the target subscription, use Azure PowerShell.
 Azure Storage firewalls for virtual networks | Supported | If you use a firewall-enabled cache storage account or a target storage account, ensure that you [allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions).<br></br>Access must also be allowed to all subnets containing source Virtual Machines.<br></br>If you use user-assigned managed identity (UAMI) created on an Azure Recovery Services vault, don't restrict virtual network access to your storage accounts that are used for Site Recovery. Allow access from all networks if you use vault UAMI.
 Soft delete | Not supported | Soft delete isn't supported because after soft delete is enabled on a cache storage account, it increases cost. Site Recovery performs frequently creates and deletes log files. Replicating causes costs to increase.
