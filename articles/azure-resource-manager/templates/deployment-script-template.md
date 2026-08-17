@@ -149,7 +149,7 @@ The following JSON is an example. For more information, see the latest [template
 > The example is for demonstration purposes. The properties `scriptContent` and `primaryScriptUri` can't coexist in a template.
 
 > [!NOTE]
-> The _scriptContent_ shows a script with multiple lines.  The Azure portal and Azure DevOps pipeline can't parse a deployment script with multiple lines. You can either chain the PowerShell commands (by using semicolons or _\\r\\n_ or _\\n_) into one line, or use the `primaryScriptUri` property with an external script file. Many free JSON string escape/unescape tools are available. For example, [JSON Escape / Unescape](https://codeshack.io/json-escape/).
+> The _scriptContent_ shows a script with multiple lines.  The Azure portal and Azure DevOps pipeline can't parse a deployment script with multiple lines. You can either chain the PowerShell commands (by using semicolons or _\\r\\n_ or _\\n_) into one line, or use the `primaryScriptUri` property with an external script file. Many free JSON string escape/unescape tools are available. For example, [JSON Escape/Unescape](https://formatjsononline.com/json-escape-unescape).
 
 Property value details:
 
