@@ -189,6 +189,12 @@ Remove-AzRouteMap -ResourceGroupName "myResourceGroup" -VirtualHubName "myRouteS
 1. Change the **Inbound Route Map** or **Outbound Route Map** dropdowns to **None** for the connections you want to remove the route map from.
 1. Select **Save**.
 
+## Route map restrictions
+
+- Route maps aren't supported for VNet-to-VNet connections.
+- A route map can be applied to a virtual network connection only if the spoke virtual network is peered with the hub virtual network. On the hub-to-spoke peering, enable **allowGatewayTransit**. On the spoke-to-hub peering, enable **useRemoteGateways**.
+- Route maps aren't supported on a virtual network connection between two hub virtual networks when Azure Route Server is deployed in both hubs.
+
 ## Troubleshoot route maps
 
 ### Route map is in a failed state
