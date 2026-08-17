@@ -43,7 +43,7 @@ With Site Recovery, you can perform global disaster recovery. You can replicate 
 
 For information on the various geographic clusters that are supported, see [Products available by region](https://Azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=site-recovery&regions=all).
 
-Support for restricted regions is reserved for in-country or in-region disaster recovery:
+Support for restricted regions is reserved for in-country/region disaster recovery:
 
 - Switzerland West is reserved for Switzerland North customers.
 - France South is reserved for France Central customers.
