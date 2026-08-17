@@ -2,7 +2,7 @@
 title: Azure Functions reliable event processing
 description: Learn how to use Azure Event Hubs with Azure Functions to reliably process real-time streaming events at scale, including error-handling and circuit breaker patterns.
 ms.topic: concept-article
-ms.date: 06/12/2025
+ms.date: 08/17/2026
 ai-usage: ai-assisted
 
 #customer intent: As a developer, I want to understand how Azure Functions works with Azure Event Hubs to consume and process event streams in a world of IoT devices, despite transient failures and potential downstream outages.
@@ -10,11 +10,11 @@ ai-usage: ai-assisted
 
 # Reliable event processing with Azure Functions and Event Hubs
 
-Learn how to build robust, reliable serverless solutions using Azure Functions with Azure Event Hubs triggers. This article covers best practices for checkpoints, error handling, and implementing circuit breaker patterns to ensure no events are lost and your event-driven applications remain stable and resilient.
+Learn how to build robust, reliable serverless solutions by using Azure Functions with Azure Event Hubs triggers. This article covers best practices for checkpoints, error handling, and implementing circuit breaker patterns to ensure you don't lose any events and your event-driven applications remain stable and resilient.
 
 ## Challenges of event streams in distributed systems
 
-Consider a system that sends events at a constant rate of 100 events per second. At this rate, within minutes multiple parallel instances can consume the incoming 100 events every second.
+Consider a system that sends events at a constant rate of 100 events per second. At this rate, multiple parallel instances can consume the incoming 100 events every second.
 
 However, consider these challenges to consuming an event stream:
 
@@ -24,7 +24,7 @@ However, consider these challenges to consuming an event stream:
 
 Unlike an Azure Queue storage trigger, which locks messages during processing, Azure Event Hubs reads, per partition, from a single point in the stream. This read behavior, which is more like a video player, provides the desired benefits of high-throughput, multiple consumer groups, and replay-ability. Events are read, forward or backward, from a checkpoint, but you must move the pointer to process new events. For more information, see [Checkpoint](../event-hubs/event-processor-balance-partition-load.md#checkpoint) in the Event Hubs documentation.
 
-When errors occur in a stream and you choose not to advance the pointer, further event processing is blocked. In other words, should you stop the pointer to deal with an issue processing a single event, the unprocessed events begin piling up.
+When errors occur in a stream and you choose not to advance the pointer, further event processing is blocked. In other words, if you stop the pointer to deal with an issue processing a single event, the unprocessed events begin piling up.
 
 Functions avoids deadlocks by always advancing the stream's pointer, regardless of success or failure. Because the pointer keeps advancing, your functions need to deal with failures appropriately.
 
@@ -32,10 +32,10 @@ Functions avoids deadlocks by always advancing the stream's pointer, regardless 
 
 Azure Functions consumes events from an event hub by cycling through the following steps:
 
-1. A pointer is created and persisted in Azure Storage for each partition of the event hub.
-2. New events are received in a batch (by default), and the host tries to trigger the function supplying a the batch of events for processing.
-3. When the function completes execution, with or without exceptions, the pointer is advanced and a checkpoint is saved to the default host storage account.
-4. Should conditions prevent function execution from completing, the host can't advance the pointer. When the pointer can't advance, subsequent executions reprocess the same events.
+1. The trigger creates and persists a pointer in Azure Storage for each partition of the event hub.
+2. The trigger receives new events in a batch (by default), and the host tries to trigger the function, supplying the batch of events for processing.
+3. When the function completes execution, with or without exceptions, the trigger advances the pointer and saves a checkpoint to the default host storage account.
+4. If conditions prevent function execution from completing, the host can't advance the pointer. When the pointer can't advance, subsequent executions reprocess the same events.
 
 This behavior reveals a few important points:
 
@@ -48,7 +48,7 @@ This behavior reveals a few important points:
     Your code and dependent systems might need to account for the fact that the same event could be processed twice. For more information, see [Designing Azure Functions for identical input](functions-idempotent.md).
 - Checkpoint state is stored in Azure Storage:
 
-    The checkpoint (processing pointer) is persisted in the storage account configured by the `AzureWebJobsStorage` setting of the function app. This stored checkpoint reference means: 
+    The trigger persists the checkpoint (processing pointer) in the storage account configured by the `AzureWebJobsStorage` setting of the function app. This stored checkpoint reference means: 
 
    + When you change `AzureWebJobsStorage` to reference a different storage account, the function starts processing from a new position, which can result in events being reprocessed. 
    + When an event hub is deleted and recreated, the event stream position (such as sequence numbers and offsets) is reset while stored checkpoint references remain unchanged. In this scenario, the function might not process new events until the checkpoint is manually deleted.
@@ -64,7 +64,7 @@ Because many exceptions in the cloud are transient, the first step in error hand
 
 ### Retry policies
 
-Functions provides built-in retry policies for Event Hubs. When using retry policies, you simply raise a new exception and the host try to process the event again based on the defined policy. This retry behavior requires version 5.x or later of the Event Hubs extension. For more information, see [Retry policies](functions-bindings-error-pages.md#retry-policies). 
+Functions provides built-in retry policies for Event Hubs. When using retry policies, you simply raise a new exception and the host tries to process the event again based on the defined policy. This retry behavior requires version 5.x or later of the Event Hubs extension. For more information, see [Retry policies](functions-bindings-error-pages.md#retry-policies). 
 
 ### Custom retry logic
 
@@ -114,32 +114,32 @@ The implementation details for this monitoring logic vary depending on your spec
 
 ### Managing circuit state with Azure Logic Apps
 
-Azure Logic Apps comes with built-in connectors to different services, features, and stateful orchestrations, and it's a natural choice to manage circuit state. After detecting when a circuit must break, you can build a logic app to implement this workflow:
+Azure Logic Apps includes built-in connectors to different services, features, and stateful orchestrations. It's a natural choice to manage circuit state. After detecting when a circuit must break, you can build a logic app to implement this workflow:
 
 1. Trigger an Event Grid workflow that stops the function processing. 
 1. Send a notification email that includes an option to restart the workflow.
 
-To learn how to disable and reenable specific functions using app settings, see [How to disable functions in Azure Functions](disable-function.md).  
+To learn how to disable and reenable specific functions by using app settings, see [How to disable functions in Azure Functions](disable-function.md).  
 
-The email recipient can investigate the health of the circuit and, when appropriate, restart the circuit via a link in the notification email. As the workflow restarts the function, events are processed from the last event hub checkpoint.
+The email recipient can investigate the health of the circuit and, when appropriate, restart the circuit through a link in the notification email. As the workflow restarts the function, it processes events from the last event hub checkpoint.
 
-When you use this approach, no events are lost, events are processed in order, and you can break the circuit as long as necessary.
+When you use this approach, you don't lose any events, you process events in order, and you can break the circuit as long as necessary.
 
 ## Migration strategies for Event Grid triggers
 
-When you migrate an existing function app between regions or between some plans, you must recreate the app during the migration process. In this case, during the migration process, you might have two apps that are both able to consume from the same event stream and write to the same output destination. 
+When you migrate an existing function app between regions or between some plans, you must recreate the app during the migration process. In this case, during the migration process, you might have two apps that both can consume from the same event stream and write to the same output destination. 
 
-You should consider [using consumer groups](../event-hubs/event-hubs-features.md#consumer-groups) to avoid event data loss or duplication during the migration process:
+To avoid event data loss or duplication during the migration process, consider [using consumer groups](../event-hubs/event-hubs-features.md#consumer-groups):
 
 1. Create a new consumer group for the new target app.
 
 1. Configure the trigger in the new app to use this new consumer group. 
 
-    This allows both apps to process events independently during validation.
+    By using this approach, both apps can process events independently during validation.
 
 1. Validate that the new app is processing events correctly.
  
-1. Stop the original app or remove its subscription/consumer group.   
+1. Stop the original app or remove its subscription or consumer group.   
 
 ## Related resources
 
