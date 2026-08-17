@@ -476,6 +476,10 @@ Errors           : {}
 In this step, we fail over the virtual machine Win2K12VM1 to a specific recovery point.
 
 1. Get a list of available recovery points to use for the failover:
+
+   > [!NOTE]
+   > The `RecoveryPointTime` values returned by this command are in UTC, while the **Latest Recovery Points** timestamp shown in the Azure portal is displayed in your local time zone.
+
    ```azurepowershell
    # Get the list of available recovery points for Win2K12VM1
    $RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedItem $ReplicatedVM1
