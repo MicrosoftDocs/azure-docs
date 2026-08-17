@@ -382,7 +382,7 @@ The following table explains the binding configuration properties that you set i
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 
 > [!CAUTION]
-> Don't set **runOnStartup** to `true` in production. Using this setting makes code execute at highly unpredictable times. In certain production settings, these extra executions can result in significantly higher costs for apps hosted in a Consumption plan. For example, with **runOnStartup** enabled the trigger is invoked whenever your function app is scaled. Make sure you fully understand the production behavior of your functions before enabling **runOnStartup** in production.
+> Don't set `runOnStartup` to `true` in production. Using this setting makes code execute at highly unpredictable times. In certain production settings, these extra executions can result in significantly higher costs for apps hosted in a Consumption plan. For example, with `runOnStartup` enabled, the trigger is invoked whenever your function app is scaled. If you must enable `runOnStartup` in production, make sure you fully understand how your app behaves with `runOnStartup` enabled.
 
 ::: zone-end
 
