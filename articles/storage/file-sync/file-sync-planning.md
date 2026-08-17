@@ -134,7 +134,7 @@ The following table provides both the size of the namespace and a conversion to 
 > Typical churn is 0.5% of the namespace changing per day. For higher levels of churn, consider adding more CPUs.
 
 > [!NOTE]
-> Azure File Sync requires .NET Framework 4.7.2 or later on the Windows Server where the Azure File Sync agent is installed. Windows Server 2019 and later include .NET Framework 4.7.2 by default. For Windows Server 2016, verify that .NET Framework 4.7.2 or later is installed before installing Azure File Sync.
+> The Azure File Sync agent requires .NET Framework 4.7.2 or later on the Windows Server. Windows Server 2019 and later include .NET Framework 4.7.2 by default. For Windows Server 2016, verify that .NET Framework 4.7.2 or later is installed before installing Azure File Sync.
 
 ### Evaluation cmdlet
 

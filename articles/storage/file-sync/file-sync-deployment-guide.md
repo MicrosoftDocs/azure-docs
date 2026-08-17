@@ -25,7 +25,7 @@ Read [Plan to deploy Azure Files](../files/storage-files-planning.md) and [Plan 
 Before you deploy Azure File Sync, complete the following prerequisites.
 
 > [!NOTE]
-> Azure File Sync requires .NET Framework 4.7.2 or later on the Windows Server where the Azure File Sync agent is installed. Windows Server 2019 and later include .NET Framework 4.7.2 by default. For Windows Server 2016, verify that .NET Framework 4.7.2 or later is installed before installing Azure File Sync.
+> The Azure File Sync agent requires .NET Framework 4.7.2 or later on the Windows Server. Windows Server 2019 and later include .NET Framework 4.7.2 by default. For Windows Server 2016, verify that .NET Framework 4.7.2 or later is installed before installing Azure File Sync.
 
 # [Portal](#tab/azure-portal)
 
