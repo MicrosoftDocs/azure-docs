@@ -6,7 +6,7 @@ metadata:
   author: nicholak
   ms.author: clodwig
   ms.reviewer: clodwig
-  ms.date: 02/12/2026
+  ms.date: 08/17/2026
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: how-to
@@ -22,19 +22,24 @@ introduction: |
   [!INCLUDE [cost-management-billing-subscription-b2b-b2c-transfer-note](../../../includes/cost-management-billing-subscription-b2b-b2c-transfer-note.md)]
 procedureSection:
   - title: |
-      Transfer EA or Microsoft Customer Agreement (MCA) enterprise subscriptions to a CSP partner
-    summary: | 
+      Transfer Direct Enterprise Agreement (EA) or Enterprise Microsoft Customer Agreement (MCA-E) subscriptions to a CSP partner
+    summary: |
       The following partners can request billing ownership transfers:
-    - CSP-authorized direct-bill partners with a Solutions Partner designation for Data & AI, Digital & App Innovation, or Infrastructure.
-    - CSP-authorized direct-bill partners enrolled in the Azure Expert MSP program.
-    - CSP-authorized distributors with the Frontier Distributor designation.
 
-To get access to this tool, eligible partners must work with a Partner Technical Consultant (PTC) through a consultation using their [Technical Presales and Deployment (TPD) benefits](https://partner.microsoft.com/dashboard/v2/benefits/technicalpresales).Subscription transfers are allowed only for customers that accepted an MCA and purchased an Azure plan with the CSP Program.
+      - CSP-authorized direct-bill partners with a Solutions Partner designation for Data & AI, Digital & App Innovation, or Infrastructure.
+      - CSP-authorized direct-bill partners enrolled in the Azure Expert MSP program.
+      - CSP-authorized distributors with the Frontier Distributor designation.
 
-      When the request is approved, the CSP can then provide a combined invoice to their customers. To learn more about CSPs transferring subscriptions, see [Get billing ownership of Azure subscriptions for your Microsoft Partner Agreement (MPA) account](mpa-request-ownership.md).
+      To get access to this tool, eligible partners must work with a Partner Technical Consultant (PTC) through a consultation using their [Technical Presales and Deployment (TPD) benefits](https://partner.microsoft.com/dashboard/v2/benefits/technicalpresales).
 
-      >[!IMPORTANT]
-      > After transferring an EA or MCA enterprise subscription to a CSP partner, any previously applied quota increases will carry over to the CSP subscription. If no quota increases were previously applied, the quota will reset to the CSP default limits. If additional quota is required after the subscription transfer, please have your CSP provider submit a [quota increase](/azure/azure-portal/supportability/regional-quota-requests) request.
+      The customer must have a Direct Enterprise Agreement or an Enterprise Microsoft Customer Agreement. The tool doesn't support transfers from an Indirect Enterprise Agreement or Web Direct.
+
+      Subscription transfers are allowed only for customers that have accepted a Microsoft Customer Agreement and purchased an Azure plan through the CSP Program.
+
+      When the request is approved, the CSP can provide a combined invoice to their customers. To learn more about CSPs transferring subscriptions, see [Get billing ownership of Azure subscriptions for your Microsoft Partner Agreement (MPA) account](mpa-request-ownership.md).
+
+      > [!IMPORTANT]
+      > After transferring an EA or MCA-E subscription to a CSP partner, any previously applied quota increases will carry over to the CSP subscription. If no quota increases were previously applied, the quota will reset to the CSP default limits. If additional quota is required after the subscription transfer, have your CSP provider submit a [quota increase](/azure/azure-portal/supportability/regional-quota-requests) request.
           
       ## Other subscription transfers to a CSP partner
 
