@@ -67,7 +67,7 @@ This table summarizes support for the cache storage account that Site Recovery u
 
 Setting | Support | Details
 --- | --- | ---
-General-purpose V2 (GPv2) storage accounts (hot and cool tiers) | Supported |Use GPv2 because GPv1 doesn't support zone-redundant storage (ZRS).
+General-purpose V2 (GPv2) storage accounts (hot and cool tiers) | Supported | Use GPv2 because GPv1 doesn't support zone-redundant storage (ZRS).
 Premium storage | Supported | Use Premium block blob storage accounts to get high-churn support. For more information, see [Azure VM disaster recovery: High-churn support](./concepts-Azure-to-Azure-high-churn-support.md).
 Region | Same region as VM | Cache storage account should be in the same region as the VM you're protecting
 Subscription | Can be different from source VMs | Cache storage account must be in the same subscription as the source VMs. To use cache storage from the target subscription, use Azure PowerShell.
