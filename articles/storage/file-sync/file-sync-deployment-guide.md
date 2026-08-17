@@ -29,7 +29,7 @@ Before you deploy Azure File Sync, complete the following prerequisites.
 
 # [Portal](#tab/azure-portal)
 
-- You need an Azure classic file share in the same region where you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
+- You need an Azure classic file share in the same region where you want to deploy Azure File Sync. Provisioned v2 file shares are recommended for all new deployments. For more information, see:
 
   - [Azure File Sync region availability](file-sync-planning.md#azure-file-sync-region-availability)
   - [Create an SMB Azure classic file share](../files/create-classic-file-share.md?toc=/azure/storage/filesync/toc.json)
@@ -79,7 +79,7 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
 
 # [PowerShell](#tab/azure-powershell)
 
-- You need an Azure classic file share in the same region where you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
+- You need an Azure classic file share in the same region where you want to deploy Azure File Sync. Provisioned v2 file shares are recommended for all new deployments. For more information, see:
 
   - [Azure File Sync region availability](file-sync-planning.md#azure-file-sync-region-availability)
   - [Create an SMB Azure file share](../files/create-classic-file-share.md?toc=/azure/storage/filesync/toc.json)
@@ -134,7 +134,7 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
 
 # [Azure CLI](#tab/azure-cli)
 
-- You need an Azure classic file share in the same region where you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
+- You need an Azure classic file share in the same region where you want to deploy Azure File Sync. Provisioned v2 file shares are recommended for all new deployments. For more information, see:
 
   - [Azure File Sync region availability](file-sync-planning.md#azure-file-sync-region-availability)
   - [Create an SMB Azure classic file share](../files/create-classic-file-share.md?toc=/azure/storage/filesync/toc.json)
