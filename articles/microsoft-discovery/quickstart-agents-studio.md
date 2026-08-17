@@ -64,7 +64,7 @@ In this example, create a basic Chemistry Agent that answers questions about che
 1. Under **Chat model**, select the model deployment created in the [previous tutorial](./quickstart-infrastructure.md#6-create-chat-model-deployment).
 
    > [!NOTE]
-   > The following parameters are currently unsupported with reasoning models: `temperature`, `top_p`. To learn more about reasoning models, see [Azure OpenAI reasoning models](https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/reasoning?tabs=csharp%2Cgpt-5#not-supported).
+   > The following parameters are currently unsupported with reasoning models: `temperature`, `top_p`. To learn more about reasoning models, see [Azure OpenAI reasoning models](/azure/foundry/openai/how-to/reasoning#not-supported).
 
 1. Enter the agent **Instructions**. For example:
    ```
