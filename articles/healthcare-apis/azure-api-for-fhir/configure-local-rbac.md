@@ -63,7 +63,7 @@ In the authority box, enter a valid secondary Microsoft Entra tenant. Once the t
 * A Microsoft Entra service principal.
 
 > [!NOTE]
-> Assigning access to a Microsoft Entra security group is no longer supported. Grant access directly to individual users or service principals instead. This change keeps Azure API for FHIR aligned with current security practices and limits the access the service needs to your directory. A review of recent usage showed that customers grant access directly to users and service principals, so existing configurations aren't expected to be affected.
+> Assigning access to a Microsoft Entra security group is no longer supported. Grant access directly to individual users or service principals instead. This change keeps Azure API for FHIR aligned with current security practices and limits the access the service needs to your directory.
 
 You can read the article on how to [find identity object IDs](find-identity-object-ids.md) for more details.
 
