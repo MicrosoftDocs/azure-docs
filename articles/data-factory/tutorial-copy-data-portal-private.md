@@ -14,6 +14,8 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). *The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) by using private endpoints in [Azure Data Factory Managed Virtual Network](managed-virtual-network-private-endpoint.md).* The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [Supported data stores and formats](./copy-activity-overview.md) table. The private endpoints feature is available across all tiers of Azure Data Factory, so no specific tier is required to utilize them. For more details on pricing and tiers, please refer to the [Azure Data Factory pricing page](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/).
 
 > [!NOTE]

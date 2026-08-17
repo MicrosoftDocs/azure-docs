@@ -10,7 +10,7 @@ appliesto:
 
 # Troubleshoot Azure Cache for Redis latency and timeouts
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 An Azure Cache for Redis client operation that doesn't receive a timely response can cause high latency or a timeout exception. This article explains how to troubleshoot common issues that can lead to high latency and timeouts.
 

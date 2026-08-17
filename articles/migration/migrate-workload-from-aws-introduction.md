@@ -37,7 +37,7 @@ Use AWS and Azure tools where appropriate to augment your migration process. The
 - Post-migration validation
 - Resource cleanup
 
-Use [Workload Discovery on AWS](https://aws.amazon.com/solutions/implementations/workload-discovery-on-aws/) to assess your workload. You can combine AWS tooling with Azure tooling, like [Azure Migrate](/azure/migrate/tutorial-assess-aws), to assess AWS instances and provide sizing recommendations for Azure resources. Optionally, you can explore non-Microsoft solutions, like [Dr Migrate](https://marketplace.microsoft.com/product/altratechnologiesptyltd1719876965699.altra_dr_migrate_express_saas) or [CAST Highlight](https://marketplace.microsoft.com/product/saas/cast.cast_highlight), to assist with code analysis, dependency mapping, and migration readiness assessments.
+Use [Workload Discovery on AWS](https://aws.amazon.com/solutions/implementations/workload-discovery-on-aws/) to assess your workload. You can combine AWS tooling with Azure tooling, like [Azure Migrate](/azure/migrate/tutorial-assess-aws), to assess AWS instances and provide sizing recommendations for Azure resources. Optionally, you can explore non-Microsoft solutions, like [Dr Migrate](https://marketplace.microsoft.com/en-us/product/altratechnologiesptyltd1719876965699.altra_drmigrate_saas_offer) or [CAST Highlight](https://marketplace.microsoft.com/product/saas/cast.cast_highlight), to assist with code analysis, dependency mapping, and migration readiness assessments.
 
 ## Timeline assumptions
 

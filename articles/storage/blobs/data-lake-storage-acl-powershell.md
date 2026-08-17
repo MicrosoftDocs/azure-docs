@@ -36,13 +36,13 @@ New child items that you create under a parent directory automatically inherit A
 
 ## Install the PowerShell module
 
-1. Verify that the version of PowerShell you installed is `5.1` or higher by using the following command. To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
+1. Verify that the version of PowerShell you installed is `5.1` or higher by using the following command.
 
    ```powershell
    echo $PSVersionTable.PSVersion.ToString()
    ```
 
-1. Install the **Az.Storage** module. For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
+   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
 
 2. Install **Az.Storage** module.
 
@@ -50,6 +50,7 @@ New child items that you create under a parent directory automatically inherit A
    Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
+   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Connect to the account
 
@@ -59,7 +60,7 @@ New child items that you create under a parent directory automatically inherit A
    Connect-AzAccount
    ```
 
-1. If your identity is associated with more than one subscription and you're not prompted to select the subscription, set your active subscription to the subscription of the storage account that you want to use. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
+2. If your identity is associated with more than one subscription, and you aren't prompted to select the subscription, set your active subscription to the subscription of the storage account that you want to use. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
    ```powershell
    Select-AzSubscription -SubscriptionId <subscription-id>

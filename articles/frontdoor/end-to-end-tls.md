@@ -35,7 +35,7 @@ Azure Front Door supports two versions of the TLS protocol: TLS versions 1.2 a
 > [!IMPORTANT]
 > TLS 1.0 and 1.1 aren't supported. 
 
-For Azure Front Door Standard and Premium, you can configure a predefined TLS policy or choose the TLS cipher suite based on your organization's security needs. For more information, see [Azure Front Door TLS policy](/azure/frontdoor/standard-premium/tls-policy) and [configure TLS policy on a Front Door custom domain](/azure/frontdoor/standard-premium/tls-policy-configure).
+For Azure Front Door Standard and Premium, you can configure a predefined TLS policy or choose the TLS cipher suite based on your organization's security needs. For more information, see [Configure an Azure Front Door TLS policy](/azure/frontdoor/tls-policy).
 
 For Azure Front Door classic and Microsoft CDN classic, you can configure the minimum TLS version in Azure Front Door in the custom domain HTTPS settings by using the Azure portal or the [Azure REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). For a minimum TLS version 1.2, the negotiation process attempts to establish TLS 1.3 and then TLS 1.2. When Azure Front Door initiates TLS traffic to the origin, it attempts to negotiate the best TLS version that the origin can reliably and consistently accept. Supported TLS versions for origin connections are TLS 1.2 and TLS 1.3. If you want to customize the cipher suite, [migrate Front Door classic](/azure/frontdoor/tier-migration) and [Microsoft CDN classic](/azure/cdn/tier-migration?toc=/azure/frontdoor/TOC.json) to Azure Front Door standard and premium.
 
@@ -129,7 +129,7 @@ For TLS 1.2 and 1.3, Azure Front Door supports the following cipher suites:
 > Azure Front Door no longer supports older TLS versions and weak ciphers.
 > Support for DHE cipher suites retired on April 1, 2026. For more information, see [TLS_DHE cipher suites on Azure Front Door](diffie-hellman-ciphers.md).
 
-Use *TLS policy* to configure specific cipher suites. Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy: you can use either a predefined policy or a custom policy per your own needs. For more information, see [Configure TLS policy on a Front Door custom domain](standard-premium/tls-policy-configure.md).
+Use *TLS policy* to configure specific cipher suites. Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy: you can use either a predefined policy or a custom policy per your own needs. For more information, see [Configure an Azure Front Door TLS policy](tls-policy.md).
 
 > [!NOTE]
 > For Windows 10 and later versions, enable one or both of the ECDHE_GCM cipher suites for better security. Windows 8.1, 8, and 7 aren't compatible with these ECDHE_GCM cipher suites. The ECDHE_CBC cipher suites are provided for compatibility with those operating systems. 
@@ -138,7 +138,7 @@ Use *TLS policy* to configure specific cipher suites. Azure Front Door Standard 
 
 ::: zone pivot="front-door-standard-premium"
 
-- [Azure Front Door TLS policy](standard-premium/tls-policy.md)
+- [Azure Front Door TLS policy](tls-policy.md)
 - [Domains in Azure Front Door](domain.md)
 - [Configure a custom domain on Azure Front Door](standard-premium/how-to-add-custom-domain.md)
 

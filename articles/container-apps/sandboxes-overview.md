@@ -99,7 +99,6 @@ You can build disk images from:
 
 - **Public images**: Prebuilt images available to all sandbox groups.
 - **Container registry images**: Pull from public or private registries with optional authentication.
-- **Dockerfiles**: Build custom images with a Dockerfile.
 
 ### Snapshots
 

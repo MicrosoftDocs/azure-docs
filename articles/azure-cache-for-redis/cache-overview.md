@@ -9,7 +9,7 @@ appliesto:
 
 # What is Azure Cache for Redis?
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 Azure Cache for Redis provides an in-memory data store based on the [Redis](https://redis.io/) software. Redis improves the performance and scalability of an application that uses backend data stores heavily. It's able to process large volumes of application requests by keeping frequently accessed data in the server memory, which can be written to and read from quickly. Redis brings a critical low-latency and high-throughput data storage solution to modern applications.
 

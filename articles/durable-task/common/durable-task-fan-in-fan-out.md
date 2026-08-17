@@ -14,6 +14,8 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Use the *fan-out/fan-in* pattern to run multiple functions in parallel and then aggregate the results. This pattern is a common approach for parallel processing in Azure serverless workflows. In this tutorial, you implement the fan-out/fan-in pattern with [Durable Functions](what-is-durable-task.md) to back up an app's site content to Azure Storage.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]

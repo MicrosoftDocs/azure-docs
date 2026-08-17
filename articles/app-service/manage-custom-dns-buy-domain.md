@@ -252,6 +252,10 @@ After you purchase the App Service domain, you have five days to cancel your pur
 
     After the operation is complete, the domain is released from your subscription and available for anyone to purchase again. 
 
+## Monitor activity for your App Service domain
+
+Control-plane operations on your App Service domain are recorded automatically in the [Azure activity log](/azure/azure-monitor/platform/activity-log), including the operation name and status, the affected resource, the identity that initiated it, and the date and time. To retain these logs longer, analyze them, or set up notifications, [export the activity log](/azure/azure-monitor/platform/activity-log#export-activity-log) to a Log Analytics workspace, storage account, or event hub, or create [activity log alerts](/azure/azure-monitor/alerts/alerts-types#activity-log-alerts).
+
 ## Frequently asked questions
 
 - [Why do I see "This subscription does not have the billing support to purchase an App Service domain"?](#why-do-i-see-this-subscription-does-not-have-the-billing-support-to-purchase-an-app-service-domain)

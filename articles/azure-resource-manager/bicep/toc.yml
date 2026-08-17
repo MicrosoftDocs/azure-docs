@@ -427,6 +427,9 @@ items:
             items:
               - name: Overview
                 href: deployment-stacks.md
+              - name: What-if
+                displayName: whatif, what if, preview, changes
+                href: deployment-stacks-what-if.md
               - name: Known issues
                 displayName: limitations, troubleshoot, deny assignment, stack out of sync
                 href: deployment-stacks-known-issues.md
@@ -576,6 +579,21 @@ items:
               - name: Simplify JSON null
                 displayName: linter
                 href: linter-rule-simplify-json-null.md
+              - name: Use description outputs
+                displayName: linter
+                href: linter-rule-use-description-outputs.md
+              - name: Use description parameters
+                displayName: linter
+                href: linter-rule-use-description-parameters.md
+              - name: Use description type properties
+                displayName: linter
+                href: linter-rule-use-description-type-properties.md
+              - name: Use description types
+                displayName: linter
+                href: linter-rule-use-description-types.md
+              - name: Use description variables
+                displayName: linter
+                href: linter-rule-use-description-variables.md
               - name: Use parent property
                 displayName: linter
                 href: linter-rule-use-parent-property.md

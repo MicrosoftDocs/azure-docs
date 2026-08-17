@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 05/25/2026
+ms.date: 08/12/2026
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -390,7 +390,8 @@ Action | Details
 Resize a disk on a replicated VM. | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Perform resizing before failover. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, Site Recovery doesn't capture the changes. Failback is to the original VM size.<br/><br/> If you resize to 4 TB or larger, see the Azure guidance on disk caching in [Azure Premium storage: Design for high performance](/Azure/virtual-machines/premium-storage-performance). 
 Add a disk to a replicated VM. | Supported.
 Offline changes to protected disks. | Disconnecting disks and making offline modifications to them require triggering a full resync.
-Disk caching. | Disk caching isn't supported for disks 4 TB and larger. If multiple disks are attached to your VM, each disk that's smaller than 4 TB supports caching. Changing the cache setting of an Azure disk detaches and reattaches the target disk. If it's the operating system disk, the VM restarts. Before you change the disk cache setting, stop all applications or services that this disruption might affect. Not following the recommendations could lead to data corruption.
+Disk caching. | Disk caching isn't supported for disks 4 TB and larger. If multiple disks are attached to your VM, each disk that's smaller than 4 TB supports caching. Changing the cache setting of an Azure disk detaches and reattaches the target disk. If it's the operating system disk, the VM is restarted. Before you change the disk cache setting, stop all applications or services that this disruption might affect. Not following the recommendations could lead to data corruption.
+Change source disk SKU. | Supported. Changing the source disk SKU doesn't impact ongoing replication or failover operations. However, the replica disk SKU isn't automatically updated. The failover VM uses the disk SKU that existed when replication was enabled.
 
 ## <a name = "replicated-machines---storage"></a>Replicated machines: Storage
 
@@ -435,7 +436,7 @@ FIPS encryption | Not supported.
 Azure Disk Encryption for Windows OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. |
 Azure Disk Encryption for Linux OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. <br><br> Known issue with enabling replication. For more information, see [Enable protection failed because the installer is unable to find the root disk](Azure-to-Azure-troubleshoot-errors.md). |
 Shared access signature key rotation | Supported. | If the shared access signature key for storage accounts is rotated, you must disable and re-enable replication. |
-Host caching | Supported. | |
+Host caching | Supported. | Host caching isn't supported for Premium SSD v2 disks. For more information, see [Premium SSD v2 limitations](/azure/virtual-machines/disks-deploy-premium-v2?tabs=portal#limitations). |
 Hot add | Supported. | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks. <br/><br/> Use hot add to add only one disk at a time to an Azure VM. Parallel addition of multiple disks isn't supported. |
 Hot remove disk | Not supported. | If you remove a data disk on the VM, you need to disable replication and enable replication again for the VM.
 Exclude disk | Supported. Use [Azure PowerShell](Azure-to-Azure-exclude-disks.md) or go to the **Advanced Setting** > **Storage Settings** > **Disk to Replicate** option from the portal. | Temporary disks are excluded by default.

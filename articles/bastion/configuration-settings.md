@@ -53,6 +53,24 @@ You can configure this setting using the following methods:
 | Azure PowerShell | -PublicIpAddress| [cmdlet](/powershell/module/az.network/new-azbastion#parameters)  |
 | Azure CLI | --public-ip create |[command](/cli/azure/network/public-ip) |
 
+### IPv6 dual stack support (Preview)
+Azure Bastion deployments support either IPv4 addresses or IPv4 and IPv6 dual stack IP addresses. Dual stack must be configured when the Bastion is created; existing IPv4-only Bastions can't be converted to dual stack.
+
+IPv6 is supported for the connection between the user and Azure Bastion only. Connections from Azure Bastion to the target VM continue to use IPv4.
+
+#### Prerequisites
+To use IPv6 dual stack deployments for Azure Bastion:
+
+* The virtual network and the **AzureBastionSubnet** must be configured for IPv6 dual stack.
+* The target virtual machine must be associated with a network interface that has IPv6 dual stack support, in a virtual network that supports IPv6 dual stack.
+
+#### Limitations
+* IPv6 only is not supported at this time.
+* IPv6 is not supported on Private Only Bastion deployments.
+* IPv6 is not supported between Azure Bastion and the target VM.
+
+For additional IPv6 limitations on Azure virtual networks, see [IPv6 for Azure Virtual Network: Limitations](/azure/virtual-network/ip-services/ipv6-overview#limitations)
+
 ### Configure Public IP addresses with availability zones configured
 Refer to the table below for creating/using public IP addresses for zonal Bastion deployments:
 

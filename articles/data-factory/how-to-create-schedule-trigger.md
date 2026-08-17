@@ -15,6 +15,8 @@ ms.custom: devx-track-python, devx-track-azurepowershell, synapse, devx-track-az
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article provides information about the schedule trigger and the steps to create, start, and monitor a schedule trigger. For other types of triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
 
 When you create a *schedule trigger*, you specify a schedule like a start date, recurrence, or end date for the trigger and associate it with a pipeline. Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines.

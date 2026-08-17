@@ -6,7 +6,7 @@ services: api-management
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/30/2025
+ms.date: 07/29/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -17,12 +17,14 @@ ms.custom:
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 > [!IMPORTANT]
-> - **Email functionality is not supported in Free Trial Azure Subscriptions.**<br/>
-This capability is fully blocked and cannot be enabled during the trial period.
+> - **Email functionality isn't supported in Free Trial Azure Subscriptions.**<br/>
+This capability is fully blocked and can't be enabled during the trial period.
+> - **Email functionality is temporarily suspended for three days after a service instance is created.**<br/>
+This temporary limitation applies to paid Azure subscriptions and is automatically lifted after three days.
 > - **Email functionality is temporarily suspended for Pay-As-You-Go (PAYG) and MSDN Azure Subscriptions.**<br/>
 Email capability is temporarily disabled for these subscription types until further notice.
-> - **Notification template customization is not supported in Pay‑As‑You‑Go (PAYG) or MSDN Azure Subscriptions.**<br/>
-These subscription types do not include the ability to modify or configure built‑in notification templates, and this limitation cannot be overridden.
+> - **Notification template customization isn't supported in Pay‑As‑You‑Go (PAYG) or MSDN Azure Subscriptions.**<br/>
+These subscription types don't include the ability to modify or configure built‑in notification templates, and this limitation can't be overridden.
 
 Azure API Management lets you configure email notifications for specific events, and configure the email templates that are used to communicate with the administrators and developers of an API Management instance. This article shows how to configure notifications for the available events, and provides an overview of configuring the email templates used for these events.
 
@@ -34,9 +36,9 @@ If you don't have an API Management service instance, complete the following qui
 
 ## <a name="publisher-notifications"> </a>Configure notifications in the Azure portal
 
-1. From the sidebar menu of your API Management instance, select **Deployment + infrastructure**, then choose **Notifications** to view the available notifications.
+1. From the sidebar menu of your API Management instance, select **Deployment + infrastructure**, and then choose **Notifications** to view the available notifications.
 
-    The following list of events can be configured for notifications.
+    You can configure the following list of events for notifications.
 
     - **Subscription requests (requiring approval)**: The specified email recipients and users receive email notifications about subscription requests for products requiring approval.
     - **New subscriptions**: The specified email recipients and users receive email notifications about new product subscriptions.
@@ -55,7 +57,7 @@ If you don't have an API Management service instance, complete the following qui
 
 ## <a name="email-templates"> </a>Configure notification templates
 
-API Management provides notification templates for the administrative email messages that are sent automatically to developers when they access and use the service. The following notification templates are provided:
+API Management provides notification templates for the administrative email messages that it sends automatically to developers when they access and use the service. The following notification templates are available:
 
 - Developer farewell letter
 - Developer quota limit approaching notification
@@ -68,7 +70,7 @@ API Management provides notification templates for the administrative email mess
 - Subscription request declined
 - Subscription request received
 
-Each email template has a subject line in plain text, and a body definition in HTML format. Each item can be customized as desired.
+Each email template has a subject line in plain text, and a body definition in HTML format. You can customize each item as desired.
 
 > [!NOTE]
 > HTML content in a template must be well-formed and adhere to the [XML specification](https://www.w3.org/XML/). The `&nbsp;` character isn't allowed.
@@ -78,14 +80,14 @@ To view and configure a notification template in the portal:
 1. In the sidebar menu, select **Notification templates**.
     :::image type="content" source="media/api-management-howto-configure-notifications/api-management-email-templates.png" alt-text="Screenshot of notification templates in the portal.":::
 
-1. Select a notification template, and configure the template using the editor.
+1. Select a notification template, and configure the template by using the editor.
 
     :::image type="content" source="media/api-management-howto-configure-notifications/api-management-email-template.png" alt-text="Screenshot of notification template editor in the portal.":::
 
     * The **Parameters** list contains a list of parameters that, when inserted into the subject or body, are replaced by the designated value when the email is sent.
-    * To insert a parameter, place the cursor where you wish the parameter to go, and select the parameter name.
+    * To insert a parameter, place the cursor where you want the parameter to go, and select the parameter name.
 
-1. To save changes to the email template, select **Save**, or select **Discard** to cancel the changes.
+1. To save changes to the email template, select **Save**. Select **Discard** to cancel the changes.
 
 ## Configure email settings
 
@@ -111,15 +113,15 @@ To modify email settings:
 
 ### Considerations for changing the originating email address
 
-Recipients of email notifications from API Management could be affected when you change the originating email address.
+Changing the originating email address can affect recipients of email notifications from API Management.
 
-* **Change the From address**: When you change the originating email address (for example, to `no-reply@contoso.com`), the **From** address header will be `noreply@contoso.com apimgmt-noreply@mail.windowsazure.com`. This is because the email is being sent by API Management, and not the email server of the originating email address.
+* **Change the From address**: When you change the originating email address (for example, to `no-reply@contoso.com`), the **From** address header is `noreply@contoso.com apimgmt-noreply@mail.windowsazure.com`. This address appears because API Management sends the email, not the email server of the originating email address.
 
-* **Email sent to junk or spam folder**: Some recipients might not receive the email notifications from API Management, or emails might get sent to the junk or spam folder. This can happen depending on the organization's SPF or DKIM email authentication settings:
+* **Email sent to junk or spam folder**: Some recipients might not receive the email notifications from API Management, or emails might get sent to the junk or spam folder. This problem can happen depending on the organization's SPF or DKIM email authentication settings:
 
     * **SPF authentication**: Email might no longer pass SPF authentication after you change the originating email address domain. To ensure successful SPF authentication and delivery of email, create the following TXT record in the DNS database of the domain specified in the email address. For instance, if the email address is `noreply@contoso.com`, contact the administrator of `contoso.com` to add the following TXT record: **"v=spf1 include:spf.protection.outlook.com include:_spf-ssg-a.microsoft.com -all"**
 
-    * **DKIM authentication**: To generate a valid signature for DKIM for email authentication, API Management requires the private key associated with the domain of the originating email address. However, it's currently not possible to upload this private key in API Management. Therefore, to assign a valid signature, API Management uses the private key associated with the `mail.windowsazure.com` domain.
+    * **DKIM authentication**: To generate a valid signature for DKIM for email authentication, API Management requires the private key associated with the domain of the originating email address. However, you can't currently upload this private key in API Management. Therefore, to assign a valid signature, API Management uses the private key associated with the `mail.windowsazure.com` domain.
 
 ## Related content
 

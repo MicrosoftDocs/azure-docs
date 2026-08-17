@@ -23,6 +23,7 @@ You can also find the latest Bastion updates and subscribe to the RSS feed [here
 
 | Type |  Name | Description | Stage | Date added | Limitations |
 |---|---|---|---|---|---|
+|Feature|[IPv6 dual stack support](configuration-settings.md#ipv6-dual-stack-support-preview)|Bastion support for IPv6 dual stack configuration.| Public Preview | June 2026 | IPv6 only is not supported.|
 |Feature|[Managed identity support for session recording](session-recording.md)|Managed identity support for session recording is now in public preview.|Public Preview|April 2026|N/A|
 |Feature|[Microsoft Entra ID support for portal (RDP)](bastion-connect-vm-rdp-windows.md#microsoft-entra-id-authentication-preview)| Microsoft Entra ID support for RDP connections in portal is now in public preview in public cloud. To learn more about Microsoft Entra ID with Azure Bastion, see [Configure Microsoft Entra ID authentication with Azure Bastion](bastion-entra-id-authentication.md). | Public Preview | November 2025 | Cannot be used concurrently with graphical session recording.|
 |Feature |[Connectivity to AKS private clusters](bastion-connect-to-aks-private-cluster.md)|Connect to your private AKS clusters using the tunneling command with Bastion| Public Preview |August 2025|N/A|

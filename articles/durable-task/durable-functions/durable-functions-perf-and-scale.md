@@ -11,6 +11,8 @@ ms.author: azfuncdf
 
 # Performance and scale in Durable Functions
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Use this article to tune the performance and scaling behavior of your [Durable Functions](../common/what-is-durable-task.md) app. It covers the main levers you can adjust:
 
 - **[Worker scaling](#worker-scaling)**: How the Azure Functions host adds and removes workers based on load.
@@ -92,20 +94,23 @@ Enable caching when your orchestrations have many episodes and you're seeing hig
 > [!TIP]
 > Caching can reduce how often the runtime replays history, but it can't eliminate replay. During development, test orchestrators with caching disabled. Forced replay helps you detect violations of [orchestrator function code constraints](../common/durable-task-code-constraints.md).
 
-> [!NOTE]
-> The [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) manages caching internally. The following configuration details apply to the BYO storage providers only.
 
 ### Caching by storage provider
 
 The following table compares instance caching support across providers and summarizes how to configure each one.
 
-| | Azure Storage provider | Netherite storage provider | MSSQL storage provider |
-| - | ---------------------- | -------------------------- | ---------------------- |
-| **Instance caching** | Supported<br/>(.NET in-process worker only) | Supported | Not supported |
-| **Default setting** | Disabled | Enabled | n/a |
-| **Mechanism** | Extended Sessions | Instance Cache | n/a |
+| | Durable Task Scheduler | Azure Storage provider | Netherite storage provider | MSSQL storage provider |
+| - | --------------------- | ---------------------- | -------------------------- | ---------------------- |
+| **Instance caching** | Managed internally | Supported<br/>(.NET in-process worker only) | Supported | Not supported |
+| **Default setting** | n/a | Disabled | Enabled | n/a |
+| **Mechanism** | Managed internally | Extended Sessions | Instance Cache | n/a |
 
-**Extended sessions** (Azure Storage provider) keep mid-execution orchestrators in memory until they're idle for a set time. Enable and tune this behavior with `extendedSessionsEnabled` and `extendedSessionIdleTimeoutInSeconds` in your *host.json* file:
+> [!NOTE]
+> The [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) manages caching internally. The following configuration details apply to the BYO storage providers only.
+
+#### Extended sessions (Azure Storage provider)
+
+Extended sessions keep mid-execution orchestrators in memory until they're idle for a set time. Enable and tune this behavior with `extendedSessionsEnabled` and `extendedSessionIdleTimeoutInSeconds` in your *host.json* file:
 
 ```json
 {
@@ -121,7 +126,9 @@ The following table compares instance caching support across providers and summa
 > [!NOTE]
 > Extended sessions are supported only in the .NET in-process worker. For details, see [Extended sessions](durable-functions-azure-storage-provider.md#extended-sessions) in the Azure Storage provider documentation.
 
-**Instance cache** (Netherite storage provider) keeps instance state and history in the worker's memory and tracks total memory use. If the cache exceeds the `InstanceCacheSizeMB` limit, it evicts the least recently used instance data. If you set `CacheOrchestrationCursors` to `true`, the cache also stores the mid-execution orchestrators.
+#### Instance cache (Netherite storage provider)
+
+An instance cache keeps instance state and history in the worker's memory and tracks total memory use. If the cache exceeds the `InstanceCacheSizeMB` limit, it evicts the least recently used instance data. If you set `CacheOrchestrationCursors` to `true`, the cache also stores the mid-execution orchestrators.
 
 > [!NOTE]
 > Instance caches work with all language SDKs, but the `CacheOrchestrationCursors` option is available only for the .NET in-process worker. For details, see [Instance cache](https://microsoft.github.io/durabletask-netherite/#/caching) in the Netherite storage provider documentation.
@@ -139,13 +146,13 @@ For most apps, the default partition count is sufficient. Increase it if you exp
 
 The following table shows which queues each storage provider partitions and the allowed range and default values for `partitionCount`.
 
-| | Azure Storage provider | Netherite storage provider | MSSQL storage provider |
-| - | ---------------------- | -------------------------- | ---------------------- |
-| **Instance messages** | Partitioned | Partitioned | Not partitioned |
-| **Activity messages** | Not partitioned | Partitioned | Not partitioned |
-| **Default `partitionCount`** | 4 | 12 | n/a |
-| **Maximum `partitionCount`** | 16 | 32 | n/a |
-| **Documentation** | See [Orchestrator scale-out](durable-functions-azure-storage-provider.md#orchestrator-scale-out) | See [Partition count considerations](https://microsoft.github.io/durabletask-netherite/#/settings?id=partition-count-considerations) | n/a |
+| | Durable Task Scheduler | Azure Storage provider | Netherite storage provider | MSSQL storage provider |
+| - | --------------------- | ---------------------- | -------------------------- | ---------------------- |
+| **Instance messages** | Managed internally | Partitioned | Partitioned | Not partitioned |
+| **Activity messages** | Managed internally | Not partitioned | Partitioned | Not partitioned |
+| **Default `partitionCount`** | n/a | 4 | 12 | n/a |
+| **Maximum `partitionCount`** | n/a | 16 | 32 | n/a |
+| **Documentation** | See [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) | See [Orchestrator scale-out](durable-functions-azure-storage-provider.md#orchestrator-scale-out) | See [Partition count considerations](https://microsoft.github.io/durabletask-netherite/#/settings?id=partition-count-considerations) | n/a |
 
 > [!WARNING]
 > You can't change the partition count after you create a task hub. Set it high enough to meet expected scale-out requirements for the task hub instance.
@@ -205,6 +212,7 @@ When you're planning a production app with Durable Functions, consider performan
 
 Throughput numbers for these scenarios are in the storage provider documentation. In particular:
 
+* For the Durable Task Scheduler, see [Action throughput benchmarks](../scheduler/durable-task-scheduler-work-item-throughput.md).
 * For the Azure Storage provider, see [Performance targets](durable-functions-azure-storage-provider.md#performance-targets).
 * For the Netherite storage provider, see [Basic scenarios](https://microsoft.github.io/durabletask-netherite/#/scenarios).
 * For the MSSQL storage provider, see [Orchestration throughput benchmarks](https://microsoft.github.io/durabletask-mssql/#/scaling?id=orchestration-throughput-benchmarks).
@@ -215,4 +223,4 @@ Throughput numbers for these scenarios are in the storage provider documentation
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Storage provider](durable-functions-azure-storage-provider.md)
+> [Storage providers overview](../common/durable-task-storage-providers.md)

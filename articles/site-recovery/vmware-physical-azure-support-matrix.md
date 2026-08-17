@@ -3,7 +3,7 @@ title: Support matrix for VMware/physical disaster recovery in Azure Site Recove
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 04/06/2026
+ms.date: 08/03/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 ms.custom: engagement-fy23, linux-related-content
@@ -96,9 +96,6 @@ Windows Server 2025 | Supported.
 Windows Server 2022 | Supported. 
 Windows Server 2019 | Supported. 
 Windows Server 2016 64-bit | Supported for Server Core, Server with Desktop Experience.
-Windows Server 2012 R2 / Windows Server 2012 | Supported.
-Windows Server 2008 R2 with SP1 onwards. | Supported.
-Windows Server 2008 with SP2 or later (64-bit/32-bit) |  Supported for migration only. [Learn more](migrate-tutorial-windows-server-2008.md).
 Windows 11, Windows 10, Windows 8.1, Windows 8 | Only 64-bit system is supported. 32-bit system isn't supported.
 Windows 7 with SP1 64-bit | Supported.
 
@@ -371,7 +368,7 @@ Guest/server - remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
-Guest/server EFI/UEFI boot | - Supported for all [Azure Marketplace UEFI operating systems](/azure/virtual-machines/generation-2#generation-2-vm-images-in-azure-marketplace). <br/> - UEFI boot is supported as long as the Secure Boot setting is disabled. [Learn more.](/azure/virtual-machines/generation-2#on-premises-vs-azure-generation-2-vms) <br/> - Windows 2008 R2 SP1 & Windows 2008 SP2 servers with UEFI isn't supported. 
+Guest/server EFI/UEFI boot | - Supported for all [Azure Marketplace UEFI operating systems](/azure/virtual-machines/generation-2#generation-2-vm-images-in-azure-marketplace). <br/> - UEFI boot is supported as long as the Secure Boot setting is disabled. [Learn more.](/azure/virtual-machines/generation-2#on-premises-vs-azure-generation-2-vms)
 Storage vMotion | Supported for migration. Not supported for disaster recovery. 
 BIOS | Supported.
 

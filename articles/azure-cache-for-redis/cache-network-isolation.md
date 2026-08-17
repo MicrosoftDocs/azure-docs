@@ -9,7 +9,7 @@ appliesto:
 
 # Azure Cache for Redis network isolation options
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 In this article, you learn how to determine the best network isolation solution for your needs. We discuss the basics of Azure Private Link (recommended), Azure Virtual Network (VNet) injection, and Firewall Rules. We discuss their advantages and limitations.  
 

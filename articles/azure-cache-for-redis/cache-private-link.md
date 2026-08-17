@@ -15,7 +15,7 @@ ms.custom:
 
 # What is Azure Cache for Redis with Azure Private Link?
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 In this article, you learn how to create a virtual network and an Azure Cache for Redis instance with a private endpoint using the Azure portal. You also learn how to add a private endpoint to an existing Azure Cache for Redis instance.
 
