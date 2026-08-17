@@ -21,7 +21,7 @@ You can follow and subscribe to Site Recovery update notifications in the [Azure
 
 Azure Site Recovery now supports use of an existing, preprovisioned Network Interface Card (NIC) if you precreate it in the target region for test failover and failover in the Azure-to-Azure scenario. 
 
-Previously, Azure Site Recovery always created a new NIC during disaster recovery operations. With this functionality, you can now select a pre-provisioned NIC in the target environment, helping you retain prepared network configurations, preserve network security group associations and reserve IPs in the target region.
+Previously, Azure Site Recovery always created a new NIC during disaster recovery operations. By using this functionality, you can now select a preprovisioned NIC in the target environment, helping you retain prepared network configurations, preserve network security group associations, and reserve IPs in the target region.
 
 To use this functionality, ensure that the required NIC already exists in the target environment. Then update the network settings for your protected virtual machine and select the appropriate subnet, NIC you want to use for the target. You can independently select an existing target NIC for failover and test failover. If no NIC is selected, Azure Site Recovery continues to create a new NIC during recovery as before.
 
