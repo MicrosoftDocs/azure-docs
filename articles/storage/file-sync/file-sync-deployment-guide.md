@@ -22,12 +22,17 @@ Read [Plan to deploy Azure Files](../files/storage-files-planning.md) and [Plan 
 
 ## Prerequisites
 
+Before you deploy Azure File Sync, complete the following prerequisites.
+
+> [!NOTE]
+> Azure File Sync requires .NET Framework 4.7.2 or later on the Windows Server where the Azure File Sync agent is installed. Windows Server 2019 and later include .NET Framework 4.7.2 by default. For Windows Server 2016, verify that .NET Framework 4.7.2 or later is installed before installing Azure File Sync.
+
 # [Portal](#tab/azure-portal)
 
-- You need an Azure file share in the same region where you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
+- You need an Azure classic file share in the same region where you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
 
   - [Azure File Sync region availability](file-sync-planning.md#azure-file-sync-region-availability)
-  - [Create an SMB Azure file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json)
+  - [Create an SMB Azure classic file share](../files/create-classic-file-share.md?toc=/azure/storage/filesync/toc.json)
   - [Provisioned v2 model](../files/understanding-billing.md#provisioned-v2-model)
 
 - You must enable the following storage account settings to give Azure File Sync access to the storage account:  
@@ -74,10 +79,10 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
 
 # [PowerShell](#tab/azure-powershell)
 
-- You need an Azure file share in the same region where you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
+- You need an Azure classic file share in the same region where you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
 
   - [Azure File Sync region availability](file-sync-planning.md#azure-file-sync-region-availability)
-  - [Create an SMB Azure file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json)
+  - [Create an SMB Azure file share](../files/create-classic-file-share.md?toc=/azure/storage/filesync/toc.json)
   - [Provisioned v2 model](../files/understanding-billing.md#provisioned-v2-model)
 
 - You must enable the following storage account settings to give Azure File Sync access to the storage account:  
@@ -129,10 +134,10 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
 
 # [Azure CLI](#tab/azure-cli)
 
-- You need an Azure file share in the same region where you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
+- You need an Azure classic file share in the same region where you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
 
   - [Azure File Sync region availability](file-sync-planning.md#azure-file-sync-region-availability)
-  - [Create an SMB Azure file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json)
+  - [Create an SMB Azure classic file share](../files/create-classic-file-share.md?toc=/azure/storage/filesync/toc.json)
   - [Provisioned v2 model](../files/understanding-billing.md#provisioned-v2-model)
 
 - You must enable the following storage account settings to give Azure File Sync access to the storage account:  
@@ -141,8 +146,8 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
   - **Allow storage account key access** must be set to **Enabled**. To check this setting, go to your storage account and select **Configuration** in the **Settings** section.
 
 - The administrator must also have sufficient permissions on the storage account that contains the Azure file share. Storage account read-only access isn't sufficient. Cloud endpoint create and update operations require:
-- Microsoft.Storage/storageAccounts/listKeys/action
-- Microsoft.Storage/storageAccounts/ListAccountSas/action
+- `Microsoft.Storage/storageAccounts/listKeys/action`
+- `Microsoft.Storage/storageAccounts/ListAccountSas/action`
 
 Assign a role on the storage account that includes these permissions, such as Reader and Data Access or Storage Account Contributor. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service.
   
