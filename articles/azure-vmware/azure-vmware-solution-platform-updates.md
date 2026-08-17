@@ -4,13 +4,19 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 8/4/2026
+ms.date: 8/16/2026
 # Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance.md#host-maintenance-and-lifecycle-management).
+
+## August 2026
+
+**Portable VMware Cloud Foundation licensing reference**
+
+A new portable VMware Cloud Foundation (VCF) licensing reference is available for Azure VMware Solution. It provides licensing rules, important dates, host and VMware vDefend Firewall core calculations, security and data-handling information, and compliance guidance. [Learn more](portable-vcf-licensing-reference.md)
 
 ## July 2026
 
