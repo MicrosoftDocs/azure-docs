@@ -11,8 +11,6 @@ items:
     items:
       - name: Hosted MCP servers
         href: connector-namespace-hosted-mcp.md
-      - name: Hosted MCP servers developer guide
-        href: hosted-mcp-dev-guide.md
   - name: Quickstart
     expanded: true
     items:
@@ -20,9 +18,17 @@ items:
         href: create-connector-namespace.md        
       - name: Create hosted MCP servers
         href: hosted-mcp-quickstart.md
-        
   - name: How-to guides
     expanded: true
     items:
       - name: Create connections for connector namespaces
         href: create-connector-namespace-connection.md
+      - name: Hosted MCP servers developer guide
+        href: hosted-mcp-dev-guide.md
+      - name: Create MCP connectors for agents and Azure integrations
+        href: create-mcp-server-connectors.md
+  - name: Reference
+    expanded: true
+    items:
+      - name: Azure Connectors SDK
+        href: /dotnet/api/azure.connectors.sdk

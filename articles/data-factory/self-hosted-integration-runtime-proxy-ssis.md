@@ -3,8 +3,8 @@ title: Configure a self-hosted integration runtime as a proxy for SSIS
 description: Learn how to configure a self-hosted integration runtime as a proxy for an Azure-SSIS Integration Runtime.
 ms.subservice: integration-services
 ms.topic: how-to
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ms.date: 01/05/2024
 ms.custom: sfi-image-nochange
 ---
@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article describes how to run SQL Server Integration Services (SSIS) packages on an Azure-SSIS Integration Runtime (Azure-SSIS IR) with a self-hosted integration runtime (self-hosted IR) configured as a proxy. 
 

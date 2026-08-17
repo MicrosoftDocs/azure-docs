@@ -8,7 +8,7 @@ appliesto:
 ---
 # Use the Redis command-line tool with Azure Cache for Redis
 
-[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 This article describes how to use the [redis-cli command-line interface](https://redis.io/docs/latest/operate/rs/references/cli-utilities/redis-cli/#connect-to-a-database) to interact with Azure Cache for Redis as a client. You can use *redis-cli* to directly interact with your Azure Redis cache instance, and for debugging and troubleshooting.
 

@@ -3,7 +3,7 @@ title: 'How to: Connect to an Azure Fluid Relay service'
 description: How to connect to an Azure Fluid Relay service using the @fluidframework/azure-client library.
 ms.date: 01/18/2023
 ms.topic: article
-ms.service: azure-fluid
+ms.service: fluid-framework
 fluid.url: https://fluidframework.com/docs/deployment/azure-frs/
 ---
 

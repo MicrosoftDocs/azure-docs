@@ -18,7 +18,10 @@ Learn how to upgrade an Azure IoT Operations deployment to a newer version.
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- Azure CLI version 2.62.0 or newer. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
 
 ## Understand upgrade support
 
@@ -59,10 +62,10 @@ If your Azure IoT Operations deployment is eligible for an upgrade, the Azure po
    az extension add --upgrade --name azure-iot-ops
    ```
 
-   Or, if you want to upgrade your deployment to a newer version but not the latest, set the CLI extension version to the one associated with your desired Azure IoT Operations versions in [IoT Operations versions](https://aka.ms/aio-versions).
+   Or, if you want to upgrade your deployment to a newer version but not the latest, set the `VERSION_NUMBER` environment variable to the CLI extension version associated with your desired Azure IoT Operations version in [IoT Operations versions](https://aka.ms/aio-versions).
 
    ```azurecli
-   az extension add --upgrade --name azure-iot-ops --version <VERSION_NUMBER>
+   az extension add --upgrade --name azure-iot-ops --version $VERSION_NUMBER
    ```
 
 1. The portal presents the Azure CLI command to upgrade your instance, prepopulated with your subscription, resource group, and instance details. Select the copy icon next to the CLI command.
@@ -90,7 +93,7 @@ Use the following steps to upgrade your deployment to the latest version:
 1. Run `az iot ops upgrade`
 
    ```azurecli
-   az iot ops upgrade --resource-group <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME>
+   az iot ops upgrade --resource-group $RESOURCE_GROUP --name $AIO_INSTANCE_NAME
    ```
 
 1. The CLI outputs a table of the components that have available upgrades. Enter `Y` to continue with the upgrade. 
@@ -98,7 +101,7 @@ Use the following steps to upgrade your deployment to the latest version:
 If you want to upgrade to a specific version of Azure IoT Operations that isn't the latest, you can run `az iot ops get-versions` or refer to [IoT Operations versions](https://aka.ms/aio-versions) to find the CLI extension version associated with the Azure IoT Operations version that you want. Get the version number and run the following command to upgrade to that version:
 
 ```azurecli
-az extension add --upgrade --name azure-iot-ops --version <VERSION_NUMBER>
+az extension add --upgrade --name azure-iot-ops --version $VERSION_NUMBER
 ```
 
 ---
@@ -119,7 +122,7 @@ You can only install a preview version using the Azure CLI.
 If you want to upgrade to a specific version of Azure IoT Operations that isn't the latest, you can run `az iot ops get-versions` or refer to [IoT Operations versions](https://aka.ms/aio-versions) to find the CLI extension version associated with the Azure IoT Operations version that you want. Get the version number and run the following command to upgrade to that version:
 
 ```azurecli
-az extension add --upgrade --name azure-iot-ops --version <VERSION_NUMBER>
+az extension add --upgrade --name azure-iot-ops --version $VERSION_NUMBER
 ```
 
 ## MQTT broker upgrade considerations

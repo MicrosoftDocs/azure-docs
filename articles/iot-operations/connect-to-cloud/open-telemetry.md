@@ -30,6 +30,10 @@ This feature is for routing device and asset data, not for collecting Azure IoT 
 
 - Administrative access to your Azure IoT Operations cluster.
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the `X509_SECRET_NAME` environment variable for the name of the TLS secret. Set it before you run the related command.
+
 ## Terminology
 
 | Term                    | Definition                                                                                                                                                                         |
@@ -265,7 +269,7 @@ resource openTelemetryEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoi
 Deploy the file by running the following Azure CLI command:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -275,7 +279,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 Create a Kubernetes manifest **.yaml** file with the following content. Replace `<OTEL_AUDIENCE>` with the audience value for your OpenTelemetry collector configuration. This value must match the expected audience on the collector:
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowEndpoint
 metadata:
   name: <ENDPOINT_NAME>
@@ -299,7 +303,7 @@ spec:
 Apply the manifest file to the Kubernetes cluster:
 
 ```bash
-kubectl apply -f <FILE>.yaml
+kubectl apply -f main.yaml
 ```
 
 ---
@@ -405,7 +409,7 @@ authentication:
 Before you use X.509 certificate authentication, create a Kubernetes secret with your client certificate:
 
 ```bash
-kubectl create secret tls <X509_SECRET_NAME> \
+kubectl create secret tls $X509_SECRET_NAME \
   --cert=client.crt \
   --key=client.key \
   -n azure-iot-operations
@@ -553,7 +557,7 @@ This section provides a step-by-step walkthrough to create and configure an OTEL
 
 ### Step 1: Create a new OTEL data flow endpoint
 
-When you create a new data flow endpoint, select **OpenTelemetry (OTEL)** as the endpoint type. Make sure the host is prefixed with `http://`.
+When you create a new data flow endpoint, select **OpenTelemetry (OTEL)** as the endpoint type. Include the protocol (`http://` or `https://`) and port number.
 
 :::image type="content" source="media/open-telemetry/create-dataflow.png" alt-text="Screenshot showing configuration of new endpoint." lightbox="media/open-telemetry/create-dataflow.png":::
 
@@ -603,4 +607,3 @@ The OpenTelemetry endpoint provides delivery guarantees to the collector itself,
 - [Create a data flow](howto-create-dataflow.md)
 - [Configure data flow endpoints](howto-configure-dataflow-endpoint.md)
 - [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)
-

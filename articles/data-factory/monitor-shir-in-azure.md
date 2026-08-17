@@ -13,6 +13,8 @@ ms.author: whhender
 # Monitor self-hosted integration runtime (SHIR) virtual machines in Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 By default, the Self Hosted Integration Runtime’s diagnostic and performance telemetry is saved locally on the virtual or physical machine that is hosting it. Two broad categories of telemetry are of interest for monitoring the Self Hosted Integration Runtime.
 
 ## Event logs

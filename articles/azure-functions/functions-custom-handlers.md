@@ -416,7 +416,7 @@ For HTTP-triggered functions with no additional bindings or outputs, you might w
 > [!IMPORTANT]
 > The primary purpose of the custom handlers feature is to enable languages and runtimes that don't currently have first-class support on Azure Functions. While you might be able to run web applications by using custom handlers, Azure Functions isn't a standard reverse proxy. Some components of the HTTP request, such as certain headers and routes, might be restricted. Your application might also experience excessive [cold start](event-driven-scaling.md#cold-start).
 >
-> To address these circumstances, consider running your web apps on [Azure App Service](../app-service/overview.md).
+> To address these circumstances, consider running your web apps on [Azure Container Apps](../container-apps/overview.md) or [Azure App Service](../app-service/overview.md).
 
 The following example demonstrates how to configure an HTTP-triggered function with no additional bindings or outputs. The scenario implemented in this example features a function named `hello` that accepts a `GET` or `POST` .
 

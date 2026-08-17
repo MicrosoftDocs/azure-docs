@@ -6,30 +6,33 @@ author: simplywilson
 ms.author: tinglee
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 01/26/2026
+ms.date: 08/06/2026
 ms.custom:
   - synapse
   - sfi-image-nochange
   - sfi-ropc-nochange
 ---
 
-# Copy data from or to MongoDB using Azure Data Factory or Synapse Analytics
+# Copy data from or to MongoDB by using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory Synapse Analytics pipelines to copy data from and to a MongoDB database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
+This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to a MongoDB database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!NOTE]
 > This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric MongoDB connector documentation](/fabric/data-factory/connector-mongodb-overview).
 
 
 >[!IMPORTANT]
->The new MongoDB connector provides improved native MongoDB support. If you are using the legacy MongoDB connector in your solution, supported as-is for backward compatibility only, refer to [MongoDB connector (legacy)](connector-mongodb-legacy.md) article.
+> The new MongoDB connector provides improved native MongoDB support. If you're using the legacy MongoDB connector in your solution, supported as-is for backward compatibility only, see [MongoDB connector (legacy)](connector-mongodb-legacy.md).
+> You can use this connector to copy data from and to an Azure DocumentDB (with MongoDB compatibility).
 
 
 ## Supported capabilities
 
-This MongoDB connector is supported for the following capabilities:
+This MongoDB connector supports the following capabilities:
 
 | Supported capabilities|IR |
 |---------| --------|
@@ -37,7 +40,7 @@ This MongoDB connector is supported for the following capabilities:
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
-For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
+For a list of data stores that are supported as sources and sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 Specifically, this MongoDB connector supports **versions up to 4.2**. If your work requires versions newer than 4.2, consider using MongoDB Atlas with the [MongoDB Atlas connector](connector-mongodb-atlas.md), which provides more comprehensive support and features.
 
@@ -50,11 +53,11 @@ Specifically, this MongoDB connector supports **versions up to 4.2**. If your wo
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to MongoDB using UI
+## Create a linked service to MongoDB by using the UI
 
 Use the following steps to create a linked service to MongoDB in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the **Manage** tab in your Azure Data Factory or Synapse workspace and select **Linked Services**. Then select **New**:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -79,14 +82,16 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The following properties are supported for MongoDB linked service:
+The following table lists the supported properties for a MongoDB linked service:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type |The type property must be set to: **MongoDbV2** |Yes |
-| connectionString |Specify the MongoDB connection string e.g. `mongodb://[username:password@]host[:port][/[database][?options]]`. Refer to [MongoDB manual on connection string](https://docs.mongodb.com/manual/reference/connection-string/) for more details. <br/><br /> You can also put a connection string in Azure Key Vault. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. |Yes |
+| type |Set the type property to: **MongoDbV2** |Yes |
+| connectionString |Specify the MongoDB connection string, such as `mongodb://[username:password@]host[:port][/[database][?options]]`. For more details, see [MongoDB manual on connection string](https://docs.mongodb.com/manual/reference/connection-string/).
+
+You can also put a connection string in Azure Key Vault. For more details, see [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | database | Name of the database that you want to access. | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. To learn more, see the [Prerequisites](#prerequisites) section. If you don't specify this property, the default Azure Integration Runtime is used. |No |
 
 **Example:**
 
@@ -109,11 +114,11 @@ The following properties are supported for MongoDB linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties that are available for defining datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). The following properties are supported for MongoDB dataset:
+For a full list of sections and properties that you can use to define datasets, see [Datasets and linked services](concepts-datasets-linked-services.md). The following table lists the supported properties for a MongoDB dataset:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **MongoDbV2Collection** | Yes |
+| type | Set the type property of the dataset to: **MongoDbV2Collection** | Yes |
 | collectionName |Name of the collection in MongoDB database. |Yes |
 
 **Example:**
@@ -142,20 +147,20 @@ For a full list of sections and properties available for defining activities, se
 
 ### MongoDB as source
 
-The following properties are supported in the copy activity **source** section:
+The copy activity **source** section supports the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to: **MongoDbV2Source** | Yes |
+| type | Set the type property of the copy activity source to: **MongoDbV2Source** | Yes |
 | filter | Specifies selection filter using query operators. To return all documents in a collection, omit this parameter or pass an empty document ({}). | No |
 | cursorMethods.project | Specifies the fields to return in the documents for projection. To return all fields in the matching documents, omit this parameter. | No |
 | cursorMethods.sort | Specifies the order in which the query returns matching documents. Refer to [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | No |
 | cursorMethods.limit |	Specifies the maximum number of documents the server returns. Refer to [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | No |
 | cursorMethods.skip | Specifies the number of documents to skip and from where MongoDB begins to return results. Refer to [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | No |
-| batchSize | Specifies the number of documents to return in each batch of the response from MongoDB instance. In most cases, modifying the batch size will not affect the user or the application. Azure Cosmos DB limits each batch cannot exceed 40 MB in size, which is the sum of the batchSize number of documents' size, so decrease this value if your document size being large. | No<br/>(the default is **100**) |
+| batchSize | Specifies the number of documents to return in each batch of the response from MongoDB instance. In most cases, modifying the batch size doesn't affect the user or the application. Azure Cosmos DB limits each batch can't exceed 40 MB in size, which is the sum of the batchSize number of documents' size, so decrease this value if your document size is large. | No<br/>(the default is **100**) |
 
 >[!TIP]
->The service supports consuming BSON document in **Strict mode**. Make sure your filter query is in Strict mode instead of Shell mode. More description can be found at [MongoDB manual](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
+> The service supports consuming BSON document in **Strict mode**. Ensure your filter query is in Strict mode instead of Shell mode. For more information, see [MongoDB manual](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
 
 **Example:**
 
@@ -197,17 +202,17 @@ The following properties are supported in the copy activity **source** section:
 
 ### MongoDB as sink
 
-The following properties are supported in the Copy Activity **sink** section:
+The Copy Activity **sink** section supports the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The **type** property of the Copy Activity sink must be set to **MongoDbV2Sink**. |Yes |
+| type | Set the **type** property of the copy activity sink to **MongoDbV2Sink**. |Yes |
 | writeBehavior |Describes how to write data to MongoDB. Allowed values: **insert** and **upsert**.<br/><br/>The behavior of **upsert** is to replace the document if a document with the same `_id` already exists; otherwise, insert the document.<br /><br />**Note**: The service automatically generates an `_id` for a document if an `_id` isn't specified either in the original document or by column mapping. This means that you must ensure that, for **upsert** to work as expected, your document has an ID. |No<br />(the default is **insert**) |
-| writeBatchSize | The **writeBatchSize** property controls the size of documents to write in each batch. You can try increasing the value for **writeBatchSize** to improve performance and decreasing the value if your document size being large. |No<br />(the default is **10,000**) |
+| writeBatchSize | The **writeBatchSize** property controls the number of documents to write in each batch. To improve performance, try increasing the value. If your document size is large, try decreasing the value. |No<br />(the default is **10,000**) |
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out. The allowed value is timespan. | No<br/>(the default is **00:30:00** - 30 minutes) |
 
 >[!TIP]
->To import JSON documents as-is, refer to [Import or export JSON documents](#import-and-export-json-documents) section; to copy from tabular-shaped data, refer to [Schema mapping](#data-type-mapping-for-mongodb).
+>To import JSON documents as-is, see the [Import or export JSON documents](#import-and-export-json-documents) section. To copy from tabular-shaped data, see [Schema mapping](#data-type-mapping-for-mongodb).
 
 **Example**
 
@@ -243,7 +248,7 @@ The following properties are supported in the Copy Activity **sink** section:
 
 ## Import and export JSON documents
 
-You can use this MongoDB connector to easily:
+Use this MongoDB connector to easily:
 
 * Copy documents between two MongoDB collections as-is.
 * Import JSON documents from various sources to MongoDB, including from Azure Cosmos DB, Azure Blob storage, Azure Data Lake Store, and other supported file-based stores.
@@ -253,7 +258,7 @@ To achieve such schema-agnostic copy, skip the "structure" (also called *schema*
 
 ## Data type mapping for MongoDB
 
-When copying data from MongoDB, the following mappings are used from MongoDB data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+When you copy data from MongoDB, the service uses the following mappings from MongoDB data types to interim data types. For more information about how copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 | MongoDB data Type | Interim Service Data Type |
 |:---|:---|
@@ -281,6 +286,8 @@ The following table shows the release stage and change logs for different versio
 | :------- | :---------------------- |:---------- |
 | MongoDB (legacy) | Removed | Not applicable. |
 | MongoDB | GA version available | • Support the equivalent MongoDB queries only. <br><br>• Double is read as String data type. |
+
+• Reads Double as String data type. |
 
 ### Upgrade the MongoDB linked service
 

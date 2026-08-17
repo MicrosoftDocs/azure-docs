@@ -1,8 +1,8 @@
 ---
 title: Move existing Azure integration runtime to an Azure integration runtime in a managed virtual network
 description: This tutorial provides steps to move existing Azure integration runtime to an Azure integration runtime in a managed virtual network.
-author: lrtoyou1223
-ms.author: lle
+author: kromerm
+ms.author: makromer
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
@@ -11,6 +11,8 @@ ms.subservice: data-movement
 # Tutorial: How to move existing Azure integration runtime to an Azure integration runtime in a managed virtual network
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Managed virtual network provides a secure and manageable data integration solution. With managed virtual network, you can create the Azure integration runtime as part of a managed virtual network and use private endpoints to securely connect to supported data stores. Data traffic goes through Azure private links that provide secured connectivity to the data source. In addition, it prevents data exfiltration to the public internet. 
 This tutorial provides steps to move existing Azure integration runtime to an Azure integration runtime in a managed virtual network.

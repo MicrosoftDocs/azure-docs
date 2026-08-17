@@ -27,7 +27,7 @@ groups:
     title: Azure portal
   - id: python
     title: Python
-# Owner: dlepow
+# Owner: patricka
 - id: api-management-credential-auth-scenario
   title: Authentication scenario
   prompt: Choose authorization credential
@@ -185,6 +185,14 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+- id: durable-functions-storage-providers-options
+  title: Storage provider
+  prompt: Choose a storage provider
+  pivots:
+  - id: durable-task-scheduler
+    title: Durable Task Scheduler
+  - id: azure-storage
+    title: Azure Storage
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
@@ -315,24 +323,16 @@ groups:
     title: Isolated worker model
   - id: in-proc
     title: In-process model
-- id: reliability-functions-hosting-plan
-  title: Function app hosting options for Availability Zones support
-  prompt: Choose a hosting option for your function app
+- id: functions-auth-method
+  title: Authentication method
+  prompt: Choose an authentication method
   pivots:
-  - id: flex-consumption-plan
-    title: Flex Consumption plan
-  - id: premium-plan
-    title: Premium plan
-- id: functions-hosting-plan-dynamic
-  title: Function app hosting options
-  prompt: Choose a hosting option for your function app
-  pivots:
-  - id: flex-consumption-plan
-    title: Flex Consumption plan
-  - id: premium-plan
-    title: Premium plan
-  - id: consumption-plan
-    title: Consumption plan
+  - id: functions-auth-identity
+    title: Managed identity
+  - id: functions-auth-keyvault
+    title: Key Vault
+  - id: functions-auth-secret
+    title: Shared secret
 - id: functions-hosting-plan
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
@@ -1124,15 +1124,6 @@ groups:
   - id: programming-language-java
     title: Java
 # Owner: alkohli
-- id: azure-stack-edge-device-deployment
-  title: Azure Stack Edge device deployment
-  prompt: Choose deployment type
-  pivots:
-  - id: single-node
-    title: Single node device
-  - id: two-node
-    title: Two node cluster
-# Owner: alkohli
 - id: data-box-shipping
   title: Data Box shipping
   prompt: Choose shipping location
@@ -1699,13 +1690,11 @@ groups:
   prompt: Choose how to create the workflow configuration
   pivots:
   - id: method-manual
-    title: Manual
+    title: Workflow template
   - id: method-portal
     title: Azure portal
-  - id: method-cli
-    title: Azure CLI
   - id: method-template
-    title: GitHub Actions template
+    title: GitHub marketplace
 - id: azure-virtual-network-manager-quickstart-options
   title: Azure Virtual Network Manager Quickstart Scope Options
   prompt: Choose a scope option

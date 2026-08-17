@@ -1,5 +1,5 @@
 ---
-title: Questions about discovery and dependency analysis in Azure Migrate
+title: Questions about Discovery and Dependency Analysis in Azure Migrate
 description: Get answers to common questions about discovery and dependency analysis in Azure Migrate.
 author: Vikram1988
 ms.author: vibansa

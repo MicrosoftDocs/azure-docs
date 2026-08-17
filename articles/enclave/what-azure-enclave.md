@@ -4,6 +4,7 @@ description: What is Azure Enclave?
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
+ms.service: azure-enclave
 ms.date: 06/03/2026
 ---
 
@@ -21,14 +22,14 @@ Azure Enclave takes a multi-layered and hierarchical approach to virtual boundar
 
 ## Accelerated deployment and management
 
-Azure Enclave dramatically reduces the time and complexity required to create and manage secure, compliant cloud environments. Traditional secure environment deployment can take weeks or months of planning, configuration, and testing and still might be missing important isolation and policy controls. Azure Enclave reduces the deployment time to hours or days through platform-managed infrastructure and built-in security controls so you can focus on your customers or users.
+Azure Enclave dramatically reduces the time and complexity required to create and manage secure, compliant cloud environments. Traditional secure environment deployment can take weeks or months of planning, configuration, and testing and still might be missing important isolation and policy controls. Azure Enclave reduces the deployment time to hours or days through Azure Enclave managed infrastructure and built-in security controls so you can focus on your customers or users.
 
 ## Isolated virtual networking and workloads
 With Azure Enclave, you can easily create new isolated, zero-trust software-defined networks and deploy workloads in those networks to satisfy your business requirements on Azure.
 
-- [**Communities**](./what-community.md) - Isolated, zero-trust, platform-managed virtual WAN boundary protected through a combination of Azure Firewall, policy guardrails, and Role Based Access Control (RBAC) Deny Assignments that serve as a hub for one or more enclaves.  Connections outside of the Community are managed through community endpoints and transit hub resources to allow connectivity to trusted destinations. Logging and diagnostics are enabled for all enclaves and workloads within the community by default. Each Enclave can send logging data to the community or keep it isolated to the enclave, or send logs to both.
+- [**Communities**](./what-community.md) - Isolated, zero-trust, Azure Enclave managed virtual WAN boundary protected through a combination of Azure Firewall, policy guardrails, and role-based access control (RBAC) deny assignments that serve as a hub for one or more enclaves.  You manage connections outside of the community through community endpoints and transit hub resources to allow connectivity to trusted destinations. Logging and diagnostics are enabled for all enclaves and workloads within the community by default. Each enclave can send logging data to the community or keep it isolated to the enclave, or send logs to both.
 
-- [**Enclaves**](./what-enclave.md) - Isolated, zero-trust, platform-managed virtual networks connected to the community hub protected through a combination of Network Security Groups (NSG), policy guardrails, and RBAC Deny Assignments that serve as the Virtual Network for one or more workloads. Enclave virtual networks and NSGs can't be directly modified and must be managed through enclave endpoints and enclave resources to establish network connectivity.
+- [**Enclaves**](./what-enclave.md) - Isolated, zero-trust, Azure Enclave managed virtual networks connected to the community hub protected through a combination of network security groups (NSG), policy guardrails, and RBAC deny assignments that serve as the virtual network for one or more workloads. You can't directly modify enclave virtual networks and NSGs. You must manage them through enclave endpoints and enclave resources to establish network connectivity.
 
 - [**Workloads**](./what-workload.md) - Logical groups that link your [workload resource groups](./what-workload.md#workload-resource-group) to an enclave. Workload resource groups are where you deploy customer-managed Azure resources. Those resources inherit the enclave's security posture, policies, and permissions.
 
@@ -86,7 +87,7 @@ Azure Enclave provides the following security layers built directly into the ser
 - **Azure Policy guardrails** - Help control which resource types and configurations are allowed in communities, enclaves, and workloads.
 - **Managed networking boundary** - Routes authorized traffic through managed endpoints, connections, network security groups, and Azure Firewall.
 - **Logging and monitoring** - Sends activity and diagnostics to a community Log Analytics workspace, an enclave workspace, or both, depending on your configuration.
-- **Access controls** - Uses Azure roles and deny assignments to help prevent unauthorized changes to platform-managed resources.
+- **Access controls** - Uses Azure roles and deny assignments to help prevent unauthorized changes to Azure Enclave managed resources.
 - **Connection management** - Uses enclave endpoints, community endpoints, transit hubs, and enclave connections to allow only explicitly defined traffic.
 - **Service catalog** - Provides validated deployment templates for repeatable workload resource deployment.
 

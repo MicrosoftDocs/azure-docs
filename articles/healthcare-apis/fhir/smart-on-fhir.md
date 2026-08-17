@@ -30,7 +30,7 @@ Before you begin, make sure you have:
 1. A test patient in your FHIR store.
 1. A SMART client application (or the SmartLauncher sample for validation).
 
-## End to end flow
+## End-to-end flow
 
 A SMART client typically performs these steps:
 
@@ -66,7 +66,7 @@ This sample demonstrates the creation of an orchestration layer that acts as the
 > [!NOTE]
 > Samples are open-source code, and you should review the information and licensing terms on GitHub before using them. They're not part of the Azure Health Data Service and Microsoft Support doesn't support them. These samples demonstrate how Azure Health Data Services (AHDS) and other open-source tools can be used together to demonstrate [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg) compliance, using Microsoft Entra ID as the identity provider workflow.  
 
-### Microsoft Entra ID integration
+#### Microsoft Entra ID integration
 
 Microsoft Entra ID is a full-featured OAuth 2.0 and OpenID Connect identity provider. To integrate Microsoft Entra ID as the identity provider, you need extra components to complete the end-to-end SMART on FHIR experience. This requirement exists because SMART on FHIR introduces behaviors that enterprise identity providers like Entra ID don't natively support. To bridge this gap, Microsoft provides reference solutions (samples). The sample provides an orchestration layer between SMART clients and Entra ID.
 
@@ -84,7 +84,14 @@ AHDS FHIR service supports SMART v1.0.0 and SMART v2.0.0. You can't mix and matc
 
 ## Migrate from SMART on FHIR Proxy to SMART on FHIR
 
-[!INCLUDE [Migrate from SMART on FHIR Proxy to Enhanced](../includes/smart-on-fhir-proxy-migration.md)]
+<details>
+<summary>Click to expand</summary>
+
+1. **Configure native SMART on FHIR** — Set up your identity provider (Microsoft Entra ID) to support SMART on FHIR capabilities natively, including registering SMART client applications and configuring the appropriate FHIR SMART user roles.
+1. **Update client applications** — Modify any client applications currently using the proxy endpoint to point to the native FHIR service endpoint and use the native SMART authorization flow.
+1. **Disable the SMART on FHIR proxy** — Uncheck the SMART on FHIR proxy setting under the Authentication blade for the FHIR service and save the changes.
+
+</details>
 
 ## Next steps
 

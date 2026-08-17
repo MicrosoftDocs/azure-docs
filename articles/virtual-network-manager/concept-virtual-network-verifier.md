@@ -5,10 +5,10 @@ author: mbender-ms
 ms.author: mbender
 ms.topic: concept-article
 ms.service: azure-virtual-network-manager
-ms.date: 03/13/2025
+ms.date: 07/29/2026
 ---
 
-# What is network verifier?
+# What is network verifier in Azure Virtual Network Manager?
 
 In Azure Virtual Network Manager, network verifier is a tool that enables you to check if your network policies allow or disallow traffic between your Azure network resources. There are several moving parts between connectivity, security, routing, and resource-specific configurations -- so how do you know that what you've set up in your Azure environment is actually achieving the reachability you desire among your network resources? Whether you're diagnosing why reachability isn't working as expected or proving conformance of your Azure setup to your organization’s security compliance requirements, network verifier can provide the answers. When you run a reachability analysis in network verifier, it can answer questions such as why two virtual machines can't communicate with each other by providing the full reachability path and blockers.
 
@@ -30,7 +30,7 @@ By default, users with permissions to a network manager have permissions to crea
 
 Within a verifier workspace, you create a reachability analysis intent to define the traffic path between a source and destination that you want to verify. The reachability analysis intent includes the following fields:
 
-| **Field** | **Description **|
+| **Field** | **Description**|
 |-------|-------------|
 | **Source** | The source of the traffic that can be a virtual machine, virtual machine scale sets instance, subnet, or the internet. |
 | **Source ports** | The source ports of the traffic. |
@@ -80,7 +80,7 @@ Network verifier can help you answer several questions regarding your Azure netw
 
 For more complex troubleshooting scenarios, network verifier serves as an excellent starting point. Its reachability analysis results can guide you toward the next steps in your diagnostic journey, directing you to tools specialized in operational monitoring, network performance, and data path-level network troubleshooting.
 
-## Limits
+## Network verifier limits
 
 The limitations of network verifier are as follows: 
 - A reachability analysis can only be run on a single reachability analysis intent.

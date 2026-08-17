@@ -7,7 +7,7 @@ author: srtiruma
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
-ms.date: 06/29/2026
+ms.date: 08/13/2026
 ms.update-cycle: 3650-days
 ms.author: srtiruma
 ms.custom: compute-evergreen
@@ -39,6 +39,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
+
+###### **August 13, 2026**
+The July 2026 Guest OS released.
 
 ###### **June 29, 2026**
 The June 2026 Guest OS released.
@@ -331,9 +334,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-7.66_202607-01 | August 13, 2026 | Post 7.69 |
 |  WA-GUEST-OS-7.65_202606-01 | June 29, 2026 | Post 7.68 |
 |  WA-GUEST-OS-7.64_202605-01 |  June 16, 2026  | Post 7.67 |
-|  WA-GUEST-OS-7.63_202604-01 |  May 22, 2026  | Post 7.66 |
+| ~~WA-GUEST-OS-7.63_202604-01~~ | May 22, 2026 | August 13, 2026 |
 |~~WA-GUEST-OS-7.62_202603-01~~|  April 14, 2026  | June 29, 2026 |
 |~~WA-GUEST-OS-7.61_202602-01~~|  April 14, 2026  | June 16, 2026 |
 |~~WA-GUEST-OS-7.60_202601-01~~|  February 26, 2026  | May 22, 2026 |
@@ -401,9 +405,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-6.96_202607-01 | August 13, 2026 | Post 6.99 |
 |  WA-GUEST-OS-6.95_202606-01 | June 29, 2026 | Post 6.98 |
 |  WA-GUEST-OS-6.94_202605-01 | June 16, 2026 | Post 6.97 |
-|  WA-GUEST-OS-6.93_202604-01 | May 22, 2026 | Post 6.96 |
+| ~~WA-GUEST-OS-6.93_202604-01~~ | May 22, 2026 | August 13, 2026 |
 |~~WA-GUEST-OS-6.92_202603-01~~| April 14, 2026 | June 29, 2026 |
 |~~WA-GUEST-OS-6.91_202602-01~~| April 14, 2026 | June 16, 2026 |
 |~~WA-GUEST-OS-6.90_202601-01~~| February 26, 2026 | May 22, 2026 |
@@ -505,9 +510,10 @@ The September Guest OS released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
+| WA-GUEST-OS-5.120_202607-01 | August 13, 2026 | Post 5.123 |
 |  WA-GUEST-OS-5.119_202606-01 | June 29, 2026 | Post 5.122 |
 |  WA-GUEST-OS-5.118_202605-01 |  June 16, 2026 | Post 5.121 |
-|  WA-GUEST-OS-5.117_202604-01 |  May 22, 2026 | Post 5.120 |
+| ~~WA-GUEST-OS-5.117_202604-01~~ | May 22, 2026 | August 13, 2026 |
 |~~WA-GUEST-OS-5.116_202603-01~~|  April 14, 2026 | June 29, 2026 |
 |~~WA-GUEST-OS-5.115_202602-01~~|  April 14, 2026 | June 16, 2026 |
 |~~WA-GUEST-OS-5.114_202601-01~~|  February 26, 2026 | May 22, 2026 |

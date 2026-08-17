@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/12/2025
+ms.date: 08/11/2026
 ms.custom:
   - devx-track-java
 ms.collection: ce-skilling-ai-copilot
@@ -248,7 +248,9 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
     :::image type="content" source="media/tutorial-ai-agent-web-app-semantic-kernel-java/foundry-agent.png" alt-text="Screenshot of a chat completion session with a Microsoft Foundry agent.":::
     
     -----
-    
+
+[!INCLUDE [rag-faq](includes/foundry-iq-rag-faq.md)]
+
 ## Clean up resources
 
 When you're done with the application, you can delete the App Service resources to avoid incurring further costs:

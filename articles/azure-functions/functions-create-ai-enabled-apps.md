@@ -40,6 +40,7 @@ To get started, see these articles:
 
 + [Overview: serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md)
 + [Get started: Build serverless agents using Azure Functions](scenario-serverless-agents-runtime.md)
++ [Reference: serverless agents runtime configuration](functions-serverless-agents-runtime-reference.md)
 
 ## Tools and MCP servers
 

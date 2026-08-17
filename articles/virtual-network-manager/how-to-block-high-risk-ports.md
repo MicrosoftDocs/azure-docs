@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to 
-ms.date: 07/08/2026
+ms.date: 07/29/2026
 ms.custom:
   - template-how-to
   - sfi-image-nochange
@@ -14,7 +14,7 @@ ms.custom:
 
 In this article, you learn how to block high-risk network ports by using [Azure Virtual Network Manager](overview.md) and Security Admin Rules. You walk through the creation of an Azure Virtual Network Manager instance, group your virtual networks (VNets) with [network groups](concept-network-groups.md), and create and deploy security admin configurations for your organization. You deploy a general block rule for high-risk ports. Then you create an exception rule for managing a specific application's VNet by using network security groups.
 
-While this article focuses on a single port, SSH, you can protect any high-risk ports in your environment by using the same steps. To learn more, review this list of [high risk ports](concept-security-admins.md#protect-high-risk-ports).
+While this article focuses on a single port, RDP, you can protect any high-risk ports in your environment by using the same steps. To learn more, review this list of [high risk ports](concept-security-admins.md#protect-high-risk-ports).
 
 ## Prerequisites
 
@@ -72,11 +72,9 @@ After you create your virtual network manager, create a network group containing
 
 ## Create a security admin configuration for all virtual networks
 
-Create security admin rules within a configuration to apply those rules to all the VNets within your network group at once. In this section, you create a security admin configuration. Then you create a rule collection and add rules for high-risk ports like SSH or RDP. This configuration denies network traffic to all virtual networks in the network group.
+Create security admin rules within a configuration to apply those rules to all the virtual networks within your network group at once. In this section, you create a security admin configuration. Then you create a rule collection and add a rule that denies RDP traffic on port 3389, the port this article uses as its example. This configuration denies network traffic to all virtual networks in the network group.
 1. Return to your virtual network manager resource.
-1. Select **Configurations** under *Settings* and then select **+ Create**.
-1. Select **Security configuration** from the drop-down menu.
-1. On the **Basics** tab, enter a *Name* to identify this security configuration and select **Next: Rule collections**.
+1. [Create a SecurityAdmin configuration](how-to-block-network-traffic-portal.md#create-a-securityadmin-configuration), entering a name to identify this security configuration.
 1. Select **+ Add** from the *Add a security configuration page*.
 1. Enter a *Name* to identify this rule collection and then select the *Target network groups* you want to apply the set of rules to. The target group is the network group containing all of your virtual networks.
 
@@ -91,10 +89,10 @@ In this section, you define the security rule to block high-risk network traffic
     | ------- | ----- |
     | Name | Enter a rule name. |
     | Description | Enter a description about the rule. |
-    | Priority* | Enter a value between 1 and 4096 to determine the priority of the rule. The lower the value the higher the priority.|
-    | Action* | Select **Deny** to block traffic. For more information, see [Action](concept-security-admins.md#action).
-    | Direction* | Select **Inbound** as you want to deny inbound traffic with this rule. |
-    | Protocol* | Select the network protocol for the port. |
+    | Priority | Enter a value between 1 and 4096 to determine the priority of the rule. The lower the value the higher the priority.|
+    | Action | Select **Deny** to block traffic. For more information, see [Action](concept-security-admins.md#action).
+    | Direction | Select **Inbound** as you want to deny inbound traffic with this rule. |
+    | Protocol | Select the network protocol for the port. Select **TCP** for this example, because RDP uses TCP on port 3389. |
     |**Source**| |
     | Source type | Select the source type of either **IP address** or **Service tags**. |
     | Source IP addresses | This field appears when you select the source type of *IP address*. Enter an IPv4 or IPv6 address or a range using CIDR notation. When defining more than one address or blocks of addresses, separate them using a comma. Leave blank for this example.|
@@ -138,7 +136,7 @@ In this section, you create a new rule collection and security admin rule that a
 > [!IMPORTANT]
 > For your security admin rule to allow traffic to your application virtual networks, set the priority to a **lower number** than existing rules that block traffic. 
 >
->For example, an all network rule blocking **SSH** has a priority of **10** so your allow rule should have a priority from **1 to 9**.
+>For example, an all network rule blocking **RDP** has a priority of **10** so your allow rule should have a priority from **1 to 9**.
 1. From your virtual network manager, select **Configurations** and select your security configuration.
 1. Select **Rule collections** under **Settings**, and then select **+ Create** to create a new rule collection.
 1. On **Add a rule collection**, enter a name for your application rule collection and choose the application network group you created.

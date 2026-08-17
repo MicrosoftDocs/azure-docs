@@ -5,7 +5,7 @@ services: api-management
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/11/2026
+ms.date: 07/23/2026
 ms.custom:
   - references_regions
   - build-2025
@@ -44,8 +44,10 @@ Information in the following table is updated regularly. Capacity availability i
 | Italy North | ✅ | ✅ |  |  |
 | Japan East | ✅ | ✅ | | ✅ |
 | Korea Central | ✅ | ✅ | ✅ | | 
+| Malaysia West | | ✅ | | |
+| New Zealand North | | ✅ | | |
 | North Central US | ✅ | ✅ |  | ✅ |
-| North Europe | ✅ | ✅ |  | ✅ |
+| North Europe | ✅ | ✅ |  | ⚠️ ¹ |
 | Norway East | ✅ | ✅ | ✅ | ✅ |
 | South Africa North | ✅ | ✅ | |  |
 | South Central US | ✅ | ✅ |  |  |

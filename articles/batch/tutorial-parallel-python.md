@@ -30,6 +30,8 @@ In this tutorial, you convert MP4 media files to MP3 format, in parallel, by usi
 
 * [pip package manager](https://pip.pypa.io/en/stable/installation/)
 
+* [ffmpeg](https://ffmpeg.org/download.html) available on your PATH, used locally to generate the sample input files.
+
 * An Azure Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstart guides for [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
 ## Grant access to your Batch and Storage accounts
@@ -71,24 +73,33 @@ This tutorial shows how to authenticate to Azure Batch and Azure Storage by usin
 
 ## Download and run the sample app
 
-> [!IMPORTANT]
-> The downloadable sample in the [batch-python-ffmpeg-tutorial](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) repo is being updated to match this tutorial. Until that update publishes, the repo might still contain the earlier key-based authentication and Ubuntu 20.04 code. **The code in this article is the source of truth.** If the downloaded sample doesn't match the snippets here, follow the code shown in this article.
-
 ### Download the sample app
 
-[Download or clone the sample app](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) from GitHub. To clone the sample app repo with a Git client, use the following command:
+[Download or clone the sample app](https://github.com/Azure-Samples/azure-batch-samples) from GitHub. The sample lives in the [azure-batch-samples](https://github.com/Azure-Samples/azure-batch-samples) repo under *Python/Batch/article_samples/ffmpeg*. To clone the repo with a Git client, use the following command:
 
 ```bash
-git clone https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial.git
+git clone https://github.com/Azure-Samples/azure-batch-samples.git
 ```
 
-Navigate to the directory that contains the file *batch_python_tutorial_ffmpeg.py*.
+Navigate to the *Python/Batch/article_samples/ffmpeg* directory, which contains the file *batch_python_tutorial_ffmpeg.py*.
+
+```bash
+cd azure-batch-samples/Python/Batch/article_samples/ffmpeg
+```
 
 In your Python environment, install the required packages using `pip`.
 
 ```bash
 pip install -r requirements.txt
 ```
+
+Generate the sample input files. The repository doesn't ship binary media, so create the local *InputFiles/\*.mp4* clips with the included helper (requires ffmpeg on your PATH):
+
+```bash
+python generate_input_files.py
+```
+
+This command writes five short sample clips (*LowPriVMs-1.mp4* through *LowPriVMs-5.mp4*) into the *InputFiles* directory. Alternatively, place your own *.mp4* files in *InputFiles*.
 
 Use a code editor to open the file *config.py*. Update the Batch and storage account values with the names unique to your accounts. The sample uses [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate, so account keys are no longer required. For example:
 
@@ -240,7 +251,7 @@ output_container_sas_url = (
 
 ### Create a pool of compute nodes
 
-Next, the sample creates a pool of compute nodes in the Batch account by calling `create_pool`. This defined function uses the Batch [BatchPoolCreateOptions](/python/api/azure-batch/azure.batch.models.batchpoolcreateoptions) class to set the number of nodes, VM size, and a pool configuration. In this configuration, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies a [BatchVmImageReference](/python/api/azure-batch/azure.batch.models.batchvmimagereference) to an Ubuntu Server 22.04 LTS image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
+Next, the sample creates a pool of compute nodes in the Batch account by calling `create_pool`. This defined function uses the Batch [BatchPoolCreateOptions](/python/api/azure-batch/azure.batch.models.batchpoolcreateoptions) class to set the number of nodes, VM size, and a pool configuration. In this configuration, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies a [BatchVmImageReference](/python/api/azure-batch/azure.batch.models.batchvmimagereference) to an Ubuntu Server 24.04 LTS image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
 
 The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [Spot nodes](batch-spot-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Spot nodes are offered at a reduced price from surplus VM capacity in Azure. Spot nodes become unavailable if Azure doesn't have enough capacity. The sample by default creates a pool containing only five Spot nodes in size *Standard_A1_v2*.
 
@@ -254,11 +265,11 @@ new_pool = models.BatchPoolCreateOptions(
     virtual_machine_configuration=models.VirtualMachineConfiguration(
         image_reference=models.BatchVmImageReference(
             publisher="canonical",
-            offer="0001-com-ubuntu-server-jammy",
-            sku="22_04-lts",
+            offer="ubuntu-24_04-lts",
+            sku="server-gen1",
             version="latest"
         ),
-        node_agent_sku_id="batch.node.ubuntu 22.04"),
+        node_agent_sku_id="batch.node.ubuntu 24.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
     target_low_priority_nodes=_LOW_PRIORITY_POOL_NODE_COUNT,

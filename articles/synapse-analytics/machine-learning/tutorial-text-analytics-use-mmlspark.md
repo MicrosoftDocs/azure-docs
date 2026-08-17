@@ -5,8 +5,8 @@ ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.date: 11/19/2024
-author: ruixinxu
-ms.author: ruxu
+author: juluczni
+ms.author: juluczni
 # customer intent: As a Synapse Analytics user, I want to be able to analyze my text using Foundry Tools.
 ---
 

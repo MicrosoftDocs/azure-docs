@@ -13,7 +13,13 @@ items:
       href: copilot-studio/architecture-on-premises-data-gateway.md
     - name: SAP Business Technology Platform with SAP API Management and SAP Cloud Connector
       href: copilot-studio/architecture-business-technology-platform-api.md
-    - name: Publicly available SAP system (demo scenario)
+    - name: Using the SAP MCP Gateway on SAP Integration Suite
+      href: copilot-studio/architecture-mcp-gateway-integration-suite.md
+    - name: Demo scenario (public SAP system)
       href: copilot-studio/architecture-demo.md
-  - name: Foundry AI and SAP overview
+  - name: Copilot Studio and Security
+    items:
+    - name: SSO with Microsoft Entra ID and SAP Cloud Identity Services
+      href: copilot-studio/sso-entra-id-sap-cloud-identity-services.md
+  - name: Foundry AI and SAP Overview
     href: foundry/foundry-ai-sap.md

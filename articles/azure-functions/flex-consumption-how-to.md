@@ -2,7 +2,7 @@
 title: Create and Manage Function Apps in a Flex Consumption Plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
 ms.service: azure-functions
-ms.date: 05/18/2026
+ms.date: 08/04/2026
 ms.topic: how-to
 ms.custom:
   - build-2024
@@ -599,7 +599,7 @@ A customized deployment source should meet these criteria:
 
 When you configure deployment storage authentication, keep these considerations in mind:
 
-- As a security best practice, use managed identities when connecting to Azure Storage from your apps. For more information, see [Connections](./functions-reference.md#connections).
+- As a security best practice, use managed identities when connecting to Azure Storage from your apps. For more information, see [Connections](./manage-connections.md).
 - When you use a connection string to connect to the deployment storage account, the application setting that contains the connection string must already exist.
 - When you use a user-assigned managed identity, you link the provided identity to the function app. You also assign the `Storage Blob Data Contributor` role scoped to the deployment storage account to the identity.
 - When you use a system-assigned managed identity, you create an identity when a valid system-assigned identity doesn't already exist in your app. When a system-assigned identity exists, you assign the `Storage Blob Data Contributor` role scoped to the deployment storage account to the identity.
@@ -852,6 +852,14 @@ Visual Studio Code doesn't currently support site update strategy configuration.
 
 ---
 
+## Configure end-to-end TLS encryption
+
+End-to-end (E2E) TLS encryption encrypts traffic between the Azure platform front ends and the workers that run your functions. This feature is currently in preview for function apps in the Flex Consumption plan.
+
+Enable E2E TLS encryption by setting the `endToEndEncryptionEnabled` site property to `true` in an ARM or Bicep template.
+
+For more information about how E2E TLS encryption protects traffic, see [End-to-end TLS encryption in Azure App Service](../app-service/overview-tls.md#end-to-end-tls-encryption).
+
 ## Configure site-scoped certificates
 
 Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL certificates are scoped to your individual function app rather than shared across apps in the same webspace. The following table shows the supported certificate types and how each one is added to your function app:
@@ -871,7 +879,6 @@ Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL 
 - Azure CLI support for managing site-scoped certificates isn't yet available. In the meantime, use the [Azure portal](https://portal.azure.com) or [ARM/Bicep templates](functions-infrastructure-as-code.md?pivots=flex-consumption-plan#site-scoped-certificates) to manage certificates.
 - Each app supports a maximum of three private certificates and three public certificates.
 - Private certificates must be exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions) that contains all intermediate certificates and the root certificate in the certificate chain.
-- End-to-end (E2E) encryption isn't currently supported.
 - Elliptic Curve Cryptography (ECC) certificates are supported when uploaded as a PFX.
 - Because Flex Consumption runs on Linux, your code must load certificates from file paths rather than from the Windows certificate store. First, follow the steps in [Make a certificate accessible to your code](#make-a-certificate-accessible-to-your-code) to load certificates into the runtime environment. Then, for guidance on reading certificate files from your application code, see [Load certificates in Linux/Windows containers](../app-service/configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers).
 
@@ -1174,4 +1181,3 @@ Here are some adjustments you can make to fine-tune performance versus cost:
 [`az functionapp create`]: /cli/azure/functionapp#az-functionapp-create
 [remote build]: ./functions-deployment-technologies.md#remote-build
 [Azure portal]: https://portal.azure.com
-

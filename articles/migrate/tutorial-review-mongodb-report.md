@@ -6,6 +6,7 @@ ms.author: sandnair
 ms.service: azure-migrate 
 ms.topic: tutorial
 ms.date: 04/28/2026
+ms.update-cycle: 365-days
 ms.custom: engagement-fy24 
 # Customer intent: Customers want to assess on-premises MongoDB workloads using Azure Migrate to prepare for migration to Azure DocumentDB. They aim to evaluate cloud readiness, risks, and costs through configuration-based assessments.
 ---

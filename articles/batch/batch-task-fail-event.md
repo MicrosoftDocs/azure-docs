@@ -2,7 +2,7 @@
 title: Azure Batch task fail event
 description: Reference for Batch task fail event. This event is emitted in addition to a task complete event and can be used to detect when a task fails.
 ms.topic: reference
-ms.date: 02/05/2026
+ms.date: 08/05/2026
 # Customer intent: As a cloud operations engineer, I want to receive notifications for task failure events, so that I can quickly identify issues and take corrective actions to ensure job reliability and efficiency.
 ---
 
@@ -51,7 +51,7 @@ ms.date: 02/05/2026
 |------------------|----------|-----------|
 |`jobId`|String|The ID of the job containing the task.|
 |`id`|String|The ID of the task.|
-|`taskType`|String|The type of the task. It's either 'JobManager' indicating it's a job manager task or 'User' indicating it's not a job manager task. This event isn't emitted for job preparation tasks, job release tasks, or start tasks.|
+|`taskType`|String|The type of the task. It's either 'JobManager' indicating it's a job manager task or 'User' indicating it's not a job manager task. This event isn't emitted for job preparation tasks, job release tasks, or start tasks. For those tasks, see [Special task event](batch-special-task-event.md).|
 |`systemTaskVersion`|Int32|It's the internal retry counter on a task. Internally the Batch service can retry a task to account for transient issues. These issues can include internal scheduling errors or attempts to recover from compute nodes in a bad state.|
 |`requiredSlots`|Int32|The required slots to run the task.|
 |[`nodeInfo`](#nodeInfo)|Complex Type|Contains information about the compute node on which the task ran.|
@@ -98,4 +98,11 @@ ms.date: 02/05/2026
 |`category`|String|The error category, for example "UserError".|
 |`code`|String|The error code, for example "FailureExitCode".|
 |`message`|String|The error message.|
-|`details`|Array|The error details.|
+|[`details`](#details)|Array|A list of name-value pairs that provides more detail about the error. If no extra detail values are available, the array is empty.|
+
+###  <a name="details"></a> details
+
+|Element name|Type|Notes|
+|------------------|----------|-----------|
+|`name`|String|The detail name.|
+|`value`|String|The detail value.|

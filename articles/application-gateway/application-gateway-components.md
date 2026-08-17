@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/21/2025
+ms.date: 07/16/2026
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to understand the components of an application gateway, so that I can effectively design and implement a solution to manage incoming application traffic and distribute it across backend resources.
 ---
@@ -22,7 +22,7 @@ A frontend IP address is the IP address associated with an application gateway. 
 
 ### Static versus dynamic public IP address
 
-The Azure Application Gateway V2 SKU can be configured to support either both static internal IP address and static public IP address, or only static public IP address. It cannot be configured to support only static internal IP address.
+The Azure Application Gateway V2 SKU can be configured to support both a static internal IP address and a static public IP address, or only a static public IP address. You can also configure it with a static internal (private) IP address only when you deploy a [private Application Gateway](application-gateway-private-deployment.md) with `networkIsolationEnabled` set to `True`. For the supported frontend IP address combinations, see [Frontend IP address configuration](configuration-frontend-ip.md). For DNS behavior in private-IP-only deployments, see [Application Gateway DNS resolution](application-gateway-dns-resolution.md).
 
 The V1 SKU can be configured to support static or dynamic internal IP address and dynamic public IP address. The dynamic IP address of Application Gateway doesn't change on a running gateway. It can change only when you stop or start the Gateway. It doesn't change on system failures, updates, Azure host updates etc. 
 
@@ -102,11 +102,7 @@ For more information, see [Redirect traffic on your application gateway](redirec
 
 ### Rewrite HTTP headers and URL
 
-By using rewrite rules, you can add, remove, or update HTTP(S) request and response headers as well as URL path and query string parameters as the request and response packets move between the client and backend pools via the application gateway.
-
-The headers and URL parameters can be set to static values or to other headers and server variables. This helps with important use cases, such as extracting client IP addresses, removing sensitive information about the backend, adding more security, and so on.
-
-For more information, see [Rewrite HTTP headers and URL on your application gateway](rewrite-http-headers-url.md).
+Application Gateway can add, remove, or update HTTP(S) request and response headers, along with URL path and query string parameters, as traffic moves between clients and backend pools. For a full explanation and configuration steps, see [Rewrite HTTP headers and URL on your application gateway](rewrite-http-headers-url.md).
 
 ## HTTP settings
 

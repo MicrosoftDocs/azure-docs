@@ -1,75 +1,130 @@
 ---
 title: Secure your Azure Front Door deployment
-description: Learn how to secure Azure Front Door, with best practices for network security, identity management, data protection, threat detection, and origin security for your CDN and application delivery service.
+description: Learn how to secure Azure Front Door by using edge protection, origin controls, identity, encryption, monitoring, and recovery best practices.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: concept-article
+ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 07/08/2025
+ms.date: 07/16/2026
 ai-usage: ai-assisted
 ---
 
 # Secure your Azure Front Door deployment
 
-Azure Front Door is a modern cloud content delivery network (CDN) service that delivers high performance, scalability, and secure user experiences for your content and applications. As a global entry point for your applications, Azure Front Door handles massive amounts of traffic and serves as a critical security boundary, making it essential to implement robust security measures to protect against threats and ensure reliable service delivery.
+Azure Front Door is a cloud content delivery network (CDN) and global application delivery service that provides edge routing, acceleration, web application firewall (WAF), and origin protection capabilities for internet-facing applications. Because Azure Front Door is commonly the public entry point for applications, secure configuration helps protect traffic, origins, certificates, and operational telemetry.
 
-This article provides guidance on how to best secure your Azure Front Door deployment.
+This article provides security recommendations to help protect your Azure Front Door deployment.
+
+Azure Front Door (classic) retires on March 31, 2027. To avoid service disruption, migrate your Azure Front Door (classic) profiles to Azure Front Door Standard or Premium tier by that date. The Standard and Premium tiers use the current Azure Front Door platform. Premium adds full WAF capabilities, managed rule sets, and Private Link origin support, and both tiers support managed identities. For more information, see [Migrate from Azure Front Door (classic) to Standard or Premium tier](tier-migration.md).
+
+[!INCLUDE [Security horizontal Zero Trust statement](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-security-horizontal.md)]
 
 ## Network security
 
-Network security for Azure Front Door focuses on establishing secure connections between your CDN service and backend origins while protecting against external threats. Since Front Door operates at the network edge and handles global traffic distribution, implementing proper network controls ensures that your applications remain protected and accessible only through authorized channels.
+Network security for Azure Front Door focuses on protecting applications at the edge, reducing direct origin exposure, and controlling the requests that can reach your backend services.
 
-* **Secure backend connections with Private Link**: Use Azure Private Link to establish secure, private connections between Azure Front Door and your backend services. This prevents traffic from traversing the public internet and reduces exposure to network-based attacks. For more information, see [Secure your Origin with Private Link in Azure Front Door](/azure/frontdoor/private-link).
+- **Migrate to Azure Front Door Standard or Premium**: Move from Azure Front Door (classic) before retirement and use the Standard or Premium tier for the current Azure Front Door platform. Use Premium when you need full WAF capabilities, managed rule sets, or Private Link origin support. For more information, see [Migrate from Azure Front Door (classic) to Standard or Premium tier](tier-migration.md).
 
-* **Protect against DDoS attacks with built-in protection**: Azure Front Door includes infrastructure DDoS protection that monitors and mitigates network layer attacks in real-time using the global scale of Azure's network. The service blocks unsupported protocols and requires valid Host headers to prevent common DDoS attack vectors. For more information, see [DDoS Protection on Azure Front Door](./front-door-ddos.md).
+- **Secure origins with Private Link**: Use Azure Front Door Premium with Azure Private Link for supported Azure origins to keep origin traffic off the public internet and reduce exposure to direct attacks against backend services. For more information, see [Secure your origin with Private Link in Azure Front Door](private-link.md).
 
-* **Configure Web Application Firewall for application-layer protection**: Deploy Azure Web Application Firewall (WAF) to protect your applications from common web vulnerabilities and exploits. WAF provides managed rule sets for OWASP Top 10 protection, bot management, and custom rules for specific threat patterns. For more information, see [Web Application Firewall (WAF) on Azure Front Door](./web-application-firewall.md).
+- **Restrict direct origin access**: Configure origins to accept traffic only from Azure Front Door by using supported controls for each origin type, such as Private Link, managed identity origin authentication for non-Private Link origins, IP filtering with the `AzureFrontDoor.Backend` service tag, and validation of the `X-Azure-FDID` header. For more information, see [Secure traffic to Azure Front Door origins](origin-security.md).
 
-* **Implement origin security controls**: Configure your origins to accept traffic only from Azure Front Door by using managed identities or IP filtering with the `AzureFrontDoor.Backend` service tag and validating the X-Azure-FDID header value. This prevents attackers from bypassing Front Door's security features. For more information, see [Secure traffic to Azure Front Door origins](./origin-security.md).
+- **Enable Web Application Firewall**: Associate a WAF policy with Azure Front Door to inspect requests at the edge before traffic reaches your origin. Use Azure Front Door Premium when you need managed rule sets and full WAF capabilities. For more information, see [Web Application Firewall on Azure Front Door](web-application-firewall.md).
 
-* **Use rate limiting to prevent abuse**: Configure WAF rate limiting rules to protect against high-volume attacks and prevent individual IP addresses from overwhelming your service. Rate limiting helps mitigate application-layer DDoS attacks and abusive traffic patterns. For more information, see [Rate limiting](/azure/web-application-firewall/afds/waf-front-door-rate-limit).
+- **Use the latest managed Default Rule Set**: Keep Premium WAF policies on the latest available Default Rule Set (DRS) 2.x version and validate rule changes before production rollout. DRS 2.2 is based on OWASP Core Rule Set (CRS) 3.3.4 and includes Microsoft Threat Intelligence protections. For more information, see [Azure Web Application Firewall DRS rule groups and rules](../web-application-firewall/afds/waf-front-door-drs.md).
 
-## Identity management
+- **Tune WAF before enforcing blocks**: Start with detection mode, review WAF logs, add exclusions only where required, and then switch production policies to prevention mode so malicious requests are blocked. For more information, see [Best practices for Azure Web Application Firewall in Azure Front Door](../web-application-firewall/afds/waf-front-door-best-practices.md).
 
-Identity management for Azure Front Door centers on using managed identities to securely access Azure resources without managing credentials. Proper identity management ensures that Front Door can authenticate to services like Azure Key Vault for certificate management while maintaining security boundaries.
+- **Enable bot protection**: Add the Bot Manager rule set to Premium WAF policies to identify good, bad, and unknown bots and apply appropriate actions for automated traffic. For more information, see [Configure bot protection for Web Application Firewall with Azure Front Door](../web-application-firewall/afds/waf-front-door-policy-configure-bot-protection.md).
 
-* **Enable managed identities for secure authentication**: Use system-assigned or user-assigned managed identities to allow Azure Front Door to securely access Azure Key Vault and other Azure services without storing credentials. Managed identities provide automatic credential rotation and eliminate the risk of credential exposure. For more information, see [Use managed identities to access Azure Key Vault certificates](./managed-identity.md).
+- **Use rate limiting to reduce abuse**: Configure WAF rate limiting custom rules to block abnormal request volumes by socket IP address and to reduce retry storms or application-layer denial-of-service attempts. For more information, see [WAF rate limiting for Azure Front Door](../web-application-firewall/afds/waf-front-door-rate-limit.md).
 
-* **Configure origin authentication with managed identities**: Use managed identities to authenticate Azure Front Door to your origin services that support Microsoft Entra ID authentication. This provides a secure, credential-free way to establish trust between Front Door and your backend applications. For more information, see [Use managed identities to authenticate to origins (preview)](./origin-authentication-with-managed-identities.md).
+- **Apply geo-filtering where access is region-bound**: Use WAF geo-filtering custom rules when your application should only be available from specific countries or regions. Include the unknown (`ZZ`) location in rule design to avoid false positives. For more information, see [Geo-filtering on a domain for Azure Front Door](../web-application-firewall/afds/waf-front-door-geo-filtering.md).
+
+- **Use built-in DDoS protections at the edge**: Rely on Azure Front Door's global edge network and WAF integration to absorb and filter many network and application-layer attacks before they reach your origins. For more information, see [DDoS protection on Azure Front Door](front-door-ddos.md).
+
+## Identity and access management
+
+Identity and access management for Azure Front Door focuses on using Microsoft Entra identities instead of secrets and limiting who can change edge routing, WAF, certificate, and origin settings.
+
+- **Enable managed identities for service access**: Use system-assigned or user-assigned managed identities so Azure Front Door can access Azure resources such as Key Vault without stored credentials. For more information, see [Use managed identities in Azure Front Door](managed-identity.md).
+
+- **Use managed identities for origin authentication (preview)**: For supported non-Private Link origins, configure Azure Front Door origin authentication with managed identities so Front Door can obtain Microsoft Entra tokens and authenticate to protected backend resources. This capability is in preview; validate that preview features meet your production requirements before adopting. For more information, see [Use managed identities to authenticate to origins](origin-authentication-with-managed-identities.md).
+
+- **Grant least privilege to Front Door identities**: Assign only the roles required for the origin or certificate scenario, such as read-only data access to a storage origin or certificate access to Key Vault. Don't assign broad Contributor permissions to managed identities. For more information, see [Use managed identities to authenticate to origins](origin-authentication-with-managed-identities.md#provide-access-at-the-origin-resource).
+
+- **Limit administrative access to Front Door resources**: Assign Azure role-based access control (Azure RBAC) roles only to administrators who need to manage profiles, endpoints, domains, routes, origins, and WAF policies. Review role assignments regularly and remove stale access. For more information, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
+
+- **Use eligible access for privileged operations**: Require just-in-time activation for users who can change production Front Door profiles, WAF policies, custom domains, and origin settings. For more information, see [Activate Azure resource roles in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-activate-your-roles).
 
 ## Data protection
 
-Data protection in Azure Front Door ensures that sensitive information remains secure both in transit and when stored, while providing you with control over encryption keys and certificates. Protecting data as it flows through your CDN infrastructure is critical for maintaining customer trust and meeting compliance requirements.
+Data protection for Azure Front Door focuses on encrypting traffic, protecting certificates and keys, and avoiding unintended exposure of sensitive content through edge features.
 
-* **Leverage automatic encryption in transit**: Azure Front Door automatically encrypts all data in transit using TLS, protecting communications between clients and your service without requiring additional configuration. This ensures that sensitive data remains protected as it travels across the network. For more information, see [End-to-end TLS with Azure Front Door](./end-to-end-tls.md).
+- **Use end-to-end TLS**: Configure HTTPS from clients to Azure Front Door and from Azure Front Door to origins so traffic remains encrypted across the full request path. For more information, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
 
-* **Configure strong TLS policies**: Set minimum TLS versions and cipher suites to meet your security requirements. Use predefined security policies or create custom TLS policies to control which encryption standards are acceptable for your applications. For more information, see [Configure TLS policy on a Front Door custom domain](./standard-premium/tls-policy-configure.md).
+- **Configure current TLS policies**: Use the newest predefined TLS policy or a custom TLS policy that meets your security requirements for minimum protocol versions and cipher suites. For more information, see [Azure Front Door TLS policy](tls-policy.md).
 
-* **Manage encryption keys with Azure Key Vault**: Store and manage your encryption keys in Azure Key Vault to maintain control over the key lifecycle, including generation, rotation, and revocation. Use key hierarchies with separate data encryption keys (DEK) and key encryption keys (KEK) for enhanced security. For more information, see [Secure your Origin with Private Link in Azure Front Door](/azure/frontdoor/private-link).
+- **Don't rely on Front Door for client certificate authentication**: Front Door Standard and Premium don't currently support client or mutual authentication (mTLS). If your workload requires mTLS, implement that control at an origin or alternate ingress layer and validate the complete request path. For more information, see [Azure Front Door TLS policy](tls-policy.md).
 
-* **Manage SSL/TLS certificates with Azure Key Vault**: Use Azure Key Vault to securely store, manage, and automatically rotate SSL/TLS certificates for your Azure Front Door endpoints. Configure automatic certificate renewal to prevent service disruptions and ensure continuous protection. For more information, see [Create a Front Door for your application with certificates in Azure Key Vault](/azure/frontdoor/create-front-door-portal).
+- **Manage certificates in Azure Key Vault**: Store customer-managed TLS certificates in Key Vault, use a managed identity for access, enable automatic certificate renewal where applicable, and protect the vault with soft-delete and purge protection. For more information, see [Configure HTTPS on an Azure Front Door custom domain](standard-premium/how-to-configure-https-custom-domain.md) and [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview).
 
-## Logging and threat detection
+- **Don't cache sensitive content**: Configure caching rules carefully so private, authenticated, or regulated content isn't stored at the edge unintentionally. Use cache-control headers and route-level caching settings appropriate for your data classification. For more information, see [Caching with Azure Front Door](front-door-caching.md).
 
-Logging and threat detection for Azure Front Door provides visibility into traffic patterns, security events, and potential threats targeting your applications. Comprehensive logging enables you to detect suspicious activities, investigate security incidents, and maintain compliance with audit requirements.
+- **Protect sensitive data in WAF logs**: Use WAF sensitive data protection to reduce exposure of sensitive values in WAF logs when your policy inspects requests that might contain secrets or personal data. For more information, see [Sensitive data protection for Azure Web Application Firewall on Azure Front Door](../web-application-firewall/afds/waf-sensitive-data-protection-frontdoor.md).
 
-* **Enable comprehensive resource logging**: Configure Azure Front Door resource logs to capture detailed information about Web Application Firewall events, access patterns, and security incidents. Send these logs to Azure Monitor Log Analytics or your preferred security information and event management (SIEM) solution for analysis and alerting. For more information, see [Resource logs](/azure/frontdoor/standard-premium/how-to-logs).
+## Logging and monitoring
 
-* **Monitor Web Application Firewall activity**: Enable and review WAF logs to track blocked requests, attack patterns, and potential security threats. Use these logs to fine-tune WAF rules and improve protection against emerging threats targeting your applications.
+Logging and monitoring for Azure Front Door provide visibility into access patterns, WAF actions, origin health, certificate problems, and configuration changes.
 
-* **Configure security alerts and monitoring**: Set up Azure Monitor alerts to notify you of security events such as high numbers of blocked requests, unusual traffic patterns, or policy violations. Create custom queries to detect suspicious behavior and automate response actions.
+- **Enable resource logs**: Configure diagnostic settings for access logs, WAF logs, and health probe logs. Send these logs to Log Analytics, storage, Event Hubs, or a security information and event management (SIEM) tool. For more information, see [Configure Azure Front Door logs](standard-premium/how-to-logs.md).
 
-## Asset management
+- **Monitor WAF activity**: Review WAF logs for blocked requests, false positives, bot activity, rate-limited clients, and attack patterns. Use this information to tune policies and confirm that prevention mode is effective. For more information, see [Azure Web Application Firewall monitoring and logging](../web-application-firewall/afds/waf-front-door-monitor.md).
 
-Asset management for Azure Front Door involves implementing configuration monitoring and policy enforcement to ensure your CDN deployment remains compliant with security standards. Proper asset management helps maintain consistent security configurations across your infrastructure and provides visibility into potential security drift.
+- **Monitor origin health and failover signals**: Use health probe logs and origin metrics to identify unhealthy origins, regional failures, DNS resolution problems, TLS handshake failures, and failover events. For more information, see [Monitor Azure Front Door](monitor-front-door.md).
 
-* **Monitor configurations with Azure Policy**: Use Azure Policy to continuously monitor and enforce security configurations across your Azure Front Door resources. Configure policies to audit compliance with your organization's security standards and automatically remediate configuration drift. For more information, see [Azure Front Door Policies](/azure/governance/policy/tutorials/create-and-manage).
+- **Create alerts for security and availability events**: Configure Azure Monitor alerts for elevated 4xx or 5xx rates, WAF blocks, origin health percentage drops, latency changes, and certificate-related errors. For more information, see [Azure Front Door monitoring data reference](monitor-front-door-reference.md) and [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
 
-* **Implement configuration alerts**: Set up Azure Monitor alerts to notify you when Azure Front Door configurations deviate from approved security baselines. Use policy effects like "deny" and "deploy if not exists" to automatically enforce secure configurations across your resources.
+- **Forward WAF telemetry to Microsoft Sentinel**: Connect WAF logs to Microsoft Sentinel or another SIEM to correlate edge security events with application, identity, and infrastructure signals. For more information, see [Use Microsoft Sentinel with Azure Web Application Firewall](../web-application-firewall/waf-sentinel.md).
 
-## Related content
+## Compliance and governance
 
-- [Security baseline](/security/benchmark/azure/baselines/azure-front-door-security-baseline?toc=/azure/frontdoor/toc.json)
-- [Azure Well-Architected Framework: Security pillar](/azure/well-architected/security/)
-- [Cloud Adoption Framework: Secure overview](/azure/cloud-adoption-framework/secure/overview)
+Compliance and governance for Azure Front Door help ensure consistent configuration, controlled change management, and auditable security posture across profiles and subscriptions.
+
+- **Define Front Door configuration as code**: Manage profiles, endpoints, routes, origins, WAF associations, and security settings by using Bicep, Azure Resource Manager templates, Terraform, or another infrastructure as code process. This approach reduces configuration drift. For more information, see [Create an Azure Front Door using Bicep](create-front-door-bicep.md).
+
+- **Version WAF policy changes**: Store WAF custom rules, exclusions, managed rule set versions, and policy settings in source control. This practice ensures that rule tuning and rule set upgrades can be reviewed, tested, and rolled back. For more information, see [Best practices for Azure Web Application Firewall in Azure Front Door](../web-application-firewall/afds/waf-front-door-best-practices.md#define-your-waf-configuration-as-code).
+
+- **Review configuration changes**: Use activity logs and diagnostic data to track changes to Front Door profiles, routes, origins, custom domains, and WAF policies. Investigate unexpected changes as potential security events. For more information, see [Monitor Azure Front Door](monitor-front-door.md).
+
+- **Standardize origin security requirements**: Apply consistent requirements for Private Link, managed identity origin authentication, `X-Azure-FDID` validation, and allowed host names across all application origins. For more information, see [Secure traffic to Azure Front Door origins](origin-security.md).
+
+- **Document high-availability exceptions**: If a disaster recovery design requires alternate ingress paths that can't use Azure Front Door Private Link or `X-Azure-FDID` validation, document compensating controls such as token-based origin authentication, custom headers, mTLS at the alternate ingress, or IP filtering. For more information, see [High-availability implementation guide for using Azure Front Door and alternate ingress solutions](high-availability.md).
+
+## Backup and recovery
+
+Backup and recovery for Azure Front Door focus on preserving configuration, keeping alternate origins available, and validating failover paths before an outage occurs.
+
+- **Manage Front Door configuration as infrastructure as code**: Define and version Azure Front Door profiles, endpoints, routes, origin groups, custom domains, and WAF associations in Bicep or ARM templates stored in a source-controlled repository. Treat that repository as the source of truth for recovery. Use policy or template export as a bootstrap or point-in-time snapshot, not as the ongoing source of truth. For more information, see [Create an Azure Front Door using Bicep](create-front-door-bicep.md) and [Export template from the Azure portal](../azure-resource-manager/templates/export-template-portal.md).
+
+- **Keep configuration in version control**: Store Front Door, WAF, certificate, and origin configuration as infrastructure as code and require review for production changes. Version control provides rollback points and supports recovery into another subscription or resource group. For more information, see [Bicep best practices](../azure-resource-manager/bicep/best-practices.md).
+
+- **Configure multiple origins for failover**: Use origin groups with multiple backends and set priority, weight, and latency settings to support active-active or active-passive failover patterns. For more information, see [Traffic routing methods to origin](routing-methods.md).
+
+- **Configure health probes correctly**: Use HTTP or HTTPS health probes that validate a meaningful application health endpoint, and tune sample size and successful samples required so Front Door can detect unhealthy origins without excessive failover sensitivity. For more information, see [Health probes](health-probes.md).
+
+- **Deploy globally redundant origins**: Run origin services in multiple Azure regions or hosting locations and use Azure Front Door load balancing, or Traffic Manager where appropriate, to route users to healthy regions during origin or regional failures. For more information, see [Traffic routing methods to origin](routing-methods.md) and [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
+
+- **Plan alternate ingress for catastrophic recovery**: For mission-critical applications, maintain a tested alternate ingress path, such as Application Gateway WAF or an alternate CDN with Traffic Manager, so you can route around rare Azure Front Door availability or control-plane incidents. For more information, see [High-availability implementation guide for using Azure Front Door and alternate ingress solutions](high-availability.md).
+
+- **Test failover regularly**: Simulate origin failures, regional outages, certificate renewal failures, and alternate ingress activation in non-production and production-safe drills. Validate failover, failback, logging, WAF behavior, and runbooks. For more information, see [High-availability implementation guide for using Azure Front Door and alternate ingress solutions](high-availability.md).
+
+## Next steps
+
+- [Azure Front Door overview](front-door-overview.md)
+- [Best practices for Azure Front Door](best-practices.md)
+- [Azure Front Door security headers](front-door-security-headers.md)
+- [Web Application Firewall on Azure Front Door](web-application-firewall.md)
+- [Monitor Azure Front Door](monitor-front-door.md)
+- [High-availability implementation guide for using Azure Front Door and alternate ingress solutions](high-availability.md)

@@ -100,7 +100,7 @@ mssparkutils.fs.mount(
 
 ### Mount via shared access signature token or account key  
 
-In addition to mounting through a linked service, `mssparkutils` supports explicitly passing an account key or [shared access signature (SAS)](/samples/azure-samples/storage-dotnet-sas-getting-started/storage-dotnet-sas-getting-started/) token as a parameter to mount the target. 
+In addition to mounting through a linked service, `mssparkutils` supports explicitly passing an account key or [shared access signature (SAS)](/azure/storage/common/storage-account-sas-create-dotnet) token as a parameter to mount the target. 
 
 For security reasons, we recommend using managed identities and Microsoft Entra authentication instead of account keys or SAS tokens when possible. If you must use account keys, store them in Azure Key Vault (as the following example screenshot shows). You can then retrieve them by using the `mssparkutil.credentials.getSecret` API. For more information, see [Authorize access to data in Azure Storage](/azure/storage/common/authorize-data-access).
 

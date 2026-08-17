@@ -15,8 +15,7 @@ ms.subservice: durable-functions
 
 This guide walks you through migrating your .NET Durable Functions app from the in-process model to the isolated worker model. The in-process model reaches end of support on **November 10, 2026**. After that date, no security updates or bug fixes are provided. The isolated worker model also gives you full process control, standard .NET dependency injection, and access to the latest platform features.
 
-> [!WARNING]
-> Support for the in-process model ends on **November 10, 2026**. We recommend migrating now. For background on the isolated worker model, see [.NET isolated worker process overview](../../azure-functions/dotnet-isolated-process-guide.md).
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
 
 ## Migration checklist
 

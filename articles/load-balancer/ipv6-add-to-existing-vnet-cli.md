@@ -5,7 +5,7 @@ description: This article shows how to deploy IPv6 addresses to an existing appl
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 09/30/2024
+ms.date: 07/17/2026
 ms.author: mbender
 ms.devlang: azurecli
 ROBOTS: NOINDEX
@@ -136,12 +136,7 @@ az network nic ip-config create \
 
 ## View IPv6 dual-stack virtual network in Azure portal
 
-You can view the IPv6 dual-stack virtual network in Azure portal as follows:
-1. In the portal's search bar, enter **virtual networks** and 
-1. In the **Virtual Networks** window, select **myVNet**.
-1.  Select **Connected devices** under **Settings** to view the attached network interfaces. The dual stack virtual network shows the three NICs with both IPv4 and IPv6 configurations.
-
-    :::image type="content" source="media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-addresses.png" alt-text="Screenshot of connected devices settings displaying IPv4 and IPv6 addresses on network interfaces.":::
+To view the IPv6 dual-stack virtual network in the Azure portal, see [View IPv6 dual-stack virtual network in Azure portal](ipv6-add-to-existing-vnet-powershell.md#view-ipv6-dual-stack-virtual-network-in-azure-portal).
 
 
 ## Clean up resources

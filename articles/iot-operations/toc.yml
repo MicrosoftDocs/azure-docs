@@ -156,15 +156,30 @@ items:
           - name: Use the operations experience UI
             href: discover-manage-assets/howto-use-operations-experience.md
             displayName: site, instance, device, data points, events, CLI, kubectl, southbound
+          - name: Create and manage connector template instances
+            href: discover-manage-assets/howto-manage-connector-templates.md
+            displayName: IT administrator, connector template, template instance, PVC, persistent volume claim, Akri, runtime configuration, secrets, trust bundle, southbound
+          - name: Enable and run management actions
+            href: discover-manage-assets/howto-use-management-actions.md
+            displayName: commander, CLI, execute, disable, Event Grid
           - name: Connect to OPC UA servers
             items:
               - name: Understand the connector for OPC UA
                 href: discover-manage-assets/overview-opc-ua-connector.md
                 displayName: OPC UA server, OPC UA client, payload, southbound
+              - name: OPC UA asset discovery modes
+                href: discover-manage-assets/concept-opc-ua-asset-discovery.md
+                displayName: OPC UA, discovery, DI-based, type-based, segmented, start-node, periodic, Akri, southbound
               - name: Configure OPC UA assets and devices
                 href: discover-manage-assets/howto-configure-opc-ua.md
                 displayName: operations, experience, device, data points, events, southbound
-              - name: Detect OPC UA assets
+              - name: Configure OPC UA sessions and high availability
+                href: discover-manage-assets/howto-configure-opc-ua-sessions-high-availability.md
+                displayName: shared endpoint, dedicated session, redundant connector, failover, active passive, high availability
+              - name: Configure advanced OPC UA data collection
+                href: discover-manage-assets/howto-configure-opc-ua-advanced-data-collection.md
+                displayName: browse path, dynamic node, start instance, key frame, event filter, select clause
+              - name: Discover OPC UA assets
                 href: discover-manage-assets/howto-detect-opc-ua-assets.md
                 displayName: connector, akri, southbound
               - name: Control OPC UA assets
@@ -176,9 +191,6 @@ items:
               - name: Configure OPC UA application authentication
                 href: discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md
                 displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, enterprise, CA, auth, authn, southbound
-          - name: Create and manage connector template instances
-            href: discover-manage-assets/howto-manage-connector-templates.md
-            displayName: IT administrator, connector template, template instance, PVC, persistent volume claim, Akri, runtime configuration, secrets, trust bundle, southbound
           - name: Connect to media sources
             href: discover-manage-assets/howto-use-media-connector.md
             displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage, southbound
@@ -197,9 +209,6 @@ items:
           - name: Connect to Kafka endpoints
             href: discover-manage-assets/howto-connect-kafka.md
             displayName: southbound, broker, hubs, MQTT, data flow
-          - name: Enable and run management actions
-            href: discover-manage-assets/howto-use-management-actions.md
-            displayName: commander, CLI, execute, disable, Event Grid
           - name: Use asset endpoints to manage assets
             href: /previous-versions/azure/iot-operations/discover-manage-assets/overview-manage-assets
             displayName: connector, tags, southbound, asset endpoint profile
@@ -271,7 +280,7 @@ items:
               - name: Transform data with map
                 href: connect-to-cloud/howto-dataflow-graphs-map.md
                 displayName: data flow, graph, rename, restructure, wildcard, copy, compute
-              - name: Filter and route data
+              - name: Filter, branch, and merge data
                 href: connect-to-cloud/howto-dataflow-graphs-filter-route.md
                 displayName: data flow, graph, drop, branch, concat, merge, condition
               - name: Aggregate data over time
@@ -280,27 +289,27 @@ items:
               - name: Enrich with external data
                 href: connect-to-cloud/howto-dataflow-graphs-enrich.md
                 displayName: data flow, graph, dataset, state store, context, lookup
+              - name: Throttle the flow of data
+                href: connect-to-cloud/howto-dataflow-graphs-throttle.md
+                displayName: data flow, graph, rate, limit, throttle, burst, maximum
               - name: Route messages to different topics
                 href: connect-to-cloud/howto-dataflow-graphs-topic-routing.md
                 displayName: data flow, graph, topic, routing, metadata, dynamic
               - name: Use WASM transforms
                 href: connect-to-cloud/howto-dataflow-graph-wasm.md
                 displayName: data flow, WebAssembly, graph, transform, custom, developer, deploy
-              - name: Schemas
-                href: connect-to-cloud/concept-dataflow-graphs-schema.md
-                displayName: data flow, graph, schema, nodeConnections, serialization
           - name: Destination
             href: connect-to-cloud/howto-configure-dataflow-destination.md
             displayName: data flow, MQTT, Kafka, topic, container, table, dynamic
           - name: Buffering and disk persistence
             href: connect-to-cloud/howto-configure-disk-persistence.md
             displayName: data flow, destination outage, restart, state, MQTT broker
-          - name: Expressions reference
-            href: connect-to-cloud/concept-dataflow-graphs-expressions.md
-            displayName: data flow, expression, function, operator, metadata, variable, conversion
           - name: Profiles
             href: connect-to-cloud/howto-configure-dataflow-profile.md
             displayName: data flow, scale, scaling
+          - name: Expressions reference
+            href: connect-to-cloud/concept-dataflow-graphs-expressions.md
+            displayName: data flow, expression, function, operator, metadata, variable, conversion, date, time, datetime, time stamp, timestamp, epoch
       - name: Develop edge applications
         items:
           - name: Developer guide

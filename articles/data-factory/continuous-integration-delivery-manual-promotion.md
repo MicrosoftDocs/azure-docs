@@ -13,6 +13,8 @@ ms.date: 01/29/2025
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Use the steps below to promote a Resource Manager template to each environment for continuous integration and delivery in Azure Data Factory.
 
 ## Steps to manually promote a template

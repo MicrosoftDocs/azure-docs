@@ -4,13 +4,25 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 05/21/2026
+ms.date: 8/16/2026
 # Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance.md#host-maintenance-and-lifecycle-management).
+
+## August 2026
+
+**Portable VMware Cloud Foundation licensing reference**
+
+A new portable VMware Cloud Foundation (VCF) licensing reference is available for Azure VMware Solution. It provides licensing rules, important dates, host and VMware vDefend Firewall core calculations, security and data-handling information, and compliance guidance. [Learn more](portable-vcf-licensing-reference.md)
+
+## July 2026
+
+**VMSA-2026-0006 remediation plan**
+
+To address the vulnerabilities (CVE-2026-59309, CVE-2026-59310, CVE-2026-47876, CVE-2026-41703, CVE-2026-41709) reported in Broadcom security advisory [VMSA-2026-0006](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/38017), all vCenter Server and ESXi hosts will be upgraded to [vCenter Server 8.0_U3k](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/vcenter-server-update-and-patch-release-notes/vsphere-vcenter-server-80u3k-release-notes.html) and [ESXi 8.0_U3k](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3k-release-notes.html), once vSphere 8.0 U3k has been fully qualified and tested with Azure VMware Solution (estimate August 2026). [Learn more](https://github.com/vmware/vcf-security-and-compliance-guidelines/tree/main/security-advisories/vmsa-2026-0006) 
 
 ## June 2026
 
@@ -20,8 +32,6 @@ nConnect support on Azure VMware Solution for Azure NetApp Files is now Generall
 
 ## May 2026
 
-**Disaster Recovery**
-
 **VMware Live Site Recovery** for Stretched Clusters is now Generally Available in Azure VMware Solution, enabling protection of workloads across regions.
 This capability delivers resilient cross-region disaster recovery with automated failover and minimal downtime.
 Mission-critical applications can now achieve higher availability and stronger business continuity at scale. [Learn More](/azure/azure-vmware/disaster-recovery-using-vmware-site-recovery-manager) 
@@ -30,10 +40,9 @@ Mission-critical applications can now achieve higher availability and stronger b
 
 Microsoft is migrating workload connectivity on Azure VMware Solution Gen 2 private clouds running the VNet Injection Service architecture from T0 NICs to 7170 Anchor NICs, and enabling iBGP Full Mesh topology. This improves network reliability, network reconvergence, and throughput on the Azure VMware Solution Gen 2 platform. If your private cloud is in scope, your Customer Success Account Manager will reach out to schedule a 4-hour maintenance window, after which you'll open a Support Request so a Cloud Support Specialist can coordinate the cutover with engineering and validate connectivity with you. Expect up to ~2 minutes of north-south connectivity loss during the maintenance window; east-west traffic and your Virtual Machines, datastores, vCenter, NSX, and HCX configurations are not impacted.
 
-**Azure VMware Solution Gen 1(Dell): Firmware Upgrades**
+**Azure VMware Solution Gen1 (Dell): Firmware Upgrades**
 
-Microsoft is upgrading firmware across Azure VMware Solution Gen 1 Dell hosts to remediate known security vulnerabilities and keep your environment on a supported baseline. If your private cloud is in scope, you'll receive advance notification through Azure Service Health with the scheduled maintenance window for your region, and you can reschedule through the self-serve option in the Azure portal within the available reschedule window. The upgrade is fully managed by Microsoft and runs through the Generalized Host Configuration Update (GHCU) framework. No action is required from you; your VMs, datastores, vCenter, NSX, and HCX configurations are not impacted. Ensure workloads follow standard resiliency patterns (High Availability, retry, load balancing) and avoid scheduling unrelated changes inside the notified window.
-
+Microsoft is upgrading firmware across Azure VMware Solution Gen1 Dell hosts to remediate known security vulnerabilities and keep your environment on a supported baseline. If your private cloud is in scope, you'll receive advance notification through Azure Service Health with the scheduled maintenance window for your region, and you can reschedule through the self-serve option in the Azure portal within the available reschedule window. The upgrade is fully managed by Microsoft and runs through the Generalized Host Configuration Update (GHCU) framework. No action is required from you; your VMs, datastores, vCenter Server, NSX, and HCX configurations are not impacted. Ensure workloads follow standard resiliency patterns (High Availability, retry, load balancing) and avoid scheduling unrelated changes inside the notified window.
 
 ## March 2026
 
@@ -43,15 +52,13 @@ All new Azure VMware Solution private clouds are being deployed with VMware NSX 
 
 **Microsoft Entra ID integration for Azure VMware Solution**
 
-Microsoft Entra ID intergration for Azure VMware Solution is now Generally Available (GA). This feature enables customers to utilize Microsoft Entra ID an an external identity source for vCenter, providing greater security and integration into Azure. [Learn More](configure-identity-source-vcenter.md#microsoft-entra-id-as-an-identity-source).
-
+Microsoft Entra ID integration for Azure VMware Solution is now Generally Available (GA). This feature enables customers to utilize Microsoft Entra ID an an external identity source for vCenter Server, providing greater security and integration into Azure. [Learn More](configure-identity-source-vcenter.md#microsoft-entra-id-as-an-identity-source).
 
 ## January 2026
 
-**Self-service maintenance orchestrator**
+**Maintenance Orchestrator**
 
-Self-service maintenance orchestration is now Generally Available (GA). This feature enables customers to schedule and reschedule planned maintenance directly from the Azure portal, providing greater visibility into and control over upcoming maintenance events. [Learn More](self-service-maintenance-orchestration.md)
-
+Maintenance Orchestrator is now Generally Available (GA). This feature enables customers to schedule and reschedule planned maintenance directly from the Azure portal, providing greater visibility into and control over upcoming maintenance events. [Learn More](maintenance-orchestration.md)
 
 ## December 2025
 
@@ -77,9 +84,9 @@ To enhance security, appropriate permissions are needed across Azure VMware Solu
 
 ## July 2025
 
-**Self-Service Maintenance Orchestrator (preview)**
+**Maintenance Orchestrator (preview)**
 
-Public preview of Self-Service Capabilities for Planned Maintenance. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/take-control-of-your-azure-vmware-solution-maintenance-schedule/4434496) 
+Public preview of capabilities for planning maintenance. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/take-control-of-your-azure-vmware-solution-maintenance-schedule/4434496) 
 
 **VCF 5.2.1 and VMSA-2025-0013 remediation**
 
@@ -229,7 +236,6 @@ Customers using the cloudadmin@vsphere.local credentials with the vSphere Client
 **Stretched Clusters Generally Available**
 
 Stretched Clusters for Azure VMware Solution is now available and provides 99.99 percent uptime for mission critical applications that require the highest availability. In times of availability zone failure, your virtual machines (VMs) and applications automatically fail over to an unaffected availability zone with no application impact. [Learn more](deploy-vsan-stretched-clusters.md)
-
 
 ## May 2023
 
@@ -397,7 +403,3 @@ Documented workarounds for the vSphere stack, as per [VMSA-2021-0002](https://ww
  
 >[!NOTE]
 >This is non-disruptive and should not impact the Azure VMware Solution service or workloads. During maintenance, various VMware vSphere alerts, such as _Lost network connectivity on DVPorts_ and _Lost uplink redundancy on DVPorts_, appear in vCenter Server and clear automatically as the maintenance progresses.
-
-## Post update
-Once complete, newer versions of VMware solution components will appear. If you notice any issues or have any questions, contact our support team by opening a support ticket.
-

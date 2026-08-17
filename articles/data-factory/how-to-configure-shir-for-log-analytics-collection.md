@@ -13,6 +13,8 @@ ms.author: whhender
 # Configure the self-hosted integration runtime (SHIR) for log analytics collection
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 ## Prerequisites
 
 An available Log Analytics workspace is required for this approach. We recommended you note down the workspace ID and authentication Key of your Log Analytics workspace as you might need it for certain scenarios. This solution will increase the data that will be sent to the Log Analytics workspace and will have a small impact on overall cost. Read on for details on how to keep the amount of data to a minimum.

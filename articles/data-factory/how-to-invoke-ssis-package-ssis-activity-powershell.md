@@ -4,8 +4,8 @@ description: This article describes how to run a SQL Server Integration Services
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: how-to
-ms.author: chugu
-author: chugugrace
+ms.author: makromer
+author: kromerm
 ms.custom: devx-track-azurepowershell
 ms.date: 05/15/2024
 ---
@@ -13,6 +13,8 @@ ms.date: 05/15/2024
 # Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory with PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline using PowerShell and the Execute SSIS Package activity.
 

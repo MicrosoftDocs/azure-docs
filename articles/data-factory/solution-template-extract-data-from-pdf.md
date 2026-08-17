@@ -13,6 +13,8 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article describes a solution template that you can use to extract data from a PDF source using Azure Data Factory and Azure Document Intelligence in Foundry Tools. 
 
 ## About this solution template

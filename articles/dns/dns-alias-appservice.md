@@ -12,7 +12,7 @@ ms.author: allensu
 
 # Host load-balanced Azure web apps at the zone apex
 
-The DNS protocol prevents the assignment of anything other than an A or AAAA record at the zone apex. An example zone apex is contoso.com. This restriction presents a problem for application owners who have load-balanced applications behind Traffic Manager. Pointing at the Traffic Manager profile from the zone apex record isn't possible. As a result, application owners must use a workaround. A redirect at the application layer must redirect from the zone apex to another domain. An example is a redirect from `contoso.com` to `www.contoso.com`. This arrangement presents a single point of failure for the redirect function.
+The DNS protocol prevents the assignment of a CNAME record at the zone apex. An example zone apex is contoso.com. This restriction presents a problem for application owners who have load-balanced applications behind Traffic Manager, because a Traffic Manager profile is normally referenced with a CNAME record. Pointing at the Traffic Manager profile from the zone apex record isn't possible with a CNAME record. As a result, application owners must use a workaround. A redirect at the application layer must redirect from the zone apex to another domain. An example is a redirect from `contoso.com` to `www.contoso.com`. This arrangement presents a single point of failure for the redirect function.
 
 With alias records, you no longer will have this problem. You can point your zone apex record to a Traffic Manager profile that has external endpoints. You can also point to the same Traffic Manager profile used for other domains within the DNS zone.
 

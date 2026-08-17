@@ -10,76 +10,115 @@ ms.date: 07/30/2024
 
 # What is Azure Web PubSub service?
 
-Azure Web PubSub Service makes it easy to build web applications where server and clients need to exchange data in real-time. Real-time data exchange is the bedrock of certain time-sensitive apps developers build and maintain. Developers have used the service in a variety of applications and industries, for example, in chat apps, real-time dashboards, multi-player games, online auctions, multi-user collaborative apps, location tracking, notifications, and more.
+Azure Web PubSub is a fully managed service for building applications that deliver updates in real time. It manages long-lived client connections and message delivery at scale, so you don't have to operate the underlying real-time infrastructure.
 
-When an app's usage is small, developers typically opt for a polling mechanism to provide real-time communication between server and clients - clients send repeated HTTP requests to server over a time interval. However, developers often report that while polling mechanism is straightforward to implement, it suffers three important drawbacks.
-- Outdated data.
-- Inconsistent data.
-- Wasted bandwidth and compute resources.
+Use Web PubSub to build chat apps, stream AI-generated tokens, update dashboards, deliver notifications, coordinate multiplayer games, track locations, and create other experiences where waiting for the next HTTP request isn't fast enough.
 
-These drawbacks are the primary motivations that drive developers to look for alternatives. This article provides an overview of Azure Web PubSub service and how developers can use it to build real-time communication channel fast and at scale.
+Instead of spending development time managing connections, scaling messaging servers, and implementing message fan-out, your team can focus on the experience your application provides.
 
-## What is Azure Web PubSub service used for?
+## Choose the development experience that fits your application
 
-### Streaming token in AI-assisted chatbot
-With the recent surge in interest in AI, Web PubSub has become an invaluable tool to developers building AI-enabled applications for token streaming. The service is battle-tested to scale to tens of millions of concurrent connections and offers ultra-low latency.
+Web PubSub offers multiple ways to build real-time applications. Each option solves a different development need while providing managed, scalable real-time communication.
 
-### Delivering real-time updates
-Any app scenario where updates at the data resource need to be delivered to other components across network can benefit from using Azure Web PubSub. As the name suggests, the service facilitates the communication between a publisher and subscribers. A publisher is a component that publishes data updates. A subscriber is a component that subscribes to data updates.
+| Capability | Choose it when you want to | Developer value |
+| --- | --- | --- |
+| **Web PubSub (base service)** | Design a custom real-time application by using connections, users, groups, and events. | Get flexible messaging primitives without operating WebSocket infrastructure. |
+| **[Socket.IO on Azure](./socketio-overview.md)** | Use the Socket.IO programming model or move an existing Socket.IO application to Azure. | Keep familiar Socket.IO APIs while Azure manages connection scaling and coordination. |
+| **[MQTT support](./overview-mqtt.md)** | Connect MQTT clients over WebSocket or exchange messages between MQTT and native Web PubSub clients. | Reuse MQTT libraries and add protocol interoperability without building a translation layer. |
+| **[Web PubSub chat](./chat-overview.md)** | Build chat with rooms, members, ordered messages, and message history. | Start with chat-specific APIs and managed capabilities instead of assembling a chat backend yourself. |
 
-Azure Web PubSub service is used in a multitude of industries and app scenarios where data is time-sensitive. Here's a partial list of some common use cases.
+If you're not sure which option fits your application, see [Choose an Azure Web PubSub capability](./choose-web-pubsub-capability.md).
 
-|Use case              |Example applications   |
-|----------------------|----------------------|
-|High frequency data updates | Multi-player games, social media voting, opinion polling, online auctioning |
-|Live dashboards and monitoring | Company dashboard, financial market data, instant sales update, game leaderboard, IoT monitoring |
-|Cross-platform chat| Live chat room, online customer support, real-time shopping assistant, messenger, in-game chat |
-|Location tracking | Vehicle asset tracking, delivery status tracking, transportation status updates, ride-hailing apps |
-|Multi-user collaborative apps | coauthoring, collaborative whiteboard and team meeting apps |
-|Cross-platform push notifications | Social media, email, game status, travel alert |
-|IoT and connected devices | Real-time IoT metrics, managing charging network for electric vehicles, live concert engagement |
-|Automation | Real-time trigger from upstream events |
+## What can you build with the base service?
 
-## What are the benefits using Azure Web PubSub service?
+The base Web PubSub service is a good fit when your application needs low-latency communication and you want control over its event model, message format, and business logic.
 
-**Built-in support for large-scale client connections and highly available architectures:**
+### Stream tokens in AI-assisted applications
 
-Azure Web PubSub service is designed for large-scale, real-time applications. With a single Web PubSub resource, it can scale to 1 million concurrent connections, which is sufficient for most cases. When multiple resources are used together, the service allows you to scale beyond 1 million concurrent connections. Meanwhile, it also supports multiple global regions for sharding, high availability, or disaster recovery purposes.
+Use Web PubSub to stream generated tokens to connected clients as they become available. Users can see a response take shape immediately instead of waiting for the entire response to finish.
 
-**Support for a wide variety of client SDKs and programming languages:**
+For applications that need a complete chat model with rooms, members, and message history, consider [Web PubSub chat](./chat-overview.md).
 
-Azure Web PubSub service works with a broad range of clients. These clients include web and mobile browsers, desktop apps, mobile apps, server processes, IoT devices, and game consoles. Server and client SDKs are available for mainstream programming languages, C#, Java, JavaScript, and Python, making it easy to consume the APIs offered by the service. Since the service supports standard WebSocket protocol, you can use any REST capable programming languages to call Web PubSub's APIs directly if SDKs aren't available in your programming language of choice.
+### Deliver real-time updates
 
-**Offer rich APIs for different messaging patterns:**
+Web PubSub helps a publisher deliver a data update to one or more subscribers as soon as the update is available. This pattern applies across many industries and application types.
 
-Azure Web PubSub service offers real-time, bi-directional communication between server and clients for data exchange. The service offers features to allow you to finely control how a message should be delivered and to whom. Here's a list of supported messaging patterns.
+| Use case | Example applications |
+| --- | --- |
+| High-frequency data updates | Multiplayer games, social media voting, opinion polling, and online auctions |
+| Live dashboards and monitoring | Company dashboards, financial market data, sales updates, game leaderboards, and IoT monitoring |
+| Custom chat and messaging | Live chat rooms, customer support, shopping assistants, messengers, and in-game chat |
+| Location tracking | Asset tracking, delivery status, transportation updates, and ride-hailing apps |
+| Multiuser collaboration | Coauthoring, collaborative whiteboards, and team meeting apps |
+| Push notifications | Social media, email, game status, and travel alerts |
+| Connected devices | Live IoT metrics, electric vehicle charging networks, and live event engagement |
+| Automation | Real-time triggers from upstream events |
 
-|Messaging pattern              |Details                         |
-|-------------------------------|--------------------------------|
-|Broadcast to all clients | A server sends data updates to all connected clients. |
-|Broadcast to a subset of clients | A server sends data updates to a subset of clients arbitrarily defined by you. |
-|Broadcast to all clients owned by a specific human user | A human user can have multiple browser tabs or device open, you can broadcast to the user so that all the web clients used by the user are synchronized. |
-|Client pub/sub | A client sends messages to clients that are in a group arbitrarily defined by you without your server's involvement.|
-|Clients to server | Clients send messages to server at low latency. |
+## Why use Azure Web PubSub?
 
-## How to use the Azure Web PubSub service?
+### Support enterprise application requirements
 
-There are many different ways to program with Azure Web PubSub service, as some of the samples listed here:
+Web PubSub provides controls for running real-time communication as part of a secure, observable, and resilient enterprise architecture.
 
-- **Build serverless real-time applications**: Use Azure Functions' integration with Azure Web PubSub service to build serverless real-time applications in languages such as JavaScript, C#, Java and Python.
-- **Use WebSocket subprotocol to do client-side only Pub/Sub** - Azure Web PubSub service provides WebSocket subprotocols including MQTT to empower authorized clients to publish to other clients in a convenient manner.
-- **Use provided SDKs to manage the WebSocket connections in self-host app servers** - Azure Web PubSub service provides SDKs in C#, JavaScript, Java and Python to manage the WebSocket connections easily, including broadcast messages to the connections, add connections to some groups, or close the connections, etc.
-- **Send messages from server to clients via REST API** - Azure Web PubSub service provides REST API to enable applications to post messages to clients connected, in any REST capable programming languages.
+| Requirement | What Web PubSub provides | Developer value |
+| --- | --- | --- |
+| Scale with demand | A single resource can scale to 1 million concurrent connections. The Premium tier supports [Azure Monitor autoscale](./howto-scale-autoscale.md) based on service metrics or a schedule. | Maintain performance as traffic changes and avoid manually adjusting capacity for every peak or quiet period. |
+| Control network exposure | Use [private endpoints](./howto-secure-private-endpoints.md), disable public network access, apply IP rules, and allow or deny request types for public and private endpoints with [network access control](./howto-secure-network-access-control.md). | Keep service traffic on private networks where required and restrict sensitive operations, such as REST API calls, to approved network paths. |
+| Use identity-based access | Authorize requests by using [Microsoft Entra ID and Azure role-based access control](./concept-azure-ad-authorization.md). Web PubSub can also use a [managed identity](./howto-use-managed-identity.md) to authenticate requests to event handlers and access Key Vault references. | Apply least-privilege access and reduce the need to distribute or manage access keys in application code. |
+| Design for failures and global users | The Premium tier provides automatic zone redundancy in supported regions. [Geo-replication](./howto-enable-geo-replication.md) can route clients to a healthy, nearby replica and handles communication across replicas. | Build for availability zone or regional failures and serve geographically distributed users without creating your own cross-region messaging layer. |
+| Observe service health | Built-in [service metrics](./concept-metrics.md) cover connections, quota utilization, server load, traffic, REST API response time, and client request status. You can use Azure Monitor to create metric-based alerts. | Detect capacity and reliability issues early and integrate Web PubSub into existing operational monitoring. |
 
+> [!NOTE]
+> Autoscale, zone redundancy, and geo-replication require the Premium tier. Zone redundancy is available in supported regions.
+
+For production reliability recommendations and failover behavior, see [Reliability in Azure Web PubSub Service](/azure/reliability/reliability-web-pubsub).
+
+### Reach clients across platforms and languages
+
+Web PubSub works with web and mobile browsers, desktop and mobile apps, server processes, IoT devices, and game consoles. Server and client SDKs are available for C#, Java, JavaScript, and Python. Because the base service supports standard WebSocket and REST APIs, applications can also integrate without an SDK.
+
+### Control how messages reach clients
+
+The base service supports common delivery patterns without requiring you to build the connection routing layer.
+
+| Messaging pattern | What it enables |
+| --- | --- |
+| Broadcast to all clients | Send an update to every connected client. |
+| Send to a group | Reach a subset of clients defined by your application. |
+| Send to a user | Synchronize all connections that belong to a user, including multiple devices or browser tabs. |
+| Client pub/sub | Allow authorized clients in a group to exchange messages without routing every message through your application server. |
+| Client-to-server messaging | Receive client events in your application backend with low latency. |
+
+## How can you use the base service?
+
+Choose the integration model that best fits your architecture:
+
+- **Build serverless real-time applications:** Use Azure Functions integration with Web PubSub in JavaScript, C#, Java, or Python.
+- **Enable client pub/sub:** Use a Web PubSub subprotocol so authorized clients can publish messages to other clients.
+- **Integrate an application server:** Use a service SDK to send messages, manage groups, and close connections.
+- **Call the REST API:** Send messages from any backend that can make REST requests.
 
 ## Next steps
-### 1. Try a live demo
-The quickest way to experience the service is to explore one of our interactive demos. No setup required!  
+
+### Choose a capability
+
+Compare the available programming models and the work each one handles for you.
+
+> [!div class="nextstepaction"]
+> [Choose an Azure Web PubSub capability](./choose-web-pubsub-capability.md)
+
+### Try a live demo
+
+Experience real-time messaging with no setup.
+
 > [!div class="nextstepaction"]
 > [Play with a chat demo app](https://azure.github.io/azure-webpubsub/demos/chat)
 
-### 2. Explore service features in the Azure portal  
-Next, get hands-on with key features of the service using [playground](./quickstarts-livetry.md). This lets you experiment directly in the Azure portal—no code or local setup needed.
+### Explore the base service
 
-### 3. Build your own app locally
-Ready to see how the service fits into your project? Follow our [quickstart guide](./quickstarts-pubsub-among-clients.md) to spin up a local app and try out the core messaging patterns supported by Azure Web PubSub.
+Experiment with core Web PubSub features directly in the Azure portal, or build a local pub/sub application.
+
+> [!div class="nextstepaction"]
+> [Explore the Web PubSub playground](./quickstarts-playground.md)
+>
+> [Build a pub/sub application](./quickstarts-pubsub-among-clients.md)

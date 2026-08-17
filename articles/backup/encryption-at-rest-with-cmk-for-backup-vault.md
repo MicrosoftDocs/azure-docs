@@ -69,6 +69,8 @@ Before you enable encryption on a Backup vault, review the following considerati
 
 - Key vaults that limit access to specific networks are currently not supported with User-assigned managed identities for CMK encryption.
 
+- Register the `Microsoft.DataProtection` resource provider at the subscription level to configure encryption settings.
+
 ## Enable encryption by using customer-managed keys at vault creation
 
 When you create a Backup vault, you can enable encryption on backups by using CMKs. [Learn how to create a Backup vault](create-manage-backup-vault.md#create-a-backup-vault).

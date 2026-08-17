@@ -7,7 +7,7 @@ author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 06/22/2026
-ms.update-cycle: 1095
+ms.update-cycle: 1095-days
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -17,6 +17,8 @@ ms.custom:
 # Copy data from Azure Database for MariaDB using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 > [!IMPORTANT]
 > This connector is at [End of Support stage](connector-deprecation-plan.md). Please migrate to [Azure Database for MySQL connector](connector-azure-database-for-mysql.md). You can also refer to this [article](https://techcommunity.microsoft.com/blog/adformysql/migrating-from-azure-database-for-mariadb-to-azure-database-for-mysql/3838455) for the Azure Database for MariaDB migration guidance.

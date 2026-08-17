@@ -6,7 +6,7 @@ services: cdn
 author: halkazwini
 ms.author: halkazwini
 manager: KumudD
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: troubleshooting
 ms.date: 02/28/2026
 ms.custom: devx-track-azurepowershell

@@ -27,6 +27,9 @@ There are three ExpressRoute resiliency architectures that can be utilized to en
 * [Maximum resiliency](#maximum-resiliency)
 * [High resiliency](#high-resiliency)
 * [Standard resiliency](#standard-resiliency)
+  
+> [!NOTE]
+> As part of Microsoft and our partners’ commitment to high availability by default, ExpressRoute users will not be able to deploy standard resiliency ExpressRoute Circuits in some locations where their chosen service provider supports High Resiliency, or ExpressRoute Metro. This policy is in place to ensure that customers use the optimal service architecture – as ExpressRoute Metro offers improved resiliency at the same cost as a standard resiliency ExpressRoute Circuit. For scenarios which require Maximum Resiliency, check with your service provider to see other locations where you can deploy a second ExpressRoute Metro Circuit to achieve the Maximum Resiliency architecture. 
 
 ### Maximum resiliency
 
