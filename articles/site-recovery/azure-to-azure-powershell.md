@@ -562,6 +562,9 @@ Succeeded
 
 Fail over the virtual machine to a specific recovery point.
 
+> [!NOTE]
+> The `RecoveryPointTime` values returned by this command are in UTC, while the **Latest Recovery Points** timestamp shown in the Azure portal is displayed in your local time zone.
+
 ```azurepowershell
 $RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedItem $ReplicationProtectedItem
 
