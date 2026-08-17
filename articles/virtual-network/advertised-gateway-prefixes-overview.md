@@ -37,7 +37,7 @@ By default, Azure VPN Gateway and ExpressRoute Gateway advertise all address spa
 
 When you set `summarizedGatewayPrefixes`:
 
-- Azure VPN Gateway and ExpressRoute Gateway ignore the address space of the virtual network with the gateway (hub) and publish the summarized prefixes instead.
+- Azure VPN Gateway and ExpressRoute Gateway publish the summarized prefixes list from the virtual network with the gateway (hub). Azure VPN Gateway and ExpressRoute Gateway then check the hub address space and do not publish any addresses that are covered by the summarized space. If the address space isn't covered, it is still advertised.
 
 - When configuring summarized CIDRs, ensure that the summarized prefix includes the gateway virtual network address space.
 
