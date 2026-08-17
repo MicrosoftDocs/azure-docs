@@ -468,7 +468,7 @@ output result object = deploymentScript.properties.outputs
 The approach to handling outputs varies based on the type of script you're using-the Azure CLI or Azure PowerShell.
 
 > [!IMPORTANT]
-> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. This information might be retrievable through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that sensitive information isn't exposed in deployment script logs.
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. You might retrieve this information through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that deployment script logs don't expose sensitive information.
 
 # [CLI](#tab/CLI)
 

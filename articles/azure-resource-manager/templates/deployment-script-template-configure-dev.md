@@ -11,6 +11,9 @@ ms.devlang: azurecli
 
 Learn how to create a development environment for developing and testing ARM template deployment scripts with a deployment script image. You can either create an [Azure container instance](/azure/container-instances/container-instances-overview) or use [Docker](https://docs.docker.com/get-docker/). Both options are covered in this article.
 
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. You might retrieve this information through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that deployment script logs don't expose sensitive information.
+
 ## Prerequisites
 
 ### Azure PowerShell container
@@ -39,9 +42,6 @@ echo $OUTPUT | jq -r '.name.displayName'
 
 > [!NOTE]
 > When you run an Azure CLI deployment script, an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` stores the location of the script output file. The environment variable isn't available in the development environment container. For more information about working with Azure CLI outputs, see [Work with outputs from CLI script](deployment-script-template.md#work-with-outputs-from-cli-scripts).
-
-> [!IMPORTANT]
-> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. This information might be retrievable through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that sensitive information isn't exposed in deployment script logs.
 
 ## Use Azure PowerShell container instance
 
