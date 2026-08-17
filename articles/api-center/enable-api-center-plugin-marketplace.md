@@ -18,7 +18,7 @@ This article shows how to enable discovery of plugins through a plugin marketpla
 Developers can add the plugin marketplace to their GitHub Copilot CLI or Claude Code development environment to discover and install plugins from your API center.
 
 > [!NOTE]
-> Currently, only anonymous access is supported for the marketplace endpoint.
+> Currently, the marketplace endpoint supports only anonymous access.
 
 ## Prerequisites
 
