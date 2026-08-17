@@ -28,6 +28,8 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 **Reindex reliability improvement**: The running reindex check was moved to the data store, improving reliability of the reindex operation.
 
+**Microsoft Entra security group support removed for local RBAC**: Assigning data plane access to a Microsoft Entra security group in the **Allowed object IDs** list is no longer supported. Grant access directly to individual users or service principals instead. This change keeps Azure API for FHIR aligned with current security practices and limits the access the service needs to your directory. For more information, see [Configure local RBAC for FHIR](configure-local-rbac.md).
+
 #### Bug fixes:
 
 **Fix for date filtering in bulk delete jobs**: Fixed an issue where the date filter was not correctly applied to bulk delete jobs, which could result in deletions beyond the intended date range.
