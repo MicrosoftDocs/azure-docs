@@ -6,7 +6,7 @@ author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: v-gajeronika
-ms.date: 05/25/2026
+ms.date: 08/17/2026
 ms.custom: devx-track-azurepowershell
 
 
