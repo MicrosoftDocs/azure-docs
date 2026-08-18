@@ -27,6 +27,9 @@ To use the [ARG GET/LIST API](./guidance-for-throttled-requests.md#arg-getlist-a
 
 This opt-in model was deliberately chosen to allow the Azure Resource Graph team to better understand customer usage patterns and make improvements as needed. 
 
+> [!NOTE]
+> Azure Resource Graph data isn't strongly consistent. Data is indexed with a short latency. For more information and guidance on managing eventual consistency, see [Choose the right query strategy for Azure Resource Graph](../choose-query-strategy.md).
+
 Refer to some known limitations [here](#known-limitations) and [frequently asked questions](#frequently-asked-questions).
 
 ## ARG GET/LIST API Contract  
