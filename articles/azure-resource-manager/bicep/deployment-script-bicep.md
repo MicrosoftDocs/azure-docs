@@ -71,7 +71,7 @@ For deployment script API version `2020-10-01` or later, two principals are invo
   If you use a managed identity, the deployment principal needs the built-in Managed Identity Operator role assigned to the managed identity resource.
 
   > [!IMPORTANT]
-  > If you assign a managed identity with permissions that exceed the script's operational requirements, you are responsible for ensuring the storage account is protected from unintended access. Wherever possible, follow the principle of least privilege.
+  > If you assign a managed identity with permissions that exceed the script's operational requirements, the script author is responsible for ensuring the storage account is protected from unintended access. Wherever possible, follow the principle of least privilege.
 
 A built-in role isn't tailored for configuring deployment script permissions at this time.
 
