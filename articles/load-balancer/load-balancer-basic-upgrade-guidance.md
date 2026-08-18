@@ -53,12 +53,17 @@ When manually migrating from a Basic to Standard SKU Load Balancer, there are a 
 - Standard SKU public IP addresses are secure by default, requiring that a Network Security Group explicitly allow traffic to any public IPs
 - Standard SKU Load Balancers block outbound access by default. To enable outbound access, a public load balancer needs an outbound rule for backend members. For private load balancers, either configure a NAT Gateway on the backend pool members' subnet or add instance-level public IP addresses to each backend member. 
 
-Suggested order of operations for manually upgrading a Basic Load Balancer in common virtual machine and virtual machine scale set configurations using the Portal:
+The following list suggests the order of operations for manually upgrading a Basic Load Balancer in common virtual machine and virtual machine scale set configurations by using the Azure portal:
+
+### Prepare the Basic Load Balancer configuration
 
 1. Change all Public IPs associated with the Basic Load Balancer and backend Virtual Machines to 'static' allocation
 1. For private Load Balancers, record the private IP addresses allocated to the frontend IP configurations
 1. Record the backend pool membership of the Basic Load Balancer
 1. Record the load balancing rules, NAT rules, and health probe configuration of the Basic Load Balancer
+
+### Recreate and validate the Standard Load Balancer configuration
+
 1. Create a new Standard SKU Load Balancer, matching the public or private configuration of the Basic Load Balancer. Name the frontend IP configuration something temporary. For public load balancers, use a new Public IP address for the frontend configuration. For guidance, see [Create a Public Load Balancer in the Portal](./quickstart-load-balancer-standard-public-portal.md) or [Create an Internal Load Balancer in the Portal](./quickstart-load-balancer-standard-internal-portal.md)
 1. Duplicate the Basic SKU Load Balancer configuration for the following:
     1. Backend pool names
@@ -67,6 +72,13 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
     1. Load balancing rules - use the temporary frontend configuration
     1. NAT rules - use the temporary frontend configuration
 1. For public load balancers, if you don't have one already, [create a new Network Security Group](../virtual-network/tutorial-filter-network-traffic.md) with allow rules for the traffic coming through the Load Balancer rules
+1. Confirm that the Standard Load Balancer contains the expected temporary frontend, backend pools, probes, and rules. Resolve any configuration errors before continuing.
+
+   > [!IMPORTANT]
+   > This checkpoint validates the recreated configuration, not live application traffic. Basic and Standard SKU resources can't be mixed, so complete live traffic validation after cutover. Keep the recorded Basic Load Balancer configuration and don't delete the Basic resource if the Standard configuration doesn't validate.
+
+### Cut over to Standard Load Balancer
+
 1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and [update the instances](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades) 
 1. Delete the Basic Load Balancer 
    > [!NOTE]
@@ -75,8 +87,11 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
 1. Recreate the frontend configurations from the Basic Load Balancer on the newly created Standard Load Balancer, using the same public or private IP addresses as on the Basic Load Balancer
 1. Update the load balancing and NAT rules to use the appropriate frontend configurations
 1. For public Load Balancers, [create one or more outbound rules](./outbound-rules.md) to enable internet access for backend pools
-1. Remove the temporary frontend configuration
-1. Test that inbound and outbound traffic flow through the new Standard Load Balancer as expected 
+
+### Verify traffic and clean up
+
+1. Test that inbound and outbound traffic flow through the new Standard Load Balancer as expected.
+1. Remove the temporary frontend configuration.
 
 ## FAQ
 

@@ -387,16 +387,12 @@
         href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/frontdoor/toc.json
       - name: DDoS protection
         href: ../cdn/cdn-ddos.md?toc=/azure/frontdoor/toc.json
-  - name: Operation excellence
+  - name: Operational excellence
     items:
-    - name: CDN (classic) from Microsoft
-      items:
-      - name: HTTP/2 support
-        href: ../cdn/cdn-http2.md?toc=/azure/frontdoor/toc.json
-      - name: Retrieve POP IPs
-        href: ../cdn/cdn-pop-list-api.md?toc=/azure/frontdoor/toc.json
-      - name: China content delivery
-        href: ../cdn/cdn-china-delivery.md?toc=/azure/frontdoor/toc.json
+    - name: HTTP/2 support
+      href: ../cdn/cdn-http2.md?toc=/azure/frontdoor/toc.json
+    - name: Retrieve POP IPs
+      href: ../cdn/cdn-pop-list-api.md?toc=/azure/frontdoor/toc.json
   - name: Troubleshoot
     items:
     - name: CDN
