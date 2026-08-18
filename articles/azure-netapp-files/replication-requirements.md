@@ -19,7 +19,7 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 * Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant. 
 
-* Azure NetApp Files replication uses the Azure backend infrastructure for the replication traffic. There is no need to setup VNet peering for enabling replication.
+* Azure NetApp Files replication uses the Azure backend infrastructure for the replication traffic. There's no need to set up VNet peering for enabling replication.
 
 * Cross-zone and cross-region replication are supported with both Network File System (NFS) and Server Message Block (SMB) volumes.
 
