@@ -16,7 +16,7 @@ With `Microsoft.Resources/deploymentScripts` version `2023-08-01`, you can run d
 - Create a storage account in the private network, and specify the deployment script to use the existing storage account. For more information, see [Use an existing storage account](./deployment-script-develop.md#use-an-existing-storage-account). Some additional configuration is required for the storage account:
 
   > [!IMPORTANT]
-  > If you assign a managed identity with permissions that exceed the script's operational requirements, you are responsible for ensuring the storage account is protected from unintended access. Wherever possible, follow the principle of least privilege.
+  > If you assign a managed identity with permissions that exceed the script's operational requirements, the script author is responsible for ensuring the storage account is protected from unintended access. Wherever possible, follow the principle of least privilege.
 
     1. Open the storage account in the [Azure portal](https://portal.azure.com).
     1. On the left menu, select **Access Control (IAM)**, and then select the **Role assignments** tab.
