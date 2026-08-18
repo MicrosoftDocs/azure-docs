@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: overview
-ms.date: 4/10/2026
+ms.date: 08/18/2026
 ms.author: mbender
 ms.custom: references_regions, devx-track-azurepowershell
 # Customer intent: As a cloud architect, I want to understand the features and enhancements of Azure Application Gateway v2, so that I can effectively plan migration from v1 and utilize its capabilities for improved application performance and reliability.
@@ -20,9 +20,9 @@ Application Gateway v2 is the latest version of Application Gateway. It provides
 
 ## Key capabilities
 
-The v2 SKU includes the following enhancements:
+The v2 SKU includes the following enhancements. Availability depends on the SKU type: Basic, Standard_v2, or WAF_v2. This section explains what each capability does. For per-SKU availability, see the Basic and Standard_v2 comparison in [SKU types](#sku-types), and see [Feature comparison between v1 SKU and v2 SKU](#feature-comparison-between-v1-sku-and-v2-sku) for the authoritative v1 and v2 feature inventory.
 
-- **TCP/TLS proxy**: Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying. For more information, see [Application Gateway TCP/TLS proxy overview](tcp-tls-proxy-overview.md).
+- **TCP/TLS proxy**: Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying. This capability isn't available in the Basic SKU. For more information, see [Application Gateway TCP/TLS proxy overview](tcp-tls-proxy-overview.md).
 - **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale out or in based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. This SKU offers true elasticity. In the Standard_v2 and WAF_v2 SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) and in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see variance in application traffic.
 - **Zone redundancy**: Application Gateway or WAF deployments span multiple Availability Zones by default, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. Application Gateway instances are deployed (by default) in a minimum of two availability zones, which makes it more resilient to zone failure. The backend pool for applications can be similarly distributed across availability zones.
 
@@ -30,26 +30,25 @@ The v2 SKU includes the following enhancements:
 - **Static VIP**: Application Gateway v2 SKU supports the static VIP type exclusively. Static VIP ensures that the VIP associated with the application gateway doesn't change for the lifecycle of the deployment, even after a restart. You must use the application gateway URL for domain name routing to App Services via the application gateway, as v1 doesn't have a static VIP.
 - **Header Rewrite**: Application Gateway allows you to add, remove, or update HTTP request and response headers with v2 SKU. For more information, see [Rewrite HTTP headers with Application Gateway](./rewrite-http-headers-url.md)
 - **Key Vault Integration**: Application Gateway v2 supports integration with Key Vault for server certificates that are attached to HTTPS enabled listeners. For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
-- **Mutual Authentication (mTLS)**: Application Gateway v2 supports authentication of client requests. For more information, see [Overview of mutual authentication with Application Gateway](mutual-authentication-overview.md).
-- **Azure Kubernetes Service Ingress Controller**: The Application Gateway v2 Ingress Controller allows the Azure Application Gateway to be used as the ingress for an Azure Kubernetes Service (AKS) known as AKS Cluster. For more information, see [What is Application Gateway Ingress Controller](ingress-controller-overview.md).
-- **Private link**: The v2 SKU offers private connectivity from other virtual networks in other regions and subscriptions by using private endpoints.
+- **Mutual Authentication (mTLS)**: Application Gateway v2 supports authentication of client requests. This capability isn't available in the Basic SKU. For more information, see [Overview of mutual authentication with Application Gateway](mutual-authentication-overview.md).
+- **Azure Kubernetes Service Ingress Controller**: The Application Gateway v2 Ingress Controller allows the Azure Application Gateway to be used as the ingress for an Azure Kubernetes Service (AKS) known as AKS Cluster. This capability isn't available in the Basic SKU. For more information, see [What is Application Gateway Ingress Controller](ingress-controller-overview.md).
+- **Private link**: The v2 SKU offers private connectivity from other virtual networks in other regions and subscriptions by using private endpoints. This capability isn't available in the Basic SKU.
 - **Performance enhancements**: The v2 SKU offers up to 5X better TLS offload performance as compared to the Standard/WAF SKU.
 - **Faster deployment and update time**: The v2 SKU provides faster deployment and update time as compared to Standard/WAF SKU. The faster time also includes WAF configuration changes.
 
 :::image type="content" source="./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png" alt-text="Screenshot of Application Gateway auto-scaling zone redundant architecture diagram.":::
 
-> [!NOTE]
-> Some of the capabilities listed here are dependent on the SKU type.
-
 ## SKU types
 
-Application Gateway v2 is available under two SKUs: 
+Application Gateway v2 is available in three SKUs: Basic, Standard_v2, and WAF_v2.
+
 - **Basic** (preview): The Basic SKU is designed for applications that have lower traffic and SLA requirements, and don't need advanced traffic management features. [Register for the Basic SKU preview](#register-for-the-preview).
-- **Standard_v2 SKU**: The Standard_v2 SKU is designed for running production workloads and high traffic. It includes [autoscaling](high-traffic-support.md#autoscaling-for-application-gateway-v2-sku-standard_v2waf_v2-sku), which can automatically adjust the number of instances to match your traffic needs.
+- **Standard_v2**: The Standard_v2 SKU is designed for running production workloads and high traffic. It includes [autoscaling](high-traffic-support.md#autoscaling-for-application-gateway-v2-sku-standard_v2waf_v2-sku), which can automatically adjust the number of instances to match your traffic needs.
+- **WAF_v2**: The WAF_v2 SKU adds Azure Web Application Firewall protection, which inspects the entire request to detect and block threats.
 
-The following table displays a comparison between Basic and Standard_v2.
+The following table compares only the Basic and Standard_v2 SKUs. It doesn't include WAF_v2. For the features available in the v2 SKUs overall, see [Feature comparison between v1 SKU and v2 SKU](#feature-comparison-between-v1-sku-and-v2-sku).
 
-|      Feature             | Capabilities                             | Basic SKU (preview)|   Standard SKU    |
+|      Feature             | Capabilities                             | Basic SKU (preview)|   Standard_v2 SKU    |
 |     :---:                | :---                                     |     :---:      |     :---:         |
 | Reliability              | SLA                                      | 99.9           | 99.95             |
 | Functionality - basic    | HTTP/HTTP2/HTTPS<br>WebSocket<br>Public/Private IP<br>Cookie Affinity<br>Path-based affinity<br>Wildcard<br>Multisite<br>KeyVault<br>Zone<br>Header rewrite | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;|
@@ -78,7 +77,7 @@ An Azure PowerShell script is available in the PowerShell gallery to help you mi
 
 ### Feature comparison between v1 SKU and v2 SKU
 
-The following table compares the features available with each SKU.
+The following table is the authoritative inventory of the features available with each SKU.
 
 | Feature                                           | v1 SKU   | v2 SKU   |
 | ------------------------------------------------- | -------- | -------- |
@@ -122,9 +121,9 @@ This section describes features and limitations of the v2 SKU that differ from t
 |Performance logs in Azure diagnostics|Not supported.<br>Use Azure metrics.|
 |FIPS mode|Currently not supported.|
 |Path based rule encoding |Not supported.<br> V2 decodes paths before routing. For example, V2 treats `/abc%2Fdef` the same as `/abc/def`. |
-|Chunked file transfer |In the Standard_V2 configuration, turn off request buffering to support chunked file transfer. <br> In WAF_V2, turning off request buffering isn't possible because it has to look at the entire request to detect and block any threats. Therefore, the suggested alternative is to create a path rule for the affected URL and attach a disabled WAF policy to that path rule.|
+|Chunked file transfer |In the Standard_v2 configuration, turn off request buffering to support chunked file transfer. <br> In WAF_v2, turning off request buffering isn't possible because it has to look at the entire request to detect and block any threats. Therefore, the suggested alternative is to create a path rule for the affected URL and attach a disabled WAF policy to that path rule.|
 |Cookie Affinity |Current V2 doesn't support appending the domain in session affinity Set-Cookie, which means that clients of the subdomains can't use the cookie.|
-|Microsoft Defender for Cloud integration|Not yet available.
+|Microsoft Defender for Cloud integration|Not yet available.|
 
 ## Register for the preview
 

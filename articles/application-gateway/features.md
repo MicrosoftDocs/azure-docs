@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 07/16/2026
+ms.date: 08/18/2026
 ms.author: mbender
 # Customer intent: "As a web application administrator, I want to configure and manage an application gateway, so that I can optimize traffic distribution, enhance security, and ensure high availability for my web applications."
 ---
@@ -28,6 +28,8 @@ Application gateway supports SSL/TLS termination at the gateway, after which tra
 For more information, see [Overview of SSL termination and end to end SSL with Application Gateway](ssl-overview.md)
 
 ## Autoscaling
+
+Autoscaling is a capability of the Application Gateway Standard_v2 SKU. For the fixed instance sizes offered by the Application Gateway Standard (v1) SKU, see [Sizing](#sizing).
 
 Application Gateway Standard_v2 supports autoscaling and can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. 
 
