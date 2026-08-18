@@ -207,7 +207,7 @@ az network cross-region-lb rule create --backend-port 80 --frontend-port 80 --lb
 
 ## Add load balancer frontends to global load balancer
 
-In this section, you add a regional load balancer's frontend IP configuration as a backend address in the global load balancer's backend pool. Because the regional load balancers are in a different subscription than the global load balancer, this is a cross-subscription backend configuration.
+In this section, you add a regional load balancer's frontend IP configuration as a backend address in the global load balancer's backend pool. Because the regional load balancers are in a different subscription than the global load balancer, this configuration is a cross-subscription backend configuration.
 
 # [Azure PowerShell](#tab/azurepowershell)
 
