@@ -108,8 +108,6 @@ To write custom telemetry data from your functions, the recommended approach is 
 
 You can also use language-specific classic Application Insights SDKs to write custom telemetry in [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#track-custom-data), and [Python](functions-reference-python.md#logging-and-monitoring). However, these classic SDKs are legacy and won't receive new feature updates. Plan to [migrate to OpenTelemetry](opentelemetry-howto.md) for long-term support.
 
-You can also use language-specific classic Application Insights SDKs to write custom telemetry in [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#track-custom-data), and [Python](functions-reference-python.md#logging-and-monitoring). However, these classic SDKs are legacy and don't receive new feature updates. Plan to [migrate to OpenTelemetry](opentelemetry-howto.md) for long-term support.
-
 ### Dependencies
 
 Starting with version 2.x of Functions, Application Insights automatically collects data on dependencies for bindings that use certain client SDKs. Application Insights collects data on the following dependencies:
