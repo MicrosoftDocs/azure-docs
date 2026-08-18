@@ -5,7 +5,7 @@ services: api-management
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 03/31/2025
+ms.date: 08/18/2026
 ---
 
 # Limit call rate by subscription
@@ -73,6 +73,9 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | id           | The ID of the operation for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     | 
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. Policy expressions aren't allowed.| Yes      | N/A     |
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds. Policy expressions aren't allowed.                                           | Yes      | N/A     |
+
+> [!IMPORTANT]
+> Linked access isn't checked when an API or operation is referenced by using the `name` or `id` attribute. A user who has permission to write a policy can reference any available API or operation, even if the user doesn't have access to that resource.
 
 ## Usage
 
