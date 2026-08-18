@@ -35,7 +35,7 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 * [Large volumes](large-volumes-requirements-considerations.md) are supported with cross-zone replication only with an hourly or daily replication schedule.
 
-* After you establish replication, the replication process creates *SnapMirror® snapshots* to provide references between the source volume and the destination volume. SnapMirror snapshots are cycled automatically when a new one is created for every incremental transfer. You can't delete SnapMirror snapshots until you delete the replication relationship and volume.
+* After you establish replication, the replication process creates *SnapMirror® snapshots* to provide references between the source volume and the destination volume. SnapMirror snapshots cycle automatically when a new one is created for every incremental transfer. You can't delete SnapMirror snapshots until you delete the replication relationship and volume.
 
 * The interface might take up to five minutes to reflect a newly added snapshot on the source volume.
 
