@@ -193,25 +193,25 @@ Create a network interface and add it to the backend pool. Set the IP address to
 
 ```azurecli-interactive
 az network nic create \
-  --resource-group myResourceGroup \
-  --name myNic \
-  --vnet-name myVnet \
-  --subnet mySubnet \
-  --network-security-group myNetworkSecurityGroup \
-  --lb-name myLB \
-  --private-ip-address 10.0.0.4
+--resource-group myResourceGroup \
+--name myNic \
+--vnet-name myVnet \
+--subnet mySubnet \
+--network-security-group myNetworkSecurityGroup \
+--lb-name myLB \
+--private-ip-address 10.0.0.4
 ```
 
 Create a VM and attach the NIC with an IP address in the backend pool:
 
 ```azurecli-interactive
 az vm create \
-  --resource-group myResourceGroup \
-  --name myVM \
-  --nics myNic \
-  --image Ubuntu2204 \
-  --admin-username azureuser \
-  --generate-ssh-keys
+--resource-group myResourceGroup \
+--name myVM \
+--nics myNic \
+--image Ubuntu2204 \
+--admin-username azureuser \
+--generate-ssh-keys
 ```
 
 ### Limitations
