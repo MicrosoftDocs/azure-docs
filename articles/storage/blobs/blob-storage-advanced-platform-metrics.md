@@ -41,7 +41,7 @@ The following container-level metrics are available with advanced platform metri
 | Container Blob Capacity | The amount of storage used by a container. | Bytes |
 | Container Blob Count | The number of blob objects in a container. | Count |
 
-Both metrics support the **ContainerName** dimension, which you use to split and filter results by individual containers.
+Both metrics support the **ContainerName** dimension, which you use to split and filter results by individual containers. The metrics include current versions, previous versions, and soft-deleted blobs.
 
 ## Prerequisites
 

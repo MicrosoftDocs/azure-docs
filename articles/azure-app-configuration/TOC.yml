@@ -274,6 +274,10 @@
       href: howto-telemetry-python.md
     - name: JavaScript
       href: howto-telemetry-javascript.md
+  - name: View feature flag events
+    href: howto-telemetry-review-results.md
+  - name: Analyze the impact of feature flags
+    href: howto-metric-scorecards.md
 
 - name: Hyperscale configuration
   items:

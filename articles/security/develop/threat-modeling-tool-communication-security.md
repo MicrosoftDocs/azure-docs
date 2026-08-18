@@ -372,7 +372,7 @@ public class ValuesController : ApiController
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Azure Redis TLS support](../../redis/faq.yml) |
+| **References**              | [Azure Redis TLS support](/azure/redis/faq) |
 | **Steps** | Redis server does not support TLS out of the box, but Azure Managed Redis does. If you are connecting to Azure Managed Redis and your client supports TLS, like StackExchange.Redis, then you should use TLS. By default non-TLS port is disabled for new Azure Managed Redis instances. Ensure that the secure defaults are not changed unless there is a dependency on TLS support for redis clients. |
 
 Please note that Redis is designed to be accessed by trusted clients inside trusted environments. This means that usually it is not a good idea to expose the Redis instance directly to the internet or, in general, to an environment where untrusted clients can directly access the Redis TCP port or UNIX socket. 
