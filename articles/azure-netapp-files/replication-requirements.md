@@ -19,6 +19,8 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 * Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant. 
 
+* Azure NetApp Files replication uses the Azure backend infrastructure for the replication traffic. There is no need to setup VNet peering for enabling replication.
+
 * Cross-zone and cross-region replication are supported with both Network File System (NFS) and Server Message Block (SMB) volumes.
 
     Replication of SMB volumes requires an Active Directory (AD) connection in the source and the destination NetApp accounts. The destination AD connection must have access to the Domain Name System (DNS) servers or the Active Directory Domain Services (AD DS) domain controllers that are reachable from the delegated subnet in the destination zone. For more information, see [Requirements for AD connections](create-active-directory-connections.md#requirements-for-active-directory-connections).
@@ -33,7 +35,7 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 * [Large volumes](large-volumes-requirements-considerations.md) are supported with cross-zone replication only with an hourly or daily replication schedule.
 
-* After you establish replication, the replication process creates *SnapMirror snapshots* to provide references between the source volume and the destination volume. SnapMirror snapshots are cycled automatically when a new one is created for every incremental transfer. You can't delete SnapMirror snapshots until you delete the replication relationship and volume.
+* After you establish replication, the replication process creates *SnapMirror® snapshots* to provide references between the source volume and the destination volume. SnapMirror snapshots are cycled automatically when a new one is created for every incremental transfer. You can't delete SnapMirror snapshots until you delete the replication relationship and volume.
 
 * The interface might take up to five minutes to reflect a newly added snapshot on the source volume.
 
