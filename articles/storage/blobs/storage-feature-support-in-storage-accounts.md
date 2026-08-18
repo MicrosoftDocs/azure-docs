@@ -43,7 +43,7 @@ The following table describes whether a feature is supported in a standard gener
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
 | [Access tiers (hot, cool, cold, and archive)](access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
-| [Advanced platform metrics](blob-storage-advanced-platform-metrics.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
+| [Advanced platform metrics](blob-storage-advanced-platform-metrics.md) | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Microsoft Entra security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;  |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -95,7 +95,7 @@ The following table describes whether a feature is supported in a premium block 
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
 | [Access tiers (hot, cool, cold, and archive)](access-tiers-overview.md)  | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Advanced platform metrics](blob-storage-advanced-platform-metrics.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
+| [Advanced platform metrics](blob-storage-advanced-platform-metrics.md) | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Microsoft Entra security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705; |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
