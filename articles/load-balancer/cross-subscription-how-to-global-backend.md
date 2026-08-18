@@ -106,7 +106,7 @@ $rg = @{
 New-AzResourceGroup @rg
 ```
 > [!NOTE]
-> When you create the resource group for your load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
+> When you create the resource group for your global load balancer, use a [Global load balancer home region](cross-region-overview.md#home-regions-in-azure).
 
 # [Azure CLI](#tab/azurecli)
 
@@ -118,7 +118,7 @@ az group create --name resource-group-b --location eastus2
 ```
 
 > [!NOTE]
-> When you create the resource group for your load balancer, use the same Azure region as the virtual network in **Azure Subscription A**.
+> When you create the resource group for your global load balancer, use a [Global load balancer home region](cross-region-overview.md#home-regions-in-azure).
 
 ---
 
@@ -207,18 +207,18 @@ az network cross-region-lb rule create --backend-port 80 --frontend-port 80 --lb
 
 ## Add load balancer frontends to global load balancer
 
-In this section, you add a frontend IP configuration to the global load balancer.
+In this section, you add a regional load balancer's frontend IP configuration as a backend address in the global load balancer's backend pool. Because the regional load balancers are in a different subscription than the global load balancer, this is a cross-subscription backend configuration.
 
 # [Azure PowerShell](#tab/azurepowershell)
 
 By using Azure PowerShell, you:
 
-- Add the regional load balancer frontend to the global backend pool by using [`Set-AzLoadBalancerFrontendIpConfig`](/powershell/module/az.network/set-azloadbalancerfrontendipconfig).
-- Create the backend address pool configuration for the load balancer by using [`New-AzLoadBalancerBackendAddressConfig`](/powershell/module/az.network/new-azloadbalancerbackendaddressconfig).
+- Create a backend address that references the regional load balancer's frontend IP configuration by using [`New-AzLoadBalancerBackendAddressConfig`](/powershell/module/az.network/new-azloadbalancerbackendaddressconfig).
+- Apply the backend address to the global load balancer's backend pool by using [`Set-AzLoadBalancerBackendAddressPool`](/powershell/module/az.network/set-azloadbalancerbackendaddresspool).
 
 ```azurepowershell
 
-## Create the global backend address pool configuration for region 2 ##
+## Create the backend address configuration from the regional load balancer frontend ##
 $rlbbaf = @{
     Name = 'backend-pool-config-regional'
     LoadBalancerFrontendIPConfigurationId = $rlbfe.Id
