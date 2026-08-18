@@ -36,7 +36,8 @@ There are two ways to autoscale the self-hosted gateway horizontally:
 - Autoscale based on resource usage (CPU and memory)
 - Autoscale based on the number of requests per second
 
-We highly recommend using a scale-out strategy rather than a scale-up strategy - Running a larger fleet of smaller instances rather than fewer bigger instances improves your resiliency in case of individual instances failing.
+Use a scale-out strategy rather than a scale-up strategy. Running a larger fleet of smaller instances rather than fewer bigger instances improves your resilience in case of individual instances failing.
+
 
 You can autoscale by using native Kubernetes functionality, or by using [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh). KEDA is a Cloud Native Computing Foundation (CNCF) graduation project that strives to make application autoscaling simple.
 
