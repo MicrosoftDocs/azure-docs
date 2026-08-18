@@ -149,7 +149,7 @@ For a current list of regions where workspace gateways are available, see [Avail
 - Workspaces don't support MCP servers
 - Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
 - Workspaces don't support CA certificates
-- Workspaces don't support managed identities, including related features like storing secrets in Azure Key Vault and using the `authentication-managed-identity` policy
+- Workspaces don't support managed identities, including related features like storing secrets in Azure Key Vault and using the `authentication-managed-identity` policy. As a supported exception, a workspace logger (Application Insights or Azure Event Hub) can reference a service-level user-assigned or system-assigned managed identity via the  `identityClientId`  credential — this lets workspace teams enable diagnostic logging without provisioning a dedicated identity per workspace. Anyone granted permission to create or update loggers in a workspace can cause the gateway to authenticate as that service-level identity to the logger's configured endpoint; account for this when assigning workspace logger permissions.
 
 ### Workspace gateway constraints
 
