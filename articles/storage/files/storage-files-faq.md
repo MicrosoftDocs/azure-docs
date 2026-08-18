@@ -12,7 +12,7 @@ ms.topic: faq
 
 # Frequently asked questions (FAQ) about Azure Files and Azure File Sync
 
-[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry-standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) and the [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). You can mount Azure file shares concurrently on cloud or on-premises deployments of Windows, Linux, and macOS. You also can cache Azure file shares on Windows Server machines by using [Azure File Sync](../file-sync/file-sync-introduction.md) for fast access close to where the data is used.
+[Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that you can access through the industry-standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) and the [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). You can mount Azure file shares concurrently on cloud or on-premises deployments of Windows, Linux, and macOS. By using [Azure File Sync](../file-sync/file-sync-introduction.md), you can cache Azure file shares on Windows Server machines for fast access to data close to where it's used.
 
 ## Azure File Sync FAQ
 
@@ -117,7 +117,7 @@ ms.topic: faq
 
 * <a id="afs-dedup"></a>
  **How does volume space work for Cloud Tiering as a part of interop with Dedup?**  
-    In some cases where Dedup is installed, the available volume space can increase more than expected after Dedup garbage collection is triggered. For example, let's say that the free space policy for cloud tiering is set to 20%. Azure File Sync is notified when there is low free space (for example, when free space is 19%). Tiering determines that 1% more space needs to be freed, but as a buffer there's 5% extra, so it tiers up to 25% (for example, 30 GiB). The files are tiered until it reaches 30 GiB. As part of interop with Dedup, Azure File Sync initiates Garbage collection at the end of the tiering session.
+    In some cases where Dedup is installed, the available volume space can increase more than expected after Dedup garbage collection is triggered. For example, let's say that the free space policy for cloud tiering is set to 20%. Azure File Sync is notified when there is low free space (for example, when free space is 19%). Tiering determines that 1% more space needs to be freed, but as a buffer there's 5% extra, so it tiers up to 25% (for example, 30 GiB). The files are tiered until it reaches 30 GiB. As part of interop with Dedup, Azure File Sync initiates garbage collection at the end of the tiering session.
     
 * <a id="afs-avrecalls"></a>
   **Why is the antivirus software on the Azure File Sync server recalling tiered files?**  
@@ -127,15 +127,15 @@ ms.topic: faq
    2. The AV software blocks the read handle.
    3. The AV software then performs its own read to scan the file for viruses.
      
-  This process may appear as if the AV software is recalling the tiered files, but it's actually triggered by the user's access attempt. To prevent this issue, ensure that your AV vendor configures their software to ignore scanning tiered files with the `RECALL_ON_DATA_ACCESS` attribute.
+  This process might appear as if the AV software is recalling the tiered files, but it's actually triggered by the user's access attempt. To prevent this issue, ensure that your AV vendor configures their software to ignore scanning tiered files with the `RECALL_ON_DATA_ACCESS` attribute.
 
 * <a id="afs-networkconnect"></a>
   **Can SSL inspection software block access to Azure File Sync servers?**
-  Make sure your SSL inspection software (such as Zscaler or FortiGate) allows Azure File Sync server endpoints to access Azure. These SSL inspection tools can override firewall settings and selectively allow traffic. Contact your network administrator to resolve this issue. Use the `testnet` command to determine if your Azure File Sync server is experiencing this problem.
+  Ensure your SSL inspection software (such as Zscaler or FortiGate) allows Azure File Sync server endpoints to access Azure. These SSL inspection tools can override firewall settings and selectively allow traffic. Contact your network administrator to resolve this issue. Use the `testnet` command to determine if your Azure File Sync server is experiencing this problem.
 
 ## Resource providers and classic file shares
 
-**What's the difference between Microsoft.Storage and Microsoft.FileShares resource providers? What's an Azure file share versus an Azure classic file share?**
+- **What's the difference between Microsoft.Storage and Microsoft.FileShares resource providers? What's an Azure file share versus an Azure classic file share?**
 
   Resource providers are management services that deliver specific types of resources in Azure. You deploy Azure classic file shares within a storage account, which is a top-level resource that uses the Microsoft.Storage resource provider. All storage resources in a storage account share the limits that apply to that storage account. File shares offered by the Microsoft.FileShares resource provider are a new top-level resource that simplifies file share deployment by eliminating the need for a storage account. Currently, Microsoft.FileShares only supports the NFS file sharing protocol. Classic file shares support both SMB and NFS.
 
