@@ -17,6 +17,29 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## August 2026
+### FHIR service
+
+**Security enhancements for FHIR resource narrative content**: Improved security protections for FHIR resource narrative content to help prevent potential cross-site scripting (XSS) scenarios.
+
+**Stricter SMART on FHIR scope validation**: Improved security validation for SMART on FHIR scopes to properly reject mixed scope contexts.
+
+**Null-safety improvements in resource validation**: Added null-safety checks to improve the reliability of resource validation.
+
+**Reindex reliability improvement**: The running reindex check was moved to the data store, improving reliability of the reindex operation.
+
+#### Bug fixes:
+
+**Fix for date filtering in bulk delete jobs**: Fixed an issue where the date filter was not correctly applied to bulk delete jobs, which could result in deletions beyond the intended date range.
+
+**Fix for race condition in bundle processing**: Fixed a race condition in bundle processing that could cause intermittent failures.
+
+**Fix for search parameter deletion in sequential transaction bundles**: Fixed a bug where deleting a search parameter in a sequential transaction bundle could fail.
+
+**Fix for search parameters retained on deleted resources**: Fixed an issue where deleted resources could incorrectly retain search parameters.
+
+**Fix for validation ordering in convert-data operations**: Fixed validation ordering for convert-data operations.
+
 ## July 2026
 ### FHIR service
 

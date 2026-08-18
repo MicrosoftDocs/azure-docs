@@ -52,14 +52,39 @@ As an example, consider the following orchestrator function.
 
 # [C#](#tab/csharp)
 
+<br>
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
 ```csharp
-[FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+[Function("FooBar")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+```csharp
+[FunctionName("FooBar")]
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    bool result = await context.CallActivityAsync<bool>("Foo");
+    await context.CallActivityAsync("Bar", result);
+}
+```
+
+</details>
+
+<br>
 
 # [PowerShell](#tab/powershell)
 
@@ -87,14 +112,39 @@ This function takes the result of **Foo** and passes it to **Bar**. Assume you n
 
 # [C#](#tab/csharp)
 
+<br>
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
 ```csharp
-[FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+[Function("FooBar")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
 {
     string result = await context.CallActivityAsync<string>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+```csharp
+[FunctionName("FooBar")]
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    string result = await context.CallActivityAsync<string>("Foo");
+    await context.CallActivityAsync("Bar", result);
+}
+```
+
+</details>
+
+<br>
 
 # [PowerShell](#tab/powershell)
 
@@ -130,14 +180,39 @@ Consider the following orchestrator function:
 
 # [C#](#tab/csharp)
 
+<br>
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
 ```csharp
-[FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+[Function("FooBar")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+```csharp
+[FunctionName("FooBar")]
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    bool result = await context.CallActivityAsync<bool>("Foo");
+    await context.CallActivityAsync("Bar", result);
+}
+```
+
+</details>
+
+<br>
 
 # [PowerShell](#tab/powershell)
 
@@ -165,9 +240,14 @@ Now assume you want to add a new function call between the two existing function
 
 # [C#](#tab/csharp)
 
+<br>
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
 ```csharp
-[FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+[Function("FooBar")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     if (result)
@@ -178,6 +258,31 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
     await context.CallActivityAsync("Bar", result);
 }
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+```csharp
+[FunctionName("FooBar")]
+public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    bool result = await context.CallActivityAsync<bool>("Foo");
+    if (result)
+    {
+        await context.CallActivityAsync("SendNotification");
+    }
+
+    await context.CallActivityAsync("Bar", result);
+}
+```
+
+</details>
+
+<br>
 
 # [PowerShell](#tab/powershell)
 
@@ -232,7 +337,7 @@ For detailed configuration and implementation guidance, see [Orchestration versi
 
 ### Stop all in-flight instances
 
-Another option is to stop all in-flight instances. If you're using the default [Azure Storage provider for Durable Functions](../common/durable-task-storage-providers.md#azure-storage), stop all instances by clearing the contents of the internal **control-queue** and **workitem-queue** queues. Alternatively, stop the function app, delete these queues, and restart the app. The queues are recreated automatically once the app restarts. The previous orchestration instances might remain in the "Running" state indefinitely, but they don't clutter your logs with failure messages or cause any harm to your app. This approach is ideal for rapid prototype development, including local development.
+Another option is to stop all in-flight instances. If you're using the [Azure Storage provider for Durable Functions](../common/durable-task-storage-providers.md#azure-storage), stop all instances by clearing the contents of the internal **control-queue** and **workitem-queue** queues. Alternatively, stop the function app, delete these queues, and restart the app. The queues are recreated automatically once the app restarts. The previous orchestration instances might remain in the `Running` state indefinitely, but they don't clutter your logs with failure messages or cause any harm to your app. This approach is ideal for rapid prototype development, including local development.
 
 > [!WARNING]
 > This approach requires direct access to the underlying storage resources and isn't appropriate for all storage providers supported by Durable Functions.

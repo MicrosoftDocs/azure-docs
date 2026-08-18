@@ -3,8 +3,10 @@ title: What is an enclave connection?
 description: What is an enclave connection?
 author: jadean-msft
 ms.author: jadean
+ms.service: azure-enclave
 ms.topic: overview
-ms.date: 3/23/2026
+ms.date: 7/29/2026
+ai-usage: ai-assisted
 ---
 
 # What is an enclave connection?
@@ -35,13 +37,10 @@ Connect resources in an enclave to external destinations defined in a community 
 
 Enable inbound connectivity from external networks to resources within an enclave. The transit hub serves as the connection source, allowing traffic from on-premises networks or other Azure virtual networks to reach enclave workloads.
 
-### Transit hub-to-transit hub connections
-
-Connect transit hubs within the same community to enable network traffic flow between different external network connections. This capability allows organizations to:
+When you set up this connectivity, you can:
 
 - **Route traffic between on-premises locations** - Connect multiple VPN or ExpressRoute connections through the community Virtual WAN
 - **Enable spoke-to-spoke communication** - Allow traffic between virtual networks peered to different transit hubs
-- **Create network transit architectures** - Build hub-and-spoke topologies where the community Virtual WAN serves as the central routing point
 
 Transit hub interconnection supports scenarios where:
 - Multiple regional offices need to communicate through a centralized Azure environment
@@ -52,11 +51,10 @@ To create a transit hub-to-transit hub connection, both transit hubs must exist 
 
 ## Connection security
 
-All enclave connections are governed by:
+Multiple layers of network security govern all enclave connections to maintain isolation and control:
 
 - **Azure Firewall rules** - Traffic is evaluated against community-level firewall policies
 - **Network security groups** - Enclave-level network security groups (NSGs) provide extra traffic filtering
-- **Private endpoints** - Resources communicate over private IP addresses within the Azure backbone
 
 ## Template
 
@@ -64,6 +62,6 @@ See [template documentation](./azure-enclave-templates.md#resource-modules)
 
 ## Next steps
 
-- [Create an enclave connection](./create-enclave-connection-portal.md)
 - [What is a community endpoint?](./what-community-endpoint.md)
 - [What is a transit hub?](./what-transit-hub.md)
+- [Create an enclave connection](./create-enclave-connection-portal.md)

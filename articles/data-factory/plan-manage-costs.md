@@ -15,6 +15,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article describes how you plan for and manage costs for Azure Data Factory. 
 
 First, at the beginning of the ETL project, you use a combination of the Azure pricing and per-pipeline consumption and pricing calculators to help plan for Azure Data Factory costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs. After you've started using Azure Data Factory resources, use Cost Management features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act. Costs for Azure Data Factory are only a portion of the monthly costs in your Azure bill. Note that this article only explains how to plan for and manage costs for data factory. You're billed for all Azure services and resources used in your Azure subscription, including the third-party services.

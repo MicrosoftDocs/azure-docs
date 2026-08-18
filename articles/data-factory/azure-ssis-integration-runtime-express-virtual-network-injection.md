@@ -11,6 +11,8 @@ ms.author: makromer
 # Express virtual network injection method
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 > [!NOTE]
 > Express virtual network injection feature isn't supported for SSIS integration runtime in below regions yet:
 >

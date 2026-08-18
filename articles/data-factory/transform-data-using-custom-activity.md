@@ -134,6 +134,10 @@ The following table describes names and descriptions of properties that are spec
 > [!NOTE]
 > Currently only Azure Blob storage is supported for resourceLinkedService in custom activity, and it is the only linked service that gets created by default and no option to choose other connectors like ADLS Gen2.
 
+> [!NOTE]
+> The `retentionTimeInDays` property supports a minimum retention period of **1 day**.
+> If you need cleanup more frequently than once per day, implement your own cleanup logic within the custom activity or associated scripts.
+
 ## Custom activity permissions
 
 The custom activity sets the Azure Batch auto-user account to *Non-admin access with task scope* (the default auto-user specification). You can't change the permission level of the auto-user account. For more info, see [Run tasks under user accounts in Batch | Auto-user accounts](../batch/batch-user-accounts.md#auto-user-accounts).

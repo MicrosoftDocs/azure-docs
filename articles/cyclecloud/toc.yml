@@ -271,6 +271,8 @@ items:
         href: /previous-versions/azure/cyclecloud/release-notes-previous
       - name: Older Releases
         href: /previous-versions/azure/cyclecloud/release-notes-archive
+      - name: 8.9.2 Release Notes
+        href: ./release-notes/8-9-2.md
       - name: 8.9.1 Release Notes
         href: ./release-notes/8-9-1.md
       - name: 8.9.0 Release Notes
@@ -281,10 +283,10 @@ items:
         href: ./release-notes/8-8-2.md
   - name: Release Notes - CycleCloud Workspace for Slurm
     items:
-      - name: Current Release - 2026.07.02
+      - name: Current Release - 2026.08.07
+        href: ./release-notes/ccws/2026-08-07.md
+      - name: Previous Release - 2026.07.02
         href: ./release-notes/ccws/2026-07-02.md
-      - name: Previous Release - 2026.06.18
-        href: ./release-notes/ccws/2026-06-18.md
       - name: All Releases
         href: ./release-notes/ccws/release-notes.md
   - name: Service Policy

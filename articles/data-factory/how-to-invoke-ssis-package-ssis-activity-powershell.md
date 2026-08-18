@@ -14,6 +14,8 @@ ms.date: 05/15/2024
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline using PowerShell and the Execute SSIS Package activity.
 
 ## Prerequisites

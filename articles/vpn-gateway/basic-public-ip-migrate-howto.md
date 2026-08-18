@@ -5,7 +5,7 @@ description: Learn how to migrate from a Basic SKU public IP address to a Standa
 author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 01/30/2026
+ms.date: 07/16/2026
 ms.author: duau
 #customer intent: As a cloud network administrator, I want to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway, so that I can ensure optimal performance and compliance with service standards during our infrastructure upgrade.
 ---
@@ -74,7 +74,7 @@ Before your initiate migration for your VPN gateway, verify that your gateway su
 
    :::image type="content" source="./media/basic-public-ip-address-migrate-howto/migrate.png" alt-text="Screenshot of the migrate step for migrating a virtual network gateway."lightbox="./media/basic-public-ip-address-migrate-howto/migrate.png":::
 
-1. Click the **Migrate** button to migrate your public IP address SKU and your gateway SKU. You'll have 5 minutes of downtime and can't make any changes to your VPN gateway during this time.
+1. Select **Migrate** to migrate your public IP address SKU and your gateway SKU. You have up to 10 minutes of downtime and can't make any changes to your VPN gateway during this time.
 
 ### Validate migration
 

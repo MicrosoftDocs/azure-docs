@@ -64,10 +64,10 @@ The following tags control feature availability:
 After enabling the tags, open the preview experience from Microsoft Discovery Studio:
 
 1. Go to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com).
-2. Select the **Workspaces** tab and open the workspace where you enabled GitHub Copilot. Or select **Projects** tab to list all projects.
-1. [Create a new project](quickstart-infrastructure.md#9-create-a-project) or select an existing project.
-4. Select the **...** (more actions) menu on the project.
-5. Select **Open in preview experience**.
+1. Select the **Projects** tab. The **Open in preview experience** option is available from this tab.
+1. Locate an existing project in the workspace where you enabled GitHub Copilot.
+1. Select the **...** (more actions) menu on the project.
+1. Select **Open in preview experience**.
 
    :::image type="content" source="media/how-to-copilot/open-preview-experience.jpg" alt-text="Screenshot showing the project list page with option to open project in preview experience." lightbox="media/how-to-copilot/open-preview-experience.jpg":::
 

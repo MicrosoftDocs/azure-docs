@@ -12,6 +12,8 @@ ms.subservice: monitoring
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 In this article, you will register a Microsoft Purview Account to a Data Factory. That connection allows you to discover Microsoft Purview assets and interact with them through ADF capabilities. 
 
 You can perform the following tasks in ADF: 

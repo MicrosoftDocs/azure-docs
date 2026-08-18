@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 07/20/2026
+ms.date: 08/03/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 
@@ -434,7 +434,7 @@ For comprehensive threat detection capabilities across Azure, see [Azure threat 
 
 ### VM disk encryption
 
-By default, [encryption at host](/azure/virtual-machines/disk-encryption) helps you encrypt your IaaS virtual machine disks. It provides server-side encryption at the VM host level through AES 256 encryption, which is FIPS 140-2 compliant. This encryption occurs without consuming VM CPU resources and provides end-to-end encryption for temporary disks, OS/data disk caches, and data flows to Azure Storage. By default, it uses platform-managed keys with no extra configuration required. Optionally, you can configure the solution with customer-managed keys stored in Azure Key Vault or Azure Key Vault Managed HSM when you need to control and manage your own disk-encryption keys. The solution ensures that all data on the virtual machine disks is encrypted at rest in your Azure storage. For more information on key management options, see [Key management in Azure](key-management.md).
+Azure managed disks use [server-side encryption](/azure/virtual-machines/disk-encryption) at rest by default. Encryption at host is an optional virtual machine setting that extends encryption to temporary disks, OS and data disk caches, and data flows between the compute host and Azure Storage. Review supported VM sizes and restrictions before enabling encryption at host. You can use platform-managed keys or configure customer-managed keys stored in Azure Key Vault or Azure Key Vault Managed HSM. For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview) and [Key management in Azure](key-management.md).
 
 ### Azure Resource Manager
 
@@ -504,7 +504,7 @@ Microsoft uses multiple security practices and technologies across its products 
 
 - [Microsoft Authenticator](https://www.microsoft.com/security/mobile-authenticator-app) provides a user-friendly multifactor authentication experience that works with both Microsoft Entra ID and Microsoft accounts. It includes support for wearables and fingerprint-based approvals.
 
-- [Password policy enforcement](/entra/identity/authentication/concept-sspr-policy) increases the security of traditional passwords by imposing length and complexity requirements, forced periodic rotation, and account lockout after failed authentication attempts.
+- [Password protection](/entra/identity/authentication/concept-password-ban-bad) helps block weak and commonly attacked passwords. Use sufficiently long passwords, multifactor authentication, account lockout, and risk-based controls. Follow current [password policy recommendations](/microsoft-365/admin/misc/password-policy-recommendations): avoid routine password expiration for cloud-only accounts, and require a password change when compromise is suspected or confirmed.
 
 - [Token-based authentication](/entra/identity-platform/authentication-vs-authorization) enables authentication through Microsoft Entra ID.
 
@@ -513,11 +513,7 @@ Microsoft uses multiple security practices and technologies across its products 
 - [Integrated identity management (hybrid identity)](/entra/identity/hybrid/connect/plan-connect-design-concepts) enables you to maintain control of users’ access across internal datacenters and cloud platforms. It creates a single user identity for authentication and authorization to all resources.
 
 ### Secure apps and data
-[Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id), a comprehensive identity and access management cloud solution, helps secure access to data in applications on site and in the cloud, and simplifies the management of users and groups. It combines core directory services, advanced identity governance, security, and application access management, and makes it easy for developers to build policy-based identity management into their apps. To enhance your Microsoft Entra ID, you can add paid capabilities by using the Microsoft Entra Basic, Premium P1, and Premium P2 editions.
-
-| Free or common features     | Basic features    |Premium P1 features |Premium P2 features | Microsoft Entra join - Windows 10 only related features|
-| :------------- | :------------- |:------------- |:------------- |:------------- |
-|  [Directory Objects](/entra/fundamentals/what-is-entra), [User/Group Management (add/update/delete)/ User-based provisioning, Device registration](/entra/fundamentals/what-is-entra), [single sign-on (SSO)](/entra/fundamentals/what-is-entra), [Self-Service Password Change for cloud users](/entra/fundamentals/what-is-entra), [Connect (Sync engine that extends on-premises directories to Microsoft Entra ID)](/entra/fundamentals/what-is-entra), [Security or usage reports](/entra/fundamentals/what-is-entra) | [Group-based access management or provisioning](/entra/fundamentals/what-is-entra), [Self-Service Password Reset for cloud users](/entra/fundamentals/what-is-entra), [Company Branding (sign-in pages or Access Panel customization)](/entra/fundamentals/what-is-entra), [Application Proxy](/entra/fundamentals/what-is-entra), [SLA 99.9%](/entra/fundamentals/what-is-entra) |  [Self-service group and app management, self-service application additions, and dynamic groups](/entra/fundamentals/what-is-entra), [Self-service password reset, change, or unlock with on-premises write-back](/entra/fundamentals/what-is-entra), [multifactor authentication (cloud and on-premises (MFA Server))](/entra/fundamentals/what-is-entra), [MIM CAL + MIM Server](/entra/fundamentals/what-is-entra), [Cloud App Discovery](/entra/fundamentals/what-is-entra), [Connect Health](/entra/fundamentals/what-is-entra), [automatic password rollover for group accounts](/entra/fundamentals/what-is-entra)| [Identity Protection](/entra/id-protection/overview-identity-protection), [Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-configure)| [Join a device to Microsoft Entra ID, Desktop SSO, Microsoft Passport for Microsoft Entra ID, Administrator BitLocker recovery](/entra/fundamentals/what-is-entra), [MDM autoenrollment, Self-Service BitLocker recovery, extra local administrators to Windows 10 devices through Microsoft Entra join](/entra/fundamentals/what-is-entra)|
+[Microsoft Entra ID](https://www.microsoft.com/security/business/identity-access/microsoft-entra-id), a comprehensive identity and access management cloud solution, helps secure access to applications and data on-premises and in the cloud. It combines core directory services, identity governance, identity protection, and application access management. Capabilities and licensing change over time; see [Microsoft Entra licensing](/entra/fundamentals/licensing) for current editions and feature availability.
 
 - [Cloud App Discovery](/cloud-app-security/set-up-cloud-discovery) is a premium feature of Microsoft Entra ID that enables you to identify cloud applications that employees in your organization use.
 

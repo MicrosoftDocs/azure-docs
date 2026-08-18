@@ -3,7 +3,7 @@ title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 07/23/2026
+ms.date: 08/06/2026
 ---
 
 # Use Bicep linter
@@ -54,6 +54,11 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 | <a id='secure-secrets-in-params' />[secure-secrets-in-parameters](./linter-rule-secure-secrets-in-parameters.md)                                   |    warning    |
 | <a id='simplify-interpolation' />[simplify-interpolation](./linter-rule-simplify-interpolation.md)                                                 |    warning    |
 | <a id='simplify-json-null' />[simplify-json-null](./linter-rule-simplify-json-null.md)                                                             |    warning    |
+| <a id='use-description-outputs' />[use-description-outputs](./linter-rule-use-description-outputs.md)                                              |      off      |
+| <a id='use-description-params' />[use-description-params](./linter-rule-use-description-parameters.md)                                             |      off      |
+| <a id='use-description-type-properties' />[use-description-type-properties](./linter-rule-use-description-type-properties.md)                      |      off      |
+| <a id='use-description-types' />[use-description-types](./linter-rule-use-description-types.md)                                                    |      off      |
+| <a id='use-description-vars' />[use-description-vars](./linter-rule-use-description-variables.md)                                                  |      off      |
 | <a id='use-parent-property' />[use-parent-property](./linter-rule-use-parent-property.md)                                                          |    warning    |
 | <a id='use-recent-api-versions' />[use-recent-api-versions](./linter-rule-use-recent-api-versions.md)                                              |      off      |
 | <a id='use-recent-az-powershell-version' />[use-recent-az-powershell-version](./linter-rule-use-recent-az-powershell-version.md)                   |    warning    |

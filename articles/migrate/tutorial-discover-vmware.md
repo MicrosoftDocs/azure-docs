@@ -38,7 +38,7 @@ Watch the following video to learn how to discover on-premises servers running i
 
 ## Prerequisites
 
-Before you begin this tutorial, check that you have these prerequisites in place:
+Before you begin this tutorial, check that you have these prerequisites:
 
 Requirement | Details
 --- | ---
@@ -46,9 +46,13 @@ Requirement | Details
 **Azure Migrate appliance** | vCenter Server must have these resources to allocate to a server that hosts the Azure Migrate appliance:<br /><br /> - 32 GB of RAM, 8 vCPUs, and approximately 80 GB of disk storage.<br /><br /> - An external virtual switch and internet access on the appliance server, directly or via a proxy.
 **Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-vmware.md) <br /><br /> For discovery of installed applications and for agentless dependency analysis, VMware Tools (version 10.2.1 or later) must be installed and running on servers. Windows servers must have PowerShell version 2.0 or later installed.<br /><br /> For Linux servers, SSH key-based authentication supports discovery of configuration and performance data, installed applications, agentless dependency analysis, and workload discovery. <br /><br > To discover Linux servers using SSH key-based authentication, the appliance needs a direct connection to the target servers. <br /><br /> To discover SQL Server instances and databases, check [supported SQL Server and Windows OS versions and editions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) and Windows authentication mechanisms.<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md).<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). 
 **SQL Server access** | To discover SQL Server instances and databases, the Windows account, or SQL Server account [requires these permissions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) for each SQL Server instance. You can use the [account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
+**Supported NSX version** | You need VMware NSX-T version 3.2, 4.0, 4.1, or 4.2 to discover NSX networking constructs.
+**NSX Manager permissions** | The NSX Manager account used for discovery must have read-only permissions to access the networking constructs required for discovery.
+**Connectivity to NSX Manager** | Ensure that the Azure Migrate appliance can communicate with the NSX Manager endpoint. The NSX Manager endpoint must be reachable from the appliance.
 
 ## Prepare an Azure user account
-Refer [this article](prepare-azure-accounts.md) to prepare Azure accounts.
+
+Refer to [this article](prepare-azure-accounts.md) to prepare Azure accounts.
 
 >[!IMPORTANT]
 > Ensure the Azure user account has the required Azure Migrate built-in roles to create projects, register appliances, and access discovery results. To understand the minimum role requirements, see [Azure Migrate built‑in roles](prepare-azure-accounts.md).
@@ -216,19 +220,74 @@ Complete the setup steps in the appliance configuration manager to prepare for a
 
 The appliance must connect to vCenter Server to discover the configuration and performance data of the servers:
 
-1. In **Step 1: Provide vCenter Server credentials**, select **Add credentials** to enter a name for the credentials. Add the username and password for the vCenter Server account that the appliance will use to discover servers running on vCenter Server.
-    - You should have set up an account with the required permissions as described earlier in this article. If you're discovering your AVS environment, use the CloudAdmin account in this step.
-    - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, hosts, folders of clusters or hosts, or individual servers), review the instructions to [set discovery scope](set-discovery-scope.md) to restrict the account that Azure Migrate uses.
-    - If you want to add multiple credentials at once, select **Add more** to save and add more credentials. Multiple credentials are supported for discovery of servers across multiple vCenter Servers using a single appliance.
-1. In **Step 2: Provide vCenter Server details**, select **Add discovery source** to add the IP address or FQDN of a vCenter Server. You can leave the port as the default (443) or specify a custom port on which vCenter Server listens. Select the friendly name for credentials you would like to map to the vCenter Server and select **Save**.
+1. In **Step 1: Provide vCenter Server credentials**, select **Add credentials** to enter a name for the credentials. Add the username and password for the vCenter Server account that the appliance uses to discover servers running on vCenter Server.
 
-    Select **Add more** to save the previous details and add more vCenter Server details. **You can add up to 10 vCenter Servers per appliance.**
+   - Set up an account with the required permissions as described earlier in this article. If you're discovering your AVS environment, use the CloudAdmin account in this step.
+   - To scope discovery to specific VMware objects (vCenter Server datacenters, clusters, hosts, folders of clusters or hosts, or individual servers), review the instructions to [set discovery scope](set-discovery-scope.md) to restrict the account that Azure Migrate uses.
+   - To add multiple credentials at once, select **Add more** to save and add more credentials. The appliance supports multiple credentials for discovery of servers across multiple vCenter Servers. 
+   - Complete this step only if your environment uses VMware NSX. Otherwise, skip to the next step.
 
-:::image type="content" source="./media/tutorial-discover-vmware/add-discovery-source.png" alt-text="Screenshot that allows to add more vCenter Server details.":::
-1. The appliance attempts to validate the connection to the vCenter Server(s) added by using the credentials mapped to each vCenter Server. It displays the validation status with the vCenter Server(s) IP address or FQDN in the sources table. 
-1. You can *revalidate* the connectivity to the vCenter Server(s) anytime before starting discovery.
+1. To add the **NSX credentials**, follow these steps:
 
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Screenshot that shows managing credentials and discovery sources for vCenter Server in the appliance configuration manager.":::
+    To discover networking resources from VMware environments that use NSX, the appliance must connect to the NSX Manager.  
+
+    :::image type="content" source="./media/tutorial-discover-vmware/add-credentials.png" alt-text="Screenshot that shows to add the credentials." lightbox="./media/tutorial-discover-vmware/add-credentials.png":::
+
+1. Select **Add credentials**.
+1. In **Source type**, select **NSX Manager**.
+1. Enter a **Friendly name** for the credentials.
+1. Enter the **NSX Manager** username and password.
+1. Select **Save**.
+
+    >[!NOTE]
+    > NSX credentials are used for network discovery and are different from server credentials. Server credentials are used for software inventory and dependency analysis, whereas NSX credentials are used to discover networking resources from VMware environments that use NSX.
+
+1. In **Step 2: Provide vCenter Server details**, select **Add discovery source** to add the IP address or FQDN of a vCenter Server. You can leave the port as the default (443) or specify a custom port on which vCenter Server listens. Select the friendly name for credentials you want to map to the vCenter Server and select **Save**.
+1. Select **Add more** to save the previous details and add more vCenter Server details. **You can add up to 10 vCenter Servers per appliance.**
+
+    :::image type="content" source="./media/tutorial-discover-vmware/add-discovery-source.png" alt-text="Screenshot that allows to add more vCenter Server details.":::
+
+**Validate connectivity**:
+
+- The appliance attempts to validate the connection to the vCenter Servers you added by using the credentials you mapped to each vCenter Server. It displays the validation status with the vCenter Servers IP address or FQDN in the sources table. 
+- You can *revalidate* the connectivity to the vCenter Servers anytime before starting discovery.
+
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Screenshot that shows managing credentials and discovery sources for vCenter Server in the appliance configuration manager.":::
+
+To add the **NSX Manager**, details, enter the information for the NSX Manager that Azure Migrate uses to discover networking resources.
+
+  :::image type="content" source="./media/tutorial-discover-vmware/add-manager-discovery-source.png" alt-text="Screenshot that shows to add NSX Manager details that is used to discover networking resources." lightbox="./media/tutorial-discover-vmware/add-manager-discovery-source.png":::
+
+To configure an NSX Manager discovery source, follow these steps:
+
+1. In **Discovery source**, select **NSX Manager**.
+1. Enter the **IP Address/FQDN** of the NSX Manager.
+1. Enter the **HTTPS port**. Use the default port (443) unless the NSX Manager is configured to use a different port.
+1. In **Map credentials** select the NSX credentials that you want to associate with the NSX Manager.
+1. Select **Save**.
+1. To add another NSX Manager, select **Add more**.
+
+**Validate connectivity**:  After you add the NSX Manager details, Azure Migrate validates the connection to each NSX Manager by using the associated credentials.
+
+1. Azure Migrate validates connectivity to each NSX Manager and displays the validation status in the Sources table.
+1. You can **Revalidate** connectivity at any time before starting discovery.
+1. Add vCenter Server and NSX Manager as discovery sources and verify that discovery is initiated.
+
+    :::image type="content" source="./media/tutorial-discover-vmware/manager.png" alt-text="Screenshot that shows to add NSX Manager details." lightbox="./media/tutorial-discover-vmware/manager.png":::
+
+After you enable NSX discovery, Azure Migrate can discover networking resources including: 
+
+- NSX segments 
+- VMware port groups 
+- Tier-0 gateways 
+- Tier-1 gateways 
+- Load balancers and backend pools 
+- Firewall policies and firewall rules 
+- NAT policies 
+- NS groups 
+- Port groups 
+
+Use these networking constructs to enrich inventory and dependency views.
 
 ### Provide server credentials
 

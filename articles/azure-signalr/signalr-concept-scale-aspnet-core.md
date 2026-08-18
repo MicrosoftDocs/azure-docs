@@ -19,7 +19,7 @@ SignalR is currently available in [two versions](/aspnet/core/signalr/version-di
 
 ASP.NET Core SignalR is a rewrite of the previous version. As a result, ASP.NET Core SignalR isn't backward compatible with the earlier SignalR version. The APIs and behaviors are different. The Azure SignalR Service supports both versions.
 
-Azure SignalR Service lets you host your actual web application on multiple platforms (Windows, Linux, and macOS) [Azure App Service](../app-service/overview.md), [IIS](/aspnet/core/host-and-deploy/iis/index), [Nginx](/aspnet/core/host-and-deploy/linux-nginx), [Apache](/aspnet/core/host-and-deploy/linux-apache), [Docker](/aspnet/core/host-and-deploy/docker/index). You can also use self-hosting in your own process.
+Azure SignalR Service lets you host your actual web application on multiple platforms (Windows, Linux, and macOS) [Azure App Service](../app-service/overview.md), [Azure Container Apps](../container-apps/overview.md), [IIS](/aspnet/core/host-and-deploy/iis/index), [Nginx](/aspnet/core/host-and-deploy/linux-nginx), [Apache](/aspnet/core/host-and-deploy/linux-apache), [Docker](/aspnet/core/host-and-deploy/docker/index). You can also use self-hosting in your own process.
 
 Azure SignalR Service is the best choice if the goals for your application include: 
 - supporting the latest functionality for updating web clients with real-time content updates, 

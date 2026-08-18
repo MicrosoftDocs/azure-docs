@@ -37,7 +37,7 @@ Azure Web Application Firewall protects your:
 
 * Web applications from web vulnerabilities and attacks without modifications to back-end code.
 * Web applications from malicious bots with the IP Reputation Rule Set.
-* Applications against DDoS attacks. For more information, see [Application DDoS protection](../shared/application-ddos-protection.md).
+* Applications against DDoS attacks. For more information, see [Application DDoS protection](../application-ddos-protection.md).
 
 ## WAF policy and rules
 

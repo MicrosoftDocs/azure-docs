@@ -1,11 +1,11 @@
 ﻿---
-title: Use deployment scripts in Azure Resource Manager templates 
+title: Use deployment scripts in Azure Resource Manager templates
 description: Use deployment scripts in Azure Resource Manager templates.
 ms.custom:
   - devx-track-arm-template
   - build-2025
 ms.topic: article
-ms.date: 01/02/2026
+ms.date: 08/17/2026
 ---
 
 # Use deployment scripts in Azure Resource Manager templates
@@ -149,7 +149,7 @@ The following JSON is an example. For more information, see the latest [template
 > The example is for demonstration purposes. The properties `scriptContent` and `primaryScriptUri` can't coexist in a template.
 
 > [!NOTE]
-> The _scriptContent_ shows a script with multiple lines.  The Azure portal and Azure DevOps pipeline can't parse a deployment script with multiple lines. You can either chain the PowerShell commands (by using semicolons or _\\r\\n_ or _\\n_) into one line, or use the `primaryScriptUri` property with an external script file. There are many free JSON string escape/unescape tools available. For example, [https://www.freeformatter.com/json-escape.html](https://www.freeformatter.com/json-escape.html).
+> The _scriptContent_ shows a script with multiple lines.  The Azure portal and Azure DevOps pipeline can't parse a deployment script with multiple lines. You can either chain the PowerShell commands (by using semicolons or _\\r\\n_ or _\\n_) into one line, or use the `primaryScriptUri` property with an external script file. Many free JSON string escape/unescape tools are available. For example, [JSON Escape/Unescape](https://formatjsononline.com/json-escape-unescape).
 
 Property value details:
 
@@ -545,6 +545,9 @@ The script service creates a [storage account](../../storage/common/storage-acco
 The user script, the execution results, and the stdout file are stored in the files shares of the storage account. There's a folder called `azscripts`. In the folder, there are two more folders for the input and the output files: `azscriptinput` and `azscriptoutput`.
 
 The output folder contains a _executionresult.json_ and the script output file. You can see the script execution error message in _executionresult.json_. The output file is created only when the script is executed successfully. The input folder contains a system PowerShell script file and the user deployment script files. You can replace the user deployment script file with a revised one, and rerun the deployment script from the Azure container instance.
+
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. You might retrieve this information through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that deployment script logs don't expose sensitive information.
 
 ### Use the Azure portal
 

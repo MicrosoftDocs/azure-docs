@@ -30,7 +30,7 @@ Before you begin, make sure you have:
 1. A test patient in your FHIR store.
 1. A SMART client application (or the SmartLauncher sample for validation).
 
-## End to end flow
+## End-to-end flow
 
 A SMART client typically performs these steps:
 
@@ -87,7 +87,10 @@ AHDS FHIR service supports SMART v1.0.0 and SMART v2.0.0. You can't mix and matc
 <details>
 <summary>Click to expand</summary>
 
-[!INCLUDE [Migrate from SMART on FHIR Proxy to Enhanced](../includes/smart-on-fhir-proxy-migration.md)]
+1. **Configure native SMART on FHIR** — Set up your identity provider (Microsoft Entra ID) to support SMART on FHIR capabilities natively, including registering SMART client applications and configuring the appropriate FHIR SMART user roles.
+1. **Update client applications** — Modify any client applications currently using the proxy endpoint to point to the native FHIR service endpoint and use the native SMART authorization flow.
+1. **Disable the SMART on FHIR proxy** — Uncheck the SMART on FHIR proxy setting under the Authentication blade for the FHIR service and save the changes.
+
 </details>
 
 ## Next steps

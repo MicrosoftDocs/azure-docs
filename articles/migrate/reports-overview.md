@@ -6,6 +6,7 @@ ms.author: v-uhabiba
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 03/25/2026
+ms.update-cycle: 365-days
 monikerRange:
 # Customer intent: As an IT administrator managing migration resources, I want to tag workloads with relevant attributes, so that I can enhance resource organization and visibility during the migration process.
 ---

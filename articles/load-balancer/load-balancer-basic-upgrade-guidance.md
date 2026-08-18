@@ -5,7 +5,7 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.author: mbender
 ms.topic: concept-article
-ms.date: 01/29/2026
+ms.date: 07/17/2026
 # Customer intent: As an cloud engineer with Basic Load Balancer services, I need guidance and direction on migrating my workloads off Basic to Standard SKUs
 ---
 
@@ -28,28 +28,7 @@ We recommend the following approach for upgrading to Standard Load Balancer:
 
 ## Basic Load Balancer SKU vs. Standard Load Balancer SKU 
 
-This section lists out some key differences between these two Load Balancer SKUs. 
-
-| Feature | Standard Load Balancer SKU | Basic Load Balancer SKU |
-| ---- | ---- | ---- |
-| **Backend type** | IP based, NIC based | NIC based |
-| **Protocol** | TCP, UDP | TCP, UDP |
-| **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network | Virtual machines in a single availability set or virtual machine scale set |
-| **[Health probe protocol](load-balancer-custom-probe-overview.md#probe-protocol)** | TCP, HTTP, HTTPS | TCP, HTTP |
-| **[Health probe down behavior](load-balancer-custom-probe-overview.md#probe-down-behavior)** | TCP connections stay alive on an instance probe down and on all probes down | TCP connections stay alive on an instance probe down. All TCP connections end when all probes are down |
-| **Availability zones** | Zone-redundant and zonal frontends for inbound and outbound traffic | Not available |
-| **Diagnostics** | [Azure Monitor multi-dimensional metrics](load-balancer-standard-diagnostics.md) | Not supported |
-| **HA Ports** | [Available for Internal Load Balancer](load-balancer-ha-ports-overview.md) | Not available |
-| **Secure by default** | Closed to inbound flows unless allowed by a network security group. Internal traffic from the virtual network to the internal load balancer is allowed. | Open by default. Network security group optional. |
-| **Outbound Rules** | [Declarative outbound NAT configuration](load-balancer-outbound-connections.md#outboundrules) | Not available |
-| **TCP Reset on Idle** | Available on any rule | Not available |
-| **[Multiple front ends](load-balancer-multivip-overview.md)** | Inbound and [outbound](load-balancer-outbound-connections.md) | Inbound only |
-| **Management Operations** | Most operations < 30 seconds | Most operations 60-90+ seconds |
-| **SLA** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Not available |
-| **Global Virtual Network Peering Support** | Standard ILB is supported via Global Virtual Network Peering | Not supported |
-| **[NAT Gateway Support](../virtual-network/nat-gateway/nat-overview.md)** | Both Standard ILB and Standard Public Load Balancer are supported via Nat Gateway | Not supported |
-| **[Private Link Support](../private-link/private-link-overview.md)** | Standard ILB is supported via Private Link | Not supported |
-| **[Global tier](cross-region-overview.md)** | Standard Load Balancer supports the Global tier for Public LBs enabling cross-region load balancing | Not supported |
+Before you plan your migration, review the full comparison of Basic and Standard Load Balancer features, including backend types, health probe behavior, availability zones, and SLA, in the [Load Balancer SKU comparison](skus.md#skus). Understanding these differences helps you plan for any configuration changes your workloads need after the upgrade.
 
 For information on limits, see [Load Balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
 
@@ -74,12 +53,17 @@ When manually migrating from a Basic to Standard SKU Load Balancer, there are a 
 - Standard SKU public IP addresses are secure by default, requiring that a Network Security Group explicitly allow traffic to any public IPs
 - Standard SKU Load Balancers block outbound access by default. To enable outbound access, a public load balancer needs an outbound rule for backend members. For private load balancers, either configure a NAT Gateway on the backend pool members' subnet or add instance-level public IP addresses to each backend member. 
 
-Suggested order of operations for manually upgrading a Basic Load Balancer in common virtual machine and virtual machine scale set configurations using the Portal:
+The following list suggests the order of operations for manually upgrading a Basic Load Balancer in common virtual machine and virtual machine scale set configurations by using the Azure portal:
+
+### Prepare the Basic Load Balancer configuration
 
 1. Change all Public IPs associated with the Basic Load Balancer and backend Virtual Machines to 'static' allocation
 1. For private Load Balancers, record the private IP addresses allocated to the frontend IP configurations
 1. Record the backend pool membership of the Basic Load Balancer
 1. Record the load balancing rules, NAT rules, and health probe configuration of the Basic Load Balancer
+
+### Recreate and validate the Standard Load Balancer configuration
+
 1. Create a new Standard SKU Load Balancer, matching the public or private configuration of the Basic Load Balancer. Name the frontend IP configuration something temporary. For public load balancers, use a new Public IP address for the frontend configuration. For guidance, see [Create a Public Load Balancer in the Portal](./quickstart-load-balancer-standard-public-portal.md) or [Create an Internal Load Balancer in the Portal](./quickstart-load-balancer-standard-internal-portal.md)
 1. Duplicate the Basic SKU Load Balancer configuration for the following:
     1. Backend pool names
@@ -88,6 +72,13 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
     1. Load balancing rules - use the temporary frontend configuration
     1. NAT rules - use the temporary frontend configuration
 1. For public load balancers, if you don't have one already, [create a new Network Security Group](../virtual-network/tutorial-filter-network-traffic.md) with allow rules for the traffic coming through the Load Balancer rules
+1. Confirm that the Standard Load Balancer contains the expected temporary frontend, backend pools, probes, and rules. Resolve any configuration errors before continuing.
+
+   > [!IMPORTANT]
+   > This checkpoint validates the recreated configuration, not live application traffic. Basic and Standard SKU resources can't be mixed, so complete live traffic validation after cutover. Keep the recorded Basic Load Balancer configuration and don't delete the Basic resource if the Standard configuration doesn't validate.
+
+### Cut over to Standard Load Balancer
+
 1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and [update the instances](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades) 
 1. Delete the Basic Load Balancer 
    > [!NOTE]
@@ -96,8 +87,11 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
 1. Recreate the frontend configurations from the Basic Load Balancer on the newly created Standard Load Balancer, using the same public or private IP addresses as on the Basic Load Balancer
 1. Update the load balancing and NAT rules to use the appropriate frontend configurations
 1. For public Load Balancers, [create one or more outbound rules](./outbound-rules.md) to enable internet access for backend pools
-1. Remove the temporary frontend configuration
-1. Test that inbound and outbound traffic flow through the new Standard Load Balancer as expected 
+
+### Verify traffic and clean up
+
+1. Test that inbound and outbound traffic flow through the new Standard Load Balancer as expected.
+1. Remove the temporary frontend configuration.
 
 ## FAQ
 

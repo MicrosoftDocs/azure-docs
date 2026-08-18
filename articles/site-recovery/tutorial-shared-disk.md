@@ -3,7 +3,7 @@ title: Shared disks in Azure Site Recovery
 description: This article describes how to enable replication, failover, and failback Azure virtual machines for shared disks.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 05/15/2025
+ms.date: 08/10/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 ms.custom:
@@ -204,6 +204,9 @@ To reprotect the virtual machine, follow these steps:
 
 
 ## Monitor protection
+
+> [!NOTE]
+> For Azure VMs that use shared disks, the shared disk details appear under the Cluster Group and might not appear under the Disks section for each replicated item. To verify shared disk replication, review the corresponding Cluster Group.
 
 Once the enable replication is in progress, you can view the protected cluster by navigating to the **Protected items** > **Replicated items**. 
     :::image type="content" source="media/tutorial-shared-disk/replicated-items.png" alt-text="Screenshot showing replicated items.":::

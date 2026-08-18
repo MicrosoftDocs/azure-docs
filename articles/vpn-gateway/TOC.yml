@@ -398,6 +398,8 @@
       href: site-to-site-tunneling.md
     - name: Gateway transit for VNet peering
       href: vpn-gateway-peering-gateway-transit.md
+    - name: Use a VPN or ExpressRoute gateway in a different region
+      href: vpn-gateway-different-region.md
     - name: BGP
       items:
         - name: About BGP and VPN Gateway

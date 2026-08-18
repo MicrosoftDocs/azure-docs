@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 08/26/2025
+ms.update-cycle: 365-days
 ms.custom: MVC, engagement-fy25
 
 # Customer intent: "As an IT administrator planning a cloud migration, I want to migrate physical servers to Azure using a replication appliance, so that I can leverage cloud resources for improved efficiency and scalability."

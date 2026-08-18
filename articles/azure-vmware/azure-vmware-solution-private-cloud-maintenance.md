@@ -3,7 +3,7 @@ title: Private Cloud Maintenance
 description: Ensuring seamless, reliably maintaintenance of Azure VMware Solution private cloud
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 05/08/2026
+ms.date: 08/12/2026
 # Customer intent: "As an IT administrator managing Azure VMware Solution, I want to ensure optimal performance and minimize downtime during updates."
 ---
 
@@ -45,6 +45,7 @@ Azure VMware Solution monitors the following conditions on the host:
 
 The following actions are necessary for ensuring host maintenance operations are carried out successfully:
 - **vSAN storage utilization:** To maintain Service Level Agreement (SLA), ensure that your vSphere cluster's storage space utilization remains below 75%. If the utilization exceeds 75%, upgrades can take longer than expected or fail entirely. If your storage utilization exceeds 75%, consider adding a node to expand the cluster and prevent potential downtime during upgrades.
+- **Remove or update any stale or inaccessible network adapters or switch connected to virtual machine** so they do not block vMotion or Azure maintenance. If this is not completed before the upgrade starts, Microsoft will act on your behalf by moving these VM adapters to a Microsoft-created isolated port-group/segment in a disconnected state so the upgrade can proceed.  Microsoft also sends periodic Azure VMware Solution resource health notifications for such virtual machines, so you can take proactive action and keep the environment ready for planned upgrades.
 - **Distributed Resource Scheduler (DRS) rules:** DRS VM-VM anti-affinity rules must be configured in a way to have at least (N+1) hosts in the cluster, where N is the number of VMs part of DRS rule.
 - **Failures To Tolerate (FTT) violation:** Prevent data loss by changing VMs configured with a vSAN storage policy for Failures to Tolerate (FTT) of 0 to a vSAN storage policy compliant with [Microsoft SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) (FTT=1 for up to five hosts in a cluster and FTT=2 for six or more hosts in a cluster). Ensure host maintenance operations can be carried out seamlessly.
 - **Remove VM CD-ROM mounts:** VMs mounted with "Emulate mode" CD-ROMs block host maintenance. Ensure CD-ROMs are mounted in "Passthrough mode".

@@ -252,6 +252,9 @@ items:
           - name: Query Bookshelf query logs
             href: how-to-query-bookshelf-logs.md
             displayName: Microsoft Discovery, Bookshelf, query logs, KQL
+          - name: Get operation correlation ID from Activity Log
+            href: how-to-get-correlation-id.md
+            displayName: Microsoft Discovery, operation correlation ID, Activity Log
   - name: Operate & Support
     items:
       - name: Observability overview
@@ -260,6 +263,8 @@ items:
       - name: Billing overview
         href: concept-discovery-billing.md
         displayName: Microsoft Discovery, billing, pricing, User Messages, cost management
+      - name: Business Continuity and Disaster Recovery 
+        href: concept-discovery-business-continuity-disaster-recovery.md
   - name: Tutorials
     items:
       - name: Tutorials & how-to videos

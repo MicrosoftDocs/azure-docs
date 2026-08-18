@@ -33,18 +33,16 @@ A sandbox transitions through four primary states:
 
 | State | Meaning |
 |---|---|
-| **Running** | Actively executing your workload. |
-| **Idle** | The sandbox is running but didn't receive traffic or exec calls within the configured idle window. |
-| **Suspended** | The sandbox is suspended either automatically (lifecycle policy) or explicitly. Compute is released. |
-| **Resuming** | The platform is reactivating a suspended sandbox. Resume is sub-second when memory state is preserved. |
+| **Running** | Sandbox is running and actively executing your workload. |
+| **Stopped** | The sandbox is suspended either automatically (lifecycle policy) or explicitly by a user. Compute is released. |
 
-The lifecycle policy on the sandbox group controls automatic transitions. Snapshots are an orthogonal mechanism that captures full state independent of the lifecycle.
+The lifecycle policy on the sandbox group controls automatic transitions. Snapshots provide an independent way to capture full state independent of the lifecycle.
 
 ## How to reserve state
 
-The platform offers two complementary mechanisms for preserving state: implicit preservation through lifecycle policies and explicit preservation through snapshots.
+The lifecycle policy on a sandbox group controls automatic state preservation during lifecycle transitions. Snapshots are separate point-in-time captures of the complete sandbox state.
 
-### Implicit: lifecycle policy and autosuspend
+### Automatic: lifecycle policy and autosuspend
 
 Every sandbox group has a lifecycle policy that controls autosuspend behavior:
 
@@ -54,7 +52,7 @@ Every sandbox group has a lifecycle policy that controls autosuspend behavior:
 
 Autosuspend keeps your sandboxes available for a fast resume without you having to write any snapshot code. It's the right choice when most of your sandboxes follow a predictable idle-then-resume pattern (interactive sessions, agent reasoning loops with pauses).
 
-### Explicit: the snapshot action
+### Manual: the snapshot action
 
 A snapshot is a captured copy of a sandbox's full state at a point in time. Unlike autosuspend, snapshots persist independently of the source sandbox. You can:
 
@@ -95,7 +93,7 @@ These patterns make snapshots easier to operate at scale:
 
 - **Audit snapshot count.** Periodically list snapshots and report on count and label distribution. Storage costs grow with snapshot count.
 
-- **Treat snapshots as immutable.** A snapshot is a point-in-time capture. To update a snapshot, capture a new one and delete the old one once consumers are moved over.
+- **Treat snapshots as immutable (once created, they can't be changed or updated).** A snapshot is a point-in-time capture. To update a snapshot, capture a new one and delete the old one when consumers move over.
 
 ## Related content
 

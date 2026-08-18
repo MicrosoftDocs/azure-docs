@@ -41,9 +41,9 @@ The following diagram illustrates how a typical application uses query accelerat
 
 2. Query acceleration parses the specified SQL query and distributes work to parse and filter data.
 
-1. Processors read the data from the disk, parse the data by using the appropriate format, and then filter data by applying the specified predicates and column projections.
+3. Processors read the data from the disk, parse the data by using the appropriate format, and then filter data by applying the specified predicates and column projections.
 
-1. Query acceleration combines the response shards to stream back to the client application.
+4. Query acceleration combines the response shards to stream back to the client application.
 
 5. The client application receives and parses the streamed response. The application doesn't need to filter any other data and can apply the desired calculation or transformation directly.
 
@@ -51,7 +51,7 @@ The following diagram illustrates how a typical application uses query accelerat
 
 Query acceleration optimizes performance by reducing the amount of data that your application transfers and processes.
 
-To calculate an aggregated value, applications commonly retrieve **all** of the data from a file, and then process and filter the data locally. An analysis of the input and output (I/O) patterns for analytics workloads reveals that applications typically require only 20% of the data that they read to perform any given calculation. This statistic is true even after applying techniques such as [partition pruning](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning). This statistic means that 80% of that data is needlessly transferred across the network, parsed, and filtered by applications. This pattern, designed to remove unneeded data, incurs a significant compute cost.
+To calculate an aggregated value, applications commonly retrieve **all** of the data from a file, and then process and filter the data locally. An analysis of the input and output (I/O) patterns for analytics workloads reveals that applications typically require only 20% of the data that they read to perform any given calculation. This statistic is true even after applying techniques such as [partition pruning](../../hdinsight/hdinsight-hadoop-optimize-hive-query.md#hive-partitioning). This result means that applications needlessly transfer, parse, and filter 80% of the data. This pattern, designed to remove unneeded data, incurs a significant compute cost.
 
 Even though Azure features a high-performance network, in terms of both throughput and latency, needlessly transferring data across that network is still costly for application performance. By filtering out the unwanted data during the storage request, query acceleration eliminates this cost.
 

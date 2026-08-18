@@ -1,17 +1,17 @@
 ---
-title: Use Managed Identities to Authenticate to Origins (Preview)
+title: Use Managed Identities to Authenticate to Origins
 titleSuffix: Azure Front Door
 description: Learn how to configure managed identities for Azure Front Door origin authentication, including supported scopes and required origin permissions.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 08/03/2026
+ms.date: 08/12/2026
 ms.custom:
   - build-2025
 ---
 
-# Use managed identities to authenticate to origins (preview)
+# Use managed identities to authenticate to origins
 
 **Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
@@ -89,7 +89,7 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
 
 1. Choose between system assigned or user assigned managed identity.
 
-1. Enter the correct [scope](/entra/identity-platform/scopes-oidc) within the **Scope** field. The Scope field specifies the Microsoft Entra resource (audience) for which Azure Front Door requests an access token. The access token issued by Microsoft Entra ID contains permissions applicable to that target resource. As a security measure, Azure Front Door only supports an explicit allowlist of scopes for origin authentication. Requests that specify other scopes are rejected. Supported scopes are listed below. If an unsupported scope is provided, Azure Front Door returns a validation error and the configuration isn't accepted.
+1. Enter the correct [scope](/entra/identity-platform/scopes-oidc) within the **Scope** field. The Scope field specifies the Microsoft Entra resource (audience) for which Azure Front Door requests an access token. The access token issued by Microsoft Entra ID contains permissions applicable to that target resource. As a security measure, Azure Front Door only supports an explicit allowlist of scopes for origin authentication. The following scopes are supported. If you specify any other scope, Azure Front Door returns a validation error and rejects the configuration.
 
     - `https://storage.azure.com/.default`
     - `api://<GUID>/.default` (for custom Microsoft Entra applications, including common API Management and App Service scenarios)
@@ -126,24 +126,47 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
 
 1.	Select **Review and assign** and then select **Review and assign** once more after the validation is complete.
 
-## Tips for using origin authentication
+## Manage and troubleshoot origin authentication
 
-- If you encounter errors during origin group configuration,
-    - Make sure the health probe protocol is set to HTTPS.
-    - Make sure the forwarding protocol within route settings and route configuration override settings (in rulesets) is set to **HTTPS Only**.
-    - Make sure the origin group doesn't include any private link enabled origins.
-- If you see **Access Denied** responses from origin, verify that the Managed Identity has the appropriate role assigned to access the origin resource.
-- Transition from SAS Tokens for Storage: If you're transitioning from SAS tokens to Managed Identities, follow a step-wise approach to avoid downtime. Enable Managed Identity, associate it with the origin, and then stop using SAS tokens.
-- After you enable origin authentication in origin group settings, don't directly disable or delete the identities from the Identity settings under Front Door portal, nor directly delete the user-assigned managed identity under the Managed Identity portal. Doing so causes origin authentication to fail immediately. Instead, if you want to stop using the origin authentication feature or want to delete or disable the identities, first disable the access restrictions under the Access Control (IAM) section of the origin resource so that the origin is accessible without the need of a managed identity or Entra ID token. Then disable origin authentication under Front Door origin group settings. Wait for some time for the configuration to be updated and then delete or disable the identity if required.
-- If your clients are already sending their own tokens under the Authorization header, Azure Front Door overwrites the token value with the origin authentication token. If you want Azure Front Door to send the client token to the origin, you can configure an Azure Front Door rule using the server variable `{http_req_header_Authorization}` to send the token under a separate header.
+### Troubleshoot configuration errors
+
+If you encounter errors during origin group configuration, verify that:
+
+- The health probe protocol is set to HTTPS.
+- The forwarding protocol for the route and any route configuration override is set to **HTTPS Only**.
+- The origin group doesn't contain an origin that uses Private Link.
+
+If the origin returns an access-denied response, verify that the managed identity has the required role on the origin resource.
+
+### Migrate from SAS tokens
+
+To avoid downtime when you migrate Azure Storage from shared access signature (SAS) tokens:
+
+1. Enable a managed identity for your Azure Front Door profile.
+1. Associate the managed identity with the origin group.
+1. Stop using SAS tokens.
+
+### Disable origin authentication
+
+To disable origin authentication without interrupting access to your origin:
+
+1. Configure the origin's Access Control (IAM) to accept requests that don't use managed identity authentication.
+1. Disable origin authentication on the origin group.
+1. Wait for the configuration change to propagate.
+1. Disable or delete the managed identity.
+
+### Additional considerations
+
+- Azure Front Door overwrites an existing `Authorization` header with its origin authentication token. To preserve the client token, configure a rule that uses the `{http_req_header_Authorization}` server variable to send the token under a separate header.
+
     :::image type="content" source="media/managed-identity/rules-engine.png" alt-text="Screenshot of the rule for sending the client token to origin via a different header.":::
-- Use different managed identities for origin authentication and for Azure Front Door to Azure Key Vault authentication.
-- For best practices while using managed identities, refer to [Managed identity best practice recommendations](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
-- For best practices while assigning RBAC role for Azure storage account, refer to [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md).
-- When you enable origin authentication on an origin group, Front Door includes the access token in the Authorization header for health probes that probe the origins within the origin group, not just for end-user traffic requests.
-- Choose the appropriate scope. Configure the managed identity to request tokens only for the resource backing your origin. Azure Front Door only supports a predefined allowlist of scopes and rejects unsupported audiences. Use the narrowest scope applicable to your workload to reduce unnecessary access.
+
+- Azure Front Door includes the access token in the `Authorization` header for health probes and end-user traffic requests.
+- Use separate managed identities for origin authentication and Azure Front Door access to Azure Key Vault.
 
 ## Related content
 
+- [Managed identity best practice recommendations](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations)
+- [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md)
 - [Origins and origin groups](origin.md?pivots=front-door-standard-premium)
 - [Traffic routing methods to origin](routing-methods.md)

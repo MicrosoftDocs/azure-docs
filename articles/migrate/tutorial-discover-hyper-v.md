@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 02/07/2025
+ms.update-cycle: 365-days
 ms.custom:
   - mvc
   - subject-rbac-steps

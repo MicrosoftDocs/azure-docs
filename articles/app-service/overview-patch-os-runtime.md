@@ -1,8 +1,8 @@
 ---
 title: OS and runtime patching
-description: Learn how Azure App Service updates the OS and runtimes, how you can get update announcements, and how to find your apps' runtimes and patch versions.
+description: Learn how Azure App Service updates the OS and runtimes, how you can get update announcements, how to find your apps' runtimes and patch versions, and how to control runtime patch update timing with the Platform Release Channel feature.
 ms.topic: article
-ms.date: 07/16/2025
+ms.date: 07/31/2026
 ms.update-cycle: 1095-days
 ms.custom:
   - UpdateFrequency3
@@ -27,6 +27,7 @@ It's still helpful for you as an App Service user to know information such as:
 - [How and when OS updates are applied](#how-and-when-are-os-updates-applied).
 - [How App Service is patched against significant and zero-day vulnerabilities](#how-does-azure-deal-with-significant-vulnerabilities).
 - [When supported language runtimes are updated, added, or deprecated](#when-are-supported-language-runtimes-updated-added-or-deprecated).
+- [How to control runtime patch update timing with the Platform Release Channel (Linux)](#control-runtime-patch-update-timing-with-platform-release-channel).
 - [How to find out which OS and runtime versions are running your apps](#how-can-i-query-os-and-runtime-update-status-on-my-instances).
 
 This article provides transparency on the process, and helps you stay updated on security-related announcements and runtime updates. For security reasons, certain specific security information isn't published.
@@ -74,6 +75,45 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 > [!NOTE] 
 > The Node.js example uses the recommended *tilde syntax* to target the latest available version of the Node.js 24 runtime on Windows App Service.
 
+## Control runtime patch update timing with Platform Release Channel
+
+> [!NOTE]
+> The Platform Release Channel feature is available for **Linux App Service** only.
+
+By default, the system automatically applies runtime patch updates when they become available. For Linux App Service, the **Platform Release Channel** setting lets you control the cadence at which runtime patch updates are delivered to your app. This control is useful when you want more predictability and time for validation before a new runtime patch is adopted in production.
+
+### Available channels
+
+Choose from three channels:
+
+| Channel | Description | Recommended for |
+|---|---|---|
+| **Latest** | Delivers runtime patch updates as soon as they're available. | Apps where immediate access to the newest security fixes is required. Not generally recommended for production workloads. |
+| **Standard** | Updates arrive at the standard release cadence, balancing currency and stability. This channel is the default. | Most production apps. |
+| **Extended** | Stays typically one release behind Standard, giving workloads more time for validation before adopting a new runtime patch. | Production workloads that require extra validation time before picking up a new runtime patch. |
+
+When a new runtime patch is released, it flows through the channels in order: **Latest** → **Standard** → **Extended**. This flow means an update that's immediately available on **Latest** reaches **Standard** after further validation, and then **Extended** after additional validation on top of that.
+
+For example, for .NET 10, the same point in time might look like:
+
+| Channel | .NET version |
+|---|---|
+| Latest | 10.0.7 |
+| Standard | 10.0.4 |
+| Extended | 10.0.2 |
+
+> [!TIP]
+> If your app has strict stability requirements, use the **Extended** channel to reduce the frequency of automatic runtime patch updates. If your app needs the latest security fixes as fast as possible, use **Latest**.
+
+### Configure the platform release channel
+
+1. In the [Azure portal](https://portal.azure.com), go to your App Service app.
+1. In the left menu, select **Stack settings**.
+1. Under **Platform Release Channel**, select the channel you want: **Latest**, **Standard**, or **Extended**.
+1. Select **Save**.
+
+For more information about this feature, see the [Platform Release Channel blog announcement](https://azure.github.io/AppService/2026/05/06/platform-release-channel.html).
+
 ## How can I query OS and runtime update status on my instances?
 
 The [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) lets you query the OS version and runtime versions of your App Service instances. Critical OS information is locked down from access. For more information, see [Operating system functionality on Azure App Service](operating-system-functionality.md).
@@ -97,3 +137,4 @@ The following table shows how to use Kudu or Cloud Shell commands to find the Wi
 
 - [Microsoft Security](https://www.microsoft.com/security)
 - [64-bit ASP.NET Core on Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)
+- [Platform Release Channel blog announcement](https://azure.github.io/AppService/2026/05/06/platform-release-channel.html)

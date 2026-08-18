@@ -3,17 +3,19 @@ title: What is a community endpoint?
 description: What is a community endpoint?
 author: jadean-msft
 ms.author: jadean
+ms.service: azure-enclave
+ai-usage: ai-assisted
 ms.topic: overview
-ms.date: 3/23/2026
+ms.date: 7/28/2026
 ---
 
 # What is a community endpoint?
 
-A **community endpoint** is a collection of trusted destinations or transit hub connections to private networks outside of the community boundary.
+A `community endpoint` is a collection of trusted destinations and transit hub connections that enable enclave communications to private networks outside the community boundary.
 
-Enclave connections associated with a community endpoint allow the **source enclave** to connect to destinations defined within the community endpoint. These endpoints provide a controlled mechanism for enclaves to communicate with external services while maintaining the network isolation boundaries of Azure Enclave.
+Enclave connections associated with a community endpoint allow the `source enclave` to connect to destinations defined within the community endpoint. These endpoints provide a controlled mechanism for enclaves to communicate with external services while maintaining the network isolation boundaries of Azure Enclave.
 
-Community endpoints are enforced through **Azure Firewall network rules**, ensuring outbound connectivity from enclaves is explicitly defined and governed.
+Azure Firewall network rules enforce community endpoints, ensuring outbound connectivity from enclaves is explicitly defined and governed.
 
 ## Architecture of a community endpoint
 
@@ -21,29 +23,29 @@ Community endpoints are enforced through **Azure Firewall network rules**, ensur
 
 In this architecture:
 
-1. An **enclave** initiates outbound connectivity.
-1. Traffic is routed through the **community endpoint**.
-1. The request is evaluated against **Azure Firewall network rules**.
+1. An `enclave` initiates outbound connectivity.
+1. Traffic is routed through the `community endpoint`.
+1. The request is evaluated against `Azure Firewall network rules`.
 1. If a rule matches, the connection to the destination is allowed.
 
-This model ensures that all outbound traffic from enclaves is evaluated through centralized policy enforcement.
+This model ensures that all outbound traffic from enclaves passes through centralized policy enforcement.
 
 ## Community endpoint rule types
 
 Community endpoints support several rule types that define how enclaves can connect to external resources.
 
-- **IP Address**  
+- `IP Address`
   Enable traffic from an enclave to a specific IP address outside of the community Virtual WAN.
 
-- **Fully Qualified Domain Name (FQDN)**  
+- `Fully Qualified Domain Name (FQDN)`
   Enable traffic from an enclave to a trusted domain name (for example `portal.azure.com`).  
-  FQDN rules support **TCP and UDP protocols**, allowing connectivity to services that expose endpoints through DNS rather than static IP addresses.
+  FQDN rules support `TCP and UDP protocols`, so you can connect to services that expose endpoints through DNS rather than static IP addresses.
 
-- **FQDN Tag**  
-  Enable traffic from enclaves to known Microsoft Azure services via **FQDN tags** (for example `AzurePortal`).
+- `FQDN Tag`
+  Enable traffic from enclaves to known Microsoft Azure services through `FQDN tags`, such as `AzurePortal`.
 
-- **Service Tag**  
-  Enable traffic from enclaves to Azure services using **Azure Service Tags**. Service Tags represent groups of IP address prefixes for specific Azure services, simplifying the creation of security rules. When you use a Service Tag, Azure automatically maintains the underlying IP address ranges as they change, eliminating the need to manually update rules when service IP addresses are modified.
+- `Service Tag`
+  Enable traffic from enclaves to Azure services by using `Azure Service Tags`. Service Tags represent groups of IP address prefixes for specific Azure services, which simplifies the creation of security rules. When you use a `Service Tag`, Azure automatically maintains the underlying IP address ranges as they change, so you don't need to manually update rules when service IP addresses are modified.
 
   Common Service Tags include:
   - `AzureCloud` - All Azure datacenter IP addresses
@@ -55,12 +57,12 @@ Community endpoints support several rule types that define how enclaves can conn
 
   For a complete list of available Service Tags, see [Virtual Network service tags](/azure/virtual-network/service-tags-overview).
 
-- **Private Network**  
-  Enable traffic from enclaves to an external private network through an existing **transit hub** connection. The transit hub must exist before a private network rule can be created.
+- `Private Network`
+  Enable traffic from enclaves to an external private network through an existing `transit hub` connection. The transit hub must exist before you can create a private network rule.
 
 ## Community endpoints for common services
 
-Azure Enclave provides **pre-configured community endpoints for common services** that many organizations require. These built-in endpoints simplify the process of enabling connectivity to frequently used Azure and Microsoft services without requiring manual rule configuration.
+Azure Enclave supports creation of community endpoints for common services that many organizations require. Administrators can configure endpoints for frequently used Azure and Microsoft services to simplify enabling connectivity without requiring manual firewall rule configuration.
 
 Common service endpoints include connectivity to:
 
@@ -81,15 +83,15 @@ To enable common service endpoints for your community, see [Create a community e
 
 ## FQDN network rules
 
-Community endpoints support **FQDN-based Azure Firewall network rules** for **TCP and UDP protocols**. This capability enables enclaves to connect to domain-based destinations without requiring administrators to maintain static IP address lists.
+Community endpoints support `FQDN-based Azure Firewall network rules` for `TCP and UDP protocols`. This capability enables enclaves to connect to domain-based destinations without requiring administrators to maintain static IP address lists.
 
-When a community endpoint rule specifies an **FQDN destination**, Azure Firewall resolves the domain name to its associated IP addresses during rule evaluation. Traffic is then permitted or denied based on the configured rule parameters such as protocol and destination port.
+When a community endpoint rule specifies an `FQDN destination`, Azure Firewall resolves the domain name to its associated IP addresses during rule evaluation. Traffic is then permitted or denied based on the configured rule parameters such as protocol and destination port.
 
 Using FQDN-based rules provides several advantages:
 
 - Simplifies firewall rule management by using domain names instead of IP addresses
-- Supports services with **dynamic or frequently changing IP ranges**
-- Enables easier connectivity to **SaaS platforms and Azure platform services**
+- Supports services with `dynamic or frequently changing IP ranges`
+- Enables easier connectivity to `SaaS platforms and Azure platform services`
 - Improves scalability for large Azure Enclave deployments
 
 Because rule evaluation relies on Azure Firewall behavior, community endpoint connectivity follows standard Azure Firewall rule processing and filtering logic.

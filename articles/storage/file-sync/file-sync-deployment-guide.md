@@ -22,12 +22,17 @@ Read [Plan to deploy Azure Files](../files/storage-files-planning.md) and [Plan 
 
 ## Prerequisites
 
+Before you deploy Azure File Sync, complete the following prerequisites.
+
+> [!NOTE]
+> The Azure File Sync agent requires .NET Framework 4.7.2 or later on the Windows Server. Windows Server 2019 and later include .NET Framework 4.7.2 by default. For Windows Server 2016, verify that .NET Framework 4.7.2 or later is installed before installing Azure File Sync.
+
 # [Portal](#tab/azure-portal)
 
-- You need an Azure file share in the same region where you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
+- You need an Azure classic file share in the same region where you want to deploy Azure File Sync. Provisioned v2 file shares are recommended for all new deployments. For more information, see:
 
   - [Azure File Sync region availability](file-sync-planning.md#azure-file-sync-region-availability)
-  - [Create an SMB Azure file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json)
+  - [Create an SMB Azure classic file share](../files/create-classic-file-share.md?toc=/azure/storage/filesync/toc.json)
   - [Provisioned v2 model](../files/understanding-billing.md#provisioned-v2-model)
 
 - You must enable the following storage account settings to give Azure File Sync access to the storage account:  
@@ -74,10 +79,10 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
 
 # [PowerShell](#tab/azure-powershell)
 
-- You need an Azure file share in the same region where you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
+- You need an Azure classic file share in the same region where you want to deploy Azure File Sync. Provisioned v2 file shares are recommended for all new deployments. For more information, see:
 
   - [Azure File Sync region availability](file-sync-planning.md#azure-file-sync-region-availability)
-  - [Create an SMB Azure file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json)
+  - [Create an SMB Azure file share](../files/create-classic-file-share.md?toc=/azure/storage/filesync/toc.json)
   - [Provisioned v2 model](../files/understanding-billing.md#provisioned-v2-model)
 
 - You must enable the following storage account settings to give Azure File Sync access to the storage account:  
@@ -129,10 +134,10 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
 
 # [Azure CLI](#tab/azure-cli)
 
-- You need an Azure file share in the same region where you want to deploy Azure File Sync. We recommend provisioned v2 file shares for all new deployments. For more information, see:
+- You need an Azure classic file share in the same region where you want to deploy Azure File Sync. Provisioned v2 file shares are recommended for all new deployments. For more information, see:
 
   - [Azure File Sync region availability](file-sync-planning.md#azure-file-sync-region-availability)
-  - [Create an SMB Azure file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json)
+  - [Create an SMB Azure classic file share](../files/create-classic-file-share.md?toc=/azure/storage/filesync/toc.json)
   - [Provisioned v2 model](../files/understanding-billing.md#provisioned-v2-model)
 
 - You must enable the following storage account settings to give Azure File Sync access to the storage account:  
@@ -141,8 +146,8 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
   - **Allow storage account key access** must be set to **Enabled**. To check this setting, go to your storage account and select **Configuration** in the **Settings** section.
 
 - The administrator must also have sufficient permissions on the storage account that contains the Azure file share. Storage account read-only access isn't sufficient. Cloud endpoint create and update operations require:
-- Microsoft.Storage/storageAccounts/listKeys/action
-- Microsoft.Storage/storageAccounts/ListAccountSas/action
+- `Microsoft.Storage/storageAccounts/listKeys/action`
+- `Microsoft.Storage/storageAccounts/ListAccountSas/action`
 
 Assign a role on the storage account that includes these permissions, such as Reader and Data Access or Storage Account Contributor. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service.
   
@@ -425,6 +430,59 @@ Follow the instructions for the Azure portal or PowerShell.
 
 ---
 
+### Install on Azure Arc-enabled servers
+
+You can also deploy the Azure File Sync agent on Azure Arc-enabled Windows servers by using the **Azure File Sync Agent for Windows** extension. This method is useful for managing agent deployment and updates on servers connected through Azure Arc.
+
+> [!IMPORTANT]
+> The Azure File Sync agent extension is only supported on Windows. Linux Arc-enabled servers aren't supported.
+
+# [Azure portal](#tab/azure-portal)
+
+1. In the Azure portal, go to **Azure Arc** > **Machines** and select the Arc-enabled Windows server.
+1. Under **Extensions**, select **+ Add**, find and select the **Azure File Sync Agent for Windows** extension, and then select **Next**.
+1. Configure the agent settings (install directory, auto-update schedule, proxy settings) and select **Review + create**.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```powershell
+$Settings = @{
+  EnableAgentAutoUpdate = "true"
+  AutoUpdateScheduledDayOfWeek = "Monday"
+  AutoUpdateScheduledHourOfDay = 05
+  EnableServerDiagnostics = "true"
+  EnrollInMicrosoftUpdate = "true"
+}
+
+New-AzConnectedMachineExtension `
+  -ResourceGroupName <resource-group-name> `
+  -MachineName <machine-name> `
+  -Name AzureFileSyncExtension `
+  -SubscriptionId <subscriptionId> `
+  -Location <region> `
+  -Publisher Microsoft.StorageSync `
+  -ExtensionType AzureFileSyncExtension `
+  -Settings $settings
+```
+
+To configure proxy settings, add `UseCustomProxy`, `ProxyAddress`, `ProxyPort`, `ProxyAuthRequired`, and `ProxyUsername` to `$Settings`, and pass `ProxyPassword` via `-ProtectedSetting`.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az connectedmachine extension create \
+  --name AzureFileSyncAgentExtension \
+  --machine-name <machine> \
+  --resource-group <resource-group> \
+  --publisher Microsoft.StorageSync \
+  --type AzureFileSyncAgentExtension \
+  --settings '{"EnableAgentAutoUpdate":"true","EnableServerDiagnostics":"true","EnrollInMicrosoftUpdate":"true"}'
+```
+
+---
+
+After installing the extension, [register the server](#register-windows-server-with-storage-sync-service) with a Storage Sync Service to begin syncing.
+
 ## <a name = "register-windows-server-with-storage-sync-service"></a>Register Windows Server with a storage sync service
 
 Registering your Windows Server instance with a storage sync service establishes a trust relationship between your server (or cluster) and the storage sync service. A server can be registered with only one storage sync service. That server can sync with other servers and Azure file shares associated with the same storage sync service.
@@ -695,7 +753,7 @@ The maximum number of days depends on how many VSS snapshots you can store on yo
 
 For the new limit to take effect, you need to rerun the cmdlet to enable previous version compatibility on every volume where it was previously enabled. Use the `-Force` flag to take the new maximum number of VSS snapshots per volume into account. This action results in a newly calculated number of compatible days. This change takes effect only on newly tiered files, and it overwrites any customizations on the VSS schedule that you made.
 
-By default, VSS snapshots can consume up to 10% of the volume space. To adjust the amount of storage that can be used for VSS snapshots, use the [`vssadmin resize shadowstorage`](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc788050(v=ws.11)) command.
+By default, VSS snapshots can consume up to 10% of the volume space. To adjust the amount of storage that can be used for VSS snapshots, use the [`vssadmin resize shadowstorage`](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage) command.
 
 <a id="proactive-recall"></a>
 
