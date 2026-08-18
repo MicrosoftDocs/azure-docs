@@ -4,7 +4,6 @@ description: This article explains how to restore backed-up Azure Kubernetes Ser
 ms.topic: how-to
 ms.service: azure-backup
 ms.custom:
-  - ignite-2023
   - ignite-2024
 ms.date: 01/19/2026
 author: AbhishekMallick-MS
@@ -30,7 +29,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - Azure Files-based volumes can only be restored to clusters within the same subscription and region. Cross-region and cross-subscription restore is not supported for Azure Files volumes.
 
-- In case you're trying to restore a backup stored in Vault Tier, you need to provide a storage account in input as a staging location. Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one vault to staging storage account across tenants. Ensure that the staging storage account for the restore has the **AllowCrossTenantReplication** property set to **true**. Note that Vault Tier is only supported for Azure Disk-based volumes; Azure Files volumes use Operational Tier only. 
+- In case you're trying to restore a backup stored in Vault Tier, you need to provide a storage account in input as a staging location. Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one vault to staging storage account across tenants. Note that Vault Tier is only supported for Azure Disk-based volumes; Azure Files volumes use Operational Tier only. 
 
 - Azure Backup doesn't automatically scale out AKS nodes—it only restores data and associated resources. AKS manages autoscaling by using features like the Cluster Autoscaler. If autoscaling is enabled on the target cluster, it should handle resource scaling automatically. Before restoring, ensure that the target cluster has sufficient resources to avoid restore failures or performance issues 
 
