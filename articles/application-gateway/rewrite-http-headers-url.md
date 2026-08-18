@@ -4,7 +4,7 @@ description: This article provides an overview of rewriting HTTP headers and URL
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 12/09/2025
+ms.date: 08/18/2026
 ms.author: mbender
 # Customer intent: As a cloud network engineer, I want to configure HTTP header and URL rewrites in the application gateway, so that I can optimize traffic management and enhance security for my web applications.
 ---
@@ -15,7 +15,7 @@ Application Gateway lets you rewrite selected content in requests and responses.
 
 The HTTP header and URL rewrite features are only available for the [**Application Gateway v2 SKU**](application-gateway-autoscaling-zone-redundant.md).
 
-### Request and response headers
+## Request and response headers
 
 Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and backend pools. HTTP headers let a client and server pass extra information with a request or response. By rewriting these headers, you can accomplish important tasks including:
 
@@ -28,7 +28,7 @@ You can rewrite all headers in requests and responses, except for the `Connectio
 ![A diagram showing headers in request and response packets.](./media/rewrite-http-headers-url/header-rewrite-overview.png)
 
 
-### URL path and query string
+## URL path and query string
 
 With URL rewrite capability in Application Gateway, you can:
 
@@ -47,29 +47,37 @@ To learn how to rewrite URL with Application Gateway by using Azure portal, see 
 
 A rewrite set is a collection of a routing rule, condition, and action.
 
-* **Request routing rule association:** The rewrite configuration associates to a source listener through its routing rule. When you use a routing rule of the type Basic, the rewrite configuration associates with its listener and works as a global rewrite. When you use a Path-based routing rule, you define the rewrite configuration according to the URL path map. In the latter case, it applies only to a specific path area of a site. You can apply a rewrite set to multiple routing rules, but a routing rule can have only one rewrite associated with it.
+### Rewrite set association with a routing rule
 
-* **Rewrite Condition:** This configuration is optional. Based on the conditions that you define, the Application Gateway evaluates the contents of the HTTP(S) requests and responses. The subsequent "rewrite action" occurs if the HTTP(S) request or response matches this condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, it's a logical AND operation.
-You can use rewrite conditions to evaluate the content of HTTP(S) requests and responses. This optional configuration enables you to perform a rewrite only when one or more conditions are met. The application gateway uses these types of variables to evaluate the content of requests and responses:
+The rewrite configuration associates to a source listener through its routing rule. When you use a routing rule of the type Basic, the rewrite configuration associates with its listener and works as a global rewrite. When you use a Path-based routing rule, you define the rewrite configuration according to the URL path map. In the latter case, it applies only to a specific path area of a site. You can apply a rewrite set to multiple routing rules, but a routing rule can have only one rewrite associated with it.
 
-  You can choose the following types to look for a condition:
-  * HTTP header (Request and Response)
-  * Supported [Server variables](#server-variables)
+### Rewrite conditions
 
-  A condition lets you evaluate whether a specified header or variable exists by matching their values through text or a Regex pattern. For advanced rewrite configurations, you can also capture the value of header or server variable for later use under Rewrite Action. Learn more about [pattern and capturing](#pattern-matching-and-capturing).
+This configuration is optional. Based on the conditions that you define, the Application Gateway evaluates the contents of the HTTP(S) requests and responses. The subsequent "rewrite action" occurs if the HTTP(S) request or response matches this condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, it's a logical AND operation.
 
-* **Rewrite Action:** Rewrite action set allows you to rewrite headers (request or response) or the URL components.
+You can choose the following types to look for a condition:
 
-  An action can have the following value types or their combinations:
-  * Text.
-  * Request header's value - To use a captured request header's value, specify the syntax as `{http_req_headerName}`.
-  * Response header's value - To use a captured response header's value from the preceding condition, specify the syntax as `{http_resp_headerName}`. The Rewrite Action block also supports the "Header Value Matcher" field for Set-Cookie header. This optional field lets you match and capture the value of a specific header when multiple Set-Cookie headers with the same name exist. To manipulate that specific cookie's captured value, you can then use `{capt_header_value_matcher}`. Learn more about [capture under Action set](#syntax-for-capturing).
-  * Server variable - To use a server variable, specify the syntax as `{var_serverVariable}`. [List of supported Server variables](#server-variables).
+* HTTP header (Request and Response)
+* Supported [Server variables](#server-variables)
 
-  When you use an action to rewrite a URL, the following operations are supported:
-  * URL path: The new value to set as the path.
-  * URL Query String: The new value to which the query string must be rewritten.
-  * Re-evaluate path map: Specify if the URL path map must be re-evaluated after rewrite. If you don't check this option, the original URL path is used to match the path-pattern in the URL path map. If you set this option to true, the URL path map is re-evaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
+A condition lets you evaluate whether a specified header or variable exists by matching their values through text or a Regex pattern. For advanced rewrite configurations, you can also capture the value of header or server variable for later use under Rewrite Action. Learn more about [pattern and capturing](#pattern-matching-and-capturing).
+
+### Rewrite actions
+
+Rewrite action set allows you to rewrite headers (request or response) or the URL components.
+
+An action can have the following value types or their combinations:
+
+* Text.
+* Request header's value - To use a captured request header's value, specify the syntax as `{http_req_headerName}`.
+* Response header's value - To use a captured response header's value from the preceding condition, specify the syntax as `{http_resp_headerName}`. The Rewrite Action block also supports the "Header Value Matcher" field for Set-Cookie header. This optional field lets you match and capture the value of a specific header when multiple Set-Cookie headers with the same name exist. To manipulate that specific cookie's captured value, you can then use `{capt_header_value_matcher}`. Learn more about [capture under Action set](#syntax-for-capturing).
+* Server variable - To use a server variable, specify the syntax as `{var_serverVariable}`. [List of supported Server variables](#server-variables).
+
+When you use an action to rewrite a URL, the following operations are supported:
+
+* URL path: The new value to set as the path.
+* URL Query String: The new value to which the query string must be rewritten.
+* Re-evaluate path map: Specify if the URL path map must be re-evaluated after rewrite. If you don't check this option, the original URL path is used to match the path-pattern in the URL path map. If you set this option to true, the URL path map is re-evaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
 
 
 ## Pattern matching and capturing 
@@ -111,30 +119,55 @@ Application Gateway uses server variables to store useful information about the 
 
 Application gateway supports the following server variables:
 
+### Request server variables
+
+These variables describe the incoming HTTP request, including its URL components, method, and headers.
+
 |   Variable name    |                   Description                                           |
 | ------------------------- | ------------------------------------------------------------ |
-| add_x_forwarded_for_proxy | The X-Forwarded-For client request header field with the `client_ip` variable   (see explanation later in this table) appended to it in the format IP1, IP2,   IP3, and so on. If the X-Forwarded-For field isn't in the client request header,   the `add_x_forwarded_for_proxy` variable   is equal to the `$client_ip` variable.   This variable is useful when you want to rewrite the X-Forwarded-For header set by Application Gateway so that the header contains   only the IP address without the port information. |
-| ciphers_supported         | A list of the ciphers supported by the client.               |
-| ciphers_used              | The string of ciphers used for an established TLS   connection. |
-| client_ip                 | The IP address of the client from which the application   gateway received the request. If there's a reverse proxy before the   application gateway and the originating client, `client_ip` returns the IP address of the reverse proxy. |
-| client_port               | The client port.                                             |
-| client_tcp_rtt            | Information about the client TCP connection. Available on   systems that support the TCP_INFO socket option. |
+| add_x_forwarded_for_proxy | The X-Forwarded-For client request header field with the `client_ip` variable   (see the Connection server variables table) appended to it in the format IP1, IP2,   IP3, and so on. If the X-Forwarded-For field isn't in the client request header,   the `add_x_forwarded_for_proxy` variable   is equal to the `$client_ip` variable.   This variable is useful when you want to rewrite the X-Forwarded-For header set by Application Gateway so that the header contains   only the IP address without the port information. |
 | client_user               | When HTTP authentication is used, the user name supplied   for authentication. |
-| host                      | In this order of precedence: the host name from the   request line, the host name from the Host request header field, or the server   name matching a request. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the host value is `contoso.com` |
 | cookie_*name*             | The *name* cookie.                                           |
+| host                      | In this order of precedence: the host name from the   request line, the host name from the Host request header field, or the server   name matching a request. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the host value is `contoso.com` |
 | http_method               | The method used to make the URL request. For example, GET   or POST. |
-| http_status               | The session status. For example, 200, 400, or 403.           |
 | http_version              | The request protocol. Usually HTTP/1.0, HTTP/1.1, or   HTTP/2.0. |
 | query_string              | The list of variable/value pairs that follows the `?` in the requested URL. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, query_string value is `id=123&title=fabrikam` |
 | received_bytes            | The length of the request (including the request line,   header, and request body). |
 | request_query             | The arguments in the request line.                           |
 | request_scheme            | The request scheme: http or https.                           |
 | request_uri               | The full original request URI (with arguments). Example:   in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, request_uri value is `/article.aspx?id=123&title=fabrikam` |
-| sent_bytes                | The number of bytes sent to a client.                        |
+| uri_path                  | Identifies the specific resource in the host that the web client wants to access. The variable refers to the original URL path before any manipulation. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the uri_path value is `/article.aspx`. |
+
+### Connection server variables
+
+These variables describe the network connection between the client and the application gateway.
+
+|   Variable name    |                   Description                                           |
+| ------------------------- | ------------------------------------------------------------ |
+| client_ip                 | The IP address of the client from which the application   gateway received the request. If there's a reverse proxy before the   application gateway and the originating client, `client_ip` returns the IP address of the reverse proxy. |
+| client_port               | The client port.                                             |
+| client_tcp_rtt            | Information about the client TCP connection. Available on   systems that support the TCP_INFO socket option. |
 | server_port               | The port of the server that accepted a request.              |
+
+### TLS server variables
+
+These variables describe the TLS connection that the client negotiates with the application gateway.
+
+|   Variable name    |                   Description                                           |
+| ------------------------- | ------------------------------------------------------------ |
+| ciphers_supported         | A list of the ciphers supported by the client.               |
+| ciphers_used              | The string of ciphers used for an established TLS   connection. |
 | ssl_connection_protocol   | The protocol of an established TLS connection.               |
 | ssl_enabled               | "On" if the connection operates in TLS mode. Otherwise, an   empty string. |
-| uri_path                  | Identifies the specific resource in the host that the web client wants to access. The variable refers to the original URL path before any manipulation. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the uri_path value is `/article.aspx`. |
+
+### Response server variables
+
+These variables describe the response that the application gateway returns to the client.
+
+|   Variable name    |                   Description                                           |
+| ------------------------- | ------------------------------------------------------------ |
+| http_status               | The session status. For example, 200, 400, or 403.           |
+| sent_bytes                | The number of bytes sent to a client.                        |
 
 ### Mutual authentication server variables
 
@@ -154,21 +187,21 @@ Application Gateway supports the following server variables for mutual authentic
 
 ## Common scenarios for header rewrite
 
-#### Remove port information from the X-Forwarded-For header
+### Remove port information from the X-Forwarded-For header
 
 Application Gateway inserts an X-Forwarded-For header into all requests before it forwards the requests to the backend. This header is a comma-separated list of IP ports. There might be scenarios in which the backend servers only need the headers to contain IP addresses. You can use header rewrite to remove the port information from the X-Forwarded-For header. One way to do this is to set the header to the add_x_forwarded_for_proxy server variable. Alternatively, you can also use the variable client_ip:
 
 ![A screenshot showing a remove port action.](./media/rewrite-http-headers-url/remove-port.png)
 
-#### Remove an in-line Proxy's IP for use with a backend firewall's X-Forwarded-For source feature
+### Remove an in-line proxy's IP for use with a backend firewall's X-Forwarded-For source feature
 
-Some third-party firewalls, also referred to as Network Virtual Appliances (NVAs), determine the source IP address by using the incoming `X-Forwarded-For` header instead of the packet’s source IP address, which would otherwise reflect the Application Gateway’s IP address. In many cases, NVAs display only the most recent IP address in the header.
-
-When a request traverses multiple proxies (for example, Client -> Azure Front Door -> Application Gateway -> NVA), the most recent IP address in the `X-Forwarded-For` header may represent Azure Front Door rather than the original client IP address. To preserve the client IP address, you can configure an Application Gateway rewrite rule to set the `X-Forwarded-For` header to the `http_req_X-Forwarded-For` server variable. This configuration prevents Application Gateway from appending the IP address of Azure Front Door or other intermediate reverse proxies, as shown in the following screenshot:
+To preserve the original client IP address when a request passes through more than one proxy, create a request header rewrite action that sets the `X-Forwarded-For` header to the value `{http_req_X-Forwarded-For}`. This value replaces the header with the incoming `X-Forwarded-For` value instead of appending the IP address of the preceding proxy, as shown in the following screenshot:
 
 ![A screenshot showing the removal of in-line proxy IP from XFF header.](./media/rewrite-http-headers-url/remove-inline-proxy-xff.png)
 
-This captures the incoming X-Forwarded-For header, which will be the client's original IP address, and forwards it as-is rather than adding the AFD or proxy's IP to the header, allowing the NVA to display and evaluate the original client IP.
+Some third-party firewalls, also referred to as network virtual appliances (NVAs), determine the source IP address by using the incoming `X-Forwarded-For` header instead of the packet's source IP address, which would otherwise reflect the Application Gateway IP address. In many cases, NVAs display only the most recent IP address in the header.
+
+When a request traverses multiple proxies (for example, client -> Azure Front Door -> Application Gateway -> NVA), the most recent IP address in the `X-Forwarded-For` header can represent Azure Front Door rather than the original client IP address. Because the rewrite action forwards the incoming `X-Forwarded-For` header as-is, Application Gateway doesn't append the IP address of Azure Front Door or any other intermediate reverse proxy, and the NVA can display and evaluate the original client IP address.
 
 ### Modify a redirection URL
 
