@@ -28,7 +28,7 @@ To run deployment scripts privately, you need the following infrastructure as se
 - The ACI resource is created automatically by the deployment script resource.
 
 > [!IMPORTANT]
-> If you assign a managed identity with elevated permissions, such as **Owner**, the script author is responsible for ensuring the storage account is protected against unintended access.
+> If you assign a managed identity with permissions that exceed the script's operational requirements, you are responsible for ensuring the storage account is protected from unintended access. Wherever possible, follow the principle of least privilege.
 
 The following Bicep file configures the infrastructure required for running a deployment script privately:
 

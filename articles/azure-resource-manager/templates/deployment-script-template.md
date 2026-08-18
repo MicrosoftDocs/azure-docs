@@ -480,7 +480,7 @@ A storage account and a container instance are needed for script execution and t
 - The `allowSharedKeyAccess` property of the storage account must be set to `true`. The only way to mount a storage account in Azure Container Instance(ACI) is via an access key.
 
 > [!IMPORTANT]
-> If you assign a managed identity with elevated permissions, such as **Owner**, the script author is responsible for ensuring the storage account is protected against unintended access.
+> If you assign a managed identity with permissions that exceed the script's operational requirements, you are responsible for ensuring the storage account is protected from unintended access. Wherever possible, follow the principle of least privilege.
 
 To specify an existing storage account, add the following JSON to the property element of `Microsoft.Resources/deploymentScripts`:
 
