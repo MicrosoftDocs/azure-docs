@@ -8,6 +8,9 @@ ms.topic: overview
 
 [!INCLUDE [Blueprints deprecation note](../../../includes/blueprints-deprecation-note.md)]
 
+> [!TIP]
+> To assist with your migration from Azure Blueprints, use the [Azure Blueprints migration skill for GitHub Copilot](https://github.com/Azure/azure-blueprints/tree/master/skills/azure-blueprints-migration). This tool guides you through the entire process, including inventory assessment, exporting resources, converting artifacts to Template Specs and Deployment Stacks, validation, and the final cutover.
+
 Just as a blueprint allows an engineer or an architect to sketch a project's design parameters,
 Azure Blueprints enables cloud architects and central information technology groups to define a
 repeatable set of Azure resources that implements and adheres to an organization's standards,

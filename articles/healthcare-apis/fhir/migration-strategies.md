@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: evach
 author: evachen96
-ms.date: 02/25/2026
+ms.date: 08/17/2026
 ---
 
 # Migration strategies for moving from Azure API for FHIR
@@ -35,13 +35,13 @@ Compare the differences between Azure API for FHIR and Azure Health Data Service
 
 |Capabilities|Azure API for FHIR|Azure Health Data Services|
 |------------|------------------|--------------------------|
-|**Settings**|Supported: <br> • Local RBAC <br> • SMART on FHIR Proxy|Planned deprecation: <br> • Local RBAC (9/6/23) <br> • SMART on FHIR Proxy (9/21/26)|
+|**Settings**|Deprecated with the service retirement (9/30/26): <br> • Local RBAC <br> • SMART on FHIR Proxy|Planned deprecation: <br> • SMART on FHIR Proxy (9/21/26)|
 |**Data storage Volume**|More than 4 TB|Current support is 4 TB. Open an [Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) if you need more than 4 TB|
 |**Data ingress**|Tools available in OSS|`$import` operation|
 |**Autoscaling**|Supported on request and incurs charge|Enabled by default at no extra charge|
 |**Search parameters**|Bundle type supported: Batch <br> • Include and revinclude, iterate modifier not supported  <br> • Sorting supported by first name, family name, birthdate and clinical date|Bundle type supported: Batch and transaction  <br> • Selectable search parameters  <br> • Include, revinclude, and iterate modifier is supported <br>• Sorting supported by string and dateTime fields|
 |**Events**|Not Supported|Supported|
-|**Infrastructure**|Supported: <br> • Customer managed keys <br> • Cross region DR (disaster recovery)  <br>|Supported: <br> • PITR (point in time recovery)  <br> • [Customer managed keys](configure-customer-managed-keys.md) <br> Upcoming: <br> • Availability zone support|
+|**Infrastructure**|Supported: <br> • Customer managed keys <br> • Cross region DR (disaster recovery)  <br>|Supported: <br> • PITR (point in time recovery)  <br> • [Customer managed keys](configure-customer-managed-keys.md) <br> • [Availability zone support](../availability-zones.md)|
 
 > [!IMPORTANT]
 > If your Azure API for FHIR instance contains more than 2 TB of data, open an [Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) **before** starting your migration. In the support ticket, include your Azure API for FHIR instance name and your Azure Health Data Services FHIR service instance name so the team can assist with your migration planning.

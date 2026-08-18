@@ -12,7 +12,7 @@ ms.author: patricka
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| score-threshold	| Score threshold defines how closely an incoming prompt must match a cached prompt to return its stored response. The value ranges from 0.0 to 1.0. Lower values require higher semantic similarity for a match. [Learn more](../articles/redis/tutorial-semantic-cache.md#change-the-similarity-threshold). | Yes |	N/A |
+| score-threshold	| Score threshold defines how closely an incoming prompt must match a cached prompt to return its stored response. The value ranges from 0.0 to 1.0. Lower values require higher semantic similarity for a match. [Learn more](/azure/redis/tutorial-semantic-cache#change-the-similarity-threshold). | Yes |	N/A |
 | embeddings-backend-id | [Backend](../articles/api-management/backends.md) ID for embeddings API call. |	Yes |	N/A |
 | embeddings-backend-auth | Authentication used for embeddings API backend. | Yes. Must be set to `system-assigned`. | N/A |
 | ignore-system-messages | Boolean. When set to `true` (recommended), removes system messages from a chat completion prompt before assessing cache similarity. | No | false |
