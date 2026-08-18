@@ -3,7 +3,7 @@ title: Develop a deployment script in Bicep
 description: Learn how to develop a deployment script within a Bicep file or store one externally as a separate file.
 ms.custom: devx-track-bicep
 ms.topic: article
-ms.date: 08/17/2026
+ms.date: 08/18/2026
 ---
 
 # Develop a deployment script in Bicep
@@ -703,6 +703,9 @@ Here are the requirements for using an existing storage account:
 - Firewall rules for storage accounts aren't supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 - The deployment principal must have permissions to manage the storage account, which includes reading, creating, and deleting file shares. For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
 - The `allowSharedKeyAccess` property of the storage account must be set to `true`. The only way to mount a storage account in Azure Container Instance(ACI) is via an access key.
+
+> [!IMPORTANT]
+> If you assign a managed identity with elevated permissions, such as **Owner**, the script author is responsible for ensuring the storage account is protected against unintended access.
 
 To specify an existing storage account, add the following Bicep code to the property element of `Microsoft.Resources/deploymentScripts`:
 

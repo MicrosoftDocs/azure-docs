@@ -2,7 +2,7 @@
 title: Access a private virtual network from a Bicep deployment script
 description: Learn how to run and test Bicep deployment scripts in private networks.
 ms.topic: how-to
-ms.date: 12/22/2025
+ms.date: 08/18/2026
 ms.custom:
   - devx-track-bicep
   - sfi-image-nochange
@@ -14,6 +14,9 @@ With `Microsoft.Resources/deploymentScripts` version `2023-08-01`, you can run d
 
 - Create a user-assigned managed identity, and specify it in the `identity` property. To assign the identity, see [Identity](./deployment-script-develop.md#identity).
 - Create a storage account in the private network, and specify the deployment script to use the existing storage account. For more information, see [Use an existing storage account](./deployment-script-develop.md#use-an-existing-storage-account). Some additional configuration is required for the storage account:
+
+  > [!IMPORTANT]
+  > If you assign a managed identity with elevated permissions, such as **Owner**, the script author is responsible for ensuring the storage account is protected against unintended access.
 
     1. Open the storage account in the [Azure portal](https://portal.azure.com).
     1. On the left menu, select **Access Control (IAM)**, and then select the **Role assignments** tab.

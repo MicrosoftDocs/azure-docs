@@ -3,7 +3,7 @@ title: Use deployment scripts in Bicep
 description: Learn how to create, monitor, and troubleshoot deployment scripts in Bicep.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 08/17/2026
+ms.date: 08/18/2026
 ---
 
 # Use deployment scripts in Bicep
@@ -69,6 +69,9 @@ For deployment script API version `2020-10-01` or later, two principals are invo
   - Pass the service principal credentials as secure environment variables, and then call [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) or [`az login`](/cli/azure/reference-index#az-login) in the deployment script.
 
   If you use a managed identity, the deployment principal needs the built-in Managed Identity Operator role assigned to the managed identity resource.
+
+  > [!IMPORTANT]
+  > If you assign a managed identity with elevated permissions, such as **Owner**, the script author is responsible for ensuring the storage account is protected against unintended access.
 
 A built-in role isn't tailored for configuring deployment script permissions at this time.
 

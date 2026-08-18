@@ -3,7 +3,7 @@ title: Run Bicep deployment script privately over a private endpoint
 description: Learn how to run Bicep deployment script privately over a private endpoint.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 12/22/2025
+ms.date: 08/18/2026
 ---
 
 # Run Bicep deployment script privately over a private endpoint
@@ -26,6 +26,9 @@ To run deployment scripts privately, you need the following infrastructure as se
 - Create a private DNS zone `privatelink.file.core.windows.net` and register the private endpoint IP address as an A record. Link the private DNS zone to the created virtual network.
 - Create a user-assigned managed identity with `Storage File Data Privileged Contributor` permissions on the storage account and specify it in the `identity` property in the deployment script resource. To assign the identity, see [Identity](/azure/azure-resource-manager/bicep/deployment-script-develop#identity).
 - The ACI resource is created automatically by the deployment script resource.
+
+> [!IMPORTANT]
+> If you assign a managed identity with elevated permissions, such as **Owner**, the script author is responsible for ensuring the storage account is protected against unintended access.
 
 The following Bicep file configures the infrastructure required for running a deployment script privately:
 
