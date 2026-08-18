@@ -76,7 +76,7 @@ az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --nam
 Create the supercomputer first so it can be referenced by the workspace. The compute cluster is injected directly into your virtual network subnet. Workload traffic stays private.
 
 > [!NOTE]
-> Setting `properties.managementSubnetId` on the Supercomputer to a subnet delegated to `Microsoft.ContainerService/managedClusters` (for example, `sc-mgmt` above) enables **AKS API-Server VNet Integration**: kubelet on the nodes reaches the API server over a private ILB in that subnet, so the node-to-control-plane data path stays inside the virtual network. See [Management subnet ID requirements](how-to-configure-network-security.md#managementsubnetid-required) for details.
+> Setting `properties.managementSubnetId` on the Supercomputer to a subnet delegated to `Microsoft.ContainerService/managedClusters` (for example, `sc-mgmt` above) enables **AKS API-Server VNet Integration**: kubelet on the nodes reaches the API server over a private ILB in that subnet, so the node-to-control-plane data path stays inside the virtual network. See [Management subnet ID requirements](how-to-configure-network-security.md#management-subnet-id-requirements) for details.
 
 ```azurecli
 az rest --method PUT \
