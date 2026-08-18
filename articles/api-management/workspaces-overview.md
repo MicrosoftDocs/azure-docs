@@ -149,7 +149,7 @@ For a current list of regions where workspace gateways are available, see [Avail
 - Workspaces don't support MCP servers
 - Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
 - Workspaces don't support CA certificates
-- Workspaces does support using managed identities using the `authentication-managed-identity` policy, but using the service's identity. However, it does not support using managed identity for features such as storing secrets in Azure Key Vault
+- Workspaces does support using managed identities using the [`authentication-managed-identity` policy](authentication-managed-identity-policy.md), but using the service's identity. However, it does not support using managed identity for features such as storing secrets in Azure Key Vault
 
 ### Workspace gateway constraints
 
