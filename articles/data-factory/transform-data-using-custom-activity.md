@@ -136,7 +136,7 @@ The following table describes names and descriptions of properties that are spec
 
 > [!NOTE]
 > The `retentionTimeInDays` property supports a minimum retention period of **1 day**.
-> Customers requiring cleanup more frequently than once per day must implement their own cleanup logic within the custom activity or associated scripts.
+> If you need cleanup more frequently than once per day, implement your own cleanup logic within the custom activity or associated scripts.
 
 ## Custom activity permissions
 
