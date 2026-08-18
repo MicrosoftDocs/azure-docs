@@ -5,7 +5,7 @@ services: api-management
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 07/23/2024
+ms.date: 08/18/2026
 ---
 
 # Log to event hub
@@ -35,6 +35,9 @@ The `log-to-eventhub` policy sends messages in the specified format to an event 
 | logger-id     | The ID of the Logger registered with your API Management service. Policy expressions aren't allowed.         | Yes                                                 | N/A |
 | partition-id  | Specifies the index of the partition where messages are sent. Policy expressions aren't allowed.            | Optional. Do not use if `partition-key` is used. | N/A |
 | partition-key | Specifies the value used for partition assignment when messages are sent. Policy expressions are allowed. | Optional. Do not use if `partition-id` is used.  | N/A |
+
+> [!IMPORTANT]
+> Linked access isn't checked when a logger is referenced by using `logger-id`. A user who has permission to write a policy can reference any available logger, even if the user doesn't have access to that logger.
 
 ## Usage
 

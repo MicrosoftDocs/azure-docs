@@ -5,7 +5,7 @@ services: api-management
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 02/25/2026
+ms.date: 08/18/2026
 ---
 
 # Validate JWT
@@ -97,6 +97,8 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 | n | (Issuer signing key only) Modulus of the public key used to verify the issuer of a token signed with an asymmetric key. Must be specified with the value of the exponent `e`. Policy expressions aren't allowed. | No | N/A|
 | e | (Issuer signing key only) Exponent of the public key used to verify the issuer of a token signed with an asymmetric key. Must be specified with the value of the modulus `n`. Policy expressions aren't allowed. | No | N/A|
 
+> [!IMPORTANT]
+> Linked access isn't checked when a certificate is referenced by using `certificate-id`. A user who has permission to write a policy can reference any available certificate, even if the user doesn't have access to that certificate.
 
 
 ### claim attributes
