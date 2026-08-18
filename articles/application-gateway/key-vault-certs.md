@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 06/01/2026
+ms.date: 08/18/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to integrate Application Gateway with Key Vault for managing TLS certificates, so that I can enhance security and automate certificate renewal without manual intervention."
 ---
@@ -58,6 +58,8 @@ Application Gateway integration with Key Vault is a three-step configuration pro
 
 > [!Note]
 > Azure Application Gateway integration with Key Vault supports both Vault access policy and Azure role-based access control permission models.
+
+The terms *secret identifier*, *secret URI*, and *secret ID* all refer to the same Key Vault reference that Application Gateway uses to retrieve a certificate. The rest of this article uses *secret identifier* in prose. Code samples use the parameter and variable names that each tool requires.
 
 ### Obtain a user-assigned managed identity
 
@@ -119,7 +121,17 @@ When you're using a restricted Key Vault, use the following steps to configure A
 
 ### Configure Application Gateway Listener
 
+Application Gateway supports two paths for attaching a Key Vault certificate to an HTTPS listener, depending on the permission model that your key vault uses. Use the following table to choose the path for your key vault, and then follow the matching procedure.
+
+| Permission model | Azure portal support | Cross-subscription key vault | Setup considerations |
+|---|---|---|---|
+| Vault access policy | Supported. You select the managed identity, key vault, and certificate while you configure the listener. | Supported, but you must configure it with an ARM template, Bicep, the Azure CLI, or Azure PowerShell. Application Gateway doesn't support cross-subscription key vault configuration through the Azure portal. | Grant your user-assigned managed identity the **Get** secret permission under **Access Policies**. |
+| Azure role-based access control | Not supported for specifying Key Vault certificates. You must create the initial Key Vault reference with an ARM template, Bicep, the Azure CLI, or Azure PowerShell. | Supported, but you must configure it with an ARM template, Bicep, the Azure CLI, or Azure PowerShell. Application Gateway doesn't support cross-subscription key vault configuration through the Azure portal. | Assign your user-assigned managed identity the **Key Vault Secrets User** role. The user or service principal that runs PowerShell, Azure CLI, or REST API commands also needs this role. |
+
 #### Key Vault permission Vault access policy model
+
+Use this procedure when your key vault uses the Vault access policy permission model. You complete every step in the Azure portal.
+
 Navigate to your Application Gateway in the Azure portal and select the **Listeners** tab.  Select **Add Listener** (or select an existing listener) and specify **HTTPS** for the protocol.
 
 Under **Choose a certificate**, select **Create new** and then select **Choose a certificate from Key Vault** under **Https settings**.
@@ -129,6 +141,8 @@ For Cert name, type a friendly name for the certificate to be referenced in Key 
 Once selected, select  **Add** (if creating) or **Save** (if editing) to apply the referenced Key Vault certificate to the listener.
 
 #### Key Vault Azure role-based access control permission model
+
+Use this procedure when your key vault uses the Azure role-based access control permission model. You start in PowerShell (or an ARM template, Bicep, or the Azure CLI) and finish in the Azure portal.
 
 Application Gateway supports certificates referenced in Key Vault via the Role-based access control permission model. The first few steps to reference the Key Vault must be completed via ARM template, Bicep, CLI, or PowerShell. During this process, a managed identity containing the proper Role-based access control permissions is utilized.
 
