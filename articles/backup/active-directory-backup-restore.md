@@ -2,7 +2,7 @@
 title: Back up and restore Active Directory using Azure Backup 
 description: Learn how to back up and restore Active Directory domain controllers for Azure VM and on-premises servers using Azure Backup.
 ms.topic: how-to
-ms.date: 08/25/2025
+ms.date: 12/01/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy24
