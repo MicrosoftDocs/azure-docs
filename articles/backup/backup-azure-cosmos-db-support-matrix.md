@@ -2,7 +2,7 @@
 title: Azure Cosmos DB support matrix
 description: Provides a summary of support settings and limitations of Azure Cosmos DB backup.
 ms.topic: reference
-ms.date: 05/25/2026
+ms.date: 08/18/2026
 ms.custom: references_regions, build-2026
 ms.service: azure-backup
 author: AbhishekMallick-MS

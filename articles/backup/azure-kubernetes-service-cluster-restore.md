@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
-ms.date: 01/19/2026
+ms.date: 08/18/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud operations engineer, I want to restore a backed-up Azure Kubernetes Service cluster using Azure Backup, so that I can recover cluster resources and ensure continuity of services during disruptions."
