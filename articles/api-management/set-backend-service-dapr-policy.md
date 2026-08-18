@@ -33,9 +33,6 @@ The policy assumes that Dapr runs in a sidecar container in the same pod as the 
 | dapr-method      | Name of the method or a URL to invoke on the target microservice. Maps to the [method-name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr. Policy expressions are allowed. | Yes | N/A |
 | dapr-namespace   | Name of the namespace the target microservice is residing in. Used to form the [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr. Policy expressions are allowed. | No | N/A |
 
-> [!IMPORTANT]
-> Linked access isn't checked when a backend is referenced by using `backend-id`. A user who has permission to write a policy can reference any available backend, even if the user doesn't have access to that backend.
-
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound

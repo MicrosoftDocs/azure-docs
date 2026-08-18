@@ -38,7 +38,7 @@ ms.date: 08/18/2026
 |password|Password for the client certificate. Policy expressions are allowed.|Use if certificate specified in `body` is password protected.|N/A|
 
 > [!IMPORTANT]
-> Linked access isn't checked when a certificate is referenced by using `certificate-id`. A user who has permission to write a policy can reference any available certificate, even if the user doesn't have access to that certificate.
+> Linked access isn't checked when a certificate is referenced by using `certificate-id`. A user who has permission to write a policy can reference any available certificate and use it to authenticate requests to backend services, even if the user doesn't have read access to the certificate resource. This doesn't grant access to retrieve the certificate or its private key.
 
 ## Usage
 

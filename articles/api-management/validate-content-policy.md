@@ -91,7 +91,7 @@ The policy validates the following content in the request or response against th
 | case-insensitive-property-names | Boolean. For a JSON schema, specifies whether to compare property names of JSON objects without regard to case. <br> - `true`: compare property names case insensitively. <br> - `false`: compare property names case sensitively. | No | false |
 
 > [!IMPORTANT]
-> Linked access isn't checked when a schema is referenced by using `schema-id`. A user who has permission to write a policy can reference any available schema, even if the user doesn't have access to that schema.
+> Linked access isn't checked when a schema is referenced by using `schema-id`. A user who has permission to write a policy can reference any available schema and cause API Management to validate request or response bodies against its rules, including detecting or blocking nonconforming content, even if the user doesn't have read access to the schema resource. This doesn't grant access to view or modify the schema definition.
 
 [!INCLUDE [api-management-validation-policy-actions](../../includes/api-management-validation-policy-actions.md)]
 

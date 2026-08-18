@@ -66,7 +66,7 @@ Use the policy in scenarios such as the following:
 | window-overlap-size | The size of the overlap in characters between text windows when the content is split by using the `window-size` attribute. If you don't specify a value, windows don't overlap. Policy expressions are allowed. | No | N/A |
 
 > [!IMPORTANT]
-> Linked access isn't checked when a backend is referenced by using `backend-id`. A user who has permission to write a policy can reference any available backend, even if the user doesn't have access to that backend.
+> Linked access isn't checked when a backend is referenced by using `backend-id`. A user who has permission to write a policy can reference any available backend and send request or response content to it using the backend's configured authentication, even if the user doesn't have read access to the backend resource.
 
 ## Elements
 

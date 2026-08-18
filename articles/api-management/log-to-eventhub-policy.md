@@ -37,7 +37,7 @@ The `log-to-eventhub` policy sends messages in the specified format to an event 
 | partition-key | Specifies the value used for partition assignment when messages are sent. Policy expressions are allowed. | Optional. Do not use if `partition-id` is used.  | N/A |
 
 > [!IMPORTANT]
-> Linked access isn't checked when a logger is referenced by using `logger-id`. A user who has permission to write a policy can reference any available logger, even if the user doesn't have access to that logger.
+> Linked access isn't checked when a logger is referenced by using `logger-id`. A user who has permission to write a policy can reference any available logger and cause API Management to send selected request, response, or expression-derived data to its configured Event Hub destination, even if the user doesn't have read access to the logger resource. This doesn't grant access to view the logger configuration or credentials, or to read data from the event hub.
 
 ## Usage
 

@@ -42,7 +42,7 @@ Referencing a backend entity allows you to manage the backend service base URL a
 |sf-listener-name|Only applicable when the backend is a Service Fabric service and is specified using `backend-id`. Service Fabric Reliable Services allows you to create multiple listeners in a service. This attribute is used to select a specific listener when a backend Reliable Service has more than one listener. If this attribute isn't specified, API Management will attempt to use a listener without a name. A listener without a name is typical for Reliable Services that have only one listener. Policy expressions are allowed.|No|N/A|
 
 > [!IMPORTANT]
-> Linked access isn't checked when a backend is referenced by using `backend-id`. A user who has permission to write a policy can reference any available backend, even if the user doesn't have access to that backend.
+> Linked access isn't checked when a backend is referenced by using `backend-id`. A user who has permission to write a policy can reference any available backend and route requests through it, using the backend's configured settings, even if the user doesn't have read access to the backend resource.
 
 ## Usage
 

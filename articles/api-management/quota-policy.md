@@ -67,7 +67,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | renewal-period | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to the start time of the subscription. When `renewal-period` is set to `0`, the period is set to infinite. Policy expressions aren't allowed.| Yes |  N/A     |
 
 > [!IMPORTANT]
-> Linked access isn't checked when an API or operation is referenced by using the `name` or `id` attribute. A user who has permission to write a policy can reference any available API or operation, even if the user doesn't have access to that resource.
+> Linked access isn't checked when an API or operation is referenced by using the `name` or `id` attribute. A user who has permission to write a policy can reference any available API or operation and cause API Management to count and restrict subscription traffic for it according to the configured quota, even if the user doesn't have read access to that resource. This doesn't grant access to view or modify the API or operation definition.
 
 ## Usage
 

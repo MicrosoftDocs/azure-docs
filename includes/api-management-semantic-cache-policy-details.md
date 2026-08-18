@@ -4,7 +4,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: include
-ms.date: 10/29/2025
+ms.date: 08/18/2026
 ms.author: patricka
 ---
 
@@ -17,7 +17,10 @@ ms.author: patricka
 | embeddings-backend-auth | Authentication used for embeddings API backend. | Yes. Must be set to `system-assigned`. | N/A |
 | ignore-system-messages | Boolean. When set to `true` (recommended), removes system messages from a chat completion prompt before assessing cache similarity. | No | false |
 | max-message-count | If specified, number of remaining dialog messages after which caching is skipped. | No | N/A |
-                                             
+
+> [!IMPORTANT]
+> Linked access isn't checked when a backend is referenced by using `embeddings-backend-id`. A user who has permission to write a policy can reference any available backend and send embeddings API calls through it using the API Management instance's system-assigned managed identity, even if the user doesn't have read access to the backend resource.
+
 ## Elements
 
 |Name|Description|Required|

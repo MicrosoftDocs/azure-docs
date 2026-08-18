@@ -75,7 +75,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds. Policy expressions aren't allowed.                                           | Yes      | N/A     |
 
 > [!IMPORTANT]
-> Linked access isn't checked when an API or operation is referenced by using the `name` or `id` attribute. A user who has permission to write a policy can reference any available API or operation, even if the user doesn't have access to that resource.
+> Linked access isn't checked when an API or operation is referenced by using the `name` or `id` attribute. A user who has permission to write a policy can reference any available API or operation and cause API Management to count and throttle subscription traffic for it according to the configured rate limit, even if the user doesn't have read access to that resource. This doesn't grant access to view or modify the API or operation definition.
 
 ## Usage
 

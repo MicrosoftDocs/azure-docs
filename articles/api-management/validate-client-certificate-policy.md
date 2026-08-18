@@ -78,7 +78,7 @@ For more information about custom CA certificates and certificate authorities, s
 | issuer-certificate-id | Identifier of existing certificate entity representing the issuer's public key. Mutually exclusive with other issuer attributes. | No | N/A |
 
 > [!IMPORTANT]
-> Linked access isn't checked when a certificate is referenced by using `issuer-certificate-id`. A user who has permission to write a policy can reference any available certificate, even if the user doesn't have access to that certificate.
+> Linked access isn't checked when a certificate is referenced by using `issuer-certificate-id`. A user who has permission to write a policy can reference any available certificate and use its public key to validate the issuer of client certificates, even if the user doesn't have read access to the certificate resource. This doesn't grant access to retrieve the certificate or any private key it contains.
 
 ## Usage
 

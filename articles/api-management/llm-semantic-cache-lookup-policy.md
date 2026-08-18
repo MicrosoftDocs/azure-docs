@@ -42,8 +42,8 @@ Use the `llm-semantic-cache-lookup` policy to perform cache lookup of responses 
 
 [!INCLUDE [api-management-semantic-cache-policy-details](../../includes/api-management-semantic-cache-policy-details.md)]
 
-> [IMPORTANT]
-> Linked access isn't checked when a backend is referenced by using `embeddings-backend-id`. A user who has permission to write a policy can reference any available backend, even if the user doesn't have access to that backend.
+> [!IMPORTANT]
+> Linked access isn't checked when a backend is referenced by using `embeddings-backend-id`. A user who has permission to write a policy can reference any available backend and send embedding requests through it, even if the user doesn't have read access to the backend resource.
 
 ## Examples
 
