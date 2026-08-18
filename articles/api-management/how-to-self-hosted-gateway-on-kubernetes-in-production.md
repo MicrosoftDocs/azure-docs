@@ -39,7 +39,7 @@ There are two ways to autoscale the self-hosted gateway horizontally:
 Use a scale-out strategy rather than a scale-up strategy. Running a larger fleet of smaller instances rather than fewer bigger instances improves your resilience in case of individual instances failing.
 
 
-You can autoscale by using native Kubernetes functionality, or by using [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh). KEDA is a Cloud Native Computing Foundation (CNCF) graduation project that strives to make application autoscaling simple.
+You can autoscale by using native Kubernetes functionality or by using [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh). KEDA is a Cloud Native Computing Foundation (CNCF) graduation project that strives to make application autoscaling simple.
 
 > [!NOTE]
 > KEDA is an open-source technology that isn't supported by Azure support and must be operated by customers.
