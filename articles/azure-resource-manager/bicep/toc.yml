@@ -114,7 +114,7 @@ items:
       - name: Databases
         items:
           - name: Cache for Redis
-            href: ../../redis/redis-cache-bicep-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
+            href: /azure/redis/redis-cache-bicep-provision?toc=/azure/azure-resource-manager/bicep/toc.json
           - name: Azure Cosmos DB
             href: /azure/cosmos-db/sql/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
           - name: Database for MariaDB
