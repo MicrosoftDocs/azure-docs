@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cdn/cdn-china-delivery.md",
+      "redirect_url": "/azure/frontdoor/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-compute-fleet/modify-fleet.md",
       "redirect_url": "/azure/azure-compute-fleet/managed-mode",
       "redirect_document_id": false
