@@ -5,7 +5,7 @@ author: seligj95
 ms.author: jordanselig
 ms.service: azure-app-service
 ms.topic: how-to
-ms.date: 07/17/2026
+ms.date: 08/18/2026
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2026
@@ -329,6 +329,9 @@ To disconnect the MCP server from API Center, delete the corresponding MCP serve
 - Confirm a spec is configured—either uploaded through the portal or available at the path set in `ApiSpecPath`.
 - Confirm `ToolList` isn't set to `[]`.
 - Validate the spec with an OpenAPI 3.0.x linter - operations missing required fields (such as a response schema) are skipped.
+
+> [!NOTE]
+> Built-in MCP has a known OpenAPI conversion issue where `tools/list` can return string enum values, including nested enum values, as `"Microsoft.OpenApi.Any.OpenApiString"` instead of their values from the OpenAPI 3.0.x document. For example, `enum: [menu, category, ingredient]` can become three repeated `"Microsoft.OpenApi.Any.OpenApiString"` values. No workaround is currently available.
 
 **The MCP client gets a 401 with a `WWW-Authenticate` challenge.**
 
