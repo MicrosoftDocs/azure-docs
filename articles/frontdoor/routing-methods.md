@@ -74,7 +74,7 @@ To ensure high availability, deploy backup services to take over if the primary 
 
 By default, Azure Front Door routes traffic to the origins with the highest priority (lowest priority value). If these primary origins become unavailable, it routes traffic to the secondary origins (next lowest priority value).
 
-When the Azure Front Door can't establish a TCP connection to the selected origin for an individual request, Azure Front Door retries that request against another eligible origin in the same origin group, even if the primary origin is still marked healthy by the health probe.
+when the Azure Front Door edge fails to establish a TCP connection to the selected origin, or when the origin prematurely closes the connection before returning a complete response header, Azure Front Door retries that request against another eligible origin in the same origin group, even if the primary origin is still marked healthy by the health probe.
 
 ### Configuring priority for origins
 
