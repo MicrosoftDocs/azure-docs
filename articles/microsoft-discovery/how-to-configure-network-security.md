@@ -379,7 +379,7 @@ curl -sS -H "Authorization: Bearer $TOKEN" \
 
 ## Configure outbound internet access
 
-Discovery-delegated subnets have no default outbound route to the internet. You provide the egress path (Azure Firewall, NAT gateway, or your own NVA). When you set `outboundType = UserDefinedRouting` on a Microsoft Discovery supercomputer, you must also provide a dedicated management subnet for the AKS API server's internal load balancer.
+Discovery-delegated subnets don't have a default outbound route to the internet. You provide the egress path by using Azure Firewall, NAT gateway, or your own NVA. When you set `outboundType = UserDefinedRouting` on a Microsoft Discovery supercomputer, you must also provide a dedicated management subnet for the AKS API server's internal load balancer.
 
 ### Management subnet ID requirements
 
