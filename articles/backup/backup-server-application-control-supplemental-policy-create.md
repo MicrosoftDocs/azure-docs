@@ -5,7 +5,7 @@ description: Application Control supplemental policy for MABS lets Azure Local r
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka
-ms.date: 08/14/2026
+ms.date: 08/19/2026
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.service: azure-backup
@@ -24,6 +24,18 @@ Application Control policies can run in one of three modes: Audit, Enforced, or 
 ## Create an Application Control supplemental policy for MABS
 
 To create an Application Control supplemental policy for MABS using PowerShell, follow these steps:
+
+1. Generate a WDAC policy file containing the information required to create the DPM policy from MABS server by running the `New-CIPolicy` cmdlet.
+
+     ```powershell-interactive
+
+		New-CIPolicy `
+		-ScanPath "C:\Program Files\Microsoft Azure Backup Server V4\DPM\DPM\ProtectionAgents" `
+		-Level Publisher `
+		-Fallback Hash `
+		-UserPEs `
+		-FilePath "C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml"
+     ```
 
 1. Create a new XML file by using the following example script, and save it to the path **`C:\WDAC\Broadcom_Supplemental-VMWareOnly.xml`**:
 
@@ -100,23 +112,10 @@ To create an Application Control supplemental policy for MABS using PowerShell, 
    > [!NOTE]
    > Update `PlatformID`, `BasePolicyID`, `PolicyID`, and `Signer’s TBS value` as needed:
    >
-   > - **`PlatformID`**: Represents the platform association.
+   > - **`PlatformID`**: Represents the platform association. Find this detail in the file `C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml`.
    > - **`BasePolicyID`**: Represents the base policy upon which the current policy relies. You can use `Get-ASLocalWDACPolicyInfo` to find your base policy.
-   > - **`PolicyID`**: Represents the identifier for the current policy.
-
-   To fetch the signer‘s signing certificate root/chain identifier (the TBS fingerprint) value, use the `New-CIPolicy` cmdlet.
-
-     ```powershell-interactive
-
-		New-CIPolicy `
-		-ScanPath "C:\Program Files\Microsoft Azure Backup Server V4\DPM\DPM\ProtectionAgents" `
-		-Level Publisher `
-		-Fallback Hash `
-		-UserPEs `
-		-FilePath "C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml"
-     ```
-
-   Only update the `CertPublisher` value and set it to `Broadcom Inc` or `VMware Inc`.
+   > - **`PolicyID`**: Represents the identifier for the current policy. Find this detail in the file `C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml`.
+   >- **`Signer’s TBS values`**: Fetch the signer‘s signing certificate root/chain identifier (the TBS fingerprint) value from the file `C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml`.
 
 1. To modify the metadata of your supplemental policy, run the following cmdlet:
 
