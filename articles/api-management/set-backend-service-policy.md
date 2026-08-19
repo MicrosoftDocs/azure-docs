@@ -7,7 +7,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 07/23/2024
+ms.date: 08/18/2026
 ---
 
 # Set backend service
@@ -34,12 +34,15 @@ Referencing a backend entity allows you to manage the backend service base URL a
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 |base-url|New backend service base URL. Policy expressions are allowed.|One of `base-url` or `backend-id` must be present.|N/A|
-|backend-id|Identifier (name) of the [backend](backends.md) to route primary or secondary replica of a partition. Policy expressions are allowed. |One of `base-url` or `backend-id` must be present.|N/A|
+|backend-id|Identifier (name) of the [backend](backends.md) to route primary or secondary replica of a partition. Policy expressions are allowed.|One of `base-url` or `backend-id` must be present.|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution. Policy expressions are allowed.|No|N/A|
 |sf-service-instance-name|Only applicable when the backend is a Service Fabric service. Allows changing service instances at runtime. Policy expressions are allowed. |No|N/A|
 |sf-partition-key|Only applicable when the backend is a Service Fabric service. Specifies the partition key of a Service Fabric service. Policy expressions are allowed. |No|N/A|
 |sf-replica-type|Only applicable when the backend is a Service Fabric service. Specifies whether the request should be routed to the primary or secondary replica of a partition. Valid values are `primary` and `secondary`. Policy expressions are allowed.|No|N/A|
 |sf-listener-name|Only applicable when the backend is a Service Fabric service and is specified using `backend-id`. Service Fabric Reliable Services allows you to create multiple listeners in a service. This attribute is used to select a specific listener when a backend Reliable Service has more than one listener. If this attribute isn't specified, API Management will attempt to use a listener without a name. A listener without a name is typical for Reliable Services that have only one listener. Policy expressions are allowed.|No|N/A|
+
+> [!IMPORTANT]
+> Linked access isn't checked when a backend is referenced by using `backend-id`. A user who has permission to write a policy can reference any available backend and route requests through it, using the backend's configured settings, even if the user doesn't have read access to the backend resource.
 
 ## Usage
 
