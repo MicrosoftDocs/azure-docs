@@ -51,6 +51,8 @@ Accelerated Networking is available in all global Azure regions and the Azure Go
 
 ### Supported operating systems
 
+## Windows
+
 The following versions of Windows support Accelerated Networking for all interfaces:
 
 | **Product** |
@@ -61,8 +63,9 @@ The following versions of Windows support Accelerated Networking for all interfa
 | **Windows Server 2022** |
 | **Windows Server 2025** |
 
+## Linux
 
-The following Linux and FreeBSD distributions from Azure Marketplace support Accelerated Networking out of the box:
+### For virtual machines (VMs) with the [Microsoft Mana Adapter](./azure/virtual-network/accelerated-networking-mana-overview):
 
 | **Distribution** | **Kernel Series** | **Min Version** |
 |------------------|------------------|-----------------|
@@ -85,7 +88,6 @@ The following Linux and FreeBSD distributions from Azure Marketplace support Acc
 | **Ubuntu 22.04 LTS** | 5.15 | 5.15.0-1096.105 |
 | **Ubuntu 24.04 LTS** | 6.8 | 6.8.0-1041.47 |
 
-
 For users of non endorsed Linux distributions or utilizing custom kernels, we recommend the Linux Kernel 6.14 or later found at [kernel.org](https://www.kernel.org/)
 
 > [!NOTE]
@@ -93,7 +95,9 @@ For users of non endorsed Linux distributions or utilizing custom kernels, we re
 > 
 > The preceding table lists the minimum recommended kernel versions for MANA support.
 
-
+### For virtual machines (VMs) with Mellanox Adapters
+ 
+All [Azure Endorsed Linux Distributions](./azure/virtual-machines/linux/endorsed-distros) are supported , as long as they are not end of life (EOL) by the vendors.
 
 ### Supported VM instances
 
