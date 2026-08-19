@@ -2,7 +2,7 @@
 title: Azure Cosmos DB bindings for Functions 1.x
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions 1.x.
 ms.topic: reference
-ms.date: 11/21/2017
+ms.date: 08/12/2026
 ms.devlang: csharp
 # ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
@@ -24,7 +24,7 @@ Keep these important considerations in mind when using the Azure Cosmos DB bindi
 
 * This binding was originally named DocumentDB. In Azure Functions version 1.x, only the trigger was renamed Azure Cosmos DB; the input binding, output binding, and NuGet package retain the DocumentDB name.
 
-* Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction), [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-introduction), [Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/graph-introduction), and [Azure Cosmos DB for Table](/azure/cosmos-db/table-introduction).
+* Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure DocumentDB](/azure/documentdb/),[Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction), [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-introduction), [Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/graph-introduction), and [Azure Cosmos DB for Table](/azure/cosmos-db/table-introduction).
 
 * The Azure Cosmos DB bindings for the Functions v1.x runtime don't support Microsoft Entra authentication and managed identities. To improve security, you should upgrade to run on the latest version of the Functions runtime.
 
