@@ -82,7 +82,7 @@ The following table shows the list of cipher suites and minimum protocol version
 | TLS_RSA_WITH_3DES_EDE_CBC_SHA | &check; | &cross; | &cross; | &cross; | &cross; |
 | TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA | &check; | &cross; | &cross; | &cross; | &cross; |
 
-### Default TLS policy
+## Default TLS policy
 
 When no specific TLS policy is specified in the application gateway resource configuration, a default TLS policy gets applied. The selection of this default policy is based on the API version used to create that gateway.
 
