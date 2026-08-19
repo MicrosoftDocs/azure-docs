@@ -2,7 +2,7 @@
 title: Overview of Azure Migrate Assessment Report 
 description: Learn about assessment report, Azure readiness, and recommendations. 
 author: habibaum
-ms.author: v-uhabiba
+ms.reviewer: v-uhabiba
 ms.service: azure-migrate 
 ms.topic: concept-article 
 ms.date: 09/17/2025
