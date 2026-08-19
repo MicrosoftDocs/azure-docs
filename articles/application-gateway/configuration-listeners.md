@@ -29,8 +29,8 @@ When you create a new listener, you choose between [*basic* and *multi-site*](./
 
 | Routing depends on the host name | Listener type | Behavior |
 | --- | --- | --- |
-| No | Basic | All of your requests, for any domain, are accepted and forwarded to backend pools. Learn [how to create an application gateway with a basic listener](./quick-create-portal.md). |
-| Yes | Multi-site | Requests are forwarded to different backend pools based on the *host* header or host names. Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port. To differentiate requests on the same port, you must specify a host name that matches with the incoming request. |
+| No | Basic | Accept and forward all requests for any domain to backend pools. Learn [how to create an application gateway with a basic listener](./quick-create-portal.md). |
+| Yes | Multi-site | Forward requests to different backend pools based on the *host* header or host names. Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port. To differentiate requests on the same port, you must specify a host name that matches the incoming request. |
 
 To learn more about multi-site listeners, see [hosting multiple sites using Application Gateway](multiple-site-overview.md).
 
@@ -44,7 +44,7 @@ The following table summarizes how processing order is determined in each SKU.
 
 | SKU | What determines the order | Recommended configuration |
 | --- | --- | --- |
-| v1 | The order of the rules and the type of listener. A rule with a basic listener that comes first in the order is processed first and accepts any request for that port and IP combination. | Configure the rules with multi-site listeners first, and push the rule with the basic listener to the last position in the list. |
+| v1 | The order of the rules and the type of listener. A rule with a basic listener that comes first in the order processes first and accepts any request for that port and IP combination. | Configure the rules with multi-site listeners first, and push the rule with the basic listener to the last position in the list. |
 | v2 | Rule priority. | Define wildcard and basic listeners with a priority number greater than the number used for site-specific and multi-site listeners, so that the site-specific and multi-site listeners execute first. |
 
 ## Frontend IP address
