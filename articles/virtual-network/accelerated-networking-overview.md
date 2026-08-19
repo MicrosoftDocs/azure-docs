@@ -65,7 +65,7 @@ The following versions of Windows support Accelerated Networking for all interfa
 
 ## Linux
 
-### For virtual machines (VMs) with the [Microsoft Mana Adapter](./azure/virtual-network/accelerated-networking-mana-overview):
+### For virtual machines (VMs) with the [Microsoft Mana Adapter](/azure/virtual-network/accelerated-networking-mana-overview):
 
 | **Distribution** | **Kernel Series** | **Min Version** |
 |------------------|------------------|-----------------|
@@ -97,7 +97,7 @@ For users of non endorsed Linux distributions or utilizing custom kernels, we re
 
 ### For virtual machines (VMs) with Mellanox Adapters
  
-All [Azure Endorsed Linux Distributions](./azure/virtual-machines/linux/endorsed-distros) are supported, as long as the vendors don't mark them as end of life (EOL).
+All [Azure Endorsed Linux Distributions](/azure/virtual-machines/linux/endorsed-distros) are supported, as long as the vendors don't mark them as end of life (EOL).
 
 ### Supported VM instances
 
