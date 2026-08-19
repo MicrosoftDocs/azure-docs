@@ -8,7 +8,6 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.update-cycle: 1095-days
-monikerRange:
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
