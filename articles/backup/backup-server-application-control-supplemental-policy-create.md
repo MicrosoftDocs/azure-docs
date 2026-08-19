@@ -37,7 +37,7 @@ To create an Application Control supplemental policy for MABS using PowerShell, 
 		-FilePath "C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml"
      ```
 
-1. Create a new XML file by using the following example script, and save it to the path **`C:\WDAC\Broadcom_Supplemental-VMWareOnly.xml`**:
+1. Create a new XML file by using the following example script, and save it to the path on Azure Local virtual machines **`C:\WDAC\Broadcom_Supplemental-VMWareOnly.xml`**:
 
 	 ```xml
 	 <?xml version="1.0" encoding="utf-8"?>
@@ -117,7 +117,7 @@ To create an Application Control supplemental policy for MABS using PowerShell, 
    > - **`PolicyID`**: Represents the identifier for the current policy. Find this detail in the file `C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml`.
    >- **`Signer’s TBS values`**: Fetch the signer‘s signing certificate root/chain identifier (the TBS fingerprint) value from the file `C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml`.
 
-1. To modify the metadata of your supplemental policy, run the following cmdlet:
+1. To modify the metadata of your supplemental policy on Azure Local virtual machines, run the following cmdlet:
 
 	 ```powershell
 	 # Path of newly created XML
@@ -131,13 +131,13 @@ To create an Application Control supplemental policy for MABS using PowerShell, 
 	 Set-CIPolicyIdInfo -FilePath $policyPath -PolicyID "DPM-Policy_$policyVersion" -PolicyName "DPM-Policy"
 	 ```
 
-1. To deploy the policy, run the following cmdlet:
+1. To deploy the policy on Azure Local virtual machines, run the following cmdlet:
 
 	 ```powershell
 	 Add-ASWDACSupplementalPolicy -Path c:\wdac\Broadcom_Supplemental-VMWareOnly.xml
 	 ```
 
-1. To check the status of the new policy, run the following cmdlet:
+1. To check the status of the new policy on Azure Local virtual machines, run the following cmdlet:
 
 	 ```powershell
 	 Get-ASLocalWDACPolicyInfo
