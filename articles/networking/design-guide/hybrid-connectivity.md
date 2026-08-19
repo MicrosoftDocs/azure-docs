@@ -1,6 +1,6 @@
 ---
-title: "Hybrid connectivity: connect on-premises to Azure"
-description: Connect your on-premises network to Azure using VPN Gateway or ExpressRoute. Compare options for bandwidth, latency, cost, and security.
+title: "Plan hybrid connectivity: VPN vs ExpressRoute"
+description: Connect your on-premises network to Azure by using VPN Gateway or ExpressRoute. Compare options for bandwidth, latency, cost, and security.
 author: duongau
 ms.author: duau
 ms.reviewer: mbender
@@ -11,13 +11,13 @@ zone_pivot_groups: networking-scenario
 #customer intent: As a network architect, I want to compare VPN Gateway and ExpressRoute so that I can choose the right hybrid connectivity option for my workloads.
 ---
 
-# Hybrid connectivity: connect on-premises to Azure
+# Hybrid connectivity: Connect on-premises to Azure
 
 This article helps you choose and plan the right connectivity option for connecting your on-premises network to Azure virtual networks (VNets).
 
 ## What this article covers
 
-This article covers the design decisions for connecting on-premises networks to Azure VNets by using Azure VPN Gateway or Azure ExpressRoute. You learn when to use each option, how they work together, and how to plan your gateway deployment.
+This article covers the design decisions for connecting on-premises networks to Azure VNets by using Azure VPN Gateway or Azure ExpressRoute. You learn when to use each option, how they work together, and how to plan your gateway deployment. For a high-level overview of the hybrid connectivity services, see [What is hybrid connectivity?](../hybrid-connectivity/hybrid-connectivity.md)
 
 ## Who needs this article
 
@@ -39,13 +39,13 @@ Read this article if one or more of these conditions apply:
 
 ::: zone pivot="modernize"
 
-**Modernization focus:** Your modernized apps might still need on-premises connectivity during the transition period. As you migrate workloads to PaaS services, some dependencies remain on-premises until the full migration completes. Plan hybrid connectivity as a bridge that you can scale down or remove as on-premises dependencies are eliminated.
+**Modernization focus:** Your modernized apps might still need on-premises connectivity during the transition period. As you migrate workloads to PaaS services, some dependencies remain on-premises until the full migration completes. Plan hybrid connectivity as a bridge that you can scale down or remove as you eliminate on-premises dependencies.
 
 ::: zone-end
 
 ::: zone pivot="cross-cloud"
 
-**Cross-cloud focus:** You need IPSec VPN tunnels between Azure and AWS or Google Cloud for encrypted cross-cloud transit. Applications with cross-cloud dependencies require secure, reliable network paths between cloud providers. This connectivity model uses Azure VPN Gateway to terminate tunnels from AWS Virtual Private Gateways and Google Cloud VPN endpoints.
+**Cross-cloud focus:** You need IPsec VPN tunnels between Azure and AWS or Google Cloud for encrypted cross-cloud transit. Applications with cross-cloud dependencies require secure, reliable network paths between cloud providers. This connectivity model uses Azure VPN Gateway to terminate tunnels from AWS Virtual Private Gateways and Google Cloud VPN endpoints.
 
 ::: zone-end
 
@@ -55,25 +55,25 @@ Azure provides several services for hybrid connectivity. Each service addresses 
 
 | Service | What it provides | When to use it |
 |---|---|---|
-| **Azure VPN Gateway (Site-to-Site)** | Encrypted IPsec/IKE tunnel over the public internet. Connects on-premises VPN devices to Azure. | Smaller organizations, dev/test environments, backup connectivity path, or budget-constrained hybrid scenarios. |
-| **Azure VPN Gateway (Point-to-Site)** | Individual client connections to an Azure VNet. Supports OpenVPN, SSTP, and IKEv2 protocols. | Remote administrators or developers who need individual access to Azure resources. See the [remote access article](developer-admin-access.md) for detailed P2S guidance. |
+| **Azure VPN Gateway (site-to-site)** | Encrypted IPsec/IKE tunnel over the public internet. Connects on-premises VPN devices to Azure. | Smaller organizations, dev/test environments, backup connectivity path, or budget-constrained hybrid scenarios. |
+| **Azure VPN Gateway (point-to-site)** | Individual client connections to an Azure VNet. Supports OpenVPN, SSTP, and IKEv2 protocols. | Remote administrators or developers who need individual access to Azure resources. See the [remote access article](developer-admin-access.md) for detailed P2S guidance. |
 | **Azure ExpressRoute** | Private dedicated connection through a connectivity provider. Traffic doesn't traverse the public internet. | Production hybrid workloads, latency-sensitive applications, large data transfers, and regulatory or compliance requirements. |
 | **ExpressRoute with VPN failover** | ExpressRoute as the primary path with VPN Gateway as a failover backup. | High-availability requirements where ExpressRoute downtime isn't tolerable. |
-| **ExpressRoute Global Reach** | Connects two on-premises locations to each other through the Azure backbone, using their respective ExpressRoute circuits. | Multi-site enterprise networks that use Azure as a transit backbone. See the [multi-cloud and cross-region article](cross-region.md) for details. |
+| **ExpressRoute Global Reach** | Connects two on-premises locations to each other through the Azure backbone by using their respective ExpressRoute circuits. | Multi-site enterprise networks that use Azure as a transit backbone. See the [multi-cloud and cross-region article](cross-region.md) for details. |
 | **ExpressRoute Direct** | 10 Gbps, 100 Gbps, or 400 Gbps dedicated connectivity direct to Microsoft's network edge. Supports MACsec Layer 2 encryption. | Highest bandwidth needs, MACsec encryption requirements, or when you need to bypass connectivity provider overhead. The 400 Gbps option is available in limited locations and requires enrollment. |
 
 > [!NOTE]
-> Point-to-Site (P2S) VPN provides individual client access, which overlaps with the scope of the [remote access article](developer-admin-access.md). This article focuses on P2S as part of the hybrid connectivity landscape. For P2S deployment guidance, identity integration, and client configuration, refer to the [remote access for developers and admins article](developer-admin-access.md).
+> Point-to-site (P2S) VPN provides individual client access, which overlaps with the scope of the [remote access article](developer-admin-access.md). This article focuses on P2S as part of the hybrid connectivity landscape. For P2S deployment guidance, identity integration, and client configuration, refer to the [remote access for developers and admins article](developer-admin-access.md).
 
 ## How VPN Gateway works
 
-Azure VPN Gateway creates an encrypted IPsec/IKE tunnel between your on-premises VPN device and an Azure virtual network gateway. The following steps describe the Site-to-Site (S2S) tunnel setup process:
+Azure VPN Gateway creates an encrypted IPsec/IKE tunnel between your on-premises VPN device and an Azure virtual network gateway. The following steps describe the site-to-site (S2S) tunnel setup process:
 
 1. **Gateway provisioning:** You deploy a VPN Gateway resource into the GatewaySubnet of your hub VNet. Azure provisions two or more gateway instances (depending on SKU and active-active configuration). Provisioning takes about 30–45 minutes.
 1. **Local network gateway definition:** You create a local network gateway resource in Azure that represents your on-premises network. This resource specifies the public IP address of your on-premises VPN device and the on-premises address ranges that Azure should route through the tunnel.
 1. **Connection resource creation:** You create a connection resource that links the VPN Gateway to the local network gateway. You specify the shared key (pre-shared key) and IPsec/IKE parameters for the tunnel.
 1. **IKE Phase 1 (Main Mode):** The Azure gateway and your on-premises device negotiate a secure channel. They exchange proposals for encryption algorithms, integrity algorithms, Diffie-Hellman groups, and authentication methods. The result is an IKE Security Association (SA).
-1. **IKE Phase 2 (Quick Mode):** Using the secure channel from Phase 1, both sides negotiate the IPsec SA parameters: encryption algorithm, integrity algorithm, and key lifetime. This process establishes the IPsec tunnel.
+1. **IKE Phase 2 (Quick Mode):** By using the secure channel from Phase 1, both sides negotiate the IPsec SA parameters: encryption algorithm, integrity algorithm, and key lifetime. This process establishes the IPsec tunnel.
 1. **Traffic flows:** Once both phases complete, the tunnel is active. Traffic matching the defined address ranges is encrypted, encapsulated in IPsec ESP packets, and sent across the public internet to the remote endpoint.
 
 For active-active configurations, Azure provisions two gateway instances, each with its own public IP. Your on-premises device establishes tunnels to both instances, providing automatic failover if one instance becomes unavailable.
@@ -106,7 +106,7 @@ ExpressRoute supports two peering types:
 | **Best for** | High-bandwidth, single-region workloads near a peering location | Multi-site within one geopolitical region | Global enterprise with workloads across multiple Azure regions |
 
 > [!TIP]
-> The Local SKU offers significant cost savings because both inbound and outbound data transfer are included in the circuit price. Choose Local when your Azure region is at or near the same metro as the peering location.
+> The Local SKU offers significant cost savings because the circuit price includes both inbound and outbound data transfer. Choose Local when your Azure region is at or near the same metro as the peering location.
 
 ### VPN Gateway SKU comparison
 
@@ -133,7 +133,7 @@ Use the following decision tables to select the right connectivity option and de
 | **Bandwidth needed** | Up to 10 Gbps aggregate throughput (VpnGw5 SKU). Individual tunnel throughput is lower. | Up to 100 Gbps per circuit. ExpressRoute Direct supports up to 400 Gbps. |
 | **Latency tolerance** | Higher latency acceptable. Traffic traverses the public internet. | Low, predictable latency required. Traffic follows a private path. |
 | **Reliability SLA** | Higher with an active-active gateway configuration. | Higher for the circuit, and highest with a zone-redundant gateway deployment (AZ SKU). See [Azure service-level agreements](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1). |
-| **Privacy and compliance** | Traffic is encrypted but traverses the public internet. | Traffic never traverses the public internet. |
+| **Privacy and compliance** | Traffic stays encrypted but traverses the public internet. | Traffic never traverses the public internet. |
 | **Implementation speed** | Hours to days. Gateway provisioning takes about 45 minutes. | Weeks to months. Provider circuit procurement requires physical infrastructure provisioning. |
 | **Existing ExpressRoute circuit** | Use VPN Gateway as a backup path alongside ExpressRoute. | Use as the primary connectivity path. |
 
@@ -155,25 +155,25 @@ The following table summarizes how to increase ExpressRoute availability. For cu
 | Resilience level | Configuration | SLA |
 |---|---|---|
 | **Standard** | Single ExpressRoute circuit with redundant cross-connections. | Circuit-level SLA |
-| **Zone-redundant gateway** | Deploy an ExpressRoute gateway using an AZ SKU (ErGw1AZ, ErGw2AZ, or ErGw3AZ). Instances span availability zones. | Gateway-level SLA |
+| **Zone-redundant gateway** | Deploy an ExpressRoute gateway by using an AZ SKU (ErGw1AZ, ErGw2AZ, or ErGw3AZ). Instances span availability zones. | Gateway-level SLA |
 | **Maximum** | Dual circuits in different peering locations with zone-redundant gateways, plus VPN failover. | Highest composite availability |
 
 <!-- Diagram: ExpressRoute as the primary connectivity path with solid lines and VPN Gateway as a dashed failover path, both connecting on-premises to a hub VNet GatewaySubnet -->
 
 :::image type="content" source="media/hybrid-connectivity-expressroute-vpn-failover.png" alt-text="Diagram showing ExpressRoute as primary path with VPN failover, both connecting on-premises to hub VNet gateways and firewall." lightbox="media/hybrid-connectivity-expressroute-vpn-failover.png":::
 
-### Deployment decision: gateway placement example
+### Deployment decision: Gateway placement example
 
 Consider an enterprise with a hub-and-spoke network that has three spoke VNets for production, staging, and development. The production workloads require ExpressRoute for low-latency database replication, while development uses VPN Gateway for cost efficiency.
 
 **Recommended placement:**
 
-1. Deploy both an ExpressRoute gateway and a VPN Gateway in the hub VNet's GatewaySubnet (requires /26 subnet for coexistence).
+1. Deploy both an ExpressRoute gateway and a VPN Gateway in the hub VNet's GatewaySubnet (requires a /26 subnet for coexistence).
 1. Connect production and staging spokes via VNet peering to the hub, with gateway transit enabled. These spokes use the ExpressRoute path for on-premises connectivity.
 1. Connect the development spoke to the hub with gateway transit enabled. Configure route tables so that development traffic preferentially uses the VPN tunnel, reducing ExpressRoute data transfer costs.
 1. Configure the VPN connection as a failover path for production in case the ExpressRoute circuit experiences a provider outage.
 
-This approach centralizes gateway management in a single hub, minimizes the number of gateway resources needed, and allows each spoke to use the appropriate connectivity tier for its workload requirements.
+This approach centralizes gateway management in a single hub, minimizes the number of gateway resources needed, and matches each spoke to the appropriate connectivity tier for its workload requirements.
 
 ### Cost considerations
 
@@ -192,7 +192,7 @@ VPN Gateway and ExpressRoute have different pricing models. Understanding these 
 
 - Use the **Local SKU** for ExpressRoute when your workloads are in the same metro area as the peering location. This choice eliminates outbound data transfer charges.
 - Choose the **metered plan** for ExpressRoute if your outbound data transfer is less than approximately 10 TB/month. Use the **unlimited plan** for higher-volume workloads.
-- Deploy **VPN Gateway as a failover** rather than a second ExpressRoute circuit if budget is constrained but you still need redundancy.
+- Deploy **VPN Gateway as a failover** rather than a second ExpressRoute circuit if you have a limited budget but still need redundancy.
 - Right-size your VPN Gateway SKU. Start with VpnGw2AZ for most production workloads and scale up only if you observe consistent throughput saturation.
 - Review your gateway utilization monthly. Azure Monitor metrics show tunnel throughput and connection counts, helping you identify over-provisioned gateways.
 
@@ -202,9 +202,9 @@ VPN Gateway and ExpressRoute have different pricing models. Understanding these 
 
 For lift-and-shift migrations, VPN Gateway in the hub VNet is typically the first connectivity resource you deploy:
 
-- **VPN Gateway in the hub VNet.** Deploy VPN Gateway into the hub's GatewaySubnet. All spoke workloads access on-premises resources through gateway transit. Site-to-site VPN is the typical first choice because it deploys in hours rather than the weeks required for ExpressRoute circuit provisioning.
+- **VPN Gateway in the hub VNet.** Deploy VPN Gateway into the hub's `GatewaySubnet`. All spoke workloads access on-premises resources through gateway transit. Site-to-site VPN is the typical first choice because it deploys in hours rather than the weeks that ExpressRoute circuit provisioning takes.
 - **Bandwidth sizing from application requirements.** Gather bandwidth requirements from each migrating workload. Sum the peak concurrent throughput needs and select a VPN Gateway SKU that supports the aggregate. Start with VpnGw2AZ for most production workloads. If your aggregate exceeds 1 Gbps, evaluate ExpressRoute or a higher VPN Gateway tier.
-- **Plan for ExpressRoute as a follow-up.** Many organizations start with VPN during initial migration waves, then add ExpressRoute for production workloads that require predictable latency or higher bandwidth. The hub GatewaySubnet supports both gateway types simultaneously.
+- **Plan for ExpressRoute as a follow-up.** Many organizations start with VPN during initial migration waves, then add ExpressRoute for production workloads that require predictable latency or higher bandwidth. The hub `GatewaySubnet` supports both gateway types simultaneously.
 
 ::: zone-end
 
@@ -224,7 +224,7 @@ For cross-cloud connectivity, VPN Gateway establishes encrypted tunnels to other
 
 - **VPN connections to AWS Virtual Private Gateway.** Create site-to-site VPN connections from Azure VPN Gateway to AWS Virtual Private Gateways. Configure BGP for dynamic route exchange between Azure VNets and AWS VPCs. Each AWS VPN tunnel supports up to 1.25 Gbps (AWS-side limit); use multiple tunnels or ECMP for higher aggregate throughput.
 - **VPN connections to Google Cloud VPN.** Create site-to-site VPN connections from Azure VPN Gateway to Google Cloud VPN (HA VPN). Google Cloud HA VPN provides two tunnel endpoints for redundancy. Configure BGP peering for automatic route propagation between Azure and Google Cloud.
-- **Deploy within Virtual WAN or hub.** If you chose Virtual WAN as your transit model, deploy VPN connections from the Virtual WAN hub rather than a standalone VPN Gateway. If you chose traditional hub-spoke, deploy in the hub's GatewaySubnet. Either approach supports the same IPSec/IKE tunnels to AWS and Google Cloud.
+- **Deploy within Virtual WAN or hub.** If you chose Virtual WAN as your transit model, deploy VPN connections from the Virtual WAN hub rather than a standalone VPN Gateway. If you chose traditional hub-spoke, deploy in the hub's `GatewaySubnet`. Either approach supports the same IPsec/IKE tunnels to AWS and Google Cloud.
 
 ::: zone-end
 
@@ -236,7 +236,7 @@ Before you implement hybrid connectivity, confirm the following requirements are
 - **On-premises VPN device (for VPN Gateway):** A compatible VPN device that supports IKEv2 and IPsec. Microsoft maintains a [list of validated VPN devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md).
 - **Connectivity provider relationship (for ExpressRoute):** A contract with an ExpressRoute connectivity provider, or ExpressRoute Direct port allocation. Provider provisioning requires a service key exchange and physical cross-connection setup.
 - **IP address planning:** Non-overlapping address spaces between on-premises and Azure networks. Plan gateway subnet addresses as part of your overall IP strategy. See the [IP planning article](ip-planning.md).
-- **Border Gateway Protocol (BGP) support:** BGP is required for ExpressRoute and recommended for VPN Gateway dynamic routing. Confirm your on-premises equipment supports BGP.
+- **Border Gateway Protocol (BGP) support:** ExpressRoute requires BGP, and it's recommended for VPN Gateway dynamic routing. Confirm your on-premises equipment supports BGP.
 
 ## Security considerations
 
@@ -244,10 +244,10 @@ Hybrid connectivity introduces security boundaries that require careful planning
 
 ### ExpressRoute traffic isn't encrypted by default
 
-ExpressRoute provides a private path, but traffic isn't encrypted at the network layer by default. This means that anyone with physical access to the provider's infrastructure could theoretically intercept traffic. Consider the following encryption options based on your risk profile:
+ExpressRoute provides a private path, but it doesn't encrypt traffic at the network layer by default. This lack of encryption means that anyone with physical access to the provider's infrastructure could theoretically intercept traffic. Consider the following encryption options based on your risk profile:
 
-- **MACsec (Layer 2):** Available only on ExpressRoute Direct. Encrypts traffic on the physical link between your edge routers and Microsoft's edge. MACsec must be explicitly enabled after port provisioning. This option provides wire-speed encryption with minimal latency overhead.
-- **IPsec over ExpressRoute (Layer 3):** Run a VPN tunnel over the ExpressRoute private peering connection for end-to-end encryption. This approach works with any ExpressRoute circuit and encrypts traffic across both the provider network and the Microsoft backbone. Throughput is limited by the VPN Gateway SKU.
+- **MACsec (Layer 2):** Available only on ExpressRoute Direct. Encrypts traffic on the physical link between your edge routers and Microsoft's edge. You must explicitly enable MACsec after port provisioning. This option provides wire-speed encryption with minimal latency overhead.
+- **IPsec over ExpressRoute (Layer 3):** Run a VPN tunnel over the ExpressRoute private peering connection for end-to-end encryption. This approach works with any ExpressRoute circuit and encrypts traffic across both the provider network and the Microsoft backbone. The VPN Gateway SKU limits throughput.
 - **Application-layer encryption:** Use TLS/HTTPS at the application level. This approach is independent of the connectivity type and protects data regardless of the underlying transport. It's the most common and recommended minimum encryption for all hybrid workloads.
 
 For most organizations, the combination of the ExpressRoute private path plus application-layer TLS provides sufficient protection. Add MACsec or IPsec over ExpressRoute only when regulatory requirements mandate network-layer encryption for data in transit.
@@ -270,9 +270,9 @@ Mitigation strategies include:
 
 If you must apply NSGs to the GatewaySubnet, allow traffic from the `GatewayManager` service tag and the `AzureLoadBalancer` service tag at minimum. Review the gateway documentation for the complete list of required rules before making changes.
 
-### Site-to-Site VPN encryption
+### Site-to-site VPN encryption
 
-Site-to-Site VPN traffic is always encrypted in transit using IKEv2/IPsec. You configure the encryption algorithms and key strengths as part of the IPsec/IKE policy on the connection. Use custom policies to enforce specific cryptographic algorithms rather than relying on defaults.
+IKEv2/IPsec always encrypts site-to-site VPN traffic in transit. You configure the encryption algorithms and key strengths as part of the IPsec/IKE policy on the connection. Use custom policies to enforce specific cryptographic algorithms rather than relying on defaults.
 
 Recommended custom policy settings for production workloads:
 
@@ -282,9 +282,9 @@ Recommended custom policy settings for production workloads:
 
 Avoid using deprecated algorithms (DES, 3DES, MD5, SHA-1, DH Group 1/2) even though Azure still supports them for backward compatibility.
 
-### Point-to-Site VPN authentication
+### Point-to-site VPN authentication
 
-P2S VPN supports Microsoft Entra ID authentication with multifactor authentication (MFA) integration. This option provides identity-based access control for individual clients connecting to Azure. Certificate-based and RADIUS authentication are also supported.
+P2S VPN supports Microsoft Entra ID authentication with multifactor authentication (MFA) integration. This option provides identity-based access control for individual clients connecting to Azure. P2S VPN also supports certificate-based and RADIUS authentication.
 
 Choose the authentication method based on your requirements:
 
@@ -296,11 +296,12 @@ Choose the authentication method based on your requirements:
 
 ## Related articles
 
+- [What is hybrid connectivity?](../hybrid-connectivity/hybrid-connectivity.md): Overview of Azure hybrid connectivity services and when to use each.
 - [VNets and subnets](vnets-subnets.md): GatewaySubnet sizing and VNet prerequisites for hybrid connectivity.
 - [Forced tunneling and egress control](outbound-egress.md): How forced tunneling routes internet-bound traffic from Azure back to on-premises.
 - [Private access to PaaS services](private-platform-as-a-service.md): Making Private Endpoints reachable from on-premises networks through hybrid connectivity.
-- [Remote access for developers and admins](developer-admin-access.md): Point-to-Site VPN deployment, identity integration, and client configuration details.
-- [Multi-cloud and cross-region connectivity](cross-region.md): ExpressRoute Global Reach and cross-cloud connectivity scenarios.
+- [Remote access for developers and admins](developer-admin-access.md): Point-to-site VPN deployment, identity integration, and client configuration details.
+- [Multicloud and cross-region connectivity](cross-region.md): ExpressRoute Global Reach and cross-cloud connectivity scenarios.
 - [Hub-and-spoke topology](hub-spoke.md): Gateway placement in the hub VNet and spoke routing configuration.
 
 ## Learn more
