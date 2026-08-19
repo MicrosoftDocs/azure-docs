@@ -19,6 +19,7 @@ The following Azure Container Storage versions are supported:
 | Milestone | Status |
 |-----------|--------|
 |2.2.1 - Patch Release | Supported |
+|1.4.2 - Patch Release | Supported |
 |2.2.0 - Minor Release | Supported |
 |1.4.1 - Patch Release | Supported |
 |2.1.0 - Minor Release | Supported |
@@ -43,6 +44,12 @@ A **major release** introduces significant changes, often including new features
 - **Reduced resource consumption**: Improved the efficiency of Azure Container Storage components, reducing memory usage and API server load in large-scale deployments.
 - **Node taint support for Azure Elastic SAN**: Azure Elastic SAN CSI driver components now automatically run on tainted nodes, improving compatibility with clusters that use dedicated or specialized node pools.
 - **Security enhancements**: Resolved security vulnerabilities through component, dependency, and container image updates.  
+
+## Version 1.4.2
+
+### Improvements and issues that are fixed
+
+- Resolved security vulnerabilities through component updates.
 
 ## Version 2.2.0
 
@@ -175,7 +182,8 @@ Azure Container Storage follows a transparent and predictable support lifecycle,
 
 | Release version | Release Date  | End of Life | Supported Kubernetes Versions |
 |-----------------|---------------|-------------|-------------------------------|
-|2.2.1 - Patch Release | 08/12/2026 | 08/11/2027 | 1.36, 1.35, 1.34 |
+|2.2.1 - Patch Release | 08/20/2026 | 08/19/2027 | 1.36, 1.35, 1.34 |
+|1.4.2 - Patch Release | 08/20/2026 | 08/19/2027 | 1.36, 1.35, 1.34 |
 |2.2.0 - Minor Release | 06/18/2026 | 06/17/2027 | 1.35, 1.34, 1.33 |
 |1.4.1 - Patch Release | 2/17/2026  | 12/15/2026 | 1.34, 1.33, 1.32 |
 |2.1.0 - Minor Release | 02/03/2026 | 02/02/2027 | 1.34, 1.33, 1.32 |
