@@ -49,7 +49,7 @@ A rewrite set is a collection of a routing rule, condition, and action.
 
 ### Rewrite set association with a routing rule
 
-The rewrite configuration associates to a source listener through its routing rule. When you use a routing rule of the type Basic, the rewrite configuration associates with its listener and works as a global rewrite. When you use a Path-based routing rule, you define the rewrite configuration according to the URL path map. In the latter case, it applies only to a specific path area of a site. You can apply a rewrite set to multiple routing rules, but a routing rule can have only one rewrite associated with it.
+The rewrite configuration associates to a source listener through its routing rule. When you use a routing rule of the type Basic, the rewrite configuration associates with its listener and works as a global rewrite. When you use a path-based routing rule, you define the rewrite configuration according to the URL path map. In the latter case, it applies only to a specific path area of a site. You can apply a rewrite set to multiple routing rules, but a routing rule can have only one rewrite associated with it.
 
 ### Rewrite conditions
 
