@@ -2,7 +2,7 @@
 title: Review SQL assessment with Azure Migrate | Microsoft Docs
 description: Describes how to review SQL Azure assessment with the Azure Migrate 
 author: rashi-ms
-ms.author: v-uhabiba
+ms.author: jsuri
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
