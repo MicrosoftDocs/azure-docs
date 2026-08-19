@@ -5,7 +5,7 @@ services: virtual-machines
 author: ananyagarg
 ms.service: azure-confidential-computing
 ms.topic: concept-article
-ms.date: 08/17/26
+ms.date: 08/17/2026
 ms.author: ananyagarg
 # Customer intent: "As an AI developer, I want to utilize a secure platform for algorithm development on sensitive data, so that I can ensure compliance and ethical standards while maintaining privacy and security."
 ---
@@ -36,7 +36,7 @@ EscrowAI is a SaaS offering available in the Azure Marketplace: [Azure Marketpla
 
 The data custodian configures their Azure tenant to enable EscrowAI to automate the spin up and spin down of the Trusted Execution Environment with Azure Confidential Computing. The configuration takes hours, not days to complete. 
 
-You can also check out how BeeKeeperAI speeds AI development with Azure confidential computing: https://www.microsoft.com/en/customers/story/26750-beekeeperai-azure-confidential-ledger
+You can also check out [how BeeKeeperAI speeds AI development with Azure confidential computing](https://www.microsoft.com/en/customers/story/26750-beekeeperai-azure-confidential-ledger).
 
 ## Learn more
 
