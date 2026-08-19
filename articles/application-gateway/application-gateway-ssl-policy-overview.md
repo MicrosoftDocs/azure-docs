@@ -163,7 +163,7 @@ The cipher suites marked *v1 only* are the DHE cipher suites that Application Ga
   - TLS_DHE_DSS_WITH_AES_128_CBC_SHA
   - TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
   - TLS_DHE_DSS_WITH_AES_256_CBC_SHA
-- Constrained clients looking for "Maximum Fragment Length Negotiation" support must use the newer [**2022 Predefined**](#predefined-tls-policy) or [**CustomV2 policies**](#custom-tls-policy).
+- Constrained clients that need **Maximum Fragment Length Negotiation** support must use the newer [**2022 Predefined**](#predefined-tls-policy) or [**CustomV2 policies**](#custom-tls-policy).
 
 ## Next steps
 
