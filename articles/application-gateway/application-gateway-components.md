@@ -63,8 +63,8 @@ The following table summarizes how Application Gateway supports each protocol.
 | HTTPS | Layer 7 | Yes | Use an HTTPS listener for TLS termination so the gateway offloads encryption and decryption work from your servers. |
 | HTTP/2 | Layer 7 | No | Available to clients connecting to application gateway listeners only. Communication to backend server pools is always over HTTP/1.1. Disabled by default; you can choose to enable it. |
 | WebSocket | Layer 7 | No | Enabled by default with no user-configurable setting to selectively enable or disable it. Use WebSockets with both HTTP and HTTPS listeners. |
-| TLS | Layer 4 (preview) | Yes | Supported through the [Layer 4 proxy](tcp-tls-proxy-overview.md), which you can configure on the same resource. |
-| TCP | Layer 4 (preview) | Yes | Supported through the [Layer 4 proxy](tcp-tls-proxy-overview.md), which you can configure on the same resource. |
+| TLS | Layer 4 | Yes | Supported through the [Layer 4 proxy](tcp-tls-proxy-overview.md), which you can configure on the same resource. |
+| TCP | Layer 4 | Yes | Supported through the [Layer 4 proxy](tcp-tls-proxy-overview.md), which you can configure on the same resource. |
 
 >[!NOTE]
 >HTTP/2 protocol support is available to clients connecting to application gateway listeners only. The communication to backend server pools is always over HTTP/1.1. By default, HTTP/2 support is disabled. You can choose to enable it.
