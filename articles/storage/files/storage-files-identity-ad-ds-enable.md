@@ -330,6 +330,4 @@ az storage account update --name <storage-account-name> --resource-group <resour
 
 - [Assign share-level permissions](storage-files-identity-assign-share-level-permissions.md)
 
-## Related content
 
-- [Change the identity source for Azure file shares](change-identity-source.md) — if you want to switch from AD DS to Microsoft Entra Kerberos or another identity source later.
