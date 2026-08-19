@@ -25,7 +25,7 @@ Application Control policies can run in one of three modes: Audit, Enforced, or 
 
 To create an Application Control supplemental policy for MABS using PowerShell, follow these steps:
 
-1. To generate a WDAC policy file containing the information required to create the DPM policy from MABS server, use the `New-CIPolicy` cmdlet.
+1. Generate a WDAC policy file containing the information required to create the DPM policy from MABS server by running the `New-CIPolicy` cmdlet.
 
      ```powershell-interactive
 
