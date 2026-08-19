@@ -112,9 +112,9 @@ To create an Application Control supplemental policy for MABS using PowerShell, 
    > [!NOTE]
    > Update `PlatformID`, `BasePolicyID`, `PolicyID`, and `Signer’s TBS value` as needed:
    >
-   > - **`PlatformID`**: Represents the platform association.You can find this details in the file `C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml`.
+   > - **`PlatformID`**: Represents the platform association. Find this detail in the file `C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml`.
    > - **`BasePolicyID`**: Represents the base policy upon which the current policy relies. You can use `Get-ASLocalWDACPolicyInfo` to find your base policy.
-   > - **`PolicyID`**: Represents the identifier for the current policy. You can find this details in the file `C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml`.
+   > - **`PolicyID`**: Represents the identifier for the current policy. Find this detail in the file `C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml`.
    >- **`Signer’s TBS values`**: Fetch the signer‘s signing certificate root/chain identifier (the TBS fingerprint) value from the file `C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml`.
 
 1. To modify the metadata of your supplemental policy, run the following cmdlet:
