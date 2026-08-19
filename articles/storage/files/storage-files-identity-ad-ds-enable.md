@@ -19,6 +19,9 @@ This article explains how to enable Active Directory Domain Services (AD DS) aut
 > [!IMPORTANT]
 > Before you enable AD DS authentication, read the [AD DS overview article](storage-files-identity-ad-ds-overview.md) and complete the necessary [prerequisites](storage-files-identity-ad-ds-overview.md#prerequisites). If your Active Directory environment spans multiple forests, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 
+> [!TIP]
+> If you later decide to move to cloud-only (Microsoft Entra-only) identities, you can migrate your storage account from AD DS to [Microsoft Entra Kerberos authentication](storage-files-identity-auth-hybrid-identities-enable.md). For step-by-step guidance, see [Change the identity source for Azure file shares](change-identity-source.md).
+
 To enable AD DS authentication over SMB for Azure file shares, register your Azure storage account with your on-premises AD DS and then set the required domain properties on the storage account. To register your storage account with AD DS, create a computer account (or service logon account) representing it in your AD DS. This process is similar to creating an account representing an on-premises Windows file server in your AD DS. When you enable the feature on the storage account, it applies to all new and existing file shares in the account.
 
 ## Option one (recommended): Use AzFilesHybrid PowerShell module
@@ -326,3 +329,7 @@ az storage account update --name <storage-account-name> --resource-group <resour
 ## Next step
 
 - [Assign share-level permissions](storage-files-identity-assign-share-level-permissions.md)
+
+## Related content
+
+- [Change the identity source for Azure file shares](change-identity-source.md) — if you want to switch from AD DS to Microsoft Entra Kerberos or another identity source later.
