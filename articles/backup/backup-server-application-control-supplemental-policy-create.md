@@ -37,7 +37,7 @@ To create an Application Control supplemental policy for MABS using PowerShell, 
 		-FilePath "C:\WDAC\Broadcom-VMware-TBS-fingerprint.xml"
      ```
 
-1. Create a new XML file by using the following example script, and save it to the path **`C:\WDAC\Broadcom_Supplemental-VMWareOnly.xml`**:
+1. Create a new XML file by using the following example script, and save it to the path on Azure Local virtual machine **`C:\WDAC\Broadcom_Supplemental-VMWareOnly.xml`**:
 
 	 ```xml
 	 <?xml version="1.0" encoding="utf-8"?>
