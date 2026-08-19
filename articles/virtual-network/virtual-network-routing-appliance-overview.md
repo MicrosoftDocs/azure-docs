@@ -6,7 +6,7 @@ description: Learn about routing appliances, a high-performance routing solution
 author: asudbring
 ms.author: allensu
 ms.reviewer: allensu
-ms.date: 07/31/2026
+ms.date: 08/19/2026
 ms.topic: concept-article
 ms.service: azure-virtual-network
 ms.custom: references_regions
@@ -73,10 +73,11 @@ This pattern is useful when:
 
 ### High throughput and maximum connections
 
-A routing appliance is a lightweight, high-performance forwarding layer. It reduces the risk of the forwarding layer becoming the choke point for traffic flows. You configure each appliance with a bandwidth of 50, 100, or 200 Gbps when you create it. The following table shows the connection and flow scale for each tier.
+A routing appliance is a lightweight, high-performance forwarding layer. It reduces the risk of the forwarding layer becoming the choke point for traffic flows. You configure each appliance with a bandwidth of 10, 50, 100, or 200 Gbps when you create it. The following table shows the connection and flow scale for each tier.
 
 | Bandwidth tier | Maximum connections per second | Maximum concurrent flows |
 |----------------|--------------------------------|--------------------------|
+| 10 Gbps        | 100,000                        | 1,000,000                |
 | 50 Gbps        | 250,000                        | 2,000,000                |
 | 100 Gbps       | 600,000                        | 4,000,000                |
 | 200 Gbps       | 1,500,000                      | 8,000,000                |
@@ -157,6 +158,6 @@ Routing appliances are generally available in the following Azure regions. Micro
 
 ## Get started
 
-Create a subnet named `VirtualNetworkApplianceSubnet` in the virtual network that hosts the appliance. Deploy the routing appliance into that subnet with a bandwidth of 50, 100, or 200 Gbps. Then use user-defined routes with a next hop type of virtual appliance to steer traffic to its private IP address.
+Create a subnet named `VirtualNetworkApplianceSubnet` in the virtual network that hosts the appliance. Deploy the routing appliance into that subnet with a bandwidth of 10, 50, 100, or 200 Gbps. Then use user-defined routes with a next hop type of virtual appliance to steer traffic to its private IP address.
 
 You can't change the configured bandwidth of an existing routing appliance. To change bandwidth, delete the appliance and redeploy it with the new value.
