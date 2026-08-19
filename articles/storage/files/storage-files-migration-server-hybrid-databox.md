@@ -105,7 +105,23 @@ Depending on the type of Data Box, Data Box copy tools might be available. These
 When your Data Box arrives, it will have pre-provisioned SMB shares available for each storage account you specified when you ordered it.
 
 * If your files go into an SSD Azure file share, there will be one SMB share per SSD "FileStorage" storage account.
-* If your files go into an HDD storage account, there will be three SMB shares per HDD pay-as-you-go storage account. Only the file shares that end with `_AzFiles` are relevant for your migration. Ignore any block and page blob shares.
+* If your files go into an HDD storage account, there will be three SMB shares per HDD pay-as-you-go storage account. Only the file share that ends with `_AzFile` is relevant for your migration. Ignore any block and page blob shares.
+
+### How Data Box maps folders to Azure file shares
+
+Under the `<storage-account-name>_AzFile` device share, each first-level folder maps to an Azure file share on the target storage account:
+
+- The first-level folder name becomes the Azure file share name during ingestion. If a share with that name doesn't already exist in the target storage account, Data Box creates it. If it does exist, Data Box copies the data into that existing share.
+- Don't copy files directly to the root of the `_AzFile` share. All data must go inside a first-level folder.
+- For a one-to-one mapping with your source SMB shares, create one first-level folder for each source share (using the desired Azure file share name) and copy each source share into its corresponding folder. For example:
+
+  ```
+  \\<DataBox-IP>\<storage-account-name>_AzFile\Share1
+  \\<DataBox-IP>\<storage-account-name>_AzFile\Share2
+  \\<DataBox-IP>\<storage-account-name>_AzFile\Share3
+  ```
+
+For more information, see [Connect to Data Box](../../databox/data-box-deploy-copy-data.md#connect-to-data-box).
 
 Follow the steps in the Azure Data Box documentation:
 
