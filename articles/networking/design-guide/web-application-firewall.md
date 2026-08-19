@@ -13,7 +13,7 @@ zone_pivot_groups: networking-scenario
 
 # Web Application Firewall for Azure networks
 
-Azure Web Application Firewall (WAF) protects your web applications from common HTTP-layer attacks such as SQL injection, cross-site scripting (XSS), and path traversal. Unlike Azure Firewall, which inspects traffic at Layers 3 through 7 for network-level threats, WAF operates only at Layer 7 and understands HTTP semantics including request headers, query strings, request bodies, and cookies. Deploy WAF as a policy attached to either Azure Application Gateway (regional) or Azure Front Door (global edge) to match protection scope with your application architecture.
+Azure Web Application Firewall (WAF) protects your web applications from common HTTP-layer attacks such as SQL injection, cross-site scripting (XSS), and path traversal. Unlike Azure Firewall, which inspects traffic at Layers 3 through 7 for network-level threats, WAF operates only at Layer 7 and understands HTTP semantics including request headers, query strings, request bodies, and cookies. Deploy WAF as a policy attached to either Azure Application Gateway (regional) or Azure Front Door (global edge) to match protection scope with your application architecture. Web Application Firewall is one of three core [Azure network security](../security/network-security.md) services, alongside Azure Firewall and Azure DDoS Protection.
 
 ## What this article covers
 
@@ -76,7 +76,7 @@ Azure WAF is available on two platforms. Each platform integrates WAF inspection
 | Managed rule sets | ✔ | ✔ (Premium tier only; Standard supports custom rules only) |
 | Request body inspection | Up to 128 KB (configurable) | Up to 128 KB (configurable) |
 | Private Link origin support | N/A (inline with App Gateway) | ✔ (private origin connectivity) |
-| Best for | Single-region apps, L7 load balancing + WAF | Multi-region apps, global acceleration + WAF |
+| Best for | Single-region apps, L7 load balancing + WAF | Multiregion apps, global acceleration + WAF |
 
 > [!NOTE]
 > Azure Front Door has two tiers: Standard and Premium. Managed rule sets (including DRS and bot protection) are available only on Front Door Premium. Front Door Standard supports custom rules only. Front Door (classic) supports only DRS 1.1 or earlier.
@@ -162,7 +162,7 @@ Custom rules execute **before** managed rules and use priority numbers to contro
 
 Both platforms offer a bot protection rule set that categorizes automated traffic into good bots (verified search engines), bad bots (known malicious scanners), and unknown bots. Configure actions for each category: allow good bots, block bad bots, and challenge unknown bots with rate limiting or CAPTCHA.
 
-## Detection mode versus Prevention mode
+## Detection mode vs. Prevention mode
 
 WAF policies operate in one of two modes that determine how the system handles matched requests:
 
@@ -238,6 +238,7 @@ The following articles cover related networking security topics:
 - [Application delivery services](app-delivery.md): Application Gateway and Front Door as delivery platforms.
 - [Azure Firewall and traffic inspection](azure-firewall.md): Network-level inspection that complements WAF Layer 7 protection.
 - [DDoS protection](ddos.md): Volumetric attack protection for public IP addresses.
+- [What is Azure network security?](../security/network-security.md): Overview hub that compares Azure Firewall, DDoS Protection, and Web Application Firewall.
 
 ## Learn more
 
