@@ -383,7 +383,7 @@ Discovery-delegated subnets don't have a default outbound route to the internet.
 
 ### Management subnet ID requirements
 
-`managementSubnetId` is the ID of a dedicated subnet in your virtual network. This subnet hosts the internal load balancer (ILB) that fronts the supercomputer's AKS API server. Providing it enables **AKS API server VNet integration**, which keeps every node-to-API-server call inside your virtual network.
+`managementSubnetId` is the ID of a dedicated subnet in your virtual network. This subnet hosts the internal load balancer (ILB) that fronts the supercomputer's AKS API server. When you provide this ID, it enables **AKS API server VNet integration**, which keeps every node-to-API-server call inside your virtual network.
 
 #### When it's required
 
