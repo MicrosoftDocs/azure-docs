@@ -5,7 +5,7 @@ services: api-management
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 07/23/2024
+ms.date: 08/18/2026
 ---
 
 # Authenticate with client certificate
@@ -36,6 +36,9 @@ ms.date: 07/23/2024
 |certificate-id|The certificate resource name. Policy expressions are allowed.|Either `thumbprint` or `certificate-id` can be present.|N/A|
 |body|Client certificate as a byte array. Use if the certificate isn't retrieved from the built-in certificate store. Policy expressions are allowed.|No|N/A|
 |password|Password for the client certificate. Policy expressions are allowed.|Use if certificate specified in `body` is password protected.|N/A|
+
+> [!IMPORTANT]
+> Linked access isn't checked when a certificate is referenced by using `certificate-id`. A user who has permission to write a policy can reference any available certificate and use it to authenticate requests to backend services, even if the user doesn't have read access to the certificate resource. This doesn't grant access to retrieve the certificate or its private key.
 
 ## Usage
 
