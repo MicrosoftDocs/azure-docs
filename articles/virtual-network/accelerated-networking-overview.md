@@ -97,7 +97,7 @@ For users of non endorsed Linux distributions or utilizing custom kernels, we re
 
 ### For virtual machines (VMs) with Mellanox Adapters
  
-All [Azure Endorsed Linux Distributions](./azure/virtual-machines/linux/endorsed-distros) are supported , as long as they are not end of life (EOL) by the vendors.
+All [Azure Endorsed Linux Distributions](./azure/virtual-machines/linux/endorsed-distros) are supported, as long as the vendors don't mark them as end of life (EOL).
 
 ### Supported VM instances
 
