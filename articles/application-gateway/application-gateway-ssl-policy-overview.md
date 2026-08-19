@@ -108,7 +108,7 @@ If a TLS policy needs to be configured for your requirements, you can use a Cust
 > - The cipher suites “TLS_AES_128_GCM_SHA256” and “TLS_AES_256_GCM_SHA384” are mandatory for TLSv1.3. You need NOT mention these explicitly when setting a CustomV2 policy with minimum protocol version 1.2 or 1.3 through [PowerShell](application-gateway-configure-ssl-policy-powershell.md) or CLI. Accordingly, these ciphers suites won't appear in the Get Details output, with an exception of Portal.
  
 
-### Cipher suites
+## Supported cipher suites
 
 Application Gateway supports the following cipher suites from which you can choose your custom policy. The ordering of the cipher suites determines the priority order during TLS negotiation.
 
