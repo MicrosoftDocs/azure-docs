@@ -2,7 +2,7 @@
 title: Build an Azure Migrate Report 
 description: Build Azure Migrate reports to analyze discovered on-premises servers and workloads and generate insights for migration planning.
 author: habibaum
-ms.author: v-uhabiba
+ms.author: jsuri
 ms.topic: how-to
 ms.service: azure-migrate
 ms.update-cycle: 365-days

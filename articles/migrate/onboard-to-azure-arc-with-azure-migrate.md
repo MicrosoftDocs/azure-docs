@@ -2,7 +2,7 @@
 title: Onboard on-premises servers in VMware virtual environment to Azure Arc   
 description: Onboard on-premises servers in VMware virtual environment to Azure Arc    
 author: vijain
-ms.author: vijain
+ms.author: jsuri
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.service: azure-migrate
