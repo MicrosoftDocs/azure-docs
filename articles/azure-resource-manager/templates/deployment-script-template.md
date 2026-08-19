@@ -5,7 +5,7 @@ ms.custom:
   - devx-track-arm-template
   - build-2025
 ms.topic: article
-ms.date: 08/17/2026
+ms.date: 08/18/2026
 ---
 
 # Use deployment scripts in Azure Resource Manager templates
@@ -31,7 +31,7 @@ The benefits of deployment script:
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
 
-The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability). Currently, deployment script only uses public networking.
+The deployment script resource is only available in the regions where Azure Container Instance is available. See [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability). Currently, deployment script only uses public networking.
 
 
 The deployment script service creates two supporting resources - a storage account and a container instance - to run and troubleshoot scripts. The names of these resources are generated using a deterministic hash of the deployment script's resource ID, with the suffix azscripts appended (for example, *jgczqtxom5oreazscripts*). As a result, repeated executions of the same deployment script may reuse the same storage account.
@@ -478,6 +478,9 @@ A storage account and a container instance are needed for script execution and t
 - Storage account firewall rules aren't supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 - Deployment principal must have permissions to manage the storage account, which includes read, create, delete file shares.
 - The `allowSharedKeyAccess` property of the storage account must be set to `true`. The only way to mount a storage account in Azure Container Instance(ACI) is via an access key.
+
+> [!IMPORTANT]
+> If you assign a managed identity with permissions that exceed the script's operational requirements, the script author is responsible for ensuring the storage account is protected from unintended access. Wherever possible, follow the principle of least privilege.
 
 To specify an existing storage account, add the following JSON to the property element of `Microsoft.Resources/deploymentScripts`:
 

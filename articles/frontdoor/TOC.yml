@@ -205,12 +205,8 @@
     href: mutual-tls.md
   - name: Set up managed identity
     href: managed-identity.md
-  - name: Sensitive data protection
-    items:
-    - name: Front Door sensitive data protection
-      href: standard-premium/sensitive-data-protection.md
-    - name: Enable log scrubbing
-      href: standard-premium/how-to-protect-sensitive-data.md
+  - name: Protect sensitive data in logs
+    href: sensitive-data-protection.md
   - name: Secure traffic to origins
     href: origin-security.md
   - name: Web Application Firewall
