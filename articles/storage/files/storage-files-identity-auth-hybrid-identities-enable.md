@@ -34,7 +34,7 @@ Before you enable Microsoft Entra Kerberos authentication over SMB for Azure fil
 
 You need the following minimum prerequisites. Without these prerequisites, you can't authenticate by using Microsoft Entra ID.
 
-- Your Azure storage account can't authenticate with both Microsoft Entra ID and a second method like AD DS or Microsoft Entra Domain Services. If you already chose another identity source for your storage account, you must disable it before enabling Microsoft Entra Kerberos.
+- Your Azure storage account can't authenticate with both Microsoft Entra ID and a second method like AD DS or Microsoft Entra Domain Services. If you already chose another identity source for your storage account, you must disable it before enabling Microsoft Entra Kerberos. If you're migrating from on-premises AD DS authentication to Microsoft Entra Kerberos for cloud-only or hybrid identities, follow the steps in [Change the identity source for Azure file shares](change-identity-source.md).
 
 - If you want to authenticate hybrid identities, you also need AD DS and either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync). You must create these accounts in Active Directory and sync them to Microsoft Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Microsoft Entra ID. This requirement doesn't apply to cloud-only identities.
 
@@ -433,3 +433,4 @@ If needed, run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic
 - [Mount an SMB Azure file share](storage-how-to-use-files-windows.md)
 - [Potential errors when enabling Microsoft Entra Kerberos authentication](/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-smb-authentication?tabs=azure-portal#potential-errors-when-enabling-microsoft-entra-kerberos-authentication)
 - [Store FSLogix profile containers on Azure Files using Microsoft Entra ID](/fslogix/how-to-configure-profile-container-entra-id-hybrid)
+- [Change the identity source for Azure file shares](change-identity-source.md)
