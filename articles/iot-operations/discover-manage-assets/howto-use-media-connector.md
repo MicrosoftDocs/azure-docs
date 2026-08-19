@@ -104,7 +104,7 @@ Each task type supports different configuration properties in the `streamconfigu
 The output destination for the media connector depends on the `streamconfiguration` task type. Configure the destination in the asset's `streamconfiguration`:
 
 - **`snapshot-to-mqtt`**: Use a destination of type `mqtt` to specify the MQTT topic.
-- **`snapshot-to-fs` and `clip-to-fs`**: Use a destination of type `storage`. Set the `path` field to a fully qualified path inside the local container file system. To enable external access to the saved snapshots or clips, point this path to a mounted volume.
+- **`snapshot-to-fs` and `clip-to-fs`**: Use a destination of type `storage`. Set the `path` field to a fully qualified path. This path has to point either to the root of a mounted volume (to enable external access to the saved snapshots and clips) or has to start with `/tmp`. All other paths on the container will result in a permission issue, since they are write protected.
 - **`stream-to-rtsp` and `stream-to-rtsps`**: Set the `path` field to the endpoint address of the northbound media server that you want to proxy the source stream into.
 
 ### Northbound RTSPS endpoint validation and user authentication
