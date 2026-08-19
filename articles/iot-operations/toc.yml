@@ -173,6 +173,12 @@ items:
               - name: Configure OPC UA assets and devices
                 href: discover-manage-assets/howto-configure-opc-ua.md
                 displayName: operations, experience, device, data points, events, southbound
+              - name: Configure OPC UA sessions and high availability
+                href: discover-manage-assets/howto-configure-opc-ua-sessions-high-availability.md
+                displayName: shared endpoint, dedicated session, redundant connector, failover, active passive, high availability
+              - name: Configure advanced OPC UA data collection
+                href: discover-manage-assets/howto-configure-opc-ua-advanced-data-collection.md
+                displayName: browse path, dynamic node, start instance, key frame, event filter, select clause
               - name: Discover OPC UA assets
                 href: discover-manage-assets/howto-detect-opc-ua-assets.md
                 displayName: connector, akri, southbound
@@ -274,7 +280,7 @@ items:
               - name: Transform data with map
                 href: connect-to-cloud/howto-dataflow-graphs-map.md
                 displayName: data flow, graph, rename, restructure, wildcard, copy, compute
-              - name: Filter and route data
+              - name: Filter, branch, and merge data
                 href: connect-to-cloud/howto-dataflow-graphs-filter-route.md
                 displayName: data flow, graph, drop, branch, concat, merge, condition
               - name: Aggregate data over time
@@ -292,9 +298,6 @@ items:
               - name: Use WASM transforms
                 href: connect-to-cloud/howto-dataflow-graph-wasm.md
                 displayName: data flow, WebAssembly, graph, transform, custom, developer, deploy
-              - name: Schemas
-                href: connect-to-cloud/concept-dataflow-graphs-schema.md
-                displayName: data flow, graph, schema, nodeConnections, serialization
           - name: Destination
             href: connect-to-cloud/howto-configure-dataflow-destination.md
             displayName: data flow, MQTT, Kafka, topic, container, table, dynamic

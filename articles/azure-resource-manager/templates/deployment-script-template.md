@@ -1,11 +1,11 @@
 ﻿---
-title: Use deployment scripts in Azure Resource Manager templates 
+title: Use deployment scripts in Azure Resource Manager templates
 description: Use deployment scripts in Azure Resource Manager templates.
 ms.custom:
   - devx-track-arm-template
   - build-2025
 ms.topic: article
-ms.date: 01/02/2026
+ms.date: 08/18/2026
 ---
 
 # Use deployment scripts in Azure Resource Manager templates
@@ -31,7 +31,7 @@ The benefits of deployment script:
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
 
-The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability). Currently, deployment script only uses public networking.
+The deployment script resource is only available in the regions where Azure Container Instance is available. See [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability). Currently, deployment script only uses public networking.
 
 
 The deployment script service creates two supporting resources - a storage account and a container instance - to run and troubleshoot scripts. The names of these resources are generated using a deterministic hash of the deployment script's resource ID, with the suffix azscripts appended (for example, *jgczqtxom5oreazscripts*). As a result, repeated executions of the same deployment script may reuse the same storage account.
@@ -479,6 +479,9 @@ A storage account and a container instance are needed for script execution and t
 - Deployment principal must have permissions to manage the storage account, which includes read, create, delete file shares.
 - The `allowSharedKeyAccess` property of the storage account must be set to `true`. The only way to mount a storage account in Azure Container Instance(ACI) is via an access key.
 
+> [!IMPORTANT]
+> If you assign a managed identity with permissions that exceed the script's operational requirements, the script author is responsible for ensuring the storage account is protected from unintended access. Wherever possible, follow the principle of least privilege.
+
 To specify an existing storage account, add the following JSON to the property element of `Microsoft.Resources/deploymentScripts`:
 
 ```json
@@ -545,6 +548,9 @@ The script service creates a [storage account](../../storage/common/storage-acco
 The user script, the execution results, and the stdout file are stored in the files shares of the storage account. There's a folder called `azscripts`. In the folder, there are two more folders for the input and the output files: `azscriptinput` and `azscriptoutput`.
 
 The output folder contains a _executionresult.json_ and the script output file. You can see the script execution error message in _executionresult.json_. The output file is created only when the script is executed successfully. The input folder contains a system PowerShell script file and the user deployment script files. You can replace the user deployment script file with a revised one, and rerun the deployment script from the Azure container instance.
+
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. You might retrieve this information through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that deployment script logs don't expose sensitive information.
 
 ### Use the Azure portal
 

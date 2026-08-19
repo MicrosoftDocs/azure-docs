@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/cdn/cdn-china-delivery.md",
+      "redirect_url": "/azure/frontdoor/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-compute-fleet/modify-fleet.md",
       "redirect_url": "/azure/azure-compute-fleet/managed-mode",
       "redirect_document_id": false
@@ -589,6 +594,11 @@
     {
       "source_path": "articles/data-factory/get-started-with-workflow-orchestration-manager.md",
       "redirect_url": "/previous-versions/azure/data-factory/get-started-with-workflow-orchestration-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/how-does-workflow-orchestration-manager-work.md",
+      "redirect_url": "/fabric/data-factory/apache-airflow-jobs-concepts",
       "redirect_document_id": false
     },
     {
@@ -7893,6 +7903,22 @@
       "redirect_url": "/azure/nutanix/faq",
       "redirect_document_id": false
     },
+    {
+
+      "source_path": "articles/baremetal-infrastructure/concepts-baremetal-infrastructure-overview.md",
+      "redirect_url": "/azure/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/connect-baremetal-infrastructure.md",
+      "redirect_url": "/azure/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/know-baremetal-terms.md",
+      "redirect_url": "/azure/",
+      "redirect_document_id": false
+     },
     {
       "source_path": "articles/container-apps/deployment-errors.md",
       "redirect_url": "/azure/container-apps/troubleshoot-deployment-errors",

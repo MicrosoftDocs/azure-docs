@@ -7,6 +7,7 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 08/05/2026
+ai-usage: ai-assisted
 ms.author: mbender
 ms.custom:
   - template-how-to
@@ -16,15 +17,18 @@ ms.custom:
 
 # Configure TCP reset and idle timeout for Azure Load Balancer
 
-Standard Load Balancer supports an idle timeout range of 4 minutes to 100 minutes for load-balancing rules and inbound NAT rules. Basic Load Balancer supports an idle timeout of up to 60 minutes. [Outbound rules](./outbound-rules.md#idletimeout) support an idle timeout range of 4 minutes to 120 minutes. The default setting is 4 minutes for all rule types. If a period of inactivity exceeds the timeout value, the TCP or HTTP session between the client and your service isn't guaranteed to be maintained.
+Standard Load Balancer supports an idle timeout range of 4 minutes to 100 minutes for load-balancing rules and inbound NAT rules. [Outbound rules](./outbound-rules.md#idletimeout) support an idle timeout range of 4 minutes to 120 minutes. The default setting is 4 minutes for all rule types. If a period of inactivity exceeds the timeout value, the TCP or HTTP session between the client and your service isn't guaranteed to be maintained.
 
-The following sections describe how to change idle timeout and tcp reset settings for load balancer resources.
+> [!NOTE]
+> The procedures in this article configure a Standard Load Balancer. Basic Load Balancer (retired) supported an idle timeout of up to 60 minutes and doesn't support TCP reset configuration.
 
-## Set tcp reset and idle timeout
+The following sections describe how to change idle timeout and TCP reset settings for load balancer resources.
+
+## Set TCP reset and idle timeout
 ---
 # [**Portal**](#tab/tcp-reset-idle-portal)
 
-To set the idle timeout and tcp reset for a load balancer, edit the load-balanced rule. 
+To set the idle timeout and TCP reset for a load balancer, edit the load-balanced rule.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the left-hand menu, select **Resource groups**.
@@ -35,10 +39,11 @@ To set the idle timeout and tcp reset for a load balancer, edit the load-balance
 1. In the load-balancing rule, input your timeout value into **Idle timeout (minutes)**.  
 1. Under **TCP reset**, select **Enabled**.
 1. Select **Save**.
+1. Reopen **myLBrule** and confirm that **Idle timeout (minutes)** shows your value and **TCP reset** shows **Enabled**.
 
 # [**PowerShell**](#tab/tcp-reset-idle-powershell)
 
-To set the idle timeout and tcp reset, set values in the following load-balancing rule parameters with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
+To set the idle timeout and TCP reset, set values in the following load-balancing rule parameters with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
 
 * **IdleTimeoutInMinutes**
 * **EnableTcpReset**
@@ -49,17 +54,27 @@ Replace the following examples with the values from your resources:
 
 * **myResourceGroup**
 * **myLoadBalancer**
+* **myLBrule**
+
+Select the rule by name so that you update the intended rule rather than whichever rule happens to be first in the collection.
 
 ```azurepowershell
 $lb = Get-AzLoadBalancer -Name "myLoadBalancer" -ResourceGroup "myResourceGroup"
-$lb.LoadBalancingRules[0].IdleTimeoutInMinutes = '15'
-$lb.LoadBalancingRules[0].EnableTcpReset = 'true'
+$rule = $lb.LoadBalancingRules | Where-Object { $_.Name -eq "myLBrule" }
+$rule.IdleTimeoutInMinutes = '15'
+$rule.EnableTcpReset = $true
 Set-AzLoadBalancer -LoadBalancer $lb
+```
+
+Confirm the saved values on the intended rule:
+
+```azurepowershell
+$Rule |  Select-Object Name, IdleTimeoutInMinutes, EnableTcpReset
 ```
 
 # [**Azure CLI**](#tab/tcp-reset-idle-cli)
 
-To set the idle timeout and tcp reset, use the following parameters for [az network lb rule update](/cli/azure/network/lb/rule?az_network_lb_rule_update):
+To set the idle timeout and TCP reset, use the following parameters for [az network lb rule update](/cli/azure/network/lb/rule?az_network_lb_rule_update):
 
 * **--idle-timeout**
 * **--enable-tcp-reset**
@@ -85,9 +100,19 @@ az network lb rule update \
     --idle-timeout 15 \
     --enable-tcp-reset true
 ```
+
+Confirm the saved values on the intended rule:
+
+```azurecli
+az network lb rule show \
+    --resource-group myResourceGroup \
+    --name myLBrule \
+    --lb-name myLoadBalancer \
+    --query "{name:name, idleTimeoutInMinutes:idleTimeoutInMinutes, enableTcpReset:enableTcpReset}"
+```
 ---
 ## Next steps
 
-For more information on tcp idle timeout and reset, see [Load Balancer TCP Reset and Idle Timeout](load-balancer-tcp-reset.md)
+For more information on TCP idle timeout and reset, see [Load Balancer TCP Reset and Idle Timeout](load-balancer-tcp-reset.md).
 
 For more information on configuring the load balancer distribution mode, see [Configure a load balancer distribution mode](load-balancer-distribution-mode.md).

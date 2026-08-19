@@ -8,13 +8,16 @@ ms.date: 06/15/2026
 
 # Add linter settings in the Bicep config file
 
-In a **bicepconfig.json** file, you can customize validation settings for the [Bicep linter](linter.md). The linter uses these settings when evaluating your Bicep files for best practices.
+In a **bicepconfig.json** file, you can customize validation settings for the
+[Bicep linter](linter.md). The linter uses these settings when evaluating your Bicep files for best
+practices.
 
 This article describes the settings that are available for working with the Bicep linter.
 
 ## Customize linter
 
-You can find the linter settings under the `analyzers` element. You can enable or disable the linter, supply rule-specific values, and set the level of rules.
+Find the linter settings under the `analyzers` element. Use these settings to enable or disable the
+linter, supply rule-specific values, and set the level of rules.
 
 The following example shows the rules that you can configure.
 
@@ -126,6 +129,21 @@ The following example shows the rules that you can configure.
         "simplify-json-null": {
           "level": "warning"
         },
+        "use-description-outputs": {
+          "level": "off"
+        },
+        "use-description-params": {
+          "level": "off"
+        },
+        "use-description-type-properties": {
+          "level": "off"
+        },
+        "use-description-types": {
+          "level": "off"
+        },
+        "use-description-vars": {
+          "level": "off"
+        },
         "use-parent-property": {
           "level": "warning"
         },
@@ -174,7 +192,8 @@ The properties are:
 
 - **enabled**: specify **true** to enable the linter, **false** to disable it.
 - **verbose**: specify **true** to show the bicepconfig.json file used by Visual Studio Code.
-- **rules**: specify rule-specific values. Each rule has a level that determines how the linter responds when it finds a violation.
+- **rules**: specify rule-specific values. Each rule has a level that determines how the linter
+  responds when it finds a violation.
 
 The available values for **level** are:
 
@@ -187,7 +206,8 @@ The available values for **level** are:
 
 ## Environment URLs
 
-For the rule about hardcoded environment URLs, you can customize which URLs are checked. By default, the following settings are applied:
+For the rule about hardcoded environment URLs, customize which URLs are checked. By default,
+the following settings are applied:
 
 ```json
 {

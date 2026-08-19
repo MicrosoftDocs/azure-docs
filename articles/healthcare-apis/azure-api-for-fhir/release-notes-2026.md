@@ -19,6 +19,25 @@ ms.author: evach
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## August 2026
+### FHIR service
+
+**Stricter SMART on FHIR scope validation**: Improved security validation for SMART on FHIR scopes to properly reject mixed scope contexts.
+
+**Null-safety improvements in resource validation**: Added null-safety checks to improve the reliability of resource validation.
+
+**Reindex reliability improvement**: The running reindex check was moved to the data store, improving reliability of the reindex operation.
+
+**Microsoft Entra security group support removed for local RBAC**: Assigning data plane access to a Microsoft Entra security group in the **Allowed object IDs** list is no longer supported. Grant access directly to individual users or service principals instead. This change keeps Azure API for FHIR aligned with current security practices and limits the access the service needs to your directory. For more information, see [Configure local RBAC for FHIR](configure-local-rbac.md).
+
+#### Bug fixes:
+
+**Fix for date filtering in bulk delete jobs**: Fixed an issue where the date filter was not correctly applied to bulk delete jobs, which could result in deletions beyond the intended date range.
+
+**Fix for race condition in bundle processing**: Fixed a race condition in bundle processing that could cause intermittent failures.
+
+**Fix for search parameter deletion in sequential transaction bundles**: Fixed a bug where deleting a search parameter in a sequential transaction bundle could fail.
+
 ## July 2026
 ### FHIR service
 

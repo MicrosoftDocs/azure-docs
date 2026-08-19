@@ -252,6 +252,9 @@ items:
           - name: Query Bookshelf query logs
             href: how-to-query-bookshelf-logs.md
             displayName: Microsoft Discovery, Bookshelf, query logs, KQL
+          - name: Get operation correlation ID from Activity Log
+            href: how-to-get-correlation-id.md
+            displayName: Microsoft Discovery, operation correlation ID, Activity Log
   - name: Operate & Support
     items:
       - name: Observability overview

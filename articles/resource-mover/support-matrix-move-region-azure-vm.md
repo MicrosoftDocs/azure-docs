@@ -3,7 +3,7 @@ title: Support matrix for moving Azure VMs to another region with Azure Resource
 description: Review support for moving Azure VMs between regions with Azure Resource Mover.
 author: RochakSingh-blr
 ms.author: v-rochak2
-ms.date: 04/30/2026
+ms.date: 08/03/2026
 ms.service: azure-resource-mover
 ms.topic: how-to
 ms.update-cycle: 365-days
@@ -51,6 +51,9 @@ Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.
 Ubuntu 14.04 LTS Server | [Supported kernel versions](#supported-ubuntu-kernel-versions)
 Ubuntu 16.04 LTS Server | [Supported kernel version](#supported-ubuntu-kernel-versions)<br/><br/> Ubuntu servers using password-based authentication and sign-in, and the cloud-init package to configure cloud VMs, might have password-based sign-in disabled on failover (depending on the cloud-init configuration). Password-based sign-in can be reenabled on the virtual machine by resetting the password from the Support > Troubleshooting > Settings menu (of the failed over VM in the Azure portal.
 Ubuntu 18.04 LTS Server | [Supported kernel version](#supported-ubuntu-kernel-versions).
+Ubuntu 20.04 LTS Server | Includes support for all 20.04.*x* versions. [Supported kernel versions](../site-recovery/azure-to-azure-support-matrix.md#supported-ubuntu-kernel-versions-for-azure-vms).
+Ubuntu 22.04 LTS Server | Includes support for all 22.04.*x* versions. [Supported kernel versions](../site-recovery/azure-to-azure-support-matrix.md#supported-ubuntu-kernel-versions-for-azure-vms).
+Ubuntu 24.04 LTS Server | Includes support for all 24.04.*x* versions. [Supported kernel versions](../site-recovery/azure-to-azure-support-matrix.md#supported-ubuntu-kernel-versions-for-azure-vms).
 Debian 7 | [Supported kernel versions](#supported-debian-kernel-versions).
 Debian 8 | [Supported kernel versions](#supported-debian-kernel-versions).
 SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [Supported kernel versions](#supported-suse-linux-enterprise-server-12-kernel-versions)

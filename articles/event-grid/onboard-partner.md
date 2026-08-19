@@ -40,7 +40,7 @@ To complete the remaining steps, make sure you have:
 - An Azure [tenant](/entra/identity-platform/quickstart-create-new-tenant).
 
 
-[!INCLUDE [register-provider](./includes/register-provider.md)]
+[!INCLUDE [register-provider](~/reusable-content/ce-skilling/azure/includes/event-grid/register-provider.md)]
 
 ## Create a partner registration 
 

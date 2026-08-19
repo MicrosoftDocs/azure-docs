@@ -3,7 +3,7 @@ title: Deploy an update by using Azure Device Update for IoT Hub | Microsoft Doc
 description: Learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
 author: sethmanheim
 ms.author: sethm
-ms.date: 08/06/2026
+ms.date: 08/07/2026
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.custom: devx-track-azurecli
@@ -15,7 +15,7 @@ ms.subservice: device-update
 In this article, you learn how to deploy an update to IoT devices by using Azure Device Update for IoT Hub in the Azure portal or with Azure CLI.
 
 > [!IMPORTANT]
-> Migrate to Device Update data plane API version `2026-06-01` ahead of the scheduled retirement dates: **February 8, 2027** for preview API versions, and **August 7, 2029** for API version `2022-10-01`. This version adds _download security_, which lets you choose, for each new deployment, whether devices download update content over HTTPS (the default) or HTTP. For more information, see [Understand download security (TLS) in Device Update for IoT Hub](device-update-tls-download.md).
+> Migrate to Device Update data plane API version `2026-06-01` ahead of the scheduled retirement dates: **February 28, 2027** for preview API versions, and **August 31, 2029** for API version `2022-10-01`. This version adds _download security_, which lets you choose, for each new deployment, whether devices download update content over HTTPS (the default) or HTTP. For more information, see [Understand download security (TLS) in Device Update for IoT Hub](device-update-tls-download.md).
 
 ## Prerequisites
 

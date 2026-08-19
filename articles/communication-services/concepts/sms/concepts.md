@@ -105,7 +105,7 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 | Estonia          | –         | –          | –     | –              | ✅             | –              |
 | Lithuania        | –         | –          | –     | –              | ✅             | –              |
 | Portugal         | –         | –          | –     | –              | ✅             | –              |
-| Spain            | –         | –          | –     | –              | ✅             | –              |
+| Spain            | –         | –          | –     | –              | –             | –              |
 | Switzerland      | –         | –          | –     | –              | ✅             | –              |
 | Czech Republic   | –         | –          | –     | –              | –              | ✅             |
 | Norway           | –         | –          | –     | –              | –              | ✅             |

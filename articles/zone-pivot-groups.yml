@@ -185,6 +185,14 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+- id: durable-functions-storage-providers-options
+  title: Storage provider
+  prompt: Choose a storage provider
+  pivots:
+  - id: durable-task-scheduler
+    title: Durable Task Scheduler
+  - id: azure-storage
+    title: Azure Storage
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
@@ -325,24 +333,6 @@ groups:
     title: Key Vault
   - id: functions-auth-secret
     title: Shared secret
-- id: reliability-functions-hosting-plan
-  title: Function app hosting options for Availability Zones support
-  prompt: Choose a hosting option for your function app
-  pivots:
-  - id: flex-consumption-plan
-    title: Flex Consumption plan
-  - id: premium-plan
-    title: Premium plan
-- id: functions-hosting-plan-dynamic
-  title: Function app hosting options
-  prompt: Choose a hosting option for your function app
-  pivots:
-  - id: flex-consumption-plan
-    title: Flex Consumption plan
-  - id: premium-plan
-    title: Premium plan
-  - id: consumption-plan
-    title: Consumption plan
 - id: functions-hosting-plan
   title: Function app hosting options
   prompt: Choose a hosting option for your function app

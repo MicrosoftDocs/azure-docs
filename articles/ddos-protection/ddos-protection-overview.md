@@ -19,7 +19,7 @@ Azure DDoS Protection, combined with application design best practices, provides
 
 :::image type="content" source="./media/ddos-best-practices/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for an Azure DDoS protected PaaS web application." lightbox="./media/ddos-best-practices/ddos-protection-overview-architecture.png":::
 
-Azure DDoS Protection protects at layer 3 and layer 4 network layers. For web applications protection at layer 7, you need to add protection at the application layer using a WAF offering. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
+Azure DDoS Protection protects at layer 3 and layer 4 network layers. For web applications protection at layer 7, you need to add protection at the application layer using a WAF offering. For more information, see [Application DDoS protection](../web-application-firewall/application-ddos-protection.md).
 
 > [!NOTE]
 > Azure DDoS Protection is one of the services that make up the Network Security category in Azure. Other services in this category include [Azure Firewall](../firewall/overview.md) and [Azure Web Application Firewall](../web-application-firewall/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Security](../networking/security/network-security.md).

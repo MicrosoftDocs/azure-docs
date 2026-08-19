@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
-ms.date: 04/14/2026
+ms.date: 08/06/2026
 #Customer intent: As an AI integration developer who works with Azure Logic Apps, I want to create knowledge bases from unstructured documents so my agentic workflows can retrieve relevant information.
 ---
 
@@ -19,8 +19,7 @@ ms.date: 04/14/2026
 
 > [!NOTE]
 >
-> This preview feature is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This preview feature is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Your organization generates unstructured data from documents, spreadsheets, APIs, and internal systems. By using the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into a structured and more searchable *knowledge base* that agent loops in agentic workflows can use to complete tasks. A knowledge base is a logical *container* that organizes related knowledge sources such as documents or files related to a specific domain.
 
@@ -84,7 +83,11 @@ The KBaaS has the following pipelines:
 
 - If you plan to use managed identity authentication, go to the corresponding resources, and assign the following roles to the managed identity:
 
-  - **Cosmos DB Built-in Data Reader** and **Cosmos DB Operator** on your Azure Cosmos DB account.
+  - **Cosmos DB Built-in Data Contributor** and **Cosmos DB Operator** on your Azure Cosmos DB account.
+
+    - Review and follow the [security best practices around contributor roles and understand their relationship to managed identies](logic-apps-securing-a-logic-app.md#secure-operations).
+    - To assign **Cosmos DB Built-in Data Contributor**, which is unavailable in the Azure portal, use the following command: [az cosmosdb sql role assignment create](/azure/search/search-howto-managed-identities-cosmos-db#configure-data-plane-role-assignments). 
+
   - **Cognitive Services OpenAI User** on your Azure OpenAI resource.
   
   Otherwise, you might experience problems such as creating groups and adding files in your knowledge base. 
@@ -92,9 +95,6 @@ The KBaaS has the following pipelines:
   For more information, see:
 
   - [Assign Azure roles to managed identities](../role-based-access-control/role-assignments-portal-managed-identity.md)
-
-    To assign **Cosmos DB Built-in Data Reader**, which is unavailable in the Azure portal, use the following command: [az cosmosdb sql role assignment create](/azure/search/search-howto-managed-identities-cosmos-db#configure-data-plane-role-assignments).  
-    
   - [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
    
 ## Authentication

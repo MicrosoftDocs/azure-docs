@@ -6,7 +6,7 @@ ms.author: aserfass
 ms.topic: concept-article
 ms.service: azure-enclave
 ai-usage: ai-assisted
-ms.date: 6/23/2026
+ms.date: 8/11/2026
 ---
 
 # Azure Enclave frequently asked questions
@@ -68,6 +68,11 @@ az provider show --namespace Microsoft.Mission --query "resourceTypes[?resourceT
 Azure Enclave includes roles to help you manage your environments with least privilege. Verified role names include Community Owner, Community Contributor, Community Reader, Enclave Owner, Enclave Contributor, Enclave Reader, and Enclave Approver. For more information, see [Role-based access controls](./role-based-access-controls.md).
 
 ## Using Azure Enclave
+
+### Why use a dedicated hub?
+
+Use a dedicated hub when you need either a predictable internet egress SNAT IP for a group of enclaves or higher VNet-to-VNet throughput than pooled capacity provides. A dedicated hub has a specific Azure Firewall public IP, so enclaves that use that hub share the same SNAT public IP for internet egress.
+
 
 ### How do I create a resource that isn't in the Azure service allow list?
 

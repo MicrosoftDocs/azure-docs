@@ -100,6 +100,8 @@ For example, if you set always ready to 2 for your HTTP group of functions, the 
 
 You can configure no fewer than two always-ready instances per function or function group while [zone redundancy is enabled](/azure/reliability/reliability-functions?pivots=flex-consumption-plan#availability-zone-support). 
 
+Always ready instances are separate from on-demand instances: the [maximum instance count](#maximum-instance-count-the-ceiling) limits only on-demand instances and doesn't apply to always ready instances.
+
 To learn how to configure always ready instances, see [Set always ready instance counts](flex-consumption-how-to.md#set-always-ready-instance-counts).
 
 ## Concurrency
@@ -134,7 +136,7 @@ The scale curve applies to on-demand instances only. The exact shape and rate ar
 
 ### Maximum instance count (the ceiling)
 
-Regardless of the rate, your app never scales beyond its [maximum instance count](event-driven-scaling.md#limit-scale-out). When an app reaches that ceiling, the platform stops adding on-demand instances no matter how much demand remains, until running instances free up. Always ready instances count toward this ceiling.
+Regardless of the rate, your app never scales beyond its [maximum instance count](event-driven-scaling.md#limit-scale-out). When an app reaches that ceiling, the platform stops adding on-demand instances no matter how much demand remains, until running instances free up. The maximum instance count limits on-demand instances only. [Always ready instances](#always-ready-instances) don't count toward this ceiling, so your app can run its always ready instances in addition to the maximum number of on-demand instances.
 
 You configure the maximum instance count on the app, but the platform applies it to each independently-scaling function group rather than to the app's combined instances. A *function group* is a set of functions that scale together on the same instances, as described in [per-function scaling](event-driven-scaling.md#per-function-scaling). Many apps scale as a single group, so the ceiling behaves like one per-app limit. An app that scales some functions on their own instances has more than one function group, and the maximum instance count applies to each group.
 
@@ -164,7 +166,7 @@ To learn how to configure storage mounts, see [Mount file shares](./storage-cons
 
 ## Deployment
 
-Deployments in the Flex Consumption plan follow a single path. There's no longer a need for app settings to influence deployment behavior. You build and zip your project code into an application package, and then deploy it to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (AzureWebJobsStorage) also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
+Deployments in the Flex Consumption plan follow a single path. You no longer need app settings to influence deployment behavior. You build and zip your project code into an application package, and then deploy it to a blob storage container. On startup, your app gets the package and runs your function code from this package. By default, the same storage account used to store internal host metadata (`AzureWebJobsStorage`) also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by [configuring your app's deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
 
 > [!TIP]
 > The Azure portal provides a **Flex Consumption Deployment** diagnostic tool. Open your Flex Consumption app, select **Diagnose and solve problems**, and search for `Flex Consumption Deployment`. This tool displays detailed information about your deployments, including deployment history, package status, and troubleshooting recommendations.
@@ -180,7 +182,7 @@ Flex Consumption provides zero-downtime deployments through rolling updates as t
 
 [!INCLUDE [functions-flex-consumption-billing-table](../../includes/functions-flex-consumption-billing-table.md)]
 
-The minimum billable execution period for both execution modes is 1,000 ms. Past that point, the billing rounds up to the nearest 100 ms. You can find details on the Flex Consumption plan billing meters in the [Monitoring reference](monitor-functions-reference.md?tab=flex-consumption-plan#metrics).
+The minimum billable execution period for both execution modes is 1,000 ms. After that point, the billing rounds up to the nearest 100 ms. You can find details on the Flex Consumption plan billing meters in the [Monitoring reference](monitor-functions-reference.md?tab=flex-consumption-plan#metrics).
 
 For details about how costs are calculated when you run in a Flex Consumption plan, including examples, see [Consumption-based costs](functions-consumption-costs.md?tabs=flex-consumption-plan#consumption-based-costs) and [Viewing cost-related data](functions-consumption-costs.md?tabs=flex-consumption-plan#viewing-and-estimating-costs-from-metrics).
 

@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 08/06/2026
+ms.date: 08/07/2026
 ms.subservice: device-update
 ---
 
@@ -16,7 +16,7 @@ Devices download update content from Device Update for IoT Hub over either **HTT
 > [!IMPORTANT]
 > Device Update data plane API version `2026-06-01` introduces download security, which lets you choose whether deployments download update content over **HTTPS** (recommended) or **HTTP**. Deployments created with this version use HTTPS unless you select HTTP. Existing deployments are unaffected.
 >
-> Migrate to API version `2026-06-01` ahead of the scheduled retirement dates: **February 8, 2027** for preview API versions, and **August 7, 2029** for API version `2022-10-01`. Migration applies to direct REST API calls and to the Device Update data plane SDKs. If you use Azure CLI, update the `azure-iot` extension to the latest version.
+> Migrate to API version `2026-06-01` ahead of the scheduled retirement dates: **February 28, 2027** for preview API versions, and **August 31, 2029** for API version `2022-10-01`. Migration applies to direct REST API calls and to the Device Update data plane SDKs. If you use Azure CLI, update the `azure-iot` extension to the latest version.
 
 Download security is a self-service setting that applies per deployment. You select it when you create a deployment, by using any of the following methods:
 
@@ -56,12 +56,6 @@ Before you select HTTPS for a deployment, make sure your devices are ready to do
 - The device must support TLS 1.2 or TLS 1.3 and a supported cipher suite. See [TLS versions and cipher suites](#tls-versions-and-cipher-suites).
 - Constrained or embedded devices might need code changes. See [Additional considerations for constrained or embedded devices](#additional-considerations-for-constrained-or-embedded-devices).
 
-Before you select HTTPS (TLS) for a deployment, make sure your devices are ready to download content over TLS:
-
-- The device, and its Device Update agent or SDK, must support HTTPS downloads and parse HTTPS update URLs.
-- The device must be provisioned with the appropriate root certificate. See [Certificate information](#certificate-information).
-- Constrained or embedded devices might need code changes. See [Additional considerations for constrained or embedded devices](#additional-considerations-for-constrained-or-embedded-devices).
-
 ## Additional considerations for constrained or embedded devices
 
 If you're using FreeRTOS, the [Azure IoT Middleware for FreeRTOS](https://github.com/Azure/azure-iot-middleware-freertos) and [FreeRTOS samples](https://github.com/Azure-Samples/iot-middleware-freertos-samples) available from Microsoft currently support HTTP URLs and need to be modified for TLS (HTTPS) URLs:
@@ -76,6 +70,8 @@ The Device Update for IoT Hub implementation in the Azure IoT Middleware for Fre
 To add HTTPS support, modify **azure_iot_http_port.h** to use the coreHTTP library over a TLS transport. For an example, see the [coreHTTP mutual authentication demo](https://github.com/FreeRTOS/FreeRTOS/tree/main/FreeRTOS-Plus/Demo/coreHTTP_Windows_Simulator/HTTP_Mutual_Auth). The demo shows mutual authentication, but Device Update content downloads use server authentication only, so you don't need to configure a client certificate.
 
 The Device Update for IoT Hub samples also include URL parsing functions that you need to revise. See [sample_azure_iot_adu.c](https://github.com/Azure-Samples/iot-middleware-freertos-samples/blob/main/demos/sample_azure_iot_adu/sample_azure_iot_adu.c) in the Device Update sample for FreeRTOS.
+
+Make sure the device's trust store includes the required root CAs. The FreeRTOS samples don't include them by default, so HTTPS downloads fail during certificate validation until you add them. See [Certificate information](#certificate-information).
 
 Finally, you might also need to make changes to your own implementation, such as changing the HTTPS header buffer to manage the update URL format that your device receives from Device Update.
 

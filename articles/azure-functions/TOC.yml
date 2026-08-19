@@ -268,14 +268,8 @@
     - name: Handle binding errors
       href: functions-bindings-errors.md
   - name: Managed connectors
-    items:
-    - name: Use connectors in Azure Functions
-      displayName: managed connectors, connector trigger, connector SDK, connector namespace, Office 365, Teams, SharePoint, SaaS integration
-      href: functions-connectors-overview.md
-  - name: Frameworks
-    items:
-    - name: Express.js
-      href: shift-expressjs.md
+    displayName: managed connectors, connector trigger, connector SDK, connector namespace, Office 365, Teams, SharePoint, SaaS integration
+    href: functions-connectors-overview.md
   - name: Security
     items:
     - name: Security overview
@@ -711,6 +705,8 @@
       href: functions-node-upgrade-v4.md
   - name: Migrate .NET apps to the isolated model
     href: migrate-dotnet-to-isolated-model.md
+  - name: Migrate from Express.js
+    href: shift-expressjs.md
   - name: Move resources
     items:
     - name: Move between subscriptions

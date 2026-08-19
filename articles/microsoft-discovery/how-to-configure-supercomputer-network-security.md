@@ -27,6 +27,8 @@ To enable IP allowlisting controls on the supercomputer management plane, the `M
 az feature register --namespace Microsoft.ContainerService --name EnableServiceTagAuthorizedIPPreview
 ```
 
+---
+
 ## Enable connectivity to platform services
 
 After setting up your virtual network with user defined routing, you must configure certain allowlisting rules to ensure that your Microsoft Discovery Supercomputer instance continues to function. Configure these rules before you create the Supercomputer resource to ensure successful creation.
@@ -60,15 +62,15 @@ Certain tools that you use on Microsoft Discovery require network connectivity. 
 
 ## Create a Microsoft Discovery supercomputer
 
-When you create a supercomputer, the `outboundType` setting controls how outbound (egress) traffic leaves the nodepools. To route egress through your own virtual network and egress point, set `outboundType` to `UserDefinedNetworking`.
+When you create a supercomputer, the `outboundType` setting controls how outbound (egress) traffic leaves the nodepools. To route egress through your own virtual network and egress point, set `outboundType` to `UserDefinedRouting`.
 
-### outboundType: UserDefinedNetworking
+### outboundType: UserDefinedRouting
 
-`UserDefinedNetworking` directs the supercomputer to send all outbound traffic through the user defined routing configured on the nodepool subnet, rather than through a Microsoft-managed public load balancer. This routing option lets you direct egress through an appliance such as Azure Firewall, where you allowlist the required IPs and FQDNs.
+`UserDefinedRouting` directs the supercomputer to send all outbound traffic through the user defined routing configured on the nodepool subnet, rather than through a Microsoft-managed public load balancer. This routing option lets you direct egress through an appliance such as Azure Firewall, where you allowlist the required IPs and FQDNs.
 
-:::image type="content" source="./media/how-to-configure-supercomputer-network-security/create-supercomputer-udr-networking.jpg" alt-text="Screenshot of Azure portal showing supercomputer creation with UserDefinedNetworking outbound type." lightbox="./media/how-to-configure-supercomputer-network-security/create-supercomputer-udr-networking.jpg":::
+:::image type="content" source="./media/how-to-configure-supercomputer-network-security/create-supercomputer-udr-networking.jpg" alt-text="Screenshot of Azure portal showing supercomputer creation with UserDefinedRouting outbound type." lightbox="./media/how-to-configure-supercomputer-network-security/create-supercomputer-udr-networking.jpg":::
 
-When you select `UserDefinedNetworking`:
+When you select `UserDefinedRouting`:
 
 - You must configure the nodepool subnet with an appropriate route table.
 - You must configure a management subnet (see [managementSubnetId](#managementsubnetid-required)) so that traffic between the management plane and the nodepools stays inside your virtual network.
@@ -77,7 +79,7 @@ When you select `UserDefinedNetworking`:
 
 ### managementSubnetId (required)
 
-When you set `outboundType` to `UserDefinedNetworking`, you must configure a `managementSubnetId`. This setting places the cluster management plane within your virtual network so that traffic between the management plane and the workload nodepools stays inside your network. Set `managementSubnetId` to the resource ID of a subnet delegated to `Microsoft.ContainerService/managedClusters` (see [Prerequisites](#prerequisites)).
+When you set `outboundType` to `UserDefinedRouting`, you must configure a `managementSubnetId`. This setting places the cluster management plane within your virtual network so that traffic between the management plane and the workload nodepools stays inside your network. Set `managementSubnetId` to the resource ID of a subnet delegated to `Microsoft.ContainerService/managedClusters` (see [Prerequisites](#prerequisites)).
 
 - The management subnet must be separate from the nodepool subnet and delegated to `Microsoft.ContainerService/managedClusters`.
 - Traffic between the Microsoft Discovery service and the management plane stays outside your virtual network regardless of this setting.

@@ -6,6 +6,7 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 07/07/2026
+ai-usage: ai-assisted
 ms.author: mbender
 ms.custom:
   - mvc
@@ -44,6 +45,8 @@ During the creation of the load balancer, you configure:
 * Inbound load-balancing rules
 * Health probe
 
+### Configure basic settings
+
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
 1. In the **Load balancing and content delivery** page, select **+ Create** > **Standard Load Balancer** from the dropdown menu.
@@ -65,6 +68,10 @@ During the creation of the load balancer, you configure:
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Screenshot of create standard load balancer basics tab." border="true":::
 
 1. Select **Next: Frontend IP configuration** at the bottom of the page.
+
+### Create the frontend IP configuration
+
+This quickstart uses an IPv4 frontend. Select the same IP version later when you create the load-balancing rule.
 
 1. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
@@ -94,6 +101,8 @@ During the creation of the load balancer, you configure:
 
 1. Select **Next: Backend pools** at the bottom of the page.
 
+### Create the backend pool
+
 1. In the **Backend pools** tab, select **+ Add a backend pool**.
 
 1. Enter **lb-backend-pool** for **Name** in **Add backend pool**.
@@ -106,6 +115,10 @@ During the creation of the load balancer, you configure:
 
 1. Select **Next: Inbound rules** at the bottom of the page.
 
+### Create the inbound load-balancing rule
+
+This quickstart uses a NAT gateway for outbound internet access, so you don't configure outbound rules. Leave the outbound SNAT setting at its default value in the following rule.
+
 1. Under **Load balancing rule** in the **Inbound rules** tab, select **+ Add a load balancing rule**.
 
 1. In **Add load balancing rule**, enter or select the following information:
@@ -113,7 +126,7 @@ During the creation of the load balancer, you configure:
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **lb-HTTP-rule** |
-    | IP Version | Select **IPv4** or **IPv6** depending on your requirements |
+    | IP Version | Select **IPv4** to match the **lb-frontend** configuration you created |
     | Frontend IP address | Select **lb-frontend (To be created)** |
     | Backend pool | Select **lb-backend-pool** |
     | Protocol | Select **TCP** |
@@ -133,7 +146,7 @@ During the creation of the load balancer, you configure:
 1. Select **Create**.
 
     > [!NOTE]
-    > In this example, you create a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
+    > In this example, you create a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed as it's optional and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../nat-gateway/nat-overview.md)
     > For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
 
 [!INCLUDE [load-balancer-create-2-virtual-machines](../../includes/load-balancer-create-2-virtual-machines.md)]
