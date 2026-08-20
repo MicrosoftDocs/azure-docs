@@ -1,8 +1,8 @@
 ---
 title: Use Azure Migrate in Unsupported Regions
 description: Describes and lists the regions that Azure Migrate doesn't support
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.manager: ankitsurkar
 ms.service: azure-migrate
 ms.topic: troubleshooting
