@@ -64,7 +64,7 @@ You need to complete the following tasks before enabling the ALB Controller add-
  
 2. Register add-on feature
 
-    Feature registration for the add-on is currently performed with the Azure CLI.
+    Use the Azure CLI to register the add-on feature.
 
     ```azurecli-interactive
     # Register required preview features
@@ -82,9 +82,6 @@ The following AKS cluster requirements are needed for successful provisioning of
 - Must use [Azure CNI](/azure/aks/configure-azure-cni) or [Azure CNI Overlay](/azure/aks/concepts-network-azure-cni-overlay) network.
 - Must have the workload identity feature enabled. [Learn how](/azure/aks/workload-identity-deploy-cluster#update-an-existing-aks-cluster) to enable workload identity on an existing AKS cluster.
 - Must be using a [supported AKS Kubernetes version](/azure/aks/supported-kubernetes-versions).
-
->[!Note]
->While enablement of the add-on will register and deploy the ALB Controller in all regions, provisioning of the Application Gateway for Containers resources will fail if not deployed in a [region where Application Gateway for Containers is available](overview.md#supported-regions).
 
 ### New Cluster
 
@@ -110,7 +107,7 @@ az aks create \
     --generate-ssh-key
 ```
 
->[!Note]
+> [!NOTE]
 >To prevent conflict with other services using Gateway API, the Application Gateway for Containers add-on requires use of the AKS Gateway API add-on.
 
 ### Existing Cluster
@@ -269,7 +266,7 @@ When the add-on is enabled on an AKS cluster using the AKS-managed virtual netwo
 
 ## Next Steps
 
-Now that you have successfully installed an ALB Controller on your cluster, you can provision the Application Gateway for Containers resources in Azure.
+Now that you successfully installed an ALB Controller on your cluster, you can provision the Application Gateway for Containers resources in Azure.
 
 The next step is to link your ALB Controller to Application Gateway for Containers. How you create this link depends on your deployment strategy.
 
