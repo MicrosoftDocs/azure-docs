@@ -2039,13 +2039,17 @@ groups:
   - id: dbx
     title: Data Box
 - id: storage-mover-multicloud
-  title: Storage Mover multicloud migration sources
-  prompt: Select your multicloud migration source.
+  title: Storage Mover migration sources
+  prompt: Select your migration source.
   pivots:
   - id: aws
-    title: Amazon Web Services (AWS)
+    title: Amazon Web Services
   - id: gcs
-    title: Google Cloud Storage (GCS)
+    title: Google Cloud
+  - id: oracle
+    title: Oracle Cloud
+  - id: on-premises
+    title: On-premises S3
 #owner: mbender
 - id: load-balancer-multiple-ip-pv
   title: Load Balancer Multiple IPs
