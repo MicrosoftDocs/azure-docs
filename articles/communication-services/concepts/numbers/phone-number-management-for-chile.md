@@ -36,7 +36,7 @@ More details on eligible subscription types are as follows:
 | :------------------------------- | :-------------------------------------------------------------------------------------------------------- |
 | Toll-Free and Local (Geographic/National) | Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement, Pay-As-You-Go |
 
-\** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
+\** The service reviews and approves applications from all other subscription types on a case-by-case basis. For assistance, create a ticket at https://pstnsd.powerappsportals.com/.
 
 
 ## Azure subscription billing locations where Chile phone numbers are available

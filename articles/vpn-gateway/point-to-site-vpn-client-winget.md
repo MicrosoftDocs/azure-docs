@@ -20,7 +20,6 @@ Windows Package Manager (`winget`) is a built-in command-line tool for Windows t
 | Operating System                  | Supported | 
 |-----------------------------------|-----------| 
 | Windows 11 (21H2 and later)       | ✅        | 
-| Windows Server 2025               | ✅        | 
 
 See more on Azure VPN Client supported windows settings [here](azure-vpn-client-versions.md).
 
@@ -68,7 +67,7 @@ winget uninstall "Azure VPN Client"
 
 - **No GUI installer:** This method uses the command line. Users who prefer a graphical click-to-install experience should use the [Microsoft Store listing](https://apps.microsoft.com/detail/9NP355QT2SQB) or the [Download Center](https://aka.ms/azvpnclientdownload) where available. 
 
-- **Platform restrictions:** Only Windows 11 and Windows Server 2025 or later are supported.
+- **Platform restrictions:** Only Windows 11 is supported.
 --- 
 
  

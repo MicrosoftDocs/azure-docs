@@ -32,7 +32,7 @@ When a storage account is part of a network security perimeter, the relevant [pr
 > Private endpoint traffic is considered highly secure and therefore isn't subject to network security perimeter rules. All other traffic, including trusted services, is subject to network security perimeter rules if the storage account is associated with a perimeter.
 
 ## Feature coverage under network security perimeter
-When a storage account is associated with a network security perimeter, all standard data-plane operations for blobs, files, tables, and queues are supported unless specified under the known [limitations](#limitations). All HTTPS-based operations for Azure Blob Storage, Azure Data Lake Storage Gen2, Azure Files, Azure Table Storage, and Azure Queue Storage can be restricted using network security perimeter. 
+When a storage account is associated with a network security perimeter, it supports all standard data-plane operations for blobs, files, tables, and queues unless specified under the known [limitations](#limitations). You can restrict all HTTPS-based operations for Azure Blob Storage, Azure Data Lake Storage, Azure Files, Azure Table Storage, and Azure Queue Storage by using network security perimeter.
 
 ## Limitations
 
