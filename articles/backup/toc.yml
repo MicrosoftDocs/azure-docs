@@ -517,6 +517,12 @@
     href: azure-elastic-san-backup-overview.md
   - name: Support matrix
     href: azure-elastic-san-backup-support-matrix.md
+  - name: Quickstart
+    href: azure-elastic-san-backup-quickstart.md
+  - name: Tutorials
+    items:
+    - name: Back up and restore
+      href: azure-elastic-san-backup-tutorial.md
   - name: Backup scenarios
     items:
     - name: Configure backup
