@@ -78,10 +78,11 @@ The following versions of Windows support Accelerated Networking for all interfa
 | **Oracle Linux (Red Hat kernel) 10.x** | 6.12 | kernel-6.12.0-108.el10 |
 | **Oracle Linux UEK R7** | UEK 7 | *Not listed above* |
 | **Oracle Linux UEK R8** | UEK 8/U1 (6.12.0-100.28.2) | UEK8/U1 |
-| **Rocky Linux 9.7** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
+| **Rocky Linux 9.6** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
 | **Rocky Linux 10.0** | 6.12 | kernel-6.12.0-108.el10 |
 | **Red Hat Enterprise Linux 9.6** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
 | **Red Hat Enterprise Linux 10.0** | 6.12 | kernel-6.12.0-108.el10 |
+| **SUSE Linux Enterprise Server 15 SP5** | 5.14 | 5.14.21-150500.55.121.2  |
 | **SUSE Linux Enterprise Server 15 SP6** | 6.4 | 6.4.0-150600.23.73.1 |
 | **SUSE Linux Enterprise Server 15 SP7** | 6.4 | 6.4.0-150700.53.16.1 |
 | **SUSE Linux Enterprise Server 16** | 6.12 | 6.12.0-160000.5.1 |
