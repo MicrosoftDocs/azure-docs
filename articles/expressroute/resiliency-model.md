@@ -72,7 +72,7 @@ $gateway = New-AzVirtualNetworkGateway `
     -ResiliencyModel MultiHomed
 ```
 
-To create a single-homed gateway instead, set `-ResiliencyModel SingleHomed`.
+To create a single-homed gateway, set `-ResiliencyModel SingleHomed`.
 
 ## Change your resiliency model
 
