@@ -59,7 +59,7 @@ Filter network traffic to and from Azure resources in an Azure virtual network b
 
 [Virtual Network (VNet) service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) extend your virtual network private address space and the identity of your virtual network to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your virtual network to the Azure service always remains on the Microsoft Azure backbone network.
 
-:::image type="content" source="./media/networking-overview/vnet-service-endpoints-overview.png" alt-text="Diagram of virtual network service endpoints.":::
+:::image type="content" source="./media/networking-overview/vnet-service-endpoints-overview.png" alt-text="Diagram showing a virtual network with service endpoints extending its private address space directly to Azure PaaS resources over the Azure backbone.":::
 
 ### <a name="privatelink"></a>Azure Private Link
 
@@ -245,7 +245,7 @@ Container network security provides enhanced control over AKS network security. 
 
 Container network observability uses Hubble's control plane to provide comprehensive visibility into AKS networking and performance. It offers real-time, detailed insights across node-level, pod-level, TCP, and DNS metrics, ensuring thorough monitoring of your network infrastructure.
 
-:::image type="content" source="./media/networking-overview/advanced-network-observability.png" alt-text="Diagram of Container Network Observability.":::
+:::image type="content" source="./media/networking-overview/advanced-network-observability.png" alt-text="Diagram showing Advanced Container Network Observability collecting Kubernetes cluster network telemetry (metrics, logs, and flow data) for analysis.":::
 
 ## Related content
 
