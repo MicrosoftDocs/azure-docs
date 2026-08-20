@@ -22,8 +22,6 @@ When the agent operates against external services, you need governance. You need
 
 Managed connectors are a set of SaaS connectors, including Google Drive, SharePoint, Notion, Confluence, Trello, Planner, Box, Dropbox, Office 365 Outlook, Teams, Gmail, OneNote, Power BI, and more. Each connector exposes operations as tools your agent can call. You control which operations are available, what values are locked, and which operations require your approval before the agent executes them.
 
-:::image type="content" source="media/managed-connectors/managed-connectors-icon-grid.png" alt-text="Screenshot of available managed connector services, including Google Drive, SharePoint, Notion, Confluence, Trello, and Office 365 Outlook." lightbox="media/managed-connectors/managed-connectors-icon-grid.png":::
-
 ### Select which connector operations the agent can call
 
 Each connector comes with a set of operations. During setup, you select which ones your agent can use. The agent can't see operations you don't select.
