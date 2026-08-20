@@ -34,7 +34,7 @@ You may also choose to block inbound public (Internet) access to Application Gat
 All features supported by Application Gateway are supported when accessed through a private endpoint, including support for AGIC.
 
 > [!NOTE]
-> Private Link configuration for Application Gateway has an idle timeout of approximately **5 minutes (300 seconds)**. To prevent connections from being terminated due to inactivity, applications connecting to Application Gateway through private endpoints should use TCP keepalive intervals of **less than 300 seconds**. If the client can't initiate TCP keepalives, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to request enabling the required keepalive behavior on Application Gateway.
+> Private Link configuration for Application Gateway has an idle timeout of approximately **5 minutes (300 seconds)**. To prevent connections from being terminated due to inactivity, applications that connect to Application Gateway through private endpoints should use TCP keepalive intervals of **less than 300 seconds**. If the client can't initiate TCP keepalives, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to request enabling the required keepalive behavior on Application Gateway.
 
 ## Private Link components
 
