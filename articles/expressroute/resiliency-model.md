@@ -59,7 +59,7 @@ The portal displays your connectivity status once you connect all required circu
 
 ### Create a gateway with PowerShell
 
-When you create an ExpressRoute virtual network gateway with PowerShell, the `-ResiliencyModel` parameter is required. Set the parameter to `SingleHomed` or `MultiHomed`.
+When you create an ExpressRoute virtual network gateway with PowerShell, you must include the `-ResiliencyModel` parameter. Set the parameter to `SingleHomed` or `MultiHomed`.
 
 ```azurepowershell
 $gateway = New-AzVirtualNetworkGateway `
