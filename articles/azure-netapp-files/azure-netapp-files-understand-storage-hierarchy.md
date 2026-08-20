@@ -105,19 +105,6 @@ In a shared QoS capacity pool, throughput is not allocated per volume. Instead a
 - Volumes contain a capacity of between 50 GiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 50 GiB and 1 PiB.
 - By default, all existing and new regular Azure NetApp Files volumes support a maximum file size of 64 TiB.
 
-### Storage endpoints 
-
-To serve a volume, Azure NetApp Files creates a storage endpoint (the network resource, with its own IP address, that clients mount) in the delegated subnet. A storage endpoint is always created when the first volume is deployed in a delegated subnet. For subsequent volume deployments, the service might autonomously create more storage endpoints when resource availability, performance needs, or placement requirements demand it. Storage endpoint creation and placement are internal service operations and aren’t exposed as user-configurable options.
-
->[!NOTE]
->Creating a storage endpoint adds to the total provisioning time. When a new storage endpoint needs to be created during volume creation, the volume can remain in the **Creating** state for several minutes before it transitions to **Succeeded**. This behavior is expected. Volumes that reuse an existing storage endpoint typically provision faster because no new endpoint is required.
-
-The same behavior applies to application volume group deployments, which create multiple storage endpoints to place data and log volumes optimally. For that reason, creating an application volume group can take 9 to 12 minutes. For more information, see [Understand Azure NetApp Files application volume groups](application-volume-group-concept.md). 
-
-If your deployment depends on predictable provisioning times, plan for storage endpoint creation before the workload deployment starts. This consideration is especially important for automated Azure Kubernetes Service (AKS) or Azure Red Hat OpenShift deployments that dynamically provision Azure NetApp Files volumes. During environment initialization, create a small volume in the target delegated subnet. The initial volume can trigger storage endpoint creation ahead of time, so later volumes might provision more quickly when the service can reuse the existing endpoint. 
-
- This approach can reduce provisioning delays, but it doesn’t guarantee consistent provisioning time for every later volume. If Azure NetApp Files determines that an additional storage endpoint is required because of resource availability, performance needs, or placement requirements, the service might create another endpoint during a future volume deployment. In that case, the volume can again remain in the Creating state for several minutes before it transitions to Succeeded. Plan automation workflows to allow for this expected behavior. 
-
 ## Elastic volumes 
 
 - A volume is measured by logical capacity consumption and is scalable.
@@ -133,6 +120,19 @@ Azure NetApp Files allows you to create [large volumes](large-volumes.md) up to 
 Large volumes begin at a capacity of 50 TiB and scale up to 1 PiB (or [2 PiB as special requests](large-volumes-requirements-considerations.md#requirements-and-considerations-for-breakthrough-mode-preview)). With cool access enabled, large volumes can grow to 7.2 PiB. 
 
 For more information, see [Requirements and considerations for large volumes](large-volumes-requirements-considerations.md).
+
+## Storage endpoints 
+
+To serve a volume, Azure NetApp Files creates a storage endpoint (the network resource, with its own IP address, that clients mount) in the delegated subnet. A storage endpoint is always created when the first volume is deployed in a delegated subnet. For subsequent volume deployments, the service might autonomously create more storage endpoints when resource availability, performance needs, or placement requirements demand it. Storage endpoint creation and placement are internal service operations and aren’t exposed as user-configurable options.
+
+>[!NOTE]
+>Creating a storage endpoint adds to the total provisioning time. When a new storage endpoint needs to be created during volume creation, the volume can remain in the **Creating** state for several minutes before it transitions to **Succeeded**. This behavior is expected. Volumes that reuse an existing storage endpoint typically provision faster because no new endpoint is required.
+
+The same behavior applies to application volume group deployments, which create multiple storage endpoints to place data and log volumes optimally. For that reason, creating an application volume group can take 9 to 12 minutes. For more information, see [Understand Azure NetApp Files application volume groups](application-volume-group-concept.md). 
+
+If your deployment depends on predictable provisioning times, plan for storage endpoint creation before the workload deployment starts. This consideration is especially important for automated Azure Kubernetes Service (AKS) or Azure Red Hat OpenShift deployments that dynamically provision Azure NetApp Files volumes. During environment initialization, create a small volume in the target delegated subnet. The initial volume can trigger storage endpoint creation ahead of time, so later volumes might provision more quickly when the service can reuse the existing endpoint. 
+
+ This approach can reduce provisioning delays, but it doesn’t guarantee consistent provisioning time for every later volume. If Azure NetApp Files determines that an additional storage endpoint is required because of resource availability, performance needs, or placement requirements, the service might create another endpoint during a future volume deployment. In that case, the volume can again remain in the Creating state for several minutes before it transitions to Succeeded. Plan automation workflows to allow for this expected behavior. 
 
 ## Next steps
 
