@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 04/30/2026
+ms.date: 08/20/2026
 ---
 
 # Traffic routing methods to origin
@@ -24,7 +24,7 @@ The four traffic routing methods are:
 
 * **[Latency](#latency):** Routes requests to the origins with the lowest latency within an acceptable sensitivity range, ensuring requests are sent to the nearest origins in terms of network latency.
 
-* **[Priority](#priority):** Allows you to set a priority for your origins, designating a primary origin to handle all traffic and a secondary origin as a backup if the primary becomes unavailable.
+* **[Priority](#priority):** Allows you to assign priorities to your origins, with lower-priority origins serving as backups if higher-priority origins become unavailable.
 
 * **[Weighted](#weighted):** Assigns a weight to each origin to distribute traffic evenly or according to specified weight coefficients. Traffic is distributed based on weight values if the origins' latencies are within the acceptable sensitivity range.
 
@@ -72,9 +72,9 @@ For more information, see [Azure Front Door routing architecture](front-door-rou
 
 To ensure high availability, deploy backup services to take over if the primary service fails. This setup is known as Active/Standby or Active/Passive deployment. The *Priority* traffic-routing method in Azure Front Door helps you implement this failover pattern.
 
-By default, Azure Front Door routes traffic to the origins with the highest priority (lowest priority value). If these primary origins become unavailable, it routes traffic to the secondary origins (next lowest priority value).
+By default, Azure Front Door routes traffic to the origins with the highest priority (lowest priority value). If these primary origins become unavailable, it routes traffic to the secondary origins (next lowest priority value). This process continues with tertiary origins if both primary and secondary origins are unavailable. [Health probes](health-probes.md) monitor each origin's availability and help determine which origins are eligible to receive traffic.
 
-when the Azure Front Door edge fails to establish a TCP connection to the selected origin, or when the origin prematurely closes the connection before returning a complete response header, Azure Front Door retries that request against another eligible origin in the same origin group, even if the primary origin is still marked healthy by the health probe.
+If an Azure Front Door edge can't establish a TCP connection to the selected origin for an individual request, or if the origin closes the connection before returning a complete response header, Azure Front Door retries the request against another eligible origin in the same origin group. This retry can occur even when health probes still report the selected origin as healthy.
 
 ### Configuring priority for origins
 
