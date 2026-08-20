@@ -22,6 +22,13 @@ Azure Load Balancer is a cloud service that distributes incoming network traffic
 
 *Load balancing* refers to efficiently distributing incoming network traffic across a group of backend virtual machines (VMs) or virtual machine scale sets (VMSS).
 
+Use Azure Load Balancer when you need to distribute Layer 4 TCP or UDP traffic across VMs or virtual machine scale sets. Choose a scenario to get started:
+
+- [Create a public load balancer](quickstart-load-balancer-standard-public-portal.md) for internet-facing traffic.
+- [Create an internal load balancer](quickstart-load-balancer-standard-internal-portal.md) for private traffic within a virtual network.
+- [Configure outbound connectivity](load-balancer-outbound-connections.md) for backend instances.
+- [Upgrade a retired Basic Load Balancer](load-balancer-basic-upgrade-guidance.md) to Standard Load Balancer.
+
 > [!NOTE]
 > Azure Load Balancer is one of the services that make up the Load Balancing and Content Delivery category in Azure. Other services in this category include [Azure Front Door](../frontdoor/front-door-overview.md) and [Azure Application Gateway](../application-gateway/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Load Balancing and Content Delivery](../networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md).
 
