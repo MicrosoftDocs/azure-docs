@@ -1,8 +1,8 @@
 ---
 title: Azure Migrate FAQ
 description: Get answers to common questions about the Azure Migrate service.
-author: habibaum
-ms.author: v-uhabiba 
+author: jyothisuri
+ms.author: jsuri
 ms.topic: faq
 ms.date: 06/20/2024
 ms.update-cycle: 365-days
