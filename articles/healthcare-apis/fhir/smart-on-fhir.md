@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 07/10/2026
+ms.date: 08/20/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -45,7 +45,66 @@ Assign users to the FHIR SMART user role by using Azure role assignment guidance
 Users in this role can access the FHIR service when requests satisfy SMART requirements. Access is limited by fhirUser context and SMART clinical scopes.
 
 > [!NOTE]
->  A user with the SMART user role has access to perform read API interactions on FHIR service. The SMART user role doesn't grant write access to the FHIR service.
+>  A user with the SMART user role can perform only the FHIR interactions permitted by the SMART clinical scopes in their access token. The role by itself doesn't grant access; write interactions require the corresponding write scopes. See [SMART user role capabilities](#smart-user-role-capabilities).
+
+## SMART user role capabilities
+
+What a user with the SMART user role can do is determined by the SMART clinical scopes in the access token, not by the role alone. The role enables SMART enforcement on the request, and the scopes in the token set the ceiling for what the request can access.
+
+### Supported FHIR interactions
+
+| SMART v2 verb | SMART v1 equivalent | Permitted interaction |
+| --- | --- | --- |
+| `c` (create) | `write` | Create a resource (`POST`). |
+| `r` (read) | `read` | Read a resource by ID (`GET [type]/[id]`). |
+| `s` (search) | `read` | Search (`GET [type]?[params]`), and `$export` where a system scope applies. |
+| `u` (update) | `write` | Update a resource (`PUT`), and patch. |
+| `d` (delete) | `write` | Soft delete a resource (`DELETE`). |
+
+> [!NOTE]
+> In SMART v2, `r` grants read-by-ID only. A client that needs to search must also request `s`. For example, `patient/Observation.r` can't run a search. Use `patient/Observation.rs` instead.
+
+### Operations not available to the SMART user role
+
+The following operations can't be authorized by any SMART clinical scope. Requests for these operations are rejected for a user who has only the SMART user role.
+
+| Operation | Reason |
+| --- | --- |
+| Hard delete (`DELETE` with `hardDelete=true`) | Requires an administrative role. |
+| `$validate` | Requires an administrative role. |
+| `$reindex` (start, check status, cancel) | Administrative operation. |
+| `$convert-data` | Administrative operation. |
+| `$import` (start, check status, cancel) | Administrative operation. |
+| Create, update, or delete profile resources (`StructureDefinition`, `ValueSet`, `CodeSystem`) | Requires the profile-editing permission. |
+| Update custom search parameter status (`$status`), and create or update custom search parameters | Administrative operation. |
+| `$bulk-update` (start, check status, cancel) | Administrative operation. |
+
+> [!NOTE]
+> `$bulk-delete` is the exception among bulk operations. The soft-delete form is available to a SMART user who holds a delete scope (`d`, or SMART v1 `write`). The hard-delete form isn't available.
+
+### Additional SMART-specific restrictions
+
+The following restrictions apply even when the scopes in the token grant the underlying interaction:
+
+- `$member-match` isn't available to SMART users when the SMART member-match restriction is enabled. The request is rejected as unauthorized.
+- `$export` requires `system/` scopes. Requests that use `patient/` or `user/` scopes are rejected. The scope must grant both read and search access (or SMART v1 `read`), and it can't have search-parameter constraints on it.
+- `_include`, `_revinclude`, chained searches (for example, `subject.name`), and reverse-chained searches (`_has`) are rejected when they would return a resource type that the scopes in the token don't cover.
+- Reading a resource by ID is evaluated against the user's compartment. A resource outside the compartment defined by the `fhirUser` claim isn't returned.
+
+### Scope formats that are rejected
+
+The FHIR service returns `HTTP 400 Bad Request` when the access token contains any of the following:
+
+- Mixed launch contexts in one token. For example, both `patient/` and `user/`, or `user/` and `system/`.
+- Mixed SMART v1 and SMART v2 access levels in one token. For example, `patient/Patient.read` together with `patient/Observation.rs`.
+- Repeated verb letters in a v2 access level. For example, `patient/Observation.rrs`.
+- An unrecognized resource type. For example, `patient/Observaton.rs`.
+- Chained or reverse-chained search parameters used as a scope constraint. For example, `patient/Observation.rs?subject.name=Smith`.
+- Search modifiers used as a scope constraint. For example, `patient/Observation.rs?code:text=glucose`.
+- `_include` or `_revinclude` used as a scope constraint.
+- A malformed or partially valid scope string.
+
+The `fhirUser` claim must reference a `Patient` or `Practitioner` resource. `RelatedPerson` isn't currently supported.
 
 ## Identity provider support
 
