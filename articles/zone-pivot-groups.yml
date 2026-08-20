@@ -355,15 +355,6 @@ groups:
     title: .NET (isolated)
   - id: other
     title: non-.NET
-# Owner: hhunter-ms
-- id: dts-sandbox-languages
-  title: On-demand Sandboxes SDK
-  prompt: Choose a programming language
-  pivots:
-  - id: csharp
-    title: .NET
-  - id: python
-    title: Python
 ### end azure-functions
 #Owner: jiayma
 - id: bring-third-party-dependency-programming-functions
