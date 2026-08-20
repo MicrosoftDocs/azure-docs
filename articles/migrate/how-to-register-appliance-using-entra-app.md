@@ -23,6 +23,9 @@ After setting up Azure Migrate appliance prerequisite, users sign in to Azure to
 
 To avoid registering the appliance under a user's context and to address the above challenges, you can use a preconfigured Microsoft Entra ID application for appliance registration.
 
+> [!NOTE]
+> Alternatively, register the appliance without a Microsoft Entra ID application by installing the Azure Arc agent. For information about how to install the Azure Arc agent and the supported scenarios, see [Register Azure Migrate appliance by onboarding it to Azure Arc](how-to-register-appliance-using-arc-agent.md).
+
 
 ## 1.	Register a Microsoft Entra ID application and assign permissions
 
