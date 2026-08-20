@@ -77,7 +77,7 @@ An Azure PowerShell script is available in the PowerShell gallery to help you mi
 
 ### Feature comparison between v1 SKU and v2 SKU
 
-The following table is the authoritative inventory of the features available with each SKU.
+The following table shows the features available with each SKU.
 
 | Feature                                           | v1 SKU   | v2 SKU   |
 | ------------------------------------------------- | -------- | -------- |

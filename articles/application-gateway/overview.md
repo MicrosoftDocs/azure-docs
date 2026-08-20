@@ -20,7 +20,7 @@ For example, you can route requests with `/images` in the URL to servers optimiz
 
 :::image type="content" source="./media/application-gateway-url-route-overview/figure1-720.png" alt-text="Screenshot of URL-based routing diagram showing traffic distribution based on incoming URL paths.":::
 
-This overview describes the Application Gateway v2 SKU family (Standard_v2 and WAF_v2), which is the current generation of the service. The v1 SKUs, Standard and WAF, retired on April 28, 2026 and are no longer supported. If you still run a v1 gateway, see [Migrate Azure Application Gateway and Web Application Firewall from V1 to V2](migrate-v1-v2.md).
+This overview describes the Application Gateway v2 SKU family (Standard_v2 and WAF_v2), which is the current generation of the service. The v1 SKUs, Standard and WAF, retire on April 28, 2026, and are no longer supported. If you still run a v1 gateway, see [Migrate Azure Application Gateway and Web Application Firewall from V1 to V2](migrate-v1-v2.md).
 
 Application Gateway operates at the application layer (OSI layer 7) and provides features like SSL/TLS termination, autoscaling, zone redundancy, and integration with Web Application Firewall for security.
 
