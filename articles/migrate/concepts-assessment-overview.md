@@ -2,13 +2,12 @@
 title: Overview of Azure Migrate assessment types 
 description: Learn about types of assessments in Azure Migrate and its prerequisites. 
 author: habibaum
-ms.author: v-uhabiba
+ms.author: jsuri
 ms.service: azure-migrate 
 ms.topic: concept-article 
 ms.date: 04/24/2024 
 ms.custom: engagement-fy24 
 ms.update-cycle: 1825-days
-monikerRange:
 # Customer intent: "As an IT administrator, I want to evaluate different assessment types in Azure Migrate, so that I can determine the best migration strategy for our on-premises and cloud workloads to ensure a smooth transition to Azure."
 --- 
  
