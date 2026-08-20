@@ -26,7 +26,7 @@ items:
       href: service-prerequisites.md
     - name: Network prerequisites
       href: network-prerequisites.md
-    - name: Planning your Private Networking for cloud to cloud migrations
+    - name: Planning migrations using Private Networking
       href: cloud-to-cloud-private-network-configuration.md
     - name: Performance targets
       href: performance-targets.md
@@ -38,10 +38,14 @@ items:
       href: cloud-to-cloud-migration.md
     - name: Migrate from Google S3 to Azure
       href: google-migration.md
+    - name: Migrate from Oracle Cloud to Azure Blob Storage
+      href: oracle-cloud-azure-blob.md
     - name: Transfer from Azure Blob to Blob
       href: azure-to-azure-migration.md
     - name: Migrate from AWS FSx to Azure Files
       href: amazon-files-azure-files-migration.md
+    - name: Migrate from on-premises SMB to Azure Files (agentless)
+      href: agentless-on-premises-files-migration.md
     - name: Deploy a storage mover agent
       href: agent-deploy.md
     - name: Register an agent
