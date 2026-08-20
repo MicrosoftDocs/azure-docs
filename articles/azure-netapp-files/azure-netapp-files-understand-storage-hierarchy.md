@@ -126,7 +126,7 @@ For more information, see [Requirements and considerations for large volumes](la
 To serve a volume, Azure NetApp Files creates a storage endpoint (the network resource, with its own IP address, that clients mount) in the delegated subnet. A storage endpoint is always created when the first volume is deployed in a delegated subnet. For subsequent volume deployments, the service might autonomously create more storage endpoints when resource availability, performance needs, or placement requirements demand it. Storage endpoint creation and placement are internal service operations and aren’t exposed as user-configurable options.
 
 >[!NOTE]
->Creating a storage endpoint adds to the total provisioning time. When a new storage endpoint needs to be created during volume creation, the volume can remain in the **Creating** state for several minutes before it transitions to **Succeeded**. This behavior is expected. Volumes that reuse an existing storage endpoint typically provision faster because no new endpoint is required.
+> Creating a storage endpoint adds to the total provisioning time. When a new storage endpoint needs to be created during volume creation, the volume can remain in the **Creating** state for several minutes before it transitions to **Succeeded**. This behavior is expected. Volumes that reuse an existing storage endpoint typically provision faster because no new endpoint is required.
 
 The same behavior applies to application volume group deployments, which create multiple storage endpoints to place data and log volumes optimally. For that reason, creating an application volume group can take 9 to 12 minutes. For more information, see [Understand Azure NetApp Files application volume groups](application-volume-group-concept.md). 
 
