@@ -125,7 +125,7 @@ Total Costs = $179.58 + $467.2 = $646.78
 
 Let’s assume you provision a Standard_V2 Application Gateway with manual scaling set to 3 instances for the entire month. During this time, it receives an average of 88.8-Mbps data transfer.
 
-**Scenario:** Standard_V2 with manual scaling set to 3 instances, 88.8-Mbps average throughput, one full month.
+**Scenario:** Standard_V2 with manual scaling set to three instances, 88.8-Mbps average throughput, one full month.
 
 **Calculation:**
 
@@ -186,7 +186,7 @@ Total Costs = $323.39 + $683.28 = $1006.67
 
 Let’s assume you provision a WAF_V2 with autoscaling enabled and set the minimum instance count as 0 for the entire month. The request load on the WAF is minimum but consistently present per hour for the entire month. The load is below the capacity of a single capacity unit.
 
-**Scenario:** WAF_V2 with autoscaling, minimum instance count 0 and a consistent hourly load below a single capacity unit, one full month.
+**Scenario:** WAF_V2 with autoscaling, minimum instance count 0, and a consistent hourly load below a single capacity unit, one full month.
 
 **Calculation:**
 
@@ -202,7 +202,7 @@ Total Costs = $323.39 + $10.512 = $333.902
 
 Let’s assume you provision a WAF_V2 with autoscaling enabled and set the minimum instance count to 0 for the entire month. However, there's 0 traffic directed to the WAF instance for the entire month.
 
-**Scenario:** WAF_V2 with autoscaling, minimum instance count 0 and no traffic, one full month.
+**Scenario:** WAF_V2 with autoscaling, minimum instance count 0, and no traffic, one full month.
 
 **Calculation:**
 
@@ -250,7 +250,7 @@ Total Costs = $323.39 + $42.048 = $365.438
 Let’s assume you provision a standard_V2 with autoscaling enabled and set the minimum instance count to 0 and this application gateway is active for 2 hours.
 During the first hour, it receives traffic that can be handled by 10 Capacity Units and during the second hour it receives traffic that required 20 Capacity Units to handle the load.
 
-**Scenario:** standard_V2 with autoscaling, minimum instance count 0, active for 2 hours, using 10 capacity units in the first hour and 20 capacity units in the second.
+**Scenario:** Standard_V2 with autoscaling, minimum instance count 0, active for two hours, using 10 capacity units in the first hour and 20 capacity units in the second.
 
 **Calculation:**
 
@@ -358,7 +358,7 @@ For more pricing information according to your region, see the [pricing page](ht
 
 Let’s assume you provision a standard Application Gateway of medium type with 1 instance and it processes 500 GB in a month. 
 
-**Scenario:** Standard Application Gateway, Medium size, 1 instance, 500 GB processed in one month.
+**Scenario:** Standard Application Gateway, Medium size, one instance, 500 GB processed in one month.
 
 **Calculation:**
 
@@ -414,7 +414,7 @@ Total Costs = $161.28 + $210 = $371.28
 
 ### Example 3 – WAF Application Gateway with DDoS Network Protection
 
-Let's assume you provision a medium type WAF application Gateway, and you enable DDoS Network Protection. This medium WAF application gateway processes 40 TB in the duration that it's active.
+Let's assume you provision a medium WAF Application Gateway, and you enable DDoS Network Protection. This medium WAF Application Gateway processes 40 TB during the time it's active.
 
 **Scenario:** Medium WAF Application Gateway with DDoS Network Protection enabled, 40 TB processed.
 
