@@ -41,9 +41,7 @@ Each of these features can be configured independently. For example, a public IP
 
 This article covers private Application Gateway deployment for Application Gateway v2 SKUs. Two deployment modes are supported: a private-only frontend IP configuration, and a combined configuration that uses both a public and a private frontend IP configuration. The controls for private frontend IP configuration, network security group (NSG) rule management, and route table configuration are generally available and supported in production.
 
-To use these capabilities, you must opt in to the experience using the Azure portal, PowerShell, CLI, or REST API. This opt‑in mechanism also provides flexibility if you need to revert to traditional Application Gateway functionality when required (for example, to enable Private Link).
-
-When enrolled, all new Application Gateways provision with the ability to define any combination of NSG, route table, or private frontend IP configuration features. If you wish to opt out of the private Application Gateway deployment feature, you can do so by [unregistering from the feature](#unregister-the-feature).
+To use these capabilities, you must opt in to the experience by using the Azure portal, PowerShell, CLI, or REST API. This opt-in mechanism also provides flexibility if you need to revert to traditional Application Gateway functionality when required (for example, to enable Private Link).
 
 >[!Tip]
 >Gateways operate using the capabilities available at the time they are provisioned. If you unregister from the feature, existing gateways continue to operate with the capabilities that were enabled when they were created.
@@ -80,7 +78,7 @@ Use the following steps to register the private Application Gateway deployment f
 
 # [Azure PowerShell](#tab/powershell)
 
-To register the private Application Gateway deployment feature via Azure PowerShell, the following commands can be referenced:
+To register the private Application Gateway deployment feature with Azure PowerShell, use the following commands:
 
 ```azurepowershell
 Register-AzProviderFeature -FeatureName "EnableApplicationGatewayNetworkIsolation" -ProviderNamespace "Microsoft.Network"
@@ -95,7 +93,7 @@ EnableApplicationGatewayNetworkIsolation   Microsoft.Network   Registered
 
 # [Azure CLI](#tab/cli)
 
-To register the private Application Gateway deployment feature via Azure CLI, the following commands can be referenced:
+To register the private Application Gateway deployment feature with Azure CLI, use the following commands:
 
 ```azurecli
 az feature register --name EnableApplicationGatewayNetworkIsolation --namespace Microsoft.Network
@@ -119,7 +117,7 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 # [Azure portal](#tab/portal)
 
-To opt out of the private Application Gateway deployment feature via Portal, use the following steps:
+To opt out of the private Application Gateway deployment feature through the portal, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the search box, enter _subscriptions_ and select **Subscriptions**.
@@ -144,7 +142,7 @@ To opt out of the private Application Gateway deployment feature via Portal, use
 
 # [Azure PowerShell](#tab/powershell)
 
-To opt out of the private Application Gateway deployment feature via Azure PowerShell, the following commands can be referenced:
+To opt out of the private Application Gateway deployment feature by using Azure PowerShell, use the following commands:
 
 ```azurepowershell
 Unregister-AzProviderFeature -FeatureName "EnableApplicationGatewayNetworkIsolation" -ProviderNamespace "Microsoft.Network"
@@ -159,7 +157,7 @@ EnableApplicationGatewayNetworkIsolation   Microsoft.Network   Unregistered
 
 # [Azure CLI](#tab/cli)
 
-To opt out of the private Application Gateway deployment feature via Azure CLI, the following commands can be referenced:
+To opt out of the private Application Gateway deployment feature by using Azure CLI, use the following commands:
 
 ```azurecli
 az feature unregister --name EnableApplicationGatewayNetworkIsolation --namespace Microsoft.Network
@@ -178,14 +176,14 @@ A list of all Azure CLI references for Private Link Configuration on Application
 
 ## Configuration of network controls
 
-After you [register the feature](#register-the-feature), configuration of NSG, route table, and private frontend IP configuration for a private Application Gateway deployment can be performed using any methods. For example: REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or Portal.
+After you [register the feature](#register-the-feature), you can configure the NSG, route table, and private frontend IP configuration for a private Application Gateway deployment by using any methods. For example, use REST API, ARM Template, Bicep deployment, Terraform, PowerShell, CLI, or the Azure portal.
 
 > [!NOTE]
 > If your client application connects to App Gateway via a private IP, requires an idle timeout greater > than 4 minutes, and the client application does not send TCP keep-alive packets, contact agprivateip-keepalive@microsoft.com to request initiation of keep‑alive from Application Gateway.
 
 ## Application Gateway Subnet 
 
-The Application Gateway subnet is the subnet within the virtual network where the Application Gateway resources are deployed. In a private Application Gateway deployment that uses a private-only frontend IP configuration, it's important that this subnet can reach privately the resources that want to connect to your exposed app or site.
+The Application Gateway subnet is the subnet within the virtual network where you deploy the Application Gateway resources. In a private Application Gateway deployment that uses a private-only frontend IP configuration, this subnet must privately reach the resources that want to connect to your exposed app or site.
 
 > [!NOTE]
 > As of May 5, 2025, new and existing deployments of Private Application Gateway require Subnet Delegation to `Microsoft.Network/applicationGateways`.
@@ -193,7 +191,7 @@ The Application Gateway subnet is the subnet within the virtual network where th
 
 ## Outbound Internet connectivity
 
-In a private Application Gateway deployment, Application Gateway v2 deployments that use a private-only frontend IP configuration (they don't have a public IP frontend configuration associated to a request routing rule) aren't able to egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
+In a private Application Gateway deployment, Application Gateway v2 deployments that use a private-only frontend IP configuration (they don't have a public IP frontend configuration associated to a request routing rule) can't egress traffic destined to the Internet. This configuration affects communication to backend targets that are publicly accessible via the Internet.
 
 To enable outbound connectivity from your Application Gateway to an Internet facing backend target, you can utilize [Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md) or forward traffic to a virtual appliance that has access to the Internet.
 
@@ -209,7 +207,7 @@ Common scenarios where public IP usage is required:
 
 ## Network Security Group Control
 
-This section describes network security group (NSG) control for the Application Gateway v2 subnet in a private Application Gateway deployment. After you [register the feature](#register-the-feature), network security groups associated to an Application Gateway subnet no longer require inbound rules for GatewayManager, and they don't require outbound access to the Internet.  The only required rule is **Allow inbound from AzureLoadBalancer** to ensure health probes can reach the gateway.
+This section describes network security group (NSG) control for the Application Gateway v2 subnet in a private Application Gateway deployment. After you [register the feature](#register-the-feature), network security groups associated with an Application Gateway subnet no longer require inbound rules for GatewayManager, and they don't require outbound access to the Internet. The only required rule is **Allow inbound from AzureLoadBalancer** to ensure health probes can reach the gateway.
 
 The following configuration is an example of the most restrictive set of inbound rules, denying all traffic but Azure health probes.  In addition to the defined rules, explicit rules are defined to allow client traffic to reach the listener of the gateway.
 
@@ -311,9 +309,7 @@ Result:
 
 ## Route Table Control
 
-This section describes route table (user-defined route) control for the Application Gateway v2 subnet in a private Application Gateway deployment. For Application Gateway deployments that aren't registered for the private Application Gateway deployment feature, association of a route table with a rule (or creation of rule) defined as 0.0.0.0/0 with a next hop as virtual appliance is unsupported to ensure proper management of Application Gateway.
-
-After you [register the feature](#register-the-feature), the ability to forward traffic to a virtual appliance is now possible via definition of a route table rule that defines 0.0.0.0/0 with a next hop to Virtual Appliance.
+This section describes route table (user-defined route) control for the Application Gateway v2 subnet in a private Application Gateway deployment. For Application Gateway deployments that aren't registered for the private Application Gateway deployment feature, you can't associate a route table with a rule or create a rule defined as 0.0.0.0/0 with a next hop as virtual appliance. This restriction ensures proper management of Application Gateway.
 
 Forced Tunneling or learning of 0.0.0.0/0 route through BGP advertising does not affect Application Gateway health, and is honored for traffic flow. This scenario can be applicable when using VPN, ExpressRoute, Route Server, or Virtual WAN.
 
@@ -350,7 +346,7 @@ The following limitations apply:
 
 ### Private link configuration
 
-[Private link configuration](private-link.md) support for tunneling traffic through private endpoints to Application Gateway is unsupported with a private-only frontend IP configuration.
+Application Gateway doesn't support [private link configuration](private-link.md) for tunneling traffic through private endpoints when you use a private-only frontend IP configuration.
 
 ### WAF Rate Limiting
 
@@ -358,7 +354,7 @@ The following limitations apply:
 
 ### Private IP frontend configuration only with AGIC
 
-AGIC v1.7 must be used to introduce support for a private-only frontend IP configuration.
+You must use AGIC v1.7 to configure a private-only frontend IP configuration.
 
 ### Private Endpoint connectivity via Global VNet Peering
 
@@ -370,9 +366,9 @@ Connection troubleshoots and NSG diagnostics return an error when running check 
 
 ### Coexisting v2 Application Gateways created prior to enablement of enhanced network control
 
-If a subnet shares Application Gateway v2 deployments that were created both prior to and after enablement of the private Application Gateway deployment feature, Network Security Group (NSG) and Route Table functionality is limited to the prior gateway deployment. Application gateways provisioned prior to enablement of the feature must either be reprovisioned, or newly created gateways must use a different subnet to enable the network security group and route table features.
+If a subnet shares Application Gateway v2 deployments that you created both before and after enabling the private Application Gateway deployment feature, you can use Network Security Group (NSG) and Route Table functionality only with the earlier gateway deployment. To enable the network security group and route table features, you must either reprovision application gateways that you created before enabling the feature or create new gateways in a different subnet.
 
-- If a gateway deployed prior to enablement of the feature exists in the subnet, you might see errors such as: `For routes associated to subnet containing Application Gateway V2, please ensure '0.0.0.0/0' uses Next Hop Type as 'Internet'` when adding route table entries.
+- If a gateway that you deployed before enabling the feature exists in the subnet, you might see errors such as: `For routes associated to subnet containing Application Gateway V2, please ensure '0.0.0.0/0' uses Next Hop Type as 'Internet'` when adding route table entries.
 - When adding network security group rules to the subnet, you might see: `Failed to create security rule 'DenyAnyCustomAnyOutbound'. Error: Network security group \<NSG-name\> blocks outgoing Internet traffic on subnet \<AppGWSubnetId\>, associated with Application Gateway \<AppGWResourceId\>. This isn't permitted for Application Gateways that have fast update enabled or have V2 Sku.` 
 
 ## Next steps
