@@ -15,6 +15,15 @@ ms.author: mbender
 
 Certain scenarios require virtual machines or compute instances to have outbound connectivity to the internet. The frontend IPs of a public load balancer can be used to provide outbound connectivity to the internet for backend instances. This configuration uses **source network address translation (SNAT)** to translate virtual machine's private IP into the load balancer's public IP address. SNAT maps the IP address of the backend to the public IP address of your load balancer. SNAT prevents outside sources from having a direct address to the backend instances. 
 
+## Choose an outbound connectivity method
+
+Choose an explicit outbound connectivity method before you deploy a workload:
+
+- Use [Azure NAT Gateway](../virtual-network/nat-gateway/nat-overview.md) for scalable, outbound-only connectivity from a subnet.
+- Use an instance-level public IP when a virtual machine needs its own public address.
+- Use [outbound rules](outbound-rules.md) when backend instances use a load balancer frontend IP for outbound connectivity.
+- Avoid default outbound access for production workloads. New virtual networks use private subnets by default.
+
 ## <a name="scenarios"></a>Azure's outbound connectivity methods
 
 The following methods are Azure's most commonly used methods to enable outbound connectivity, listed in order of priority when multiple methods are used:
