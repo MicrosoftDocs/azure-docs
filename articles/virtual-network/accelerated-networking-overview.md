@@ -71,6 +71,7 @@ The following versions of Windows support Accelerated Networking for all interfa
 |------------------|------------------|-----------------|
 | **AlmaLinux 9.6** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
 | **AlmaLinux 10.0** | 6.12 | kernel-6.12.0-108.el10 |
+| **Azure Linux 3** | 6.6 | ANY |
 | **Azure Linux 4** | 6.18 | ANY |
 | **Debian 12 "Bookworm"** | 6.12 | 6.12.21 |
 | **Debian 13 "Trixie"** | 6.12 | 6.12.21 |
