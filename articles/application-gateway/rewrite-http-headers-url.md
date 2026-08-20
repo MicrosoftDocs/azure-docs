@@ -123,12 +123,12 @@ Application gateway supports the following server variables:
 
 These variables describe the incoming HTTP request, including its URL components, method, and headers.
 
-|   Variable name    |                   Description                                           |
+| Variable name | Description |
 | ------------------------- | ------------------------------------------------------------ |
 | add_x_forwarded_for_proxy | The X-Forwarded-For client request header field with the `client_ip` variable   (see the Connection server variables table) appended to it in the format IP1, IP2,   IP3, and so on. If the X-Forwarded-For field isn't in the client request header,   the `add_x_forwarded_for_proxy` variable   is equal to the `$client_ip` variable.   This variable is useful when you want to rewrite the X-Forwarded-For header set by Application Gateway so that the header contains   only the IP address without the port information. |
 | client_user               | When HTTP authentication is used, the user name supplied   for authentication. |
 | cookie_*name*             | The *name* cookie.                                           |
-| host                      | In this order of precedence: the host name from the   request line, the host name from the Host request header field, or the server   name matching a request. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the host value is `contoso.com` |
+| host | In this order of precedence: the host name from the request line, the host name from the Host request header field, or the server name matching a request. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the host value is `contoso.com` |
 | http_method               | The method used to make the URL request. For example, GET   or POST. |
 | http_version              | The request protocol. Usually HTTP/1.0, HTTP/1.1, or   HTTP/2.0. |
 | query_string              | The list of variable/value pairs that follows the `?` in the requested URL. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, query_string value is `id=123&title=fabrikam` |
@@ -136,24 +136,24 @@ These variables describe the incoming HTTP request, including its URL components
 | request_query             | The arguments in the request line.                           |
 | request_scheme            | The request scheme: http or https.                           |
 | request_uri               | The full original request URI (with arguments). Example:   in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, request_uri value is `/article.aspx?id=123&title=fabrikam` |
-| uri_path                  | Identifies the specific resource in the host that the web client wants to access. The variable refers to the original URL path before any manipulation. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the uri_path value is `/article.aspx`. |
+| uri_path | Identifies the specific resource in the host that the web client wants to access. The variable refers to the original URL path before any manipulation. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the uri_path value is `/article.aspx`. |
 
 ### Connection server variables
 
 These variables describe the network connection between the client and the application gateway.
 
-|   Variable name    |                   Description                                           |
+| Variable name | Description |
 | ------------------------- | ------------------------------------------------------------ |
-| client_ip                 | The IP address of the client from which the application   gateway received the request. If there's a reverse proxy before the   application gateway and the originating client, `client_ip` returns the IP address of the reverse proxy. |
-| client_port               | The client port.                                             |
-| client_tcp_rtt            | Information about the client TCP connection. Available on   systems that support the TCP_INFO socket option. |
+| client_ip | The IP address of the client from which the application gateway received the request. If there's a reverse proxy before the application gateway and the originating client, `client_ip` returns the IP address of the reverse proxy. |
+| client_port | The client port. |
+| client_tcp_rtt | Information about the client TCP connection. Available on systems that support the TCP_INFO socket option. |
 | server_port               | The port of the server that accepted a request.              |
 
 ### TLS server variables
 
 These variables describe the TLS connection that the client negotiates with the application gateway.
 
-|   Variable name    |                   Description                                           |
+| Variable name | Description |
 | ------------------------- | ------------------------------------------------------------ |
 | ciphers_supported         | A list of the ciphers supported by the client.               |
 | ciphers_used              | The string of ciphers used for an established TLS   connection. |
@@ -164,7 +164,7 @@ These variables describe the TLS connection that the client negotiates with the 
 
 These variables describe the response that the application gateway returns to the client.
 
-|   Variable name    |                   Description                                           |
+| Variable name | Description |
 | ------------------------- | ------------------------------------------------------------ |
 | http_status               | The session status. For example, 200, 400, or 403.           |
 | sent_bytes                | The number of bytes sent to a client.                        |
