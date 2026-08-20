@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Application Gateway
 description: This article contains important reference material you need when you monitor Azure Application Gateway.
-ms.date: 07/13/2026
+ms.date: 08/19/2026
 ms.topic: reference
 author: mbender-ms
 ms.author: mbender
@@ -196,6 +196,7 @@ For Application Gateway Standard V2 and WAF V2 SKUs:
 |:---------|:------------|
 |instanceId | Application Gateway instance that served the request. |
 |clientIP   | IP of the immediate client of Application Gateway. If another proxy fronts your application gateway, this value displays the IP of that fronting proxy. |
+|LinkId | Decimal link identifier of the private endpoint connection through which the request arrived. The value is stored as a string and matches the `linkIdentifier` property of the corresponding private endpoint connection. This field is populated only for requests received through Application Gateway Private Link. |
 |httpMethod | HTTP method used by the request. |
 |requestUri | URI of the received request. |
 |UserAgent  | User agent from the HTTP request header. |
@@ -237,6 +238,16 @@ For Application Gateway Standard V2 and WAF V2 SKUs:
 |contentType | The type of content or data that's being processed or delivered by the application gateway. |
 |JA4Fingerprint | A standardized TLS client fingerprint derived from the client's TLS handshake, used to identify and correlate client behavior for security analysis and threat hunting. Support for this header requires the Application Gateway to use either a predefined SSL policy from `AppGwSslPolicy20220101` or later, or a custom SSL policy of type `CustomV2` or later. |
 |identity | Provides the Tenant ID (TID) and Object ID (OID) of the authenticated entity after successful JWT validation. |
+
+For a request received through an Application Gateway private endpoint, the access log includes the `LinkId` property in the following format:
+
+```json
+{
+    "properties": {
+        "LinkId": "123456"
+    }
+}
+```
 
 ```json
 {
