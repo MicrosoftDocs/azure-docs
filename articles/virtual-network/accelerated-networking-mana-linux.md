@@ -28,21 +28,23 @@ Current list with our endorsed images and minimum recommended kernels for MANA-e
 
 | **Distribution** | **Kernel Series** | **Min Version** |
 |------------------|------------------|-----------------|
-| **AlmaLinux** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
-| **AlmaLinux** | 6.12 | kernel-6.12.0-108.el10 |
-| **Debian** | 6.12 | 6.12.21 |
-| **Oracle (Red Hat kernel)** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
-| **Oracle (Red Hat kernel)** | 6.12 | kernel-6.12.0-108.el10 |
-| **Oracle (UEK)** | UEK 8/U1 (6.12.0-100.28.2) | UEK8/U1 |
-| **Rocky Linux** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
-| **Rocky Linux** | 6.12 | kernel-6.12.0-108.el10 |
-| **Suse** | SLES 15 SP5 | 5.14.21-150500.55.121.2 |
-| **Suse** | SLES 15 SP6 | 6.4.0-150600.23.73.1 |
-| **Suse** | SLES 15 SP7 | 6.4.0-150700.53.16.1 |
-| **Suse** | SLES 16 | 6.12.0-160000.5.1 |
-| **Ubuntu** | 5.15 | 5.15.0-1096.105 |
-| **Ubuntu** | 6.8 | 6.8.0-1041.47 |
-| **Ubuntu** | 6.14 | 6.14.0-1012.12 |
+| **AlmaLinux** | 5.14 | 5.14.0-570.52.1.el9_6 |
+| **AlmaLinux** | 6.12 | 6.12.0-108.el10 |
+| **Debian 13** | 6.12 | 6.12.21 |
+| **Oracle 9 (Red Hat Kernel)** | 5.14 | 5.14.0-570.52.1.el9_6 |
+| **Oracle 10 (Red Hat Kernel)** | 6.12 | 6.12.0-108.el10 |
+| **Oracle Unbreakable Enterprise Kernel 8 U1** | 6.12 | 6.12.0-100.28.2 |
+| **Red Hat Enterprise Linux 9.6** | 5.14 | 5.14.0-570.52.1.el9_6 |
+| **Red Hat Enterprise Linux 10** | 6.12 | 6.12.0-108.el10 |
+| **Rocky Linux 9.6** | 5.14 | 5.14.0-570.52.1.el9_6 |
+| **Rocky Linux 10** | 6.12 | 6.12.0-108.el10 |
+| **SUSE Linux Enterprise Server 15 SP5** | 5.14 | 5.14.21-150500.55.121.2 |
+| **SUSE Linux Enterprise Server 15 SP6** | 6.4 | 6.4.0-150600.23.73.1 |
+| **SUSE Linux Enterprise Server 15 SP7** | 6.4 | 6.4.0-150700.53.16.1 |
+| **SUSE Linux Enterprise Server 16** | 6.12 | 6.12.0-160000.5.1 |
+| **Ubuntu 22.04** | 5.15 | 5.15.0-1096.105 |
+| **Ubuntu 24.04** | 6.8 | 6.8.0-1041.47 |
+| **Ubuntu 25.04** | 6.14 | 6.14.0-1012.12 |
 | **Ubuntu** | 6.17 | ANY |
 
 > [!NOTE]

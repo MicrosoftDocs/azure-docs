@@ -56,9 +56,6 @@ The following table lists the regions that support MySQL Discovery and Assessmen
 - After you create a project, ensure you've completed the server discovery using the Azure Migrate appliance.
 - Ensure that you perform the [discovery of software inventory](how-to-discover-applications.md) by providing the server credentials to the appliance configuration manager.
 
-> [!NOTE]
-> Only Azure Migrate projects created with public endpoint connectivity are supported. Private endpoint projects aren't supported in the preview.
-
 ## Provide MySQL credentials
 
 1. Open the appliance configuration manager, complete the prerequisite checks and registration of the appliance.

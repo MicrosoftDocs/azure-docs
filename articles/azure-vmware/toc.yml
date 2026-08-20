@@ -369,6 +369,8 @@ items:
     href: troubleshoot-run-command.md
   - name: Use Set-ToolsRepo Run Command
     href: use-set-toolsrepo-run-command.md
+  - name: Use New-AVSStoragePolicy Run Command
+    href: use-new-avsstoragepolicy-run-command.md
   - name: Use vCenter Login Banner Run Command
     href: use-vcenter-login-banner-run-command.md
   - name: Configure VMware syslogs

@@ -3,6 +3,7 @@ title: Accidental Delete Protection for Azure Files
 description: Learn how to soft delete can protect your Azure Files from accidental deletion. 
 ms.topic: how-to
 ms.date: 08/14/2025
+ms.update-cycle: 1825-days
 ms.custom: references_regions 
 author: AbhishekMallick-MS
 ms.author: v-mallicka

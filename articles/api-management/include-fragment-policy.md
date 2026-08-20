@@ -5,7 +5,7 @@ services: api-management
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 07/23/2024
+ms.date: 08/18/2026
 ---
 
 # Include fragment
@@ -29,6 +29,9 @@ The policy inserts the policy fragment as-is at the location you select in the p
 | Attribute | Description                                                                                        | Required | Default |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
 | fragment-id       | A string. Specifies the identifier (name) of a policy fragment created in the API Management instance. Policy expressions aren't allowed. | Yes      | N/A     |
+
+> [!IMPORTANT]
+> Linked access isn't checked when a policy fragment is referenced by using `fragment-id`. A user who has permission to write a policy can reference any available policy fragment and cause API Management to execute its policy statements, even if the user doesn't have read access to the policy fragment resource. This doesn't grant access to view or modify the policy fragment definition.
 
 ## Usage
 
