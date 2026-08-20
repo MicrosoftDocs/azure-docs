@@ -115,7 +115,6 @@ Oracle DBMS supports TDE in combination with SAP applications. Keys for TDE can 
 
 DB2 native encryption is supported in combination with SAP applications. Encryption keys can be stored in HSM PKCS#11 devices. For more information, see:
 
-- [Running an SAP NetWeaver Application Server on DB2 for LUW with the IBM DB2 Encryption Technology](https://www.sap.com/documents/2015/07/7e504681-5b7c-0010-82c7-eda71af511fa.html) (SAP documentation)
 - [DB2 native encryption](https://www.ibm.com/docs/en/db2/12.1.0?topic=rest-db2-native-encryption) (IBM documentation)
 - [IBM DB2 and Thales Luna HSMs - Integration Guide](https://cpl.thalesgroup.com/resources/encryption/ibm-db2-luna-hsms-integration-guide#:~:text=This%20document%20is%20intended%20to%20guide%20security%20administrators,databases%20and%20backup%20images%20using%20DB2%20native%20encryption) (Thales documentation)
 
