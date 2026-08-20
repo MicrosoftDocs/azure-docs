@@ -82,13 +82,13 @@ By using Azure DNS, you can host and resolve public domains, manage DNS resoluti
 
 [Azure Bastion](../bastion/bastion-overview.md) is a service that you can deploy in a virtual network to connect to a virtual machine by using your browser and the Azure portal. You can also connect by using the native SSH or RDP client already installed on your local computer. The Azure Bastion service is a fully platform-managed PaaS service that you deploy inside your virtual network. It provides secure and seamless RDP/SSH connectivity to your virtual machines directly from the Azure portal over TLS. When you connect through Azure Bastion, your virtual machines don't need a public IP address, agent, or special client software. Azure Bastion offers four SKU tiers: Developer, Basic, Standard, and Premium. The tier you select affects the available features. For more information, see [About Bastion configuration settings](../bastion/configuration-settings.md).
 
-:::image type="content" source="../bastion/media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture.":::
+:::image type="content" source="../bastion/media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion in a virtual network providing browser-based RDP/SSH access to VMs over TLS with no public IPs on the VMs.":::
 
 ### <a name="routeserver"></a>Azure Route Server
 
 [Azure Route Server](../route-server/overview.md) simplifies dynamic routing between your network virtual appliance (NVA) and your virtual network. You can exchange routing information directly through Border Gateway Protocol (BGP) routing protocol between any NVA that supports the BGP routing protocol and the Azure Software Defined Network (SDN) in the Azure Virtual Network (VNet) without manually configuring or maintaining route tables.
 
-:::image type="content" source="../route-server/media/overview/route-server-overview.png" alt-text="Diagram showing Azure Route Server configured in a virtual network.":::
+:::image type="content" source="../route-server/media/overview/route-server-overview.png" alt-text="Diagram showing Azure Route Server in a virtual network exchanging BGP routes with a network virtual appliance and the Azure SDN.":::
 
 ### <a name="nat"></a>NAT Gateway
 
@@ -136,7 +136,7 @@ The following diagram shows URL path-based routing with Application Gateway.
 
 [Azure Front Door](../frontdoor/front-door-overview.md) helps you define, manage, and monitor the global routing for your web traffic by optimizing for best performance and instant global failover for high availability. By using Front Door, you can transform your global (multiregion) consumer and enterprise applications into robust, high-performance personalized modern applications, APIs, and content that reach a global audience with Azure. Use Front Door when you need a global, Layer 7 entry point that combines content delivery network (CDN) caching, SSL offload, and a web application firewall (WAF) in front of multiregion backends.
 
-:::image type="content" source="./media/networking-overview/front-door-visual-diagram.png" alt-text="Diagram of Azure Front Door service with Web Application Firewall.":::
+:::image type="content" source="./media/networking-overview/front-door-visual-diagram.png" alt-text="Diagram showing Azure Front Door as a global Layer 7 entry point with WAF, CDN caching, and SSL offload in front of multi-region backends.":::
 
 ## <a name="hybrid"></a>Azure hybrid connectivity services
 
@@ -152,7 +152,7 @@ This section describes network connectivity services that securely connect your 
 
 The following diagram illustrates multiple site-to-site VPN connections to the same virtual network. To view more connection diagrams, see [VPN Gateway - design](../vpn-gateway/design.md).
 
-:::image type="content" source="../vpn-gateway/media/design/multi-site.png" alt-text="Diagram showing multiple site-to-site Azure VPN Gateway connections.":::
+:::image type="content" source="../vpn-gateway/media/design/multi-site.png" alt-text="Diagram showing multiple on-premises sites connecting via site-to-site VPN to the same Azure virtual network through VPN Gateway.":::
 
 ### <a name="expressroute"></a>ExpressRoute
 
