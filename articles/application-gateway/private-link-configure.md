@@ -53,7 +53,7 @@ To enable Private Link configuration, you must have a dedicated subnet that's se
 To create a dedicated subnet for Private Link, see [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md).
 
 > [!NOTE]
-> Private Link configuration for Application Gateway has an idle timeout of approximately **5 minutes (300 seconds)**. To prevent connections from being terminated due to inactivity, applications connecting to Application Gateway through private endpoints should use TCP keepalive intervals of **less than 300 seconds**. If the client can't initiate TCP keepalives, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to request enabling the required keepalive behavior on Application Gateway.
+> Private Link configuration for Application Gateway has an idle timeout of approximately **5 minutes (300 seconds)**. To prevent connections from being terminated due to inactivity, applications that connect to Application Gateway through private endpoints should use TCP keepalive intervals of **less than 300 seconds**. If the client can't initiate TCP keepalives, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to request enabling the required keepalive behavior on Application Gateway.
 
 # [Azure portal](#tab/portal)
 
