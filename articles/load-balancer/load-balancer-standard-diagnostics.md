@@ -21,7 +21,7 @@ Azure Load Balancer exposes the following diagnostic capabilities:
 
 This article provides a quick tour of these capabilities, and it offers ways to use them for a standard load balancer. 
 
-To start troubleshooting, use [Common diagnostic scenarios and recommended views](#diagnosticscenarios) to choose the metric and aggregation that match your symptom. Then use the detailed sections to investigate the result.
+To start troubleshooting, use [Common diagnostic scenarios and recommended views](#DiagnosticScenarios) to choose the metric and aggregation that match your symptom. Then use the detailed sections to investigate the result.
 
 ## <a name = "MultiDimensionalMetrics"></a>Multi-dimensional metrics
 
