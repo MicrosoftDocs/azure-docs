@@ -39,10 +39,13 @@ A **major release** introduces significant changes, often including new features
 
 ### Improvements and new features
 
+#### Local NVMe-backed Storage
 - **Volume expansion reliability**: Fixed an issue where local NVMe-backed persistent volumes didn't expand correctly. Volume expansion now works reliably, including after workload failover scenarios. 
 - **Improved provisioning resiliency**: Fixed issues that could prevent local NVMe volume provisioning after interrupted cleanup operations, improving recovery and reducing manual intervention requirements. 
-- **Reduced resource consumption**: Improved the efficiency of Azure Container Storage components, reducing memory usage and API server load in large-scale deployments.
+#### Azure Elastic SAN
 - **Node taint support for Azure Elastic SAN**: Azure Elastic SAN CSI driver components now automatically run on tainted nodes, improving compatibility with clusters that use dedicated or specialized node pools.
+#### General Enhancements
+- **Reduced resource consumption**: Improved the efficiency of Azure Container Storage components, reducing memory usage and API server load in large-scale deployments.
 - **Security enhancements**: Resolved security vulnerabilities through component, dependency, and container image updates.  
 
 ## Version 1.4.2
