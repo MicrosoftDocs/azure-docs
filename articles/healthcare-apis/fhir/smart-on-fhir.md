@@ -78,9 +78,9 @@ The following interactions and operations are rejected for a user who has only t
 
 The following restrictions apply even when the scopes in the token grant the underlying interaction:
 
-- `$member-match` isn't available to SMART users when the SMART member-match restriction is enabled. The request is rejected as unauthorized.
+- When the SMART member-match restriction is enabled, SMART users can't use `$member-match`. The system rejects the request as unauthorized.
 - `$export` requires `system/` scopes. Requests that use `patient/` or `user/` scopes are rejected, as are scopes that carry search-parameter constraints.
-- `_include`, `_revinclude`, chained searches (for example, `subject.name`), and reverse-chained searches (`_has`) are rejected when they would return a resource type that the scopes in the token don't cover.
+- The system rejects `_include`, `_revinclude`, chained searches (for example, `subject.name`), and reverse-chained searches (`_has`) when they would return a resource type that the scopes in the token don't cover.
 
 ## Identity provider support
 
