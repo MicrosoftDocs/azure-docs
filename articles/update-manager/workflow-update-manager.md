@@ -3,8 +3,8 @@ title: Azure Update Manager Operations
 description: This article describes how you use Azure Update Manager to manage and apply system updates for Windows and Linux machines in Azure.
 ms.service: azure-update-manager
 ms.custom: linux-related-content
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.date: 08/21/2025
 ms.topic: concept-article
 ms.update-cycle: 1095-days

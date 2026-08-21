@@ -2,8 +2,8 @@
 title: Extended Security Updates (ESU) for Windows Server with Azure Update Manager
 description: Information on enrolling and managing Extended Security Updates (ESU) for Windows Server 2012, 2012 R2, and 2016 using Azure Update Manager.
 ms.service: azure-update-manager
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.date: 08/05/2026
 ms.topic: overview
 ms.update-cycle: 1095-days

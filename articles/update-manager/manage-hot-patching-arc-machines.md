@@ -4,8 +4,8 @@ description: This article details how to manage hotpatching on Azure Arc-enabled
 ms.service: azure-update-manager
 ms.date: 08/21/2025
 ms.topic: how-to
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.custom: sfi-image-nochange
 ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator managing Arc-enabled machines, I want to implement hotpatching so that I can ensure timely, non-intrusive updates that maintain system reliability and minimize downtime across my environment.

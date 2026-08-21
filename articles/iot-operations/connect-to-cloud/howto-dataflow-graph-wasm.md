@@ -17,6 +17,9 @@ ai-usage: ai-assisted
 
 Azure IoT Operations [data flow graphs](concept-dataflow-graphs.md) include built-in transforms for common processing tasks like mapping, filtering, and aggregation. When you need custom logic beyond what the built-in transforms provide, you can deploy WebAssembly (WASM) modules as custom transforms in your data flow graph pipelines.
 
+> [!IMPORTANT]
+> Currently, the operations experience web UI only supports creating and viewing data flow graph artifacts sourced from Azure Container Registry (ACR) and, for built-in transforms, mcr.microsoft.com. To learn more, see [Operations experience web UI only displays data flow graph artifacts sourced from Azure Container Registry (ACR) and mcr.microsoft.com](../troubleshoot/known-issues.md#operations-experience-web-ui-only-displays-data-flow-graph-artifacts-sourced-from-azure-container-registry-acr-and-mcrmicrosoftcom).
+
 ## Prerequisites
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
@@ -288,7 +291,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a YAML file with the following configuration:
 
@@ -647,7 +652,9 @@ resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfile
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -856,7 +863,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -912,7 +921,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -966,7 +977,9 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -1058,7 +1071,9 @@ The CLI applies the whole graph from one config file, so add this source node to
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - nodeType: Source
@@ -1135,7 +1150,9 @@ The CLI applies the whole graph from one config file, so add this graph processi
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - nodeType: Graph
@@ -1208,7 +1225,9 @@ The CLI applies the whole graph from one config file, so add this destination no
 }
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - nodeType: Destination
@@ -1284,7 +1303,9 @@ nodeConnections: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 nodeConnections:
