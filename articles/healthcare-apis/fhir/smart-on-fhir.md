@@ -62,24 +62,19 @@ The SMART user role supports read and search interactions. The scopes in the acc
 
 ### Interactions not available to the SMART user role
 
-The following interactions and operations aren't available to a user with only this role. Some rows apply even when the scopes in the token grant the underlying interaction.
+The following interactions and operations aren't available to a user with only this role, even when the scopes in the token grant the underlying interaction.
 
 | Interaction or operation | Reason |
 | --- | --- |
-| `$bulk-delete` (start, check status, cancel) | Requires the FHIR Data Writer role for soft delete, or the FHIR Data Contributor role for hard delete. |
-| `$bulk-update` (start, check status, cancel) | Requires the FHIR Data Writer or FHIR Data Contributor role. |
-| `$convert-data` | Requires the FHIR Data Converter or FHIR Data Contributor role. |
 | `$export` with `patient/` or `user/` scopes, or with scopes that carry search-parameter constraints | `$export` requires `system/` scopes without search-parameter constraints. |
-| `$import` (start, check status, cancel) | Requires the FHIR Data Importer or FHIR Data Contributor role. |
 | `$member-match` | Not available to SMART users when the SMART member-match restriction is enabled. The system rejects the request as unauthorized. |
-| `$reindex` (start, check status, cancel) | Requires the FHIR Data Writer or FHIR Data Contributor role. |
-| `$validate` | Requires the FHIR Data Reader or FHIR Data Contributor role. |
 | `_include`, `_revinclude`, chained searches (for example, `subject.name`), and reverse-chained searches (`_has`) that reach an uncovered resource type | The system rejects the search when it would return a resource type that the scopes in the token don't cover. |
 | Create, update, patch, or delete a resource (`POST`, `PUT`, `PATCH`, `DELETE`) | Write interactions aren't supported. |
-| Update custom search parameter status (`$status`) | Requires the FHIR Data Writer or FHIR Data Contributor role. |
+
+Administrative operations, such as `$import`, `$convert-data`, `$reindex`, `$validate`, `$bulk-update`, `$bulk-delete`, and custom search parameter status updates (`$status`), aren't part of the SMART user role. They require another FHIR role, such as FHIR Data Importer, FHIR Data Converter, FHIR Data Writer, or FHIR Data Contributor. For more information, see [Configure Azure RBAC for FHIR](../configure-azure-rbac.md).
 
 > [!IMPORTANT]
-> Assigning another role, such as FHIR Data Contributor, alongside the FHIR SMART User role doesn't re-enable these operations. When a principal holds the FHIR SMART User role, every request is evaluated against the SMART clinical scopes in the access token, and those scopes can't authorize the preceding operations. Use a separate identity that doesn't hold the FHIR SMART User role for this work.
+> Assigning one of those roles alongside the FHIR SMART User role doesn't make the administrative operations work. When a principal holds the FHIR SMART User role, every request is evaluated against the SMART clinical scopes in the access token, and those scopes can't authorize administrative operations. Use a separate identity that doesn't hold the FHIR SMART User role for this work.
 >
 > For the same reason, a principal that holds the FHIR SMART User role and presents a token without SMART clinical scopes gets no data access at all, including read.
 
