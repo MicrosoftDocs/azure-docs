@@ -5,7 +5,7 @@ ms.topic: how-to
 author: ankurgupta2212
 ms.author: ankug
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 03/12/2026
 ms.update-cycle: 180-days
 monikerRange: migrate 
