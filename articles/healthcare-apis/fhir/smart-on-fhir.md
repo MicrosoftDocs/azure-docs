@@ -66,16 +66,22 @@ The following interactions and operations aren't available to a user with only t
 
 | Interaction or operation | Reason |
 | --- | --- |
-| `$bulk-update` and `$bulk-delete` (start, check status, cancel) | Administrative operation. |
-| `$convert-data` | Administrative operation. |
+| `$bulk-delete` (start, check status, cancel) | Requires the FHIR Data Writer role for soft delete, or the FHIR Data Contributor role for hard delete. |
+| `$bulk-update` (start, check status, cancel) | Requires the FHIR Data Writer or FHIR Data Contributor role. |
+| `$convert-data` | Requires the FHIR Data Converter or FHIR Data Contributor role. |
 | `$export` with `patient/` or `user/` scopes, or with scopes that carry search-parameter constraints | `$export` requires `system/` scopes without search-parameter constraints. |
-| `$import` (start, check status, cancel) | Administrative operation. |
+| `$import` (start, check status, cancel) | Requires the FHIR Data Importer or FHIR Data Contributor role. |
 | `$member-match` | Not available to SMART users when the SMART member-match restriction is enabled. The system rejects the request as unauthorized. |
-| `$reindex` (start, check status, cancel) | Administrative operation. |
-| `$validate` | Requires an administrative role. |
+| `$reindex` (start, check status, cancel) | Requires the FHIR Data Writer or FHIR Data Contributor role. |
+| `$validate` | Requires the FHIR Data Reader or FHIR Data Contributor role. |
 | `_include`, `_revinclude`, chained searches (for example, `subject.name`), and reverse-chained searches (`_has`) that reach an uncovered resource type | The system rejects the search when it would return a resource type that the scopes in the token don't cover. |
 | Create, update, patch, or delete a resource (`POST`, `PUT`, `PATCH`, `DELETE`) | Write interactions aren't supported. |
-| Update custom search parameter status (`$status`) | Administrative operation. |
+| Update custom search parameter status (`$status`) | Requires the FHIR Data Writer or FHIR Data Contributor role. |
+
+> [!IMPORTANT]
+> Assigning another role, such as FHIR Data Contributor, alongside the FHIR SMART User role doesn't re-enable these operations. When a principal holds the FHIR SMART User role, every request is evaluated against the SMART clinical scopes in the access token, and those scopes can't authorize the preceding operations. Use a separate identity that doesn't hold the FHIR SMART User role for this work.
+>
+> For the same reason, a principal that holds the FHIR SMART User role and presents a token without SMART clinical scopes gets no data access at all, including read.
 
 ## Identity provider support
 
