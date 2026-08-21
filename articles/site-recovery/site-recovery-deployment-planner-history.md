@@ -13,6 +13,20 @@ ms.author: v-gajeronika
 
 This article provides history of all versions of Azure Site Recovery Deployment Planner along with the fixes, known limitations in each and their release dates.
 
+## Version 3.2
+
+**Release Date: December 11, 2024**
+
+**Fixes**
+- Added for Alma Linux and Debian 12 in V2A Modern experience
+  
+## Version 3.1
+
+**Release Date: September 10, 2024**
+
+**Fixes**
+- Fixed the file naming convention that led to issue of Deployment Planner failing to load xml files when run on the same directory where the deployment planner files are available. 
+
 ## Version 3.0
 
 **Release Date: June 4, 2024**
