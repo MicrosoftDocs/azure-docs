@@ -326,6 +326,8 @@ SUSE Linux Enterprise Server 16 | 9.67| [Supported kernels](https://github.com/A
 
 Release | Mobility service version | Red Hat kernel version |
 --- | --- | --- |
+Oracle Linux 10.1 <br> Oracle Linux 10 <br> | 9.67 | 6.12.0-100.28.2.el10uek.x86_64
+Oracle Linux 9.0 <br> Oracle Linux 9.1 <br> Oracle Linux 9.2 <br> Oracle Linux 9.3 <br> Oracle Linux 9.4 <br> Oracle Linux 9.5 <br> Oracle Linux 9.6 <br> Oracle Linux 9.7 | 9.67 | 5.14.0-503.11.1 and later |
 Oracle Linux 9.0 <br> Oracle Linux 9.1 <br> Oracle Linux 9.2 <br> Oracle Linux 9.3 <br> Oracle Linux 9.4 <br> Oracle Linux 9.5 <br> Oracle Linux 9.6 | 9.66 | 5.14.0-503.11.1 and later |
 Oracle Linux 9.0 <br> Oracle Linux 9.1 <br> Oracle Linux 9.2 <br> Oracle Linux 9.3 <br> Oracle Linux 9.4 <br> Oracle Linux 9.5 | 9.65 | 5.14.0-503.11.1 and later |
 Oracle Linux 9.0 <br> Oracle Linux 9.1 <br> Oracle Linux 9.2 <br> Oracle Linux 9.3 <br> Oracle Linux 9.4 | 9.64 | 5.14.0-284.73.1.el9_2.x86_64 <br> 5.14.0-284.75.1.el9_2.x86_64 <br> 5.14.0-284.77.1.el9_2.x86_64 <br> 5.14.0-284.79.1.el9_2.x86_64 <br> 5.14.0-284.80.1.el9_2.x86_64 <br> 5.14.0-284.82.1.el9_2.x86_64 <br> 5.14.0-284.84.1.el9_2.x86_64 <br> 5.14.0-284.85.1.el9_2.x86_64 <br> 5.14.0-284.86.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64 <br> 5.14.0-427.24.1.el9_4.x86_64 <br> 5.14.0-427.26.1.el9_4.x86_64 <br> 5.14.0-427.28.1.el9_4.x86_64 <br> 5.14.0-427.31.1.el9_4.x86_64 <br> 5.14.0-427.33.1.el9_4.x86_64 <br> 5.14.0-427.35.1.el9_4.x86_64 <br> 5.14.0-427.37.1.el9_4.x86_64 |
