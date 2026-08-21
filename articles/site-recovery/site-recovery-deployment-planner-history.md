@@ -25,7 +25,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 **Release Date: September 10, 2024**
 
 **Fixes**
-- Fixed the file naming convention that caused Deployment Planner to fail to load XML files when you run it in the same directory where the deployment planner files are available.
+- Fixed the file naming convention that caused Deployment Planner to fail to load XML files when you run it in the same directory as the deployment planner files.
 
 ## Version 3.0
 
