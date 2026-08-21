@@ -6,7 +6,7 @@ ms.author: ankitsurkar
 ms.manager: abhemraj
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.update-cycle: 365-days
 ms.date: 04/04/2025
 ms.custom: engagement-fy25
