@@ -62,7 +62,7 @@ The SMART user role supports read and search interactions. The scopes in the acc
 
 ### Interactions not available to the SMART user role
 
-The following interactions and operations aren't available to a user with only this role.
+The following interactions and operations aren't available to a user with only this role. The last rows apply even when the scopes in the token grant the underlying interaction.
 
 | Interaction or operation | Reason |
 | --- | --- |
@@ -73,14 +73,9 @@ The following interactions and operations aren't available to a user with only t
 | `$import` (start, check status, cancel) | Administrative operation. |
 | Update custom search parameter status (`$status`) | Administrative operation. |
 | `$bulk-update` and `$bulk-delete` (start, check status, cancel) | Administrative operation. |
-
-### Additional SMART-specific restrictions
-
-The following restrictions apply even when the scopes in the token grant the underlying interaction:
-
-- When the SMART member-match restriction is enabled, SMART users can't use `$member-match`. The system rejects the request as unauthorized.
-- `$export` requires `system/` scopes. The system rejects requests that use `patient/` or `user/` scopes, and scopes that carry search-parameter constraints.
-- The system rejects `_include`, `_revinclude`, chained searches (for example, `subject.name`), and reverse-chained searches (`_has`) when they would return a resource type that the scopes in the token don't cover.
+| `$member-match` | Not available to SMART users when the SMART member-match restriction is enabled. The system rejects the request as unauthorized. |
+| `$export` with `patient/` or `user/` scopes, or with scopes that carry search-parameter constraints | `$export` requires `system/` scopes without search-parameter constraints. |
+| `_include`, `_revinclude`, chained searches (for example, `subject.name`), and reverse-chained searches (`_has`) that reach an uncovered resource type | The system rejects the search when it would return a resource type that the scopes in the token don't cover. |
 
 ## Identity provider support
 
