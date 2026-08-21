@@ -2,8 +2,8 @@
 ms.assetid: 
 title: include file
 description: include file with notes on end of life information for Windows Server 2008 and 2008 R2.
-author: habiabum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.date: 05/04/2026
 ms.topic:  include
 ms.service: azure-site-recovery
