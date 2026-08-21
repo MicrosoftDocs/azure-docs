@@ -71,10 +71,10 @@ The following interactions and operations aren't available to a user with only t
 | `_include`, `_revinclude`, chained searches (for example, `subject.name`), and reverse-chained searches (`_has`) that reach an uncovered resource type | The system rejects the search when it would return a resource type that the scopes in the token don't cover. |
 | Create, update, patch, or delete a resource (`POST`, `PUT`, `PATCH`, `DELETE`) | Write interactions aren't supported. |
 
-Administrative operations, such as `$import`, `$convert-data`, `$reindex`, `$validate`, `$bulk-update`, `$bulk-delete`, and custom search parameter status updates (`$status`), aren't part of the SMART user role. They require another FHIR role, such as FHIR Data Importer, FHIR Data Converter, FHIR Data Writer, or FHIR Data Contributor. For more information, see [Configure Azure RBAC for FHIR](../configure-azure-rbac.md).
+Operations beyond read and search, such as `$import`, `$validate`, `$reindex`, and `$convert-data`, aren't part of the SMART user role. Each one requires the Azure role-based access control (RBAC) role that authorizes it, such as FHIR Data Importer, FHIR Data Converter, or FHIR Data Contributor. For more information, see [Configure Azure RBAC for FHIR](../configure-azure-rbac.md).
 
 > [!IMPORTANT]
-> Assigning one of those roles alongside the FHIR SMART User role doesn't make the administrative operations work. When a principal holds the FHIR SMART User role, every request is evaluated against the SMART clinical scopes in the access token, and those scopes can't authorize administrative operations. Use a separate identity that doesn't hold the FHIR SMART User role for this work.
+> Assigning one of those roles alongside the FHIR SMART User role doesn't make these operations work. When a principal holds the FHIR SMART User role, every request is evaluated against the SMART clinical scopes in the access token, and those scopes can authorize only read and search interactions. Use a separate identity that doesn't hold the FHIR SMART User role for this work.
 >
 > For the same reason, a principal that holds the FHIR SMART User role and presents a token without SMART clinical scopes gets no data access at all, including read.
 
