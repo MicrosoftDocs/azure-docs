@@ -54,7 +54,7 @@ The following figure shows a **private endpoint** in the application subnet of a
 
 Private endpoints securely connect Azure platform services into virtual networks. Azure DNS then resolves the private endpoint's FQDN to this private IP address, as described in the [Azure DNS](#azure-dns) section.
 
-:::image type="content" source="media/azure-private-link.svg" alt-text="Conceptual diagram that includes Azure Private Link with private endpoint connectivity in a virtual network architecture.":::
+:::image type="content" source="media/azure-private-link.svg" alt-text="Diagram showing a private endpoint in the spoke virtual network's app subnet connecting privately to an Azure PaaS service through Private Link.":::
 
 > [!NOTE]
 > Private endpoints offer DNS integration options during creation. You can integrate with a private DNS zone. This configuration remains flexible, so you can add, remove, or modify it after deployment. The example shows how to select private DNS zone integration, which provides a straightforward DNS setup ideal for virtual network workloads without an Azure DNS Private Resolver. For more information, see [Azure Private Endpoint DNS integration](/azure/private-link/private-endpoint-dns-integration).
@@ -88,7 +88,7 @@ For more information about configuring an Azure DNS Private Resolver, see [Resol
 
 The Azure portal provides a centralized experience for [getting started with network foundation services](https://aka.ms/hubs/networkfoundation). Information and links help you create an isolated network, manage network services, secure access to resources, manage hybrid name resolution, and troubleshoot network issues.
 
-:::image type="content" source="media/portal-overview.png" alt-text="Screenshot of the Azure portal interface showing the network foundation services overview page with navigation options and service links.":::
+:::image type="content" source="media/portal-overview.png" alt-text="Screenshot of the Azure portal Network foundation services page listing Virtual Network, Private Link, and DNS options with resource links.":::
 
 Resource links in the left service tree also help you understand, create, and view supporting components of the network foundation services.
 

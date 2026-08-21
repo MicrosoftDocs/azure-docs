@@ -25,6 +25,8 @@ ms.custom:
 
 This article introduces a PowerShell module that creates a Standard Load Balancer with the same configuration as the Basic Load Balancer, then associates the Virtual Machine Scale Set or Virtual Machine backend pool members with the new Load Balancer.
 
+Before you begin, review the [unsupported scenarios](#unsupported-scenarios), complete the [pre-migration steps](#pre-migration-steps), and run the validation example before starting an upgrade. The upgrade process removes the Basic Load Balancer before creating the Standard Load Balancer, so plan for application downtime.
+
 For an in-depth walk-through of the upgrade module and process, see the following video:
 
 > [!VIDEO 8e203b99-41ff-4454-9cbd-58856708f1c6]
