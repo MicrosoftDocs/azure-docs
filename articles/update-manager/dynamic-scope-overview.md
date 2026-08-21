@@ -4,8 +4,8 @@ description: This article provides information about the purpose and advantages 
 ms.service: azure-update-manager
 ms.date: 08/21/2025
 ms.topic: concept-article
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator who manages multiple virtual machines, I want to use dynamic scoping for scheduled patching so that I can efficiently manage and automate updates across various environments without manual intervention."
 ---
