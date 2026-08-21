@@ -4,7 +4,7 @@ description: Learn how Azure Migrate – Wave Planning simplifies cloud migratio
 author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.topic: concept-article
 ms.date: 11/04/2025
 ms.update-cycle: 1825-days
