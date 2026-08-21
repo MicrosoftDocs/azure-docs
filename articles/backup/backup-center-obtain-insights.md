@@ -65,4 +65,4 @@ You can also configure emails for these reports using the [Email Report](backup-
 
 - [Monitor and Operate backups](backup-center-monitor-operate.md)
 - [Govern your backup estate](backup-center-govern-environment.md)
-- [Perform actions using Backup center](backup-center-actions.md)
+- [Perform actions by using Backup center](backup-center-actions.md)
