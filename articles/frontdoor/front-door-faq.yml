@@ -197,7 +197,7 @@ sections:
       - question: |
           What name resolution and routing method does Azure Front Door use?
         answer:  |
-                              Azure Front Door is in the process of switching from Anycast to unicast routing for name resolution and routing the requests to the optimal [PoP](/azure/frontdoor/edge-locations-by-region) location. This switch occured between March and April 2026. Once the switch is complete, Unicast replaces Anycast for the entire Front Door infrastructure.
+          Azure Front Door uses unicast routing for name resolution and routes requests to the optimal [point of presence (POP)](/azure/frontdoor/edge-locations-by-region). Unicast replaced the Anycast routing method that Azure Front Door previously used.
       - question: |
           How does Azure Front Door use unicast routing?
         answer:  |
