@@ -6,7 +6,7 @@ ms.author: molir
 ms.manager: ronai
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 09/01/2025
 ms.update-cycle: 365-days
 ms.custom: engagement-fy25
