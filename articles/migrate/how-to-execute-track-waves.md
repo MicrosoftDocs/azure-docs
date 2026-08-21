@@ -4,7 +4,7 @@ description: Learn how to execute and track waves in Azure Migrate. Understand s
 author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.topic: how-to
 ms.date: 11/04/2025
 ms.update-cycle: 365-days
