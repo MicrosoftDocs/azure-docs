@@ -62,19 +62,16 @@ The SMART user role supports read and search interactions. The scopes in the acc
 
 ### Interactions not available to the SMART user role
 
-Write interactions aren't supported for the SMART user role. The following interactions and operations are rejected for a user who has only this role.
+The following interactions and operations are rejected for a user who has only this role.
 
 | Interaction or operation | Reason |
 | --- | --- |
-| Create a resource (`POST`) | Write interactions aren't supported. |
-| Update a resource (`PUT`) or patch (`PATCH`) | Write interactions aren't supported. |
-| Delete a resource (`DELETE`), including hard delete | Write interactions aren't supported. |
+| Create, update, patch, or delete a resource (`POST`, `PUT`, `PATCH`, `DELETE`) | Write interactions aren't supported. |
 | `$validate` | Requires an administrative role. |
 | `$reindex` (start, check status, cancel) | Administrative operation. |
 | `$convert-data` | Administrative operation. |
 | `$import` (start, check status, cancel) | Administrative operation. |
-| Create, update, or delete profile resources (`StructureDefinition`, `ValueSet`, `CodeSystem`) | Requires the profile-editing permission. |
-| Update custom search parameter status (`$status`), and create or update custom search parameters | Administrative operation. |
+| Update custom search parameter status (`$status`) | Administrative operation. |
 | `$bulk-update` and `$bulk-delete` (start, check status, cancel) | Administrative operation. |
 
 ### Additional SMART-specific restrictions
@@ -82,24 +79,8 @@ Write interactions aren't supported for the SMART user role. The following inter
 The following restrictions apply even when the scopes in the token grant the underlying interaction:
 
 - `$member-match` isn't available to SMART users when the SMART member-match restriction is enabled. The request is rejected as unauthorized.
-- `$export` requires `system/` scopes. Requests that use `patient/` or `user/` scopes are rejected. The scope must grant both read and search access (or SMART v1 `read`), and it can't have search-parameter constraints on it.
+- `$export` requires `system/` scopes. Requests that use `patient/` or `user/` scopes are rejected, as are scopes that carry search-parameter constraints.
 - `_include`, `_revinclude`, chained searches (for example, `subject.name`), and reverse-chained searches (`_has`) are rejected when they would return a resource type that the scopes in the token don't cover.
-- Reading a resource by ID is evaluated against the user's compartment. A resource outside the compartment defined by the `fhirUser` claim isn't returned.
-
-### Scope formats that are rejected
-
-The FHIR service returns `HTTP 400 Bad Request` when the access token contains any of the following:
-
-- Mixed launch contexts in one token. For example, both `patient/` and `user/`, or `user/` and `system/`.
-- Mixed SMART v1 and SMART v2 access levels in one token. For example, `patient/Patient.read` together with `patient/Observation.rs`.
-- Repeated verb letters in a v2 access level. For example, `patient/Observation.rrs`.
-- An unrecognized resource type. For example, `patient/Observaton.rs`.
-- Chained or reverse-chained search parameters used as a scope constraint. For example, `patient/Observation.rs?subject.name=Smith`.
-- Search modifiers used as a scope constraint. For example, `patient/Observation.rs?code:text=glucose`.
-- `_include` or `_revinclude` used as a scope constraint.
-- A malformed or partially valid scope string.
-
-The `fhirUser` claim must reference a `Patient` or `Practitioner` resource. `RelatedPerson` isn't currently supported.
 
 ## Identity provider support
 
