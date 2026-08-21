@@ -62,7 +62,7 @@ The SMART user role supports read and search interactions. The scopes in the acc
 
 ### Interactions not available to the SMART user role
 
-The following interactions and operations are rejected for a user who has only this role.
+The following interactions and operations aren't available to a user with only this role.
 
 | Interaction or operation | Reason |
 | --- | --- |
