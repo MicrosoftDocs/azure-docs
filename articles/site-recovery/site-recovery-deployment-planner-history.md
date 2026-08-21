@@ -18,7 +18,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 **Release Date: December 11, 2024**
 
 **Fixes**
-- Added for Alma Linux and Debian 12 in V2A Modern experience
+- Added support for AlmaLinux and Debian 12 in V2A Modern experience.
   
 ## Version 3.1
 
