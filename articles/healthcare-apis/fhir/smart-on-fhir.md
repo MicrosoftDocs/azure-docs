@@ -41,46 +41,41 @@ A SMART client typically performs these steps:
 
 ## Configure access for end users
 
-Assign users to the FHIR SMART user role by using Azure role assignment guidance: [Assign Users to Role](/azure/role-based-access-control/role-assignments-portal).
-Users in this role can access the FHIR service when requests satisfy SMART requirements. Access is limited by fhirUser context and SMART clinical scopes.
+Assign users to the FHIR SMART user role by using Azure role assignment guidance: [Assign Users to Role](/azure/role-based-access-control/role-assignments-portal). Users in this role can access the FHIR service when requests satisfy SMART requirements.
 
 > [!NOTE]
->  A user with the SMART user role can perform only the FHIR interactions permitted by the SMART clinical scopes in their access token. The role by itself doesn't grant access; write interactions require the corresponding write scopes. See [SMART user role capabilities](#smart-user-role-capabilities).
+> The SMART user role by itself doesn't grant access to data. Each request is further limited by the `fhirUser` context and the SMART clinical scopes in the access token. See [SMART user role capabilities](#smart-user-role-capabilities).
 
 ## SMART user role capabilities
 
-What a user with the SMART user role can do is determined by the SMART clinical scopes in the access token, not by the role alone. The role enables SMART enforcement on the request, and the scopes in the token set the ceiling for what the request can access.
+The SMART user role supports read and search interactions. The scopes in the access token determine which resource types a request can reach, and the `fhirUser` claim determines whose data is in reach.
 
 ### Supported FHIR interactions
 
 | SMART v2 verb | SMART v1 equivalent | Permitted interaction |
 | --- | --- | --- |
-| `c` (create) | `write` | Create a resource (`POST`). |
 | `r` (read) | `read` | Read a resource by ID (`GET [type]/[id]`). |
 | `s` (search) | `read` | Search (`GET [type]?[params]`), and `$export` where a system scope applies. |
-| `u` (update) | `write` | Update a resource (`PUT`), and patch. |
-| `d` (delete) | `write` | Soft delete a resource (`DELETE`). |
 
 > [!NOTE]
 > In SMART v2, `r` grants read-by-ID only. A client that needs to search must also request `s`. For example, `patient/Observation.r` can't run a search. Use `patient/Observation.rs` instead.
 
-### Operations not available to the SMART user role
+### Interactions not available to the SMART user role
 
-The following operations can't be authorized by any SMART clinical scope. Requests for these operations are rejected for a user who has only the SMART user role.
+Write interactions aren't supported for the SMART user role. The following interactions and operations are rejected for a user who has only this role.
 
-| Operation | Reason |
+| Interaction or operation | Reason |
 | --- | --- |
-| Hard delete (`DELETE` with `hardDelete=true`) | Requires an administrative role. |
+| Create a resource (`POST`) | Write interactions aren't supported. |
+| Update a resource (`PUT`) or patch (`PATCH`) | Write interactions aren't supported. |
+| Delete a resource (`DELETE`), including hard delete | Write interactions aren't supported. |
 | `$validate` | Requires an administrative role. |
 | `$reindex` (start, check status, cancel) | Administrative operation. |
 | `$convert-data` | Administrative operation. |
 | `$import` (start, check status, cancel) | Administrative operation. |
 | Create, update, or delete profile resources (`StructureDefinition`, `ValueSet`, `CodeSystem`) | Requires the profile-editing permission. |
 | Update custom search parameter status (`$status`), and create or update custom search parameters | Administrative operation. |
-| `$bulk-update` (start, check status, cancel) | Administrative operation. |
-
-> [!NOTE]
-> `$bulk-delete` is the exception among bulk operations. The soft-delete form is available to a SMART user who holds a delete scope (`d`, or SMART v1 `write`). The hard-delete form isn't available.
+| `$bulk-update` and `$bulk-delete` (start, check status, cancel) | Administrative operation. |
 
 ### Additional SMART-specific restrictions
 
