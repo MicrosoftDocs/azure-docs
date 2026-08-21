@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 07/29/2026
+ms.date: 08/21/2026
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -253,6 +253,7 @@ From here you can add a new mount:
 * Create a storage definition in the Container Apps environment.
 * If you're using NFS, your environment must be configured with a custom VNet and the storage account must be configured to allow access from the VNet. For more information, see [NFS file shares in Azure Files
 ](../storage/files/files-nfs-protocol.md).
+* If you're using NFS, the storage account must not require encrypted NFS connections. Container Apps doesn't support encryption in transit for NFS file shares. If the storage account's **Require Encryption in Transit for NFS** setting is enabled, or if that setting isn't configured and **Secure transfer required** is enabled, the mount fails with an error such as `mount.nfs: access denied by server while mounting`. For more information, see [Encryption in transit for NFS Azure file shares](../storage/files/encryption-in-transit-for-nfs-shares.md).
 * If your environment is configured with a custom VNet, you must allow ports 445 and 2049 in the network security group (NSG) associated with the subnet.
 * Define a volume of type `AzureFile` (SMB) or `NfsAzureFile` (NFS) in a revision.
 * Define a volume mount in one or more containers in the revision.
