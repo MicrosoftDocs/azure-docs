@@ -3,6 +3,7 @@ title: Obtain insights using Backup center
 description: Learn how to analyze historical trends and gain deeper insights on your backups with Backup center. 
 ms.topic: how-to
 ms.date: 08/22/2025
+ms.update-cycle: 1825-days
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a backup administrator, I want to analyze historical trends and gain insights from my backup data using the Backup Center, so that I can optimize storage costs and improve backup performance.
