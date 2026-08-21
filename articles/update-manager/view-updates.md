@@ -4,8 +4,8 @@ description: This article explains how to use Azure Update Manager in the Azure 
 ms.service: azure-update-manager
 ms.date: 08/21/2025
 ms.topic: how-to
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.custom: sfi-image-nochange
 ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator, I want to assess update compliance for all my virtual machines using a centralized tool, so that I can ensure they are up-to-date and secure."
