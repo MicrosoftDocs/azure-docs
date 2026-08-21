@@ -94,7 +94,7 @@ sections:
           Can I move Front Door and CDN profiles between resource groups or subscriptions without any downtime?
         answer:  |
           - You can move Front Door Standard/Premium and Azure CDN profiles between resource groups or subscriptions without any downtime. To execute the move, follow these [instructions](../azure-resource-manager/management/move-resource-group-and-subscription.md).
-          - Front Door Classic doesn't support move between resource groups or subscriptions. You can instead [migrate](tier-migration.md) the Classic profile to Standard/Premium and then execute the move.
+          - Azure Front Door (classic) doesn't support move between resource groups or subscriptions. You can instead [migrate](tier-migration.md) Azure Front Door (classic) profile to Standard/Premium and then execute the move.
           - If you associate a WAF policy with Azure Front Door Standard or Premium, the move operation fails. You must first disassociate the WAF policy, complete the move, and then reassociate the policy.
 
   - name: Features and protocols
@@ -288,7 +288,7 @@ sections:
         answer: |
           Domain fronting is a network technique that enables an attacker to conceal the actual destination of a malicious request by using a different domain name in the TLS handshake and the HTTP host header.
           
-          Azure Front Door (Standard, Premium, and Classic tier) or Azure CDN Standard from Microsoft (classic) resources created after November 8, 2022, have domain fronting blocking enabled. Rather than blocking a request with mismatched SNI and host headers, we permit the discrepancy if the two domains belong to the same subscription and are included in the routes or routing rules. Domain fronting blocking enforcement started on January 22, 2024. 
+          Azure Front Door (Standard, Premium, and classic tier) or Azure CDN Standard from Microsoft (classic) resources created after November 8, 2022, have domain fronting blocking enabled. Rather than blocking a request with mismatched SNI and host headers, we permit the discrepancy if the two domains belong to the same subscription and are included in the routes or routing rules. Domain fronting blocking enforcement started on January 22, 2024. 
          
           When Front Door blocks a request due to a mismatch: 
           - The client receives an HTTP `421 Misdirected Request` error code response. 
@@ -344,7 +344,7 @@ sections:
       - question: |
           Do I get billed for the Azure Front Door resources that are disabled?
         answer: |
-          You can't disable Azure Front Door resources. You can only delete them. Variable meters like Data Transfer Out, Data Transfer In, and Requests aren't charged when there's no traffic but the base fee is charged even if there's no traffic. The base fee is charged until the profile is deleted. For Front Door Classic, WAF policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
+          You can't disable Azure Front Door resources. You can only delete them. Variable meters like Data Transfer Out, Data Transfer In, and Requests aren't charged when there's no traffic but the base fee is charged even if there's no traffic. The base fee is charged until the profile is deleted. For Azure Front Door (classic), WAF policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
 
   - name: Caching
     questions:
