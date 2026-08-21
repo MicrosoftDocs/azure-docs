@@ -1,8 +1,8 @@
 ---
 title: Agent-based Migration in the Migration and Modernization Tool
 description: Provides an overview of agent-based VMware VM migration in Azure Migrate.
-author: vijain
-ms.author: vijain
+author: jyothisuri
+ms.author: jsuri
 ms.manager: kmadnani
 ms.service: azure-migrate
 ms.topic: concept-article
