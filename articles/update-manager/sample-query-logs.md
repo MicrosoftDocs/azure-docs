@@ -3,8 +3,8 @@ title: Sample Query Logs and Results from Azure Update Manager
 description: The article provides details of sample query logs from Azure Update Manager in Azure using Azure Resource Graph
 ms.service: azure-update-manager
 ms.custom: linux-related-content
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.date: 08/21/2025
 ms.topic: overview
 ms.update-cycle: 1095-days

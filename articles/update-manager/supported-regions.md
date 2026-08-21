@@ -2,8 +2,8 @@
 title: Azure Update Manager supported regions.
 description: Discover the regions where Azure Update Manager is supported for both Azure VMs and Azure Arc-enabled servers. This article provides a comprehensive list of supported regions across Azure Public Cloud, Azure for US Government, and Azure operated by 21Vianet
 ms.service: azure-update-manager
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.date: 05/13/2025
 ms.topic: overview
 ms.update-cycle: 1095-days
