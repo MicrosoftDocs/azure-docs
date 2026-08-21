@@ -3,7 +3,7 @@
 title: Deploy ASP.NET Core and Azure SQL Database app
 description: Learn how to deploy an ASP.NET Core web app to Azure App Service and connect to an Azure SQL Database.
 ms.topic: tutorial
-ms.date: 07/22/2026
+ms.date: 08/20/2026
 ms.update-cycle: 180-days
 author: cephalin
 ms.author: cephalin
@@ -25,7 +25,7 @@ ms.custom:
 
 # Tutorial: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service
 
-In this tutorial, you learn how to deploy a data-driven ASP.NET Core app to Azure App Service and connect to an Azure SQL Database. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. Although this tutorial uses an ASP.NET Core 8.0 app, the process is the same for other versions of ASP.NET Core.
+In this tutorial, you learn how to deploy a data-driven ASP.NET Core app to Azure App Service and connect to an Azure SQL Database. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. Although this tutorial uses an ASP.NET Core 10.0 app, the process is the same for other versions of ASP.NET Core.
 
 In this tutorial, you learn how to:
 
@@ -67,7 +67,7 @@ In this tutorial, you learn how to:
 If you just want to see the sample app in this tutorial running in Azure, just run the following commands in the [Azure Cloud Shell](https://shell.azure.com), and follow the prompt:
 
 ```bash
-dotnet tool install --global dotnet-ef
+dotnet tool install --global dotnet-ef --version 10.*
 mkdir msdocs-app-service-sqldb-dotnetcore
 cd msdocs-app-service-sqldb-dotnetcore
 azd init --template msdocs-app-service-sqldb-dotnetcore .
@@ -104,6 +104,7 @@ First, set up a sample data-driven app as a starting point. For your convenience
 :::row:::
     :::column span="2":::
         **Step 3:** In the codespace terminal:
+        1. Restore NuGet packages with `dotnet restore`.
         1. Run database migrations with `dotnet ef database update`.
         1. Run the app with `dotnet run`.
         1. When you see the notification `Your application running on port 5093 is available.`, select **Open in Browser**.
@@ -111,7 +112,7 @@ First, set up a sample data-driven app as a starting point. For your convenience
         To stop the application, type `Ctrl`+`C`.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-run-sample-application-3.png" alt-text="A screenshot showing how to run the sample application inside the GitHub codespace." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-run-sample-application-3.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-run-sample-application-3.png" alt-text="A screenshot of the one-page Todo app with a New Todo form and a Current Todos list with inline Delete buttons." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-run-sample-application-3.png":::
     :::column-end:::
 :::row-end:::
 
@@ -154,14 +155,14 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         **Step 2: Configure the new app**
         In **Create Web App**, fill out the form as follows.
         1. *Name*: **msdocs-core-sql-XYZ**. A resource group named **msdocs-core-sql-XYZ_group** will be generated for you.
-        1. *Runtime stack*: **.NET 8 (LTS)**.
+        1. *Runtime stack*: **.NET 10 (LTS)**.
         1. *Operating System*: **Linux**.
         1. *Region*: your preferred region.
         1. *Linux Plan*: **Create new** and use the name **msdocs-core-sql-XYZ**.
         1. *Pricing plan*: **Basic B1**. When you're ready, you can [scale up](manage-scale-up.md) to a different pricing tier.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App wizard." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-2.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-2.png" alt-text="A screenshot showing the Web App creation wizard in the Basics tab." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-app-sql-database-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -338,7 +339,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*.
         1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps that follow and even tell you to make the change in the *Program.cs* file.
         1. Open *Program.cs* in the explorer and add the code suggestion.
-        GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
+        GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-dotnetcore-sqldb-app/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-dotnetcore-sqldb-app/github-copilot-1.png":::
@@ -348,7 +349,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 2 (Option 2: without GitHub Copilot):**  
         1. Open *Program.cs* in the explorer.
-        1. Find the commented code (lines 12-21) and uncomment it.
+        1. Find the commented production `else` block and uncomment it.
         This code connects to the database by using `AZURE_SQL_CONNECTIONSTRING`.
     :::column-end:::
     :::column:::
@@ -360,9 +361,9 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         **Step 3 (Option 1: with GitHub Copilot):**
         1. Open *.github/workflows/starter-no-infra_msdocs-core-sql-XYZ* in the explorer. The App Service create wizard created this file.
         1. Highlight the `dotnet publish` step and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
-        1. Ask Copilot, "*Install dotnet ef, then create a migrations bundle in the same output folder.*"
+        1. Ask Copilot, "*Install the .NET 10 EF Core tools, restore the Linux x64 runtime assets, and create a Linux x64 migrations bundle in the same output folder.*"
         1. If the suggestion is acceptable, select **Accept**.
-        GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
+        GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/github-copilot-2.png" alt-text="A screenshot showing the use of GitHub Copilot in a GitHub workflow file." lightbox="./media/tutorial-dotnetcore-sqldb-app/github-copilot-2.png":::
@@ -371,10 +372,11 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row:::
     :::column span="2":::
         **Step 3 (Option 2: without GitHub Copilot):**
-        1. Open *.github/workflows/starter-no-infra_msdocs-core-sql-XYZ* in the explorer. The App Service create wizard created this file
-        1. Under the `dotnet publish` step, add a step to install the [Entity Framework Core tool](/ef/core/cli/dotnet) with the command `dotnet tool install -g dotnet-ef --version 8.*`.
-        1. Under the new step, add another step to generate a database [migration bundle](/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles) in the deployment package: `dotnet ef migrations bundle --runtime linux-x64 -o ${{env.DOTNET_ROOT}}/myapp/migrationsbundle`.
-        The migration bundle is a self-contained executable that you can run in the production environment without needing the .NET SDK. The App Service linux container only has the .NET runtime and not the .NET SDK.
+        1. Open *.github/workflows/starter-no-infra_msdocs-core-sql-XYZ* in the explorer. The App Service create wizard created this file.
+        1. Under the `dotnet publish` step, add a step to install the [Entity Framework Core tool](/ef/core/cli/dotnet) with the command `dotnet tool install -g dotnet-ef --version 10.*`.
+        1. Under the new step, add another step to restore the Linux runtime assets with the command `dotnet restore --runtime linux-x64`.
+        1. Under the restore step, add another step to generate a database [migration bundle](/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli#bundles) in the deployment package: `dotnet ef migrations bundle --runtime linux-x64 -o ${{env.DOTNET_ROOT}}/myapp/migrationsbundle`.
+        The migration bundle is a self-contained executable that you can run in the production environment without needing the .NET SDK. The App Service Linux container only has the .NET runtime and not the .NET SDK.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing steps added to the GitHub workflow file for database migration bundle." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-deploy-sample-code-3.png":::
@@ -613,13 +615,13 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. Open *Program.cs* in the explorer and add the code suggestion.
 
-    GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
+    GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
 
 # [Without GitHub Copilot](#tab/nocopilot)
 
 1. From the explorer, open *Program.cs*.
 
-1. In the `contextIntialized()` method, find the commented code (lines 12-21) and uncomment it.
+1. In *Program.cs*, find the commented production `else` block and uncomment it.
 
     ```csharp
     else
@@ -641,9 +643,10 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 With the SQL Database protected by the virtual network, the easiest way to run database migrations is in an SSH session with the App Service container. However, the App Service Linux containers don't have the .NET SDK, so the easiest way to run database migrations is to upload a self-contained migrations bundle.
 
-1. Generate a migrations bundle for your project with the following command:
+1. Restore the Linux runtime assets and generate a migrations bundle for your project with the following commands:
 
     ```bash
+    dotnet restore --runtime linux-x64
     dotnet ef migrations bundle --runtime linux-x64 -o migrationsbundle
     ```
 
@@ -702,7 +705,7 @@ Azure App Service can capture console logs to help you diagnose issues with your
 
 The sample application includes standard logging statements to demonstrate this capability, as shown in the following snippet:
 
-:::code language="csharp" source="~/msdocs-app-service-sqldb-dotnetcore/Controllers/TodosController.cs" range="28-45" highlight="6,12":::
+:::code language="csharp" source="~/msdocs-app-service-sqldb-dotnetcore/Controllers/TodosController.cs" range="56-64" highlight="3":::
 
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
@@ -784,7 +787,7 @@ Pricing for the created resources is as follows:
 
 ### How does local app development work with GitHub Actions?
 
-Take the autogenerated workflow file from App Service as an example, each `git push` kicks off a new build and deployment run. From a local clone of the GitHub repository, you make the desired updates push it to GitHub. For example:
+Take the autogenerated workflow file from App Service as an example. Each `git push` kicks off a new build and deployment run. From a local clone of the GitHub repository, you make the desired updates and push them to GitHub. For example:
 
 ```terminal
 git add .
@@ -815,7 +818,7 @@ az sql server update --enable-public-network false
 By default, the command `az webapp connection create sql --client-type dotnet --system-identity --config-connstr` does the following:
 
 * Sets your user as the Microsoft Entra ID administrator of the SQL database server.
-* Create a system-assigned managed identity and grants it access to the database.
+* Creates a system-assigned managed identity and grants it access to the database.
 * Generates a passwordless connection string called `AZURE_SQL_CONNECTIONGSTRING`, which your app is already using at the end of the tutorial.
 
 Your app should now have connectivity to the SQL database. For more information, see [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md).
@@ -823,7 +826,7 @@ Your app should now have connectivity to the SQL database. For more information,
 > [!TIP]
 > **Don't want to enable public network connection?** You can skip `az sql server update --enable-public-network true` by running the commands from an [Azure cloud shell that's integrated with your virtual network](../cloud-shell/vnet/deployment.md) if you have the **Owner** role assignment on your subscription.
 >
-> To grant the identity the required access to the database that's secured by the virtual network, `az webapp connection create sql` needs direct connectivity with Entra ID authentication to the database server. By default, the Azure cloud shell doesn't have this access to the network-secured database.
+> To grant the identity the required access to the database that's secured by the virtual network, `az webapp connection create sql` needs direct connectivity with Microsoft Entra ID authentication to the database server. By default, the Azure cloud shell doesn't have this access to the network-secured database.
 
 ### What can I do with GitHub Copilot in my codespace?
 
