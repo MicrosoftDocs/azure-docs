@@ -264,7 +264,7 @@ sections:
       - question: |
            Azure Front Door Private Link integration isn't supported in the region where my origin is located. What should I do?
         answer:  |   
-          Azure Front Door Private Link is region-agnostic. For the lowest latency, select the supported Azure region closest to your origin when you enable an Azure Front Door Private Link endpoint. If your origin's region isn't supported in the list of regions Front Door Private Link supports, pick the next nearest region. Traffic flows from the client to the Azure Front Door Private Link endpoint in the supported region, then traverses the Microsoft backbone network to your origin, maintaining private connectivity. Be aware that this configuration introduces additional latency due to the extra network hop between regions. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the additional latency due to choosing the next nearest region. Once a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
+          Azure Front Door Private Link is region-agnostic. For the lowest latency, select the supported Azure region closest to your origin when you enable an Azure Front Door Private Link endpoint. If your origin's region isn't supported in the list of regions Front Door Private Link supports, pick the next nearest region. Traffic flows from the client to the Azure Front Door Private Link endpoint in the supported region, then traverses the Microsoft backbone network to your origin, maintaining private connectivity. This configuration introduces extra latency due to the extra network hop between regions. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the extra latency due to choosing the next nearest region. When a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
 
   - name: Performance
     questions:
@@ -276,7 +276,7 @@ sections:
       - question: |
           What are the conditions for caching ranged responses from my origin?
         answer: |
-          To avoid errors when delivering large files, make sure your origin server includes the `Content-Range` header in the response, and that the header value matches the actual size of the response body.
+          To avoid errors when delivering large files, ensure your origin server includes the `Content-Range` header in the response, and that the header value matches the actual size of the response body.
 
           You can find more details on how to configure your origin and Front Door for large file delivery in [Delivery of large files](front-door-caching.md#delivery-of-large-files).
 
@@ -288,7 +288,7 @@ sections:
         answer: |
           Domain fronting is a network technique that enables an attacker to conceal the actual destination of a malicious request by using a different domain name in the TLS handshake and the HTTP host header.
           
-          Azure Front Door (Standard, Premium and Classic tier) or Azure CDN Standard from Microsoft (classic) resources created after November 8, 2022, have domain fronting blocking enabled. Rather than blocking a request with mismatched SNI and host headers, we permit the discrepancy if the two domains belong to the same subscription and are included in the routes/routing rules. Domain fronting blocking enforcement will start on January 22, 2024, for all existing domains. The enforcement may require up to two weeks to propagate to all regions. 
+          Azure Front Door (Standard, Premium, and Classic tier) or Azure CDN Standard from Microsoft (classic) resources created after November 8, 2022, have domain fronting blocking enabled. Rather than blocking a request with mismatched SNI and host headers, we permit the discrepancy if the two domains belong to the same subscription and are included in the routes or routing rules. Domain fronting blocking enforcement started on January 22, 2024. 
          
           When Front Door blocks a request due to a mismatch: 
           - The client receives an HTTP `421 Misdirected Request` error code response. 
