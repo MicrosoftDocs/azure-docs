@@ -90,7 +90,7 @@ For more information, see [Azure Firewall overview](../../firewall/overview.md).
 
 - **IP protection**: Azure DDoS IP Protection protects your Azure resources that have a public IP address. It protects against volumetric, protocol, and application layer attacks.
 
-    :::image type="content" source="./media/network-security/ip-protection.png" alt-text="Diagram illustrating Azure DDoS Protection applied to a resource with a public IP address.":::
+    :::image type="content" source="./media/network-security/ip-protection.png" alt-text="Diagram showing Azure DDoS IP Protection attached directly to a resource's public IP address, guarding it against volumetric attacks.":::
 
 - **Network protection**: Azure DDoS Network Protection protects your Azure resources in a virtual network that have a public IP address. It has extra features such as DDoS Rapid Response support, cost protection, and WAF discounts. 
 
@@ -111,7 +111,7 @@ For more information, see [Azure DDoS Protection overview](../../ddos-protection
 
 [Azure Web Application Firewall](../../web-application-firewall/overview.md) (WAF) is a web application firewall that provides centralized protection to your web applications from common exploits and vulnerabilities. WAF uses rules to monitor HTTP requests and responses, and it can block or allow traffic based on the rules you define. 
 
-:::image type="content" source="./media/network-security/web-application-firewall.png" alt-text="Diagram showing Azure Web Application Firewall on Azure Application Gateway and Azure Front Door, allowing valid requests and blocking web attacks.":::
+:::image type="content" source="./media/network-security/web-application-firewall.png" alt-text="Diagram showing WAF on Application Gateway and Front Door allowing valid client requests through and blocking malicious web attacks.":::
 
 WAF is available in two deployment options:
 
@@ -135,7 +135,7 @@ For more information, see [Azure Web Application Firewall overview](../../web-ap
 
 The Azure portal provides a unified experience for [managing your network security services](https://portal.azure.com/#view/Microsoft_Azure_HybridNetworking/FirewallManagerMenuBlade/~/overviewReact).
 
-:::image type="content" source="./media/network-security/portal-hub.png" alt-text="Screenshot of the network security selection experience in the Azure portal.":::
+:::image type="content" source="media/network-security/portal-hub.png" alt-text="Screenshot of the Azure portal Network security selection page listing Azure Firewall, DDoS Protection, and Web Application Firewall.":::
 
 ### Common network security scenarios
 

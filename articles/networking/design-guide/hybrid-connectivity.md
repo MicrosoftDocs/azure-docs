@@ -139,7 +139,7 @@ Use the following decision tables to select the right connectivity option and de
 
 <!-- Diagram: Side-by-side comparison showing VPN Gateway connecting through the public internet versus ExpressRoute connecting through a private path, both terminating in a hub VNet GatewaySubnet -->
 
-:::image type="content" source="media/hybrid-connectivity-vpn-expressroute-paths.png" alt-text="Diagram showing on-premises connecting to hub VNet via site-to-site VPN over internet and ExpressRoute via private peering." lightbox="media/hybrid-connectivity-vpn-expressroute-paths.png":::
+:::image type="content" source="media/hybrid-connectivity-vpn-expressroute-paths.png" alt-text="Diagram comparing a site-to-site VPN path over the public internet with an ExpressRoute private-peering path, both terminating at the hub GatewaySubnet." lightbox="media/hybrid-connectivity-vpn-expressroute-paths.png":::
 
 ### Where does the gateway live?
 
@@ -160,7 +160,7 @@ The following table summarizes how to increase ExpressRoute availability. For cu
 
 <!-- Diagram: ExpressRoute as the primary connectivity path with solid lines and VPN Gateway as a dashed failover path, both connecting on-premises to a hub VNet GatewaySubnet -->
 
-:::image type="content" source="media/hybrid-connectivity-expressroute-vpn-failover.png" alt-text="Diagram showing ExpressRoute as primary path with VPN failover, both connecting on-premises to hub VNet gateways and firewall." lightbox="media/hybrid-connectivity-expressroute-vpn-failover.png":::
+:::image type="content" source="media/hybrid-connectivity-expressroute-vpn-failover.png" alt-text="Diagram showing on-premises connected by a primary ExpressRoute path and a dashed VPN failover path to the hub gateways and firewall." lightbox="media/hybrid-connectivity-expressroute-vpn-failover.png":::
 
 ### Deployment decision: Gateway placement example
 

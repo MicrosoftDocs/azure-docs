@@ -22,11 +22,12 @@ ms.custom:
 
 Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer for a backend pool with two virtual machines. Other resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
+Use this quickstart for private traffic within a virtual network. For internet-facing traffic, see [Create a public load balancer](quickstart-load-balancer-standard-public-portal.md).
+
+After you create the resources and install IIS on the backend virtual machines, [test the load balancer](#test-the-load-balancer) from the test virtual machine.
+
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer." lightbox="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png":::
 
-> [!NOTE]
-> In this example, you create a NAT gateway to provide outbound Internet access. The outbound rules tab in the configuration is bypassed and isn't needed with the NAT gateway. For more information on Azure NAT gateway, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
-> For more information about outbound connections in Azure, see [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md)
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
@@ -37,6 +38,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [load-balancer-nat-gateway](../../includes/load-balancer-nat-gateway.md)]
 
+> [!NOTE]
+> In this example, you create a NAT gateway to provide outbound internet access. The outbound rules tab is bypassed and isn't needed with the NAT gateway. For more information, see [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md) and [Source Network Address Translation (SNAT) for outbound connections](../load-balancer/load-balancer-outbound-connections.md).
 
 [!INCLUDE [load-balancer-create-bastion](../../includes/load-balancer-create-bastion.md)]
 

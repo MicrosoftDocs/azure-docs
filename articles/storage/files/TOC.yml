@@ -123,6 +123,10 @@
     href: glusterfs-migration-guide.md
 - name: Security and networking
   items:
+  - name: Secure your Azure Files
+    href: secure-files.md
+  - name: Secure your Azure Storage account
+    href: ../common/secure-storage.md?toc=/azure/storage/files/toc.json
   - name: Networking
     items:
     - name: Networking considerations for direct access

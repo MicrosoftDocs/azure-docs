@@ -2153,6 +2153,17 @@ groups:
     title: NFS on Azure Files
   - id: anf
     title: Azure NetApp Files
+# Owner: zamasiel
+- id: sap-pacemaker-fencing-solution
+  title: Azure Linux Fencing Solutions
+  prompt: Choose your Pacemaker Fencing Solution
+  pivots:
+  - id: sbd-shared-disk
+    title: SBD with Azure Shared Disk
+  - id: sbd-iscsi
+    title: SBD with iSCSI Target Servers
+  - id: azure-fence-agent
+    title: Azure Fence Agent
 # Owner: duongau
 - id: networking-scenario
   title: Choose your scenario
