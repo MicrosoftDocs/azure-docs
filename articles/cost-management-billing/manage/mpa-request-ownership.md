@@ -229,7 +229,7 @@ The partners should work with the customer to get access to subscriptions. The p
 
 ### Azure Hybrid Benefit
 
-The transfer process preserves license type properties configured on virtual machines, and the properties continue to apply after the subscription transitions to CSP.
+The transfer process preserves license type properties that you configured on virtual machines, and the properties continue to apply after the subscription transitions to CSP.
 
 ### Power BI connectivity
 
