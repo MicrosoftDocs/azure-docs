@@ -71,8 +71,6 @@ The following interactions and operations aren't available to a user with only t
 | `_include`, `_revinclude`, chained searches (for example, `subject.name`), and reverse-chained searches (`_has`) that reach an uncovered resource type | The system rejects the search when it would return a resource type that the scopes in the token don't cover. |
 | Create, update, patch, or delete a resource (`POST`, `PUT`, `PATCH`, `DELETE`) | Write interactions aren't supported. |
 
-Operations beyond read and search, such as `$import`, `$validate`, `$reindex`, and `$convert-data`, aren't part of the SMART user role. Each one requires the Azure role-based access control (RBAC) role that authorizes it, such as FHIR Data Importer, FHIR Data Converter, or FHIR Data Contributor. The FHIR SMART User role forces scope evaluation on every request, so a principal that holds both roles can still be denied. For more information, see [Configure Azure RBAC for FHIR](../configure-azure-rbac.md).
-
 > [!IMPORTANT]
 > A principal that holds the FHIR SMART User role and presents a token without SMART clinical scopes gets no data access at all, including read.
 
