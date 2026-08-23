@@ -242,7 +242,7 @@ When you [changed your package references in a previous step](#package-reference
 
 #### Migrate to asynchronous HTTP stream I/O
 
-If an HTTP-triggered function that uses [ASP.NET Core integration] fails with `InvalidOperationException: Synchronous operations are disallowed`, replace synchronous reads from and writes to HTTP request and response streams with asynchronous methods. For example, replace `ReadToEnd` with `ReadToEndAsync`, `Write` with `WriteAsync`, `WriteString` with `WriteStringAsync`, and `Flush` with `FlushAsync`.
+If an HTTP-triggered function uses [ASP.NET Core integration], replace synchronous reads from and writes to HTTP request and response streams with asynchronous methods. Synchronous operations can fail with `InvalidOperationException: Synchronous operations are disallowed`. For example, replace `ReadToEnd` with `ReadToEndAsync`, `Write` with `WriteAsync`, `WriteString` with `WriteStringAsync`, and `Flush` with `FlushAsync`.
 
 When you await these operations, mark the function method as `async` and wrap its return type in `Task<T>`. For example, change `IActionResult` to `Task<IActionResult>` or `MultiResponse` to `Task<MultiResponse>`. ASP.NET Core disallows synchronous request and response I/O by default because synchronous I/O can cause thread pool starvation. If a dependency or serializer doesn't support asynchronous I/O, see [JSON serialization with ASP.NET Core integration](./dotnet-isolated-process-guide.md#json-serialization-with-aspnet-core-integration) for instructions to enable synchronous I/O (`AllowSynchronousIO`) as a compatibility option.
 
