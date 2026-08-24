@@ -143,7 +143,11 @@ Key features:
 - Pre-installed .NET Framework (3.5, 4.8) and .NET 8 with support for custom runtimes
 - Best for: Legacy .NET Framework apps requiring Windows-specific dependencies, gradual modernization without complete rewrites, and plan-level network isolation for compliance.
 
-Current limitations: Windows only, Pv4/Pmv4 SKUs, available in East US, West Central US, East Asia, North Europe, Australia East, Central India, and South India. Not available for Linux, containers, or in App Service Environment.
+Managed Instance currently supports Windows web apps on Pv4 and Pmv4 SKUs. Linux, containers, and App Service Environment aren't supported. To check regional availability for a specific SKU, use Azure CLI version 2.82.0 or later:
+
+```azurecli
+az appservice list-locations --managed-instance-enabled --sku <sku>
+```
 
 [Learn more about Managed Instance](overview-managed-instance.md)
 

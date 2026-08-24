@@ -20,7 +20,7 @@ ms.service: azure-app-service
 The new Premium v4 pricing tier provides faster processors, NVMe local storage, and memory-optimized options. It offers up to double the memory-to-core ratio of previous tiers. This performance advantage can save money by running apps on fewer instances. This article explains how to create or scale up an app to the Premium v4 tier.
 
 > [!NOTE]
-> Managed Instance on Azure App Service is a new hosting option that extends the capabilities of App Service plans, providing advanced customization and isolation. See [Managed Instance on Azure App Service](overview-hosting-plans.md) for details.
+> Managed Instance on Azure App Service supports the Premium v4 pricing tier. This hosting option extends the capabilities of App Service plans with advanced customization and isolation. See [Managed Instance on Azure App Service](overview-hosting-plans.md) for details.
 >
 
 ## Prerequisites
