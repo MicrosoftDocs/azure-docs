@@ -5,7 +5,8 @@ author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
 ms.service: azure-enclave
-ms.date: 7/20/2026
+ai-usage: ai-assisted
+ms.date: 8/14/2026
 ---
 
 # Get started with Azure Enclave
@@ -14,8 +15,8 @@ Use this article to onboard to Azure Enclave by registering the required resourc
 
 ## Prerequisites
 
-  - You must already have an Azure tenant and subscription.
-  - You must be an Owner of an existing Azure subscription.
+- You must already have an Azure tenant and subscription.
+- You must be an Owner of an existing Azure subscription.
 
 ## Register the required resource providers and configure `NetworkWatcherRG` access
 
@@ -100,7 +101,7 @@ az provider register --namespace Microsoft.Compute
 ### Option 2: Azure portal
 
 1. Sign in to your Azure tenant and open the subscription.
-1. Under **Settings**, select **Resource providers**.
+1. Under `Settings`, select `Resource providers`.
 1. Register the resource providers listed in [Option 1: PowerShell](#option-1-powershell) in the subscription. The PowerShell script is the fastest option and the authoritative source for the required registrations. These images show the expected end state.
 
    :::image type="content" source="./media/onboard-providers-1.png" alt-text="Screenshot showing the first set of resource providers required by Azure Enclave." border="true" lightbox="./media/onboard-providers-1.png":::
@@ -155,19 +156,19 @@ Complete these steps to use the latest Azure Enclave API:
 
 After registering the Azure Enclave resource provider, you can start deploying Azure Enclave resources into your subscription.
 
-  - Start building your Azure Enclave community:
+- Start building your Azure Enclave community:
 
-    - [Create a community](./create-community-portal.md)
-    - [Create an enclave](./create-enclave-portal.md)
-    - [Create a workload](./create-workload-portal.md)
+  - [Create a community](./create-community-portal.md)
+  - [Create an enclave](./create-enclave-portal.md)
+  - [Create a workload](./create-workload-portal.md)
 
-  - Establish network connectivity within your community:
+- Establish network connectivity within your community:
 
-    - [Create an enclave endpoint](./create-enclave-endpoint-portal.md)
-    - [Create an enclave connection](./create-enclave-connection-portal.md)
-    - [Create a transit hub](./create-transit-hub-portal.md)
-    - [Create a community endpoint](./create-community-endpoint-portal.md)
+  - [Create an enclave endpoint](./create-enclave-endpoint-portal.md)
+  - [Create an enclave connection](./create-enclave-connection-portal.md)
+  - [Create a transit hub](./create-transit-hub-portal.md)
+  - [Create a community endpoint](./create-community-endpoint-portal.md)
 
-  - Create resources within your workloads to meet your objectives:
-    - Create resources from the [service catalog](./list-service-catalog-templates.md)
-    - Create resources with a [template](/azure/azure-resource-manager/templates/deploy-to-resource-group) or [bicep template](/azure/azure-resource-manager/bicep/deploy-to-resource-group) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
+- Create resources within your workloads to meet your objectives:
+  - Create resources from the [service catalog](./list-service-catalog-templates.md)
+  - Create resources with a [template](/azure/azure-resource-manager/templates/deploy-to-resource-group) or [bicep template](/azure/azure-resource-manager/bicep/deploy-to-resource-group) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
