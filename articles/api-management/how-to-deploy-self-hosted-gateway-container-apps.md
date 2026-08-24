@@ -253,7 +253,7 @@ date: Wed, 28 Feb 2024 22:45:09 GMT
 ```
 
 > [!TIP]
-> If you enable [logging for your API to Application insights](api-management-howto-app-insights.md), you can query the logs to see the requests and responses.
+> If you enable [logging for your API to Application Insights](api-management-howto-app-insights.md), you can query the logs to see the requests and responses.
 
 ## Limitations
 
