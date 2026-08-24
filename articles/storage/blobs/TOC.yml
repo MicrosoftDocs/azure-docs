@@ -1408,27 +1408,8 @@ items:
                 href: data-lake-storage-acl-python.md
               - name: JavaScript
                 href: data-lake-storage-acl-javascript.md
-      - name: Migration
+      - name: Data transfer and migration
         items:
-          - name: Migrate an HDFS store offline
-            href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
-          - name: Migrate an HDFS store online
-            href: migrate-gen2-wandisco-live-data-platform.md
-          - name: Migrate to another region
-            href: data-lake-storage-migrate-data.md
-      - name: Data transfer
-        items:
-          - name: Compare data transfer solutions
-            href: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            items:
-              - name: Large dataset, low network bandwidth
-                href: ../common/storage-solution-large-dataset-low-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Large dataset, moderate to high network bandwidth
-                href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Small dataset, low to moderate network bandwidth
-                href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Periodic data transfer
-                href: ../common/storage-solution-periodic-data-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Azure Storage Mover
             href: ../../storage-mover/index.yml
           - name: AzCopy
@@ -1475,8 +1456,78 @@ items:
                     href: /troubleshoot/azure/azure-storage/storage-use-azcopy-troubleshoot
           - name: Azure Data Factory
             href: ../../data-factory/connector-azure-data-lake-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Transfer data with the DistCp tool
+          - name: BlobFuse
+            items:
+              - name: Get started
+                items:
+                  - name: What is BlobFuse?
+                    href: blobfuse2-what-is.md
+                  - name: Install BlobFuse
+                    href: blobfuse2-install.md
+                  - name: Mount a container
+                    href: blobfuse2-mount-container.md
+                  - name: BlobFuse and Linux file system compared
+                    href: blobfuse2-compare-linux-file-system.md
+              - name: Configure BlobFuse
+                items:
+                  - name: Create a configuration file
+                    href: blobfuse2-configure.md
+                  - name: Streaming versus caching mode
+                    href: blobfuse2-streaming-versus-caching.md
+                  - name: Configure streaming mode
+                    href: blobfuse2-configure-streaming.md
+                  - name: Configure caching mode
+                    href: blobfuse2-configure-caching.md
+              - name: Metrics and logs
+                items:
+                  - name: Health monitor
+                    href: blobfuse2-health-monitor.md
+                  - name: Diagnostic logs
+                    href: blobfuse2-enable-logs.md
+              - name: Support
+                items:
+                  - name: Limitations and known issues
+                    href: blobfuse2-known-issues.md
+                  - name: Troubleshooting
+                    href: blobfuse2-troubleshooting.md
+                  - name: FAQ
+                    href: blobfuse2-faq.yml
+          - name: NFS 3.0
+            items:
+              - name: Overview
+                href: network-file-system-protocol-support.md
+              - name: Performance considerations
+                href: network-file-system-protocol-support-performance.md
+              - name: Performance benchmark
+                href: network-file-system-protocol-performance-benchmark.md
+              - name: Mount storage by using NFS
+                href: network-file-system-protocol-support-how-to.md
+              - name: Limitations and known issues
+                href: network-file-system-protocol-known-issues.md
+          - name: SFTP
+            items:
+              - name: Overview
+                href: secure-file-transfer-protocol-support.md
+              - name: Enable or disable SFTP
+                href: secure-file-transfer-protocol-support-how-to.md
+              - name: Authorize access
+                href: secure-file-transfer-protocol-support-authorize-access.md
+              - name: Authorize access with Microsoft Entra ID
+                href: secure-file-transfer-protocol-support-entra-id-based-access.md
+              - name: Connect from an SFTP client
+                href: secure-file-transfer-protocol-support-connect.md
+              - name: Performance considerations
+                href: secure-file-transfer-protocol-performance.md
+              - name: Limitations and known issues
+                href: secure-file-transfer-protocol-known-issues.md
+          - name: DistCp
             href: data-lake-storage-use-distcp.md
+          - name: Migrate an HDFS store offline
+            href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+          - name: Migrate an HDFS store online
+            href: migrate-gen2-wandisco-live-data-platform.md
+          - name: Migrate to another region
+            href: data-lake-storage-migrate-data.md
       - name: Directory & file operations
         items:
           - name: Storage Explorer
