@@ -68,7 +68,6 @@ The following table shows locations by service provider. If you want to view ava
 | **Cello** | &check; | &check; | Sydney |
 | **Cellcom Fixed Line Communication (l.p.)** | &check; | &check; | Tel Aviv<br/>Tel Aviv2 |
 | **[CDC](https://cdc.com/services/network-services/)** | &check; | &check; | Canberra<br/>Canberra2 |
-| **[Lumen (CenturyLink Cloud Connect)](https://www.centurylink.com/cloudconnect)** | &check; | &check; | Amsterdam2<br/>Atlanta<br/>Chicago<br/>Chicago2<br/>Dallas<br/>Dublin<br/>Frankfurt<br/>Hong Kong SAR<br/>Las Vegas<br/>London<br/>London2<br/>Montreal<br/>New York<br/>Paris<br/>Phoenix<br/>Phoenix2<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Singapore2<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC<br/>Washington DC2 |
 | **[Chief Telecom](https://www.chief.com.tw/)** |&check; |&check; | Hong Kong SAR<br/>Taipei |
 | **China Mobile International** |&check; |&check; | Hong Kong SAR<br/>Hong Kong2<br/>Singapore<br/>Singapore2 |
 | **China Telecom Global** |&check; |&check; | Hong Kong SAR<br/>Hong Kong2<br/>Singapore<br/>Tokyo2 |
@@ -148,12 +147,13 @@ The following table shows locations by service provider. If you want to view ava
 | **[Kordia](https://www.kordia.co.nz/cloudconnect)** | &check; | &check; | Auckland<br/>Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | &check; | &check; | Amsterdam<br/>Dublin2|
 | **[KT](https://cloud.kt.com/)** | &check; | &check; | Seoul<br/>Seoul2 |
-| **[Lumen (Level 3 Communications)](https://www.lumen.com/en-us/edge-cloud/cloud-connect.html)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>London<br/>Newport<br/>Sao Paulo<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Washington DC |
 | **LG CNS** | &check; | &check; | Busan<br/>Seoul |
 | **Lightpath** | &check; | &check; | Chicago<br/>Miami<br/>New York<br/>New York<br/>Washington DC |
 | **[Lightstorm](https://polarin.lightstorm.net/)** | &check; | &check; | Chennai<br/>Dubai2<br/>Mumbai<br/>Pune<br/>Singapore |
 | **[Liquid Intelligent Technologies](https://liquidcloud.africa/connect/)** | &check; | &check; | Cape Town<br/>Johannesburg |
 | **[LGUplus](http://www.uplus.co.kr/)** |&check; |&check; | Seoul<br/>Seoul2 |
+| **[Lumen (CenturyLink Cloud Connect)](https://www.lumen.com/en-us/solutions/use-case/cloud-connectivity)** | &check; | &check; | Amsterdam2<br/>Atlanta<br/>Chicago<br/>Chicago2<br/>Dallas<br/>Dublin<br/>Frankfurt<br/>Hong Kong SAR<br/>Las Vegas<br/>London<br/>London2<br/>Montreal<br/>New York<br/>Paris<br/>Phoenix<br/>Phoenix2<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Singapore2<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC<br/>Washington DC2 |
+| **[Lumen (Level 3 Communications)](https://www.lumen.com/en-us/edge-cloud/cloud-connect.html)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>London<br/>Newport<br/>Sao Paulo<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Washington DC |
 | **[Marlink](https://www.marlink.com/)** | &check; | &check; | London2<br/>Madrid |
 | **[MCM Telecom](https://www.mcmtelecom.com/alianza-microsoft)** | &check; | &check; | Dallas<br/>Queretaro (Mexico)|
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** | &check; | &check; | Amsterdam<br/>Amsterdam Metro<br/>Amsterdam2<br/>Atlanta<br/>Atlanta Metro<br/>Auckland<br/>Chicago<br/>Chicago Metro<br/>Chicago2<br/>Dallas<br/>Dallas Metro<br/>Denver<br/>Dubai2<br/>Dublin<br/>Dublin2<br/>Frankfurt<br/>Geneva<br/>Hong Kong SAR<br/>Hong Kong2<br/>Las Vegas<br/>London<br/>London2<br/>Los Angeles<br/>Madrid<br/>Madrid Metro<br/>Melbourne<br/>Miami<br/>Milan<br/>Milan Metro<br/>Minneapolis<br/>Montreal<br/>Munich<br/>New York<br/>New York Metro<br/>Osaka<br/>Oslo<br/>Paris<br/>Paris2<br/>Perth<br/>Phoenix<br/>Quebec City<br/>Queretaro<br/>San Antonio<br/>Sao Paulo<br/>Sao Paulo2<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Singapore Metro<br/>Singapore2<br/>Stavanger<br/>Stockholm<br/>Sydney<br/>Sydney2<br/>Tokyo<br/>Tokyo2<br/>Toronto<br/>Toronto2<br/>Vancouver<br/>Washington DC<br/>Washington DC Metro<br/>Washington DC2<br/>Zurich |
