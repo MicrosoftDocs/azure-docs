@@ -1,5 +1,5 @@
 ---
-title: Traffic Routing Methods to Origin
+title: Traffic Routing Methods for Origins
 titleSuffix: Azure Front Door
 description: This article explains the four different traffic routing methods used by Azure Front Door to origin.
 author: halkazwini
@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.date: 08/24/2026
 ---
 
-# Traffic routing methods to origin
+# Traffic routing methods for origins
 
 **Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
 
@@ -22,13 +22,13 @@ Azure Front Door supports four traffic routing methods to manage how your HTTP/H
 
 The four traffic routing methods are:
 
-* **[Latency](#latency):** Routes requests to the origins with the lowest latency within an acceptable sensitivity range, ensuring requests are sent to the nearest origins in terms of network latency.
+- **[Latency](#latency):** Routes requests to the origins with the lowest latency within an acceptable sensitivity range, ensuring requests are sent to the nearest origins in terms of network latency.
 
-* **[Priority](#priority):** Allows you to assign priorities to your origins, with lower-priority origins serving as backups if higher-priority origins become unavailable.
+- **[Priority](#priority):** Allows you to assign priorities to your origins, designating a primary origin to handle all traffic and a secondary origin as a backup if the primary becomes unavailable.
 
-* **[Weighted](#weighted):** Assigns a weight to each origin to distribute traffic evenly or according to specified weight coefficients. Traffic is distributed based on weight values if the origins' latencies are within the acceptable sensitivity range.
+- **[Weighted](#weighted):** Assigns a weight to each origin to distribute traffic evenly or according to specified weight coefficients. Traffic is distributed based on weight values if the origins' latencies are within the acceptable sensitivity range.
 
-* **[Session Affinity](#affinity):** Ensures requests from the same end user are sent to the same origin by configuring session affinity for your frontend hosts or domains.
+- **[Session Affinity](#affinity):** Ensures requests from the same end user are sent to the same origin by configuring session affinity for your frontend hosts or domains.
 
 > [!NOTE]
 > In Azure Front Door Standard and Premium tiers, **Endpoint name** is referred to as **Frontend host** in Azure Front Door (classic).
@@ -57,7 +57,7 @@ The decision steps are:
 
 If you enable session affinity, the first request in a session follows the flow previously explained. Subsequent requests go to the origin selected in the first request.
 
-## <a name = "latency"></a>Lowest latencies based traffic-routing
+## <a name = "latency"></a>Lowest-latency-based traffic routing
 
 Deploying origins in multiple global locations can enhance your application's responsiveness by routing traffic to the origin that is "closest" to your end users. The Latency routing method is the default for Azure Front Door configurations. This method directs user requests to the origin with the lowest network latency, rather than the closest geographic location, ensuring optimal performance.
 
@@ -68,7 +68,7 @@ Azure Front Door's anycast architecture, combined with the Latency routing metho
 
 For more information, see [Azure Front Door routing architecture](front-door-routing-architecture.md).
 
-## <a name="priority"></a>Priority-based traffic-routing
+## <a name="priority"></a>Priority-based traffic routing
 
 To ensure high availability, deploy backup services to take over if the primary service fails. This setup is known as Active/Standby or Active/Passive deployment. The *Priority* traffic-routing method in Azure Front Door helps you implement this failover pattern.
 
@@ -95,9 +95,9 @@ Traffic is distributed among available origins by using a round-robin mechanism 
 
 The weighted method supports several scenarios:
 
-* **Gradual application upgrade**: Route a percentage of traffic to a new origin and gradually increase it over time.
-* **Application migration to Azure**: Create an origin group with both Azure and external origins. Adjust weights to prefer new origins, gradually increasing their traffic share until they handle most traffic, then disable and remove less preferred origins.
-* **Cloud-bursting for additional capacity**: Expand on-premises deployments into the cloud by adding or enabling more origins and specifying traffic distribution.
+- **Gradual application upgrade**: Route a percentage of traffic to a new origin and gradually increase it over time.
+- **Application migration to Azure**: Create an origin group with both Azure and external origins. Adjust weights to prefer new origins, gradually increasing their traffic share until they handle most traffic, then disable and remove less preferred origins.
+- **Cloud-bursting for additional capacity**: Expand on-premises deployments into the cloud by adding or enabling more origins and specifying traffic distribution.
 
 ## <a name="affinity"></a>Session affinity
 
@@ -119,7 +119,9 @@ The cookie's lifetime matches the user's session, as Front Door currently suppor
 > - The response contains a valid `Authorization` header.
 > - The response is an HTTP 302 status code.
 
-## Next steps
+## Related content
 
-- Learn how to [create an Azure Front Door](quickstart-create-front-door.md).
-- Learn [how Azure Front Door works](front-door-routing-architecture.md).
+- [Origins and origin groups](origin.md)
+- [Azure Front Door health probes](health-probes.md)
+- [Configure an origin and origin group](how-to-configure-origin.md)
+- [Azure Front Door routing architecture](front-door-routing-architecture.md)
