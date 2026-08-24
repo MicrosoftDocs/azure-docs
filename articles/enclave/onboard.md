@@ -22,9 +22,7 @@ Use this article to onboard to Azure Enclave by registering the required resourc
 
 ### Option 1: PowerShell
 
-PowerShell is the fastest way to register the required resource providers.
-
-You can run the following code to quickly register all required resource providers to begin using Azure Enclave.
+PowerShell is the fastest way to register all required resource providers to begin using Azure Enclave.
 
 1. Sign in to your Azure tenant and open the subscription.
 1. In the Azure portal, select the `Cloud Shell` icon at the top of the window.
@@ -81,20 +79,20 @@ $resourceProviders | foreach {Register-AzResourceProvider -ProviderNamespace $_ 
 
 ```
 
-1. (Optional) Enable the `EncryptionAtHost` feature
+1. (Optional) Enable the `EncryptionAtHost` feature.
 
-The [EncryptionAtHost](/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli) feature enables encryption at the compute host level.
+   The [EncryptionAtHost](/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli) feature enables encryption at the compute host level.
 
-```azurecli
-# Register the feature
-az feature register --namespace Microsoft.Compute --name EncryptionAtHost
+   ```azurecli
+   # Register the feature
+   az feature register --namespace Microsoft.Compute --name EncryptionAtHost
 
-# Check registration status (may take 10-15 minutes)
-az feature show --namespace Microsoft.Compute --name EncryptionAtHost
+   # Check registration status (may take 10-15 minutes)
+   az feature show --namespace Microsoft.Compute --name EncryptionAtHost
 
-# Once registered, refresh the provider
-az provider register --namespace Microsoft.Compute
-```
+   # Once registered, refresh the provider
+   az provider register --namespace Microsoft.Compute
+   ```
 
 1. After the update is complete, proceed to [Azure setup](./best-practices.md#azure-setup) or [next steps](#next-steps).
 
@@ -119,6 +117,10 @@ For reference, you can also review the generic instructions for enabling a [prev
 ### Configure `NetworkWatcherRG` access
 
 To avoid potential problems with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, make sure the `NetworkWatcherRG` resource group exists in each subscription and that the `Mission Enclave` app has the `Owner` role on that group before you create your first enclave. If the subscription automatically creates the group and role, verify that they already exist.
+
+> [!IMPORTANT]
+> If `NetworkWatcherRG` doesn't exist or the `Mission Enclave` app doesn't have the `Owner` role on it, enclave deployments might fail when attempting to create virtual network flow logs.
+
 1. Select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
 
    :::image type="content" source="./media/onboard-network-watcher-add-role.png" alt-text="Screenshot showing role assignment selection in the NetworkWatcherRG resource group." border="true" lightbox="./media/onboard-network-watcher-add-role.png":::
@@ -148,8 +150,8 @@ Existing preview customers must re-register the Azure Enclave resource provider 
 
 Complete these steps to use the latest Azure Enclave API:
 1. In the Azure portal, navigate to your subscription.
-1. Under **Settings**, select **Resource providers**.
-1. Search for and select `Microsoft.Mission`, and then select **Re-register**.
+1. Under `Settings`, select `Resource providers`.
+1. Search for and select `Microsoft.Mission`, and then select `Re-register`.
 1. Repeat these steps for any additional subscriptions.
 
 ## Next steps
@@ -169,6 +171,6 @@ After registering the Azure Enclave resource provider, you can start deploying A
   - [Create a transit hub](./create-transit-hub-portal.md)
   - [Create a community endpoint](./create-community-endpoint-portal.md)
 
-- Create resources within your workloads to meet your objectives:
-  - Create resources from the [service catalog](./list-service-catalog-templates.md)
-  - Create resources with a [template](/azure/azure-resource-manager/templates/deploy-to-resource-group) or [bicep template](/azure/azure-resource-manager/bicep/deploy-to-resource-group) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
+  - Create resources within your workloads to meet your objectives:
+    - Create resources from the [service catalog](./list-service-catalog-templates.md)
+    - Create resources with a [template](/azure/azure-resource-manager/templates/deploy-to-resource-group) or [bicep template](/azure/azure-resource-manager/bicep/deploy-to-resource-group) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
