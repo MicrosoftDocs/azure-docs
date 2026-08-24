@@ -12,41 +12,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Azure SRE Agent network integration (preview)
 
-You can improve the security of your agent in Azure SRE Agent in a couple of ways: through appropriate role-based access control (RBAC) permissions, and through virtual network (VNet) integration.
-
-If you grant the agent's managed identity the appropriate RBAC permissions, the agent can act on your infrastructure, query your databases, and run commands against your clusters. RBAC is the primary security boundary that controls what the agent can do.
-
-Virtual network integration adds a complementary layer of protection by controlling where the agent can send traffic. Without this integration, outbound traffic from the agent flows over the public internet. With it, every outbound call routes through Azure Virtual Network and your existing network security infrastructure.
-
-This article explains why network-level control matters for enterprise deployments, how virtual network integration works, and how to choose the right network control mode for your workload.
-
-## Why network control matters
-
-By default, the agent can reach any endpoint on the internet. For development and test workloads, this behavior is acceptable. For production enterprise deployments, this level of access creates unnecessary risk.
-
-Two risks drive the enterprise requirement for network controls:
-
-- **Data exfiltration**: An agent with access to sensitive internal data and unrestricted internet access can create a path for data to leave your organization.
-
-- **Prompt injection**: Malicious content on the public internet can be crafted to manipulate agent behavior. An unrestricted agent that fetches external content is exposed to injection attacks through those responses.
-
-Place the agent inside a virtual network for better control over its behavior.
-
-## How virtual network integration works
-
-Virtual network integration connects SRE Agent to your existing virtual network. When the agent makes an outbound call, traffic flows through your network infrastructure instead of the public internet.
-
-After you configure virtual network integration, agent traffic:
-
-- Appears in your network logs for auditing and monitoring.
-- Passes through your layer 4 and layer 7 firewalls.
-- Respects your custom Domain Name System (DNS) configuration.
-- Follows your enterprise security policies and egress rules.
-
-After SRE Agent joins the virtual network, it operates under the same rules as any other workload on that network, including firewall inspection, DNS resolution, and traffic logging.
-
-> [!IMPORTANT]
-> Virtual network integration controls outbound (egress) traffic only.
+Virtual network (VNet) integration controls where the SRE Agent can send outbound traffic. Without it, outbound calls flow over the public internet. With it, traffic routes through your Azure Virtual Network. This network integration gives you the same network-level controls you use for other Azure workloads: integration with firewalls, communication with resources behind private endpoints, and visibility in your network logs.
 
 ## Network control modes
 

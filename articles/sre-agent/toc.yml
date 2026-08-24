@@ -152,6 +152,8 @@ items:
             href: network-integration.md
       - name: Measure & govern
         items:
+          - name: Live Reports
+            href: live-reports.md
           - name: Operations Hub
             href: operations-hub.md
           - name: Track incident value

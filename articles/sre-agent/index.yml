@@ -127,6 +127,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Live reports
+            url: live-reports.md
           - text: Workspace tools overview
             url: agent-reasoning.md
           - text: Persistent memory
