@@ -6,6 +6,7 @@ services: api-management
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 08/21/2026
+ms.custom: references_regions
 ---
 
 # Reference: Self-hosted gateway Azure Arc configuration settings

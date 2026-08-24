@@ -3,7 +3,7 @@ title: Azure Service Bus Topic Filters Overview
 description: This article explains how subscribers can define which messages they want to receive from a topic by specifying filters.
 #customer intent: As a developer, I want to understand how to use SQL filters in Azure Service Bus so that I can filter messages based on specific conditions.
 ms.topic: how-to
-ms.date: 03/10/2026
+ms.date: 08/20/2026
 ms.custom: sfi-ropc-nochange
 ---
 
@@ -124,10 +124,27 @@ filter.Properties["prop1"] = "abc";
 filter.Properties["prop2"] = "xyz";
 ```
 
-
 > [!NOTE]
 > - All filters evaluate message properties. Filters can't evaluate the message body.
 > - Complex filter rules require processing capacity. In particular, the use of SQL filter rules cause lower overall message throughput at the subscription, topic, and namespace level. Whenever possible, applications should choose correlation filters over SQL-like filters because they're much more efficient in processing and have less impact on throughput.
+
+## View filter counts for a topic
+
+Topic runtime properties include the total number of SQL filters and correlation filters across all subscriptions of the topic. The counts include each subscription's default rule until you replace or remove that rule. Use these values to inspect the filter configuration without listing the rules for every subscription.
+
+> [!IMPORTANT]
+> The SDK properties in this section are currently in preview. The beta package versions in the following table introduce the preview properties. Preview APIs can change before they become generally available.
+>
+> During preview, filter counts might be unavailable for some namespaces while rollout completes. If a count is unavailable, list the rules for each subscription instead of treating the count as zero.
+
+| SDK | Preview package version | Topic runtime properties |
+|-----|-------------------------|--------------------------|
+| .NET | `7.21.0-beta.1` | `SqlFilterCount` and `CorrelationFilterCount` |
+| Java | `7.18.0-beta.3` | `getSqlFilterCount()` and `getCorrelationFilterCount()` |
+| JavaScript | `7.10.0-beta.5` | `sqlFilterCount` and `correlationFilterCount` |
+| Go | `1.11.0-beta.1` | `SQLFilterCount` and `CorrelationFilterCount` |
+| Python | `7.15.0b2` | `sql_filter_count` and `correlation_filter_count` |
+
 
 ## Actions
 By using SQL filter conditions, you can define an action that annotates the message by adding, removing, or replacing properties and their values. The action [uses a SQL-like expression](service-bus-messaging-sql-rule-action.md) that loosely leans on the `SQL UPDATE` statement syntax. The action runs on the message after it matches the condition and before the message is selected into the subscription. The changes to the message properties are private to the message copied into the subscription.
