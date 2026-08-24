@@ -61,10 +61,6 @@ You need to complete the following tasks before enabling the ALB Controller add-
     Install-Module -Name Az.Alb -Force -AllowClobber
     ```
     ---
-
-> [!IMPORTANT]
-> The Application Gateway for Containers inference gateway is currently in preview.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
  
 2. Register add-on feature
 
@@ -73,6 +69,10 @@ You need to complete the following tasks before enabling the ALB Controller add-
     az feature register --namespace "Microsoft.ContainerService" --name "ManagedGatewayAPIPreview"
     az feature register --namespace "Microsoft.ContainerService" --name "ApplicationLoadBalancerPreview"
     ```
+
+    > [!IMPORTANT]
+    > The Application Gateway for Containers inference gateway is currently in preview.<br>
+    > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Set up an AKS cluster with the AKS add-on
 
