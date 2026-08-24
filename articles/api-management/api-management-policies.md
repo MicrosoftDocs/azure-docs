@@ -27,7 +27,7 @@ More information about policies:
 > [!IMPORTANT]
 > [Limit call rate by subscription](rate-limit-policy.md) and [Set usage quota by subscription](quota-policy.md) have a dependency on the subscription key. A subscription key isn't required when other policies are applied.
 
-## Rate limiting and quota policies
+## Rate limiting and quotas
 
 |Policy  |Description  |Classic | V2  | Consumption     | Self-hosted | Workspace |
 |---------|---------|---------|---------|---------|--------|--------|
@@ -114,7 +114,7 @@ More information about policies:
 | [CORS](cors-policy.md) | Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.     | Yes | Yes | Yes | Yes | Yes |
 | [JSONP](jsonp-policy.md) | Adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients. | Yes | Yes | Yes | Yes | Yes |
 
-## Integration and external communication policies
+## Integration and external communication
 
 |Policy  |Description  | Classic | V2  | Consumption |Self-hosted  | Workspace |
 |---------|---------|---------|---------|---------|--------|----------|
