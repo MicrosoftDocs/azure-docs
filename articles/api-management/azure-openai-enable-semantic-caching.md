@@ -5,9 +5,11 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 10/28/2025
+ms.date: 08/24/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
+
+#customer intent: As an API developer, I want to enable semantic caching for LLM APIs in Azure API Management so that I can reduce latency and backend load by reusing cached responses for semantically similar prompts.
 ---
 
 # Enable semantic caching for LLM APIs in Azure API Management
@@ -26,18 +28,18 @@ Enable semantic caching of responses to LLM API requests to reduce bandwidth and
 
     * Chat Completion API - Deployment used for API consumer calls 
     * Embeddings API - Deployment used for semantic caching
-* Configure the API Management instance to use managed identity authentication to the Azure OpenAI APIs. For more information, see [Authenticate and authorize access to AI APIs using Azure API Management ](api-management-authenticate-authorize-ai-apis.md#authenticate-with-managed-identity).
+* Configure the API Management instance to use managed identity authentication to the Azure OpenAI APIs. For more information, see [Authenticate and authorize access to AI APIs using Azure API Management](api-management-authenticate-authorize-ai-apis.md#authenticate-with-managed-identity).
 * An [Azure Managed Redis](/azure/redis/quickstart-create-managed-redis) instance with the **RediSearch** module enabled on the Redis cache.
     > [!NOTE]
-    > You can only enable the **RediSearch** module when creating a new Azure Managed Redis cache. You can't add a module to an existing cache. [Learn more](/azure/redis/redis-modules)
+    > You can only enable the **RediSearch** module when creating a new Azure Managed Redis cache. You can't add a module to an existing cache. For more information, see [Redis modules](/azure/redis/redis-modules).
 * Configure the Azure Managed Redis instance as an external cache in the Azure API Management instance. For steps, see [Use an external Redis-compatible cache in Azure API Management](api-management-howto-cache-external.md).
 
 
 ## Test Chat API deployment
 
-First, test the Azure OpenAI deployment to make sure the Chat Completion API or Chat API works as expected. For steps, see [Import an Azure OpenAI API to Azure API Management](azure-openai-api-from-specification.md#test-the-azure-openai-api).
+First, test the Azure OpenAI deployment to make sure the Chat Completion API works as expected. For steps, see [Import an Azure OpenAI API to Azure API Management](azure-openai-api-from-specification.md#test-the-azure-openai-api).
 
-For example, test the Azure OpenAI Chat API by sending a POST request to the API endpoint with a prompt in the request body. The response should include the completion of the prompt. Example request:
+For example, test the Azure OpenAI Chat Completion API by sending a POST request to the API endpoint with a prompt in the request body. The response should include the completion of the prompt. Example request:
 
 ```rest
 POST https://my-api-management.azure-api.net/my-api/openai/deployments/chat-deployment/chat/completions?api-version=2024-02-01
@@ -85,12 +87,12 @@ Configure the following policies in the **Inbound processing** section of the AP
     [...]
 </policies>
 ```
- 
+
 On the **Test** tab, test the operation by adding an `api-version` query parameter with value such as `2024-02-01`. Provide a valid request body. For example:
 
 ```json
 {"input":"Hello"}
-```        
+```
 
 If the request is successful, the response includes a vector representation of the input text. Example response:
 
@@ -108,7 +110,6 @@ If the request is successful, the response includes a vector representation of t
         ]
     }]
 }
-
 ```
 
 ## Configure semantic caching policies
@@ -143,13 +144,13 @@ To enable semantic caching for Azure OpenAI APIs in Azure API Management, apply 
 
 ## Confirm caching
 
-To confirm that semantic caching works as expected, trace a test Completion or Chat Completion operation by using the test console in the portal. Confirm that the cache is used on subsequent tries by inspecting the trace. [Learn more about tracing API calls in Azure API Management](api-management-howto-api-inspector.md). 
+To confirm that semantic caching works as expected, trace a test Chat Completion operation by using the test console in the portal. Confirm that the cache is used on subsequent tries by inspecting the trace. [Learn more about tracing API calls in Azure API Management](api-management-howto-api-inspector.md).
 
 Adjust the `score-threshold` attribute in the lookup policy to control how closely an incoming prompt must match a cached prompt to return its stored response. A lower score threshold means that prompts must have higher semantic similarity to return cached responses. Prompts with scores above the threshold don't use the cached response.
 
 For example, if the cache is used, the **Output** section includes entries similar to the following screenshot:
 
-:::image type="content" source="media/azure-openai-enable-semantic-caching/cache-lookup.png" alt-text="Screenshot of request trace in the Azure portal.":::
+:::image type="content" source="media/azure-openai-enable-semantic-caching/cache-lookup.png" alt-text="Screenshot of a request trace in the Azure portal, showing cache lookup entries in the Output section.":::
 
 ## Related content
 
