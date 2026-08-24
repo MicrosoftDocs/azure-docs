@@ -150,7 +150,7 @@ Per-unit rates are published under **Connector pricing** on the [Logic Apps pric
 MCP connector tool calls are metered based on the underlying connector action calls.
 
 > [!NOTE]
-> Billing for hosted MCP servers isn't enabled during preview. Microsoft will provide notice before billing begins for this capability.
+> Billing for hosted MCP servers isn't enabled during preview. Microsoft provides notice before billing begins for this capability.
 
 ## Considerations and limitations
 
