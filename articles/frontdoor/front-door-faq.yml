@@ -94,15 +94,15 @@ sections:
           Can I move Front Door and CDN profiles between resource groups or subscriptions without any downtime?
         answer:  |
           - You can move Front Door Standard/Premium and Azure CDN profiles between resource groups or subscriptions without any downtime. To execute the move, follow these [instructions](../azure-resource-manager/management/move-resource-group-and-subscription.md).
-          - Front Door Classic doesn't support move between resource groups or subscriptions. You can instead [migrate](tier-migration.md) the Classic profile to Standard/Premium and then execute the move.
-                    - If you associate WAF to Front Door Standard or Premium, the move operation fails. You must disassociate WAF policies first, move, and then associate.
+          - Azure Front Door (classic) doesn't support move between resource groups or subscriptions. You can instead [migrate](tier-migration.md) Azure Front Door (classic) profile to Standard/Premium and then execute the move.
+          - If you associate a WAF policy with Azure Front Door Standard or Premium, the move operation fails. You must first disassociate the WAF policy, complete the move, and then reassociate the policy.
 
   - name: Features and protocols
     questions:
       - question: |
           What features does Azure Front Door support?
         answer: |
-          Azure Front Door offers many benefits for your web applications, such as dynamic site acceleration (DSA), which improves the performance and user experience of your sites. Azure Front Door also handles TLS/SSL offloading and end to end TLS, which enhances the security and encryption of your web traffic. Additionally, Azure Front Door provides Web Application Firewall, cookie-based session affinity, URL path-based routing, free certificates, multiple domain management, and more. To learn more about the features and capabilities of Azure Front Door, see [tier comparison](standard-premium/tier-comparison.md).
+          Azure Front Door offers many benefits for your web applications, such as dynamic site acceleration (DSA), which improves the performance and user experience of your sites. Azure Front Door also handles TLS/SSL offloading and end-to-end TLS, which enhance the security and encryption of your web traffic. Additionally, Azure Front Door provides a web application firewall, cookie-based session affinity, URL path-based routing, free certificates, multiple-domain management, and more. To learn more about the features and capabilities of Azure Front Door, see [tier comparison](standard-premium/tier-comparison.md).
       - question: |
           What protocols does Azure Front Door support?
         answer:  |
@@ -140,7 +140,7 @@ sections:
       - question: |
           Does Azure Front Door have the capability to load balance or route traffic within a virtual network?
         answer:  |
-          To use Azure Front Door Standard, or (classic) tier, you need a public IP or a DNS name that can be resolved publicly. This requirement of a public IP or a DNS name that can be resolved publicly allows Azure Front Door to route traffic to your backend resources. You can use Azure resources like Application Gateways or Azure Load Balancers to route traffic to resources in a virtual network. If you use Front Door Premium tier, you can use Private Link to connect to origins behind an internal load balancer with a private endpoint. For more information, see [Secure origins with Private Link](private-link.md).
+          To use Azure Front Door Standard or Azure Front Door (classic), you need a public IP address or a publicly resolvable DNS name. This requirement allows Azure Front Door to route traffic to your backend resources. You can use Azure resources like Application Gateways or Azure Load Balancers to route traffic to resources in a virtual network. If you use Azure Front Door Premium, you can use Private Link to connect to origins behind an internal load balancer through a private endpoint. For more information, see [Secure origins with Private Link](private-link.md).
 
       - question: |
           Can I use Private Link to connect Azure Front Door to Azure Key Vault?
@@ -172,10 +172,11 @@ sections:
       - question: |
           Can I deploy another CDN from an external vendor behind or in front of Front Door?
         answer:  |
-          Chaining two CDNs is generally not a recommended approach. It can work, but it comes with the following cons:
+          Chaining two CDNs isn't generally recommended. Although it can work, it has the following drawbacks:
+
           1. A CDN's last mile acceleration works by keeping the connection stream with the origin and finding the optimal path to the origin to achieve the best results. Chaining two CDNs together typically negates some of the benefits from last mile acceleration.
-          2. Security controls become less effective at the second CDN. Any client IP based ACLing doesn't work at the second CDN as the second CDN sees the first CDN's exit node as Client IPs. Content payload is still inspected.
-          3. Many organizations can't handle the complexity of troubleshooting two CDNs being chained and when a problem it becomes hard to figure out which CDN is having the issue.
+          2. Security controls are less effective at the second CDN. Client IP-based access control doesn't work there because the second CDN identifies the first CDN's exit node as the client IP. The content payload is still inspected.
+          3. Chaining two CDNs increases troubleshooting complexity. When a problem occurs, it can be difficult to determine which CDN is causing it.
 
       - question: |
           Can I deploy Azure Load Balancer behind Front Door?
@@ -243,7 +244,7 @@ sections:
       - question: |
           What is the value of header timeout from client to Azure Front Door?
         answer:  |   
-          Azure Front Door has a 5-second timeout for receiving headers from client. The connection is terminated if the client doesn't send headers within 5 seconds to Azure Front Door after establishing TCP/TLS connection. You can't configure this timeout value.
+          Azure Front Door has a 5-second timeout for receiving headers from a client. If the client doesn't send headers within 5 seconds after establishing a TCP/TLS connection to Azure Front Door, the connection is terminated. You can't configure this timeout.
 
       - question: |
           What is the value of the HTTP keep-alive timeout for Azure Front Door?
@@ -261,21 +262,21 @@ sections:
           At this time, we don't offer the option to move domains from one endpoint to another without any interruption in service. You need to plan for some downtime if you want to migrate your domains to a different endpoint.
 
       - question: |
-           Azure Front Door Privatelink integration is not supported in the region where my origin is located. What do I do?
+           Azure Front Door Private Link integration isn't supported in the region where my origin is located. What should I do?
         answer:  |   
-          The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint. If your origin's region isn't supported in the list of regions Front Door Private Link supports, pick the next nearest region. Traffic flows from the client to the Azure Front Door Private Link endpoint in the supported region, then traverses the Microsoft backbone network to your origin, maintaining private connectivity. Be aware that this configuration introduces additional latency due to the extra network hop between regions. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the additional latency due to choosing the next nearest region.  Once a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
+          Azure Front Door Private Link is region-agnostic. For the lowest latency, select the supported Azure region closest to your origin when you enable an Azure Front Door Private Link endpoint. If your origin's region isn't supported in the list of regions Front Door Private Link supports, pick the next nearest region. Traffic flows from the client to the Azure Front Door Private Link endpoint in the supported region, then traverses the Microsoft backbone network to your origin, maintaining private connectivity. This configuration introduces extra latency due to the extra network hop between regions. You can use [Azure network round-trip latency statistics](../networking/azure-network-latency.md) to determine the extra latency due to choosing the next nearest region. When a new region is supported, you can follow these [instructions](blue-green-deployment.md) to gradually shift traffic to the new region.
 
   - name: Performance
     questions:
       - question: |
           How does Azure Front Door ensure high availability and scalability for its services?
         answer:  |
-          Azure Front Door is a platform that distributes traffic across the world and can scale up to meet your application's demands. It uses Microsoft's global network edge to deliver global load-balancing capability that lets you switch your entire application or specific microservices to different regions or clouds if there was failure.
+          Azure Front Door is a platform that distributes traffic across the world and can scale up to meet your application's demands. It uses Microsoft's global edge network to provide global load balancing, which lets you move your entire application or specific microservices to different regions or clouds if a failure occurs.
 
       - question: |
           What are the conditions for caching ranged responses from my origin?
         answer: |
-          To avoid errors when delivering large files, make sure your origin server includes the `Content-Range` header in the response, and that the header value matches the actual size of the response body.
+          To avoid errors when delivering large files, ensure your origin server includes the `Content-Range` header in the response, and that the header value matches the actual size of the response body.
 
           You can find more details on how to configure your origin and Front Door for large file delivery in [Delivery of large files](front-door-caching.md#delivery-of-large-files).
 
@@ -287,7 +288,7 @@ sections:
         answer: |
           Domain fronting is a network technique that enables an attacker to conceal the actual destination of a malicious request by using a different domain name in the TLS handshake and the HTTP host header.
           
-          Azure Front Door (Standard, Premium and Classic tier) or Azure CDN Standard from Microsoft (classic) resources created after November 8, 2022, have domain fronting blocking enabled. Rather than blocking a request with mismatched SNI and host headers, we permit the discrepancy if the two domains belong to the same subscription and are included in the routes/routing rules. Domain fronting blocking enforcement will start on January 22, 2024, for all existing domains. The enforcement may require up to two weeks to propagate to all regions. 
+          Azure Front Door (Standard, Premium, and classic tier) or Azure CDN Standard from Microsoft (classic) resources created after November 8, 2022, have domain fronting blocking enabled. Rather than blocking a request with mismatched SNI and host headers, we permit the discrepancy if the two domains belong to the same subscription and are included in the routes or routing rules. Domain fronting blocking enforcement started on January 22, 2024. 
          
           When Front Door blocks a request due to a mismatch: 
           - The client receives an HTTP `421 Misdirected Request` error code response. 
@@ -329,13 +330,13 @@ sections:
     - question: |
         Do I need to take any action to renew my managed certificate after migration?
       answer: |
-       In most cases, no action is required. After your profile is migrated, Azure Front Door automatically attempts to rotate your managed certificate if it is within 45 days of expiry. 
-       - If your domain is CNAME-mapped to Azure Front Door and meets CAA record and domain state requirements, the certificate is auto-rotated. Auto-rotation job runs every 6-8 hours and takes around 24-48 hours to complete. If the autorotation fails, the domain validation state goes to 'Pending validation' and you can revalidate domain ownership to manually trigger validation. 
-       - If your domain doesn't meet the above-mentioned validation requirements or has HTTPS disabled, the certificate state changes to Pending revalidation, and you must revalidate domain ownership. 
+       In most cases, no action is required. After your profile is migrated, Azure Front Door automatically attempts to rotate your managed certificate if it is within 45 days of expiration.
+       - If your domain is CNAME-mapped to Azure Front Door and meets CAA record and domain state requirements, the certificate is automatically rotated. The automatic rotation job runs every 6 to 8 hours and takes approximately 24 to 48 hours to complete. If automatic rotation fails, the domain validation state changes to 'Pending validation,' and you can revalidate domain ownership to manually trigger validation.
+       - If your domain doesn't meet these validation requirements or has HTTPS disabled, the certificate state changes to Pending revalidation, and you must revalidate domain ownership.
 
-       You can manually revalidate domain ownership for renewal if you don't want to wait for the auto-rotation by either:
+       To renew the certificate without waiting for automatic rotation, manually revalidate domain ownership by using either of the following methods:
          - Adding the required DNS validation record following step 3 for [domains pending validation](https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-add-custom-domain#add-a-new-custom-domain)
-         - Or triggering validation manually using PowerShell or Azure CLI (`RefreshValidation`).
+         - Triggering validation manually using PowerShell or Azure CLI (`RefreshValidation`).
 
     
   - name: Billing
@@ -343,7 +344,7 @@ sections:
       - question: |
           Do I get billed for the Azure Front Door resources that are disabled?
         answer: |
-          You can't disable Azure Front Door resources. You can only delete them. Variable meters like Data Transfer Out, Data Transfer In, and Requests aren't charged when there's no traffic but the base fee is charged even if there's no traffic. The base fee is charged until the profile is deleted. For Front Door Classic, WAF policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
+          You can't disable Azure Front Door resources. You can only delete them. Variable meters like Data Transfer Out, Data Transfer In, and Requests aren't charged when there's no traffic but the base fee is charged even if there's no traffic. The base fee is charged until the profile is deleted. For Azure Front Door (classic), WAF policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
 
   - name: Caching
     questions:
@@ -372,7 +373,7 @@ sections:
           For information on logs and other diagnostic capabilities, see [Monitoring metrics and logs for Front Door](front-door-diagnostics.md).
           
       - question: |
-          What is the duration of the diagnostics logs retention?
+          How long can I retain diagnostic logs?
         answer: |
           You can store diagnostic logs in their own storage account and choose how long to keep them. Alternatively, you can send diagnostic logs to Event Hubs or Azure Monitor logs. For more information, see [Azure Front Door diagnostics](front-door-diagnostics.md).
 

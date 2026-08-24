@@ -81,57 +81,7 @@ Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](/entra
 
 ## Regional availability for Microsoft Entra Kerberos
 
-Microsoft Entra Kerberos support for hybrid identities is available for all regions in the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/).
-
-Azure RBAC support for specific users and groups for cloud-only identities with Microsoft Entra Kerberos is currently available only for the following subset of regions in the Azure Public cloud.
-
-- Australia Central
-- Australia Central 2
-- Australia East (SSD/premium only)
-- Australia Southeast (SSD/premium only)
-- Austria East
-- Belgium Central
-- Brazil South (SSD/premium only)
-- Brazil Southeast
-- Canada Central (SSD/premium only)
-- Canada East (SSD/premium only)
-- Chile Central
-- Denmark East (SSD/premium only)
-- East Asia
-- France Central (SSD/premium only)
-- France South
-- Germany North
-- Germany West Central (SSD/premium only)
-- India Central (SSD/premium only)
-- India South (SSD/premium only)
-- India South Central (SSD/premium only)
-- India West
-- Indonesia Central
-- Italy North
-- Japan East (SSD/premium only)
-- Japan West
-- Korea Central (SSD/premium only)
-- Korea South
-- Malaysia West (SSD/premium only)
-- Mexico Central
-- New Zealand North (SSD/premium only)
-- North Europe (SSD/premium only)
-- Norway East (SSD/premium only)
-- Norway West
-- Poland Central (SSD/premium only)
-- Qatar Central
-- South Africa North (SSD/premium only)
-- South Africa West (SSD/premium only)
-- Southeast Asia (SSD/premium only)
-- Spain Central
-- Sweden Central (SSD/premium only)
-- Switzerland North
-- Switzerland West
-- UAE Central
-- UAE North
-- UK South (SSD/premium only)
-- UK West (SSD/premium only)
-- US West Central (SSD/premium only)
+Microsoft Entra Kerberos supports hybrid and cloud-only identities in all regions of the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/).
 
 <a name='enable-azure-ad-kerberos-authentication'></a>
 
