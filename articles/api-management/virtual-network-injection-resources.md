@@ -65,7 +65,7 @@ The following table shows subnet sizing examples for API Management virtual netw
 - **Recommended sizing**: For high-scale scenarios approaching the Premium SKU limit, consider /26 or /25 subnets
 
 > [!NOTE]
-> It is currently possible to scale the Premium tier to 31 units. If you foresee demand approaching this limit, consider the /26 subnet or /25 subnet.
+> You can currently scale the Premium tier to 31 units. If you foresee demand approaching this limit, consider the /26 subnet or /25 subnet.
 
 > [!IMPORTANT]
 > The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning might cause a change in the private IP address.
