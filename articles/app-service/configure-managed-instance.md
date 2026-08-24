@@ -1,5 +1,5 @@
 ---
-title: "Configure Managed Instance on Azure App Service (Preview)"
+title: "Configure Managed Instance on Azure App Service"
 description: Learn how to configure and deploy a Managed Instance on Azure App Service using Azure CLI and ARM templates. This guide covers general settings, storage mounts, registry keys, and Bastion/RDP access.
 author: msangapu-msft
 ms.author: msangapu
@@ -24,9 +24,9 @@ keywords:
   - custom tooling
 ---
 
-# Configure Managed Instance on Azure App Service (preview)
+# Configure Managed Instance on Azure App Service
 
-Managed Instance on Azure App Service (preview) is a plan‑scoped hosting option for Windows web apps that need Operating System (OS) customization, optional private networking, and secure integration with Azure resources. This article explains how to configure Managed Instance in key areas:
+Managed Instance on Azure App Service is a plan‑scoped hosting option for Windows web apps that need Operating System (OS) customization, optional private networking, and secure integration with Azure resources. This article explains how to configure Managed Instance in key areas:
 
 - Managed identity
 - Configuration (install) scripts
@@ -34,7 +34,7 @@ Managed Instance on Azure App Service (preview) is a plan‑scoped hosting optio
 - Registry keys
 - Remote Desktop Protocol (RDP) access
 
-[!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
+[!INCLUDE [managed-instance](./includes/managed-instance/availability-note.md)]
 
 ## Add a Managed identity (to the App Service plan)
 
@@ -306,7 +306,7 @@ No, there's no limit on the number of storage or registry adapters. You can only
 
 ### Which regions have support for Managed Instance on App Service?
 
-Currently support for Managed Instance on App Service is limited to East US, West Central US, East Asia, North Europe, Australia East, Central India, and South India. More regions will be added to the preview over time. To get an updated list of regions, you can use the following CLI command (You must be using Azure CLI version 2.82.0 or higher).
+Managed Instance on App Service is currently available in East US, West Central US, East Asia, North Europe, Australia East, Central India, and South India. To get the current list of supported regions, use the following CLI command (you must be using Azure CLI version 2.82.0 or higher).
 
 ```azurecli
 az appservice list-locations --managed-instance-enabled --sku <Pv4 or PmV4 sku your require, for example P1v4>

@@ -18,7 +18,7 @@ An *Azure App Service plan* defines a set of compute resources for a web app to 
 
 When you create an App Service plan in a certain region, you create a set of compute resources for that plan in that region. Whatever apps you put into the App Service plan run on those compute resources, as defined in the plan.
 
-[!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
+[!INCLUDE [managed-instance](./includes/managed-instance/availability-note.md)]
 
 Each App Service plan defines:
 
@@ -129,7 +129,7 @@ Isolate your app in a new App Service plan when:
 > [!NOTE]
 > An active slot is also classified as an active app because it's competing for resources in the same App Service plan.
 
-## Managed Instance on Azure App Service (preview)
+## Managed Instance on Azure App Service
 Managed Instance is a plan-scoped hosting option for Windows web apps that require operating system customization, optional private networking, and legacy Windows component support. It's designed for "lift and improve" migrations of infrastructure-dependent workloads that need COM components, registry access, MSI installers, or IIS customization while retaining App Service's managed platform features.
 
 Key features:
@@ -143,7 +143,7 @@ Key features:
 - Pre-installed .NET Framework (3.5, 4.8) and .NET 8 with support for custom runtimes
 - Best for: Legacy .NET Framework apps requiring Windows-specific dependencies, gradual modernization without complete rewrites, and plan-level network isolation for compliance.
 
-Current limitations (preview): Windows only, Pv4/Pmv4 SKUs, available in East Asia, West Central US, North Europe, and East US. Not available for Linux, containers, or in App Service Environment.
+Current limitations: Windows only, Pv4/Pmv4 SKUs, available in East US, West Central US, East Asia, North Europe, Australia East, Central India, and South India. Not available for Linux, containers, or in App Service Environment.
 
 [Learn more about Managed Instance](overview-managed-instance.md)
 

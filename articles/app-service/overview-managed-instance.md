@@ -1,5 +1,5 @@
 ---
-title: Managed Instance on App Service overview (preview)
+title: Managed Instance on App Service overview
 description: Managed Instance on Azure App Service is a specialized hosting option that provides isolation, customization, and secure integration with Azure resources, ideal for legacy, and infrastructure-dependent web apps.
 keywords: app service, azure app service, managed instance, isolation, vnet integration, registry, COM, RDP, installation scripts, key vault, pv4, pmv4, windows services, GAC, third-party dependencies
 ms.topic: overview
@@ -10,11 +10,11 @@ ms.service: azure-app-service
 ms.custom: references_regions
 ---
 
-# Managed Instance on Azure App Service (preview)
+# Managed Instance on Azure App Service
 
-Managed Instance on Azure App Service (preview) is a plan‑scoped hosting option for Windows web apps that need Operating System (OS) customization, optional private networking, and secure integration with Azure resources. It targets legacy or infrastructure‑dependent workloads (Component Object Model (COM), registry, Microsoft/Windows Installer (MSI)) while retaining App Service’s managed patching, scaling, diagnostics, and identity features.
+Managed Instance on Azure App Service is a plan‑scoped hosting option for Windows web apps that need Operating System (OS) customization, optional private networking, and secure integration with Azure resources. It targets legacy or infrastructure‑dependent workloads (Component Object Model (COM), registry, Microsoft/Windows Installer (MSI)) while retaining App Service’s managed patching, scaling, diagnostics, and identity features.
 
-[!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
+[!INCLUDE [managed-instance](./includes/managed-instance/availability-note.md)]
 
 ## Key capabilities
 
@@ -89,7 +89,7 @@ Managed Instance provides plan-level configuration through:
 - Deployments supporting 100+ applications
 - Complete network boundary control
 
-## Current Limitations (Preview)
+## Current limitations
 
 | Limitation | Details |
 |-----------|---------|
@@ -104,7 +104,7 @@ Managed Instance provides plan-level configuration through:
 
 - Use configuration scripts (install scripts) for persistent configuration.
 - Centralize secrets using Key Vault.
-- Validate logging setup in preview environments.
+- Validate logging setup in nonproduction environments.
 - Test configuration (install) scripts in staging before production rollout.
 - Align network rules with dependency inventories.
 - Monitor with Microsoft Defender for Cloud for threat detection.

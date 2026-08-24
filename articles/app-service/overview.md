@@ -51,10 +51,10 @@ Whether you're a student, a small business, a startup, or an enterprise, App Ser
 
 For information about which Azure compute services best fit your scenario, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
-## Managed Instance on App Service (preview)
+## Managed Instance on App Service
 
 > [!NOTE]
-> Managed Instance (preview) adds customization with plan-scoped isolation for legacy or infrastructure-bound web apps requiring Component Object Model (COM), registry access, Windows/Microsoft Installers (MSI), drive mapping, or stricter network boundaries.
+> Managed Instance adds customization with plan-scoped isolation for legacy or infrastructure-bound web apps requiring Component Object Model (COM), registry access, Windows/Microsoft Installers (MSI), drive mapping, or stricter network boundaries.
 
 Key points:
 - Startup PowerShell install scripts enable COM, registry, IIS, ACL updates, MSI execution.

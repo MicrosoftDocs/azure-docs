@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Deploy Managed Instance on Azure App Service (Preview)"
+title: "Quickstart: Deploy Managed Instance on Azure App Service"
 description: Learn how to configure Managed Instance on Azure App Service
 author: msangapu-msft
 ms.author: msangapu
@@ -17,15 +17,15 @@ keywords:
   - app service cost
 ---
 
-# Deploy Managed Instance on Azure App Service (preview)
+# Deploy Managed Instance on Azure App Service
 
 Managed Instance on Azure App Service combines the simplicity of platform as a service with the flexibility of infrastructure-level control. Managed Instance is designed for applications that require plan-level isolation, customization, and secure network integration.
 
-[!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
+[!INCLUDE [managed-instance](./includes/managed-instance/availability-note.md)]
 
 In this quickstart, you complete the following steps:
 1. Use Azure Developer CLI to deploy sample resources.
-1. Create a Managed Instance on Azure App Service (preview).
+1. Create a Managed Instance on Azure App Service.
 1. Deploy a sample app.
 1. Verify the deployment.
 
@@ -33,7 +33,7 @@ In this quickstart, you complete the following steps:
 
 - **Azure account**: You need an Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- **Access to the approved regions**: During preview, regions for Managed Instance include: *East Asia*, *East US*, *North Europe*, and *West Central US*. More regions to follow.
+- **Access to the supported regions**: Managed Instance supports *East US*, *West Central US*, *East Asia*, *North Europe*, *Australia East*, *Central India*, and *South India*.
 
 - [Managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity)
 
@@ -107,7 +107,7 @@ Follow these steps to create a Managed Instance plan and deploy an app to it:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **+ Create a resource**.
 1. Search for **managed instance**
-1. Select **Web App (for Managed Instance) (preview)** in the results.
+1. Select **Web App (for Managed Instance)** in the results.
 1. Select **Create** to start the create process.
 1. On the Basic tab, provide the following details.
 
