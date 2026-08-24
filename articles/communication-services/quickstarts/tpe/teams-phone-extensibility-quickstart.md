@@ -96,10 +96,10 @@ Example:
 New-AzBotService -ResourceGroupName teamsphonetest-rg -Name "teamsPhoneBot" -ApplicationId aa123456-1234-1234-1234-aaa123456789 -Location "global" -Sku S1 -Description "My Teams Phone Test Bot" 
 ```
 
-For this step, when you configure Teams, the webhook can be any URL. Enter any valid URL such as `https://mycompanydomain.com`.
+For this step, when you configure Teams, set the webhook to `https://eventgrid.azure.net`. This value determines how your application receives incoming call notifications. When you configure the Event Grid URL, incoming call notifications are delivered through Azure Event Grid. If you set a different URL, notifications are delivered directly to that webhook instead. Use `https://eventgrid.azure.net` unless you specifically set up a direct webhook endpoint to handle incoming call notifications.
 
 > [!NOTE]
-> In the future, we expect to remove this dependency on URL.
+> This webhook URL is currently required. Until the dependency is removed, set it to `https://eventgrid.azure.net` to route incoming call notifications through Azure Event Grid.
 
 ### Teams Admin: Provision Resource Account
 
