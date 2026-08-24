@@ -108,7 +108,7 @@ az aks create \
 ```
 
 > [!NOTE]
->To prevent conflict with other services using Gateway API, the Application Gateway for Containers add-on requires use of the AKS Gateway API add-on.
+> [!NOTE]
 
 ### Existing Cluster
 
