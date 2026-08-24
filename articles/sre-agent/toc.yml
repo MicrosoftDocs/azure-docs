@@ -6,6 +6,8 @@ items:
   - name: Get started
     expanded: true
     items:
+      - name: Evaluate SRE Agent
+        href: evaluate.md
       - name: Create and set up
         href: create-and-set-up.md
       - name: Team onboarding
