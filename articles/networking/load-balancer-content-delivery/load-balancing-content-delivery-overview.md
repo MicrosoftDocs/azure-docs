@@ -70,7 +70,7 @@ Azure offers several load balancing and content delivery services, each suited t
 
 [Azure Application Gateway](../../application-gateway/overview.md) provides application delivery controller as a service, offering various Layer 7 load balancing capabilities and web application firewall functionality. Use it to transition from public network space into your web servers hosted in private network space within a region.
 
-:::image type="content" source="media/load-balancing-application-gateway-base-scenario.png" alt-text="Diagram of Azure Application Gateway routing scenario.":::
+:::image type="content" source="media/load-balancing-application-gateway-base-scenario.png" alt-text="Diagram showing Application Gateway receiving client HTTP requests and routing them to web app backends based on path and host rules.":::
 
 ### Azure Application Gateway use cases
 
@@ -85,7 +85,7 @@ Azure offers several load balancing and content delivery services, each suited t
 
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) is a high-performance, ultra-low-latency Layer 4 load balancing service (inbound and outbound) for all UDP and TCP protocols. Azure Load Balancer handles millions of requests per second while ensuring your solution is highly available. Azure Load Balancer is zone redundant, ensuring high availability across availability zones. It supports both a regional deployment topology and a [global topology](../../load-balancer/cross-region-overview.md).
 
-:::image type="content" source="media/load-balancing-load-balancer-base-scenario.png" alt-text="Diagram of Azure Load Balancer routing scenario.":::
+:::image type="content" source="media/load-balancing-load-balancer-base-scenario.png" alt-text="Diagram showing Azure Load Balancer receiving client traffic on a public front end and distributing it across a backend pool of VMs.":::
 
 ### Azure Load Balancer use cases
 
@@ -103,7 +103,7 @@ Azure offers several load balancing and content delivery services, each suited t
 
 [Azure Front Door](../../frontdoor/front-door-overview.md) is an application delivery network that provides global load balancing and site acceleration service for web applications. It offers Layer 7 capabilities for your application like SSL offload, path-based routing, fast failover, and caching to improve performance and high availability of your applications.
 
-:::image type="content" source="media/load-balancing-frontdoor-base-scenario.png" alt-text="Diagram of Azure Front Door routing scenario.":::
+:::image type="content" source="media/load-balancing-frontdoor-base-scenario.png" alt-text="Diagram showing Azure Front Door routing global client traffic through edge points of presence to the nearest healthy regional backend.":::
 
 ### Azure Front Door use cases
 
@@ -127,11 +127,11 @@ You can combine Azure Load Balancer, Azure Application Gateway, and Azure Front 
 
 The Azure portal provides a centralized experience for [choosing load balancing and content delivery services](https://portal.azure.com/#view/HubsExtension/AssetMenuBlade/~/overview/assetName/LoadBalancerAndContentDelivery/extensionName/Microsoft_Azure_Network). You can create and manage load balancers, application gateways, and front doors from the portal. The portal provides a guided experience for configuring the services, including setting up routing rules, health probes, and other settings.
 
-:::image type="content" source="media/load-balance-content-delivery-portal-experience-inline.png" alt-text="Screenshot of load balancing and content delivery selection experience in Azure portal." lightbox="media/load-balance-content-delivery-portal-experience-expanded.png":::
+:::image type="content" source="media/load-balance-content-delivery-portal-experience-inline.png" alt-text="Screenshot of the Azure portal Load balancing and content delivery selection page with options like Application Gateway and Front Door." lightbox="media/load-balance-content-delivery-portal-experience-expanded.png":::
 
 You can deploy and manage each service from the portal. You can see all the application gateways, load balancers, and front door resources deployed in your subscription in a single view. Then you can choose the resources to manage. 
 
-:::image type="content" source="media/manage-load-balancers-portal-experience-inline.png" alt-text="Screenshot of load balancer management in Azure portal." lightbox="media/manage-load-balancers-portal-experience-expanded.png":::
+:::image type="content" source="media/manage-load-balancers-portal-experience-inline.png" alt-text="Screenshot of the Azure portal Load balancing page showing existing load balancer resources with columns for name, resource group, and location." lightbox="media/manage-load-balancers-portal-experience-expanded.png":::
 
 ## Related content
 

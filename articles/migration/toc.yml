@@ -82,3 +82,5 @@ items:
       href: ./migrate-from-on-premises.yml
     - name: Fundamentals of Azure
       href: ./migrate-from-on-premises-fundamentals.md
+    - name: Azure landing zones
+      href: ./migrate-from-on-premises-platform-landing-zone.md
