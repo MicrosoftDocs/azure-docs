@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 03/21/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.update-cycle: 365-days
 ms.custom:
   - engagement-fy23

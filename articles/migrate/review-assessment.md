@@ -5,7 +5,7 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 04/17/2025
 ms.update-cycle: 365-days
 monikerRange:

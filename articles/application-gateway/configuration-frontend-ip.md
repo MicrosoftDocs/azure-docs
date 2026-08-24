@@ -40,6 +40,9 @@ Only one public IP address and one private IP address are supported per IP proto
 
 - For a private IP address, you can specify a private IP address from the subnet where the application gateway is created. For Application Gateway v2 SKU deployments, a static IP address must be defined when you add a private IP address to the gateway. For Application Gateway v1 SKU deployments, if you don't specify an IP address, an available IP address is automatically selected from the subnet. The IP address type that you select (static or dynamic) can't be changed later. For more information, see [Create an application gateway with an internal load balancer](./application-gateway-ilb-arm.md).
 
+> [!TIP]
+> Before you assign a static private frontend IP, verify that the address isn't already in use in the subnet. For steps to enumerate allocated addresses and choose a conflict-free address, see [Reserved and allocated IP addresses](./configuration-infrastructure.md#reserved-and-allocated-ip-addresses).
+
 A frontend IP address is associated to a *listener*, which checks for incoming requests on the frontend IP.
 
 You can create private and public listeners with the same port number. However, be aware of any network security group (NSG) associated with the Application Gateway subnet. Depending on your NSG's configuration, you might need an allow-inbound rule with **Destination IP addresses** as your application gateway's public and private frontend IPs. When you use the same port, your application gateway changes the **Destination** of the inbound flow to the frontend IPs of your gateway.

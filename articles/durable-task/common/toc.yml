@@ -232,12 +232,6 @@
       href: ../scheduler/develop-with-durable-task-scheduler.md
     - name: Develop
       items:
-      - name: On-demand sandboxes
-        items:
-        - name: On-demand sandboxes overview
-          href: ../scheduler/durable-task-scheduler-on-demand-sandboxes.md
-        - name: Configure on-demand sandboxes
-          href: ../scheduler/durable-task-scheduler-configure-on-demand-sandboxes.md
       - name: Configure autoscale for Container Apps
         href: ../sdks/durable-task-scheduler-auto-scaling.md
       - name: Auto-purge

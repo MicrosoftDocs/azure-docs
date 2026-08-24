@@ -1,11 +1,11 @@
 ---
 title: Discover, assess, and migrate Amazon Web Services (AWS) EC2 VMs to Azure
 description: This article describes how to migrate AWS VMs to Azure with Azure Migrate and Modernize.
-author: vijain
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 02/07/2025
 ms.update-cycle: 365-days
 ms.collection:
