@@ -675,6 +675,8 @@ To learn more about how the Durable Task Framework executes orchestrators, see t
 
 ### Materialize task sequences in .NET
 
+The detailed guidance and examples in this section apply to .NET orchestrators. In other languages, the equivalent mitigation is to eagerly materialize the task list or array before awaiting it and before iterating over it later.
+
 LINQ queries use deferred execution. If a query's selector calls `CallActivityAsync` or another durable scheduling API, each enumeration of the query creates a new set of durable tasks. For example, don't pass a deferred task sequence to `Task.WhenAll` and then enumerate the same sequence again:
 
 ```csharp
