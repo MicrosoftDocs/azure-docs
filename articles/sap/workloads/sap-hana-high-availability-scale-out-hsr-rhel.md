@@ -63,7 +63,6 @@ Some readers will benefit from consulting a variety of SAP notes and resources b
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide].
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide].
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide].
-* [SAP HANA network requirements](https://www.sap.com/documents/2016/08/1cd2c2fb-807c-0010-82c7-eda71af511fa.html).
 * General RHEL documentation:
   * [High availability add-on overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index).
   * [High availability add-on administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index).

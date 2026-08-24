@@ -1,9 +1,9 @@
 ---
 title: "Configure Managed Instance on Azure App Service"
-description: Learn how to configure and deploy a Managed Instance on Azure App Service using Azure CLI and ARM templates. This guide covers general settings, storage mounts, registry keys, and Bastion/RDP access.
+description: Learn how to configure and deploy a Managed Instance on Azure App Service using Azure CLI and ARM templates. This guide covers general settings, storage mounts, registry keys, and Bastion access.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 05/11/2026
+ms.date: 08/18/2026
 ms.service: azure-app-service
 ms.topic: how-to
 keywords:
@@ -26,7 +26,7 @@ keywords:
 
 # Configure Managed Instance on Azure App Service
 
-Managed Instance on Azure App Service is a plan‑scoped hosting option for Windows web apps that need Operating System (OS) customization, optional private networking, and secure integration with Azure resources. This article explains how to configure Managed Instance in key areas:
+Managed Instance on Azure App Service is a plan‑scoped hosting option for Windows web apps that need operating system (OS) customization, optional private networking, and secure integration with Azure services.
 
 - Managed identity
 - Configuration (install) scripts
@@ -38,7 +38,7 @@ Managed Instance on Azure App Service is a plan‑scoped hosting option for Wind
 
 ## Add a Managed identity (to the App Service plan)
 
-Plan-level managed identities enable authentication for infrastructure operations that occur at the platform layer, such as configuration (install) scripts accessing Azure Storage during startup, registry adapters pulling secrets from Key Vault, and storage mounts authenticating to Azure Files. These components are shared resources that multiple apps on the plan consume. For example, a plan-level identity allows Managed Instance to authenticate once for infrastructure components while individual apps maintain their own identities for app-specific resources like databases and application secrets.
+Plan-level managed identities enable authentication for infrastructure operations that occur at the platform layer, such as configuration (install) scripts accessing Azure Storage during startup, and Key Vault access for storage mounts and registry key adapters.
 
 Managed identities for the App Service plan are required in the following scenarios:
 
@@ -56,7 +56,9 @@ To add a Managed Identity to Managed Instance plan:
 
 ## Add configuration (install) scripts
 
-Configuration (install) scripts run at instance startup to apply persistent customization. Examples include, Component Object Model (COM) registration, Microsoft/Windows Installers (MSI) installs, Internet Information Services (IIS Server) config, ACL changes, enabling Windows Features, setting environment variables.
+Configuration (install) scripts aren't mandatory. Use a script when your app requires dependencies to be installed or operating system-level features to be configured.
+
+Configuration (install) scripts run at instance startup to apply persistent customization. Examples include, Component Object Model (COM) registration, Microsoft/Windows Installers (MSI) installs, and enabling Windows roles/features. Use configuration scripts for changes that must persist across instance restarts. Use RDP for diagnostics, not for persistent configuration.
 
 You need the following to use configuration (install) scripts:
 
@@ -110,7 +112,7 @@ try {
 
 ## Configure storage mounts
 
-Storage mounts provide persistent external storage (for example Azure Files) accessible to your app. Use for legacy code needing shared filesystem access, not for secrets (use Key Vault). While local (temporary) storage is also available, persistent changes require storage mounts.
+Storage mounts provide persistent external storage, such as Azure Files, that your app can access. Use storage mounts for legacy code that needs shared filesystem access. Don't use storage mounts for secrets; use Key Vault instead. Local storage is temporary, but Azure Files and custom UNC mounts persist across restarts.
 
 You need the following to configure storage mounts:
 - Managed identity (for Key Vault access)
@@ -181,10 +183,9 @@ To configure registry keys:
 > [!CAUTION]  
 > Be cautious when modifying system-critical registry paths. Incorrect changes can affect instance stability.
 >
-
 ## Configure RDP (Bastion) access
 
-[Quickstart: Deploy Azure Bastion automatically](../bastion/quickstart-host-portal.md) lets you securely connect to your VM instances through Remote Desktop Protocol (RDP). RDP via Azure Bastion is for transient diagnostics (log inspection, quick validation). If you intend to use Bastion via the portal, then upgrade your Bastion resource to standard pricing tier and select **Native Client Support and IP-Based Connection**.
+[Quickstart: Deploy Azure Bastion automatically](../bastion/quickstart-host-portal.md) lets you securely connect to your VM instances through Remote Desktop Protocol (RDP). RDP via Azure Bastion is intended for diagnostics and troubleshooting. Use configuration scripts for persistent changes.
 
 You need the following resources for Bastion/RDP access:
 
@@ -200,7 +201,7 @@ To configure Bastion:
 
 > [!CAUTION]  
 > Don't apply manual installers or configuration changes solely through RDP. Changes are lost on recycle or create configuration drift.
-
+>
 ## Frequently Asked Questions (FAQ)
 
 - [What operating system (OS) is running on Managed Instance on Azure App Service?](#what-operating-system-os-is-running-on-managed-instance-on-azure-app-service)
@@ -220,7 +221,6 @@ To configure Bastion:
 - [My Managed Instance on App Service plan has multiple web applications can I restart a single web application?](#my-managed-instance-on-app-service-plan-has-multiple-web-applications-can-i-restart-a-single-web-application)
 - [Can I assign Managed Identity to my web application within the Managed Instance on App Service plan?](#can-i-assign-managed-identity-to-my-web-application-within-the-managed-instance-on-app-service-plan)
 - [Is there a limitation on number of adapters that I can create for Managed Instance on App Service plan?](#is-there-a-limitation-on-number-of-adapters-that-i-can-create-for-managed-instance-on-app-service-plan)
-- [Which regions have support for Managed Instance on App Service?](#which-regions-have-support-for-managed-instance-on-app-service)
 
 ### What operating system (os) is running on Managed Instance on Azure App Service?
 
@@ -228,19 +228,23 @@ Windows Server 2022.
 
 ### Can I enable more Windows roles and features?
 
-Yes, through a configuration script. However, features [removed from a future release of Windows Server](/windows-server/get-started/removed-deprecated-features-windows-server?tabs=ws25), won't be unavailable in Managed Instance.
+Yes, through a configuration script. However, you can't configure features that are [removed from a future release of Windows Server](/windows-server/get-started/removed-deprecated-features-windows-server?tabs=ws25).
 
 ### Does Managed Instance on Azure App Service receive regular platform and application stack updates?
 
-Yes, instances receive routine platform updates and maintenance. Preinstalled application stacks are also updated regularly. You're required to maintain any components installed via configuration (install) scripts.
+Yes, instances receive routine platform updates and maintenance. The service also regularly updates preinstalled application stacks. You're responsible for maintaining any components you install through configuration scripts.
+
+
 
 ### Which programming languages are installed on Managed Instance on Azure App Service?
 
-Microsoft .NET Framework 3.5, 4.8, and Microsoft .NET 8.0. If you require other runtimes, you can install them using a configuration script. Azure App Service won't maintain extra runtimes as part of platform maintenance and you must update them manually.
+The service includes Microsoft .NET Framework 3.5, 4.8, and Microsoft .NET 8.0. If you need other runtimes, install them by using a configuration script. Azure App Service doesn't maintain extra runtimes as part of the platform.
 
 ### What are limitations on the configuration (install) scripts?
 
-Configuration (install) scripts can install dependencies, enable roles and features, and customize the operating system. However, destructive operations (for example, deleting `Windows\System32`) are **not supported** and can result in instance instability.
+### What are the limitations on the configuration (install) scripts?
+Configuration (install) scripts can install dependencies, enable roles and features, and customize the operating system. However, the service doesn't support destructive operations (for example, deleting `Windows\\System32`) because they can affect instance stability.
+
 
 ### At what permission level is a configuration (install) script executed?
 
@@ -252,13 +256,14 @@ Operators connecting via Bastion have **Administrator** privileges during the se
 
 ### How do I troubleshoot failures with my configuration (install) script or registry/storage adapters?
 
-To troubleshoot, review the logs for configuration (install) scripts. They can be found in C:\InstallScripts\Script\Install.log on the instance (not the web app). Alternatively, App Service console logs can be shipped to Azure Monitor and Log Analytics.
+Operators connecting by using Bastion have **Administrator** privileges during the session. You can find adapter logs in the root of the machine, or they're logged into App Service Platform Logs.
 
 Adapter logs can be found in the root of the machine, alternatively they're logged into App Service Platform Logs.
 
 ### What is the addressable memory of a Managed Instance on Azure App Service worker instance?
 
-The addressable memory of a Managed Instance on Azure App Service worker instance varies dependent on the pricing plan chosen. The following table lists the addressable memory for the Managed Instance on Azure App Service worker instance. It's important to consider if you have a configuration script that installs more components, services, etc. These resources affect the amount of memory available for use by your web apps.
+The addressable memory of a Managed Instance on Azure App Service worker instance varies depending on the pricing plan you choose. The following table lists the addressable memory for the Managed Instance worker instance.
+
 
 | Pricing plan | Cores | Memory (MB) |
 | --- | --- | --- |
@@ -286,7 +291,7 @@ No size limit is enforced. Remember that the overall size of dependencies impact
 
 ### Does adding or editing Managed Instance on App Service plan adapters restart the plan instances?
 
-Yes, adding or editing Managed Instance plan adapters (configuration script/storage/registry) restart the underlying instances and affect all web apps deployed to the plan. Remember that instance restarts removes all changes made via RDP session. Always use configuration (install) script to persist dependencies installation or other configuration changes required.
+Yes, adding or editing Managed Instance plan adapters (configuration script, storage, or registry) restarts the underlying instances and affects all web apps deployed to the plan. Instance restarts are required to apply configuration changes.
 
 ### My Managed Instance plan has multiple instances can I restart a single instance?
 
@@ -302,15 +307,9 @@ Yes, you can assign a _different_ Managed identity to a web application within t
 
 ### Is there a limitation on number of adapters that I can create for Managed Instance on App Service plan?
 
-No, there's no limit on the number of storage or registry adapters. You can only create a single configuration (install) script adapter for Managed Instance on App Service plan. The increasing the number of adapters could affect provisioning time for Managed Instance.
+### Is there a limitation on the number of adapters that I can create for Managed Instance on App Service plan?
+No, there's no limit on the number of storage or registry adapters. You can only create a single configuration (install) script adapter for Managed Instance on App Service plan. Increasing the number of adapters might increase instance provisioning time.
 
-### Which regions have support for Managed Instance on App Service?
-
-Managed Instance on App Service is currently available in East US, West Central US, East Asia, North Europe, Australia East, Central India, and South India. To get the current list of supported regions, use the following CLI command (you must be using Azure CLI version 2.82.0 or higher).
-
-```azurecli
-az appservice list-locations --managed-instance-enabled --sku <Pv4 or PmV4 sku your require, for example P1v4>
-```
 
 ## Related content
 

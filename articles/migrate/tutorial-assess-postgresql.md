@@ -1,8 +1,8 @@
 ---
 title: Assessing On-Premises PostgreSQL for Migration to Azure Flexible Server
 description: Learn how to assess on-premises PostgreSQL workloads for Azure migration using Azure Migrate, including how to run configuration-based assessments and analyze readiness, risks, and cost estimates.
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-migrate 
 ms.topic: tutorial
 ms.date: 08/05/2025

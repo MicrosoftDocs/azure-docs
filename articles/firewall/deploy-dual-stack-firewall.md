@@ -25,7 +25,6 @@ Azure Firewall's IPv6 support is designed for specific use cases and has certain
 
 ### Supported scenarios
 
-- **PowerShell and Azure CLI**: Deployment of the feature by using PowerShell and Azure CLI is currently supported. Azure portal support is coming soon.
 - **Network rules**: Azure Firewall fully supports IPv6 traffic in network rules. You can create rules to allow or deny IPv6 traffic.
 - **DNS proxy**: Azure Firewall can be configured as a DNS proxy in IPv6 networks.
 
@@ -34,8 +33,6 @@ Azure Firewall's IPv6 support is designed for specific use cases and has certain
 
 ### Limitations
 
-- Azure Firewalls deployed in **Israel Central, Israel Northwest, Qatar Central, UAE Central, and UAE North** currently don't support dual-stack mode. This capability will soon be available in these regions.
-- Deployment through the Azure portal isn't currently supported. Portal support is coming soon.
 - Classic Azure Firewall isn't supported.
 - Virtual hub (vHub) Firewall isn't supported.
 - Application and DNAT rules aren't supported yet.
@@ -63,7 +60,7 @@ To upgrade an existing Azure Firewall from IPv4-only to dual stack mode (IPv4 an
 > After you upgrade a firewall to dual stack mode, you can't revert it back to IPv4-only mode. This temporary limitation will be removed when dual stack support becomes generally available.
 
 Use the following tabs to add IPv6 support to a firewall that's already deployed.
-<!--
+
 ### [Portal](#tab/portal)
 
 1. Open your virtual network in the Azure portal, select **Address space**, and add the IPv6 prefix (for example, `79f7:d56c:e9bc:8000::/49`). Save your changes.
@@ -76,8 +73,8 @@ Use the following tabs to add IPv6 support to a firewall that's already deployed
 
 1. Create the public IPv6 address resource, and then attach it to the firewall configuration.
 
-    :::image type="content" source="media/deploy-dual-stack-firewall/update-firewall-ipv6-configuration.png" alt-text="Screenshot of updating firewall to include IPv6 public IP.":::
--->
+    :::image type="content" source="media/deploy-dual-stack-firewall/update-firewall-configuration.png" alt-text="Screenshot of updating the firewall to include an IPv6 public IP.":::
+    
 ### [PowerShell](#tab/powershell)
 
 1. Update the virtual network (VNET) to add an IPv6 address space using [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) and [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork).
@@ -164,13 +161,13 @@ Use the following tabs to add IPv6 support to a firewall that's already deployed
 ***
 
 ## Create a dual stack Azure Firewall
-<!--
+
 ### [Portal](#tab/portal)
 
 1. In the deployment flow for Azure Firewall, enter the IPv6 address space, enter the IPv6 subnet prefix, and add a new or existing IPv6 public IP address to the new Azure Firewall.
 
-    :::image type="content" source="media/deploy-dual-stack-firewall/dual-mode-configuration.png" alt-text="Screenshot of dual mode firewall configuration in Azure portal.":::
--->
+    :::image type="content" source="media/deploy-dual-stack-firewall/dual-mode-configuration.png" alt-text="Screenshot of dual stack configuration for a new Azure Firewall in the Azure portal.":::
+
 ### [PowerShell](#tab/powershell)
 
 To set up a dual stack firewall by using PowerShell:

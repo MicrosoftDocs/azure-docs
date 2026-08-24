@@ -49,7 +49,7 @@ A port is where a listener listens for the client request. You can configure por
 
 ### Protocols
 
-Application Gateway provides support for web protocols HTTP, HTTPS, HTTP/2, and WebSocket through its Layer 7 proxy. Additionally, it supports TLS and TCP protocols via its [Layer 4 proxy](tcp-tls-proxy-overview.md) in Preview, which can be configured on the same resource.
+Application Gateway provides support for web protocols HTTP, HTTPS, HTTP/2, and WebSocket through its Layer 7 proxy. Additionally, it supports TLS and TCP protocols via its [Layer 4 proxy](tcp-tls-proxy-overview.md), which can be configured on the same resource.
 
 - Choose between the HTTP, HTTPS, TLS or TCP protocols in the listener configuration.
 - You can use an HTTPS or TLS listener for TLS termination. An HTTPS/TLS listener offloads the encryption and decryption work to your application gateway, so your servers aren't burdened by TLS computation overhead.

@@ -3,7 +3,7 @@ title: Managed Instance on App Service overview
 description: Managed Instance on Azure App Service is a specialized hosting option that provides isolation, customization, and secure integration with Azure resources, ideal for legacy, and infrastructure-dependent web apps.
 keywords: app service, azure app service, managed instance, isolation, vnet integration, registry, COM, RDP, installation scripts, key vault, pv4, pmv4, windows services, GAC, third-party dependencies
 ms.topic: overview
-ms.date: 05/01/2026
+ms.date: 08/18/2026
 ms.author: msangapu
 author: msangapu-msft
 ms.service: azure-app-service
@@ -12,7 +12,7 @@ ms.custom: references_regions
 
 # Managed Instance on Azure App Service
 
-Managed Instance on Azure App Service is a plan‑scoped hosting option for Windows web apps that need Operating System (OS) customization, optional private networking, and secure integration with Azure resources. It targets legacy or infrastructure‑dependent workloads (Component Object Model (COM), registry, Microsoft/Windows Installer (MSI)) while retaining App Service’s managed patching, scaling, diagnostics, and identity features.
+Managed Instance on Azure App Service is a plan‑scoped hosting option for Windows web apps that need operating system (OS) customization, optional private networking, and secure integration with Azure resources. It targets legacy or infrastructure‑dependent workloads (Component Object Model (COM), registry, Microsoft/Windows Installer (MSI)) while retaining App Service’s managed patching, scaling, diagnostics, and identity features.
 
 [!INCLUDE [managed-instance](./includes/managed-instance/availability-note.md)]
 
@@ -39,6 +39,7 @@ The following table summarizes the main capabilities that Managed Instance offer
 Managed Instance provides plan-level configuration through:
 
 - **Configuration (install) scripts**: Upload zipped PowerShell scripts to Azure Storage (accessed via managed identity). Scripts run at startup for persistent configuration.  
+  - Scripts are optional. Use a script when your app requires dependencies to be installed or operating system-level features to be configured.
   - RDP session changes are temporary and lost after restart or platform maintenance.
   - Script execution logs appear in App Service console logs and can be streamed to Azure Monitor.
 
@@ -104,7 +105,7 @@ Managed Instance provides plan-level configuration through:
 
 - Use configuration scripts (install scripts) for persistent configuration.
 - Centralize secrets using Key Vault.
-- Validate logging setup in nonproduction environments.
+- Validate logging setup in staging environments.
 - Test configuration (install) scripts in staging before production rollout.
 - Align network rules with dependency inventories.
 - Monitor with Microsoft Defender for Cloud for threat detection.

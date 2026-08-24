@@ -1,11 +1,11 @@
 ---
 title: Discover and assess using Azure Private Link
 description: Create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration.
-author: vijain
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.update-cycle: 1825-days
 ms.date: 09/26/2024
 ms.custom:

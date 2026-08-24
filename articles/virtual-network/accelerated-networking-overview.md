@@ -51,6 +51,8 @@ Accelerated Networking is available in all global Azure regions and the Azure Go
 
 ### Supported operating systems
 
+## Windows
+
 The following versions of Windows support Accelerated Networking for all interfaces:
 
 | **Product** |
@@ -61,13 +63,15 @@ The following versions of Windows support Accelerated Networking for all interfa
 | **Windows Server 2022** |
 | **Windows Server 2025** |
 
+## Linux
 
-The following Linux and FreeBSD distributions from Azure Marketplace support Accelerated Networking out of the box:
+### For virtual machines (VMs) with the [Microsoft Mana Adapter](/azure/virtual-network/accelerated-networking-mana-overview):
 
 | **Distribution** | **Kernel Series** | **Min Version** |
 |------------------|------------------|-----------------|
 | **AlmaLinux 9.6** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
 | **AlmaLinux 10.0** | 6.12 | kernel-6.12.0-108.el10 |
+| **Azure Linux 3** | 6.6 | ANY |
 | **Azure Linux 4** | 6.18 | ANY |
 | **Debian 12 "Bookworm"** | 6.12 | 6.12.21 |
 | **Debian 13 "Trixie"** | 6.12 | 6.12.21 |
@@ -75,16 +79,16 @@ The following Linux and FreeBSD distributions from Azure Marketplace support Acc
 | **Oracle Linux (Red Hat kernel) 10.x** | 6.12 | kernel-6.12.0-108.el10 |
 | **Oracle Linux UEK R7** | UEK 7 | *Not listed above* |
 | **Oracle Linux UEK R8** | UEK 8/U1 (6.12.0-100.28.2) | UEK8/U1 |
-| **Rocky Linux 9.7** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
+| **Rocky Linux 9.6** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
 | **Rocky Linux 10.0** | 6.12 | kernel-6.12.0-108.el10 |
 | **Red Hat Enterprise Linux 9.6** | 5.14 | kernel-5.14.0-570.52.1.el9_6 |
 | **Red Hat Enterprise Linux 10.0** | 6.12 | kernel-6.12.0-108.el10 |
+| **SUSE Linux Enterprise Server 15 SP5** | 5.14 | 5.14.21-150500.55.121.2  |
 | **SUSE Linux Enterprise Server 15 SP6** | 6.4 | 6.4.0-150600.23.73.1 |
 | **SUSE Linux Enterprise Server 15 SP7** | 6.4 | 6.4.0-150700.53.16.1 |
 | **SUSE Linux Enterprise Server 16** | 6.12 | 6.12.0-160000.5.1 |
 | **Ubuntu 22.04 LTS** | 5.15 | 5.15.0-1096.105 |
 | **Ubuntu 24.04 LTS** | 6.8 | 6.8.0-1041.47 |
-
 
 For users of non endorsed Linux distributions or utilizing custom kernels, we recommend the Linux Kernel 6.14 or later found at [kernel.org](https://www.kernel.org/)
 
@@ -93,7 +97,9 @@ For users of non endorsed Linux distributions or utilizing custom kernels, we re
 > 
 > The preceding table lists the minimum recommended kernel versions for MANA support.
 
-
+### For virtual machines (VMs) with Mellanox Adapters
+ 
+All [Azure Endorsed Linux Distributions](/azure/virtual-machines/linux/endorsed-distros) are supported, as long as the vendors don't mark them as end of life (EOL).
 
 ### Supported VM instances
 

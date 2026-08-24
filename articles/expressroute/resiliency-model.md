@@ -57,6 +57,23 @@ The portal displays your connectivity status once you connect all required circu
 
 :::image type="content" source="./media/resiliency-model/multi-homed-connectivity-status.png" alt-text="Screenshot showing connectivity status for multi-homed gateway." lightbox="./media/resiliency-model/multi-homed-connectivity-status.png":::
 
+### Create a gateway with PowerShell
+
+When you create an ExpressRoute virtual network gateway with PowerShell, you must include the `-ResiliencyModel` parameter. Set the parameter to `SingleHomed` or `MultiHomed`.
+
+```azurepowershell
+$gateway = New-AzVirtualNetworkGateway `
+    -Name $gatewayName `
+    -ResourceGroupName $resourceGroupName `
+    -Location $location `
+    -IpConfigurations $ipConfiguration `
+    -GatewayType ExpressRoute `
+    -GatewaySku $gatewaySku `
+    -ResiliencyModel MultiHomed
+```
+
+To create a single-homed gateway, set `-ResiliencyModel SingleHomed`.
+
 ## Change your resiliency model
 
 You can change your gateway's resiliency model at any time on the **Configuration** tab in the Azure portal.

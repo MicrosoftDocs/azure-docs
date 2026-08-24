@@ -3,7 +3,7 @@ title: Configure Premium v4 Tier
 description: Learn how to better performance for your web, mobile, and API app in Azure App Service by scaling to the new Premium V4 pricing tier.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 ms.topic: how-to
-ms.date: 08/03/2026
+ms.date: 08/18/2026
 ms.author: msangapu
 author: msangapu-msft
 ms.custom:

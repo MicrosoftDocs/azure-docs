@@ -4,7 +4,7 @@ description: This article describes how to build a business case with Azure Migr
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 03/20/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.update-cycle: 1825-days
 ms.custom:
   - engagement-fy23

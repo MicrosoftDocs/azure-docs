@@ -13,7 +13,7 @@ zone_pivot_groups: networking-scenario
 
 # DDoS protection for Azure networks
 
-Azure offers multiple DDoS protection tiers to defend your workloads from distributed denial-of-service (DDoS) attacks. This article compares infrastructure protection, DDoS Network Protection, and DDoS IP Protection to help you choose the right tier.
+Azure offers multiple DDoS protection tiers to defend your workloads from distributed denial-of-service (DDoS) attacks. This article compares infrastructure protection, DDoS Network Protection, and DDoS IP Protection to help you choose the right tier. DDoS Protection is one of three core [Azure network security](../security/network-security.md) services, alongside Azure Firewall and Azure Web Application Firewall (WAF).
 
 ## What this article covers
 
@@ -31,13 +31,13 @@ Read this article if you:
 
 ::: zone pivot="lift-shift"
 
-**Lift-and-shift focus:** Most rehosted workloads expose few public IPs. Rely on the always-on included protection during migration, and add DDoS Network Protection only on VNets with internet-facing endpoints.
+**Lift-and-shift focus:** Most rehosted workloads expose few public IPs. Rely on the always-on included protection during migration, and add DDoS Network Protection only on virtual networks with internet-facing endpoints.
 
 ::: zone-end
 
 ::: zone pivot="modernize"
 
-**Modernize focus:** Customer-facing, multiregion apps justify DDoS Network Protection across the VNets that hold your public IPs, including those fronting Azure Front Door, Application Gateway, and load balancers.
+**Modernize focus:** Customer-facing, multiregion apps justify DDoS Network Protection across the virtual networks that hold your public IPs, including those fronting Azure Front Door, Application Gateway, and load balancers.
 
 ::: zone-end
 
@@ -54,7 +54,7 @@ The following table compares the three DDoS protection options available in Azur
 | Protection tier | Cost | Scope | Key capabilities | Best for |
 |---|---|---|---|---|
 | **Azure DDoS infrastructure protection** | Free (automatic) | All Azure public IPs | Always-on monitoring, real-time mitigation of L3/L4 volumetric attacks, same protection that defends Microsoft's own services | All Azure customers. No configuration required. Protects against common network-layer attacks. |
-| **DDoS Network Protection** | Per-plan (covers up to 100 public IPs per tenant) | Tenant-wide: one plan covers linked VNets across subscriptions | Adaptive tuning per public IP, attack analytics and reporting, DDoS Rapid Response (DRR) team access, cost protection, availability SLA, Application Gateway WAF discount | Production workloads requiring SLA guarantees, attack forensics, and financial protection against scale-out costs. |
+| **DDoS Network Protection** | Per-plan (covers up to 100 public IPs per tenant) | Tenant-wide: one plan covers linked virtual networks across subscriptions | Adaptive tuning per public IP, attack analytics and reporting, DDoS Rapid Response (DRR) team access, cost protection, availability SLA, Application Gateway WAF discount | Production workloads requiring SLA guarantees, attack forensics, and financial protection against scale-out costs. |
 | **DDoS IP Protection** | Per-IP | Individual public IPs | Same core mitigation engine as Network Protection, adaptive tuning, attack analytics | Smaller deployments or individual IPs where a full plan isn't cost-effective. Doesn't include DDoS Rapid Response, cost protection, WAF discount, or Public IP Basic tier protection. |
 
 ### What each tier protects
@@ -98,10 +98,10 @@ Azure DDoS infrastructure protection is always active and provides meaningful de
 
 ### Cost model
 
-DDoS Network Protection uses a fixed monthly fee that covers up to 100 public IP addresses across all linked VNets within your Microsoft Entra tenant. Additional IPs beyond 100 incur per-IP overage charges monthly. For organizations with fewer than 15 to 20 public IPs, evaluate whether DDoS IP Protection offers better cost efficiency by comparing the plan cost against the per-IP alternative.
+DDoS Network Protection uses a fixed monthly fee that covers up to 100 public IP addresses across all linked virtual networks within your Microsoft Entra tenant. Additional IPs beyond 100 incur per-IP overage charges monthly. For organizations with fewer than 15 to 20 public IPs, evaluate whether DDoS IP Protection offers better cost efficiency by comparing the plan cost against the per-IP alternative.
 
 > [!IMPORTANT]
-> One DDoS protection plan per tenant covers all linked VNets across subscriptions. You don't need multiple plans for different regions or subscriptions. The plan is created in a specific region but protects VNets in any region within the tenant.
+> One DDoS protection plan per tenant covers all linked virtual networks across subscriptions. You don't need multiple plans for different regions or subscriptions. The plan is created in a specific region but protects virtual networks in any region within the tenant.
 
 DDoS IP Protection charges per protected public IP per month. No plan required. This option suits organizations that need enhanced protection for a small number of IPs without the cost commitment of a full plan. However, DDoS IP Protection doesn't include DDoS Rapid Response team access, cost protection credits, or the Application Gateway WAF billing discount.
 
@@ -128,7 +128,7 @@ When you enable DDoS Network Protection on the virtual network containing an App
 
 - Enable DDoS Network Protection on the virtual networks that hold public IPs for customer-facing apps, including those associated with Azure Front Door origins, Application Gateway, and public load balancers.
 - Combine DDoS protection with WAF: the Application Gateway WAF component is billed at the Standard v2 rate when DDoS Network Protection is enabled on the virtual network.
-- For active-active multi-region designs, confirm each region's public IPs are covered, because one tenant plan protects VNets in any region.
+- For active-active multiregion designs, confirm each region's public IPs are covered, because one tenant plan protects virtual networks in any region.
 - Surface DDoS metrics and alerts in your operational monitoring so the platform team sees attacks alongside other network signals.
 
 ::: zone-end
@@ -149,9 +149,9 @@ When you enable DDoS Network Protection on the virtual network containing an App
 Before you enable enhanced DDoS protection, make sure you have:
 
 - **Public IP addresses**: DDoS protection applies to Azure public IP resources. Resources without public IPs aren't exposed to internet-based DDoS attacks and don't need coverage.
-- **A virtual network**: DDoS Network Protection is enabled at the VNet level. All public IPs within a protected VNet are automatically covered.
+- **A virtual network**: Enable DDoS Network Protection at the virtual network level. All public IPs within a protected virtual network are automatically covered.
 - **Permissions**: The Network Contributor role or a custom role with `Microsoft.Network/ddosProtectionPlans` permissions is required to create or manage DDoS plans.
-- **One DDoS plan per tenant (Network Protection)**: Create a single plan and link it to the VNets that contain your protected public IPs. You can link VNets from multiple subscriptions to the same plan.
+- **One DDoS plan per tenant (Network Protection)**: Create a single plan and link it to the virtual networks that contain your protected public IPs. You can link virtual networks from multiple subscriptions to the same plan.
 - **Azure Monitor configuration**: Configure diagnostic settings to send DDoS metrics and attack flow logs to Log Analytics, Event Hubs, or Azure Storage for monitoring and retention.
 - **Incident response plan**: Document your team's response procedures for DDoS events including escalation paths, on-call contacts, and communication templates. If you use DDoS Network Protection, register with the DDoS Rapid Response team before an attack occurs.
 
@@ -163,11 +163,11 @@ The following sections describe how to layer DDoS protection with other Azure se
 
 DDoS protection and Azure Firewall operate at different layers but complement each other in a defense-in-depth strategy. DDoS protection mitigates volumetric attacks at the Azure network edge, preventing traffic floods from overwhelming your infrastructure. Azure Firewall inspects the traffic that survives DDoS filtering and applies granular application and network rules for access control, URL filtering, and threat intelligence.
 
-Enable DDoS protection on VNets containing Azure Firewall public IPs to protect the firewall itself from volumetric attacks. Without this protection, a sustained volumetric attack could exhaust the firewall's capacity, disrupting all services routed through it.
+Enable DDoS protection on virtual networks containing Azure Firewall public IPs to protect the firewall itself from volumetric attacks. Without this protection, a sustained volumetric attack could exhaust the firewall's capacity, disrupting all services routed through it.
 
 ### Public IP coverage
 
-When you enable DDoS Network Protection on a VNet, all public IPs within that VNet receive automatic protection. You don't need per-resource configuration. This coverage includes public IPs attached to:
+When you enable DDoS Network Protection on a virtual network, all public IPs within that virtual network receive automatic protection. You don't need per-resource configuration. This coverage includes public IPs attached to:
 
 - Azure Firewall
 - Application Gateway and WAF
@@ -175,7 +175,7 @@ When you enable DDoS Network Protection on a VNet, all public IPs within that VN
 - Azure Bastion
 - Virtual machine network interfaces
 - VPN Gateway and ExpressRoute Gateway (protected by DDoS policy, but adaptive tuning isn't supported)
-- Azure API Management (external VNet mode)
+- Azure API Management (external virtual network mode)
 
 > [!NOTE]
 > Resources using only private IPs don't require DDoS protection because DDoS attacks target public endpoints. If a workload is accessible only through private endpoints or internal load balancers, it isn't exposed to internet-originated volumetric attacks.
@@ -200,7 +200,8 @@ Explore related networking design guidance:
 - [Azure Firewall and traffic inspection](azure-firewall.md): Layered defense combining DDoS protection with firewall traffic inspection.
 - [Internet ingress and public-facing services](internet-ingress.md): Protection strategies for inbound internet traffic.
 - [Network security groups and application security groups](network-application-security-groups.md): Microsegmentation within the virtual network.
-- [Hub-spoke network topology](hub-spoke.md): Centralized security model where DDoS protection applies to the hub VNet.
+- [Hub-spoke network topology](hub-spoke.md): Centralized security model where DDoS protection applies to the hub virtual network.
+- [What is Azure network security?](../security/network-security.md): Overview hub that compares Azure Firewall, DDoS Protection, and Web Application Firewall.
 
 ## Learn more
 

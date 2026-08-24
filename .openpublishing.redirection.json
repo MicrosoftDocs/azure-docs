@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path": "articles/deployment-environments/tutorial-deploy-environments-in-cicd-github.md",
+      "redirect_url": "/previous-versions/azure/deployment-environments/tutorial-deploy-environments-in-cicd-github",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/durable-task/scheduler/durable-task-scheduler-on-demand-sandboxes.md",
+      "redirect_url": "/azure/durable-task/scheduler/durable-task-scheduler",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/durable-task/scheduler/durable-task-scheduler-configure-on-demand-sandboxes.md",
+      "redirect_url": "/azure/durable-task/scheduler/durable-task-scheduler",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-china-delivery.md",
+      "redirect_url": "/azure/frontdoor/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-compute-fleet/modify-fleet.md",
       "redirect_url": "/azure/azure-compute-fleet/managed-mode",
       "redirect_document_id": false

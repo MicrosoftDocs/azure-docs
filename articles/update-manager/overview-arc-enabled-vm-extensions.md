@@ -4,8 +4,8 @@ description: Learn about Azure Arc-enabled VM extensions, including their latest
 ms.service: azure-update-manager
 ms.date: 03/28/2025
 ms.topic: overview
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.update-cycle: 1095-days
 # Customer intent: "As a cloud administrator, I want to stay updated on the latest improvements and bug fixes for Azure Arc-enabled VM extensions, so that I can effectively manage updates and troubleshoot any issues that arise."
 ---

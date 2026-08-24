@@ -12,13 +12,15 @@ items:
   items: 
   - name: Resource hierarchy
     href: resource-hierarchy.md
-  - name: Migration costs
-    href: billing.md
   - name: Migrate data using private connections
     href: migrations-requiring-private-connections.md
-- name: How-To
-  items: 
-  - name: Plan
+  - name: Configure bandwidth limits
+    href: bandwidth-management.md
+  - name: Migration costs
+    href: billing.md
+- name: On-premises to Azure
+  items:
+  - name: Assess and plan
     items:
     - name: Planning for a deployment
       href: deployment-planning.md
@@ -26,10 +28,12 @@ items:
       href: service-prerequisites.md
     - name: Network prerequisites
       href: network-prerequisites.md
-    - name: Planning your Private Networking for cloud to cloud migrations
+    - name: Planning migrations using Private Networking
       href: cloud-to-cloud-private-network-configuration.md
     - name: Performance targets
       href: performance-targets.md
+    - name: Estimate billing & costs
+      href: billing.md
   - name: Deploy and execute
     items:
     - name: Create a storage mover resource
@@ -38,38 +42,48 @@ items:
       href: cloud-to-cloud-migration.md
     - name: Migrate from Google S3 to Azure
       href: google-migration.md
+    - name: Migrate from Oracle Cloud to Azure Blob Storage
+      href: oracle-cloud-azure-blob.md
     - name: Transfer from Azure Blob to Blob
       href: azure-to-azure-migration.md
     - name: Migrate from AWS FSx to Azure Files
       href: amazon-files-azure-files-migration.md
+    - name: Migrate from on-premises SMB to Azure Files (agentless)
+      href: agentless-on-premises-files-migration.md
     - name: Deploy a storage mover agent
       href: agent-deploy.md
     - name: Register an agent
       href: agent-register.md
     - name: Create endpoints
-      href: endpoint-manage.md  
+      href: endpoint-manage.md
     - name: Define a migration project
       href: project-manage.md
     - name: Define and start a migration job
       href: job-definition-create.md
+    - name: Monitor copy and job run logs
+      href: log-monitoring.md
+  - name: Manage and decommission
+    items:
     - name: Schedule a migration job
       href: job-scheduling.md
-  - name: Manage
-    items:
     - name: Configure bandwidth limits
       href: bandwidth-management.md
-  - name: Decommission
-    items: 
     - name: Unregister an agent
-      href: agent-deploy.md#decommissioning-an-agent 
-  - name: Troubleshoot
-    items: 
-    - name: Troubleshoot network issues
-      href: network-troubleshooting.md
-    - name: Job run error codes
-      href: status-code.md
-    - name: Collect a support bundle
-      href: troubleshooting.md
+      href: agent-deploy.md#decommissioning-an-agent
+- name: Cloud to cloud
+  items:
+  - name: Planning your Private Networking for cloud to cloud migrations
+    href: cloud-to-cloud-private-network-configuration.md
+  - name: Migrate from Amazon S3 to Azure
+    href: cloud-to-cloud-migration.md
+  - name: Migrate from Google S3 to Azure
+    href: google-migration.md
+  - name: Transfer from Azure Blob to Blob
+    href: azure-to-azure-migration.md
+  - name: Migrate from AWS FSx to Azure Files
+    href: amazon-files-azure-files-migration.md
+  - name: Schedule a migration job
+    href: job-scheduling.md
 - name: Reliability and resiliency
   items:
   - name: Reliability in Azure Storage Mover
@@ -78,6 +92,12 @@ items:
     href: customer-initiated-disaster-recovery.md
 - name: Resources
   items:
+  - name: Troubleshoot network issues
+    href: network-troubleshooting.md
+  - name: Job run error codes
+    href: status-code.md
+  - name: Collect a support bundle
+    href: troubleshooting.md
   - name: Monitor copy and job run logs
     href: log-monitoring.md
   - name: Release notes
