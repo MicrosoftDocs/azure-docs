@@ -68,7 +68,7 @@ After successful deployment, you see your API Management service's **private** v
 :::image type="content" source="media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png" alt-text="Screenshot of the API Management Overview page in the Azure portal that shows the public and private virtual IP addresses.":::
 
 > [!NOTE]
-> Because the gateway URL is not registered on the public DNS, the test console available on the Azure portal will not work for an **internal** VNet deployed service. Instead, use the test console provided on the **developer portal**.
+> Because the gateway URL isn't registered on the public DNS, the test console available in the Azure portal doesn't work for an **internal** VNet deployed service. Instead, use the test console provided on the **developer portal**.
 
 ### Enable connectivity by using a Resource Manager template
 
@@ -132,7 +132,7 @@ DNS configuration should be limited to the exact host names required for the API
 Recommended approaches:
 
 - Create DNS records for the full FQDNs only, pointing directly to the API Management private virtual IP
-- If you use Azure Private DNS, create a zone scoped to the specific service FQDN, not the apex public domain
+- If you use Azure Private DNS, create a zone that's scoped to the specific service FQDN, not the apex public domain.
 - Alternatively, use an existing corporate DNS forward lookup zone and define explicit A records for each endpoint
 
 Examples of valid scoping:
@@ -180,7 +180,7 @@ The following virtual IP addresses are configured for an API Management instance
 | **Private virtual IP address** | A load balanced IP address from within the API Management instance's subnet range (DIP), over which you can access the API gateway, developer portal, management, and Git endpoints.<br/><br/>Register this address with the DNS servers used by the VNet. |
 | **Public virtual IP address** | Used *only* for control plane traffic to the management endpoint over port 3443. Can be locked down to the [ApiManagement][ServiceTags] service tag. |
 
-The load-balanced public and private IP addresses can be found on the **Overview** page in the Azure portal.
+You can find the load-balanced public and private IP addresses on the **Overview** page in the Azure portal.
 
 For more information and considerations, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md#ip-addresses-of-api-management-in-a-virtual-network).
 
@@ -188,9 +188,9 @@ For more information and considerations, see [IP addresses of Azure API Manageme
 
 #### Example
 
-If you deploy 1 [capacity unit](api-management-capacity.md) of API Management in the Premium tier in an internal VNet, 3 IP addresses will be used: 1 for the private VIP and one each for the DIPs for two VMs. If you scale out to 4 units, more IPs will be consumed for additional DIPs from the subnet.
+If you deploy 1 [capacity unit](api-management-capacity.md) of API Management in the Premium tier in an internal VNet, you use three IP addresses: one for the private VIP and one each for the DIPs for two VMs. If you scale out to four units, you consume more IPs for extra DIPs from the subnet.
 
-If the destination endpoint has allow-listed only a fixed set of DIPs, connection failures will result if you add new units in the future. For this reason and because the subnet is entirely in your control, we recommend allow-listing the entire subnet in the backend.
+If the destination endpoint has allow-listed only a fixed set of DIPs, connection failures occur if you add new units in the future. To avoid connection failures and because you control the entire subnet, allow-list the entire subnet in the backend.
 
 [!INCLUDE [api-management-virtual-network-forced-tunneling](../../includes/api-management-virtual-network-forced-tunneling.md)]
 

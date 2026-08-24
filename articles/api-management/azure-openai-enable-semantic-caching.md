@@ -31,7 +31,7 @@ Enable semantic caching of responses to LLM API requests to reduce bandwidth and
 * Configure the API Management instance to use managed identity authentication to the Azure OpenAI APIs. For more information, see [Authenticate and authorize access to AI APIs using Azure API Management](api-management-authenticate-authorize-ai-apis.md#authenticate-with-managed-identity).
 * An [Azure Managed Redis](/azure/redis/quickstart-create-managed-redis) instance with the **RediSearch** module enabled on the Redis cache.
     > [!NOTE]
-    > You can only enable the **RediSearch** module when creating a new Azure Managed Redis cache. You can't add a module to an existing cache. For more information, see [Redis modules](/azure/redis/redis-modules).
+    > You can enable the **RediSearch** module only when you create a new Azure Managed Redis cache. You can't add a module to an existing cache. For more information, see [Redis modules](/azure/redis/redis-modules).
 * Configure the Azure Managed Redis instance as an external cache in the Azure API Management instance. For steps, see [Use an external Redis-compatible cache in Azure API Management](api-management-howto-cache-external.md).
 
 
