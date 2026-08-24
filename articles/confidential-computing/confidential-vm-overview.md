@@ -126,7 +126,7 @@ Pricing depends on your confidential VM size. For more information, see the [Pri
 
 ### Feature support
 
-- [Azure Backup](/azure/backup/backup-overview) support for Confidential VMs is currently in public preview [Documentation](https://learn.microsoft.com/azure/backup/confidential-vm-backup)
+- [Azure Backup](/azure/backup/backup-overview) support for Confidential VMs is currently in public preview [Documentation](/azure/backup/confidential-vm-backup)
 
 Confidential VMs *don't support*:
 
