@@ -39,7 +39,7 @@ Each of these features can be configured independently. For example, a public IP
 
 ## Onboard to the feature
 
-This article covers private Application Gateway deployment for Application Gateway v2 SKUs. Two deployment modes are supported: a private-only frontend IP configuration, and a combined configuration that uses both a public and a private frontend IP configuration. The controls for private frontend IP configuration, network security group (NSG) rule management, and route table configuration are generally available and supported in production.
+This article covers private Application Gateway deployment for Application Gateway v2 SKUs. It supports two deployment modes: a private-only frontend IP configuration, and a combined configuration that uses both a public and a private frontend IP configuration. The controls for private frontend IP configuration, network security group (NSG) rule management, and route table configuration are generally available and supported in production.
 
 To use these capabilities, you must opt in to the experience by using the Azure portal, PowerShell, CLI, or REST API. This opt-in mechanism also provides flexibility if you need to revert to traditional Application Gateway functionality when required (for example, to enable Private Link).
 
@@ -309,12 +309,12 @@ Result:
 
 ## Route Table Control
 
-This section describes route table (user-defined route) control for the Application Gateway v2 subnet in a private Application Gateway deployment. For Application Gateway deployments that aren't registered for the private Application Gateway deployment feature, you can't associate a route table that contains a `0.0.0.0/0` route with a virtual-appliance next hop. This restriction ensures proper management of Application Gateway.
+This section describes route table (user-defined route) control for the Application Gateway v2 subnet in a private Application Gateway deployment. For Application Gateway deployments that aren't registered for the private Application Gateway deployment feature, you can't associate a route table that contains a `0.0.0.0/0` route with a virtual appliance next hop. This restriction ensures proper management of Application Gateway.
 
 > [!IMPORTANT]
 > A default route (`0.0.0.0/0`) that the Application Gateway subnet learns through BGP from an ExpressRoute or VPN connection acts as forced tunneling. It overrides the system default route and sends the gateway's management-plane traffic through the on-premises path. Because Application Gateway v2 requires symmetric routing for management traffic, this route breaks management-plane connectivity and can cause provisioning failures and `InternalServerError`. To restore connectivity, add a user-defined route for `0.0.0.0/0` with an **Internet** next hop to a route table dedicated to the Application Gateway subnet, or stop advertising the default route to the subnet. For step-by-step diagnostics, see [Troubleshoot Application Gateway deployment, scaling, and deletion failures](/troubleshoot/azure/application-gateway/troubleshoot-application-gateway-deployment-scaling-deletion-failures).
 
-After you register the feature, you can forward traffic to a virtual appliance by defining a `0.0.0.0/0` route with a virtual-appliance next hop.
+After you register the feature, you can forward traffic to a virtual appliance by defining a `0.0.0.0/0` route with a virtual appliance next hop.
 
 ### Example scenario
 
