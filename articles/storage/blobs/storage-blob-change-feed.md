@@ -672,7 +672,7 @@ This section describes known issues and conditions in the current release of the
 
 Analytics logs have records of all read, write, list, and delete operations with successful and failed requests across all operations. Analytics logs are best-effort and don't guarantee ordering.
 
-The change feed is a solution that provides transactional log of successful mutations or changes to your account such as blob creation, modification, and deletions. The change feed guarantees all events to be recorded and displayed in the order of successful changes per blob, thus you do not have to filter out noise from a huge volume of read operations or failed requests. The change feed is fundamentally designed and optimized for application development that requires certain guarantees.
+The change feed is a solution that provides a transactional log of successful mutations or changes to your account such as blob creation, modification, and deletions. The change feed guarantees all events to be recorded and displayed in the order of successful changes per blob, so you don't have to filter out noise from a huge volume of read operations or failed requests. The change feed is fundamentally designed and optimized for application development that requires certain guarantees.
 
 ### Should I use the change feed or Storage events?
 
