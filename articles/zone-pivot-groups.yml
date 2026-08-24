@@ -355,15 +355,6 @@ groups:
     title: .NET (isolated)
   - id: other
     title: non-.NET
-# Owner: hhunter-ms
-- id: dts-sandbox-languages
-  title: On-demand Sandboxes SDK
-  prompt: Choose a programming language
-  pivots:
-  - id: csharp
-    title: .NET
-  - id: python
-    title: Python
 ### end azure-functions
 #Owner: jiayma
 - id: bring-third-party-dependency-programming-functions
@@ -2039,13 +2030,17 @@ groups:
   - id: dbx
     title: Data Box
 - id: storage-mover-multicloud
-  title: Storage Mover multicloud migration sources
-  prompt: Select your multicloud migration source.
+  title: Storage Mover migration sources
+  prompt: Select your migration source.
   pivots:
   - id: aws
-    title: Amazon Web Services (AWS)
+    title: Amazon Web Services
   - id: gcs
-    title: Google Cloud Storage (GCS)
+    title: Google Cloud
+  - id: oracle
+    title: Oracle Cloud
+  - id: on-premises
+    title: On-premises S3
 #owner: mbender
 - id: load-balancer-multiple-ip-pv
   title: Load Balancer Multiple IPs
@@ -2158,6 +2153,17 @@ groups:
     title: NFS on Azure Files
   - id: anf
     title: Azure NetApp Files
+# Owner: zamasiel
+- id: sap-pacemaker-fencing-solution
+  title: Azure Linux Fencing Solutions
+  prompt: Choose your Pacemaker Fencing Solution
+  pivots:
+  - id: sbd-shared-disk
+    title: SBD with Azure Shared Disk
+  - id: sbd-iscsi
+    title: SBD with iSCSI Target Servers
+  - id: azure-fence-agent
+    title: Azure Fence Agent
 # Owner: duongau
 - id: networking-scenario
   title: Choose your scenario

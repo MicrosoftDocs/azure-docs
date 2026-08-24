@@ -1,12 +1,12 @@
 ---
 title: Upgrade Windows Operating System
 description: Learn how to upgrade Windows OS during migration.
-author: vijain
-ms.author: vijain 
+author: jyothisuri
+ms.author: jsuri
 ms.manager: vijain
 ms.topic: how-to
 ms.date: 05/08/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 # Customer intent: As a system administrator, I want to upgrade the Windows Server OS during migration to Azure, so that I can ensure a seamless transition while preserving my settings, server roles, and data integrity.

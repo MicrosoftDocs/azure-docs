@@ -90,7 +90,7 @@ The following flowchart summarizes the primary decision path for selecting an Az
 
 <!-- Diagram: App delivery decision flow: HTTP vs non-HTTP, single-region vs global -->
 
-:::image type="content" source="media/app-delivery-decision-flow.png" alt-text="Flowchart showing the decision path for selecting an Azure load balancing service based on traffic type and geographic scope." lightbox="media/app-delivery-decision-flow.png":::
+:::image type="content" source="media/app-delivery-decision-flow.png" alt-text="Flowchart selecting an Azure load-balancing service by branching on HTTP vs. non-HTTP traffic, then single-region vs. global scope." lightbox="media/app-delivery-decision-flow.png":::
 
 Use the following decision tables to select the right load balancing service for your scenario.
 

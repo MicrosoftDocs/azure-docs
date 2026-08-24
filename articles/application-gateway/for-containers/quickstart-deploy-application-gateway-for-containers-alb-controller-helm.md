@@ -262,7 +262,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
          --namespace $HELM_NAMESPACE \
-         --version 1.11.3 \
+         --version 1.11.4 \
          --set albController.namespace=$CONTROLLER_NAMESPACE \
          --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query clientId -o tsv)
     ```
@@ -283,7 +283,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     # Install Helm chart
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller `
         --namespace $HELM_NAMESPACE `
-        --version 1.11.3 `
+        --version 1.11.4 `
         --set albController.namespace=$CONTROLLER_NAMESPACE `
         --set albController.podIdentity.clientID=$clientId
     ```
@@ -304,7 +304,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
         --namespace $HELM_NAMESPACE \
-        --version 1.11.3 \
+        --version 1.11.4 \
         --set albController.namespace=$CONTROLLER_NAMESPACE \
         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query clientId -o tsv)
     ```
@@ -325,7 +325,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     # Upgrade Helm chart
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller `
         --namespace $HELM_NAMESPACE `
-        --version 1.11.3 `
+        --version 1.11.4 `
         --set albController.namespace=$CONTROLLER_NAMESPACE `
         --set albController.podIdentity.clientID=$clientId
     ```
