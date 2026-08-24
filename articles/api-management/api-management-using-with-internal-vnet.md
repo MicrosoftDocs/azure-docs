@@ -63,7 +63,7 @@ For configurations specific to the *external* mode, where the API Management end
 1. Continue configuring VNet settings for the remaining locations of your API Management instance.
 1. In the top navigation bar, select **Save**.
 
-After successful deployment, you should see your API Management service's **private** virtual IP address and **public** virtual IP address on the **Overview** page. For more information about the IP addresses, see [Routing](#routing) in this article.
+After successful deployment, you see your API Management service's **private** virtual IP address and **public** virtual IP address on the **Overview** page. For more information about the IP addresses, see [Routing](#routing) in this article.
 
 :::image type="content" source="media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png" alt-text="Screenshot of the API Management Overview page in the Azure portal that shows the public and private virtual IP addresses.":::
 
