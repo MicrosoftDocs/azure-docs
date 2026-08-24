@@ -29,7 +29,7 @@ For more information, see [Overview of SSL termination and end to end SSL with A
 
 ## Autoscaling
 
-Autoscaling is a capability of the Application Gateway Standard_v2 SKU. For the fixed instance sizes offered by the Application Gateway Standard (v1) SKU, see [Sizing](#sizing).
+Autoscaling is a capability of the Application Gateway Standard_v2 and WAF_v2 SKUs. For the fixed instance sizes offered by the Application Gateway Standard (v1) SKU, see [Sizing](#sizing).
 
 Application Gateway Standard_v2 supports autoscaling and can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. 
 
