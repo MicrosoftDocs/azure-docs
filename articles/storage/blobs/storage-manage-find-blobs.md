@@ -352,15 +352,15 @@ This section describes known issues and conditions.
 
 ### Can blob index help me filter and query content inside my blobs?
 
-No, if you need to search within your blob data, use query acceleration or Azure search.
+No. If you need to search within your blob data, use query acceleration or Azure Cognitive Search.
 
 ### Are there any requirements on index tag values?
 
-Blob index tags only support string data types and querying returns results with lexicographical ordering. For numbers, zero pad the number. For dates and times, store as an ISO 8601 compliant format.
+Blob index tags only support string data types, and querying returns results with lexicographical ordering. For numbers, zero pad the number. For dates and times, store the value as an ISO 8601 compliant format.
 
 ### Are blob index tags and Azure Resource Manager tags related?
 
-No, Resource Manager tags help organize control plane resources such as subscriptions, resource groups, and storage accounts. Index tags provide blob management and discovery on the data plane.
+No. Resource Manager tags help organize control plane resources such as subscriptions, resource groups, and storage accounts. Index tags provide blob management and discovery on the data plane.
 
 ## Next steps
 
