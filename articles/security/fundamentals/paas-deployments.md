@@ -138,7 +138,7 @@ Azure offers two main DDoS protection tiers: [DDoS IP Protection](../../ddos-pro
 
 Choose DDoS IP Protection for focused, cost-sensitive cases. Select DDoS Network Protection for comprehensive coverage and advanced features.
 
-DDoS Protection defends at the network layer (3/4). For application-layer (7) defense, add a WAF. See [Application DDoS protection](../../web-application-firewall/shared/application-ddos-protection.md).
+DDoS Protection defends at the network layer (3/4). For application-layer (7) defense, add a WAF. See [Application DDoS protection](../../web-application-firewall/application-ddos-protection.md).
 
 ## Monitor application performance
 

@@ -5,8 +5,7 @@ description: Choose the right Azure load balancing service. Compare Azure Load B
 #customer intent: As a network architect, I want to compare Azure load balancing services so that I can choose the right one for my workload's traffic type and geographic scope.
 author: duongau
 ms.author: duau
-ms.reviewer: mbender
-ms.date: 06/22/2026
+ms.date: 08/18/2026
 ms.topic: concept-article
 ms.service: azure-virtual-network
 zone_pivot_groups: networking-scenario
@@ -14,11 +13,11 @@ zone_pivot_groups: networking-scenario
 
 # Application delivery and performance
 
-This article helps you select the right Azure load balancing service for your workload. It compares Azure Load Balancer, Application Gateway, and Azure Front Door for regional and global traffic distribution. It also explains when to combine them.
+This article helps you select the right Azure load balancing service for your workload. It compares Azure Load Balancer, Application Gateway, and Azure Front Door for regional and global traffic distribution. It also explains when to combine them. For a shorter, service-by-service overview, see [What is load balancing and content delivery?](../load-balancer-content-delivery/load-balancing-content-delivery-overview.md)
 
 ## What this article covers
 
-Application delivery encompasses how your network distributes traffic across backend resources after it arrives at the network perimeter. This article covers Layer 4 and Layer 7 load balancing and global traffic acceleration. It also covers the decision criteria for choosing between the three primary Azure load balancing services.
+Application delivery includes how your network distributes traffic across backend resources after it arrives at the network perimeter. This article covers Layer 4 and Layer 7 load balancing and global traffic acceleration. It also covers the decision criteria for choosing between the three primary Azure load balancing services.
 
 > [!NOTE]
 > This article complements [Internet ingress: expose your application to the internet](internet-ingress.md), which focuses on *how* traffic arrives at your network. This article focuses on *how* to balance and deliver that traffic to your application backends.
@@ -28,7 +27,7 @@ Application delivery encompasses how your network distributes traffic across bac
 Read this article if you:
 
 - Host web applications or APIs that need high availability across multiple backend instances.
-- Need SSL/TLS offload, URL-based routing, or Web Application Firewall (WAF) protection for HTTP/S traffic.
+- Need SSL/TLS offload, URL-based routing, or Web Application Firewall (WAF) protection for HTTP/HTTPS traffic.
 - Distribute traffic across multiple Azure regions for performance or disaster recovery.
 - Run non-HTTP workloads (TCP/UDP) that require regional load balancing with health probes.
 - Want to understand which load balancer fits your traffic type, geographic scope, and security requirements.
@@ -57,9 +56,9 @@ The following table summarizes the three primary Azure load balancing services.
 
 | Service | What it provides | When to use it | Key constraints |
 |---|---|---|---|
-| **Azure Standard Load Balancer** | Layer 4 (TCP/UDP) load balancing within a region. Health probes, zone redundancy, outbound SNAT rules, and HA ports for network virtual appliances. | Virtual Machine Scale Sets, AKS internal traffic, non-HTTP/S regional workloads, and NVA high availability. | No SSL/TLS termination; no WAF; no URL-based routing; regional scope only. |
+| **Azure Standard Load Balancer** | Layer 4 (TCP/UDP) load balancing within a region. Health probes, zone redundancy, outbound SNAT rules, and HA ports for network virtual appliances. | Virtual Machine Scale Sets, AKS internal traffic, non-HTTP/HTTPS regional workloads, and NVA high availability. | No SSL/TLS termination; no WAF; no URL-based routing; regional scope only. |
 | **Azure Application Gateway** | Layer 7 (HTTP/HTTPS) regional load balancing. SSL/TLS termination, URL path-based routing, multisite hosting, cookie-based session affinity, and optional WAF integration. | Regional web applications that need SSL offload, URL routing, WebSocket support, or WAF protection. | Regional only; requires a dedicated subnet; not suited for global routing or CDN scenarios. |
-| **Azure Front Door** | Global anycast load balancing and CDN. TLS termination at the edge, integrated WAF, origin health probes, traffic splitting, and caching across more than 190 global points of presence (PoPs). | Global web applications, multiregion active-active deployments, CDN and caching, and global WAF enforcement. | HTTP/S only; origins must be publicly accessible or reached through Private Link (Premium tier). |
+| **Azure Front Door** | Global anycast load balancing and CDN. TLS termination at the edge, integrated WAF, origin health probes, traffic splitting, and caching across more than 190 global points of presence (PoPs). | Global web applications, multiregion active-active deployments, CDN and caching, and global WAF enforcement. | HTTP/HTTPS only; origins must be publicly accessible or reachable through Private Link (Premium tier). |
 
 ### Zone redundancy
 
@@ -73,7 +72,7 @@ Zone redundancy protects your application delivery tier from datacenter failures
 
 Each service handles scale differently:
 
-- **Application Gateway v2** (Standard_v2 and WAF_v2 tiers) supports autoscaling based on traffic load. You configure minimum and maximum instance counts, and the gateway scales within those bounds. Pricing uses capacity units: a composite measure of new connections per second, persistent connections, and throughput. Set a minimum instance count of at least 2 for production workloads to avoid cold-start latency during traffic spikes.
+- **Application Gateway v2** (Standard_v2 and WAF_v2 tiers) supports autoscaling based on traffic load. You configure minimum and maximum instance counts, and the gateway scales within those bounds. Pricing uses capacity units: a composite measure of new connections per second, persistent connections, and throughput. Set a minimum instance count of at least two for production workloads to avoid cold-start latency during traffic spikes.
 - **Azure Front Door** scales automatically as a managed global service. You don't need capacity planning or instance sizing.
 - **Standard Load Balancer** scales to millions of TCP/UDP flows without manual intervention or configuration changes. It's a fully managed platform service with no instance concept.
 
@@ -91,7 +90,7 @@ The following flowchart summarizes the primary decision path for selecting an Az
 
 <!-- Diagram: App delivery decision flow: HTTP vs non-HTTP, single-region vs global -->
 
-:::image type="content" source="media/app-delivery-decision-flow.png" alt-text="Flowchart showing the decision path for selecting an Azure load balancing service based on traffic type and geographic scope." lightbox="media/app-delivery-decision-flow.png":::
+:::image type="content" source="media/app-delivery-decision-flow.png" alt-text="Flowchart selecting an Azure load-balancing service by branching on HTTP vs. non-HTTP traffic, then single-region vs. global scope." lightbox="media/app-delivery-decision-flow.png":::
 
 Use the following decision tables to select the right load balancing service for your scenario.
 
@@ -101,7 +100,7 @@ Use the following decision tables to select the right load balancing service for
 |---|---|
 | Load balance TCP/UDP traffic within a single region | **Azure Standard Load Balancer:** Layer 4 distribution with health probes, zone redundancy, and HA ports. |
 | Terminate SSL/TLS, route by URL path or hostname, and add WAF for a regional web app | **Azure Application Gateway:** Layer 7 regional load balancing with integrated WAF (v2 SKU). |
-| Route HTTP/S traffic globally, reduce latency with edge caching, or fail over across regions | **Azure Front Door:** Global anycast with CDN, WAF, and multiregion origin health probes. |
+| Route HTTP/HTTPS traffic globally, reduce latency with edge caching, or fail over across regions | **Azure Front Door:** Global anycast with CDN, WAF, and multiregion origin health probes. |
 
 ### Key constraints comparison
 
@@ -109,15 +108,15 @@ Use the following decision tables to select the right load balancing service for
 |---|---|---|---|
 | Standard Load Balancer | Layer 4 (TCP/UDP) | Regional | No application awareness: can't inspect HTTP headers, URLs, or cookies. |
 | Application Gateway | Layer 7 (HTTP/HTTPS) | Regional | Requires a dedicated subnet (/24 recommended); can't route traffic globally. |
-| Front Door | Layer 7 (HTTP/HTTPS) | Global | Origins must be public or accessed through Private Link (Premium tier only); no TCP/UDP support. |
+| Front Door | Layer 7 (HTTP/HTTPS) | Global | Origins must be public or reachable through Private Link (Premium tier only); no TCP/UDP support. |
 
 ### Combining services
 
 Many production architectures combine multiple load balancing services in a chain. Each service handles what it does best:
 
 - **Front Door + Application Gateway:** Use Front Door for global traffic distribution and edge WAF, then route to regional Application Gateway instances for URL path-based routing and backend pool management. Front Door Premium can connect to Application Gateway through Private Link, keeping the Application Gateway private. This pattern suits multiregion deployments where each region has complex URL routing requirements.
-- **Front Door + Load Balancer:** Use Front Door for global HTTP/HTTPS distribution, with internal Standard Load Balancer behind it to distribute traffic across Virtual Machine Scale Sets or NVAs within a region. Front Door handles global routing and caching while Load Balancer provides Layer 4 distribution to compute instances.
-- **Application Gateway + Load Balancer:** Use Application Gateway for HTTP/HTTPS traffic management at the frontend and Load Balancer for non-HTTP backend tiers (databases, message queues) in the same deployment. This keeps Layer 7 intelligence at the edge with lightweight Layer 4 distribution internally.
+- **Front Door + Load Balancer:** Use Front Door for global HTTP/HTTPS distribution, with an internal Standard Load Balancer behind it to distribute traffic across Virtual Machine Scale Sets or NVAs within a region. Front Door handles global routing and caching while Load Balancer provides Layer 4 distribution to compute instances.
+- **Application Gateway + Load Balancer:** Use Application Gateway for HTTP/HTTPS traffic management at the frontend and Load Balancer for non-HTTP backend tiers (databases, message queues) in the same deployment. This pattern keeps Layer 7 intelligence at the edge with lightweight Layer 4 distribution internally.
 
 ### Routing capabilities
 
@@ -155,8 +154,8 @@ Understanding routing capabilities helps narrow your choice:
 ### Modernize application delivery design focus
 
 - Choose by application type: Azure Front Door for global web apps (edge termination, WAF) and Azure Traffic Manager for non-web apps that need DNS-based regional distribution.
-- Deploy active-active across regions and distribute traffic to each region's public endpoint, fronted by the hub firewall acting as SNAT and DNAT.
-- Use Application Gateway for regional Layer 7 routing and TLS termination within a region, behind Front Door where global delivery is needed.
+- Deploy active-active across regions and distribute traffic to each region's public endpoint behind the hub firewall, which acts as SNAT and DNAT.
+- Use Application Gateway for regional Layer 7 routing and TLS termination, behind Front Door when you need global delivery.
 - Don't deploy both Front Door and Traffic Manager for the same flow; pick one based on whether the app is web or non-web.
 
 ::: zone-end
@@ -177,9 +176,9 @@ Understanding routing capabilities helps narrow your choice:
 Before you implement application delivery services:
 
 - **Deployed virtual network:** You need at least one virtual network with subnets. See [Virtual network and subnet design](vnets-subnets.md) for subnet planning guidance.
-- **Workload traffic type identified:** Know whether your workload uses HTTP/HTTPS (Layer 7) or TCP/UDP (Layer 4). This determines your primary load balancer choice.
+- **Workload traffic type identified:** Know whether your workload uses HTTP/HTTPS (Layer 7) or TCP/UDP (Layer 4). This traffic type determines your primary load balancer choice.
 - **Geographic scope defined:** Determine whether your users are in a single region or distributed globally. Global user bases benefit from Front Door's anycast acceleration.
-- **Subnet capacity for Application Gateway:** Application Gateway requires a dedicated subnet with no other resources. A /24 subnet supports up to 125 instances plus 5 Azure-reserved addresses.
+- **Subnet capacity for Application Gateway:** Application Gateway requires a dedicated subnet with no other resources. A /24 subnet supports up to 125 instances plus five Azure-reserved addresses.
 
 ## Security considerations
 
@@ -200,14 +199,14 @@ Both Application Gateway WAF and Front Door WAF use the same rule engine but dif
 
 ### DDoS protection
 
-All public IP addresses associated with your load balancing services should have Azure DDoS Protection enabled. Standard Load Balancer public frontend IPs and Application Gateway public IPs are primary targets for volumetric attacks. These IPs represent your application's entry points.
+Enable Azure DDoS Protection on all public IP addresses associated with your load balancing services. Standard Load Balancer public frontend IPs and Application Gateway public IPs are primary targets for volumetric attacks. These IPs represent your application's entry points.
 
 Azure DDoS Protection provides:
 
 - Always-on traffic monitoring with adaptive tuning.
 - Automatic attack mitigation when traffic exceeds a threshold.
 - Attack telemetry and alerting through Azure Monitor.
-- Cost protection (service credit) for resource scaling triggered by DDoS attacks.
+- Cost protection (service credit) for resource scaling that DDoS attacks trigger.
 
 For DDoS protection planning and configuration, see [DDoS protection](ddos.md).
 
@@ -229,14 +228,15 @@ For Private Link architecture patterns, see [Private access to Azure PaaS servic
 
 ### Mutual TLS (mTLS)
 
-Application Gateway v2 supports mutual TLS for backend authentication. Use mTLS when your backend servers require certificate-based client authentication from the gateway. This authentication adds a layer of trust verification. The backend can confirm that traffic arrives from the legitimate Application Gateway instance, not from an attacker who bypassed the gateway.
+Application Gateway v2 supports mutual TLS for backend authentication. Use mTLS when your backend servers require certificate-based client authentication from the gateway. This authentication adds a layer of trust verification. The backend can confirm that traffic arrives from the legitimate Application Gateway instance, not from a bad actor who bypassed the gateway.
 
 ## Related articles
 
+- [What is load balancing and content delivery?](../load-balancer-content-delivery/load-balancing-content-delivery-overview.md): Service-by-service overview of Azure Application Gateway, Load Balancer, and Front Door.
 - [Internet ingress: expose your application to the internet](internet-ingress.md): How traffic arrives at your Azure network perimeter.
 - [Virtual network and subnet design](vnets-subnets.md): Subnet planning, including Application Gateway dedicated subnet sizing.
 - [Private access to Azure PaaS services](private-platform-as-a-service.md): Private Link patterns including Front Door Premium to origin.
-- [Cross-region connectivity](cross-region.md): Multiregion architectures with Front Door as global entry point.
+- [Cross-region connectivity](cross-region.md): Multiregion architectures with Front Door as a global entry point.
 - [Outbound internet egress](outbound-egress.md): SNAT, outbound rules, and NAT gateway for egress traffic from load-balanced backends.
 
 ## Learn more

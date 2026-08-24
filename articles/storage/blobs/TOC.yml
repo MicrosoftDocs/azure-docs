@@ -309,185 +309,6 @@ items:
                 href: storage-blob-static-website-host.md
           - name: Create a Managed Application to Store Blob Digests
             href: /azure/confidential-ledger/create-blob-managed-app?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Security and networking
-        items:
-          - name: Security recommendations
-            href: security-recommendations.md
-          - name: Security baseline
-            href: /security/benchmark/azure/baselines/storage-security-baseline?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Encryption
-            items:
-              - name: Encryption at rest
-                href: ../common/storage-service-encryption.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Encryption scopes
-                href: encryption-scope-overview.md
-                items:
-                  - name: Enable infrastructure encryption for the account
-                    href: ../common/infrastructure-encryption-enable.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                  - name: Manage encryption scopes
-                    href: encryption-scope-manage.md
-              - name: Check the encryption key model for the account
-                href: ../common/storage-encryption-key-model-get.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Check whether a blob is encrypted
-                href: storage-blob-encryption-status.md
-              - name: Customer-managed keys
-                items:
-                  - name: Encryption with customer-managed keys
-                    href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                  - name: Configure customer-managed keys in Azure Key Vault
-                    items:
-                      - name: Configure keys and storage account in the same tenant
-                        items:
-                          - name: Configure keys for a new account
-                            href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                          - name: Configure keys for an existing account
-                            href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                      - name: Configure keys and storage account in different tenants
-                        items:
-                          - name: Configure customer-managed keys for a new account
-                            href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                          - name: Configure customer-managed keys for an existing account
-                            href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                      - name: Encryption account changes involving CMK
-                        href: ../common/encryption-account-changes-with-cmk.md
-                  - name: Configure customer-managed keys in a managed HSM
-                    href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Customer-provided keys
-                href: encryption-customer-provided-keys.md
-              - name: Configure client-side encryption
-                href: client-side-encryption.md
-              - name: Encrypt and decrypt blobs using Azure Key Vault
-                href: storage-encrypt-decrypt-blobs-key-vault.md
-          - name: Networking
-            items:
-              - name: Network security
-                href: ../common/storage-network-security-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Private endpoints
-                href: ../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Public endpoint
-                items:
-                  - name: Default access level
-                    href: ../common/storage-network-security-set-default-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                  - name: Firewall rules
-                    items:
-                      - name: Firewall rules
-                        href: ../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                      - name: Guidelines and limitations
-                        href: ../common/storage-network-security-limitations.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                      - name: Virtual network rules
-                        href: ../common/storage-network-security-virtual-networks.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                      - name: IP network rules
-                        href: ../common/storage-network-security-ip-address-range.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                      - name: Resource instance rules
-                        href: ../common/storage-network-security-resource-instances.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                      - name: Network rule exceptions
-                        href: ../common/storage-network-security-manage-exceptions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                      - name: Trusted Azure services
-                        href: ../common/storage-network-security-trusted-azure-services.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                  - name: Network security perimeter
-                    href: ../common/storage-network-security-perimeter.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Transport Layer Security
-                items:
-                  - name: Require secure transfer
-                    href: ../common/storage-require-secure-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                  - name: Enforce minimum TLS version
-                    href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                  - name: Configure TLS version for a client
-                    href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                  - name: TLS version retirement
-                    items:
-                    - name: Migrate to TLS 1.2
-                      href: ../common/transport-layer-security-configure-migrate-to-TLS2.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Network routing
-                href: ../common/network-routing-preference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                items:
-                  - name: Configure network routing preference
-                    href: ../common/configure-network-routing-preference.md?toc=/azure/storage/blobs/toc.json
-              - name: Copy operation scopes
-                href: ../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json
-              - name: Custom domains
-                href: storage-custom-domain-name.md
-          - name: Authorization
-            items:
-              - name: Authorize data operations
-                items:
-                  - name: Authorize data operations
-                    href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                  - name: Authorization options for users
-                    items:
-                      - name: Portal
-                        href: authorize-data-operations-portal.md
-                      - name: PowerShell
-                        href: authorize-data-operations-powershell.md
-                      - name: Azure CLI
-                        href: authorize-data-operations-cli.md
-                  - name: Authorize with Microsoft Entra ID
-                    items:
-                      - name: Authorize with Microsoft Entra ID and Azure RBAC
-                        href: authorize-access-azure-active-directory.md
-                      - name: Manage access rights with Azure RBAC
-                        href: assign-azure-role-data-access.md
-                      - name: Configure role assignment conditions with Azure ABAC
-                        href: storage-auth-abac.md
-                        items:
-                          - name: Actions and attributes for conditions
-                            href: storage-auth-abac-attributes.md
-                          - name: Security for conditions
-                            href: storage-auth-abac-security.md
-                          - name: Example conditions
-                            href: storage-auth-abac-examples.md
-                          - name: Add role assignment conditions (Azure portal)
-                            href: storage-auth-abac-portal.md
-                          - name: Add role assignment conditions (PowerShell)
-                            href: storage-auth-abac-powershell.md
-                          - name: Add role assignment conditions (Azure CLI)
-                            href: storage-auth-abac-cli.md
-                  - name: Authorize with Shared Key
-                    href: /rest/api/storageservices/authorize-with-shared-key?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                    items:
-                      - name: View and manage account keys
-                        href: ../common/storage-account-keys-manage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                      - name: Configure connection strings
-                        href: ../common/storage-configure-connection-string.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                      - name: Use the Azure Storage REST API
-                        href: ../common/storage-rest-api-auth.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                      - name: Prevent authorization with Shared Key
-                        href: ../common/shared-key-authorization-prevent.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                  - name: Authorize with shared access signatures (SAS)
-                    href: ../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                    items:
-                      - name: Create a user delegation SAS
-                        items:
-                          - name: PowerShell
-                            href: storage-blob-user-delegation-sas-create-powershell.md
-                          - name: Azure CLI
-                            href: storage-blob-user-delegation-sas-create-cli.md
-                          - name: .NET
-                            href: storage-blob-user-delegation-sas-create-dotnet.md
-                      - name: Create a service SAS
-                        href: sas-service-create-dotnet.md
-                      - name: Create an account SAS (.NET)
-                        href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                      - name: Create a stored access policy
-                        href: ../common/storage-stored-access-policy-define-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-                      - name: Configure a SAS expiration policy
-                        href: ../common/sas-expiration-policy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Authorize management operations
-                href: ../common/authorization-resource-provider.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Migrate to passwordless connections
-                href: ../common/migrate-azure-credentials.md
-              - name: Passwordless connections between multiple services
-                href: ../common/multiple-identity-scenarios.md
-              - name: Manage anonymous read access to blob data
-                items:
-                  - name: Overview
-                    href: anonymous-read-access-overview.md
-                  - name: Remediate anonymous access
-                    href: anonymous-read-access-prevent.md
-                  - name: Configure anonymous access
-                    href: anonymous-read-access-configure.md
-          - name: Microsoft Defender for Storage
-            href: /azure/defender-for-cloud/defender-for-storage-introduction?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Reliability
         items:
           - name: Reliability in Azure Blob Storage
@@ -1334,6 +1155,187 @@ items:
               - name: .NET
           - name: Compliance offerings
             href: ../common/storage-compliance-offerings.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+  - name: Security and networking
+    items:
+      - name: Secure your Azure Blob storage
+        href: secure-blobs.md
+      - name: Secure your Azure Storage account
+        href: ../common/secure-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      - name: Security recommendations
+        href: security-recommendations.md
+      - name: Encryption
+        items:
+          - name: Encryption at rest
+            href: ../common/storage-service-encryption.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Encryption scopes
+            href: encryption-scope-overview.md
+            items:
+              - name: Enable infrastructure encryption for the account
+                href: ../common/infrastructure-encryption-enable.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Manage encryption scopes
+                href: encryption-scope-manage.md
+          - name: Check the encryption key model for the account
+            href: ../common/storage-encryption-key-model-get.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Check whether a blob is encrypted
+            href: storage-blob-encryption-status.md
+          - name: Customer-managed keys
+            items:
+              - name: Encryption with customer-managed keys
+                href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Configure customer-managed keys in Azure Key Vault
+                items:
+                  - name: Configure keys and storage account in the same tenant
+                    items:
+                      - name: Configure keys for a new account
+                        href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                      - name: Configure keys for an existing account
+                        href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                  - name: Configure keys and storage account in different tenants
+                    items:
+                      - name: Configure customer-managed keys for a new account
+                        href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                      - name: Configure customer-managed keys for an existing account
+                        href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                  - name: Encryption account changes involving CMK
+                    href: ../common/encryption-account-changes-with-cmk.md
+              - name: Configure customer-managed keys in a managed HSM
+                href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Customer-provided keys
+            href: encryption-customer-provided-keys.md
+          - name: Configure client-side encryption
+            href: client-side-encryption.md
+          - name: Encrypt and decrypt blobs using Azure Key Vault
+            href: storage-encrypt-decrypt-blobs-key-vault.md
+      - name: Networking
+        items:
+          - name: Network security
+            href: ../common/storage-network-security-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Private endpoints
+            href: ../common/storage-private-endpoints.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Public endpoint
+            items:
+              - name: Default access level
+                href: ../common/storage-network-security-set-default-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Firewall rules
+                items:
+                  - name: Firewall rules
+                    href: ../common/storage-network-security.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                  - name: Guidelines and limitations
+                    href: ../common/storage-network-security-limitations.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                  - name: Virtual network rules
+                    href: ../common/storage-network-security-virtual-networks.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                  - name: IP network rules
+                    href: ../common/storage-network-security-ip-address-range.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                  - name: Resource instance rules
+                    href: ../common/storage-network-security-resource-instances.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                  - name: Network rule exceptions
+                    href: ../common/storage-network-security-manage-exceptions.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                  - name: Trusted Azure services
+                    href: ../common/storage-network-security-trusted-azure-services.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Network security perimeter
+                href: ../common/storage-network-security-perimeter.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Transport Layer Security
+            items:
+              - name: Require secure transfer
+                href: ../common/storage-require-secure-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Enforce minimum TLS version
+                href: ../common/transport-layer-security-configure-minimum-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Configure TLS version for a client
+                href: ../common/transport-layer-security-configure-client-version.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: TLS version retirement
+                items:
+                - name: Migrate to TLS 1.2
+                  href: ../common/transport-layer-security-configure-migrate-to-TLS2.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Network routing
+            href: ../common/network-routing-preference.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+            items:
+              - name: Configure network routing preference
+                href: ../common/configure-network-routing-preference.md?toc=/azure/storage/blobs/toc.json
+          - name: Copy operation scopes
+            href: ../common/security-restrict-copy-operations.md?toc=/azure/storage/blobs/toc.json
+          - name: Custom domains
+            href: storage-custom-domain-name.md
+      - name: Authorization
+        items:
+          - name: Authorize data operations
+            items:
+              - name: Authorize data operations
+                href: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Authorization options for users
+                items:
+                  - name: Portal
+                    href: authorize-data-operations-portal.md
+                  - name: PowerShell
+                    href: authorize-data-operations-powershell.md
+                  - name: Azure CLI
+                    href: authorize-data-operations-cli.md
+              - name: Authorize with Microsoft Entra ID
+                items:
+                  - name: Authorize with Microsoft Entra ID and Azure RBAC
+                    href: authorize-access-azure-active-directory.md
+                  - name: Manage access rights with Azure RBAC
+                    href: assign-azure-role-data-access.md
+                  - name: Configure role assignment conditions with Azure ABAC
+                    href: storage-auth-abac.md
+                    items:
+                      - name: Actions and attributes for conditions
+                        href: storage-auth-abac-attributes.md
+                      - name: Security for conditions
+                        href: storage-auth-abac-security.md
+                      - name: Example conditions
+                        href: storage-auth-abac-examples.md
+                      - name: Add role assignment conditions (Azure portal)
+                        href: storage-auth-abac-portal.md
+                      - name: Add role assignment conditions (PowerShell)
+                        href: storage-auth-abac-powershell.md
+                      - name: Add role assignment conditions (Azure CLI)
+                        href: storage-auth-abac-cli.md
+              - name: Authorize with Shared Key
+                href: /rest/api/storageservices/authorize-with-shared-key?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                items:
+                  - name: View and manage account keys
+                    href: ../common/storage-account-keys-manage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                  - name: Configure connection strings
+                    href: ../common/storage-configure-connection-string.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                  - name: Use the Azure Storage REST API
+                    href: ../common/storage-rest-api-auth.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                  - name: Prevent authorization with Shared Key
+                    href: ../common/shared-key-authorization-prevent.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+              - name: Authorize with shared access signatures (SAS)
+                href: ../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                items:
+                  - name: Create a user delegation SAS
+                    items:
+                      - name: PowerShell
+                        href: storage-blob-user-delegation-sas-create-powershell.md
+                      - name: Azure CLI
+                        href: storage-blob-user-delegation-sas-create-cli.md
+                      - name: .NET
+                        href: storage-blob-user-delegation-sas-create-dotnet.md
+                  - name: Create a service SAS
+                    href: sas-service-create-dotnet.md
+                  - name: Create an account SAS (.NET)
+                    href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                  - name: Create a stored access policy
+                    href: ../common/storage-stored-access-policy-define-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                  - name: Configure a SAS expiration policy
+                    href: ../common/sas-expiration-policy.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Authorize management operations
+            href: ../common/authorization-resource-provider.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Migrate to passwordless connections
+            href: ../common/migrate-azure-credentials.md
+          - name: Passwordless connections between multiple services
+            href: ../common/multiple-identity-scenarios.md
+          - name: Manage anonymous read access to blob data
+            items:
+              - name: Overview
+                href: anonymous-read-access-overview.md
+              - name: Remediate anonymous access
+                href: anonymous-read-access-prevent.md
+              - name: Configure anonymous access
+                href: anonymous-read-access-configure.md
+      - name: Microsoft Defender for Storage
+        href: /azure/defender-for-cloud/defender-for-storage-introduction?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Data Lake Storage
     items:
       - name: Overview
@@ -1406,6 +1408,8 @@ items:
             href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
           - name: Migrate an HDFS store online
             href: migrate-gen2-wandisco-live-data-platform.md
+          - name: Migrate to another region
+            href: data-lake-storage-migrate-data.md
       - name: Data transfer
         items:
           - name: Compare data transfer solutions

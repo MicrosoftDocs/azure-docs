@@ -26,6 +26,8 @@ The current Azure Storage Mover release supports full-fidelity migrations for sp
 | Azure blob container  | Azure blob container       | Blob containers can be in two different subscriptions and storage accounts but have to be within the same tenant. Containers with Flatnamespace (FNS) and Hierarchical Namespace Service (HNS) feature enabled are supported and the ADLS Gen2 REST API set is used for migration. |   
 | SMB 2.x and 3.x mount   | Azure file share (SMB) | SMB 1.x sources and NFS Azure file shares are currently not supported.                  |
 | SMB 2.x and 3.x mount | Azure blob container                         | Containers with Flatnamespace (FNS) and Hierarchical Namespace Service (HNS) feature enabled are supported and the ADLS Gen2 REST API set is used for migration. |
+| SMB 2.x and 3.x mount (agentless) | Azure file share (SMB) | Requires private connectivity to the source SMB share and SMB credentials stored in Azure Key Vault. |
+| SMB 2.x and 3.x mount (agentless) | Azure blob container   | Containers with Flatnamespace (FNS) and Hierarchical Namespace Service (HNS) feature enabled are supported and the ADLS Gen2 REST API set is used for migration.<br>Requires private connectivity to the source SMB share and SMB credentials stored in Azure Key Vault. |
 | NFS 3 and 4 mount     | Azure file share (NFS 4.1)        | NFS Azure file shares support NFS v3 and v4 source. |
 | NFS 3 and 4 mount     | Azure file share (NFS 4.1)        | NFS Azure file shares is supported with NFS v3/4 source |                
 

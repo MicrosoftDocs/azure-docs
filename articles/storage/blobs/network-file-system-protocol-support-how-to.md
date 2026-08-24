@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 06/28/2024
+ms.date: 08/17/2026
 ms.author: normesta
 
 # Customer intent: As a cloud administrator, I want to mount Azure Blob Storage by using the NFS 3.0 protocol so that I can securely access and manage data from my Linux-based virtual machines or on-premises systems.
@@ -44,7 +44,7 @@ To configure the account, choose the following values.
 |Location|All available regions |All available regions|
 |Performance|Premium| Standard|
 |Account kind|BlockBlobStorage| General purpose V2|
-|Replication|Locally redundant storage (LRS), Zone redundant storage (ZRS)|Locally redundant storage (LRS), Zone redundant storage (ZRS), Geo redundant storage (GRS)|
+|Replication|Locally redundant storage (LRS), Zone redundant storage (ZRS)|Locally redundant storage (LRS), Zone redundant storage (ZRS)|
 |Connectivity method|Public endpoint (selected networks) or private endpoint |Public endpoint (selected networks) or private endpoint|
 |Hierarchical namespace|Enabled|Enabled|
 |NFS V3|Enabled |Enabled|

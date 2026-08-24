@@ -4,7 +4,7 @@ description: Learn how to discover on-premises servers, applications, and depend
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.topic: tutorial
 ms.date: 05/12/2025
 ms.service: azure-migrate

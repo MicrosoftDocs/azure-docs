@@ -471,6 +471,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/lab-services/transition-devtest-labs-guidance.md",
+            "redirect_url": "/azure/lab-services/retirement-guide",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/lab-services/tutorial-create-custom-lab.md",
             "redirect_url": "/azure/devtest-labs/tutorial-create-custom-lab",
             "redirect_document_id": true

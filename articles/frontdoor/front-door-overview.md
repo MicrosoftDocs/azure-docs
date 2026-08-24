@@ -82,7 +82,7 @@ Modernize your internet-first applications on Azure with cloud-native experience
 
 * Help secure applications with built-in layer 3-4 DDoS protection, a seamlessly attached [WAF](../web-application-firewall/afds/afds-overview.md), and [Azure DNS to help protect your domains](how-to-configure-endpoints.md).
 
-* Help protect your applications against layer 7 DDoS attacks by using a WAF. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
+* Help protect your applications against layer 7 DDoS attacks by using a WAF. For more information, see [Application DDoS protection](../web-application-firewall/application-ddos-protection.md).
 
 * Help protect your applications from malicious actors with bot manager rules based on Microsoft Threat Intelligence.
 

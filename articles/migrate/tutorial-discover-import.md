@@ -4,7 +4,7 @@ description: Describes how to discover on-premises servers for migration to Azur
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 

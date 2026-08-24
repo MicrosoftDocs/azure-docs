@@ -6,7 +6,7 @@ ms.author: aserfass
 ms.topic: how-to
 ms.service: azure-enclave
 ai-usage: ai-assisted
-ms.date: 08/13/2026
+ms.date: 8/14/2026
 ---
 
 # Get started with Azure Enclave
@@ -15,8 +15,8 @@ Use this article to onboard to Azure Enclave by registering the required resourc
 
 ## Prerequisites
 
-  - You must already have an Azure tenant and subscription.
-  - You must be an Owner of an existing Azure subscription.
+- You must already have an Azure tenant and subscription.
+- You must be an Owner of an existing Azure subscription.
 
 ## Register the required resource providers and configure `NetworkWatcherRG` access
 
@@ -158,18 +158,18 @@ Complete these steps to use the latest Azure Enclave API:
 
 After registering the Azure Enclave resource provider, you can start deploying Azure Enclave resources into your subscription.
 
-  - Start building your Azure Enclave community:
+- Start building your Azure Enclave community:
 
-    - [Create a community](./create-community-portal.md)
-    - [Create an enclave](./create-enclave-portal.md)
-    - [Create a workload](./create-workload-portal.md)
+  - [Create a community](./create-community-portal.md)
+  - [Create an enclave](./create-enclave-portal.md)
+  - [Create a workload](./create-workload-portal.md)
 
-  - Establish network connectivity within your community:
+- Establish network connectivity within your community:
 
-    - [Create an enclave endpoint](./create-enclave-endpoint-portal.md)
-    - [Create an enclave connection](./create-enclave-connection-portal.md)
-    - [Create a transit hub](./create-transit-hub-portal.md)
-    - [Create a community endpoint](./create-community-endpoint-portal.md)
+  - [Create an enclave endpoint](./create-enclave-endpoint-portal.md)
+  - [Create an enclave connection](./create-enclave-connection-portal.md)
+  - [Create a transit hub](./create-transit-hub-portal.md)
+  - [Create a community endpoint](./create-community-endpoint-portal.md)
 
   - Create resources within your workloads to meet your objectives:
     - Create resources from the [service catalog](./list-service-catalog-templates.md)

@@ -316,6 +316,8 @@ items:
           href: logging.md
         - name: Logging options
           href: log-options.md
+        - name: Change logging from Log Analytics to Azure Monitor
+          href: migrate-logs-azure-monitor.md
         - name: Log monitoring
           href: log-monitoring.md
         - name: Metrics

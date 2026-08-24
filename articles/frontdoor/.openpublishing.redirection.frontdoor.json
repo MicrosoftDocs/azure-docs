@@ -1,6 +1,26 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-protect-sensitive-data.md",
+            "redirect_url": "/azure/frontdoor/sensitive-data-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/sensitive-data-protection.md",
+            "redirect_url": "/azure/frontdoor/sensitive-data-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/tls-policy.md",
+            "redirect_url": "/azure/frontdoor/tls-policy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/tls-policy-configure.md",
+            "redirect_url": "/azure/frontdoor/tls-policy",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/frontdoor/standard-premium/troubleshoot-cross-origin-resources.md",
             "redirect_url": "/azure/frontdoor/cross-origin-resource-sharing",
             "redirect_document_id": true
