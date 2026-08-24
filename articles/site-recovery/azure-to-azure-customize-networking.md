@@ -48,6 +48,10 @@ You can provide the following key resource configurations for the failover VM wh
 
     :::image type="content" source="./media/azure-to-azure-customize-networking/nic-drilldown-expanded.png" alt-text="Screenshot of Edit the NIC configuration." lightbox="./media/azure-to-azure-customize-networking/nic-drilldown-expanded.png":::
 
+> [!NOTE]
+> Upon selecting a preprovisioned NIC, the networking configurations associated with the selected NIC are inherited automatically. <br>
+> A NIC can only be associated with one existing VM at a time. If a selected NIC is detected to be attached to an existing VM during a failover, the failover operation would fail.  
+
 6. Select **OK**.
 
 Site Recovery will now honor these settings and ensure that the VM on failover is connected to the selected resource via the corresponding NIC.
