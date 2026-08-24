@@ -49,7 +49,7 @@ Use lifecycle management policies to transition blobs to cost-efficient access t
 
    :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-filter-set.png" alt-text="Screenshot of the lifecycle management filter set page in the Azure portal.":::
 
-   If you encounter unexpected results, see the following FAQ entry: [The blob prefix match string didn't apply the policy to the expected blobs](storage-blob-faq.yml#the-blob-prefix-match-string-didn-t-apply-the-policy-to-the-expected-blobs).
+   If you encounter unexpected results, see the following FAQ entry: [The blob prefix match string didn't apply the policy to the expected blobs](lifecycle-management-policy-faq.md#the-blob-prefix-match-string-didnt-apply-the-policy-to-the-expected-blobs).
 
 7. Select **Add** to add the new policy.
 

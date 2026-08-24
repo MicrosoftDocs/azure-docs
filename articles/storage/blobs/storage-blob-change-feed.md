@@ -668,7 +668,15 @@ This section describes known issues and conditions in the current release of the
 
 ## Frequently asked questions (FAQ)
 
-See [Change feed support FAQ](storage-blob-faq.yml#change-feed-support).
+### What is the difference between the change feed and Storage Analytics logging?
+
+Analytics logs have records of all read, write, list, and delete operations with successful and failed requests across all operations. Analytics logs are best-effort and don't guarantee ordering.
+
+The change feed is a solution that provides a transactional log of successful mutations or changes to your account such as blob creation, modification, and deletions. The change feed guarantees all events to be recorded and displayed in the order of successful changes per blob, so you don't have to filter out noise from a huge volume of read operations or failed requests. The change feed is fundamentally designed and optimized for application development that requires certain guarantees.
+
+### Should I use the change feed or Storage events?
+
+You can leverage both features as the change feed and [Blob storage events](storage-blob-event-overview.md) provide the same information with the same delivery reliability guarantee. The main difference is the latency, ordering, and storage of event records. The change feed publishes records to the log within a few minutes of the change and also guarantees the order of change operations per blob. Storage events are pushed in real time and might not be ordered. Change feed events are durably stored inside your storage account as read-only stable logs with your own defined retention, while storage events are transient to be consumed by the event handler unless you explicitly store them. By using the change feed, any number of your applications can consume the logs at their own convenience by using blob APIs or SDKs.
 
 ## Feature support
 

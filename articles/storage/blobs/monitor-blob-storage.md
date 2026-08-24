@@ -386,7 +386,7 @@ The following table lists common and recommended alert rules for Azure Blob Stor
 Other Blob Storage monitoring content:
 - [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md). A reference of the logs and metrics created by Azure Blob Storage.
 - [Best practices for monitoring Azure Blob Storage](blob-storage-monitoring-scenarios.md). Guidance for common monitoring and troubleshooting scenarios.
-- [Metrics and logs FAQ](storage-blob-faq.yml#metrics-and-logs).
+- [Metrics and logs FAQ](monitor-blob-storage-faq.md).
 
 Overall Azure Storage monitoring content:
 - [Monitor storage with Azure Monitor Storage insights](../common/storage-insights-overview.md). Get a unified view of storage performance, capacity, and availability.

@@ -270,6 +270,8 @@ items:
                 href: storage-blob-inventory-report-analytics.md
               - name: "Tutorial: Calculate container statistics"
                 href: storage-blob-calculate-container-statistics-databricks.md
+              - name: FAQ
+                href: blob-inventory-faq.md
           - name: Blob index tags
             href: storage-manage-find-blobs.md
             items:
@@ -291,6 +293,8 @@ items:
                 href: lifecycle-management-policy-monitor.md
               - name: Performance characteristics
                 href: lifecycle-management-performance-characteristics.md
+              - name: FAQ
+                href: lifecycle-management-policy-faq.md
           - name: Azure Storage Actions
             href: ../../storage-actions/storage-tasks/index.yml
           - name: Full text search
@@ -307,6 +311,8 @@ items:
                 href: storage-blobs-static-site-github-actions.md
               - name: "Tutorial: Host a static website"
                 href: storage-blob-static-website-host.md
+              - name: FAQ
+                href: static-website-hosting-faq.md
           - name: Create a Managed Application to Store Blob Digests
             href: /azure/confidential-ledger/create-blob-managed-app?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Security and networking
@@ -667,6 +673,8 @@ items:
             href: ../common/storage-insights-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Transition from classic metrics
             href: ../common/storage-metrics-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: FAQ
+            href: monitor-blob-storage-faq.md
           - name: Monitoring (classic)
             items:
               - name: Storage Analytics
@@ -1229,8 +1237,6 @@ items:
             displayName: samples, policies, definitions
       - name: Resources
         items:
-          - name: FAQ
-            href: storage-blob-faq.yml
           - name: Azure updates
             href: https://azure.microsoft.com/updates/?product=storage
           - name: Azure Storage Explorer
@@ -1621,8 +1627,6 @@ items:
             displayName: samples, policies, definitions
       - name: Resources
         items:
-          - name: FAQ
-            href: storage-blob-faq.yml
           - name: Azure updates
             href: https://azure.microsoft.com/updates/?product=storage
           - name: Azure Storage Explorer
