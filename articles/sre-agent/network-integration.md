@@ -151,7 +151,7 @@ The following limitations apply.
 
 - **Egress only**: Virtual network integration controls outbound (egress) traffic only. Inbound connections to the agent from inside a private network aren't supported.
 
-- **Connectors don't route through the virtual network**: Connector traffic routes over the public internet. For more information, see [SRE Agent connectors](mcp-connectors.md).
+- **Connectors don't route through the virtual network**: Connector traffic routes over the public internet.
 
 ## Related content
 
