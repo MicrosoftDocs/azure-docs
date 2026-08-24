@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 08/20/2026
+ms.date: 08/24/2026
 ---
 
 # Traffic routing methods to origin
@@ -72,7 +72,7 @@ For more information, see [Azure Front Door routing architecture](front-door-rou
 
 To ensure high availability, deploy backup services to take over if the primary service fails. This setup is known as Active/Standby or Active/Passive deployment. The *Priority* traffic-routing method in Azure Front Door helps you implement this failover pattern.
 
-By default, Azure Front Door routes requests to healthy origins with the highest configured priority, where 1 is the highest priority. [Health probes](health-probes.md) determine the health of each origin. If no origin at that priority is available, Front Door routes requests to healthy origins at the next priority level.
+By default, Azure Front Door routes requests to healthy origins with the highest configured priority, where 1 is the highest priority. If no origin at that priority is available, Front Door routes requests to healthy origins at the next priority level.
 
 If Azure Front Door can't establish a TCP connection to the selected origin, it makes a best-effort attempt to retry the request against another eligible origin according to the origin group's routing configuration. This retry can occur even when health probes report the selected origin as healthy.
 
