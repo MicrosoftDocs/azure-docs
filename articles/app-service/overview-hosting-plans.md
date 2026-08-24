@@ -147,6 +147,12 @@ Key features:
 
 Current limitations: Windows only, Pv4/Pmv4 SKUs. Not available for Linux, containers, or Free/Shared/Dedicated tiers.
 
+To check regional availability for a specific SKU, use Azure CLI version 2.82.0 or later:
+
+```azurecli
+az appservice list-locations --managed-instance-enabled --sku <sku>
+```
+
 [Learn more about Managed Instance](overview-managed-instance.md)
 
 ## Related content
