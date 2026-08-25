@@ -52,9 +52,9 @@ On version 4.x of the Functions runtime, your .NET function app targets .NET 8 w
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **We recommend upgrading to .NET 8 on the isolated worker model.** This provides a quick migration path to the fully released version with the longest support window from .NET.
+> **We recommend upgrading to .NET 10 on the isolated worker model.** .NET 10 is the current LTS release and has the longest remaining support window. Support for .NET 8 and .NET 9 ends on November 10, 2026, the same day that support ends for the in-process model, so migrating to either of those versions requires another upgrade shortly afterward.
 
-This guide doesn't present specific examples for .NET 10 or .NET 9. If you need to target one of those versions, you can adapt the .NET 8 examples.
+The examples in this guide target .NET 8 so that only the process model changes during the migration. If you target .NET 10, set `TargetFramework` to `net10.0` in the project file and follow the same steps.
 
 ## Prepare for migration
 
