@@ -3,8 +3,10 @@ title: Configure Approvals in Azure Enclave
 description: Learn how to configure the Approvals feature in Azure Enclave to enforce governance and oversight for critical infrastructure changes.
 author: aserfass-msft
 ms.author: aserfass
+ms.service: azure-enclave
+ai-usage: ai-assisted
 ms.topic: how-to
-ms.date: 1/26/2026
+ms.date: 8/25/2026
 ---
 
 # Configure Approvals in Azure Enclave
@@ -22,8 +24,8 @@ Before configuring Approvals, make sure you have:
 - An active Azure subscription
 - Access to the Approvals preview
 - One of the following roles:
-  - Community Owner
-  - Community Contributor
+  - Community owner
+  - Community contributor
   - Subscription Owner/Contributor
 - At least one community created in your environment
 - Users or groups designated as approvers
@@ -197,13 +199,12 @@ To configure approval settings when you create a community:
 1. In the Azure portal, start the community creation workflow.
 1. Go to the `Approvals` configuration tab.
 1. For each supported community or enclave resource type, configure whether approvals are required.
-  - `Community endpoint updates`: Require approval when modifying community endpoints.
-  - `Enclave endpoint updates`: Require approval when modifying enclave endpoints.
-  - `Enclave creation`: Require approval before a new enclave is created.
-  - `Enclave connection creation`: Require approval when creating enclave connections.
-  - `Enclave connection updates`: Require approval when modifying enclave connections.
-  - `Maintenance mode changes`: Require approval before maintenance mode is changed on an enclave, including toggling it on or off.
-  
+   - `Community endpoint updates`: Require approval when modifying community endpoints.
+   - `Enclave endpoint updates`: Require approval when modifying enclave endpoints.
+   - `Enclave creation`: Require approval before a new enclave is created.
+   - `Enclave connection creation`: Require approval when creating enclave connections.
+   - `Enclave connection updates`: Require approval when modifying enclave connections.
+   - `Maintenance mode changes`: Require approval before maintenance mode is changed on an enclave, including toggling it on or off.
 1. Set the `Minimum approvers` value.
 1. Select the users or groups for `Required approvers`.
 1. Review the configuration and create the community.
@@ -218,10 +219,10 @@ To configure approval settings when you create an enclave:
 1. Go to the `Approvals` configuration tab.
 1. Review any approval requirements inherited from the community.
 1. For each supported enclave resource type, configure whether approvals are required.
-  - `Enclave endpoint updates`: Require approval when modifying enclave endpoints.
-  - `Enclave connection creation`: Require approval when creating enclave connections.
-  - `Enclave connection updates`: Require approval when modifying enclave connections.
-  - `Maintenance mode changes`: Require approval before maintenance mode is changed on an enclave, including toggling it on or off.
+   - `Enclave endpoint updates`: Require approval when modifying enclave endpoints.
+   - `Enclave connection creation`: Require approval when creating enclave connections.
+   - `Enclave connection updates`: Require approval when modifying enclave connections.
+   - `Maintenance mode changes`: Require approval before maintenance mode is changed on an enclave, including toggling it on or off.
 1. Set the `Minimum approvers` value.
 1. Select the users or groups for `Required approvers`.
 1. Review the configuration and create the enclave.
@@ -241,7 +242,7 @@ Before changing approval settings, review:
 
 ## Assign Enclave Approver Role
 
-After enabling Approvals, assign the `Enclave Approver Role` to users or groups who review and approve requests.
+After enabling Approvals, assign the **Enclave Approver Role** to users or groups who review and approve requests.
 
 ### [Portal](#tab/portal)
 
@@ -269,7 +270,7 @@ Assign the Enclave Approver Role at the enclave scope:
 az role assignment create \
   --assignee <user-or-group-id> \
   --role "Enclave Approver Role" \
-  --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Mission/enclaves/<enclave-name>"
+  --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Mission/virtualEnclaves/<enclave-name>"
 ```
 
 Assign the Enclave Approver Role at the community scope:
@@ -289,7 +290,7 @@ Assign the Enclave Approver Role at enclave scope:
 New-AzRoleAssignment `
   -ObjectId <user-or-group-id> `
   -RoleDefinitionName "Enclave Approver Role" `
-  -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Mission/enclaves/<enclave-name>"
+  -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Mission/virtualEnclaves/<enclave-name>"
 ```
 
 Assign the Enclave Approver Role at community scope:
@@ -318,7 +319,7 @@ For enhanced security, combine Approvals with PIM to grant approver permissions 
 
 1. Select your subscription or resource group containing the community.
 
-1. Navigate to **Roles** and search for **Enclave Approver Role**.
+1. Navigate to `Roles` and search for `Enclave Approver Role`.
 
 1. Select `Enclave Approver Role` > `Role settings` > `Edit`.
 
@@ -338,33 +339,33 @@ For enhanced security, combine Approvals with PIM to grant approver permissions 
 
 When configuring Approvals in your environment:
 
-1. **Start with high-risk operations**: Begin by requiring approval for the most critical operations, such as community endpoints and transit hub modifications
+1. **Start with high-risk operations**: Begin by requiring approval for the most critical operations, such as community endpoints and transit hub modifications.
 
-1. **Define clear approval policies**: Document which operations require approval and the criteria for approval decisions
+1. **Define clear approval policies**: Document which operations require approval and the criteria for approval decisions.
 
-1. **Assign multiple approvers**: Ensure at least two users have the Enclave Approver Role to prevent delays when an approver is unavailable
+1. **Assign multiple approvers**: Ensure at least two users have the Enclave Approver Role to prevent delays when an approver is unavailable.
 
-1. **Use Azure PIM for approver access**: Grant approver permissions on a just-in-time basis for sensitive environments
+1. **Use Azure PIM for approver access**: Grant approver permissions on a just-in-time basis for sensitive environments.
 
-1. **Plan approver workflow**: Define an operational process so approvers review pending requests promptly
+1. **Plan approver workflow**: Define an operational process so approvers review pending requests promptly.
 
-1. **Regular reviews**: Periodically review which operations require approval and adjust settings based on operational experience
+1. **Regular reviews**: Periodically review which operations require approval and adjust settings based on operational experience.
 
-1. **Test the workflow**: Before rolling out to production, test the approval workflow in a development environment
+1. **Test the workflow**: Before rolling out to production, test the approval workflow in a development environment.
 
 ## Verify approval configuration
 
 After configuring Approvals, verify the setup is working correctly:
 
-1. As a user with Enclave Contributor permissions, attempt to create an enclave connection that requires approval
+1. As a user with Enclave Contributor permissions, attempt to create an enclave connection that requires approval.
 
 1. Verify that the connection enters a `Pending` state.
 
 1. As a user with Enclave Approver permissions, select `Approvals` in the enclave on the left side.
 
-1. Verify that the pending request appears in the approval queue
+1. Verify that the pending request appears in the approval queue.
 
-1. Approve the request and verify that the connection becomes active
+1. Approve the request and verify that the connection becomes active.
 
 ## Disable Approvals
 
