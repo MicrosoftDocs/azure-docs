@@ -59,6 +59,7 @@ The following table shows connectivity locations and the service providers for e
 | **Atlanta** | [Equinix AT1](https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/atlanta-data-centers/at1) | 1 | &cross; | &check; | AT&T Dynamic Exchange<br/>AT&T NetBond<br/>Lumen (CenturyLink Cloud Connect)<br/>Equinix<br/>Megaport<br/>MODMC<br/>Momentum Telecom<br/>PacketFabric |
 | **Atlanta2** | [Digital Realty ATL14](https://www.digitalrealty.com/data-centers/americas/atlanta/atl14) | 1 | &cross; | &check; | Digital Realty<br/>Momentum Telecom |
 | **Auckland** | [Vocus Group NZ Albany](https://www.2degrees.nz/business/business-services/data-centres) | 2 | New Zealand North | &check; | Devoli<br/>Kordia<br/>Megaport<br/>REANNZ<br/>Spark NZ<br/>Vocus Group NZ |
+| **Auckland2** | [Spark MDR](https://www.spark.co.nz/online/large-business-govt/products/manage/data-centre-services) | 2 | New Zealand North | &check; |  |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | &cross; | &check; | AIS<br/>National Telecom<br/>UIH |
 | **Berlin** | [NTT GDC](https://services.global.ntt/en-us/newsroom/ntt-ltd-announces-access-to-microsoft-azure-expressroute-at-ntts-berlin-1-data-center) | 1 | Germany North | &check; | Colt<br/>Equinix<br/>NTT Global DataCenters EMEA |
 | **Brussels** | [Digital Realty BRU4](https://www.digitalrealty.com/data-centers/emea/brussels/bru4) | 1 | &cross; | &check; | BICS<br/>Digital Realty<br/>Eurofiber |

@@ -1,19 +1,19 @@
 ---
 title: Team onboarding for Azure SRE Agent
-description: Teach your agent about your team, application architecture, and operational procedures to build persistent memory for investigations.
+description: Teach your agent about your team, application architecture, and operational procedures so it has reusable context for investigations.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/16/2026
+ms.date: 08/21/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
 ms.custom: team onboarding, learn command, memory files, runbook, architecture, knowledge base, getting started
-#customer intent: As a site reliability engineer, I want to teach my agent about my team structure, services, and procedures so that it has the context it needs for every future investigation.
+#customer intent: As a site reliability engineer, I want to teach my agent about my team structure, services, and procedures so that it has useful context for later investigations.
 ---
 
 # Team onboarding for Azure SRE Agent
 
-Teach the agent about your team, including who's on call, what services you own, and how you handle incidents. At the same time, the agent learns from the context you connected during setup (code repositories, Azure resources, logs) to build a complete picture of your environment. The agent references this persistent memory in every future conversation.
+Teach the agent about your team, who's on call, what services you own, and how you handle incidents. The agent can store relevant details from the onboarding conversation and connected sources as reusable context for later investigations.
 
 [!INCLUDE [evaluate-offer](includes/evaluate-offer.md)]
 
@@ -21,9 +21,9 @@ Teach the agent about your team, including who's on call, what services you own,
 
 By the end of this guide, you:
 
-- **Teach the agent about your team, share who's on call, what services you own, and how escalation works
-- **Share your operational knowledge**. Tell the agent about your troubleshooting procedures, playbooks, and how your team handles incidents
-- **Let the agent explore your code**. If you connect a repository during setup, the agent reads it to understand your architecture, frameworks, and dependencies
+- **Teach the agent about your team.** Share who's on call, what services you own, and how escalation works.
+- **Share your operational knowledge**. Tell the agent about your troubleshooting procedures, playbooks, and how your team handles incidents.
+- **Let the agent explore your code**. If you connect a repository during setup, the agent reads it to understand your architecture, frameworks, and dependencies.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ By the end of this guide, you:
 | **Agent created** | Complete [Step 1: Create and set up](create-and-set-up.md) first. |
 
 > [!TIP]
-> **Didn't finish setup?** You can still talk to the agent and complete team onboarding&mdash;the agent works without connected data sources. However, for the best experience, go to [Complete your setup](complete-setup.md) first to connect your code repository and Azure resources. The agent's onboarding interview is richer when it can read your code.
+> **Didn't finish setup?** You can still talk to the agent and complete team onboarding&mdash;the agent works without connected data sources. For richer context, go to [Complete your setup](complete-setup.md) first to connect source code and telemetry. Azure resource access is optional.
 
 ## How team onboarding starts
 
@@ -58,7 +58,7 @@ If anything's missing, just tell it:
 
 > "We also have a background worker in the `/jobs` directory that processes queue messages."
 
-The agent updates its memory.
+The agent can add the correction to its stored context.
 
 ### Your Azure resources
 
@@ -66,7 +66,7 @@ If you connect subscriptions or resource groups, the agent explores your infrast
 
 ## What you share with the agent
 
-The agent interviews you, and you can share things on your own too. Answer questions, volunteer details, or upload files whenever you're ready. The agent saves everything to persistent memory, and you can always add later.
+The agent interviews you, and you can share things on your own too. Answer questions, volunteer details, or upload files whenever you're ready. The agent can retain relevant operational context, and you can add more later.
 
 ### Your team
 
@@ -98,12 +98,12 @@ Share how your team handles incidents. You can either upload files or describe p
 
 > "When we see high CPU on the API gateway, we first check upstream dependencies, then verify the connection pool, then review recent deployments."
 
-The agent extracts the important details and saves them to persistent memory, as if you uploaded a file.
+The agent extracts relevant operational details and can retain them for later investigations, as if you uploaded a file.
 
 :::image type="content" source="media/team-onboarding/runbook-learned.png" alt-text="Screenshot of the agent confirming it learned procedures and listing extracted steps." lightbox="media/team-onboarding/runbook-learned.png":::
 
 > [!TIP]
-> You can share more knowledge anytime. Upload more files or describe procedures in any chat. The agent merges everything into its persistent memory.
+> You can share more knowledge anytime. Upload more files or describe procedures in chat.
 
 ## Ask the agent what to do next
 
@@ -117,23 +117,15 @@ The agent gives you prioritized recommendations based on your connections and wh
 
 ## What the agent remembers
 
-After onboarding, the agent creates persistent memory files that it consults during every investigation.
-
-| Memory file | Contents | Created during |
-|---|---|---|
-| `architecture.md` | Repository structure, frameworks, service dependencies, key code paths | Codebase exploration |
-| `team.md` | Team name, size, services owned, on-call rotation, escalation paths | Team context interview |
-| `debugging.md` | Troubleshooting procedures, runbook steps, known issues | Knowledge sharing (file upload or chat) |
-
-These files persist across sessions. The agent references them automatically&mdash;you don't need to remind it about your team or procedures.
+After onboarding, the agent can retain context about your architecture, team ownership, escalation paths, and troubleshooting procedures. During later investigations, verify the sources and context the agent reports using rather than assuming every stored detail applies.
 
 ## Next step
 
 > [!TIP]
-> **Before moving on:** If you skipped connecting data sources during setup, now is a good time to go to [Complete your setup](complete-setup.md) and connect your code repository and Azure resources. The agent investigates better with more context.
+> **Before moving on:** If you skipped connecting data sources during setup, now is a good time to go to [Complete your setup](complete-setup.md) and connect source code and telemetry. Add Azure resource access only if the agent needs live resource context.
 
 > [!div class="nextstepaction"]
-> [Step 3: Your first investigation](usage.md)
+> [Step 3: Your first investigation](first-investigation.md)
 
 ## Related content
 
