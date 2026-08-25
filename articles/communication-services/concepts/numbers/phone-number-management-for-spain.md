@@ -18,7 +18,7 @@ ms.custom: references_regions
 > [!IMPORTANT]
 > Effective **September 15, 2026**, Microsoft will no longer provide Dynamic or Preregistered alphanumeric sender IDs for SMS to **Spain** phone numbers. After September 15, 2026, sender IDs will no longer be allowed in Spain, and messages will be blocked.
 >
-> Developers are encouraged to find an alternate product on the [Microsoft Marketplace](https://marketplace.microsoft.com/) where customers may wish to explore third-party providers, including [Infobip](https://marketplace.microsoft.com/en-us/search/products?page=1&search=Infobip) and Telesign (for more information email microsoft@telesign.com).
+> Developers are encouraged to find an alternate product on the [Microsoft Marketplace](https://aka.ms/acs-marketplace) where customers may wish to explore third-party providers,  including [Infobip](https://aka.ms/acs-infobip) and [Telesign](https://aka.ms/acs-telesign).
 
 Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in Spain.
 

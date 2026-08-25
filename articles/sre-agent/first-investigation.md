@@ -17,6 +17,8 @@ ms.custom: first investigation, chat, diagnose, root cause, getting started
 
 Ask the agent to investigate an issue and watch it diagnose the root cause using your code, Azure resources, and the knowledge files it built during onboarding.
 
+[!INCLUDE [evaluate-offer](includes/evaluate-offer.md)]
+
 ## What you accomplish
 
 By the end of this guide, you:

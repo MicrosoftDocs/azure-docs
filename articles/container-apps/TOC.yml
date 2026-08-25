@@ -49,6 +49,10 @@ items:
       items:
         - name: Overview
           href: sandboxes-overview.md
+        - name: Quickstarts
+          items:
+            - name: Azure portal
+              href: sandboxes-quickstart-portal.md
         - name: Snapshots and state management
           href: sandboxes-snapshots-state-management.md
         - name: Egress policies

@@ -14,6 +14,11 @@ ms.custom: references_regions
 ---
 
 # Phone number management for Austria
+> [!IMPORTANT]
+> Effective **October 1, 2026**, Microsoft will no longer provide Dynamic or Preregistered alphanumeric sender IDs for SMS to **Austria** phone numbers. After October 1, 2026, sender IDs will no longer be allowed in Austria, and messages will be blocked.
+>
+> Developers are encouraged to find an alternate product on the [Microsoft Marketplace](https://aka.ms/acs-marketplace) where customers may wish to explore third-party providers,  including [Infobip](https://aka.ms/acs-infobip) and [Telesign](https://aka.ms/acs-telesign).
+
 Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in Austria.
 
 ## Number types and capabilities availability
@@ -22,11 +27,11 @@ Use the below tables to find all the relevant information on number availability
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   | -  | - | General Availability | General Availability\* |
 | Local       | -                    | -                    | General Availability | General Availability\* |
-| Alphanumeric Sender ID\**       | General Availability                  | -                    | - | - |
+| Alphanumeric Sender ID\**       | -                  | -                    | - | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
 
-\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
+\** As of October 1, 2026 Microsoft will no longer provide alphanumeric sender IDs for SMS to Austria.
 
 ## Subscription eligibility
 
@@ -58,26 +63,7 @@ More details on eligible subscription types are as follows:
 
 [!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
-## Azure subscription billing locations where Austria alphanumeric sender IDs are available
-| Country/Region |
-| :---------- |
-| Australia |
-| Austria |
-| Denmark |
-| France |
-| Germany |
-| India |
-| Ireland |
-| Italy |
-| Netherlands |
-| Poland |
-| Portugal |
-| Puerto Rico |
-| Spain |
-| Sweden |
-| Switzerland |
-| United Kingdom |
-| United States |
+
 
 ## Find information about other countries/regions
 
