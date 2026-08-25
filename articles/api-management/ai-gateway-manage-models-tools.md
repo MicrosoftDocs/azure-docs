@@ -23,8 +23,8 @@ Use AI Gateway tier (preview) to manage the models and tools that applications a
 - Access to the provider model or backend you plan to add.
 - For managed identity backend authentication, permission to assign the required role on the backend resource.
 
-> [!CAUTION]
-> **Security consideration:** Users with permissions to edit API Management policies can use this policy to authenticate as the service's managed identity. However, they can't gain direct access to resources without first assigning a managed identity to the API Management instance. Once a managed identity is assigned, users who can modify policies might be able to exfiltrate the authentication token, propagate it to a backend, or log it for later use. For detailed security guidance and mitigation strategies, see [Security considerations for managed identities](api-management-howto-use-managed-service-identity.md#security-considerations-for-managed-identities) in the managed identity overview.
+  > [!CAUTION]
+  > **Security consideration:** Users with permissions to edit API Management policies can use this policy to authenticate as the service's managed identity. However, they can't gain direct access to resources without first assigning a managed identity to the API Management instance. Once a managed identity is assigned, users who can modify policies might be able to exfiltrate the authentication token, propagate it to a backend, or log it for later use. For detailed security guidance and mitigation strategies, see [Security considerations for managed identities](api-management-howto-use-managed-service-identity.md#security-considerations-for-managed-identities) in the managed identity overview.
 
 ## Import models
 
