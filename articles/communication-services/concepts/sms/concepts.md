@@ -34,7 +34,7 @@ Key features of Azure Communication Services SMS SDKs include:
 - **Analytics** to track your SMS usage patterns. See [SMS insights](../../concepts/analytics/insights/sms-insights.md) for details.
 - **Opt-Out** handling support to automatically detect and respect opt-outs for toll-free numbers and short codes. US carriers mandate and enforce opt-outs for US toll-free numbers. See [opt-out handling FAQ](./sms-faq.md#opt-out-handling) for details.
 
-:::image type="content" source="./media/sms-concept.png" alt-text="Diagram showing sms dekkivery flow concept." lightbox="./media/sms-concept.png":::
+:::image type="content" source="./media/sms-concept.png" alt-text="Diagram showing sms delivery flow concept." lightbox="./media/sms-concept.png":::
 
 ## Sender types supported
 
@@ -90,7 +90,7 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 | Puerto Rico      | ✅        | –          | –     | –              | –              | –              |
 | United Kingdom   | –         | ✅         | –     | ✅             | –             | ✅             |
 | Australia        | –         | –          | –     | ✅             | –              | -             |
-| Austria          | –         | –          | –     | –              | ✅              |–              |
+| Austria          | –         | –          | –     | –              | -              |–              |
 | Germany          | –         | –          | –     | –              | ✅             | –              |
 | France           | –         | –          | –     | –              | ✅             | –              |
 | Italy            | –         | –          | –     | –              | –              | ✅             |

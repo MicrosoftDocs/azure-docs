@@ -13,7 +13,9 @@ ms.custom: team onboarding, learn command, memory files, runbook, architecture, 
 
 # Team onboarding for Azure SRE Agent
 
-Teach the agent about your team&mdash;who's on call, what services you own, how you handle incidents. At the same time, the agent learns from the context you connected during setup (code repositories, Azure resources, logs) to build a complete picture of your environment. The agent references this persistent memory in every future conversation.
+Teach the agent about your team, including who's on call, what services you own, and how you handle incidents. At the same time, the agent learns from the context you connected during setup (code repositories, Azure resources, logs) to build a complete picture of your environment. The agent references this persistent memory in every future conversation.
+
+[!INCLUDE [evaluate-offer](includes/evaluate-offer.md)]
 
 ## What you accomplish
 

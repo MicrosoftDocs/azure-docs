@@ -161,7 +161,15 @@ az storage advanced-platform-metric create \
 
 ### [Portal](#tab/azure-portal)
 
-Portal support for creating advanced platform metrics rules isn't yet available. Use PowerShell to create and manage advanced platform metrics rules.
+To view advanced platform metrics in the Azure portal:
+
+1. Go to your **Storage Account** in the [Azure portal](https://portal.azure.com).
+1. Under **Monitoring**, select **Advanced platform metrics**.
+1. Select **Add rule** to create a new rule.
+1. In the **Add metric rule** pane, configure the rule filter type and filter values.
+1. Select **Save**.
+
+:::image type="content" source="./media/advanced-platform-metrics/enable-metrics-rule.png" alt-text="Screenshot of the Azure portal showing the Advanced platform metrics page with the Add metric rule pane.":::
 
 ---
 
@@ -189,7 +197,13 @@ az storage advanced-platform-metric list \
 
 ### [Portal](#tab/azure-portal)
 
-Portal support for viewing advanced platform metrics rules isn't yet available. Use PowerShell to view advanced platform metrics rules.
+To view advanced platform metrics in the Azure portal:
+
+1. Go to your **Storage Account** in the [Azure portal](https://portal.azure.com).
+1. Under **Monitoring**, select **Advanced platform metrics**.
+1. Review the list of configured rules.
+
+:::image type="content" source="./media/advanced-platform-metrics/view-metrics-rules.png" alt-text="Screenshot of the Azure portal Advanced platform metrics page showing configured rules.":::
 
 ---
 
@@ -221,7 +235,15 @@ az storage advanced-platform-metric update \
 
 ### [Portal](#tab/azure-portal)
 
-Portal support for updating advanced platform metrics rules isn't yet available. Use PowerShell to update advanced platform metrics rules.
+To view advanced platform metrics in the Azure portal:
+
+1. Go to your **Storage Account** in the [Azure portal](https://portal.azure.com).
+1. Under **Monitoring**, select **Advanced platform metrics**.
+1. Select the rule that you want to update, and then select **Edit**.
+1. Update the filter type or filter values.
+1. Select **Save**.
+
+:::image type="content" source="./media/advanced-platform-metrics/edit-metrics-rule.png" alt-text="Screenshot of the Azure portal showing the Edit rule experience for advanced platform metrics.":::
 
 ---
 

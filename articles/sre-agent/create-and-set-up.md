@@ -15,6 +15,8 @@ ms.custom: onboarding, create agent, setup, code repo, azure resources, getting 
 
 Azure SRE Agent is an AI solution that helps site reliability engineers (SREs) manage Azure cloud resources. This article shows you how to set up Azure SRE Agent and create an agent.
 
+[!INCLUDE [evaluate-offer](includes/evaluate-offer.md)]
+
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Deploy an agent to your subscription.
