@@ -6,9 +6,10 @@ description: Learn about routing appliances, a high-performance routing solution
 author: asudbring
 ms.author: allensu
 ms.reviewer: allensu
-ms.date: 02/04/2026
+ms.date: 08/19/2026
 ms.topic: concept-article
 ms.service: azure-virtual-network
+ms.custom: references_regions
 ---
 
 # Overview of Azure Virtual Network routing appliances
@@ -24,9 +25,6 @@ A routing appliance can help organizations that need to:
 - Eliminate routing bottlenecks in network topologies.
 - Maintain Azure-native management and governance.
 
-> [!IMPORTANT]
-> Azure Virtual Network routing appliances are currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 A routing appliance is an Azure-managed network routing device that you deploy inside your virtual network. It acts as a high-bandwidth forwarding layer for routed traffic flows, so you don't need to run your own virtual machines as the forwarding layer.
 
 :::image type="content" source="media/virtual-network-routing-appliance-overview/virtual-network-appliance-diagram.png" alt-text="Diagram that shows the architecture of routing appliances for virtual networks in Azure.":::
@@ -36,6 +34,9 @@ Key characteristics:
 - You create and manage a routing appliance as an Azure resource, similar to other networking resources.  
 - You host a routing appliance in a dedicated subnet named `VirtualNetworkApplianceSubnet`.  
 - A routing appliance forwards traffic in the data path.
+- A routing appliance supports IPv4, IPv6, and dual-stack configurations, including IPv6 access control list enforcement.
+- A routing appliance supports global and cross-region private endpoints.
+- A routing appliance emits throughput and flow metrics to Azure Monitor by default.
 
 ## Common routing patterns (hub and spoke)
 
@@ -72,10 +73,11 @@ This pattern is useful when:
 
 ### High throughput and maximum connections
 
-A routing appliance is a lightweight, high-performance forwarding layer. It reduces the risk of the forwarding layer becoming the choke point for traffic flows.
+A routing appliance is a lightweight, high-performance forwarding layer. It reduces the risk of the forwarding layer becoming the choke point for traffic flows. You configure each appliance with a bandwidth of 10, 50, 100, or 200 Gbps when you create it. The following table shows the connection and flow scale for each tier.
 
 | Bandwidth tier | Maximum connections per second | Maximum concurrent flows |
 |----------------|--------------------------------|--------------------------|
+| 10 Gbps        | 100,000                        | 1,000,000                |
 | 50 Gbps        | 250,000                        | 2,000,000                |
 | 100 Gbps       | 600,000                        | 4,000,000                |
 | 200 Gbps       | 1,500,000                      | 8,000,000                |
@@ -88,55 +90,74 @@ A routing appliance is purpose built for horizontal scaling, accelerated east-to
 
 Because a routing appliance is a top-level Azure resource, you can manage and govern it like other Azure networking resources. In addition, it provides native support for virtual network features such as network security groups, admin rules, user-defined routes, and Azure NAT Gateway.
 
+## Monitoring and metrics
+
+A routing appliance sends platform metrics to Azure Monitor without needing any diagnostic configuration. You can view these metrics on the **Metrics** page of the appliance in the Azure portal, chart them in dashboards, query them through the Azure Monitor REST API, and set alerts on throughput or flow thresholds.
+
+| Metric | Unit | Description |
+|--------|------|-------------|
+| Bytes sent | Bytes | Egress traffic volume through the appliance. |
+| Bytes received | Bytes | Ingress traffic volume through the appliance. |
+| Packets sent | Count | Egress packet count. |
+| Packets received | Count | Ingress packet count. |
+| Inbound flows | Count | Current active inbound flow count. |
+| Outbound flows | Count | Current active outbound flow count. |
+| Inbound flow creation rate | Count/sec | Rate of new inbound flow creation. |
+| Outbound flow creation rate | Count/sec | Rate of new outbound flow creation. |
+
 ## High-availability and load-balancing guidance
 
 A routing appliance provides built-in high availability and is resilient to availability zones by default. It also offers high bandwidth without requiring an additional load balancer in front of it. If you place a load balancer in front of it, the load balancer won't forward traffic to it.
 
 ## Region availability
 
-During the preview, routing appliances are available in a limited set of Azure regions:  
+Routing appliances are generally available in the following Azure regions. Microsoft adds more regions as capacity becomes available.
 
-- East US  
-- East US 2  
-- West Central US  
-- West US  
-- North Europe  
-- UK South  
-- West Europe  
+- Australia East
+- Brazil South
+- Brazil Southeast
+- Central India
+- Central US
 - East Asia
+- East US
+- East US 2
+- Germany West Central
+- North Central US
+- North Europe
+- South Central US
+- South India
+- Southeast Asia
+- Spain Central
+- Sweden Central
+- UK South
+- West Central US
+- West Europe
+- West US
+- West US 2
+- West US 3
 
 ## Limitations
 
-- This preview is intended for testing, evaluation, and feedback purposes. Don't use the preview for production workloads.
+- Each subscription can have up to two routing appliances per region.
 
-- Each subscription can have up to two routing appliances. If you want more instances per subscription, request them in [this form](https://forms.office.com/r/kqEKRr5mpB).
+- Each routing appliance supports up to 200 Gbps of configurable bandwidth.
 
-- During the preview, each routing appliance supports up to 200 Gbps of configurable bandwidth.
+- You can't change the configured bandwidth in place. To change bandwidth, delete the appliance and redeploy it with the new value.
 
-- Global and cross-region private endpoints aren't supported.
+- Placing a routing appliance behind an internal load balancer isn't supported.
 
-- IPv4 is supported. IPv6 isn't in scope for this preview.
+- For Terraform, use the AzAPI provider; the AzureRM provider doesn't support routing appliances currently.
 
-- During the preview, a routing appliance doesn't provide metrics or logs.
+- VNet flow logs isn't supported yet.
 
-- During the preview, client tools such as the Azure CLI, PowerShell, and Terraform aren't supported.
+- Traffic that traverses the appliance isn't encrypted by virtual network encryption.
 
-## Cost
+- Service endpoints and service tunneling through a routing appliance require a network security group on the appliance subnet. The network security group must allow inbound traffic from the VirtualNetwork service tag and outbound traffic to the VirtualNetwork tag and to the service tag of the destination service.
 
-The preview is free. We'll provide advance notice before billing is enabled.
+- Azure Private Link over IPv6 requires a user-defined route that sends the private endpoint prefix to the routing appliance. Without that route, IPv6 private endpoint traffic doesn't traverse the appliance.
 
-## Registration
+## Get started
 
-> [!NOTE]
-> Bandwidth and scaling behavior in preview are subject to change. If you need to change the configured bandwidth after deployment, you will need to redeploy the resource.
+Create a subnet named `VirtualNetworkApplianceSubnet` in the virtual network that hosts the appliance. Deploy the routing appliance into that subnet with a bandwidth of 10, 50, 100, or 200 Gbps. Then use user-defined routes with a next hop type of virtual appliance to steer traffic to its private IP address.
 
-## How to request support and provide feedback
-After you submit your Azure Feature Exposure Control (AFEC)  registration for `Microsoft.network/AllowVirtualNetworkAppliance`, finish the preview [sign-up form](https://forms.office.com/r/kqEKRr5mpB).
-
-## Support
-
-During the preview, the product group provides support services. To request support, fill out [this form](https://forms.office.com/r/pvamBMUx25).
-
-## Feature feedback
-
-To provide feedback, fill out [this form](https://forms.office.com/r/pvamBMUx25).
+You can't change the configured bandwidth of an existing routing appliance. To change bandwidth, delete the appliance and redeploy it with the new value.

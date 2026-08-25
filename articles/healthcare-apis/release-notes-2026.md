@@ -17,6 +17,29 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## August 2026
+### FHIR service
+
+**Security enhancements for FHIR resource narrative content**: Improved security protections for FHIR resource narrative content to help prevent potential cross-site scripting (XSS) scenarios.
+
+**Stricter SMART on FHIR scope validation**: Improved security validation for SMART on FHIR scopes to properly reject mixed scope contexts.
+
+**Null-safety improvements in resource validation**: Added null-safety checks to improve the reliability of resource validation.
+
+**Reindex reliability improvement**: The running reindex check was moved to the data store, improving reliability of the reindex operation.
+
+#### Bug fixes:
+
+**Fix for date filtering in bulk delete jobs**: Fixed an issue where the date filter was not correctly applied to bulk delete jobs, which could result in deletions beyond the intended date range.
+
+**Fix for race condition in bundle processing**: Fixed a race condition in bundle processing that could cause intermittent failures.
+
+**Fix for search parameter deletion in sequential transaction bundles**: Fixed a bug where deleting a search parameter in a sequential transaction bundle could fail.
+
+**Fix for search parameters retained on deleted resources**: Fixed an issue where deleted resources could incorrectly retain search parameters.
+
+**Fix for validation ordering in convert-data operations**: Fixed validation ordering for convert-data operations.
+
 ## July 2026
 ### FHIR service
 
@@ -30,6 +53,8 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 
 **Improved reliability of reindex operations for large datasets**: Improved reliability of reindex operations for large datasets by increasing timeout thresholds and fixing sliding window logic.
 
+**Search modifiers rejected in SMART v2 clinical scopes**: FHIR search modifiers (such as `:not`, `:missing`, `:exact` and others) are now explicitly rejected when used in SMART v2 clinical scopes. Previously, these modifiers could bypass scope restrictions. Requests that use search modifiers in clinical scopes now receive an HTTP 400 Bad Request response.
+
 #### Bug fixes:
 
 **Fix for `$bulk-delete` and `$bulk-update` without search parameters**: Fixed an issue where `$bulk-delete` and `$bulk-update` operations would fail when no search parameters were provided. These operations now work correctly without parameters.
@@ -37,6 +62,10 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 **Fix for iterative includes exceeding maximum count**: Fixed an issue where searches with iterative includes exceeding the maximum count would return a server error. The service now returns a proper warning instead.
 
 **Fix for search parameter delete workflow with pending delete statuses**: Fixed the search parameter delete workflow to correctly handle parameters with pending delete statuses, preventing stale search parameter data from being included in query results. For more information, see [Selectable search parameters for the FHIR service in Azure Health Data Services](./fhir/selectable-search-parameters.md#get-the-status-of-search-parameters).
+
+**Fix for authorization check on conditional delete**: Fixed an issue where conditional delete operations didn't correctly verify that the caller had the required delete data action permission. Conditional delete now enforces the delete permission check consistently.
+
+**Fix for `$bulk-update` with only `_lastUpdated` as a search parameter**: Fixed an issue where a `$bulk-update` request that used `_lastUpdated` as the only search parameter would update all resources instead of only the filtered subset. The `_lastUpdated` filter is now correctly applied.
 
 ## June 2026
 ### FHIR service

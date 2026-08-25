@@ -7,7 +7,7 @@ description: Overview of Azure NAT Gateway features, resources, architecture, an
 author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: overview
-ms.date: 07/28/2026
+ms.date: 07/29/2026
 ms.author: alittleton
 ms.customs: references_regions
 
@@ -62,10 +62,8 @@ To learn more about how to deploy a StandardV2 NAT gateway, see [Create a Standa
 * The following regions don't support StandardV2 NAT gateways:
 
   * Canada East
-  * Indonesia Central
   * India South Central
   * Israel Northwest
-  * Qatar Central
   * Sweden South
   * West India
 
@@ -78,6 +76,8 @@ To learn more about how to deploy a StandardV2 NAT gateway, see [Create a Standa
 
 
 * Outbound connections that use a load balancer, Azure Firewall, or VM instance-level public IPs might be interrupted when you add a StandardV2 NAT gateway to a subnet. All net new outbound connections use the StandardV2 NAT gateway.
+
+* Updating an existing subnet that contains a running virtual machine by adding a StandardV2 NAT Gateway and enabling a service endpoint in the same operation might fail with an internal server error. As a workaround, perform these updates in separate operations.
 
 For more information about known issues and limitations of the StandardV2 SKU of Azure NAT Gateway, see [Known limitations](./nat-sku.md#known-limitations).
 

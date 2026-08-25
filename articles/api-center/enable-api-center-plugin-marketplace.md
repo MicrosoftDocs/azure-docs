@@ -4,7 +4,7 @@ description: Enable discovery of registered plugins through the API Center plugi
 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 05/12/2026
+ms.date: 08/17/2026
  
 ms.custom: 
 # Customer intent: As an API program manager, I want to create a plugin marketplace from my API center so AI developers can find and install plugins from my inventory.
@@ -17,13 +17,16 @@ This article shows how to enable discovery of plugins through a plugin marketpla
 
 Developers can add the plugin marketplace to their GitHub Copilot CLI or Claude Code development environment to discover and install plugins from your API center.
 
+> [!NOTE]
+> Currently, the marketplace endpoint supports only anonymous access.
+
 ## Prerequisites
 
 - An API center in your Azure subscription. If you don't have one, see [Quickstart: Create your API center](set-up-api-center.md).
 
 - One or more [registered plugins](register-discover-plugins.md) in your API center inventory.
 
-- The API center portal enabled and set up for your API center. For details, see [Set up and customize your API Center portal](set-up-api-center-portal.md). The access method you choose for the portal determines how developers will authenticate when they access the plugin marketplace. 
+- The API center portal enabled and set up for your API center. For details, see [Set up and customize your API Center portal](set-up-api-center-portal.md). The access method you choose for the portal determines how developers authenticate when they access the plugin marketplace. 
 
 - [GitHub Copilot CLI](https://github.com/github/copilot-cli) or [Claude Code](https://www.anthropic.com/claude) installed in your development environment.
 
@@ -35,7 +38,7 @@ To enable the plugin marketplace endpoint by using the Azure portal:
 1. In the sidebar menu, under **Consumption**, select **Data API settings**.
 1. Under **Plugin marketplace endpoint**, select **Enable plugin marketplace endpoint**.
 
-The marketplace endpoint is of the following form:
+The marketplace endpoint has the following form:
 
 ```
 https://<service name>.data.<region>.azure-apicenter.ms/workspaces/default/plugins/marketplace.git
@@ -67,7 +70,7 @@ Each plugin folder contains JSON files with the plugin metadata and configuratio
 
 ## Add plugin marketplace to GitHub Copilot CLI 
 
-Developers can add the plugin marketplace from your API center's marketplace endpoint to GitHub Copilot CLI by using the `plugin marketplace add` command. For example, add it in a GitHub Copilot CLI session with a command similar to the following. Replace the service name and region with the values from your API center:
+Developers can add the plugin marketplace from their API center's marketplace endpoint to GitHub Copilot CLI by using the `plugin marketplace add` command. For example, add it in a GitHub Copilot CLI session with a command similar to the following. Replace the service name and region with the values from your API center:
 
 ```bash
 /plugin marketplace add https://myapicenter.data.eastus.azure-apicenter.ms/workspaces/default/plugins/marketplace.git

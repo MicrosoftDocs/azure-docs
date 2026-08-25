@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 09/05/2025
+ms.date: 08/04/2026
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to configure the Azure Application Gateway infrastructure, so that I can ensure optimal deployment within my virtual network and manage network security, addressing, and permissions efficiently.
 ---
@@ -19,7 +19,7 @@ The Azure Application Gateway infrastructure includes the virtual network, subne
 An application gateway is a dedicated deployment in your virtual network. Within your virtual network, a dedicated subnet is required for the application gateway. You can have multiple instances of a specific Application Gateway deployment in a subnet. You can also deploy other application gateways in the subnet. But you can't deploy any other resource in the Application Gateway subnet. You can't mix v1 and v2 Application Gateway SKUs on the same subnet.
 
 > [!NOTE]
-> [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+> [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
 
 ### Size of the subnet
 
@@ -59,6 +59,64 @@ The subnet named `GatewaySubnet` is reserved for VPN gateways. The Application G
 > For example, if the subnet address space is 10.5.5.0/24, consider setting the private frontend IP configuration of your gateways starting with 10.5.5.254 and then following with 10.5.5.253, 10.5.5.252, 10.5.5.251, and so forth for future gateways.
 
 It's possible to change the subnet of an existing Application Gateway instance within the same virtual network. To make this change, use Azure PowerShell or the Azure CLI. For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway).
+
+### Reserved and allocated IP addresses
+
+Azure reserves five IP addresses in every subnet for internal use (the first four addresses and the last address), as described in [Size of the subnet](#size-of-the-subnet). Beyond those reserved addresses, each Application Gateway instance uses one private IP address, and a private frontend IP configuration uses one more. When you assign a **static** private frontend IP to an Application Gateway v2 deployment, you must choose an address that isn't already in use, so it helps to know which addresses in the subnet are already allocated.
+
+> [!NOTE]
+> Azure manages Application Gateway v2 instance IP addresses and doesn't list them individually as network interface IP configurations. Use the following commands to see the addresses consumed by network interfaces, private endpoints, and private frontend IP configurations in the subnet. Use the [capacity calculation](#size-of-the-subnet) to account for instance addresses.
+
+To review the addresses that are already in use in the Application Gateway subnet, use one of the following methods.
+
+#### Azure CLI
+
+List the IP configurations (network interfaces and other resources) that currently consume addresses in the subnet:
+
+```azurecli-interactive
+az network vnet subnet show \
+    --resource-group <resource-group> \
+    --vnet-name <vnet-name> \
+    --name <subnet-name> \
+    --query "ipConfigurations[].id" \
+    --output tsv
+```
+
+Get the count of used addresses along with the subnet's address range:
+
+```azurecli-interactive
+az network vnet subnet show \
+    --resource-group <resource-group> \
+    --vnet-name <vnet-name> \
+    --name <subnet-name> \
+    --query "{addressPrefix:addressPrefix, usedIPs:length(ipConfigurations)}" \
+    --output table
+```
+
+List addresses that are still available in the subnet:
+
+```azurecli-interactive
+az network vnet subnet list-available-ips \
+    --resource-group <resource-group> \
+    --vnet-name <vnet-name> \
+    --name <subnet-name>
+```
+
+#### Azure PowerShell
+
+Return per-subnet usage (current and total addresses) for the virtual network:
+
+```azurepowershell-interactive
+Get-AzVirtualNetworkUsageList -ResourceGroupName <resource-group> -Name <vnet-name>
+```
+
+#### Portal
+
+1. In the Azure portal, go to the virtual network that contains the Application Gateway subnet.
+1. Select **Subnets**. The subnet list shows each subnet's address range and available address count.
+1. Select the Application Gateway subnet to review the connected devices and resources that consume addresses.
+
+After you know which addresses are allocated, choose a free static address for the private frontend IP. To keep future gateways contiguous and easy to plan, assign frontend addresses from the upper half of the subnet, as recommended in the [Tip in Size of the subnet](#size-of-the-subnet). Confirm the address you pick isn't returned by the used-address query and, ideally, appears in the available-addresses list before you assign it.
 
 ### DNS servers for name resolution
 

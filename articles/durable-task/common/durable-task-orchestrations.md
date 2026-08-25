@@ -23,6 +23,8 @@ This article provides an overview of durable orchestrations, including orchestra
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 For information about the types of functions available in a Durable Functions app, see [Durable Task programming model](programming-model-overview.md).
 
 > [!TIP]
@@ -71,11 +73,7 @@ Orchestrator functions use the [event sourcing](/azure/architecture/patterns/eve
 
 The Durable Task Framework uses event sourcing transparently. Behind the scenes, an orchestrator function uses an `await` operator in C# and a `yield` operator in JavaScript and Python. These operators yield control of the orchestrator thread back to the Durable Task Framework dispatcher. In Java, calling `.await()` on a task yields control back to the dispatcher through a custom instance of `Throwable`. The dispatcher then commits any new actions that the orchestrator function schedules to storage. Examples of actions include calling one or more child functions or scheduling a durable timer. The transparent commit action updates the execution history of the orchestration instance by appending all new events to storage, much like an append-only log. Similarly, the commit action creates messages in storage to schedule the actual work. At this point, the orchestrator function can be unloaded from memory.
 
-::: zone pivot="durable-functions"
-
-By default, Durable Functions uses Azure Storage as its runtime state store, but other [storage providers are also supported](durable-task-storage-providers.md).
-
-::: zone-end
+You can use any of the available [storage providers](durable-task-storage-providers.md) as runtime state store.
 
 When an orchestration function gets more work to do (for example, a response message is received or a durable timer expires), the orchestrator wakes up and re-executes the entire function from the start to rebuild the local state. During the replay, if the code tries to call a function (or do any other asynchronous work), the Durable Task Framework consults the execution history of the current orchestration. If it finds that the activity already executed and yielded a result, it replays that function's result, and the orchestrator code continues to run. Replay continues until the function code is finished or until it schedules new asynchronous work.
 
@@ -324,7 +322,9 @@ At each checkpoint, the Durable Task Framework performs the following actions:
 When the checkpoint finishes, the framework removes the orchestrator function from memory until there's more work for it to do.
 
 > [!NOTE]
-> Azure Storage doesn't provide any transactional guarantees about data consistency between table storage and queues when it saves data. To handle failures, the [Durable Functions Azure Storage](durable-task-storage-providers.md#azure-storage) provider uses *eventual consistency* patterns. These patterns help ensure that no data is lost if there's a crash or loss of connectivity in the middle of a checkpoint. Alternative storage providers, like the [Durable Functions Microsoft SQL Server (MSSQL) storage provider](durable-task-storage-providers.md#mssql), might provide stronger consistency guarantees.
+> Azure Storage doesn't provide any transactional guarantees about data consistency between table storage and queues when it saves data. To handle failures, the [Durable Functions Azure Storage](durable-task-storage-providers.md#azure-storage) provider uses [*eventual consistency* patterns](../durable-functions/durable-functions-azure-storage-provider.md#instances-table-for-orchestration-and-entity-status), such as Command and Query Responsibility Segregation (CQRS). Alternative storage providers offer stronger consistency guarantees:
+> - The [Durable Task Scheduler](../scheduler/durable-task-scheduler.md), the recommended Azure-managed option, [stores orchestration state in a managed backend service](../scheduler/durable-task-scheduler.md#state-management) that avoids the table-and-queue coordination model used by Azure Storage. 
+> - The [Durable Functions Microsoft SQL Server (MSSQL) storage provider](durable-task-storage-providers.md#mssql) enables strong data consistency through backup/restore and failover.
 
 When the function shown earlier finishes, its history looks something like the data in the following table in Table Storage. The entries are abbreviated for illustration.
 

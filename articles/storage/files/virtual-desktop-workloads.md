@@ -4,7 +4,7 @@ description: Learn how to use SMB Azure file shares for virtual desktop workload
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 11/03/2025
+ms.date: 08/03/2026
 ms.author: kendownie
 # Customer intent: "As an IT administrator managing virtual desktop environments, I want to use Azure Files to store user profiles and disk images, so that I can ensure high availability, performance, and scalability for our users across multiple sessions."
 ---
@@ -13,11 +13,9 @@ ms.author: kendownie
 
 Azure Files provides fully managed, scalable SMB file shares that are an excellent fit for storing virtual desktop user profiles and disk images in the cloud.
 
-## What is VDI?
+## Azure Files for virtual desktop infrastructure (VDI)
 
-Virtual desktop infrastructure (VDI) centralizes desktop environments on servers, enabling secure remote access and simplified management across devices. [Azure Virtual Desktop](/azure/virtual-desktop/overview) is Microsoft’s cloud-based VDI solution, offering scalable, multi-session Windows 10 and 11 desktops with seamless integration into Microsoft 365 and Microsoft Entra ID, ideal for remote work and secure resource access. Other VDI offerings include Citrix/VMWare Horizon on Azure infrastructure.
-
-## Why Azure Files for VDI?
+Virtual desktop infrastructure (VDI) centralizes desktop environments on servers, enabling secure remote access and simplified management across devices. [Azure Virtual Desktop](/azure/virtual-desktop/overview) is Microsoft’s cloud-based VDI solution, offering scalable, multi-session Windows 10 and 11 desktops with seamless integration into Microsoft 365 and Microsoft Entra ID, ideal for remote work and secure resource access. Other VDI offerings include Citrix/VMware Horizon on Azure infrastructure.
 
 Azure Files is ideal for VDI because it provides cloud file shares that integrate seamlessly with [FSLogix](/azure/virtual-desktop/fslogix-profile-containers) for user profile storage or [App Attach](/azure/virtual-desktop/app-attach-overview) to store disk images for dynamic application delivery. When deployed correctly, Azure Files can reduce infrastructure overhead, provide high availability, support enterprise-grade security, and deliver consistent performance for a smooth user experience across virtual desktop sessions.
 
@@ -27,7 +25,7 @@ Azure Files is ideal for VDI because it provides cloud file shares that integr
 
 Azure Files offers different billing models, including provisioned and pay-as-you-go. See [Understand Azure Files billing](understanding-billing.md).
 
-While Azure Files can support thousands of concurrent virtual desktop users from a single file share, it's critical to properly test your workloads against the size and type of file share you're using. Your requirements will vary based on number of users and profile size.
+While Azure Files can support thousands of concurrent virtual desktop users from a single file share, it's critical to properly test your workloads against the size and type of file share you're using. Your requirements vary based on the number of users and profile size.
 
 Virtual desktops with home directories can benefit from [metadata caching](smb-performance.md#metadata-caching-for-ssd-file-shares) on SSD file shares.
 
@@ -47,13 +45,13 @@ To configure storage permissions, see [Configure SMB storage permissions for FSL
 
 ## Availability and disaster recovery
 
-Before you select an [Azure region](/azure/reliability/regions-list) for your virtual desktop workload, you should be aware of its regional compliance and data residency requirements.
+Before you select an [Azure region](/azure/reliability/regions-list) for your virtual desktop workload, be aware of its regional compliance and data residency requirements.
 
-Be sure to use a storage account that's in the same Azure region and resource group as your Azure Virtual Desktop host pool.
+Use a storage account that's in the same Azure region and resource group as your Azure Virtual Desktop host pool.
 
 Another important consideration in region selection is latency. It's generally best to centralize all necessary virtual desktop resources, including user profiles, in the same Azure region and subscription as your Azure Virtual Desktop host pool. If you deploy file shares in a region that's far from your users, it can increase latency and degrade performance. It can also increase the cost of data transfer between regions.
 
-Azure Files offers both HDD (standard) and SSD (premium) file shares. Keep in mind that SSD Azure file shares don’t offer geo-redundancy. See [Azure Files redundancy](files-redundancy.md) for more information about the different redundancy options available for Azure Files.
+Azure Files offers both HDD (standard) and SSD (premium) file shares. SSD Azure file shares don't offer geo-redundancy. For more information about the different redundancy options available for Azure Files, see [Azure Files redundancy](files-redundancy.md).
 
 ## Azure Files sizing guidance for Azure Virtual Desktop
 
@@ -62,12 +60,12 @@ In large-scale VDI environments, tens of thousands of users might need to access
 Azure Files supports both **FSLogix** and **non-FSLogix** profile storage scenarios. This guidance provides recommended file share configurations based on the number of concurrent virtual desktop users, expected IOPS per user, and storage type (HDD or SSD). In general, FSLogix enables more efficient handle usage compared to non-FSLogix.
 
 > [!TIP]
-> Azure Files currently has a 2,000 concurrent handle limit per file and directory, and this article is written with that limit in mind. However, for SSD file shares, this is a soft limit. If you need to scale beyond this limit, you can [enable metadata caching](smb-performance.md#register-for-the-metadata-caching-feature) and register for [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview).
+> Azure Files has a 2,000 concurrent handle limit per file and directory, and a 10,000 concurrent handle limit for the root directory of a share. This article is written with those limits in mind. However, for SSD file shares, these limits are soft. To scale beyond these limits, you can [enable metadata caching](smb-performance.md#register-for-the-metadata-caching-feature) and register for [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview).
 
 ### FSLogix profile containers
 
 > [!TIP]
-> When using [FSLogix Cloud Cache](/fslogix/concepts-fslogix-cloud-cache) with Azure Files, use Azure Files Premium (SSD) shares. Premium shares provide lower latency and higher IOPS than Standard shares, which helps deliver more consistent Cloud Cache performance and reduces the likelihood of storage becoming a performance bottleneck.
+> When using [FSLogix Cloud Cache](/fslogix/concepts-fslogix-cloud-cache) with Azure Files, use SSD file shares. SSD shares provide lower latency and higher IOPS than HDD shares, which helps deliver more consistent Cloud Cache performance and reduces the likelihood of storage becoming a performance bottleneck.
 
 If you're using [FSLogix with Azure Virtual Desktop](/azure/virtual-desktop/fslogix-containers-azure-files), your user profile containers are either Virtual Hard Disk (VHD) or Hyper-V Virtual Hard Disk (VHDX) files, and they're mounted in a user context, not a system context. Each user opens a single root directory handle, which should be to the file share. Azure Files can support a maximum of 10,000 users assuming you have the file share (`\\storageaccount.file.core.windows.net\sharename`) + the profile directory (`%sid%_%username%`) + profile container (`profile_%username.vhd(x)`).
 
@@ -75,7 +73,7 @@ If you're hitting the limit of 10,000 concurrent handles for the root directory 
 
 For example, if you have 2,400 concurrent users, you'd need 2,400 handles on the root directory (one for each user), which is below the limit of 10,000 open handles. For FSLogix users, reaching the limit on open file and directory handles is unlikely. If you have a single FSLogix profile container per user, you'd only consume two file/directory handles: one for the profile directory and one for the profile container file. If users have two containers each (profile and ODFC), you'd need one more handle for the ODFC file.
 
-The following table lists our general recommendations for **FSLogix profile containers** based on the number of concurrent users under these conditions:
+The following table lists general recommendations for **FSLogix profile containers** based on the number of concurrent users under these conditions:
 
 - Each user has 1–2 containers (profile + optional Office container)
 - Handles: ~2–3 per user (root directory, profile, and possibly ODFC container)
@@ -94,7 +92,7 @@ If you're not using FSLogix, you might be using roaming user profiles or folder 
 > [!NOTE]
 > Non-FSLogix profiles are more likely to hit the per-directory or per-file handle limit of 2,000 concurrent handles. If you need to scale beyond this limit, you can use SSD file shares, [enable metadata caching](smb-performance.md#register-for-the-metadata-caching-feature), and register for [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview).
 
-The following table lists our general recommendations for **non-FSLogix** profile storage based on the number of concurrent users under these conditions:
+The following table lists general recommendations for **non-FSLogix** profile storage based on the number of concurrent users under these conditions:
 
 - Profile data is stored as many small files/folders
 - Higher metadata IOPS per user

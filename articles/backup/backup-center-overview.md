@@ -1,8 +1,8 @@
 ---
-title: Overview of Backup center for Azure Backup and Azure Site Recovery
-description: This article provides an overview of Backup center for Azure.
+title: Backup center overview and transition to Resiliency
+description: Learn about Backup center capabilities for Azure Backup and Azure Site Recovery, how to access the legacy experience, and when to use Resiliency.
 ms.topic: overview
-ms.date: 08/22/2025
+ms.date: 08/25/2026
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
@@ -10,11 +10,11 @@ ms.author: v-mallicka
 # Customer intent: As a backup administrator, I want to understand Backup center and effectively manage and monitor backups across multiple Azure resources, so that I can ensure data protection and recovery capabilities align with organizational needs.
 ---
 
-# About Backup center for Azure Backup and Azure Site Recovery
+# What is Backup center for Azure Backup and Azure Site Recovery?
 
-[!INCLUDE [backup-center-deprecation.md ](../../includes/backup-center-deprecation.md )]
+[!INCLUDE [backup-center-deprecation.md](../../includes/backup-center-deprecation.md)]
 
-Backup center provides a *single unified management experience* in Azure for enterprises to govern, monitor, operate, and analyze backups at scale. It also provides at-scale monitoring and management capabilities for Azure Site Recovery. So, it's consistent with Azure's native management experiences.
+This article describes the legacy Backup center experience for Azure Backup and Azure Site Recovery. Backup center provides a *single unified management experience* in Azure for enterprises to govern, monitor, operate, and analyze backups at scale. It also provides at-scale monitoring and management capabilities for Azure Site Recovery. So, it's consistent with Azure's native management experiences.
 
 In this article, you'll learn about:
 
@@ -24,16 +24,16 @@ In this article, you'll learn about:
 > - Get started
 > - Access community resources on Community Hub
 
-## Key benefits
+## Backup center capabilities for backup and disaster recovery
 
 Some of the key benefits of Backup center include:
 
 - **Single pane of glass to manage backups**: Backup center is designed to function well across a large and distributed Azure environment. You can use Backup center to efficiently manage backups spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](/azure/lighthouse/overview) tenants.
 - **Datasource-centric management**: Backup center provides views and filters that are centered on the datasources that you're backing up (for example, VMs and databases). This allows a resource owner or a backup admin to monitor and operate backups of items without needing to focus on which vault an item is backed up to. A key feature of this design is the ability to filter views by datasource-specific properties, such as datasource subscription, datasource resource group, and datasource tags. For example, if your organization follows a practice of assigning different tags to VMs belonging to different departments, you can use Backup center to filter backup information based on the tags of the underlying VMs being backed up without needing to focus on the tag of the vault.
-- **Connected experiences**: Backup center provides native integrations to existing Azure services that enable management at scale. For example, Backup center uses the [Azure Policy](../governance/policy/overview.md) experience to help you govern your backups. It also leverages [Azure workbooks](/azure/azure-monitor/visualize/workbooks-overview) and [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) to help you view detailed reports on backups. So, you don't need to learn any new principles to use the varied features that the Backup center offers. You can also [discover community resources from the Backup center](#access-community-resources-on-community-hub).
+- **Connected experiences**: Backup center provides native integrations to existing Azure services that enable management at scale. For example, Backup center uses the [Azure Policy](../governance/policy/overview.md) experience to help you govern your backups. It also leverages [Azure workbooks](/azure/azure-monitor/visualize/workbooks-overview) and [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) to help you view detailed reports on backups. So, you don't need to learn any new principles to use the varied features that the Backup center offers. You can also [discover community resources from the Backup center](#access-backup-center-community-resources).
 - **At-scale monitoring capabilities**: Backup center now provides at-scale monitoring capabilities that help you to view replicated items and jobs across all vaults and manage them across subscriptions, resource groups, and regions from a single view for Azure Site Recovery.
 
-## Supported scenarios
+## Supported Azure Backup and Azure Site Recovery scenarios
 
 Backup center is currently supported for:
 
@@ -82,7 +82,7 @@ Watch the following video to understand the capabilities of Backup center:
 
 See the [next steps](#next-steps) to understand the different capabilities that Backup center provides, and how you can use these capabilities to manage your backup estate efficiently.
 
-## Access community resources on Community Hub
+## Access Backup center community resources
 
 You can use Backup center to access various community resources useful for a backup admin or operator.
 
@@ -100,6 +100,9 @@ Some of the resources available via the Community Hub are:
 
 ## Next steps
 
+You can manage backups and disaster recovery with Backup center.
+
+* [Manage business continuity and disaster recovery with Azure Business Continuity Center](/azure/business-continuity-center/business-continuity-center-overview)
 * [Monitor and Operate backups](backup-center-monitor-operate.md)
 * [Govern your backup estate](backup-center-govern-environment.md)
 * [Obtain insights on your backups](backup-center-obtain-insights.md)

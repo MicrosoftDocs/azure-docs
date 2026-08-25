@@ -64,12 +64,6 @@
       href: durable-task-timers.md
     - name: Orchestrator code constraints
       href: durable-task-code-constraints.md
-    - name: Performance and scale
-      href: ../durable-functions/durable-functions-perf-and-scale.md
-    - name: Data persistence and serialization
-      href: ../durable-functions/durable-functions-serialization-and-persistence.md
-    - name: Migrate to type-safe serialization (Python)
-      href: ../durable-functions/durable-functions-python-type-safe-serialization-migrate.md
   - name: Features
     items:
     - name: Instance management
@@ -154,6 +148,10 @@
       href: ../durable-functions/durable-functions-disaster-recovery-geo-distribution.md
     - name: Versioning
       href: ../durable-functions/durable-functions-versioning.md
+    - name: Performance and scale
+      href: ../durable-functions/durable-functions-perf-and-scale.md
+    - name: Data persistence and serialization
+      href: ../durable-functions/durable-functions-serialization-and-persistence.md
   - name: Tutorials
     items:
     - name: Configure Durable Functions with managed identity
@@ -188,6 +186,8 @@
         href: ../durable-functions/durable-functions-node-model-upgrade.md
       - name: Migrate to the standalone PowerShell SDK
         href: ../durable-functions/durable-functions-powershell-v2-sdk-migration-guide.md
+      - name: Migrate to type-safe serialization (Python)
+        href: ../durable-functions/durable-functions-python-type-safe-serialization-migrate.md
       - name: Migrate from In-Process to Isolated model (.NET)
         href: ../durable-functions/durable-functions-migrate.md
       - name: Isolated API mapping reference
@@ -232,12 +232,6 @@
       href: ../scheduler/develop-with-durable-task-scheduler.md
     - name: Develop
       items:
-      - name: On-demand sandboxes
-        items:
-        - name: On-demand sandboxes overview
-          href: ../scheduler/durable-task-scheduler-on-demand-sandboxes.md
-        - name: Configure on-demand sandboxes
-          href: ../scheduler/durable-task-scheduler-configure-on-demand-sandboxes.md
       - name: Configure autoscale for Container Apps
         href: ../sdks/durable-task-scheduler-auto-scaling.md
       - name: Auto-purge

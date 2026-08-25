@@ -13,6 +13,8 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or Synapse Pipelines, there are two methods for you to join your Azure-SSIS integration runtime (IR) to a virtual network: standard and express. The express method starts your Azure-SSIS IR faster and has no inbound, as well as less outbound, traffic requirements, but it has some limitations compared to the standard method.
 
 ## <a name="compare"></a>Compare the standard and express virtual network injection methods

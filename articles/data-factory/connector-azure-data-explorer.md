@@ -17,6 +17,9 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [KQL activity](/fabric/data-factory/kql-activity).
+
 This article describes how to use the copy activity in Azure Data Factory and Synapse Analytics pipelines to copy data to or from [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). It builds on the [copy activity overview](copy-activity-overview.md) article, which offers a general overview of copy activity.
 
 > [!NOTE]

@@ -17,6 +17,9 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> The Fabric equivalent of Custom activity is Azure Batch activity. For configuration details, see [Azure Batch activity](/fabric/data-factory/azure-batch-activity).
+
 There are two types of activities that you can use in an Azure Data Factory or Synapse pipeline.
 
 - [Data movement activities](copy-activity-overview.md) to move data between [supported source and sink data stores](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -130,6 +133,10 @@ The following table describes names and descriptions of properties that are spec
 
 > [!NOTE]
 > Currently only Azure Blob storage is supported for resourceLinkedService in custom activity, and it is the only linked service that gets created by default and no option to choose other connectors like ADLS Gen2.
+
+> [!NOTE]
+> The `retentionTimeInDays` property supports a minimum retention period of **1 day**.
+> If you need cleanup more frequently than once per day, implement your own cleanup logic within the custom activity or associated scripts.
 
 ## Custom activity permissions
 

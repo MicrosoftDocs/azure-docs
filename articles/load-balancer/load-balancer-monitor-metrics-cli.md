@@ -7,7 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to 
-ms.date: 06/27/2024
+ms.date: 07/17/2026
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
 # Customer intent: "As a network administrator, I want to gather and analyze Load Balancer metrics using the command-line interface, so that I can monitor performance and ensure the reliability of our cloud infrastructure."
 ---
@@ -140,5 +140,5 @@ az monitor metrics list --resource <resource_id> --metric DipAvailability --filt
 
 ## Next steps
 * [Review the metric definitions to better understand how each is generated](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
-* [Create Connection Monitors for your Load Balancer](./load-balancer-standard-diagnostics.md)
+* [Create Connection Monitors for your Load Balancer](../network-watcher/connection-monitor.md).
 * [Create your own workbooks](/azure/azure-monitor/visualize/workbooks-overview), you can take inspiration by clicking on the edit button in your detailed metrics dashboard

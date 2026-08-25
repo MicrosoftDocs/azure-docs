@@ -6,13 +6,22 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom:
 ms.topic: troubleshooting
-ms.date: 01/12/2026
+ms.date: 08/07/2026
 ms.author: anfdocs
 # Customer intent: "As a system administrator, I want to troubleshoot volume errors for Azure NetApp Files, so that I can ensure reliable performance and resolve issues effectively."
 ---
 # Troubleshoot volume errors for Azure NetApp Files
 
 If a volume create-read-update-delete (CRUD) operation is performed on a volume not in a terminal state, the operation will fail. Automation workflows and portal users should check for the terminal state of the volume before executing subsequent asynchronous operations on the volume.
+
+## Understand authentication and authorization errors
+
+When troubleshooting access problems with Azure NetApp Files SMB volumes, distinguish between authentication failures and authorization failures:
+
+* **Authentication failures** occur when Active Directory can't validate a user account. Common causes include invalid credentials, disabled accounts, failed name mapping, or user accounts that don't exist. Clients typically return authentication-specific error messages.
+* **Authorization failures** occur when a user successfully authenticates but doesn't have the required share-level or NTFS permissions to access the requested resource. Clients typically return a permissions-related error, such as "You do not have permission to access...".
+
+Identifying whether the failure occurs during authentication or authorization can help determine whether to investigate Active Directory configuration, user credentials, name mapping, share permissions, or NTFS permissions.
 
 ## Errors for SMB and dual-protocol volumes
 
@@ -26,6 +35,7 @@ If a volume create-read-update-delete (CRUD) operation is performed on a volume 
 | The SMB or dual-protocol volume creation fails with the following error: <br> `Failed to create the Active Directory machine account \"SMB-ANF-VOL\". Reason: Kerberos Error: KDC has no support for encryption type Details: Error: Machine account creation procedure failed [nnn]Loaded the preliminary configuration. [nnn]Successfully connected to ip 10.x.x.x, port 88 using TCP [nnn]FAILURE: Could not authenticate as 'contosa.com': KDC has no support for encryption type  (KRB5KDC_ERR_ETYPE_NOSUPP) ` | Make sure that [AES Encryption](./create-active-directory-connections.md#create-an-active-directory-connection) is enabled for both the Active Directory connection and the service account. |
 | The SMB or dual-protocol volume creation fails with the following error: <br> `Failed to create the Active Directory machine account \"SMB-NTAP-VOL\". Reason: LDAP Error: Strong authentication is required Details: Error: Machine account creation procedure failed\n [ 338] Loaded the preliminary configuration.\n [ nnn] Successfully connected to ip 10.x.x.x, port 88 using TCP\n [ nnn ] Successfully connected to ip 10.x.x.x, port 389 using TCP\n [ 765] Unable to connect to LDAP (Active Directory) service on\n dc51.area51.com (Error: Strong(er) authentication\n required)\n*[ nnn] FAILURE: Unable to make a connection (LDAP (Active\n* Directory):contoso.com), result: 7609\n. "` | The LDAP Signing option isn't selected, but the AD client has LDAP signing.  [Enable LDAP Signing](create-active-directory-connections.md#create-an-active-directory-connection) and retry. |
 | SMB volume creation fails with the following error: <br> `Failed to create the Active Directory machine account. Reason: LDAP Error: Initialization of LDAP library failed Details: Error: Machine account creation procedure failed` | This error occurs because the service or user account used in the Azure NetApp Files Active Directory connections doesn't have sufficient privilege to create computer objects or make modifications to the newly created computer object. <br> To resolve the issue, grant the account being used greater privilege. You can apply a default role with sufficient privileges or delegate more privileges to the user, service account, or group of which that account is a member. |
+| Users lose access after <SMB_Server>\Users or BUILTIN\Users is removed from NTFS permissions with the error: <br> `You do not have permission to access \\<SMB_server>\<SMB_volume>\. Contact your network administrator to request access.` |Restore the local Users group to the NTFS ACL: <ol><li> Open the affected SMB share. </li> <li> Select **Properties > Security**. </li>  <li> Select **Edit > Add**. </li> <li> Add: <ul><li> <SMB_Server>\Users </li> <li> or BUILTIN\Users </li> </ul> <li> Assign the required permissions. </li> <li> Apply permissions to **This folder, subfolders and files**. </li> <li> Repeat for each affected volume.</li></ol> <br> If the original permissions are unknown, compare with an unaffected Azure NetApp Files SMB volume and replicate the ACL configuration. |
 
 ## Errors for dual-protocol volumes
 

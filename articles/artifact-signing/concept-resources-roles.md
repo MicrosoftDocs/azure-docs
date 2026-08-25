@@ -3,7 +3,7 @@ title: Artifact Signing resources and roles
 description: Learn about the resources and roles that are specific to Artifact Signing, including identity validations, certificate profiles, and the Artifact Signing Identity Verifier role.
 author: TacoTechSharma
 ms.author: mesharm
-ms.service: trusted-signing
+ms.service: azure-artifact-signing
 ms.topic: concept-article
 ms.date: 01/06/2026
 ms.custom:

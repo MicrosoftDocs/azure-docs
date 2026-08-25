@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 07/10/2026
+ms.date: 08/20/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -30,7 +30,7 @@ Before you begin, make sure you have:
 1. A test patient in your FHIR store.
 1. A SMART client application (or the SmartLauncher sample for validation).
 
-## End to end flow
+## End-to-end flow
 
 A SMART client typically performs these steps:
 
@@ -41,11 +41,38 @@ A SMART client typically performs these steps:
 
 ## Configure access for end users
 
-Assign users to the FHIR SMART user role by using Azure role assignment guidance: [Assign Users to Role](/azure/role-based-access-control/role-assignments-portal).
-Users in this role can access the FHIR service when requests satisfy SMART requirements. Access is limited by fhirUser context and SMART clinical scopes.
+Assign users to the FHIR SMART user role by using Azure role assignment guidance: [Assign Users to Role](/azure/role-based-access-control/role-assignments-portal). Users in this role can access the FHIR service when requests satisfy SMART requirements.
 
 > [!NOTE]
->  A user with the SMART user role has access to perform read API interactions on FHIR service. The SMART user role doesn't grant write access to the FHIR service.
+> The SMART user role by itself doesn't grant access to data. Each request is further limited by the `fhirUser` context and the SMART clinical scopes in the access token. See [SMART user role capabilities](#smart-user-role-capabilities).
+
+## SMART user role capabilities
+
+The SMART user role supports read and search interactions. The scopes in the access token determine which resource types a request can reach, and the `fhirUser` claim determines whose data is in reach.
+
+### Supported FHIR interactions
+
+| SMART v2 verb | SMART v1 equivalent | Permitted interaction |
+| --- | --- | --- |
+| `r` (read) | `read` | Read a resource by ID (`GET [type]/[id]`). |
+| `s` (search) | `read` | Search (`GET [type]?[params]`), and `$export` where a system scope applies. |
+
+> [!NOTE]
+> In SMART v2, `r` grants read-by-ID only. A client that needs to search must also request `s`. For example, `patient/Observation.r` can't run a search. Use `patient/Observation.rs` instead.
+
+### Interactions not available to the SMART user role
+
+The following interactions and operations aren't available to a user with only this role, even when the scopes in the token grant the underlying interaction.
+
+| Interaction or operation | Reason |
+| --- | --- |
+| `$export` with `patient/` or `user/` scopes, or with scopes that carry search-parameter constraints | `$export` requires `system/` scopes without search-parameter constraints. |
+| `$member-match` | Not available to SMART users when the SMART member-match restriction is enabled. The system rejects the request as unauthorized. |
+| `_include`, `_revinclude`, chained searches (for example, `subject.name`), and reverse-chained searches (`_has`) that reach an uncovered resource type | The system rejects the search when it would return a resource type that the scopes in the token don't cover. |
+| Create, update, patch, or delete a resource (`POST`, `PUT`, `PATCH`, `DELETE`) | Write interactions aren't supported. |
+
+> [!IMPORTANT]
+> A principal that holds the FHIR SMART User role and presents a token without SMART clinical scopes gets no data access at all, including read.
 
 ## Identity provider support
 
@@ -66,7 +93,7 @@ This sample demonstrates the creation of an orchestration layer that acts as the
 > [!NOTE]
 > Samples are open-source code, and you should review the information and licensing terms on GitHub before using them. They're not part of the Azure Health Data Service and Microsoft Support doesn't support them. These samples demonstrate how Azure Health Data Services (AHDS) and other open-source tools can be used together to demonstrate [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg) compliance, using Microsoft Entra ID as the identity provider workflow.  
 
-### Microsoft Entra ID integration
+#### Microsoft Entra ID integration
 
 Microsoft Entra ID is a full-featured OAuth 2.0 and OpenID Connect identity provider. To integrate Microsoft Entra ID as the identity provider, you need extra components to complete the end-to-end SMART on FHIR experience. This requirement exists because SMART on FHIR introduces behaviors that enterprise identity providers like Entra ID don't natively support. To bridge this gap, Microsoft provides reference solutions (samples). The sample provides an orchestration layer between SMART clients and Entra ID.
 
@@ -84,7 +111,14 @@ AHDS FHIR service supports SMART v1.0.0 and SMART v2.0.0. You can't mix and matc
 
 ## Migrate from SMART on FHIR Proxy to SMART on FHIR
 
-[!INCLUDE [Migrate from SMART on FHIR Proxy to Enhanced](../includes/smart-on-fhir-proxy-migration.md)]
+<details>
+<summary>Click to expand</summary>
+
+1. **Configure native SMART on FHIR** — Set up your identity provider (Microsoft Entra ID) to support SMART on FHIR capabilities natively, including registering SMART client applications and configuring the appropriate FHIR SMART user roles.
+1. **Update client applications** — Modify any client applications currently using the proxy endpoint to point to the native FHIR service endpoint and use the native SMART authorization flow.
+1. **Disable the SMART on FHIR proxy** — Uncheck the SMART on FHIR proxy setting under the Authentication blade for the FHIR service and save the changes.
+
+</details>
 
 ## Next steps
 

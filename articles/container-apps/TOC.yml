@@ -49,6 +49,10 @@ items:
       items:
         - name: Overview
           href: sandboxes-overview.md
+        - name: Quickstarts
+          items:
+            - name: Azure portal
+              href: sandboxes-quickstart-portal.md
         - name: Snapshots and state management
           href: sandboxes-snapshots-state-management.md
         - name: Egress policies
@@ -183,12 +187,8 @@ items:
       items:
         - name: Communicate between multiple apps
           href: connect-apps.md
-        - name: Connect to a cloud service using Service Connector
-          items:
-            - name: .NET app with Blob Storage
-              href: service-connector.md
-            - name: Java Quarkus app with Postgres DB
-              href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
+        - name: Java Quarkus app with Postgres DB
+          href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
     - name: Build a multiple app scenario
       items:
         - name: Deploy a backend microservice app
@@ -281,6 +281,10 @@ items:
               href: troubleshoot-target-port-settings.md
             - name: Container start
               href: troubleshoot-container-start-failures.md
+            - name: Deployment failures
+              href: troubleshoot-deployment-errors.md
+        - name: Use Diagnose and Solve
+          href: diagnose-solve.md
     - name: Migrate to Azure Container Apps
       items:
         - name: Heroku migration overview
@@ -310,21 +314,21 @@ items:
           href: container-console.md
         - name: Container debug console
           href: container-debug-console.md
-        - name: Deployment error guidance
-          href: deployment-errors.md
     - name: Monitor production workloads
       items:
         - name: Application logging
           href: logging.md
         - name: Logging options
           href: log-options.md
+        - name: Change logging from Log Analytics to Azure Monitor
+          href: migrate-logs-azure-monitor.md
         - name: Log monitoring
           href: log-monitoring.md
         - name: Metrics
           href: metrics.md
         - name: Alerts
           href: alerts.md
-    - name: End-to-end tracing and dashboards
+    - name: Dashboards
       items:
         - name: Aspire Dashboard
           href: aspire-dashboard.md

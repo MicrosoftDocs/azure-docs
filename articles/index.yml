@@ -549,14 +549,14 @@ productDirectory:
       imageSrc: ./media/index/cache-redis.svg
       azureCategories:
         - databases
-      url: azure-cache-for-redis/index.yml
+      url: /azure/azure-cache-for-redis/
     # Card
     - title: Azure Managed Redis
       summary: Power applications with a high-performance, managed cache
       imageSrc: ./media/index/managed-redis.svg
       azureCategories:
         - databases
-      url: redis/index.yml
+      url: /azure/redis/
     # Card
     - title: Azure Database for MariaDB
       summary: Managed MariaDB database service for app developers

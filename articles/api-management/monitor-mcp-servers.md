@@ -2,9 +2,9 @@
 title: Monitor MCP Server Traffic in Azure API Management
 description: Monitor MCP server traffic in Azure API Management. Learn what telemetry is emitted by default, how to enable payload logging, and run ready-to-use KQL queries.
 #customer intent: As an SRE responsible for production MCP servers, I want to understand what telemetry API Management emits out of the box, so that I can monitor tool-call latency without changing any configuration.
-author: dlepow
-ms.author: danlep
-ms.reviewer: danlep
+author: PatAltimore
+ms.author: patricka
+ms.reviewer: patricka
 ms.date: 06/23/2026
 ms.service: azure-api-management
 ms.topic: how-to

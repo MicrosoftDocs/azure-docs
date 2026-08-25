@@ -3,7 +3,7 @@ title: Create and Set Up Azure SRE Agent
 description: Deploy Azure SRE Agent by using the onboarding wizard, connect your GitHub repository, and grant Azure resource access.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/30/2026
+ms.date: 07/10/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -14,6 +14,8 @@ ms.custom: onboarding, create agent, setup, code repo, azure resources, getting 
 # Create and set up Azure SRE Agent
 
 Azure SRE Agent is an AI solution that helps site reliability engineers (SREs) manage Azure cloud resources. This article shows you how to set up Azure SRE Agent and create an agent.
+
+[!INCLUDE [evaluate-offer](includes/evaluate-offer.md)]
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -55,7 +57,7 @@ Organizations with European Union (EU) data residency requirements should select
 | **Anthropic** | Claude models are marked **Preferred** for most regions. |
 | **Azure OpenAI** | GPT models are covered by EU Data Boundary commitments for Sweden Central deployments. |
 
-Anthropic is selected by default for most regions. For **Sweden Central**, Azure OpenAI is selected by default. You can change the model provider after creation in **Settings** > **Basics**.
+Anthropic is selected by default for most regions. For **Sweden Central** and **UK South**, Azure OpenAI is selected by default. You can change the model provider after creation in **Settings** > **Basics**.
 
 Select **Next** to proceed.
 

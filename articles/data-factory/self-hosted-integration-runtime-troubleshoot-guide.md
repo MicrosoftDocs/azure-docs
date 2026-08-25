@@ -5,7 +5,7 @@ description: Learn how to troubleshoot self-hosted integration runtime issues in
 author: kromerm
 ms.subservice: integration-runtime
 ms.topic: troubleshooting
-ms.date: 02/13/2025
+ms.date: 07/29/2026
 ms.author: makromer
 ms.custom:
   - synapse
@@ -15,6 +15,8 @@ ms.custom:
 # Troubleshoot self-hosted integration runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-mp.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article explores common troubleshooting methods for self-hosted integration runtime (IR) in Azure Data Factory and Synapse workspaces.
 
@@ -64,7 +66,7 @@ For failed activities that are running on a self-hosted IR or a shared IR, the s
 For failed Microsoft Purview activities that are running on a self-hosted IR or shared IR, the service supports viewing and uploading error logs from the [Windows Event Viewer](/shows/inside/event-viewer).
 
 You can look up any errors you see in the error guide below.
-To get support and troubleshooting guidance for SHIR issues, you may need to generate an error report ID and [reach out to Microsoft support](https://azure.microsoft.com/support/create-ticket/).
+To get support and troubleshooting guidance for self-hosted integration runtime (SHIR) issues, you might need to generate an error report ID and [contact Microsoft support](https://azure.microsoft.com/support/create-ticket/).
 
 To generate the error report ID for Microsoft Support, follow these instructions:
 
@@ -109,7 +111,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
 
 - **Resolution**  
 
-    Check the resource usage and concurrent activity execution on the IR node. Adjust the internal and trigger time of activity runs to avoid too much execution on a single IR node at the same time.
+    Check the resource usage and concurrent activity execution on the IR node. Adjust the interval and trigger time of activity runs to avoid too much execution on a single IR node at the same time.
 
 ### Concurrent jobs limit issue
 
@@ -285,7 +287,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
 
     Install drivers for both the source and destination datastores on the destination IR, and make sure that it can access the source datastore.
      
-    If the traffic can't pass through the network between two datastores (for example, they're configured in two virtual networks), you might not finish copying in one activity even with the IR installed. If you can't finish copying in a single activity, you can create two copy activities with two IRs, each in a VENT: 
+    If the traffic can't pass through the network between two datastores (for example, they're configured in two virtual networks), you might not finish copying in one activity even with the IR installed. If you can't finish copying in a single activity, you can create two copy activities with two IRs, each in a VNet: 
     * Copy one IR from datastore 1 to Azure Blob Storage
     * Copy another IR from Azure Blob Storage to datastore 2. 
     
@@ -340,8 +342,8 @@ To generate the error report ID for Microsoft Support, follow these instructions
     
     "The Integration Runtime (Self-hosted) node is trying to sync the credentials across nodes. It may take several minutes."
     
-    >[!Note]
-    >If this error appears for over 10 minutes, please check the connectivity with the dispatcher node.
+    >[!NOTE]
+    >If this error appears for over 10 minutes, check the connectivity with the dispatcher node.
     
 - **Cause**  
 
@@ -364,7 +366,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
         :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-1.png" alt-text="Screenshot that shows the second step to add self-hosted IR service account to the private key permissions." lightbox="./media/self-hosted-integration-runtime-troubleshoot-guide/add-service-account-to-private-key-1-expanded.png":::
     
         1. Select **File**.
-        1. Choose **Add/Remove Snap-in** in th drop-down menu.
+        1. Choose **Add/Remove Snap-in** in the drop-down menu.
         1. Select **Certificates** in the "Available snap-ins" pane.
         1. Select **Add**.
         1. In the pop-up "Certificates snap-in" pane, choose **Computer account**.
@@ -382,7 +384,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
         1. Select **All Tasks** in the drop-down list.
         1. Select **Manage Private Keys**.
         1. Select **Add** under "Group or user names".
-        1. Select **NT SERVICE\DIAHostService** to grant it full control access to this certificate, apply and safe. 
+        1. Select **NT SERVICE\DIAHostService** to grant it full control access to this certificate, apply and save. 
         1. Select **Check Names** and then select **OK**.
         1. In the "Permissions" pane, select **Apply** and then select **OK**.
 
@@ -450,7 +452,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
 
 ## Self-hosted IR setup
 
-### Integration runtime registration error 
+### Integration runtime registration error
 
 - **Symptoms**  
 
@@ -518,7 +520,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
     - Applications and Services Logs > Integration Runtime
     - Windows Logs > Application
 
-### Can't find the Register button to register a self-hosted IR    
+### Can't find the Register button to register a self-hosted IR
 
 - **Symptoms**  
 
@@ -543,7 +545,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
     1. Install the MSI file, and register the integration runtime.
 
 
-### Unable to register the self-hosted IR because of localhost    
+### Unable to register the self-hosted IR because of localhost
 
 - **Symptoms**  
 
@@ -565,7 +567,7 @@ To generate the error report ID for Microsoft Support, follow these instructions
 
     Use localhost IP address 127.0.0.1 to host the file and resolve the issue.
 
-### Self-hosted setup failed    
+### Self-hosted setup failed
 
 - **Symptoms**  
 
@@ -657,7 +659,7 @@ For Azure Data Factory v2 and Azure Synapse customers:
         ```      
     
        > [!NOTE]     
-       > The service URL might vary, depending on the location of your data factory or Synapse workspace instance. To find the service URL, use the Manage page of the UI in your data factory or Azure Synapse instance to find **Integration runtimes** and click your self-hosted IR to edit it.  There select the **Nodes** tab and click **View Service URLs**.
+       > The service URL might vary, depending on the location of your data factory or Synapse workspace instance. To find the service URL, use the Manage page of the UI in your data factory or Azure Synapse instance to find **Integration runtimes** and select your self-hosted IR to edit it.  There select the **Nodes** tab and select **View Service URLs**.
                 
         The following is the expected response:
                 
@@ -710,7 +712,7 @@ For Azure Data Factory v2 and Azure Synapse customers:
 
 - **Resolution**  
 
-    1. Log in to the node-hosted virtual machine (VM). Under **Applications and Services Logs** > **Integration Runtime**, open Event Viewer, and filter the error logs.
+    1. Sign in to the node-hosted virtual machine (VM). Under **Applications and Services Logs** > **Integration Runtime**, open Event Viewer, and filter the error logs.
     
     1. Check to see whether an error log contains the following error: 
         
@@ -776,7 +778,7 @@ how to collect the network trace, understand how to use it, and [analyze the Mic
     
         1. Get the conversation between the client and the Data Factory server by removing the filter.
     
-    - An analysis of the Netmon trace you've collected shows that the Time to Live (TTL)) total is 64. According to the values mentioned in the [IP Time to Live (TTL) and Hop Limit Basics](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/) article, extracted in the following list, you can see that it's the Linux System that resets the package and causes the disconnection.
+    - An analysis of the Netmon trace you've collected shows that the Time to Live (TTL) total is 64. According to the values mentioned in the [IP Time to Live (TTL) and Hop Limit Basics](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/) article, extracted in the following list, you can see that it's the Linux System that resets the package and causes the disconnection.
     
         Default TTL and Hop Limit values vary between different operating systems, as listed here:
         - Linux kernel 2.4 (circa 2001): 255 for TCP, User Datagram Protocol (UDP), and Internet Control Message Protocol (ICMP)
@@ -854,11 +856,11 @@ This notification applies to the following scenarios:
 
 How to determine whether you're affected:
 
-- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allowlist for IP addresses](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
+- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allow list for IP addresses](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
-- You *are* affected if you're explicitly enabling the allowlist for outbound IPs on your corporate firewall.
+- You *are* affected if you're explicitly enabling the allow list for outbound IPs on your corporate firewall.
 
-   If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update your network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+   If you're affected, notify your network infrastructure team to update your network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ##### Scenario 2: Outbound communication from a self-hosted integration runtime that's running on an Azure VM inside a customer-managed Azure virtual network
 
@@ -870,9 +872,9 @@ How to determine whether you're affected:
 
   :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png" alt-text="Screenshot of a destination check showing DataFactory as the destination.":::
 
-- You *are* affected if you're explicitly enabling the allowlist for outbound IP addresses on your NSG rules setting on the Azure virtual network.
+- You *are* affected if you're explicitly enabling the allow list for outbound IP addresses on your NSG rules setting on the Azure virtual network.
 
-   If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update the NSG rules on your Azure virtual network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+   If you're affected, notify your network infrastructure team to update the NSG rules on your Azure virtual network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ##### Scenario 3: Outbound communication from SSIS Integration Runtime in a customer-managed Azure virtual network
 
@@ -882,11 +884,11 @@ How to determine whether you're affected:
 
 - If you have outbound rule restrictions, check to see whether you're using service tags. If you're using service tags, you're not affected. There's no need to change or add anything because the new IP range is under your existing service tags.
 
-- You *are* affected if you're explicitly enabling the allowlist for outbound IP addresses on your NSG rules setting on the Azure virtual network.
+- You *are* affected if you're explicitly enabling the allow list for outbound IP addresses on your NSG rules setting on the Azure virtual network.
 
-  If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update the NSG rules on your Azure virtual network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+  If you're affected, notify your network infrastructure team to update the NSG rules on your Azure virtual network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
-### Couldn't establish a trust relationship for the SSL/TLS secure channel 
+### Couldn't establish a trust relationship for the SSL/TLS secure channel
 
 - **Symptoms**  
 

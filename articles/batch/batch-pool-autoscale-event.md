@@ -2,7 +2,7 @@
 title: Azure Batch pool autoscale event
 description: Reference for the Batch pool autoscale event, which is emitted once a pool automatic scaling is executed. The content of the log will expose autoscale formula and evaluation results for the pool.
 ms.topic: reference
-ms.date: 07/01/2025
+ms.date: 08/05/2026
 # Customer intent: "As a cloud operations engineer, I want to monitor the autoscale events for Batch pools so that I can troubleshoot scaling issues and optimize resource allocation effectively."
 ---
 
@@ -44,4 +44,11 @@ ms.date: 07/01/2025
 |------------------|----------|-----------|
 |`code`|String|An identifier for the automatic scaling error. Codes are invariant and are intended to be consumed programmatically.|
 |`message`|String|A message describing the automatic scaling error, intended to be suitable for display in a user interface.|
-|`values`|Array|List of name-value pairs describing more details of the automatic scaling error.|
+|[`values`](#values)|Array|A list of name-value pairs that provides more detail about the automatic scaling error. If no extra detail values are available, the array is empty.|
+
+###  <a name="values"></a> values
+
+|Element name|Type|Notes|
+|------------------|----------|-----------|
+|`name`|String|The detail name.|
+|`value`|String|The detail value.|

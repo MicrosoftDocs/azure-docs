@@ -15,6 +15,8 @@ ms.custom: has-adal-ref, synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article provides suggestions to troubleshoot common problems with the delimited text formatL connector in Azure Data Factory and Azure Synapse.
 
 ## Error code: DelimitedTextColumnNameNotAllowNull

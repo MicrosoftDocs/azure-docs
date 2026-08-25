@@ -1,19 +1,23 @@
 ---
-title: Filter and route data in data flow graphs
-description: Learn how to filter, branch, and merge messages using data flow graphs in Azure IoT Operations.
+title: Filter, branch, and merge messages in data flow graphs
+description: Learn how to use data flow graphs in Azure IoT Operations to filter, branch, and merge messages so only relevant data reaches your destination.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 07/24/2026
+ms.date: 08/03/2026
 ai-usage: ai-assisted
+
+#customer intent: As a solution developer, I want to filter, branch, and merge messages in a data flow graph so that only the relevant data reaches my destination.
 
 ---
 
-# Filter and route data in data flow graphs
+# Filter, branch, and merge data in data flow graphs
 
 Data flow graphs provide two ways to control which messages flow through your pipeline: **filter** transforms drop unwanted messages, and **branch** transforms route each message down one of two paths based on a condition. After branching, a **concatenate** transform merges the paths back together.
+
+These transforms route messages *within* the graph. To instead route messages to different MQTT topics based on their content, see [Route messages to different MQTT topics](howto-dataflow-graphs-topic-routing.md).
 
 For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md).
 
@@ -23,6 +27,8 @@ For an overview of data flow graphs and how transforms compose in a pipeline, se
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - A default registry endpoint named `default` that points to `mcr.microsoft.com` is automatically created during deployment. The built-in transforms use this endpoint.
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
 
 ## Filter transform
 
@@ -43,7 +49,7 @@ Each filter rule has these properties:
 | `expression` | Yes | Formula applied to the input values. Must return a boolean. When it returns true, the message is dropped. |
 | `description` | No | Human-readable label used in error messages. |
 
-Inputs are assigned positional variables based on their order: the first input is `$1`, the second is `$2`, and so on.
+Each input maps to a positional variable based on its order: the first input is `$1`, the second is `$2`, and so on.
 
 When you define multiple rules, they use **OR logic**: if *any* rule evaluates to true, the message is dropped. The engine short-circuits once a rule matches.
 
@@ -70,7 +76,7 @@ In the filter transform configuration, add a rule:
 
 # [Azure CLI](#tab/cli)
 
-The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+The CLI applies the whole graph from one config file. Add this snippet to the corresponding place in your `graph.json` and apply it by using [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
 
 ```json
 "filter": [
@@ -126,7 +132,7 @@ In the filter transform configuration, add a rule:
 
 # [Azure CLI](#tab/cli)
 
-The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+The CLI applies the whole graph from one config file. Add this snippet to the corresponding place in your `graph.json` and apply it by using [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
 
 ```json
 "filter": [
@@ -185,7 +191,7 @@ Add two rules:
 
 # [Azure CLI](#tab/cli)
 
-The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+The CLI applies the whole graph from one config file. Add this snippet to the corresponding place in your `graph.json` and apply it by using [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
 
 ```json
 "filter": [
@@ -260,7 +266,7 @@ Add a rule with inputs `temperature` and `humidity`, and expression `$1 > 30 && 
 
 # [Azure CLI](#tab/cli)
 
-The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+The CLI applies the whole graph from one config file. Add this snippet to the corresponding place in your `graph.json` and apply it by using [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
 
 ```json
 "filter": [
@@ -303,15 +309,15 @@ filter: [
 
 For the full list of operators and functions, see [Expressions reference](concept-dataflow-graphs-expressions.md).
 
-### Validate messages against a schema
+### Validate filter messages against a schema
 
-You can configure a filter transform to validate incoming messages against a JSON schema before filter rules run. Messages that don't conform to the schema are dropped immediately.
+Configure a filter transform to validate incoming messages against a JSON schema before filter rules run. The process drops messages that don't conform to the schema.
 
 To enable schema validation, set `validateSchema` to `true` in the filter configuration. When enabled, the filter retrieves the schema from the `schemaRef` on the incoming node connection (the `from` side of the `nodeConnections` entry that feeds into the filter node).
 
 # [Operations experience](#tab/portal)
 
-The filter transform configuration includes a **Validate schema** checkbox. However, the Operations experience doesn't currently support configuring or viewing the `schemaRef` on node connections. To use schema validation, configure the node connection's `schemaRef` through Bicep or Kubernetes manifests.
+The filter transform configuration includes a **Validate schema** checkbox. However, the operations experience doesn't currently support configuring or viewing the `schemaRef` on node connections. To use schema validation, configure the node connection's `schemaRef` through Bicep or Kubernetes manifests.
 
 # [Azure CLI](#tab/cli)
 
@@ -328,7 +334,7 @@ The CLI applies the whole graph from one config file, so add this to the corresp
       "configuration": [
         {
           "key": "rules",
-          "value": "{\"version\":\"1.0.0\",\"validateSchema\":true,\"filter\":[]}"
+          "value": "{\"validateSchema\":true,\"filter\":[]}"
         }
       ]
     }
@@ -350,8 +356,7 @@ The CLI applies the whole graph from one config file, so add this to the corresp
 ]
 ```
 
-> [!TIP]
-> To generate the escaped string, save the rules to a file like `rules.json`, then run `jq -c . rules.json` and paste the single-line output into the `value` field.
+[!INCLUDE [dataflow-jq-tip](../includes/dataflow-jq-tip.md)]
 
 # [Bicep](#tab/bicep)
 
@@ -368,7 +373,7 @@ nodes: [
       configuration: [
         {
           key: 'rules'
-          value: '{"version":"1.0.0","validateSchema":true,"filter":[]}'
+          value: '{"validateSchema":true,"filter":[]}'
         }
       ]
     }
@@ -403,7 +408,6 @@ nodes:
         - key: rules
           value: |
             {
-              "version": "1.0.0",
               "validateSchema": true,
               "filter": []
             }
@@ -539,12 +543,12 @@ Every message goes to exactly one of the two paths. Nothing is dropped.
 
 Key constraints:
 
-- The branch expression **must return a boolean**. Non-boolean results cause an error (unlike filter, which also errors on non-boolean).
+- The branch expression **must return a boolean**. Non-boolean results cause an error.
 - **No wildcard inputs.**
 - **Exactly one branch rule.** The `branch` key takes a single object, not an array.
 
 > [!IMPORTANT]
-> Branching splits messages into separate processing paths, but all paths must merge back together using a concatenate transform before reaching the destination. Think of branching as a way to apply different transformations to different messages, not as a way to route to multiple endpoints.
+> Branching splits messages into separate processing paths, but all paths must merge back together by using a concatenate transform before reaching the destination. Think of branching as a way to apply different transformations to different messages, not as a way to route to multiple endpoints.
 
 ### Define a branch rule
 
@@ -614,6 +618,127 @@ configuration: [
 ---
 
 Messages where `severity` is greater than 5 go to the `true` path. All others go to the `false` path.
+
+### Validate branch messages against a schema
+
+Starting from version `1.1.0`, you can configure a branch transform to validate incoming messages against a JSON schema before evaluating the branch expression.
+
+To enable schema validation, set `validateSchema` to `true` in the branch configuration. The `validateSchema` field is optional and defaults to `false`. When enabled, the branch retrieves the schema from the `schemaRef` on the incoming node connection (the `from` side of the `nodeConnections` entry that feeds into the branch node).
+
+- Messages that pass schema validation continue to branch evaluation.
+- Messages that fail schema validation go to the `false` path.
+
+# [Operations experience](#tab/portal)
+
+The branch transform configuration includes a **Validate schema** checkbox. However, the operations experience doesn't currently support configuring or viewing the `schemaRef` on node connections. To use schema validation, configure the node connection's `schemaRef` through Bicep or Kubernetes manifests.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply). In the `graph.json` file, each transform's rules are stored in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
+
+```json
+"nodes": [
+  {
+    "nodeType": "Graph",
+    "name": "schema-branch",
+    "graphSettings": {
+      "registryEndpointRef": "default",
+      "artifact": "azureiotoperations/graph-dataflow-branch:1.1.0",
+      "configuration": [
+        {
+          "key": "rules",
+          "value": "{\"validateSchema\":true,\"branch\":{\"inputs\":[\"severity\"],\"expression\":\"$1 > 5\"}}"
+        }
+      ]
+    }
+  }
+],
+"nodeConnections": [
+  {
+    "from": {
+      "name": "sensors",
+      "schema": {
+        "schemaRef": "aio-sr://my-namespace/sensor-schema:1",
+        "serializationFormat": "Json"
+      }
+    },
+    "to": {
+      "name": "schema-branch"
+    }
+  }
+]
+```
+
+[!INCLUDE [dataflow-jq-tip](../includes/dataflow-jq-tip.md)]
+
+# [Bicep](#tab/bicep)
+
+Include `validateSchema` in the branch rules JSON and configure `schemaRef` on the incoming node connection:
+
+```bicep
+nodes: [
+  {
+    nodeType: 'Graph'
+    name: 'schema-branch'
+    graphSettings: {
+      registryEndpointRef: 'default'
+      artifact: 'azureiotoperations/graph-dataflow-branch:1.1.0'
+      configuration: [
+        {
+          key: 'rules'
+          value: '{"validateSchema":true,"branch":{"inputs":["severity"],"expression":"$1 > 5"}}'
+        }
+      ]
+    }
+  }
+]
+nodeConnections: [
+  {
+    from: {
+      name: 'sensors'
+      schema: {
+        schemaRef: 'aio-sr://my-namespace/sensor-schema:1'
+        serializationFormat: 'Json'
+      }
+    }
+    to: { name: 'schema-branch' }
+  }
+]
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+```yaml
+nodes:
+  - nodeType: Graph
+    name: schema-branch
+    graphSettings:
+      registryEndpointRef: default
+      artifact: azureiotoperations/graph-dataflow-branch:1.1.0
+      configuration:
+        - key: rules
+          value: |
+            {
+              "validateSchema": true,
+              "branch": {
+                "inputs": ["severity"],
+                "expression": "$1 > 5"
+              }
+            }
+
+nodeConnections:
+  - from:
+      name: sensors
+      schema:
+        schemaRef: "aio-sr://my-namespace/sensor-schema:1"
+        serializationFormat: Json
+    to:
+      name: schema-branch
+```
+
+---
 
 ### Connect branch outputs
 
@@ -740,7 +865,7 @@ This end-to-end example filters out bad readings, branches by severity, applies 
 
 :::image type="content" source="media/howto-dataflow-graphs-filter-route/filter-branch-pipeline.png" alt-text="Screenshot of the operations experience canvas showing a filter, branch, map, concat, and destination pipeline." lightbox="media/howto-dataflow-graphs-filter-route/filter-branch-pipeline.png":::
 
-To build this pipeline in the Operations experience:
+To build this pipeline in the operations experience:
 
 1. Create a data flow graph and add a **source** that reads from `telemetry/sensors`.
 1. Add a **filter** transform. Configure a rule that drops messages where `temperature > 1000`.
@@ -788,7 +913,7 @@ The Azure CLI applies a data flow graph from a single JSON config file. Create a
       "name": "severity-check",
       "graphSettings": {
         "registryEndpointRef": "default",
-        "artifact": "azureiotoperations/graph-dataflow-branch:1.0.0",
+        "artifact": "azureiotoperations/graph-dataflow-branch:1.1.0",
         "configuration": [
           {
             "key": "rules",
@@ -903,13 +1028,13 @@ The Azure CLI applies a data flow graph from a single JSON config file. Create a
 }
 ```
 
-Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
+Apply the config file.
 
 ```azurecli
 az iot ops dataflowgraph apply \
   --name alert-routing \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
   --config-file graph.json
 ```
 
@@ -950,7 +1075,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
         name: 'severity-check'
         graphSettings: {
           registryEndpointRef: 'default'
-          artifact: 'azureiotoperations/graph-dataflow-branch:1.0.0'
+          artifact: 'azureiotoperations/graph-dataflow-branch:1.1.0'
           configuration: [
             {
               key: 'rules'
@@ -1059,7 +1184,7 @@ spec:
       name: severity-check
       graphSettings:
         registryEndpointRef: default
-        artifact: azureiotoperations/graph-dataflow-branch:1.0.0
+        artifact: azureiotoperations/graph-dataflow-branch:1.1.0
         configuration:
           - key: rules
             value: |
@@ -1133,10 +1258,11 @@ spec:
 
 ---
 
-## Next steps
+## Related content
 
 - [Transform data with map](howto-dataflow-graphs-map.md)
 - [Aggregate data over time](howto-dataflow-graphs-window.md)
 - [Enrich with external data](howto-dataflow-graphs-enrich.md)
 - [Route messages to different topics](howto-dataflow-graphs-topic-routing.md)
+- [Throttle data](howto-dataflow-graphs-throttle.md)
 - [Expressions reference](concept-dataflow-graphs-expressions.md)

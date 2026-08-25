@@ -14,6 +14,8 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Build stateful apps with Durable Functions. It's an extension of [Azure Functions](../../azure-functions/functions-overview.md). Use an [orchestrator function](durable-task-orchestrations.md) to coordinate other Durable Functions in your function app. Orchestrator functions are stateful, reliable, and they're built to run for a long time.
 
 ::: zone-end
@@ -73,13 +75,37 @@ Time-based APIs are nondeterministic and should never be used in orchestrator fu
 
 # [C#](#tab/csharp)
 
-Don't use `DateTime.Now`, `DateTime.UtcNow`, or equivalent APIs for getting the current time. Classes such as [`Stopwatch`](/dotnet/api/system.diagnostics.stopwatch) should also be avoided. For .NET in-process orchestrator functions, use the `IDurableOrchestrationContext.CurrentUtcDateTime` property to get the current time. For .NET isolated orchestrator functions, use the `TaskOrchestrationContext.CurrentDateTimeUtc` property to get the current time.
+Don't use `DateTime.Now`, `DateTime.UtcNow`, or equivalent APIs for getting the current time. Classes such as [`Stopwatch`](/dotnet/api/system.diagnostics.stopwatch) should also be avoided.
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+For .NET isolated orchestrator functions, use the `TaskOrchestrationContext.CurrentUtcDateTime` property to get the current time.
 
 ```csharp
 DateTime startTime = context.CurrentUtcDateTime;
 // do some work
 TimeSpan totalTime = context.CurrentUtcDateTime.Subtract(startTime);
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+For .NET in-process orchestrator functions, use the `IDurableOrchestrationContext.CurrentUtcDateTime` property to get the current time.
+
+```csharp
+DateTime startTime = context.CurrentUtcDateTime;
+// do some work
+TimeSpan totalTime = context.CurrentUtcDateTime.Subtract(startTime);
+```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -232,11 +258,33 @@ APIs that return a random GUID or UUID are nondeterministic because the generate
 
 # [C#](#tab/csharp)
 
-Instead of APIs like `Guid.NewGuid()`, use the context object's `NewGuid()` API to generate a random GUID that's safe for orchestrator replay.
+Instead of APIs like `Guid.NewGuid()`, use the orchestration context's `NewGuid()` API to generate a random GUID that's safe for orchestrator replay.
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+For .NET isolated orchestrator functions, use `TaskOrchestrationContext.NewGuid()`.
 
 ```csharp
 Guid randomGuid = context.NewGuid();
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+For .NET in-process orchestrator functions, use `IDurableOrchestrationContext.NewGuid()`.
+
+```csharp
+Guid randomGuid = context.NewGuid();
+```
+
+</details>
+
+<br>
 
 > [!NOTE]
 > GUIDs generated with orchestration context APIs are [Type 5 UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier#Versions_3_and_5_(namespace_name-based)).

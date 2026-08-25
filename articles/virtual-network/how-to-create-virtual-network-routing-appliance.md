@@ -1,12 +1,12 @@
 ---
 title: Create a Routing Appliance
 titleSuffix: Azure Virtual Network
-description: This guide covers registration, configuration, and troubleshooting for the preview of Azure Virtual Network routing appliances.
-#customer intent: As a network administrator, I want to create a routing appliance in the Azure portal so that I can manage virtual network traffic in a nonproduction environment.
+description: This guide covers configuration and troubleshooting for Azure Virtual Network routing appliances.
+#customer intent: As a network administrator, I want to create a routing appliance in the Azure portal so that I can manage virtual network traffic.
 author: asudbring
 ms.author: allensu
 ms.reviewer: allensu
-ms.date: 02/04/2026
+ms.date: 08/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-network
 ms.custom: references_regions
@@ -14,35 +14,36 @@ ms.custom: references_regions
 
 # Create an Azure Virtual Network routing appliance
 
-This article explains how to register your subscription for the preview of Azure Virtual Network routing appliances and how to create a routing appliance in the Azure portal. Use the preview for testing, evaluation, and feedback. It doesn't support production workloads.
-
-> [!IMPORTANT]
-> Azure Virtual Network routing appliances are currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Prerequisites
-
-- Use a nonproduction Azure subscription for this preview.
+This article explains how to create an Azure Virtual Network routing appliance in the Azure portal. Azure Virtual Network routing appliances are generally available as of August 4, 2026, and are supported for production workloads.
 
 ## Supported regions
 
-The preview of routing appliances is limited to the following regions:
+Routing appliances are available in the following regions:
 
-- West US  
-- East US  
-- East Asia  
-- North Europe  
-- West Europe  
-- East US 2  
-- West Central US  
+- Australia East
+- Brazil South
+- Brazil Southeast
+- Central India
+- Central US
+- East Asia
+- East US
+- East US 2
+- Germany West Central
+- North Central US
+- North Europe
+- South Central US
+- South India
+- Southeast Asia
+- Spain Central
+- Sweden Central
 - UK South
+- West Central US
+- West Europe
+- West US
+- West US 2
+- West US 3
 
-## Register and confirm your subscription
-
-Azure Feature Exposure Control (AFEC) controls preview access to routing appliances. The AFEC feature name for enabling the preview is `Microsoft.network/AllowVirtualNetworkAppliance`. Register for the preview by activating the AFEC flag in the Azure portal.
-
-After you submit your AFEC registration for `Microsoft.network/AllowVirtualNetworkAppliance`, complete the preview [sign-up form](https://forms.office.com/r/kqEKRr5mpB). The product team reviews and approves requests manually based on availability and capacity. During the preview, creation requests might be denied if a region has insufficient inventory or capacity.
-
-After Microsoft authorizes your subscription, search for **routing appliance** in the Azure portal's search box. If the feature is enabled, **Azure Virtual Network routing appliances** appears as a selectable service entry.
+To get started, search for **routing appliance** in the Azure portal's search box, and then select **Azure Virtual Network routing appliances**.
 
 :::image type="content" source="media/create-virtual-network-routing-appliance/virtual-network-appliance-1.png" alt-text="Screenshot of a search for routing appliances in the Azure portal.":::
 
@@ -50,7 +51,7 @@ After Microsoft authorizes your subscription, search for **routing appliance** i
 
 ## Create a resource group
 
-1. Sign in to the [Azure preview portal](https://preview.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box, enter **resource group**. In the search results, select **Resource groups**.
 
@@ -115,7 +116,7 @@ After Microsoft authorizes your subscription, search for **routing appliance** i
     | **Instance details** | |
     | **Name** | Enter **vnet-appliance**. |
     | **Region** | Select **East US**. |
-    | **Capacity** | Select **50 Gbps**. |
+    | **Capacity** | Select **50 Gbps**. Supported bandwidth tiers are 10, 50, 100, and 200 Gbps. |
     | **Virtual Network** | Select **vnet-1**. |
 
 1. Select **Review + create**.
@@ -126,13 +127,33 @@ The portal creates the routing appliance in a dedicated subnet named `VirtualNet
 
 **Optional**: During creation, you can choose a network security group (NSG) and route table for the routing appliance's dedicated subnet.
 
+## Scale and performance
+
+Each routing appliance instance has a fixed bandwidth tier. The tier determines the maximum connection establishment rate and the number of concurrent flows the instance supports:
+
+| Bandwidth tier | Max connections per second | Max concurrent flows |
+|----------------|----------------------------|----------------------|
+| 10 Gbps        | 100,000                    | 1,000,000            |
+| 50 Gbps        | 250,000                    | 2,000,000            |
+| 100 Gbps       | 600,000                    | 4,000,000            |
+| 200 Gbps       | 1,500,000                  | 8,000,000            |
+
+You can't resize an existing instance. To change the bandwidth tier, delete the appliance and create a new one with the tier you need.
+
+## Monitor the routing appliance
+
+You can view metrics in Azure Monitor as soon as you create the appliance, with no diagnostic configuration required. Select the **Metrics** tab on the routing appliance resource to view bytes sent and received, packets sent and received, inbound and outbound flow counts, and inbound and outbound flow creation rates. You can also set alerts on throughput thresholds, flow counts, and anomalous flow creation rates.
+
+Flow logs with per-flow 5-tuple and rule-match detail aren't available yet.
+
 ## Troubleshoot
 
-### Creation fails because the subscription isn't enabled
+### Creation fails in a region or with an allocation error
 
-If an error indicates that your subscription isn't enabled or placed in an allow list, it typically means your AFEC registration isn't yet approved for `Microsoft.network/AllowVirtualNetworkAppliance`. Register via AFEC and wait for approval.
+Confirm that you're deploying to one of the supported regions listed earlier in this article. If the request returns a validation error for an unsupported region, choose a supported region. If it returns an allocation failure, capacity isn't currently available in that region for the requested bandwidth tier. Retry with a lower tier, choose another region, or try again later. Also confirm that you didn't reach the limit of two routing appliances per subscription per region.
 
 ### Appliance isn't getting traffic as expected
 
-- Verify that NSGs and route tables attached to the appliance instance (or to the hosting subnet) match your intended routing and security configuration.  
-- Use NSG flow logs (if they're enabled in your environment) to help validate connectivity and rule matches.
+- Verify that user-defined routes use the next hop type **Virtual appliance** and point to the routing appliance's private IP address, and that IP forwarding is enabled on the relevant peerings.
+- Verify that network security groups and route tables attached to the appliance subnet, or to the source and destination subnets, match your intended routing and security configuration.
+- Use Azure Monitor metrics on the appliance to confirm whether traffic is reaching it. Per-flow logging isn't available yet, so use virtual network flow logs on the workload subnets to validate connectivity and rule matches.

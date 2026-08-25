@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 07/01/2026
+ms.date: 07/30/2026
 ---
 
 # Known issues for Azure IoT Operations
@@ -14,63 +14,6 @@ ms.date: 07/01/2026
 This article lists the current known issues you might encounter when using Azure IoT Operations. The guidance helps you identify these issues and provides workarounds where available.
 
 For general troubleshooting guidance, see [Troubleshoot Azure IoT Operations](troubleshoot.md).
-
-## Deployment and upgrade issues
-
-This section lists current known issues with deploying and upgrading Azure IoT Operations.
-
-### Upgrade to Azure IoT Operations 2603 can silently fail
-
----
-
-Log signature: N/A
-
----
-
-When you run `az iot ops upgrade` to upgrade to Azure IoT Operations 2603, the upgrade can silently fail to reach the cluster. You then observe the following symptoms:
- 
-- `provisioningState: Failed` on the Azure IoT Operations extension.
-- All on-cluster workloads remain healthy (no upgrade activity occurs).
-- `az iot ops upgrade` might report nothing to upgrade on subsequent attempts.
- 
-Root cause: During the upgrade, if a dependent system extension, such as `microsoft.extensiondiagnostics` experiences a transient Helm timeout, Azure Resource Manager marks it as **Failed**. Even if the extension eventually succeeds on-cluster, the cloud-side state remains **Failed**. This condition blocks the dependency chain - Azure Resource Manager never delivers the updated Azure IoT Operations or secret-store extension config to the cluster's config agent.
- 
-Symptoms include:
- 
-- Config agent PostStatus returns `400: "Configuration spec has been modified"`
-- `getPendingConfigs` returns empty results
-- Extension manager never receives Helm upgrade instructions
-
-Workaround: Force Azure Resource Manager to re-submit the extension specs by running a no-op update on both the Azure IoT Operations and secret-store extensions, and then retry the upgrade:
-
-```azurecli
-az k8s-extension update --name <aio-extension-name> \
-    --cluster-name <cluster-name> \
-    --resource-group <resource-group> \
-    --cluster-type connectedClusters \
-    --configuration-settings AgentOperationTimeoutInMinutes=120
-
-az k8s-extension update --name azure-secret-store \
-    --cluster-name <cluster-name> \
-    --resource-group <resource-group> \
-    --cluster-type connectedClusters \
-    --configuration-settings AgentOperationTimeoutInMinutes=120
-
-az iot ops upgrade
-```
-
-To identify the Azure IoT Operations extension name, which includes a random suffix (for example, `azure-iot-operations-cym7h`), find your specific extension name by running:
-
-```azurecli
-az k8s-extension list \
-    --cluster-name <cluster-name> \
-    --resource-group <resource-group> \
-    --cluster-type connectedClusters \
-    --query "[?extensionType=='microsoft.iotoperations'].name" -o tsv
-```
-
-> [!IMPORTANT]
-> After the upgrade completes, reset `AgentOperationTimeoutInMinutes` back to a lower value like five minutes to avoid long wait times on future operations if something else fails.
 
 ## Azure Device Registry issues
 
@@ -235,6 +178,20 @@ Log signature: `2025-10-22T14:51:59.338Z aio-opc-opc.tcp-1-68ff6d4c59-nj2s4 - Up
 
 Schema generation fails if event names contain special characters such as `#`, `%`, or `&`. Avoid using these characters in event names to prevent schema generation issues.
 
+### OPC connector template missing
+
+---
+
+Issue ID: 1330
+
+---
+
+Log signature: N/A
+
+---
+
+Azure IoT Operations instance deployment should install an **OPC ConnectorTemplate** by default. Following the deployment, the connector template is missing from the Azure portal and the `ConnectorTemplate` resource isn't present in the cluster.
+
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.
@@ -312,6 +269,10 @@ Log signature: N/A
 
 ---
 
+Fixed in release 2606 and later
+
+---
+
 When updating to version 2605, existing MQTT connector templates may display mismatched metadata versions in the portal. To resolve, delete and recreate the connector template. Alternatively, use the Azure CLI to update the connector.
 
 ### MQTT connector can't connect to external MQTT brokers that have private IP addresses
@@ -326,16 +287,42 @@ Log signature: N/A
 
 ---
 
-Starting in release 2605, the MQTT connector can't connect to external MQTT brokers that have private IP addresses.  
+Fixed in release 2607 and later
 
-This issue is scheduled to be fully resolved in release 2607.
+---
+
+Starting in release 2605, the MQTT connector can't connect to external MQTT brokers that use private IP addresses.  
 
 
 ## Data flows issues
 
 This section lists current known issues for data flows.
 
-### Data flow resources aren't visible in the operations experience web UI
+### Operations experience web UI only displays data flow graph artifacts sourced from Azure Container Registry (ACR) and mcr.microsoft.com
+
+---
+
+Issue ID: 8895
+
+---
+
+Log signature: N/A
+
+---
+
+Even if you configure a container registry endpoint for a non-ACR container registry, like GHCR:
+
+- Data flow graph artifacts from the non-ACR registry don't appear in the operations experience web UI, so you can't create a data flow graph that uses them.
+
+- Selecting a data flow graph from the list of data flows in the operations experience web UI that contains elements from a non-ACR registry produces an error similar to: `Can't load data flow graph. The contents of this data flow graph are unavailable. Please ensure that it still exists, then work with your administrator to get 'AcrPull' access to required registry endpoints.`
+
+Workaround: You have two options:
+
+- If you don't need to use the operations experience UI, use the Azure CLI to perform CRUD operations on data flow graphs defined in JSON or Bicep files that contain artifacts sourced from non-ACR registries.
+
+- If you want to use the operations experience web UI, import data flow artifacts and graphs from non-ACR registries into an ACR registry. To learn more, see [Push modules to your registry](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md#push-modules-to-your-registry).
+
+### Data flow resources created using Kubernetes aren't visible in the operations experience web UI
 
 ---
 
@@ -368,27 +355,6 @@ Log signature:
 If you create more than 70 data flows for a single data flow profile, deployments fail with the error `exec /bin/main: argument list too long`.
 
 To work around this issue, create multiple data flow profiles and distribute the data flows across them. Don't exceed 70 data flows per profile.
-
-### Data flow graphs only support specific endpoint types
-
----
-
-Issue ID: 5693
-
----
-
-Log signature: N/A
-
----
-
-Data flow graphs (WASM) currently only support MQTT, Kafka, and OpenTelemetry (OTel) data flow endpoints. OpenTelemetry endpoints can only be used as destinations in data flow graphs. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage are not supported for data flow graphs.
-
-To work around this issue, use one of the supported endpoint types:
-- [MQTT endpoints](../connect-to-cloud/howto-configure-mqtt-endpoint.md) for bi-directional messaging with MQTT brokers
-- [Kafka endpoints](../connect-to-cloud/howto-configure-kafka-endpoint.md) for bi-directional messaging with Kafka brokers, including Azure Event Hubs
-- [OpenTelemetry endpoints](../connect-to-cloud/open-telemetry.md) for sending metrics and logs to observability platforms (destination only)
-
-For more information about data flow graphs, see [Use WebAssembly (WASM) with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
 
 ### Can't use the same graph definition multiple times in a chained graph scenario
 
@@ -445,26 +411,6 @@ You create a chained graph scenario by using the output of one data flow graph a
 
 To solve this error, push the graph definition to the ACR as many times as needed with the scenario with a different name or tag each time. For example, in the scenario described, the graph definition need to be pushed twice with either a different name or a different tag, such as `graph-passthrough-one:1.3.6` and `graph-passthrough-two:1.3.6`.
 
-## Broker listener issues
-
-This section lists current known issues for broker listeners    .
-
-### Azure portal fails to fetch broker authentications
-
----
-
-Issue ID: 3072
-
----
-
-Log signature: Azure portal message `Fetch broker authentications: Failed to fetch broker authentications`
-
----
-
-When you configure a broker listener in the Azure portal and select a value in the "Authentication" dropdown, the portal tries to fetch the list of broker authentications. The portal displays the error message `Fetch broker authentications: Failed to fetch broker authentications`.
-
-Workaround: Upgrade to the 2603 release.
-
 ## Federated identity issues
 
 This section lists current known issues for federated identity.
@@ -474,6 +420,10 @@ This section lists current known issues for federated identity.
 ---
 
 Issue ID: 1190
+
+---
+
+Fixed in version 2607 and later
 
 ---
 

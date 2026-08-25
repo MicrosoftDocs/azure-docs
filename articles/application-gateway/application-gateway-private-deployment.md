@@ -311,6 +311,9 @@ Result:
 
 In the current offering of Application Gateway, association of a route table with a rule (or creation of rule) defined as 0.0.0.0/0 with a next hop as virtual appliance is unsupported to ensure proper management of Application Gateway.
 
+> [!IMPORTANT]
+> The same management-plane impact applies to a default route (0.0.0.0/0) that the Application Gateway subnet learns through BGP from an ExpressRoute or VPN connection. A BGP-learned default route acts as forced tunneling: it overrides the system default route and sends the gateway's management-plane traffic through the on-premises path. Because Application Gateway v2 requires symmetric routing for management traffic, this route breaks management-plane connectivity and can cause provisioning failures and `InternalServerError`. To restore connectivity, add a user-defined route for 0.0.0.0/0 with a next hop of **Internet** on a route table dedicated to the Application Gateway subnet, or stop advertising the default route to the subnet. For step-by-step diagnostics, see [Troubleshoot Application Gateway deployment, scaling, and deletion failures](/troubleshoot/azure/application-gateway/troubleshoot-application-gateway-deployment-scaling-deletion-failures).
+
 After registration of the feature, the ability to forward traffic to a virtual appliance is now possible via definition of a route table rule that defines 0.0.0.0/0 with a next hop to Virtual Appliance.
 
 Forced Tunneling or learning of 0.0.0.0/0 route through BGP advertising does not affect Application Gateway health, and is honored for traffic flow. This scenario can be applicable when using VPN, ExpressRoute, Route Server, or Virtual WAN.

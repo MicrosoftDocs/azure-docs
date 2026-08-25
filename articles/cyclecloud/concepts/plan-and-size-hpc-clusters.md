@@ -3,7 +3,7 @@ title: Plan and Size HPC Clusters
 description: Learn how to plan and size High Performance Computing (HPC) clusters in Azure CycleCloud, including scheduler, VM, autoscaling, storage, networking, and cost decisions.
 author: padmalathas
 ms.author: padmalathas
-ms.date: 07/10/2026
+ms.date: 07/30/2026
 ms.update-cycle: 3650-days
 ms.topic: concept-article
 ms.service: azure-cyclecloud
@@ -65,6 +65,19 @@ HPC jobs are often bound by how quickly they can read and write data, not just b
 - **Interconnect.** Tightly coupled MPI jobs require the InfiniBand interconnect available on HPC-optimized VMs. Confirm that both the VM size and the region support it.
 - **Networking.** Plan the virtual network and subnets that host the cluster, and ensure the CycleCloud application server has the outbound access it needs to manage nodes. For production guidance, see [Plan your production deployment](../how-to/plan-prod-deployment.md).
 
+## Choose a cluster data path
+
+How you get data onto compute nodes has a large effect on throughput and cost. Choose based on how your jobs read and write data:
+
+| Option | Best for | Notes |
+|---|---|---|
+| **BlobFuse2 (streaming)** | Reading large datasets straight from Blob (AI training data, simulation inputs) at high throughput, with no standing file server | Per-node FUSE mount; not fully POSIX. See [Mount Azure Blob Storage on cluster nodes](../how-to/mount-blob-storage.md). |
+| **Azure Managed Lustre** | Tightly coupled or I/O-intensive jobs that need a shared, POSIX parallel file system; can hydrate from Blob | Managed parallel file system. See [Azure Managed Lustre](/azure/azure-managed-lustre/). |
+| **Azure HPC Cache** | Caching an existing NAS or Blob back end for read-heavy HPC, including hybrid and on-premises data | Distributed cache tier in front of storage. See [Azure HPC Cache](/azure/hpc-cache/hpc-cache-overview). |
+| **Azure NetApp Files** | Low-latency shared NFS or SMB for EDA and general HPC home and scratch space | Managed file service. See [Azure NetApp Files](/azure/azure-netapp-files/). |
+
+As a rule of thumb: use **BlobFuse2 streaming** when your data already lives in Blob and jobs mostly read it. Use a **shared or parallel file system** (Managed Lustre or NetApp Files) when jobs need cross-node coordination, POSIX semantics, or heavy shared writes. Use a **cache tier** (HPC Cache) when you need to accelerate access to an existing back end.
+
 ## Plan for cost
 
 Compute costs are usually the largest expense in an HPC environment. Plan to control these costs by:
@@ -78,4 +91,5 @@ Compute costs are usually the largest expense in an HPC environment. Plan to con
 - [CycleCloud clusters and nodes](clusters.md)
 - [Scheduling in CycleCloud](scheduling.md)
 - [Create a new cluster](../how-to/create-cluster.md)
+- [Mount Azure Blob Storage on cluster nodes](../how-to/mount-blob-storage.md)
 - [Plan your production deployment](../how-to/plan-prod-deployment.md)

@@ -859,6 +859,8 @@
       href: manage-telemetry.md
     - name: Unattended installation
       href: backup-mabs-unattended-install.md
+    - name: Create Application Control supplemental policy for MABS with PowerShell  
+      href: backup-server-application-control-supplemental-policy-create.md
   - name: Configure and manage private endpoint in Recovery Services vault for backup
     items:
     - name: Configure private endpoint
@@ -893,6 +895,8 @@
     href: backup-the-mabs-server.md
   - name: Stop protection in Azure Backup Server
     href: backup-server-stop-protection.md  
+  - name: Monitor MABS
+    href: backup-server-monitor.md 
 - name: Azure Backup Server on Azure Stack
   items:
   - name: Install Azure Backup Server

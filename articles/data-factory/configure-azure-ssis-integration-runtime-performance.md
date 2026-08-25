@@ -11,6 +11,8 @@ ms.author: makromer
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 
 This article describes how to configure an Azure-SSIS Integration Runtime (IR) for high performance. The Azure-SSIS IR allows you to deploy and run SQL Server Integration Services (SSIS) packages in Azure. For more information about Azure-SSIS IR, see [Integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime) article. For information about deploying and running SSIS packages on Azure, see [Lift and shift SQL Server Integration Services workloads to the cloud](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 

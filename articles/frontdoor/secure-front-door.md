@@ -52,7 +52,7 @@ Identity and access management for Azure Front Door focuses on using Microsoft E
 
 - **Use managed identities for origin authentication (preview)**: For supported non-Private Link origins, configure Azure Front Door origin authentication with managed identities so Front Door can obtain Microsoft Entra tokens and authenticate to protected backend resources. This capability is in preview; validate that preview features meet your production requirements before adopting. For more information, see [Use managed identities to authenticate to origins](origin-authentication-with-managed-identities.md).
 
-- **Grant least privilege to Front Door identities**: Assign only the roles required for the origin or certificate scenario, such as read-only data access to a storage origin or certificate access to Key Vault. Don't assign broad Contributor permissions to managed identities. For more information, see [Use managed identities to authenticate to origins](origin-authentication-with-managed-identities.md#providing-access-at-the-origin-resource).
+- **Grant least privilege to Front Door identities**: Assign only the roles required for the origin or certificate scenario, such as read-only data access to a storage origin or certificate access to Key Vault. Don't assign broad Contributor permissions to managed identities. For more information, see [Use managed identities to authenticate to origins](origin-authentication-with-managed-identities.md#provide-access-at-the-origin-resource).
 
 - **Limit administrative access to Front Door resources**: Assign Azure role-based access control (Azure RBAC) roles only to administrators who need to manage profiles, endpoints, domains, routes, origins, and WAF policies. Review role assignments regularly and remove stale access. For more information, see [Steps to assign an Azure role](../role-based-access-control/role-assignments-steps.md).
 
@@ -64,9 +64,9 @@ Data protection for Azure Front Door focuses on encrypting traffic, protecting c
 
 - **Use end-to-end TLS**: Configure HTTPS from clients to Azure Front Door and from Azure Front Door to origins so traffic remains encrypted across the full request path. For more information, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
 
-- **Configure current TLS policies**: Use the newest predefined TLS policy or a custom TLS policy that meets your security requirements for minimum protocol versions and cipher suites. For more information, see [Azure Front Door TLS policy](standard-premium/tls-policy.md).
+- **Configure current TLS policies**: Use the newest predefined TLS policy or a custom TLS policy that meets your security requirements for minimum protocol versions and cipher suites. For more information, see [Azure Front Door TLS policy](tls-policy.md).
 
-- **Don't rely on Front Door for client certificate authentication**: Front Door Standard and Premium don't currently support client or mutual authentication (mTLS). If your workload requires mTLS, implement that control at an origin or alternate ingress layer and validate the complete request path. For more information, see [Azure Front Door TLS policy](standard-premium/tls-policy.md).
+- **Don't rely on Front Door for client certificate authentication**: Front Door Standard and Premium don't currently support client or mutual authentication (mTLS). If your workload requires mTLS, implement that control at an origin or alternate ingress layer and validate the complete request path. For more information, see [Azure Front Door TLS policy](tls-policy.md).
 
 - **Manage certificates in Azure Key Vault**: Store customer-managed TLS certificates in Key Vault, use a managed identity for access, enable automatic certificate renewal where applicable, and protect the vault with soft-delete and purge protection. For more information, see [Configure HTTPS on an Azure Front Door custom domain](standard-premium/how-to-configure-https-custom-domain.md) and [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview).
 

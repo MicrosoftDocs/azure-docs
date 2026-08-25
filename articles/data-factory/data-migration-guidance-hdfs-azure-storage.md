@@ -12,6 +12,8 @@ ms.date: 05/15/2024
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Azure Data Factory provides a performant, robust, and cost-effective mechanism for migrating data at scale from on-premises HDFS to Azure Blob storage or Azure Data Lake Storage Gen2. 
 
 Data Factory offers two basic approaches for migrating data from on-premises HDFS to Azure. You can select the approach based on your scenario. 

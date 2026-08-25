@@ -1,27 +1,29 @@
 ---
-title: "Quickstart: Get started with Napster Companion API (preview)"
-description: Learn how to create a Napster Companion API resource in the Azure portal to start building persistent multimodal AI agents with unified Azure billing.
+title: "Quickstart: Get started with Napster API"
+description: Learn how to create a Napster API resource in the Azure portal to start building persistent multimodal AI agents with unified Azure billing.
 author: shijoy
 ms.author: shijoy
 ms.topic: quickstart
 ms.subservice: napster
-ms.date: 05/20/2026
+ms.date: 08/24/2026
 ms.custom:
   - references_regions
   - ignite-2026
-#customer intent: As an Azure customer, I want to create a Napster Companion API resource in the portal so that I can begin building persistent multimodal AI agents on Azure.
+#customer intent: As an Azure customer, I want to create a Napster API resource in the portal so that I can begin building persistent multimodal AI agents on Azure.
 ---
 
-# Quickstart: Get started with Napster Companion API (preview)
+# Quickstart: Get started with Napster API
 
-In this quickstart, you create an instance of Napster Companion API in the Azure portal. You complete the Basics, Tags, and Review + create tabs to provision the resource in your Azure subscription and associate it with your Napster organization.
+In this quickstart, you create an instance of Napster API in the Azure portal. You complete the Basics, Tags, and Review + create tabs to provision the resource in your Azure subscription and associate it with your Napster organization.
+
+The resulting Azure resource connects your subscription to the Napster service and enables Azure Marketplace billing. You can then manage the resource lifecycle and access the Companion API Dashboard from Azure.
 
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [subscribe to Napster Companion API](overview.md#subscribe-to-napster-companion-api).
+- You must [subscribe to Napster API](overview.md#subscribe-to-napster-api).
 
-## Create a Napster Companion API resource
+## Create a Napster API resource
 
 [!INCLUDE [create-resource](../includes/create-resource.md)]
 
@@ -33,7 +35,7 @@ The *Basics* tab has three sections:
 - Azure resource details
 - Napster organization details
 
-:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a Napster Companion API resource options inside of the Azure portal's working pane with the Basics tab displayed.":::
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create a Napster API resource options inside of the Azure portal's working pane with the Basics tab displayed.":::
 
 There are required fields (identified with a red asterisk) in each section that you need to fill out.
 
@@ -71,4 +73,4 @@ There are required fields (identified with a red asterisk) in each section that 
 
 ## Related content
 
-[Manage a Napster Companion API resource](manage.md)
+[Manage a Napster API resource](manage.md)

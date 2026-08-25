@@ -16,6 +16,8 @@ ms.date: 07/10/2025
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 In Azure Data Factory, the introduction of the connector lifecycle ensures that customers always have access to the most reliable, secure, and feature-rich connectors. With the structured lifecycle stages, major connector upgrade evolves through distinct lifecycle stages, from preview to general availability and end of support, providing clear expectations for stability, support, and future enhancements. This lifecycle framework guarantees that users can seamlessly adopt new connectors with confidence, benefit from regular performance and security updates, and prepare in advance for any phase-out of older versions. By utilizing versioning within the connector lifecycle, the service empowers users with a predictable, transparent, and future-proof integration experience, reducing operational risks and enhancing overall workload reliability.
 
 ## Release rhythm

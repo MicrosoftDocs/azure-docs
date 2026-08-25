@@ -26,9 +26,9 @@ What gets deployed:
 
 [ ![Diagram showing Secure Azure Computing Architecture within Azure Enclave.](./media/reference-architecture-secure-azure-computing-architecture.png) ](./media/reference-architecture-secure-azure-computing-architecture.png#lightbox)
 
-[ARM Template](https://github.com/Azure/enclave/quickstart-templates/ave-saca.json) (easiest to deploy via Portal, PowerShell, or command line)
+[ARM Template](https://github.com/Azure/enclave/blob/main/quickstart-templates/azure-enclave-saca.json) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Bicep Template](https://github.com/Azure/enclave/quickstart-templates/ave-saca.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
+[Bicep Template](https://github.com/Azure/enclave/blob/main/quickstart-templates/azure-enclave-saca.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
 
 Deploy the template:
 1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
@@ -51,11 +51,11 @@ What gets deployed:
 - 15  [enclave connections](./what-enclave-connection.md)
 - One  [transit hub](./what-transit-hub.md)
 
-[ ![Diagram showing a Trusted Research Environment using Azure Enclave resources.](./media/reference-architecture-trusted-research-environment.png) ](./media/reference-architecture-trusted-research-environment.png#lightbox)
+[ ![Diagram showing a Research Environment using Azure Enclave resources.](./media/reference-architecture-research-environment.png) ](./media/reference-architecture-research-environment.png#lightbox)
 
-[ARM Template](https://github.com/Azure/enclave/quickstart-templates/ave-tre.json) (easiest to deploy via Portal, PowerShell, or command line)
+[ARM Template](https://github.com/Azure/enclave/blob/main/quickstart-templates/azure-enclave-edu.json) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Bicep Template](https://github.com/Azure/enclave/quickstart-templates/ave-tre.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
+[Bicep Template](https://github.com/Azure/enclave/blob/main/quickstart-templates/azure-enclave-edu.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
 
 Deploy the template:
 1. In the Azure portal, type `deploy` into the top search bar and select `Deploy a Custom Template`.
@@ -63,7 +63,7 @@ Deploy the template:
 1. Replace the default template with the provided template (for example, copy the text inside the json file). See [this quickstart](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
 1. Select `Save`.
 1. Under `Resource Group`, select `Create New` and enter the resource group name you would like to use (for example, community-template-rg) for the Azure Enclave resources.
-1. Optionally, Under `Unique Number`, increment the number if previous deployments occurred in the same resources group.
+1. Optionally, under `Unique Number`, increment the number if previous deployments occurred in the same resources group.
 1. The remaining parameters that aren't required can be left as the default unless you would like to test a modification. Keep the defaults for the first test deployment to reduce errors from template changes.
 1. Select `Review + Create` and then `Create`.
 
@@ -81,14 +81,14 @@ What gets deployed:
 [ ![Diagram showing an example demo environment within Azure Enclave.](./media/reference-architecture-demo-environment.png) ](./media/reference-architecture-demo-environment.png#lightbox)
 
 
-[ARM Template](https://github.com/Azure/enclave/quickstart-templates/ave-demo-env.json) (easiest to deploy via Portal, PowerShell, or command line)
+[ARM Template](https://github.com/Azure/enclave/blob/main/quickstart-templates/azure-enclave-demo-env.json) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Bicep Template](https://github.com/Azure/enclave/quickstart-templates/ave-demo-env.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
+[Bicep Template](https://github.com/Azure/enclave/blob/main/quickstart-templates/azure-enclave-demo-env.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
 
 Deploy the template:
 1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
 1. Select `Build your own template in the editor`.
-1. Replace the default template with the ARM template contents (for example copy the text inside the json file). See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
+1. Replace the default template with the ARM template contents (for example, copy the text inside the JSON file). See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
 1. Select `Save`.
 1. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg) for the Azure Enclave resources.
 1. Increment `Unique Number` if previous deployments are located in the same resources group.
@@ -96,7 +96,7 @@ Deploy the template:
 1. Select `Review + Create` and then `Create`.
 
 ## Resource modules
-You can also create the Azure Enclave resources by using the resource modules in this [repository](https://github.com/Azure/enclave/quickstart-templates/modules/).
+You can also create the Azure Enclave resources by using the resource modules in this [repository](https://github.com/Azure/enclave/tree/main/quickstart-templates/modules).
 
 ## Create template spec and deploy
 1. Sign in to the Azure portal, search and select the **Template Specs** service. Select **Create template spec**. In the ARM Template section upload or copy and paste the above ARM template.

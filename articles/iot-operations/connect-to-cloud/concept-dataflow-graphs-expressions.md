@@ -1,6 +1,6 @@
 ---
 title: Expressions reference for data flows and data flow graphs
-description: Expression language reference for Azure IoT Operations data flows and data flow graphs. Includes positional variables ($1, $2), functions like cToF, operators.
+description: Expression language reference for Azure IoT Operations data flows and data flow graphs. Includes positional variables ($1, $2), functions like cToF, operators, data types, metadata, and conditionals.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
@@ -124,6 +124,90 @@ These functions come from the built-in math library.
 | `str::substring(string, start, end)` | Extracts a substring by character index |
 | `str::regex_matches(string, pattern)` | Returns true if the string matches the regex pattern. Available in data flow graphs only. |
 | `str::regex_replace(string, pattern, replacement)` | Replaces all regex matches with the replacement string. Available in data flow graphs only. |
+
+### Date and time functions
+
+Date and time functions are available only in data flow graphs. Except for `parse_timestamp`, functions that accept a time stamp require an [RFC 3339](https://www.rfc-editor.org/rfc/rfc3339) string. The string must include an explicit offset from Coordinated Universal Time (UTC), such as `2026-06-17T12:00:00Z` or `2026-06-17T12:00:00-08:00`. The `Returns` column lists the conceptual result type, which `typeof` reports in lowercase as `"float"`, `"int"`, or `"string"`.
+
+| Function | Returns | Description |
+|----------|---------|-------------|
+| `duration_between(start, end, unit)` | `float` | Calculates `end - start` with millisecond precision. Supported units are `"seconds"`, `"millis"`, `"minutes"`, `"hours"`, and `"days"`. Differences of less than one millisecond return `0`. The result is negative when `end` is at least one millisecond before `start`. |
+| `day_of_week(timestamp)` | `int` | Returns the day of the week, where Sunday is `0` and Saturday is `6`. |
+| `hour_of_day(timestamp)` | `int` | Returns the hour from `0` through `23`. |
+| `year_of(timestamp)` | `int` | Returns the calendar year. |
+| `month_of(timestamp)` | `int` | Returns the month from `1` through `12`. |
+| `day_of_month(timestamp)` | `int` | Returns the day of the month from `1` through `31`. |
+| `minute_of_hour(timestamp)` | `int` | Returns the minute from `0` through `59`. |
+| `second_of_minute(timestamp)` | `int` | Returns the second from `0` through `59`. |
+| `timezone_offset(timestamp)` | `int` | Returns the time stamp's offset from UTC in minutes. For example, `-08:00` returns `-480` and `+05:30` returns `330`. |
+| `now()` | `string` | Returns the current UTC time as an RFC 3339 time stamp with millisecond precision. |
+| `format_timestamp(timestamp, pattern)` | `string` | Formats an RFC 3339 time stamp by using a `strftime` pattern. |
+| `parse_timestamp(value, pattern)` | `string` | Parses a value by using a `strftime` pattern and returns an RFC 3339 UTC time stamp with millisecond precision. |
+| `from_epoch(value, unit)` | `string` | Converts a Unix epoch value to an RFC 3339 UTC time stamp with millisecond precision. Supported units are `"seconds"`, `"millis"`, and `"micros"`. The value can be an `int` or `float`. |
+| `to_epoch(timestamp, unit)` | `int` | Converts an RFC 3339 time stamp to a Unix epoch integer. Supported units are `"seconds"`, `"millis"`, and `"micros"`. |
+
+`now()` reads the system clock of the Kubernetes node that hosts the data flow workload each time the function runs. Calls in the same expression can return different values. In an accumulation rule, `now()` returns the time when the window is processed, not when an input message arrives. To reduce clock skew across cluster nodes, synchronize each node clock with a reliable time source, such as a Network Time Protocol server.
+
+Calendar and clock functions, such as `day_of_week`, `hour_of_day`, and `year_of`, use the offset in the input time stamp. They don't first convert the value to UTC. The following examples show this behavior.
+
+| Expression | Result |
+|------------|--------|
+| `hour_of_day("2026-06-17T23:30:45-08:00")` | `23` |
+| `day_of_week("2026-06-17T23:30:45-08:00")` | `3` (Wednesday) |
+| `timezone_offset("2026-06-17T23:30:45-08:00")` | `-480` |
+| `duration_between("2026-06-09T12:00:00Z", "2026-06-09T14:30:00Z", "hours")` | `2.5` |
+
+#### Format and parse time stamps
+
+The `format_timestamp` and `parse_timestamp` functions use `strftime` patterns. The following table lists common specifiers.
+
+| Specifier | Value |
+|-----------|-------|
+| `%Y` | Four-digit year |
+| `%m` | Two-digit month |
+| `%d` | Two-digit day of the month |
+| `%H` | Hour in 24-hour format |
+| `%M` | Minute |
+| `%S` | Second |
+| `%f` | Nanoseconds since the last whole second, without a decimal point |
+| `%.f` | Fractional seconds, including the decimal point |
+| `%z` | Numeric UTC offset, such as `+0200` |
+| `%:z` | Numeric UTC offset with a colon, such as `+02:00` |
+
+For all supported specifiers, see the [Chrono strftime documentation](https://docs.rs/chrono/latest/chrono/format/strftime/index.html).
+
+`format_timestamp` preserves the input time stamp's offset. For example, `format_timestamp("2026-06-09T14:00:00+02:00", "%Y-%m-%d %H:%M %:z")` returns `"2026-06-09 14:00 +02:00"`.
+
+`parse_timestamp` handles inputs in the following order:
+
+1. A date and time with a numeric offset. The function honors the offset and normalizes the result to UTC.
+1. A date and time without an offset. The function assumes UTC.
+1. A date without a time. The function assumes midnight UTC.
+
+The following examples show how `parse_timestamp` handles each type of input.
+
+| Expression | Result |
+|------------|--------|
+| `parse_timestamp("2026-06-17 12:00:00 +0200", "%Y-%m-%d %H:%M:%S %z")` | `"2026-06-17T10:00:00.000Z"` |
+| `parse_timestamp("2026-06-17 12:00:00", "%Y-%m-%d %H:%M:%S")` | `"2026-06-17T12:00:00.000Z"` |
+| `parse_timestamp("2026-06-17", "%Y-%m-%d")` | `"2026-06-17T00:00:00.000Z"` |
+
+> [!IMPORTANT]
+> `parse_timestamp` doesn't support time-only values or time zone abbreviations such as `PST`. Use `%z` or `%:z` with a numeric offset instead of `%Z`. Parsing normalizes time stamps to UTC, but formatting preserves the input offset. Therefore, the two functions aren't exact inverses for values that include a nonzero offset.
+
+#### Convert Unix epoch values
+
+Use `from_epoch` and `to_epoch` to convert between Unix epoch values and RFC 3339 time stamps.
+
+| Expression | Result |
+|------------|--------|
+| `from_epoch(1781568000, "seconds")` | `"2026-06-16T00:00:00.000Z"` |
+| `from_epoch(1781568000.5, "seconds")` | `"2026-06-16T00:00:00.500Z"` |
+| `to_epoch("2026-06-16T00:00:00.123Z", "millis")` | `1781568000123` |
+
+`from_epoch` accepts negative values for dates before January 1, 1970. Its output has millisecond precision, so converting epoch microseconds to a time stamp discards precision below one millisecond. `to_epoch` accounts for the time stamp's UTC offset and rounds values before 1970 down to the next lower integer for the selected unit.
+
+Date and time functions can be composed. For example, `duration_between($1, now(), "days")` calculates the age in days of an RFC 3339 time stamp supplied as the first rule input. To read a time stamp's hour after converting it to UTC, use `hour_of_day(from_epoch(to_epoch($1, "micros"), "micros"))`.
 
 ### Conditional and collection functions
 
@@ -325,7 +409,7 @@ In other cases, escaping is necessary, for example: `nsu=http://opcfoundation.or
 While a data flow parses a path, it treats only two characters as special:
 
 * Dots (`.`) act as field separators.
-* Single quotation marks, when placed at the beginning or the end of a segment, start an escaped section where dots aren't treated as field separators.
+* Double quotation marks, when placed at the beginning or the end of a segment, start an escaped section where dots aren't treated as field separators.
 
 Any other characters are treated as part of the field name. This flexibility is useful in formats like JSON, where field names can be arbitrary strings.
 
@@ -339,6 +423,15 @@ The primary function of escaping in a dot-notated path is to accommodate the use
 
 * **Escape each segment separately:** If multiple segments contain dots, those segments must be enclosed in double quotation marks. Other segments can also be quoted, but it doesn't affect the path interpretation. For example: `Payload."Tag.10".Measurements."Vibration.$12".Value`
 
+* **Quote a segment only when it needs escaping.** Add double quotation marks around a segment only when it contains a dot (or another character that would otherwise be misread as a separator). Don't quote an ordinary field name.
+
+    For example, for a field named `TagName` inside `Records`:
+
+    | Do this | Not this |
+    | --- | --- |
+    | `Records.TagName` | `Records."TagName"` |
+
+    The extra quotation marks don't help, and in some tools, such as the operations experience data flow editor, they become part of the field name. The mapping then looks for a field named `"TagName"` (quotes included), which doesn't exist, so nothing matches. You can spot this in the exported data flow definition, where the name appears with escaped quotes, like `\"TagName\"`. To fix it, remove the quotation marks so the name is just `TagName`.
     
 * **Proper use of double quotation marks:** Double quotation marks must open and close an escaped segment. Any quotation marks in the middle of the segment are considered part of the field name. For example, the path `Payload.He said: "Hello", and waved` defines two fields: `Payload` and `He said: "Hello", and waved`. When a dot appears under these circumstances, it continues to serve as a separator. For example, the path `Payload.He said: "No. It is done"` is split into the segments `Payload`, `He said: "No`, and `It is done"` (starting with a space).
     

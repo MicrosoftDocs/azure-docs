@@ -2,7 +2,7 @@
 title: Azure Cosmos DB support matrix
 description: Provides a summary of support settings and limitations of Azure Cosmos DB backup.
 ms.topic: reference
-ms.date: 05/25/2026
+ms.date: 08/18/2026
 ms.custom: references_regions, build-2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -27,6 +27,7 @@ Azure Backup supports the following backup and restore scenarios for Azure Cosmo
 - Only weekly backups are supported providing a 7-day recovery point objective (RPO).
 - Cosmos DB accounts on [continuous (PITR) backup mode](/azure/cosmos-db/continuous-backup-restore-introduction) are only supported. 
 - Cross subscription restores are supported.
+- Cross region backups are supported.
 - Restore operation to an empty, single-region target Cosmos DB account is supported.
 - Restore operation to a target Cosmos DB account using the same API type as source Cosmos DB account is supported.
 - Cosmos DB accounts with partitions upto 2,500 are supported (approximately 125 TB). 
@@ -38,6 +39,7 @@ Azure Backup for Cosmos DB includes the following backup and restore limitations
 
 - Cross region restore of backups isn't supported.
 - Backup and restore aren’t supported if the Cosmos DB account’s primary write region differs from the Backup Vault region.
+- Backup and restore aren’t supported if the Cosmos DB account’s primary write region differs from its deployment region.
 - Cosmos DB account with hierarchical partition keys isn't supported.
 - Cosmos DB account with Per-Partition Automatic Failover (PPAF) enabled isn't supported.
 - Item-level backup and item level restore aren't supported. 

@@ -1,6 +1,6 @@
 ---
 title: include file
-description: include file with cluster prerequisites for Ubuntu and Tanzu
+description: include file with cluster prerequisites for Ubuntu and VKS clusters
 author: dominicbetts
 ms.topic: include
 ms.date: 06/16/2025
@@ -21,5 +21,5 @@ ms.service: azure-iot-operations
 * An Azure resource group. Only one Azure IoT Operations instance is supported per resource group. To create a new resource group, use the [az group create](/cli/azure/group#az-group-create) command. For the list of currently supported Azure regions, see [Supported regions](../overview-support.md#supported-regions).
 
    ```azurecli
-   az group create --location <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID>
+   az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
    ```

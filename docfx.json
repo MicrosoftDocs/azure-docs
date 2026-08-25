@@ -388,6 +388,8 @@
         "articles/route-server/*.md": "duongau",
         "articles/route-server/*.yml": "duongau",
         "articles/sap/**/*.md": "lauradolan",
+        "articles/security/**/*.md": "msmbaldwin",
+        "articles/security/**/*.yml": "msmbaldwin",
         "articles/service-bus-messaging/*.md": "spelluru",
         "articles/service-connector/*.md": "maud-lv",
         "articles/service-health/*.md": "rboucher",
@@ -986,6 +988,8 @@
         "articles/redis/**/*.yml": "franlanglois",
         "articles/quotas/**/*.md": "jenhayes",
         "articles/quotas/**/*.yml": "jenhayes",
+        "articles/security/**/*.md": "mbaldwin",
+        "articles/security/**/*.yml": "mbaldwin",
         "articles/service-bus-messaging/*.md": "spelluru",
         "articles/service-connector/*.md": "malev",
         "articles/service-health/*.md": "robb",
@@ -1071,7 +1075,7 @@
         "articles/azure-arc/**/*.md": "azure-arc",
         "articles/azure-cache-for-redis/**/*.md": "azure-cache-redis",
         "articles/azure-cache-for-redis/**/*.yml": "azure-cache-redis",
-        "articles/azure-fluid-relay/**/*.md": "azure-fluid",
+        "articles/azure-fluid-relay/**/*.md": "fluid-framework",
         "articles/azure-functions/**/*.md": "azure-functions",
         "articles/azure-government/**/*.md": "azure-government",
         "articles/azure-monitor/**/*.md": "azure-monitor",
@@ -1993,7 +1997,8 @@
           "articles/site-recovery/**/*.md",
           "articles/virtual-network/accelerated-networking-how-it-works.md",
           "articles/vmware-cloudsimple/on-premises-dns-setup.md",
-          "articles/sentinel/includes/sentinel-tables-connectors.md"
+          "articles/sentinel/includes/sentinel-tables-connectors.md",
+          "articles/redis/monitor-cache-reference.md"
         ]
       },
       "sensitive-language-bl": {

@@ -14,6 +14,9 @@ ms.date: 02/13/2025
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> The Fabric equivalent of Delete activity is Delete Data activity. For configuration details, see [Delete Data activity](/fabric/data-factory/delete-data-activity).
+
 You can use the Delete Activity in Azure Data Factory to delete files or folders from on-premises storage stores or cloud storage stores. Use this activity to clean up or archive files when they're no longer needed.
 
 > [!WARNING]

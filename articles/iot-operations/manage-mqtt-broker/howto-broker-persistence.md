@@ -20,6 +20,12 @@ Storing data on disk introduces a performance cost. The impact varies depending 
 
 You can configure data persistence during initial deployment by using the Azure portal or Azure CLI. You can also change some persistence options after deployment.
 
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for values that you choose: `BROKER` (the name of the MQTT broker, typically `default`), `PERSIST_MODE` (the persistence mode), `TOPIC_PATTERN_1`, `TOPIC_PATTERN_2`, `STRING_KEY_1`, `STRING_KEY_2`, `PATTERN_KEY_1`, `PATTERN_KEY_2`, `BINARY_KEY_1`, and `BINARY_KEY_2`. Set each one before you run the related commands.
+
 ## Configuration methods
 
 Configure data persistence for the MQTT broker by using one of these methods:
@@ -86,7 +92,7 @@ To configure retained messages persistence in the Azure portal:
 Use the `az iot ops broker persist update` command to update the retained messages persistence.
 
 ```azurecli
-az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode retain=<PersistMode> --retain-topics "<TopicPattern1>" "<TopicPattern2>"
+az iot ops broker persist update --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $BROKER --persist-mode retain=$PERSIST_MODE --retain-topics "$TOPIC_PATTERN_1" "$TOPIC_PATTERN_2"
 ```
 
 Here's an example command to update custom persistence policy for retain messages:
@@ -132,7 +138,7 @@ To configure subscriber queue persistence in the Azure portal:
 Use the `az iot ops broker persist update` command to update the subscriber queue persistence.
 
 ```azurecli
-az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode subscriberQueue=<PersistMode>
+az iot ops broker persist update --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $BROKER --persist-mode subscriberQueue=$PERSIST_MODE
 ```
 
 Here's an example command to configure persistence for all subscriber queues:
@@ -215,7 +221,7 @@ To configure state store persistence in the Azure portal:
 Use the `az iot ops broker persist update` command to update the state store persistence.
 
 ```azurecli
-az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode stateStore=<PersistMode> --state-store-str-keys "<StringKey1>" "<StringKey2>" --state-store-glob-keys "<PatternKey1>" "<PatternKey2>" --state-store-bin-keys "<BinaryKey1>" "<BinaryKey2>"
+az iot ops broker persist update --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $BROKER --persist-mode stateStore=$PERSIST_MODE --state-store-str-keys "$STRING_KEY_1" "$STRING_KEY_2" --state-store-glob-keys "$PATTERN_KEY_1" "$PATTERN_KEY_2" --state-store-bin-keys "$BINARY_KEY_1" "$BINARY_KEY_2"
 ```
 
 Here's an example command to configure state store persistence with multiple key groups including string, pattern, and binary (base64 encoded) keys:
@@ -254,7 +260,7 @@ To configure dynamic persistence settings in the Azure portal:
 To configure dynamic persistence using Azure CLI, add the MQTT user property settings at the broker level and enable dynamic mode for specific data types. Use the `az iot ops broker persist update` command to update MQTT broker data persistence settings.
 
 ```azurecli
-az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode <PersistMode>
+az iot ops broker persist update --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $BROKER --persist-mode $PERSIST_MODE
 ```
 
 Here's an example command to configure subscriber queue persistence for specific client IDs:

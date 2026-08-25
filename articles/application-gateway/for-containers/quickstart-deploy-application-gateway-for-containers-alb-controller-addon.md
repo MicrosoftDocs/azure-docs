@@ -4,10 +4,10 @@ titlesuffix: Azure Application Load Balancer
 description: In this quickstart, you learn how to provision the Application Gateway for Containers ALB Controller in an AKS cluster using the AKS add-on.
 services: application-gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 4/29/2026
+ms.date: 8/24/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes administrator, I want to install the Application Gateway for Containers ALB Controller on my AKS cluster using the AKS add-on, so that I can efficiently manage load balancing rules with simplified configuration and automated identity management.
 ---
@@ -69,6 +69,10 @@ You need to complete the following tasks before enabling the ALB Controller add-
     az feature register --namespace "Microsoft.ContainerService" --name "ManagedGatewayAPIPreview"
     az feature register --namespace "Microsoft.ContainerService" --name "ApplicationLoadBalancerPreview"
     ```
+
+    > [!IMPORTANT]
+    > The Application Gateway for Containers AKS add-on is currently in preview.<br>
+    > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Set up an AKS cluster with the AKS add-on
 

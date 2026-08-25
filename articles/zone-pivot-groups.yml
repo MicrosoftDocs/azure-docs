@@ -27,7 +27,7 @@ groups:
     title: Azure portal
   - id: python
     title: Python
-# Owner: dlepow
+# Owner: patricka
 - id: api-management-credential-auth-scenario
   title: Authentication scenario
   prompt: Choose authorization credential
@@ -185,6 +185,14 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+- id: durable-functions-storage-providers-options
+  title: Storage provider
+  prompt: Choose a storage provider
+  pivots:
+  - id: durable-task-scheduler
+    title: Durable Task Scheduler
+  - id: azure-storage
+    title: Azure Storage
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
@@ -325,24 +333,6 @@ groups:
     title: Key Vault
   - id: functions-auth-secret
     title: Shared secret
-- id: reliability-functions-hosting-plan
-  title: Function app hosting options for Availability Zones support
-  prompt: Choose a hosting option for your function app
-  pivots:
-  - id: flex-consumption-plan
-    title: Flex Consumption plan
-  - id: premium-plan
-    title: Premium plan
-- id: functions-hosting-plan-dynamic
-  title: Function app hosting options
-  prompt: Choose a hosting option for your function app
-  pivots:
-  - id: flex-consumption-plan
-    title: Flex Consumption plan
-  - id: premium-plan
-    title: Premium plan
-  - id: consumption-plan
-    title: Consumption plan
 - id: functions-hosting-plan
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
@@ -365,15 +355,6 @@ groups:
     title: .NET (isolated)
   - id: other
     title: non-.NET
-# Owner: hhunter-ms
-- id: dts-sandbox-languages
-  title: On-demand Sandboxes SDK
-  prompt: Choose a programming language
-  pivots:
-  - id: csharp
-    title: .NET
-  - id: python
-    title: Python
 ### end azure-functions
 #Owner: jiayma
 - id: bring-third-party-dependency-programming-functions
@@ -1700,13 +1681,11 @@ groups:
   prompt: Choose how to create the workflow configuration
   pivots:
   - id: method-manual
-    title: Manual
+    title: Workflow template
   - id: method-portal
     title: Azure portal
-  - id: method-cli
-    title: Azure CLI
   - id: method-template
-    title: GitHub Actions template
+    title: GitHub marketplace
 - id: azure-virtual-network-manager-quickstart-options
   title: Azure Virtual Network Manager Quickstart Scope Options
   prompt: Choose a scope option
@@ -2051,13 +2030,17 @@ groups:
   - id: dbx
     title: Data Box
 - id: storage-mover-multicloud
-  title: Storage Mover multicloud migration sources
-  prompt: Select your multicloud migration source.
+  title: Storage Mover migration sources
+  prompt: Select your migration source.
   pivots:
   - id: aws
-    title: Amazon Web Services (AWS)
+    title: Amazon Web Services
   - id: gcs
-    title: Google Cloud Storage (GCS)
+    title: Google Cloud
+  - id: oracle
+    title: Oracle Cloud
+  - id: on-premises
+    title: On-premises S3
 #owner: mbender
 - id: load-balancer-multiple-ip-pv
   title: Load Balancer Multiple IPs
@@ -2170,6 +2153,17 @@ groups:
     title: NFS on Azure Files
   - id: anf
     title: Azure NetApp Files
+# Owner: zamasiel
+- id: sap-pacemaker-fencing-solution
+  title: Azure Linux Fencing Solutions
+  prompt: Choose your Pacemaker Fencing Solution
+  pivots:
+  - id: sbd-shared-disk
+    title: SBD with Azure Shared Disk
+  - id: sbd-iscsi
+    title: SBD with iSCSI Target Servers
+  - id: azure-fence-agent
+    title: Azure Fence Agent
 # Owner: duongau
 - id: networking-scenario
   title: Choose your scenario
