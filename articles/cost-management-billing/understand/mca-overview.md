@@ -50,6 +50,8 @@ If an invoice becomes overdue, past-due email notifications are only sent to use
 - Billing profile contributor
 - Invoice manager
 
+If your billing profile uses wire transfer as the default payment method, past-due notifications are sent to the Accounts Payable contacts on the billing profile instead of the roles listed above.
+
 ### Invoice payment methods
 
 Each billing profile has its own payment methods that are used to pay its invoices. The following payment methods are supported:
