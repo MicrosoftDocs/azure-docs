@@ -120,7 +120,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **OVA verification** | The OVA template downloaded from project by checking the hash values.
 **PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-vmware) on how to deploy an appliance using the PowerShell installer script.<br/><br/> 
 **Hardware and network requirements** |  The appliance should run on server with Windows Server 2022 or Windows Server 2025, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> The onboarding script checks for Windows Server 2016 or earlier versions and blocks the appliance deployment on those systems.<br/><br/> The appliance requires internet access, either directly or through a proxy.<br/><br/> If you deploy the appliance using OVA template, you need enough resources on the vCenter Server to create a server that meets the hardware requirements.
-**VMware requirements** | If you deploy the appliance as a server on vCenter Server, it  must be deployed on a vCenter Server running 5.5, 6.0, 6.5, 6.7 or 7.0 and an ESXi host running version 5.5 or later.<br/><br/> 
+**VMware requirements** | If you deploy the appliance as a server on vCenter Server, you  must deploy it on a vCenter Server running [!INCLUDE [vmware-discovery-supported-versions](includes/vmware-discovery-supported-versions.md)] and an ESXi host running version 5.5 or later.<br/><br/> 
 **VDDK (agentless migration)** | To use the appliance for agentless migration of servers, the VMware vSphere VDDK must be installed on the appliance server.
 
 ## Appliance - Hyper-V
