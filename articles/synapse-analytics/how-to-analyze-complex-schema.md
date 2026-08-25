@@ -168,7 +168,7 @@ First, depending how the data has been stored, users should use the following ta
 | Bulk | Format |
 | ------ | ------ |
 | 'https://ACCOUNTNAME.dfs.core.windows.net/FILESYSTEM/PATH/FINENAME.parquet' |'Parquet' (ADLSg2)|
-| N'endpoint=https://ACCOUNTNAME.documents.azure.com:443/;account=ACCOUNTNAME;database=DATABASENAME;collection=COLLECTIONNAME;region=REGIONTOQUERY', SECRET='YOURSECRET' |'CosmosDB' (Azure Synapse Link)|
+| `N'endpoint=https://ACCOUNTNAME.documents.azure.com:443/;account=ACCOUNTNAME;database=DATABASENAME;collection=COLLECTIONNAME;region=REGIONTOQUERY', SECRET='YOURSECRET'` | CosmosDB (Azure Synapse Link) |
 
 
 Replace each field as follows:
