@@ -19,8 +19,6 @@ Each FHIR service instance in Azure Health Data Services has a storage limit of 
 | **Quota Name** | **Default Limit**| **Maximum Limit** | **Notes** |
 |---|---|---|---|
 |Workspace |10|[Contact support](https://azure.microsoft.com/support/options/) |Limit per subscription|
-|FHIR |100|[Contact support](https://azure.microsoft.com/support/options/) |Limit per subscription|
-|FHIR |10|[Contact support](https://azure.microsoft.com/support/options/) |Limit per workspace|
-|DICOM |10|[Contact support](https://azure.microsoft.com/support/options/) |Limit per workspace|
-
-The per-subscription and per-workspace limits are enforced independently. To deploy more than 10 FHIR services in a subscription, distribute them across multiple workspaces. For example, 40 FHIR services require at least four workspaces at the default per-workspace limit of 10.
+|FHIR service |10|[Contact support](https://azure.microsoft.com/support/options/) |Limit per workspace|
+|DICOM service |10|[Contact support](https://azure.microsoft.com/support/options/) |Limit per workspace|
+The per-subscription and per-workspace limits are enforced independently. To deploy more than 10 FHIR services in a subscription, distribute them across multiple workspaces. 
