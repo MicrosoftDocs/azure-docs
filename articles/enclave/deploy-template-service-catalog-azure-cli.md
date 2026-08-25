@@ -124,7 +124,7 @@ Download a specific template by using the name found in the inventory above (for
     - keyVaultResourceGroupName
     - ID of userAssignedIdentityObject
     ```
-    az rest --method get --uri "<enclave-resource-id>?api-version=2024-01-01-preview"
+    az rest --method get --uri "<enclave-resource-id>?api-version=2026-03-01-preview"
     ```
     You'll still need to fetch values privateLinkSubnetName, keyName, userAssignedIdentityObject
 
@@ -160,7 +160,7 @@ Download a specific template by using the name found in the inventory above (for
 
     az storage blob download --account-name <storag-eaccount-name> --container-name servicecatalog --name <template-to-download-name> --file ./<template-downloaded-name>
 
-    az rest --method get --uri "<enclave-resource-id>?api-version=2024-01-01-preview"
+    az rest --method get --uri "<enclave-resource-id>?api-version=2026-03-01-preview"
 
     az network vnet subnet list --resource-group <resource-group-name> --vnet-name <vnet-name> --query "[].name"
 
