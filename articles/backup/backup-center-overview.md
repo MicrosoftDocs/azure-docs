@@ -1,6 +1,6 @@
 ---
-title: Backup center overview and transition to Azure Business Continuity Center
-description: Learn about Backup center capabilities for Azure Backup and Azure Site Recovery, how to access the legacy experience, and when to use Azure Business Continuity Center.
+title: Backup center overview and transition to Resiliency
+description: Learn about Backup center capabilities for Azure Backup and Azure Site Recovery, how to access the legacy experience, and when to use Resiliency.
 ms.topic: overview
 ms.date: 08/25/2026
 ms.service: azure-backup
