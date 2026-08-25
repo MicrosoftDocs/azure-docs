@@ -126,7 +126,7 @@ Download a specific template by using the name found in the inventory above (for
     ```
     az rest --method get --uri "<enclave-resource-id>?api-version=2026-03-01-preview"
     ```
-    For additional API operations and schemas, see the [Azure Enclave API reference](https://aka.ms/ae/api) and [Azure Enclave API source and specs](https://aka.ms/ae/apigithub).
+    For more API operations and schemas, see the [Azure Enclave API reference](https://aka.ms/ae/api) and [Azure Enclave API source and specs](https://aka.ms/ae/apigithub).  
     You'll still need to fetch values privateLinkSubnetName, keyName, userAssignedIdentityObject
 
 1. List the subnets in the virtual network (privateLinkSubnetName)
