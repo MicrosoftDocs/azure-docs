@@ -122,7 +122,7 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 
 ### (Optional) Associating AKS resource groups to workload
 
-The Azure Enclave workload resource, as of API version `2024-06-01-preview`, now supports multiple resource groups. This feature means that an Azure Enclave workload can now apply Azure Enclave policies to multiple resource groups.
+The Azure Enclave workload resource supports multiple linked resource groups. This feature means that an Azure Enclave workload can now apply Azure Enclave policies to multiple resource groups.
 
 Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be brought to a workload by running an API PUT request for the workload resource. An example of a request body for an API PUT request for a workload resource:
 
