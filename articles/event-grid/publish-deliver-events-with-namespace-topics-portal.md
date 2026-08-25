@@ -48,7 +48,7 @@ An Event Grid namespace provides a user-defined endpoint to which you post your 
 Enable system assigned managed identity in the Event Grid namespace. To deliver events to event hubs in your Event Hubs namespace using managed identity, follow these steps:
 
 1. Enable system-assigned or user-assigned managed identity: [namespaces](event-grid-namespace-managed-identity.md). Continue reading to the next section to find how to enable managed identity using Azure CLI.
-1. [Add the identity to the **Azure Event Hubs Data Sender** role  on the Event Hubs namespace](../event-hubs/authenticate-managed-identity.md#to-assign-azure-roles-using-the-azure-portal), continue reading to the next section to find how to add the role assignment.
+1. [Add the identity to the **Azure Event Hubs Data Sender** role  on the Event Hubs namespace](../event-hubs/authenticate-managed-identity.md#azure-built-in-roles-for-event-hubs). Continue reading to the next section to find how to add the role assignment.
 1. Configure the event subscription that uses an event hub as an endpoint to use the system-assigned or user-assigned managed identity.
 
 In this section, you enable a system-assigned managed identity on the namespace. You do the other steps later in this quickstart.
