@@ -98,7 +98,9 @@ Some of the resources available via the Community Hub are:
 
 - **Samples for automated deployments**: Using the Community Hub, you can discover sample Azure Resource Manager (ARM) templates and Azure Policies that you can use out of the box. You can also find sample PowerShell Scripts, CLI commands, and Microsoft Database Backup scripts.
 
-## Manage backups and disaster recovery with Backup center
+## Next steps
+
+You can manage backups and disaster recovery with Backup center.
 
 * [Manage business continuity and disaster recovery with Azure Business Continuity Center](/azure/business-continuity-center/business-continuity-center-overview)
 * [Monitor and Operate backups](backup-center-monitor-operate.md)
