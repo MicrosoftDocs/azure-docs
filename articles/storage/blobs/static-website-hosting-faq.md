@@ -40,3 +40,9 @@ A 404 error can happen if you refer to a file name by using an incorrect case. F
 ## Why isn't the root directory of the website redirecting to the default index page?
 
 In the Azure portal, open the static website configuration page of your account and locate the name and extension that is set in the **Index document name** field. Ensure that this name is exactly the same as the name of the file located in the **$web** container of the storage account. File names and extensions in the URL of a static website are case-sensitive even though they're served over HTTP.
+
+## Related content
+
+- [Static website hosting in Azure Storage](storage-blob-static-website.md)
+- [Host a static website in Azure Storage](storage-blob-static-website-how-to.md)
+- [Integrate a static website with Azure CDN](static-website-content-delivery-network.md)
