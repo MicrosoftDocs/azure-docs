@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 11/04/2025
+ms.date: 08/18/2026
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to understand the pricing structure for Azure Application Gateway and Web Application Firewall SKUs, so that I can accurately plan and manage costs for my cloud infrastructure.
 ---
@@ -101,7 +101,9 @@ For more pricing information according to your region, see the [pricing page](ht
 ### Example 1 (a) – Manual Scaling 
 Let’s assume you provision a Standard_V2 Application Gateway with manual scaling set to 8 instances for the entire month. During this time, it receives an average of 88.8-Mbps data transfer.
 
-Your Application Gateway costs using the pricing described previously are calculated as follows:
+**Scenario:** Standard_V2 with manual scaling set to 8 instances, 88.8-Mbps average throughput, one full month.
+
+**Calculation:**
 
 1 CU can handle 2.22-Mbps throughput.
 
@@ -123,7 +125,9 @@ Total Costs = $179.58 + $467.2 = $646.78
 
 Let’s assume you provision a Standard_V2 Application Gateway with manual scaling set to 3 instances for the entire month. During this time, it receives an average of 88.8-Mbps data transfer.
 
-Your Application Gateway costs using the pricing described previously are calculated as follows:
+**Scenario:** Standard_V2 with manual scaling set to three instances, 88.8-Mbps average throughput, one full month.
+
+**Calculation:**
 
 1 CU can handle 2.22-Mbps throughput.
 
@@ -160,7 +164,10 @@ Total Costs = $179.58 + $216.08 = $395.66
 ### Example 2 – WAF_V2 instance with Autoscaling
 
 Let’s assume you provision a WAF_V2 with autoscaling enabled and set the minimum instance count to 6 for the entire month. The request load caused the WAF instance to scale out and utilize 65 Capacity units (scale out of 5 capacity units, while 60 units were reserved) for the entire month.
-Your Application Gateway costs using the pricing described previously are calculated as follows:
+
+**Scenario:** WAF_V2 with autoscaling, minimum instance count 6 (60 reserved capacity units) and 65 capacity units used, one full month.
+
+**Calculation:**
 
 Monthly price estimates are based on 730 hours of usage per month.
 
@@ -178,7 +185,10 @@ Total Costs = $323.39 + $683.28 = $1006.67
 ### Example 3 (a) – WAF_V2 instance with Autoscaling and 0 Min scale config
 
 Let’s assume you provision a WAF_V2 with autoscaling enabled and set the minimum instance count as 0 for the entire month. The request load on the WAF is minimum but consistently present per hour for the entire month. The load is below the capacity of a single capacity unit.
-Your Application Gateway costs using the pricing described previously are calculated as follows:
+
+**Scenario:** WAF_V2 with autoscaling, minimum instance count 0, and a consistent hourly load below a single capacity unit, one full month.
+
+**Calculation:**
 
 Monthly price estimates are based on 730 hours of usage per month.
 
@@ -191,7 +201,10 @@ Total Costs = $323.39 + $10.512 = $333.902
 ### Example 3 (b) – WAF_V2 instance with Autoscaling with 0 Min instance count
 
 Let’s assume you provision a WAF_V2 with autoscaling enabled and set the minimum instance count to 0 for the entire month. However, there's 0 traffic directed to the WAF instance for the entire month.
-Your Application Gateway costs using the pricing described previously are calculated as follows:
+
+**Scenario:** WAF_V2 with autoscaling, minimum instance count 0, and no traffic, one full month.
+
+**Calculation:**
 
 Fixed Price = $0.443   * 730 (Hours) =  $323.39
 
@@ -202,7 +215,10 @@ Total Costs = $323.39 + $0 = $323.39
 ### Example 3 (c) – WAF_V2 instance with manual scaling set to 1 instance
 
 Let’s assume you provision a WAF_V2 and set it to manual scaling with the minimum acceptable value of 1 instance for the entire month. However, there's 0 traffic directed to the WAF for the entire month.
-Your Application Gateway costs using the pricing described previously are calculated as follows:
+
+**Scenario:** WAF_V2 with manual scaling set to 1 instance and no traffic, one full month.
+
+**Calculation:**
 
 Monthly price estimates are based on 730 hours of usage per month.
 
@@ -216,7 +232,10 @@ Total Costs = $323.39 + $105.12 = $428.51
 ### Example 4 – WAF_V2 with Autoscaling, capacity unit calculations
 
 Let’s assume you provision a WAF_V2 with autoscaling enabled and set the minimum instance count to 0 for the entire month. During this time, it receives 25 new TLS connections/sec with an average of 8.88-Mbps data transfer.
-Your Application Gateway costs using the pricing described previously are calculated as follows:
+
+**Scenario:** WAF_V2 with autoscaling, minimum instance count 0, 25 new TLS connections/sec and 8.88-Mbps average throughput, one full month.
+
+**Calculation:**
 
 Monthly price estimates are based on 730 hours of usage per month.
 
@@ -230,7 +249,10 @@ Total Costs = $323.39 + $42.048 = $365.438
 
 Let’s assume you provision a standard_V2 with autoscaling enabled and set the minimum instance count to 0 and this application gateway is active for 2 hours.
 During the first hour, it receives traffic that can be handled by 10 Capacity Units and during the second hour it receives traffic that required 20 Capacity Units to handle the load.
-Your Application Gateway costs using the pricing described previously are calculated as follows:
+
+**Scenario:** Standard_V2 with autoscaling, minimum instance count 0, active for two hours, using 10 capacity units in the first hour and 20 capacity units in the second.
+
+**Calculation:**
 
 Fixed Price = $0.246  * 2 (Hours) =  $0.492
 
@@ -242,6 +264,10 @@ Total Costs = $0.492 + $0.24 = $0.732
 ### Example 6 – WAF_V2 with DDoS Network Protection, and with manual scaling set to 2 instance
 
 Let’s assume you provision a WAF_V2 and set it to manual scaling with 2 instance for the entire month with 2 CUs. Let's also assume that you enable DDoS Network Protection. In this example, since you're paying the monthly fee for DDoS Network Protection, there's no additional charges for WAF; and you're charged at the lower Standard_V2 rates.
+
+**Scenario:** WAF_V2 with manual scaling set to 2 instances and DDoS Network Protection enabled, one full month.
+
+**Calculation:**
 
 Monthly price estimates are based on 730 hours of usage per month.
 
@@ -331,7 +357,10 @@ For more pricing information according to your region, see the [pricing page](ht
 ### Example 1 (a) – Standard Application Gateway with 1 instance count
 
 Let’s assume you provision a standard Application Gateway of medium type with 1 instance and it processes 500 GB in a month. 
-Your Application Gateway costs using the pricing described previously are calculated as follows:
+
+**Scenario:** Standard Application Gateway, Medium size, one instance, 500 GB processed in one month.
+
+**Calculation:**
 
 Fixed Price = $0.07 * 730 (Hours) =  $51.1
 Monthly price estimates are based on 730 hours of usage per month.
@@ -345,7 +374,10 @@ Total Costs = $51.1 + 0 = $51.1
 ### Example 1 (b) – Standard Application Gateway with > 1 instance count
 
 Let’s assume you provision a standard Application Gateway of medium type with five instances and it processes 500 GB in a month. 
-Your Application Gateway costs using the pricing described previously are calculated as follows:
+
+**Scenario:** Standard Application Gateway, Medium size, five instances, 500 GB processed in one month.
+
+**Calculation:**
 
 Fixed Price = 5 (Instance count) * $0.07 * 730 (Hours) =  $255.5
 Monthly price estimates are based on 730 hours of usage per month.
@@ -356,7 +388,10 @@ Total Costs = $255.5 + 0 = $255.5
 ### Example 2 – WAF Application Gateway
 
 Let’s assume you provision a small type standard Application Gateway and a large type WAF Application Gateway for the first 15 days of the month. The small application gateway processes 15 TB in the duration that it's active and the large WAF application gateway processes 100 TB in the duration that it's active. 
-Your Application Gateway costs using the pricing described previously are calculated as follows: 
+
+**Scenario:** Small Standard Application Gateway processing 15 TB and Large WAF Application Gateway processing 100 TB, both active for the first 15 days of the month.
+
+**Calculation:**
 
 ###### Small instance Standard Application Gateway
 
@@ -379,7 +414,11 @@ Total Costs = $161.28 + $210 = $371.28
 
 ### Example 3 – WAF Application Gateway with DDoS Network Protection
 
-Let's assume you provision a medium type WAF application Gateway, and you enable DDoS Network Protection. This medium WAF application gateway processes 40 TB in the duration that it's active. Your Application Gateway costs using the pricing method described previously are calculated as follows:
+Let's assume you provision a medium WAF Application Gateway, and you enable DDoS Network Protection. This medium WAF Application Gateway processes 40 TB during the time it's active.
+
+**Scenario:** Medium WAF Application Gateway with DDoS Network Protection enabled, 40 TB processed.
+
+**Calculation:**
 
 Monthly price estimates are based on 730 hours of usage per month.
 
