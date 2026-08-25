@@ -3,6 +3,7 @@ title: "Tutorial 1-1: Deploy an Azure Enclave community"
 description: Learn how to plan, deploy, validate, and clean up an Azure Enclave community in the Azure portal.
 author: aserfass-msft
 ms.author: aserfass
+ms.service: azure-enclave
 ms.topic: tutorial
 ms.date: 06/01/2026
 ---

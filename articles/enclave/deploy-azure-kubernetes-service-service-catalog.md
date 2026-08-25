@@ -4,6 +4,7 @@ titleSuffix: Azure Enclave
 description: Deploy Azure Kubernetes Service from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
+ms.service: azure-enclave
 ms.topic: how-to
 ms.date: 6/16/2025
 ---
