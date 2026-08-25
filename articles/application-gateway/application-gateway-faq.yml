@@ -34,7 +34,7 @@ sections:
 
       - question: How does Application Gateway support HTTP/2?
         answer: |
-          HTTP/2 is supported for clients that connect to Application Gateway listeners only. Communication to backend server pools is always HTTP/1.1. HTTP/2 support is disabled by default.
+          HTTP/2 is supported for clients that connect to Application Gateway listeners only. Communication to backend server pools is always HTTP/1.1. HTTP/2 support is disabled by default, except when you create an Application Gateway in the Azure portal, where HTTP/2 is enabled by default. You can change the setting during or after deployment.
 
           For configuration steps, see [HTTP/2 support](./configuration-listeners.md#http2-support).
 
@@ -475,7 +475,9 @@ sections:
           | Listener certificate uploaded to Application Gateway | Upload the reissued PFX file in the listener settings. |
           | Listener certificate referenced from Key Vault | Import the reissued certificate into the key vault, then select it in the listener. |
           | Backend authentication certificate (v1 gateways) | Upload the reissued certificate in the backend HTTP settings. |
-          | Backend trusted root certificate (v2 gateways) | No action is required. |
+          | Backend trusted root certificate (v2 gateways) | No Application Gateway change is required if the trusted root certificate remains valid and unchanged. If the renewed backend certificate uses a new private root CA, upload the new trusted root certificate to the backend setting. |
+
+          For a backend certificate renewal, install the renewed certificate chain on the backend server.
 
           The rest of this answer explains why certificates were revoked and gives the detailed steps for each case.
 
