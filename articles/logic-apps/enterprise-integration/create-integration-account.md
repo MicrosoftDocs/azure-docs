@@ -7,7 +7,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: estfan, divyaswarnkar, azla
 ms.topic: how-to
-ms.date: 09/05/2025
+ms.date: 08/25/2026
 ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange
@@ -404,7 +404,9 @@ Before you can link your integration account to a Standard logic app resource, y
 
 ## Change pricing tier
 
-To increase the [limits](../logic-apps-limits-and-config.md#integration-account-limits) for an integration account, you can [upgrade to a higher pricing tier](#upgrade-pricing-tier), if available. For example, you can upgrade from the Free tier to the Basic tier, Standard tier, or Premium tier. You can also [downgrade to a lower tier](#downgrade-pricing-tier), if available. For more information pricing information, review the following documentation:
+To increase the [limits](../logic-apps-limits-and-config.md#integration-account-limits) for an integration account, you can [upgrade to a higher pricing tier](#upgrade-pricing-tier), if available. For example, you can upgrade from the Free tier to the Basic tier or Standard tier. You can't upgrade to the Premium tier from a non-Premium tier. You can also [downgrade to a lower tier](#downgrade-pricing-tier).
+
+For more information pricing information, see:
 
 * [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 * [Azure Logic Apps pricing model](../logic-apps-pricing.md#integration-accounts)
