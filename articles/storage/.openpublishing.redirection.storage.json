@@ -2919,6 +2919,31 @@
             "source_path_from_root": "/articles/storage/file-sync/file-sync-extension.md",
             "redirect_url": "/azure/storage/file-sync/file-sync-deployment-guide#install-on-azure-arc-enabled-servers",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-choose-data-transfer-solution.md",
+            "redirect_url": "/azure/storage/common/storage-migration-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-solution-large-dataset-low-network.md",
+            "redirect_url": "/azure/storage/common/storage-migration-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-solution-large-dataset-moderate-high-network.md",
+            "redirect_url": "/azure/storage/common/storage-migration-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-solution-small-dataset-low-moderate-network.md",
+            "redirect_url": "/azure/storage/common/storage-migration-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-solution-periodic-data-transfer.md",
+            "redirect_url": "/azure/storage/common/storage-solution-periodic-data-transfer",
+            "redirect_document_id": false
         }
     ]
 }
