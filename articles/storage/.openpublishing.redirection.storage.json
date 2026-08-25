@@ -2941,7 +2941,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/storage/common//storage/common/storage-solution-periodic-data-transfer.md",
+            "source_path_from_root": "/articles/storage/common/storage-solution-periodic-data-transfer.md",
             "redirect_url": "/azure/storage/common/storage-solution-periodic-data-transfer",
             "redirect_document_id": false
         }
