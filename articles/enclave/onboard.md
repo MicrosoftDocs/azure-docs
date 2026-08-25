@@ -112,8 +112,6 @@ $resourceProviders | foreach {Register-AzResourceProvider -ProviderNamespace $_ 
 
 1. Proceed to [Azure setup](./best-practices.md#azure-setup) or [next steps](#next-steps).
 
-For reference, you can also review the generic instructions for enabling a [preview feature](/azure/azure-resource-manager/management/preview-features).
-
 ### Configure `NetworkWatcherRG` access
 
 To avoid potential problems with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, make sure the `NetworkWatcherRG` resource group exists in each subscription and that the `Mission Enclave` app has the `Owner` role on that group before you create your first enclave. If the subscription automatically creates the group and role, verify that they already exist.
@@ -143,16 +141,6 @@ When a community or enclave is created, Azure Enclave attempts the following ste
 1. Check if the `NetworkWatcherRG` exists. If not, attempt to create that resource group.
 1. Check if the `Mission Enclave` App has a permanent `Owner` assignment on `NetworkWatcherRG`. If not, attempt to assign the `Mission Enclave` App as a permanent `Owner` assignment on `NetworkWatcherRG`. Even if an inherited `Owner` permission exists, a permanent `Owner` assignment creation is attempted.
 1. If any step fails, enclave deployments might fail when attempting to create virtual network flow logs.
-
-## Transition steps for existing preview customers
-
-Existing preview customers must re-register the Azure Enclave resource provider so their subscriptions can use the latest Azure Enclave API and service updates.
-
-Complete these steps to use the latest Azure Enclave API:
-1. In the Azure portal, navigate to your subscription.
-1. Under `Settings`, select `Resource providers`.
-1. Search for and select `Microsoft.Mission`, and then select `Re-register`.
-1. Repeat these steps for any additional subscriptions.
 
 ## Next steps
 
