@@ -16,6 +16,8 @@ ms.custom:
 # Copy data from SAP HANA using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from an SAP HANA database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!NOTE]
@@ -214,9 +216,9 @@ To copy data from SAP HANA, the following properties are supported in the copy a
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **SapHanaSource** | Yes |
 | query | Specifies the SQL query to read data from the SAP HANA instance. | Yes |
-| partitionOptions | Specifies the data partitioning options used to ingest data from SAP HANA. Learn more from  [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section.<br>Allow values are: **None** (default), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Learn more from  [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section. `PhysicalPartitionsOfTable` can only be used when copying data from a table but not query. <br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from SAP HANA is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | False |
-| partitionSettings | Specify the group of the settings for data partitioning.<br>Apply when partition option is `SapHanaDynamicRange`. | False |
-| partitionColumnName | Specify the name of the source column that will be used by partition for parallel copy. If not specified, the index or the primary key of the table is auto-detected and used as the partition column.<br>Apply when the partition option is `SapHanaDynamicRange`. If you use a query to retrieve the source data, hook `?AdfHanaDynamicRangePartitionCondition` in WHERE clause. See example in [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section. | Yes when using `SapHanaDynamicRange` partition. |
+| partitionOptions | Specifies the data partitioning options used to ingest data from SAP HANA. Learn more from  [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section.<br>Allow values are: **None** (default), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Learn more from  [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section. `PhysicalPartitionsOfTable` can only be used when copying data from a table but not query. <br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from SAP HANA is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | False |
+| partitionSettings | Specify the group of the settings for data partitioning.<br>Apply when partition option is `SapHanaDynamicRange`. | False |
+| partitionColumnName | Specify the name of the source column that will be used by partition for parallel copy. If not specified, the index or the primary key of the table is auto-detected and used as the partition column.<br>Apply when the partition option is `SapHanaDynamicRange`. If you use a query to retrieve the source data, hook `?AdfHanaDynamicRangePartitionCondition` in WHERE clause. See example in [Parallel copy from SAP HANA](#parallel-copy-from-sap-hana) section. | Yes when using `SapHanaDynamicRange` partition. |
 | packetSize | Specifies the network packet size (in Kilobytes) to split data to multiple blocks. If you have large amount of data to copy, increasing packet size can increase reading speed from SAP HANA in most cases. Performance testing is recommended when adjusting the packet size. | No.<br>Default value is 2048 (2MB). |
 
 **Example:**
@@ -282,7 +284,7 @@ You are suggested to enable parallel copy with data partitioning especially when
 ```json
 "source": {
     "type": "SapHanaSource",
-    "query": "SELECT * FROM <TABLENAME> WHERE (?AdfHanaDynamicRangePartitionCondition) AND <your_additional_where_clause>",
+    "query": "SELECT * FROM <TABLENAME> WHERE (?AdfHanaDynamicRangePartitionCondition) AND <your_additional_where_clause>",
     "partitionOption": "SapHanaDynamicRange",
     "partitionSettings": {
         "partitionColumnName": "<Partition_column_name>"
@@ -336,7 +338,7 @@ Follow the [Prerequisites](#prerequisites) to set up Self-hosted Integration Run
     "properties": {
         "type": "Odbc",
         "typeProperties": {
-            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
+            "connectionString": "Driver={HDBODBC};servernode=<HANA server>:30015",
             "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
