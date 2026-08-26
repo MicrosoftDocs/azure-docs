@@ -25,10 +25,6 @@ Requests for `http://contoso.com` are routed to ContosoServerPool, and `http://f
 
 Similarly, you can host multiple subdomains of the same parent domain on the same application gateway deployment. For example, you can  host `http://blog.contoso.com` and `http://app.contoso.com` on a single application gateway deployment.
 
-You can host multiple subdomains of the same parent domain on the same application gateway deployment. For example, you can host `http://blog.contoso.com` and `http://app.contoso.com` on a single application gateway deployment.
-
-A listener is the component of an application gateway that accepts incoming traffic on a configured port and protocol setting. A multi-site listener also matches on host name, which is how a single application gateway hosts more than one website on the same public IP address and port. Application Gateway relies on HTTP 1.1 host headers to determine which listener handles a request, and each listener directs the matched traffic to its own backend pool. For example, requests for `http://contoso.com` route to ContosoServerPool, and requests for `http://fabrikam.com` route to FabrikamServerPool. How the application gateway chooses between listeners depends on the SKU: for the v1 SKU, the portal processes rules in the order they're listed, and for the v2 SKU you set a **Priority** value on each request routing rule to specify the processing order.
-
 ## Request Routing rules evaluation order
 
 When you use multi-site listeners to ensure that the client traffic is routed to the accurate backend, it's important that the request routing rules are present in the correct order.
