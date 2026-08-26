@@ -965,6 +965,9 @@ By default, all function routes are prefixed with `api`. You can also customize 
 }
 ```
 
+> [!IMPORTANT]
+> The `/admin` and `/runtime` paths at the root of your function app are reserved for the Functions host's own administrative and runtime APIs. The host handles requests to these paths, and they never reach your functions; unmatched requests to them return HTTP 404. With the default `api` route prefix, your function endpoints are served under `/api/`, so they don't collide with these reserved paths. If you remove or change the route prefix so that functions are served from the app's root, avoid function routes that begin with `admin` or `runtime`. The host intercepts those requests, so a function with such a route—or, when no explicit `route` is set, a function *named* `admin` or `runtime`—won't be reachable.
+
 ### Using route parameters
 
 Route parameters that defined a function's `route` pattern are available to each binding. For example, if you have a route defined as `"route": "products/{id}"` then a table storage binding can use the value of the `{id}` parameter in the binding configuration.
