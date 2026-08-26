@@ -80,7 +80,7 @@ Define access policies to use the user-assigned managed identity with your Key V
    
    If you're using **Azure role-based access control** follow the article [Assign a managed identity access to a resource](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource) and assign the user-assigned managed identity the **Key Vault Secrets User** role to the Azure Key Vault.
    > [!NOTE]
-   > When using Azure RBAC with Key Vault, if you're configuring the Application Gateway integration using PowerShell, Azure CLI, or REST API (for example, using `Get-AzKeyVaultSecret` or `az keyvault secret show`), the **user or service principal** performing these operations also needs the **Key Vault Secrets User** role (or equivalent permissions) on the Key Vault. This is because these management operations run in your security context, not the Application Gateway's managed identity context. The managed identity is used by Application Gateway at runtime to retrieve certificates.
+   > When using Azure RBAC with Key Vault, the **user or service principal** also needs the **Key Vault Secrets User** role (or equivalent permissions) when it must retrieve the secret identifier from Key Vault, for example by using `Get-AzKeyVaultSecret` or `az keyvault secret show`. These lookups run in the caller's security context. Application Gateway uses its managed identity to retrieve certificates at runtime.
 ### Verify Firewall Permissions to Key Vault
 
 As of March 15, 2021, Key Vault recognizes Application Gateway as a trusted service by leveraging User Managed Identities for authentication to Azure Key Vault.  With the use of service endpoints and enabling the trusted services option for Key Vault's firewall, you can build a secure network boundary in Azure. You can deny access to traffic from all networks (including internet traffic) to Key Vault but still make Key Vault accessible for an Application Gateway resource under your subscription.
@@ -120,13 +120,6 @@ When you're using a restricted Key Vault, use the following steps to configure A
 > The values of `appGatewaySSLCertificateData` and `appGatewaySSLCertificatePassword` are looked up from the Key Vault, as described in [Reference secrets with dynamic ID](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id). Follow the references backward from `parameters('secretName')` to see how the lookup happens. If the certificate is passwordless, omit the `password` entry.
 
 ### Configure Application Gateway Listener
-
-Application Gateway supports two paths for attaching a Key Vault certificate to an HTTPS listener, depending on the permission model that your key vault uses. Use the following table to choose the path for your key vault, and then follow the matching procedure.
-
-| Permission model | Azure portal support | Cross-subscription key vault | Setup considerations |
-|---|---|---|---|
-| Vault access policy | Supported. You select the managed identity, key vault, and certificate while you configure the listener. | Supported, but you must configure it with an ARM template, Bicep, the Azure CLI, or Azure PowerShell. Application Gateway doesn't support cross-subscription key vault configuration through the Azure portal. | Grant your user-assigned managed identity the **Get** secret permission under **Access Policies**. |
-| Azure role-based access control | Not supported for specifying Key Vault certificates. You must create the initial Key Vault reference with an ARM template, Bicep, the Azure CLI, or Azure PowerShell. | Supported, but you must configure it with an ARM template, Bicep, the Azure CLI, or Azure PowerShell. Application Gateway doesn't support cross-subscription key vault configuration through the Azure portal. | Assign your user-assigned managed identity the **Key Vault Secrets User** role. The user or service principal that runs PowerShell, Azure CLI, or REST API commands also needs this role. |
 
 #### Key Vault permission Vault access policy model
 

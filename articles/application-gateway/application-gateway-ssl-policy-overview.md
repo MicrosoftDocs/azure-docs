@@ -26,19 +26,14 @@ The TLS policy includes control of the TLS protocol version as well as the ciphe
 
 The application gateway resource configuration names this setting **SSL policy**. This article uses *TLS policy* in prose to refer to the same setting.
 
-Because support for TLS 1.0 and 1.1 is discontinued, the effective minimum protocol version for both client and backend connections is **TLS 1.2**. Use the following details when you choose a policy option.
-
 ### Current client and backend behavior
 
 - SSL 2.0 and 3.0 are disabled for all application gateways and are not configurable.
+- A custom TLS policy allows you to select any TLS protocol as the minimum protocol version for your gateway: TLSv1_0, TLSv1_1, TLSv1_2, or TLSv1_3.
 - If no TLS policy is chosen, a [default TLS policy](application-gateway-ssl-policy-overview.md#default-tls-policy) gets applied based on the API version used to create that resource.
 - The [**2022 Predefined**](#predefined-tls-policy) and [**CustomV2 policies**](#custom-tls-policy) that support **TLS v1.3** are available only with Application Gateway V2 SKUs (Standard_v2 or WAF_v2).
-- TLS cipher suites used for the connection are also based on the type of the certificate being used. The cipher suites used in "client to application gateway connections" are based on the type of listener certificates on the application gateway. Whereas the cipher suites used in establishing "application gateway to backend pool connections" are based on the type of server certificates presented by the backend servers.
-
-### Legacy policy values
-
-- A custom TLS policy allows you to select any TLS protocol as the minimum protocol version for your gateway: TLSv1_0, TLSv1_1, TLSv1_2, or TLSv1_3. The TLSv1_0 and TLSv1_1 values are legacy values that are subject to the retirement described earlier in this section.
 - Using a 2022 Predefined or CustomV2 policy enhances TLS security and performance posture of the entire gateway (for TLS policy and [SSL Profile](application-gateway-configure-listener-specific-ssl-policy.md#set-up-a-listener-specific-ssl-policy)). Hence, both old and new policies cannot co-exist on a gateway. You must use any of the older predefined or custom policies across the gateway if clients require older TLS versions or ciphers (for example, TLS v1.0).
+- TLS cipher suites used for the connection are also based on the type of the certificate being used. The cipher suites used in "client to application gateway connections" are based on the type of listener certificates on the application gateway. Whereas the cipher suites used in establishing "application gateway to backend pool connections" are based on the type of server certificates presented by the backend servers.
 
 ## Predefined TLS policy
 
@@ -92,7 +87,7 @@ When you don't specify a TLS policy in the application gateway resource configur
 If the default TLS doesn’t fit your requirement, choose a different Predefined policy or use a Custom one.
 
 > [!NOTE]
-> Azure PowerShell and Azure CLI don't currently report the updated default TLS policy for gateways created with API version 2023-02-01 or later. To confirm the default in effect for your gateway, check the read-only `defaultPredefinedSslPolicy` property on the resource.
+> Azure PowerShell and CLI support for the updated default TLS policy is coming soon.
 
 
 ## Custom TLS policy
@@ -111,42 +106,36 @@ If a TLS policy needs to be configured for your requirements, you can use a Cust
 
 Application Gateway supports the following cipher suites from which you can choose your custom policy. The ordering of the cipher suites determines the priority order during TLS negotiation.
 
-The **Policy family** column shows the custom policy family that accepts each cipher suite. The **SKU applicability** column shows the Application Gateway SKUs that use the cipher suite for TLS connections. CustomV2 policies are available only with Application Gateway v2 SKUs (Standard_v2 or WAF_v2).
-
-| Cipher suite | Policy family | SKU applicability |
-| --- | --- | --- |
-| TLS_AES_128_GCM_SHA256 | CustomV2 | v2 |
-| TLS_AES_256_GCM_SHA384 | CustomV2 | v2 |
-| TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 | Custom, CustomV2 | v1, v2 |
-| TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 | Custom, CustomV2 | v1, v2 |
-| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 | Custom, CustomV2 | v1, v2 |
-| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 | Custom, CustomV2 | v1, v2 |
-| TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA | Custom, CustomV2 | v1, v2 |
-| TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA | Custom, CustomV2 | v1, v2 |
-| TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 | Custom, CustomV2 | v1 only |
-| TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 | Custom, CustomV2 | v1 only |
-| TLS_DHE_RSA_WITH_AES_256_CBC_SHA | Custom, CustomV2 | v1 only |
-| TLS_DHE_RSA_WITH_AES_128_CBC_SHA | Custom, CustomV2 | v1 only |
-| TLS_RSA_WITH_AES_256_GCM_SHA384 | Custom, CustomV2 | v1, v2 |
-| TLS_RSA_WITH_AES_128_GCM_SHA256 | Custom, CustomV2 | v1, v2 |
-| TLS_RSA_WITH_AES_256_CBC_SHA256 | Custom, CustomV2 | v1, v2 |
-| TLS_RSA_WITH_AES_128_CBC_SHA256 | Custom, CustomV2 | v1, v2 |
-| TLS_RSA_WITH_AES_256_CBC_SHA | Custom, CustomV2 | v1, v2 |
-| TLS_RSA_WITH_AES_128_CBC_SHA | Custom, CustomV2 | v1, v2 |
-| TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 | Custom, CustomV2 | v1, v2 |
-| TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 | Custom, CustomV2 | v1, v2 |
-| TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 | Custom, CustomV2 | v1, v2 |
-| TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 | Custom, CustomV2 | v1, v2 |
-| TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA | Custom, CustomV2 | v1, v2 |
-| TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA | Custom, CustomV2 | v1, v2 |
-| TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 | Custom, CustomV2 | v1 only |
-| TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 | Custom, CustomV2 | v1 only |
-| TLS_DHE_DSS_WITH_AES_256_CBC_SHA | Custom, CustomV2 | v1 only |
-| TLS_DHE_DSS_WITH_AES_128_CBC_SHA | Custom, CustomV2 | v1 only |
-| TLS_RSA_WITH_3DES_EDE_CBC_SHA | Custom, CustomV2 | v1, v2 |
-| TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA | Custom, CustomV2 | v1, v2 |
-
-The cipher suites marked *v1 only* are the DHE cipher suites that Application Gateway v2 doesn't support. For more information, see [Limitations](#limitations).
+- TLS_AES_128_GCM_SHA256 (available only with CustomV2)
+- TLS_AES_256_GCM_SHA384 (available only with CustomV2)
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_AES_256_GCM_SHA384
+- TLS_RSA_WITH_AES_128_GCM_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA256
+- TLS_RSA_WITH_AES_128_CBC_SHA256
+- TLS_RSA_WITH_AES_256_CBC_SHA
+- TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA256
+- TLS_DHE_DSS_WITH_AES_256_CBC_SHA
+- TLS_DHE_DSS_WITH_AES_128_CBC_SHA
+- TLS_RSA_WITH_3DES_EDE_CBC_SHA
+- TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA
 
 ## Limitations
 
