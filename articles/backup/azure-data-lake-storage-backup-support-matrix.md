@@ -48,6 +48,8 @@ The following table lists the protection limits:
 | Maximum number of containers in a storage account that can be protected | 1000 |
 | Vault redundancy              | LRS/ZRS/GRS |
 
+You can choose to auto-protect containers in a storage account. When auto-protection is enabled, new containers created after backup configuration are automatically protected until the protected container count reaches 1000. If the storage account has more than 1000 containers, select or exclude containers to reduce the protected container count to 1000 or fewer. Selecting auto-protection for all present and future containers is permanent, and you can't switch back to the earlier container selection options.
+
 ### Supported scenarios for Azure Data Lake Storage protection
 
 Azure Data Lake Storage protection has the following supported scenarios:
@@ -64,7 +66,6 @@ Azure Data Lake Storage protection has the following unsupported scenarios:
 
 - Azure Backup is not supported for Storage Accounts enabled with Network Security Perimeter (NSP). We recommend not associating an account with NSP if you have backup enabled or you plan to use Azure backup.
 
-- Any new containers that get created after backup configuration for the storage account aren't backed up automatically. To enable the backup operation for the new containers, modify the protection of the storage account. 
 - The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error might appear when you configure backup.
 - Backup vaults with User-Assigned Managed Identity (UAMI) aren't compatible with Azure Blob Vaulted backups.
 - When an Azure Data Lake Storage account or container in it is deleted and recreated with the same name between two consecutive backups, then recovery points retain older blobs and versions.
