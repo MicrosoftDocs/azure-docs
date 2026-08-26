@@ -1,5 +1,5 @@
 ---
-title: Questions about assessments in Azure Migrate
+title: Questions about Assessments in Azure Migrate
 description: Get answers to common questions about assessments in Azure Migrate.
 ms.topic: concept-article
 ms.service: azure-migrate
