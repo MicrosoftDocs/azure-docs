@@ -50,7 +50,7 @@ You can provide the following key resource configurations for the failover VM wh
 
 > [!NOTE]
 > When you select a preprovisioned NIC, you automatically inherit the networking configurations associated with the selected NIC. <br>
-> A NIC can be associated with only one existing VM at a time. If a selected NIC is attached to an existing VM during a failover, the failover operation fails.  
+> A NIC can be associated with only one existing VM at a time. If a selected NIC is found to be attached to an existing VM during a failover, the failover operation fails.  
 
 6. Select **OK**.
 
