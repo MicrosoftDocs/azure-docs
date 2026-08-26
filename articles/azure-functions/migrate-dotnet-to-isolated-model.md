@@ -54,7 +54,7 @@ On version 4.x of the Functions runtime, your .NET function app targets .NET 8 w
 > [!TIP]
 > **We recommend upgrading to .NET 10 on the isolated worker model.** .NET 10 is the current LTS release and has the longest remaining support window. Support for .NET 8 and .NET 9 ends on November 10, 2026, the same day that support ends for the in-process model, so migrating to either of those versions requires another upgrade shortly afterward.
 
-The examples in this guide target .NET 8 so that only the process model changes during the migration. If you target .NET 10, adapt the examples accordingly.
+The examples in this guide target .NET 8 so that only the process model changes during the migration. If you target .NET 10, set `<TargetFramework>net10.0</TargetFramework>` in your project file and adapt the examples accordingly.
 
 ## Prepare for migration
 
