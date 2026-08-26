@@ -59,7 +59,7 @@ An agentic system adds three new layers on top of and around the existing AI pla
 
 ### AI platform layer (inherited)
 
-The AI platform layer hosts and safeguards the model, training data, weights, and inference APIs. Microsoft provides built-in input and output safety systems for PaaS ([Microsoft Foundry](/azure/ai-foundry/) and [Azure OpenAI](/azure/ai-services/openai/overview) models) and for SaaS ([Microsoft Security Copilot](https://www.microsoft.com/security/business/ai-machine-learning/microsoft-security-copilot) and [Microsoft 365 Copilot](https://www.microsoft.com/microsoft-365/copilot)).
+The AI platform layer hosts and safeguards the model, training data, weights, and inference APIs, and provides built-in input and output safety systems. Responsibility at this layer is inherited from the [AI shared responsibility model](shared-responsibility-ai.md).
 
 ### Agent orchestration layer
 
