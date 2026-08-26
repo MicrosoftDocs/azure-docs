@@ -1,8 +1,9 @@
 ---
 title: Slurm Scheduler Integration version 3.0
 description: Learn about Slurm 3.0+ functionality in Azure CycleCloud and how to configure the updated Slurm integration.
+ai-usage: ai-assisted
 author: anhoward
-ms.date: 06/19/2026
+ms.date: 08/26/2026
 ms.topic: how-to
 ms.author: anhoward
 ---
@@ -36,6 +37,10 @@ The command creates the partitions with the correct number of nodes, sets up the
 ### Nodes aren't precreated anymore
 
 Starting with CycleCloud version 3.0.0 Slurm project, the nodes aren't precreated. You create nodes when you invoke `azslurm resume` or when you manually create them in CycleCloud using the CLI.
+
+### Plan autoscaling limits
+
+Slurm can request only the nodes allowed by the Slurm partition, CycleCloud node-array limits, and available Azure quota. The built-in Slurm template uses `MaxCount` in CycleCloud 8.7.1 and later, while earlier or custom templates might use `MaxCoreCount`. For the complete limit hierarchy and a worked Slurm example, see [Understand Slurm autoscaling limits](concepts/plan-and-size-hpc-clusters.md#understand-slurm-autoscaling-limits).
 
 ### Creating extra partitions
 
