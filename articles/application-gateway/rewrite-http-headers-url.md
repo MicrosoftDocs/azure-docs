@@ -49,9 +49,9 @@ A rewrite set is a collection of a routing rule, condition, and action.
 
 ### Request routing rule association
 
-The rewrite configuration associates to a source listener through its routing rule. When you use a routing rule of the type Basic, the rewrite configuration associates with its listener and works as a global rewrite. When you use a Path-based routing rule, you define the rewrite configuration according to the URL path map. In the latter case, it applies only to a specific path area of a site. You can apply a rewrite set to multiple routing rules, but a routing rule can have only one rewrite associated with it.
+The rewrite configuration associates to a source listener through its routing rule. When you use a routing rule of the type Basic, the rewrite configuration associates with its listener and works as a global rewrite. When you use a path-based routing rule, you define the rewrite configuration according to the URL path map. In the latter case, it applies only to a specific path area of a site. You can apply a rewrite set to multiple routing rules, but a routing rule can have only one rewrite associated with it.
 
-### Rewrite Condition
+### Rewrite condition
 
 This configuration is optional. Based on the conditions that you define, the Application Gateway evaluates the contents of the HTTP(S) requests and responses. The subsequent "rewrite action" occurs if the HTTP(S) request or response matches this condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, it's a logical AND operation.
 You can use rewrite conditions to evaluate the content of HTTP(S) requests and responses. This optional configuration enables you to perform a rewrite only when one or more conditions are met. The application gateway uses these types of variables to evaluate the content of requests and responses:
@@ -63,7 +63,7 @@ You can choose the following types to look for a condition:
 
 A condition lets you evaluate whether a specified header or variable exists by matching their values through text or a Regex pattern. For advanced rewrite configurations, you can also capture the value of header or server variable for later use under Rewrite Action. Learn more about [pattern and capturing](#pattern-matching-and-capturing).
 
-### Rewrite Action
+### Rewrite action
 
 Rewrite action set allows you to rewrite headers (request or response) or the URL components.
 
