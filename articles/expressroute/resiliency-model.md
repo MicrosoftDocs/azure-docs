@@ -12,7 +12,7 @@ ms.author: mekaylamoore
 
 # ExpressRoute Resiliency Guard (Preview)
 
-ExpressRoute Resiliency Guard is a guided setup experience that helps you configure an ExpressRoute gateway for the level of availability your network requires. When you create or modify a gateway, use the **Resiliency Model** property to choose between multihomed and single-homed configurations.
+ExpressRoute Resiliency Guard is a guided setup experience that helps you configure an ExpressRoute gateway for the level of availability your network requires. When you create or modify a gateway, use the **Resiliency Model** property to choose between multi-homed and single-homed configurations.
 
 ## Choose your resiliency model
 
@@ -23,7 +23,7 @@ Choose multi-homed to protect your network from location-wide outages. Connect t
 - Two or more circuits in different physical locations.
 - One or more ExpressRoute Metro circuits.
 
-Resiliency Guard displays the connectivity status for the configuration. If one location becomes unavailable, traffic automatically fails over to a healthy location. Azure Advisor recommends this model for critical workloads that require high availability.
+Resiliency Guard displays the connectivity status for the configuration. If one location becomes unavailable, connectivity to the affected circuit will be unavailable until failover conditions are met and traffic is redirected to a healthy location. Traffic then automatically fails over to the healthy location. Azure Advisor recommends this model for critical workloads that require high availability.
 
 ### Single-homed: Standard setup
 
@@ -95,21 +95,21 @@ To simplify your ExpressRoute setup:
 1. Open the **Configuration** tab.
 1. Change the resiliency model to **Single-homed**.
 1. Confirm the change.
-1. For a non-Metro gateway, delete any extra connections.
 
 A confirmation dialog appears to ensure you understand the implications:
 
 :::image type="content" source="./media/resiliency-model/downgrade-single-homed-confirmation.png" alt-text="Screenshot of the gateway Configuration page with Single-Homed selected and the Change Requirement confirmation dialog open." lightbox="./media/resiliency-model/downgrade-single-homed-confirmation.png":::
 
-> [!NOTE]
-> A Metro configuration has only one connection, so you don't need to delete another connection after switching its gateway to single-homed.
 
-<!-- Separate the adjacent alert blocks. -->
+## Delete your gateway connections
+To maintain resiliency, deletion of connections on multi-homed gateways is blocked. A multi-homed configuration must always maintain either:
 
-> [!IMPORTANT]
-> If you don't delete the extra connections from a non-Metro gateway, a mismatch banner appears and the gateway continues to operate as multi-homed.
+1. At least two connections to circuits in different physical locations, or
+1. At least one connection to an ExpressRoute Metro circuit.
+   
+If you attempt to delete a connection that is required to maintain one of these minimum resiliency configurations, the deletion will be blocked and you will receive a message explaining why.
 
-## Delete your gateway
+To remove these connections, you must first downgrade the gateway from a multi-homed configuration to a single-homed configuration. After the gateway has been downgraded, you can delete any or all existing connections.
 
 ### Multi-homed and Metro gateways
 
