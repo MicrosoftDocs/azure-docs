@@ -29,7 +29,7 @@ With this configuration, the secured traffic from Event Grid to Event Hubs, Serv
 To deliver events to event hubs in your Event Hubs namespace by using managed identity, follow these steps:
 
 1. Enable system-assigned or user-assigned managed identity: [system topics](enable-identity-system-topics.md), [custom topics and domains](enable-identity-custom-topics-domains.md).
-1. [Add the identity to the **Azure Event Hubs Data Sender** role on the Event Hubs namespace](../event-hubs/authenticate-managed-identity.md#to-assign-azure-roles-using-the-azure-portal).
+1. [Add the identity to the **Azure Event Hubs Data Sender** role on the Event Hubs namespace](../event-hubs/authenticate-managed-identity.md#azure-built-in-roles-for-event-hubs).
 1. [Enable the **Allow trusted Microsoft services to bypass this firewall** setting on your Event Hubs namespace](../event-hubs/event-hubs-service-endpoints.md#trusted-microsoft-services). 
 1. [Configure the event subscription](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) that uses an event hub as an endpoint to use the system-assigned or user-assigned managed identity.
 

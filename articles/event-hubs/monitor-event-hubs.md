@@ -1,16 +1,17 @@
 ---
 title: Monitor Azure Event Hubs
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Event Hubs. 
-ms.date: 05/20/2025
+ms.date: 08/25/2026
 ms.custom: horz-monitor, subject-monitoring
-ms.topic: how-to
+ms.topic: concept-article
+ai-usage: ai-assisted
 ---
 
 # Monitor Azure Event Hubs
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-Azure Monitor documentation describes the following concepts:
+The Azure Monitor documentation describes the following concepts:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -44,7 +45,7 @@ For more information about the resource types for Event Hubs, see [Azure Event H
 > Enabling these settings requires additional Azure services: storage account, event hub, or Log Analytics. These services might increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 
 > [!NOTE]
-> When you enable metrics in a diagnostic setting, dimension information isn't currently included as part of the information sent to a storage account, event hub, or log analytics.
+> When you enable metrics in a diagnostic setting, dimension information isn't currently included as part of the information sent to a storage account, event hub, or Log Analytics.
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
@@ -64,7 +65,7 @@ You can analyze metrics for Azure Event Hubs, along with metrics from other Azur
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 > [!TIP]
-> Azure Monitor metrics data is available for 90 days. However, when creating charts only 30 days can be visualized. For example, if you want to visualize a 90 day period, you must break it into three charts of 30 days within the 90 day period.
+> Azure Monitor metrics data is available for 93 days. However, when creating charts only 30 days can be visualized. For example, if you want to visualize a 90 day period, you must break it into three charts of 30 days within the 90 day period.
 
 ### Filter and split
 
@@ -81,13 +82,13 @@ For the available resource log categories, their associated Log Analytics tables
 Using Azure Monitor Log Analytics requires you to create a diagnostic configuration and enable **Send information to Log Analytics**. For more information, see the [Metrics](#azure-monitor-platform-metrics) section. Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Event Hubs has the capability to dispatch logs to either of two destination tables: Azure Diagnostic or Resource specific tables in Log Analytics. For a detailed reference of the logs and metrics, see [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md).
 
 > [!IMPORTANT]
-> When you select **Logs** from the Azure Event Hubs menu, Log Analytics is opened with the query scope set to the current workspace. It means that log queries include only data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
+> When you select **Logs** from the Azure Event Hubs menu, Log Analytics opens with the query scope set to the current workspace. It means that log queries include only data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
 
 ### Use runtime logs
 
-Azure Event Hubs allows you to monitor and audit data plane interactions of your client applications using runtime audit logs and application metrics logs. 
+Azure Event Hubs allows you to monitor and audit data plane interactions of your client applications by using runtime audit logs and application metrics logs. 
 
-Using *Runtime audit logs* you can capture aggregated diagnostic information for all data plane access operations such as publishing or consuming events. *Application metrics logs* capture the aggregated data on certain runtime metrics (such as consumer lag and active connections) related to client applications are connected to Event Hubs.
+By using *Runtime audit logs*, you can capture aggregated diagnostic information for all data plane access operations, such as publishing or consuming events. *Application metrics logs* capture the aggregated data on certain runtime metrics (such as consumer lag and active connections) related to client applications that are connected to Event Hubs.
 
 > [!NOTE] 
 > Runtime audit logs are available only in **premium** and **dedicated** tiers.  
@@ -102,17 +103,17 @@ Then you can enable log categories *RuntimeAuditLogs* or *ApplicationMetricsLogs
 
 :::image type="content" source="./media/monitor-event-hubs/configure-diagnostic-settings.png" alt-text="Screenshot that shows the runtime audit and application metric logs enabled." lightbox="./media/monitor-event-hubs/configure-diagnostic-settings.png":::
 
-Once runtime logs are enabled, Event Hubs start collecting and storing them according to the diagnostic setting configuration.
+When you enable runtime logs, Event Hubs starts collecting and storing them according to the diagnostic setting configuration.
 
 ### Publish and consume sample data
 
-To collect sample runtime audit logs in your Event Hubs namespace, you can publish and consume sample data using client applications that are based on the [Event Hubs SDK](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md). That SDK uses Advanced Message Queuing Protocol (AMQP). Or you can use any [Apache Kafka client application](../event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs.md).
+To collect sample runtime audit logs in your Event Hubs namespace, publish and consume sample data by using client applications that are based on the [Event Hubs SDK](event-hubs-dotnet-standard-getstarted-send.md). That SDK uses Advanced Message Queuing Protocol (AMQP). Or, use any [Apache Kafka client application](event-hubs-quickstart-kafka-enabled-event-hubs.md).
 
 Application metrics include the following runtime metrics.
 
 :::image type="content" source="./media/monitor-event-hubs/application-metrics-logs.png" alt-text="Image showing the result of a sample query to analyze application metrics." lightbox="./media/monitor-event-hubs/application-metrics-logs.png":::
 
-Therefore you can use application metrics to monitor runtime metrics such as consumer lag or active connection from a given client application. Fields associated with runtime audit logs are defined in [application metrics logs reference](../event-hubs/monitor-event-hubs-reference.md#runtime-audit-logs).
+Use application metrics to monitor runtime metrics such as consumer lag or active connection from a given client application. You can find the fields associated with application metrics logs in the [application metrics logs reference](monitor-event-hubs-reference.md#application-metrics-logs).
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
@@ -124,7 +125,7 @@ Therefore you can use application metrics to monitor runtime metrics such as con
 
 ### Sample Kusto queries
 
-Following are sample queries that you can use to help you monitor your Azure Event Hubs resources:
+The following sample queries can help you monitor your Azure Event Hubs resources:
 
 ### [AzureDiagnostics](#tab/AzureDiagnostics)
 
@@ -135,7 +136,8 @@ Following are sample queries that you can use to help you monitor your Azure Eve
   | where TimeGenerated > ago(7d)
   | where ResourceProvider =="MICROSOFT.EVENTHUB"
   | where Category == "OperationalLogs"
-  | summarize count() by "EventName"
+  | summarize count() by OperationName
+  ```
 
 - Get runtime audit logs generated in the last one hour.
 
@@ -175,7 +177,7 @@ Following are sample queries that you can use to help you monitor your Azure Eve
 
 ### [Resource Specific Table](#tab/Resourcespecifictable)
 
-- Get Operational Logs for event hub resource for last seven days.
+- Get operational logs for an event hub resource from the last seven days.
 
   ```Kusto
   AZMSOperationalLogs 
@@ -184,7 +186,7 @@ Following are sample queries that you can use to help you monitor your Azure Eve
   | where resourceId == "<Resource Id>" // Replace your resource Id
   ```
 
-- Get capture logs for event hub for last seven days.
+- Get capture logs for an event hub from the last seven days.
 
   ```Kusto
   AZMSArchiveLogs
@@ -196,7 +198,7 @@ Following are sample queries that you can use to help you monitor your Azure Eve
 
 ### Analyze runtime audit logs
 
-You can analyze the collected runtime audit logs using the following sample query.
+You can analyze the collected runtime audit logs by using the following sample query.
 
 ### [AzureDiagnostics](#tab/AzureDiagnosticsforRuntimeAudit)
 
@@ -217,15 +219,15 @@ AZMSRuntimeAuditLogs
 
 ---
 
-Up on the execution of the query you should be able to obtain corresponding audit logs in the following format.
+After you run the query, you can view the corresponding audit logs in the following format.
 
 :::image type="content" source="./media/monitor-event-hubs/runtime-audit-logs.png" alt-text="Image showing the result of a sample query to analyze runtime audit logs." lightbox="./media/monitor-event-hubs/runtime-audit-logs.png":::
 
-By analyzing these logs, you should be able to audit how each client application interacts with Event Hubs. Each field associated with runtime audit logs is defined in [runtime audit logs reference](../event-hubs/monitor-event-hubs-reference.md#runtime-audit-logs).
+By analyzing these logs, you can audit how each client application interacts with Event Hubs. Each field associated with runtime audit logs is defined in the [runtime audit logs reference](monitor-event-hubs-reference.md#runtime-audit-logs).
 
 ### Analyze application metrics
 
-You can analyze the collected application metrics logs using the following sample query.
+You can analyze the collected application metrics logs by using the following sample query.
 
 ### [AzureDiagnostics](#tab/AzureDiagnosticsforAppMetrics)
 
@@ -247,17 +249,17 @@ AZMSApplicationMetricLogs
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
-You can access alerts for Azure Event Hubs by selecting **Alerts** from the **Azure Monitor** section on the home page for your Event Hubs namespace. See [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric) for details on creating alerts.
+You can access alerts for Azure Event Hubs by selecting **Alerts** from the **Azure Monitor** section on the home page for your Event Hubs namespace. For details about creating alerts, see [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric).
 
 ### Event Hubs alert rules
 
 The following table lists some suggested alert rules for Event Hubs. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Event Hubs monitoring data reference](monitor-event-hubs-reference.md).
 
-| Alert type | Condition | Description  |
-|:---|:---|:---|
-| Metric | CPU              | When CPU utilization exceeds a set value       |
-| Metric | Available Memory | When Available Memory drops below a set value |
-| Metric | Capture Backlog  | When Capture Backlog is above a certain value |
+| Alert type | Condition | Description |
+| :--- | :--- | :--- |
+| Metric | CPU | When CPU utilization exceeds a set value. |
+| Metric | Available Memory | When Available Memory drops below a set value. |
+| Metric | Capture Backlog | When Capture Backlog is above a certain value. |
 
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
