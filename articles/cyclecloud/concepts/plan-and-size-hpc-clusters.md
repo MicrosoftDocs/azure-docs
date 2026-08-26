@@ -58,22 +58,22 @@ For a Slurm cluster, several independent limits determine how many nodes CycleCl
 | --- | --- |
 | Available total regional vCPU quota | The remaining vCPUs that your subscription can deploy across all VM families in the region. |
 | Available VM-family vCPU quota | The remaining vCPUs that your subscription can deploy for the selected VM family in the region. Both [vCPU quotas](/azure/virtual-machines/quotas) must allow the deployment. |
-| CycleCloud `MaxCount` | The maximum number of nodes in a node array. The built-in Slurm template uses this setting in CycleCloud 8.7.1 and later. |
+| CycleCloud `MaxCount` | The maximum number of nodes in a node array. The current CycleCloud 8.9.2 built-in Slurm template uses this setting. The template changed from `MaxCoreCount` to `MaxCount` in CycleCloud 8.7.1. |
 | CycleCloud `MaxCoreCount` | The maximum number of cores in a node array. Earlier Slurm templates and custom templates might use this setting. If a template defines both `MaxCount` and `MaxCoreCount`, CycleCloud applies the lower effective constraint. |
 | Slurm partition configuration | The nodes that Slurm can request for the partition, including any configured partition or node-record limit. |
 
 Quota and CycleCloud limits are ceilings, not capacity reservations. Actual provisioning can be lower because of temporary Azure capacity constraints or configuration errors. To identify a constraint, compare the queued Slurm request with each limit and then check the CycleCloud node status for allocation or configuration failures.
 
-For example, suppose an `hpc` partition uses [`Standard_HB120rs_v3`](/azure/virtual-machines/sizes/high-performance-compute/hbv3-series#sizes-in-series) VMs, which consume 120 vCPUs each, and has these limits:
+For example, suppose an `hpc` partition uses current-generation [`Standard_HB368rs_v5`](/azure/virtual-machines/sizes/high-performance-compute/hbv5-series#sizes-in-series) VMs, which consume 368 vCPUs each, and has these limits:
 
 | Layer | Available or configured limit | Effective nodes |
 | --- | --- | ---: |
-| Total regional vCPU quota | 1,200 vCPUs | 10 |
-| HBv3 VM-family vCPU quota | 720 vCPUs | 6 |
+| Total regional vCPU quota | 3,680 vCPUs | 10 |
+| HBv5 VM-family vCPU quota | 2,208 vCPUs | 6 |
 | CycleCloud `MaxCount` | 8 nodes | 8 |
 | Slurm partition | 10 nodes | 10 |
 
-The HBv3 VM-family quota is the lowest limit, so the configured ceiling is six nodes even if Slurm requests 10. If Azure has capacity for only five VMs when the request runs, CycleCloud provisions five nodes and the remaining request stays constrained until capacity becomes available. Increasing `MaxCount` alone doesn't raise either the quota ceiling or available capacity.
+The HBv5 VM-family quota is the lowest limit, so the configured ceiling is six nodes even if Slurm requests 10. If Azure has capacity for only five VMs when the request runs, CycleCloud provisions five nodes and the remaining request stays constrained until capacity becomes available. Increasing `MaxCount` alone doesn't raise either the quota ceiling or available capacity.
 
 When a template uses `MaxCoreCount`, divide that value by the VM's vCPU count and round down to find its node ceiling. For definitions of both CycleCloud settings, see [Node and node array objects](../cluster-references/node-nodearray-reference.md#advanced-networking-attributes).
 

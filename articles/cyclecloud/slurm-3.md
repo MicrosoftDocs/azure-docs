@@ -40,7 +40,7 @@ Starting with CycleCloud version 3.0.0 Slurm project, the nodes aren't precreate
 
 ### Plan autoscaling limits
 
-Slurm can request only the nodes allowed by the Slurm partition, CycleCloud node-array limits, and available Azure quota. The built-in Slurm template uses `MaxCount` in CycleCloud 8.7.1 and later, while earlier or custom templates might use `MaxCoreCount`. For the complete limit hierarchy and a worked Slurm example, see [Understand Slurm autoscaling limits](concepts/plan-and-size-hpc-clusters.md#understand-slurm-autoscaling-limits).
+Slurm can request only the nodes allowed by the Slurm partition, CycleCloud node-array limits, and available Azure quota. The current CycleCloud 8.9.2 built-in Slurm template uses `MaxCount`. This node-based limit replaced `MaxCoreCount` in the built-in template in CycleCloud 8.7.1, while earlier or custom templates might still use `MaxCoreCount`. For the complete limit hierarchy and a current-generation HBv5 example, see [Understand Slurm autoscaling limits](concepts/plan-and-size-hpc-clusters.md#understand-slurm-autoscaling-limits).
 
 ### Creating extra partitions
 
