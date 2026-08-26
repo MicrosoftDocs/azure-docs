@@ -97,7 +97,7 @@ Security considerations:
 
 ### AI application layer (inherited)
 
-The AI application layer is the application or interface that the user consumes, together with grounding, plugins, and the application safety system. Examples include [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety/) and prompt shields.
+The AI application layer is the application or interface that the user consumes, together with grounding, plugins, and the application safety system.
 
 ### AI usage layer (inherited, extended)
 
