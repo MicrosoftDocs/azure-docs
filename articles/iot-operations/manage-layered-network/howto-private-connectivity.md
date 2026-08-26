@@ -96,7 +96,7 @@ The operations experience IP addresses are allocated by region:
 | West US 3 | `57.154.126.80` |
 
 > [!NOTE]
-> An operations experience request typically comes from the same region as your instance, but it can come from any region. Microsoft recommends that you allow all of the listed IP addresses for each resource that the operations experience uses.
+> An operations experience request typically comes from the same region as your instance, but it can come from any region. Allow all of the listed IP addresses for each resource that the operations experience uses.
 
 Configure the firewall allow list for each resource before you create its private endpoint. The following examples add all of the operations experience IP addresses.
 
