@@ -190,6 +190,8 @@ Each SKU of Azure NAT Gateway has bandwidth limits:
 
 * A Standard NAT gateway provides 50 Gbps of throughput, which is split between outbound and inbound (response) data. Data throughput is rate limited at 25 Gbps for outbound and 25 Gbps for inbound (response) data per Standard NAT gateway resource.
 
+* A Standard NAT gateway supports up to 5 million packets per second (PPS) per NAT gateway resource. The PPS limit is aggregated across all traffic processed by the NAT gateway, including outbound traffic and inbound response traffic. Packet processing is rate limited at 2.5 million PPS for outbound traffic and 2.5 million PPS for inbound response traffic.
+
 ## Performance
 
 Standard and StandardV2 NAT gateways each support up to 50,000 concurrent connections per public IP address *to the same destination endpoint* over the internet for TCP and UDP traffic.
