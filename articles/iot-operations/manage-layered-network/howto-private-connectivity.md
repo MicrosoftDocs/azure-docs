@@ -168,7 +168,7 @@ done
 After you enable the firewall restrictions, confirm that the operations experience can still reach the required resources:
 
 1. Go to the [operations experience](https://iotoperations.azure.com) web UI and open your Azure IoT Operations instance.
-1. Select **Secrets** and confirm that the secrets stored in Azure Key Vault load without a firewall or authorization error.
+1. Select **Secrets** and confirm that the operations experience loads the secrets stored in Azure Key Vault without a firewall or authorization error.
 1. Select **Schemas** and confirm that existing schemas load and that you can create a schema. Success confirms access to the schema registry storage account.
 
 If any page returns an access or firewall error, verify that you added all of the operations experience IP addresses to the resource's firewall allow list and that public access is set to **Selected networks and IP addresses**. For diagnostics when **Secrets** or **Schemas** returns an access or firewall error, see [The operations experience can't load or manage secrets or schemas after enabling private endpoints](howto-troubleshoot-private-connectivity.md#the-operations-experience-cant-load-or-manage-secrets-or-schemas-after-enabling-private-endpoints).
