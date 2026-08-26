@@ -169,7 +169,7 @@ Application Gateway inserts an X-Forwarded-For header into all requests before i
 
 ![A screenshot showing a remove port action.](./media/rewrite-http-headers-url/remove-port.png)
 
-### Remove an in-line Proxy's IP for use with a backend firewall's X-Forwarded-For source feature
+### Remove an in-line proxy IP for use with a backend firewall's X-Forwarded-For source feature
 
 Some third-party firewalls, also referred to as Network Virtual Appliances (NVAs), determine the source IP address by using the incoming `X-Forwarded-For` header instead of the packet’s source IP address, which would otherwise reflect the Application Gateway’s IP address. In many cases, NVAs display only the most recent IP address in the header.
 
