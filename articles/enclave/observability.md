@@ -4,6 +4,8 @@ description: Understand how observability works using Log Analytics and storage 
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
+ms.service: azure-enclave
+ai-usage: ai-assisted
 ms.date: 9/30/2025
 ms.custom: references_region
 ---
@@ -14,7 +16,7 @@ Azure Enclave provides built-in observability features to support secure, scalab
 
 The following are enabled by default for Azure Enclave resources:
 - Log Analytics Workspace is deployed into the Community Managed Resource Group by default
-- (Optional) Log Analytics Workspace is deployed into the enclave Managed Resource Group
+- (Optional) Log Analytics Workspace is deployed into the Enclave Managed Resource Group
 - Storage Account is deployed into Enclave Managed Resource Group
 - Virtual Network Flow Logs for each enclave are enabled, pointed to the enclave Storage Account, and forwarded to Community and/or Enclave Log Analytics workspace
 - Diagnostic Settings are enabled on resources deployed into both Community and Enclave managed Resource Groups
@@ -71,28 +73,4 @@ You can configure diagnostic settings through the Azure portal, CLI, or Bicep/AR
 
 ### Configure Network Watcher resource groups
 
-To avoid potential issues with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, set up the `NetworkWatcherRG` resource group manually in advance and assign the `Mission Enclave` app the `Owner` role on that resource group, or verify that setup and role assignment happened automatically before creating your first enclave in the subscription.
-
-To mitigate this potential issue, for each subscription, manually create the NetworkWatcher resource group called `NetworkWatcherRG` in new subscriptions, and then grant the `Mission Enclave` Azure Enclave App `Owner` on the NetworkWatcherRG:
-1. Select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
-
-   ![Screenshot showing resource group add role selection in the portal.](./media/onboard-network-watcher-add-role.png)
-
-1. Select `Privileged administrator roles`, select `owner`, then select `Next`.
-
-   ![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
-
-1. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
-
-   ![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
-
-1. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + assign`.
-
-   ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
-
-1. Once the update is complete, you can start deploying Azure Enclave resources.
-
-When a community or enclave is created, Azure Enclave attempts the following steps:
-1. Check if the `NetworkWatcherRG` exists. If not, attempt to create that resource group.
-1. Check if the `Mission Enclave` App has a permanent `Owner` assignment on `NetworkWatcherRG`. If not, attempt to assign the `Mission Enclave` App as a permanent `Owner` assignment on `NetworkWatcherRG`. Even if an inherited `Owner` permission exists, a permanent `Owner` assignment creation is attempted.
-1. If any step fails, enclave deployments might fail when attempting to create virtual network flow logs.
+To avoid potential issues with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, ensure you follow the getting started instructions to [configure `NetworkWatcherRG` access](./onboard.md#configure-networkwatcherrg-access).
