@@ -55,6 +55,8 @@ items:
           items:
             - name: Azure portal
               href: sandboxes-quickstart-portal.md
+            - name: Python SDK
+              href: sandboxes-quickstart-python-sdk.md
         - name: Snapshots and state management
           href: sandboxes-snapshots-state-management.md
         - name: Egress policies
