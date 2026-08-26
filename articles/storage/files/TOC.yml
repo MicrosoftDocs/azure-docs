@@ -7,6 +7,8 @@
     href: storage-files-introduction.md
   - name: Plan for an Azure Files deployment
     href: storage-files-planning.md
+  - name: Azure Files management concepts
+    href: files-management-concepts.md
   - name: SMB file shares
     href: files-smb-protocol.md
   - name: NFS file shares

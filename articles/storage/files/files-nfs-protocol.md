@@ -84,7 +84,7 @@ NFS Azure file shares support two top-level resource providers:
 - **Microsoft.FileShares** (recommended for new NFS deployments): Creates a standalone file share without a storage account. Supports only the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model).
 - **Microsoft.Storage** (classic): Creates classic file shares within a storage account. Supports provisioned v1 and v2 billing models and the full Azure Files feature set.
 
-For a full feature comparison, see [Comparing resource providers: Microsoft.Storage vs Microsoft.FileShares](storage-files-planning.md#comparing-resource-providers-microsoftstorage-versus-microsoftfileshares).
+For a full feature comparison, see [Comparing resource providers: Microsoft.Storage vs Microsoft.FileShares](files-management-concepts.md#comparing-resource-providers-microsoftstorage-versus-microsoftfileshares).
 
 ## Security and networking for NFS Azure file shares
 

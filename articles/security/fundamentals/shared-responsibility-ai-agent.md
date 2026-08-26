@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 08/24/2026
+ms.date: 08/26/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
@@ -44,7 +44,7 @@ The following table summarizes how the AI agent model differs from the standard 
 As with the [cloud](shared-responsibility.md) and [AI](shared-responsibility-ai.md) shared responsibility models, the division of responsibility shifts with the deployment model that you choose. For agents, the relevant options are:
 
 - **SaaS agent.** A ready-made agent, such as Microsoft 365 Copilot agents, Microsoft Security Copilot, or published Microsoft Copilot Studio agents. Microsoft operates the orchestrator, model, safety systems, and most tool connectors. You own configuration, data access scoping, identity, and usage.
-- **PaaS agent.** You build an agent on a managed agent platform, such as Microsoft Foundry Agent Service, custom Microsoft Copilot Studio agents, or Semantic Kernel and the Microsoft Agent Framework on an Azure-managed runtime. Microsoft provides the runtime, model hosting, and platform safety controls. You own the agent's instructions, tool and plugin selection, tool permissions, orchestration logic, memory design, and the agent's identity and authorization.
+- **PaaS agent.** You build an agent on a managed agent platform, such as Microsoft Foundry Agent Service, Azure SRE Agent, custom Microsoft Copilot Studio agents, or the Microsoft Agent Framework on an Azure-managed runtime. Microsoft provides the runtime, model hosting, and platform safety controls. You own the agent's instructions, tool and plugin selection, tool permissions, orchestration logic, memory design, and the agent's identity and authorization.
 - **IaaS agent.** You build and host the entire agent stack yourself: a custom orchestrator on VMs or containers, a self-managed framework, and possibly self-hosted models. You own nearly everything except the physical infrastructure (and the base model, if you consume it as a hosted API).
 
 Responsibility shifts *left*, meaning you take more ownership, as you move from SaaS to PaaS to IaaS agents.
@@ -59,7 +59,7 @@ An agentic system adds three new layers on top of and around the existing AI pla
 
 ### AI platform layer (inherited)
 
-The AI platform layer hosts and safeguards the model, training data, weights, and inference APIs. Microsoft provides built-in input and output safety systems for PaaS ([Microsoft Foundry](/azure/ai-foundry/) and [Azure OpenAI](/azure/ai-services/openai/overview) models) and for SaaS ([Microsoft Security Copilot](https://www.microsoft.com/security/business/ai-machine-learning/microsoft-security-copilot) and [Microsoft 365 Copilot](https://www.microsoft.com/microsoft-365/copilot)).
+The AI platform layer hosts and safeguards the model, training data, weights, and inference APIs, and provides built-in input and output safety systems. Responsibility at this layer is inherited from the [AI shared responsibility model](shared-responsibility-ai.md).
 
 ### Agent orchestration layer
 
@@ -97,7 +97,7 @@ Security considerations:
 
 ### AI application layer (inherited)
 
-The AI application layer is the application or interface that the user consumes, together with grounding, plugins, and the application safety system. Examples include [Azure AI Content Safety](https://azure.microsoft.com/products/ai-services/ai-content-safety/) and prompt shields.
+The AI application layer is the application or interface that the user consumes, together with grounding, plugins, and the application safety system.
 
 ### AI usage layer (inherited, extended)
 
@@ -168,7 +168,7 @@ These risks map to the [OWASP Top 10 for LLM Applications](https://owasp.org/www
 The same principle that Microsoft recommends for AI applies to agents, and it's *stronger* for agents because autonomy multiplies the cost of getting it wrong.
 
 1. Start with **SaaS agents** (Microsoft 365 Copilot, Microsoft Security Copilot, or published Microsoft Copilot Studio agents). Microsoft owns orchestration, safety, and most tool security. You configure data scope and identity.
-1. Move to **PaaS agents** (Microsoft Foundry Agent Service, custom Microsoft Copilot Studio agents, or the Microsoft Agent Framework on a managed runtime) only when off-the-shelf doesn't fit. You take on agent logic, tools, permissions, memory, and identity.
+1. Move to **PaaS agents** (Microsoft Foundry Agent Service, Azure SRE Agent, custom Microsoft Copilot Studio agents, or the Microsoft Agent Framework on a managed runtime) only when off-the-shelf doesn't fit. You take on agent logic, tools, permissions, memory, and identity.
 1. Build **IaaS agents** only with deep expertise in AI security, identity, and autonomous-systems risk. You own nearly the entire stack.
 
 Rule of thumb: The more autonomy and the broader the tool and permission set that you grant an agent, the more of the responsibility matrix shifts to you, regardless of deployment model. Autonomy never reduces accountability.

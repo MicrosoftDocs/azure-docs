@@ -20,6 +20,8 @@ For information on the Azure Blobs regions availability, supported scenarios, an
 
 See the [prerequisites](./blob-backup-configure-manage.md#before-you-start) and [support matrix](./blob-backup-support-matrix.md) before you get started.
 
+To configure auto-protection for present and future containers, install the Azure CLI `dataprotection` extension version 1.10.0 or later.
+
 ## Create a Backup vault
 
 Backup vault is a storage entity in Azure that stores backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers, and blobs in a storage account and Azure Disks. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
@@ -245,7 +247,7 @@ Once all the relevant permissions are set, configure the backup by running the f
 
 ## Update a backup instance
 
-After you have configured the backup, you can change the associated policy with a backup instance. For vaulted backups, you can also change the containers selected for backup. 
+After you configure the backup, you can change the associated policy with a backup instance. For vaulted backups, you can also change the containers selected for backup or choose to auto-protect containers up to the supported limit. Selecting auto-protection for all present and future containers is permanent, and you can't switch back to the earlier container selection options.
 
 To update the backup instance, run the following command:
 

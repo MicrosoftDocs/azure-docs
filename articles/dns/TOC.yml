@@ -128,6 +128,8 @@
           href: dns-domain-delegation.md
         - name: Reverse DNS
           href: dns-reverse-dns-overview.md
+        - name: Reliability in Azure Public DNS
+          href: /azure/reliability/reliability-dns-public?toc=%2fazure%2fdns%2ftoc.json
         - name: FAQ
           href: dns-faq.yml
     - name: Private DNS

@@ -167,7 +167,9 @@ sections:
       - question: |
           What support is provided for disaster recovery?
         answer: |
-          See [High availability for Azure Notification Hubs](notification-hubs-high-availability.md).
+          See [Reliability in Azure Notification Hubs](/azure/reliability/reliability-notification-hubs?toc=/azure/notification-hubs/toc.json).
+
+          For portal steps to configure disaster recovery on an existing namespace, see [Enable disaster recovery for an existing namespace](enable-disaster-recovery-existing-namespace.md).
 
       - question: |
           Is all of my data stored in encrypted form?

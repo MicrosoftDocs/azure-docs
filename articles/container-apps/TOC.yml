@@ -49,6 +49,8 @@ items:
       items:
         - name: Overview
           href: sandboxes-overview.md
+        - name: Get started
+          href: sandboxes-get-started.md
         - name: Quickstarts
           items:
             - name: Azure portal
