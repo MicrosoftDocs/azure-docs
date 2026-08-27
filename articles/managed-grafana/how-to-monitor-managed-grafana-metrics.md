@@ -32,7 +32,7 @@ The following metrics are available for the Microsoft.Dashboard/grafana resource
 | `NetworkBytesReceived` | Total bytes received by Grafana over the network. | Bytes | Average, Minimum, Maximum, Total (Sum) | `ContainerName` |
 | `NetworkBytesTransmitted` | Total bytes transmitted by Grafana over the network. | Bytes | Average, Minimum, Maximum, Total (Sum) | `ContainerName` |
 
-All metrics are collected at one-minute granularity. They aren't exportable to Azure Monitor Logs through diagnostic settings.
+You collect all metrics at one-minute granularity. You can't export them to Azure Monitor Logs through diagnostic settings.
 
 For more details about supported metrics, go to [Supported metrics for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-metrics/microsoft-dashboard-grafana-metrics).
 
