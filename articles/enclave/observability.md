@@ -12,7 +12,7 @@ ms.custom: references_region
 
 # Observability in Azure Enclave
 
-Azure Enclave provides built-in observability features to support secure, scalable, and centralized monitoring of mission-critical environments. These capabilities help Community Managers and Enclave Owners enforce compliance, investigate anomalies, and ensure operational health across isolated workloads.
+Azure Enclave provides observability features to support monitoring of workloads and network resources across communities and enclaves. This article describes the available logging destinations, how destinations affect diagnostic settings and flow logs, and how to prepare the `NetworkWatcherRG` resource group.
 
 The following are enabled by default for Azure Enclave resources:
 - Log Analytics Workspace is deployed into the Community Managed Resource Group by default
@@ -27,26 +27,26 @@ Observability in Azure Enclave is built on a dual-tier logging model that suppor
 
 ### Community-level observability
 
-Every **Community** created in Azure Enclave includes a **centralized Log Analytics workspace**. This workspace is designed to:
+When you configure it, a **Community** can include a **centralized Log Analytics workspace**. This workspace is designed to:
 
 - Aggregate diagnostics and metrics from all enclaves within the community.
 - Provide a single pane of glass for monitoring and querying diagnostics and flow logs.
 - Support cross-enclave analytics, alerting, and compliance tracking.
 
-When the community is created, the workspace is automatically created. The workspace can be selected as the diagnostic destination by enclave or workload owners during deployment or update operations. Public access is disabled for the Community Log-A workspace, but it isn't network-isolated by default. To configure public access or network isolation, consider adding [private link security](/azure/azure-monitor/logs/private-link-security).
+The workspace is created when you select the Community workspace destination. You can use the workspace as a diagnostic destination for supported enclave or workload resources. Runtime-created workspaces currently enable public network access for ingestion and query; network isolation isn't enabled by these provider operations. To configure private access, see [Azure Monitor Private Link scope](/azure/azure-monitor/logs/private-link-security).
 
 > [!Note]
 > Diagnostic settings from enclave resources (such as workloads, public IPs, or Application Gateways) can be configured to send logs to the centralized workspace to support unified monitoring.
 
 ### Enclave-level observability
 
-In addition to the Community workspace, each **Enclave** is provisioned with an **isolated Log Analytics workspace** scoped specifically to that enclave. This workspace is optimized for enclave-level logging use cases and includes the following characteristics:
+When you configure an **Enclave**, it can include an **isolated Log Analytics workspace** that's scoped specifically to that enclave. This workspace supports enclave-level logging use cases and can provide:
 
-- **Default storage of Virtual Network flow logs**, which are enabled automatically for every enclave.
+- **Storage of virtual network flow logs** when you enable flow-log setup and select the enclave workspace as the destination.
 - Optional diagnostic settings for enclave-scoped resources, such as internal workloads and networking components.
 - Designed to meet isolation or regulatory requirements that prevent cross-enclave log aggregation.
 
-Administrators can choose to keep enclave diagnostics private by sending logs only to this isolated workspace.
+Administrators can choose to keep enclave diagnostics within this workspace when they select the enclave workspace as the destination.
 
 ## Configurable logging destinations
 
@@ -54,13 +54,14 @@ Azure Enclave supports flexible logging configurations that allow resource owner
 
 | Logging Destination                   | Purpose                                                    | Default Use |
 |---------------------------------------|------------------------------------------------------------|-------------|
-| **Community Log Analytics workspace** | Enables centralized monitoring and cross-enclave analytics | Optional    |
-| **Enclave Log Analytics workspace**   | Maintains enclave-level isolation and data sovereignty | Default for virtual network Flow Logs |
+| **Community Log Analytics workspace** | Enables centralized monitoring and cross-enclave analytics | Configurable |
+| **Enclave Log Analytics workspace**   | Supports enclave-level monitoring and isolation | Configurable |
+| **Custom Log Analytics workspace**    | Sends supported flow logs to a customer-selected workspace | Configurable |
 
 You can configure diagnostic settings through the Azure portal, CLI, or Bicep/ARM templates during or after deployment.
 
-> [!Important]
-> Virtual Network Flow Logs are always sent to the enclave-specific workspace by default to ensure network-level visibility is preserved, even in isolated environments.
+> [!IMPORTANT]
+> Flow-log destinations are configurable. The provider supports enclave, community, and custom Log Analytics workspaces. Review you enclave configuration to validate where flow logs are sent.
 
 ## Common observability scenarios
 
