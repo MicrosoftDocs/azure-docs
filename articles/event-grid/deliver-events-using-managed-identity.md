@@ -19,7 +19,7 @@ When you use Event Grid basic, you can deliver events to Azure Event Hubs, Azure
 
 :::image type="content" source="./media/consume-private-endpoints/deliver-private-link-service.png" alt-text="Diagram that shows the delivery of events via the Private Link service.":::
 
-With this configuration, the secured traffic from Event Grid to Event Hubs, Service Bus, or Azure Storage [stays on the Microsoft backbone](../networking/microsoft-global-network.md#get-the-premium-cloud-network) and uses a managed identity of Event Grid. When you configure your Azure function or webhook from within your virtual network to reach Event Hubs, Service Bus, or Azure Storage over a private link, the traffic between those services and your function or webhook stays within your virtual network perimeter.
+With this configuration, the secured traffic from Event Grid to Event Hubs, Service Bus, or Azure Storage [stays on the Microsoft backbone](../networking/microsoft-global-network.md#global-routing-and-interconnection) and uses a managed identity of Event Grid. When you configure your Azure function or webhook from within your virtual network to reach Event Hubs, Service Bus, or Azure Storage over a private link, the traffic between those services and your function or webhook stays within your virtual network perimeter.
 
 ## Deliver events to Event Hubs by using managed identity
 

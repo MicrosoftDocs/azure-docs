@@ -4,7 +4,7 @@ description: This article provides an overview of the Azure Application Gateway 
 services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
-ms.date: 03/05/2025
+ms.date: 08/18/2026
 ms.author: mbender
 ms.topic: concept-article
 # Customer intent: "As a cloud architect, I want to configure multi-site hosting on an application gateway, so that I can efficiently manage traffic for multiple web applications using a single gateway and optimize resource allocation."
@@ -69,14 +69,18 @@ In the Azure portal, under the multi-site listener, you must choose the **Multip
 
 <!-- docutune:disable -->
 
-### Conditions for using wildcard characters and multiple host names in a listener
+## Conditions for using wildcard characters and multiple host names in a listener
 
-* You can only mention up to 5 host names in a single listener
-* Asterisk `*` can be mentioned only once in a component of a domain style name or host name. For example, component1*.component2*.component3. `(*.contoso-*.com)` is valid.
-* There can only be up to two asterisks `*` in a host name. For example, `*.contoso.*` is valid and `*.contoso.*.*.com` is invalid.
-* There can only be a maximum of 4 wildcard characters in a host name. For example, `????.contoso.com`, `w??.contoso*.edu.*` are valid, but `????.contoso.*` is invalid.
-* Using asterisk `*` and question mark `?` together in a component of a host name (`*?` or `?*` or `**`) is invalid. For example, `*?.contoso.com` and `**.contoso.com` are invalid.
-* An entry of `*.contoso.com` does not match `contoso.com` because `*.contoso.com` specifies that a dot is present before contoso.
+The following conditions apply when you use wildcard characters or multiple host names in a listener.
+
+| Constraint | Limit | Example |
+| --- | --- | --- |
+| Host names in a single listener | Up to 5 | Not applicable |
+| Asterisk (`*`) in a component of a domain style name or host name | Can be mentioned only once | `component1*.component2*.component3`. `(*.contoso-*.com)` is valid. |
+| Asterisks (`*`) in a host name | Up to two | `*.contoso.*` is valid and `*.contoso.*.*.com` is invalid. |
+| Wildcard characters in a host name | Maximum of 4 | `????.contoso.com` and `w??.contoso*.edu.*` are valid, but `????.contoso.*` is invalid. |
+| Asterisk (`*`) and question mark (`?`) together in a component of a host name (`*?` or `?*` or `**`) | Invalid | `*?.contoso.com` and `**.contoso.com` are invalid. |
+| Match behavior of `*.contoso.com` | Doesn't match `contoso.com` | `*.contoso.com` specifies that a dot is present before contoso, so `contoso.com` doesn't match. |
 
 <!-- docutune:enable -->
 
