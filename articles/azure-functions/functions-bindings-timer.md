@@ -315,6 +315,9 @@ The `@TimerTrigger` annotation on the function defines the `schedule` using the 
 + [name](/java/api/com.microsoft.azure.functions.annotation.timertrigger.name)
 + [schedule](/java/api/com.microsoft.azure.functions.annotation.timertrigger.schedule)
 
+> [!NOTE]
+> The `runOnStartup` and `useMonitor=true` settings aren't applicable to Java functions. These settings aren't supported by the Java `@TimerTrigger` annotation.
+
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
@@ -375,8 +378,13 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
+
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+
 > [!CAUTION]
-> Don't set **runOnStartup** to `true` in production. Using this setting makes code execute at highly unpredictable times. In certain production settings, these extra executions can result in significantly higher costs for apps hosted in a Consumption plan. For example, with **runOnStartup** enabled the trigger is invoked whenever your function app is scaled. Make sure you fully understand the production behavior of your functions before enabling **runOnStartup** in production.
+> Don't set `runOnStartup` to `true` in production. Using this setting makes code execute at highly unpredictable times. In certain production settings, these extra executions can result in significantly higher costs for apps hosted in a Consumption plan. For example, with `runOnStartup` enabled, the trigger is invoked whenever your function app is scaled. If you must enable `runOnStartup` in production, make sure you fully understand how your app behaves with `runOnStartup` enabled.
+
+::: zone-end
 
 See the [Example section](#example) for complete examples.
 

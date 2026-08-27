@@ -5,11 +5,11 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/02/2024
+ms.date: 08/19/2026
 zone_pivot_groups: appconfig-data-plane-api-version
 
 ---
-:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 # Labels
 
@@ -26,6 +26,14 @@ Supports the following operations:
 - List
 
 For all operations ``name`` is an optional filter parameter. If omitted it implies **any** label.
+
+:::zone-end
+:::zone target="docs" pivot="v26-05-preview"
+
+Use the optional `resourceType` parameter to filter labels by their associated resource type. Set `resourceType` to `kv` for key-value labels or `ff` for enhanced feature flag labels.
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 ## Prerequisites
 
@@ -57,9 +65,25 @@ Content-Type: application/vnd.microsoft.appconfig.labelset+json; charset=utf-8"
 }
 ```
 
+:::zone-end
+:::zone target="docs" pivot="v26-05-preview"
+
+### List labels by resource type
+
+The following request lists labels associated with enhanced feature flags:
+
+```http
+GET /labels?resourceType=ff&api-version={api-version} HTTP/1.1
+```
+
+To list labels associated with key-values, set `resourceType` to `kv`.
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
+
 ## Pagination
 
-The result is paginated if the number of items returned exceeds the response limit. Follow the optional `Link` response headers and use `rel="next"` for navigation. 
+The result is paginated if the number of items returned exceeds the response limit. Follow the optional `Link` response headers and use `rel="next"` for navigation.
 Alternatively the content provides a next link in form of the `@nextLink` property. The next link contains `api-version` parameter.
 
 ```http
@@ -100,6 +124,20 @@ GET /labels?name={label-name}&api-version={api-version}
 |`name=abc`|Matches a label named  **abc**|
 |`name=abc*`|Matches label names that start with **abc**|
 |`name=abc,xyz`|Matches label names **abc** or **xyz** (limited to 5 CSV)|
+
+:::zone-end
+:::zone target="docs" pivot="v26-05-preview"
+
+### Resource type filter
+
+|Resource type filter|Effect|
+|--|--|
+|`resourceType` is omitted|Matches labels associated with key-values|
+|`resourceType=kv`|Matches labels associated with key-values|
+|`resourceType=ff`|Matches labels associated with enhanced feature flags|
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 ### Reserved characters
 
@@ -145,6 +183,18 @@ Content-Type: application/problem+json; charset=utf-8
     ```http
     GET /labels?name=abc,xyz&api-version={api-version}
     ```
+
+:::zone-end
+:::zone target="docs" pivot="v26-05-preview"
+
+- Enhanced feature flag label name starts with **abc**
+
+    ```http
+    GET /labels?resourceType=ff&name=abc*&api-version={api-version}
+    ```
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 ## Request specific fields
 
