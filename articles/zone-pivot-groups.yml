@@ -1387,6 +1387,14 @@ groups:
     title: Application Gateway
   - id: front-door
     title: Front Door
+- id: network-watcher-agent-os
+  title: Operating system
+  prompt: "Choose your operating system:"
+  pivots:
+  - id: linux
+    title: Linux
+  - id: windows
+    title: Windows
 # Owner: hmb
 - id: front-door-dev-exp-portal-ps-cli
   title: Front Door deployment method
