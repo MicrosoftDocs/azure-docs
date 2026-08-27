@@ -3,7 +3,6 @@ title: Observability in Azure Enclave
 description: Understand how observability works using Log Analytics and storage accounts in Azure Enclave.
 author: jadean-msft
 ms.author: jadean
-ms.service: azure-enclave
 ms.topic: overview
 ms.service: azure-enclave
 ai-usage: ai-assisted
