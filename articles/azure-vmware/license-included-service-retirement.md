@@ -42,7 +42,7 @@ To avoid service disruptions on 31 August 2027, allow plenty of time to purchase
 - UPDATE AV36 SKU retirement was aligned to Broadcom’s end of support for vSphere 8 on 30 September 2027, but now it will be 30 August 2027 to align with the Azure VMware Solution license-included end of service.
 
 >[!NOTE]
-> Azure VMware Solution license-included PayGo SKUs retire on 15 October 2026.
+> Azure VMware Solution license-included PayGo SKUs retire on 31 October 2026.
 
 
 ## Related content
