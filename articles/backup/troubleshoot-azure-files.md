@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Files backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure Files.
 ms.service: azure-backup
-ms.date: 08/11/2025
+ms.date: 08/12/2026
 ms.topic: troubleshooting
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -325,15 +325,15 @@ Recommended Actions: Ensure that the following configurations in the storage acc
 
 **Cause**: Storage Accounts with [Smart Tier(Preview)](../storage/blobs/access-tiers-smart.md) set are currently not supported.
 
-### UserErrorStorageAccountSasPolicyNotSupported - Azure Files Backup requires a minimum SAS expiration period of 8 hours
+### UserErrorStorageAccountSasPolicyNotSupported - Azure Files Backup requires a SAS expiration period of at least 8 hours and 5 minutes
 
 **Error code**: `UserErrorStorageAccountSasPolicyNotSupported`
 
-**Error message**: Azure File Share Backup requires a minimum SAS expiration period of 8 hours.
+**Error message**: Azure File Share Backup requires a minimum SAS expiration period of 8 hours and 5 minutes.
 
-**Cause**: If the SAS token expiry is shorter than 8 hours, the Backup service cannot renew the token in time. This leads to authentication failures and can interrupt ongoing backup or restore operations.
+**Cause**: If the SAS token expiry is shorter than 8 hours and 5 minutes, the Backup service can't renew the token in time. This condition leads to authentication failures and can interrupt ongoing backup or restore operations.
 
-**Recommended action**: Set the SAS expiry upper limit to 8 hours or more to ensure the Backup service can successfully renew the SAS token and maintain uninterrupted backup and restore activities.
+**Recommended action**: Set the SAS expiry upper limit to 8 hours and 5 minutes or more to ensure the Backup service can successfully renew the SAS token and maintain uninterrupted backup and restore activities.
 
 ## Common policy modification errors
 

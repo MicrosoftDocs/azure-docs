@@ -5,8 +5,9 @@ author: jadean-msft
 ms.author: jadean
 ms.service: azure-enclave
 ms.topic: overview
-ms.date: 8/12/2026
+ms.service: azure-enclave
 ai-usage: ai-assisted
+ms.date: 9/30/2025
 ms.custom: references_region
 ---
 
@@ -14,7 +15,12 @@ ms.custom: references_region
 
 Azure Enclave provides observability features to support monitoring of workloads and network resources across communities and enclaves. This article describes the available logging destinations, how destinations affect diagnostic settings and flow logs, and how to prepare the `NetworkWatcherRG` resource group.
 
-You can configure monitoring destinations. The Azure Enclave resource provider creates a Community or Enclave Log Analytics workspace when you select the corresponding monitoring destination. Flow-log setup can create or reuse a storage account in the enclave managed resource group. The exact defaults and available properties depend on the Mission Management API version. For the `2025-05-01-preview` API, don't assume that every workspace, storage account, flow log, or diagnostic setting is created for every enclave.
+The following are enabled by default for Azure Enclave resources:
+- Log Analytics Workspace is deployed into the Community Managed Resource Group by default
+- (Optional) Log Analytics Workspace is deployed into the Enclave Managed Resource Group
+- Storage Account is deployed into Enclave Managed Resource Group
+- Virtual Network Flow Logs for each enclave are enabled, pointed to the enclave Storage Account, and forwarded to Community and/or Enclave Log Analytics workspace
+- Diagnostic Settings are enabled on resources deployed into both Community and Enclave managed Resource Groups
 
 ## Centralized and isolated observability
 
@@ -69,29 +75,4 @@ You can configure diagnostic settings through the Azure portal, CLI, or Bicep/AR
 
 ### Configure Network Watcher resource groups
 
-To avoid potential issues with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, verify that the `NetworkWatcherRG` resource group exists before creating your first enclave in the subscription.
-
-The provider attempts to create `NetworkWatcherRG` if it doesn't exist and to ensure that the Mission Enclave app has an acceptable role on the resource group. The provider accepts `Network Contributor`, `Contributor`, or `Owner`; when no acceptable role exists, it attempts to create a `Contributor` assignment. If these operations can't complete, flow-log creation and enclave deployment can fail.
-
-If you need to prepare the resource group manually, select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
-
-   ![Screenshot showing resource group add role selection in the portal.](./media/onboard-network-watcher-add-role.png)
-
-1. Select `Privileged administrator roles`, select `Owner`, then select `Next`.
-
-   ![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
-
-1. Select `Select members`, enter `Mission Enclave` in the search, select the `Mission Enclave` app, select `Select`, and then select `Next`.
-
-   ![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
-
-1. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, and then select `Review + assign`.
-
-   ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
-
-1. Once the update is complete, you can start deploying Azure Enclave resources.
-
-When a community or enclave is created, Azure Enclave can attempt the following steps:
-1. Check if the `NetworkWatcherRG` exists. If not, attempt to create that resource group.
-1. Check if the Mission Enclave app has an acceptable role assignment on `NetworkWatcherRG`. If not, attempt to create a `Contributor` assignment.
-1. If a required operation fails, flow-log creation and enclave deployments might fail.
+To avoid potential issues with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, ensure you follow the getting started instructions to [configure `NetworkWatcherRG` access](./onboard.md#configure-networkwatcherrg-access).

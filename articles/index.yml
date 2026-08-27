@@ -549,14 +549,14 @@ productDirectory:
       imageSrc: ./media/index/cache-redis.svg
       azureCategories:
         - databases
-      url: azure-cache-for-redis/index.yml
+      url: /azure/azure-cache-for-redis/
     # Card
     - title: Azure Managed Redis
       summary: Power applications with a high-performance, managed cache
       imageSrc: ./media/index/managed-redis.svg
       azureCategories:
         - databases
-      url: redis/index.yml
+      url: /azure/redis/
     # Card
     - title: Azure Database for MariaDB
       summary: Managed MariaDB database service for app developers
@@ -1404,6 +1404,14 @@ productDirectory:
        - featured 
        - management-and-governance
       url: /azure/copilot
+    # Card
+    - title: Azure Storage Mover
+      summary: Migrate data into Azure from on-premises or another cloud. Uses safe, scalable transfers built for modernization.
+      imageSrc: ./media/index/storage-mover.svg
+      azureCategories:
+        - migration
+        - storage
+      url: storage-mover/index.yml
 tools:
   title: Languages and tools
   items:

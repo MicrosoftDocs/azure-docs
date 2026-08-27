@@ -2,7 +2,7 @@
 title: Create project
 description: Describes how to create project
 author: ankitsurkar06
-ms.author: v-uhabiba
+ms.author: jsuri
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 04/11/2025

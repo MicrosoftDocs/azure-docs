@@ -1,17 +1,21 @@
 ---
 title: "Configure Durable Functions App With Managed Identity"
-description: "Learn how to configure a Durable Functions app with managed identity for secure, secret-free access to Azure Storage. Follow this quickstart to set up identity-based connections."
+description: "Learn how to configure a Durable Functions app with managed identity for secure, secret-free access to Durable Task Scheduler or Azure Storage. Follow this quickstart to set up identity-based connections."
 author: naiyuantian
 ms.topic: quickstart
 ms.service: durable-task
 ms.subservice: durable-functions
 ms.date: 05/20/2026
 ms.author: azfuncdf
+zone_pivot_groups: durable-functions-storage-providers-options
 ---
 
 # Quickstart: Configure Durable Functions with managed identity 
 
-This quickstart shows how to configure a Durable Functions app using the default **Azure Storage provider** to use identity-based connections, so your app can access its storage account without managing secrets. A [managed identity from Microsoft Entra ID](/entra/fundamentals/what-is-entra) is managed by the Azure platform — you don't need to provision or rotate any secrets.
+This quickstart shows how to configure a Durable Functions app to use identity-based connections for either the **Durable Task Scheduler** backend or the **Azure Storage** provider. The Azure platform manages a [managed identity from Microsoft Entra ID](/entra/fundamentals/what-is-entra) - you don't need to provision or rotate any secrets.
+
+
+This path assumes your app is already configured to use the Durable Task Scheduler backend. If your app still uses the Azure Storage provider, choose the Azure Storage path in this article.
 
 In this article:
 
@@ -38,6 +42,102 @@ If you don't have an existing Durable Functions project deployed in Azure, we re
 - [Create your first durable function - PowerShell](quickstart-powershell-vscode.md)
 - [Create your first durable function - Java](quickstart-java.md)
 
+
+::: zone pivot="durable-task-scheduler"
+
+## Local development setup
+
+You have two options for local development. Use the local Durable Task Scheduler emulator for quick testing without Azure credentials. If you need to test identity-based connections against a live scheduler resource, use your developer credentials instead.
+
+### Option 1: Use the local Durable Task Scheduler emulator
+When developing locally, use the Durable Task Scheduler emulator so you can test your app without Azure credentials. Configure your app settings to point to the emulator and use the default task hub.
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "DTS_CONNECTION_STRING": "Endpoint=http://localhost:8080;TaskHub=default;Authentication=None",
+    "TASKHUB_NAME": "default"
+  }
+}
+```
+
+### Option 2: Identity-based connections for local development
+Strictly speaking, a managed identity is only available to apps when executing in Azure. However, you can still configure a locally running app to use identity-based connections by using your developer credentials to authenticate against your scheduler resource. Then, when deployed to Azure, the app uses the managed identity configuration instead.
+
+When you use developer credentials, the connection attempts to get a token from the following locations, in this order:
+
+1. A local cache shared between Microsoft applications
+1. The current user context in Visual Studio
+1. The current user context in Visual Studio Code
+1. The current user context in the Azure CLI
+
+If none of these options are successful, you get an error indicating the app can't retrieve an authentication token. Verify that you're signed in to one of the listed tools with an account that has access to your scheduler resource.
+
+#### Configure runtime to use local developer identity
+1. In your local settings, set the scheduler endpoint and use `Authentication=DefaultAzure` so the app uses your developer credentials.
+
+   ```json
+   {
+     "IsEncrypted": false,
+     "Values": {
+       "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+       "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+       "DTS_CONNECTION_STRING": "Endpoint=https://<your-scheduler-name>.<region>.durabletask.io;TaskHub=<your-task-hub>;Authentication=DefaultAzure",
+       "TASKHUB_NAME": "<your-task-hub>"
+     }
+   }
+   ```
+
+1. Grant your developer identity the `Durable Task Data Contributor` role on the scheduler resource or on the specific task hub scope.
+
+## Identity-based connections for app deployed to Azure
+
+### Enable a managed identity resource
+
+Enable a managed identity for your function app. Your function app must have either a system-assigned managed identity or a user-assigned managed identity. To enable a managed identity for your function app, and to learn more about the differences between the two types of identities, see the [managed identity overview](../../app-service/overview-managed-identity.md).
+
+### Assign access roles to the managed identity
+
+Navigate to your scheduler resource in the Azure portal and assign the `Durable Task Data Contributor` role to your managed identity. For least-privilege access, assign the role at the task hub scope rather than the entire scheduler. If you use a user-assigned identity, select **Managed identity** and then **+ Select members**.
+
+### Add the managed identity configuration to your app
+
+Before you can use your app's managed identity, make some changes to the app settings:
+
+1. In the Azure portal, on your function app resource menu under **Settings**, select **Environment variables**.
+1. Add or update the `DTS_CONNECTION_STRING` setting so the app connects to your scheduler by using the app's managed identity.
+
+   ```text
+   Endpoint=https://<your-scheduler-name>.<region>.durabletask.io;TaskHub=<your-task-hub>;Authentication=ManagedIdentity
+   ```
+
+   If you use a user-assigned managed identity, include the client ID in the connection string:
+
+   ```text
+   Endpoint=https://<your-scheduler-name>.<region>.durabletask.io;TaskHub=<your-task-hub>;Authentication=ManagedIdentity;ClientID=<your-user-assigned-identity-client-id>
+   ```
+
+1. Add or update the `TASKHUB_NAME` setting to the same task hub name.
+
+1. If your Function host needs Azure Storage for host-level operations, configure `AzureWebJobsStorage` separately. The scheduler backend uses the DTS connection string rather than `AzureWebJobsStorage` for Durable state.
+
+## Verify your configuration
+
+To confirm your managed identity configuration works:
+
+1. In the Azure portal, navigate to your function app and trigger your Durable Functions orchestration.
+1. Check that the orchestration finishes successfully by querying the status endpoint or checking the **Monitor** tab.
+1. If you see authentication errors, verify that:
+   - The managed identity has the `Durable Task Data Contributor` role on the scheduler resource or task hub scope.
+   - The `DTS_CONNECTION_STRING` and `TASKHUB_NAME` settings are correct.
+   - The app is using the expected identity when running in Azure.
+
+::: zone-end
+
+::: zone pivot="azure-storage"
 
 ## Local development setup 
 
@@ -167,8 +267,11 @@ To confirm your managed identity configuration works:
 ## Next steps
 
 - [Managed identity overview for App Service and Azure Functions](../../app-service/overview-managed-identity.md)
+- [Durable Task Scheduler overview](../scheduler/durable-task-scheduler.md)
 - [Durable Functions Azure Storage provider](durable-functions-azure-storage-provider.md)
 - [Durable Functions storage providers overview](../common/durable-task-storage-providers.md)
+
+::: zone-end
 
 
 

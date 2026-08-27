@@ -88,6 +88,8 @@
           href: configure-service-endpoint-standard-cli.md
         - name: Configure a standard service endpoint - PowerShell
           href: configure-service-endpoint-standard-powershell.md
+        - name: Configure a standard service endpoint - Terraform
+          href: configure-service-endpoint-standard-terraform.md
     - name: DNS
       items:
         - name: Private DNS zone values

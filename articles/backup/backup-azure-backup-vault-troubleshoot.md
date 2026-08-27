@@ -3,6 +3,7 @@ title: Troubleshoot Azure Backup Vault
 description: Symptoms, causes, and resolutions of the Azure Backup Vault related operations.
 ms.topic: troubleshooting
 ms.date: 08/14/2025
+ms.update-cycle: 1825-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

@@ -155,8 +155,14 @@ items:
     href: enable-sql-azure-hybrid-benefit.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
-  - name: VMware Cloud Foundations (VCF) license portability on Azure VMware Solution
-    href: vmware-cloud-foundations-license-portability.md
+  - name: Portable VMware Cloud Foundation licensing
+    items:
+    - name: Configure portable VCF
+      href: vmware-cloud-foundations-license-portability.md
+    - name: Portable VCF licensing reference
+      href: portable-vcf-licensing-reference.md
+    - name: AVS License-included Service Retirement, using portable VCF and other options
+      href: license-included-service-retirement.md
   - name: Cloud Adoption Framework
     items:
     - name: Azure VMware Solution landing zone accelerator
@@ -365,6 +371,8 @@ items:
     href: troubleshoot-run-command.md
   - name: Use Set-ToolsRepo Run Command
     href: use-set-toolsrepo-run-command.md
+  - name: Use New-AVSStoragePolicy Run Command
+    href: use-new-avsstoragepolicy-run-command.md
   - name: Use vCenter Login Banner Run Command
     href: use-vcenter-login-banner-run-command.md
   - name: Configure VMware syslogs

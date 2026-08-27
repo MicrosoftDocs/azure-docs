@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Create an Azure Native Pure Storage Cloud Resource"
 description: Learn how to create a resource for Pure Storage Cloud by using the Azure portal.
-author: Reshmi-Sriram
-ms.author: reshmisriram
+author: agrimayadav
+ms.author: agrimayadav
 ms.topic: quickstart
 ms.date: 12/10/2025
 
@@ -14,7 +14,7 @@ This quickstart shows you how to create a Pure Storage Cloud resource by using t
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [Subscribe to Azure Native Pure Storage Cloud](overview.md#subscribe-to-azure-native-pure-storage-cloud).
+- You must [Subscribe to Everpure Cloud Azure Native](overview.md#subscribe-to-everpure-cloud-azure-native).
 - A dedicated [subnet](../../virtual-network/manage-subnet-delegation.md) delegated to *PureStorage.Block/storagePools*. The subnet requires a minimum size of **/27**.
 
 ## Create a resource

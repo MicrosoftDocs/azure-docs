@@ -6,7 +6,7 @@ ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: how-to
-ms.date: 03/20/2026
+ms.date: 08/23/2026
 ---
 
 # Migrate C# apps from the in-process model to the isolated worker model
@@ -239,6 +239,12 @@ When you [changed your package references in a previous step](#package-reference
 1. If your function includes an `IBinder` parameter, remove it. Replace the functionality with a client object for the service it represents, either as the binding type for an input binding if available, or by [injecting a client yourself](./dotnet-isolated-process-guide.md#register-azure-clients).
 
 1. Update the function code to work with any new types.
+
+#### Migrate to asynchronous HTTP stream I/O
+
+If an HTTP-triggered function uses [ASP.NET Core integration], replace synchronous reads from and writes to HTTP request and response streams with asynchronous methods. Synchronous operations can fail with `InvalidOperationException: Synchronous operations are disallowed`. For example, replace `ReadToEnd` with `ReadToEndAsync`, `Write` with `WriteAsync`, `WriteString` with `WriteStringAsync`, and `Flush` with `FlushAsync`.
+
+When you await these operations, mark the function method as `async` and wrap its return type in `Task<T>`. For example, change `IActionResult` to `Task<IActionResult>` or `MultiResponse` to `Task<MultiResponse>`. ASP.NET Core disallows synchronous request and response I/O by default because synchronous I/O can cause thread pool starvation. If a dependency or serializer doesn't support asynchronous I/O, see [JSON serialization with ASP.NET Core integration](./dotnet-isolated-process-guide.md#json-serialization-with-aspnet-core-integration) for instructions to enable synchronous I/O (`AllowSynchronousIO`) as a compatibility option.
 
 ### local.settings.json file
 

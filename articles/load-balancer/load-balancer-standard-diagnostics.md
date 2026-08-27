@@ -21,6 +21,8 @@ Azure Load Balancer exposes the following diagnostic capabilities:
 
 This article provides a quick tour of these capabilities, and it offers ways to use them for a standard load balancer. 
 
+To start troubleshooting, use [Common diagnostic scenarios and recommended views](#DiagnosticScenarios) to choose the metric and aggregation that match your symptom. Then use the detailed sections to investigate the result.
+
 ## <a name = "MultiDimensionalMetrics"></a>Multi-dimensional metrics
 
 Azure Load Balancer provides multi-dimensional metrics via the Azure Metrics in the Azure portal, and it helps you get real-time diagnostic insights into your load balancer resources. Please note that multi-dimensional metrics are not supported for Basic Load Balancers
@@ -78,6 +80,17 @@ To view the metrics for your load balancer resources:
 For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough#retrieve-metric-definitions). These metrics can be written to a storage account by adding a [diagnostic setting](/azure/azure-monitor/essentials/diagnostic-settings) for the 'All Metrics' category. 
 
 ### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
+
+Use the following table to select a metric before opening the detailed scenarios.
+
+| Symptom or question | Metric | Aggregation | Filter or split | Next action |
+|---|---|---|---|---|
+| Is the load balancer data path available? | Data Path Availability | Average | Frontend IP address or frontend port | Compare the result with Health Probe Status to isolate platform and application health. |
+| Are backend instances responding to probes? | Health Probe Status | Average | Backend IP address and backend port | Check the probe configuration, network security rules, guest firewall, and application listener. |
+| Are outbound connections failing? | SNAT Connection Count | Sum | Connection State | Investigate failed connections for SNAT port exhaustion. |
+| Is SNAT port usage approaching its allocation? | Used SNAT Ports and Allocated SNAT Ports | Average per backend, or Sum for the load balancer | Protocol Type, Backend IP address, or Frontend IP address | Compare used and allocated ports, then adjust outbound connectivity if usage is unsafe. |
+| How many TCP connection attempts occurred? | SYN Count | Sum | Frontend IP address or frontend port | Compare attempts with availability and probe health. |
+| How much traffic crossed a frontend? | Byte Count or Packet Count | Sum | Frontend IP address, frontend port, backend IP address, or backend port | Review traffic distribution and the selected time range. |
 
 #### Is the data path up and available for my load balancer frontend?
 
@@ -147,15 +160,15 @@ Use **Average** as the aggregation for most scenarios.
 
   <summary>Expand</summary>
 
-The SNAT connections metric describes the volume of successful and failed connections for [outbound flows](./load-balancer-outbound-connections.md).
+The SNAT Connection Count metric describes the volume of successful and failed connections for [outbound flows](./load-balancer-outbound-connections.md).
 
-A failed connections volume of greater than zero indicates SNAT port exhaustion. You must investigate further to determine what may be causing these failures. SNAT port exhaustion manifests as a failure to establish an [outbound flow](./load-balancer-outbound-connections.md). Review the article about outbound connections to understand the scenarios and mechanisms at work, and to learn how to mitigate and design to avoid SNAT port exhaustion. 
+A failed connections volume greater than zero indicates SNAT port exhaustion. You must investigate further to determine what might be causing these failures. SNAT port exhaustion manifests as a failure to establish an [outbound flow](./load-balancer-outbound-connections.md). Review the article about outbound connections to understand the scenarios and mechanisms at work, and to learn how to mitigate and design to avoid SNAT port exhaustion.
 
 To get SNAT connection statistics:
 
-1. Select **SNAT Connections** metric type and **Sum** as aggregation. 
+1. Select **SNAT Connection Count** and **Sum** as the aggregation.
 
-2. Group by **Connection State** for successful and failed SNAT connection counts to be represented by different lines. 
+2. Group by **Connection State** for successful and failed SNAT connection counts to be represented by different lines.
 
 </details>
 
@@ -255,36 +268,39 @@ failing due to either a misconfiguration or a failed application.
 
 Azure Load Balancer supports easily configurable alerts for multi-dimensional metrics. Configure custom thresholds for specific metrics to trigger alerts with varying levels of severity to empower a no touch resource monitoring experience.
 
+Use the following settings as a starting point and adjust thresholds for your workload.
+
+| Alert goal | Metric | Aggregation | Dimensions or filter | Example condition |
+|---|---|---|---|---|
+| Detect an unavailable load-balancing rule | Data Path Availability | Average | Split by all current and future frontend IP address and frontend port values | Less than or equal to 0 |
+| Detect an unhealthy backend instance | Health Probe Status | Average | Split by backend IP address and backend port | Below the healthy percentage required by your workload for a sustained period |
+| Detect outbound connection failures | SNAT Connection Count | Total | Filter to **Connection State = Failed** and split by all current and future backend IP address values | Greater than 0, or a higher workload-specific value |
+| Detect risk of SNAT port exhaustion | Used SNAT Ports | Average | Split by backend IP address and protocol | Greater than a workload-specific percentage of Allocated SNAT Ports, such as 75% for low severity and 90% or 100% for high severity |
+
 To configure alerts:
 
-1. Go to the alert page for the load balancer
+1. Go to the alert page for the load balancer.
 
-2. Create new alert rule
+1. Create a new alert rule.
     
-    1.  Configure alert condition (Note: to avoid noisy alerts, we recommend configuring alerts with the Aggregation type set to Average, looking back on a five-minute window of data, and with a threshold of 95%)
+  1. Configure the alert condition. To avoid noisy availability alerts, use **Average** aggregation, a five-minute lookback window, and a 95% threshold as a starting point.
     
-    2.  (Optional) Add action group for automated repair
+  1. Optionally, add an action group for automated repair.
     
-    3.  Assign alert severity, name, and description that enables intuitive reaction
+  1. Assign an alert severity, name, and description that support an intuitive response.
+
+1. Verify the alert rule is enabled. Open its condition and confirm that the intended metric, aggregation, dimensions or filters, and threshold match your configuration.
 
 ### Inbound availability alerting
 
   >[!NOTE]
   > If your load balancer's backend pools are empty, the load balancer will not have any valid data paths to test. As a result, the data path availability metric will not be available, and any configured Azure Alerts on the data path availability metric will not trigger.
 
-To alert for inbound availability,  you can create two separate alerts using the data path availability and health probe status metrics. Customers may have different scenarios that require specific alerting logic, but the below examples are helpful for most configurations.
-
-Using data path availability, you can fire alerts whenever a specific load-balancing rule becomes unavailable. You can configure this alert by setting an alert condition for the data path availability and splitting by all current values and future values for both frontend port and frontend IP address. Setting the alert logic to be less than or equal to 0 will cause this alert to be fired whenever any load-balancing rule becomes unresponsive. Set the aggregation granularity and frequency of evaluation according to your desired evaluation. 
-
-With health probe status, you can alert when a given backend instance fails to respond to the health probe for a significant amount of time. Set up your alert condition to use the health probe status metric and split by backend IP address and backend port, using the **Average** aggregation type. This ensures that you can alert separately for each individual backend instance’s ability to serve traffic on a specific port.
+For inbound availability, create separate alerts for Data Path Availability and Health Probe Status. Use the table in [Configure alerts for multi-dimensional metrics](#configure-alerts-for-multi-dimensional-metrics) as a starting point, and set the aggregation granularity and evaluation frequency for your workload.
 
 ### Outbound availability alerting
 
-For outbound availability, you can configure two separate alerts using the SNAT connection count and used SNAT port metrics.
-
-To detect outbound connection failures, configure an alert using SNAT connection count and filtering to **Connection State = Failed**. Use the **Total** aggregation. Then, you can split this by backend IP address set to all current and future values to alert separately for each backend instance experiencing failed connections. Set the threshold to be greater than zero or a higher number if you expect to see some outbound connection failures.
-
-With used SNAT ports, you can alert on a higher risk of SNAT exhaustion and outbound connection failure. Ensure you’re splitting by backend IP address and protocol when using this alert. Use the **Average** aggregation. Set the threshold to be greater than a percentage of the number of ports you’ve allocated per instance that you determine is unsafe. For example, configure a low severity alert when a backend instance uses 75% of its allocated ports. Configure a high severity alert when it uses 90% or 100% of its allocated ports.  
+For outbound availability, create separate alerts for SNAT Connection Count and Used SNAT Ports. Use the table in [Configure alerts for multi-dimensional metrics](#configure-alerts-for-multi-dimensional-metrics) to preserve the failed-connection filter, backend and protocol dimensions, and example thresholds.
 
 ## <a name = "ResourceHealth"></a>Resource health status
 

@@ -6,7 +6,7 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: reference
-ms.date: 07/15/2025
+ms.date: 08/11/2026
 ms.author: buchvarun
 ---
 
@@ -298,6 +298,7 @@ An example response with `Accept` header `application/dicom+json` with a FailedA
 | `45070` | A DICOM instance with the same `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID` was already stored. If you want to update the contents, delete this instance first. |
 | `45071` | A DICOM instance is being created by another process, or the previous attempt to create failed and the cleanup process isn't complete. Delete the instance first before attempting to create again. |
 | `45073` | A DICOM instance was deleted by the user, before the write operation for that instance could be committed successfully. |
+| `45074` | The target study or series is marked for deletion. |
 
 #### Store warning reason codes
 
@@ -682,13 +683,16 @@ There are no restrictions on the request's `Accept` header, `Content-Type` heade
 
 | Code | Description |
 | -------------- | --------------------------------------- |
-| `204 (No Content)` | When all the SOP instances are deleted. |
+| `204 (No Content)` | The delete request succeeded. |
 | `400 (Bad Request)` | The request was badly formatted. |
 | `401 (Unauthorized)` | The client isn't authenticated. |
 | `403 (Forbidden)` | The user isn't authorized. |
 | `404 (Not Found)` | When the specified series wasn't found within a study or the specified instance wasn't found within the series. |
 | `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
+
+> [!NOTE]
+> For Delete Study and Delete Series, a `204` response indicates that they have been marked for deletion and will be cleaned up asynchronously. Until cleanup is complete, a Store request using the same study or series identifiers fails with reason code `45074`. After cleanup, the identifiers can be reused.
 
 ### Delete response payload
 

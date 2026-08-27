@@ -6,7 +6,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 10/28/2025
+ms.date: 08/12/2026
 ms.author: malev
 ms.custom: "devx-track-csharp, mvc"
 ai-usage: ai-assisted
@@ -75,7 +75,7 @@ Create a new feature flag in the Azure portal by following the steps below.
         
         :::image type="content" source="media/manage-feature-flags/create-feature-flag-rollout.png" alt-text="Screenshot of the Azure portal that shows the Create feature flag feature - Rollout option.":::
     
-   1. In the **Audience** tab, turn on a feature flag for a specified percentage, or explicitly include or exclude groups and users.
+   1. In the **Audience** tab, turn on a feature flag for a specified percentage, or explicitly include or exclude groups and users. **Audience** and **Conditions** answer "**who** qualifies for the feature, and **when**." They gate eligibility by percentage, group, user, schedule, or custom attribute, but they have no effect on what value your application receives once a user qualifies.
 
         | Setting                | Example value   | Description                                                                                                                                                                                                         |
         | ---------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -83,15 +83,15 @@ Create a new feature flag in the Azure portal by following the steps below.
         | **Override by Groups** | Off (unchecked) | Select to enable group-based overrides. When enabled, you can: <ul><li>Add groups to explicitly include in the rollout, and set the percentage of group members who should receive the feature.</li><li>Add groups to exclude from the rollout.</li></ul> |
         | **Override by Users**  | Off (unchecked) | Select to enable user-based targeting. When enabled, you can specify individual users to include or exclude.                                                                                                                         |
             
-    1. In the **Configuration** tab, configure values for your feature flag. Your application can retrieve the appropriate configuration by evaluating which value applies to each user.
+    1. In the **Configuration** tab, configure values for your feature flag. Your application can retrieve the appropriate configuration by evaluating which value applies to each user. **Configuration** answers "**what** value does a qualifying user get." It defines the payload your application retrieves after the flag is evaluated as enabled, but it has no effect on who is eligible.
 
         | Setting                   | Example value       | Description                                                                                                                                                                  |
         |---------------------------|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
         | **Include configuration** | Box is checked      | Select to attach key-value settings to the feature flag. These settings let your application to adjust behavior dynamically without redeploying code.                        |
         | **Old Configuration**     | `{"color":"blue"}`  | Shows the configuration values previously associated with the feature flag before this update. Use this to compare changes and track versions.                               |
         | **New Configuration**     | `{"color":"green"}` | Shows the updated configuration values you are applying now. These values will override the old configuration and define the new behavior when the feature flag is enabled.  |
-    
-    1. Configure **Conditions** to schedule changes and manage custom constraints for serving your features.
+
+    1. Configure **Conditions** to schedule changes and manage custom constraints for serving your features. Like **Audience**, **Conditions** gates eligibility—by schedule or custom attribute—without affecting the value your application receives once a user qualifies.
 
         | Setting                                 | Example value                                                                                              | Description                                                                                                                                                     |
         |-----------------------------------------|------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -1,5 +1,5 @@
 ---
-title: Questions about discovery and dependency analysis in Azure Migrate
+title: Questions about Discovery and Dependency Analysis in Azure Migrate
 description: Get answers to common questions about discovery and dependency analysis in Azure Migrate.
 author: Vikram1988
 ms.author: vibansa
@@ -7,7 +7,7 @@ ms.manager: ronai
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 09/09/2024
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.custom: engagement-fy25
 ms.update-cycle: 1825-days
 # Customer intent: As a cloud migration specialist, I want to understand the differences between agent-based and agentless dependency analysis in Azure Migrate so that I can choose the best approach for assessing my organization's server migration needs.

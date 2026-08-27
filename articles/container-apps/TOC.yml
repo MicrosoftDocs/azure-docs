@@ -49,6 +49,16 @@ items:
       items:
         - name: Overview
           href: sandboxes-overview.md
+        - name: Get started
+          href: sandboxes-get-started.md
+        - name: Quickstarts
+          items:
+            - name: Azure portal
+              href: sandboxes-quickstart-portal.md
+            - name: Bicep
+              href: sandboxes-quickstart-bicep.md
+            - name: Python SDK
+              href: sandboxes-quickstart-python-sdk.md
         - name: Snapshots and state management
           href: sandboxes-snapshots-state-management.md
         - name: Egress policies
@@ -316,6 +326,8 @@ items:
           href: logging.md
         - name: Logging options
           href: log-options.md
+        - name: Change logging from Log Analytics to Azure Monitor
+          href: migrate-logs-azure-monitor.md
         - name: Log monitoring
           href: log-monitoring.md
         - name: Metrics

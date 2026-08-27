@@ -16,7 +16,18 @@ The **Trusted service** setting in Azure Data Factory is a **Factory settings** 
 
 The legacy Trusted Service capability allowed Azure Data Factory to securely access firewall-protected Azure Storage and Key Vault resources through the "Allow trusted Microsoft services" exception, reducing the need for manual network allowlists. Learn more in the [Azure Data Factory Trusted Service announcement](https://techcommunity.microsoft.com/blog/azuredatafactoryblog/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure-key-vault-firew/964993).
 
-Microsoft recommends adopting the **Modern** trusted service setting for all new and existing Data Factory deployments. This model offers a more secure and future-ready approach for accessing protected resources and aligns with Azure's latest security standards. Understanding these modes and the upcoming retirement of legacy trusted service access helps organizations strengthen their security posture and plan a smooth transition.
+
+
+Microsoft recommends using the **Modern** trusted service setting for all new deployments and migrating existing deployments before the retirement of Legacy mode. This model offers a more secure and future-ready approach for accessing protected resources and aligns with Azure's latest security standards. Understanding these modes and the upcoming retirement of legacy trusted service access helps organizations strengthen their security posture and plan a smooth transition.
+
+If you use any of the following scenarios to access Azure Storage or Azure Key Vault through a managed identity and a legacy trusted Azure services firewall exception, review the recommended access patterns guidance in this article and plan your migration to Modern mode before August 2027.
+
+- Data Factory’s self-hosted IR (SHIR) with a managed identity and firewall exception (trusted bypass).
+- Azure-SSIS IR via Azure Storage Connection Manager or Data Factory’s SHIR as a proxy with a managed identity and firewall exception.
+- REST linked service using managed identity to access Azure Storage or Azure Key Vault using trusted bypass.
+- Azure Function activities using managed identity to access Azure Storage or Azure Key Vault with firewall exception.
+- Web activities using Azure Storage or Azure Key Vault endpoints with managed identity and firewall exception.
+  
 
 ## Trusted service modes
 
@@ -25,12 +36,21 @@ Azure Data Factory provides a **Trusted service** setting under **Factory settin
 - **Legacy**: Uses the existing trusted services mechanism, which enables Data Factory to access Azure Storage accounts and Azure Key Vault through managed identities combined with firewall exceptions.
 - **Modern**: Uses an enhanced security model designed to provide stronger protection against unauthorized access while meeting current security and compliance requirements.
 
+## Determine your current trusted service mode
+
+- Open your Azure Data Factory resource.
+- Navigate to Factory settings.
+- Review the Trusted service setting.
+
+If the setting is Legacy, review the affected scenarios listed in this article and plan your migration before August 2027.
+
 :::image type="content" source="media/modern-trusted-service/modern-ts.png" alt-text="Screenshot of Azure Data Factory Factory settings with Modern trusted service option selected." lightbox="media/modern-trusted-service/modern-ts.png":::
+
 ## What's changing with trusted service in Azure Data Factory
 
 
 > [!NOTE]
-> The **Modern** option is the recommended setting. It helps prevent unauthorized access and meet updated security standards. It might require firewall or network changes for connections that currently rely on trusted services, such as SHIR, Azure-SSIS integration runtime with storage access, REST to Storage, and REST to Key Vault.
+> The **Modern** option is the recommended setting. It helps prevent unauthorized access and meet updated security standards. It might require firewall or network changes for connections that currently rely on trusted services, such as SHIR, Azure-SSIS integration runtime with storage access, Web activities to storage, Web activities to Key Vault, REST linked service to access Storage, and REST linked service to Key Vault.
 
 ## Retirement of legacy trusted services
 
@@ -41,7 +61,6 @@ By transitioning to **Modern** trusted service, organizations can strengthen the
 > [!NOTE]
 > To ensure uninterrupted service and a seamless transition, customers are encouraged to begin planning their migration to the Modern Trusted Service well in advance of the August 2027 timeline.
 
-If your workload doesn't use one of the affected configurations, no action is required.
 
 ## Changes in trusted service bypass behavior
 
@@ -52,13 +71,17 @@ The following configurations rely on the legacy trusted service model. Review yo
 | Data Factory self-hosted integration runtime (SHIR) | System-assigned managed identity | Azure Storage | Trusted access based on a managed identity |
 | Azure-SSIS integration runtime through Azure Storage Connection Manager | System-assigned managed identity | Azure Storage | Trusted access based on a managed identity |
 | Data Factory SHIR as a proxy for Azure-SSIS integration runtime | System-assigned managed identity | Azure Storage | Trusted access based on a managed identity |
-| REST linked service or Web activity | System-assigned managed identity | Azure Storage | Trusted access based on a managed identity |
-| REST linked service or Web activity | System-assigned or user-assigned managed identity | Azure Key Vault | Trusted Azure services firewall exception |
+| Access Azure Storage from a REST linked service or Web activity | System-assigned managed identity | Azure Storage | Trusted access based on a managed identity |
+| Access Azure Key Vault from a REST linked service or Web activity | System-assigned managed identity | Azure Key Vault | Trusted Azure services firewall exception |
+
+
+
+
+
 
 ## Recommended access patterns (Modern mode)
 
 Some workloads might require additional firewall or network configuration after moving to **Modern** trusted service. To avoid service disruptions, update your integration runtime and linked service configurations before August 2027, move to **Modern** trusted service, and validate any affected connections to Azure Storage accounts and Azure Key Vault by using one of the following supported access patterns.
-
 
 
 > [!IMPORTANT]
@@ -74,6 +97,7 @@ For more information, see [grant access from an internet IP range for Azure Stor
 
 Use a Data Factory managed virtual network when you want Azure Data Factory to manage the integration runtime network boundary and access Azure Storage accounts or Azure Key Vault by using private endpoints from Azure integration runtime.
 
+
 For more information, see [Managed virtual networks and managed private endpoints in Azure Data Factory](../data-factory/managed-virtual-network-private-endpoint.md).
 
 ### Customer-owned virtual network
@@ -83,7 +107,10 @@ Use a customer-owned virtual network when your organization manages networking d
 For more information, see [Join an Azure-SSIS integration runtime to a virtual network](../data-factory/join-azure-ssis-integration-runtime-virtual-network.md).
 
 
-If you don't transition to **Modern** trusted service or one of the supported network access patterns before August 2027, you might no longer be able to use Data Factory SHIR, Azure-SSIS integration runtime, and REST linked service scenarios to access Azure Storage accounts or Azure Key Vault with a managed identity and trusted service firewall exception.
+
+
+To help ensure uninterrupted access to Azure Storage and Azure Key Vault, transition to the Modern trusted service setting and adopt one of the supported access patterns before August 2027. This transition prepares your workloads for the retirement of Legacy mode and helps avoid potential disruptions to scenarios that rely on managed identities and trusted Azure services firewall exceptions.
+
 
 ## Related content
 

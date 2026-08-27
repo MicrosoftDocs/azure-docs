@@ -21,9 +21,7 @@ Some scenarios require reindexing search parameters in the FHIR&reg; service in 
 
 ## How to run a reindex job 
 
-You can run a reindex job against an entire FHIR service database or against specific custom search parameters.
-
-### Run a reindex job on entire FHIR service database
+You can run a reindex job against an entire FHIR service database.
 
 To run a reindex job, use the following `POST` call with the JSON formatted `Parameters` resource in the request body.
 
@@ -191,7 +189,7 @@ To cancel a reindex job, use a `DELETE` call and specify the reindex job ID.
 
 ## Performance considerations
 
-A reindex job can be quite performance intensive. Though FHIR service automatically scales backend distributed compute infrastructure depending on load, running reindex can still affect API operations. If this is not acceptable, reindex compute consumption can be throttled by reducing write transaction size controlled by `maximumNumberOfResourcesPerWrite`. Other consideration is resource size which affects amount of memory required to process singe write transaction, and is controlled by the same `maximumNumberOfResourcesPerWrite`. Default value for m`aximumNumberOfResourcesPerWrite` is 200. You can set between 1-5000. Reduce to 1 (one resource per write) to handle very large resources or to throttle reindex. 
+A reindex job can be quite performance intensive. Though FHIR service automatically scales backend distributed compute infrastructure depending on load, running reindex can still affect API operations. If this is not acceptable, reindex compute consumption can be throttled by reducing write transaction size controlled by `maximumNumberOfResourcesPerWrite`. Other consideration is resource size which affects amount of memory required to process singe write transaction, and is controlled by the same `maximumNumberOfResourcesPerWrite`. Default value for `maximumNumberOfResourcesPerWrite` is 1000. You can set between 1-5000. Reduce to 1 (one resource per write) to handle very large resources or to throttle reindex. 
 
 Sample request with the parameter:
 

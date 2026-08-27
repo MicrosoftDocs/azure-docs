@@ -62,6 +62,8 @@
       href: what-approvals.md
     - name: Best practices
       href: best-practices.md
+    - name: Shared responsibility model
+      href: shared-responsibility-model.md
     - name: Understand resource groups
       href: azure-enclave-resource-groups.md
 #     - name: Understanding Enclave Networking

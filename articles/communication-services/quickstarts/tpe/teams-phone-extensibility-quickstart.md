@@ -26,8 +26,8 @@ This article describes how an independent software vendor (ISV) can provision Te
 - ISV’s Customer has access to Microsoft 365 Admin Center.
 - ISV has access to change Azure Communication Services Resource settings.
 - You grant Teams Tenant access to a CCaaS service for Graph API usage.
-- ISV uses the .NET, JavaScript, or Java ACS Call Automation SDK version 1.5.0 or above (Python version will be released soon).
-- ISV uses the JavaScript ACS Client SDK version 1.37 and above.
+- ISV uses the latest .NET, JavaScript, Python, or Java ACS Call Automation SDK version (1.5.0 and above).
+- ISV uses the latest JavaScript ACS Client SDK version (1.37 and above).
 
 
 ## Quick start
@@ -96,10 +96,10 @@ Example:
 New-AzBotService -ResourceGroupName teamsphonetest-rg -Name "teamsPhoneBot" -ApplicationId aa123456-1234-1234-1234-aaa123456789 -Location "global" -Sku S1 -Description "My Teams Phone Test Bot" 
 ```
 
-For this step, when you configure Teams, the webhook can be any URL. Enter any valid URL such as `https://mycompanydomain.com`.
+For this step, when you configure Teams, set the webhook to `https://eventgrid.azure.net`. This value determines how your application receives incoming call notifications. When you configure the Event Grid URL, incoming call notifications are delivered through Azure Event Grid. If you set a different URL, notifications are delivered directly to that webhook instead. Use `https://eventgrid.azure.net` unless you specifically set up a direct webhook endpoint to handle incoming call notifications.
 
 > [!NOTE]
-> In the future, we expect to remove this dependency on URL.
+> This webhook URL is currently required. Until the dependency is removed, set it to `https://eventgrid.azure.net` to route incoming call notifications through Azure Event Grid.
 
 ### Teams Admin: Provision Resource Account
 

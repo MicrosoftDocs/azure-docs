@@ -6,22 +6,44 @@ ms.date: 07/08/2025
 ms.author: v-abhmallick
 ---
 
-Once all the relevant permissions are set, configure the blob backup by running the following commands: 
+After you set the relevant permissions, configure the blob backup by running the following commands:
 
-1. Prepare the relevant request by using the relevant vault, policy, storage account using the [`az dataprotection backup-instance initialize`](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-initialize) command. 
+1. Initialize the backup configuration with auto-protection enabled. Use `--exclusion-prefixes` to exclude containers whose names start with the specified prefixes.
+
+    ```azurecli-interactive
+    az dataprotection backup-instance initialize-backupconfig `
+      --datasource-type AzureBlob `
+      --auto-protection true `
+      --exclusion-prefixes "logs-" "temp-" `
+      --output json |
+      Set-Content blob-autoprotection.json -Encoding utf8
+    ```
+
+1. Prepare the relevant request by using the relevant vault, policy, storage account, and backup configuration with the [`az dataprotection backup-instance initialize`](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-initialize) command.
 
 
     ```azurecli-interactive
-    az dataprotection backup-instance initialize --datasource-type AzureBlob  -l southeastasia --policy-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/BlobBackup-Policy" --datasource-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" > backup_instance.json
+    az dataprotection backup-instance initialize `
+      --datasource-type AzureBlob `
+      --datasource-location "southeastasia" `
+      --policy-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/BlobBackup-Policy" `
+      --datasource-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/blobrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" `
+      --backup-config blob-autoprotection.json `
+      --output json |
+      Set-Content backup_instance.json -Encoding utf8
     ```
 
 2. Submit the request using the [`az dataprotection backup-instance create`](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-create) command.
  
     ```azurecli-interactive
-    az dataprotection backup-instance create -g testBkpVaultRG --vault-name TestBkpVault --backup-instance backup_instance.json
+    az dataprotection backup-instance create `
+      --subscription "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e" `
+      --resource-group "testBkpVaultRG" `
+      --vault-name "TestBkpVault" `
+      --backup-instance backup_instance.json
     ```
 
-   The following JSON configures a blob backup for a specified storage account with specified policy and container list.
+   The following JSON configures a blob backup for a specified storage account with a specified policy and explicit container list. Use an explicit container list when you want to protect only selected containers instead of auto-protecting all containers.
 
     ```JSON
     {

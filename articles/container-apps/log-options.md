@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 07/03/2025
+ms.date: 08/18/2026
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -32,6 +32,9 @@ You can choose between these logs destinations:
 - **Don't save logs**: You can disable the storage of log data. When disabled, you can still view real-time container logs via the **Logs stream** feature in your container app. For more information, see [Log streaming](log-streaming.md).
 
 When *Don't save logs* or the *Azure Monitor* destination is selected, the **Logs** menu item providing the Log Analytics query editor in the Azure portal is disabled.
+
+> [!NOTE]
+> Logs sent to a Log Analytics workspace or to an Azure Monitor destination aren't available instantly. Expect a delay of several minutes before new `ContainerAppConsoleLogs` and `ContainerAppSystemLogs` records are queryable at the destination. For more information, see [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time). If you need to see container output in real time, use the [log streaming](log-streaming.md) feature.
 
 ::: zone pivot="azure-portal"
 
