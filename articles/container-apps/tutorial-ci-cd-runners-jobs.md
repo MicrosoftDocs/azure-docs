@@ -425,6 +425,8 @@ To avoid using administrative credentials, pull images from private repositories
         --output tsv)
     ```
 
+    ---
+
 1. Assign the AcrPull role to the managed identity.
 
     # [Bash](#tab/bash)
