@@ -32,7 +32,7 @@ To follow the procedures in this guide, you must have:
 
 Managed private endpoints work with Azure services that support private link. Using them, you can connect your Azure Managed Grafana workspace to the following Azure data stores over private connectivity:
 
-- Azure Cosmos DB for Mongo DB ([RU](/azure/cosmos-db/mongodb/introduction#request-unit-ru-architecture) and [vCore](/azure/cosmos-db/mongodb/introduction#vcore-architecture-recommended) architectures)
+- Azure Cosmos DB for Mongo DB ([RU](/azure/cosmos-db/mongodb/introduction#request-unit-ru-architecture) and [Azure DocumentDB](/azure/documentdb) architectures)
 - Azure Cosmos DB for PostgreSQL
 - Azure Data Explorer
 - Azure Monitor private link scope (for example, Log Analytics workspace)

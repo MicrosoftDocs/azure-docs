@@ -7,7 +7,7 @@ ms.custom: hdinsightactive
 author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf
-ms.date: 12/02/2024
+ms.date: 08/12/2026
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - architecture best practices
@@ -111,7 +111,8 @@ Some HDInsight Hive metastore best practices are as follows:
 - Consider Ambari for Cluster Management.
 - Change data storage from on-premises HDFS to WASB or ADLS or ADFS for processing scripts.
 - Consider using Ranger RBAC on Hive tables and auditing.
-- Consider using CosmosDB in place of MongoDB or Cassandra.
+- Consider using Azure DocumentDB in place of MongoDB or Cassandra.
+- Consider using Azure CosmosDB in place of Cassandra.
 
 ## Next steps
 

@@ -57,7 +57,7 @@ Applications or components that were available in on-premises clusters but aren'
 |Ignite|IaaS
 |Jethro|IaaS 
 |Mapador|IaaS 
-|MongoDB|IaaS (Azure Cosmos DB an alternative on Azure)
+|MongoDB|IaaS (Azure DocumentDB & Azure Cosmos DB an alternative on Azure)
 |NiFi|IaaS 
 |Presto|IaaS or HDInsight edge node
 |Python 2|PaaS 
