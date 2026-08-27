@@ -126,7 +126,7 @@ $probe = New-AzLoadBalancerProbeConfig -Name MyProbe -Protocol tcp -Port 3389 -I
 ```
 ### Create a load balancer rule
 
-A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. To make sure only healthy VMs receive traffic, you can optionally define a health probe. Standard Load Balancer supports explicit IPv6 health probes.
+You use a load balancer rule to define how traffic is distributed to the VMs. Define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. To ensure only healthy VMs receive traffic, optionally define a health probe. Standard Load Balancer supports explicit IPv6 health probes.
 
 Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). The following example creates load balancer rules named *dsLBrule_v4* and *dsLBrule_v6* and balances traffic on *TCP* port *80* to the IPv4 and IPv6 frontend IP configurations:
 
