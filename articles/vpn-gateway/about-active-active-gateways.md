@@ -34,7 +34,7 @@ In an active-active configuration for a S2S connection, both instances of the ga
 
 :::image type="content" source="./media/vpn-gateway-highlyavailable/active-active.png" alt-text="Diagram shows an on-premises site with private IP subnets and an on-premises gateway connected to two VPN gateway instances.":::
 
-In this configuration, each Azure gateway instance has a unique public IP address, and each will establish an IPsec/IKE S2S VPN tunnel to the on-premises VPN device. Both tunnels are part of the same connection. Configure your on-premises VPN device to accept two S2S VPN tunnels, one for each gateway instance. P2S connections to gateways in active-active mode require no additional configuration.
+In this configuration, each Azure gateway instance has a unique public IP address, and each establishes an IPsec/IKE S2S VPN tunnel to the on-premises VPN device. Both tunnels are part of the same connection. Configure your on-premises VPN device to accept two S2S VPN tunnels, one for each gateway instance. Point-to-site (P2S) connections don't require additional on-premises VPN device configuration. However, an active-active gateway with P2S enabled requires a third public IP address for the P2S endpoint.
 
 In an active-active configuration, Azure routes traffic from your virtual network to your on-premises network through both tunnels simultaneously, even if your on-premises VPN device might favor one tunnel over the other. For a single TCP or UDP flow, Azure attempts to use the same tunnel when sending packets to your on-premises network. However, your on-premises network might use a different tunnel to send packets back to Azure.
 
@@ -63,8 +63,9 @@ An active-active gateway has slightly different configuration requirements than 
 
 * You can't configure an active-active gateway using the Basic gateway SKU.
 * The VPN must be route based. It can't be policy based.
-* Two public IP addresses are required. Both must be **Standard SKU** public IP addresses that are assigned as **Static**.
-* An active-active gateway configuration costs the same as an active-standby configuration. However, active-active configurations require two public IP addresses instead of one. See [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
+* You need two public IP addresses for the gateway instances. Both must be **Standard SKU** public IP addresses that are assigned as **Static**.
+* If the gateway has P2S enabled, you need a third public IP address for the P2S endpoint. For Basic-to-Standard public IP migration requirements, see [About migrating a Basic SKU public IP address to Standard SKU](basic-public-ip-migrate-about.md#active-active-vpngw1-5-gateway-skus).
+* An active-active gateway configuration costs the same as an active-standby configuration. However, active-active configurations require at least two public IP addresses instead of one. See [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Reset an active-active mode gateway
 
