@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: concept-article
-ms.date: 08/12/2026
+ms.date: 08/27/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
@@ -22,7 +22,7 @@ When you deploy Azure IoT Operations, you install a suite of services on an Azur
 > [!NOTE]
 > Billing usage records are collected on any environment where you install Azure IoT Operations, regardless of support or availability levels.
 
-To install Azure IoT Operations, you need to have the following hardware requirements available. If you're using a multinode cluster that enables fault tolerance, scale up to the recommended capacity for better performance.
+For a production deployment of Azure IoT Operations, you need to have the following hardware requirements available. If you're using a multinode cluster that enables fault tolerance, scale up to the recommended capacity for better performance. For more information about hardware requirements for other deployment scenarios, see [Baseline resource profiles for Azure IoT Operations](../reference/concept-resource-profiles.md#hardware-sizing-guidance).
 
 | Spec | Minimum | Recommended |
 |------|---------|-------------|

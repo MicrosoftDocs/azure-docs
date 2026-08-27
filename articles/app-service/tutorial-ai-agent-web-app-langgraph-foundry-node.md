@@ -141,7 +141,7 @@ When processing user messages, the agent is invoked by adding the user's message
 
 The sample repository contains an Azure Developer CLI (AZD) template, which creates an App Service app and deploys your sample application. The template enables a system-assigned managed identity for outbound Azure AI calls and configures App Service authentication with Microsoft Entra ID. For more information about the underlying authentication configuration, see [Secure OpenAPI endpoints for Foundry Agent Service](configure-authentication-ai-foundry-openapi-tool.md).
 
-1. In the terminal, log into Azure using Azure Developer CLI:
+1. In the terminal, sign in to Azure by using Azure Developer CLI:
 
    ```bash
    azd auth login
@@ -198,38 +198,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 ### [Foundry Agent Service](#tab/aifoundry)
 
-1. In the [Foundry portal](https://ai.azure.com), create a project.
-
-1. On the home page, copy the **Project endpoint** for later use.
-
-1. Select **Start building** and follow the prompt.
-
-1. Select **Tools** > **Add** > **Add tools** > **Custom** > **OpenAPI tool** > **Create**. In the **Setup** pane, add an action with the OpenAPI spec tool.
-
-1. Paste the OpenAPI schema that you copied from the authenticated App Service app.
-
-1. For **Authentication method**, select **Managed identity**.
-
-1. For **Audience**, paste the **Foundry OpenAPI managed identity audience** value from the AZD output. It resembles:
-
-    ```text
-    api://<generated-client-id>
-    ```
-
-1. Save the tool and agent.
-
-#### Allow the parent Foundry resource to call the task API
-
-1. In the Foundry portal, select **Operate** > **Admin**, select the **Parent resource** for your project, and open its **Identity** page in the Azure portal.
-
-1. Copy the system-assigned identity's **Object (principal) ID**. Find that identity in Microsoft Entra ID, and copy its **Application ID**. For detailed steps, see [Find the parent Foundry resource identity](configure-authentication-ai-foundry-openapi-tool.md#find-your-microsoft-foundry-projects-managed-identity-ids).
-
-1. In the Codespace terminal, store the application ID in the AZD environment and update the App Service authentication configuration:
-
-    ```bash
-    azd env set AZURE_AI_FOUNDRY_ACCOUNT_CLIENT_ID <application-id>
-    azd provision
-    ```
+[!INCLUDE [create-agent-managed-identity](includes/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/create-agent-managed-identity.md)]
 
 -----
 
