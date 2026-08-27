@@ -199,12 +199,12 @@ To configure approval settings when you create a community:
 1. In the Azure portal, start the community creation workflow.
 1. Go to the `Approvals` configuration tab.
 1. For each supported community or enclave resource type, configure whether approvals are required.
-   - `Community endpoint updates`: Require approval when modifying community endpoints.
-   - `Enclave endpoint updates`: Require approval when modifying enclave endpoints.
-   - `Enclave creation`: Require approval before a new enclave is created.
-   - `Enclave connection creation`: Require approval when creating enclave connections.
-   - `Enclave connection updates`: Require approval when modifying enclave connections.
-   - `Maintenance mode changes`: Require approval before maintenance mode is changed on an enclave, including toggling it on or off.
+   - **Community endpoint updates**: Require approval when modifying community endpoints.
+   - **Enclave endpoint updates**: Require approval when modifying enclave endpoints.
+   - **Enclave creation**: Require approval before a new enclave is created.
+   - **Enclave connection creation**: Require approval when creating enclave connections.
+   - **Enclave connection updates**: Require approval when modifying enclave connections.
+   - **Maintenance mode changes**: Require approval before maintenance mode is changed on an enclave, including toggling it on or off.
 1. Set the `Minimum approvers` value.
 1. Select the users or groups for `Required approvers`.
 1. Review the configuration and create the community.
@@ -242,7 +242,7 @@ Before changing approval settings, review:
 
 ## Assign Enclave Approver Role
 
-After enabling Approvals, assign the **Enclave Approver Role** to users or groups who review and approve requests.
+After enabling approvals, assign the **Enclave Approver Role** to users or groups who review and approve requests.
 
 ### [Portal](#tab/portal)
 
@@ -319,7 +319,7 @@ For enhanced security, combine Approvals with PIM to grant approver permissions 
 
 1. Select your subscription or resource group containing the community.
 
-1. Navigate to `Roles` and search for `Enclave Approver Role`.
+1. Go to **Roles** and search for **Enclave Approver Role**.
 
 1. Select `Enclave Approver Role` > `Role settings` > `Edit`.
 
