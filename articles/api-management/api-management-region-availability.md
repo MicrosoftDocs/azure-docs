@@ -5,7 +5,7 @@ services: api-management
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 07/23/2026
+ms.date: 08/26/2026
 ms.custom:
   - references_regions
   - build-2025
@@ -19,12 +19,12 @@ API Management [v2 tiers](v2-service-tiers-overview.md) and API Management [work
 
 ## Supported regions for v2 tiers and workspace gateways
 
-Information in the following table is updated regularly. Capacity availability in Azure regions may vary.
+The following table is updated regularly. Capacity availability in Azure regions might vary.
 
 > [!IMPORTANT]
 > **Temporary capacity limitations** <br/>
 > The ⚠️ icon in the following table indicates that the corresponding v2 tier or workspace gateway is temporarily unavailable in that region.
-> We're actively working to restore availability in these regions. Existing instances are not affected. In the meantime, consider deploying to an alternative region or choose a different tier.
+> We're actively working to restore availability in these regions. Existing instances aren't affected. In the meantime, consider deploying to an alternative region or choose a different tier.
 
 | Region | Basic v2 | Standard v2 | Premium v2 | Workspace gateway (Premium) | 
 |-----|:---:|:---:|:---:|:---:|
@@ -44,8 +44,8 @@ Information in the following table is updated regularly. Capacity availability i
 | Italy North | ✅ | ✅ |  |  |
 | Japan East | ✅ | ✅ | | ✅ |
 | Korea Central | ✅ | ✅ | ✅ | | 
-| Malaysia West | | ✅ | | |
-| New Zealand North | | ✅ | | |
+| Malaysia West | ✅ | ✅ | | |
+| New Zealand North | ✅ | ✅ | | |
 | North Central US | ✅ | ✅ |  | ✅ |
 | North Europe | ✅ | ✅ |  | ⚠️ ¹ |
 | Norway East | ✅ | ✅ | ✅ | ✅ |
@@ -62,7 +62,7 @@ Information in the following table is updated regularly. Capacity availability i
 | West Europe  | ✅ | ✅ | | ✅ |
 | West US | ✅ | ✅ |  | ✅ |
 | West US 2 | ✅ | ✅ |  | |
-| West US 3 | | ✅ |  | |
+| West US 3 | ✅ | ✅ |  | |
 
 ¹ New instance creation temporarily unavailable. See the capacity limitation note above.
 

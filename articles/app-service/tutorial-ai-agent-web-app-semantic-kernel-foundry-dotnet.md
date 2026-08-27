@@ -191,7 +191,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
     | Variable                      | Description                                              |
     |-------------------------------|----------------------------------------------------------|
-    | `AzureOpenAIEndpoint`         | Azure OpenAI endpoint (copied from the classic Foundry portal). |
+    | `AzureOpenAIEndpoint`         | Azure OpenAI endpoint (copied from the Foundry portal home page). |
     | `ModelDeployment`             | Model name in the deployment (copied from the model playground in the new Foundry portal). |
     
     > [!NOTE]
