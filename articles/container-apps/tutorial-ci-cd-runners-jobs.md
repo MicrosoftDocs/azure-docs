@@ -418,11 +418,33 @@ To avoid using administrative credentials, pull images from private repositories
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    IDENTITY_ID=$(az identity show `
+    $IDENTITY_ID=$(az identity show `
         --name $IDENTITY `
         --resource-group $RESOURCE_GROUP `
         --query id `
         --output tsv)
+    ```
+
+1. Assign the AcrPull role to the managed identity.
+
+    # [Bash](#tab/bash)
+
+    ```azurecli
+    az role assignment create \
+        --assignee-object-id "$(az identity show --ids "$IDENTITY_ID" --query principalId -o tsv)" \
+        --assignee-principal-type ServicePrincipal \
+        --role "AcrPull" \
+        --scope "$(az acr show --name "$CONTAINER_REGISTRY_NAME" --query id -o tsv)"
+    ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    az role assignment create `
+    --assignee-object-id $(az identity show --ids $IDENTITY_ID --query principalId -o tsv) `
+    --assignee-principal-type ServicePrincipal `
+    --role "AcrPull" `
+    --scope $(az acr show --name $CONTAINER_REGISTRY_NAME --query id -o tsv)
     ```
 
     ---
