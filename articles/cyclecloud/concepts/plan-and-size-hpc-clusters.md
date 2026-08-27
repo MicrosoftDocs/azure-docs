@@ -46,34 +46,35 @@ Because a node array can span more than one virtual machine scale set, a single 
 
 CycleCloud automatically scales the number of compute nodes based on the work queued in the scheduler, so you don't need to guess a fixed cluster size. Instead, plan the following boundaries:
 
-- **Maximum size.** The cluster form limits how far a cluster autoscales, based on the total number of nodes or cores it can start. Set this limit to reflect the largest workload you expect and the quota available in the region.
+- **Maximum size.** The cluster creation form limits how far a cluster autoscales, based on the total number of nodes or cores it can start. Set this limit to reflect the largest workload you expect and the quota available in the region.
 - **Dedicated versus Spot nodes.** *Dedicated* nodes are reserved for your pool and give you predictable capacity. *Spot* nodes use surplus Azure capacity at a reduced price, but Azure can reclaim them when it needs the capacity back. Use dedicated nodes for time-sensitive or long-running jobs, and Spot nodes for fault-tolerant or restartable work where cost matters more than guaranteed availability.
 - **Scale-down behavior.** Autoscaling removes idle nodes so that you stop paying for compute you aren't using. Confirm that your jobs write results to durable storage, because local data on a node is lost when the node is deallocated.
 
-### Understand Slurm autoscaling limits
+### Understand autoscaling limits
 
-For a Slurm cluster, several independent limits determine how many nodes CycleCloud can start. The lowest effective limit wins:
+For a CycleCloud cluster, several independent limits determine how many nodes CycleCloud can start. The lowest effective limit wins:
 
 | Limit | What it controls |
 | --- | --- |
 | Available total regional vCPU quota | The remaining vCPUs that your subscription can deploy across all VM families in the region. |
 | Available VM-family vCPU quota | The remaining vCPUs that your subscription can deploy for the selected VM family in the region. Both [vCPU quotas](/azure/virtual-machines/quotas) must allow the deployment. |
-| CycleCloud `MaxCount` | The maximum number of nodes in a node array. The current CycleCloud 8.9.2 built-in Slurm template uses this setting. The template changed from `MaxCoreCount` to `MaxCount` in CycleCloud 8.7.1. |
-| CycleCloud `MaxCoreCount` | The maximum number of cores in a node array. Earlier Slurm templates and custom templates might use this setting. If a template defines both `MaxCount` and `MaxCoreCount`, CycleCloud applies the lower effective constraint. |
-| Slurm partition configuration | The nodes that Slurm can request for the partition, including any configured partition or node-record limit. |
+| CycleCloud `MaxCount` | The maximum number of nodes in a node array. |
+| CycleCloud `MaxCoreCount` | The maximum number of cores in a node array. If a template defines both `MaxCount` and `MaxCoreCount`, CycleCloud applies the lower effective constraint. |
 
-Quota and CycleCloud limits are ceilings, not capacity reservations. Actual provisioning can be lower because of temporary Azure capacity constraints or configuration errors. To identify a constraint, compare the queued Slurm request with each limit and then check the CycleCloud node status for allocation or configuration failures.
+> [!IMPORTANT]
+> Quota and CycleCloud limits are ceilings, not capacity reservations. Actual provisioning can be lower because of temporary Azure capacity constraints or configuration errors.
 
-For example, suppose an `hpc` partition uses current-generation [`Standard_HB368rs_v5`](/azure/virtual-machines/sizes/high-performance-compute/hbv5-series#sizes-in-series) VMs, which consume 368 vCPUs each, and has these limits:
+To identify a constraint, go to the CycleCloud cluster page for your cluster. In the **Nodes** table, select **Actions** > **Add**. The **Add Nodes** dialog describes the applicable constraints for the selected node array.
 
-| Layer | Available or configured limit | Effective nodes |
+For example, suppose a node array uses current-generation [`Standard_HB368rs_v5`](/azure/virtual-machines/sizes/high-performance-compute/hbv5-series#sizes-in-series) VMs, which consume 368 vCPUs each, and has these limits:
+
+| Constraint | Available or configured limit | Effective nodes |
 | --- | --- | ---: |
 | Total regional vCPU quota | 3,680 vCPUs | 10 |
 | HBv5 VM-family vCPU quota | 2,208 vCPUs | 6 |
 | CycleCloud `MaxCount` | 8 nodes | 8 |
-| Slurm partition | 10 nodes | 10 |
 
-The HBv5 VM-family quota is the lowest limit, so the configured ceiling is six nodes even if Slurm requests 10. If Azure has capacity for only five VMs when the request runs, CycleCloud provisions five nodes and the remaining request stays constrained until capacity becomes available. Increasing `MaxCount` alone doesn't raise either the quota ceiling or available capacity.
+The HBv5 VM-family quota is the lowest limit, so the configured ceiling is six nodes even though `MaxCount` allows eight. If Azure has capacity for only five VMs when the request runs, CycleCloud provisions five nodes and the remaining request stays constrained until capacity becomes available. Increasing `MaxCount` alone doesn't raise either the quota ceiling or available capacity.
 
 When a template uses `MaxCoreCount`, divide that value by the VM's vCPU count and round down to find its node ceiling. For definitions of both CycleCloud settings, see [Node and node array objects](../cluster-references/node-nodearray-reference.md#advanced-networking-attributes).
 
