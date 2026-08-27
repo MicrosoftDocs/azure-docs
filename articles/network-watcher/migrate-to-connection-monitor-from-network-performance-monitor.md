@@ -24,7 +24,7 @@ The following are key benefits of the new Connection monitor:
 
 - Unified connectivity monitoring experience for Azure and Hybrid endpoints 
 
-    - Azure Monitor agent enabled ARC servers as source and destination endpoints. 
+    - Azure Monitor agent-enabled Azure Arc servers as source and destination endpoints. 
 
     - Cross subscription, cross workspace and cross region monitoring support.   
 
@@ -32,9 +32,9 @@ The following are key benefits of the new Connection monitor:
 
 - Ease of experience with simplified agent support 
 
-    - Lightweight Azure Network Watcher extension compatible with ARC endpoints. 
+    - Lightweight Azure Network Watcher extension that's compatible with Azure Arc endpoints. 
 
-    - Support for Azure Monitor agent extension with ARC enabled on-premises endpoints.
+    - Support for Azure Monitor agent extension with Azure Arc enabled on-premises endpoints.
 
     - Auto upgrade of agents with automated agent enablement support.
 
@@ -79,7 +79,7 @@ The following table compares Network performance monitor and the new Connection 
 
 The migration helps produce the following results:
 
-- On-premises agents and firewall settings work as is. No changes are required. Log Analytics agents that are installed on Azure virtual machines need to be replaced with the [Network Watcher extension](network-watcher-agent-windows.md).
+- On-premises agents and firewall settings work as is. You don't need to make any changes. Replace Log Analytics agents that are installed on Azure virtual machines with the [Network Watcher extension](network-watcher-agent-manage.md).
 - Existing tests are mapped to Connection monitor > Test group > Test format. By selecting **Edit**, you can view and modify the properties of the new Connection monitor, download a template to make changes to it, and submit the template via Azure Resource Manager.
 - Agents send data to both the Log Analytics workspace and the metrics.
 - Data monitoring:
@@ -128,7 +128,7 @@ After the migration, be sure to:
 
 ## Common errors encountered
 
-The following table list common errors that you might encounter during the migration:
+The following table lists common errors that you might encounter during the migration:
 
 | Error | Reason |
 | ----- | ------ |

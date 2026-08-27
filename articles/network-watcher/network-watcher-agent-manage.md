@@ -1,37 +1,43 @@
 ---
-title: Manage Network Watcher Agent VM Extension - Windows
-description: Learn about the Network Watcher Agent virtual machine extension on Windows virtual machines and how to deploy it.
+title: Manage Network Watcher Agent VM Extension
+description: Learn about the Network Watcher Agent virtual machine extension and how to install, view, and uninstall it on Windows and Linux virtual machines.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 09/23/2025
-ms.custom: devx-track-arm-template
+ms.date: 08/27/2026
+ms.custom: devx-track-arm-template, linux-related-content
+zone_pivot_groups: network-watcher-agent-os
 
-# Customer intent: As an Azure administrator, I want to manage the Network Watcher Agent VM extension on my virtual machines, so that I can effectively diagnose and monitor network traffic and performance.
+# Customer intent: As an Azure administrator, I want to manage the Network Watcher Agent VM extension on my Windows or Linux virtual machines, so that I can effectively diagnose and monitor network traffic and performance.
 ---
 
-# Manage Network Watcher Agent virtual machine extension for Windows
+# Manage Network Watcher Agent virtual machine extension
 
 The Network Watcher Agent virtual machine extension is a requirement for some of Azure Network Watcher features that capture network traffic to diagnose and monitor Azure virtual machines (VMs). For more information, see [What is Azure Network Watcher?](network-watcher-overview.md)
 
-In this article, you learn how to install and uninstall Network Watcher Agent for Windows. Installation of the agent doesn't disrupt, or require a reboot of the virtual machine. If the virtual machine is deployed by an Azure service, check the documentation of the service to determine whether or not it permits installing extensions in the virtual machine.
+In this article, you learn how to install and uninstall Network Watcher Agent for Windows and Linux. Installation of the agent doesn't disrupt, or require a reboot of the virtual machine. If the virtual machine is deployed by an Azure service, check the documentation of the service to determine whether the service permits installing extensions in the virtual machine.
+
+::: zone pivot="linux"
+> [!NOTE]
+> Network Watcher Agent extension isn't supported on AKS clusters.
+::: zone-end
 
 ## Prerequisites
 
 # [**Portal**](#tab/portal)
 
-- An Azure Windows virtual machine (VM). For more information, see [Supported Windows versions](#supported-operating-systems).
+- An Azure virtual machine (VM) running a supported operating system. For more information, see [Supported operating systems](#supported-operating-systems).
 
-- Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
+- Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform.
 
 - Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures.
 
 # [**PowerShell**](#tab/powershell)
 
-- An Azure Windows virtual machine (VM). For more information, see [Supported Windows versions](#supported-operating-systems).
+- An Azure virtual machine (VM) running a supported operating system. For more information, see [Supported operating systems](#supported-operating-systems).
 
-- Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
+- Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform.
 
 - Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures.
 
@@ -43,9 +49,9 @@ In this article, you learn how to install and uninstall Network Watcher Agent fo
 
 # [**Azure CLI**](#tab/cli)
 
-- An Azure Windows virtual machine (VM). For more information, see [Supported Windows versions](#supported-operating-systems).
+- An Azure virtual machine (VM) running a supported operating system. For more information, see [Supported operating systems](#supported-operating-systems).
 
-- Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
+- Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform.
 
 - Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures.
 
@@ -57,13 +63,13 @@ In this article, you learn how to install and uninstall Network Watcher Agent fo
 
 # [**Resource Manager**](#tab/arm)
 
-- An Azure Windows virtual machine (VM). For more information, see [Supported Windows versions](#supported-operating-systems).
+- An Azure virtual machine (VM) running a supported operating system. For more information, see [Supported operating systems](#supported-operating-systems).
 
-- Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform. 
+- Outbound TCP connectivity to `169.254.169.254` over `port 80` and `168.63.129.16` over `port 8037`. The agent uses these IP addresses to communicate with the Azure platform.
 
 - Internet connectivity: Network Watcher Agent requires internet connectivity for some features to properly work. For example, it requires connectivity to your storage account to upload packet captures.
 
-- Azure PowerShell or Azure CLI installed locally to deploy the template. 
+- Azure PowerShell or Azure CLI installed locally to deploy the template.
 
     - You can [install Azure PowerShell](/powershell/azure/install-azure-powershell) to run the cmdlets. Use [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet to sign in to Azure.
 
@@ -73,6 +79,8 @@ In this article, you learn how to install and uninstall Network Watcher Agent fo
 
 ## Supported operating systems
 
+::: zone pivot="windows"
+
 Network Watcher Agent extension for Windows can be installed on:
 
 - Windows Server 2012, 2012 R2, 2016, 2019, 2022 and 2025 releases.
@@ -81,9 +89,41 @@ Network Watcher Agent extension for Windows can be installed on:
 > [!NOTE]
 > Currently, Nano Server isn't supported.
 
+::: zone-end
+
+::: zone pivot="linux"
+
+You can install the Network Watcher Agent extension for Linux on the following Linux distributions:
+
+| Distribution | Version |
+|---|---|
+| AlmaLinux  | 9.2 |
+| Azure Linux | 2.0 |
+| CentOS <sup>1</sup> | 6.10 and 7 |
+| Debian | 7 and 8 |
+| openSUSE Leap | 42.3+ |
+| Oracle Linux | 6.10 <sup>2</sup>, 7, 8, and 9+ |
+| Red Hat Enterprise Linux (RHEL) | 6.10 <sup>3</sup>, 7, 8, and 9.2 |
+| Rocky Linux | 9.1 |
+| SUSE Linux Enterprise Server (SLES) | 12 and 15 (SP2, SP3, and SP4) |
+| Ubuntu | 16+ |
+
+<sup>1</sup> CentOS Linux reached its end of life (EOL) on June 30, 2024. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
+<sup>2</sup> [Extended life cycle (ELS) support](https://www.oracle.com/a/ocom/docs/linux/oracle-linux-extended-support-ds.pdf) for Oracle Linux version 6.X ended on [July 1, 2024](https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf).
+
+<sup>3</sup> [Extended life cycle (ELS) support](https://www.redhat.com/en/resources/els-datasheet) for Red Hat Enterprise Linux 6.X ended on [June 30, 2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
+
+> [!NOTE]
+> Internet Control Message Protocol (ICMP) monitoring isn't currently supported in the Network Watcher Agent on Oracle Linux due to known kernel-level limitations specific to the distro.
+
+::: zone-end
+
 ## Extension schema
 
 The following JSON shows the schema for the Network Watcher Agent extension. The extension doesn't require, or support, any user-supplied settings, and relies on its default configuration.
+
+::: zone pivot="windows"
 
 ```json
 {
@@ -102,17 +142,47 @@ The following JSON shows the schema for the Network Watcher Agent extension. The
     }
 }
 ```
+
+::: zone-end
+
+::: zone pivot="linux"
+
+```json
+{
+    "name": "[concat(parameters('vmName'), '/AzureNetworkWatcherExtension')]",
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "apiVersion": "2023-03-01",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+    ],
+    "properties": {
+        "autoUpgradeMinorVersion": true,
+        "publisher": "Microsoft.Azure.NetworkWatcher",
+        "type": "NetworkWatcherAgentLinux",
+        "typeHandlerVersion": "1.4"
+    }
+}
+```
+
+::: zone-end
+
 ## List installed extensions
 
 # [**Portal**](#tab/portal)
 
-From the virtual machine page in the Azure portal, you can view the installed extension by following these steps:
+From the virtual machine page in the Azure portal, you can view the installed extensions by following these steps:
 
 1. Under **Settings**, select **Extensions + applications**.
 
 1. In the **Extensions** tab, you can see all installed extensions on the virtual machine. If the list is long, you can use the search box to filter the list.
 
-    :::image type="content" source="./media/network-watcher-agent-windows/list-vm-extensions.png" alt-text="Screenshot that shows how to view installed extensions on a VM in the Azure portal." lightbox="./media/network-watcher-agent-windows/list-vm-extensions.png":::
+    ::: zone pivot="windows"
+    :::image type="content" source="./media/network-watcher-agent-manage/list-vm-extensions.png" alt-text="Screenshot that shows how to view installed extensions on a VM in the Azure portal." lightbox="./media/network-watcher-agent-manage/list-vm-extensions.png":::
+    ::: zone-end
+    ::: zone pivot="linux"
+    :::image type="content" source="./media/network-watcher-agent-manage/list-vm-extensions.png" alt-text="Screenshot that shows how to view installed extensions on a VM in the Azure portal." lightbox="./media/network-watcher-agent-manage/list-vm-extensions.png":::
+    ::: zone-end
 
 # [**PowerShell**](#tab/powershell)
 
@@ -125,12 +195,25 @@ Get-AzVMExtension -ResourceGroupName 'myResourceGroup' -VMName 'myVM' | format-t
 
 The output of the cmdlet lists the installed extensions:
 
+::: zone pivot="windows"
+
 ```output
 Name                         Publisher                      ExtensionType              AutoUpgradeMinorVersion EnableAutomaticUpgrade
 ----                         ---------                      -------------              ----------------------- ----------------------
 AzureNetworkWatcherExtension Microsoft.Azure.NetworkWatcher NetworkWatcherAgentWindows                    True                   True
 ```
 
+::: zone-end
+
+::: zone pivot="linux"
+
+```output
+Name                         Publisher                      ExtensionType            AutoUpgradeMinorVersion EnableAutomaticUpgrade
+----                         ---------                      -------------            ----------------------- ----------------------
+AzureNetworkWatcherExtension Microsoft.Azure.NetworkWatcher NetworkWatcherAgentLinux                    True                   True
+```
+
+::: zone-end
 
 # [**Azure CLI**](#tab/cli)
 
@@ -165,11 +248,21 @@ From the virtual machine page in the Azure portal, you can install the Network W
 
 1. Select **+ Add** and search for **Network Watcher Agent** and install it. If the extension is already installed, you can see it in the list of extensions.
 
-    :::image type="content" source="./media/network-watcher-agent-windows/vm-extensions.png" alt-text="Screenshot that shows the VM's extensions page in the Azure portal." lightbox="./media/network-watcher-agent-windows/vm-extensions.png":::
+    ::: zone pivot="windows"
+    :::image type="content" source="./media/network-watcher-agent-manage/vm-extensions.png" alt-text="Screenshot that shows the VM's extensions page in the Azure portal." lightbox="./media/network-watcher-agent-manage/vm-extensions.png":::
+    ::: zone-end
+    ::: zone pivot="linux"
+    :::image type="content" source="./media/network-watcher-agent-manage/vm-extensions.png" alt-text="Screenshot that shows the VM's extensions page in the Azure portal." lightbox="./media/network-watcher-agent-manage/vm-extensions.png":::
+    ::: zone-end
 
-1. In the search box of **Install an Extension**, enter *Network Watcher Agent for Windows*. Select the extension from the list and select **Next**.
+1. In the search box of **Install an Extension**, enter *Network Watcher Agent*, select the matching extension for your operating system from the list, and then select **Next**.
 
-    :::image type="content" source="./media/network-watcher-agent-windows/install-extension-windows.png" alt-text="Screenshot that shows how to install Network Watcher Agent for Windows in the Azure portal." lightbox="./media/network-watcher-agent-windows/install-extension-windows.png":::
+    ::: zone pivot="windows"
+    :::image type="content" source="./media/network-watcher-agent-manage/install-extension-windows.png" alt-text="Screenshot that shows how to install Network Watcher Agent for Windows in the Azure portal." lightbox="./media/network-watcher-agent-manage/install-extension-windows.png":::
+    ::: zone-end
+    ::: zone pivot="linux"
+    :::image type="content" source="./media/network-watcher-agent-manage/install-extension-linux.png" alt-text="Screenshot that shows how to install Network Watcher Agent for Linux in the Azure portal." lightbox="./media/network-watcher-agent-manage/install-extension-linux.png":::
+    ::: zone-end
 
 1. Select **Review + create** and then select **Create**.
 
@@ -177,10 +270,23 @@ From the virtual machine page in the Azure portal, you can install the Network W
 
 Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet to install Network Watcher Agent VM extension on the virtual machine:
 
+::: zone pivot="windows"
+
 ```azurepowershell-interactive
 # Install Network Watcher Agent for Windows on the virtual machine.
 Set-AzVMExtension -Name 'AzureNetworkWatcherExtension' -Publisher 'Microsoft.Azure.NetworkWatcher' -ExtensionType 'NetworkWatcherAgentWindows' -EnableAutomaticUpgrade 1 -TypeHandlerVersion '1.4' -ResourceGroupName 'myResourceGroup' -VMName 'myVM' 
 ```
+
+::: zone-end
+
+::: zone pivot="linux"
+
+```azurepowershell-interactive
+# Install Network Watcher Agent for Linux on the virtual machine.
+Set-AzVMExtension -Name 'AzureNetworkWatcherExtension' -Publisher 'Microsoft.Azure.NetworkWatcher' -ExtensionType 'NetworkWatcherAgentLinux' -EnableAutomaticUpgrade 1 -TypeHandlerVersion '1.4' -ResourceGroupName 'myResourceGroup' -VMName 'myVM' 
+```
+
+::: zone-end
 
 Once the installation is successfully completed, you see the following output:
 
@@ -194,14 +300,29 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) command to install Network Watcher Agent VM extension on the virtual machine: 
 
+::: zone pivot="windows"
+
 ```azurecli
 # Install Network Watcher Agent for Windows on the virtual machine.
 az vm extension set --name 'NetworkWatcherAgentWindows' --extension-instance-name 'AzureNetworkWatcherExtension' --publisher 'Microsoft.Azure.NetworkWatcher' --enable-auto-upgrade 'true' --version '1.4' --resource-group 'myResourceGroup' --vm-name 'myVM'
 ```
 
+::: zone-end
+
+::: zone pivot="linux"
+
+```azurecli
+# Install Network Watcher Agent for Linux on the virtual machine.
+az vm extension set --name 'NetworkWatcherAgentLinux' --extension-instance-name 'AzureNetworkWatcherExtension' --publisher 'Microsoft.Azure.NetworkWatcher' --enable-auto-upgrade 'true' --version '1.4' --resource-group 'myResourceGroup' --vm-name 'myVM'
+```
+
+::: zone-end
+
 # [**Resource Manager**](#tab/arm)
 
-Use the following Azure Resource Manager template (ARM template) to install Network Watcher Agent VM extension on a Windows virtual machine:
+Use the following Azure Resource Manager template (ARM template) to install the Network Watcher Agent VM extension on a virtual machine:
+
+::: zone pivot="windows"
 
 ```json
 {
@@ -242,6 +363,51 @@ Use the following Azure Resource Manager template (ARM template) to install Netw
 }
 ```
 
+::: zone-end
+
+::: zone pivot="linux"
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+                "type": "string"
+            }
+    },
+    "variables": {},
+    "resources": [
+        {
+                "name": "[parameters('vmName')]",
+                "type": "Microsoft.Compute/virtualMachines",
+                "apiVersion": "2023-03-01",
+                "location": "[resourceGroup().location]",
+                "properties": {
+                }
+            },
+            {
+                "name": "[concat(parameters('vmName'), '/AzureNetworkWatcherExtension')]",
+                "type": "Microsoft.Compute/virtualMachines/extensions",
+                "apiVersion": "2023-03-01",
+                "location": "[resourceGroup().location]",
+                "dependsOn": [
+                    "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+                ],
+                "properties": {
+                    "autoUpgradeMinorVersion": true,
+                    "publisher": "Microsoft.Azure.NetworkWatcher",
+                    "type": "NetworkWatcherAgentLinux",
+                    "typeHandlerVersion": "1.4"
+                }
+            }
+    ],
+    "outputs": {}
+}
+```
+
+::: zone-end
+
 You can use either Azure PowerShell or Azure CLI to deploy the Resource Manager template:
 
 ```azurepowershell
@@ -266,7 +432,12 @@ From the virtual machine page in the Azure portal, you can uninstall the Network
 
 1. Select **AzureNetworkWatcherExtension** from the list of extensions, and then select **Uninstall**.
 
-    :::image type="content" source="./media/network-watcher-agent-windows/uninstall-extension-windows.png" alt-text="Screenshot that shows how to uninstall Network Watcher Agent for Windows in the Azure portal." lightbox="./media/network-watcher-agent-windows/uninstall-extension-windows.png":::
+    ::: zone pivot="windows"
+    :::image type="content" source="./media/network-watcher-agent-manage/uninstall-extension-windows.png" alt-text="Screenshot that shows how to uninstall Network Watcher Agent for Windows in the Azure portal." lightbox="./media/network-watcher-agent-manage/uninstall-extension-windows.png":::
+    ::: zone-end
+    ::: zone pivot="linux"
+    :::image type="content" source="./media/network-watcher-agent-manage/uninstall-extension-linux.png" alt-text="Screenshot that shows how to uninstall Network Watcher Agent for Linux in the Azure portal." lightbox="./media/network-watcher-agent-manage/uninstall-extension-linux.png":::
+    ::: zone-end
 
     > [!NOTE]
     > You might see Network Watcher Agent VM extension named differently than **AzureNetworkWatcherExtension**.
@@ -301,6 +472,6 @@ To get answers to most frequently asked questions about Network Watcher Agent, s
 
 ## Related content
 
-- [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md).
-- [Network Watcher documentation](index.yml).
-- [Microsoft Q&A - Network Watcher](/answers/topics/azure-network-watcher.html).
+- [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md)
+- [Enable or disable Azure Network Watcher](network-watcher-create.md)
+- [Microsoft Q&A - Network Watcher](/answers/topics/azure-network-watcher.html)
