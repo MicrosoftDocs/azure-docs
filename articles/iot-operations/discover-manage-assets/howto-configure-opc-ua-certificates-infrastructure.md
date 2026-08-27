@@ -299,7 +299,7 @@ The following example references the following items:
 | `enterprise-grade-ca-1.der`   | File that contains the enterprise-grade CA certificate public key. |
 | `enterprise-grade-ca-1.crl`   | The CA's CRL file. |
 
-Like the previous examples, you use a dedicated  `SecretProviderClass` custom resource to store the certificates and CRLs. To configure the enterprise-grade application instance certificate, complete the following steps:
+Like the previous examples, use a dedicated  `SecretProviderClass` custom resource to store the certificates and CRLs. To configure the enterprise-grade application instance certificate, complete the following steps:
 
 1. Save the certificates and the CRL in the `SecretProviderClass` custom resource called `aio-opc-ua-broker-client-certificate` by using the following command:
 
