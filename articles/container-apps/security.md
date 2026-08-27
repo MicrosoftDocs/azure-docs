@@ -112,6 +112,6 @@ Use the confidential compute workload profile when your applications process reg
 
 For configuration details, see [Confidential compute in Azure Container Apps](confidential-compute.md).
 
-## Microsoft Defender for Cloud Serverless Containers Posture (preview)
+## Microsoft Defender for Cloud Serverless Containers Posture
 
 Microsoft Defender for Cloud includes serverless containers posture capabilities in [CSPM](/azure/defender-for-cloud/concept-cloud-security-posture-management) for Azure Container Apps. These capabilities provide inventory, posture assessments, and attack path analysis for Azure Container Apps workloads so security teams can identify and prioritize risks in their container apps environment. For onboarding guidance and feature details, see [Serverless protection](/azure/defender-for-cloud/serverless-protection).
