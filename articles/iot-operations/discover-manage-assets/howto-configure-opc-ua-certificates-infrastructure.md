@@ -100,7 +100,7 @@ To use the operations experience web UI to manage the trusted certificates list,
 1. You can add the certificate directly to your Azure Key Vault as a secret and import from there, or you can upload the certificate to the trusted certificates list using the operations experience.
 
     > [!NOTE]
-    > The connector for OPC UA uses a Kubernetes-native secret named `aio-opc-ua-broker-trust-list` to store the trusted certificates list. This secret is created when you deploy Azure IoT Operations.
+    > The connector for OPC UA uses a `SecretProviderClass` custom resource named `aio-opc-ua-broker-trust-list` to store the trusted certificates list. This `SecretProviderClass` resource is created when you deploy Azure IoT Operations.
 
 1. Go to the **Devices** page in the [operations experience](https://iotoperations.azure.com) web UI.
 
@@ -131,7 +131,7 @@ To use the Azure CLI to manage the trusted certificates list, complete the follo
     > [!TIP]
     > Typically, an OPC UA server has an interface that lets you export its application instance certificate. This interface isn't standardized. For servers such as KEPServerEx, there's a Windows-based configuration UI for certificates management. Other servers might have a web interface or use operating system folders to store the certificates. To find out how to export the application instance certificate, refer to the user manual of your server. After you have the certificate, make sure it's either DER or PEM encoded. These certificates are typically stored in files with either the `.der` or `.crt` extension. If the certificate isn't in one of those file formats, use a tool such as `openssl` to transform the certificate into the required format.
 
-1. Add the OPC UA server's application instance certificate to the trusted certificates list. This list is implemented as a Kubernetes-native secret named `aio-opc-ua-broker-trust-list` that's created when you deploy Azure IoT Operations.
+1. Add the OPC UA server's application instance certificate to the trusted certificates list. This list is implemented as a `SecretProviderClass` custom resource named `aio-opc-ua-broker-trust-list` that's created when you deploy Azure IoT Operations.
 
     For a DER encoded certificate in a file such as `./my-server.der`, run the following command:
 
@@ -153,7 +153,7 @@ To trust a CA, complete the following steps:
 
 1. Get the CA certificate public key encoded in DER or PEM format. These certificates are typically stored in files with either the `.der` or `.crt` extension. Get the CA's CRL. This list is typically in a file with the `.crl` extension. Check the documentation for your OPC UA server for details.
 
-1. Save the CA certificate and the CRL in the `aio-opc-ua-broker-trust-list` Kubernetes-native secret:
+1. Save the CA certificate and the CRL in the `SecretProviderClass` custom resource called `aio-opc-ua-broker-trust-list`:
 
     For a DER encoded CA certificate in a file such as `./my-server-ca.der`, run the following commands:
 
@@ -212,7 +212,7 @@ To use the operations experience web UI to manage the issuer certificates list, 
 1. You can add the issuer certificate directly to your Azure Key Vault as a secret and import from there, or you can upload the certificate and certificate revocation list (.crl file) to the issuer certificates list using the operations experience.
 
     > [!NOTE]
-    > The connector for OPC UA uses a Kubernetes-native secret named `aio-opc-ua-broker-issuer-list` to store the issuer certificates list. This secret is created when you deploy Azure IoT Operations.
+    > The connector for OPC UA uses a `SecretProviderClass` custom resource named `aio-opc-ua-broker-issuer-list` to store the issuer certificates list. This `SecretProviderClass` resource is created when you deploy Azure IoT Operations.
 
 1. Go to the **Devices** page in the [operations experience](https://iotoperations.azure.com) web UI.
 
@@ -299,9 +299,9 @@ The following example references the following items:
 | `enterprise-grade-ca-1.der`   | File that contains the enterprise-grade CA certificate public key. |
 | `enterprise-grade-ca-1.crl`   | The CA's CRL file. |
 
-Like the previous examples, you use a dedicated Kubernetes secret to store the certificates and CRLs. To configure the enterprise-grade application instance certificate, complete the following steps:
+Like the previous examples, you use a dedicated  `SecretProviderClass` custom resource to store the certificates and CRLs. To configure the enterprise-grade application instance certificate, complete the following steps:
 
-1. Save the certificates and the CRL in the `aio-opc-ua-broker-client-certificate` secret by using the following command:
+1. Save the certificates and the CRL in the `SecretProviderClass` custom resource called `aio-opc-ua-broker-client-certificate` by using the following command:
 
     # [Bash](#tab/bash)
 
