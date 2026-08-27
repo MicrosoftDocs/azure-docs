@@ -105,7 +105,7 @@ In this tutorial, you learn how to:
     * **Public IP address**: Azure automatically assigns a Standard public IP address to the gateway. You don't need to create one. For more information, see [Auto-assigned public IP](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip).
 
     > [!NOTE]
-    > If you plan to use IPv6-based private peering over ExpressRoute, create the gateway with a Standard, static public IP address using the [PowerShell instructions](expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) instead.
+    > If you plan to use IPv6-based private peering over ExpressRoute, create the gateway with a Standard, static public IP address by using the [PowerShell instructions](expressroute-howto-add-gateway-resource-manager.md#add-a-gateway) instead.
 
 1. Select **Review + create** to review your settings.
 
