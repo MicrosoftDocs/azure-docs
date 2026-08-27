@@ -37,7 +37,7 @@ To manage approval requests, you need:
 
 1. Use the filters to view specific types of requests:
    - `Approval status`: `Pending`, `Approved`, `Rejected`
-   - `Requester`: Filter by who submitted the request
+   - **Requester**: Filter by who submitted the request
    - `Requested on`: Filter by submission date/time range
    - `Parent Resource`: Filter to the enclave or community of interest
    - `Action Type` (if shown in your portal experience): Filter by the requested operation
@@ -147,7 +147,7 @@ When reviewing a community endpoint request:
 
 ## Bulk approval operations
 
-The Approvals page currently supports acting on one request at a time. Select a single request and use `Approve` or `Reject` on its approval details page; there's no multi-select bulk approve/reject option in this experience.
+The **Approvals** page currently supports acting on one request at a time. Select a single request and use `Approve` or `Reject` on its approval details page. There's no multi-select bulk approve or reject option in this experience.
 
 ## View approval history
 
@@ -158,10 +158,10 @@ Approved and rejected requests remain visible in the same `Approvals` list along
 1. Select `Approvals` in the left navigation menu.
 
 1. Filter the list by:
-   - `Approval status`: View only approved or rejected requests
-   - `Requested on`: View approvals within a specific timeframe
-   - `Requester`: See requests submitted by specific users
-   - `Action Type`: Filter by resource type or operation
+   - `Approval status`: View only approved or rejected requests.
+   - `Requested on`: View approvals within a specific timeframe.
+   - `Requester`: See requests submitted by specific users.
+   - `Action Type`: Filter by resource type or operation.
 
 1. Select any historical request to view its full details.
 
