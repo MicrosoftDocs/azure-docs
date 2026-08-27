@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: napster
 ms.custom:
   - ignite-2026
-ms.date: 08/24/2026
+ms.date: 08/26/2026
 #customer intent: As an Azure administrator, I want to manage the lifecycle of my Napster API resource so that I can configure access, monitor it, and delete it when no longer needed.
 ---
 
@@ -71,4 +71,4 @@ Alternatively, reach out directly to the Napster help center at [help.napster.co
 
 ## Related content
 
-[Napster API resources and developer tools](tools.md)
+- [Napster API resources and developer tools](tools.md)

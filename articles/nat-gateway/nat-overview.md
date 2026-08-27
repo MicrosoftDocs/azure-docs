@@ -63,7 +63,6 @@ To learn more about how to deploy a StandardV2 NAT gateway, see [Create a Standa
 
   * Canada East
   * India South Central
-  * Israel Northwest
   * Sweden South
   * West India
 
