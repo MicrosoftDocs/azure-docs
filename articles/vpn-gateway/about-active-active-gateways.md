@@ -5,7 +5,7 @@ description: Learn about active-active VPN gateways, including configuration and
 author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 11/01/2024
+ms.date: 08/27/2026
 ms.author: duau
 ms.custom: sfi-image-nochange
 
@@ -26,7 +26,7 @@ In active-standby mode, during any planned maintenance or unplanned disruption a
 * **S2S and VNet-to-VNet**: The standby instance takes over automatically (failover), and resumes the site-to-site (S2S) VPN or VNet-to-VNet connections. This switch over causes a brief interruption. For planned maintenance, connectivity is restored quickly. For unplanned issues, the connection recovery is longer.
 * **P2S**: For point-to-site (P2S) VPN client connections to the gateway, P2S connections are disconnected. Users need to reconnect from the client machines.
 
-To avoid interruptions, create your gateway in **active-active** mode, or switch an active-standby gateway to active-active.
+For future maintenance or disruptions, active-active mode reduces the interruption associated with active-standby failover. However, converting an existing gateway that uses non-APIPA BGP peer IP addresses causes downtime and requires you to update the on-premises BGP peers. For more information, see [Change a gateway to active-active mode](gateway-change-active-active.md).
 
 ### Active-active mode design
 
