@@ -167,7 +167,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
 
 1. Restart Visual Studio to allow the change to take effect.
 
-1. Press Ctrl+F5 to build and run the console app. You should see the message from App Configuration in the console.
+1. Press Ctrl+F5 to build and run the console app. You see the message from App Configuration in the console.
 
 ## Clean up resources
 

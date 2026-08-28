@@ -29,7 +29,7 @@ Configuration changes should be deployed in a controlled, consistent way. Develo
 
 * **Configuration versioning**: Snapshots can be used to create a version history of configuration settings to sync with release versions. Settings captured in each snapshot can be compared to identify changes between versions.
 
-* **Auditing**: Snapshots can be used for auditing and compliance purposes. Developers can maintain a record of configuration changes between releases by using snapshots for the releases.
+* **Auditing**: Use snapshots for auditing and compliance purposes. Developers can maintain a record of configuration changes between releases by using snapshots for the releases.
 
 * **Testing and Staging environments**: Snapshots can be used to create consistent testing and staging environments. Developers can ensure that the same configuration is used across different environments, by using the same snapshot, which can help with debugging and testing.
 
@@ -69,7 +69,7 @@ To archive and/or recover a snapshot using HMAC authentication, a read-write acc
 
 ### Read and list snapshots
 
-To list all snapshots or get all the key-values in an individual snapshot by name, the following permission is required for stores that use Microsoft Entra authentication. The built-in Data Owner and Data Reader roles already have this permission.
+To list all snapshots or get all the key-values in an individual snapshot by name, you need the following permission for stores that use Microsoft Entra authentication. The built-in Data Owner and Data Reader roles already include this permission.
 - `Microsoft.AppConfiguration/configurationStores/snapshots/read`
 
 For stores that use HMAC authentication, both the "read snapshot" operation (to read the key-values from a snapshot) and the "list snapshots" operation can be performed using either the read-write access keys or the read-only access keys.

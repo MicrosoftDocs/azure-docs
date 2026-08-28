@@ -69,7 +69,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
     ```
 
 > [!NOTE]
-> The code snippets in this example help you get started with the App Configuration client library for Python. In your application, handle exceptions according to your needs. For more information, see the [Python SDK documentation](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration).
+> The code snippets in this article help you get started with the App Configuration client library for Python. In your application, handle exceptions according to your needs. For more information, see the [Python SDK documentation](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration).
 
 ## Code samples
 
