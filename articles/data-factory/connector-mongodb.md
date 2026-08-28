@@ -87,9 +87,7 @@ The following table lists the supported properties for a MongoDB linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type |Set the type property to: **MongoDbV2** |Yes |
-| connectionString |Specify the MongoDB connection string, such as `mongodb://[username:password@]host[:port][/[database][?options]]`. For more details, see [MongoDB manual on connection string](https://docs.mongodb.com/manual/reference/connection-string/).
-
-You can also put a connection string in Azure Key Vault. For more details, see [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| connectionString |Specify the MongoDB connection string, such as `mongodb://[username:password@]host[:port][/[database][?options]]`. For more details, see [MongoDB manual on connection string](https://docs.mongodb.com/manual/reference/connection-string/).<br><br>You can also put a connection string in Azure Key Vault. For more details, see [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | database | Name of the database that you want to access. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. To learn more, see the [Prerequisites](#prerequisites) section. If you don't specify this property, the default Azure Integration Runtime is used. |No |
 
