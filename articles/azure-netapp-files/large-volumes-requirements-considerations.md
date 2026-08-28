@@ -210,7 +210,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Check the status of the feature registration: 
 
     > [!NOTE]
-    > The **RegistrationState** will be in the `Registering` state. Wait until the status is `Registered` before continuing.
+    > The **RegistrationState** is in the `Registering` state. Wait until the status is `Registered` before continuing.
 
     ```azurepowershell
     Set-AzContext -SubscriptionId <subscriptionId>
