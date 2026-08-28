@@ -197,7 +197,7 @@ If this is your first time using large volumes, register the feature with the [l
 1. Check the status of the feature registration: 
 
     > [!NOTE]
-    > The **RegistrationState** will be in the `Registering` state. Wait until the status is `Registered` before continuing.
+    > The **RegistrationState** is in the `Registering` state. Wait until the status is `Registered` before continuing.
 
     ```azurecli
     az account set --subscription <subscriptionId>
