@@ -116,7 +116,7 @@ If you have two or more instances of the NVA, you *can* advertise different AS p
 
 **If your VM is in a different virtual network than the one that hosts your NVA and the Route Server:**
 
-Check if virtual network peering is enabled between the two virtual networks *and* if **Use the remote virtual network's gateway or Route Server** is enabled on your VM's virtual network. This applies when the VM's virtual network consumes a Route Server hosted elsewhere. In a dual-homed ExpressRoute topology, where the virtual network hosts its own Route Server, that setting stays disabled. For more information, see [Dual-homed network topology](about-dual-homed-network.md).
+Check if virtual network peering is enabled between the two virtual networks *and* if **Use the remote virtual network's gateway or Route Server** is enabled on your VM's virtual network. This configuration applies when the VM's virtual network consumes a Route Server hosted elsewhere. In a dual-homed ExpressRoute topology, where the virtual network hosts its own Route Server, that setting stays disabled. For more information, see [Dual-homed network topology](about-dual-homed-network.md).
 
 ### Why is the Equal-Cost Multi-Path (ECMP) function of my ExpressRoute turned off after I deploy Route Server to the virtual network?
 
