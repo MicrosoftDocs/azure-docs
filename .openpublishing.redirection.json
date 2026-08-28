@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path": "articles/automation/automation-linux-hrw-install.md",
+      "redirect_url": "/azure/automation/extension-based-hybrid-runbook-worker-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-windows-hrw-install.md",
+      "redirect_url": "/azure/automation/extension-based-hybrid-runbook-worker-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md",
+      "redirect_url": "/azure/automation/extension-based-hybrid-runbook-worker-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/troubleshoot/hybrid-runbook-worker.md",
+      "redirect_url": "/azure/automation/troubleshoot/extension-based-hybrid-runbook-worker",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/site-recovery/vmware-azure-architecture.md",
       "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
       "redirect_document_id": false

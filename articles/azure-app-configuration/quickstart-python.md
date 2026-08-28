@@ -7,8 +7,9 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: sample
 ms.custom: devx-track-python, mode-other, engagement-fy23, py-fresh-zinc
-ms.date: 02/03/2025
+ms.date: 08/28/2026
 ms.author: malev
+ai-usage: ai-assisted
 #Customer intent: As a Python developer, I want to use the Azure SDK for Python to access my data in Azure App Configuration.
 ---
 # Create a Python app with the Azure SDK for Python
@@ -68,7 +69,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
     ```
 
 > [!NOTE]
-> The code snippets in this example will help you get started with the App Configuration client library for Python. For your application, you should also consider handling exceptions according to your needs. To learn more about exception handling, please refer to our [Python SDK documentation](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration).
+> The code snippets in this article help you get started with the App Configuration client library for Python. In your application, handle exceptions according to your needs. For more information, see the [Python SDK documentation](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/appconfiguration/azure-appconfiguration).
 
 ## Code samples
 
@@ -77,7 +78,7 @@ The sample code snippets in this section show you how to perform common operatio
 > [!NOTE]
 > The App Configuration client library refers to a key-value object as `ConfigurationSetting`. Therefore, in this article, the **key-values** in App Configuration store will be referred to as **configuration settings**.
 
-Learn below how to:
+Learn how to:
 
 - [Connect to an App Configuration store](#connect-to-an-app-configuration-store)
 - [Get a configuration setting](#get-a-configuration-setting)

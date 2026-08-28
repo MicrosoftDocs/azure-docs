@@ -1,22 +1,22 @@
 ---
-title: Serverless agents runtime reference for Azure Functions
-description: "Reference for agent file fields, app configuration, MCP servers, skills, tools, model providers, managed identity, and built-in endpoints in the Azure Functions serverless agents runtime."
+title: Azure Functions hosted skills reference
+description: "Reference for agent file fields, app configuration, MCP servers, skills, tools, model providers, managed identity, and built-in endpoints in Azure Functions hosted skills."
 ms.topic: reference
-ms.date: 07/21/2026
+ms.date: 08/25/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.custom:
   - build-2026
 ms.collection:
   - ce-skilling-ai-copilot
-#Customer intent: As a developer building serverless agents, I want a reference for all configuration fields and options so that I can correctly configure my agent app.
+#Customer intent: As a developer using Azure Functions hosted skills, I want a reference for all configuration fields and options so that I can correctly configure my app.
 ---
 
-# Serverless agents runtime reference
+# Azure Functions hosted skills reference
 
-This article provides the configuration reference for the Azure Functions serverless agents runtime. For an overview of the runtime and guidance on when to use it, see [Serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md).
+This article provides the configuration reference for Azure Functions hosted skills. For an overview of the runtime and guidance on when to use it, see [Azure Functions hosted skills](functions-hosted-skills.md).
 
-[!INCLUDE [serverless-agents-runtime-preview](../../includes/functions-serverless-agents-runtime-preview.md)]
+[!INCLUDE [functions-hosted-skills-preview](../../includes/functions-hosted-skills-preview.md)]
 
 ## Agent file reference
 
@@ -83,7 +83,7 @@ The following table lists the supported `trigger.type` values, their required `a
 
 The following examples show common trigger configurations:
 
-Timer trigger (runs [daily at 3:00 PM UTC](./functions-bindings-timer.md#ncrontab-expressions)):
+- Timer trigger (runs [daily at 3:00 PM UTC](./functions-bindings-timer.md#ncrontab-expressions))
 
 ```yaml
 trigger:
@@ -92,7 +92,7 @@ trigger:
     schedule: "0 0 15 * * *"
 ```
 
-HTTP trigger:
+- HTTP trigger
 
 ```yaml
 trigger:
@@ -102,7 +102,7 @@ trigger:
     auth_level: FUNCTION
 ```
 
-Queue trigger:
+- Queue trigger
 
 ```yaml
 trigger:
@@ -112,7 +112,7 @@ trigger:
     connection: AzureWebJobsStorage
 ```
 
-Blob trigger:
+- Blob trigger
 
 ```yaml
 trigger:
@@ -161,7 +161,7 @@ Keep model, timeout, and system tool defaults in `agents.config.yaml`. Keep remo
 
 The runtime can substitute app settings and environment variables into string values in agent front matter, agent instruction bodies, `agents.config.yaml`, and `mcp.json`. 
 
-For substitutions, you can use either `$SETTING_NAME` or `%SETTING_NAME%`, which are handled the same way by the runtime. Variable names must start with a letter or underscore and can contain letters, numbers, and underscores.
+For substitutions, use either `$SETTING_NAME` or `%SETTING_NAME%`. The runtime handles these two formats the same way. Variable names must start with a letter or underscore and can contain letters, numbers, and underscores.
 
 ```yaml
 model: $FOUNDRY_MODEL
@@ -192,7 +192,7 @@ Substitution rules:
 + Use `$$SETTING_NAME` or `%%SETTING_NAME%%` for literal placeholders in substituted content.
 + Missing variables are left unchanged. Empty values resolve to empty strings.
 + Substitution is a single pass. The `${SETTING_NAME}` syntax isn't supported.
-+ To disable substitution for one agent, set `substitute_variables: false` in the agent file. This doesn't disable substitution in `agents.config.yaml` or `mcp.json`.
++ To disable substitution for one agent, set `substitute_variables: false` in the agent file. This setting doesn't disable substitution in `agents.config.yaml` or `mcp.json`.
 
 ## MCP server configuration (mcp.json)
 
@@ -204,7 +204,7 @@ Use these fields in each `servers` entry:
 
 | Field | Required | Description |
 | --- | --- | --- |
-| `type` | Yes | Use `http` or `streamable-http`. Local `stdio` MCP servers aren't supported by the runtime. |
+| `type` | Yes | Use `http` or `streamable-http`. The runtime doesn't support local `stdio` MCP servers. |
 | `url` | Yes | Remote MCP server endpoint. Environment variable substitution is supported. |
 | `headers` | No | Static headers for a generic remote MCP server. Don't store static secrets in `mcp.json`. |
 | `auth.scope` | When using Microsoft Entra authentication | Microsoft Entra token scope used to authenticate calls to the MCP server. |
@@ -235,7 +235,7 @@ The `auth.client_id` setting selects which managed identity authenticates with t
 
 Connectors let agents work with external services without custom API client code. For example, a Microsoft 365 Outlook connector can send email, a Teams connector can work with messages, and other connectors can call actions in systems such as Salesforce, SAP, or SQL. A [Connector Namespace](../connector-namespace/connector-namespace-overview.md) hosts the connections, triggers, and MCP servers that make those integrations available to your app.
 
-To use connector capabilities in a serverless agents app, first create a Connector Namespace resource, create a connection to the service, and authorize that connection. Then choose how the agent uses the connection:
+To use connector capabilities in a hosted skills app, first create a Connector Namespace resource, create a connection to the service, and authorize that connection. Then choose how the task uses the connection:
 
 + **Connector triggers** start agents when something happens in a connected service, such as a new email, Teams message, or calendar event. To use one, create a trigger in the Connector Namespace that uses the authorized connection, and then configure the agent with the trigger name and arguments from that connector trigger definition.
 + **Connector MCP tools** let agents call service actions, such as sending email or updating a record. To use them, create an MCP server in the Connector Namespace that uses the authorized connection, and then add the MCP server endpoint to [`mcp.json`](#mcp-server-configuration-mcpjson).
@@ -279,7 +279,7 @@ Follow these guidelines when creating your agent files and other project resourc
 + Skill names must be unique across the app.
 + The description should explain both what the skill does and when the agent should use it. The runtime loads skill names and descriptions first so the agent can decide when to load the full skill.
 + Skills can include multiple markdown files in the same skill folder. Reference supporting markdown files from `SKILL.md` by using relative links.
-+ The serverless agents runtime supports only markdown files as skill content. If a skill needs executable behavior, package that code as a [custom Python tool](#custom-python-tools) and refer to the tool by name from the skill instructions.
++ The Azure Functions hosted skills support only markdown files as skill content. If a skill needs executable behavior, package that code as a [custom Python tool](#custom-python-tools) and refer to the tool by name from the skill instructions.
 
 ### Filtering skills per agent
 
@@ -429,7 +429,7 @@ When you rely on auto-detection, the provider-specific setting that identified t
 
 ### Model precedence
 
-Model selection uses this general precedence:
+Model selection follows this general precedence order:
 
 1. The model requested by the agent or runtime call.
 1. Provider-specific settings, such as `AZURE_OPENAI_DEPLOYMENT` or `FOUNDRY_MODEL`.
@@ -448,8 +448,8 @@ The runtime uses managed identities when connecting to Azure resources that supp
 | MCP servers hosted in connector namespaces | The `auth.client_id` value in the server entry in `mcp.json` | `AZURE_CLIENT_ID`, then `DefaultAzureCredential` |
 | Blob-backed session history<sup>3</sup> | `AzureWebJobsStorage__clientId` | `AZURE_CLIENT_ID`, then `DefaultAzureCredential` |
 
-1. When no identity setting is configured, the runtime uses [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential), which resolves to the system-assigned managed identity in Azure and your developer identity (Azure CLI or Visual Studio) locally.
-1. When an API key is configured in Azure OpenAI (using `AZURE_OPENAI_API_KEY`), the model provider uses the key instead of a managed identity. For more information, see [Azure OpenAI extension for Azure Functions](functions-bindings-openai.md#connections).
+1. When you don't configure an identity setting, the runtime uses [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential), which resolves to the system-assigned managed identity in Azure and your developer identity (Azure CLI or Visual Studio) locally.
+1. When you configure an API key in Azure OpenAI (using `AZURE_OPENAI_API_KEY`), the model provider uses the key instead of a managed identity. For more information, see [Azure OpenAI extension for Azure Functions](functions-bindings-openai.md#connections).
 1. Session history uses the same default host storage identity configuration as the Azure Functions host. Use `AzureWebJobsStorage`, `AzureWebJobsStorage__blobServiceUri`, and `AzureWebJobsStorage__clientId` to configure identity-based storage for blob-backed history. The runtime doesn't use a separate agent-specific identity setting for session history. For more information, see [Define connections](manage-connections.md?tabs=host&pivots=functions-auth-identity#define-connections) in the Functions developer guide.
 
 ## Built-in endpoints
@@ -544,18 +544,18 @@ The runtime doesn't require a separate session database. [Sandboxed execution](#
 
 ## Supported hosting plans
 
-The serverless agents runtime supports these Azure Functions hosting plans:
+Azure Functions hosted skills support these Azure Functions hosting plans:
 
 | Plan | Serverless scaling | Notes |
 | --- | --- | --- |
-| [Flex Consumption](flex-consumption-plan.md) | Yes | Scale-to-zero, per-second billing, and automatic scaling. Recommended for most agent workloads. |
-| [Dedicated (App Service)](dedicated-plan.md) | No | Always-on instances with manual or rule-based scaling. Use when you already have App Service plan instances with available capacity. |
+| [Flex Consumption](flex-consumption-plan.md) | Yes | Scale-to-zero, per-second billing, and automatic scaling. Recommended for most workloads. |
+| [Premium](functions-premium-plan.md) | Yes | Pre-warmed instances, virtual network integration, and unlimited execution duration. Use for workloads that need consistent low latency or private networking. |
+| [Dedicated (App Service)](dedicated-plan.md) | No | Always-on instances with manual or rule-based scaling. Use when you already have App Service plan capacity. |
 
-Both plans support managed identity, virtual network integration, and Application Insights.
+All plans support managed identity, virtual network integration, and Application Insights.
 
 ## Related content
 
-+ [Serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md)
-+ [Build serverless agents using Azure Functions](scenario-serverless-agents-runtime.md)
-+ [Compare the serverless agents runtime with other Microsoft agent options](compare-serverless-agents-runtime.md)
++ [Azure Functions hosted skills](functions-hosted-skills.md)
++ [Build an event-driven AI app using Azure Functions hosted skills](scenario-hosted-skills.md)
 + [Flex Consumption plan hosting](flex-consumption-plan.md)

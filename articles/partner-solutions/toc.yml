@@ -35,6 +35,8 @@ items:
     items:
     - name: Astro
       href: ./astronomer/index.yml
+    - name: Commvault
+      href: ./commvault/index.yml
     - name: Confluent
       href: ./apache-kafka-confluent-cloud/index.yml
     - name: Dell PowerScale Preview
@@ -54,3 +56,4 @@ items:
     - name: Palo Alto Network
       href: ./palo-alto/index.yml
   expanded: true
+

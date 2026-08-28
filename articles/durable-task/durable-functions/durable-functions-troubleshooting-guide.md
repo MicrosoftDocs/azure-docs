@@ -5,7 +5,7 @@ author: nytian
 ms.topic: troubleshooting
 ms.service: durable-task
 ms.subservice: durable-functions
-ms.date: 05/20/2026
+ms.date: 08/28/2026
 ms.author: azfuncdf
 ---
 
@@ -21,6 +21,7 @@ This article helps you troubleshoot common scenarios in [Durable Functions](../c
 - [Orchestrations start after a long delay](#orchestrations-start-after-a-long-delay)
 - [Orchestration is stuck in the Running state](#orchestration-is-stuck-in-the-running-state)
 - [Orchestration takes longer than expected to complete](#orchestration-takes-longer-than-expected-to-complete)
+- [Memory usage increases while debugging](#memory-usage-increases-while-debugging)
 - [Connection errors on the Consumption plan](#connection-management-issues-in-the-consumption-plan)
 
 For KQL diagnostic queries you can run in Application Insights, see [Sample KQL queries for Durable Functions diagnostics](#sample-kql-queries-for-durable-functions-diagnostics).
@@ -68,6 +69,27 @@ Heavy data processing, internal errors, and insufficient compute resources can c
 1. If your app uses the .NET in-process model, consider enabling [extended sessions](./durable-functions-azure-storage-provider.md#extended-sessions). Extended sessions minimize history loads, which can slow down processing.
 
 1. Check for performance and scalability bottlenecks. High CPU usage or large memory consumption can cause delays. For detailed guidance, see [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md).
+
+## Memory usage increases while debugging
+
+If a .NET Durable Functions app uses steadily more memory while it runs with an attached managed debugger, the growth might be caused by the debugger rather than by your app or the Durable Functions runtime.
+
+Every time an orchestrator function replays, it recreates the tasks that the orchestration awaits. Some of those tasks never complete, because the replay ends as soon as the orchestrator reaches work that isn't in the history yet. When you attach a managed debugger, the .NET runtime tracks incomplete async tasks so that debugger features such as async call stacks work. This tracking keeps the replayed tasks in memory, so memory use can grow steadily over a long debug session and eventually cause an out-of-memory error. Orchestrations that fan out to many tasks or run for hours can show the largest growth.
+
+> [!IMPORTANT]
+> Memory growth that happens only when a debugger is attached doesn't by itself indicate that your app leaks memory in production runs, where no debugger is attached.
+
+Follow these steps to troubleshoot growing memory usage in debug sessions:
+
+1. Reproduce the behavior without an attached managed debugger. In Visual Studio, select **Debug** > **Start Without Debugging**, or start the app from a command prompt by using `func host start`. Do the same for load tests. If you use a memory profiler, choose a profiling configuration that doesn't attach the managed debugger. If memory use is stable in these runs, the growth is specific to debugging and your app doesn't need a code change.
+
+1. Restart long debug sessions when memory use gets too high. Restarting releases the tasks that the debugger retains.
+
+1. If your app uses the .NET in-process model with the Azure Storage provider, you can enable [extended sessions](./durable-functions-azure-storage-provider.md#extended-sessions) to reduce how often orchestrators replay, which might reduce this growth. Extended sessions aren't a general fix for this behavior, aren't available in the isolated worker model, and can increase your app's normal memory usage, so don't enable them solely for this reason.
+
+1. If memory use also grows in runs without an attached debugger, treat it as a separate problem and investigate orchestration history size, input and output payload sizes, and concurrency settings. For more information, see [Performance and scale in Durable Functions](./durable-functions-perf-and-scale.md).
+
+This behavior is tracked in the GitHub issue [Azure/azure-functions-durable-extension#340](https://github.com/Azure/azure-functions-durable-extension/issues/340).
 
 ## Sample KQL queries for Durable Functions diagnostics
 

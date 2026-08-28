@@ -1,8 +1,6 @@
 ---
 title: Use Azure Stream Analytics no code editor to transform and store data in Azure SQL Database
 description: Learn how to use the Azure Stream Analytics no-code editor to transform data flowing in from Event Hubs and store the result data in an Azure SQL database.
-author: xujxu
-ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 06/13/2023

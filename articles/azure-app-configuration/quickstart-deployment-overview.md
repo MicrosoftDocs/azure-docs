@@ -4,10 +4,11 @@ titleSuffix: Azure App Configuration
 description: Find out about roles, permissions, and authentication modes to use when you manage Azure App Configuration through your infrastructure deployment process.
 author: maud-lv
 ms.author: haiyiwen
-ms.date: 08/13/2025
+ms.date: 08/28/2026
 ms.service: azure-app-configuration
 ms.topic: concept-article
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
+ai-usage: ai-assisted
 # customer intent: As a developer, I want to become familiar with roles, permissions, and authentication modes for managing Azure App Configuration in deployment so that I can enhance security and accountability and reduce manual effort and errors by integrating my configuration into automated deployment processes.
 ---
 

@@ -5,7 +5,7 @@ services: firewall
 author: sujamiya
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 4/29/2025
+ms.date: 08/27/2026
 ms.author: sujamiya
 ms.custom: ai-usage
 ---
@@ -77,7 +77,7 @@ It's important to note the following when you're analyzing the **AZFWNatRule** l
 
 - **Translated field**: For DNAT rules using FQDN filtering, the logs display the resolved IP address in the translated field instead of the FQDN.
 - **Private DNS zones**: Supported only within virtual networks (VNets). This feature isn't available for virtual WAN SKUs.
-- **Multiple IPs in DNS resolution**: If an FQDN resolves to multiple IP addresses in a private DNS zone or custom DNS servers, Azure Firewall's DNS proxy selects the first IP address from the list. This behavior is by design.
+- **Multiple IPs in DNS resolution**: If an FQDN resolves to multiple IP addresses in a private DNS zone or custom DNS servers, the DNAT rule translates to the first IP address in the resolved list. The DNS proxy returns all resolved records. Selecting a single address is specific to DNAT translation. This behavior is by design.
 - **FQDN resolution failures**:
     - If Azure Firewall can't resolve an FQDN, the DNAT rule doesn't match, so the traffic isn't processed.
     - These failures are logged in **AZFWInternalFQDNResolutionFailure** logs only if DNS proxy is enabled.
@@ -88,7 +88,7 @@ It's important to note the following when you're analyzing the **AZFWNatRule** l
 The following considerations are important when using DNAT rules with FQDN filtering:
 
 - **Private DNS zones**: Only supported within the virtual network and not with Azure Virtual WAN.
-- **Multiple IPs in DNS resolution**: Azure Firewall's DNS proxy always selects the first IP address from the resolved list (Private DNS zone or custom DNS server). This is an expected behavior.
+- **Multiple IPs in DNS resolution**: DNAT translation always uses the first IP address from the resolved list (private DNS zone or custom DNS server), even though the DNS proxy returns all resolved records. This behavior is expected.
 
 Analyzing these logs can help diagnose connectivity issues and ensure traffic is routed correctly to the intended backend.
 

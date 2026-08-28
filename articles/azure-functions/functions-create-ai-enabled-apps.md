@@ -21,7 +21,7 @@ Consider using Azure Functions in your AI-enabled experiences for these scenario
 
 | Scenario | Description |
 | ----- | ----- |
-| [Serverless agents runtime](#serverless-agents-runtime) | Functions lets you build event-driven agents that use models, MCP tools, connections from Azure connectors, sandboxed execution, and Functions triggers while running on serverless infrastructure. |
+| [Azure Functions hosted skills](#azure-functions-hosted-skills) | Azure Functions hosted skills bring a Markdown and natural-language programming model for intelligent, event-driven workloads to Azure Functions. |
 | [Tools and MCP servers](#tools-and-mcp-servers) | Functions lets you create and host remote Model Context Protocol (MCP) servers and implement various AI tools. MCP servers are the industry standard for enabling function calling through remote tools. |
 | [Agentic workflows](#agentic-workflows) | Durable Functions helps you create multistep, long-running agent operations with built-in fault tolerance. |
 | [Retrieval-augmented generation (RAG)](#retrieval-augmented-generation) | RAG systems require fast data retrieval and processing. Functions can interact with multiple data sources simultaneously and provide the rapid scale required by RAG scenarios. |
@@ -30,17 +30,17 @@ Select one of these scenarios to learn more in this article.
 
 This article is language-specific, so make sure you choose your programming language at the [top of the page](#top).
 
-## Serverless agents runtime
+## Azure Functions hosted skills
 
-The Azure Functions serverless agents runtime is a preview programming model for building event-driven agents as function apps. With this runtime, an agent is defined in a `.agent.md` file, app-wide runtime defaults are configured in `agents.config.yaml`, and remote MCP servers are listed in `mcp.json`. The runtime discovers these files, registers the required triggers and endpoints, and runs the agent through Microsoft Agent Framework when an event starts the function.
+Azure Functions hosted skills is a preview programming model for building cloud-hosted, event-driven intelligent capabilities on Azure Functions. You define behavior with Markdown, natural-language instructions, and declarative configuration. The runtime discovers `.agent.md` files, registers triggers and endpoints, and runs tasks through Microsoft Agent Framework when events fire.
 
-Use the serverless agents runtime when you want agents that are triggered by events, schedules, messages, or HTTP requests and can call tools across connected systems. Agents can use MCP-enabled connections based on Azure connectors, remote MCP servers, skills, and sandboxed execution while the app runs on Flex Consumption with managed identity, monitoring, and scale-to-zero hosting. Use custom Python tools for app-specific logic.
+Use Azure Functions hosted skills when you want to add intelligent behavior to an event-driven application in response to an HTTP request, schedule, message, data change, or other event. You can also use them to build capabilities that other applications, agents, or agent harnesses consume through HTTP or MCP.
 
 To get started, see these articles:
 
-+ [Overview: serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md)
-+ [Get started: Build serverless agents using Azure Functions](scenario-serverless-agents-runtime.md)
-+ [Reference: serverless agents runtime configuration](functions-serverless-agents-runtime-reference.md)
++ [Overview: Azure Functions hosted skills](functions-hosted-skills.md)
++ [Get started: Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md)
++ [Reference: Azure Functions hosted skills configuration](functions-hosted-skills-reference.md)
 
 ## Tools and MCP servers
 
@@ -127,7 +127,7 @@ PowerShell isn't currently supported for either MCP server hosting option.
 
 ### Queue-based Azure Functions tools
 
-In addition to MCP servers, you can implement AI tools by using Azure Functions with queue-based communication. Foundry provides Azure Functions-specific tools that enable asynchronous function calling by using message queues. With these tools, AI agents interact with your code by using messaging patterns.
+In addition to MCP servers, you can implement AI tools by using Azure Functions with queue-based communication. Foundry provides Azure Functions-specific tools that enable asynchronous function calling by using message queues. By using these tools, AI agents interact with your code by using messaging patterns.
 
 This tool approach is ideal for Foundry scenarios that require:
 - Reliable message delivery and processing
@@ -188,8 +188,7 @@ Here are some reference samples for RAG-based scenarios:
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"   
 **[RAG with Azure AI Search](https://github.com/Azure-Samples/azure-functions-openai-aisearch-node)**
-::: zone-end  
-> For RAG, you can use SDKs, including Azure Open AI and Azure SDKs, to build your scenarios.
+> For RAG, you can use SDKs, including Azure OpenAI and Azure SDKs, to build your scenarios.
 ::: zone-end  
 
 ::: zone pivot="programming-language-csharp"   
@@ -211,11 +210,11 @@ Here are some reference samples for RAG-based scenarios:
 
 ## AI tools and frameworks for Azure Functions
 
-Functions lets you build apps in your preferred language and use your favorite libraries. Because of this flexibility, you can use a wide range of AI libraries and frameworks in your AI-enabled function apps. 
+Functions enables you to build apps in your preferred language and use your favorite libraries. Because of this flexibility, you can use a wide range of AI libraries and frameworks in your AI-enabled function apps. 
 
 Here are some key Microsoft AI frameworks you should be aware of:
 
-| Framework/library | Description |
+| Framework or library | Description |
 | ----- | ----- |
 | [Agent Framework](/agent-framework/) | Easily build AI agents and agentic workflows. |
 | [Agent Service](/azure/ai-foundry/agents/overview) | A fully managed service for building, deploying, and scaling AI agents with enterprise-grade security, built-in tools, and seamless integration with Azure Functions. |
@@ -223,9 +222,10 @@ Here are some key Microsoft AI frameworks you should be aware of:
 
 Functions also lets your apps reference third-party libraries and frameworks, so you can use all of your favorite AI tools and libraries in your AI-enabled functions.  
 
-## Related article
+## Related articles
 
 + [Azure Functions scenarios](functions-scenarios.md)
++ [Use connectors in Azure Functions](functions-connectors-overview.md)
 
 [OpenAI binding extension]: functions-bindings-openai.md
 [MCP binding extension]: functions-bindings-mcp.md

@@ -6,7 +6,7 @@ ms.topic: how-to
 author: maud-lv
 ms.author: malev
 ms.custom: engagement-fy23
-ms.date: 12/20/2024
+ms.date: 08/28/2026
 
 --- 
 
@@ -14,10 +14,10 @@ ms.date: 12/20/2024
 
 Azure Managed Grafana offers a zone-redundant option to protect your workspace against datacenter failure. Enabling zone redundancy for Azure Managed Grafana lets you deploy your Azure Managed Grafana resources across a minimum of three [Azure availability zones](/azure/reliability/availability-zones-region-support) within the same Azure region.
 
-In this how-to guide, learn how to enable zone redundancy for Azure Managed Grafana during the creation of your Azure Managed Grafana workspace.
+This guide shows you how to enable zone redundancy when you create an Azure Managed Grafana workspace.
 
 > [!NOTE]
-> Zone redundancy for Azure Managed Grafana is a billable option. [See prices](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing). Zone redundancy can only be enabled when creating the Azure Managed Grafana workspace, and can't be modified subsequently.
+> Zone redundancy for Azure Managed Grafana is a billable option. [See prices](https://azure.microsoft.com/pricing/details/managed-grafana/#pricing). You can enable zone redundancy only when you create the workspace. You can't change this setting later.
 
 ## Prerequisites
 
@@ -74,7 +74,7 @@ Create a workspace and enable zone redundancy with the Azure portal or the CLI.
 
     :::image type="content" source="media/zone-redundancy/create-form-validation.png" alt-text="Screenshot of the Azure portal. Create workspace form review page showing that zone redundancy is set to Enabled.":::
 
- ### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 1. Run the code below to create a resource group to organize the Azure resources needed. Skip this step if you already have a resource group you want to use.
 
@@ -99,10 +99,10 @@ Create a workspace and enable zone redundancy with the Azure portal or the CLI.
     az grafana create --name <managed-grafana-resource-name> --resource-group <resource-group-name> --zone-redundancy enabled
     ```
 
-Once the deployment is complete, you see a note in the output of the command line stating that the workspace was successfully created, alongside with additional information about the deployment.
+When deployment is complete, the command output confirms that the workspace was created and provides more information about the deployment.
 
 > [!NOTE]
-> The CLI experience for Azure Managed Grafana is part of the amg extension for the Azure CLI (version 2.30.0 or higher). The extension will automatically install the first time you run an `az grafana` command.
+> Azure Managed Grafana commands are part of the `amg` extension for Azure CLI version 2.30.0 or later. The extension installs automatically the first time you run an `az grafana` command.
 
 ---
 
@@ -110,7 +110,7 @@ Once the deployment is complete, you see a note in the output of the command lin
 
 In the Azure portal, under **Settings**, go to **Configuration** and check if **Zone redundancy** is listed as enabled or disabled.
 
-   :::image type="content" source="media/zone-redundancy/configuration-status.png" alt-text="Screenshot of the Azure portal. Check zone redundancy.":::
+:::image type="content" source="media/zone-redundancy/configuration-status.png" alt-text="Screenshot of the Azure portal. Check zone redundancy.":::
 
 ## Next steps
 

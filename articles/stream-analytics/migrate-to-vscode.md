@@ -1,8 +1,6 @@
 ---
 title: How to Migrate ASA projects to Visual Studio Code
 description: This article provides guidance for Visual Studio users migrating ASA projects to Visual Studio Code. 
-author: zhenxilin
-ms.author: zhenxilin
 ms.date: 08/23/2022
 ms.topic: how-to
 ms.service: azure-stream-analytics

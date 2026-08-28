@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 03/28/2026
+ms.date: 08/27/2026
 ms.custom: devx-track-azurepowershell
 # Customer intent: As a network administrator, I want to deploy and configure Azure Firewall using PowerShell, so that I can control outbound network access from an Azure subnet to enhance overall network security
 ---
@@ -73,7 +73,7 @@ This virtual network has three subnets. Use [New-AzVirtualNetworkSubnetConfig](/
 ```azurepowershell
 $Bastionsub = New-AzVirtualNetworkSubnetConfig `
     -Name AzureBastionSubnet `
-    -AddressPrefix 10.0.0.0/27
+    -AddressPrefix 10.0.3.0/26
 $FWsub = New-AzVirtualNetworkSubnetConfig `
     -Name AzureFirewallSubnet `
     -AddressPrefix 10.0.1.0/26
