@@ -106,7 +106,7 @@ Request parameters for this API include the default set mentioned previously and
 |--------------------|-----------------|-------------|
 | **`functionName`** | URL             | The name of the orchestrator function to start. |
 | **`instanceId`**   | URL             | Optional parameter. The ID of the orchestration instance. If not specified, the orchestrator function starts with a random instance ID. |
-| **`version`**      | Query string    | Optional parameter. The version to assign to the new orchestration instance. When specified, this value is available as `context.df.version` inside the orchestration function body. If not specified, the instance uses the `defaultVersion` configured in `host.json` under `extensions.durableTask`. Use this to start an instance that targets a specific version of orchestration logic when multiple versions are deployed simultaneously. Must comply with the `versionMatchStrategy` configured in `host.json`. |
+| **`version`**      | Query string    | Optional parameter. The version to assign to the new orchestration instance. If not specified, the instance uses the `defaultVersion` configured in `host.json` under `extensions.durableTask`. Use this to start an instance that targets a specific version of orchestration logic when multiple versions are deployed simultaneously. Must comply with the `versionMatchStrategy` configured in `host.json`. For more information, see [Versioning in Durable Functions](durable-functions-versioning.md). |
 | **`{content}`**    | Request content | Optional. The JSON-formatted orchestrator function input. |
 
 ### Response
