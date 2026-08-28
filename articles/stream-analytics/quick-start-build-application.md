@@ -2,8 +2,6 @@
 title: Quickstart - Build a clickstream analyzer using one-click deployment
 description: Build a streaming application for clickstream analysis by using Azure Stream Analytics with a GitHub repository and PowerShell scripts.
 ms.service: azure-stream-analytics
-author: alexlzx
-ms.author: zhenxilin
 ms.date: 06/10/2026
 ms.topic: quickstart
 ms.custom: sfi-image-nochange
