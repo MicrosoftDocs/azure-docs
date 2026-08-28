@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-route-server
 ms.topic: concept-article
-ms.date: 09/17/2025
+ms.date: 08/27/2026
 
 #CustomerIntent: As an Azure administrator, I want to design multi-region network topologies with Azure Route Server to enable cross-region communication while maintaining centralized network appliance control and avoiding routing loops.
 ---
@@ -47,7 +47,7 @@ To implement this architecture successfully, configure the following components:
 
 ### Virtual network peering settings
 
-Enable the **Use remote virtual network's gateway or Route Server** setting when peering spoke networks to hub networks. This configuration allows:
+Enable the **Use the remote virtual network's gateway or Route Server** setting when peering spoke networks to hub networks. This configuration allows:
 
 - Route Server to advertise spoke network prefixes to NVAs
 - Learned routes to be injected into spoke network route tables
@@ -135,6 +135,6 @@ If overlay tunnels aren't feasible in your environment, you can implement an alt
 Explore these resources to implement and optimize your multi-region Route Server architecture:
 
 - [Azure Route Server support for ExpressRoute and Azure VPN](expressroute-vpn-support.md)
-- [Configure peering between Azure Route Server and network virtual appliance](tutorial-configure-route-server-with-quagga.md)
+- [Configure peering between Azure Route Server and network virtual appliance](peer-route-server-with-virtual-appliance.md)
 - [What is Azure Route Server?](overview.md)
 - [Monitor Azure Route Server with Azure Monitor](monitor-route-server.md)
