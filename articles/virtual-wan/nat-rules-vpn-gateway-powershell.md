@@ -7,13 +7,13 @@ author: duongau
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/14/2024
+ms.date: 08/27/2026
 ms.author: duau
 ---
 
 # Configure NAT Rules for your Virtual WAN VPN gateway using PowerShell
 
-You can configure your Virtual WAN VPN gateway with static one-to-one NAT rules. A NAT rule provides a mechanism to set up one-to-one translation of IP addresses. NAT can be used to interconnect two IP networks that have incompatible or overlapping IP addresses. A typical scenario is branches with overlapping IPs that want to access Azure VNet resources.
+You can configure your Virtual WAN VPN gateway with static or dynamic NAT rules. A NAT rule provides a mechanism to translate IP addresses so that you can interconnect two IP networks that have incompatible or overlapping IP addresses. Static NAT defines a fixed one-to-one address mapping, while dynamic NAT assigns a target IP address and port based on availability, which lets a larger internal range share a smaller external range. A typical scenario is branches with overlapping IPs that want to access Azure VNet resources.
 
 This configuration uses a flow table to route traffic from an external (host) IP Address to an internal IP address associated with an endpoint inside a virtual network (virtual machine, computer, container, etc.). In order to use NAT, VPN devices need to use any-to-any (wildcard) traffic selectors. Policy Based (narrow) traffic selectors aren't supported in conjunction with NAT configuration.
 
