@@ -44,17 +44,52 @@ Each container app within an environment can be configured with different ingres
 
 ### How ingress visibility interacts with the environment type
 
-The per-app ingress visibility setting (`external` or `internal`) controls *which callers can reach the app*. On an internal (VNet-integrated) environment, this distinction is especially important:
+Two separate settings determine who can reach your container app:
 
-| Environment type | `external: true` | `external: false` |
+- **Environment accessibility level**: Set when you create the environment. An *internal* environment (created with `--internal-only`) has no public endpoint at all. It's reachable only through an internal load balancer in your virtual network. For more information, see [Accessibility level](networking.md#accessibility-level).
+
+- **App ingress visibility**: The per-app `external` property, set with `--type external` or `--type internal`, and shown in the portal as **Ingress traffic**.
+
+The environment's accessibility level defines the outer network boundary. The app's ingress visibility determines whether the app is published at that boundary, or kept inside the environment.
+
+| Environment accessibility level | App ingress external<br>(**Accepting traffic from anywhere**) | App ingress internal<br>(**Limited to Container Apps Environment**) |
 |---|---|---|
-| **External** (public IP) | Accessible from the **public internet** and from other apps in the environment | Accessible **only from other apps** within the same environment |
-| **Internal** (VNet + internal load balancer) | Accessible from the **VNet via the internal load balancer** and from other apps in the environment. *Not exposed to the public internet.* | Accessible **only from other apps** within the same environment. *VNet clients receive HTTP 404.* |
+| **External** | Reachable from the public internet, and from other apps in the environment. | Reachable only from other apps in the same environment. |
+| **Internal** | Reachable from the virtual network through the internal load balancer, and from other apps in the environment. Not reachable from the public internet. | Reachable only from other apps in the same environment. Clients elsewhere in the virtual network receive an HTTP 404 response. |
 
 > [!IMPORTANT]
-> On an internal (VNet-integrated) environment, setting ingress to **external** does *not* expose your app to the public internet. It makes the app accessible from your virtual network through the environment's internal load balancer. Setting ingress to **internal** restricts the app further—it becomes reachable only from other container apps deployed in the same environment. VNet clients that attempt to reach an internal-ingress app receive an HTTP 404 response.
+> The app ingress settings describe the app's relationship to its *environment*, not to the internet. On an internal environment, **Accepting traffic from anywhere** doesn't publish your app to the internet, because the environment has no public endpoint. Instead, it publishes the app at the environment's internal load balancer so that clients in your virtual network can reach it.
 >
-> If your app needs to receive traffic from the VNet (for example, from VMs, other Azure services, or on-premises networks connected via VPN/ExpressRoute), set ingress to **external**.
+> Selecting **Limited to Container Apps Environment** on an internal environment is more restrictive than you might expect. It hides the app from the rest of your virtual network as well as from the internet.
+
+> [!NOTE]
+> An app with internal ingress can still receive traffic from outside the environment if it's referenced as a target in an environment-level HTTP route configuration. For more information, see [Use rule-based routing with Azure Container Apps](rule-based-routing.md).
+
+### Restrict an app to virtual network access only
+
+A common requirement is an app that the public internet can't reach, but that virtual machines, private endpoints, peered networks, and on-premises networks connected through a VPN or Azure ExpressRoute can reach. This configuration requires you to set both the environment accessibility level and the app ingress visibility.
+
+1. Create the environment as internal, so the environment has no public endpoint. Internet isolation comes from this setting, and you can't change it after you create the environment. For more information, see [Use a virtual network with Azure Container Apps](vnet-custom.md).
+
+    ```azurecli
+    az containerapp env create \
+        --name <ENVIRONMENT_NAME> \
+        --resource-group <RESOURCE_GROUP> \
+        --infrastructure-subnet-resource-id <SUBNET_RESOURCE_ID> \
+        --internal-only true
+    ```
+
+1. Set the app's ingress to external, so that the app is published at the environment's internal load balancer and clients in the virtual network can reach it.
+
+    ```azurecli
+    az containerapp ingress enable \
+        --name <APP_NAME> \
+        --resource-group <RESOURCE_GROUP> \
+        --target-port <PORT_NUMBER> \
+        --type external
+    ```
+
+Use internal app ingress only for apps that other container apps in the same environment call, such as a backend service in a microservices application.
 
 ## Protocol types
 

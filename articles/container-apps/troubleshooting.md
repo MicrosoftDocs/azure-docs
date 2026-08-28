@@ -91,6 +91,7 @@ Your container app's ingress settings are enforced through a set of rules that c
 |--|--|
 | Is ingress enabled? | Verify the **Enabled** checkbox is checked. |
 | Do you want to allow external ingress? | Verify that **Ingress Traffic** is set to **Accepting traffic from anywhere**. If your container app doesn't listen for HTTP traffic, set **Ingress Traffic** to **Limited to Container Apps Environment**. |
+| Do clients in your virtual network receive HTTP 404 responses? | If your app runs in an internal environment, verify that **Ingress Traffic** is set to **Accepting traffic from anywhere**. See [Requests from the virtual network return HTTP 404](#requests-from-the-virtual-network-return-http-404). |
 | Does your client use HTTP or TCP to access your container app? | Verify **Ingress type** is set to the correct protocol (**HTTP** or **TCP**). |
 | Does your client support mTLS? | Verify **Client certificate mode** is set to **Require** only if your client supports mTLS. For more information, see [configure client certificate authentication.](./client-certificate-authorization.md) |
 | Does your client use HTTP/1 or HTTP/2? | Verify **Transport** is set to the correct HTTP version (**HTTP/1** or **HTTP/2**). |
@@ -98,6 +99,28 @@ Your container app's ingress settings are enforced through a set of rules that c
 | Is your client IP address denied? | If **IP Security Restrictions Mode** isn't set to **Allow all traffic**, verify your client doesn't have an IP address that is denied. |
 
 For more information, see [Ingress in Azure Container Apps](./ingress-overview.md).
+
+### Requests from the virtual network return HTTP 404
+
+If your container app runs in an internal environment, you might see the following combination of symptoms:
+
+- The app's revision is healthy, and its replicas are running.
+- A client in the virtual network resolves the app's fully qualified domain name (FQDN) successfully, and the TLS handshake succeeds.
+- Every request returns an HTTP 404 response with the message `Container App is stopped or does not exist`, regardless of the request path.
+- The same behavior applies to every app in the environment, including a newly created app that uses a known-good container image.
+
+These symptoms typically indicate that the app's ingress is set to **Limited to Container Apps Environment** rather than a networking, DNS, or application problem. On an internal environment, that setting limits the app to other container apps in the same environment, so requests from elsewhere in the virtual network are rejected.
+
+To make the app reachable from your virtual network, set its ingress to **Accepting traffic from anywhere**. On an internal environment, this setting doesn't expose the app to the public internet, because the environment has no public endpoint.
+
+```azurecli
+az containerapp ingress update \
+    --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --type external
+```
+
+For more information, see [How ingress visibility interacts with the environment type](./ingress-overview.md#how-ingress-visibility-interacts-with-the-environment-type).
 
 ## Verify networking configuration
 

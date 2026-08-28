@@ -63,13 +63,13 @@ az containerapp ingress enable \
 | Option | Property | Description | Values | Required |
 | --- | --- | --- | --- | --- |
 | `--type` | external | Allow ingress to your app from anywhere, or limit ingress to its internal Container Apps environment. | `external` or `internal` | Yes |
-
-> [!NOTE]
-> On an internal (VNet-integrated) environment, `--type external` does not expose the app to the public internet—it makes the app accessible from the VNet through the internal load balancer. Using `--type internal` restricts the app to other container apps within the same environment only; VNet clients receive HTTP 404. For more information, see [How ingress visibility interacts with the environment type](ingress-overview.md#how-ingress-visibility-interacts-with-the-environment-type).
 |`--allow-insecure` | allowInsecure | Allow HTTP connections to your app. | | No |
 | `--target-port` | targetPort | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
 |`--exposed-port` | exposedPort | (TCP ingress only) A port for TCP ingress. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
 |`--transport` | transport | The transport protocol type. | auto (default) detects HTTP/1 or HTTP/2, `http` for HTTP/1, `http2` for HTTP/2, `tcp` for TCP. | No |
+
+> [!NOTE]
+> On an internal environment, `--type external` doesn't expose your app to the public internet, because the environment has no public endpoint. It makes the app reachable from your virtual network through the environment's internal load balancer. Using `--type internal` limits the app to other container apps in the same environment, and clients elsewhere in your virtual network receive an HTTP 404 response. For more information, see [How ingress visibility interacts with the environment type](ingress-overview.md#how-ingress-visibility-interacts-with-the-environment-type).
  
 ::: zone-end
 
@@ -88,6 +88,9 @@ You can configure ingress when you create your container app by using the Azure 
 1. Set **Ingress** to **Enabled**.
 1. Configure the ingress settings for your container app.
 1. Select **Limited to Container Apps Environment** for internal ingress or **Accepting traffic from anywhere** for external ingress.
+
+    On an internal environment, **Accepting traffic from anywhere** doesn't expose your app to the public internet. It makes the app reachable from your virtual network through the environment's internal load balancer. For more information, see [How ingress visibility interacts with the environment type](ingress-overview.md#how-ingress-visibility-interacts-with-the-environment-type).
+
 1. Select the **Ingress Type**: **HTTP** or **TCP** (TCP ingress is only available in environments configured with a virtual network).
 1. If *HTTP* is selected for the **Ingress Type**, select the **Transport**: **Auto**, **HTTP/1** or **HTTP/2**. 
 1. Select **Insecure connections** if you want to allow HTTP connections to your app.
