@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -63,10 +63,6 @@ Azure service: [Azure Policy](/azure/governance/policy/overview), [Azure RBAC](/
 > | --- | --- |
 > | `Microsoft.Authorization/elevateAccess/action` | Grants the caller User Access Administrator access at the tenant scope |
 > | `Microsoft.Authorization/acquirePolicyToken/read` | Acquire a policy token at the specified scope. |
-> | `Microsoft.Authorization/classicAdministrators/read` | Reads the administrators for the subscription. Does not have an effect if used as a NotAction in a custom role. |
-> | `Microsoft.Authorization/classicAdministrators/write` | Add or modify administrator to a subscription. |
-> | `Microsoft.Authorization/classicAdministrators/delete` | Removes the administrator from the subscription. |
-> | `Microsoft.Authorization/classicAdministrators/operationstatuses/read` | Gets the administrator operation statuses of the subscription. |
 > | `Microsoft.Authorization/denyAssignments/read` | Get information about a deny assignment. |
 > | `Microsoft.Authorization/denyAssignments/write` | Create a deny assignment at the specified scope. |
 > | `Microsoft.Authorization/denyAssignments/delete` | Delete a deny assignment at the specified scope. |
@@ -687,6 +683,7 @@ Azure service: [Cost Management](/azure/cost-management-billing/)
 > | `Microsoft.CostManagement/calculateCost/action` | Calculate cost for provided product codes. |
 > | `Microsoft.CostManagement/scheduledActions/action` | Run scheduled action. |
 > | `Microsoft.CostManagement/fetchPrices/action` | Fetch prices for provided products. |
+> | `Microsoft.CostManagement/checkNameAvailability/action` | Check the availability and correctness of a name for a resource. |
 > | `Microsoft.CostManagement/alerts/write` | Update alerts. |
 > | `Microsoft.CostManagement/alerts/read` | List alerts. |
 > | `Microsoft.CostManagement/benefitRecommendations/read` | List  single or shared recommendations for Microsoft benefits. |
@@ -1018,6 +1015,7 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action` | Restore recovery point from cross-tenant mapped vault for the protected items. |
 > | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupJobs/read` | Returns a list of all jobs from the cross-tenant mapped vault. |
 > | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupProtectedItems/read` | Returns a list of all protected items from the cross-tenant mapped vault. |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupUsageSummaries/read` | Returns summaries for Protected Items and Protected Servers for a Recovery Services . |
 > | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupValidateOperationResults/read` | Validate Operation on Protected Item |
 > | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupValidateOperationsStatuses/read` | Validate Operation on Protected Item |
 > | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/vaultCredentials/generate/action` | Retrieves the cross-tenant vault mapping. |
@@ -1070,7 +1068,7 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | `Microsoft.RecoveryServices/Vaults/backupOperations/read` | Returns Backup Operation Status for Recovery Services Vault. |
 > | `Microsoft.RecoveryServices/Vaults/backupPolicies/delete` | Delete a Protection Policy |
 > | `Microsoft.RecoveryServices/Vaults/backupPolicies/read` | Returns all Protection Policies |
-> | `Microsoft.RecoveryServices/Vaults/backupPolicies/write` | Creates Protection Policy |
+> | `Microsoft.RecoveryServices/Vaults/backupPolicies/write` | Creates or Updates Protection Policy |
 > | `Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read` | Get Results of Policy Operation. |
 > | `Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read` | Get Status of Policy Operation. |
 > | `Microsoft.RecoveryServices/Vaults/backupProtectableItems/read` | Returns list of all Protectable Items. |
@@ -1490,23 +1488,6 @@ Azure service: [SAP on Azure](/azure/sap/)
 > | `Microsoft.Workloads/phpWorkloads/wordpressInstances/write` | Create or updated WordpressInstances resource |
 > | `Microsoft.Workloads/phpWorkloads/wordpressInstances/delete` | Delete WordpressInstances resource |
 > | `Microsoft.Workloads/RegisteredSubscriptions/read` | Reads registered subscriptions |
-> | `Microsoft.Workloads/sapDiscoverySites/read` | Gets a SAP Migration discovery site resource. |
-> | `Microsoft.Workloads/sapDiscoverySites/write` | Creates a discovery site for SAP Migration. |
-> | `Microsoft.Workloads/sapDiscoverySites/delete` | Deletes a SAP Migration discovery site resource and its child resources, that is the associated SAP Instances and Server Instances. |
-> | `Microsoft.Workloads/sapDiscoverySites/write` | SAPDiscoverySites_Update. |
-> | `Microsoft.Workloads/sapDiscoverySites/read` | Gets all SAP Migration discovery site resources in a Resource Group. |
-> | `Microsoft.Workloads/sapDiscoverySites/read` | Gets all SAP Migration discovery site resources in a Subscription. |
-> | `Microsoft.Workloads/sapDiscoverySites/importEntities/action` | Import a SAP Migration discovery site resource and it's child resources, that is the SAP instances and Server instances. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/read` | Gets the SAP Instance resource. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/write` | Creates the SAP Instance resource. <br><br>This will be used by service only. PUT operation on this resource by end user will return a Bad Request error. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/delete` | Deletes the SAP Instance resource. <br><br>This will be used by service only. Delete operation on this resource by end user will return a Bad Request error. You can delete the parent resource, which is the SAP Migration discovery site resource, using the delete operation on it. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/write` | Updates the SAP Instance resource. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/read` | Lists the SAP Instance resources for the given SAP Migration discovery site resource. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/read` | Gets the Server Instance resource. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/write` | Creates the Server Instance resource. <br><br>This will be used by service only. PUT operation on this resource by end user will return a Bad Request error. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/delete` | Deletes the Server Instance resource. <br><br>This will be used by service only. Delete operation on this resource by end user will return a Bad Request error. You can delete the parent resource, which is the SAP Migration discovery site resource, using the delete operation on it. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/write` | Updates the Server Instance resource. This operation on a resource by end user will return a Bad Request error. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/read` | Lists the Server Instance resources for the given SAP Instance resource. |
 > | `Microsoft.Workloads/sapVirtualInstances/read` | Gets an SAP Virtual Instance. |
 > | `Microsoft.Workloads/sapVirtualInstances/write` | Creates an SAP Virtual Instance. |
 > | `Microsoft.Workloads/sapVirtualInstances/delete` | Deletes an SAP Virtual Instance. |

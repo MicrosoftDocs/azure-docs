@@ -22,7 +22,6 @@ This article shows supported clients, authentication methods, and sample code yo
 You can use Service Connector to connect the following compute services to Event Hubs:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps

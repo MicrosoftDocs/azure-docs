@@ -58,13 +58,15 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 
 # [Vaulted backup](#tab/vaulted-backup)
 
+- Azure Backup is not supported for Storage Accounts enabled with Network Security Perimeter (NSP). We recommend not associating an account with NSP if you have backup enabled or you plan to use Azure backup.
+
 - You can back up only block blobs in a *standard general-purpose v2 storage account* using the vaulted backup solution for blobs.
 - Blob vaulted backup is also supported when the storage account has private endpoints.
 - Storage accounts using NFS 3.0*, and *SFTP protocols* for blobs are currently not supported. 
 - You can take up to five backups per storage account in a day.
 - You can back up storage accounts with *up to 1000 containers*, there is no limit on the number of blobs within those containers. You can also select a subset of containers to back up (up to 1000 containers).
   - If your storage account contains more than 1000 containers, you need to select *up to 1000 containers* to back up.
-  - To back up any new containers that get created after backup configuration for the storage account, modify the protection of the storage account. These containers aren't backed up automatically.
+  - You can choose to auto-protect containers. When auto-protection is enabled, new containers created after backup configuration are automatically protected until the protected container count reaches 1000. Selecting auto-protection for all present and future containers is permanent, and you can't switch back to the earlier container selection options.
 - The storage accounts to be backed up must contain *a minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error may appear when you configure backup.
 - Only `$web` and `$root` system containers are supported for vaulted backup.
 - If you stop protection (vaulted backup) on a storage account, it doesn't delete the object replication policy created on the storage account. In these scenarios, you need to manually delete the *OR policies*.
@@ -94,4 +96,3 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - [Create a backup policy for  Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md).
 - [Back up Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
 - [Restore Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
-

@@ -171,6 +171,8 @@ items:
         items:
         - name: RHEL
           items:
+          - name: Install HA SAP NetWeaver with NFS simple mount
+            href: high-availability-guide-rhel-nfs-simple-mount.md
           - name: Install HA SAP NetWeaver with NFS on Azure Files
             href: high-availability-guide-rhel-nfs-azure-files.md
           - name: Install HA SAP NetWeaver with Azure NetApp Files

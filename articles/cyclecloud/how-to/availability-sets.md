@@ -1,8 +1,9 @@
 ---
 title: How to Use Availability Sets
-description: How to use availability sets within Azure CycleCloud.
+description: Learn how to use Azure availability sets in Azure CycleCloud to control virtual machine placement for fault isolation and proximity.
 author: bwatrous
-ms.date: 06/21/2022
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author:  bewatrou
 ---
 

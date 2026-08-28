@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - send-one-way-request | Microsoft Docs
 description: Reference for the send-one-way-request policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 03/18/2024
-ms.author: danlep
 ---
 
 # Send one way request

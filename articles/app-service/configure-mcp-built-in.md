@@ -5,7 +5,7 @@ author: seligj95
 ms.author: jordanselig
 ms.service: azure-app-service
 ms.topic: how-to
-ms.date: 06/02/2026
+ms.date: 08/18/2026
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2026
@@ -23,7 +23,7 @@ App Service built-in MCP turns an existing REST API hosted on Azure App Service 
 Use built-in MCP when:
 
 - You already have a REST API running on App Service and want to expose it to an MCP-compatible AI client (GitHub Copilot Chat, Cursor, Windsurf, Claude Desktop) without code changes.
-- You have an OpenAPI 3.x specification (JSON or YAML) that describes the operations you want to expose.
+- You have an OpenAPI 3.0.x specification (JSON or YAML) that describes the operations you want to expose.
 - You want the platform to handle MCP protocol negotiation, tool discovery, hot reload of the spec, and client cancellation.
 - You want App Service Authentication to enforce identity for MCP requests, the same way it enforces identity for any other routes on your app.
 
@@ -38,11 +38,14 @@ For a comparison of all MCP hosting options on Azure, see [Choose an Azure servi
 ## Prerequisites
 
 - An App Service app on a dedicated pricing tier (Basic or higher). Built-in MCP isn't supported on Free, Shared, Consumption, or Flex Consumption plans.
-- An OpenAPI 3.x specification (JSON or YAML) that describes the operations you want to expose as MCP tools. See [Step 1: Provide your OpenAPI spec](#step-1-provide-your-openapi-spec) for generation options.
+- An OpenAPI 3.0.x specification (JSON or YAML) that describes the operations you want to expose as MCP tools. See [Step 1: Provide your OpenAPI spec](#step-1-provide-your-openapi-spec) for generation options.
 
 ## Step 1: Provide your OpenAPI spec
 
-Built-in MCP needs an OpenAPI 3.x document (JSON or YAML). Most web frameworks can produce one for you:
+Built-in MCP needs an OpenAPI 3.0.x document (JSON or YAML). Most web frameworks can produce one for you:
+
+> [!NOTE]
+> Built-in MCP currently supports OpenAPI 3.0.x specifications. OpenAPI 3.1.x specifications aren't supported and can result in no tools being discovered. If your framework generates OpenAPI 3.1.x, configure it to generate OpenAPI 3.0.3 before uploading the specification.
 
 - **ASP.NET Core minimal APIs**—use the built-in [`Microsoft.AspNetCore.OpenApi`](/aspnet/core/fundamentals/openapi/overview) package (default in .NET 9 and later).
 - **ASP.NET Core controllers**—use [Swashbuckle](/aspnet/core/tutorials/getting-started-with-swashbuckle).
@@ -325,7 +328,10 @@ To disconnect the MCP server from API Center, delete the corresponding MCP serve
 
 - Confirm a spec is configured—either uploaded through the portal or available at the path set in `ApiSpecPath`.
 - Confirm `ToolList` isn't set to `[]`.
-- Validate the spec with an OpenAPI 3.x linter—operations missing required fields (such as a response schema) are skipped.
+- Validate the spec with an OpenAPI 3.0.x linter - operations missing required fields (such as a response schema) are skipped.
+
+> [!NOTE]
+> Built-in MCP has a known OpenAPI conversion issue where `tools/list` can return string enum values, including nested enum values, as `"Microsoft.OpenApi.Any.OpenApiString"` instead of their values from the OpenAPI 3.0.x document. For example, `enum: [menu, category, ingredient]` can become three repeated `"Microsoft.OpenApi.Any.OpenApiString"` values. No workaround is currently available.
 
 **The MCP client gets a 401 with a `WWW-Authenticate` challenge.**
 

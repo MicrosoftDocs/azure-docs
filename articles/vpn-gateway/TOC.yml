@@ -130,6 +130,8 @@
           href: site-to-site-certificate-authentication-gateway-portal.md
         - name: Azure PowerShell
           href: site-to-site-certificate-authentication-gateway-powershell.md
+        - name: Azure CLI
+          href: site-to-site-certificate-authentication-gateway-cli.md
     - name: Connect AWS and Azure using a BGP-enabled VPN gateway
       href: vpn-gateway-howto-aws-bgp.md
     - name: Site-to-site with ExpressRoute connections
@@ -298,6 +300,8 @@
             href: point-to-site-user-groups-create-portal.md
           - name: PowerShell
             href: point-to-site-user-groups-create.md
+          - name: Azure CLI
+            href: point-to-site-user-groups-create-cli.md
         - name: RADIUS - Configure NPS and user groups
           href: point-to-site-user-groups-radius.md
     - name: Configure Always On tunnels
@@ -394,6 +398,8 @@
       href: site-to-site-tunneling.md
     - name: Gateway transit for VNet peering
       href: vpn-gateway-peering-gateway-transit.md
+    - name: Use a VPN or ExpressRoute gateway in a different region
+      href: vpn-gateway-different-region.md
     - name: BGP
       items:
         - name: About BGP and VPN Gateway

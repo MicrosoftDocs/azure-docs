@@ -4,8 +4,8 @@ description: This article details how to manage hotpatching on Azure Arc-enabled
 ms.service: azure-update-manager
 ms.date: 08/21/2025
 ms.topic: how-to
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.custom: sfi-image-nochange
 ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator managing Arc-enabled machines, I want to implement hotpatching so that I can ensure timely, non-intrusive updates that maintain system reliability and minimize downtime across my environment.
@@ -112,7 +112,7 @@ To view the hotpatch status on a single machine, follow these steps:
 
 ### Check hotpatch updates
 
-For latest hotpatch updates, enable either [periodic assessment](assessment-options.md#periodic-assessment) or a [one-time update](assessment-options.md#check-for-updates-nowon-demand-assessment).
+For latest hotpatch updates, enable either [periodic assessment](assessment-options.md#periodic-assessment) or a [one-time assessment](assessment-options.md#check-for-updates-nowon-demand-assessment).
 
 Periodic assessment automatically assesses for available updates and ensures that available patches are detected. You can view the results of the assessment on the **Recommended updates** tab, including the time of the last assessment. 
 

@@ -2,11 +2,11 @@
 title: 'Create S2S VPN Connection Between On-premises Network and Azure Virtual Network - Certificate Authentication: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN Gateway server settings for site-to-site configurations - certificate authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/25/2026
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: "As a network engineer, I want to establish a secure site-to-site VPN connection using certificate authentication, so that I can securely connect my on-premises network to my Azure virtual network."
 ---
@@ -17,9 +17,6 @@ In this article, you use the Azure portal to create a site-to-site (S2S) certifi
 **Site-to-site VPN connection with certificate authentication**
 
 :::image type="content" source="./media/site-to-site-certificate-authentication-gateway-portal/diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections." lightbox="./media/site-to-site-certificate-authentication-gateway-portal/diagram.png":::
-
-> [!IMPORTANT]
-> Site-to-site certificate authentication is supported only in the Azure public cloud.
 
 ## Prerequisites
 
@@ -100,7 +97,7 @@ When you generate an **outbound certificate**, the certificate must adhere to th
 
 ### Generate certificates
 
-Use PowerShell locally on your computer to generate certificates. The following steps show you how to create a self-signed root certificate and leaf certificates (inbound and outbound). When using the following examples, don't close the PowerShell window between creating the self-signed Root CA and the leaf certificates.
+Use PowerShell locally on your computer to generate certificates. The following steps show you how to create a self-signed root certificate and leaf certificates (inbound and outbound). When using the following examples, don't close the PowerShell window between creating the self-signed root CA and the leaf certificates.
 
 #### <a name="rootcert"></a>Create a self-signed root certificate
 
@@ -276,9 +273,9 @@ Before moving forward, gather the following information for the required configu
 
 * **Outbound Certificate path**: This is the path to the outbound certificate. The outbound certificate is the certificate used when connecting from Azure to your on-premises location. This information is from the same certificate you uploaded to Azure Key Vault.
 
-   1. Go to **Key Vaults** and click your key vault. In the left pane, expand **Objects** and select **Certificates**.
-   1. Locate and click your certificate to open the certificate page.
-   1. Click the line for your certificate version.
+   1. Go to **Key Vaults** and select your key vault. In the left pane, expand **Objects** and select **Certificates**.
+   1. Locate and select your certificate to open the certificate page.
+   1. Select the line for your certificate version.
    1. Copy the path next to **Certificate Identifier**. The path is specific to the certificate.
 
   Example: `https://s2s-vault1.vault.azure.net/certificates/az-outbound-cert1/<certificate-value>`
@@ -286,7 +283,7 @@ Before moving forward, gather the following information for the required configu
 * **Inbound certificate subject name**: This is the CN for the inbound certificate. To locate this value:
 
    1. If you generated the certificate on your Windows computer, you can locate it using **Certificate Management**.
-   1. Go to the **Details** tab. Scroll and click **Subject**. You see the values in the lower pane.
+   1. Go to the **Details** tab. Scroll and select **Subject**. You see the values in the lower pane.
    1. Don't include *CN=* in the value.
 
 * **Inbound Certificate Chain**: This certificate information is used only to verify the incoming inbound certificate and doesn't contain private keys. You should always have at least two certificates in the inbound certificate section of the portal.
@@ -295,7 +292,7 @@ Before moving forward, gather the following information for the required configu
 
   Use the following steps to extract certificate data in the required format for the inbound certificate field.
 
-  1. To extract the certificate data, make sure that you exported your inbound certificate as a Base-64 encoded X.509 (.CER) file in the previous steps. You need to export the certificate in this format so you can open the certificate with text editor.
+  1. To extract the certificate data, make sure that you exported your inbound certificate as a Base-64 encoded X.509 (.CER) file in the previous steps. You need to export the certificate in this format so you can open the certificate with a text editor.
 
   1. Locate and open the `.cer` certificate file with a text editor. When copying the certificate data, make sure that you copy the text as one continuous line.
 
@@ -346,3 +343,4 @@ Once your connection is complete, you can configure additional VPN Gateway setti
 * [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md)
 * [Configure BGP for VPN Gateway](vpn-gateway-bgp-overview.md)
 * [About highly available VPN gateway connections](vpn-gateway-highlyavailable.md)
+* [Configure a site-to-site VPN with certificate authentication - Azure CLI](site-to-site-certificate-authentication-gateway-cli.md)

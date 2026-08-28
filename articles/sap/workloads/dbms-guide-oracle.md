@@ -59,7 +59,7 @@ When you install or migrate existing SAP on Oracle systems to Azure, follow this
 
   * Set Linux HugePages to 75% of physical RAM size.
   * Set SGA to 90% of HugePage size.
-  * Set the Oracle parameter `USE_LARGE_PAGES = ONLY`. The value `ONLY` is preferred over the value `TRUE` because the value `ONLY` is supposed to deliver more consistent and predictable performance. The value `TRUE` might allocate both large 2-MB and standard 4-K pages. The value `ONLY` always forces large 2-MB pages. If the number of available HugePages isn't sufficient or isn't correctly configured, the database instance fails to start with the following error code:
+  * Set the Oracle parameter `USE_LARGE_PAGES = ONLY`. The value `ONLY` is preferred over the value `TRUE` because the value `ONLY` is supposed to deliver more consistent and predictable performance. The value `TRUE` might allocate both large 2 MB and standard 4-K pages. The value `ONLY` always forces large 2 MB pages. If the number of available HugePages isn't sufficient or isn't correctly configured, the database instance fails to start with the following error code:
 
   ```error
   ora-27102 :  out of memory Linux_x86_64 Error 12 : can't allocate memory
@@ -67,7 +67,7 @@ When you install or migrate existing SAP on Oracle systems to Azure, follow this
 
   If you encounter insufficient contiguous memory, you might need to restart Oracle Linux or reconfigure the OS HugePage parameters.
 
-* Locate Oracle Home outside of the "root" volume or disk. Use a separate disk or Azure NetApp Files volume. The disk holding the Oracle Home should be 64 gigabytes in size or larger.
+* Locate Oracle Home outside of the "root" volume or disk. Use a separate disk or Azure NetApp Files volume. The disk holding the Oracle Home should be 64 GB in size or larger.
 * Note that the size of the boot disk for large high-performance Oracle database servers is important. At a minimum, use a P10 disk for M-series or E-series. Don't use small disks, such as P4 or P6. A small disk can cause performance issues.
 * Enable Accelerated Networking on all VMs. Upgrade to the latest Oracle Linux release if there are any problems when you enable Accelerated Networking.
 * Check for updates in this documentation and the SAP Note [2039619 - SAP Applications on Microsoft Azure using the Oracle Database: Supported Products and Versions](https://launchpad.support.sap.com/#/notes/2039619).
@@ -286,7 +286,7 @@ The following ASM limits exist for Oracle Database 12c or later:
 - 65,530 ASM disks in a storage system
 - 1 million files for each disk group
 
-For more information, see [Performance and Scalability Considerations for Disk Groups (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/performance-scability-diskgroup.html#GUID-5AC1176D-D331-4C1C-978F-0ECA43E0900F).
+For more information, see [Performance and Scalability Considerations for Disk Groups (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/index.html).
 
 Review the ASM documentation in the relevant [SAP Installation Guide for Oracle](https://help.sap.com/viewer/nwguidefinder).
 
@@ -322,7 +322,7 @@ Run an Oracle Automatic Workload Repository (AWR) report as the first step when 
 You can monitor disk performance from inside Oracle Enterprise Manager and via external tools. For more information, see:
 
 - [Using Views to Display Oracle ASM Information](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/views-asm-info.html#GUID-23E1F0D8-ECF5-4A5A-8C9C-11230D2B4AD4)
-- [ASMCMD Disk Group Management Commands (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/asmcmd-diskgroup-commands.html#GUID-55F7A91D-2197-467C-9847-82A3308F0392)
+- [ASMCMD Disk Group Management Commands (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/index.html)
 
 OS-level monitoring tools can't monitor ASM disks because there's no recognizable file system. You must monitor free space from within Oracle.
 
@@ -434,7 +434,7 @@ For Oracle DBAs who aren't familiar with Oracle ASM, see these training material
 - [Oracle19c DB ASM installation on [Oracle Linux 8.3 \| Grid \| ASM \| UDEV \| OEL 8.3 \| VMware]](https://www.youtube.com/watch?v=pRJgiuT-S2M)
 - [ASM Administrator's Guide (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/automatic-storage-management-administrators-guide.pdf)
 - [Oracle for SAP Development Update (May 2022)](https://www.oracle.com/a/ocom/docs/sap-on-oracle-dev-update.pdf)
-- [Performance and Scalability Considerations for Disk Groups (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/performance-scability-diskgroup.html#GUID-BC6544D7-6D59-42B3-AE1F-4201D3459ADD)
+- [Performance and Scalability Considerations for Disk Groups (oracle.com)](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/index.html)
 - [Migrating to Oracle ASM with Oracle Enterprise Manager](https://docs.oracle.com/en/database/oracle/oracle-database/19/ostmg/admin-asm-em.html#GUID-002546C0-7D5F-46E9-B3AD-CDCFF25AFEA0)
 - [Using Recovery Manager (RMAN) to migrate to ASM](https://theoraclementor.wordpress.com/2013/07/07/using-rman-to-migrate-to-asm/)
 - [What is Oracle ASM to Azure IaaS?](https://www.red-gate.com/simple-talk/databases/oracle-databases/what-is-oracle-asm-to-azure-iaas/)

@@ -2,11 +2,11 @@
 title: How to Update Your VPN Client Profile
 titleSuffix: Azure VPN Gateway
 description: Learn about updating your point-to-site VPN client profile.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/04/2026
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: "I want to understand how to update my VPN client profile when Azure VPN Gateway requires migration of its root certificate or if I have made changes to my VPN configuration so I can maintain connectivity for my Point-to-Site VPN connections."
 ---
 

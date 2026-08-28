@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 05/25/2026
+ms.date: 07/16/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -20,14 +20,15 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- July 2026
+  - [Streaming backup support for SAP HANA Scale-out systems (preview)](#streaming-backup-support-for-sap-hana-scale-out-systems-preview)
+  - [HSR support for SAP HANA instance snapshot backups (preview)](#hsr-support-for-sap-hana-instance-snapshot-backups-preview)
 - June 2026
-
   - [Container limit for ADLS backup has been increased from 100 to 1000](/azure/backup/azure-data-lake-storage-backup-overview)
-  
 - May 2026
-- [Snapshot backup for SQL Instances in Azure VM (preview)](#snapshot-backup-for-sql-instances-in-azure-vm-preview)
-- [Vaulted backup support for Azure Cosmos DB (preview)](#vaulted-backup-support-for-azure-cosmos-db-preview)
-- [Bulk restore for Azure Virtual Machines using Azure Backup (preview)](#bulk-restore-for-azure-virtual-machines-using-azure-backup-preview)
+  - [Snapshot backup for SQL Instances in Azure VM (preview)](/azure/backup/whats-new)
+  - [Vaulted backup support for Azure Cosmos DB (preview)](/azure/backup/whats-new)
+  - [Bulk restore for Azure Virtual Machines using Azure Backup (preview)](/azure/backup/whats-new)
 - April 2026
   - [Cross-subscription backup for Azure VMs (preview)](#cross-subscription-backup-for-azure-vms-preview)
   - [Simplified CLI experience to enable backup for AKS clusters](#simplified-cli-experience-to-enable-backup-for-aks-clusters)
@@ -74,6 +75,22 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+## Streaming backup support for SAP HANA Scale-out systems (preview)
+
+Azure Backup now supports streaming backups for SAP HANA Scale-out systems (preview), where a single HANA system is distributed across multiple nodes. This support includes Full, Differential, Incremental, and Log backups with a unified backup chain across nodes.
+
+For more information, see [Back up SAP HANA Scale-out databases on Azure VMs](sap-hana-database-scale-out-backup.md) and [SAP HANA Backup support matrix](sap-hana-backup-support-matrix.md).
+
+## HSR support for SAP HANA instance snapshot backups (preview)
+
+Azure Backup now supports SAP HANA instance snapshot backups for HANA System Replication (HSR) environments (preview). This capability lets you protect HSR-enabled SAP HANA systems with HANA-consistent instance snapshots while continuing to use Backint-based full and log backups for long-term retention and point-in-time recovery.
+
+For more information, see:
+
+- [Back up SAP HANA System Replication databases on Azure VMs using Azure portal](sap-hana-database-with-hana-system-replication-backup.md#sap-hana-hsr-snapshot-backup-behavior-and-configuration)
+- [Back up SAP HANA database instance snapshots on Azure VMs](sap-hana-database-instances-backup.md)
+- [Support matrix for backup of SAP HANA databases on Azure VMs](sap-hana-backup-support-matrix.md)
 
 ## Snapshot backup for SQL Instances in Azure VM (preview)
 

@@ -27,6 +27,7 @@ For guidance on upgrading Basic SKU public IP addresses for other networking ser
 The gateway migration experience allows you to deploy a second virtual network gateway in the same GatewaySubnet, with Azure [automatically assigning a new public IP-](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip) eliminating the need for manual IP creation—while configurations are migrated from the old gateway to the new one; both gateways run simultaneously to minimize disruption, though brief connectivity interruptions may still occur.
 
 After migration, the old gateway and its connections are deleted, and the new gateway is tagged with **CreatedBy: GatewaySKUMigration** to identify it as a migrated resource and shouldn’t be deleted.
+
 ## Supported Migration Scenarios
 
 The guided ExpressRoute gateway migration experience enables customers to move from their current SKU to any equal or higher SKU. Migrating to a lower SKU (downgrades) isn't supported.
@@ -37,6 +38,12 @@ Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migrati
 Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 
 For enhanced reliability and high availability, we recommend migrating to an Az-enabled SKU.
+
+## Microsoft-initiated gateway migration
+
+Microsoft-initiated migration is a managed process that upgrades eligible ExpressRoute gateways on your behalf to support the retirement of Basic Public IP addresses. During the migration, your gateway is transitioned to a Standard Public IP while preserving your existing ExpressRoute configuration. This approach allows customers to meet the Standard Public IP requirement without needing to perform the migration themselves.
+
+For more information on Microsoft-initiated gateway migration, see the associated [Azure blog post](https://techcommunity.microsoft.com/blog/azurenetworkingblog/expressroute-gateway-microsoft-initiated-migration/4497689).
 
 ### Migrate to ErGwScale (Scalable Gateway)
 The ExpressRoute Scalable Gateway (ErGwScale) is a new virtual network gateway SKU that provides flexible, high-bandwidth connectivity for your Azure virtual networks.
@@ -85,8 +92,8 @@ The guided gateway migration experience has the following limitations:
 - **Private Endpoint Connectivity**: Private endpoints (PEs) connected via ExpressRoute private peering may experience **connectivity issues** during migration. Refer to guidance on mitigating these issues in the Private endpoint connectivity documentation. [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
 - **Legacy Gateways**: ExpressRoute gateways created or connected to circuits in **2017 or earlier** aren't supported.
 - **Unsupported SKUs**: Gateways using the **"default" SKU** aren't eligible for migration. To check the migration eligibility of your Gateway, there should be an Advisor notification.
-- **Incompatible dedicated circuit**: Gateway migration can't proceed with a dedicated Hardware Security Module (HSM) connected to the virtual network. To proceed with the migration, deallocate the dedicated Hardware Security Module (HSM). For detailed troubleshooting steps, see [Troubleshoot Dedicated HSM](/azure/dedicated-hsm/troubleshoot).
-
+- **Incompatible dedicated circuit**: Gateway migration can't proceed with a dedicated Hardware Security Module (HSM) connected to the virtual network. To proceed with the migration, see [Migrate Dedicated HSM from ExpressRoute Basic SKU](/azure/dedicated-hsm/migration-basic-standard).
+- 
 For detailed troubleshooting errors and best practices, see [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md).
 
 ## FAQ

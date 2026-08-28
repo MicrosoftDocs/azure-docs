@@ -1,8 +1,9 @@
 ---
 title: Common Issues - Resource Group Privilege
-description: Azure CycleCloud common issue - Resource Group Privilege
+description: Troubleshoot Azure resource group privilege errors for restricted credentials in Azure CycleCloud.
 author: adriankjohnson
-ms.date: 06/30/2025
+ms.date: 06/19/2026
+ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso
 ---
 # Common issues: Azure resource group privileges

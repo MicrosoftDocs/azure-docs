@@ -2,8 +2,8 @@
 title: Copy Data from QuickBooks Online
 description: Learn how to copy data from QuickBooks Online to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
-ms.author: jianleishen
+author: simplywilson
+ms.author: tinglee
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 10/14/2025
@@ -15,6 +15,8 @@ ms.custom:
 # Copy data from QuickBooks Online by using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article outlines how to use the copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline to copy data from QuickBooks Online. It builds on the [overview article about the copy activity](copy-activity-overview.md).
 

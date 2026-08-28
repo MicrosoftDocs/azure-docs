@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/30/2026
+ms.date: 08/21/2026
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -226,6 +226,9 @@ To create a replica-scoped volume and mount it in a container, deploy a new revi
 
 You can mount a file share from [Azure Files](../storage/files/index.yml) as a volume in a container.
 
+> [!IMPORTANT]
+> Azure Container Apps supports only *classic* Azure file shares, which are created within a storage account (the `Microsoft.Storage/storageAccounts/fileServices/shares` resource type). Container Apps doesn't support the newer `Microsoft.FileShares` top-level resource type. If you try to mount a `Microsoft.FileShares` resource, the operation fails. To create a supported file share, see [Create a classic Azure file share](../storage/files/create-classic-file-share.md).
+
 Azure Files storage has the following characteristics:
 
 * Files written under the mount location are persisted to the file share.
@@ -242,7 +245,7 @@ In the Azure portal, open your **Container App**.
 In the left navigation pane, under **Settings**, select **Storage mounts**.  
 
 From here you can add a new mount:  
-1. Choose the storage type (**Azure File share** or **Azure Blob**).  
+1. Choose **Azure File share** as the storage type.  
 2. Provide the required configuration (storage account, share name, access mode).  
 3. Save the mount.  
 4. Create and **deploy** a new revision of your container app to apply the changes.
@@ -250,6 +253,7 @@ From here you can add a new mount:
 * Create a storage definition in the Container Apps environment.
 * If you're using NFS, your environment must be configured with a custom VNet and the storage account must be configured to allow access from the VNet. For more information, see [NFS file shares in Azure Files
 ](../storage/files/files-nfs-protocol.md).
+* If you're using NFS, the storage account must not require encrypted NFS connections. Container Apps doesn't support encryption in transit for NFS file shares. If the storage account's **Require Encryption in Transit for NFS** setting is enabled, or if that setting isn't configured and **Secure transfer required** is enabled, the mount fails with an error such as `mount.nfs: access denied by server while mounting`. For more information, see [Encryption in transit for NFS Azure file shares](../storage/files/encryption-in-transit-for-nfs-shares.md).
 * If your environment is configured with a custom VNet, you must allow ports 445 and 2049 in the network security group (NSG) associated with the subnet.
 * Define a volume of type `AzureFile` (SMB) or `NfsAzureFile` (NFS) in a revision.
 * Define a volume mount in one or more containers in the revision.
@@ -260,7 +264,7 @@ From here you can add a new mount:
 | Requirement | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
-| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account). |
+| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account) with a [classic Azure file share](../storage/files/create-classic-file-share.md). |
 | Azure Container Apps environment | [Create a container apps environment](environment.md). |
 
 ### Configuration
@@ -332,7 +336,7 @@ For a step-by-step tutorial on mounting an SMB file share, see [Create an Azure 
     - For each container in the template that you want to mount Azure Files storage, define a volume mount in the `volumeMounts` array of the container definition.
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
-        - The `subPath` is the path in the volume to mount. If you don't specify this value, the volume root is mounted. For more information, see (#sub-path).
+        - The `subPath` is the path in the volume to mount. If you don't specify this value, the volume root is mounted. For more information, see [Sub path](#sub-path).
 
     # [SMB](#tab/smb)
 
@@ -592,7 +596,7 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
     - For each container in the template that you want to mount Azure Files storage, define a volume mount in the `volumeMounts` array of the container definition.
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
-        - The `subPath` (optional) is the path in the volume to mount. If you don't specify it, the volume root is mounted. For more information, see (#sub-path).
+        - The `subPath` (optional) is the path in the volume to mount. If you don't specify it, the volume root is mounted. For more information, see [Sub path](#sub-path).
 
 See the [ARM template API specification](azure-resource-manager-api-spec.md) for a full example.
 
@@ -652,7 +656,7 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
 1. Select **Add** to exit the context pane.
 
-1. In the *Create and reploy new revision* page, select the **Container** tab.
+1. In the *Create and deploy new revision* page, select the **Container** tab.
 
 1. Select the container that you want to mount the volume in.
 
@@ -662,7 +666,7 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
 1. In **Mount path**, enter the absolute path in the container to mount the volume.
 
-1. In **Sub path (optional)**, enter the path in the volume to mount. If you don't specify this value, the volume root is mounted. For more information, see (#sub-path).
+1. In **Sub path (optional)**, enter the path in the volume to mount. If you don't specify this value, the volume root is mounted. For more information, see [Sub path](#sub-path).
 
 1. Select **Save** to save changes and exit the context pane.
 

@@ -17,6 +17,26 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## July 2026
+
+* [Support for SMB opportunistic locking configuration](azure-netapp-files-create-volumes-smb.md) (preview)
+  
+    Azure NetApp Files now supports configuration of SMB opportunistic locking (oplocks) for SMB and dual-protocol volumes. This capability improves compatibility with legacy applications that require oplocks to be disabled and supports configuration on both new and existing volumes. You can configure replication destination volumes independently of the source volume. 
+
+* [Support for DNS server, LDAP port, User DN, Group DN, and Netgroup DN](configure-directory-server.md) (preview)
+
+    Azure NetApp Files now supports additional LDAP connection configuration options for NFS volumes, including custom LDAP ports, customer-specified DNS servers, and configurable User DN, Group DN, and Netgroup DN values. These enhancements improve compatibility with a broader range of LDAP directory service deployments and provide greater flexibility when integrating Azure NetApp Files with existing enterprise directory environments. 
+
+## June 2026
+
+* [Azure NetApp Files migration assistant portal experience](migrate-volumes.md?tabs=portal) is now generally available (GA)
+
+    Azure NetApp Files [migration assistant](migrate-data.md) enables you to accelerate and simplify migrations of business-critical applications and data to Azure. Migration assistant offers efficient and cost-effective data migration, leveraging ONTAP's built-in replication engine for seamless transition from on-premises storage or Cloud Volumes ONTAP to Azure NetApp Files. It's a storage-efficient data transfer that reduces network transfer costs for both baseline and incremental updates. Migration assistant also offers a low cutover/downtime window, ensuring faster and more efficient final updates, minimizing disruption to operations. Volume migration using migration assistant includes source volume snapshots for primary data protection, and directory and file metadata maintaining security attributes.
+    
+* [Azure NetApp Files support for NFS nconnect on Azure VMware Solution](performance-azure-vmware-solution-datastore.md) is now generally available (GA)
+
+    Azure NetApp Files now supports the NFS nconnect mount option on Azure VMware Solution (AVS), enabling each AVS ESXi host to establish up to four parallel TCP connections (nconnect=4) to a single Azure NetApp Files NFS datastore. This added network parallelism increases the amount of I/O that can be processed concurrently, delivering higher aggregate throughput and IOPS per datastore compared to a single-connection configuration. By increasing per-datastore performance, nconnect=4 can reduce the need to provision and manage multiple datastores to scale performance, simplifying Azure VMware Solution storage design while still supporting performance intensive workloads such as databases. No changes are required to virtual machines or applications once the datastore is mounted with the option. For more information, see [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) and [Azure VMware Solution datastore performance considerations for Azure NetApp Files](performance-azure-vmware-solution-datastore.md). 
+
 ## May 2026 
 
 * [Object REST API](object-rest-api-access-configure.md) is now generally available (GA)
@@ -37,7 +57,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
  
 * [Azure NetApp Files now supports files up to 64TiB on regular Azure NetApp Files volumes](azure-netapp-files-resource-limits.md) is now generally available (GA)
 
-   To support seamless migration and operation of workloads that use large files including Azure VMware Solution (AVS) virtual machines with large VMDK disks, [Azure NetApp Files now supports file sizes of up to 64 TiB for regular volumes](azure-netapp-files-resource-limits.md). This enhancement enables the migration of on premises workloads with large virtual machine disks to Azure VMware Solution and supports ongoing operation of data intensive workloads in Azure. The capability is available in all Azure NetApp Files enabled regions across the Flexible, Standard, Premium, and Ultra service levels.
+   To support seamless migration and operation of workloads that use large files including Azure VMware Solution (AVS) virtual machines with large VMDK disks, [Azure NetApp Files now supports file sizes of up to 64 TiB for regular volumes](azure-netapp-files-resource-limits.md). This enhancement enables the migration of on-premises workloads with large virtual machine disks to Azure VMware Solution and supports ongoing operation of data intensive workloads in Azure. The capability is available in all Azure NetApp Files enabled regions across the Flexible, Standard, Premium, and Ultra service levels.
 
 ## April 2026 
 
@@ -774,7 +794,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Standard network features](configure-network-features.md) are now generally available [in supported regions](azure-netapp-files-network-topologies.md).
 
-    Standard network features now includes Global virtual network peering.
+    Standard network features now include Global virtual network peering.
 
     Regular billing for Standard network features on Azure NetApp Files began November 1, 2022.
 
@@ -1010,7 +1030,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Active Directory Domain Services (AD DS) LDAP user-mapping with NFS extended groups](configure-ldap-extended-groups.md) (preview)
 
-    By default, Azure NetApp Files supports up to 16 group IDs when handling NFS user credentials, as defined in [RFC 5531](https://tools.ietf.org/html/rfc5531). With this new capability, you can now increase the maximum up to 1,024 if you have users who are members of more than the default number of groups. To support this capability, NFS volumes can now also be added to AD DS LDAP, which enables Active Directory LDAP users with extended groups entries (with up to 1024 groups) to access the volume.
+    By default, Azure NetApp Files supports up to 16 group IDs when handling NFS user credentials, as defined in [RFC 5531](https://tools.ietf.org/html/rfc5531). With this new capability, you can now increase the maximum up to 1,024 if you have users who are members of more than the default number of groups. To support this capability, NFS volumes can now also be added to AD DS LDAP, which enables Active Directory LDAP users with extended groups entries (with up to 1,024 groups) to access the volume.
 
 ## March 2021
 

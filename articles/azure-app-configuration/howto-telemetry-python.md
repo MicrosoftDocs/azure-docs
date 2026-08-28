@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 05/06/2025
+ms.date: 07/01/2026
 ---
 
 # Enable telemetry for feature flags in a Python application
@@ -28,7 +28,7 @@ In this tutorial, you use telemetry in your Python application to track feature 
     pip install azure-monitor-opentelemetry
     ```
 
-1. Open `app.py` and configure your code to connect to Application Insights to publish telemetry.
+1. Open `app.py` and configure your application to connect to Application Insights and publish telemetry data. Ensure that the existing `from flask import Flask` import statement appears after the `configure_azure_monitor(...)` call shown in the following code. This order is required for OpenTelemetry auto-instrumentation to work correctly.
 
     ```python
     import os
@@ -50,6 +50,7 @@ In this tutorial, you use telemetry in your Python application to track feature 
 
     ```python
     from featuremanagement import track_event
+    from flask import jsonify
     
     @bp.route("/heart", methods=["POST"])
     def heart():
@@ -87,7 +88,7 @@ In this tutorial, you use telemetry in your Python application to track feature 
 
 ## Build and run the app
 
-1. Application insights requires a connection string to connect to your Application Insights resource. Set the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable to the connection string for your Application Insights resource.
+1. Application Insights requires a connection string to connect to your Application Insights resource. Set the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable to the connection string for your Application Insights resource. To locate the connection string, open the Azure portal, navigate to Application Insights, select your Application Insights resource created earlier, and then go to **Overview**. Copy the value of **Connection String**. Replace the placeholder value in the following command with the connection string you copied from your Application Insights resource.
 
     ```cmd
     setx APPLICATIONINSIGHTS_CONNECTION_STRING "applicationinsights-connection-string"
@@ -108,7 +109,7 @@ In this tutorial, you use telemetry in your Python application to track feature 
 ## Collect telemetry
 
 Deploy your application to begin collecting telemetry from your users. To test its functionality, you can simulate user activity by creating many test users. Each user will experience a different variant of greeting messages, and they can interact with the application by clicking the heart button to like a quote. As your user base grows, you can monitor the increasing volume of telemetry data collected in Azure App Configuration. Additionally, you can drill down into the data to analyze how each variant of the feature flag influences user behavior.
-- [Review telemetry results in App Configuration](./howto-telemetry.md#review-telemetry-results-in-azure-app-configuration).
+- [View feature flag events](./howto-telemetry-review-results.md).
 
 ## Additional resources
 - [Flask Quote of the Day sample](https://github.com/Azure-Samples/quote-of-the-day-python)

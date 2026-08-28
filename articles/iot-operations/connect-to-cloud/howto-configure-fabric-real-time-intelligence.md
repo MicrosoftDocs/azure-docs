@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/10/2026
+ms.date: 08/25/2026
 ai-usage: ai-assisted
 ms.custom:
   - sfi-image-nochange
@@ -32,6 +32,10 @@ To send data to Microsoft Fabric Real-Time Intelligence from Azure IoT Operation
 > [!NOTE]
 > An eventstream supports multiple input sources, which includes Azure Event Hubs. If you have an existing data flow to Event Hubs, you can bring that data flow into Fabric as shown in the [quickstart: Get insights from your processed data](../get-started-end-to-end-sample/quickstart-get-insights.md#ingest-data-into-real-time-intelligence). This article shows you how to flow real-time data directly into Fabric without any other hops in between.
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for values that you choose: `ENDPOINT`, `BOOTSTRAP_SERVER_ADDRESS`, `SECRET_NAME`, `CONNECTION_STRING_PRIMARY_KEY`, `CLIENT_ID`, `TENANT_ID`, and `SASL_TYPE`. Set each one before you run the related commands.
+
 ## Retrieve custom endpoint connection details
 
 Retrieve the [Kafka-compatible connection details for the custom endpoint](/fabric/real-time-intelligence/event-streams/add-source-custom-app#kafka). The connection details are used to configure the data flow endpoint in Azure IoT Operations.
@@ -39,6 +43,8 @@ Retrieve the [Kafka-compatible connection details for the custom endpoint](/fabr
 # [Entra ID authentication](#tab/entra-id)
 
 This method uses a managed identity to authenticate with the eventstream. Use either system-assigned managed identity or user-assigned managed identity when you configure the data flow endpoint.
+
+[!INCLUDE [data-flow-graph-uami-usage](../includes/data-flow-graph-uami-usage.md)]
 
 1. Go to the connection details in the Fabric portal under the **Sources** section of your eventstream.
 1. In the **Details** pane for the custom endpoint, select the **Kafka** protocol.
@@ -100,7 +106,7 @@ This method uses a managed identity to authenticate with the eventstream. Use ei
 Use the following [az iot ops dataflow endpoint create fabric-realtime](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-fabric-realtime) command to create or replace a Real-Time Intelligence data flow endpoint:
 
 ```azurecli
-az iot ops dataflow endpoint create fabric-realtime --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host "<BootstrapServerAddress>"
+az iot ops dataflow endpoint create fabric-realtime --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --host "$BOOTSTRAP_SERVER_ADDRESS"
 ```
 
 Use the following example command to create or replace a Real-Time Intelligence data flow endpoint named `fabric-realtime-endpoint`:
@@ -114,7 +120,7 @@ az iot ops dataflow endpoint create fabric-realtime --resource-group myResourceG
 Use the following [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change a Real-Time Intelligence data flow endpoint:
 
 ```azurecli
-az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow endpoint apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file that contains the resource properties.
@@ -194,7 +200,7 @@ resource fabricRealtimeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpo
 Deploy the file via the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -202,9 +208,9 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 [!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```bash
-kubectl create secret generic <SECRET_NAME> -n azure-iot-operations \
+kubectl create secret generic $SECRET_NAME -n azure-iot-operations \
   --from-literal=username='$ConnectionString' \
-  --from-literal=password='<ConnectionStringPrimaryKey>'
+  --from-literal=password="$CONNECTION_STRING_PRIMARY_KEY"
 ```
 
 Create a Kubernetes manifest `.yaml` file with the following content:
@@ -231,7 +237,7 @@ spec:
 Apply the manifest file to the Kubernetes cluster:
 
 ```bash
-kubectl apply -f <FILE>.yaml
+kubectl apply -f main.yaml
 ```
 
 ---
@@ -244,12 +250,7 @@ The following authentication methods are available for Real-Time Intelligence da
 
 Before you configure the data flow endpoint, give the Azure IoT Operations managed identity access to the Fabric workspace that contains your eventstream. Custom endpoints for the Fabric eventstream authorize managed identities through Fabric workspace access, not through the Azure portal identity and access management (IAM) on an Azure resource.
 
-1. In the Azure portal, go to your Azure IoT Operations instance and select **Overview**.
-1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, copy **azure-iot-operations-xxxx7**.
-1. In Fabric, go to the workspace that contains your eventstream.
-1. Select **Manage access** > **Add people or groups**.
-1. Search for the Azure IoT Operations Azure Arc extension identity that you copied. An example is **azure-iot-operations-xxxx7**.
-1. Assign workspace permission of Contributor or higher to the identity.
+[!INCLUDE [fabric-workspace-access-system-assigned-managed-identity](../includes/fabric-workspace-access-system-assigned-managed-identity.md)]
 
 For more information, see [Assign Fabric workspace permissions](/fabric/real-time-intelligence/event-streams/connect-using-managed-identity#step-2-assign-fabric-workspace-permissions).
 
@@ -266,7 +267,7 @@ On the operations experience tab for the data flow endpoint settings page, selec
 Use the [az iot ops dataflow endpoint create fabric-realtime](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-fabric-realtime) command with the `--auth-type` parameter set to `SystemAssignedManagedIdentity` for system-assigned managed identity authentication. In most cases, you don't need to specify `--audience`. The default audience matches the endpoint host in the form `https://<NAMESPACE>.servicebus.windows.net`.
 
 ```azurecli
-az iot ops dataflow endpoint create fabric-realtime --auth-type SystemAssignedManagedIdentity --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host "<BootstrapServerAddress>"
+az iot ops dataflow endpoint create fabric-realtime --auth-type SystemAssignedManagedIdentity --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --host "$BOOTSTRAP_SERVER_ADDRESS"
 ```
 
 #### Create or change
@@ -318,16 +319,9 @@ kafkaSettings:
 
 ### User-assigned managed identity
 
-To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
+[!INCLUDE [fabric-workspace-access-user-assigned-managed-identity](../includes/fabric-workspace-access-user-assigned-managed-identity.md)]
 
-Before you configure the data flow endpoint, give the user-assigned managed identity access to the Fabric workspace that contains your eventstream. Custom endpoints for the Fabric eventstream authorize managed identities through Fabric workspace access, not through the Azure portal IAM on an Azure resource.
-
-1. In Fabric, go to the workspace that contains your eventstream.
-1. Select **Manage access** > **Add people or groups**.
-1. Search for your user-assigned managed identity.
-1. Assign workspace permission of Contributor or higher to the identity.
-
-For more information, see [Assign Fabric workspace permissions](/fabric/real-time-intelligence/event-streams/connect-using-managed-identity#step-2-assign-fabric-workspace-permissions).
+Custom endpoints for the Fabric eventstream authorize managed identities through Fabric workspace access, not through the Azure portal IAM on an Azure resource. For more information, see [Assign Fabric workspace permissions](/fabric/real-time-intelligence/event-streams/connect-using-managed-identity#step-2-assign-fabric-workspace-permissions).
 
 Configure the data flow endpoint with user-assigned managed identity settings.
 
@@ -342,7 +336,7 @@ On the operations experience tab for the data flow endpoint settings page, selec
 Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `UserAssignedManagedIdentity` for user-assigned managed identity authentication.
 
 ```azurecli
-az iot ops dataflow endpoint create fabric-realtime --auth-type UserAssignedManagedIdentity --client-id <ClientId> --tenant-id <TenantId> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host "<BootstrapServerAddress>"
+az iot ops dataflow endpoint create fabric-realtime --auth-type UserAssignedManagedIdentity --client-id $CLIENT_ID --tenant-id $TENANT_ID --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --host "$BOOTSTRAP_SERVER_ADDRESS"
 ```
 
 #### Create or change
@@ -442,7 +436,7 @@ We recommend that you use Azure Key Vault to sync the connection string to the K
 Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `Sasl` for SASL authentication.
 
 ```azurecli
-az iot ops dataflow endpoint create fabric-realtime --auth-type Sasl --sasl-type <SaslType> --secret-name <SecretName> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host "<BootstrapServerAddress>"
+az iot ops dataflow endpoint create fabric-realtime --auth-type Sasl --sasl-type $SASL_TYPE --secret-name $SECRET_NAME --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --host "$BOOTSTRAP_SERVER_ADDRESS"
 ```
 
 #### Create or change
@@ -489,9 +483,9 @@ kafkaSettings: {
 [!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```bash
-kubectl create secret generic <SECRET_NAME> -n azure-iot-operations \
+kubectl create secret generic $SECRET_NAME -n azure-iot-operations \
   --from-literal=username='$ConnectionString' \
-  --from-literal=password='<ConnectionStringPrimaryKey>'
+  --from-literal=password="$CONNECTION_STRING_PRIMARY_KEY"
 ```
 
 ```yaml

@@ -2,8 +2,8 @@
 title: Azure Update Manager update sources, and types
 description: This article provides information on update sources, update types, Microsoft updates and Third party updates for managing updates on your Azure VMs and servers.
 ms.service: azure-update-manager
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.date: 02/26/2025
 ms.topic: overview
 ms.update-cycle: 1095-days
@@ -75,6 +75,7 @@ As Update Manager depends on your machine's OS package manager or update service
 
 ## Next steps
 
+- Learn about the required [built-in roles and permissions](../expressroute/roles-permissions.md) to manage Azure VMs and Azure Arc-enabled servers using Azure Update Manager. 
 - Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
 - Know more on [supported OS and system requirements for machines managed by Azure Update Manager](support-matrix-updates.md).
 - Learn on [Automatic VM guest patching](support-matrix-automatic-guest-patching.md).

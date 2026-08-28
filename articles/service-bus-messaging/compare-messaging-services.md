@@ -1,88 +1,89 @@
 ---
-title: Compare Azure messaging services
-description: Describes the three Azure messaging services - Azure Event Grid, Event Hubs, and Service Bus. Recommends which service to use for different scenarios.
-ms.topic: concept-article
-ms.date: 04/29/2025
-#customer intent: As an architect or a developer, I want to know when to use Azure Event Grid, Azure Event Hubs, and Azure Service Bus.
+title: Compare Messaging Services
+description: Compare Azure Event Grid, Event Hubs, and Service Bus. Learn the differences between event routing, streaming, and enterprise messaging to choose the right service.
+ms.topic: product-comparison
+ms.date: 06/12/2026
+ai-usage: ai-assisted
+#customer intent: As an architect or developer, I want to compare Azure Event Grid, Azure Event Hubs, and Azure Service Bus so that I can choose the right messaging service for my application.
 ---
 
-# Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus
-Azure offers three services that assist with delivering events or messages throughout a solution. These services are: Azure Event Grid, Azure Event Hubs, Azure Service Bus.
+# Choose between Azure Event Grid, Event Hubs, and Service Bus
 
-Although they have some similarities, each service is designed for particular scenarios. This article describes the differences between these services, and helps you understand which one to choose for your application. In many cases, the messaging services are complementary and can be used together.
+Azure provides several services for delivering events and messages throughout a solution. Each service targets different scenarios, from reactive event routing to high-throughput streaming to enterprise-grade transactional messaging.
 
-## Events vs. messages
-There's an important distinction between services that deliver an event and services that deliver a message.
+This article compares the following services:
 
-### Event
-An event is a lightweight notification of a condition or a state change. The publisher of the event has no expectation about how the event is handled. The consumer of the event decides what to do with the notification. Events can be discrete units or part of a series.
+- [Azure Event Grid](../event-grid/overview.md)
+- [Azure Event Hubs](../event-hubs/event-hubs-about.md)
+- [Azure Service Bus](service-bus-messaging-overview.md)
 
-Discrete events report change in a state and are actionable. To take the next step, the consumer only needs to know that something happened. The event data has information about what happened but doesn't have the data that triggered the event. For example, an event notifies consumers that a file was created. It might have general information about the file, but it doesn't have the file itself. Discrete events are ideal for serverless solutions that need to scale.
+## Choose a candidate service
 
-A series of events reports a condition and is analyzable. The events are time-ordered and interrelated. The consumer needs the sequenced series of events to analyze what happened.
+This section helps you select the most likely services for your needs.
 
-### Message
-A message is raw data produced by a service to be consumed or stored elsewhere. The message contains the data that triggered the message pipeline. The publisher of the message has an expectation about how the consumer handles the message. A contract exists between the two sides. For example, the publisher sends a message with the raw data, and expects the consumer to create a file from that data and send a response when the work is done.
+Use the following table to quickly narrow down which service fits your scenario:
 
-Now, let's quickly review what Azure Event Grid, Azure Event Hubs, and Azure Service Bus are. 
+| Criterion | Event Grid | Event Hubs | Service Bus |
+|---|---|---|---|
+| **Primary purpose** | Reactive event routing | Big data streaming and ingestion | Enterprise transactional messaging |
+| **Data model** | Events (discrete notifications) | Event streams (time-ordered series) | Messages (high-value payloads) |
+| **Delivery guarantee** | At least once | At least once | At least once (optional ordered, exactly once with sessions) |
+| **When to use** | React to status changes, serverless architectures | Telemetry, distributed data streaming, real-time analytics | Order processing, financial transactions, workflows |
 
-## Azure Event Grid
-Azure Event Grid is a highly scalable, fully managed Pub Sub message distribution service that offers flexible message consumption patterns using the Message Queueing Telemetry Transport (MQTT) and HTTP protocols. With Azure Event Grid, you can build data pipelines with device data, integrate applications, and build event-driven serverless architectures.
+The result of this section is a starting point for consideration. Use the following sections to perform a detailed evaluation of the services.
 
-The service provides an eventing backbone that enables event-driven and reactive programming. It uses the publish-subscribe model. Publishers emit events, but have no expectation about how the events are handled. Subscribers decide on which events they want to handle.
+## Events vs. messages in Azure messaging services
 
-Event Grid is deeply integrated with other Azure services and can be integrated with third-party services. It simplifies event consumption and lowers costs by eliminating the need for constant polling. Event Grid efficiently and reliably routes events from Azure and non-Azure resources. It distributes the events to registered subscriber endpoints. The event message has the information you need to react to changes in services and applications. 
+There's an important distinction between Azure services that deliver an event and services that deliver a message.
 
-It has the following characteristics: 
+**Event**: A lightweight notification of a condition or state change. The publisher has no expectation about how the event is handled. Events can be discrete (reporting a state change that's actionable) or part of a time-ordered series (reporting a condition that's analyzable). Discrete events are ideal for serverless solutions that need to scale.
 
-- Dynamically scalable
-- Low cost
-- Serverless
-- At least once delivery of an event
+**Message**: Raw data produced by a service to be consumed or stored elsewhere. The message contains the data that triggered the message pipeline. A contract exists between publisher and consumer. For example, the publisher sends a message with raw data, and expects the consumer to create a file from that data and send a response when the work is done.
 
-Event Grid is offered in two editions: **Azure Event Grid**, a fully managed PaaS service on Azure, and **Event Grid on Kubernetes with Azure Arc**, which lets you use Event Grid on your Kubernetes cluster wherever that is deployed, on-premises or on the cloud. For more information, see [Azure Event Grid overview](../event-grid/overview.md) and [Event Grid on Kubernetes with Azure Arc overview](../event-grid/kubernetes/overview.md).
+## Scalability and throughput
 
-## Azure Event Hubs
-Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per second. It facilitates the capture, retention, and replay of telemetry and event stream data. The data can come from many concurrent sources. Event Hubs allows telemetry and event data to be made available to various stream-processing infrastructures and analytics services. It's available either as data streams or bundled event batches. This service provides a single solution that enables rapid data retrieval for real-time processing, and repeated replay of stored raw data. It can capture the streaming data into a file for processing and analysis.
+The following table compares how Azure Event Grid, Azure Event Hubs, and Azure Service Bus handle scalability and throughput.
 
-It has the following characteristics:
+| Criterion | Event Grid | Event Hubs | Service Bus |
+|---|---|---|---|
+| **Throughput** | Dynamically scalable, serverless | Millions of events per second | Reliable asynchronous delivery |
+| **Latency model** | Near-real-time event delivery | Low latency streaming | Brokered with optional long polling |
+| **Scaling model** | Automatic (serverless) | Throughput units / processing units | Messaging units (Premium) |
 
-- Low latency
-- Can receive and process millions of events per second
-- At least once delivery of an event
+## Messaging features
 
-For more information, see [Event Hubs overview](../event-hubs/event-hubs-about.md).
+The following table compares the messaging features of Azure Event Grid, Azure Event Hubs, and Azure Service Bus.
 
-## Azure Service Bus
-Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. The service is intended for enterprise applications that require transactions, ordering, duplicate detection, and instantaneous consistency. Service Bus enables cloud-native applications to provide reliable state transition management for business processes. When handling high-value messages that can't be lost or duplicated, use Azure Service Bus. This service also facilitates highly secure communication across hybrid cloud solutions and can connect existing on-premises systems to cloud solutions.
+| Criterion | Event Grid | Event Hubs | Service Bus |
+|---|---|---|---|
+| **Protocol** | MQTT, HTTP | AMQP, Kafka, HTTP | AMQP, HTTP |
+| **Pub/Sub** | Yes (publish-subscribe) | Yes (consumer groups) | Yes (topics and subscriptions) |
+| **Ordering** | No guarantee | Per partition | FIFO (sessions) |
+| **Transactions** | No | No | Yes |
+| **Duplicate detection** | No | No | Yes |
+| **Dead-lettering** | Yes | No | Yes |
+| **Batching** | Yes | Yes (event batches) | Yes (sessions) |
+| **Capture / replay** | No | Yes (Event Hubs Capture) | No |
 
-Service Bus is a brokered messaging system. It stores messages in a "broker" (for example, a queue) until the consuming party is ready to receive the messages. It has the following characteristics:
+## Integration and deployment
 
-- Reliable asynchronous message delivery (enterprise messaging as a service) that requires polling. If you're using Service Bus and you need to receive messages without having to poll the queue, you can achieve it by using a **long polling** receive operation using the TCP-based protocols that Service Bus supports. 
-- Advanced messaging features like first-in and first-out (FIFO), batching/sessions, transactions, dead-lettering, temporal control, routing and filtering, and duplicate detection
-- At least once delivery of a message
-- Optional ordered delivery of messages
+The following table compares integration and deployment options for Azure Event Grid, Azure Event Hubs, and Azure Service Bus.
 
-For more information, see [Service Bus overview](../service-bus-messaging/service-bus-messaging-overview.md).
+| Criterion | Event Grid | Event Hubs | Service Bus |
+|---|---|---|---|
+| **Azure service integration** | Deep integration with Azure services and third-party services | Stream-processing infrastructures and analytics services | Enterprise applications, hybrid cloud, on-premises connectivity |
+| **Editions** | Azure Event Grid (PaaS), Event Grid on Kubernetes with Azure Arc | Standard, Premium, Dedicated | Basic, Standard, Premium |
 
-## Comparison of services
-The following table compares the three services: Event Grid, Event Hubs, and Service Bus. 
+## Use Event Grid, Event Hubs, and Service Bus together
 
-| Service | Purpose | Type | When to use |
-| ------- | ------- | ---- | ----------- |
-| Event Grid | Reactive programming | Event distribution (discrete events) | React to status changes |
-| Event Hubs | Big data pipeline | Event streaming (series) | Telemetry and distributed data streaming |
-| Service Bus | High-value enterprise messaging | Message | Order processing and financial transactions |
-
-## Use the services together
-In some cases, you use the services side by side to fulfill distinct roles. For example, an e-commerce site can use Service Bus to process the order, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item was shipped.
+In some cases, you use the services side by side to fulfill distinct roles. For example, an e-commerce site can use Service Bus to process orders, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item being shipped.
 
 In other cases, you link them together to form an event and data pipeline. You use Event Grid to respond to events in the other services. For an example of using Event Grid with Event Hubs to migrate data to Azure Synapse Analytics, see [Stream big data into Azure Synapse Analytics](../event-grid/event-hubs-integration.md). The following image shows the workflow for streaming the data.
 
 :::image type="content" source="./media/compare-messaging-services/overview.svg" alt-text="Diagram showing how Event Hubs, Service Bus, and Event Grid can be connected together.":::
 
 ## Related content
-See the following articles: 
+
 - [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging)
-- [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
+- [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/)
 

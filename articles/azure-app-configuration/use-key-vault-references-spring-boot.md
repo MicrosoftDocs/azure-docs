@@ -96,13 +96,13 @@ Your application uses `DefaultAzureCredential` to authenticate to both App Confi
 1. Grant your identity access to Key Vault. Assign the **Key Vault Secrets User** role to your user account or managed identity:
 
     ```azurecli
-    az role assignment create --role "Key Vault Secrets User" --scope /subscriptions/<subscriptionId>/resourceGroups/<group-name>/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name> --assignee <your-azure-ad-user-or-managed-identity>
+    az role assignment create --role "Key Vault Secrets User" --scope /subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.KeyVault/vaults/<KeyVaultName> --assignee <AzureAdUserOrManagedIdentity>
     ```
 
 1. Grant your identity access to App Configuration. Assign the **App Configuration Data Reader** role:
 
     ```azurecli
-    az role assignment create --role "App Configuration Data Reader" --scope /subscriptions/<subscriptionId>/resourceGroups/<group-name>/providers/Microsoft.AppConfiguration/configurationStores/<your-app-configuration-store> --assignee <your-azure-ad-user-or-managed-identity>
+    az role assignment create --role "App Configuration Data Reader" --scope /subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.AppConfiguration/configurationStores/<AppConfigurationStoreName> --assignee <AzureAdUserOrManagedIdentity>
     ```
 
 ## Update your code to use a Key Vault reference

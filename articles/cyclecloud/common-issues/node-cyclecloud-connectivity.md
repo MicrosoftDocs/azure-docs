@@ -1,8 +1,9 @@
 ---
 title: Common Issues - Node Connectivity
-description: Azure CycleCloud common issue - Node Connectivity
+description: Troubleshoot connectivity issues between Azure CycleCloud nodes and the CycleCloud application server.
 author: adriankjohnson
-ms.date: 06/30/2025
+ms.date: 06/19/2026
+ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso
 ---
 # Common issues: Node to CycleCloud connectivity

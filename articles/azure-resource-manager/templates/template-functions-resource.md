@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: reference
-ms.date: 08/01/2025
+ms.date: 08/06/2026
 ms.custom: devx-track-arm-template
 ---
 
@@ -34,13 +34,15 @@ To get deployment scope values, see [scope functions](template-functions-scope.m
 
 Returns the resource ID for an [extension resource](../management/extension-resource-types.md). An extension resource is a resource type that's applied to another resource to add to its capabilities.
 
+The first argument must be the fully qualified resource ID of the resource that the extension resource applies to. This requirement is especially important when you deploy a tenant-level resource from a lower scope, such as a subscription or resource group. A value that resolves at tenant scope can fail when the deployment starts from a lower scope.
+
 In Bicep, use the [`extensionResourceId`](../bicep/bicep-functions-resource.md#extensionresourceid) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseResourceId |Yes |string |The resource ID for the resource that the extension resource is applied to. |
+| baseResourceId |Yes |string |The fully qualified resource ID for the resource that the extension resource is applied to. |
 | resourceType |Yes |string |Type of the extension resource including resource provider namespace. |
 | resourceName1 |Yes |string |Name of the extension resource. |
 | resourceName2 |No |string |Next resource name segment, if needed. |

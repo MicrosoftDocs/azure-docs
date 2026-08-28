@@ -68,7 +68,7 @@ Separate disks are recommended for *Data* devices and *Log* devices. The system 
 
 ### File systems, stripe size, and IO balancing
 
-SAP ASE writes data sequentially into disk storage devices unless configured otherwise, meaning an empty SAP ASE database with four devices writes data into the first device only. The other disk devices are only written into when the first device is full. The amount of read and write IO to each SAP ASE device is likely to be different. To balance disk IO across all available Azure disks, either Windows Storage Spaces or Linux LVM2 needs to be used. On Linux, the recommendation is to use the XFS file system to format the disks. The LVM stripe size should be tested with a performance test. 128-KB stripe size is a good starting point. On Windows, the NTFS Allocation Unit Size (AUS) should be tested. 64 KB can be used as a starting value.
+SAP ASE writes data sequentially into disk storage devices unless configured otherwise, meaning an empty SAP ASE database with four devices writes data into the first device only. The other disk devices are only written into when the first device is full. The amount of read and write IO to each SAP ASE device is likely to be different. To balance disk IO across all available Azure disks, either Windows Storage Spaces or Linux LVM2 needs to be used. On Linux, the recommendation is to use the XFS file system to format the disks. The LVM stripe size should be tested with a performance test. 128 KB stripe size is a good starting point. On Windows, the NTFS Allocation Unit Size (AUS) should be tested. 64 KB can be used as a starting value.
 
 The recommendation is to configure Automatic Database Expansion as described in the article [Configuring Automatic Database Space Expansion in SAP Adaptive Server Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/). See also [SAP support note #1815695](https://launchpad.support.sap.com/#/notes/1815695).
 
@@ -193,7 +193,7 @@ An example of a configuration for a larger SAP ASE DB Server with a database siz
 
 ---
 
-NFS v4.1 volumes hosted Azure NetApp Files is another alternative to use for SAP ASE database storage. The principle structure of such a configuration should look like:
+NFS v4.1 volumes hosted Azure NetApp Files is another alternative to use for SAP ASE database storage. The principal structure of such a configuration should look like:
 
 ![A diagram of an SAP ASE storage configuration using Azure NetApp.](./media/dbms-guide-sap-ase/anf-layout.png)
 

@@ -1,11 +1,9 @@
 ---
 title: "Tutorial: Transform and protect your API in Azure API Management"
 description: In this tutorial, you learn how to protect your API in API Management with transformation and throttling (rate-limiting) policies.
-author: dlepow    
 ms.service: azure-api-management
 ms.topic: tutorial
 ms.date: 02/09/2026
-ms.author: danlep
 ms.custom:
   - mvc
   - devdivchpfy22

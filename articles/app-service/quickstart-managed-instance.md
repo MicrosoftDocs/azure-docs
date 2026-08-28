@@ -1,10 +1,10 @@
 ---
-title: "Quickstart: Deploy Managed Instance on Azure App Service (Preview)"
+title: "Quickstart: Deploy Managed Instance on Azure App Service"
 description: Learn how to configure Managed Instance on Azure App Service
 author: msangapu-msft
 ms.author: msangapu
 ms.reviewer: maghan
-ms.date: 11/18/2025
+ms.date: 08/18/2026
 ms.service: azure-app-service
 ms.topic: quickstart
 keywords:
@@ -17,38 +17,36 @@ keywords:
   - app service cost
 ---
 
-# Deploy Managed Instance on Azure App Service (preview)
+# Deploy Managed Instance on Azure App Service
 
-Managed Instance on Azure App Service combines the simplicity of platform as a service with the flexibility of infrastructure-level control. Managed Instance is designed for applications that require plan-level isolation, customization, and secure network integration.
+Managed Instance on Azure App Service combines the simplicity of platform as a service with the flexibility of infrastructure-level control. Managed Instance is designed for applications that require OS customization, private networking, and secure integration with Azure services.
 
-[!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
+[!INCLUDE [managed-instance](./includes/managed-instance/availability-note.md)]
 
 In this quickstart, you complete the following steps:
 1. Use Azure Developer CLI to deploy sample resources.
-1. Create a Managed Instance on Azure App Service (preview).
+1. Create a Managed Instance on Azure App Service.
 1. Deploy a sample app.
 1. Verify the deployment.
 
 ## Prerequisites
 
-- **Azure account**: You need an Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-
-- **Access to the approved regions**: During preview, regions for Managed Instance include: *East Asia*, *East US*, *North Europe*, and *West Central US*. More regions to follow.
+- **Azure account**: You need an Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/).
 
 - [Managed identity](/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal#create-a-user-assigned-managed-identity)
 
 - [Quickstart: Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md)
 
-- Configuration (install) scripts (PowerShell script named `Install.ps1`) in a compressed .zip file
+- **Optional configuration (install) script**: This quickstart uses a PowerShell script named `Install.ps1` in a compressed .zip file to install fonts. Configuration scripts aren't mandatory for Managed Instance. Use a configuration script when your application requires dependencies, operating system-level roles, features, or configuration, or persistent changes that would otherwise be lost after an instance restart. Use RDP for diagnostics rather than persistent configuration.
 
 ## Deploy sample resources
 
-You can quickly deploy all the necessary resources in this quickstart using Azure Developer CLI (AZD). The AZD template used in this quickstart is from [Azure samples](https://github.com/Azure-Samples/managed-instance-azure-app-service-quickstart). Just run the following commands in the Azure Cloud Shell, and follow the prompts:
+You can quickly deploy all the necessary resources in this quickstart by using Azure Developer CLI (AZD). The AZD template used in this quickstart is from [Azure samples](https://github.com/Azure-Samples/managed-instance-azure-app-service-quickstart).
 
 ```bash
 mkdir managed-instance-quickstart
 cd managed-instance-quickstart
-azd init --template https://github.com/Azure-Samples/managed-instance-azure-app-service-quickstart.git
+azd init --template https://github.com/Azure-Samples/managed-instance-azure-app-service-quickstart.git .
 azd env set AZURE_LOCATION northeurope
 azd up
 ```
@@ -63,7 +61,7 @@ The `azd up` command does the following actions:
 1. Upload scripts.zip to the storage container.
 
 > [!NOTE]  
-> The configuration script package (`scripts.zip`) deployed with the sample resources contains `Install.ps1`, which copies Microsoft Aptos font files into C:\Windows\Fonts. The sample app you deploy later renders text into an image using these fonts. This process demonstrates how a Managed Instance configuration (install) script can lay down OS-level or framework dependencies before app code runs.
+> The configuration script package (`scripts.zip`) deployed with the sample resources contains `Install.ps1`, which copies Microsoft Aptos font files into `C:\Windows\Fonts`. The sample app you deploy uses these fonts.
 >
 
 The following PowerShell code is the configuration (install) script used in the template.
@@ -107,7 +105,7 @@ Follow these steps to create a Managed Instance plan and deploy an app to it:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **+ Create a resource**.
 1. Search for **managed instance**
-1. Select **Web App (for Managed Instance) (preview)** in the results.
+1. Select **Web App (for Managed Instance)** in the results.
 1. Select **Create** to start the create process.
 1. On the Basic tab, provide the following details.
 
@@ -145,7 +143,7 @@ On the Advanced tab, provide the following details.
 | Value | Verify the .zip URL is correct |
 | Identity | Select the managed identity that was created earlier |
 
-1. Select **Review + create** and then select **Create**.
+- Select **Review + create** and then select **Create**.
 
 # [Cloud Shell](#tab/shell)
 

@@ -11,7 +11,7 @@ ms.author: spelluru
 
 This article provides the properties and schema for Azure Cache for Redis events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md). 
 
-[!INCLUDE [cache-retirement-alert](../azure-cache-for-redis/includes/cache-retirement-alert.md)]
+[!INCLUDE [cache-retirement-alert](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/cache-retirement-alert.md)]
 
 ## Available event types
 These events are triggered when a client exports, imports, or scales by calling Azure Cache for Redis REST APIs. Patching event is triggered by Redis update.
@@ -225,9 +225,9 @@ If you want to try Azure Cache for Redis events, see any of these quickstart art
 
 |If you want to use this tool:    |See this article: |
 |--|-|
-|Azure portal    |[Quickstart: Route Azure Cache for Redis events to web endpoint with the Azure portal](../azure-cache-for-redis/cache-event-grid-quickstart-portal.md)|
-|PowerShell    |[Quickstart: Route Azure Cache for Redis events to web endpoint with PowerShell](../azure-cache-for-redis/cache-event-grid-quickstart-powershell.md)|
-|Azure CLI    |[Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI](../azure-cache-for-redis/cache-event-grid-quickstart-cli.md)|
+|Azure portal    |[Quickstart: Route Azure Cache for Redis events to web endpoint with the Azure portal](/azure/azure-cache-for-redis/cache-event-grid-quickstart-portal)|
+|PowerShell    |[Quickstart: Route Azure Cache for Redis events to web endpoint with PowerShell](/azure/azure-cache-for-redis/cache-event-grid-quickstart-powershell)|
+|Azure CLI    |[Quickstart: Route Azure Cache for Redis events to web endpoint with Azure CLI](/azure/azure-cache-for-redis/cache-event-grid-quickstart-cli)|
 
 ## Next steps
 

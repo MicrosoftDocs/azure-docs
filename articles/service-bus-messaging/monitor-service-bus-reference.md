@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Service Bus
 description: This article contains important reference material you need when you monitor Azure Service Bus by using Azure Monitor.
-ms.date: 08/12/2025
+ms.date: 07/28/2026
 ms.custom: horz-monitor
 ms.topic: reference
 author: spelluru
@@ -35,8 +35,8 @@ The following sections provide more detailed descriptions for metrics presented 
 |:-------|:------------|
 | Incoming Requests | The number of requests made to the Service Bus service over a specified period. |
 | Successful Requests | The number of successful requests made to the Service Bus service over a specified period. |
-| [Server Errors](service-bus-messaging-exceptions.md#exception-categories) | The number of requests not processed because of an error in the Service Bus service over a specified period. |
-| [User Errors](service-bus-messaging-exceptions.md#exception-categories) | The number of requests not processed because of user errors over a specified period. |
+| [Server Errors](service-bus-messaging-exceptions.md#service-bus-exception-categories) | The number of requests not processed because of an error in the Service Bus service over a specified period. |
+| [User Errors](service-bus-messaging-exceptions.md#service-bus-exception-categories) | The number of requests not processed because of user errors over a specified period. |
 | Throttled Requests | The number of requests that were throttled because the usage was exceeded.</p><p>MessagingErrorSubCode dimension has the following possible values: <br/><ul><li><b>CPU:</b> CPU throttling</li><li><b>Storage:</b>It indicates throttle because of pending checkpoint operations</li><li><b>Namespace:</b>Namespace operations throttling.</li><li><b>Unknown:</b> Other resource throttling.</li></p> |
 | Pending Checkpoint Operations Count | The number of pending checkpoint operations on the namespace. Service starts to throttle when the pending checkpoint count exceeds limit of (500,000 + (500,000 * messaging units)) operations. This metric applies only to namespaces using the **premium** tier. |
 | Server Send Latency | The time taken by the Service Bus service to complete the request. |
@@ -52,7 +52,7 @@ The following metrics are *message metrics*.
 
 | Metric | Description |
 |:-------|:------------|
-| Incoming Messages | The number of events or messages sent to Service Bus over a specified period. Includes successfully auto-forwarded messages delivered to the destination entity. |
+| Incoming Messages | The number of events or messages sent to Service Bus over a specified period. This count includes messages auto forwarded to the entity via auto-forwarding from a source entity. |
 | Outgoing Messages | The number of events or messages received from Service Bus over a specified period. The outgoing autoforwarded messages aren't included in this metric. |
 | Messages | Count of messages in a queue/topic. This metric includes messages in all the different states like active, dead-lettered, scheduled, etc. |
 | Active Messages | Count of active messages in a queue/topic. Active messages are the messages in the queue or subscription that are in the active state and ready for delivery. The messages are available to be received. |
@@ -125,7 +125,6 @@ The following metrics are *geo-replication* metrics:
 
 - **EntityName** Service Bus supports messaging entities under the namespace. With the Incoming Requests metric, the Entity Name dimension has a value of `-NamespaceOnlyMetric-` in addition to all your queues and topics. This value represents the request, which was made at the namespace level. Examples include a  request to list all queues/topics under the namespace or requests to entities that failed authentication or authorization.
 - **MessagingErrorSubCode**
-- **OperationResult**
 
 > [!NOTE]
 > Azure Monitor doesn't include dimensions in the exported metrics data sent to a destination like Azure Storage, Azure Event Hubs, or Azure Monitor Logs.

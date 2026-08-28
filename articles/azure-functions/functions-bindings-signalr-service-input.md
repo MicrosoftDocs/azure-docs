@@ -31,7 +31,7 @@ When not explicitly declared, assume that examples are using the default connect
 
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
 
-<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRNegotiationFunctions.cs" id="snippet_negotiate"::: --->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRNegotiationFunctions.cs" id="snippet_negotiate":::
 
 # [In-process model](#tab/in-process)
 
@@ -226,9 +226,7 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-### Managed identity-based connections
-
-[!INCLUDE [functions-azure-signalr-authorization-note](../../includes/functions-azure-signalr-authorization-note.md)] 
+[!INCLUDE [functions-signalr-connections](../../includes/functions-signalr-connections.md)] 
 
 ### Authenticated tokens
 

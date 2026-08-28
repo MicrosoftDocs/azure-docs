@@ -231,6 +231,8 @@
       href: stream-analytics-job-reliability.md
     - name: Geo-redundancy
       href: geo-redundancy.md
+    - name: Move job to another region
+      href: move-across-regions.md
     - name: Encrypt your data (CMK)
       href: data-protection.md
   - name: Manage Stream Analytics clusters
@@ -429,14 +431,8 @@
         href: internal-error-codes.md
   - name: Integrate with Machine Learning
     items:
-    - name: Sentiment analysis with ML models
-      href: stream-analytics-machine-learning-integration-tutorial.md
     - name: Anomaly detection
       href: stream-analytics-machine-learning-anomaly-detection.md
-    - name: Use ML REST APIs
-      href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
-  - name: Scale with ML functions
-    href: stream-analytics-scale-with-machine-learning-functions.md
   - name: Run job in your virtual network
     href: run-job-in-virtual-network.md
   - name: Connect to confluent cloud kafka
@@ -686,6 +682,9 @@
               maintainContext: true
             - name: CONCAT_WS
               href: /stream-analytics-query/concat-ws-azure-stream-analytics
+              maintainContext: true
+            - name: JSON_PARSE
+              href: /stream-analytics-query/json-parse-azure-stream-analytics
               maintainContext: true
             - name: LEFT
               href: /stream-analytics-query/left-azure-stream-analytics

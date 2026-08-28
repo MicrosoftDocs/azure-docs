@@ -2,11 +2,11 @@
 title: 'Configure P2S VPN clients: certificate authentication: Windows native client'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure the native VPN client on a Windows computer for point-to-site certificate authentication connections.
-author: cherylmc
+author: duongau
 ms.topic: how-to
 ms.service: azure-vpn-gateway
 ms.date: 05/14/2024
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: As a network administrator, I want to configure the native VPN client on Windows for certificate authentication, so that I can securely connect to the virtual network using a point-to-site VPN.
 ---
 

@@ -66,6 +66,7 @@ The architecture involves the following components:
 * Authentication using specified Bind DN and password (simple authentication type) is not supported in government region.
 * For LDAP over TLS, upload one server root CA certificate per file. Certificate bundles/chains (for example, root and intermediate certificates in the same PEM file) aren't supported.
 
+
 ## Register the feature
 
 Support for FreeIPA, Red Hat IdM, OpenLDAP, Red Hat Directory Server, and Oracle Unified Directory is currently in preview. Before connecting your NFS volumes to one of these directory servers, you must register the feature: 
@@ -100,6 +101,8 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 
 ## Configure the LDAP connection in Azure NetApp Files 
 
+Azure NetApp Files supports additional LDAP connection configuration options, including custom LDAP ports, customer-specified DNS servers, configurable LDAP scope settings, and certificate validation options. These settings improve compatibility with enterprise LDAP deployments and provide greater flexibility when integrating with existing directory infrastructures. 
+
 1. In the Azure portal, select **LDAP connections** within the NetApp account. 
 1. Select **+ Create** to create a new LDAP connection.
 
@@ -107,47 +110,60 @@ You must first create the LDAP server before you can connect it to Azure NetApp 
 
 1. In the Configure LDAP connection window, provide the **Connection details**:
 
-    :::image type="content" source="./media/configure-directory-server/configure-connection.png" alt-text="Screenshot of Configure LDAP connection options." lightbox="./media/configure-directory-server/configure-connection.png":::
+    :::image type="content" source="./media/configure-directory-server/configure-connection.png" alt-text="Screenshot to enter LDAP connection details." lightbox="./media/configure-directory-server/configure-connection.png":::
 
-    * **Domain name:** The domain name serves as the base DN. 
+    * **Domain name:** The domain name serves as the base Distinguished Name (DN). 
     * **LDAP servers:** The IP address of the LDAP server. 
+    * **LDAP port:** The port used to connect to the LDAP server. Azure NetApp Files supports both standard and custom LDAP port assignments, enabling integration with environments that use non-default LDAP configurations.
     * **LDAP over TLS:** Optionally, check the box to enable LDAP over TLS for secure communication. 
       
        > [!NOTE]
        > To enable LDAP over TLS on multiple servers, you should generate and install the common certificate on each server and then upload the server CA certificate in the Azure portal.
 
-    * **Server CA certificate:** The certification authority certificate. This option is required if you use LDAP over TLS. 
-    * **Certificate CN host:** The common name server of the host, for example server.contoso.com. 
+        * **Server CA certificate:** The certification authority certificate. This option is required if you use LDAP over TLS. 
+        * **Validation method:**   
+            * **Validate using DNS Name**   
+            **DNS Servers:** The DNS server used by Azure NetApp Files to resolve LDAP server hostnames during connection establishment and certificate validation.
+
+            * **Validate using hostname**   
+            **Certificate CN host:** The common name server of the host, for example server.contoso.com. 
+
+1. Configure the **LDAP scope:**        
     
+    :::image type="content" source="./media/configure-directory-server/configure-connection-details.png" alt-text="Screenshot of Configure LDAP connection options that must be provided." lightbox="./media/configure-directory-server/configure-connection-details.png":::
+
+    * **User DN:** Defines the base path in the LDAP directory where user entries are located.  
+    * **Group DN:** Specifies the location of group entries used for access control and permissions.  
+    * **Netgroup DN:** Defines the network-based groupings, often for NFS or system-level access control. Allowing customers to configure these DNs ensures that ANF can accurately query and integrate with their specific LDAP directory structures, thereby enhancing flexibility.     
     
-1. Select the **Authentication type**
+1. Select the **Authentication type:**
+
+    :::image type="content" source="./media/configure-directory-server/authentication-settings.png" alt-text="Screenshot of the authentication setting options." lightbox="./media/configure-directory-server/authentication-settings.png":::
 
     * **Anonymous:** Connects without providing a distinguished name or password. Access is governed by the LDAP server's anonymous access policies. 
     * **Simple:** Authenticates using the specified Bind DN and a password retrieved from a secret stored in Azure Key Vault. 
 
-    :::image type="content" source="./media/configure-directory-server/authentication-settings.png" alt-text="Screenshot of the authentication setting options." lightbox="./media/configure-directory-server/authentication-settings.png":::
+        1. In the **Bind DN username**, enter the distinguished name of the account used to authenticate with the LDAP server.  
+            Example: `uid=binduser,cn=users,cn=accounts,dc=contoso,dc=com`
 
-1. In the **Bind DN username**, specify the distinguished name of the account used to authenticate with the LDAP server.  
-    Example: uid=binduser,cn=users,cn=accounts,dc=contoso,dc=com
+        1. Select the secret that contains the bind password for LDAP authentication.
 
-1. Select the secret in Azure Key Vault that contains the bind password for LDAP authentication.
+            * **Enter Secret URI:** Manually enter the secret identifier.
+            * **Select from Key Vault:** Select the secret from the Azure Key Vault.
 
-    * **Enter Secret URI:** You can manually enter the secret identifier.
-    * **Select from Key Vault:** You can select the secret from the Azure Key Vault.
+            The portal displays the Key Vault and Secret. You can select **Change selection** to select another secret.
 
-    The Key Vault and Secret are displayed. You can click **Change selection** to select another secret.
+        1. Select the identity type used to access the Key Vault secret. To configure a managed identity, select **Add New Identity** in the edit window and select one of the following options:
 
-1. Select the identity type used to access the Key Vault secret. To configure a managed identity, click **Add New Identity** in the edit window and select one of the following:
+            * **System-assigned:** Enable the system-assigned managed identity.
+            * **User-assigned:** Select or add an existing user-assigned managed identity.
 
-    * **System-assigned:** Enable the system-assigned managed identity.
-    * **User-assigned:** Select or add an existing user-assigned managed identity.
-
-    > [!NOTE]
-    > The identity must be granted at minimum the **Key Vault Secrets User** role on the target Key Vault.
-    
-   
+            > [!NOTE]
+            > The identity must be granted at least the **Key Vault Secrets User** role on the target Key Vault.
+            
+        
 1. Select **Save**. 
-1. Once you configure the LDAP connection, you can create an [NFS volume](azure-netapp-files-create-volumes.md).
+1. After you configure the LDAP connection, you can create an [NFS volume](azure-netapp-files-create-volumes.md).
 
 ## Validate the LDAP connection 
 

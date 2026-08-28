@@ -6,6 +6,8 @@ items:
   - name: Get started
     expanded: true
     items:
+      - name: Evaluate SRE Agent
+        href: evaluate.md
       - name: Create and set up
         href: create-and-set-up.md
       - name: Team onboarding
@@ -30,8 +32,6 @@ items:
         href: agent-identity.md
       - name: Security overview
         href: security-overview.md
-      - name: Network integration
-        href: network-integration.md
       - name: Tool access policies
         href: tool-access-policies.md
       - name: Run modes
@@ -41,8 +41,6 @@ items:
       - name: Managed connectors
         href: managed-connectors.md
       - name: MCP server
-        href: mcp-server-overview.md
-      - name: SRE Agent MCP server
         href: mcp-server.md
       - name: Incident platforms
         href: incident-platforms.md
@@ -58,8 +56,6 @@ items:
         href: tools.md
       - name: Default agent override info
         href: default-agent-override-info.md
-      - name: Deep context
-        href: workspace-tools.md
       - name: Agent reasoning
         href: agent-reasoning.md
   - name: Capabilities
@@ -152,10 +148,12 @@ items:
             href: docsguide.md
           - name: Favorites and Mine filter
             href: favorites-mine-filter.md
+          - name: Network integration
+            href: network-integration.md
       - name: Measure & govern
         items:
-          - name: Operations Hub overview
-            href: operations-hub-overview.md
+          - name: Live Reports
+            href: live-reports.md
           - name: Operations Hub
             href: operations-hub.md
           - name: Track incident value
@@ -188,10 +186,6 @@ items:
             href: manage-permissions.md
           - name: Set up incident response
             href: tutorial-incident-response.md
-          - name: Connect to PagerDuty
-            href: connect-pagerduty.md
-          - name: Connect to ServiceNow
-            href: connect-servicenow.md
       - name: Act
         items:
           - name: Create scheduled tasks
@@ -240,6 +234,12 @@ items:
             href: setup-mcp-server.md
           - name: Set up a managed connector
             href: setup-managed-connector.md
+          - name: Connect a source code service
+            href: connect-code-service.md
+          - name: Connect a notification or work-tracking service
+            href: connect-notification-service.md
+          - name: Connect a telemetry source
+            href: connect-telemetry-source.md
           - name: Set up Log Analytics connector
             href: setup-log-analytics-connector.md
           - name: Create a Kusto tool

@@ -6,7 +6,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 05/07/2026
 ms.custom: mvc, engagement-fy25
 # Customer intent: As a cloud architect, I want to stay updated on the latest features and enhancements in Azure Migrate, so that I can optimize on-premises migration strategies and ensure successful transitions to the Azure platform.
@@ -16,9 +16,20 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
+## Update (August 2026)
+
+- Public preview: Azure Migrate now supports the discovery of networking resources in VMware and VMware environments that use NSX. During discovery, Azure Migrate collects network inventory information, including subnets, VLANs, NSX segments, VMware port groups, load balancers, firewall policies, and NAT policies. You can view discovered network resources on the Network tab under Infrastructure. This view helps you understand network inventory and the relationships between network resources and virtual machines before you plan your migration.
+
+The dependency map is also enhanced to display network-aware relationships and workload communication paths. By using network discovery, Azure Migrate extends beyond compute-focused discovery to support network-aware migration planning. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
+
+## Update (June 2026)
+
+- Public preview: Azure Migrate now **integrates with GitHub Copilot modernization CLI** (public preview) to deliver **at scale code insights**. This capability brings together Azure Migrate’s portfolio-level discovery and assessment with GitHub Copilot’s context-aware code analysis. The shared workflow helps migration admins and app developers collaborate more effectively while adhering to organizational security guidelines. Teams can assess multiple applications at once, evaluate Azure compatibility, and make informed refactor-versus-replatform decisions. They can also act on code-fix recommendations and effort estimates to plan modernization with greater confidence and predictability. [Learn more](/azure/migrate/add-copilot-code-insights)
+
+
 ## Update (May 2026)
 
-- Public preview: Azure Migrate now supports **automatic discovery of applications** by grouping workloads discovered through the Collector, Appliance, or CSV import. Each application represents a logical grouping of servers and their workloads. Azure Migrate identifies these groups using server naming patterns, inferred environments, and server roles. [Learn more](define-manage-applications.md#auto-discovered-applications).
+- Public preview: Azure Migrate now supports **automatic discovery of applications** by grouping workloads discovered through the Collector, Appliance, or CSV import. Each application represents a logical grouping of servers and their workloads. Azure Migrate identifies these groups using server naming patterns, inferred environments, and server roles. [Learn more](define-manage-applications.md#auto-discover-applications).
 
 
 ## Update (April 2026)
@@ -104,7 +115,7 @@ Notable aspects of the solution:
     - **Interact with nodes for server insights:** You can interact directly with nodes within the visualization to access detailed server information. This includes viewing immediate dependents and connection details, allowing for a deeper understanding of each server’s properties and dependencies.
     - **Scope and filter visualization:** You can search by server names and apply filters using netstat data, such as process and port information, enabling scoped analysis of network connections.
     - **Switch to per server view:** For more granular analysis, you can switch the visualization to a per-server view. This mode allows analyzing network connections at the process and port levels for individual servers. [Learn more](how-to-create-group-machine-dependencies-agentless.md#visualize-individual-server-dependencies). 
-    - **Identify and group high-affinity servers:** The visualization makes it easy to identify servers that are tightly coupled and exhibit high affinity. You can multi-select these servers and tag them as application groups, supporting logical organization and application-centric migration planning.
+    - **Identify and group high-affinity servers:** The visualization makes it easy to identify servers that are tightly coupled and exhibit high affinity. You can multiselect these servers and tag them as application groups, supporting logical organization and application-centric migration planning.
 
 ## Update (September 2025)
 
@@ -416,7 +427,6 @@ Azure Migrate supports deployments in Microsoft Azure Government:
 - You can migrate VMware VMs, Hyper-V VMs, and physical servers to Azure.
 - For VMware migration, you can use agentless or agent-based migration. [Learn more](server-migrate-overview.md).
 - You can [review supported geographies and regions](supported-geographies.md#azure-government) for Azure Government.
-- [Agent-based dependency analysis](concepts-dependency-visualization.md#agent-based-analysis) isn't supported in Azure Government.
 - Features in preview are supported in Azure Government, [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), and [application discovery](how-to-discover-applications.md).
 
 ## Update (March 2020)

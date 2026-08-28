@@ -5,7 +5,7 @@ author: bharathim
 ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: article
-ms.date: 09/20/2022
+ms.date: 07/13/2026
 ms.custom: template-concept
 ---
 
@@ -21,6 +21,27 @@ Azure Data Manager for Energy is updated on an ongoing basis. To stay up to date
 
 This page is updated with the details about the upcoming release approximately a week before the actual deployment.
 <hr width = 100%>
+
+## August 2026
+### Seismic single file restore - Preview
+
+Azure Data Manager for Energy now supports point-in-time restore of an individual Seismic dataset as a preview feature. You can recover a single Seismic dataset to a prior state by using a timestamp, without performing a full data partition restore and without maintaining your own external backups before modifying datasets. To trigger a restore, call the restore API by using the dataset path and target restore timestamp. The operation restores both the dataset metadata and its underlying files. It runs asynchronously so you can track progress by using the returned operation ID. For more information, see [Restore a seismic dataset](tutorial-seismic-restore-dataset.md). This feature is available on request on the Standard SKU. To enable it, raise a support request in the Azure portal.
+
+## July 2026
+### Manifest Ingestion by Reference DAG - Generally Available
+Manifest Ingestion by Reference DAG is now generally available on Azure Data Manager for Energy. This capability supports ingestion of a large number of records by referencing a large manifest uploaded to the Dataset service for processing.
+
+### Platform metrics support (Preview)
+Azure Data Manager for Energy now supports platform metrics in Azure Monitor. Two new metrics are available in preview - **Total HTTP Requests (Preview)** which tracks the total number of HTTP requests to your Azure Data Manager for Energy instance and **Data Volume (Preview)** which represents the total data volume on the instance. 
+
+The metrics are available by default on all Azure Data Manager for Energy instances. For more information, see [Monitor Azure Data Manager for Energy](how-to-monitor-data-manager-energy.md) and [Monitoring data reference](concepts-monitor-data-reference.md).
+
+## June 2026
+### Compliant with M26 OSDU® release
+Azure Data Manager for Energy has now been upgraded with the supported set of services with the M26 OSDU® milestone release. With this release, you can take advantage of the key improvements made in the OSDU® latest community features and capabilities available in the [OSDU® M26](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M26-Release-Notes). The upgrade with the OSDU® M26 release is limited to the services available and supported and you can refer [here](osdu-services-on-adme.md) for a detailed list of services available and unavailable on Azure Data Manager for Energy. See the [updated API Swaggers here](https://microsoft.github.io/adme-samples/).
+
+### Analytics Consumption Zone (ACZ) - Preview
+Analytics Consumption Zone (ACZ) exports selected entity data from your Azure Data Manager for Energy instance to your Azure Data Lake Storage (ADLS) Gen2 account. ACZ writes data in open Delta Parquet format that analytics engines like Microsoft Fabric and Azure Databricks can read directly. This feature is available as a preview on Developer Tier. For more information, see [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md).
 
 ## May 2026
 ### External Data Services (EDS) - Generally Available
@@ -226,7 +247,7 @@ Airflow logs from your Azure Data Manager for Energy Preview resource now includ
 
 ### Support for Private Links during instance provisioning
 
-Azure Private link enables access to Azure Data Manager for Energy Preview instance over a private endpoint in your virtual network, which ensures restricted access to the service. With this feature, you can now configure private endpoints to your Azure Data Manager for Energy instance during the instance creation. Your service instance can now have private connectivity from the very beginning. Learn more about [how to set up private links](how-to-set-up-private-links.md).
+Azure Private Link enables access to Azure Data Manager for Energy Preview instance over a private endpoint in your virtual network, which ensures restricted access to the service. With this feature, you can now configure private endpoints to your Azure Data Manager for Energy instance during the instance creation. Your service instance can now have private connectivity from the very beginning. Learn more about [how to set up private links](how-to-set-up-private-links.md).
 
 ### Enabled Monitoring of OSDU Service Logs
 
@@ -331,4 +352,3 @@ Currently, Azure Data Manager for Energy is available in the following regions -
 
 ---
 
- 

@@ -19,7 +19,7 @@ You can customize the layout and tailor the environment to match your specific r
 You can access Microsoft Discovery Studio at [studio.discovery.microsoft.com](https://studio.discovery.microsoft.com) using any supported modern browser. It requires no local installation or client software.
 
 > [!TIP]
-> If you're new to Microsoft Discovery, start with the [Quickstart: Deploy infrastructure using Azure portal](quickstart-infrastructure-portal.md) to set up your workspace and project before exploring Studio.
+> If you're new to Microsoft Discovery, start with the [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md) to set up your workspace and project before exploring Studio.
 
 In this article, you learn about the different parts of Microsoft Discovery Studio and how to navigate the interface.
 
@@ -89,7 +89,7 @@ Use the **Refresh** and **Filter** controls above the table to update the list o
 
 ## Projects view
 
-When you open a project, Microsoft Discovery Studio transitions into a full **Visual Studio Code for the Web** environment. This portal is where you conduct your research—running shared sessions, interacting with agents, and managing project resources.
+To open a project, select **Workspaces** in the sidebar, open the workspace that contains the project, and then select the project name. When you open a workspace, Microsoft Discovery Studio transitions into a full **Visual Studio Code for the Web** environment. This portal is where you conduct your research—running shared sessions, interacting with agents, and managing project resources.
 
 The project includes:
 
@@ -122,7 +122,7 @@ You can have multiple shared sessions open simultaneously in separate editor tab
 
 If you're new to Microsoft Discovery Studio, follow these steps:
 
-1. **Set up infrastructure**: Deploy a workspace and supporting resources using the [Azure portal quickstart](quickstart-infrastructure-portal.md) or [Bicep quickstart](quickstart-infrastructure-bicep.md).
+1. **Set up infrastructure**: Deploy a workspace and supporting resources by using the [Deploy Microsoft Discovery infrastructure quickstart](quickstart-infrastructure.md).
 1. **Create a project**: To organize your agents, shared sessions, and data, set up a project within your workspace 
 1. **Create agents**: Add prompt agents to your project, or use the default Discovery agent that comes with every project.
 1. **Start a shared session**: To conduct AI-powered research, type a prompt in the chat box on the Welcome page to start a new shared session and begin chatting with your agents.

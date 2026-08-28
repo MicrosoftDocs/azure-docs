@@ -1,11 +1,11 @@
 ---
 title: Azure VPN Gateway FAQ
 description: Get answers to frequently asked questions about VPN Gateway connections and configuration settings.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 06/04/2026
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: As a network administrator, I want to understand the configuration options and limitations of Azure VPN Gateway, so that I can effectively manage cross-premises connections and optimize my organization’s hybrid network architecture.
 ---
 
@@ -72,6 +72,11 @@ To help ensure proper functionality and healthy state for your VPN gateway, cons
 * Add in your custom DNS configuration a DNS forwarder that points to Azure DNS (168.63.129.16). Depending on the specific rules and nature of your custom DNS, this setup might not resolve the issue as expected.
 
 When configuring the Azure DNS Private Resolver's forwarding rule in the VNet where the VPN Gateway is deployed, if you include a wildcard in the DNS forwarding ruleset, ensure that the forwarding destination IP points to the built-in Azure DNS service (168.63.129.16) to resolve public URLs.
+
+### Can a private DNS zone linked to a virtual network affect the operation of an Azure VPN gateway?
+
+Yes. Azure VPN Gateway requires access to Azure Blob Storage endpoints for certain service operations. If you link the privatelink.blob.core.windows.net private DNS zone to the gateway virtual network, DNS queries for Blob Storage are evaluated against that zone. When the required storage account doesn't have a private endpoint or a matching private DNS record in the zone, the query can return **NXDOMAIN** instead of resolving the storage account's public endpoint. As a result, the VPN gateway might be unable to reach the required Blob Storage endpoint, which can affect its normal operation.
+To prevent this issue, enable [Fallback to internet for Azure Private DNS zones](https://learn.microsoft.com/azure/dns/private-dns-fallback) on the virtual network link for the **privatelink.blob.core.windows.net** private DNS zone. When the **NxDomainRedirect** resolution policy is enabled on a virtual network link, the Azure recursive resolver retries the query. This allows the VPN gateway to resolve and access the required public Blob Storage endpoint when no private DNS record is available in private DNS Zone.
 
 ### Can two VPN clients connected in point-to-site to the same VPN gateway communicate?
 

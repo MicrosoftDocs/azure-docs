@@ -7,9 +7,10 @@ ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 07/31/2025
-zone_pivot_groups: front-door-dev-exp-portal-cli
+zone_pivot_groups: front-door-dev-exp-portal-ps-cli
 ms.custom:
   - devx-track-azurecli
+  - devx-track-azurepowershell
   - build-2025
   - sfi-image-nochange
 ---
@@ -18,7 +19,7 @@ ms.custom:
 
 **Applies to:** :heavy_check_mark: Front Door Premium
 
-This article guides you through configuring Azure Front Door Premium to connect to your App Service (Web App or Function App) privately using Azure Private Link.
+This article shows you how to configure Azure Front Door Premium to connect to your App Service (Web App or Function App) privately using Azure Private Link.
 
 ## Prerequisites
 
@@ -31,6 +32,20 @@ This article guides you through configuring Azure Front Door Premium to connect 
 - A Private Link. For more information, see [Create a Private Link service](../../private-link/create-private-link-service-portal.md).
 
 - Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+
+::: zone-end
+
+::: zone pivot="front-door-ps"
+
+- An Azure Front Door Premium profile with an origin group. For more information, see [Create an Azure Front Door](../create-front-door-powershell.md).
+
+- A Private Link. For more information, see [Create a Private Link service](../../private-link/create-private-link-service-powershell.md).
+
+- Azure Cloud Shell or Azure PowerShell.
+
+    The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the cmdlets in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+    You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ::: zone-end
 
@@ -83,6 +98,38 @@ In this section, you map the Private Link service to a private endpoint within A
 
 ::: zone-end
 
+::: zone pivot="front-door-ps"
+
+1. Use the [Get-AzResource](/powershell/module/az.resources/get-azresource) cmdlet to get the resource ID of the App Service to be used as the origin for Azure Front Door:
+
+    ```azurepowershell-interactive
+    Get-AzResource -Name testWebAppAFD `
+                   -ResourceGroupName testRG
+    ```
+
+1. Use the [New-AzFrontDoorCdnOrigin](/powershell/module/az.cdn/new-azfrontdoorcdnorigin) cmdlet to add your App Service origin to your origin group:
+
+    ```azurepowershell-interactive
+    # Add App Service origin to the Azure Front Door profile with Private Link
+    $origin1 = New-AzFrontDoorCdnOrigin `
+        -OriginGroupName default-origin-group `
+        -OriginName test-origin `
+        -ProfileName testAFD `
+        -ResourceGroupName testRG `
+        -HostName testwebapp.canadacentral-01.azurewebsites.net `
+        -OriginHostHeader testwebapp.canadacentral-01.azurewebsites.net `
+        -HttpPort 80 `
+        -HttpsPort 443 `
+        -Priority 1 `
+        -Weight 1000 `
+        -PrivateLinkId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testRG/providers/Microsoft.Web/sites/testWebAppAFD `
+        -SharedPrivateLinkResourceGroupId sites `
+        -SharedPrivateLinkResourcePrivateLinkLocation "Central US" `
+        -SharedPrivateLinkResourceRequestMessage "testWebAppAFDPL Private Link request"
+    ```
+
+::: zone-end
+
 ::: zone pivot="front-door-cli"
 
 Use the [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) command to create a new Azure Front Door origin. The `private-link-location` value must be from the [available regions](../private-link.md#region-availability) and the `private-link-sub-resource-type` value is **sites**.    
@@ -112,13 +159,36 @@ az afd origin create --enabled-state Enabled \
 
 ::: zone pivot="front-door-portal"
 
-1. Navigate to the App Service you configured with Private Link in the previous section. Under **Settings**, select **Networking**.
+1. Go to the App Service that you configured with Private Link in the previous section. Under **Settings**, select **Networking**.
 
 1. In the **Networking** section, select **Configure your private endpoint connections**.
 
     :::image type="content" source="../media/how-to-enable-private-link-web-app/app-service-configure-endpoint.png" alt-text="Screenshot of networking settings in App Service.":::
 
 1. Find the *pending* private endpoint request from Azure Front Door Premium and select **Approve**.
+
+::: zone-end
+
+::: zone pivot="front-door-ps"
+
+1. Use the [Get-AzPrivateEndpointConnection](/powershell/module/az.network/get-azprivateendpointconnection) cmdlet to list the private endpoint connections for your App Service. Note the `Name` of the private endpoint connection available in your App Service from the output.
+
+    ```azurepowershell-interactive
+    # PrivateLinkResourceId is the resource ID of the WebApp
+    Get-AzPrivateEndpointConnection -PrivateLinkResourceId '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testRG/providers/Microsoft.Web/sites/testWebAppAFD'
+    ```
+
+1. Use the [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection) cmdlet to approve the private endpoint connection.
+
+    ```azurepowershell-interactive
+    Approve-AzPrivateEndpointConnection -ResourceId '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/webapp1/privateEndpointConnections/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1'
+    ```
+
+1. Use the [Get-AzPrivateEndpointConnection](/powershell/module/az.network/get-azprivateendpointconnection) cmdlet to verify the status of the private endpoint connection.
+
+    ```azurepowershell-interactive
+    Get-AzPrivateEndpointConnection -PrivateLinkResourceId '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testRG/providers/Microsoft.Web/sites/testWebAppAFD'
+    ```
 
 ::: zone-end
 
@@ -133,7 +203,7 @@ az afd origin create --enabled-state Enabled \
 1. Use the [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) command to approve the private endpoint connection.
 
     ```azurecli-interactive
-    az network private-endpoint-connection approve --id '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/webapp1/privateEndpointConnections/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e'
+    az network private-endpoint-connection approve --id '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/webapp1/privateEndpointConnections/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1'
     ```
 
 ::: zone-end
@@ -142,7 +212,7 @@ It can take a few minutes for the connection to fully establish after approval. 
 
 ## Common mistakes to avoid
 
-The following mistake is common when configuring an origin with Azure Private Link enabled:
+A common mistake when configuring an origin with Azure Private Link enabled is:
 
 - Adding the origin with Azure Private Link enabled to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group. 
 

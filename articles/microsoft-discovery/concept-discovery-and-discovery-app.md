@@ -14,7 +14,29 @@ Microsoft Discovery is available in two complementary experiences: the enterpris
 
 The Microsoft Discovery platform is a cloud-based, production-grade platform deployed in Azure. It provides enterprise-scale capabilities, robust governance, and multi-user collaboration for mission-critical R&D projects. The Microsoft Discovery app is free to download and provides a local experience, enabling individuals to start using Discovery's core features with just a GitHub Copilot account.
 
-### Single platform strategy
+## ⬇️ Download the Discovery app
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="media/concept-discovery-and-discovery-app/windows.svg" width="80" alt="Windows logo.">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://aka.ms/discovery/download/current">
+        <img src="media/concept-discovery-and-discovery-app/windows-download-card.svg" width="310" height="80" alt="Download Discovery app button.">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>User Installer</strong> <a href="https://aka.ms/discovery/download/current"><strong>x64</strong></a> <a href="https://aka.ms/discovery/download/arm64/current"><strong>Arm64</strong></a>
+    </td>
+  </tr>
+</table>
+
+## Single platform strategy
 Microsoft Discovery and the Discovery app share core concepts and features such as an agentic framework, the ability to invoke models and tools, a Bookshelf for indexing and reasoning over knowledge, and a Discovery Engine for orchestration. As a lightweight on-ramp to agentic R&D, the Discovery app enables rapid, bottom-up experimentation and exploration, while the Discovery platform enables enterprise-grade scale.
 
 ## Positioning at a glance
@@ -48,7 +70,7 @@ The following table provides a side-by-side comparison of the two experiences:
 | **Differences** | Availability | Generally available | In preview |
 | | Support & SLA | Fully supported for production use under Microsoft's enterprise support agreements | Community-based support via GitHub |
 | | Deployment & setup | Requires an Azure subscription and enterprise cloud resources for setup | Downloadable app for Windows; only requires a GitHub Copilot account for setup (any tier) |
-| | IT/Admin experience | Manage cloud resources in Azure Portal. Manage project resources in [Discovery Studio](https://learn.microsoft.com/azure/microsoft-discovery/concept-studio) | N/A |
+| | IT/Admin experience | Manage cloud resources in Azure portal. Manage project resources in [Discovery Studio](/azure/microsoft-discovery/concept-studio) | N/A |
 | | Architecture | Runs as a cloud service in Azure | Runs locally on your machine |
 | | Compute & scale | Scalable Azure compute infrastructure including high performance CPUs, GPUs, and specialized hardware across clusters for large-scale or parallel investigations | Uses your device's compute |
 | | Collaboration & users | Built for multi-user collaboration. Share projects, agents, and data within a workspace and work together via the web portal | Single-user—runs on one machine for one user sign-in at a time |

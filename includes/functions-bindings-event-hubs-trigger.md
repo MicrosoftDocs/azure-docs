@@ -42,7 +42,7 @@ For a complete end-to-end example of using the Event Hubs trigger, see [Process 
 
 The following example shows a [C# function](../articles/azure-functions/dotnet-isolated-process-guide.md) that is triggered based on an event hub, where the input message string is written to the logs:
 
-<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-31"::: --->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-31":::
 
 # [In-process model](#tab/in-process)
 
@@ -106,11 +106,11 @@ public void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConn
 
 The following example shows an Event Hubs trigger [TypeScript function](../articles/azure-functions/functions-reference-node.md?tabs=typescript). The function reads [event metadata](#event-metadata) and logs the message.
 
-<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubTrigger1.ts" ::: --->
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubTrigger1.ts" :::
 
 To receive events in a batch, set `cardinality` to `many`, as shown in the following example.
 
-<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubTrigger2.ts" ::: --->
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubTrigger2.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -125,11 +125,11 @@ TypeScript samples are not documented for model v3.
 
 The following example shows an Event Hubs trigger [JavaScript function](../articles/azure-functions/functions-reference-node.md). The function reads [event metadata](#event-metadata) and logs the message.
 
-<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubTrigger1.js" ::: --->
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubTrigger1.js" :::
 
 To receive events in a batch, set `cardinality` to `many`, as shown in the following example.
 
-<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubTrigger2.js" ::: --->
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubTrigger2.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 

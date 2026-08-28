@@ -5,20 +5,19 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 08/18/2025
+ms.date: 06/17/2026
 #customer intent: As a cloud developer, I want to connect my compute services to Azure Service Bus using Service Connector.
 ---
 
 # Integrate Service Bus with Service Connector
 
-This page shows supported authentication methods and clients. It provides sample code you can use to connect compute services to Azure Service Bus using Service Connector. You might still be able to connect to Service Bus in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create service connections. 
+This article describes supported authentication methods and clients. It also provides sample code to connect compute services to Azure Service Bus by using Service Connector. You can still connect to Service Bus in other programming languages without using Service Connector. This article also lists default environment variable names and values (or Spring Boot configuration) that you receive when you create service connections.
 
 ## Supported compute services
 
 Service Connector can be used to connect the following compute services to Azure Service Bus:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps
@@ -37,7 +36,7 @@ This table shows which combinations of authentication methods and clients are su
 | Python             |                Yes               |               Yes              |            Yes           |        Yes        |
 | None               |                Yes               |               Yes              |            Yes           |        Yes        |
 
-This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure Service Bus using Service Connector.
+This table shows that all listed combinations of client types and authentication methods are supported.
 
 ## Default environment variable names or application properties
 
@@ -59,7 +58,7 @@ Use the following connection details to connect compute services to Service Bus.
 
 #### Sample code
 
-To connect to Service Bus using a system-assigned managed identity, refer to the following steps and code.
+To connect to Service Bus using a system-assigned managed identity:
 [!INCLUDE [code sample for service bus](./includes/code-servicebus-me-id.md)]
 
 ### User-assigned managed identity
@@ -80,7 +79,7 @@ To connect to Service Bus using a system-assigned managed identity, refer to the
 
 #### Sample code
 
-To connect to Service Bus using a user-assigned managed identity, refer to the following steps and code.
+To connect to Service Bus using a user-assigned managed identity:
 [!INCLUDE [code sample for service bus](./includes/code-servicebus-me-id.md)]
 
 ### Connection string
@@ -105,7 +104,7 @@ To connect to Service Bus using a user-assigned managed identity, refer to the f
 
 #### Sample code
 
-To connect to Service Bus using a connection string, refer to the following steps and code.
+To connect to Service Bus using a connection string:
 [!INCLUDE [code sample for service bus](./includes/code-servicebus-secret.md)]
 
 
@@ -131,7 +130,7 @@ To connect to Service Bus using a connection string, refer to the following step
 
 #### Sample code
 
-To connect to Service Bus using a service principal, refer to the following steps and code.
+To connect to Service Bus using a service principal:
 [!INCLUDE [code sample for service bus](./includes/code-servicebus-me-id.md)]
 
 ## Next step

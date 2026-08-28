@@ -120,8 +120,8 @@ Starter templates and quickstart samples to help you get up and running with Azu
 | [Azure Cosmos DB for Table Quickstart - Java](https://github.com/azure-samples/cosmos-db-table-java-quickstart) | Azure Cosmos DB Content Team ✓ | Java | Azure Cosmos DB, Azure Managed Identity | Bicep |
 | [Azure Cosmos DB for Table Quickstart - Node.js](https://github.com/azure-samples/cosmos-db-table-nodejs-quickstart) | Azure Cosmos DB Content Team ✓ | Node.js | Azure Cosmos DB, Azure Managed Identity | Bicep |
 | [Azure Cosmos DB for Table Quickstart - Python](https://github.com/azure-samples/cosmos-db-table-python-quickstart) | Azure Cosmos DB Content Team ✓ | Python | Azure Cosmos DB, Azure Managed Identity | Bicep |
-| [Data API builder Quickstart - Azure Cosmos DB for NoSQL](https://github.com/azure-samples/dab-azure-cosmos-db-nosql-quickstart) | Azure Cosmos DB Content Team ✓ | .NET/C# | Azure Cosmos DB, Azure Managed Identity | Bicep |
-| [Data API builder Quickstart - Azure SQL](https://github.com/azure-samples/dab-azure-sql-quickstart) | Azure SQL Content Team ✓ | .NET/C# | Azure SQL, Azure Managed Identity | Bicep |
+| [Data API builder Quickstart - Azure Cosmos DB for NoSQL](https://github.com/Azure-Samples/cosmos-db-nosql-dotnet-quickstart) | Azure Cosmos DB Content Team ✓ | .NET/C# | Azure Cosmos DB, Azure Managed Identity | Bicep |
+| Data API builder Quickstart - Azure SQL | Azure SQL Content Team ✓ | .NET/C# | Azure SQL, Azure Managed Identity | Bicep |
 | [Hello AZD](https://github.com/Azure-Samples/hello-azd) | Azure Content Team ✓ | .NET/C# | Azure Blob Storage, Azure Cosmos DB, Azure Managed Identity | Bicep |
 
 ## Web Applications
@@ -140,7 +140,7 @@ Full-stack and server-side web application templates running on Azure Container 
 | [Flask Chart API on ACA and CDN](https://github.com/pamelafox/flask-charts-api-container-app) | Pamela Fox | Python | Azure CDN | — |
 | [Flask Container with CDN](https://github.com/pamelafox/flask-gallery-container-app) | Pamela Fox | Python | Azure CDN | — |
 | [Flask Surveys Container App](https://github.com/pamelafox/flask-surveys-container-app) | Pamela Fox | Python | Azure Key Vault, Azure PostgreSQL | — |
-| [Intelligent App on Azure Container Apps and GitHub Models](https://github.com/xuhaoruins/marketingwriter) | Hao Xu | Python | — | Bicep |
+| [Intelligent App on Azure Container Apps and GitHub Models](https://github.com/haxudev/marketingwriter) | Hao Xu | Python | — | Bicep |
 | [Java Quarkus Apps on Azure Container Apps](https://github.com/Azure-Samples/java-on-aca-quarkus) | Jianguo Ma ✓ | Java | Azure PostgreSQL, Azure MySQL, Azure Monitor, Azure Managed Identity | Bicep |
 | [Jupyter Notebooks Web App on Azure Container Apps](https://github.com/savannahostrowski/jupyter-mercury-aca) | Savannah Ostrowski | Python | — | Bicep |
 | [Next.js on Container Apps](https://github.com/CMeeg/nextjs-aca) | Chris Meagher | TypeScript, Node.js | Azure CDN, Azure Application Insights | Bicep |

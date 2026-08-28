@@ -1,9 +1,7 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 12/04/2023
-ms.author: wchi
+ms.date: 06/18/2026
 ---
 
 ### [.NET](#tab/dotnet)
@@ -13,7 +11,7 @@ ms.author: wchi
     dotnet add package MongoDb.Driver
     ```
 
-2. Get the connection string from the environment variable added by Service Connector and connect to MongoDB Atlas.
+1. Get the connection string from the environment variable added by Service Connector and connect to MongoDB Atlas.
     ```csharp
     using MongoDB.Driver;
 
@@ -61,7 +59,7 @@ ms.author: wchi
     pip install pymongo
     ```
 
-2. Get the connection string from the environment variable added by Service Connector and connect to MongoDB Atlas.
+1. Get the connection string from the environment variable added by Service Connector and connect to MongoDB Atlas.
     ```python
     import os
     import pymongo
@@ -75,7 +73,7 @@ ms.author: wchi
    ```bash
    go get go.mongodb.org/mongo-driver/mongo
    ```
-2. Get the connection string from the environment variable added by Service Connector and connect to MongoDB Atlas.
+1. Get the connection string from the environment variable added by Service Connector and connect to MongoDB Atlas.
     ```go
     import (
     	"context"
@@ -105,12 +103,12 @@ ms.author: wchi
     }
     ```
 
-### [NodeJS](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 1. Install dependency.
     ```bash
     npm install mongodb
     ```
-2. Get the connection string from the environment variable added by Service Connector and connect to MongoDB Atlas.
+1. Get the connection string from the environment variable added by Service Connector and connect to MongoDB Atlas.
     ```javascript
     const { MongoClient, ObjectId } = require('mongodb');
     

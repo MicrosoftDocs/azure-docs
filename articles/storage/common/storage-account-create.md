@@ -3,12 +3,12 @@ title: Create an Azure Storage Account
 titleSuffix: Azure Storage
 description: Create an Azure storage account to store blobs, files, queues, and tables. Use the Azure portal, CLI, PowerShell, or templates to get started.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 05/08/2026
-ms.author: akashdubey
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom:
   - devx-track-azurecli
@@ -188,7 +188,7 @@ The following table describes the fields on the **Basics** tab.
 | Instance details | Storage account name | Required | Choose a unique name for your storage account. Storage account names must be between 3 and 24 characters in length and can contain only numbers and lowercase letters. |
 | Instance details | Region | Required | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](/azure/reliability/availability-zones-overview).<br /><br />Not all regions support all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can affect billing. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing). |
 | Instance details | Preferred storage type | Required | Preferred storage type allows Azure to provide relevant guidance in the account creation experience based on your selected storage type. Choose from four storage types: Blob storage or Azure Data Lake Storage (ADLS) Gen 2, Azure Files, Tables, and Queues. Choosing a preferred storage type doesn't limit you from using any other services inside the storage account. |
-| Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](./storage-account-overview.md)</li><li>[File shares](../files/storage-files-planning.md#management-concepts)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul>
+| Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](./storage-account-overview.md)</li><li>[File shares](../files/files-management-concepts.md)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul>
 | Instance details | Redundancy | Required | Select your desired redundancy configuration. Not all redundancy options are available for all types of storage accounts in all regions. For more information about redundancy configurations, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />If you select a geo-redundant configuration (GRS or GZRS), Azure replicates your data to a data center in a different region. For read access to data in the secondary region, select **Make read access to data available in the event of regional unavailability**. |
 
 ### Advanced tab
@@ -632,4 +632,3 @@ You can also delete the resource group. This action deletes the storage account 
 - [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
 - [Move a storage account to another region](storage-account-move.md)
 - [Recover a deleted storage account](storage-account-recover.md)
-- [Migrate a classic storage account](classic-account-migrate.md)

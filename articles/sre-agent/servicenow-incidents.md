@@ -98,7 +98,7 @@ Use the following table to select the right authentication method for your envir
 For OAuth, the redirect URL follows the pattern `https://logic-apis-{region}.consent.azure-apim.net/redirect`. Register this URL in your ServiceNow OAuth Application Registry before authorizing.
 
 > [!NOTE]
-> For step-by-step setup instructions for both authentication methods, see [Tutorial: Connect to ServiceNow in Azure SRE Agent](connect-servicenow.md).
+> For step-by-step setup instructions for both authentication methods, see [Set up ServiceNow incident indexing in Azure SRE Agent](setup-servicenow-indexing.md).
 
 ## Scanner behavior
 
@@ -126,7 +126,7 @@ The following table compares manual ServiceNow incident management with agent-as
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Connect to ServiceNow](connect-servicenow.md)
+> [Connect to ServiceNow](setup-servicenow-indexing.md)
 
 ## Related content
 

@@ -6,7 +6,8 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
+ms.update-cycle: 1095-days
 ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy25
 # Customer intent: As a cloud migration specialist, I want to assess and migrate VMware vSphere VMs to Azure, so that I can leverage cloud capabilities and optimize resource management for our workloads.
@@ -43,9 +44,11 @@ This section summarizes requirements for agentless VMware vSphere VM migration t
 
 ### VMware vSphere requirements (agentless)
 
+[!INCLUDE [vmware-supported-versions-note](includes/vmware-supported-versions-note.md)]
+
 The VMware vSphere hypervisor requirements are:
-- **VMware vCenter Server** - Version 8.0 & subsequent updates in this version, Version 7.0, 6.7 or 6.5.
-- **VMware vSphere ESXi host** - Version 8.0 & subsequent updates in this version, Version 7.0, 6.7 or 6.5.
+- **VMware vCenter Server** - [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
+- **VMware vSphere ESXi host** - [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
 - **Multiple vCenter Servers** - A single appliance can connect to up to 10 vCenter Servers. Once a vCenter is added to Azure Migrate appliance using IP or FQDN, it cannot be edited/deleted.
 - **vCenter Server permissions** - The VMware account used to access the vCenter server from the Azure Migrate appliance must have the following permissions assigned at all required levels - datacenter, cluster, host, VM, and datastore. Ensure permissions are applied at each level to avoid replication errors.
 
@@ -150,10 +153,12 @@ This section summarizes requirements for agent-based migration.
 
 This table summarizes assessment support and limitations for VMware vSphere virtualization servers.
 
+[!INCLUDE [vmware-supported-versions-note](includes/vmware-supported-versions-note.md)]
+
 **VMware vSphere requirements** | **Details**
 --- | ---
-**VMware vCenter Server** | Version 8.0 & subsequent updates in this version, Version 7.0, 6.7 or 6.5..
-**VMware vSphere ESXi host** | Version 8.0 & subsequent updates in this version, Version 7.0, 6.7 or 6.5..
+**VMware vCenter Server** | [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
+**VMware vSphere ESXi host** | [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
 **vCenter Server permissions** | **VM discovery**: At least a read-only user<br/><br/> Data Center object –> Propagate to Child Object, role=Read-only.<br/><br/> **Replication**: Create a role (Azure Site Recovery) with the required permissions, and then assign the role to a VMware vSphere user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure Site Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots.<br/><br/><br/>**Note**:<br/>User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
 
 ### VM requirements (agent-based)

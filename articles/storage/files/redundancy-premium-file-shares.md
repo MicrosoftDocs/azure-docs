@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: reference
-ms.date: 03/13/2026
+ms.date: 06/23/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As a cloud storage administrator, I want to identify Azure regions that support locally redundant storage (LRS) and zone redundant storage (ZRS) for SSD file shares, so that I can ensure optimal data redundancy and availability for my organization's storage needs."
@@ -15,15 +15,15 @@ ms.custom: references_regions
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider and using the SSD media tier
 
-:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider
+:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider
 
 Azure Files supports SSD file shares in a subset of all Azure regions. Use this article to determine the Azure regions in which locally redundant storage (LRS) and zone redundant storage (ZRS) are supported for SSD file shares.
 
-## LRS support for SSD Azure file shares
+## LRS support for SSD classic file shares
 
 LRS copies your data synchronously three times within a single physical location in the primary region.
 
-LRS for SSD file shares is supported in the following Azure regions:
+LRS for SSD file shares using Microsoft.Storage resource provider is supported in the following Azure regions:
 
 - (Africa) South Africa North
 - (Africa) South Africa West
@@ -96,11 +96,11 @@ LRS for SSD file shares is supported in the following Azure regions:
 - (US Government) US Gov Texas
 - (US Government) US Gov Virginia
 
-## ZRS support for SSD Azure file shares
+## ZRS support for SSD classic file shares
 
 ZRS replicates your storage account synchronously across three Azure availability zones in the primary region.
 
-ZRS for SSD file shares is supported in the following subset of Azure regions:
+ZRS for SSD file shares using Microsoft.Storage resource provider is supported in the following subset of Azure regions:
 
 - (Africa) South Africa North
 - (Asia Pacific) Australia East
@@ -142,6 +142,81 @@ ZRS for SSD file shares is supported in the following subset of Azure regions:
 - (South America) Chile Central
 - (US Government) US Gov Virginia
   
+## LRS support for SSD file shares
+LRS copies your data synchronously three times within a single physical location in the primary region.
+
+LRS for SSD file shares using Microsoft.FileShares resource provider is supported in the following Azure regions:
+
+- Australia Central
+- Australia East
+- Australia Southeast
+- Brazil South
+- Brazil Southeast
+- Canada Central
+- Canada East
+- Central India
+- East Asia
+- East US
+- France Central
+- France South
+- Germany North
+- Germany West Central
+- Israel Central
+- Italy North
+- Japan East
+- Japan West
+- JIO India Central
+- JIO India West
+- Korea Central
+- Korea South
+- North Central US
+- North Europe
+- Norway East
+- Norway West
+- Poland Central
+- South Africa North
+- South Africa West
+- South Central US
+- South India
+- Southeast Asia
+- Sweden Central
+- UAE Central
+- UAE North
+- UK South
+- UK West
+- West Europe
+- West US
+
+## ZRS support for SSD file shares
+ZRS replicates your storage account synchronously across three Azure availability zones in the primary region.
+
+ZRS for SSD file shares using Microsoft.FileShares resource provider is supported in the following subset of Azure regions:
+
+- West US
+- Australia East
+- Brazil South
+- Canada Central
+- Central India
+- East US
+- East Asia
+- France Central
+- Germany West Central
+- Israel Central
+- Italy North
+- Japan East
+- Japan West
+- Korea Central
+- North Europe
+- Norway East
+- Poland Central
+- South Africa North
+- South Central US
+- Southeast Asia
+- Sweden Central
+- UAE North
+- UK South
+- West Europe
+
 ## See also
 
 - [Azure Files redundancy](files-redundancy.md)

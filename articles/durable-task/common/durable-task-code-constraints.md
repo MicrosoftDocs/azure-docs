@@ -3,7 +3,7 @@ title: Durable orchestrator code constraints
 description: Orchestration replay and code constraints for Azure Durable Functions and Durable Task SDKs.
 author: cgillum
 ms.topic: reference
-ms.date: 02/04/2026
+ms.date: 08/24/2026
 ms.author: azfuncdf
 ms.service: durable-task
 zone_pivot_groups: azure-durable-approach
@@ -13,6 +13,8 @@ zone_pivot_groups: azure-durable-approach
 # Orchestrator function code constraints
 
 ::: zone pivot="durable-functions"
+
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
 
 Build stateful apps with Durable Functions. It's an extension of [Azure Functions](../../azure-functions/functions-overview.md). Use an [orchestrator function](durable-task-orchestrations.md) to coordinate other Durable Functions in your function app. Orchestrator functions are stateful, reliable, and they're built to run for a long time.
 
@@ -73,13 +75,37 @@ Time-based APIs are nondeterministic and should never be used in orchestrator fu
 
 # [C#](#tab/csharp)
 
-Don't use `DateTime.Now`, `DateTime.UtcNow`, or equivalent APIs for getting the current time. Classes such as [`Stopwatch`](/dotnet/api/system.diagnostics.stopwatch) should also be avoided. For .NET in-process orchestrator functions, use the `IDurableOrchestrationContext.CurrentUtcDateTime` property to get the current time. For .NET isolated orchestrator functions, use the `TaskOrchestrationContext.CurrentDateTimeUtc` property to get the current time.
+Don't use `DateTime.Now`, `DateTime.UtcNow`, or equivalent APIs for getting the current time. Classes such as [`Stopwatch`](/dotnet/api/system.diagnostics.stopwatch) should also be avoided.
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+For .NET isolated orchestrator functions, use the `TaskOrchestrationContext.CurrentUtcDateTime` property to get the current time.
 
 ```csharp
 DateTime startTime = context.CurrentUtcDateTime;
 // do some work
 TimeSpan totalTime = context.CurrentUtcDateTime.Subtract(startTime);
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+For .NET in-process orchestrator functions, use the `IDurableOrchestrationContext.CurrentUtcDateTime` property to get the current time.
+
+```csharp
+DateTime startTime = context.CurrentUtcDateTime;
+// do some work
+TimeSpan totalTime = context.CurrentUtcDateTime.Subtract(startTime);
+```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -155,7 +181,22 @@ public class TimerExample : TaskOrchestrator<object?, TimeSpan>
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET, Java, and Python.
+Don't use `new Date()` or `Date.now()` to get the current time. Instead, use `ctx.currentUtcDateTime`.
+
+```typescript
+import { OrchestrationContext, TOrchestrator } from "@microsoft/durabletask-js";
+
+const timerExample: TOrchestrator = async function* (ctx: OrchestrationContext): any {
+    // Use ctx.currentUtcDateTime instead of new Date() or Date.now()
+    const startTime = ctx.currentUtcDateTime;
+
+    // do some work
+    yield ctx.callActivity(doWork);
+
+    const totalTimeMs = ctx.currentUtcDateTime.getTime() - startTime.getTime();
+    return totalTimeMs;
+};
+```
 
 # [Python](#tab/python)
 
@@ -178,7 +219,7 @@ def timer_example(ctx: task.OrchestrationContext, _):
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, and Python.
 
 # [Java](#tab/java)
 
@@ -217,11 +258,33 @@ APIs that return a random GUID or UUID are nondeterministic because the generate
 
 # [C#](#tab/csharp)
 
-Instead of APIs like `Guid.NewGuid()`, use the context object's `NewGuid()` API to generate a random GUID that's safe for orchestrator replay.
+Instead of APIs like `Guid.NewGuid()`, use the orchestration context's `NewGuid()` API to generate a random GUID that's safe for orchestrator replay.
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+For .NET isolated orchestrator functions, use `TaskOrchestrationContext.NewGuid()`.
 
 ```csharp
 Guid randomGuid = context.NewGuid();
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+For .NET in-process orchestrator functions, use `IDurableOrchestrationContext.NewGuid()`.
+
+```csharp
+Guid randomGuid = context.NewGuid();
+```
+
+</details>
+
+<br>
 
 > [!NOTE]
 > GUIDs generated with orchestration context APIs are [Type 5 UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier#Versions_3_and_5_(namespace_name-based)).
@@ -289,7 +352,20 @@ public class GuidExample : TaskOrchestrator<object?, Guid>
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET, Java, and Python.
+Instead of `crypto.randomUUID()`, use the context object's `newGuid()` method to generate a deterministic UUID that's safe for orchestrator replay.
+
+```typescript
+import { OrchestrationContext, TOrchestrator } from "@microsoft/durabletask-js";
+
+const guidExample: TOrchestrator = async function* (ctx: OrchestrationContext): any {
+    // Use ctx.newGuid() instead of crypto.randomUUID()
+    const randomGuid = ctx.newGuid();
+    return randomGuid;
+};
+```
+
+> [!NOTE]
+> GUIDs generated with orchestration context APIs are [Type 5 UUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier#Versions_3_and_5_(namespace_name-based)).
 
 # [Python](#tab/python)
 
@@ -309,7 +385,7 @@ def guid_example(ctx: task.OrchestrationContext, _):
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, and Python.
 
 # [Java](#tab/java)
 
@@ -438,7 +514,14 @@ await context.CreateTimer(context.CurrentUtcDateTime.AddMinutes(5), Cancellation
 
 # [JavaScript](#tab/javascript)
 
-This sample is shown for .NET, Java, and Python.
+Use `ctx.createTimer()` instead of `setTimeout()` or other delay mechanisms.
+
+```typescript
+// Don't use setTimeout() or similar delay mechanisms
+// Use ctx.createTimer() instead
+const fiveMinutesFromNow = new Date(ctx.currentUtcDateTime.getTime() + 5 * 60 * 1000);
+yield ctx.createTimer(fiveMinutesFromNow);
+```
 
 # [Python](#tab/python)
 
@@ -457,7 +540,7 @@ def delay_example(ctx: task.OrchestrationContext, _):
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, and Python.
 
 # [Java](#tab/java)
 
@@ -589,6 +672,37 @@ This runtime behavior explains why your orchestrator can't use `await` or `yield
 To learn more about how the Durable Task Framework executes orchestrators, see the [Durable Task source code on GitHub](https://github.com/Azure/durabletask). In particular, see [TaskOrchestrationExecutor.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationExecutor.cs) and [TaskOrchestrationContext.cs](https://github.com/Azure/durabletask/blob/master/src/DurableTask.Core/TaskOrchestrationContext.cs).
 
 ::: zone-end
+
+### Materialize task sequences in .NET
+
+The guidance and examples in this section apply to .NET orchestrators. In other languages, the equivalent mitigation is to eagerly materialize the task list or array before awaiting it and before iterating over it later.
+
+LINQ queries use deferred execution. If a query's selector calls `CallActivityAsync` or another durable scheduling API, each enumeration of the query creates a new set of durable tasks. For example, don't pass a deferred task sequence to `Task.WhenAll` and then enumerate the same sequence again:
+
+```csharp
+IEnumerable<Task<long>> copyTasks = files.Select(
+    file => context.CallActivityAsync<long>("CopyFile", file));
+
+await Task.WhenAll(copyTasks);
+
+// This second enumeration creates new tasks. Result then blocks on them.
+long totalBytes = copyTasks.Sum(task => task.Result);
+```
+
+The call to `Task.WhenAll` enumerates `copyTasks` once. The call to `Sum` enumerates it again, which calls `CallActivityAsync` again instead of returning the completed tasks from the first enumeration. `Result` then waits synchronously for these new, incomplete tasks. An orchestrator must yield incomplete durable tasks to the runtime by awaiting them. Because `Result` blocks instead, the orchestrator can hang. The example uses `Result` only to demonstrate this failure; don't use it to wait for incomplete durable tasks in an orchestrator.
+
+Materialize the sequence once before waiting for the tasks, and use the results returned by `Task.WhenAll`:
+
+```csharp
+Task<long>[] copyTasks = files
+    .Select(file => context.CallActivityAsync<long>("CopyFile", file))
+    .ToArray();
+
+long[] copiedBytes = await Task.WhenAll(copyTasks);
+long totalBytes = copiedBytes.Sum();
+```
+
+You can also use `ToList()` to materialize the sequence. The important constraint is to reuse the same durable task objects instead of executing the scheduling query more than once. Repeated enumeration, rather than `Result` by itself, creates the new tasks.
 
 ## Next steps
 

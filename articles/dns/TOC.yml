@@ -48,9 +48,9 @@
           href: dns-private-resolver-get-started-terraform.md
         - name: Create a private resolver - ARM Template
           href: dns-private-resolver-get-started-template.md
-    - name: DNS security policy
+    - name: DNS resolver policy
       items:
-        - name: What is DNS security policy?
+        - name: What is DNS resolver policy?
           href: dns-security-policy.md
         - name: How-to secure and view DNS traffic
           href: dns-traffic-log-how-to.md
@@ -76,6 +76,12 @@
           href: tutorial-alias-pip.md
         - name: Create alias records for Traffic Manager
           href: tutorial-alias-tm.md
+        - name: Create Traffic Manager linked records - Portal
+          href: tutorial-traffic-manager-linked-records-portal.md
+        - name: Create Traffic Manager linked records - CLI
+          href: tutorial-traffic-manager-linked-records-cli.md
+        - name: Create Traffic Manager linked records - PowerShell
+          href: tutorial-traffic-manager-linked-records-powershell.md
         - name: Alias records for load balanced web apps
           href: dns-alias-appservice.md
         - name: Integrate with other Azure services
@@ -116,10 +122,14 @@
           href: dns-zones-records.md
         - name: Alias records
           href: dns-alias.md
+        - name: Traffic Manager linked records
+          href: dns-traffic-manager-linked-records.md
         - name: Delegation with Azure DNS
           href: dns-domain-delegation.md
         - name: Reverse DNS
           href: dns-reverse-dns-overview.md
+        - name: Reliability in Azure Public DNS
+          href: /azure/reliability/reliability-dns-public?toc=%2fazure%2fdns%2ftoc.json
         - name: FAQ
           href: dns-faq.yml
     - name: Private DNS
@@ -148,8 +158,8 @@
           href: private-resolver-endpoints-rulesets.md
         - name: Private resolver architecture
           href: private-resolver-architecture.md
-        - name: Resiliency in Azure DNS Private Resolver
-          href: private-resolver-reliability.md
+        - name: Reliability in Azure DNS Private Resolver
+          href: /azure/reliability/reliability-dns-private-resolver?toc=%2fazure%2fdns%2ftoc.json
 - name: Security
   items:
     - name: Secure DNS
@@ -214,10 +224,8 @@
           href: private-dns-arg.md
 - name: Troubleshoot
   items:
-    - name: Troubleshoot Azure DNS
-      href: /troubleshoot/azure/dns/welcome-azure-dns?toc=/azure/dns/TOC.json
-- name: Support and troubleshooting
-  href: dns-support-help.md
+    - name: Troubleshoot public DNS
+      href: dns-troubleshoot.md
 - name: Reference
   items:
     - name: Public DNS

@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: javascript
 ms.topic: tutorial
-ms.date: 12/12/2025
+ms.date: 08/25/2026
 ms.custom:
   - devx-track-javascript
 ms.collection: ce-skilling-ai-copilot
@@ -41,6 +41,8 @@ Both LangGraph and Foundry Agent Service enable you to build agentic web applica
 | Identity     | Custom implementation required | Built-in agent ID and authentication   |
 | Enterprise     | Custom integration required    | Built-in Microsoft 365/Teams deployment and Microsoft 365 integrated tool calls.      |
 
+In the deployed app, App Service authentication requires Microsoft Entra sign-in for both the browser UI and the APIs. LangGraph runs inside App Service and calls the task service directly. Foundry Agent Service runs remotely and calls the protected task API through its OpenAPI tool.
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -49,6 +51,8 @@ In this tutorial, you learn how to:
 > * Convert existing app functionality into an OpenAPI endpoint for Foundry Agent Service.
 > * Call a Foundry agent in a web app.
 > * Assign the required permissions for managed identity connectivity.
+> * Protect an App Service web app and its APIs with Microsoft Entra ID.
+> * Configure a Foundry OpenAPI tool to call protected App Service APIs with managed identity.
 
 ## Prerequisites
 
@@ -91,9 +95,24 @@ The `LangGraphTaskAgent` is initialized in the constructor in *src/agents/LangGr
 
 :::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/agents/LangGraphTaskAgent.ts" range="23-143" highlight="13-21,24-37,106-117" :::
 
-When processing user messages, the agent is invoked using `invoke()` with the user's message and session configuration for conversation continuity:
+The deployed sample is protected by App Service authentication and uses one server-selected LangGraph thread. When you process user messages, the agent invokes `invoke()` with the user's message and the server-managed thread ID:
 
-:::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/agents/LangGraphTaskAgent.ts" range="173-184":::
+```typescript
+private readonly conversationThreadId = 'authenticated-conversation';
+
+const result = await this.agent.invoke(
+    {
+        messages: [
+            { role: 'user', content: message }
+        ]
+    },
+    {
+        configurable: {
+            thread_id: this.conversationThreadId
+        }
+    }
+);
+```
 
 ### [Foundry Agent Service](#tab/aifoundry)
 
@@ -102,7 +121,7 @@ The `FoundryTaskAgent` uses a lazy initialization pattern in *src/agents/Foundry
 - Creates an `AIProjectClient` using Azure credentials.
 - Gets an OpenAI client from the project client.
 - Retrieves the agent by name.
-- Creates a new conversation for the session.
+- Creates one server-managed conversation for the App Service-authenticated sample experience.
 
 :::code language="typescript" source="~/app-service-agentic-langgraph-foundry-node/src/agents/FoundryTaskAgent.ts" range="65-76" highlight="2-4,7-9" :::
 
@@ -120,9 +139,9 @@ When processing user messages, the agent is invoked by adding the user's message
 
 ## Deploy the sample application
 
-The sample repository contains an Azure Developer CLI (AZD) template, which creates an App Service app with managed identity and deploys your sample application.
+The sample repository contains an Azure Developer CLI (AZD) template, which creates an App Service app and deploys your sample application. The template enables a system-assigned managed identity for outbound Azure AI calls and configures App Service authentication with Microsoft Entra ID. For more information about the underlying authentication configuration, see [Secure OpenAPI endpoints for Foundry Agent Service](configure-authentication-ai-foundry-openapi-tool.md).
 
-1. In the terminal, log into Azure using Azure Developer CLI:
+1. In the terminal, sign in to Azure by using Azure Developer CLI:
 
    ```bash
    azd auth login
@@ -130,7 +149,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
    Follow the instructions to complete the authentication process.
 
-4. Deploy the Azure App Service app with the AZD template:
+1. Deploy the Azure App Service app by using the AZD template:
 
    ```bash
    azd up
@@ -146,18 +165,30 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
     |Select a location to create the resource group in:| Select **Sweden Central**.|
     |Enter a name for the new resource group:| Type **Enter**.|
 
-1. In the AZD output, find the URL of your app and navigate to it in the browser. The URL looks like this in the AZD output:
+1. In the AZD output, find the URL of your app. Also copy the **Foundry OpenAPI managed identity audience** value for later. The output looks like this:
 
     <pre>
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
       - Endpoint: &lt;URL>
+
+    Foundry OpenAPI managed identity audience:
+    api://&lt;generated-client-id>
     </pre>
 
-1. Open the autogenerated OpenAPI schema at the `https://....azurewebsites.net/api/schema` path. You need this schema later.
+1. Open the App Service endpoint from the AZD output.
 
-    You now have an App Service app with a system-assigned managed identity.
+1. When Microsoft prompts you, sign in by using an account in the deployment tenant, and verify that the task list loads.
+
+1. In the same authenticated browser, open the autogenerated OpenAPI schema at `https://<app-name>.azurewebsites.net/api/schema`.
+
+1. Copy or save the generated OpenAPI schema. You use it in the Foundry Agent Service pivot.
+
+    > [!NOTE]
+    > App Service authentication returns an HTTP 302 redirect for unauthenticated browser requests. This sample contains both a browser UI and APIs, so the redirect provides a usable sign-in experience. API-only apps commonly use HTTP 401 instead.
+
+    You now have an authenticated App Service app. Its system-assigned managed identity is used for outbound Foundry calls. A separate user-assigned managed identity provides secretless credentials for App Service authentication.
 
 ## Create and configure the Microsoft Foundry resource
 
@@ -167,7 +198,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 ### [Foundry Agent Service](#tab/aifoundry)
 
-[!INCLUDE [create-agent](includes/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/create-agent.md)]
+[!INCLUDE [create-agent-managed-identity](includes/tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet/create-agent-managed-identity.md)]
 
 -----
 
@@ -191,7 +222,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
     | Variable                      | Description                                              |
     |-------------------------------|----------------------------------------------------------|
-    | `AZURE_OPENAI_ENDPOINT`         | Azure OpenAI endpoint (copied from the classic Foundry portal). |
+    | `AZURE_OPENAI_ENDPOINT`         | Azure OpenAI endpoint (copied from the Foundry portal home page). |
     | `AZURE_OPENAI_DEPLOYMENT_NAME`             | Model name in the deployment (copied from the model playground in the new Foundry portal). |
     
     > [!NOTE]
@@ -208,6 +239,10 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
     
     > [!NOTE]
     > To keep the tutorial simple, you'll use these variables in *.env* instead of overwriting them with app settings in App Service.
+
+    The values in *.env* configure the app's outbound connection to Foundry. `AZURE_AI_FOUNDRY_ACCOUNT_CLIENT_ID` configures the separate inbound Foundry-to-App-Service OpenAPI connection and is stored in the AZD environment.
+
+App Service authentication runs in Azure, not in the local Express process, so the local testing workflow remains unchanged.
 
 1. Sign in to Azure with the Azure CLI:
 
@@ -226,7 +261,12 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 1. When you see **Your application running on port 3000 is available**, select **Open in Browser**.
 
-1. Select the **LangGraph Agent** link and the **Foundry Agent** link to try out the chat interface. If you get a response, your application is connecting successfully to the Microsoft Foundry resource.
+1. Validate both pivots separately:
+
+    - **LangGraph:** Select **LangGraph Agent**, and ask the agent to create a task. LangGraph calls the in-process task tool.
+    - **Foundry Agent Service:** Select **Foundry Agent**, and ask the agent to create a task. The remote Foundry agent calls the deployed, protected `/api/tasks` endpoint with managed identity.
+
+    The task that the Foundry agent creates appears in the deployed App Service instance, not the local in-memory database. The Foundry OpenAPI tool always uses the server URL embedded in the OpenAPI schema.
 
 1. Back in the GitHub codespace, deploy your app changes.
 
@@ -234,7 +274,7 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
    azd up
    ```
 
-1. Navigate to the deployed application again and test the chat agents.
+1. Navigate to the deployed application, sign in, and test both pivots. Create and list tasks with the **LangGraph Agent**, and then create and list tasks with the **Foundry Agent**. Verify that both pivots update the task list.
 
 ### [LangGraph](#tab/langgraph)
 
@@ -247,6 +287,17 @@ The sample repository contains an Azure Developer CLI (AZD) template, which crea
 
 -----
 
+[!INCLUDE [rag-faq](includes/foundry-iq-rag-faq.md)]
+
+### Which managed identity does each connection use?
+
+| Direction | Identity |
+| --- | --- |
+| App Service calls Foundry | App Service system-assigned identity |
+| Foundry OpenAPI tool calls `/api/tasks` | Parent Foundry resource system-assigned identity |
+
+The project endpoint selects the project and agent. It doesn't determine the identity that the hosted OpenAPI tool uses.
+
 ## Clean up resources
 
 When you're done with the application, you can delete the App Service resources to avoid incurring further costs:
@@ -255,7 +306,7 @@ When you're done with the application, you can delete the App Service resources 
 azd down --purge
 ```
 
-Since the AZD template doesn't include the Microsoft Foundry resources, you need to delete them manually if you want.
+Then, delete the Foundry resource if you created it separately.
 
 ## More resources
 

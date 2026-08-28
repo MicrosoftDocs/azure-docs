@@ -2,12 +2,10 @@
 title: "Quickstart: Create Azure API Management instance by using Bicep"
 description: Use this quickstart to create an Azure API Management instance in the Developer tier by using Bicep.
 services: azure-resource-manager
-author: mumian
 ms.service: azure-api-management
 tags: azure-resource-manager, bicep
 ms.custom: devx-track-bicep, subject-bicepqs, devx-track-azurecli, devx-track-azurepowershell
 ms.topic: quickstart-bicep
-ms.author: jgao
 ms.date: 02/24/2026
 ---
 

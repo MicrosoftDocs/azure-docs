@@ -11,13 +11,13 @@ groups:
     title: Azure SQL
 # Owner: liliankasem
 - id: func-cli-versions
-  title: Version
-  prompt: Choose a func.exe version
+  title: Choose a command-line tool
+  prompt: Choose your local development tool
   pivots:
   - id: func-cli-v4
-    title: v4
+    title: Azure Functions Core Tools
   - id: func-cli-v5
-    title: v5
+    title: Azure Functions CLI
 # Owner: estfan
 - id: azure-logic-apps
   title: Experience
@@ -27,7 +27,7 @@ groups:
     title: Azure portal
   - id: python
     title: Python
-# Owner: dlepow
+# Owner: patricka
 - id: api-management-credential-auth-scenario
   title: Authentication scenario
   prompt: Choose authorization credential
@@ -185,6 +185,14 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+- id: durable-functions-storage-providers-options
+  title: Storage provider
+  prompt: Choose a storage provider
+  pivots:
+  - id: durable-task-scheduler
+    title: Durable Task Scheduler
+  - id: azure-storage
+    title: Azure Storage
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
@@ -315,24 +323,16 @@ groups:
     title: Isolated worker model
   - id: in-proc
     title: In-process model
-- id: reliability-functions-hosting-plan
-  title: Function app hosting options for Availability Zones support
-  prompt: Choose a hosting option for your function app
+- id: functions-auth-method
+  title: Authentication method
+  prompt: Choose an authentication method
   pivots:
-  - id: flex-consumption-plan
-    title: Flex Consumption plan
-  - id: premium-plan
-    title: Premium plan
-- id: functions-hosting-plan-dynamic
-  title: Function app hosting options
-  prompt: Choose a hosting option for your function app
-  pivots:
-  - id: flex-consumption-plan
-    title: Flex Consumption plan
-  - id: premium-plan
-    title: Premium plan
-  - id: consumption-plan
-    title: Consumption plan
+  - id: functions-auth-identity
+    title: Managed identity
+  - id: functions-auth-keyvault
+    title: Key Vault
+  - id: functions-auth-secret
+    title: Shared secret
 - id: functions-hosting-plan
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
@@ -1115,15 +1115,6 @@ groups:
   - id: programming-language-java
     title: Java
 # Owner: alkohli
-- id: azure-stack-edge-device-deployment
-  title: Azure Stack Edge device deployment
-  prompt: Choose deployment type
-  pivots:
-  - id: single-node
-    title: Single node device
-  - id: two-node
-    title: Two node cluster
-# Owner: alkohli
 - id: data-box-shipping
   title: Data Box shipping
   prompt: Choose shipping location
@@ -1396,6 +1387,14 @@ groups:
     title: Application Gateway
   - id: front-door
     title: Front Door
+- id: network-watcher-agent-os
+  title: Operating system
+  prompt: "Choose your operating system:"
+  pivots:
+  - id: linux
+    title: Linux
+  - id: windows
+    title: Windows
 # Owner: hmb
 - id: front-door-dev-exp-portal-ps-cli
   title: Front Door deployment method
@@ -1538,12 +1537,18 @@ groups:
   title: API version pivots
   prompt: Choose an API version
   pivots:
-  - id: v1
-    title: "1.0"
-  - id: v23-10
-    title: "2023-10-01"
+  - id: v26-05-preview
+    title: "2026-05-01-preview"
+  - id: v26-04
+    title: "2026-04-01"
+  - id: v24-09
+    title: "2024-09-01"
   - id: v23-11
     title: "2023-11-01"
+  - id: v23-10
+    title: "2023-10-01"
+  - id: v1
+    title: "1.0"
 # Owner: v-yilinhu
 - id: programming-languages-batch-linux-nodes
   title: Programming languages
@@ -1686,13 +1691,11 @@ groups:
   prompt: Choose how to create the workflow configuration
   pivots:
   - id: method-manual
-    title: Manual
+    title: Workflow template
   - id: method-portal
     title: Azure portal
-  - id: method-cli
-    title: Azure CLI
   - id: method-template
-    title: GitHub Actions template
+    title: GitHub marketplace
 - id: azure-virtual-network-manager-quickstart-options
   title: Azure Virtual Network Manager Quickstart Scope Options
   prompt: Choose a scope option
@@ -2036,6 +2039,18 @@ groups:
     title: Data Box Next Gen
   - id: dbx
     title: Data Box
+- id: storage-mover-multicloud
+  title: Storage Mover migration sources
+  prompt: Select your migration source.
+  pivots:
+  - id: aws
+    title: Amazon Web Services
+  - id: gcs
+    title: Google Cloud
+  - id: oracle
+    title: Oracle Cloud
+  - id: on-premises
+    title: On-premises S3
 #owner: mbender
 - id: load-balancer-multiple-ip-pv
   title: Load Balancer Multiple IPs
@@ -2139,3 +2154,34 @@ groups:
     title: Windows
   - id: linux
     title: Linux
+# Owner: zamasiel
+- id: sap-ha-nfs-solution
+  title: Azure NFS Hosting Option
+  prompt: Choose your Azure NFS Hosting Solution
+  pivots:
+  - id: azurefiles
+    title: NFS on Azure Files
+  - id: anf
+    title: Azure NetApp Files
+# Owner: zamasiel
+- id: sap-pacemaker-fencing-solution
+  title: Azure Linux Fencing Solutions
+  prompt: Choose your Pacemaker Fencing Solution
+  pivots:
+  - id: sbd-shared-disk
+    title: SBD with Azure Shared Disk
+  - id: sbd-iscsi
+    title: SBD with iSCSI Target Servers
+  - id: azure-fence-agent
+    title: Azure Fence Agent
+# Owner: duongau
+- id: networking-scenario
+  title: Choose your scenario
+  prompt: Select the migration scenario that matches your project
+  pivots:
+  - id: lift-shift
+    title: Lift and shift
+  - id: modernize
+    title: Migrate and modernize
+  - id: cross-cloud
+    title: Cross-cloud

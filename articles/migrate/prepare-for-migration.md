@@ -5,8 +5,9 @@ author: sunishvohra-ms
 ms.author: sunishvohra
 ms.manager: vijain
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.topic: how-to
+ms.update-cycle: 365-days
 ms.date: 04/17/2025
 ms.custom: engagement-fy25
 # Customer intent: As a cloud architect, I want to prepare on-premises or Azure VMware Solution machines for migration to Azure so that I can ensure a seamless and compliant transition of workloads to the cloud environment.

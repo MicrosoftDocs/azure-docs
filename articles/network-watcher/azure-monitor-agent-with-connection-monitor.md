@@ -55,6 +55,9 @@ To make connection monitor recognize your on-premises machines as sources for mo
 
   The agent collects monitoring logs and data from the hybrid sources and delivers them to Azure Monitor.
 
+> [!NOTE]
+> On-premises machines onboarded via Azure Arc and monitored using Azure Monitor Agent (AMA) with a Data Collection Rule (DCR) don't currently support Data Collection Endpoints (DCE) or Azure Monitor Private Link Scope (AMPLS).
+
 ### Enable the Network Performance Monitor solution for on-premises machines 
 
 To enable the Network Performance Monitor solution for on-premises machines, follow these steps: 

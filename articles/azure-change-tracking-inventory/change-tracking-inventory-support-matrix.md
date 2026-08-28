@@ -4,6 +4,7 @@ description: Get a summary of support settings and limitations for enabling Azur
 ms.date: 05/25/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
+ms.update-cycle: 1095-days
 ms.author: v-rochak2
 author: RochakSingh-blr
 #customer intent: As a customer, I want to understand the supported operating systems and identify the supported regions for Azure Change Tracking and Inventory so that I can ensure compatibility with my environment.
@@ -127,7 +128,6 @@ Change Tracking and Inventory using the AMA doesn't support the following capabi
 - Anything other than `HKEY_LOCAL_MACHINE`. You encounter this limitation whenever you add the registry key manually.
 - Network file systems.
 - Different installation methods.
-- The `*.exe` files stored on Windows.
 - The **Max File Size** column and values in the current implementation.
 - Collecting hotfix updates on Windows Server 2016 Core RS3 machines.
 - Any hardening standards for any Linux operating systems or distributions.

@@ -2,8 +2,8 @@
 title: Delete Activity in Azure Data Factory 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to delete files in various file stores with the Delete Activity in Azure Data Factory and Azure Synapse Analytics.
-author: dearandyxu
-ms.author: yexu
+author: kromerm
+ms.author: makromer
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: concept-article
@@ -13,6 +13,9 @@ ms.date: 02/13/2025
 # Delete Activity in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> The Fabric equivalent of Delete activity is Delete Data activity. For configuration details, see [Delete Data activity](/fabric/data-factory/delete-data-activity).
 
 You can use the Delete Activity in Azure Data Factory to delete files or folders from on-premises storage stores or cloud storage stores. Use this activity to clean up or archive files when they're no longer needed.
 

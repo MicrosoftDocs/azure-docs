@@ -3,13 +3,14 @@ title: Use API Management in a virtual network with Azure Application Gateway
 titleSuffix: Azure API Management
 description: Set up and configure Azure API Management in an internal virtual network with Azure Application Gateway (Web Application Firewall) as a front end.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.author: danlep
-ms.date: 04/17/2025
+ms.date: 08/24/2026
 ms.custom: engagement-fy23, devx-track-azurepowershell
+ai-usage: ai-assisted
+
+#customer intent: As an API developer, I want to front my internal API Management instance with Azure Application Gateway so that I can securely expose a subset of APIs to external consumers while keeping the instance private.
 ---
 # Integrate API Management in an internal virtual network with Application Gateway
 
@@ -24,8 +25,8 @@ By combining API Management provisioned in an internal virtual network with the 
 * Provide a turnkey way to switch access to API Management from the public internet on and off.
 
 For architectural guidance, see:
-* **Basic enterprise integration**: [Reference architecture](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
-* **API Management landing zone accelerator**: [Reference architecture](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json) and [design guidance](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+* [Basic enterprise integration reference architecture](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+* [API Management landing zone accelerator reference architecture](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json) and [landing zone accelerator design guidance](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
 > [!NOTE]
 > This article has been updated to use the [Application Gateway WAF_v2 SKU](../application-gateway/application-gateway-autoscaling-zone-redundant.md).
@@ -41,10 +42,10 @@ To follow the steps described in this article, you must have:
     [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 * Certificates
-     - Personal Information Exchange (PFX) files for API Management's custom host names: gateway, developer portal, and management endpoint.
-     - A Certificate (CER) file for the root certificate of the PFX certificates.
+  * Personal Information Exchange (PFX) files for API Management's custom host names: gateway, developer portal, and management endpoint.
+  * A Certificate (CER) file for the root certificate of the PFX certificates.
      
-    For more information, see [Certificates for the back end](../application-gateway/certificates-for-backend-authentication.md). For testing purposes, optionally generate [self-signed certificates](../application-gateway/self-signed-certificates.md).
+  For more information, see [Certificates for the back end](../application-gateway/certificates-for-backend-authentication.md). For testing purposes, optionally generate [self-signed certificates](../application-gateway/self-signed-certificates.md).
   
 * The latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
@@ -54,7 +55,7 @@ In this article, you learn how to use a single API Management instance for inter
 
 In the first setup example, all your APIs are managed only from within your virtual network. Internal consumers can access all your internal and external APIs. Traffic never goes out to the internet. High-performance connectivity can be delivered via Azure ExpressRoute circuits. In the example, the internal consumers are highlighted in orange.
 
-![Diagram that shows the URL route.](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
+:::image type="content" source="./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png" alt-text="Diagram that shows Application Gateway fronting an internal API Management instance for external and internal customers.":::
 
 ### What is required to integrate API Management and Application Gateway?
 
@@ -80,7 +81,7 @@ If you use Microsoft Entra ID or third-party authentication, enable the [cookie-
 > - `920300`, `920330`, `931130`, `942100`, `942110`, `942180`, `942200`, `942260`, `942340`, `942370` for the administrative mode
 > - `942200`, `942260`, `942370`, `942430`, `942440` for the published portal
 
-## Setting Variables
+## Setting variables
 
 Throughout this guide, you need to define several variables. Naming is based on the [Cloud Adoption Framework abbreviation](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-abbreviations) guidance.
 
@@ -102,9 +103,9 @@ $gatewayCertPfxPath = "${baseCertPath}gateway.pfx"            # Full path to api
 $portalCertPfxPath = "${baseCertPath}portal.pfx"              # Full path to portal.contoso.net .pfx file
 $managementCertPfxPath = "${baseCertPath}management.pfx"      # Full path to management.contoso.net .pfx file
 
-$gatewayCertPfxPassword = "certificatePassword123"            # Password for api.contoso.net pfx certificate
-$portalCertPfxPassword = "certificatePassword123"             # Password for portal.contoso.net pfx certificate
-$managementCertPfxPassword = "certificatePassword123"         # Password for management.contoso.net pfx certificate
+$gatewayCertPfxPassword = "<gateway-cert-password>"          # Password for api.contoso.net pfx certificate
+$portalCertPfxPassword = "<portal-cert-password>"            # Password for portal.contoso.net pfx certificate
+$managementCertPfxPassword = "<management-cert-password>"    # Password for management.contoso.net pfx certificate
 
 # These variables may be changed.
 $resGroupName = "rg-apim-agw"                                 # Resource group name that will hold all assets
@@ -523,7 +524,7 @@ All configuration items must be set up before you create the application gateway
     Get-AzApplicationGatewayBackendHealth -Name $appgwName -ResourceGroupName $resGroupName
     ```
 
-Ensure that the health status of each back-end pool is Healthy. If you need to troubleshoot an unhealthy back end or a back end with unknown health status, see [Troubleshoot back-end health issues in Application Gateway](../application-gateway/application-gateway-backend-health-troubleshooting.md).
+Ensure that the health status of each backend pool is Healthy. If you need to troubleshoot an unhealthy backend or a backend with unknown health status, see [Troubleshoot back-end health issues in Application Gateway](../application-gateway/application-gateway-backend-health-troubleshooting.md).
 
 ## Create DNS records to access API Management endpoints from the internet
 

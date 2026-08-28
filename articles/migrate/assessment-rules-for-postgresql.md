@@ -1,12 +1,13 @@
 ---
 title: PostgreSQL Assessment Rules to Detect Blockers and Compatibility Issues
 description: Helps detect migration blockers and compatibility issues when moving PostgreSQL databases to Azure Database for PostgreSQL Flexible Server, ensuring a smooth and successful cloud transition.
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-migrate 
 ms.topic: concept-article 
 ms.date: 09/19/2025
 ms.custom: engagement-fy24 
+ms.update-cycle: 1825-days
 # Customer intent: Customers want to ensure a smooth migration of PostgreSQL databases to Azure by identifying blockers, compatibility issues, and required configuration changes.
 ---
 

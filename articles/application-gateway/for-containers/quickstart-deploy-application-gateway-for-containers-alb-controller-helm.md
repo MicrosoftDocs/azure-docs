@@ -4,10 +4,10 @@ titlesuffix: Azure Application Load Balancer
 description: In this quickstart, you learn how to provision the Application Gateway for Containers ALB Controller in an AKS cluster.
 services: application-gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 5/18/2026
+ms.date: 7/16/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes administrator, I want to install the Application Gateway for Containers ALB Controller on my AKS cluster, so that I can efficiently manage load balancing rules and enhance application traffic handling.
 ---
@@ -262,7 +262,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
          --namespace $HELM_NAMESPACE \
-         --version 1.10.28 \
+         --version 1.11.4 \
          --set albController.namespace=$CONTROLLER_NAMESPACE \
          --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query clientId -o tsv)
     ```
@@ -283,7 +283,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     # Install Helm chart
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller `
         --namespace $HELM_NAMESPACE `
-        --version 1.10.28 `
+        --version 1.11.4 `
         --set albController.namespace=$CONTROLLER_NAMESPACE `
         --set albController.podIdentity.clientID=$clientId
     ```
@@ -304,7 +304,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
         --namespace $HELM_NAMESPACE \
-        --version 1.10.28 \
+        --version 1.11.4 \
         --set albController.namespace=$CONTROLLER_NAMESPACE \
         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n $IDENTITY_RESOURCE_NAME --query clientId -o tsv)
     ```
@@ -325,7 +325,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     # Upgrade Helm chart
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller `
         --namespace $HELM_NAMESPACE `
-        --version 1.10.28 `
+        --version 1.11.4 `
         --set albController.namespace=$CONTROLLER_NAMESPACE `
         --set albController.podIdentity.clientID=$clientId
     ```

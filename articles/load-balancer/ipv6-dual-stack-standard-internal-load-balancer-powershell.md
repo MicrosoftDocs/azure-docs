@@ -5,7 +5,7 @@ services: azure-load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 08/27/2026
 ms.author: mbender
 ms.custom:
   - devx-track-azurepowershell
@@ -124,7 +124,7 @@ $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig -Name "dsLbBackEndPo
 
 ### Create a load balancer rule
 
-A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. To make sure only healthy VMs receive traffic, you can optionally define a health probe. Basic load balancer uses an IPv4 probe to assess health for both IPv4 and IPv6 endpoints on the VMs. Standard load balancer includes support for explicitly IPv6 health probes.
+A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. To ensure only healthy VMs receive traffic, you can optionally define a health probe. Standard Load Balancer supports explicit IPv6 health probes.
 
 Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). The following example creates load balancer rules named *dsLBrule_v4* and *dsLBrule_v6* and balances traffic on *TCP* port *80* to the IPv4 and IPv6 frontend IP configurations:
 
@@ -307,8 +307,6 @@ You can view the IPv6 dual stack virtual network in Azure portal as follows:
 2. When **dsVnet** appears in the search results, select it. This launches the **Overview** page of the dual stack virtual network named *dsVnet*. The dual stack virtual network shows the two NICs with both IPv4 and IPv6 configurations located in the dual stack subnet named *dsSubnet*.
 
 
-> [!NOTE]
-> The IPv6 for Azure virtual network is available in the Azure portal in read-only for this preview release.
 
 ## Clean up resources
 

@@ -2986,6 +2986,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/app-service/tutorial-ai-openai-search-dotnet.md",
+      "redirect_url": "/azure/app-service/scenario-ai-chatbot-retrieval-augmented-generation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/tutorial-ai-openai-search-java.md",
+      "redirect_url": "/azure/app-service/scenario-ai-chatbot-retrieval-augmented-generation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/tutorial-ai-openai-search-nodejs.md",
+      "redirect_url": "/azure/app-service/scenario-ai-chatbot-retrieval-augmented-generation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/tutorial-ai-openai-search-python.md",
+      "redirect_url": "/azure/app-service/scenario-ai-chatbot-retrieval-augmented-generation",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/environment/auto-migration.md",
       "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false

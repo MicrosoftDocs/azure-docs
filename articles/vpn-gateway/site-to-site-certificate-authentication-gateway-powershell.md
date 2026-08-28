@@ -2,16 +2,16 @@
 title: 'Create S2S VPN Connection Between On-premises Network and Azure Virtual Network - Certificate Authentication: Azure PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN Gateway server settings for site-to-site configurations - certificate authentication using PowerShell.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 02/24/2026
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: "As a network engineer, I want to establish a secure site-to-site VPN connection using certificate authentication, so that I can securely connect my on-premises network to my Azure virtual network."
 ---
 
-# Configure a S2S VPN Gateway certificate authentication connection - PowerShell
+# Configure an S2S VPN gateway certificate authentication connection - PowerShell
 
 This article shows you how to use Azure PowerShell to create a site-to-site (S2S) VPN gateway connection between your on-premises network and an Azure virtual network using X.509 certificate-based authentication. Certificate authentication provides stronger security compared to preshared keys (PSK) for VPN connections.
 
@@ -232,7 +232,7 @@ Set-AzVirtualNetwork -VirtualNetwork $vnet1
 
 ## Create user-assigned managed identities
 
-This configuration requires a managed identity. VPN gateways use user-assigned managed identities to securely access certificates stored in Azure Key Vault. For more information about managed identities, see [What are managed identities for Azure resources](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview).
+This configuration requires a managed identity. VPN gateways use user-assigned managed identities to securely access certificates stored in Azure Key Vault. For more information about managed identities, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 When creating the managed identity name, use something intuitive, such as gw1-s2s-kv or vpngwy-managed. You need the name for Key Vault configuration steps. The resource group doesn't have to be the same as the resource group used for your VPN gateway.
 
@@ -247,7 +247,7 @@ A user assigned managed identity name doesn't need to be globally unique across 
 
 ## Create Key Vaults and configure RBAC permissions
 
-This configuration requires Azure Key Vault. Create Key Vaults to store the certificates and configure RBAC permissions for secure access. For more information about Azure Key Vault, see [About Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview).
+This configuration requires Azure Key Vault. Create Key Vaults to store the certificates and configure RBAC permissions for secure access. For more information about Azure Key Vault, see [About Azure Key Vault](/azure/key-vault/general/overview).
 
 > [!NOTE]
 > When using the Azure portal to create a Key Vault for certificate authentication, ensure you select **Azure role-based access control** as the Permission model on the access configuration. This is the recommended approach.
@@ -292,7 +292,7 @@ New-AzRoleAssignment -ObjectId $gw1UserIdentity.PrincipalId `
 RBAC permission changes don't take effect immediately. As a best practice, allow roughly two minutes for the updated role assignments to propagate before validating that the permissions have reached the user assigned managed identity. If RBAC hasn't yet propagated, the next steps might fail.
 
 > [!NOTE]
-> Microsoft recommends using Azure RBAC for Key Vault access control instead of the legacy Access Policy model. For more information, see [Migrate from access policy to Azure RBAC](https://learn.microsoft.com/azure/key-vault/general/rbac-guide).
+> Microsoft recommends using Azure RBAC for Key Vault access control instead of the legacy Access Policy model. For more information, see [Migrate from access policy to Azure RBAC](/azure/key-vault/general/rbac-guide).
 
 ## Import certificates to Key Vault
 
@@ -558,3 +558,4 @@ Once your connection is complete, you can configure additional VPN Gateway setti
 * [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md)
 * [Configure BGP for VPN Gateway](vpn-gateway-bgp-overview.md)
 * [About highly available VPN gateway connections](vpn-gateway-highlyavailable.md)
+* [Configure a site-to-site VPN with certificate authentication - Azure CLI](site-to-site-certificate-authentication-gateway-cli.md)

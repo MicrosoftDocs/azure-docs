@@ -1,8 +1,9 @@
 ---
 title: Common Issues - Phase timeout expired while awaiting system boot-up
-description: Azure CycleCloud common issue - Node Storage Resolution
+description: Troubleshoot node storage resolution and boot-up timeout errors in Azure CycleCloud.
 author: mvrequa
-ms.date: 06/30/2025
+ms.date: 06/19/2026
+ms.topic: troubleshooting-problem-resolution
 ms.author: mirequa
 ---
 # Common issues: Node storage resolution failure

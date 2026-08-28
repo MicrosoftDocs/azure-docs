@@ -4,8 +4,8 @@ description: Learn how to configure a virtual network for standard injection of 
 ms.subservice: integration-services
 ms.topic: concept-article
 ms.date: 01/05/2024
-author: chugugrace
-ms.author: chugu 
+author: kromerm
+ms.author: makromer
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange
@@ -14,6 +14,8 @@ ms.custom:
 # Standard virtual network injection method
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or Synapse Pipelines, there are two methods for you to join your Azure-SSIS integration runtime (IR) to a virtual network: standard and express. If you use the standard method, you need to configure your virtual network to meet these requirements:
 

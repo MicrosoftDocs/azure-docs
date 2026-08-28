@@ -1,10 +1,9 @@
 ---
 title: Provide correct parameters to Service Connector
 description: Learn how to pass correct parameters to Service Connector to generate service connections between your Cloud resources.
-author: houk-ms
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 05/12/2025
+ms.date: 06/18/2026
 ms.author: honc
 ms.custom:
   - build-2025
@@ -25,7 +24,6 @@ Source services are usually Azure compute services. Service Connector is an [Azu
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Azure App Service      | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`                                                |
 | Azure App Service slot | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}/slots/{slot}`                                   |
-| Azure Container Apps   | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.App/containerApps/{app}`                                         |
 | Azure Kubernetes Service (AKS) | `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ContainerService/managedClusters/{aks-cluster-name}`                                         |
 | Azure Functions        | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`                                                |
 | Azure Spring Apps      | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.AppPlatform/Spring/{spring}/apps/{app}/deployments/{deployment}` |

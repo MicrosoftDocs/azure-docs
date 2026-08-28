@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Elastic SAN
 description: Troubleshoot issues with Azure Elastic SAN
 author: adarshv98
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 01/08/2026
 ms.author: rogarana
@@ -67,6 +67,14 @@ Variables:
 
 ```sudo iscsiadm -m node -T $volume_iqn -p $portal_hostname:$port -o update -n $iscsi_setting_name -v $setting_value```
 
+
+## iSCSI login rejected after correctly configuring service endpoints and network rules
+
+If iSCSI discovery returns **"No portals found"** or the login is rejected with `target error (03/00)` after correctly configuring service endpoints and network ACL rules, your subnet may have a storage service endpoint policy applied.
+
+Elastic SAN doesn't support subnets with storage service endpoint policies and blocks all iSCSI connections from them, regardless of whether service endpoints and network rules are correctly configured. The `Microsoft.Storage.Global` endpoint sees the storage service endpoint policy, finds Elastic SAN's iSCSI targets aren't on the policy allowlist, and denies the connection.
+
+**Resolution:** Remove the storage service endpoint policy from the subnet used with an Elastic SAN, or use a dedicated subnet without a storage service endpoint policy. Confirm that `Microsoft.Storage.Global` service endpoint is still enabled on the subnet after making changes.
 
 ## Next steps
 - [Deploy an Elastic SAN](elastic-san-create.md)

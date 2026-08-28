@@ -2,7 +2,7 @@
 title: Azure Instant Restore Capability
 description: Learn about Azure Instant Restore availability and FAQs for a VM backup stack in an Azure Resource Manager deployment model.
 ms.topic: overview
-ms.date: 06/16/2025
+ms.date: 04/01/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a system administrator, I want to use Instant Restore for VM backups so that I can significantly reduce restore times and improve recovery performance during data restoration processes.

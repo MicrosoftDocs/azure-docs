@@ -125,6 +125,10 @@ You can set route tables without restriction. You can tunnel all of the outbound
 
 Application dependencies include endpoints that your app needs during runtime. Besides APIs and services the app is calling, dependencies could also be derived endpoints like certificate revocation list (CRL) check endpoints and identity/authentication endpoint, for example Microsoft Entra ID. If you're using [continuous deployment in App Service](../deploy-continuous-deployment.md), you might also need to allow endpoints depending on type and language. Specifically for [Linux continuous deployment](https://github.com/microsoft/Oryx/blob/main/doc/hosts/appservice.md#network-dependencies), you need to allow `oryx-cdn.microsoft.io:443`.
 
+> [!NOTE]
+> The `inboundNetworkDependenciesEndpoints` and `outboundNetworkDependenciesEndpoints` APIs aren't supported on App Service Environment v3. Calling these APIs against a `Microsoft.Web/hostingEnvironments` resource with kind `ASEV3` returns the error `Bad Request "Operation not supported for resource type Microsoft.Web/hostingEnvironments with kind ASEV3"`. App Service Environment v3 has [significantly simplified networking dependencies](#ports-and-network-restrictions) compared to earlier versions, so these endpoint discovery APIs are no longer required. Use the inbound and outbound port and address information documented in this article instead.
+>
+
 You can put your web application firewall devices, such as Azure Application Gateway, in front of inbound traffic. Doing so allows you to expose specific apps on that App Service Environment.
 
 Your application uses one of the default outbound addresses for egress traffic to public endpoints. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.

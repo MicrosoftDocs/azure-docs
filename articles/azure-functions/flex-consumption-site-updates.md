@@ -163,24 +163,29 @@ Keep these limitations in mind when using these queries:
 
 ## FAQ
 
-**I'm used to deployment slots for zero downtime deployments. How do rolling updates differ?**
+Here are some common questions about site update strategies.
 
-- Unlike deployment slots, rolling updates require no additional infrastructure. Set `siteUpdateStrategy.type` to `"RollingUpdate"` for zero-downtime deployments.
-- Rolling updates preserve in-progress executions, while deployment slots terminate them during swaps. [Certain site properties](functions-deployment-slots.md#manage-settings) and sticky settings can't be swapped and require modifying the production slot directly.
-- Unlike deployment slots, rolling updates don't provide a separate environment for you to canary test changes or route a percentage of live traffic to. If you need these features, use a plan that supports deployment slots, like Elastic Premium, or manage separate Flex Consumption apps behind a traffic manager.
+### How do rolling updates differ from deployment slots?
 
-**How do I roll back a site update?**
+Unlike deployment slots, rolling updates don't require extra infrastructure. Set `siteUpdateStrategy.type` to `"RollingUpdate"` for zero-downtime deployments.
 
-- There's currently no feature to roll back a site update. If a rollback is necessary, initiate another site update with the previous state of code or configuration.
+Rolling updates preserve in-progress executions, while deployment slots terminate them during swaps. [Certain site properties](functions-deployment-slots.md#manage-settings) and sticky settings can't be swapped and require modifying the production slot directly.
 
-**How are timer triggers handled?**
+Unlike deployment slots, rolling updates don't provide a separate environment for you to canary test changes or route a percentage of live traffic to. If you need these features, use a plan that supports deployment slots, like Elastic Premium, or manage separate Flex Consumption apps behind a traffic manager.
 
-- Timer triggers maintain their singleton nature. Once a timer-triggered function app is marked for drain, new timer functions run on the latest version. 
+### How do I roll back a site update?
 
-**I'm seeing runtime errors during the rolling update...what went wrong?**
+There's currently no feature to roll back a site update. If a rollback is necessary, initiate another site update with the previous state of code or configuration. For a complete guide, see [Recover from a bad Flex Consumption plan deployment](functions-rollback-deployments.md).
 
-- If new instances fail to start or encounter runtime errors, the issue is likely in the application code, dependencies, configuration settings, or environment variables that you modified.
-- To resolve the issue, redeploy your last known healthy version to restore the runtime. Then test your proposed changes in a development or staging environment before reattempting. Review error logs to identify what specific change caused the issue. 
+### How are timer triggers handled?
+
+Timer triggers maintain their singleton nature. Once a timer-triggered function app is marked for drain, new timer functions run on the latest version.
+
+### I'm seeing runtime errors during the rolling update
+
+If new instances fail to start or encounter runtime errors, the problem is likely in the application code, dependencies, configuration settings, or environment variables that you modified.
+
+To resolve the problem, redeploy your last known healthy version to restore the runtime. Then test your proposed changes in a development or staging environment before reattempting. Review error logs to identify what specific change caused the problem.
 
 ## Next steps
 

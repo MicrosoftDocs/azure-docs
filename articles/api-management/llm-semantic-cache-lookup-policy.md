@@ -2,16 +2,14 @@
 title: Azure API Management policy reference - llm-semantic-cache-lookup | Microsoft Docs
 description: Reference for the llm-semantic-cache-lookup policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 02/23/2026
+ms.date: 08/18/2026
 ms.update-cycle: 180-days
-ms.author: danlep
 ---
 
 # Get cached responses of large language model API requests
@@ -43,6 +41,9 @@ Use the `llm-semantic-cache-lookup` policy to perform cache lookup of responses 
 ```
 
 [!INCLUDE [api-management-semantic-cache-policy-details](../../includes/api-management-semantic-cache-policy-details.md)]
+
+> [!IMPORTANT]
+> Linked access isn't checked when a backend is referenced by using `embeddings-backend-id`. A user who has permission to write a policy can reference any available backend and send embedding requests through it, even if the user doesn't have read access to the backend resource.
 
 ## Examples
 

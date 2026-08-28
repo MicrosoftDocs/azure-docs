@@ -1,9 +1,8 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 07/28/2025
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
@@ -15,7 +14,7 @@ ms.author: wchi
     dotnet add package Azure.Identity
     ```
 
-1. Authenticate using Azure Identity library and get the Azure OpenAI endpoint from the environment variables added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using the Azure Identity library and get the Azure OpenAI endpoint from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
     
     ```csharp
     using Azure.AI.OpenAI;
@@ -63,7 +62,7 @@ ms.author: wchi
     </dependency>
     ```
 
-1. Authenticate using `azure-identity` and get the Azure OpenAI endpoint from the environment variables added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `azure-identity` and get the Azure OpenAI endpoint from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
 
     ```java
     // Uncomment the following lines corresponding to the authentication type you want to use.
@@ -99,7 +98,7 @@ ms.author: wchi
     pip install azure-identity
     ```
 
-1. Authenticate using `azure-identity` and get the Azure OpenAI endpoint from the environment variables added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `azure-identity` and get the Azure OpenAI endpoint from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
 
     ```python
     import os
@@ -133,7 +132,7 @@ ms.author: wchi
     )
     ```
 
-### [NodeJS](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 1. Install dependencies.
 
@@ -142,7 +141,7 @@ ms.author: wchi
     npm install @azure/openai
     ```
 
-1. Authenticate using `@azure/identity` and get the Azure OpenAI endpoint from the environment variables added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `@azure/identity` and get the Azure OpenAI endpoint from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
     
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";

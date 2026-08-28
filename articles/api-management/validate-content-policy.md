@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - validate-content | Microsoft Docs
 description: Reference for the validate-content policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 02/23/2026
-ms.author: danlep
+ms.date: 08/18/2026
 ---
 
 # Validate content
@@ -91,6 +89,9 @@ The policy validates the following content in the request or response against th
 | schema-ref| For a JSON schema specified in `schema-id`, optional reference to a valid local reference path in the JSON document. Example: `#/components/schemas/address`. The attribute should return a JSON object that API Management handles as a valid JSON schema.<br/><br/> For an XML schema, `schema-ref` isn't supported, and any top-level schema element can be used as the root of the XML request or response payload. The validation checks that all elements starting from the XML request or response payload root adhere to the provided XML schema. | No | N/A |
 | allow-additional-properties |  Boolean. For a JSON schema, specifies whether to implement a runtime override of the `additionalProperties` value configured in the schema: <br> - `true`: allow additional properties in the request or response body, even if the JSON schema's `additionalProperties` field is configured to not allow additional properties. <br> - `false`: do not allow additional properties in the request or response body, even if the JSON schema's `additionalProperties` field is configured to allow additional properties.<br/><br/>If the attribute isn't specified, the policy validates additional properties according to configuration of the `additionalProperties` field in the schema. | No |   N/A  |
 | case-insensitive-property-names | Boolean. For a JSON schema, specifies whether to compare property names of JSON objects without regard to case. <br> - `true`: compare property names case insensitively. <br> - `false`: compare property names case sensitively. | No | false |
+
+> [!IMPORTANT]
+> Linked access isn't checked when a schema is referenced by using `schema-id`. A user who has permission to write a policy can reference any available schema and cause API Management to validate request or response bodies against its rules, including detecting or blocking nonconforming content, even if the user doesn't have read access to the schema resource. This doesn't grant access to view or modify the schema definition.
 
 [!INCLUDE [api-management-validation-policy-actions](../../includes/api-management-validation-policy-actions.md)]
 

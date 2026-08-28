@@ -20,17 +20,7 @@ If you want to deploy Azure IoT Operations to a production cluster, see [Deploy 
 
 ## Before you begin
 
-This article discusses Azure IoT Operations *deployments* and *instances*, which are two different concepts:
-
-* An Azure IoT Operations *deployment* describes all of the components and resources that enable the Azure IoT Operations scenario. These components and resources include:
-  * An Azure IoT Operations instance
-  * Arc extensions
-  * Custom locations
-  * Resources that you can configure in your Azure IoT Operations solution, like assets and devices.
-
-* An Azure IoT Operations *instance* is the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations?](../overview-iot-operations.md) like MQTT broker, data flows, and connector for OPC UA.
-
-When we talk about deploying Azure IoT Operations, we mean the full set of components that make up a *deployment*. Once the deployment exists, you can view, manage, and update the *instance*.
+[!INCLUDE [deploy-iot-ops-deployments-instances](../includes/deploy-iot-ops-deployments-instances.md)]
 
 ## Prerequisites
 
@@ -78,25 +68,11 @@ For more information, see [Azure CLI support for advanced MQTT broker configurat
 
 ## Deploy in Azure portal
 
-The Azure portal deployment experience is a helper tool that generates a deployment command based on your resources and configuration. The final step is to run an Azure CLI command, so you still need the Azure CLI prerequisites described in the previous section.
+### Basics
 
-1. Sign in to [Azure portal](https://portal.azure.com).
-1. In the search box, search for and select **Azure IoT Operations**.
+[!INCLUDE [deploy-iot-ops-portal-basics](../includes/deploy-iot-ops-portal-basics.md)]
 
-1. Select **Create**.
-
-1. On the **Basics** tab, provide the following information:
-
-   | Parameter | Value |
-   | --------- | ----- |
-   | **Subscription** | Select the subscription that contains your Arc-enabled cluster. |
-   | **Resource group** | Select the resource group that contains your Arc-enabled cluster. |
-   | **Cluster name** | Select the cluster that you want to deploy Azure IoT Operations to. |
-   | **Custom location name** | *Optional*: Replace the default name for the custom location. |
-   | **Deployment version**| Select **1.2 (latest)** version. For more information, see [IoT Operations versions](https://aka.ms/aio-versions).|
-   | **Deployment optional components > OPC UA connector** | Choose to deploy the optional connector for OPC UA component. |
-
-1. Select **Next: Configuration**.
+### Configuration
 
 1. On the **Configuration** tab, provide the following information:
 
@@ -110,44 +86,11 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
 1. Select **Next: Dependency management**.
 
-1. On the **Dependency management** tab, select an existing schema registry or use these steps to create one:
+### Dependency management
 
-   1. Select **Create new**.
+[!INCLUDE [deploy-iot-ops-portal-dependency-management](../includes/deploy-iot-ops-portal-dependency-management.md)]
 
-   1. Provide a **Schema registry name** and **Schema registry namespace**.
-
-   1. Select **Select Azure Storage container**.
-
-   1. Choose a storage account from the list of hierarchical namespace-enabled accounts, or select **Create** to create one.
-
-      Schema registry requires an Azure Storage account with hierarchical namespace and public network access enabled. When creating a new storage account, choose a **General purpose v2** storage account type and set **Hierarchical namespace** to **Enabled**.
-
-      For more information on configuring your storage account, see [Production deployment guidelines](concept-production-guidelines.md#schema-registry-and-storage).
-
-   1. Select a container in your storage account or select **Container** to create one.
-
-   1. Select **Apply** to confirm the schema registry configurations.
-
-1. Azure IoT Operations uses *namespaces* to organize assets and devices. Each Azure IoT Operations instance uses a single namespace for its assets and devices. On the **Dependency management** tab, select an existing Azure Device Registry namespace or use these steps to create one:
-
-   1. Select **Create new**.
-
-   1. On the **Basics** tab, provide the following information:
-
-      | Parameter | Value |
-      | --------- | ----- |
-      | **Subscription** | Select your subscription. |
-      | **Resource group** | Select the resource group that contains your Azure IoT Operations instance. |
-      | **Name** | Provide a unique name for your namespace. |
-      | **Region** | Select the Azure region to store your namespace. |
-
-      Select **Next** to continue.
-
-   1. On the **Tags** tab, you can optionally add tags to your namespace. Select **Next** to continue.
-
-   1. On the **Review + create** tab, review your configurations and select **Create** to create the namespace.
-
-   1. Back on the **Dependency management** tab, select the newly created namespace from the list.
+### Deployment options
 
 1. On the **Dependency management** tab, select the **Test settings** deployment option. This option uses default settings that are recommended for testing purposes.
 
@@ -157,9 +100,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
 ## Run Azure CLI commands
 
-The final step in the Azure portal deployment experience is to run a set of Azure CLI commands to deploy Azure IoT Operations to your cluster. The commands are generated based on the information you provided in the previous steps.
-
-One at a time, run each Azure CLI command on the **Automation** tab in a terminal:
+[!INCLUDE [deploy-iot-ops-cli-commands-intro](../includes/deploy-iot-ops-cli-commands-intro.md)]
 
 1. Sign in to Azure CLI interactively with a browser even if you already signed in before. If you don't sign in interactively, you might get an error that says *Your device is required to be managed to access your resource*.
 
@@ -190,21 +131,7 @@ Once the `create` command completes successfully, you have a working Azure IoT O
 
 ## Verify deployment
 
-After the deployment is complete, run [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate IoT Operations service deployment for health, configuration, and usability. The `check` command can help you find problems in your deployment and configuration.
-
-```azurecli
-az iot ops check
-```
-
-The `check` command displays a warning about missing data flows, which is normal and expected until you create a data flow. For more information, see [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md).
-
-You can check the configurations of topic maps, QoS, and message routes by adding the `--detail-level 2` parameter to the `check` command for a verbose view.
-
-You can view all versions of the Azure IoT Operations CLI extension that are available by running the following command:
-
-```azurecli
-az iot ops get-versions
-```
+[!INCLUDE [deploy-iot-ops-verify-deployment](../includes/deploy-iot-ops-verify-deployment.md)]
 
 ## Next steps
 

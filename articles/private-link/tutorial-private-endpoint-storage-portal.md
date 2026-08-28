@@ -169,6 +169,9 @@ Before you create the private endpoint, it's recommended to disable public acces
     | Resource | Select **storage-1** or your storage account. |
     | Target subresource | Select **blob**. |
 
+    > [!NOTE]
+    > If you later choose to enable a hierarchical namespace on this account, you need to create a private endpoint for both the **blob** and **dfs** sub-resources. Operations that target the Data Lake Storage (dfs) endpoint can be redirected to the Blob endpoint, and some operations - such as managing ACLs, creating directories, and deleting directories - require a DFS private endpoint. Creating private endpoints for both sub-resources ensures that all operations complete successfully. For more information, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md).
+
 1. Select **Next: Virtual Network**. 
 
 1. In **Virtual Network**, enter or select the following information.

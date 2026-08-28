@@ -45,18 +45,22 @@ The first step in performing a cross-cloud migration to Azure is the creation of
 
 Follow the steps in this section to configure an AWS connector within your Storage Mover resource.
 
-1. Navigate to your Storage Mover resource within the Azure portal. In the **Overview** pane, select the **Multicloud migration** tab as shown in the following image.
+1. Navigate to your Storage Mover resource within the Azure portal. In the **Transfer data to Azure using Storage Mover** section of the **Overview** pane, select the **Get started** button as shown in the following image.
 
-    :::image type="content" source="media/cloud-to-cloud-migration/sample-migration-sml.png" alt-text="A screen capture showing the Storage Mover Overview page with the Multicloud Migration tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/sample-migration.png":::
+    :::image type="content" source="media/cloud-to-cloud-migration/sample-migration-sml.png" alt-text="A screen capture showing the Storage Mover Overview page highlighting the Getting Started button." lightbox="media/cloud-to-cloud-migration/sample-migration.png":::
 
-1. Within the **Multicloud migration** tab, select **Create multicloud connector** to open the **Add AWS connector** page.
+1. In the **Get started** tab, select the **Multicloud migration** option from the **migration type** dropdown. Next, select the **AWS Object storage** option from the **source type** dropdown. Finally, select the network type from the **Access** dropdown. Both *Public* and *Private* access types are supported.
 
-1. In the **Basics** tab:
+    After you populate the dropdown list fields, the portal displays migration guidance within the pane. Select the **Create multicloud connector** button as shown in the following image.
+
+    :::image type="content" source="media/cloud-to-cloud-migration/get-started.png" alt-text="A screen capture showing the 'Plan your multicloud connector' pane highlighting the Create multicloud connector button." lightbox="media/cloud-to-cloud-migration/get-started.png":::
+
+1. In the **Basics** tab: 
 
     - From their respective drop-down lists located in the **Project Details** section, select the **Subscription** and **Resource group** in which you're creating your connector resource. Optionally, you can create a new resource group by selecting **Create new**.
     
-        > [!TIP]
-        > You can filter subscriptions and resource groups by entering a value in the **Filter items...** fields within the respectective drop-down list. Only resources with names containing the specified value are displayed in your Inventory.
+    > [!TIP]
+    > You can filter subscriptions and resource groups by entering a value in the **Filter items...** fields within the respective dropdown list. Only resources with names containing the specified value are displayed in your inventory.
       
     - In the **Connector details** section, provide a value for the **Connector name** field. From the **Azure region** drop-down list, select the region where you want to create and save your connector resource.
     - In the **AWS account** section, select the appropriate AWS account type and provide the AWS account ID from which your connector is reading resources.

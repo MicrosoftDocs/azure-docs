@@ -2,7 +2,7 @@
 title: Azure Cosmos DB bindings for Functions 1.x
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions 1.x.
 ms.topic: reference
-ms.date: 11/21/2017
+ms.date: 08/12/2026
 ms.devlang: csharp
 # ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
@@ -24,13 +24,13 @@ Keep these important considerations in mind when using the Azure Cosmos DB bindi
 
 * This binding was originally named DocumentDB. In Azure Functions version 1.x, only the trigger was renamed Azure Cosmos DB; the input binding, output binding, and NuGet package retain the DocumentDB name.
 
-* Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction), [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-introduction), [Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/graph-introduction), and [Azure Cosmos DB for Table](/azure/cosmos-db/table-introduction).
+* Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure DocumentDB](/azure/documentdb/),[Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction), [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-introduction), [Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/graph-introduction), and [Azure Cosmos DB for Table](/azure/cosmos-db/table-introduction).
 
 * The Azure Cosmos DB bindings for the Functions v1.x runtime don't support Microsoft Entra authentication and managed identities. To improve security, you should upgrade to run on the latest version of the Functions runtime.
 
 ## Packages - Functions 1.x
 
-The Azure Cosmos DB bindings for Functions version 1.x are provided in the [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet package, version 1.x. Source code for the bindings is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub repository.
+The Azure Cosmos DB bindings for Functions version 1.x are provided in the [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet package, version 1.x.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -688,7 +688,7 @@ Here's the JavaScript code:
 
 # [C#](#tab/csharp)
 
-In [in-process C# class libraries](functions-dotnet-class-library.md), use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute.
+In [in-process C# class libraries](functions-dotnet-class-library.md), use the `DocumentDB`.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [the following configuration section](#input---configuration).
 
@@ -879,7 +879,7 @@ Here's the JavaScript code:
 
 # [C#](#tab/csharp)
 
-In [in-process C# class libraries](functions-dotnet-class-library.md), use the [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) attribute.
+In [in-process C# class libraries](functions-dotnet-class-library.md), use the `DocumentDB` attribute.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Output - configuration](#output---configuration). Here's a `DocumentDB` attribute example in a method signature:
 

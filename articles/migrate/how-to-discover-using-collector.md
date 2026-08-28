@@ -6,9 +6,10 @@ ms.author: molir
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 05/26/2026
 ms.custom: engagement-fy26
+ms.update-cycle: 1095-days
 # Customer intent: As an IT professional, I want to use Azure Migrate Collector to discover my IT estate and generate assessment and business case reports, so that I can plan migration and modernization effectively.
 ---
 
@@ -31,7 +32,7 @@ Before you set up the collector, [create a new Azure Migrate project](quickstart
 |---|---|
 | Operating System | A server running Windows Server 2019, 2022, or 2025 Operating System. Ensure the server has IIS role installed. |
 | Compute and storage | A server with 16 GB of RAM, 8 vCPUs, and approximately 80 GB of disk storage. |
-| Supported vCenter versions | 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5. |
+| Supported vCenter versions | [!INCLUDE [vmware-discovery-supported-versions](includes/vmware-discovery-supported-versions.md)] |
 | Networking - vCenter | Network line of sight from collector to vCenter with inbound access allowed on TCP port 443. <br><br> If the server running vCenter server listens on a different port, you can modify the port when you provide the vCenter server details in the collector configuration manager. |
 | Networking – ESXi hosts | Network line of sight from collector to all ESXi hosts with inbound access allowed on TCP port 443. |
 | Networking – Windows/Linux | To collect data about installed software, webapps and database (SQL, MySQL, PostgreSQL) inventory, network line of sight isn't required from collector to guest machines. Collector captures guest data using the following ports via VMware pipe. <br><br> Windows - WinRM https (5986) or http (5985) <br> Linux - SSH over port 22 |

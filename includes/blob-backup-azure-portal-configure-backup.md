@@ -36,13 +36,24 @@ To configure backup for storage accounts, follow these steps:
 
    You can select multiple storage accounts in the region to back up using the selected policy. Search or filter the storage accounts, if required.
   
-   If you've chosen the vaulted backup policy in step 4, you can also select specific containers to back up. Select **Change** under the **Selected containers** column. In the context blade, choose **browse containers to backup** and unselect the ones you don't want to back up.
+   If you've chosen the vaulted backup policy in step 4, you can also select which containers to protect. Select **Change** under the **Selected containers** column. In the **Select storage containers** pane, choose one of the following options:
+
+   - **Backup all present containers**: Protect all containers that currently exist in the storage account.
+   - **Browse containers to backup**: Select specific containers to protect.
+   - **Backup all present and future containers**: Auto-protect all existing containers and any new containers created after backup configuration, until the protected container count reaches 1000.
+
+   :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/select-storage-containers.png" alt-text="Screenshot shows the options to back up all present containers, browse containers to back up, or back up all present and future containers.":::
+
+   > [!IMPORTANT]
+   > Selecting **Backup all present and future containers** is a permanent change. After you select this option, you can't switch back to **Backup all present containers** or **Browse containers to backup**. You can add prefixes to exclude containers whose names start with the specified prefixes from backup.
+
+   :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/select-storage-containers-auto-protect.png" alt-text="Screenshot shows the warning that selecting the option to back up all present and future containers is permanent, and shows the prefix field to exclude matching containers from backup.":::
 
    When you select the storage accounts and containers to protect, Azure Backup performs the following validations to ensure all prerequisites are met.
    >[!Note]
    >The **Backup readiness** column shows if the Backup vault has enough permissions to configure backups for each storage account.
 
-   1. The number of containers to be backed up is less than *1000* in case of vaulted backups. By default, all containers are selected; however, you can exclude containers that shouldn't be backed up. If your storage account has *>1000* containers, you must exclude containers to reduce the count to *1000 or below*.
+   1. The number of containers to be backed up is less than *1000* in case of vaulted backups. You can back up all present containers, browse and select specific containers, or back up all present and future containers. If your storage account has *>1000* containers, you must exclude containers to reduce the count to *1000 or below*.
 
       >[!Note]
       >In case of vaulted backups, the storage accounts to be backed up must contain at least *1 container*. If the selected storage account doesn't contain any containers or if no containers are selected, you may get an error while configuring backups.

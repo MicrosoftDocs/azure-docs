@@ -1,30 +1,31 @@
 ---
 title: Introduction to Azure Storage - Cloud storage on Azure
-description: The Azure Storage platform is Microsoft's cloud storage solution. Azure Storage provides highly available, secure, durable, massively scalable, and redundant storage for data objects in the cloud. Learn about the services available in Azure Storage and how you can use them in your applications, services, or enterprise solutions.
+description: The Azure Storage platform is Microsoft's cloud storage solution offering secure, durable, and scalable storage for your data.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 03/26/2025
-ms.author: akashdubey
+ms.date: 08/11/2026
+ms.author: normesta
+ms.reviewer: normesta
 ms.subservice: storage-common-concepts
 # Customer intent: As a cloud application developer, I want to utilize Azure Storage services for data management, so that I can ensure my applications have scalable, secure, and accessible storage solutions that meet my data storage needs.
 ---
 
 # Introduction to Azure Storage
 
-The Azure Storage platform is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud. Azure Storage data objects are accessible from anywhere in the world over HTTP or HTTPS via a REST API. Azure Storage also offers client libraries for developers building applications or services with .NET, Java, Python, JavaScript, C++, and Go. Developers and IT professionals can use Azure PowerShell and Azure CLI to write scripts for data management or configuration tasks. The Azure portal and Azure Storage Explorer provide user-interface tools for interacting with Azure Storage.
+The Azure Storage platform is Microsoft's cloud storage solution for modern data storage scenarios. Azure Storage offers highly available, massively scalable, durable, and secure storage for a variety of data objects in the cloud. You can access Azure Storage data objects from anywhere in the world over HTTP or HTTPS via a REST API. Azure Storage also offers client libraries for developers building applications or services with .NET, Java, Python, JavaScript, C++, and Go. Developers and IT professionals can use Azure PowerShell and Azure CLI to write scripts for data management or configuration tasks. The Azure portal and Azure Storage Explorer provide user-interface tools for interacting with Azure Storage.
 
 ## Benefits of Azure Storage
 
 Azure Storage services offer the following benefits for application developers and IT professionals:
 
-- **Durable and highly available.** Redundancy ensures that your data is safe in the event of transient hardware failures. You can also opt to replicate data across data centers or geographical regions for additional protection from local catastrophe or natural disaster. Data replicated in this way remains highly available in the event of an unexpected outage.
-- **Secure.** All data written to an Azure storage account is encrypted by the service. Azure Storage provides you with fine-grained control over who has access to your data.
+- **Durable and highly available.** Redundancy ensures that your data is safe in the event of transient hardware failures. You can also opt to replicate data across data centers or geographical regions for extra protection from local catastrophe or natural disaster. Data replicated in this way remains highly available in the event of an unexpected outage.
+- **Secure.** The service encrypts all data written to an Azure storage account. Azure Storage provides you with fine-grained control over who has access to your data.
 - **Scalable.** Azure Storage is designed to be massively scalable to meet the data storage and performance needs of today's applications.
 - **Managed.** Azure handles hardware maintenance, updates, and critical issues for you.
-- **Accessible.** Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides client libraries for Azure Storage in a variety of languages, including .NET, Java, Node.js, Python, Go, and others, as well as a mature REST API. Azure Storage supports scripting in Azure PowerShell or Azure CLI. And the Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.
+- **Accessible.** You can access data in Azure Storage from anywhere in the world over HTTP or HTTPS. Microsoft provides client libraries for Azure Storage in a variety of languages, including .NET, Java, Node.js, Python, Go, and others, as well as a mature REST API. Azure Storage supports scripting in Azure PowerShell or Azure CLI. The Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.
 
 ## Azure Storage data services
 
@@ -79,7 +80,7 @@ Blob Storage is ideal for:
 - Storing data for backup and restore, disaster recovery, and archiving.
 - Storing data for analysis by an on-premises or Azure-hosted service.
 
-Objects in Blob Storage can be accessed from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/az.storage), [Azure CLI](/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), and [Python](/python/api/overview/azure/storage). 
+You can access objects in Blob Storage from anywhere in the world via HTTP or HTTPS. Users or client applications can access blobs via URLs, the [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/az.storage), [Azure CLI](/cli/azure/storage), or an Azure Storage client library. The storage client libraries are available for multiple languages, including [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), and [Python](/python/api/overview/azure/storage). 
 
 Clients can also securely connect to Blob Storage by using SSH File Transfer Protocol (SFTP) and mount Blob Storage containers by using the Network File System (NFS) 3.0 protocol. 
 
@@ -87,7 +88,7 @@ For more information about Blob Storage, see [Introduction to Blob Storage](../b
 
 ## Azure Files
 
-[Azure Files](../files/storage-files-introduction.md) enables you to set up highly available network file shares that can be accessed by using the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview), [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System), and [Azure Files REST API](/rest/api/storageservices/file-service-rest-api). That means that multiple VMs can share the same files with both read and write access. You can also read the files using the REST interface or the storage client libraries.
+Use [Azure Files](../files/storage-files-introduction.md) to set up highly available network file shares that you can access by using the industry standard [Server Message Block (SMB) protocol)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview), [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System), and [Azure Files REST API](/rest/api/storageservices/file-service-rest-api). Multiple VMs can share the same files with both read and write access. You can also read the files by using the REST interface or the storage client libraries.
 
 One thing that distinguishes Azure Files from files on a corporate file share is that you can access the files from anywhere in the world using a URL that points to the file and includes a shared access signature (SAS) token. You can generate SAS tokens; they allow specific access to a private asset for a specific amount of time.
 
@@ -95,9 +96,9 @@ File shares can be used for many common scenarios:
 
 - Many on-premises applications use file shares. This feature makes it easier to migrate those applications that share data to Azure. If you mount the file share to the same drive letter that the on-premises application uses, the part of your application that accesses the file share should work with minimal, if any, changes.
 
-- Configuration files can be stored on a file share and accessed from multiple VMs. Tools and utilities used by multiple developers in a group can be stored on a file share, ensuring that everybody can find them, and that they use the same version.
+- Store configuration files on a file share and access them from multiple VMs. Store tools and utilities used by multiple developers in a group on a file share, ensuring that everyone can find them and that they use the same version.
 
-- Resource logs, metrics, and crash dumps are just three examples of data that can be written to a file share and processed or analyzed later.
+- Write resource logs, metrics, and crash dumps to a file share for processing or analysis later.
 
 For more information about Azure Files, see [Introduction to Azure Files](../files/storage-files-introduction.md).
 
@@ -105,18 +106,18 @@ Some SMB features aren't applicable to the cloud. For more information, see [Fea
 
 ## Azure Elastic SAN
 
-Azure Elastic storage area network (SAN) is Microsoft's answer to the problem of workload optimization and integration between your large scale databases and performance-intensive mission-critical applications. Elastic SAN is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
+Azure Elastic storage area network (SAN) helps you optimize and integrate your large-scale databases and performance-intensive mission-critical applications. Elastic SAN is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
 
-Elastic SAN is designed for large scale IO-intensive workloads and top tier databases such as SQL, MariaDB, and support hosting the workloads on virtual machines, or containers such as Azure Kubernetes Service. Elastic SAN volumes are compatible with a wide variety of compute resources through the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol. Some other benefits of Elastic SAN include a simplified deployment and management interface. Since you can manage storage for multiple compute resources from a single interface, and cost optimization.
+Elastic SAN is designed for large-scale IO-intensive workloads and top-tier databases such as SQL and MariaDB. It supports hosting the workloads on virtual machines or containers such as Azure Kubernetes Service. Elastic SAN volumes are compatible with a wide variety of compute resources through the [iSCSI](https://en.wikipedia.org/wiki/ISCSI) protocol. Other benefits of Elastic SAN include a simplified deployment and management interface. You can manage storage for multiple compute resources from a single interface, and cost optimization.
 
 For more information about Azure Elastic SAN, see [What is Azure Elastic SAN?](../elastic-san/elastic-san-introduction.md)
 
 ## Azure Container Storage
 
-Azure Container Storage integrates with Kubernetes and utilizes existing Azure Storage offerings for actual data storage, offering a volume orchestration and management solution purposely built for containers. You can choose any of the supported backing storage options to create a storage pool for your persistent volumes.
+Azure Container Storage integrates with Kubernetes and uses existing Azure Storage offerings for actual data storage. It provides a volume orchestration and management solution that's built specifically for containers. You can create a storage pool for your persistent volumes by choosing any of the supported backing storage options.
 
 Azure Container Storage offers substantial benefits:
-- Rapid scale out of stateful pods
+- Rapidly scale out stateful pods
 - Improved performance for stateful workloads
 - Kubernetes-native volume orchestration
 
@@ -124,20 +125,20 @@ For more information about Azure Container Storage, see [What is Azure Container
 
 ## Queue Storage
 
-The Azure Queue service is used to store and retrieve messages. Queue messages can be up to 64 KB in size, and a queue can contain millions of messages. Queues are generally used to store lists of messages to be processed asynchronously.
+Use the Azure Queue service to store and retrieve messages. Queue messages can be up to 64 KB in size, and a queue can contain millions of messages. Use queues to store lists of messages to process asynchronously.
 
-For example, say you want your customers to be able to upload pictures, and you want to create thumbnails for each picture. You could have your customer wait for you to create the thumbnails while uploading the pictures. An alternative would be to use a queue. When the customer finishes their upload, write a message to the queue. Then have an Azure Function retrieve the message from the queue and create the thumbnails. Each of the parts of this processing can be scaled separately, giving you more control when tuning it for your usage.
+For example, you want your customers to upload pictures and create thumbnails for each picture. You could have your customer wait for you to create the thumbnails while uploading the pictures. An alternative is to use a queue. When the customer finishes their upload, write a message to the queue. Then have an Azure Function retrieve the message from the queue and create the thumbnails. You can scale each part of this processing separately, giving you more control when tuning it for your usage.
 
 For more information about Azure Queues, see [Introduction to Queues](../queues/storage-queues-introduction.md).
 
 ## Table Storage
 
-Azure Table Storage is now part of Azure Cosmos DB. To see Azure Table Storage documentation, see the [Azure Table Storage overview](../tables/table-storage-overview.md). In addition to the existing Azure Table Storage service, there's a new Azure Cosmos DB for Table offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try out the new premium experience, see [Azure Cosmos DB for Table](/azure/cosmos-db/table-introduction).
+Azure Table Storage is now part of Azure Cosmos DB. To see Azure Table Storage documentation, see the [Azure Table Storage overview](../tables/table-storage-overview.md). In addition to the existing Azure Table Storage service, there's a new Azure Cosmos DB for Table offering that provides throughput-optimized tables, global distribution, and automatic secondary indexes. To learn more and try the new premium experience, see [Azure Cosmos DB for Table](/azure/cosmos-db/table-introduction).
 
 For more information about Table Storage, see [Overview of Azure Table Storage](../tables/table-storage-overview.md).
 
 ## Disk Storage
-An Azure managed disk is a virtual hard disk (VHD). You can think of it like a physical disk in an on-premises server but, virtualized. Azure managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk 'managed' because it's an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure takes care of the rest.
+An Azure managed disk is a virtual hard disk (VHD). You can think of it as a physical disk in an on-premises server but virtualized. Azure managed disks are stored as page blobs, which are a random IO storage object in Azure. Azure calls a managed disk "managed" because it's an abstraction over page blobs, blob containers, and Azure storage accounts. When you use managed disks, you only need to provision the disk, and Azure takes care of the rest.
 
 For more information about managed disks, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview).
 
@@ -180,7 +181,7 @@ There are two basic kinds of encryption available for Azure Storage. For more in
 
 ### Encryption at rest
 
-Azure Storage encryption protects and safeguards your data to meet your organizational security and compliance commitments. Azure Storage automatically encrypts all data prior to persisting to the storage account and decrypts it prior to retrieval. The encryption, decryption, and key management processes are transparent to users. Customers can also choose to manage their own keys using Azure Key Vault. For more information, see [Azure Storage encryption for data at rest](storage-service-encryption.md).
+Azure Storage encryption protects and safeguards your data to meet your organizational security and compliance commitments. Azure Storage automatically encrypts all data before persisting it to the storage account and decrypts it before retrieval. The encryption, decryption, and key management processes are transparent to users. Customers can also choose to manage their own keys by using Azure Key Vault. For more information, see [Azure Storage encryption for data at rest](storage-service-encryption.md).
 
 All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. See [Security FAQs for Azure NetApp Files](../../azure-netapp-files/faq-security.md#can-the-storage-be-encrypted-at-rest).
 
@@ -192,7 +193,7 @@ Azure NetApp Files data traffic is inherently secure by design, as it doesn't pr
 
 ## Redundancy
 
-To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](./storage-redundancy.md?toc=/azure/storage/blobs/toc.json) and [Azure Files data redundancy](../files/files-redundancy.md).
+To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, select a redundancy option. For more information, see [Azure Storage redundancy](./storage-redundancy.md?toc=/azure/storage/blobs/toc.json) and [Azure Files data redundancy](../files/files-redundancy.md).
 
 Azure NetApp Files provides locally redundant storage with [99.99% availability](https://azure.microsoft.com/support/legal/sla/netapp/v1_1/).
 
@@ -204,13 +205,13 @@ Azure NetApp Files provides NFS and SMB volumes. You can use any file-based copy
 
 ## Pricing
 
-When making decisions about how your data is stored and accessed, you should also consider the costs involved. For more information, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+When making decisions about how your data is stored and accessed, also consider the costs involved. For more information, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 Azure NetApp Files cloud file storage service is charged per hour based on the provisioned [capacity pool](../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#capacity_pools) capacity. For more information, see [Azure NetApp Files storage pricing](https://azure.microsoft.com/pricing/details/netapp/).
 
 ## Storage APIs, libraries, and tools
 
-You can access resources in a storage account by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offer programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior, and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
+You can access resources in a storage account by any language that can make HTTP or HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, and operational behavior. Libraries are currently available for the following languages and platforms, with others in the pipeline:
 
 ### Azure Storage data API and library references
 
@@ -239,7 +240,7 @@ You can access resources in a storage account by any language that can make HTTP
 - [Azure PowerShell Cmdlets for Storage](/powershell/module/az.storage)
 - [Azure CLI Cmdlets for Storage](/cli/azure/storage)
 - [AzCopy Command-Line Utility](storage-use-azcopy-v10.md)
-- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
+- [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a free, standalone app from Microsoft that you can use to work visually with Azure Storage data on Windows, macOS, and Linux.
 - [Azure Resource Manager templates for Azure Storage](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 
 ## Next steps

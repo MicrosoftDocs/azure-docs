@@ -1,8 +1,8 @@
 ---
 title: Push Data Factory lineage data to Microsoft Purview
 description: Learn about how to push Data Factory lineage data to Microsoft Purview
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.topic: tutorial
 ms.custom: references_regions
 ms.date: 10/03/2024
@@ -12,6 +12,8 @@ ms.subservice: monitoring
 # Push Data Factory lineage data to Microsoft Purview
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In this tutorial, you'll use the Data Factory user interface (UI) to create a pipeline that run activities and report lineage data to Microsoft Purview account. Then you can view all the lineage information in your Microsoft Purview account. 
 

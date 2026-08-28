@@ -1,19 +1,18 @@
 ---
 title: Create Applications for Dynamic Automation
-titleSuffix: Logic Apps Automation
-description: Create applications in Logic Apps Automation to build and organize dynamic, AI-driven workflows.
-services: azure-logic-apps
-ms.reviewers: estfan, krmitta, divswa, azla
+titleSuffix: Azure Logic Apps Automation
+description: Create applications in Azure Logic Apps Automation to build and organize dynamic, AI-driven workflows.
+ms.reviewer: estfan, krmitta, divswa, azla
 ms.topic: quickstart
 ai-usage: ai-assisted
 ms.update-cycle: 180-days
 ms.date: 06/02/2026
 ms.custom:
 - build-2026
-#Customer intent: As an automation developer, I need to create my first application in Logic Apps Automation so I can build and organize applications for my dynamically-run, AI-powered workflows.
+#Customer intent: As an automation developer, I need to create my first application in Azure Logic Apps Automation so I can build and organize applications for my dynamically-run, AI-powered workflows.
 ---
 
-# Quickstart: Create applications in Logic Apps Automation (preview)
+# Quickstart: Create applications in Azure Logic Apps Automation (preview)
 
 > [!NOTE]
 >
@@ -21,18 +20,18 @@ ms.custom:
 
 After you create an automation project, you need a way to package related workflows, connections, parameters, analytics, and settings so they deploy and scale together. Without this boundary, automations for different business processes can get disorganized, making them harder to  independently test, monitor, and update.
 
-In Logic Apps Automation, an *application* provides this deployable and scalable package. You create one application per logical workload or related workflows, for example, `order-processing` or `daily-reports`, so each group of related automations stays self-contained inside your project.
+In Azure Logic Apps Automation, an *application* provides this deployable and scalable package. You create one application per logical workload or related workflows, for example, `order-processing` or `daily-reports`, so each group of related automations stays self-contained inside your project.
 
 This quickstart shows how to create an application in an existing automation project.
 
 For more information, see:
 
-- [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md)
+- [What is Azure Logic Apps Automation](dynamic-workflow-automation-introduction.md)
 - [Key concepts and terminology](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology)
 
 ## Prerequisites
 
-- A Microsoft work or school account that can access the [Logic Apps Automation portal](https://auto.azure.com).
+- A Microsoft work or school account that can access the [Azure Logic Apps Automation portal](https://auto.azure.com).
 
 - Your work or school account needs to exist in the same Microsoft Entra tenant as the project creator-owner so they can add you to the project and assign the necessary permissions. If you don't have access, work with the project creator or owner to get access and permissions.
 
@@ -52,7 +51,7 @@ For more information, see:
 
 To create a deployable package for your applications and their components, follow these steps:
 
-1. Go to the [Logic Apps Automation portal](https://auto.azure.com), and sign in with your Microsoft work or school account.
+1. Go to the [Azure Logic Apps Automation portal](https://auto.azure.com), and sign in with your Microsoft work or school account.
 
 1. From the **Projects** tab, select the project where you want to create your application.
 
@@ -86,7 +85,7 @@ By default, when you create an application, you automatically become the applica
 
 By default, only the application creator-owner or contributor can access an application and its contents. Before other project members can work on your application, add them as application members by following these steps:
 
-1. In the [Logic Apps Automation portal](https://auto.azure.com), on the **Projects** page, select the project that contains the application you want.
+1. In the [Azure Logic Apps Automation portal](https://auto.azure.com), on the **Projects** page, select the project that contains the application you want.
 
 1. On the **Applications** page, select the application.
 

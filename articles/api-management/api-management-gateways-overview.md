@@ -2,14 +2,12 @@
 title: API Gateway Overview | Azure API Management
 description: Learn more about the features of the API gateway component of Azure API Management. API Management offers both Azure-managed and self-hosted gateways.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: concept-article
 ms.date: 05/14/2026
-ms.author: danlep
 ---
 
 # API gateway in Azure API Management
@@ -136,7 +134,7 @@ Managed and self-hosted gateways support all available [policies](api-management
 | [GraphQL resolvers](api-management-policies.md#graphql-resolvers) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ |✔️ | ❌ | ❌ |
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ |✔️ | ❌ | ❌ |
 | [Authenticate with managed identity](authentication-managed-identity-policy.md) |  ✔️ |  ✔️ |✔️ | ✔️ | ❌ |
-| [LLM semantic caching](api-management-policies.md#caching) |  ✔️ | ✔️ |✔️ | ❌ | ❌ |
+| [LLM semantic caching](api-management-policies.md#caching) |  ✔️ | ✔️ |✔️ | ✔️ | ❌ |
 | [Quota and rate limit](api-management-policies.md#rate-limiting-and-quotas) |  ✔️ | ✔️ | ✔️<sup>2</sup> | ✔️<sup>3</sup> | ✔️ |
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>

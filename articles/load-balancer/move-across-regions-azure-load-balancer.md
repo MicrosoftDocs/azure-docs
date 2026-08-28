@@ -109,7 +109,7 @@ The following procedures show how to prepare the external load balancer for the 
     
 12. You can also change other parameters in the template if you want to or need to, depending on your requirements:
 
-    * **SKU**. You can change the SKU of the public IP in the configuration from standard to basic or from basic to standard by changing the **name** property under **sku** in the template.json file:
+    * **SKU**. Set the SKU of the public IP to **Standard** by using the **name** property under **sku** in the template.json file. The Basic SKU was retired on September 30, 2025:
 
         ```json
           "resources": [
@@ -279,7 +279,7 @@ The following procedures show how to prepare the external load balancer for the 
 
 11. You can also change other parameters in the template if you want to or need to, depending on your requirements:
 
-    * **SKU**. You can change the SKU of the external load balancer in the configuration from Standard to Basic or from Basic to Standard by changing the **name** property under **sku** in the template.json file:
+    * **SKU**. Set the SKU of the external load balancer to **Standard** by using the **name** property under **sku** in the template.json file. The Basic SKU was retired on September 30, 2025:
 
         ```json
         "resources": [
@@ -551,7 +551,7 @@ The following steps show how to prepare the external load balancer for the move 
     ```
 8. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
-    * **Sku** - You can change the sku of the public IP in the configuration from Standard to Basic or Basic to Standard by altering the **sku** > **name** property in the **\<resource-group-name>.json** file:
+    * **Sku** - Set the SKU of the public IP to **Standard** by altering the **sku** > **name** property in the **\<resource-group-name>.json** file. The Basic SKU was retired on September 30, 2025:
 
          ```json
             "resources": [
@@ -760,7 +760,7 @@ The following steps show how to prepare the external load balancer for the move 
     ```
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
     
-    * **Sku** - You can change the sku of the external load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **\<resource-group-name>.json** file:
+    * **Sku** - Set the SKU of the external load balancer to **Standard** by altering the **sku** > **name** property in the **\<resource-group-name>.json** file. The Basic SKU was retired on September 30, 2025:
 
         ```json
         "resources": [
@@ -1211,7 +1211,7 @@ The following steps show how to prepare the internal load balancer for the move 
 
 10. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
-    * **Sku** - You can change the sku of the internal load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
+    * **Sku** - Set the SKU of the internal load balancer to **Standard** by altering the **sku** > **name** property in the **template.json** file. The Basic SKU was retired on September 30, 2025:
 
         ```json
         "resources": [

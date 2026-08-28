@@ -1,6 +1,81 @@
 {
   "redirections": [
     {
+      "source_path": "articles/site-recovery/vmware-azure-architecture.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-troubleshoot-configuration-server.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-physical-azure-troubleshoot-process-server.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/deployment-environments/tutorial-deploy-environments-in-cicd-github.md",
+      "redirect_url": "/previous-versions/azure/deployment-environments/tutorial-deploy-environments-in-cicd-github",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/durable-task/scheduler/durable-task-scheduler-on-demand-sandboxes.md",
+      "redirect_url": "/azure/durable-task/scheduler/durable-task-scheduler",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/durable-task/scheduler/durable-task-scheduler-configure-on-demand-sandboxes.md",
+      "redirect_url": "/azure/durable-task/scheduler/durable-task-scheduler",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-china-delivery.md",
+      "redirect_url": "/azure/frontdoor/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-compute-fleet/modify-fleet.md",
+      "redirect_url": "/azure/azure-compute-fleet/managed-mode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communication-services/quickstarts/tpe/teams-phone-extensiblity-rest-api.md",
+      "redirect_url": "/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/devtest-labs/use-devtest-labs-build-release-pipelines.md",
+      "redirect_url": "/previous-versions/azure/devtest-labs/use-devtest-labs-build-release-pipelines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-gpu-clustering-overview.md",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-gpu-cluster-witness-overview.md",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-gpu-cluster-failover-scenarios.md",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-gpu-kubernetes-failover-scenarios.md",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-gpu-manage-cluster.md",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-baseline",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/create-project.md",
       "redirect_url": "/azure/migrate/quickstart-create-project",
       "redirect_document_id": false,
@@ -352,11 +427,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/web-application-firewall/ag/web-application-firewall-troubleshoot.md",
-      "redirect_url": "/troubleshoot/azure/web-application-firewall/web-application-firewall-troubleshoot",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/healthcare-apis/iot/concepts-machine-learning.md",
       "redirect_url": "/previous-versions/azure/healthcare-apis/iot/concepts-machine-learning",
       "redirect_document_id": false
@@ -554,6 +624,11 @@
     {
       "source_path": "articles/data-factory/get-started-with-workflow-orchestration-manager.md",
       "redirect_url": "/previous-versions/azure/data-factory/get-started-with-workflow-orchestration-manager",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-factory/how-does-workflow-orchestration-manager-work.md",
+      "redirect_url": "/fabric/data-factory/apache-airflow-jobs-concepts",
       "redirect_document_id": false
     },
     {
@@ -768,7 +843,7 @@
     },
     {
       "source_path": "articles/migrate/best-practices-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/best-practices-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -776,7 +851,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-assessment-calculation.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-assessment-calculation",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -784,7 +859,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-azure-sap-systems-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-azure-sap-systems-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -792,7 +867,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-azure-sql-assessment-calculation.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-azure-sql-assessment-calculation",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -800,7 +875,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-azure-vmware-solution-assessment-calculation.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-azure-vmware-solution-assessment-calculation",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -808,7 +883,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-azure-webapps-assessment-calculation.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-azure-webapps-assessment-calculation",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -816,7 +891,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-migration-planning.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-migration-planning",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -824,7 +899,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-migration-webapps.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-migration-webapps",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -832,7 +907,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-create-a-group.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-create-a-group",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -840,7 +915,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-create-azure-app-service-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-create-azure-app-service-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -848,7 +923,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-create-azure-sql-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-create-azure-sql-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -856,7 +931,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-discover-applications.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-discover-applications",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -864,7 +939,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-create-sql-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-create-sql-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -872,7 +947,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-migrate.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-migrate",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -880,7 +955,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-modify-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-modify-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -888,7 +963,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-review-sql-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-review-sql-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -896,7 +971,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-set-up-appliance-hyper-v.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-set-up-appliance-hyper-v",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -904,7 +979,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-set-up-appliance-vmware.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-set-up-appliance-vmware",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -912,7 +987,7 @@
     },
     {
       "source_path": "articles/migrate/migrate-replication-appliance.md",
-      "redirect_url": "/previous-versions/azure/migrate/migrate-replication-appliance",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -920,7 +995,7 @@
     },
     {
       "source_path": "articles/migrate/review-sap-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/review-sap-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -928,7 +1003,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-assess-aspnet-aks.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-assess-aspnet-aks",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -936,7 +1011,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-assess-aws.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-assess-aws",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -944,7 +1019,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-assess-gcp.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-assess-gcp",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -952,7 +1027,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-assess-hyper-v.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-assess-hyper-v",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -960,7 +1035,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-assess-sap-systems.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-assess-sap-systems",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -968,7 +1043,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-assess-webapps.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-assess-webapps",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -976,7 +1051,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-discover-sap-systems.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-discover-sap-systems",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -984,7 +1059,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-migrate-gcp-virtual-machines.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-migrate-gcp-virtual-machines",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -992,7 +1067,7 @@
     },
     {
       "source_path": "articles/migrate/migrate-support-matrix-physical-migration.md",
-      "redirect_url": "/previous-versions/azure/migrate/migrate-support-matrix-physical-migration",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -7014,36 +7089,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/web-application-firewall/afds/resource-manager-template-samples.md",
-      "redirect_url": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-waf-managed/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/web-application-firewall/ag/powershell-samples.md",
-      "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/web-application-firewall/ag/resource-manager-template-samples.md",
-      "redirect_url": "/azure/web-application-firewall/ag/quick-create-template",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/web-application-firewall/ag/whats-new.md",
-      "redirect_url": "/azure/web-application-firewall/ag/ag-overview#whats-new",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/web-application-firewall/scripts/waf-custom-rules-powershell.md",
-      "redirect_url": "/azure/web-application-firewall/ag/configure-waf-custom-rules",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/web-application-firewall/waf-cdn-create-portal.md",
-      "redirect_url": "/azure/web-application-firewall/cdn/cdn-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/xplat-cli-connect.md",
       "redirect_url": "/cli/azure/authenticate-azure-cli",
       "redirect_document_id": false
@@ -7175,7 +7220,12 @@
     },
     {
       "source_path_from_root": "/articles/service-connector/quickstart-cli-container-apps.md",
-      "redirect_url": "/azure/service-connector/quickstart-portal-container-apps",
+      "redirect_url": "https://github.com/microsoft/azure-container-apps/issues/1566",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-portal-container-apps.md",
+      "redirect_url": "https://github.com/microsoft/azure-container-apps/issues/1566",
       "redirect_document_id": false
     },
     {
@@ -7786,6 +7836,122 @@
     {
       "source_path": "articles/signups/azure-usage.md",
       "redirect_url": "/startups/microsoft-for-startups/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/concept-certificate-issuance.md",
+      "redirect_url": "../iot/concept-certificate-issuance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/concept-certificate-renewal.md",
+      "redirect_url": "../iot/concept-certificate-renewal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/concepts-certificate-policy-management.md",
+      "redirect_url": "../iot/concepts-certificate-policy-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-configure-credential.md",
+      "redirect_url": "../iot/how-to-configure-credential",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-create-policy.md",
+      "redirect_url": "../iot/how-to-create-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-create-policy-external-certificate.md",
+      "redirect_url": "../iot/how-to-create-policy-external-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-revoke-certificate-delete-policy.md",
+      "redirect_url": "../iot/how-to-revoke-certificate-delete-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-certificate-management-concepts.md",
+      "redirect_url": "../iot/iot-certificate-management-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-certificate-management-overview.md",
+      "redirect_url": "../iot/iot-certificate-management-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/enclave/1-8-migrate-workload-resources.md",
+      "redirect_url": "/azure/enclave/migrate-azure-resources-azure-enclave",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-availability-zones.md",
+      "redirect_url": "/azure/reliability/reliability-automation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-identity-based-connections-tutorial.md",
+      "redirect_url": "/azure/azure-functions/manage-connections?pivots=functions-auth-identity&tabs=host#define-connections",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-identity-based-connections-tutorial-2.md",
+      "redirect_url": "/azure/azure-functions/manage-connections?pivots=functions-auth-identity&tabs=bindings#define-connections",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/index.yml",
+      "redirect_url": "/azure/nutanix/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/about-nc2-on-azure.md",
+      "redirect_url": "/azure/nutanix/about-nc2-on-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/available-regions-skus.md",
+      "redirect_url": "/azure/nutanix/available-regions-skus",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/architecture.md",
+      "redirect_url": "/azure/nutanix/architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/get-started.md",
+      "redirect_url": "/azure/nutanix/get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/faq.md",
+      "redirect_url": "/azure/nutanix/faq",
+      "redirect_document_id": false
+    },
+    {
+
+      "source_path": "articles/baremetal-infrastructure/concepts-baremetal-infrastructure-overview.md",
+      "redirect_url": "/azure/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/connect-baremetal-infrastructure.md",
+      "redirect_url": "/azure/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/know-baremetal-terms.md",
+      "redirect_url": "/azure/",
+      "redirect_document_id": false
+     },
+    {
+      "source_path": "articles/container-apps/deployment-errors.md",
+      "redirect_url": "/azure/container-apps/troubleshoot-deployment-errors",
       "redirect_document_id": false
     }
   ]

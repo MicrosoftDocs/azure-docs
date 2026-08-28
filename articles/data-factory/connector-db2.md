@@ -2,11 +2,11 @@
 title: Copy data from DB2
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from DB2 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 11/16/2023
-ms.author: jianleishen
+ms.author: tinglee
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -16,7 +16,13 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a DB2 database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric IBM DB2 connector documentation](/fabric/data-factory/connector-ibm-db2-database-overview).
+
 
 ## Supported capabilities
 

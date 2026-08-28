@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - validate-azure-ad-token | Microsoft Docs
 description: Reference for the validate-azure-ad-token policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 06/17/2025
-ms.author: danlep
+ms.date: 08/18/2026
 ---
 
 # Validate Microsoft Entra token
@@ -94,6 +92,9 @@ The `validate-azure-ad-token` policy enforces the existence and validity of a JS
 | Attribute                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Required                                                                         | Default                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | certificate-id  | Identifier of a certificate entity [uploaded](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity#Add) to API Management, used to specify the public key to verify a token signed with an asymmetric key.   | Yes | N/A |
+
+> [!IMPORTANT]
+> Linked access isn't checked when a certificate is referenced by using `certificate-id`. A user who has permission to write a policy can reference any available certificate and cause API Management to use its private key to decrypt tokens, even if the user doesn't have read access to the certificate resource. This doesn't grant access to retrieve the certificate or its private key.
 
 ## Usage
 

@@ -7,7 +7,8 @@ ms.manager: roopesh.nair
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/03/2024
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
+ms.update-cycle: 1825-days
 ms.custom:
   - engagement-fy24
   - sfi-image-nochange
@@ -50,21 +51,21 @@ To learn how to perform the above, review the tutorial on [migrating VMware virt
 
 To add a scale-out appliance, follow the steps mentioned below:
 
-1. Select **Discover** > **Are your machines virtualized?** 
-1. Select **Yes, with VMware vSphere Hypervisor.**
-1. Select agentless replication in the next step.
-1. Select **Scale-out an existing primary appliance** in the select the type of appliance menu.
-1. Select the primary appliance (the appliance using which discovery was performed) that you wish to scale out.
+1. In Azure Migrate Project, go to **Execute** > **Migrations**, and select **Start execution**.
+1. In **Specify intent**, select **Servers** or **Virtual Machines (VM)** under **What do you want to migrate**. Under **Where do you want to migrate to**, select **Azure VM**.
+1. In **How will you select workloads**, select one of the following options under **Azure migrate appliance sources**:
+     - From all inventory to manually select servers
+     - From an assessment to use an existing assessment
+1. In **Discovery method**, select the appliance that matches your source environment (VMware vSphere in this case). Under **Migration mode**, select **Agentless migration**.
+1. In **Scale-out Appliance**, select **Set up scale-out appliance** to start the set up for the scale-out appliance.
 
-    :::image type="content" source="./media/how-to-scale-out-for-migration/add-scale-out.png" alt-text="Screenshot of Discover machines page for scale-out onboarding.":::
-
-### 1. Generate the Azure Migrate project key
+### Generate the Azure Migrate project key
 
 1. In **Generate Azure Migrate project key**, provide a suffix name for the scale-out appliance. The suffix can contain only alphanumeric characters and has a length limit of 14 characters.
 2. Select **Generate key** to start the creation of the required Azure resources. Don't close the Discover page during the creation of resources.
 3. Copy the generated key. You'll need the key later to complete the registration of the scale-out appliance.
 
-### 2. Download the installer for the scale-out appliance
+### Download the installer for the scale-out appliance
 
 In **Download Azure Migrate appliance**, select  **Download**. You need to download the PowerShell installer script to deploy the scale-out appliance on an existing server running Windows Server 2019 or Windows Server 2022 and with the required hardware configuration (32-GB RAM, 8 vCPUs, around 80 GB of disk storage and internet access, either directly or through a proxy).
 
@@ -80,7 +81,7 @@ In **Download Azure Migrate appliance**, select  **Download**. You need to downl
 > 3. Download the [latest version](https://go.microsoft.com/fwlink/?linkid=2191847) of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
 Verify [security](migrate-appliance.md#verify-security) by validating the SHA256 values. 
 
-### 3. Run the Azure Migrate installer script
+### Run the Azure Migrate installer script
 
 1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
 
@@ -112,7 +113,7 @@ After the script has executed successfully, the appliance configuration manager 
 > If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
 
-### 4. Configure the appliance
+### Configure the appliance
 
 Before you begin, ensure that the [these Azure endpoints](migrate-appliance.md#public-cloud-urls) are accessible from the scale-out appliance.
 
@@ -172,7 +173,7 @@ To complete the registration of the scale-out appliance, select **import** to ge
 1. In the pop-up window opened in the previous step, select the location of the copied configuration zip file and select **Save**.
 
     Once the files are successfully imported, the registration of the scale-out appliance completes and it shows you the timestamp of the last successful import. You can also see the registration details by selecting **View details**.
-1. **Install the VDDK**: The appliance checks if the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. Download VDDK version 8.0 from the [Broadcom Developer portal](https://developer.broadcom.com/sdks/vmware-virtual-disk-development-kit-vddk/8.0). After downloading, extract the zip file to the default location: C:\Program Files\VMware\VMware Virtual Disk Development Kit, as mentioned in the installation instructions.
+1. [!INCLUDE [vmware-vddk-download](includes/vmware-vddk-download.md)]
 
     The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 
@@ -186,13 +187,9 @@ At this point, you should revalidate that the scale-out appliance is able to con
 
 ## Replicate
 
-1. After the scale-out appliance is registered, on the Migration and modernization tile, select **Replicate**.
+When you add the scale-out appliance, you can replicate 500 VMs at the same time. You can also migrate VMs in batches of 200 through the Azure portal. For more information about executing agentless migrations, see [Execute VMware agentless migrations](tutorial-migrate-vmware.md#execute-migrations).
 
-2.	Follow the steps on the screen to start replicating more virtual machines. 
-
-With the scale-out appliance in place, you can now replicate 500 VMs concurrently. You can also migrate VMs in batches of 200 through the Azure portal.
-
-The Migration and modernization tool takes care of distributing the virtual machines between the primary and scale-out appliance for replication. Once the replication is done, you can migrate the virtual machines.
+The Migration tool distributes the virtual machines between the primary and scale-out appliance for replication. After replication finishes, you can migrate the virtual machines.
 
 > [!TIP]
 > We recommend migrating virtual machines in batches of 200 for optimal performance if you want to migrate a large number of virtual machines.

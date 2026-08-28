@@ -6,7 +6,7 @@ Services: storage
 author: gtrossell-eng
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 12/15/2025
+ms.date: 7/1/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -68,6 +68,10 @@ To minimize risk and ensure a smooth migration:
 - **Validate workloads**: Post-migration to ensure functionality and billing accuracy.
 - **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
 
+> [!TIP]
+> Migrate general-purpose v1 accounts to general-purpose v2 accounts by using the `deployIfNotExists` Azure Policy. This policy detects and identifies legacy blob storage accounts and enables you to non-disruptively upgrade those accounts in place.  
+>
+> A sample policy is available here: [Legacy blob storage Azure policy](https://aka.ms/legacy_blob_storage_azure_policy) 
 
 ## Identify legacy blob storage accounts using Azure Resource Graph
 
@@ -86,6 +90,7 @@ resources
 ```
 >[!NOTE] 
 >This query identifies both legacy blob storage accounts (kind `BlobStorage`) and GPv1 accounts (kind `Storage`) regardless of redundancy, which are also being retired. Review both account types to ensure all impacted accounts are included in your migration plan.
+
 
 ## Special Cases: Databricks DBFS Accounts
 

@@ -72,7 +72,7 @@ Use roles and permissions to control who can view and delete uploaded files. To 
 
 ## Upload a file from a device
 
-IoT Central uses IoT Hub's file upload feature to enable devices to upload files. For sample code that shows how to upload files from a device, see the [IoT Central file upload device sample](/samples/azure-samples/iot-central-file-upload-device/iotc-file-upload-device/).
+IoT Central uses IoT Hub's file upload feature to enable devices to upload files. For sample code that shows how to upload files from a device, see the [IoT Central file upload device sample](https://github.com/Azure/iot-central-file-upload-device).
 
 ## View and manage uploaded files
 

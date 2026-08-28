@@ -81,6 +81,8 @@ items:
       href: configure-port-mirroring-azure-vmware-solution.md
     - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
+    - name: Configure IPv6 Layer 3 forwarding
+      href: configure-ipv6-layer-3-forwarding.md
   - name: Tutorials
     items:
     - name: 1 - Network planning checklist
@@ -139,6 +141,9 @@ items:
       href: native-network-routing-architecture.md
     - name: Automatic peering sync for Gen 2 (Preview)
       href: native-auto-peering-sync.md
+    - name: Configure IPv6 Layer 3 forwarding
+      href: configure-ipv6-layer-3-forwarding.md
+    
       
 - name: Cost optimization
   items:
@@ -150,8 +155,14 @@ items:
     href: enable-sql-azure-hybrid-benefit.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
-  - name: VMware Cloud Foundations (VCF) license portability on Azure VMware Solution
-    href: vmware-cloud-foundations-license-portability.md
+  - name: Portable VMware Cloud Foundation licensing
+    items:
+    - name: Configure portable VCF
+      href: vmware-cloud-foundations-license-portability.md
+    - name: Portable VCF licensing reference
+      href: portable-vcf-licensing-reference.md
+    - name: AVS License-included Service Retirement, using portable VCF and other options
+      href: license-included-service-retirement.md
   - name: Cloud Adoption Framework
     items:
     - name: Azure VMware Solution landing zone accelerator
@@ -286,10 +297,14 @@ items:
       href: configure-customer-managed-keys.md
   - name: External storage solutions
     href: ecosystem-external-storage-solutions.md
-  - name: Configure Azure Elastic SAN
-    href: configure-azure-elastic-san.md
-  - name: Performance with Elastic SAN
-    href: ../storage/elastic-san/elastic-san-performance-on-azure-vmware-solutions.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+  - name: Configure Elastic SAN
+    items:
+    - name: Attach Azure Elastic SAN datastores to Azure VMware Solution
+      href: configure-azure-elastic-san.md
+    - name: Elastic SAN datastore support on Azure VMware Solution using Service Endpoints
+      href: elastic-san-datastore-support-service-endpoints.md
+    - name: Performance with Elastic SAN
+      href: ../storage/elastic-san/elastic-san-performance-on-azure-vmware-solutions.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
   - name: Configure Azure NetApp Files
     items:
     - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
@@ -348,10 +363,18 @@ items:
       href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
 - name: Operations and monitoring
   items:
+  - name: Collect esxtop performance data
+    href: run-command-esxtop.md
   - name: Run Command
     href: using-run-command.md
+  - name: Troubleshoot Run Command
+    href: troubleshoot-run-command.md
   - name: Use Set-ToolsRepo Run Command
     href: use-set-toolsrepo-run-command.md
+  - name: Use New-AVSStoragePolicy Run Command
+    href: use-new-avsstoragepolicy-run-command.md
+  - name: Use vCenter Login Banner Run Command
+    href: use-vcenter-login-banner-run-command.md
   - name: Configure VMware syslogs
     href: configure-vmware-syslogs.md
   - name: Send syslogs to log management solutions via Azure Logic Apps
@@ -394,8 +417,8 @@ items:
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
   - name: Configure VMware Cloud Director Service in Azure VMware Solution
     href: configure-vmware-cloud-director-service-azure-vmware-solution.md
-  - name: Plan self-service maintenance for Azure VMware Solution
-    href: self-service-maintenance-orchestration.md
+  - name: Plan maintenance for Azure VMware Solution
+    href: maintenance-orchestration.md
   - name: Enable VMware Cloud Director Service with Azure VMware Solution
     href: enable-vmware-cds-with-azure.md
   - name: Deploy VMware Cloud Director Availability in Azure VMware Solution

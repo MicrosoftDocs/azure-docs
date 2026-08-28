@@ -6,7 +6,7 @@ author: amit916new
 ms.author: amitmishra
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 12/09/2025
+ms.date: 07/09/2026
 
 #customer intent: As a network administrator, I want to configure subnet peering between two virtual networks in azure
 
@@ -206,6 +206,28 @@ The following diagram displays the checks performed while configuring subnet pee
     - In the subnet peering for virtual network A and virtual network B, you would expect only Subnet 1 and Subnet 3 from virtual network A to have route for Subnet 1 and Subnet 2 in remote virtual network B. However, Subnet 2 and Subnet 4 (from local side virtual network A isn't peered) also have route for Subnet 1 and Subnet 2 in remote side (virtual network B), meaning the nonpeered subnets can send packet to destination node in the peered subnet, although the packet is dropped and doesn't reach the virtual machine.
 
     - We recommend that you apply NSGs on the participating subnets to allow traffic from only the peered subnets and address spaces. This limitation is removed in the post GA release.
+
+    - **Delegated subnets: over-advertisement of routes for certain delegated subnets**
+
+      In addition to peered subnets, routes associated with the following delegated subnet types might be over-advertised. As a result, the route prefixes for these delegated subnets can appear in the effective route tables of VMs located in peered subnets, even when the delegated subnet itself isn't directly participating in the peering relationship.
+
+      This behavior might lead to unexpected route visibility and routing outcomes in subnet peering scenarios.
+
+      The following delegated subnet types are affected:
+
+      - `Microsoft.NetApp/volumes`
+      - `Microsoft.HardwareSecurityModules/dedicatedHSMs`
+      - `Microsoft.BareMetal/CrayServers`
+      - `Microsoft.BareMetal/MonitoringServers`
+      - `Microsoft.BareMetal/AzureHostedService`
+      - `Microsoft.BareMetal/AzureVMware`
+      - `Microsoft.BareMetal/AzureHPC`
+      - `Microsoft.BareMetal/AzurePaymentHSM`
+      - `Microsoft.Apollo/npu`
+      - `Microsoft.Singularity/accounts/npu`
+      - `Oracle.Database/networkAttachments`
+
+      **Example**: If a virtual network contains one of the preceding delegated subnet types, the delegated subnet's address prefixes might be propagated to the route tables of VMs in a remotely peered subnet, even though that delegated subnet isn't explicitly peered. This results in the delegated subnet being effectively over-advertised across the peering boundary.
 
 1. Subnet Peering and AVNM
     - Connected Group<br>

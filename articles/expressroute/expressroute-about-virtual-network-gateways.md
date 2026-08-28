@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 03/31/2026
+ms.date: 08/12/2026
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -95,7 +95,7 @@ The auto-assigned public IP feature simplifies ExpressRoute gateway deployment b
 
 :::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-ip.png" alt-text="Screenshot of the create for virtual network gateway for ExpressRoute.":::
 
-When auto-assigned public IP is enabled, the ExpressRoute gateway's Overview page no longer shows a Public IP address field — this means the gateway's public IP is automatically provisioned and managed by Microsoft.
+When you enable auto-assigned public IP, the ExpressRoute gateway's Overview page no longer shows a Public IP address field. This change means Microsoft automatically provisions and manages the gateway's public IP.
 
 :::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-overview.png" alt-text="Screenshot of the overview for virtual network gateway for ExpressRoute.":::
 
@@ -137,7 +137,7 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 > * During a maintenance period, you might experience intermittent connectivity problems to private endpoint resources.
 > * During Gateway SKU upgrade, you might experience intermittent connectivity problems to private endpoint resources.
 > * You need to ensure that on-premises configuration, including router and firewall settings, are correctly set up to ensure that packets for the IP 5-tuple transits use a single next hop (Microsoft Enterprise Edge router) unless there's a maintenance event. If your on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, you experience connectivity problems.
-> * Ensure that [network policies](../private-link/disable-private-endpoint-network-policy.md) (at a minimum, for UDR support) are enabled on the subnet(s) where private endpoints are deployed
+> * Ensure that [network policies](../private-link/disable-private-endpoint-network-policy.md) (at a minimum, for UDR support) are enabled on the subnet(s) where private endpoints are deployed.
 
 ### Private endpoint connectivity and planned maintenance events
 
@@ -156,7 +156,9 @@ For technical resources and specific syntax requirements when using REST APIs an
 
 ## Virtual network-to-virtual network connectivity
 
-By default, connectivity between virtual networks is enabled when you link multiple virtual networks to the same ExpressRoute circuit. We don't recommend using your ExpressRoute circuit for communication between virtual networks. Instead, we recommend that you use [virtual network peering](../virtual-network/virtual-network-peering-overview.md). For more information about why virtual network-to-virtual network connectivity isn't recommended over ExpressRoute, see [Connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
+Virtual network-to-virtual network connectivity over an ExpressRoute circuit is disabled by default. You must enable it on the ExpressRoute virtual network gateway, even when multiple virtual networks are linked to the same circuit. We don't recommend using your ExpressRoute circuit for communication between virtual networks. Instead, we recommend that you use [virtual network peering](../virtual-network/virtual-network-peering-overview.md). For more information about why virtual network-to-virtual network connectivity isn't recommended over ExpressRoute, see [Connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
+
+To use an ExpressRoute gateway that's in a different Azure region from your workload virtual networks, see [Use a VPN or ExpressRoute gateway in a different region](../vpn-gateway/vpn-gateway-different-region.md).
 
 ### Virtual network peering limits
 

@@ -28,9 +28,9 @@
     - name: Scalable web API
       displayName: Flex Consumption plan
       href: create-first-function-azure-developer-cli.md
-    - name: Respond to blob storage events
-      displayName: storage, blob, Event Grid, file uploads
-      href: scenario-blob-storage-events.md
+    - name: Process file uploads
+      displayName: storage, blob, Event Grid
+      href: scenario-blob-storage-events.md  
     - name: AI tools and MCP
       items:
       - name: Custom remote MCP server
@@ -59,6 +59,9 @@
     - name: Process real-time events
       displayName: Event Hubs, streaming, events
       href: scenario-real-time-events-processing.md
+    - name: Build a serverless workflow
+      displayName: Durable Functions, orchestration, fan-out, fan-in
+      href: scenario-build-serverless-workflow.md
     - name: Migrate Linux apps to Flex Consumption using Copilot
       href: migration/scenario-migrate-linux-consumption-to-flex.md
   - name: Developer tools
@@ -122,7 +125,9 @@
     href: functions-twitter-email.md
   - name: Host MCP servers for AI-enabled functions
     displayName: agent, agentic, Foundry
-    href: functions-mcp-tutorial.md
+    href: functions-mcp-tutorial.md 
+  - name: Develop Python functions with VS Code
+    href: ./create-first-function-vs-code-python.md
   - name: Create serverless APIs using Visual Studio
     displayName: OpenAPI, Swagger
     href: openapi-apim-integrate-visual-studio.md
@@ -137,21 +142,15 @@
       href: functions-create-private-site-access.md
     - name: Use an outbound NAT gateway
       href: functions-how-to-use-nat-gateway.md
-  - name: Identity-based connections
-    items:
-    - name: Use identity for host connections
-      href: functions-identity-based-connections-tutorial.md
-    - name: Use identity for triggers and bindings
-      href: functions-identity-based-connections-tutorial-2.md
-    - name: Access Azure SQL with managed identity
-      href: functions-identity-access-azure-sql-with-managed-identity.md
+  - name: Access Azure SQL with managed identity
+    href: functions-identity-access-azure-sql-with-managed-identity.md
   - name: Low-latency Blob trigger using Event Grid
     displayName: storage, ngrok, local
     href: functions-event-grid-blob-trigger.md
   - name: Image resize with Event Grid
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
-  - name: Real-time serverless app with SignalR
-    href: /azure/azure-signalr/signalr-tutorial-authenticate-azure-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+  - name: Create a serverless web app
+    href: /training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
   - name: Data + AI
     items:
     - name: Azure OpenAI for text completion
@@ -209,9 +208,6 @@
     - name: Storage considerations
       displayName: encryption, keys, mount, files
       href: storage-considerations.md
-    - name: Choose a file access strategy
-      displayName: Azure Files, storage mount, bindings, file mounts, file access, shared files
-      href: concept-file-access-options.md
     - name: Error handling and function retries
       displayName: best practices, retry policies
       href: functions-bindings-error-pages.md
@@ -272,14 +268,8 @@
     - name: Handle binding errors
       href: functions-bindings-errors.md
   - name: Managed connectors
-    items:
-    - name: Use connectors in Azure Functions
-      displayName: managed connectors, connector trigger, connector SDK, connector namespace, Office 365, Teams, SharePoint, SaaS integration
-      href: functions-connectors-overview.md
-  - name: Frameworks
-    items:
-    - name: Express.js
-      href: shift-expressjs.md
+    displayName: managed connectors, connector trigger, connector SDK, connector namespace, Office 365, Teams, SharePoint, SaaS integration
+    href: functions-connectors-overview.md
   - name: Security
     items:
     - name: Security overview
@@ -289,7 +279,7 @@
       href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Reliability
     items:
-    - name: Reliability in Azure Functions
+    - name: Availability zones and disaster recovery
       displayName: availability zones, high-availability, zone redundancy, disaster recovery
       href: /azure/reliability/reliability-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Zone redundancy
@@ -326,10 +316,28 @@
         href: functions-dotnet-class-library.md
       - name: Script (.csx)
         href: functions-reference-csharp.md
-  - name: JavaScript
-    href: functions-reference-node.md?tabs=javascript
-  - name: TypeScript
-    href: functions-reference-node.md?tabs=typescript
+  - name: TypeScript/JavaScript
+    items:
+      - name: Developer reference guide
+        displayName: typescript, javascript
+        href: functions-reference-node.md
+      - name: Triggers and bindings
+        displayName: typescript, javascript
+        href: functions-triggers-bindings.md
+      - name: Build options
+        displayName: typescript, javascript
+        href: typescript-build-options.md
+      - name: Scale and performance recommendations
+        displayName: typescript, javascript
+        href: node-scale-performance.md
+      - name: Troubleshooting
+        displayName: typescript, javascript
+        href: functions-node-troubleshoot.md 
+      - name: Samples
+        displayName: typescript, javascript
+        href: /samples/browse/?products=azure-functions&languages=typescript,nodejs,javascript
+      - name: TypeScript/JavaScript SDK API reference
+        href: /javascript/api/%40azure/functions/
   - name: Java
     href: functions-reference-java.md
   - name: PowerShell
@@ -403,6 +411,9 @@
         items:
         - name: Azure portal
           href: functions-create-http-endpoint.md
+        - name: HTTP streams (TypeScript/JavaScript)
+          displayName: http streams, typescript, javascript
+          href: node-http-stream.md
         - name: Kotlin using IntelliJ
           href: functions-create-maven-kotlin-intellij.md
         - name: Linux container (Premium)
@@ -458,6 +469,8 @@
       href: functions-continuous-deployment.md
     - name: Deployment slots
       href: functions-deployment-slots.md
+    - name: Recover a Flex Consumption deployment
+      href: functions-rollback-deployments.md
     - name: Containers
       items:
       - name: Work with containers
@@ -477,6 +490,12 @@
       href: deployment-zip-push.md
     - name: Run from package
       href: run-functions-from-deployment-package.md
+    - name: Package management
+      displayName: node, typescript, javascript, npm
+      href: functions-reference-node.md#package-management
+    - name: Managing dependencies
+      displayName: node, typescript, javascript, npm
+      href: functions-reference-node.md#managing-dependencies
     - name: Deploy using the Jenkins plugin
       href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Configure
@@ -651,9 +670,15 @@
     - name: Overview
       displayName: AI, agent, agentic, serverless agents runtime, Foundry, MCP, connectors
       href: functions-serverless-agents-runtime.md
-    - name: Quickstart
+    - name: Get started
       displayName: AI, agent, agentic, serverless agents runtime, timer, email, connector, MCP, Foundry
       href: scenario-serverless-agents-runtime.md
+    - name: Reference
+      displayName: AI, agent, agentic, serverless agents runtime, configuration, mcp.json, agents.config.yaml, tools, skills
+      href: functions-serverless-agents-runtime-reference.md
+    - name: Compare agent options
+      displayName: Foundry, Copilot Studio, Scout, prompt agents, hosted agents, compare
+      href: compare-serverless-agents-runtime.md
   - name: Azure MCP server for Azure Functions
     href: /azure/developer/azure-mcp-server/services/azure-mcp-server-for-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: GitHub Copilot for Azure
@@ -680,6 +705,8 @@
       href: functions-node-upgrade-v4.md
   - name: Migrate .NET apps to the isolated model
     href: migrate-dotnet-to-isolated-model.md
+  - name: Migrate from Express.js
+    href: shift-expressjs.md
   - name: Move resources
     items:
     - name: Move between subscriptions
@@ -703,6 +730,9 @@
       href: /java/api/overview/azure/functions/runtime
     - name: Python
       href: /python/api/azure-functions/azure.functions
+  - name: Serverless agents runtime
+    displayName: AI, agent, agentic, serverless agents runtime, configuration, mcp.json, agents.config.yaml, tools, skills
+    href: functions-serverless-agents-runtime-reference.md
   - name: App settings reference
     href: functions-app-settings.md
   - name: Triggers and bindings

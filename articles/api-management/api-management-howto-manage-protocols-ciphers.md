@@ -2,12 +2,10 @@
 title: Manage Protocols and Ciphers in Azure API Management
 description: Learn how to manage transport layer security (TLS) protocols and cipher suites in Azure API Management.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 01/06/2026
-ms.author: danlep
+ms.date: 08/03/2026
 ---
 
 # Manage protocols and ciphers in Azure API Management
@@ -21,7 +19,12 @@ Azure API Management supports multiple versions of Transport Layer Security (TLS
 
 API Management also supports multiple cipher suites used by the API gateway.
 
-API Management supports TLS versions up to TLS 1.3 for client and backend connectivity and several supported cipher suites. This guide shows you how to manage protocols and ciphers configuration for an Azure API Management instance.
+API Management supports TLS versions up to TLS 1.3 for client and backend connectivity and several supported cipher suites. 
+
+> [!IMPORTANT]
+> Azure services are transitioning to requiring TLS 1.2 or later for all connections. Understanding which TLS versions are supported, and what happens when a client uses an unsupported version, helps you keep client applications connected and secure. For more information, see [retirement of TLS 1.0 and TLS 1.1 versions in Azure API Management](breaking-changes/tls-versions-retirement-oct-2025.md).
+
+This article shows you how to manage protocols and ciphers configuration for an Azure API Management instance.
 
 :::image type="content" source="media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png" alt-text="Screenshot of managing protocols and ciphers in the Azure portal.":::
 
@@ -75,7 +78,7 @@ After enabling TLS 1.3, review gateway request metrics or TLS-related exceptions
 If you need to disable TLS 1.3 for client-side connections in these instances, configure settings on the **Protocols + ciphers** page:
 
 1. On the **Protocols + ciphers** page, in the **Client protocol** section, next to **TLS 1.3**, select **View and manage configuration**.
-1. Under **Change TLS 1.3 status**, elect **Disable**.
+1. Under **Change TLS 1.3 status**, select **Disable**.
 1. Select **Close**.
 
 ### Backend-side TLS 1.3
@@ -90,6 +93,10 @@ You can enable backend-side TLS 1.3 from the **Protocols + ciphers** page:
 1. On the **Protocols + ciphers** page, in the **Backend protocol** section, next to **TLS 1.3**, select **View and manage configuration**.
 1. Under **Change TLS 1.3 status**, select **Enable**.
 1. Select **Save**.
+
+## Client behavior with an unsupported TLS version
+
+When a client accesses Azure API Management using a TLS version that doesn't meet the minimum TLS version, the request fails with error code 400 (Bad Request) and a message indicating that the TLS version that was used isn't permitted for making requests.
 
 ## Related content
 

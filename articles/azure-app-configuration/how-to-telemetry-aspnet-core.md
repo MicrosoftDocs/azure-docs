@@ -120,7 +120,7 @@ Now you'll add a custom event to track when users like a quote. You'll create a 
 1. Application Insights requires a connection string to connect to your Application Insights resource. Set the `ConnectionStrings:ApplicationInsights` as a user secret.
 
     ```dotnetcli
-    dotnet user-secrets set ConnectionStrings:ApplicationInsights "<your-Application-Insights-Connection-String>"
+    dotnet user-secrets set ConnectionStrings:ApplicationInsights "<ApplicationInsightsConnectionString>"
     ```
 
 1. After setting the environment variable, restart your terminal and rebuild and run the application.
@@ -133,7 +133,7 @@ Now you'll add a custom event to track when users like a quote. You'll create a 
 ## Collect telemetry
 
 Deploy your application to begin collecting telemetry from your users. To test its functionality, you can simulate user activity by creating many test users. Each user will experience one of the greeting message variants, and they can interact with the application by clicking the heart button to like a quote. As your user base grows, you can monitor the increasing volume of telemetry data collected in Azure App Configuration. Additionally, you can drill down into the data to analyze how each variant of the feature flag influences user behavior.
-- [Review telemetry results in App Configuration](./howto-telemetry.md#review-telemetry-results-in-azure-app-configuration).
+- [View feature flag events](./howto-telemetry-review-results.md).
 
 ## Additional resources
 

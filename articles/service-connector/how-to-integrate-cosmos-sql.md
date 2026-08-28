@@ -5,19 +5,18 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 03/14/2025
+ms.date: 06/17/2026
 ---
 
 # Integrate the Azure Cosmos DB for NoSQL with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Cosmos DB for NoSQL to other cloud services using Service Connector. You might still be able to connect to Azure Cosmos DB for NoSQL in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
+This article shows supported authentication methods and clients, and provides sample code for connecting Azure Cosmos DB for NoSQL to cloud services using Service Connector. You can also connect using other programming languages without Service Connector. The article includes default environment variable names and values you receive when creating a service connection. 
 
 ## Supported compute services
 
 Service Connector can be used to connect the following compute services to Azure Cosmos DB for NoSQL:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps
@@ -43,7 +42,7 @@ This table indicates that all combinations of client types and authentication me
 
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect your compute services to the Azure Cosmos DB for NoSQL. For each example below, replace the placeholder texts `<database-server>`, `<database-name>`,`<account-key>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`, `<SQL-server>`, `<client-secret>`, `<tenant-id>`, and `<access-key>` with your own information. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Refer to the connection details below to connect your compute services to Azure Cosmos DB for NoSQL. Replace placeholder text such as `<database-server>`, `<database-name>`, and `<account-key>` with your actual values. For naming conventions, see [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention).
 
 ### System-assigned managed identity
 
@@ -69,16 +68,16 @@ Using a system-assigned managed identity as the authentication type is only avai
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using a system-assigned identity.
+To connect using a system-assigned identity:
 [!INCLUDE [code for cosmos sql me id](./includes/code-cosmossql-me-id.md)]
 
 ### User-assigned managed identity
 
 Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to retrieve the connection string, and the connection is then established using that connection string.
 
-#### SpringBoot client type
+#### Spring Boot client type
 
-Using a user-assigned managed identity as the authentication type is only available for Spring Cloud Azure version 4.0 or higher.
+System-assigned managed identity authentication is available for Spring Cloud Azure version 4.0 or higher.
 
 | Default environment variable name    | Description                          | Example value                                                                                                                                                                                                      |
 |--------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -97,7 +96,7 @@ Using a user-assigned managed identity as the authentication type is only availa
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using a user-assigned identity.
+To connect using a user-assigned identity:
 [!INCLUDE [code for cosmos sql me id](./includes/code-cosmossql-me-id.md)]
 
 ### Connection string
@@ -105,7 +104,7 @@ Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using 
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
-#### SpringBoot client type
+#### Spring Boot client type
 
 | Default environment variable name | Description                      | Example value                                                                                                                                                                                |
 |-----------------------------------|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -124,12 +123,12 @@ Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using 
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for NoSQL using a connection string.
+To connect using a connection string:
 [!INCLUDE [code for cosmos sql](./includes/code-cosmossql-secret.md)]
 
 #### Service principal
 
-#### SpringBoot client type
+#### Spring Boot client type
 
 | Default environment variable name    | Description                          | Example value                                                                                                                                                                                                      |
 |--------------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

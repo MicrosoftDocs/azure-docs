@@ -2,12 +2,10 @@
 title: Enable Dapr Support in Self-Hosted Gateway | Azure API Management
 description: Learn now to enable Dapr support in the self-hosted gateway of Azure API Management for exposing and managing Dapr microservices as APIs. 
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/08/2025
-ms.author: danlep
 ---
 
 # Enable Dapr support in the self-hosted gateway

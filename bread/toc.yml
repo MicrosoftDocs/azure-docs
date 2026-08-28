@@ -419,6 +419,9 @@ items:
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
+  - name: Connector Namespace
+    tocHref: /azure/connector-namespace/
+    topicHref: /azure/connector-namespace/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
@@ -951,10 +954,3 @@ items:
   - name: Operator Insights
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
-  - name: Redis
-    tocHref: /azure/redis/
-    topicHref: /azure/redis/index
-    items:
-    - name: Azure Cache for Redis
-      tocHref: /azure/azure-cache-for-redis/
-      topicHref: /azure/azure-cache-for-redis/index

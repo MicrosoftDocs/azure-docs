@@ -1,8 +1,8 @@
 ---
 title: Spark connector for SQL databases
 description: Learn how to use Spark Connector to connect to Azure SQL databases from Synapse Spark Runtime
-author: eric-urban
-ms.author: eur
+author: ms-arali
+ms.author: arali
 ms.reviewer: arali
 ms.topic: how-to
 ms.date: 02/03/2026

@@ -6,7 +6,7 @@ ms.author: mbender
 ms.reviewer: mbender
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 03/24/2026
+ms.date: 08/05/2026
 
 #CustomerIntent: As a network engineer or architect at a small or midsize organization, I want to understand secure network design patterns for regional web applications using a hub-spoke topology so that I can build a secure-by-default network foundation in Azure that scales as my organization grows.
 ---
@@ -41,7 +41,10 @@ When the backend includes VMs, internet traffic flows through Application Gatewa
 
 ### PaaS backend (App Service)
 
-When the backend is PaaS, internet traffic flows through Application Gateway with WAF in the spoke to App Service in the workload subnet. You don't need Bastion because there's no OS-level access to manage. The hub exists for optional shared services (Azure Firewall) and future growth. VNet peering is always provisioned; it carries active traffic only when Azure Firewall handles centralized egress.
+When the backend is PaaS, internet traffic flows through Application Gateway with WAF in the spoke to App Service in the workload subnet. You don't need Bastion because there's no OS-level access to manage. The hub exists for optional shared services (Azure Firewall) and future growth. VNet peering is always provisioned; in this baseline it carries active traffic only when Azure Firewall handles centralized egress.
+
+> [!NOTE]
+> Azure Firewall is optional in this baseline and is positioned for centralized egress control. Stricter Zero Trust designs place Azure Firewall inline between Application Gateway and App Service so that all application traffic is packet inspected. For that pattern, see [Deploy a zero trust network for web applications](../create-zero-trust-network-web-apps.md).
 
 The architecture uses two virtual networks connected by VNet peering:
 
@@ -65,7 +68,7 @@ Each component in this pattern has a clear role:
 | Azure DDoS Protection | Both | Layer 3/4 volumetric attack mitigation | When public IPs face the internet |
 | Azure Bastion | Hub | Secure RDP/SSH without public IPs on VMs | When backend is IaaS |
 | NAT Gateway | Spoke | Explicit outbound connectivity for private subnets | When workload subnets need internet egress without Azure Firewall |
-| Azure Firewall Basic | Hub | Centralized egress filtering and logging | Optional — add when you need FQDN-based outbound control |
+| Azure Firewall Basic | Hub | Centralized egress filtering and logging | Optional in this baseline — add when you need FQDN-based outbound control. Zero Trust designs place it inline for packet inspection instead. |
 
 ### Why use hub-spoke instead of a single virtual network?
 

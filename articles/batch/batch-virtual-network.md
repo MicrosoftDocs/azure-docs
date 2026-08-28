@@ -2,7 +2,7 @@
 title: Provision a pool in a virtual network
 description: Learn how to create a Batch pool in an Azure virtual network so that compute nodes can communicate securely with other VMs in the network, such as a file server.
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 06/16/2026
 # Customer intent: "As a cloud architect, I want to provision an Azure Batch pool in a virtual network, so that I can enable secure communication between compute nodes and other virtual machines within my network."
 ---
 
@@ -25,7 +25,7 @@ To allow compute nodes to communicate securely with other virtual machines, or w
   - To create a classic Virtual Network, see [Create a virtual network (classic) with multiple subnets](/previous-versions/azure/virtual-network/create-virtual-network-classic). A classic Virtual Network is supported only on pools that use Cloud Services Configuration.
 
     > [!IMPORTANT]
-    > Avoid using 172.17.0.0/16 for Azure Batch pool VNet. It is the default for Docker bridge network and may conflict with other networks that you want to connect to the VNet. Creating a virtual network for Azure Batch pool requires careful planning of your network infrastructure.
+    > Avoid using 172.17.0.0/16 for Azure Batch pool VNet. It's the default for Docker bridge network and might conflict with other networks that you want to connect to the VNet. Creating a virtual network for Azure Batch pool requires careful planning of your network infrastructure.
 
 ## General virtual network requirements
 
@@ -44,7 +44,7 @@ To allow compute nodes to communicate securely with other virtual machines, or w
 > [Simplified](simplified-compute-node-communication.md) node communication mode
 > is where the compute nodes initiate communication to the Batch Service.
 
-* Any virtual network or peered virtual network that will be used for Batch pools should not have overlapping IP address ranges with software defined networking or routing on compute nodes. A common source for conflicts is from the use of a [container runtime](batch-docker-container-workloads.md), such as docker. Docker will create a default network bridge with a defined subnet range of `172.17.0.0/16`. Any services running within a virtual network in that default IP address space will conflict with services on the compute node, such as remote access via SSH.
+* Any virtual network or peered virtual network used for Batch pools should not have overlapping IP address ranges with software-defined networking or routing on compute nodes. A common source of conflicts is from the use of a [container runtime](batch-docker-container-workloads.md), such as Docker. Docker creates a default network bridge with a defined subnet range of `172.17.0.0/16`. Any services running within a virtual network in that default IP address space will conflict with services on the compute node, such as remote access via SSH.
 
 ## Pools in Virtual Machine Configuration
 
@@ -68,7 +68,7 @@ Requirements:
 
 Batch creates a network security group (NSG) at the network interface level of each Virtual Machine Scale Set deployment within a Batch pool. For pools that don't have public IP addresses under `simplified` compute node communication, NSGs aren't created.
 
-In order to provide the necessary communication between compute nodes and the Batch service, these NSGs are configured such that:
+To provide the necessary communication between compute nodes and the Batch service, these NSGs are configured such that:
 
 * Inbound TCP traffic on ports 29876 and 29877 from Batch service IP addresses that correspond to the BatchNodeManagement.*region* service tag. This rule is only created in `classic` pool communication mode.
 * Outbound any traffic on port 443 to Batch service IP addresses that correspond to the BatchNodeManagement.*region* service tag.
@@ -79,7 +79,7 @@ In order to provide the necessary communication between compute nodes and the Ba
 > For pools created using an API version earlier than `2024-07-01`, inbound TCP traffic on port 22 (Linux nodes) or port 3389 (Windows nodes) is configured to allow remote access via SSH or RDP on the default ports.
 
 > [!IMPORTANT]
-> Use caution if you modify or add inbound or outbound rules in Batch-configured NSGs. If communication to the compute nodes in the specified subnet is denied by an NSG, the Batch service will set the state of the compute nodes to **unusable**. Additionally, no resource locks should be applied to any resource created by Batch, because this can prevent cleanup of resources as a result of user-initiated actions such as deleting a pool.
+> Use caution if you modify or add inbound or outbound rules in Batch-configured NSGs. If communication to the compute nodes in the specified subnet is denied by an NSG, the Batch service sets the state of the compute nodes to **unusable**. Additionally, no resource locks should be applied to any resource created by Batch, because this can prevent cleanup of resources as a result of user-initiated actions such as deleting a pool.
 
 ### Network security groups for Virtual Machine Configuration pools: Specifying subnet-level rules
 
@@ -125,7 +125,7 @@ After you've created your Virtual Network and assigned a subnet to it, you can c
 1. Select **OK** to create your pool.
 
 > [!IMPORTANT]
-> If you try to delete a subnet which is being used by a pool, you will get an error message. All pools using a subnet must be deleted before you delete that subnet.
+> If you try to delete a subnet that's being used by a pool, you get an error message. All pools using a subnet must be deleted before you delete that subnet.
 
 ## User-defined routes for forced tunneling
 

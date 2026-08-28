@@ -23,7 +23,7 @@ items:
     href: quickstart-evaluate-readiness-savings-for-arc-resources.md
   - name: Create a business case using imported inventory
     href: how-to-build-a-business-case.md
-- name: Key Concepts
+- name: Key concepts
   items:
   - name: Supported Geographies
     href: supported-geographies.md
@@ -57,6 +57,8 @@ items:
     items:
     - name: Appliance requirements
       href: migrate-appliance.md
+    - name: Register appliance by onboarding to Azure Arc
+      href: how-to-register-appliance-using-arc-agent.md
     - name: Register appliance using pre-configured Entra app
       href: how-to-register-appliance-using-entra-app.md
     - name: Appliance configuration
@@ -141,7 +143,7 @@ items:
     href: how-to-build-a-business-case.md
   - name: Review business case
     href: how-to-view-a-business-case.md
-- name: Create Reports
+- name: Create reports
   items:
   - name: Overview reports
     href: reports-overview.md
@@ -171,8 +173,10 @@ items:
         href: assessment-properties.md
       - name: Review assessment report
         href: review-application-assessment.md
-      - name: Code level insights
+      - name: Code insights
         items:
+        - name: Add code insights using GitHub Copilot modernization
+          href: add-copilot-code-insights.md
         - name: Integrate with CAST highlights
           href: cast-highlights-integration.md
     - name: Workload specific assessments
@@ -225,8 +229,6 @@ items:
           href: create-web-app-assessment.md
         - name: Review assessment report
           href: review-web-app-assessment.md
-        - name: Enhance web app assessment by adding code scan report
-          href: add-copilot-code-insights.md
       - name: File share assessment
         items:
         - name: Create a file share assessment
@@ -249,8 +251,8 @@ items:
   items:
   - name: Overview of migration method
     href: server-migrate-overview.md
-  - name: End-to-end portal experience for server migrations with Azure Migrate
-    href: end-to-end-portal-experience-server-migrations.md
+  - name: Execute server migrations in Azure Migrate portal
+    href: execute-server-migrations.md
   - name: Agentless migrations using portal
     href: tutorial-migrate-vmware.md
   - name: Agent-based migration using portal
@@ -373,7 +375,7 @@ items:
       href: how-to-upgrade-windows.md
     - name: Automate agent-based migrations using REST API
       href: how-to-automate-vmware-to-azure-migration-rest-api.md
-    - name: Migrate Generation 2 Virtual Machines to Azure Trusted Launch Virtual Machines with Azure Migrate
+    - name: Migrate to Trusted Launch or Confidential Virtual Machines with Azure Migrate
       href: migrate-to-trusted-launch-virtual-machines-with-azure-migrate.md
     - name: Scale migration
       items:
@@ -397,7 +399,7 @@ items:
     href: how-to-plan-analyze-migration-with-agent.md
 - name: Troubleshoot
   items:
-  - name: Azure Migrate Project
+  - name: Azure Migrate project
     items:
     - name: Troubleshoot Azure Migrate projects
       href: troubleshoot-project.md

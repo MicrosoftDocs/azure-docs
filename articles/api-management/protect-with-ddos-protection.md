@@ -2,13 +2,13 @@
 title: Defend API Management Against DDoS Attacks 
 description: Learn how to protect your API Management instance in an external virtual network against volumetric and protocol DDoS attacks by using Azure DDoS Protection.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 04/17/2025
-ms.author: danlep
+ms.date: 08/24/2026
 ms.custom: sfi-image-nochange
+
+#customer intent: As an API developer, I want to protect my API Management instance against DDoS attacks so that my APIs stay available during volumetric and protocol attacks.
 ---
 # Defend your Azure API Management instance against DDoS attacks
 
@@ -29,7 +29,6 @@ Enabling Azure DDoS Protection for API Management is supported only for instance
 
 * Instances that aren't VNet-injected
 * Instances configured with a [private endpoint](private-endpoint.md)
-
 
 ## Prerequisites
 
@@ -59,7 +58,7 @@ Depending on the DDoS Protection plan you use, enable DDoS protection on the vir
 
 ### Enable DDoS protection on the API Management public IP address
 
-If your plan uses the IP DDoS Protection SKU, see [Enable DDoS IP Protection for a public IP address](../ddos-protection/manage-ddos-protection-powershell-ip.md#disable-ddos-ip-protection-for-a-public-ip-address).
+If your plan uses the IP DDoS Protection SKU, see [Enable DDoS IP Protection for a public IP address](../ddos-protection/manage-ddos-protection-powershell-ip.md#enable-ddos-ip-protection-for-a-public-ip-address).
 
 ## Related content
 

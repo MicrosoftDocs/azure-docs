@@ -2,17 +2,20 @@
 title: Troubleshoot the Snowflake connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Snowflake connector in Azure Data Factory and Azure Synapse Analytics. 
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/20/2023
-ms.author: jianleishen
+ms.date: 06/22/2026
+ms.update-cycle: 1095-days
+ms.author: tinglee
 ms.custom: has-adal-ref, synapse
 ---
 
 # Troubleshoot the Snowflake connector in Azure Data Factory and Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article provides suggestions to troubleshoot common problems with the Snowflake connector in Azure Data Factory and Azure Synapse. 
 
@@ -32,11 +35,11 @@ This article provides suggestions to troubleshoot common problems with the Snowf
 
 ## Error code: SnowflakeFailToAccess
 
-- **Symptoms**:<br>
-The copy activity fails with the following error when using Snowflake as source:<br> 
-    `Failed to access remote file: access denied. Please check your credentials`<br>
-The copy activity fails with the following error when using Snowflake as sink:<br>
-    `Failure using stage area. Cause: [This request is not authorized to perform this operation. (Status Code: 403; Error Code: AuthorizationFailure)`<br>
+- **Symptoms**:<br />
+The copy activity fails with the following error when using Snowflake as source:<br /> 
+    `Failed to access remote file: access denied. Please check your credentials`<br />
+The copy activity fails with the following error when using Snowflake as sink:<br />
+    `Failure using stage area. Cause: [This request is not authorized to perform this operation. (Status Code: 403; Error Code: AuthorizationFailure)`<br />
 
 - **Cause**: The error pops up by the Snowflake COPY command and is caused by missing access permission on source/sink when execute Snowflake COPY commands. 
 

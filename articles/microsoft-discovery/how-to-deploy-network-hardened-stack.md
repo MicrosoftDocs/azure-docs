@@ -3,7 +3,7 @@ title: End-to-end network-hardened deployment for Microsoft Discovery
 description: Learn how to deploy a fully network-hardened Microsoft Discovery stack where all traffic stays within your virtual network, including workspace, bookshelf, supercomputer, and customer storage.
 ms.service: azure
 ms.topic: how-to
-ms.date: 03/30/2026
+ms.date: 08/05/2026
 ms.author: umamm
 author: umamm
 ms.custom: networking, private-link, nsp
@@ -46,21 +46,23 @@ Create the subnets:
 
 | Subnet | CIDR | Purpose |
 |--------|------|---------|
-| `agent-ws` | `10.200.1.0/24` | Workspace agent workloads |
+| `agent-ws` | `10.200.1.0/27` | Workspace agent workloads |
 | `workspace-ws` | `10.200.2.0/24` | Workspace services |
 | `pe-ws` | `10.200.3.0/27` | Private endpoints (workspace + bookshelf) |
 | `bs-search` | `10.200.4.0/27` | Bookshelf search services |
 | `sc-aks` | `10.200.6.0/24` | Supercomputer cluster |
 | `sc-nodepool` | `10.200.5.0/24` | Supercomputer nodepool |
+| `sc-mgmt` *(optional)* | `10.200.7.0/28` | Supercomputer AKS API server (VNet Integration). Only needed if you set `properties.managementSubnetId` on the Supercomputer. `/28` is the floor. Delegate to `Microsoft.ContainerService/managedClusters`. |
 | `pe-storage` | `10.200.11.0/27` | Customer blob storage PE |
 
 ```azurecli
-az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name agent-ws --address-prefixes 10.200.1.0/24
+az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name agent-ws --address-prefixes 10.200.1.0/27
 az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name workspace-ws --address-prefixes 10.200.2.0/24
 az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name pe-ws --address-prefixes 10.200.3.0/27
 az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name bs-search --address-prefixes 10.200.4.0/27
 az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name sc-aks --address-prefixes 10.200.6.0/24
 az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name sc-nodepool --address-prefixes 10.200.5.0/24
+az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name sc-mgmt --address-prefixes 10.200.7.0/28   # optional — only if using API-Server VNet Integration
 az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --name pe-storage --address-prefixes 10.200.11.0/27
 ```
 
@@ -74,7 +76,7 @@ az network vnet subnet create --resource-group {rg} --vnet-name {vnetName} --nam
 Create the supercomputer first so it can be referenced by the workspace. The compute cluster is injected directly into your virtual network subnet. Workload traffic stays private.
 
 > [!NOTE]
-> **Known limitation:** The supercomputer's AKS API server has a public FQDN. Workload traffic stays within the virtual network, but the Kubernetes API server endpoint is publicly accessible. Private cluster support is planned for a future release.
+> Setting `properties.managementSubnetId` on the Supercomputer to a subnet delegated to `Microsoft.ContainerService/managedClusters` (for example, `sc-mgmt` in the preceding section) enables **AKS API-Server VNet Integration**: kubelet on the nodes reaches the API server over a private ILB in that subnet, so the node-to-control-plane data path stays inside the virtual network. For more information, see [Management subnet ID requirements](how-to-configure-network-security.md#management-subnet-id-requirements).
 
 ```azurecli
 az rest --method PUT \
@@ -178,6 +180,15 @@ az network private-endpoint create \
   --vnet-name {vnet} --subnet pe-storage \
   --private-connection-resource-id "/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}" \
   --group-id blob --connection-name pe-blob-conn
+```
+
+If you use a storage account with hierarchical namespaces enabled, you also need to create a private endpoint for the dfs endpoint:
+```azurecli
+az network private-endpoint create \
+  --resource-group {rg} --name pe-dfs-storage \
+  --vnet-name {vnet} --subnet pe-storage \
+  --private-connection-resource-id "/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}" \
+  --group-id dfs --connection-name pe-dfs-conn
 ```
 
 ### Register the storage with Discovery

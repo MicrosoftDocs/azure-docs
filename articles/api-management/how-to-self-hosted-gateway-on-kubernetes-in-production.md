@@ -1,11 +1,9 @@
 ---
 title: Run Self-Hosted Gateway on Kubernetes in Production
 description: Learn about guidance to run an API Management self-hosted gateway on Kubernetes for production workloads.
-author: tomkerkhove
 manager: mrcarlosdev
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.author: tomkerkhove
 ms.date: 02/20/2026
 ms.custom:
   - build-2025
@@ -38,7 +36,10 @@ There are two ways to autoscale the self-hosted gateway horizontally:
 - Autoscale based on resource usage (CPU and memory)
 - Autoscale based on the number of requests per second
 
-You can autoscale by using native Kubernetes functionality, or by using [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh). KEDA is a Cloud Native Computing Foundation (CNCF) incubation project that strives to make application autoscaling simple.
+Use a scale-out strategy rather than a scale-up strategy. Running a larger fleet of smaller instances rather than fewer bigger instances improves your resilience in case of individual instances failing.
+
+
+You can autoscale by using native Kubernetes functionality or by using [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh). KEDA is a Cloud Native Computing Foundation (CNCF) graduation project that strives to make application autoscaling simple.
 
 > [!NOTE]
 > KEDA is an open-source technology that isn't supported by Azure support and must be operated by customers.
@@ -99,6 +100,8 @@ It's impossible to reliably predict and recommend the amount of per-container CP
 - Backend service latency
 
 We recommend setting resource requests to two cores and 2 GiB as a starting point. Perform a load test and scale up/out or down/in based on the results.
+
+Additionally, we recommend using [autoscaling](#autoscaling) to ensure your API gateway scales to meet your API platform's needs.
 
 ## Custom domain names and SSL certificates
 

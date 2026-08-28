@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how Azure Digital Twins uses custom models to describe entities in your environment and how to define these models using the Digital Twin Definition Language (DTDL).
 author: baanders
 ms.author: baanders
-ms.date: 01/27/2025
+ms.date: 08/10/2026
 ms.topic: concept-article
 ms.service: azure-digital-twins
 ms.custom: fasttrack-edit
@@ -62,7 +62,29 @@ Here are the fields within a model interface:
 
 Here's an example of a basic DTDL model. This model describes a Home, with one property for an ID. The Home model also defines a relationship to a Floor model, which can be used to indicate that a Home twin is connected to certain Floor twins.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json":::
+```json
+{
+  "@id": "dtmi:com:adt:dtsample:home;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;3",
+  "displayName": "Home",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "id",
+      "schema": "string"     
+    },    
+    {
+      "@type": "Relationship",
+      "@id": "dtmi:com:adt:dtsample:home:rel_has_floors;1",
+      "name": "rel_has_floors",
+      "displayName": "Home has floors",
+      "target": "dtmi:com:adt:dtsample:floor;1"
+    }
+  ]
+}
+```
+
 
 ### Model attributes
 
@@ -108,17 +130,69 @@ They can also be semantic types, which allow you to annotate values with units. 
 
 ### Basic property example
 
-Here's a basic example of a property on a DTDL model. This example shows the ID property of a Home.
+Here's a basic example of a property on a DTDL model. This model excerpt shows the ID property of a Home.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json" highlight="7-11":::
+```json
+{
+  "@id": "dtmi:com:adt:dtsample:home;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;3",
+  "displayName": "Home",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "id",
+      "schema": "string"     
+    },    
+    ...
+  ]
+}
+```
 
 ### Complex Object type example
 
 Properties can be of complex types, including an `Object` type.
 
-The following example shows another version of the Home model, with a property for its address. `address` is an object, with its own fields for street, city, state, and zip.
+The following excerpt shows another version of the Home model, with a property for its address. The `address` property is an object, with its own fields for street, city, state, and zip.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="8-31":::
+```json
+{
+  "@id": "dtmi:com:adt:dtsample:home;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;3",
+  "displayName": "Home",
+  "extends": "dtmi:com:adt:dtsample:core;1",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "address",
+      "schema": {
+        "@type": "Object",
+        "fields": [
+          {
+            "name": "street",
+            "schema": "string"
+          },
+          {
+            "name": "city",
+            "schema": "string"
+          },
+          {
+            "name": "state",
+            "schema": "string"
+          },
+          {
+            "name": "zip",
+            "schema": "string"
+          }
+        ]
+      }
+    },
+    ...
+  ]
+}
+```
+
 
 ### DTDL v2 semantic type example
 
@@ -128,7 +202,28 @@ In DTDL v2, semantic types are natively supported. For more information on seman
 
 The following example shows a DTDL v2 Sensor model with semantic type properties for Humidity and Temperature. 
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ISensor-DTDL-v2.json" highlight="7-18":::
+```json
+{
+  "@id": "dtmi:com:adt:dtsample:v2sensor;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Sensor (v2 model)",
+  "contents": [
+    {
+      "@type": ["Property", "Temperature"],
+      "name": "Temperature",
+      "schema": "double",
+      "unit": "degreeFahrenheit"    
+    },
+    {
+      "@type": ["Property", "Humidity"],
+      "name": "Humidity",
+      "schema": "double",
+      "unit": "gramPerCubicMetre" 
+    }
+  ]
+}
+```
 
 > [!IMPORTANT]
 > *"Property"* must be the first element of the `@type` array, followed by the semantic type. Otherwise, the field may not be visible in [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md).
@@ -144,9 +239,27 @@ For a comprehensive list of the fields that may appear as part of a relationship
 
 ### Basic relationship example
 
-Here's a basic example of a relationship on a DTDL model. This example shows a relationship on a Home model that allows it to connect to a Floor model.
+Here's a basic example of a relationship on a DTDL model. This model excerpt shows a relationship on a Home model that connects to a Floor model.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json" highlight="12-18":::
+```json
+{
+  "@id": "dtmi:com:adt:dtsample:home;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;3",
+  "displayName": "Home",
+  "contents": [
+    ...  
+    {
+      "@type": "Relationship",
+      "@id": "dtmi:com:adt:dtsample:home:rel_has_floors;1",
+      "name": "rel_has_floors",
+      "displayName": "Home has floors",
+      "target": "dtmi:com:adt:dtsample:floor;1"
+    }
+  ]
+}
+```
+
 
 >[!NOTE]
 >For relationships, `@id` is an optional field. If no `@id` is provided, the digital twin interface processor will assign one.
@@ -157,17 +270,64 @@ Relationships can be defined with or without a *target*. A target specifies whic
 
 Sometimes, you might want to define a relationship without a specific target, so that the relationship can connect to many different types of twins.
 
-Here's an example of a relationship on a DTDL model that doesn't have a target. In this example, the relationship is for defining what sensors a Room might have, and the relationship can connect to any type.
+Here's an example of a relationship on a DTDL model that doesn't have a target. In this model excerpt, the relationship is for defining what sensors a Room might have, and the relationship can connect to any type.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-30" highlight="22-27":::
+```json
+{
+  "@id": "dtmi:com:adt:dtsample:room;1",
+  "@type": "Interface",
+  "@context": [
+    "dtmi:dtdl:context;3",
+    "dtmi:dtdl:extension:quantitativeTypes;1"
+  ],
+  "displayName": "Room",
+  "extends": "dtmi:com:adt:dtsample:core;1",
+  "contents": [
+    ...
+    {
+      "@type": "Relationship",
+      "@id": "dtmi:com:adt:dtsample:room:rel_has_sensors;1",
+      "name": "rel_has_sensors",
+      "displayName": "Room has sensors"
+    }
+  ]
+},
+```
+
 
 ### Properties of relationships
 
 DTDL also allows for relationships to have properties of their own. When you define a relationship within a DTDL model, the relationship can have its own `properties` field where you can define custom properties to describe relationship-specific state.
 
-The following example shows another version of the Home model, where the `rel_has_floors` relationship has a property representing when the related Floor was last occupied.
+The following model excerpt example shows another version of the Home model, where the `rel_has_floors` relationship has a property representing when the related Floor was last occupied.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" highlight="39-45":::
+```json
+{
+  "@id": "dtmi:com:adt:dtsample:home;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;3",
+  "displayName": "Home",
+  "extends": "dtmi:com:adt:dtsample:core;1",
+  "contents": [
+    ...
+    {
+      "@type": "Relationship",
+      "@id": "dtmi:com:adt:dtsample:home:rel_has_floors;1",
+      "name": "rel_has_floors",
+      "displayName": "Home has floors",
+      "target": "dtmi:com:adt:dtsample:floor;1",
+      "properties": [
+        {
+          "@type": "Property",
+          "name": "lastOccupied",
+          "schema": "dateTime"
+        }
+      ]
+    }
+  ]
+}
+```
+
 
 ## Components
 
@@ -179,7 +339,57 @@ For a comprehensive list of the fields that may appear as part of a component, s
 
 Here's a basic example of a component on a DTDL model. This example shows a Room model that makes use of a thermostat model as a component.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="18-22, 31-47":::
+```json
+[
+  {
+    "@id": "dtmi:com:adt:dtsample:room;1",
+    "@type": "Interface",
+    "@context": [
+      "dtmi:dtdl:context;3",
+      "dtmi:dtdl:extension:quantitativeTypes;1"
+    ],
+    "displayName": "Room",
+    "extends": "dtmi:com:adt:dtsample:core;1",
+    "contents": [
+      {
+        "@type": ["Property", "Humidity"],
+        "name": "humidity",
+        "schema": "double",
+        "unit": "gramPerCubicMetre"
+      },
+      {
+        "@type": "Component",
+        "name": "thermostat",
+        "schema": "dtmi:com:adt:dtsample:thermostat;1"
+      },
+      {
+        "@type": "Relationship",
+        "@id": "dtmi:com:adt:dtsample:room:rel_has_sensors;1",
+        "name": "rel_has_sensors",
+        "displayName": "Room has sensors"
+      }
+    ]
+  },
+  {
+    "@context": [
+      "dtmi:dtdl:context;3",
+      "dtmi:dtdl:extension:quantitativeTypes;1"
+    ],
+    "@id": "dtmi:com:adt:dtsample:thermostat;1",
+    "@type": "Interface",
+    "displayName": "thermostat",
+    "contents": [
+      {
+        "@type": ["Property", "Temperature"],
+        "name": "temperature",
+        "schema": "double",
+        "unit": "degreeFahrenheit"
+      }
+    ]
+  }
+]
+```
+
 
 If other models in this solution should also contain a thermostat, they can reference the same thermostat model as a component in their own definitions, just like Room does.
 
@@ -199,13 +409,53 @@ The `extends` section is an interface name, or an array of interface names (allo
 
 The following example re-imagines the Home model from the earlier DTDL example as a subtype of a larger "core" model. The parent model (Core) is defined first, and then the child model (Home) builds on it by using `extends`.
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/ICore.json":::
+```json
+{
+    "@id": "dtmi:com:adt:dtsample:core;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;3",
+    "displayName": "Core",
+    "contents": [
+        {
+            "@type": "Property",
+            "name": "id",
+            "schema": "string"
+        },
+        {
+            "@type": "Property",
+            "name": "name",
+            "schema": "string"
+        }
+    ]
+}
+```
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" range="1-8" highlight="6":::
+```json
+{
+  "@id": "dtmi:com:adt:dtsample:home;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;3",
+  "displayName": "Home",
+  "extends": "dtmi:com:adt:dtsample:core;1",
+  "contents": [
+    {
+    ...
+```
 
 In this case, Core contributes an ID and name to Home. Other models can also extend the Core model to get these properties as well. Here's a Room model extending the same parent interface:
 
-:::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-10" highlight="9":::
+```json
+{
+  "@id": "dtmi:com:adt:dtsample:room;1",
+  "@type": "Interface",
+  "@context": [
+    "dtmi:dtdl:context;3",
+    "dtmi:dtdl:extension:quantitativeTypes;1"
+  ],
+  "displayName": "Room",
+  "extends": "dtmi:com:adt:dtsample:core;1",
+  ...
+```
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
@@ -338,4 +588,3 @@ For more information about the model experience in Azure Digital Twins Explorer,
 * Dive deeper into managing models with API operations: [Manage DTDL models](how-to-manage-model.md)
 
 * Learn about how models are used to create digital twins: [Digital twins and the twin graph](concepts-twins-graph.md)
-

@@ -4,6 +4,7 @@ description: Learn how to back up Azure Blobs using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 06/17/2025
+ms.update-cycle: 1095-days
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to back up Azure Blobs using the CLI, so that I can efficiently manage and protect my storage data while minimizing manual overhead.
@@ -18,6 +19,8 @@ For information on the Azure Blobs regions availability, supported scenarios, an
 ## Before you start
 
 See the [prerequisites](./blob-backup-configure-manage.md#before-you-start) and [support matrix](./blob-backup-support-matrix.md) before you get started.
+
+To configure auto-protection for present and future containers, install the Azure CLI `dataprotection` extension version 1.10.0 or later.
 
 ## Create a Backup vault
 
@@ -244,7 +247,7 @@ Once all the relevant permissions are set, configure the backup by running the f
 
 ## Update a backup instance
 
-After you have configured the backup, you can change the associated policy with a backup instance. For vaulted backups, you can also change the containers selected for backup. 
+After you configure the backup, you can change the associated policy with a backup instance. For vaulted backups, you can also change the containers selected for backup or choose to auto-protect containers up to the supported limit. Selecting auto-protection for all present and future containers is permanent, and you can't switch back to the earlier container selection options.
 
 To update the backup instance, run the following command:
 

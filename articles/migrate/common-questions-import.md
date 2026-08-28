@@ -1,11 +1,12 @@
 ---
 title: Questions about importing data
 description: Get answers to common questions about importing RVTools XLSX into Azure migrate
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 10/28/2024
+ms.update-cycle: 365-days
 # Customer intent: "As a migration specialist, I want to understand the requirements for importing RVTools XLSX data into Azure Migrate, so that I can ensure a successful and accurate import of my VMware servers."
 ---
 

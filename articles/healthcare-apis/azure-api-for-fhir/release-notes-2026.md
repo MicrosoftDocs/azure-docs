@@ -19,10 +19,53 @@ ms.author: evach
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## August 2026
+### FHIR service
+
+**Stricter SMART on FHIR scope validation**: Improved security validation for SMART on FHIR scopes to properly reject mixed scope contexts.
+
+**Null-safety improvements in resource validation**: Added null-safety checks to improve the reliability of resource validation.
+
+**Reindex reliability improvement**: The running reindex check was moved to the data store, improving reliability of the reindex operation.
+
+**Microsoft Entra security group support removed for local RBAC**: Assigning data plane access to a Microsoft Entra security group in the **Allowed object IDs** list is no longer supported. Grant access directly to individual users or service principals instead. This change keeps Azure API for FHIR aligned with current security practices and limits the access the service needs to your directory. For more information, see [Configure local RBAC for FHIR](configure-local-rbac.md).
+
+#### Bug fixes:
+
+**Fix for date filtering in bulk delete jobs**: Fixed an issue where the date filter was not correctly applied to bulk delete jobs, which could result in deletions beyond the intended date range.
+
+**Fix for race condition in bundle processing**: Fixed a race condition in bundle processing that could cause intermittent failures.
+
+**Fix for search parameter deletion in sequential transaction bundles**: Fixed a bug where deleting a search parameter in a sequential transaction bundle could fail.
+
+## July 2026
+### FHIR service
+
+**Improved handling of invalid bundle types**: The FHIR service now returns proper error responses when an invalid bundle type is submitted (HTTP 400 Bad Request instead of HTTP 500 Internal Server Error).
+
+**New configuration options for date search behavior**: Added new configuration options to control date search behavior, allowing the Date Equality Rewriter to be used only when Date Containment is enabled. This provides more control over how date-based searches are optimized.
+
+**Search modifiers rejected in SMART v2 clinical scopes**: FHIR search modifiers (such as `:not`, `:missing`, `:exact` and others) are now explicitly rejected when used in SMART v2 clinical scopes. Previously, these modifiers could bypass scope restrictions. Requests that use search modifiers in clinical scopes now receive an HTTP 400 Bad Request response.
+
+#### Bug fixes:
+
+**Fix for `$bulk-delete` and `$bulk-update` without search parameters**: Fixed an issue where `$bulk-delete` and `$bulk-update` operations would fail when no search parameters were provided. These operations now work correctly without parameters.
+
+**Fix for authorization check on conditional delete**: Fixed an issue where conditional delete operations didn't correctly verify that the caller had the required delete data action permission. Conditional delete now enforces the delete permission check consistently.
+
+**Fix for `$bulk-update` with only `_lastUpdated` as a search parameter**: Fixed an issue where a `$bulk-update` request that used `_lastUpdated` as the only search parameter would update all resources instead of only the filtered subset. The `_lastUpdated` filter is now correctly applied.
+
+## June 2026
+### FHIR service
+
+**Parallel bundle error handling improvement**: Parallel bundle error handling has been improved. Client-side errors now return HTTP 400 Bad Request, and dependent operations are marked as HTTP 424 Failed Dependency.
+
+**Deduplication of duplicate query parameters**: Duplicate query parameters with identical key-value pairs are now deduplicated before query parsing, reducing unnecessary database load.
+
 ## May 2026
 ### FHIR service
 
-**Improved bundle error handling**: When a bundle request was throttled (HTTP 429) and the client cancelled the request during the retry wait, the server could exhibit unexpected behavior. The server now properly handles cancellation during retry delays and returns HTTP 408 (Request Timeout) for affected bundle entries. The maximum Retry-After delay is also capped at 15 seconds.
+**Improved bundle error handling**: When a bundle request was throttled (HTTP 429) and the client canceled the request during the retry wait, the server could exhibit unexpected behavior. The server now properly handles cancellation during retry delays and returns HTTP 408 (Request Timeout) for affected bundle entries. The maximum Retry-After delay is also capped at 15 seconds.
 
 **Security enhancements for export**: Added validation to reject path traversal sequences in $export endpoint parameters to prevent unauthorized access to blob storage paths.
 
@@ -31,7 +74,7 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 ## April 2026
 ### FHIR service
-**Security enhancements for narrative sanitizer**: Enhanced security by detecting and handling dangerous href schemes (javascript:, data:, vbscript:, etc.) in FHIR narrative HTML. The FHIR service rejects links with these schemes in an href property because they don't pass validation.
+**Security enhancements for narrative sanitizer**: Enhanced security by detecting and handling dangerous href schemes (`javascript:`, `data:`, `vbscript:`, etc.) in FHIR narrative HTML. The FHIR service rejects links with these schemes in an href property because they don't pass validation.
 
 #### Bug fixes:
 **Improved monitoring accuracy for Azure API for FHIR**: An issue was identified and resolved that affected Azure Monitor metrics under Microsoft.HealthcareAPIs: CosmosDbThrottleRate, CosmosDbRequests, TotalErrors, and TotalRequests. An unsupported aggregation configuration caused inconsistency in metric data. This issue was limited to observability scenarios and did not impact service availability, performance, or data processing. After the fix, customers may now observe improved accuracy and consistency in monitoring experiences without requiring any action.
@@ -40,11 +83,11 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 ## March 2026
 ### FHIR service
-**Bulk Export cancellation behavior update**: Added updates to align the FHIR server to support [Bulk Data Access 2.0](https://hl7.org/fhir/uv/bulkdata/STU2/export.html#bulk-data-delete-request). This update includes a change to bulk export cancellation behavior. Previously, cancellation request of an already completed, cancelled, or failed export job returned "200 OK." The behavior is now updated to return more informative operation outcomes:
-  - Cancelling an already-cancelled export job returns "404 Job Not Found."
-  - Cancelling a completed or failed export job returns "404 Job Not Found" if the job is already cancelled or failed; otherwise returns "202 Accepted."
+**Bulk Export cancellation behavior update**: Added updates to align the FHIR server to support [Bulk Data Access 2.0](https://hl7.org/fhir/uv/bulkdata/STU2/export.html#bulk-data-delete-request). This update includes a change to bulk export cancellation behavior. Previously, cancellation request of an already completed, canceled, or failed export job returned "200 OK." The behavior is now updated to return more informative operation outcomes:
+  - Cancelling an already-canceled export job returns "404 Job Not Found."
+  - Cancelling a completed or failed export job returns "404 Job Not Found" if the job is already canceled or failed; otherwise returns "202 Accepted."
   - Cancelling a queued or running export job returns "202 Accepted"; no behavior change.
-  - Trying to get the status of a user-requested cancelled job returns "404 Job Not Found."
+  - Trying to get the status of a user-requested canceled job returns "404 Job Not Found."
 
 
 #### Bug fixes:

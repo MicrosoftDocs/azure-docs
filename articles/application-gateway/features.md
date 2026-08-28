@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/12/2026
+ms.date: 08/18/2026
 ms.author: mbender
 # Customer intent: "As a web application administrator, I want to configure and manage an application gateway, so that I can optimize traffic distribution, enhance security, and ensure high availability for my web applications."
 ---
@@ -29,6 +29,8 @@ For more information, see [Overview of SSL termination and end to end SSL with A
 
 ## Autoscaling
 
+Autoscaling is a capability of the Application Gateway Standard_v2 and WAF_v2 SKUs. For the fixed instance sizes offered by the Application Gateway Standard (v1) SKU, see [Sizing](#sizing).
+
 Application Gateway Standard_v2 supports autoscaling and can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. 
 
 For more information about the Application Gateway Standard_v2 features, see [What is Azure Application Gateway v2](overview-v2.md).
@@ -47,7 +49,7 @@ Web Application Firewall (WAF) is a service that provides centralized protection
 
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few. Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at many layers of the application topology. A centralized web application firewall helps make security management much simpler and gives better assurance to application administrators against threats or intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to a Web Application Firewall enabled application gateway easily.
 
-Refer to [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md) for guidance on how to use Azure WAF with Application Gateway to protect against DDoS attacks. For more information, see [What is Azure Web Application Firewall](../web-application-firewall/overview.md).
+Refer to [Application DDoS protection](../web-application-firewall/application-ddos-protection.md) for guidance on how to use Azure WAF with Application Gateway to protect against DDoS attacks. For more information, see [What is Azure Web Application Firewall](../web-application-firewall/overview.md).
 
 ## Ingress Controller for AKS
 Application Gateway Ingress Controller (AGIC) allows you to use Application Gateway as the ingress for an [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) cluster. 
@@ -67,13 +69,9 @@ For more information, see [URL Path Based Routing overview](url-route-overview.m
 
 ## Multiple-site hosting
 
-With Application Gateway, you can configure routing based on host name or domain name for more than one web application on the same application gateway. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting. 
+Multiple-site hosting lets you configure routing based on host name or domain name for more than one web application on the same application gateway. You can host more than 100 websites, each directed to its own backend pool. You can also host subdomains of the same parent domain and define wildcard host names, with up to five host names per listener.
 
-Requests for `http://contoso.com` are routed to ContosoServerPool, `http://fabrikam.com` are routed to FabrikamServerPool, and so on.
-
-Similarly, two subdomains of the same parent domain can be hosted on the same application gateway deployment. Examples of using subdomains could include `http://blog.contoso.com` and `http://app.contoso.com` hosted on a single application gateway deployment. For more information, see [Application Gateway multiple site hosting](multiple-site-overview.md).
-
-You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener).
+For a detailed explanation and examples, see [Application Gateway multiple site hosting](multiple-site-overview.md) and the [multi-site listener details in Application Gateway components](application-gateway-components.md#listeners). For wildcard host names, see [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener).
 
 ## Redirection
 

@@ -1,33 +1,29 @@
 ---
-title: Plan for an Azure File Sync Deployment
-description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares locally on an on-premises Windows Server instance or cloud VM.
+title: Plan an Azure File Sync deployment
+description: Plan your Azure File Sync deployment by choosing servers, sync topologies, networking, cloud tiering policies, and Windows Server configurations.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/22/2026
+ms.date: 08/17/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As an IT administrator, I want to plan for an Azure File Sync deployment so that I can effectively manage on-premises file caching and ensure seamless integration with cloud file shares."
 ---
 
-# Plan for an Azure File Sync deployment
+# Plan an Azure File Sync deployment
 
-:::row:::
-    :::column:::
-        [![Interview and demonstration that introduces Azure File Sync - select to play.](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
-    :::column-end:::
-    :::column:::
-        Azure File Sync is a service that you can use to cache several Azure file shares on an on-premises Windows Server instance or cloud virtual machine (VM).
+Planning an Azure File Sync deployment involves choosing which servers to sync, how to organize your sync topology, and how to configure networking and cloud tiering. Use this article to make those decisions, then follow the [deployment guide](file-sync-deployment-guide.md) to set it up.
 
-        This article introduces you to Azure File Sync concepts and features. After you're familiar with Azure File Sync, consider following the [Azure File Sync deployment guide](file-sync-deployment-guide.md) to try out this service.        
-    :::column-end:::
-:::row-end:::
+**Key decisions:**
 
-The files are stored in the cloud in [Azure file shares](../files/storage-files-introduction.md). You can use Azure file shares in the following two ways. Which deployment option you choose changes the aspects that you need to consider as you plan for your deployment.
+1. **Which servers will sync?** On-premises Windows Servers, Azure VMs, or both? See [Windows file server considerations](#considerations-for-windows-file-servers).
+2. **How many sync groups do you need?** Map your file shares and server folders into [sync topologies](#planning-for-balanced-sync-topologies).
+3. **Will you use cloud tiering?** Cache only hot files locally to save disk space, or keep a full copy? See [Storage tiers](#storage-tiers).
+4. **What networking configuration?** Public endpoints, private endpoints, or firewalls? See [Networks](#networks).
+5. **How will users authenticate?** See [Identity](#identity).
+6. **What Windows Server specifications?** See [Recommended system resources](#recommended-system-resources).
 
-- **Directly mount an Azure file share by using the Server Message Block (SMB) protocol**: Because Azure Files provides SMB access, you can mount Azure file shares on-premises or in the cloud by using the standard SMB client available in Windows, macOS, and Linux. Because Azure file shares are serverless, deploying for production scenarios doesn't require managing a file server or network-attached storage (NAS) device. This choice means you don't have to apply software patches or swap out physical disks.
-
-- **Cache an Azure file share on-premises by using Azure File Sync**: With Azure File Sync, you can centralize your organization's file shares in Azure Files while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server instance into a quick cache of your Azure file share.
+> [!VIDEO https://www.youtube.com/embed/nfWLO7F52-s]
 
 ## Management concepts
 
@@ -42,7 +38,7 @@ In Azure, a *resource* is a manageable item that you create and configure within
 
 ### Azure file share management concepts
 
-Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports, including SMB and NFS, SSD and HDD media tiers, every redundancy type, and availability in every region. To learn more about classic file shares, see [classic file shares](../files/storage-files-planning.md#classic-file-shares-microsoftstorage).
+Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports, including SMB and NFS, SSD and HDD media tiers, every redundancy type, and availability in every region. To learn more about classic file shares, see [classic file shares](../files/files-management-concepts.md#classic-file-shares-microsoftstorage).
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
@@ -65,7 +61,7 @@ A storage sync service is the root Azure Resource Manager resource for Azure Fil
 
 Each Windows Server instance can be registered to only one storage sync service. After registration, the server can participate in multiple sync groups within that storage sync service by using a Resource Manager principal to create server endpoints on the server.
 
-When you design Azure File Sync topologies, be sure to isolate data clearly at the level of the storage sync service. For example, if your enterprise requires separate Azure File Sync environments for two distinct business units, and you need strict data isolation between these groups, create a dedicated storage sync service for each group. Avoid placing sync groups for both business groups within the same storage sync service, because that configuration doesn't ensure complete isolation.
+When you design Azure File Sync topologies, isolate data clearly at the level of the storage sync service. For example, if your enterprise requires separate Azure File Sync environments for two distinct business units, and you need strict data isolation between these groups, create a dedicated storage sync service for each group. Avoid placing sync groups for both business groups within the same storage sync service, because that configuration doesn't ensure complete isolation.
 
 For more guidance on data isolation by using separate subscriptions or resource groups in Azure, refer to [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types#resource-scope-and-lifecycle).
 
@@ -133,6 +129,9 @@ The following table provides both the size of the namespace and a conversion to 
 >
 > Typical churn is 0.5% of the namespace changing per day. For higher levels of churn, consider adding more CPUs.
 
+> [!NOTE]
+> The Azure File Sync agent requires .NET Framework 4.7.2 or later on the Windows Server. Windows Server 2019 and later include .NET Framework 4.7.2 by default. For Windows Server 2016, verify that .NET Framework 4.7.2 or later is installed before installing Azure File Sync.
+
 ### Evaluation cmdlet
 
 Before you deploy Azure File Sync, evaluate whether it's compatible with your system by using the Azure File Sync evaluation cmdlet. This cmdlet checks for potential problems with your file system and dataset, such as unsupported characters or an unsupported operating system version. These checks cover most (but not all) of the features mentioned in this article. To ensure that your deployment goes smoothly, review the rest of this section.
@@ -197,7 +196,7 @@ Invoke-StorageSyncFileRecall -FilePath <path>
 compact /U /S <filepath>
 ```
 
-You can also uncompress files using the [compact](/windows-server/administration/windows-commands/compact) command.
+You can also uncompress files by using the [compact](/windows-server/administration/windows-commands/compact) command.
 
 On Windows Server 2019 or later, the **compact** command skips tiered files, so you must recall the file first before uncompressing it:
 
@@ -330,7 +329,7 @@ For Azure File Sync and DFS-R to work side by side:
 - You shouldn't configure server endpoints on DFS-R read-only replication folders.
 - Only a single server endpoint can overlap with a DFS-R location. Multiple server endpoints overlapping with other active DFS-R locations might lead to conflicts.
 
-For more information, see [DFS Namespaces and DFS Replication overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)).
+For more information, see [DFS Replication overview](/windows-server/storage/dfs-replication/dfs-replication-overview).
 
 ### Sysprep
 
@@ -344,7 +343,7 @@ Windows clients cause recalls when they search the file share if you enable the 
 
 ### Other HSM solutions
 
-Don't use any other hierarchical storage management (HSM) solutions with Azure File Sync.
+Don't use any other hierarchical storage management (HSM) solutions with Azure File Sync. Other HSM solutions can conflict with Azure File Sync's cloud tiering and might cause data inconsistencies or unexpected behavior.
 
 ## Performance and scalability
 
@@ -362,9 +361,17 @@ For more information, see [Azure File Sync performance metrics](./file-sync-scal
 
 ## Identity
 
-The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service. 
+The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service.
 
-When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege.
+Azure File Sync also requires additional storage account permissions for cloud endpoint create and update operations. Users who previously had only storage account read permissions can no longer create or update cloud endpoints.
+
+For non-managed identity deployments, the administrator must have a role that includes:
+- Microsoft.Storage/storageAccounts/listKeys/action
+- Microsoft.Storage/storageAccounts/ListAccountSas/action
+  
+For managed identity deployments, ensure the Azure File Sync managed identity or service principal has the required storage account roles, such as Reader and Data Access or Storage File Data Privileged Contributor, as applicable.
+
+When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege for the role assignments that Azure File Sync creates on the storage account.
 
 1. Under the **Conditions** tab, select **Allow users to assign selected roles to only selected principals (fewer privileges)**.
 
@@ -399,9 +406,13 @@ Based on your organization's policy or unique regulatory requirements, you might
 - Configure Azure File Sync to support your proxy in your environment.
 - Throttle network activity from Azure File Sync.
 
-If you want to communicate with your Azure file share over SMB but port 445 is blocked, consider using SMB over QUIC. This method offers a zero-configuration VPN for SMB access to your Azure file shares through the QUIC transport protocol over port 443. Although Azure Files doesn't directly support SMB over QUIC, you can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM by using Azure File Sync. To learn more about this option, see [SMB over QUIC](../files/storage-files-networking-overview.md#smb-over-quic).
+If you want to communicate with your Azure file share over SMB but port 445 is blocked, consider using SMB over QUIC. This method offers a zero-configuration VPN for SMB access to your Azure file shares through the QUIC transport protocol over port 443. Although Azure Files doesn't directly support SMB over QUIC, you can create a lightweight cache of your Azure file shares on a Windows Server Datacenter: Azure Edition VM by using Azure File Sync. To learn more about this option, see [SMB over QUIC](file-sync-networking-overview.md#smb-over-quic).
 
 To learn more about Azure File Sync and networks, see [Networking considerations for Azure File Sync](file-sync-networking-overview.md).
+
+> [!IMPORTANT]
+> Don't hardcode a storage account's IP address in hosts files, DNS, or firewall rules. During failover or when an account is migrated to another tenant or region, an Azure Storage Account's IP addresses can change. A stale IP breaks connectivity, causing sync failures and preventing file recall. Let the agent resolve the endpoint via DNS or use a [private endpoint](file-sync-networking-endpoints.md) with its private DNS zone if you need private routing.
+
 
 ## Encryption
 

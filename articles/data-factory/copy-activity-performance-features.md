@@ -2,8 +2,8 @@
 title: Copy activity performance optimization features
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the key features that help you optimize the copy activity performance in Azure Data Factory and Azure Synapse Analytics pipelines.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: synapse
@@ -14,6 +14,8 @@ ms.date: 02/13/2025
 # Copy activity performance optimization features
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article outlines the copy activity performance optimization features that you can leverage in Azure Data Factory and Synapse pipelines.
 
@@ -131,6 +133,9 @@ When you copy data from a source data store to a sink data store, you might choo
   - [HDFS connector](connector-hdfs.md)
 - **You don't want to open ports other than port 80 and port 443 in your firewall because of corporate IT policies.** For example, when you copy data from an on-premises data store to an Azure SQL Database or an Azure Synapse Analytics, you need to activate outbound TCP communication on port 1433 for both the Windows firewall and your corporate firewall. In this scenario, staged copy can take advantage of the self-hosted integration runtime to first copy data to a staging storage over HTTP or HTTPS on port 443, then load the data from staging into SQL Database or Azure Synapse Analytics. In this flow, you don't need to enable port 1433.
 - **Sometimes it takes a while to perform a hybrid data movement (that is, to copy from an on-premises data store to a cloud data store) over a slow network connection.** To improve performance, you can use staged copy to compress the data on-premises so that it takes less time to move data to the staging data store in the cloud. Then you can decompress the data in the staging store before you load into the destination data store.
+
+>[!NOTE]
+> When you use Storage Account Key-based authentication, you might inadvertently expose credential values to downstream database systems that execute customer-provided commands. Consider using Managed Identity, Service Principal, or Key Vault-based authentication when supported options are available.
 
 ### How staged copy works
 

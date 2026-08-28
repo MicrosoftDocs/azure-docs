@@ -1,8 +1,8 @@
 ---
 title: Incrementally copy data using Change Data Capture
 description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from a table in Azure SQL Managed Instance database to Azure Storage.
-ms.author: yexu
-author: dearandyxu
+ms.author: makromer
+author: kromerm
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 # Incrementally load data from Azure SQL Managed Instance to Azure Storage using change data capture (CDC)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on **change data capture (CDC)** information in the source Azure SQL Managed Instance database to an Azure blob storage.  
 

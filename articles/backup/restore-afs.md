@@ -27,7 +27,12 @@ This section describes how to restore:
 - Individual files or folders
 
 >[!Note]
->Vaulted backup currently supports only full share recovery to an alternate location. The target File Share selected for restore needs to be empty.
+>Vaulted backup currently supports only full share recovery.
+
+>[!IMPORTANT]
+>For Vault-Standard tier (vaulted backup) restore operations, the target file share must have at least 20 percent more free space than the size of the source data being restored. During the restore process, Azure Backup creates a temporary scratch folder named `MABRestoreScratchFolder` on the target file share to stage and validate the data. This additional space accommodates the staged data and ensures restore integrity. If the required space isn't available, the restore operation fails during pre-validation, before any data transfer begins.
+>                                                                                                                      
+>Don't create a folder with this name or store files in it. The scratch folder and its contents are deleted automatically when the restore operation completes. 
 
 **Choose a restore option**:
 

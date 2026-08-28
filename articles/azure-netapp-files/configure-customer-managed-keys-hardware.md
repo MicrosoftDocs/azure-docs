@@ -87,6 +87,9 @@ The following networking requirements apply:
 * UAE North
 * UK South
 * UK West
+* US Gov Arizona
+* US Gov Texas
+* US Gov Virginia
 * West Europe
 * West US
 * West US 2

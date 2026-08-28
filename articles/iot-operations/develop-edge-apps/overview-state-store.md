@@ -8,7 +8,7 @@ ms.service: azure-iot-operations
 ms.topic: concept-article
 ms.custom:
   - ignite-2023
-ms.date: 05/09/2025
+ms.date: 06/10/2026
 
 #CustomerIntent: As an developer, I want understand how to develop application that persist data between sessions using the state store.
 ---

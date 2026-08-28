@@ -6,8 +6,9 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 05/09/2025
+ms.update-cycle: 1095-days
 ms.custom: vmware-scenario-422, engagement-fy23
 # Customer intent: As a cloud administrator, I want to test migrate replicating virtual machines before the actual migration, so that I can ensure a smooth transition and validate configurations in the target environment.
 ---

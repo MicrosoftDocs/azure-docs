@@ -4,8 +4,8 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to configure a VPN client for point-to-site VPN configurations that use RADIUS authentication for methods other than certificate or password.
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-author: cherylmc
-ms.author: cherylmc 
+author: duongau
+ms.author: duau
 ms.date: 03/12/2024
 # Customer intent: As a network administrator, I want to configure a VPN client using RADIUS authentication with various methods, so that I can establish a secure point-to-site connection to the virtual network.
 ---
@@ -17,7 +17,9 @@ When you're using RADIUS authentication, there are multiple authentication instr
 
 >[!NOTE]
 > [!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
->
+
+> [!NOTE]
+>Microsoft recommends using Windows 11 with Point-to-Site VPN connections. Windows 10 reached end of support in October 2025. For more information, see [Supported Windows versions for Azure VPN Client](azure-vpn-client-versions.md#supported-windows-versions).
 
 ## Workflow
 

@@ -3,8 +3,8 @@ title: Configure Azure-SSIS integration runtime for business continuity and disa
 description: This article describes how to configure Azure-SSIS integration runtime in Azure Data Factory with Azure SQL Database/Managed Instance failover group for business continuity and disaster recovery (BCDR).
 ms.subservice: integration-services
 ms.devlang: powershell
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 manager: mflasko
 ms.reviewer: douglasl
 ms.topic: how-to
@@ -14,6 +14,8 @@ ms.date: 01/05/2024
 # Configure Azure-SSIS integration runtime for business continuity and disaster recovery (BCDR) 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Azure SQL Database/Managed Instance and SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or Synapse Pipelines can be combined as the recommended all-Platform as a Service (PaaS) solution for SQL Server migration. You can deploy your SSIS projects into SSIS catalog database (SSISDB) hosted by Azure SQL Database/Managed Instance and run your SSIS packages on Azure SSIS integration runtime (IR) in ADF or Synapse Pipelines.
 

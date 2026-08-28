@@ -2,14 +2,14 @@
 title: Run jobs end-to-end using templates
 description: With only CLI commands, you can create a pool, upload input data, create jobs and associated tasks, and download the resulting output data.
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 06/16/2026
 ms.custom: devx-track-azurecli
 # Customer intent: As a cloud user without coding expertise, I want to utilize CLI templates to create and manage Batch pools and jobs, so that I can efficiently run data processing tasks without needing to write additional code.
 ---
 # Use Azure Batch CLI templates and file transfer
 
 > [!WARNING]
-> The Batch Azure CLI extension will be retired on **30 September 2024**. Please uninstall the extension with the command
+> The Batch Azure CLI extension was retired on **30 September 2024**. Uninstall the extension with the command
 > `az extension remove --name azure-batch-cli-extensions`.
 
 By using a Batch extension to Azure CLI, users can run Batch jobs without writing code.
@@ -241,7 +241,7 @@ To upload a template:
 
 Most jobs and tasks require input files and produce output files. Usually, input files and output files are transferred, either from the client to the node, or from the node to the client. The Azure Batch CLI extension abstracts away file transfer and utilizes the storage account that you can associate with each Batch account.
 
-A file group equates to a container that is created in the Azure storage account. The file group may have subfolders.
+A file group equates to a container that is created in the Azure storage account. The file group might have subfolders.
 
 The Batch CLI extension provides commands to upload files from client to a specified file group and download files from the specified file group to a client.
 

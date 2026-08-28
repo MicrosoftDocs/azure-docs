@@ -29,7 +29,20 @@ To configure vaulted backup, follow these steps:
 
    :::image type="content" source="./media/azure-data-lake-storage-configure-backup/select-storage-account.png" alt-text="Screenshot shows the selection of storage accounts." lightbox="./media/azure-data-lake-storage-configure-backup/select-storage-account.png":::
 
-1. On the **Select storage account container** pane, you can back up all containers or select specific ones.
+1. On the **Select storage containers** pane, choose one of the following options:
+
+   - **Backup all present containers**: Protect all containers that currently exist in the storage account.
+   - **Browse containers to backup**: Select specific containers to protect.
+   - **Backup all present and future containers**: Auto-protect all existing containers and any new containers created after backup configuration, until the protected container count reaches 1000.
+
+   If the storage account has more than 1000 containers, select or exclude containers to reduce the protected container count to 1000 or fewer.
+
+   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/select-storage-containers.png" alt-text="Screenshot shows the options to back up all present containers, browse containers to back up, or back up all present and future containers." lightbox="./media/azure-data-lake-storage-configure-backup/select-storage-containers.png":::
+
+   > [!IMPORTANT]
+   > Selecting **Backup all present and future containers** is a permanent change. After you select this option, you can't switch back to **Backup all present containers** or **Browse containers to backup**. You can add prefixes to exclude containers whose names start with the specified prefixes from backup.
+
+   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/select-storage-containers-auto-protect.png" alt-text="Screenshot shows the warning that selecting the option to back up all present and future containers is permanent, and shows the prefix field to exclude matching containers from backup." lightbox="./media/azure-data-lake-storage-configure-backup/select-storage-containers-auto-protect.png":::
 
    After you add the resources, backup readiness validation starts. If the required roles are assigned, the  validation succeeds with the **Success** message.
 

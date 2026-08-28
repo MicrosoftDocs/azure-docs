@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: concept-article
-ms.date: 12/03/2024
+ms.date: 06/02/2026
 ms.author: normesta
 ms.custom: engagement-fy23
 # Customer intent: As a data administrator, I want to configure access controls for directories and files in Azure Data Lake Storage, so that I can manage permissions effectively and ensure secure data access for users and applications.

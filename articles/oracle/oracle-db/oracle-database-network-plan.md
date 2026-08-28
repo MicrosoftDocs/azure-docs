@@ -94,7 +94,7 @@ The following table describes the network topologies that are supported by each 
 |On-premises connectivity to an Oracle AI Database cluster via a virtual WAN and attached software-defined wide area network (SD-WAN)|No|Yes|
 |On-premises connectivity via a secured hub (a firewall network virtual appliance) |Yes|Yes|
 |Connectivity from an Oracle AI Database cluster on Oracle AI Database@Azure nodes to Azure resources|Yes|Yes|
-|Azure Container Apps supported for advanced network features|No|Yes|
+|Connectivity from Azure Web Apps, Azure Function Apps, Azure Container Apps, and other serverless resources|No|Yes|
 |Connectivity from Azure NetApp Files with Basic network features (ANF and Oracle AI Database@Azure must be deployed in separate VNETs)|No|Yes|
 |Connectivity from Azure NetApp Files with Standard network features (ANF and Oracle AI Database@Azure must be deployed in separate VNETs)|Yes|Yes
 
@@ -158,10 +158,7 @@ When routing traffic to Oracle AI Database@Azure through a Network Virtual Appli
 > Without these routes, outbound traffic may bypass required inspection paths or fail to reach the intended destination.
 
 > [!Note]
-> To access an Oracle AI Database@Azure instance from an on-premises network via a virtual network gateway (ExpressRoute or VPN) and firewall, configure the route table assigned to the virtual network gateway to include the /32 IPv4 address of the Oracle AI Database@Azure instance listed and point to the firewall as the next hop. Using an aggregate address space that includes the Oracle AI Database@Azure instance IP address doesn't forward the Oracle AI Database@Azure traffic to the firewall.
-
-> [!Note]
-> If you want to configure a route table (UDR route) to control the routing of packets through a network virtual appliance or firewall destined to an Oracle AI Database@Azure instance from a source in the same virtual network or a peered virtual network, the UDR prefix must be more specific or equal to the delegated subnet size of the Oracle AI Database@Azure. If the UDR prefix is less specific than the delegated subnet size, it isn't effective.
+> When routing traffic through a network virtual appliance or firewall from sources in the same virtual network or a peered virtual network, configure the user-defined route (UDR) with a prefix that is equal to or more specific than the delegated subnet size of the Oracle AI Database@Azure instance. Don't use a UDR prefix that is less specific than the delegated subnet size, because such routes don't take effect.
 > 
 > For example, if your delegated subnet is `x.x.x.x/24`, you must configure your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall.
 

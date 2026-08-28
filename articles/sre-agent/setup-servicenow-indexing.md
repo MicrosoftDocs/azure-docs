@@ -2,7 +2,7 @@
 title: Set up ServiceNow incident indexing in Azure SRE Agent
 description: Connect ServiceNow to Azure SRE Agent so your agent automatically indexes, investigates, and responds to ServiceNow incidents.
 ms.topic: tutorial
-ms.date: 04/15/2026
+ms.date: 07/20/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.service: azure-sre-agent
@@ -56,6 +56,8 @@ The ServiceNow configuration form appears with authentication fields.
 
 Select your authentication type from the **Authentication Type** dropdown.
 
+The **Assignment group** applies to both authentication types. Enter the group that scopes incident indexing. This field is required. The agent filters ServiceNow incident queries by this group's name (`assignment_group.name`), so it indexes only incidents assigned to that team. A response plan's handler scope can override this value; otherwise, the agent uses this assignment group. If the agent can't read the assignment group, it doesn't run an unscoped tenant-wide query.
+
 ### Option A: Basic authentication
 
 Use basic authentication for quick setup in development or test environments.
@@ -73,18 +75,30 @@ After you fill in all required fields, the **Save** button becomes active.
 
 Use OAuth 2.0 for production environments where token-based authentication is preferred.
 
+#### Register an OAuth application in ServiceNow
+
+Before you connect from the portal, register an OAuth application in your ServiceNow instance.
+
+1. In your ServiceNow instance, go to **System OAuth** > **Application Registry**.
+1. Select **New** then select **Create an OAuth API endpoint for external clients**.
+1. Fill in the following fields:
+   - **Name**: A descriptive name (for example, `Azure SRE Agent`).
+   - **Redirect URL**: Use the format `https://logic-apis-<REGION>.consent.azure-apim.net/redirect`, where `<REGION>` is your agent's Azure region (for example, `eastus2`). You can also get the exact URL from the portal in the next step.
+   - **Active**: Checked.
+1. Select **Submit** and note the following values:
+   - **Client ID**: Displayed on the application page.
+   - **Client Secret**: Select the lock icon to reveal the secret, then copy it immediately.
+
+> [!WARNING]
+> Some ServiceNow versions show the client secret only once. Copy it before you go to another page.
+
+#### Configure OAuth in the portal
+
 1. Select **OAuth 2.0** from the **Authentication Type** dropdown.
-1. Note the **Redirect URL** shown in the info box. You need to register this URL in ServiceNow before you authorize.
+1. Note the **Redirect URL** shown in the info box and confirm it matches the URL you registered in ServiceNow.
 1. Enter your **ServiceNow endpoint**.
 1. Enter your **OAuth Client ID**.
 1. Enter your **OAuth Client Secret**.
-
-> [!NOTE]
-> Before you authorize, add the redirect URL to your ServiceNow OAuth application:
->
-> 1. In ServiceNow, go to **System OAuth** > **Application Registry**.
-> 1. Open or create your OAuth application.
-> 1. Add the redirect URL: `https://logic-apis-<REGION>.consent.azure-apim.net/redirect`. The exact URL with your agent's region appears in the portal.
 
 :::image type="content" source="media/setup-servicenow-indexing/servicenow-oauth-form.png" alt-text="Screenshot of the ServiceNow OAuth 2.0 form showing redirect URL info box, endpoint, client ID, and client secret fields." lightbox="media/setup-servicenow-indexing/servicenow-oauth-form.png":::
 
@@ -188,6 +202,7 @@ Use the following table to resolve common issues during ServiceNow setup.
 | Issue | Solution |
 |---|---|
 | Unable to connect to ServiceNow | Verify the endpoint URL, username, and password. Also, check that the account has the `itil` role. |
+| "Assignment group is required" error when saving | Enter a valid ServiceNow assignment group. Indexing must be scoped to a specific team; the agent won't run an unscoped tenant-wide query. |
 | No incidents appear after connecting | Ensure you selected the **Quickstart response plan** checkbox during setup. The agent needs at least one response plan to start scanning. |
 | OAuth authorization popup fails | Ensure the redirect URL is registered in ServiceNow under **System OAuth** > **Application Registry**. |
 | Connectivity indicator stays on "Connecting" | Wait up to 2 minutes. If the indicator times out, recheck your credentials. |
