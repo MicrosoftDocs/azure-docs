@@ -1,0 +1,19 @@
+items:
+- name: Azure Native Commvault Cloud Documentation
+  href: index.yml
+- name: What is Azure Native Commvault Cloud?
+  href: overview.md
+- name: FAQ
+  href: faq.yml
+- name: Create a Commvault Cloud account
+  href: create.md
+- name: How to
+  items:
+  - name: Configure service
+    href: configure-prerequisites.md
+  - name: Manage resources
+    href: manage.md
+  - name: Get support
+    href: https://support.commvault.com/
+  - name: Fix common errors
+    href: troubleshoot.md
