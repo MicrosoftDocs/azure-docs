@@ -96,7 +96,7 @@ The operations experience IP addresses are allocated by region:
 | West US 3 | `57.154.126.80` |
 
 > [!NOTE]
-> An operations experience request typically comes from the same region as your instance, but it can come from any region. Microsoft recommends that you allow all of the listed IP addresses for each resource that the operations experience uses.
+> An operations experience request typically comes from the same region as your instance, but it can come from any region. Allow all of the listed IP addresses for each resource that the operations experience uses.
 
 > [!NOTE]
 > A Network Security Perimeter or a centrally enforced tenant network policy can override a resource's firewall settings. If your organization applies either control, add the same Data Orchestrator Engine IP exceptions (the operations experience IP addresses in the preceding table) to that policy. Otherwise, access can remain blocked even when the resource firewall allow list is correct.
@@ -171,8 +171,8 @@ done
 After you enable the firewall restrictions, confirm that the operations experience can still reach the required resources:
 
 1. Go to the [operations experience](https://iotoperations.azure.com) web UI and open your Azure IoT Operations instance.
-1. Select **Secrets** and confirm that the secrets stored in Azure Key Vault load without a firewall or authorization error.
-1. Select **Schemas** and confirm that existing schemas load and that you can create a schema. Success confirms access to the schema registry storage account.
+1. Select **Secrets** and confirm that the operations experience loads the secrets stored in Azure Key Vault without a firewall or authorization error.
+1. Select **Schemas** and confirm that the operations experience loads existing schemas and that you can create a schema. Success confirms access to the schema registry storage account.
 
 If any page returns an access or firewall error, verify that you added all of the operations experience IP addresses to the resource's firewall allow list and that public access is set to **Selected networks and IP addresses**. For diagnostics when **Secrets** or **Schemas** returns an access or firewall error, see [The operations experience can't load or manage secrets or schemas after enabling private endpoints](howto-troubleshoot-private-connectivity.md#the-operations-experience-cant-load-or-manage-secrets-or-schemas-after-enabling-private-endpoints).
 
