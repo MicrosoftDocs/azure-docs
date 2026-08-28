@@ -43,7 +43,7 @@ The v2 SKU includes the following enhancements:
 
 ## SKU types
 
-Application Gateway v2 is available under two SKUs:
+Application Gateway v2 is available under two SKUs: 
 - **Basic** (preview): The Basic SKU is designed for applications that have lower traffic and SLA requirements, and don't need advanced traffic management features. [Register for the Basic SKU preview](#register-for-the-preview).
 - **Standard_v2 SKU**: The Standard_v2 SKU is designed for running production workloads and high traffic. It includes [autoscaling](high-traffic-support.md#autoscaling-for-application-gateway-v2-sku-standard_v2waf_v2-sku), which can automatically adjust the number of instances to match your traffic needs.
 
@@ -128,12 +128,12 @@ This section describes features and limitations of the v2 SKU that differ from t
 
 ## Register for the preview
 
-Run the following Azure PowerShell commands to register for the preview of Application Gateway Basic SKU.
+Run the following Azure PowerShell commands to register for the preview of Application Gateway Basic SKU. 
 
 ```azurepowershell
 Set-AzContext -Subscription "<your subscription ID>"
 Get-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace "Microsoft.Network"
-Register-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network 
 ```
 
 ## Unregister the preview
@@ -146,7 +146,7 @@ To unregister from the public preview of Basic SKU:
 ```azurepowershell
 Set-AzContext -Subscription "<your subscription ID>"
 Get-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace "Microsoft.Network"
-Unregister-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network
+Unregister-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network 
 ```
 
 ## Next steps
