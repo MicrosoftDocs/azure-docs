@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: overview
-ms.date: 08/10/2026
+ms.date: 4/10/2026
 ms.author: mbender
 ms.custom: references_regions, devx-track-azurepowershell
 # Customer intent: As a cloud architect, I want to understand the features and enhancements of Azure Application Gateway v2, so that I can effectively plan migration from v1 and utilize its capabilities for improved application performance and reliability.
@@ -44,31 +44,20 @@ The v2 SKU includes the following enhancements:
 ## SKU types
 
 Application Gateway v2 is available under two SKUs:
-
-- **Basic_v2 (preview)**: Basic_v2 is a cost-optimized Application Gateway SKU designed for applications with lower traffic and SLA requirements. Compared to Standard_v2, it provides core Layer 7 load-balancing capabilities with lower SLA guarantees, reduced limits, a subset of advanced features, and different [billing dimensions](understanding-pricing.md#basic_v2-capacity-unit). For more information, see [Pricing and billing](understanding-pricing.md). [Register for the Basic_v2 SKU preview](#register-for-the-basic_v2-sku-preview).
+- **Basic** (preview): The Basic SKU is designed for applications that have lower traffic and SLA requirements, and don't need advanced traffic management features. [Register for the Basic SKU preview](#register-for-the-preview).
 - **Standard_v2 SKU**: The Standard_v2 SKU is designed for running production workloads and high traffic. It includes [autoscaling](high-traffic-support.md#autoscaling-for-application-gateway-v2-sku-standard_v2waf_v2-sku), which can automatically adjust the number of instances to match your traffic needs.
 
-The following table displays a comparison between Basic_v2 and Standard_v2.
+The following table displays a comparison between Basic and Standard_v2.
 
-| Feature | Capabilities | Basic_v2 SKU (preview) | Standard_v2 SKU |
-| :---: | :--- | :---: | :---: |
-| Reliability | SLA | 99.9 | 99.95 |
-| Functionality - basic | HTTP/HTTP2/HTTPS<br>WebSocket<br>Public/Private IP<br>Cookie Affinity<br>Path-based affinity<br>Wildcard<br>Multisite<br>KeyVault<br>Zone<br>Header rewrite | &#x2713;<br>&#x2713;<br>Coming soon<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; |
-| Functionality - advanced | AKS (via AGIC)<br>URL rewrite<br>mTLS<br>Private Link<br>Private-only<br>TCP/TLS Proxy | <br>&#x2713;<br>&#x2713;<br><br>&#x2713;<br>&#160; | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; |
-| Scale | Max. connections per second<br>Number of listeners<br>Number of backend pools<br>Number of backend servers per pool<br>Number of rules | 62500<sup>1</sup><br>100<br>100<br>1000<br>100 | 62500<sup>1</sup><br>100<br>100<br>1200<br>400 |
-| Capacity Unit | Connections per second<br>Throughput<br>Persistent connections<br>Requests per second | 25<br>2.22 Mbps<br>2,500<br>50 RPS | 50<br>2.22 Mbps<br>2,500<br>N/A |
+|      Feature             | Capabilities                             | Basic SKU (preview)|   Standard SKU    |
+|     :---:                | :---                                     |     :---:      |     :---:         |
+| Reliability              | SLA                                      | 99.9           | 99.95             |
+| Functionality - basic    | HTTP/HTTP2/HTTPS<br>WebSocket<br>Public/Private IP<br>Cookie Affinity<br>Path-based affinity<br>Wildcard<br>Multisite<br>KeyVault<br>Zone<br>Header rewrite | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;|
+| Functionality - advanced | AKS (via AGIC)<br>URL rewrite<br>mTLS<br>Private Link<br>Private-only<br>TCP/TLS Proxy |  | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; |
+| Scale                    | Max. connections per second<br>Number of listeners<br>Number of backend pools<br>Number of backend servers per pool<br>Number of rules | 200<sup>1</sup><br>5<br>5<br>5<br>5  | 62500<sup>1</sup><br>100<br>100<br>1200<br>400 |
+| Capacity Unit            | Connections per second per compute unit<br>Throughput<br>Persistent new connections  | 10<br>2.22 Mbps<br>2500 | 50<br>2.22 Mbps<br>2500 |
 
 <sup>1</sup>Estimated based on using an RSA 2048-bit key TLS certificate.
-
-### Basic_v2 preview limitations
-
-During public preview, the service doesn't support Private Link, IPv6, FIPS compliance, Reserved Capacity, or the Backend Health On-Demand API. The service is expected to support these capabilities by general availability (GA). Consider these limitations when evaluating the preview offering.
-
-Application Gateway Basic_v2 also has the following limitations during preview:
-
-- Deploy Basic_v2 only by using the Azure portal. Deployment by using Azure CLI or Azure PowerShell isn't supported. Use Azure PowerShell only to register or unregister the preview feature.
-- For TLS termination, Basic_v2 supports listener certificates stored in Azure Key Vault only. Uploading a listener certificate directly to Application Gateway isn't supported.
-- Configure either a public or a private frontend IP address. Configuring both on the same Basic_v2 gateway isn't supported.
 
 ## Pricing
 
@@ -91,33 +80,33 @@ An Azure PowerShell script is available in the PowerShell gallery to help you mi
 
 The following table compares the features available with each SKU.
 
-| Feature                                           | v1 SKU   | Basic_v2 SKU | Standard_v2 and WAF_v2 SKUs |
-| ------------------------------------------------- | -------- | ------------ | --------------------------- |
-| Autoscaling                                       |          | &#x2713;     | &#x2713;                    |
-| Zone redundancy                                   |          | &#x2713;     | &#x2713;                    |
-| Static VIP                                        |          | &#x2713;     | &#x2713;                    |
-| Azure Kubernetes Service (AKS) Ingress controller |          |              | &#x2713;                    |
-| Azure Key Vault integration                       |          | &#x2713;     | &#x2713;                    |
-| Rewrite HTTP(S) headers                           |          | &#x2713;     | &#x2713;                    |
-| Enhanced Network Control (NSG, Route Table, Private IP Frontend only) |   | &#x2713; | &#x2713; |
-| URL-based routing                                 | &#x2713; | &#x2713;     | &#x2713;                    |
-| Multiple-site hosting                             | &#x2713; | &#x2713;     | &#x2713;                    |
-| Mutual Authentication (mTLS)                      |          | &#x2713;     | &#x2713;                    |
-| Private Link support                              |          |              | &#x2713;                    |
-| Traffic redirection                               | &#x2713; |              | &#x2713;                    |
-| Web Application Firewall (WAF)                    | &#x2713; |              | &#x2713;                    |
-| WAF custom rules                                  |          |              | &#x2713;                    |
-| WAF policy associations                           |          |              | &#x2713;                    |
-| Transport Layer Security (TLS)/Secure Sockets Layer (SSL) termination | &#x2713; | &#x2713; | &#x2713; |
-| End-to-end TLS encryption                         | &#x2713; | &#x2713;     | &#x2713;                    |
-| Session affinity                                  | &#x2713; | &#x2713;     | &#x2713;                    |
-| Custom error pages                                | &#x2713; |              | &#x2713;                    |
-| WebSocket support                                 | &#x2713; | &#x2713;     | &#x2713;                    |
-| HTTP/2 support                                    | &#x2713; | &#x2713;     | &#x2713;                    |
-| Connection draining                               | &#x2713; |              | &#x2713;                    |
-| Proxy NTLM authentication                         | &#x2713; |              | &#x2713;                    |
-| Path based rule encoding                          | &#x2713; |              |                            |
-| DHE Ciphers                                       | &#x2713; |              |                            |
+| Feature                                           | v1 SKU   | v2 SKU   |
+| ------------------------------------------------- | -------- | -------- |
+| Autoscaling                                       |          | &#x2713; |
+| Zone redundancy                                   |          | &#x2713; |
+| Static VIP                                        |          | &#x2713; |
+| Azure Kubernetes Service (AKS) Ingress controller |          | &#x2713; |
+| Azure Key Vault integration                       |          | &#x2713; |
+| Rewrite HTTP(S) headers                           |          | &#x2713; |
+| Enhanced Network Control (NSG, Route Table, Private IP Frontend only) |   | &#x2713; |
+| URL-based routing                                 | &#x2713; | &#x2713; |
+| Multiple-site hosting                             | &#x2713; | &#x2713; |
+| Mutual Authentication (mTLS)                      |          | &#x2713; |
+| Private Link support                              |          | &#x2713; |
+| Traffic redirection                               | &#x2713; | &#x2713; |
+| Web Application Firewall (WAF)                    | &#x2713; | &#x2713; |
+| WAF custom rules                                  |          | &#x2713; |
+| WAF policy associations                           |          | &#x2713; |
+| Transport Layer Security (TLS)/Secure Sockets Layer (SSL) termination | &#x2713; | &#x2713; |
+| End-to-end TLS encryption                         | &#x2713; | &#x2713; |
+| Session affinity                                  | &#x2713; | &#x2713; |
+| Custom error pages                                | &#x2713; | &#x2713; |
+| WebSocket support                                 | &#x2713; | &#x2713; |
+| HTTP/2 support                                    | &#x2713; | &#x2713; |
+| Connection draining                               | &#x2713; | &#x2713; |
+| Proxy NTLM authentication                         | &#x2713; | &#x2713; |
+| Path based rule encoding                          | &#x2713; |          |
+| DHE Ciphers                                       | &#x2713; |          |
 > [!NOTE]
 > The autoscaling v2 SKU now supports [default health probes](application-gateway-probe-overview.md#default-health-probe) to automatically monitor the health of all resources in its backend pool and highlight those backend members that are considered unhealthy. The default health probe is automatically configured for backends that don't have any custom probe configuration. To learn more, see [health probes in application gateway](application-gateway-probe-overview.md).
 
@@ -137,37 +126,32 @@ This section describes features and limitations of the v2 SKU that differ from t
 |Cookie Affinity |Current V2 doesn't support appending the domain in session affinity Set-Cookie, which means that clients of the subdomains can't use the cookie.|
 |Microsoft Defender for Cloud integration|Not yet available.
 
-## Register for a preview
+## Register for the preview
 
-### Register for the Basic_v2 SKU preview
-
-Run the following Azure PowerShell commands to register for the Application Gateway Basic_v2 preview. The Basic_v2 feature name is `EnableApplicationGatewayBasicV2`.
+Run the following Azure PowerShell commands to register for the preview of Application Gateway Basic SKU.
 
 ```azurepowershell
 Set-AzContext -Subscription "<your subscription ID>"
-Get-AzProviderFeature -FeatureName EnableApplicationGatewayBasicV2 -ProviderNamespace "Microsoft.Network"
-Register-AzProviderFeature -FeatureName EnableApplicationGatewayBasicV2 -ProviderNamespace Microsoft.Network
+Get-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace "Microsoft.Network"
+Register-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network
 ```
 
-## Unregister from a preview
+## Unregister the preview
 
-### Unregister from the Basic_v2 SKU preview
+To unregister from the public preview of Basic SKU:
 
-To unregister from the public preview of the Basic_v2 SKU:
-
-1. Delete all instances of Application Gateway Basic_v2 SKU from your subscription.
+1. Delete all instances of Application Gateway Basic SKU from your subscription.
 1. Run the following Azure PowerShell commands: 
 
 ```azurepowershell
 Set-AzContext -Subscription "<your subscription ID>"
-Get-AzProviderFeature -FeatureName EnableApplicationGatewayBasicV2 -ProviderNamespace "Microsoft.Network"
-Unregister-AzProviderFeature -FeatureName EnableApplicationGatewayBasicV2 -ProviderNamespace Microsoft.Network
+Get-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace "Microsoft.Network"
+Unregister-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network
 ```
 
 ## Next steps
 
 Ready to get started? Choose how you want to create your Application Gateway:
 
-- [Deploy Application Gateway Basic_v2 using the Azure portal](deploy-basic-portal.md)
-- [Create an autoscaling Standard_v2 application gateway using Azure PowerShell](tutorial-autoscale-ps.md)
+- [Create an autoscaling application gateway (tutorial)](tutorial-autoscale-ps.md)
 - [Migrate from Application Gateway v1 to v2](migrate-v1-v2.md)
