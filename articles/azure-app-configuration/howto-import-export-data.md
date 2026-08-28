@@ -477,7 +477,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
 You exported key-values and feature flags that have the label "prod" from an App Configuration store and assigned them the label "new".
 
-For more optional parameters and examples, go to [az appconfig kv export](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export&preserve-view=true).
+For more optional parameters and examples, see [az appconfig kv export](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export&preserve-view=true).
 
 ---
 
