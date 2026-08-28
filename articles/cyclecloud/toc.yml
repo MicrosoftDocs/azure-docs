@@ -237,6 +237,10 @@ items:
       href: slurm.md
     - name: Slurm 3.0 Scheduler Integration
       href: slurm-3.md
+    - name: Configure and Manage Slurm 4.0
+      href: slurm-4.md
+    - name: Operate and Troubleshoot Slurm 4.0
+      href: slurm-4-operations.md
     - name: HT Condor
       href: htcondor.md
     - name: IBM Spectrum LSF
