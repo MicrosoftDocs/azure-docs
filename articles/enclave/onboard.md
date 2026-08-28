@@ -140,17 +140,6 @@ When a community or enclave is created, Azure Enclave attempts the following ste
 1. Check if the `Mission Enclave` app already has an `Owner`, `Contributor`, or `Network Contributor` role assignment on `NetworkWatcherRG`. If any of these roles is already present — including a pre-existing `Owner` assignment — Azure Enclave leaves it in place rather than creating an additional assignment. If none of these roles is present, Azure Enclave attempts to assign the `Mission Enclave` app the `Contributor` role on `NetworkWatcherRG`. This elevation is delegated on behalf of the signed-in caller, so it requires the deploying identity to hold sufficient permission (for example, User Access Administrator) to grant the role.
 1. If any step fails, enclave deployments might fail when attempting to create virtual network flow logs.
 
-## Transition steps for existing preview customers
-
-Existing preview customers must re-register the Azure Enclave resource provider so their subscriptions can use the latest Azure Enclave API and service updates.
-
-Complete these steps to use the latest Azure Enclave API:
-
-1. In the Azure portal, navigate to your subscription.
-1. Under `Settings`, select `Resource providers`.
-1. Search for and select `Microsoft.Mission`, and then select `Re-register`.
-1. Repeat these steps for any additional subscriptions.
-
 ## Next steps
 
 After registering the Azure Enclave resource provider, you can start deploying Azure Enclave resources into your subscription.
