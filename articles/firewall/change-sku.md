@@ -96,7 +96,7 @@ To change your firewall SKU using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your Azure Firewall Premium resource.
-1. **Before downgrading**: Ensure your firewall policy doesn't contain Premium-exclusive features (TLS inspection, IDPS Alert and Deny mode, URL filtering).
+1. **Before downgrading**: Make sure your firewall policy doesn't contain Premium-exclusive features (TLS inspection, IDPS Alert and Deny mode, URL filtering).
 1. On the **Overview** page, select **Change SKU**.
 1. In the SKU change dialog box, select **Standard** as the target SKU.
 1. Choose your policy option:
@@ -125,8 +125,8 @@ The easy SKU change method has the following limitations:
 - Requires existing firewall policy (not available for Classic rules)
 
 **Downgrade-specific limitations:**
-- Premium features (TLS inspection, IDPS Alert and Deny mode, URL filtering) must be removed before downgrade
-- For the new Firewall SKU, you mustuse an existing compatible policy or create a new Standard policy
+- Premium features (TLS inspection, IDPS Alert and Deny mode, URL filtering) must be removed before downgrade.
+- For the new Firewall SKU, you must use an existing compatible policy or create a new Standard policy
 - Some rule configurations might need manual adjustment after downgrade
 
 If the easy SKU change method isn't available for your scenario, use the manual migration method described in the next section.
