@@ -160,7 +160,7 @@ The copy activity **source** section supports the following properties:
 | batchSize | Specifies the number of documents to return in each batch of the response from MongoDB instance. In most cases, modifying the batch size doesn't affect the user or the application. Azure Cosmos DB limits each batch can't exceed 40 MB in size, which is the sum of the batchSize number of documents' size, so decrease this value if your document size is large. | No<br/>(the default is **100**) |
 
 >[!TIP]
-> The service supports consuming BSON document in **Strict mode**. Ensure your filter query is in Strict mode instead of Shell mode. For more information, see [MongoDB manual](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
+> The service supports consuming BSON document in **Strict mode**. Ensure your filter query is in Strict mode instead of Shell mode. For more information, see [MongoDB manual](https://www.mongodb.com/docs/manual/reference/mongodb-extended-json/).
 
 **Example:**
 
@@ -286,8 +286,6 @@ The following table shows the release stage and change logs for different versio
 | :------- | :---------------------- |:---------- |
 | MongoDB (legacy) | Removed | Not applicable. |
 | MongoDB | GA version available | • Support the equivalent MongoDB queries only. <br><br>• Double is read as String data type. |
-
-• Reads Double as String data type. |
 
 ### Upgrade the MongoDB linked service
 
