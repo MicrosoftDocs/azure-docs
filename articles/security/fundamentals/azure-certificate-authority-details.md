@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.custom: devx-track-extended-java
 ms.topic: concept-article
-ms.date: 04/29/2026
+ms.date: 08/28/2026
 author: msmbaldwin
 ms.author: mbaldwin
 manager: femila
@@ -195,7 +195,9 @@ Key sizes:
 
 ## Certificate downloads and revocation lists
 
-To optimize connectivity, add the following domains (HTTP on port 80) to your firewall allowlist:
+To optimize connectivity, add the following domains (HTTP on port 80) to your firewall allowlist. These domains serve Authority Information Access (AIA), certificate revocation list (CRL), and Online Certificate Status Protocol (OCSP) requests. The certificate revocation and chain-building standards define these requests as HTTP rather than HTTPS, so port 80 is expected.
+
+This article is the authoritative list of these domains. When Azure adds or removes a certificate authority, it updates the corresponding AIA, CRL, and OCSP domains here and records the change in the [Article change log](#article-change-log). If your environment restricts outbound connectivity by fully qualified domain name (FQDN), monitor this article and the change log so that you can update your firewall allowlist.
 
 AIA:
 - `cacerts.digicert.com`
@@ -217,7 +219,7 @@ OCSP:
 
 ## Certificate pinning
 
-Certificate pinning is a security technique where you accept only authorized, or *pinned*, certificates when establishing a secure session. The process rejects any attempt to establish a secure session using a different certificate. For more information, see [certificate pinning](certificate-pinning.md).
+Certificate pinning is a security technique where you accept only authorized, or *pinned*, certificates when establishing a secure session. The process rejects any attempt to establish a secure session using a different certificate. For publicly trusted TLS certificates used by Azure services, Microsoft generally doesn't recommend static certificate pinning. For more information, see [Certificate pinning](certificate-pinning.md).
 
 ### How to address certificate pinning
 
