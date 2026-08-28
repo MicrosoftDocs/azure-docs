@@ -201,7 +201,7 @@ All SKUs are:
 - Service Organization Controls (SOC) compliant  
 - International Organization for Standardization (ISO) compliant
 
-Premium additionally provides the capabilities that payment processing environments typically require to meet Payment Card Industry Data Security Standard (PCI DSS) requirements, such as TLS inspection and IDPS. The PCI DSS Level 1 certification itself applies to Azure Firewall across all SKUs.
+Premium also provides the capabilities that payment processing environments typically require to meet Payment Card Industry Data Security Standard (PCI DSS) requirements, such as TLS inspection and IDPS. The PCI DSS Level 1 certification itself applies to Azure Firewall across all SKUs.
 
 ## Next steps
 
