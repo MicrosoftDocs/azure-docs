@@ -98,6 +98,9 @@ The operations experience IP addresses are allocated by region:
 > [!NOTE]
 > An operations experience request typically comes from the same region as your instance, but it can come from any region. Microsoft recommends that you allow all of the listed IP addresses for each resource that the operations experience uses.
 
+> [!NOTE]
+> A Network Security Perimeter or a centrally enforced tenant network policy can override a resource's firewall settings. If your organization applies either control, add the same Data Orchestrator Engine IP exceptions (the operations experience IP addresses in the preceding table) to that policy. Otherwise, access can remain blocked even when the resource firewall allow list is correct.
+
 Configure the firewall allow list for each resource before you create its private endpoint. The following examples add all of the operations experience IP addresses.
 
 ### Azure Key Vault

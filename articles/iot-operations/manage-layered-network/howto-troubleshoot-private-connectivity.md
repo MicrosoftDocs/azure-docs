@@ -93,6 +93,7 @@ After disabling public access on any Azure resource (Storage, Key Vault, Event G
 **Fix:**
 - Confirm that public access on both Azure Key Vault and the Schema Registry backing storage account is set to **Selected networks and IP addresses**, and that every operations experience IP address is in each resource's firewall allow list. For the authoritative steps and the current regional IP values, see [Allow the operations experience to access your resources](howto-private-connectivity.md#allow-the-operations-experience-to-access-your-resources).
 - Keep the trusted Azure services bypass enabled on the storage account so the schema registry can continue to reach storage.
+- If public access and the firewall allow list are both correct but access is still blocked, check whether a Network Security Perimeter or a centrally enforced tenant network policy overrides the resource firewall. If either applies, add the same Data Orchestrator Engine IP exceptions (the operations experience IP addresses) to that policy. For the current regional IP values, see [Allow the operations experience to access your resources](howto-private-connectivity.md#allow-the-operations-experience-to-access-your-resources).
 
 ## Dataflow can't reach Event Grid after disabling public access
 
