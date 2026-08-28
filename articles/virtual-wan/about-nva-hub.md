@@ -181,7 +181,7 @@ In this example, 8 IP addresses are consumed in the external subnet. 8 IP addres
 
 ## <a name="configuration"></a>NVA configuration process
 
-Partners provide an experience that configures the NVA automatically as part of the deployment process. Once the NVA is provisioned into the virtual hub, use the NVA partner portal or management application for any additional configuration. You can't access the NVA directly for configuration.
+Partners provide an experience that configures the NVA automatically as part of the deployment process. After the deployment, use the NVA partner portal or management application for any additional configuration. You can't access the NVA directly for configuration.
 
 If an NVA instance becomes unresponsive or unreachable, Virtual WAN provides recovery operations instead of direct access. For more information, see [How to restart a Network Virtual Appliance in an Azure Virtual WAN hub](how-to-network-virtual-appliance-restart.md) and [How to reimage a Network Virtual Appliance in an Azure Virtual WAN hub](how-to-network-virtual-appliance-reimage.md). Access to an NVA instance's serial console requires Azure Support.
 
