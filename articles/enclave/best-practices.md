@@ -31,6 +31,12 @@ Read through these setup steps to determine whether these configuration steps fi
 
 To avoid potential issues with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, ensure you follow the getting started instructions to [configure `NetworkWatcherRG` access](./onboard.md#configure-networkwatcherrg-access).
 
+## Compliance
+
+You're wholly responsible for ensuring your own compliance with all applicable laws and regulations. Information provided in Microsoft online documentation doesn't constitute legal advice, and you should consult your legal advisor for any questions regarding regulatory compliance.
+
+For more information, see [Azure compliance offerings](/azure/compliance/offerings/).
+
 ## Networking and organizational design patterns for Azure Enclave
 
 ### Multi-tenancy
