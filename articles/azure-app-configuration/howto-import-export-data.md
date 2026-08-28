@@ -6,7 +6,7 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 08/26/2024
+ms.date: 08/28/2026
 ms.author: malev
 ---
 
@@ -152,7 +152,7 @@ You imported key-values from an App Configuration store as of January 28, 2021, 
 
 From the Azure CLI, follow the steps below. If you don't have the Azure CLI installed locally, you can optionally use [Azure Cloud Shell](../cloud-shell/overview.md).
 
-1. Enter the import command `az appconfig kv import`  and enter the following parameters:
+1. Enter the import command `az appconfig kv import` and enter the following parameters:
 
     | Parameter    | Description                                                                                                                                                                                                                         | Example                          |
     |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------|
@@ -166,7 +166,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     | Parameter        | Description                                                                                                                                               | Example                      |
     |------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
     | `--label`        | Optional. Enter a label that will be assigned to your imported key-values.                                                                                | `new`                        |
-    | `--content-type` | Optional. Enter `appconfig/kvset` or `application/json` to state that the imported content consists of a Key Vault reference or a JSON file. Content type can only be overridden for imported key-values. Default content type for feature flags is "application/vnd.microsoft.appconfig.ff+json;charset=utf-8' by default and isn't updated by this parameter.       | `application/json`           |
+    | `--content-type` | Optional. Enter `appconfig/kvset` or `application/json` to state that the imported content consists of a Key Vault reference or a JSON file. Content type can only be overridden for imported key-values. The default content type for feature flags is `application/vnd.microsoft.appconfig.ff+json;charset=utf-8` and isn't updated by this parameter.       | `application/json`           |
 
     Example: import key-values and feature flags with the label "prod" from another App Configuration, and assign them the label "new". Add the "application/json" content type. In this example, replace the placeholder text _`<AppConfigurationStoreName>`_ and _`<SourceAppConfigurationStoreName>`_ with the names of your destination and source App Configuration stores.
 
@@ -262,7 +262,7 @@ For more optional parameters and examples, go to [az appconfig kv import](/cli/a
 
 ### Import data from Azure Kubernetes Service ConfigMaps
 
-Follow the steps below to import key-values from Azure Kubernetes Service ConfigMaps. Portal support for this feature is in development, please use Azure CLI to import from AKS.
+Follow these steps to import key-values from Azure Kubernetes Service ConfigMaps. Portal support for this feature is in development. Use the Azure CLI to import from AKS.
 
 #### [Portal](#tab/azure-portal)
 
@@ -477,7 +477,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
 You exported key-values and feature flags that have the label "prod" from an App Configuration store and assigned them the label "new".
 
-For more optional parameters and examples, go to [az appconfig kv import](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-import&preserve-view=true).
+For more optional parameters and examples, go to [az appconfig kv export](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-export&preserve-view=true).
 
 ---
 

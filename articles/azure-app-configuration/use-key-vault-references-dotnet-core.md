@@ -6,7 +6,7 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 07/17/2025
+ms.date: 08/28/2026
 ms.author: zhiyuanliang
 ms.custom:
   - devx-track-csharp
@@ -80,15 +80,15 @@ To test Key Vault retrieval in your app, first add a secret to the vault by taki
 
 ## Add a Key Vault reference to App Configuration
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and then select the App Configuration store that you create in the [quickstart](./quickstart-aspnet-core-app.md).
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and then select the App Configuration store that you created in the [quickstart](./quickstart-aspnet-core-app.md).
 
 1. Select **Configuration explorer**.
 
 1. Select **Create** > **Key Vault reference**, and then enter the following values:
    - For **Key**: Enter **TestApp:Settings:KeyVaultMessage**.
    - For **Label**: Leave the value blank.
-   - For **Subscription**, **Resource group**, and **Key Vault**: Enter the values you use when you create the key vault earlier in this tutorial.
-   - For **Secret**: Select the secret named **Message** that you create in the previous section.
+   - For **Subscription**, **Resource group**, and **Key Vault**: Enter the values you used when you created the key vault earlier in this tutorial.
+   - For **Secret**: Select the secret named **Message** that you created in the previous section.
 
    :::image type="content" source="./media/create-key-vault-reference.png" alt-text="Screenshot of the dialog for creating a Key Vault reference. The Key, Subscription, Resource group, Key Vault, and Secret fields are populated.":::
 
@@ -158,9 +158,9 @@ To test Key Vault retrieval in your app, first add a secret to the vault by taki
 
 App Configuration doesn't access your key vault. Instead, your app reads from Key Vault directly, so you need to grant your app access to the secrets in your key vault. This way, the secrets always stay with your app. You can use a [Key Vault access policy](/azure/key-vault/general/assign-access-policy) or [Azure role-based access control](/azure/key-vault/general/rbac-guide) to grant the access.
 
-The code in this tutorial uses the `DefaultAzureCredential` class for authentication. This aggregated token credential automatically tries several credential types, like `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, and `VisualStudioCredential`. For more information, see [DefaultAzureCredential Class](/dotnet/api/azure.identity.defaultazurecredential). 
+The code in this tutorial uses the `DefaultAzureCredential` class for authentication. This aggregated token credential automatically tries several credential types, including `EnvironmentCredential`, `WorkloadIdentityCredential`, `ManagedIdentityCredential`, `VisualStudioCredential`, and `AzureCliCredential`. For the current credential order, see [DefaultAzureCredential class](/dotnet/api/azure.identity.defaultazurecredential).
 
-You can replace `DefaultAzureCredential` with any explicit credential type. However, when you use `DefaultAzureCredential`, your code can run in local and Azure environments. For example, when your app runs in Azure, `DefaultAzureCredential` uses `ManagedIdentityCredential`. But when you use Visual Studio for local development, `DefaultAzureCredential` automatically falls back to `SharedTokenCacheCredential` or `VisualStudioCredential`.
+You can replace `DefaultAzureCredential` with any explicit credential type. However, when you use `DefaultAzureCredential`, your code can run in local and Azure environments. For example, it can use `ManagedIdentityCredential` when your app runs in Azure and `VisualStudioCredential` when you use Visual Studio for local development.
 
 Alternatively, you can set the `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables. When you do, `DefaultAzureCredential` uses these variables and `EnvironmentCredential` to authenticate with your key vault.
 
