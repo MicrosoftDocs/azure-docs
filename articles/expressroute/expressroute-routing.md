@@ -4,7 +4,7 @@ description: This page provides detailed requirements for configuring and managi
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 03/12/2026
+ms.date: 08/27/2026
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -106,15 +106,15 @@ Routing exchange happens over the eBGP protocol. The MSEEs and your routers esta
 
 ## Autonomous System numbers (ASN)
 
-Microsoft uses AS 12076 for Azure public, Azure private, and Microsoft peering. Microsoft reserves ASNs from 65,515 to 65,520 for internal use. ExpressRoute supports both 16-bit and 32-bit AS numbers.
+Microsoft uses AS 12076 for Azure private and Microsoft peering. Microsoft reserves ASNs from 65,515 to 65,520 for internal use. ExpressRoute supports both 16-bit and 32-bit AS numbers.
 
 There are no requirements around data transfer symmetry. The forward and return paths can traverse different router pairs. You must advertise identical routes from either side across multiple circuit pairs that belong to you. Route metrics don't need to be identical.
 
 ## Route aggregation and prefix limits
 
-ExpressRoute supports up to 4,000 IPv4 prefixes and 100 IPv6 prefixes advertised to Microsoft through the Azure private peering. You can increase this limit to 10,000 IPv4 prefixes by enabling the ExpressRoute premium add-on. ExpressRoute accepts up to 200 prefixes per BGP session for Azure public and Microsoft peering. 
+ExpressRoute supports up to 4,000 IPv4 prefixes and 100 IPv6 prefixes advertised to Microsoft through the Azure private peering. You can increase this limit to 10,000 IPv4 prefixes by enabling the ExpressRoute premium add-on. ExpressRoute accepts up to 200 prefixes per BGP session for Microsoft peering. 
 
-The BGP session drops if the number of prefixes exceeds the limit. ExpressRoute accepts default routes on the private peering link only. You must filter out default routes and private IP addresses (RFC 1918) from the Azure public and Microsoft peering paths. 
+The BGP session drops if the number of prefixes exceeds the limit. ExpressRoute accepts default routes on the private peering link only. You must filter out default routes and private IP addresses (RFC 1918) from the Microsoft peering path. 
 
 ## Transit routing and cross-region routing
 

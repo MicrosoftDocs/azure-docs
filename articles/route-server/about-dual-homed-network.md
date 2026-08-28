@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-route-server
 ms.topic: concept-article
-ms.date: 09/17/2025
+ms.date: 08/27/2026
 ai-usage: ai-assisted
 #CustomerIntent: As an Azure administrator, I want to peer spoke virtual networks to more than one hub virtual network so that the resources in the spoke virtual networks can communicate through either of the hub virtual networks.
 ---
@@ -117,7 +117,7 @@ To integrate ExpressRoute with your dual-homed network, you need:
 - **ExpressRoute gateways**: Deploy ExpressRoute gateways in hub virtual networks as needed
 - **BGP peering**: Configure BGP peering between NVAs and route servers in hub virtual networks
 - **Route exchange**: Enable route exchange between ExpressRoute gateways and route servers in hub virtual networks
-- **Peering configuration**: Disable "Use Remote Gateway or Remote Route Server" in the spoke virtual network peering configuration
+- **Peering configuration**: Disable **Use the remote virtual network's gateway or Route Server** in the spoke virtual network peering configuration. In this topology, the spoke hosts its own Route Server, so it doesn't consume one from a hub. Enable this setting only when a spoke uses a Route Server hosted in the hub, as described in [Route injection in spoke virtual networks](route-injection-in-spokes.md).
 
 In the following diagram, the spoke virtual network (top) contains the Azure Route Server and workload VMs. Each hub virtual network (bottom) contains an NVA, a route server, and an ExpressRoute gateway that connects to on-premises networks.
 

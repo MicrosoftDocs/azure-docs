@@ -2,10 +2,11 @@
 title: MQTT client authentication in Azure Event Grid
 description: Learn how the MQTT broker feature in Azure Event Grid authenticates clients by using certificates, Microsoft Entra ID, OAuth 2.0 JSON Web Tokens, and custom webhooks.
 ms.topic: concept-article
-ms.date: 06/22/2025
+ms.date: 08/26/2026
 author: Connected-Seth
 ms.author: seshanmugam
 ms.subservice: mqtt
+ai-usage: ai-assisted
 ms.custom:
   - build-2025
 ---
@@ -36,20 +37,14 @@ For more information, see [Authenticate a client by using OAuth 2.0 JWT](mqtt-cl
 
 ## Custom webhook authentication
 
-Webhook authentication enables external HTTPS endpoints, such as a webhook or an Azure function that you control, to dynamically authenticate MQTT connections. The webhook validates a JWT issued by Microsoft Entra ID and returns the authentication decision to the Event Grid namespace. Use this mode when you need to integrate the MQTT broker with custom authentication systems, third-party identity providers, or enterprise security policies.
+Webhook authentication lets an external HTTPS endpoint, such as a webhook or an Azure function that you control, dynamically authenticate MQTT connections. Use this mode when you need to integrate the MQTT broker with custom authentication systems, third-party identity providers, or enterprise security policies.
 
-The authentication flow works like this:
-
-1. An MQTT client attempts to connect to the Event Grid namespace.
-1. Event Grid sends the connection details to the configured webhook.
-1. The webhook evaluates the authentication request and returns a response that permits or denies the connection.
-1. The webhook can include metadata in the response. Event Grid uses this metadata to authorize subsequent MQTT packets, which provides fine-grained control over topic access and message publishing.
+In this flow, an MQTT client attempts to connect to the Event Grid namespace, and Event Grid calls the configured webhook, authenticating to it with the namespace's managed identity and passing the connection details. The webhook validates the client's credentials, such as Shared Access Signature (SAS) tokens, username and password pairs, or Certificate Revocation List (CRL) checks, and returns a response that permits or denies the connection. The webhook can also include metadata in the response. Event Grid uses this metadata to authorize subsequent MQTT packets, which provides fine-grained control over topic access and message publishing.
 
 For more information, see [Authenticate with the MQTT broker by using custom webhook authentication](authenticate-with-namespaces-using-webhook-authentication.md).
 
 ## Related content
 
+- [MQTT client authentication using certificates](mqtt-client-certificate-authentication.md)
 - [Authenticate a client by using a certificate chain](mqtt-certificate-chain-client-authentication.md)
-- [Authenticate a client by using a Microsoft Entra ID token](mqtt-client-microsoft-entra-token-and-rbac.md)
-- [Authenticate a client by using OAuth 2.0 JWT](mqtt-client-custom-jwt.md)
 - [Transport Layer Security with the MQTT broker](mqtt-transport-layer-security-flow.md)

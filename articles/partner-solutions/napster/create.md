@@ -5,7 +5,7 @@ author: shijoy
 ms.author: shijoy
 ms.topic: quickstart
 ms.subservice: napster
-ms.date: 08/24/2026
+ms.date: 08/26/2026
 ms.custom:
   - references_regions
   - ignite-2026
@@ -73,4 +73,4 @@ There are required fields (identified with a red asterisk) in each section that 
 
 ## Related content
 
-[Manage a Napster API resource](manage.md)
+- [Manage a Napster API resource](manage.md)

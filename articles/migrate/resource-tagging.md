@@ -8,7 +8,6 @@ ms.service: azure-migrate
 ms.reviewer: jsuri
 ms.update-cycle: 365-days
 ms.date: 04/17/2025
-monikerRange:
 # Customer intent: As an IT administrator managing migration resources, I want to tag workloads with relevant attributes, so that I can enhance resource organization and visibility during the migration process.
 ---
 

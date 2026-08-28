@@ -5,7 +5,7 @@ description: Use the available metrics, alerts, and resource health information 
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 06/27/2024
+ms.date: 08/27/2026
 ms.author: mbender
 ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to monitor and diagnose the health of my load balancer using metrics and alerts, so that I can ensure optimal performance and quickly address any availability issues."
@@ -25,7 +25,7 @@ To start troubleshooting, use [Common diagnostic scenarios and recommended views
 
 ## <a name = "MultiDimensionalMetrics"></a>Multi-dimensional metrics
 
-Azure Load Balancer provides multi-dimensional metrics via the Azure Metrics in the Azure portal, and it helps you get real-time diagnostic insights into your load balancer resources. Please note that multi-dimensional metrics are not supported for Basic Load Balancers
+Azure Load Balancer provides multidimensional metrics through Azure Monitor metrics in the Azure portal, which provide real-time diagnostic insights into your load balancer resources. Multidimensional metrics aren't supported for Basic Load Balancer (retired).
 
 The various load balancer configurations provide the following metrics:
 

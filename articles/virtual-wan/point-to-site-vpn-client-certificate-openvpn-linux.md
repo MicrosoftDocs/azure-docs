@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-virtual-wan
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 02/06/2025
+ms.date: 08/27/2026
 ms.author: duau
 ---
 
@@ -24,7 +24,7 @@ Verify that you are on the correct article. The following table shows the config
 
 This article assumes that you completed the following prerequisites:
 
-* You configured a virtual WAN according to the steps in the [Create a User VPN point-to-site connection](virtual-wan-point-to-site-portal.md) article. Your User VPN configuration must use certificate authentication and the IKEv2 tunnel type.
+* You configured a virtual WAN according to the steps in the [Create a User VPN point-to-site connection](virtual-wan-point-to-site-portal.md) article. Your User VPN configuration must use certificate authentication and the OpenVPN tunnel type.
 * You generated and downloaded the VPN client configuration files. For steps to generate a VPN client profile configuration package, see [Generate VPN client configuration files](virtual-wan-point-to-site-portal.md#p2sconfig).
 * You have permissions to either generate client certificates, or acquire the appropriate client certificates necessary for authentication.
 

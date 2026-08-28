@@ -4,7 +4,7 @@ description: Describe various ways to connect Azure to other public clouds
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 03/11/2026
+ms.date: 08/27/2026
 ms.author: duau
 ---
 
@@ -21,6 +21,8 @@ There are three ways to connect via ExpressRoute.
 1. Layer3 provider
 1. Layer2 provider
 1. Direct connection
+
+These three categories group the four ExpressRoute connectivity models by how the connection is delivered. Any-to-any (IPVPN) connections are Layer 3. Point-to-point Ethernet connections are Layer 2. Cloud exchange colocation can be either, because colocation providers offer Layer 2 cross-connections or managed Layer 3 cross-connections. ExpressRoute Direct is the direct connection. For more information, see [ExpressRoute connectivity models](expressroute-connectivity-models.md).
 
 ### Layer 3 Provider
 

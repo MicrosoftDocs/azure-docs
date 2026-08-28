@@ -21,7 +21,7 @@ The following Azure services support system topics.
 ## System topics as Azure resources
 System topics are visible as Azure resources and provide the following capabilities:
 
-- [View system topics in the Azure portal](create-view-manage-system-topics.md#view-all-system-topics)
+- [View system topics in the Azure portal](create-view-manage-system-topics.md#view-all-event-grid-system-topics)
 - Export Resource Manager templates for system topics and event subscriptions in the Azure portal
 - [Set up diagnostic logs for system topics](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-system-topics)
 - [Set up alerts](set-alerts.md) on publish and delivery failures 
@@ -37,7 +37,7 @@ You can create a system topic in two ways:
 - Create an [event subscription on an Azure resource as an extension resource](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update), which automatically creates a system topic with the name in the format: `<Azure resource name>-<GUID>`. The system topic created in this way is automatically deleted when the last event subscription for the topic is deleted. 
 - Create a system topic for an Azure resource, and then create an event subscription for that system topic. When you use this method, you can specify a name for the system topic. The system topic isn't deleted automatically when the last event subscription is deleted. You need to manually delete it. 
 
-    When you use the Azure portal, you're always using this method. When you create an event subscription using the [**Events** page of an Azure resource](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage), the system topic is created first and then the subscription for the topic is created. You can explicitly create a system topic first by using the [**Event Grid System Topics** page](create-view-manage-system-topics.md#create-a-system-topic) and then create a subscription for that topic. 
+    When you use the Azure portal, you're always using this method. When you create an event subscription by using the [**Events** page of an Azure resource](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage), the system topic is created first and then the subscription for the topic is created. You can explicitly create a system topic first by using the [**Event Grid System Topics** page](create-view-manage-system-topics.md#create-an-event-grid-system-topic) and then create a subscription for that topic. 
 
 When you use [CLI](create-view-manage-system-topics-cli.md), [REST](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update), or [Azure Resource Manager template](create-view-manage-system-topics-arm.md), you can choose either of the above methods. 
 

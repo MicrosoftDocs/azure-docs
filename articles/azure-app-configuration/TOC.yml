@@ -395,12 +395,16 @@
           href: ./rest-api-keys.md
         - name: Key-values
           href: ./rest-api-key-value.md
+        - name: Enhanced feature flags
+          href: ./rest-api-enhanced-feature-flag.md
         - name: Labels
           href: ./rest-api-labels.md
         - name: Locks
           href: ./rest-api-locks.md
-        - name: Revisions
+        - name: Key-value revisions
           href: ./rest-api-revisions.md
+        - name: Enhanced feature flag revisions
+          href: ./rest-api-enhanced-feature-flag-revisions.md
         - name: Snapshots
           href: ./rest-api-snapshot.md
       - name: Protocol

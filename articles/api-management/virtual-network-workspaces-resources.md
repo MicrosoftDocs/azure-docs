@@ -4,7 +4,7 @@ description: Learn about requirements for network resources when you integrate o
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/20/2026
+ms.date: 08/26/2026
 ---
 
 # Network resource requirements to integrate or inject a workspace gateway resource into a virtual network
@@ -26,7 +26,7 @@ The virtual network must be in the same region and Azure subscription as the API
 
 ### Dedicated subnet
 
-* The subnet used for virtual network integration or injection can only be used by a single workspace gateway. It can't be shared with another Azure resource.
+* The subnet used for virtual network integration or injection can only be used by a single workspace gateway. You can't share it with another Azure resource.
 
 ## Subnet size 
 
@@ -35,13 +35,13 @@ The virtual network must be in the same region and Azure subscription as the API
 
 ## Subnet delegation
 
-The subnet must be delegated as follows to enable the desired inbound and outbound access. 
+Delegate the subnet as described in the following sections to enable the desired inbound and outbound access. 
 
 For information about configuring subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
 #### [Virtual network integration](#tab/external)
 
-For virtual network integration, the subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
+For virtual network integration, delegate the subnet to the **Microsoft.Web/serverFarms** service.
 
 :::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-external.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/serverFarms in the portal.":::
 
@@ -49,7 +49,7 @@ For virtual network integration, the subnet needs to be delegated to the **Micro
 
 #### [Virtual network injection](#tab/internal)
 
-For virtual network injection, the subnet needs to be delegated to the **Microsoft.Web/hostingEnvironments** service.
+For virtual network injection, delegate the subnet to the **Microsoft.Web/hostingEnvironments** service.
 
 :::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-internal.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/hostingEnvironments in the portal.":::
 
@@ -65,34 +65,33 @@ For virtual network injection, the subnet needs to be delegated to the **Microso
 
 #### [Virtual network injection](#tab/internal)
 
-A network security group (NSG) must be associated with the subnet. To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md). 
+You must associate a network security group (NSG) with the subnet. To set up a network security group, see [Create a network security group](../virtual-network/manage-network-security-group.md). 
 
-* Configure the following rules in the NSG. Set the priority of these rules higher than that of the default rules.
+* Configure the following rules in the NSG. Set the priority of these rules higher than the default rules.
 * Configure other outbound rules you need for the gateway to reach your API backends. 
-* Configure other NSG rules to meet your organization’s network access requirements. For example, NSG rules can also be used to block outbound traffic to the internet and allow access only to resources in your virtual network. 
+* Configure other NSG rules to meet your organization's network access requirements. For example, use NSG rules to block outbound traffic to the internet and allow access only to resources in your virtual network. 
 
 | Direction | Source  | Source port ranges | Destination | Destination port ranges | Protocol |  Action | Purpose | 
 |-------|--------------|----------|---------|------------|-----------|-----|--------|
 | Inbound | AzureLoadBalancer | * | Workspace gateway subnet range  | 80 | TCP | Allow | Allow internal health ping traffic |
 | Inbound | VirtualNetwork | * | Workspace gateway subnet range  | 80,443 | TCP | Allow | Allow inbound traffic |
-| Outbound | VirtualNetwork | * | Storage | 443 | TCP | Allow | Dependency on Azure Storage |
 | Outbound | VirtualNetwork | * | AzureKeyVault | 443 | TCP | Allow | Dependency on Azure Key Vault |
 
 ---
 
 > [!IMPORTANT]
-> * Inbound NSG rules do not apply when you integrate a workspace gateway in a virtual network for private outbound access. To enforce inbound NSG rules, use virtual network injection instead of integration.
-> * This differs from networking in the classic Premium tier, where inbound NSG rules are enforced in both external and internal virtual network injection modes. [Learn more](virtual-network-injection-resources.md)
+> * Inbound NSG rules don't apply when you integrate a workspace gateway in a virtual network for private outbound access. To enforce inbound NSG rules, use virtual network injection instead of integration.
+> * This behavior differs from networking in the classic Premium tier, where inbound NSG rules are enforced in both external and internal virtual network injection modes. [Learn more](virtual-network-injection-resources.md)
 
 ## DNS settings for virtual network injection
 
-For virtual network injection, you have to manage your own DNS to enable inbound access to your workspace gateway. 
+For virtual network injection, you need to manage your own DNS to enable inbound access to your workspace gateway. 
 
 [!INCLUDE [api-management-virtual-network-dns-resolver](../../includes/api-management-virtual-network-dns-resolver.md)]
 
 ### Access on default hostname
 
-When you create an API Management workspace gateway, it's assigned a default hostname. The hostname is visible in the Azure portal on the workspace gateway's **Overview** page, along with its private virtual IP address. The default hostname is in the format `<gateway-name>-<random hash>.gateway.<region>-<number>.azure-api.net`. Example: `team-workspace-123456abcdef.gateway.uksouth-01.azure-api.net`.
+When you create an API Management workspace gateway, you assign it a default hostname. You can see the hostname in the Azure portal on the workspace gateway's **Overview** page, along with its private virtual IP address. The default hostname uses the format `<gateway-name>-<random hash>.gateway.<region>-<number>.azure-api.net`. For example, `team-workspace-123456abcdef.gateway.uksouth-01.azure-api.net`.
 
 > [!NOTE]
 > The workspace gateway only responds to requests to the hostname configured on its endpoint, not its private VIP address. 

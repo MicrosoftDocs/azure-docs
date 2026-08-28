@@ -385,8 +385,10 @@
       href: /javascript/api/overview/azure/storage
   - name: APIs for resource management
     items:
-    - name: REST API
+    - name: Storage Resource Provider REST API
       href: /rest/api/storagerp/
+    - name: Microsoft.FileShares Resource Provider REST API
+      href: /rest/api/fileshares/      
     - name: .NET SDK
       href: /dotnet/api/overview/azure/resourcemanager.storage-readme
     - name: Java SDK

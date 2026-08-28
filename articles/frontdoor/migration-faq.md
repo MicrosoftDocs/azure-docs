@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 07/27/2026
+ms.date: 08/26/2026
 ---
 
 # Azure Front Door (classic) and CDN Standard from Microsoft (classic) migration FAQ
@@ -46,6 +46,15 @@ After migration, follow these steps:
 ## When I change my DNS CNAME from Front Door (classic) endpoint to Front Door Standard/Premium endpoint, does DNS propagation cause downtime?
 
 No, both classic endpoint and Standard/Premium endpoints point to the same IP, so the final resolution remains the same before and after DNS propagation.
+
+## When would the classic endpoint stop working?
+Starting April 1, 2028, classic endpoints are no longer supported and might stop functioning. Custom domains, applications, or clients that still depend on a classic endpoint might stop receiving traffic. You must complete the following post-migration action depending on your scenario by March 31, 2028:
+
+- Custom domains: Update the DNS record to point to the new Azure Front Door Standard/Premium endpoint.
+
+- Direct use of the classic default endpoint: Replace the classic hostname with the new endpoint hostname in your applications, clients, and integrations.
+
+Both endpoints remain functional during the transition, so you can make and validate this change without downtime.
 
 ## When should I delete the classic tier?
 

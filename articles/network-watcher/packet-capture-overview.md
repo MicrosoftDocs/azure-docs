@@ -21,8 +21,7 @@ You can trigger packet captures through the portal, PowerShell, Azure CLI, or RE
 
 > [!IMPORTANT]
 > Packet capture requires the Network Watcher agent VM extension `AzureNetworkWatcherExtension`. For more information, see:
-> - [Network Watcher Agent VM extension for Windows](network-watcher-agent-windows.md).
-> - [Network Watcher Agent VM extension for Linux](network-watcher-agent-linux.md).
+> - [Manage Network Watcher Agent VM extension](network-watcher-agent-manage.md).
 > - [Update Network Watcher extension to the latest version](network-watcher-agent-update.md).
 
 ## Continuous packet capture (preview) 

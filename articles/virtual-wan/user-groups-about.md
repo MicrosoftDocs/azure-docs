@@ -5,7 +5,7 @@ description: Learn about using user groups to assign IP addresses from specific 
 author: duongau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 03/27/2025
+ms.date: 08/27/2026
 ms.author: duau
 
 ---
@@ -65,6 +65,8 @@ This section lists configuration requirements and limitations for user groups an
 * Address pools can't overlap with address pools used in other connection configurations (same or different gateways) in the same virtual WAN.
 
 * Address pools also can't overlap with virtual network address spaces, virtual hub address spaces, or on-premises addresses.
+
+* Address pools can't be smaller than /24. For example, you can't assign a range of /25 or /26.
 
 ## Use cases
 

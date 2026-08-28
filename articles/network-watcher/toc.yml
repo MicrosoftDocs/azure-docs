@@ -12,14 +12,10 @@
       href: rbac-permissions.md
     - name: Enable Network Watcher
       href: network-watcher-create.md
-    - name: Network Watcher Agent
-      items:
-      - name: Windows
-        href: network-watcher-agent-windows.md
-      - name: Linux
-        href: network-watcher-agent-linux.md
-      - name: Update to latest version
-        href: network-watcher-agent-update.md
+    - name: Install and manage Network Watcher Agent
+      href: network-watcher-agent-manage.md
+    - name: Update Network Watcher Agent to latest version
+      href: network-watcher-agent-update.md
   expanded: true
 - name: Monitoring
   items:

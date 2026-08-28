@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 03/28/2026
+ms.date: 08/27/2026
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a network administrator, I want to deploy and configure Azure Firewall in a hybrid network using PowerShell, so that I can control access between on-premises and Azure virtual networks effectively."
 ---
@@ -34,7 +34,7 @@ This article requires that you run PowerShell locally. You must have the Azure P
 
 Three key requirements ensure this scenario works correctly:
 
-- A user-defined route (UDR) on the spoke subnet points to the Azure Firewall IP address as the default gateway. You must *disable* virtual network gateway route propagation on this route table.
+- A user-defined route (UDR) on the spoke subnet points to the Azure Firewall IP address as the default gateway. This tutorial disables virtual network gateway route propagation on that route table so learned routes can't conflict with the UDR. You can keep propagation enabled if you define specific routes to the firewall that override the routes published from on-premises over BGP.
 - A UDR on the hub gateway subnet points to the firewall IP address as the next hop to the spoke networks.
 
 - No UDR is required on the Azure Firewall subnet, because it learns routes from Border Gateway Protocol (BGP).

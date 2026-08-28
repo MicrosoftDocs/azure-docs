@@ -60,6 +60,9 @@ To allow Functions to generate your keys, don't supply the key `value` to any of
 
 Your function app in Azure stores keys and encrypts them at rest. By default, the `AzureWebJobsStorage` setting stores keys in a Blob storage container in the provided account. Use the [`AzureWebJobsSecretStorageType`](functions-app-settings.md#azurewebjobssecretstoragetype) setting to override this default behavior and store keys in one of these alternate locations:
 
+> [!IMPORTANT]
+> Access keys are part of your app's secret store and have their own lifecycle, independent of the functions they protect. Deleting a function doesn't delete or rotate the keys held in the secret store. Because a key's storage location is derived from the app name, recreating a function with the same name reuses the previously stored keys instead of generating new ones. This behavior applies to all secret storage providers, including Blob storage and Key Vault. Deleting and recreating a function isn't a substitute for key rotation: to revoke a key when a credential is exposed or you're removing someone's access, you must explicitly rotate or delete it, as described in [Renew or create access keys](#renew-or-create-access-keys).
+
 | Location | Value | Description | 
 | --------- | --------- | --------- |
 | A second storage account | `blob` | Stores keys in Blob storage in a storage account that's different from the one used by the Functions runtime. The specific account and container used are defined by a shared access signature (SAS) URL set in the [`AzureWebJobsSecretStorageSas`](functions-app-settings.md#azurewebjobssecretstoragesas) setting. You must maintain the `AzureWebJobsSecretStorageSas` setting when the SAS URL changes. |
@@ -148,6 +151,11 @@ In this script, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with the resource gr
 ## Renew or create access keys
 
 When you renew or create your access key values, you must manually redistribute the updated key values to all clients that call your function. 
+
+> [!IMPORTANT]
+> Treat the master key (`_master`) as an administrative credential. It grants administrative, data-plane access to your app—including, on apps with a writable file system, the ability to deploy and run code through the runtime REST APIs—so share it only with trusted administrators, not with ordinary callers. Host keys aren't administrative, but each one authorizes calls to any function in the app, so distribute them carefully as well.
+>
+> When a credential is exposed, or when you need to revoke a party's access, explicitly rotate the affected keys. Rotating an individual key is sufficient to revoke that specific key. As noted in [Access key storage](#access-key-storage), deleting or recreating a function doesn't rotate the stored keys.
 
 You can renew function and host keys programmatically or create new ones by using these Azure Resource Manager APIs: 
 

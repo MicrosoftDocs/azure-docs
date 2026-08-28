@@ -45,7 +45,7 @@ By default, a listing operation returns up to 5000 results at a time, but you ca
 
 ### Filter results with a prefix
 
-To filter the list of blobs, specify a string for the `prefix` property in [ContainerListBlobsOptions](/javascript/api/@azure/storage-blob/containerlistblobsoptions). The prefix string can include one or more characters. Azure Storage then returns only the blobs whose names start with that prefix. For example, passing the prefix string `sample-` returns only blobs whose names start with `sample-`.
+To filter the list of blobs, specify a string for the `prefix` property in [ContainerListBlobsOptions](/javascript/api/@azure/storage-blob/containerlistblobsoptions). The prefix string can include one or more characters. Azure Storage returns only the blobs whose names start with that prefix. For example, passing the prefix string `sample-` returns only blobs whose names start with `sample-`.
 
 ### Include blob metadata or other information
 
@@ -53,17 +53,17 @@ To include blob metadata with the results, set the `includeMetadata` property to
 
 ### Flat listing versus hierarchical listing
 
-Blobs in Azure Storage are organized in a flat paradigm, rather than a hierarchical paradigm (like a classic file system). However, you can organize blobs into *virtual directories* in order to mimic a folder structure. A virtual directory forms part of the name of the blob and is indicated by the delimiter character.
+Blobs in Azure Storage are organized in a flat paradigm, rather than a hierarchical paradigm (like a classic file system). However, you can organize blobs into *virtual directories* to mimic a folder structure. A virtual directory forms part of the name of the blob and is indicated by the delimiter character.
 
 To organize blobs into virtual directories, use a delimiter character in the blob name. The default delimiter character is a forward slash (/), but you can specify any character as the delimiter.
 
-If you name your blobs using a delimiter, then you can choose to list blobs hierarchically. For a hierarchical listing operation, Azure Storage returns any virtual directories and blobs beneath the parent object. You can call the listing operation recursively to traverse the hierarchy, similar to how you would traverse a classic file system programmatically.
+If you name your blobs by using a delimiter, you can choose to list blobs hierarchically. For a hierarchical listing operation, Azure Storage returns any virtual directories and blobs beneath the parent object. You can call the listing operation recursively to traverse the hierarchy, similar to how you would traverse a classic file system programmatically.
 
 ## Use a flat listing
 
 By default, a listing operation returns blobs in a flat listing. In a flat listing, blobs aren't organized by virtual directory.
 
-The following example lists the blobs in the specified container using a flat listing. This example includes blob snapshots and blob metadata, if they exist:
+The following example lists the blobs in the specified container by using a flat listing. This example includes blob snapshots and blob metadata, if they exist:
 
 ### [JavaScript](#tab/javascript)
 
@@ -91,7 +91,7 @@ Blobs flat list (by page):
 ```
 
 > [!NOTE]
-> The sample output shown assumes that you have a storage account with a flat namespace. If you've enabled the hierarchical namespace feature for your storage account, directories are not virtual. Instead, they are concrete, independent objects. As a result, directories appear in the list as zero-length blobs.</br></br>For an alternative listing option when working with a hierarchical namespace, see [List directory contents (Azure Data Lake Storage)](data-lake-storage-directory-file-acl-javascript.md#list-directory-contents).
+> The sample output shown assumes that you have a storage account with a flat namespace. If you enable the hierarchical namespace feature for your storage account, directories aren't virtual. Instead, they're concrete, independent objects. As a result, directories appear in the list as zero-length blobs.</br></br>For an alternative listing option when working with a hierarchical namespace, see [List directory contents (Azure Data Lake Storage)](data-lake-storage-directory-file-acl-javascript.md#list-directory-contents).
 
 ## Use a hierarchical listing
 
@@ -136,19 +136,46 @@ Folder /folder2/sub1/
 ```
 
 > [!NOTE]
-> Blob snapshots cannot be listed in a hierarchical listing operation.
+> Blob snapshots can't be listed in a hierarchical listing operation.
+
+## List blobs in Apache Arrow format (preview)
+
+> [!IMPORTANT]
+> Listing blobs in Apache Arrow format is currently in **PREVIEW**. This scenario requires a **beta (preview) version** of the Azure Blob Storage client library for JavaScript (for example, `@azure/storage-blob` **12.34.0-beta.1** or later preview release). Preview features are provided without a service-level agreement and aren't recommended for production workloads. Some features might not be supported, or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This capability is built on the existing `List Blobs` API. Instead of using the default XML, it uses the compact, columnar [Apache Arrow](https://arrow.apache.org/) format as the response format on the wire. You enable it by setting a single option on the container listing call. The JavaScript SDK decodes Apache Arrow behind the scenes and still returns the same blob item objects. This approach improves listing throughput and reduces client-side CPU when enumerating large containers. It preserves the response contract that applications rely on.
+
+> [!WARNING]
+> Listing blobs in Apache Arrow format isn't supported on storage accounts that have hierarchical namespace (Azure Data Lake Storage) enabled.
+
+To request Apache Arrow-formatted results, set the `responseFormat` property of the listing options to `StorageResponseFormat.Arrow`, then pass the options to [ContainerClient.listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient?view=azure-node-preview&preserve-view=true#@azure-storage-blob-containerclient-listblobsflat). Import the `StorageResponseFormat` enum from `@azure/storage-blob`.
+
+The following example lists the blobs in a container and requests the results in Apache Arrow format:
+
+```javascript
+const { StorageResponseFormat } = require("@azure/storage-blob");
+
+const options = {
+  prefix: "FolderA/",
+  responseFormat: StorageResponseFormat.Arrow,
+};
+
+for await (const blob of containerClient.listBlobsFlat(options)) {
+  console.log("Blob name: " + blob.name);
+}
+```
 
 ## Resources
 
-To learn more about how to list blobs using the Azure Blob Storage client library for JavaScript, see the following resources.
+To learn more about how to list blobs by using the Azure Blob Storage client library for JavaScript, see the following resources.
 
 ### Code samples
 
-- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blobs-list.ts) code samples from this article (GitHub)
+- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/list-blobs.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blobs-list.ts) code samples from this article on GitHub.
 
 ### REST API operations
 
-The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for listing blobs use the following REST API operation:
+The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API. By using these libraries, you can interact with REST API operations through familiar JavaScript paradigms. The client library methods for listing blobs use the following REST API operation:
 
 - [List Blobs](/rest/api/storageservices/list-blobs) (REST API)
 

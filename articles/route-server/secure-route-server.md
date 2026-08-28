@@ -6,13 +6,13 @@ ms.author: mbaldwin
 ms.service: azure-route-server
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 05/12/2026
+ms.date: 08/27/2026
 ai-usage: ai-assisted
 ---
 
 # Secure your Azure Route Server deployment
 
-Azure Route Server is a fully managed service that simplifies dynamic routing between your network virtual appliances (NVAs) and your virtual network. It enables automatic route exchange between NVAs and Azure virtual network gateways through Border Gateway Protocol (BGP), eliminating the need to manually configure and maintain route tables. Route Server supports hub-and-spoke topologies, integration with ExpressRoute and VPN gateways, and centralized traffic inspection through security appliances.
+Azure Route Server is a fully managed service that simplifies dynamic routing between your network virtual appliances (NVAs) and your virtual network. It exchanges routes with NVAs through Border Gateway Protocol (BGP), eliminating the need to manually configure and maintain route tables. Route exchange between NVAs and virtual network gateways isn't enabled by default; turn on **branch-to-branch** when you need it. Route Server supports hub-and-spoke topologies, integration with ExpressRoute and VPN gateways, and centralized traffic inspection through security appliances.
 
 This article provides security recommendations for Azure Route Server based on the [Azure Well-Architected Framework security pillar](/azure/well-architected/security/). For an overview of Azure's network security services and how they work together, see [What is Azure network security?](../networking/security/network-security.md).
 
