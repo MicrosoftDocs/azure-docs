@@ -6,7 +6,7 @@ ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 08/21/2026
+ms.date: 08/28/2026
 ai-usage: ai-assisted
 --- 
 
@@ -76,7 +76,7 @@ After you assign a Grafana role to the Microsoft Entra group, choose one of the 
 1. Return to the Grafana UI, paste the object ID into **External group**, and then select **Add group**.
 1. Verify that Grafana displays a success notification and lists the group ID under **External group sync**.
 
-After a user in the linked Microsoft Entra group signs in to the Grafana workspace, Grafana adds the user to the team.Synchronization might take a few minutes.
+After a user in the linked Microsoft Entra group signs in to the Grafana workspace, Grafana adds the user to the team. Synchronization might take a few minutes.
 
 ## Assign access to a Grafana folder or dashboard
 
@@ -135,7 +135,7 @@ Remove the external group link when you no longer want the Microsoft Entra group
 After users from the unlinked Microsoft Entra group sign in to the Grafana workspace, Grafana removes them from the team. Synchronization might take a few minutes.
 
 > [!NOTE]
-> Unlinking a Microsoft Entra group from a Grafana team doesn’t remove the group’s Azure role assignment on the workspace. To revoke  access, remove the applicable Azure role assignment for the group.
+> Unlinking a Microsoft Entra group from a Grafana team doesn't remove the group's Azure role assignment on the workspace. To revoke access, remove the applicable Azure role assignment for the group.
 
 ## Next step
 

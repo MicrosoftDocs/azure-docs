@@ -38,7 +38,7 @@ In this section, you create an eventstream that will be used to bring your data 
 
 Start by navigating to the [Real-Time Intelligence experience in Microsoft Fabric](https://app.fabric.microsoft.com/home?experience=fabric-developer) and opening your Fabric workspace.
 
-Follow the steps in [Create an eventstream in Microsoft Fabric](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream?pivots=standard-capabilities#create-an-eventstream-1) to create a new eventstream resource in your workspace.
+Follow the steps in [Create an eventstream in Microsoft Fabric](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream) to create a new eventstream resource in your workspace.
 
 After the eventstream is created, you'll see the main editor where you can start building the eventstream.
 
