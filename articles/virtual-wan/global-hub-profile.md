@@ -5,7 +5,7 @@ description: Learn about how to generate and download global and hub-level User 
 author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 08/27/2026
 ms.author: duau
 ms.custom: sfi-image-nochange
 ---
@@ -41,7 +41,7 @@ To generate and download VPN client profile configuration files, use the followi
 
    Click a line containing the **User VPN Configuration** you want to use. This highlights the entire line. Then, click **Download virtual WAN user VPN profile**.
 
-1. On the **Download virtual WAN user VPN** page, select **EAPTLS**, then click **Generate and download profile**. A profile package (zip file) containing VPN client configuration settings is generated and downloads to your computer. The contents of the package depend on the hubs and the authentication and tunnel type choices for the configuration that you selected.
+1. On **Download virtual WAN user VPN**, select the authentication method that matches your User VPN configuration, and then select **Generate and download profile**. If your configuration uses certificate authentication, select **EAPTLS**. A profile package (zip file) containing VPN client configuration settings is generated and downloaded to your computer. The contents of the package depend on the hubs and the authentication and tunnel type choices for the configuration that you selected.
 
    :::image type="content" source="./media/global-hub-profile/generate-download.png" alt-text="Screenshot the authentication type and generate and download profile." lightbox="./media/global-hub-profile/generate-download.png":::
 
@@ -125,7 +125,7 @@ To generate and download VPN client profile configuration files, use the followi
 
    :::image type="content" source="./media/global-hub-profile/hub-profile.png" alt-text="Screenshot that shows how to download a hub profile." lightbox="./media/global-hub-profile/hub-profile.png":::
 
-1. On the download page, select **EAPTLS**, then **Generate and download profile**. A profile package (zip file) containing the client configuration settings is generated and downloads to your computer. The contents of the package depend on the hub and the authentication and tunnel type choices for your configuration.
+1. On the download page, select the authentication method that matches your User VPN configuration, and then select **Generate and download profile**. If your configuration uses certificate authentication, select **EAPTLS**. A profile package (zip file) containing the client configuration settings is generated and downloads to your computer. The contents of the package depend on the hub and the authentication and tunnel type choices for your configuration.
 
 ## Next steps
 
