@@ -72,9 +72,9 @@ Heavy data processing, internal errors, and insufficient compute resources can c
 
 ## Memory usage increases while debugging
 
-If a .NET Durable Functions app uses steadily more memory while it runs with an attached managed debugger, the growth may be caused by the debugger rather than by your app or the Durable Functions runtime.
+If a .NET Durable Functions app uses steadily more memory while it runs with an attached managed debugger, the growth might be caused by the debugger rather than by your app or the Durable Functions runtime.
 
-Every time an orchestrator function replays, it recreates the tasks that the orchestration awaits. Some of those tasks never complete, because the replay ends as soon as the orchestrator reaches work that isn't in the history yet. When a managed debugger is attached, the .NET runtime tracks incomplete async tasks so that debugger features such as async call stacks work. This tracking keeps the replayed tasks in memory, so memory use can grow steadily over a long debug session and eventually cause an out-of-memory error. Orchestrations that fan out to many tasks or run for hours can show the largest growth.
+Every time an orchestrator function replays, it recreates the tasks that the orchestration awaits. Some of those tasks never complete, because the replay ends as soon as the orchestrator reaches work that isn't in the history yet. When you attach a managed debugger, the .NET runtime tracks incomplete async tasks so that debugger features such as async call stacks work. This tracking keeps the replayed tasks in memory, so memory use can grow steadily over a long debug session and eventually cause an out-of-memory error. Orchestrations that fan out to many tasks or run for hours can show the largest growth.
 
 > [!IMPORTANT]
 > Memory growth that happens only when a debugger is attached doesn't by itself indicate that your app leaks memory in production runs, where no debugger is attached.
