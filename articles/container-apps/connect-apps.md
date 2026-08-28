@@ -58,10 +58,13 @@ The ingress visibility setting controls whether your app is reachable from outsi
 
 | Visibility | FQDN pattern | Reachable from |
 |---|---|---|
-| **External** | `<APP_NAME>.<ENVIRONMENT_UNIQUE_ID>.<REGION>.azurecontainerapps.io` | Anywhere (public internet) |
-| **Internal** | `<APP_NAME>.internal.<ENVIRONMENT_UNIQUE_ID>.<REGION>.azurecontainerapps.io` | Same environment only |
+| **External** | `<APP_NAME>.<ENVIRONMENT_UNIQUE_ID>.<REGION>.azurecontainerapps.io` | The environment's network boundary (public internet or VNet, depending on environment type) **plus** other apps in the same environment |
+| **Internal** | `<APP_NAME>.internal.<ENVIRONMENT_UNIQUE_ID>.<REGION>.azurecontainerapps.io` | **Only** other apps within the same Container Apps environment |
 
-When you set ingress to **internal**, the FQDN includes an `.internal.` segment. Other container apps in the same environment can still reach the app using this address, but requests from outside the environment receive a `404` response from the environment's proxy. The DNS name resolves to the environment's shared IP, but the proxy rejects the request because the app is internal-only. <!-- Source: Q1 -->
+When you set ingress to **internal**, the FQDN includes an `.internal.` segment. Other container apps in the same environment can still reach the app using this FQDN or the short app name. However, requests from outside the environment—including requests from your own VNet on an internal environment—receive a `404` response from the environment's ingress proxy, because the proxy does not advertise routes for environment-scoped apps to external callers. <!-- Source: Q1 -->
+
+> [!IMPORTANT]
+> On an **internal (VNet-integrated) environment**, setting ingress to **internal** (`external: false`) does *not* mean "accessible from the VNet." It means "accessible only from other container apps within this environment." If your app needs to receive traffic from the VNet (for example, from VMs, databases, or on-premises networks), set ingress to **external** (`external: true`). On an internal environment, external ingress makes the app reachable through the internal load balancer without exposing it to the public internet. For more information, see [How ingress visibility interacts with the environment type](ingress-overview.md#how-ingress-visibility-interacts-with-the-environment-type).
 
 [!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
 

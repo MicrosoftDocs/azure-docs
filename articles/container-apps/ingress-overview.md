@@ -42,6 +42,20 @@ When you enable ingress, you can choose between two types of ingress:
 
 Each container app within an environment can be configured with different ingress settings. For example, in a scenario with multiple microservice apps, to increase security you might have a single container app that receives public requests and passes the requests to a background service. In this scenario, you would configure the public-facing container app with external ingress and the internal-facing container app with internal ingress.
 
+### How ingress visibility interacts with the environment type
+
+The per-app ingress visibility setting (`external` or `internal`) controls *which callers can reach the app*. On an internal (VNet-integrated) environment, this distinction is especially important:
+
+| Environment type | `external: true` | `external: false` |
+|---|---|---|
+| **External** (public IP) | Accessible from the **public internet** and from other apps in the environment | Accessible **only from other apps** within the same environment |
+| **Internal** (VNet + internal load balancer) | Accessible from the **VNet via the internal load balancer** and from other apps in the environment. *Not exposed to the public internet.* | Accessible **only from other apps** within the same environment. *VNet clients receive HTTP 404.* |
+
+> [!IMPORTANT]
+> On an internal (VNet-integrated) environment, setting ingress to **external** does *not* expose your app to the public internet. It makes the app accessible from your virtual network through the environment's internal load balancer. Setting ingress to **internal** restricts the app further—it becomes reachable only from other container apps deployed in the same environment. VNet clients that attempt to reach an internal-ingress app receive an HTTP 404 response.
+>
+> If your app needs to receive traffic from the VNet (for example, from VMs, other Azure services, or on-premises networks connected via VPN/ExpressRoute), set ingress to **external**.
+
 ## Protocol types
 
 Container Apps supports two protocols for ingress: HTTP and TCP.

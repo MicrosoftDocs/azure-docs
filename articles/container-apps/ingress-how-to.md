@@ -63,6 +63,9 @@ az containerapp ingress enable \
 | Option | Property | Description | Values | Required |
 | --- | --- | --- | --- | --- |
 | `--type` | external | Allow ingress to your app from anywhere, or limit ingress to its internal Container Apps environment. | `external` or `internal` | Yes |
+
+> [!NOTE]
+> On an internal (VNet-integrated) environment, `--type external` does not expose the app to the public internet—it makes the app accessible from the VNet through the internal load balancer. Using `--type internal` restricts the app to other container apps within the same environment only; VNet clients receive HTTP 404. For more information, see [How ingress visibility interacts with the environment type](ingress-overview.md#how-ingress-visibility-interacts-with-the-environment-type).
 |`--allow-insecure` | allowInsecure | Allow HTTP connections to your app. | | No |
 | `--target-port` | targetPort | The port your container listens to for incoming requests. | Set this value to the port number that your container uses. Your application ingress endpoint is always exposed on port `443`. | Yes |
 |`--exposed-port` | exposedPort | (TCP ingress only) A port for TCP ingress. If `external` is `true`, the value must be unique in the Container Apps environment if ingress is external. | A port number from `1` to `65535`. (can't be `80` or `443`) | No |
