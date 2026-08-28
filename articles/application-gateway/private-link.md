@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 08/19/2026
+ms.date: 08/28/2026
 ms.author: mbender
 
 # Customer intent: "As a network administrator, I want to implement Private Link for Application Gateway, so that I can securely connect my workloads over a private network while maintaining the benefits of Layer 7 load balancing."
@@ -38,7 +38,10 @@ All features supported by Application Gateway are supported when accessed throug
 
 ## Identify traffic from a private endpoint
 
-When an HTTP or HTTPS request reaches Application Gateway through a private endpoint, Azure Private Link provides a `LINKID` value in the TCP Proxy Protocol v2 header. The identifier distinguishes private endpoint connections, including connections from consumers that use overlapping IP address spaces. Application Gateway converts the `LINKID` from its hexadecimal, little-endian representation to a decimal value and exposes it in the following locations:
+> [!NOTE]
+> When traffic reaches Application Gateway through a private endpoint, Private Link preserves the client's source IP address and source port. Application Gateway access logs record these values in the `clientIP` and `clientPort` fields. For HTTP and HTTPS requests, the entry that Application Gateway adds to the `X-Forwarded-For` header reflects the same values in `IP:port` format. If another proxy sends the request to the private endpoint, these values identify that proxy as the immediate client.
+
+Consumer virtual networks can use overlapping IP address spaces, so a client IP address alone might not identify the originating consumer. Azure Private Link assigns a `linkIdentifier`, also called `LINKID`, to each private endpoint connection. For HTTP and HTTPS requests, Application Gateway exposes the decimal identifier in the following locations:
 
 | Location | Name | Description |
 | --- | --- | --- |
@@ -60,7 +63,7 @@ Compare either value with the `linkIdentifier` property of the corresponding pri
 
 Application Gateway populates the header and access-log property only for requests received through a private endpoint. For requests sent directly to an Application Gateway public or private frontend IP address, Application Gateway doesn't populate `X-Azure-PrivateEndpoint-ID` or `LinkId`. This behavior applies when the Private Link configuration is associated with either a public or a private Application Gateway frontend.
 
-For more information about the `LINKID` value in TCP Proxy Protocol v2, see [Get connection information using TCP Proxy v2](../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2).
+For the Azure Private Link definition of `LINKID` and its relationship to `linkIdentifier`, see [Get connection information using TCP Proxy v2](../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2).
 
 ## Private Link components
 
