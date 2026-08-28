@@ -5,7 +5,7 @@ author: cgillum
 ms.topic: reference
 ms.service: durable-task
 ms.subservice: durable-functions
-ms.date: 05/20/2026
+ms.date: 08/28/2026
 ms.author: azfuncdf
 ---
 
@@ -905,6 +905,33 @@ The response JSON might look like the following (formatted for readability):
     }
 ]
 ```
+
+## Make the current app primary
+
+Requests that the current function app become the primary app for a task hub. Call this API on the app that you want to make primary. You can use this operation in an active-passive deployment to return processing to an app after a failover without restarting either app.
+
+> [!IMPORTANT]
+> This API is available in [Durable Functions extension version 2.5.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.5.0) and later. It works only with the [Azure Storage provider](durable-functions-azure-storage-provider.md) when the [`useAppLease`](durable-functions-host-json-settings.md) setting is `true`.
+
+### Request
+
+```http
+POST /runtime/webhooks/durabletask/makeprimary
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+This API has no unique request parameters and doesn't accept request content.
+
+### Response
+
+Several possible status code values can be returned.
+
+- **HTTP 200 (OK)**: The app lease handoff was initiated, or the current app was already primary.
+- **HTTP 500 (Internal Server Error)**: The operation couldn't be started, such as when app leases are disabled or the configured storage provider doesn't support app leases.
+
+A successful response doesn't contain any content. An HTTP 200 response confirms only that the handoff was initiated, not that the current app has acquired the app lease.
 
 ## Complete workflow example
 
