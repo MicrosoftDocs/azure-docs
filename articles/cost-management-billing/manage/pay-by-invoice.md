@@ -42,7 +42,7 @@ To qualify for wire transfer payments, you must:
 > - If you switch to payment by wire transfer, you can't switch back to paying by credit or debit card as your recurring form of payment. However, you can make manual, one-time (non-recurring) payments with a credit or debit card.
 > - As of September 30, 2023, Microsoft no longer accepts checks as a payment method.
 
-### Request to set up payment by wire transfer for Microsoft Customer agreement billing profile
+### Request to set up payment by wire transfer for Microsoft Customer Agreement billing profile
 
 Users who have a Microsoft Customer Agreement can request approval to pay by wire transfer in the Azure portal.
 
