@@ -135,6 +135,7 @@ The response payload for the **HTTP 202** cases is a JSON object with the follow
 | **`sendEventPostUri`**      |The "raise event" URL of the orchestration instance. |
 | **`terminatePostUri`**      |The "terminate" URL of the orchestration instance. |
 | **`purgeHistoryDeleteUri`** |The "purge history" URL of the orchestration instance. |
+| **`restartPostUri`**        |The "restart" URL of the orchestration instance. |
 | **`rewindPostUri`**         |(preview) The "rewind" URL of the orchestration instance. |
 | **`suspendPostUri`**        |The "suspend" URL of the orchestration instance. |
 | **`resumePostUri`**         |The "resume" URL of the orchestration instance. |
@@ -150,6 +151,7 @@ Here is an example response payload for an orchestration instance with `abc123` 
     "sendEventPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/raiseEvent/{eventName}?code=XXX",
     "statusQueryGetUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123?code=XXX",
     "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/terminate?reason={text}&code=XXX",
+    "restartPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/restart?code=XXX",
     "suspendPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/suspend?reason={text}&code=XXX",
     "resumePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/abc123/resume?reason={text}&code=XXX"
 }
@@ -611,6 +613,51 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 ```
 
 The responses for this API don't contain any content.
+
+## Restart instance
+
+Starts a new execution of an existing orchestration instance using the original input.
+
+> [!NOTE]
+> This API is available in Durable Functions extension version 2.4.0 and later.
+
+### Request
+
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/restart
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &restartWithNewInstanceId=[true|false]
+    &timeout={seconds}
+    &pollingInterval={seconds}
+```
+
+The request has no body. Request parameters for this API include the default set mentioned previously and the following unique parameters:
+
+| Field                          | Parameter type | Description |
+|--------------------------------|----------------|-------------|
+| **`instanceId`**               | URL            | The ID of the orchestration instance to restart. |
+| **`restartWithNewInstanceId`** | Query string   | Optional. If `true`, the restarted orchestration uses a newly generated instance ID. If `false`, it reuses the original instance ID. The default is `true`. |
+| **`timeout`**                  | Query string   | Optional. The total number of seconds to wait for the restarted orchestration to complete. Synchronous waiting is enabled only when `pollingInterval` is also specified. |
+| **`pollingInterval`**          | Query string   | Optional. The number of seconds between checks for completion. Synchronous waiting is enabled only when `timeout` is also specified. |
+
+### Response
+
+Several possible status code values can be returned.
+
+- **HTTP 200 (OK)**: The restarted orchestration completed within the specified `timeout`. The JSON response body contains only the orchestration output, and the response doesn't include a `Location` header.
+- **HTTP 202 (Accepted)**: The restart request was accepted. The response contains the standard check-status management payload for the restarted instance. This response is also returned if synchronous waiting isn't enabled or the instance doesn't complete before the timeout.
+- **HTTP 400 (Bad Request)**: The specified instance ID doesn't identify a valid orchestration instance, or the orchestrator function isn't available.
+- **HTTP 409 (Conflict)**: The request tries to reuse an instance ID that belongs to a nonterminal instance.
+
+The restarted orchestration preserves the original input. The `id` field and management URLs in an HTTP 202 response refer to the restarted instance, which has a new ID by default.
+
+Here is an example request that restarts an instance and reuses its instance ID:
+
+```http
+POST /runtime/webhooks/durabletask/instances/abc123/restart?restartWithNewInstanceId=false&code=XXX
+```
 
 ## Suspend instance
 
