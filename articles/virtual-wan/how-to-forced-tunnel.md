@@ -14,7 +14,7 @@ ms.author: wellee
 Forced tunneling allows you to send **all** traffic (including Internet-bound traffic) from remote users to Azure. In Virtual WAN, forced tunneling for Point-to-site VPN remote users signifies that the 0.0.0.0/0 default route is advertised to remote VPN users.
 
 > [!NOTE]
-> Point-to-site VPN forced tunneling isn't the same as the Virtual WAN hub **Forced Tunnel** internet traffic routing mode. Point-to-site forced tunneling advertises the 0.0.0.0/0 route to remote VPN clients so their internet traffic is sent to Azure. Hub Forced Tunnel mode determines how the hub's security solution forwards internet traffic after inspection, requires a private routing policy with 0.0.0.0/0 configured as an additional prefix, and can't be combined with an internet routing policy. For more information, see [Securing internet access with routing intent](about-internet-routing.md).
+> Point-to-site VPN forced tunneling isn't the same as the Virtual WAN hub **Forced Tunnel** internet traffic routing mode. Point-to-site forced tunneling advertises the 0.0.0.0/0 route to remote VPN clients so their internet traffic goes to Azure. Hub Forced Tunnel mode determines how the hub's security solution forwards internet traffic after inspection. It requires a private routing policy with 0.0.0.0/0 configured as an additional prefix, and it can't be combined with an internet routing policy. For more information, see [Securing internet access with routing intent](about-internet-routing.md).
 
 ## Create a Virtual WAN hub
 
