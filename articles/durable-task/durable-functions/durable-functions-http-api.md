@@ -646,7 +646,7 @@ The request has no body. Request parameters for this API include the default set
 
 Several possible status code values can be returned.
 
-- **HTTP 200 (OK)**: The restarted orchestration completed within the specified `timeout`. The response body contains the orchestration output.
+- **HTTP 200 (OK)**: The restarted orchestration completed within the specified `timeout`. The JSON response body contains only the orchestration output, and the response doesn't include a `Location` header.
 - **HTTP 202 (Accepted)**: The restart request was accepted. The response contains the standard check-status management payload for the restarted instance. This response is also returned if synchronous waiting isn't enabled or the instance doesn't complete before the timeout.
 - **HTTP 400 (Bad Request)**: The specified instance ID doesn't identify a valid orchestration instance, or the orchestrator function isn't available.
 - **HTTP 409 (Conflict)**: The request tries to reuse an instance ID that belongs to a nonterminal instance.
