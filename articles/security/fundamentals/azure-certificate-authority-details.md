@@ -219,7 +219,7 @@ OCSP:
 
 ## Certificate pinning
 
-Certificate pinning is a security technique where you accept only authorized, or *pinned*, certificates when establishing a secure session. The process rejects any attempt to establish a secure session using a different certificate. For publicly trusted TLS certificates used by Azure services, Microsoft generally doesn't recommend static certificate pinning. For more information, see [Certificate pinning](certificate-pinning.md).
+Certificate pinning is a security technique where you accept only authorized, or *pinned*, certificates when establishing a secure session. The process rejects any attempt to establish a secure session using a different certificate. For more information, including guidance on static pinning of publicly trusted certificates, see [Certificate pinning](certificate-pinning.md).
 
 ### How to address certificate pinning
 
