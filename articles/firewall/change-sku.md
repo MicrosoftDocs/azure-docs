@@ -126,7 +126,7 @@ The easy SKU change method has the following limitations:
 
 **Downgrade-specific limitations:**
 - Premium features (TLS inspection, IDPS Alert and Deny mode, URL filtering) must be removed before downgrade.
-- For the new Firewall SKU, you must use an existing compatible policy or create a new Standard policy
+- For the new Firewall SKU, you must use an existing compatible policy or create a new Standard policy.
 - Some rule configurations might need manual adjustment after downgrade
 
 If the easy SKU change method isn't available for your scenario, use the manual migration method described in the next section.
