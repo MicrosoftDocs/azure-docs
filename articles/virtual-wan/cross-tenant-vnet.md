@@ -8,7 +8,7 @@ author: wtnlee
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 08/27/2026
 ms.author: wellee
 ---
 # Connect cross-tenant virtual networks to a Virtual WAN hub
@@ -53,13 +53,13 @@ Make sure that the virtual network address space in the remote tenant doesn't ov
 
 1. Run the following command to add the remote tenant subscription and the parent tenant subscription to the current session of PowerShell. If you're signed in to the parent, you need to run the command for only the remote tenant.
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    Connect-AzAccount -SubscriptionId "[subscription ID]" -TenantId "[tenant ID]"
    ```
 
 1. Verify that the role assignment is successful. Sign in to Azure PowerShell by using the parent credentials and run the following command:
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    Get-AzSubscription
    ```
 
@@ -71,31 +71,31 @@ In the following steps, you'll use commands to switch between the context of the
 
 1. Make sure you're in the context of your remote account:
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    Select-AzSubscription -SubscriptionId "[remote ID]"
    ```
 
 1. Create a local variable to store the metadata of the virtual network that you want to connect to the hub:
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    $remote = Get-AzVirtualNetwork -Name "[vnet name]" -ResourceGroupName "[resource group name]"
    ```
 
 1. Connect to parent account:
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    Connect-AzAccount -TenantID "[parent tenant ID]"
    ```
 
 1. Select the parent subscription:
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    Select-AzSubscription -SubscriptionId "[parent ID]"
    ```
 
 1. Connect the virtual network to the hub:
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    New-AzVirtualHubVnetConnection -ResourceGroupName "[parent resource group name]" -VirtualHubName "[virtual hub name]" -Name "[name of connection]" -RemoteVirtualNetwork $remote
    ```
 
@@ -114,7 +114,7 @@ In the following steps, you'll use commands to add a static route to the virtual
 
 1. Make sure you're in the context of your parent account: 
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Select-AzSubscription -SubscriptionId "[parent ID]" 
     ```
 
@@ -122,24 +122,24 @@ In the following steps, you'll use commands to add a static route to the virtual
 
     1. Get the connection details:
 
-       ```azurepowershell-interactive
+       ```azurepowershell
        $hubVnetConnection = Get-AzVirtualHubVnetConnection -Name "[HubconnectionName]" -ParentResourceName "[Hub Name]" -ResourceGroupName "[resource group name]"
        ``` 
     1. Add a static route to the virtual hub's route table with next hop Virtual Network Connection. Existing routes in the route table are preserved with the following sample script.
 
-       ```azurepowershell-interactive
+       ```azurepowershell
        $routeTable = Get-AzVHubRouteTable -ResourceGroupName "[Resource group name]" -VirtualHubName "[Virtual hub name]" -Name "defaultRouteTable"
        $Route2 = New-AzVHubRoute -Name "[Route Name]" -Destination “[@("Destination prefix")]” -DestinationType "CIDR" -NextHop $hubVnetConnection.Id -NextHopType "ResourceId"
        $routeTable.Routes.add($Route2)
        ```
     1. Verify the route table has the new routes:
-         ```azurepowershell-interactive
+         ```azurepowershell
        $routeTable.Routes
        ```
       
     1. Update the hub's current default route table:
       
-      ```azurepowershell-interactive
+      ```azurepowershell
        Update-AzVHubRouteTable -ResourceGroupName "[resource group name]"-VirtualHubName [“Hub Name”] -Name "defaultRouteTable" -Route @($routeTable.Routes)
       ```
 
@@ -148,7 +148,7 @@ In the following steps, you'll use commands to add a static route to the virtual
        > [!NOTE]
        > The route name should be the same as the one you used when you added a static route earlier. Otherwise, you'll create two routes in the routing table: one without an IP address and one with an IP address.
 
-   ```azurepowershell-interactive
+   ```azurepowershell
        $newroute = New-AzStaticRoute -Name "[Route Name]"  -AddressPrefix "[@("Destination prefix")]" -NextHopIpAddress "[Destination NVA IP address]"
 
        $hubVNetConnection.RoutingConfiguration.VnetRoutes.StaticRoutes.add($newroute)
@@ -157,7 +157,7 @@ In the following steps, you'll use commands to add a static route to the virtual
     ```
     1. Verify that the static route is established to a next-hop IP address.
 
-       ```azurepowershell-interactive
+       ```azurepowershell
        Get-AzVirtualHubVnetConnection -ResourceGroupName "[Resource group]" -VirtualHubName "[virtual hub name]" -Name "[Virtual hub connection name]"
        ```
 

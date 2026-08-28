@@ -55,6 +55,10 @@ items:
           items:
             - name: Azure portal
               href: sandboxes-quickstart-portal.md
+            - name: Agent skills
+              href: sandboxes-quickstart-agent-skills.md
+            - name: CLI
+              href: sandboxes-quickstart-cli.md
             - name: Bicep
               href: sandboxes-quickstart-bicep.md
             - name: Python SDK
