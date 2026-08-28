@@ -19,7 +19,7 @@ You can use Lightweight Directory Access Protocol (LDAP) over TLS to secure comm
 * DNS pointer (PTR) records must exist for each AD DS domain controller assigned to the **AD Site Name** specified in the Azure NetApp Files Active Directory connection.
 * PTR records must exist for all domain controllers in the site for AD DS LDAP over TLS to function properly.
 * Renew the Active Directory certificate before the expiry date for continued access.
-* For LDAP over TLS, upload one server root CA certificate per file. Certificate bundles/chains (for example, root and intermediate certificates in the same PEM file) aren't supported.
+* For LDAP over TLS, upload one server root CA certificate per file. Certificate bundles or chains (for example, root and intermediate certificates in the same PEM file) aren't supported.
 
 ## Generate and export root CA certificate 
 
