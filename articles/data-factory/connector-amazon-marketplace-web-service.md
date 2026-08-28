@@ -21,7 +21,7 @@ ms.custom:
 ## Deprecation
 
 >[!Note]
->This connector is deprecated because Amazon Marketplace Web Service is no longer available since **March 31, 2024**.
+>This connector is deprecated because Amazon Marketplace Web Service isn't available after **March 31, 2024**.
 
 
 ## Related content
