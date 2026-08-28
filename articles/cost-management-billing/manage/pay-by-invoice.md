@@ -6,7 +6,7 @@ ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/27/2026
+ms.date: 08/26/2026
 ms.author: souchak
 ---
 
