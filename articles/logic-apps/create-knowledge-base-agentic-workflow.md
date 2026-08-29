@@ -1,8 +1,8 @@
 ---
 title: Create Knowledge Bases for Agentic Workflows
 description: Create knowledge bases from unstructured data so agentic workflows can retrieve relevant content in Azure Logic Apps by using Retrieval-Augmented Generation (RAG).
-services: logic-apps
-ms.service: azure-logic-apps, azure-cosmos-db
+services: logic-apps, azure-cosmos-db
+ms.services: azure-logic-apps, azure-cosmos-db
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
