@@ -7,7 +7,7 @@ ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 06/22/2026
-ms.update-lifecycle: 365-days
+ms.update-cycle: 365-days
 ms.custom: sfi-image-nochange
 #Customer intent: As an integration developer who works with Azure Logic Apps, I want to encode, decode, or generate schemas so I can exchange XML between partners using flat files in workflows.
 ---
