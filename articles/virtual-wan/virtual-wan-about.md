@@ -116,7 +116,7 @@ Virtual WAN allows transit connectivity between VNets. VNets connect to a virtua
 
 [!INCLUDE [virtual hub router status](../../includes/virtual-wan-hub-router-status.md)]
 
-Every virtual hub router supports an aggregate throughput up to 50 Gbps.
+Every virtual hub router supports an aggregate throughput up to 50 Gbps. However, traffic may experience performance degradation if more than 1.5 Gbps is sent in a single TCP flow. See [About virtual hub settings](https://learn.microsoft.com/azure/virtual-wan/hub-settings) for details.
 
 Connectivity between the virtual network connections assumes, by default, a maximum total of 2000 VM workload across all VNets connected to a single virtual hub. **Hub infrastructure units** can be adjusted to support additional VMs. For more information about hub infrastructure units, see [Hub settings](hub-settings.md).
 
