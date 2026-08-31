@@ -15,7 +15,7 @@ Use this article to onboard to Azure Enclave by registering the required resourc
 
 ## Prerequisites
 
-- You must already have an Azure tenant and subscription.
+- You must already have an Azure tenant and subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/), and then sign in to the [Azure portal](https://portal.azure.com).
 - You must be an [Owner of an existing Azure subscription](/azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription).
 
 ## Register the required resource providers and configure `NetworkWatcherRG` access
