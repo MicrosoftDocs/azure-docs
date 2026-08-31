@@ -1,8 +1,6 @@
 ---
 title: No-code stream processing in Azure Stream Analytics
 description: Learn about processing your real-time data streams by using the Azure Stream Analytics no-code editor.
-author: xujxu
-ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 04/29/2026

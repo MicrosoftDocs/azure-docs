@@ -80,7 +80,7 @@ The following method uses POST with the Ambari REST API. For more information, s
 
     ```json
     {
-      "href" : "http://<ACTIVE-HEADNODE-NAME>.YOURDOMAIN.com:8080/api/v1/ldap_sync_events/1",
+      "href" : "http://<ACTIVE-HEADNODE-NAME>.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1",
       "Event" : {
         "id" : 1,
         "specs" : [
