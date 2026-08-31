@@ -79,17 +79,12 @@ By using structured logs, you can choose to use [Resource Specific Tables](/azur
 ### Resource specific mode
 
 In **Resource specific** mode, individual tables in the selected workspace are created for each category selected in the diagnostic setting. This method is recommended since it:
-Capitalize: "
 
-- Might reduce overall logging co"sts by up to 80%.
-Capitalize: "
-- Makes it much easier to work wi"th the data in log queries.
-Capitalize: "
-- Makes it easier to discover sch"emas and their structure.
-Capitalize: "
-- Improves performance across bot"h ingestion latency and query times.
-Capitalize: "
-- Allows you to grant Azure RBAC "rights on a specific table.
+- Might reduce overall logging costs by up to 80%.
+- Makes it much easier to work with the data in log queries.
+- Makes it easier to discover schemas and their structure.
+- Improves performance across both ingestion latency and query times.
+- Allows you to grant Azure RBAC rights on a specific table.
 
 New resource specific tables are available in Diagnostic setting that allows you to utilize the following categories:
 
