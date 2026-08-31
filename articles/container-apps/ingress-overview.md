@@ -42,6 +42,55 @@ When you enable ingress, you can choose between two types of ingress:
 
 Each container app within an environment can be configured with different ingress settings. For example, in a scenario with multiple microservice apps, to increase security you might have a single container app that receives public requests and passes the requests to a background service. In this scenario, you would configure the public-facing container app with external ingress and the internal-facing container app with internal ingress.
 
+### How ingress visibility interacts with the environment type
+
+Two separate settings determine who can reach your container app:
+
+- **Environment accessibility level**: Set when you create the environment. An *internal* environment (created with `--internal-only`) has no public endpoint at all. It's reachable only through an internal load balancer in your virtual network. For more information, see [Accessibility level](networking.md#accessibility-level).
+
+- **App ingress visibility**: The per-app `external` property, set with `--type external` or `--type internal`, and shown in the portal as **Ingress traffic**.
+
+The environment's accessibility level defines the outer network boundary. The app's ingress visibility determines whether the app is published at that boundary, or kept inside the environment.
+
+| Environment accessibility level | App ingress external<br>(**Accepting traffic from anywhere**) | App ingress internal<br>(**Limited to Container Apps Environment**) |
+|---|---|---|
+| **External** | Reachable from the public internet, and from other apps in the environment. | Reachable only from other apps in the same environment. |
+| **Internal** | Reachable from the virtual network through the internal load balancer, and from other apps in the environment. Not reachable from the public internet. | Reachable only from other apps in the same environment. Clients elsewhere in the virtual network receive an HTTP 404 response. |
+
+> [!IMPORTANT]
+> The app ingress settings describe the app's relationship to its *environment*, not to the internet. On an internal environment, **Accepting traffic from anywhere** doesn't publish your app to the internet, because the environment has no public endpoint. Instead, it publishes the app at the environment's internal load balancer so that clients in your virtual network can reach it.
+>
+> Selecting **Limited to Container Apps Environment** on an internal environment is more restrictive than you might expect. It hides the app from the rest of your virtual network as well as from the internet.
+
+> [!NOTE]
+> An app with internal ingress can still receive traffic from outside the environment if it's referenced as a target in an environment-level HTTP route configuration. For more information, see [Use rule-based routing with Azure Container Apps](rule-based-routing.md).
+
+### Restrict an app to virtual network access only
+
+A common requirement is an app that the public internet can't reach, but that virtual machines, private endpoints, peered networks, and on-premises networks connected through a VPN or Azure ExpressRoute can reach. This configuration requires you to set both the environment accessibility level and the app ingress visibility.
+
+1. Create the environment as internal, so the environment has no public endpoint. Internet isolation comes from this setting, and you can't change it after you create the environment. For more information, see [Use a virtual network with Azure Container Apps](vnet-custom.md).
+
+    ```azurecli
+    az containerapp env create \
+        --name <ENVIRONMENT_NAME> \
+        --resource-group <RESOURCE_GROUP> \
+        --infrastructure-subnet-resource-id <SUBNET_RESOURCE_ID> \
+        --internal-only true
+    ```
+
+1. Set the app's ingress to external, so that the app is published at the environment's internal load balancer and clients in the virtual network can reach it.
+
+    ```azurecli
+    az containerapp ingress enable \
+        --name <APP_NAME> \
+        --resource-group <RESOURCE_GROUP> \
+        --target-port <PORT_NUMBER> \
+        --type external
+    ```
+
+Use internal app ingress only for apps that other container apps in the same environment call, such as a backend service in a microservices application.
+
 ## Protocol types
 
 Container Apps supports two protocols for ingress: HTTP and TCP.
