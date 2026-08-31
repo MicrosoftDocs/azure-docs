@@ -1354,6 +1354,30 @@ groups:
   - id: azure-resource-manager
     title: ARM template
 # Owner: duau
+- id: vpn-client-os
+  title: Client operating system
+  prompt: "Select the client operating system:"
+  pivots:
+  - id: windows
+    title: Windows
+  - id: macos
+    title: macOS
+  - id: linux
+    title: Linux
+  - id: ios
+    title: iOS
+# Owner: duau
+- id: vpn-client-radius-auth
+  title: Authentication method
+  prompt: "Select the authentication method:"
+  pivots:
+  - id: certificate
+    title: Certificate
+  - id: password
+    title: Password
+  - id: other
+    title: Other methods and protocols
+# Owner: duau
 - id: expressroute-experience
   title: ExpressRoute experience
   prompt: "Select your ExpressRoute create experience:"

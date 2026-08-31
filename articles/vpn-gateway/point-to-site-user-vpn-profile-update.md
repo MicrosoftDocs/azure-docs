@@ -51,7 +51,7 @@ After generating the new profile, distribute it to all end users and install the
 
 The installation steps depend on the authentication method, tunnel type, client OS, and VPN client software you're using. For detailed installation instructions for your specific configuration:
 
-- For Microsoft Entra ID or Certificate-based authentication, see the table in [Configure Azure VPN Client for P2S certificate authentication connections - Windows](point-to-site-vpn-client-certificate-windows-azure-vpn-client.md#before-you-begin).
+- For Microsoft Entra ID or Certificate-based authentication, see the table in [Configure a VPN client for P2S certificate authentication connections](point-to-site-vpn-client-certificate.md#before-you-begin).
 - For RADIUS-based authentication, see the "VPN Client Configuration" section in the [Point-to-Site RADIUS VPN Gateway](point-to-site-radius-gateway.md) article.
 
 > [!NOTE]

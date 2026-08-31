@@ -7759,6 +7759,56 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-native.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-azure-vpn-client.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-openvpn-client.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-certificate-client-linux-azure-vpn-client.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-linux.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-ike-linux.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-cert-mac.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-mac.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-ios.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/dns/dns-sdk.md",
       "redirect_url": "https://learn.microsoft.com/dotnet/api/overview/azure/resourcemanager.dns-readme",
       "redirect_document_id": false
