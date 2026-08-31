@@ -77,7 +77,7 @@ endpoint and request body:
   ```
 
 In the preceding examples, the new management group is created under the root management group. To
-specify a different management group as the parent, use the **properties.parent.id** property.
+specify a different management group as the parent, use the **properties.details.parent.id** property.
 
 - REST API URI
 
@@ -91,8 +91,10 @@ specify a different management group as the parent, use the **properties.parent.
   {
     "properties": {
       "displayName": "Contoso Group",
-      "parent": {
-        "id": "/providers/Microsoft.Management/managementGroups/HoldingGroup"
+      "details": {
+        "parent": {
+          "id": "/providers/Microsoft.Management/managementGroups/HoldingGroup"
+        }
       }
     }
   }
