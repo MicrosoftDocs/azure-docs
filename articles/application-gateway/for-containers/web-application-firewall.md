@@ -34,6 +34,10 @@ The WebApplicationFirewallPolicy resource can also reference the following secti
 
 * `Gateway`: `Listener`
 
+### WAF Policy Configuration
+
+The WAF policy must exist before you can assign it. Additionally, the service principal of the Application Load Balancer (ALB) Controller needs the permission `microsoft.network/applicationgatewaywebapplicationfirewallpolicies/join/action` on the WAF policy you want to assign. This service principal is named `azure-alb-identity` in the documentation. The permission is part of the `Network Contributor` role or you can assign a custom role. 
+
 ### Example implementations
 
 #### Scope a policy to a Gateway resource
@@ -129,6 +133,27 @@ spec:
     namespace: test-infra
   webApplicationFirewall:
     id: /subscriptions/.../Microsoft.Network/applicationGatewayWebApplicationFirewallPolicies/waf-policy-1
+```
+
+## Common Issues
+
+The most common issues are that either the WAF policy you want to assign does not exist or that the service principal of the ALB does not have enough permissions to attach the WAF policy. 
+
+Use the following command to check the status of the deployment of the WAF policy:
+
+```azurecli-interactive
+kubectl get WebApplicationFirewallPolicy -n test-infra
+```
+You should see the following output:
+   
+| NAME            | Deployment  |  AGE  |
+| --------------- | ----------- | ----- |
+| waf-policy-0    | True        | 5m16s |
+
+If the Deployment is `False` then use the following command to examine the policy assignment:
+
+```azurecli-interactive
+kubectl describe WebApplicationFirewallPolicy waf-policy-0 -n test-infra
 ```
 
 ## Limitations
