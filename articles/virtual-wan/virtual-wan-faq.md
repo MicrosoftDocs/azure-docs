@@ -339,6 +339,10 @@ When VPN sites connect into a hub, they do so with connections. Virtual WAN supp
 
 Yes, NAT traversal (NAT-T) is supported. The Virtual WAN VPN gateway will NOT perform any NAT-like functionality on the inner packets to/from the IPsec tunnels. In this configuration, ensure the on-premises device initiates the IPsec tunnel.
 
+### How many NAT rules can I use on a VPN gateway?
+
+You can create up to 100 NAT rules (ingress and egress rules combined) on a VPN gateway.
+
 ### How can I configure a scale unit to a specific setting like 20-Gbps?
 
 Go to the VPN gateway inside a hub on the portal, then select the scale unit to change it to the appropriate setting.
