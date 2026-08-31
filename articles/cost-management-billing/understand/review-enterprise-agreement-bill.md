@@ -38,6 +38,7 @@ You receive an Azure invoice when any of the following events occur during your 
 
 - **Service overage**: Your organization's usage charges exceed your credit balance.
 - **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services despite your credit balance. The services shown are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Azure portal > Cost management + Billing > Select billing account > Billing > Usage+Charges > Click on Billing month > Charges by service> SERVICES dropdown > Select CHARGES BILL SEPARATELY allows customers to download this report. Please remove this option to contact support and update these steps to self serve download this report.
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
