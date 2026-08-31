@@ -90,17 +90,17 @@ When accessing the Microsoft Graph, the managed identity needs to have proper pe
     ```azurecli-interactive
     az login
     
-    webAppName="SecureWebApp-20201106120003"
+    $webAppName="SecureWebApp-20201106120003"
     
-    spId=$(az resource list -n $webAppName --query [*].identity.principalId --out tsv)
+    $spId=$(az resource list -n $webAppName --query [*].identity.principalId --out tsv)
     
-    graphResourceId=$(az ad sp list --display-name "Microsoft Graph" --query [0].id --out tsv)
+    $graphResourceId=$(az ad sp list --display-name "Microsoft Graph" --query [0].id --out tsv)
     
-    appRoleId=$(az ad sp list --display-name "Microsoft Graph" --query "[0].appRoles[?value=='User.Read.All' && contains(allowedMemberTypes, 'Application')].id" --output tsv)
+    $appRoleId=$(az ad sp list --display-name "Microsoft Graph" --query "[0].appRoles[?value=='User.Read.All' && contains(allowedMemberTypes, 'Application')].id" --output tsv)
     
-    uri=https://graph.microsoft.com/v1.0/servicePrincipals/$spId/appRoleAssignments
+    $uri="https://graph.microsoft.com/v1.0/servicePrincipals/$spId/appRoleAssignments"
     
-    body="{'principalId':'$spId','resourceId':'$graphResourceId','appRoleId':'$appRoleId'}"
+    $body="{'principalId':'$spId','resourceId':'$graphResourceId','appRoleId':'$appRoleId'}"
     
     az rest --method post --uri $uri --body $body --headers "Content-Type=application/json"
     ```
