@@ -5,7 +5,7 @@ author: msangapu-msft
 tags: app-service
 
 ms.topic: concept-article
-ms.date: 12/02/2025
+ms.date: 08/24/2026
 ms.update-cycle: 180-days
 ms.author: msangapu
 ms.collection: ce-skilling-ai-copilot
@@ -102,7 +102,7 @@ If you run your workloads in an isolated product by using App Service Environmen
 
 If your applications need extra time during restarts to come online, consider using [health check](monitor-instances-health-check.md). A typical pattern for needing extra time is heavy dependency on external resources during application warmup or startup.
 
-You can use health check to inform the platform that your application isn't ready to receive requests yet. The system can use that information to route requests to other instances in your App Service plan. For such cases, we recommend that you have at least two instances in the plan.
+You can use health check to inform the platform that your application isn't ready to receive requests yet. The system can use that information to route requests to other active instances of the application. For such cases, we recommend that the application have at least two active replicas and that its App Service plan have sufficient capacity. Scaling the plan alone isn't enough when [per-app scaling](manage-scale-per-app.md) caps the application at one instance.
 
 ### My applications have been online, but things are worse since these notifications started showing up. What changed?
 

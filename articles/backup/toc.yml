@@ -601,6 +601,18 @@
         href: backup-azure-cosmos-db-restore.md
       - name: Manage
         href: backup-azure-cosmos-db-manage.md
+    - name: With Azure CLI
+      items:
+      - name: Backup
+        href: backup-azure-cosmos-db-using-cli.md
+      - name: Restore
+        href: backup-azure-cosmos-db-restore-cli.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: backup-azure-cosmos-db-using-powershell.md
+      - name: Restore
+        href: backup-azure-cosmos-db-restore-powershell.md
 - name: Azure Database for MySQL - Flexible Server backup (preview)
   items:
   - name: Overview

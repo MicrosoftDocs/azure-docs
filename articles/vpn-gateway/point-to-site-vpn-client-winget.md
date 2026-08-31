@@ -2,11 +2,11 @@
 title: 'Install P2S VPN clients - Using Winget'
 titleSuffix: Azure VPN Gateway
 description: Learn how to install the VPN client for VPN Gateway P2S configurations with WinGet/Windows Package Manager. This article applies to Windows Azure VPN client.
-author: flapinski
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/26/2026
-ms.author: flapinski
+ms.author: duau
 # Customer intent: As a Windows user configuring a VPN client, I want to install the Azure VPN client using WinGet, so that I can securely connect to my Azure virtual network.
 ---
 
@@ -24,7 +24,7 @@ Windows Package Manager (`winget`) is a built-in command-line tool for Windows t
 See more on Azure VPN Client supported windows settings [here](azure-vpn-client-versions.md).
 
 ## Prerequisites 
- - **Windows Package Manager (winget)** must be available on your system. Learn more about installation [here](https://learn.microsoft.com/windows/package-manager/winget/).
+ - **Windows Package Manager (winget)** must be available on your system. Learn more about installation [here](/windows/package-manager/winget/).
 - An active internet connection is required to download the package. 
 - Administrator rights are **not** required to install or connect. 
 
@@ -88,9 +88,9 @@ For the direct download option, visit: [https://aka.ms/azvpnclientdownload](http
 
 ## Learn More
 - [Azure VPN Client documentation](point-to-site-about.md) 
-- [Configure Azure VPN Client — Point-to-Site connections](point-to-site-vpn-client-certificate-windows-azure-vpn-client.md) 
-- [Windows Package Manager (winget) documentation](https://learn.microsoft.com/windows/package-manager/winget/) 
-- [winget install command reference](https://learn.microsoft.com/windows/package-manager/winget/install) 
+- [Configure a VPN client for P2S certificate authentication connections](point-to-site-vpn-client-certificate.md)
+- [Windows Package Manager (winget) documentation](/windows/package-manager/winget/)
+- [winget install command reference](/windows/package-manager/winget/install)
 
 --- 
 

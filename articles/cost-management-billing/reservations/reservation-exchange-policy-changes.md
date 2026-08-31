@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: concept-article
-ms.date: 07/22/2026
+ms.date: 08/27/2026
 author: onwokolo
 ---
 
@@ -45,6 +45,10 @@ You purchase a one-year or three-year compute or database reservation **after** 
 ### Scenario 3
 
 You purchase a one-year or three-year compute or database reservation with 10 quantities **before** February 1, 2027. After February 1, 2027, you exchange 2 quantities of the compute reservation. You can still exchange each of the remaining 8 quantities on the original reservation one more time. You can always trade in the reservation for a savings plan.
+
+### Scenario 4
+
+You purchase a one-year or three-year compute or database reservation **before** February 1, 2027, and enable automatic renewal (or manually renew it). The renewal occurs after February 1, 2027. Because a renewal is processed as a cancellation of the original reservation and a new reservation purchase, the new reservation is governed by the February 1, 2027 terms and isn't exchangeable. You can always trade in the reservation for a savings plan.
 
 ## Related content
 

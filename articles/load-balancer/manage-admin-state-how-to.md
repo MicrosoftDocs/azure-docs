@@ -94,7 +94,7 @@ In this section, you learn how to set an admin state to **Up** or **Down** as pa
     
     $vnet = Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rsg
     $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
-    $ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState “DOWN”
+    $ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState "DOWN"
     $lb | New-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Name $bep
     ```
 
@@ -113,7 +113,7 @@ $ben = "MyBackend"
 
 $vnet = Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rsg
 $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
-$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState “DOWN”
+$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState "DOWN"
 $lb | New-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Name $bep
 
 ```
@@ -129,7 +129,7 @@ $lb | New-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Nam
         --lb-name <lb-name> \
         -n <lb-backend-pool-name> \
         --vnet <virtual-network-name> \
-        --backend-address “{name: <new-lb-backend-pool-address-name>,ip-address:<new-lb-backend-pool-address>}” \
+        --backend-address "{name: <new-lb-backend-pool-address-name>,ip-address:<new-lb-backend-pool-address>}" \
         --admin-state <admin-state-value>
     ```
 
@@ -143,7 +143,7 @@ az network lb address-pool create \
     --lb-name MyLb \
     -n MyAddressPool \
     --vnet MyVnet \
-    --backend-address “{name: MyBackend,ip-address:10.0.2.4}” \
+    --backend-address "{name: MyBackend,ip-address:10.0.2.4}" \
     --admin-state DOWN
 ```
 
@@ -186,7 +186,7 @@ In this section, you learn how to set an admin state to **Up** or **Down** as pa
     
     $vnet = Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rsg
     $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
-    $ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState “UP”
+    $ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState "UP"
     $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Name $bep
     ```
 
@@ -206,7 +206,7 @@ $ben = "MyBackend"
 
 $vnet = Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rsg
 $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
-$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState “UP”
+$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState "UP"
 $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Name $bep
 
 ```
@@ -222,7 +222,7 @@ $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Nam
         --lb-name <lb-name> \
         -n <lb-backend-pool-name> \
         --vnet <virtual-network-name> \
-        --backend-address “{name: <new-lb-backend-pool-address-name>,ip-address:<new-lb-backend-pool-address>}” |
+        --backend-address "{name: <new-lb-backend-pool-address-name>,ip-address:<new-lb-backend-pool-address>}" \
         --admin-state <admin-state-value>
     ```
 
@@ -237,7 +237,7 @@ az network lb address-pool update \
     --lb-name MyLb \
     -n MyAddressPool \
     --vnet MyVnet \
-    --backend-address “{name: MyBackend,ip-address:10.0.2.4}” |
+    --backend-address "{name: MyBackend,ip-address:10.0.2.4}" \
     --admin-state UP
 
 ```
@@ -279,7 +279,7 @@ In this section, you learn how to update an existing admin state from existing b
     
     $vnet = Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rsg
     $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
-    $ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState “DOWN”
+    $ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState "DOWN"
     $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Name $bep
     
     ```
@@ -299,7 +299,7 @@ $ben = "MyBackend"
 
 $vnet = Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rsg
 $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
-$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState “DOWN”
+$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState "DOWN"
 $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Name $bep
 
 ```
@@ -315,7 +315,7 @@ $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Nam
         -g <resource-group> \
         --lb-name <lb-name> \
         -n <lb-backend-pool-name> \
-        --backend-address “{name: <lb-backend-pool-address-name>,ip-address:<lb-backend-pool-address>}” |
+        --backend-address "{name: <lb-backend-pool-address-name>,ip-address:<lb-backend-pool-address>}" \
         --admin-state <admin-state-value>
     
     ```
@@ -330,7 +330,7 @@ $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Nam
         -g MyResourceGroup \
         --lb-name MyLb \
         -n MyAddressPool \
-        --backend-address “{name: MyBackend,ip-address:10.0.2.4}” |
+        --backend-address "{name: MyBackend,ip-address:10.0.2.4}" \
         --admin-state DOWN
     
 ```
@@ -372,7 +372,7 @@ In this section, you learn how to remove an existing admin state from an existin
     # Remove the admin state from the backend pool instance
     $vnet = Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rsg
     $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
-    $ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState “NONE”
+    $ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState "NONE"
     $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Name $bep
     
     ```
@@ -393,7 +393,7 @@ $ip = "10.0.2.4"
 # Remove the admin state from the backend pool instance
 $vnet = Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rsg
 $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
-$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState “NONE”
+$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress $ip -Name $ben -VirtualNetworkId $vnet.Id -AdminState "NONE"
 $lb | Set-AzLoadBalancerBackendAddressPool -LoadBalancerBackendAddress $ip1 -Name $bep
 
 ```
@@ -410,7 +410,7 @@ az network lb address-pool update \
     -g <resource-group> \
     --lb-name <lb-name> \
     -n <lb-backend-pool-name> \
-    --backend-address “{name: <lb-backend-pool-address-name>,ip-address:<lb-backend-pool-address>}” |
+    --backend-address "{name: <lb-backend-pool-address-name>,ip-address:<lb-backend-pool-address>}" \
     --admin-state <admin-state-value>
 
 ```

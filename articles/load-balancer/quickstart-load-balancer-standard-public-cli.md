@@ -5,7 +5,7 @@ description: This quickstart shows how to create a public load balancer using th
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 07/07/2026
+ms.date: 08/27/2026
 ms.author: mbender
 ms.custom:
   - mvc
@@ -224,7 +224,7 @@ Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vn
     --resource-group load-balancer-cli-rg \
     --name AzureBastionSubnet \
     --vnet-name lb-vnet \
-    --address-prefixes 10.1.1.0/27
+    --address-prefixes 10.1.1.0/26
 ```
 
 ### Create bastion host
