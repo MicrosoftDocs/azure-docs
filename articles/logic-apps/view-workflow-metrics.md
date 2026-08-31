@@ -7,7 +7,7 @@ author: kewear
 ms.author: kewear
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ai.usage: ai-assisted
+ai-usage: ai-assisted
 ms.update-cycle: 1095-days 
 ms.date: 04/27/2026
 # Customer intent: As an integration developer who works with Azure Logic Apps, I want to review the health and performance metrics for my workflows.

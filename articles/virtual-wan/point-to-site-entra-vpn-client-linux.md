@@ -10,7 +10,7 @@ ms.author: duau
 author: duongau
 ---
 
-# Configure Azure VPN Client – Microsoft Entra ID authentication – Linux (Preview)
+# Configure Azure VPN Client – Microsoft Entra ID authentication – Linux (Retired)
 
 [!INCLUDE [Linux retirement](../../includes/vpn-gateway-azure-vpn-client-linux-retirement.md)]
 

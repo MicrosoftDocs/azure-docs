@@ -230,6 +230,8 @@
       href: ../scheduler/durable-task-scheduler.md
     - name: How it works
       href: ../scheduler/develop-with-durable-task-scheduler.md
+    - name: Work item filtering
+      href: ../scheduler/work-item-filtering.md
     - name: Develop
       items:
       - name: Configure autoscale for Container Apps

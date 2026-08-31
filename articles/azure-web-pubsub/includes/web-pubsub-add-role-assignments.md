@@ -4,12 +4,12 @@ description: include file
 author: terencefan
 ms.service: azure-web-pubsub
 ms.topic: include
-ms.date: 03/12/2025
+ms.date: 08/28/2026
 ms.author: tefa
 ms.custom: include file
 ---
 
-This section shows how to assign a `Web PubSub Service Owner` role to a service principal or managed identity for a Web PubSub resource.
+This section shows how to assign an Azure role to a service principal or managed identity for a Web PubSub resource.
 For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 > [!NOTE]
@@ -23,12 +23,15 @@ For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-
 
    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows the page for access control and selections for adding a role assignment.":::
 
-1. On the **Role** tab, select **Web PubSub Service Owner** or other Web PubSub built-in roles depends on your scenario.
+1. On the **Role** tab, select a Web PubSub built-in role or custom role that includes the permissions required by your application.
 
-   | Role                                                                                              | Description                                                                                               | Use case                                                                                                                                     |
-   | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-   | [Web PubSub Service Owner](/azure/role-based-access-control/built-in-roles#web-pubsub-service-owner)           | Full access to data-plane APIs, including read/write REST APIs and Auth APIs.                                               | Most commonly used for building a upstream server that handles negotiation requests and client events.                                                                                                             |
-   | [Web PubSub Service Reader](/azure/role-based-access-control/built-in-roles#web-pubsub-service-reader)           | Readonly access to data-plane APIs.                                                | Use it when write a monitoring tool that calls readonly REST APIs.
+   | Role | Description | Use case |
+   | --- | --- | --- |
+   | [Web PubSub Service Owner](/azure/role-based-access-control/built-in-roles#web-pubsub-service-owner) | Full access to data-plane APIs, including read/write REST APIs and Auth APIs. | Most commonly used for building an upstream server that handles negotiation requests and client events. |
+   | [Web PubSub Service Reader](/azure/role-based-access-control/built-in-roles#web-pubsub-service-reader) | Read-only access to data-plane APIs. | Use it when writing a monitoring tool that calls read-only REST APIs. |
+
+   > [!TIP]
+   > Follow the principle of least privilege by using a [custom role](/azure/role-based-access-control/custom-roles) with only the required [Web PubSub data-plane permissions](/azure/role-based-access-control/permissions/web-and-mobile#microsoftsignalrservice). To generate a client access token and use it to connect, the identity requires both `Microsoft.SignalRService/WebPubSub/clientConnection/generateToken/action` and `Microsoft.SignalRService/WebPubSub/clientConnection/write`. No narrower built-in role includes both permissions.
 
 1. Select Next.
 

@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.date: 08/04/2026
-ms.date-cycle: 365 days
+ms.update-cycle: 365-days
 ms.custom:
   - subject-rbac-steps
   - devx-track-arm-template

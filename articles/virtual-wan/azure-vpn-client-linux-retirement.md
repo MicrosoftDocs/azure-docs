@@ -11,18 +11,18 @@ ms.author: duau
 ---
 # Azure VPN Client for Linux: Retirement overview and migration guide - Virtual WAN
 
-The Azure VPN Client for Linux (preview), which is the Microsoft-provided VPN client application used to establish Point-to-Site (P2S) connections from Linux machines to Azure VPN gateways (for both Virtual WAN and VPN Gateway), is being retired on August 31, 2026.
+The Azure VPN Client for Linux (preview), the Microsoft-provided VPN client application used to establish Point-to-Site (P2S) connections from Linux devices to Azure VPN gateways (for both Virtual WAN and VPN Gateway), retired on August 31, 2026.
 
 The client remained in public preview since its release and doesn't have a path to general availability (GA). As part of Microsoft's ongoing effort to align Azure networking services with current security and reliability standards, we have made the decision to retire this preview client rather than continue to maintain an unsupported preview indefinitely.
 
-This retirement doesn't affect the Azure Virtual WAN VPN gateway itself, Azure VPN Client for Windows, Azure VPN Client for macOS, or any Site-to-Site VPN functionality. Only the Linux preview client application (microsoft-azurevpnclient package) is being retired.
+This retirement doesn't affect Azure VPN gateway itself, Azure VPN Client for Windows, Azure VPN Client for macOS, or any Site-to-Site VPN functionality. Only the Linux preview client application (microsoft-azurevpnclient package) was retired.
 
 * See the [FAQ and additional resources](#faq) section of this article for more details on the rationale, timing, alternatives, and impact of this retirement.
 * For VPN Gateway, see the [VPN Gateway article](../vpn-gateway/azure-vpn-client-linux-retirement.md).
 
 ## <a name="steps"></a>What steps do I need to take?
 
-Before August 31, 2026, transition your Linux VPN users to one of the following supported alternatives for Azure Virtual WAN P2S connections.
+Transition your Linux VPN users to one of the following supported alternatives for Azure Virtual WAN P2S connections, as the Azure VPN Client for Linux retired on August 31, 2026.
 
 Note that some of the links in this section point to Azure VPN Gateway documentation. The migration steps and supported alternatives are the same for both Virtual WAN and VPN Gateway, so the linked configuration articles apply to both services.
 
