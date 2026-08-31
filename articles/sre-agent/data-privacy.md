@@ -27,11 +27,15 @@ For more information about non-Microsoft data access, see [Microsoft Data Access
 
 ## Data residency
 
-- The SRE Agent transfers and stores all content and conversation history in its Azure region. This data includes prompts, responses, and resource analysis.  
+Data shared and generated while using SRE Agent follows these data residency standards:
 
-- The SRE Agent transfers all data to its Azure region, regardless of the Azure region of origin for the services it manages.
+- The agent transfers and stores all content and conversation history in its Azure region. This includes prompts, responses, and resource analysis.  
 
-- The SRE Agent processes and stores data within the region you select when you create the agent.
+- All data is transfered to the agent's Azure region, regardless of the region of origin for the services it manages.
+
+- Data is processed and stored within the region you select when you create the agent.
+
+- Inference data may leave your selected region, with the exception of agents in EU regions.
 
 ## Privacy
 
