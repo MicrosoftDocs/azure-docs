@@ -145,7 +145,7 @@ Connector namespace pricing uses a consumption model. Charges for connector acti
 | Configurable MCP connectors | Per tool call        |
 | Data retention              | Per GB monthly     |
 
-Per-unit rates are published under **Connector pricing** on the [Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/).
+Connector per-unit rates are published under **Connector pricing** on the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 MCP connector tool calls are metered based on the underlying connector action calls.
 
