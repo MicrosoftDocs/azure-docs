@@ -128,16 +128,6 @@
       href: migrate-tutorial-windows-server-2008.md
     - name: Migrate AWS instances to Azure
       href: migrate-tutorial-aws-azure.md
-  - name: VMware VM disaster recovery to Azure
-    items:
-    - name: Prepare Azure
-      href: tutorial-prepare-azure.md
-    - name: Prepare on-premises VMware
-      href: vmware-azure-tutorial-prepare-on-premises.md
-    - name: Run a disaster recovery drill
-      href: tutorial-dr-drill-azure.md
-    - name: Run VMware VMs failover to Azure
-      href: vmware-azure-tutorial-failover-failback-modernized.md
 - name: Concepts
   items:
   - name: Support matrices
