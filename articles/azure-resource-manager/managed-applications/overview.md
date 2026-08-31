@@ -2,7 +2,7 @@
 title: Overview of Azure Managed Applications
 description: Describes the concepts for Azure Managed Applications that provide cloud solutions that are easy for customers to deploy and operate.
 ms.topic: overview
-ms.date: 06/24/2024
+ms.date: 03/20/2026
 ---
 
 # Azure Managed Applications overview
@@ -96,6 +96,8 @@ Managed applications use the `Microsoft.Solutions` resource provider with ARM te
 ## Azure Policy
 
 You can apply an [Azure Policy](../../governance/policy/overview.md) to audit your managed application. You apply policy definitions to make sure deployed instances of your managed application fulfill data and security requirements. If your application interacts with sensitive data, make sure you've evaluated how that should be protected. For example, if your application interacts with data from Microsoft 365, apply a policy definition to make sure data encryption is enabled.
+
+Note that publisher operations are [exempt from policy evaluation](https://github.com/Azure/azure-policy?tab=readme-ov-file#resources-that-are-exempt-from-policy-evaluation) as these are cross-tenant requests. The compliance list will show resources as non-compliant, but the requests themselves do not trigger the deny effect.
 
 ## Next steps
 
