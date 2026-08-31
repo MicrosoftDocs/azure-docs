@@ -35,7 +35,7 @@ Data shared and generated while using SRE Agent follows these data residency sta
 
 - Data is processed and stored within the region you select when you create the agent.
 
-- Inference data may leave your selected region, with the exception of agents in EU regions.
+- When using Azure OpenAI, Inference data may leave your selected region, with the exception of agents in EU regions.
 
 ## Privacy
 
