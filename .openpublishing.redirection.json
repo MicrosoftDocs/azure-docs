@@ -4004,6 +4004,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/azure-web-pubsub/howto-create-serviceclient-with-java-and-azure-identity.md",
+      "redirect_url": "/azure/azure-web-pubsub/howto-use-azure-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-web-pubsub/howto-create-serviceclient-with-javascript-and-azure-identity.md",
+      "redirect_url": "/azure/azure-web-pubsub/howto-use-azure-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-web-pubsub/howto-create-serviceclient-with-net-and-azure-identity.md",
+      "redirect_url": "/azure/azure-web-pubsub/howto-use-azure-identity",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-web-pubsub/howto-create-serviceclient-with-python-and-azure-identity.md",
+      "redirect_url": "/azure/azure-web-pubsub/howto-use-azure-identity",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-sql-edge/alter-external-stream-transact-sql.md",
       "redirect_url": "/azure/azure-sql-edge/release-notes",
       "redirect_document_id": false
