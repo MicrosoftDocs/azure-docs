@@ -17,6 +17,10 @@ You can follow and subscribe to Site Recovery update notifications in the [Azure
 
 ## Updates (August 2026)
 
+### Azure Site Recovery support for Linux Azure VMs with NVMe disk controllers
+ 
+Azure Site Recovery now supports replication and disaster recovery for Linux Azure Virtual Machines running on NVMe-enabled Generation 2 VM families, such as the Da/Ea/Fa v6-series, Ddsv6, Edsv6 and Ebsv5/Ebdsv5 in the Azure-to-Azure scenario. This enhancement allows you to enable disaster recovery for your Azure VMs running high-performance, I/O-intensive workloads (subject to Azure Site Recovery churn support) with the NVMe disk controller. This capability is supported across all Azure public cloud regions. [Learn more](azure-to-azure-support-matrix.md).
+
 ### BYON (Bring Your Own NIC) in Azure Site Recovery
 
 Azure Site Recovery now supports use of an existing, preprovisioned Network Interface Card (NIC) if you precreate it in the target region for test failover and failover in the Azure-to-Azure scenario. 
