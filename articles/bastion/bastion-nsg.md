@@ -201,6 +201,29 @@ foreach ($rule in $rules) {
 }
 ```
 
+### [Azure CLI](#tab/azurecli)
+
+Use the following script to create all required NSG rules for Azure Bastion.
+
+```azurecli
+# Connect to Azure Account
+az login
+# Get the Network Security Group details
+read -p "Enter the name of the Resource Group: " resourceGroupName
+read -p "Enter the name of the Network Security Group: " nsgName
+# Create the Network Security Group
+az network nsg create --resource-group $resourceGroupName --name $nsgName
+# Ingress and Egress rules in the Network Security Group
+az network nsg rule create --name "AllowHttpsInbound" --nsg-name $nsgName --resource-group $resourceGroupName --priority 120 --direction "Inbound" --access "Allow" --source-address-prefixes "Internet" --source-port-ranges "*" --destination-address-prefixes "*" --destination-port-ranges "443" --protocol "Tcp"
+az network nsg rule create --name "AllowGatewayManagerInbound" --nsg-name $nsgName --resource-group $resourceGroupName --priority 130 --direction "Inbound" --access "Allow" --source-address-prefixes "GatewayManager" --source-port-ranges "*" --destination-address-prefixes "*" --destination-port-ranges "443" --protocol "Tcp"
+az network nsg rule create --name "AllowAzureLoadBalancerInbound" --nsg-name $nsgName --resource-group $resourceGroupName --priority 140 --direction "Inbound" --access "Allow" --source-address-prefixes "AzureLoadBalancer" --source-port-ranges "*" --destination-address-prefixes "*" --destination-port-ranges "443" --protocol "Tcp"
+az network nsg rule create --name "AllowBastionHostCommunication" --nsg-name $nsgName --resource-group $resourceGroupName --priority 150 --direction "Inbound" --access "Allow" --source-address-prefixes "VirtualNetwork" --source-port-ranges "*" --destination-address-prefixes "VirtualNetwork" --destination-port-ranges 8080 5701 --protocol "Tcp"
+az network nsg rule create --name "AllowSshRdpOutbound" --nsg-name $nsgName --resource-group $resourceGroupName --priority 100 --direction "Outbound" --access "Allow" --source-address-prefixes "*" --source-port-ranges "*" --destination-address-prefixes "VirtualNetwork" --destination-port-ranges 22 3389 --protocol "Tcp"
+az network nsg rule create --name "AllowAzureCloudOutbound" --nsg-name $nsgName --resource-group $resourceGroupName --priority 110 --direction "Outbound" --access "Allow" --source-address-prefixes "*" --source-port-ranges "*" --destination-address-prefixes "AzureCloud" --destination-port-ranges "443" --protocol "Tcp"
+az network nsg rule create --name "AllowBastionCommunication" --nsg-name $nsgName --resource-group $resourceGroupName --priority 120 --direction "Outbound" --access "Allow" --source-address-prefixes "VirtualNetwork" --source-port-ranges "*" --destination-address-prefixes "VirtualNetwork" --destination-port-ranges 8080 5701 --protocol "Tcp"
+az network nsg rule create --name "AllowHttpOutbound" --nsg-name $nsgName --resource-group $resourceGroupName --priority 130 --direction "Outbound" --access "Allow" --source-address-prefixes "*" --source-port-ranges "*" --destination-address-prefixes "Internet" --destination-port-ranges "80" --protocol "Tcp"
+```
+
 ---
 
 ## Next steps
