@@ -71,6 +71,9 @@ This configuration is recommended for scenarios where you want to isolate both t
 
 :::image type="content" source="./media/inject-vnet-v2/vnet-injection.png" alt-text="Diagram of injecting an API Management instance in a virtual network to isolate inbound and outbound traffic."  :::
 
+> [!NOTE]
+> When using VNet injection (Internal mode), the `publicNetworkAccess` property is not applicable. The network perimeter is controlled by the customer through NSG rules and VNet routing. Setting `publicNetworkAccess` to either `Enabled` or `Disabled` on a VNet-injected instance has no effect on traffic behaviour.
+
 For more information, see [Inject a Premium v2 instance into a virtual network](inject-vnet-v2.md).
 
 ## Virtual network integration (v2 tiers)
