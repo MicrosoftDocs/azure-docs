@@ -32,6 +32,9 @@ Application Gateway for Containers uses Azure Web Application Firewall to block 
   - Provisioned your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)).
   - Provisioned the Application Gateway for Containers resources via the [`ApplicationLoadBalancer` custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 
+- The `WAF Policy`, referenced under `webApplicationFirewall` in the later examples must already exist before the `WebApplicationFirewallPolicy` is applied. Make sure that the policy is enabled as well. For more details about the WAF Policy see the [Azure CLI documentation](/azure/network/application-gateway/waf-policy).
+- The managed identity of the ALB Controller, which is usually named azure-alb-identity, must have the permission `microsoft.network/applicationgatewaywebapplicationfirewallpolicies/join/action` assigned on the WAF policy you want to assign. The permission is part of the `Network Contributor` role or you can assign a custom role.
+  
 - Apply the following `deployment.yaml` file on your cluster to create a sample web application that demonstrates the header rewrite:
 
   ```bash
@@ -331,3 +334,26 @@ curl -k --resolve contoso.com:80:$fqdnIp http://contoso.com/?1=1=1
 ```
 
 Congratulations! You installed an ALB Controller, deployed a back-end application, and used Azure Web Application Firewall functionality to block a malicious request.
+
+## Common Issues
+
+The most common issues are that either the `WAF policy` you want to assign does not exist or that the managed identity of the `ALB` does not have enough permissions to attach the `WAF policy`. 
+
+Use the following command to check the status of the deployment of the `WAF policy`:
+
+```azurecli-interactive
+kubectl get WebApplicationFirewallPolicy -n test-infra
+```
+You should see the following output:
+
+| NAME                 | Deployment  |  AGE  |
+| -------------------- | ----------- | ----- |
+| sample-waf-policy    | True        | 5m16s |
+
+If the Status is `False` then use the following command to examine the policy assignment:
+
+```azurecli-interactive
+kubectl describe WebApplicationFirewallPolicy sample-waf-policy -n test-infra
+```
+
+If everything is setup correctly but you still don't see any results, make sure that the `WAF policy` you assigned is enabled and whether the `Policy mode` is set to `Detection` or `Prevention`. `Detection` only logs the outcome of the policy but does not enforce it. To enforce it, use `Prevention`.
