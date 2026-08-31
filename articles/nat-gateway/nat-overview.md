@@ -7,7 +7,7 @@ description: Overview of Azure NAT Gateway features, resources, architecture, an
 author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: overview
-ms.date: 07/29/2026
+ms.date: 08/31/2026
 ms.author: alittleton
 ms.customs: references_regions
 
@@ -157,6 +157,12 @@ Azure NAT Gateway provides secure, scalable outbound connectivity for resources 
   Here's the flow:
 
   UDR to next hop virtual appliance or virtual network gateway >> NAT gateway >> instance-level public IP address on a virtual machine >> load balancer outbound rules >> default system route to the internet.
+
+### Outbound connectivity for Standard internal load balancers
+
+Backend virtual machines that use a Standard internal load balancer need an explicit outbound method to reach the internet. Associate a NAT gateway with the backend subnet to provide SNAT. This configuration doesn't require a public load balancer or public IP addresses on individual virtual machines.
+
+For configuration steps, see [Integrate a NAT gateway with an internal load balancer](./tutorial-nat-gateway-load-balancer-internal-portal.md). If the backend virtual machines can't reach the internet, see [Troubleshoot no outbound connectivity from Standard internal load balancers](/troubleshoot/azure/load-balancer/troubleshoot-common-problems/no-outbound-connectivity-standard-internal-load-balancers).
 
 ### NAT gateway configurations
 
