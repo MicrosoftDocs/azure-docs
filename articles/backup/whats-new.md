@@ -81,13 +81,13 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Auto-protection support for Azure Blob backup for up to 1,000 containers
 
-Azure Backup now supports auto-protection for Azure Blob backup for up to 1,000 containers in a storage account. With auto-protection, you can configure backup for all present and future containers in a storage account without selecting each container individually.
+Azure Backup now supports auto-protection for Azure Blob backup for up to 1,000 containers in a storage account. By using auto-protection, you can configure backup for all present and future containers in a storage account without selecting each container individually.
 
 For more information, see [Configure Azure Blob backup](blob-backup-configure-manage.md#configure-backups).
 
 ## Auto-protection support for Azure Data Lake Storage backup for up to 1,000 containers
 
-Azure Backup now supports auto-protection for Azure Data Lake Storage backup for up to 1,000 containers in a storage account. With auto-protection, you can configure backup for all present and future containers in a storage account without selecting each container individually.
+Azure Backup now supports auto-protection for Azure Data Lake Storage backup for up to 1,000 containers in a storage account. By using auto-protection, you can configure backup for all present and future containers in a storage account without selecting each container individually.
 
 For more information, see [Configure vaulted backup for Azure Data Lake Storage](azure-data-lake-storage-configure-backup.md#configure-vaulted-backup-for-the-azure-data-lake-storage).
 
