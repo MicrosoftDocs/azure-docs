@@ -47,34 +47,39 @@ To connect to your AKS private cluster:
 
 1. Sign in to your Azure account using `az login` via CLI. If you have more than one subscription, you can view them using `az account list` and select the subscription containing your Bastion resource using:
 
-   ```bash
+   ```azurecli
    az account set --subscription <subscription ID>
    ```
 
 1. Retrieve credentials to your AKS private cluster:
 
-   ```bash
+   ```azurecli
    az aks get-credentials --admin --name <AKSClusterName> --resource-group <ResourceGroupName>
    ```
 
 1. Open the tunnel to your target AKS Cluster with either of the following commands:
 
-   ```bash
+   ```azurecli
    az aks bastion --name <aksClusterName> --resource-group <aksClusterResourceGroup> --admin --bastion <bastionResourceId>
    ```
 
 1. Change the new temporary KUBECONFIG to point to the new Bastion tunnel:
 
-    ```bash
-    export BASTION_PORT=$(ps aux | sed -n 's/.*--port \([0-9]*\).*/\1/p' | head -1)
-    sed -i "s|server: https://.*|server: https://localhost:${BASTION_PORT}|" $KUBECONFIG
-    ```
+   ```azurecli
+   export BASTION_PORT=$(ps aux | sed -n 's/.*--port \([0-9]*\).*/\1/p' | head -1)
+   sed -i "s|server: https://.*|server: https://localhost:${BASTION_PORT}|" $KUBECONFIG
+   az network bastion tunnel --name <BastionName> --resource-group <ResourceGroupName> --target-resource-id <AKSClusterID> --resource-port 443 --port <LocalMachinePort>
+   ```
 
 1. You are now you should be all set to interact with your AKS cluster:
 
    ```bash
-    kubectl get nodes
+   kubectl get pods
    ```
+
+> [!NOTE]
+> For aks-preview versions 19.0.0b16 and below, you must specify the `--server=https://localhost:<LocalMachinePort>` option on all `kubectl` commands. Version 19.0.0b17 and above automatically configures the kubeconfig to point to the correct server..
+> You can check the version of your aks-preview extension by running `az extension show -n aks-preview`
 
 ## Next steps
 
