@@ -144,6 +144,20 @@ By default, the App Service resource provider doesn't have access to your key va
 > [!NOTE]
 > In Azure Resource Manager and RBAC role definitions, App Service is represented by the resource provider namespace `Microsoft.Web`. In automation scripts and some APIs, the service principal might be referenced as `Microsoft.Azure.WebSites`.
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select your Key Vault resource.
+
+1. Under **Access control (IAM)** on the sidebar menu, select **Add** > **Add role assignment**.
+
+1. Choose **Key Vault Certificate User** and select **Next**.
+
+1. Choose **User, group, or service principal** and click **Select members**.
+
+1. Type **Microsoft Azure App Service**, select the service principal from the results area and click **Select**
+
+1. Select **Review + assign** to review the changes and then click **Review + assign** to confirm the changes.
+
 ### [RBAC permissions](#tab/rbac)
 
 | Resource provider | Service principal app ID / assignee | Key Vault RBAC role |
