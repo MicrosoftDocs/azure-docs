@@ -5,7 +5,7 @@ author: kamilsykora
 ms.author: kamils
 
 ms.topic: concept-article
-ms.date: 03/12/2026
+ms.date: 08/24/2026
 ms.service: azure-app-service
 
 # Customer intent: As an App Service user, I want to learn about common reasons for restarts and downtime during routine maintenance so that I can minimize disruptions.
@@ -26,7 +26,7 @@ There are different ways that an update strategy could be designed and those dif
  
 There are two slightly different scenarios that play out during every Planned Maintenance cycle. These two scenarios are related to the updates performed on the Worker and File Server roles. At a high level, both these scenarios appear similar from an end-user perspective but there are some important differences that can sometimes cause some unexpected behavior.
  
-When a File Server role needs to be updated, the storage volume used by the application needs to be migrated from one File Server instance to another. During this change, an updated File Server role is added to the application. This causes a worker process restart simultaneously on all worker instances in that App Service Plan. The worker process restart is overlapped - the update mechanism starts the new worker process first, lets it complete its startup, sends new requests to the new worker process. Once the new worker process is responding, the existing requests have 30 seconds by default to complete in the old worker process, then the old worker process is stopped. 
+When updating the File Server role, the system migrates the storage volume used by the application from one File Server instance to another. During this change, the system adds an updated File Server role to the application. This change causes a worker process restart simultaneously on all worker instances assigned to that application. The worker process restart overlaps - the update mechanism starts the new worker process first, it completes its startup, and it sends new requests to the new worker process. Once the new worker process responds, the existing requests have 30 seconds by default to complete in the old worker process, then the system stops the old worker process.
 
 When a Worker role is updated, the update mechanism similarly swaps in a new updated Worker role. The worker is swapped as follows:
 
@@ -37,11 +37,11 @@ When a Worker role is updated, the update mechanism similarly swaps in a new upd
 1. Requests are allowed to complete on the old instance.
 1. The old worker instance is removed from the ASP. 
 
-This sequence usually occurs once for each worker instance in the ASP and is spread out over minutes or hours depending on the size of the plan and scale unit.
+This sequence usually occurs once for each active worker assigned to the application and spreads out over minutes or hours depending on the number of assigned workers and the scale unit. When the application is assigned to every plan worker, that count matches the plan capacity. With [per-app scaling](manage-scale-per-app.md), use the active assigned worker count for the app or deployment slot rather than the plan capacity alone.
  
 The main differences between these two scenarios are:
  
-- A File Server role change results in a simultaneous overlapped worker process restart on all instances, whereas a Worker change results in an application start on a single instance.
+- A File Server role change results in a simultaneous overlapped worker process restart on all active instances of the application, whereas a Worker change results in an application start on a single instance.
 - A File Server role change means that the application restarts on the same instance as it was running before, whereas a Worker change results in the application running on a different instance after startup.
  
 The overlapped restart mechanism results in zero downtime for most applications and planned maintenance isn't even noticed. If the application takes some time to start, the application can experience some minimal downtime associated with application slowness or failures during or shortly after the process starts. Our platform keeps attempting to start the application until successful but if the application fails to start altogether, a longer downtime can occur. The downtime persists until some corrective action is taken, such as manually restarting the application on that instance.
@@ -77,7 +77,7 @@ Auto-Heal for [Windows](https://azure.github.io/AppService/2018/09/10/Announcing
 
 #### Application startup testing
  
-Testing the startup of an application exhaustively can be overlooked. Start up testing in combination with other factors such as dependency failures, library load failures, network issues, etc. poses a bigger challenge. A relatively small failure rate for start up can go unnoticed but can result in a high failure rate when there are multiple instances being restarted every update cycle. A plan with 20 instances and an application with a five-percent failure rate in startup, results in three instances failing to start on average every update cycle. There are usually three application restarts per instance (20 instance moves and 2 File Server related restarts per instance). 
+Testing the startup of an application exhaustively can be overlooked. Start up testing in combination with other factors such as dependency failures, library load failures, network issues, and so on poses a bigger challenge. A relatively small failure rate for start up can go unnoticed but can result in a high failure rate when there are multiple instances being restarted every update cycle. For an application assigned to every worker in a 20-instance plan, a five-percent failure rate in startup results in three instances failing to start on average every update cycle. This example assumes three application restarts per active assigned worker (20 instance moves and 2 File Server related restarts per instance). If per-app scaling assigns the application to fewer workers, use that active assigned worker count instead of 20.
  
 We recommend testing several scenarios
  
