@@ -138,7 +138,7 @@ This section describes ways that your app can use connector namespaces and conne
 Connector namespace pricing uses a consumption model. Charges for connector action executions vary by connector type. The following table explains how each component in a connector namespace is metered:
 
 | Capability                  | Metering             |
-|-----------------------------|--------------|
+|-----------------------------|----------------------|
 | Connectors                  | Per connector action |
 | Triggers                    | Per trigger action   |
 | Managed MCP connectors      | Per tool call        |
