@@ -3,7 +3,7 @@ title: Load balancing and content delivery in Azure
 description: Learn about load balancing and content delivery in Azure, and the services that can help you optimize the performance and reliability of your web applications.
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 08/18/2026
+ms.date: 08/28/2026
 ms.author: mbender
 author: mbender-ms
 ms.custom: portfolio-consolidation-2025
@@ -28,7 +28,7 @@ Use the following tables to match your scenario to an Azure load balancing servi
 |---|---|
 | Load balance TCP/UDP traffic within a single region | [**Azure Load Balancer**](../../load-balancer/load-balancer-overview.md): Layer 4 distribution with health probes, zone redundancy, and HA ports. |
 | Terminate SSL/TLS, route by URL path or hostname, and add WAF for a regional web app | [**Azure Application Gateway**](../../application-gateway/overview.md): Layer 7 regional load balancing with integrated WAF (v2 SKU). |
-| Route HTTP/HTTPS traffic globally, reduce latency with edge caching, or fail over across regions | [**Azure Front Door**](../../frontdoor/front-door-overview.md): Global anycast with CDN, WAF, and multiregion origin health probes. |
+| Route HTTP/HTTPS traffic globally, reduce latency with edge caching, or fail over across regions | [**Azure Front Door**](../../frontdoor/front-door-overview.md): Global unicast with CDN, WAF, and multiregion origin health probes. |
 
 > [!TIP]
 > For deeper planning guidance—including zone redundancy, autoscaling, health probes, and multiservice architectures—see [Application delivery and performance](../design-guide/app-delivery.md) in the Azure networking design guide.
