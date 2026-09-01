@@ -79,7 +79,7 @@ For detailed benchmark data, see [MQTT Broker performance benchmarking](https://
 
 ### Single-node recommendations
 
-The following values are recommended for optimal performance and require [`generateResourceLimits.cpu`](#cpu-resource-limits) to be disabled.
+The following values provide optimal performance and require you to disable [`generateResourceLimits.cpu`](#cpu-resource-limits).
 
 - **Frontend replicas**: Set to **1**.
 - **Frontend workers**: Set to **half the number of CPU cores** per node.
@@ -95,7 +95,7 @@ The following values are recommended for optimal performance and require [`gener
 
 ### Multi-node recommendations
 
-The following values are recommended for optimal performance and require [`generateResourceLimits.cpu`](#cpu-resource-limits) to be disabled. For large clusters with low traffic, these values can be set lower than the recommendations without causing issues. More considerations such as memory (RAM) and performance characteristics are discussed in the following sections. Always test your configuration with the expected workload to confirm performance.
+The following values provide optimal performance and require [`generateResourceLimits.cpu`](#cpu-resource-limits) to be disabled. For large clusters with low traffic, you can set these values lower than the recommendations without causing issues. The following sections discuss considerations such as memory (RAM) and performance characteristics. Always test your configuration with the expected workload to confirm performance.
 
 - **Frontend replicas**: Set equal to the **number of nodes** in the cluster.
 - **Frontend workers**: Set to **half the number of CPU cores** per node.

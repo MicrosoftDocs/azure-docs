@@ -281,7 +281,7 @@ az iot ops upgrade --resource-group $RESOURCE_GROUP --name $AIO_INSTANCE_NAME --
 | Parameter | Value | Description |    
 | --------- | ----- | ----------- |
 | `--ops-config` | `observability.metrics.openTelemetryCollectorAddress=<FULLNAMEOVERRIDE>.azure-iot-operations.svc.cluster.local:<GRPC_ENDPOINT>` | Provide the OpenTelemetry (OTel) collector address you configured in the otel-collector-values.yaml file.<br><br>The [instructions in this article](#deploy-opentelemetry-collector) use the sample values `fullnameOverride=aio-otel-collector` and `grpc.endpoint=4317`. |
-| `--ops-config` | `observability.metrics.exportIntervalSeconds=<CHECK_INTERVAL>` | Provide the `check_interval` value you configured in the otel-collector-values.yaml file.<br><br>The [instructions in this article](#deploy-opentelemetry-collector) use the sample value `check_interval=60`. |
+| `--ops-config` | `observability.metrics.exportIntervalSeconds=<CHECK_INTERVAL>` | Provide the `check_interval` value you configured in the `otel-collector-values.yaml` file.<br><br>The [instructions in this article](#deploy-opentelemetry-collector) use the sample value `check_interval=60`. |
 
 > [!NOTE]
 > In preview releases, the `az iot ops upgrade` command doesn't work for upgrading to a preview version, but it works for configuring the Azure IoT Operations for observability.
