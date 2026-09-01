@@ -1,37 +1,43 @@
 ---
 title: Create and Set Up Azure SRE Agent
-description: Deploy Azure SRE Agent by using the onboarding wizard, connect your GitHub repository, and grant Azure resource access.
+description: Deploy Azure SRE Agent, connect source code and telemetry, and optionally grant Azure resource access.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 07/10/2026
+ms.date: 08/21/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
 ms.custom: onboarding, create agent, setup, code repo, azure resources, getting started
-#customer intent: As a site reliability engineer, I want to set up Azure SRE Agent, create an agent, and connect my code repo and Azure resources so that the agent can investigate issues across my environment.
+#customer intent: As a site reliability engineer, I want to create an agent and connect source code and telemetry so that the agent can investigate my environment.
 ---
 
 # Create and set up Azure SRE Agent
 
-Azure SRE Agent is an AI solution that helps site reliability engineers (SREs) manage Azure cloud resources. This article shows you how to set up Azure SRE Agent and create an agent.
+Azure SRE Agent is an AI solution that helps site reliability engineers (SREs) investigate and operate their environments. This article shows you how to create an agent, connect source code and telemetry, and optionally grant access to Azure resources.
+
+[!INCLUDE [evaluate-offer](includes/evaluate-offer.md)]
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Deploy an agent to your subscription.
-> - Connect your GitHub code repository.
-> - Grant the agent Reader access to your Azure resources.
+> - Connect a code repository.
+> - Connect a telemetry source.
+> - Optionally grant the agent access to Azure resources.
 
 ## Prerequisites
 
-- An Azure subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- A Contributor role on the subscription. (You need it to register resource providers and create resources.) If your team assigns managed resource groups with role-based access control, you also need Owner or User Access Administrator privileges to create role assignments.
-- Network access to `*.azuresre.ai` from your browser.
+| Requirement | When | Details |
+|---|---|---|
+| **Azure subscription** | Required | An active Azure subscription with permission to create resources. For Azure SRE Agent charges, see [Pricing and billing](pricing-billing.md). |
+| **Role to create the agent** | Required | **Owner**, or **Contributor** plus **User Access Administrator**, on the subscription or resource group where you create the agent. These permissions let the portal deploy the agent and assign your account **SRE Agent Administrator** on it. |
+| **Azure resource access** | As needed | When you add Azure scopes during setup, you need an active **Owner** or **User Access Administrator** role assignment on every scope, directly or through inheritance. If you use PIM for a subscription, activate the eligible role before setup, then use **Check PIM role assignments** in the picker. These permissions let the portal assign the required Azure roles to the agent's managed identity. |
+| **Network access** | Required | `*.azuresre.ai` must be reachable from your browser. |
 
 ## Open the onboarding wizard
 
 1. Go to the [Azure SRE Agent](https://sre.azure.com) webpage.
 1. Sign in with your Azure credentials.
-1. Select **Basics** > **Review** > **Deploy** to open the wizard.
+1. Select **Create agent**. The wizard has three stages: **Basics** > **Review** > **Deploy**.
 
 ## Configure basics
 
@@ -43,19 +49,19 @@ To define your agent, fill in the fields.
 | **Resource group** | Use an existing resource group, or create a new one. | **rg-sre-agent** |
 | **Agent name** | Select a unique name for your agent. | **contoso-sre-agent** |
 | **Region** | Select the Azure region for deployment. | **East US 2** |
-| **Model provider** | Select the AI model provider for your agent. | See provider table. |
+| **Model provider** | Select an available AI model provider for your agent. | Varies by subscription and region. |
 | **Application Insights** | Create a new instance, or use an existing one. | **Create new** (default) |
 
-After you select a region, the **Model provider** field appears. Select the AI provider that powers your agent's investigations and conversations. Select the ℹ icon next to the label for [pricing details](pricing-billing.md).
+After you select a region, the **Model provider** field appears. Your subscription and region load the available providers and default selection. Options might include **Azure OpenAI** and **Anthropic**, depending on the supported models returned for the selected subscription and region.
 
-Organizations with European Union (EU) data residency requirements should select Azure OpenAI. Anthropic is excluded from EU Data Boundary commitments. Anthropic (Claude) models require a direct Anthropic agreement and aren't available to all tenants.
+For provider costs and consumption details, see [Pricing and billing](pricing-billing.md).
 
-| Provider | Description |
-|----------|-------------|
-| **Anthropic** | Claude models are marked **Preferred** for most regions. |
-| **Azure OpenAI** | GPT models are covered by EU Data Boundary commitments for Sweden Central deployments. |
+You can change the provider after creation in your **agent settings**.
 
-Anthropic is selected by default for most regions. For **Sweden Central** and **UK South**, Azure OpenAI is selected by default. You can change the model provider after creation in **Settings** > **Basics**.
+> [!NOTE]
+> In EUDB regions, the wizard labels providers either **Covered by EU Data Boundary commitments** or **Excluded from EU Data Boundary. Data might be processed in the United States.**
+>
+> See [Data privacy and residency](data-privacy.md#data-residency) for provider data-handling details.
 
 Select **Next** to proceed.
 
@@ -78,17 +84,16 @@ The deployment creates the following Azure resources.
 
 | Resource | Purpose |
 |----------|---------|
-| Managed identity | Authenticates the agent to Azure services. |
-| Log Analytics workspace | Stores agent telemetry and diagnostic logs. |
-| Application Insights | Monitors agent health and performance. |
-| Role assignments | Grants the managed identity required access. |
-| SRE Agent resource | Is the agent itself. |
+| **Managed identities (SAMI and UAMI)** | Deployment creates a UAMI and enables both system-assigned and user-assigned identities on the agent. Use the UAMI for connector authentication and Azure RBAC assignments; the SAMI supports agent infrastructure. See [Agent identity](agent-identity.md). |
+| **User role assignment** | Assigns the current user **SRE Agent Administrator** on the new agent. |
+| **Azure SRE Agent resource** | The agent itself. |
+| **Application Insights and Log Analytics workspace** | Created only when you select **Create new** for Application Insights. |
 
-If you selected **Create new** for Application Insights, the deployment also creates an Application Insights instance and Log Analytics workspace.
+If you select an existing Application Insights resource, the deployment links it to the agent instead of creating new monitoring resources.
 
 Wait for the deployment to complete. This step typically takes two to five minutes.
 
-**Checkpoint:** Deployment status shows **Succeeded**. All resources are listed as created.
+**Checkpoint:** Deployment status shows **Succeeded**. The deployment details list the agent resource and each supporting resource that was created.
 
 ## Set up your agent
 
@@ -96,55 +101,92 @@ After deployment finishes, select **Set up your agent** to open the setup page. 
 
 | Tab | Data sources |
 |-----|-------------|
-| **Quickstart** | Code, logs, deployments, incidents |
-| **Full setup** | Everything in Quickstart + Azure Resources + Knowledge Files |
+| **Quickstart** | Code, Logs, Azure resources, Incidents |
+| **Full setup** | Everything in Quickstart + Knowledge files |
 
-Start with the **Quickstart** tab. Not all sources are required, although connecting more sources gives your agent better context for investigations. This guide walks through connecting code (from **Quickstart**) and Azure resources (from **Full setup**).
+Start with the **Quickstart** tab. Source code and telemetry provide enough context to begin investigating. Azure resource access is optional.
 
 ### Connect your code repository
 
-1. On the **Code** card, select the **+** button to connect repositories.
-1. To choose a platform, select **GitHub**. (Azure DevOps is also supported.)
-1. To choose a sign-in method, select **Auth** or **PAT**.
-   - **Auth**: Select **Sign in**, authenticate in the browser, and approve access when prompted.
-   - **PAT**: Paste your personal access token (PAT) and select **Connect**.
-1. Select **Next** to proceed to repository selection.
-1. Use the dropdown list to select one or more repositories. They're listed alphabetically.
-1. Select **Add repository**.
+1. On the **Code** card, select the **+** button. Its tooltip is **Connect repositories**.
+1. In **Connection**, select **GitHub**, **Azure DevOps**, or **GitLab**.
+1. Select one of the authentication methods offered for that platform.
+   - **GitHub**: Your account, personal access token (PAT), or a bring-your-own GitHub App. GitHub Enterprise Cloud requires a GitHub App.
+   - **Azure DevOps**: Your account, managed identity, or PAT.
+   - **GitLab**: PAT.
+1. Select **Next**.
+1. In **Add repositories**, select one or more repositories.
+1. Select **Save**.
 
 **Checkpoint:** The **Code** card shows a green checkmark and lists the connected repositories.
 
 > [!TIP]
 > Connect the repository that contains the service that you plan to investigate first. When connected, your agent immediately starts exploring the codebase and building expertise. Your agent learns your project structure, deployment configurations, and code patterns through [deep context](agent-reasoning.md#deep-context).
 
-### Add Azure resource access
+### Connect your logs
 
-Granting the agent Reader access to your Azure resources allows it to query metrics, logs, and resource configurations during investigations.
+When you connect log sources, your agent can access production telemetry, including error traces, performance metrics, and application health data. When you combine this data with source code, your agent can correlate production issues with code changes during investigations.
 
-1. On the setup page, switch to the **Full setup** tab. You can also use the **Azure Resources** card if it's visible on **Quickstart**.
-1. On the **Azure Resources** card, select the **+** button to add resources.
-1. To choose the resource type, select **Subscriptions** or **Resource groups**, and then select **Next**.
+For Log Analytics or Application Insights, the portal assigns **Log Analytics Reader** and **Monitoring Reader** to the agent's managed identity when you save the connector. You can connect multiple log sources. See [Azure observability](diagnose-azure-observability.md) and [External observability](diagnose-observability.md).
 
-   - If you choose **Subscriptions**:
+1. On the **Logs** card, select the **+** button.
+1. In **Configure logging provider**, select a provider. Core Azure options include:
+
+   | Logging provider | What it provides |
+   |---|---|
+   | **Azure Data Explorer** | Operational and application data stored in Azure Data Explorer. |
+   | **Log Analytics Workspace** | Logs, activity logs, and metrics from Log Analytics workspaces. |
+   | **Application Insights** | Application telemetry, requests, dependencies, and performance metrics. |
+
+   Use search in the picker to find other providers available for your environment. The complete list can vary by tenant and configuration.
+
+1. Select **Next** and complete the fields shown for your provider.
+1. Select **Next** to review, and then select **Add connector**.
+
+**Checkpoint:** The **Logs** card shows a green checkmark and lists the connected telemetry source.
+
+Ask your agent to verify access:
+
+```text
+Check for any errors in the last 24 hours
+```
+
+### Add Azure resource access (optional)
+
+Azure resource access is optional. Add it when you want the agent to inspect resource configuration, health, and metrics directly. Before you begin, review the **Azure resource access** requirements in [Prerequisites](#prerequisites).
+
+Use resource-group scope by default. Choose a subscription or management group only when the agent needs broader access, and review the inherited blast radius before continuing.
+
+1. On the **Quickstart** tab, find the **Azure resources** card and select **Add resources**.
+1. In **Choose resource type**, select **Management group**, **Subscription**, or **Resource group**, and then select **Next**.
+
+   - If you choose **Management group**:
+
+      1. Select one or more management groups.
+      1. Review the inherited permissions. The agent receives **Reader** and **Azure Monitor Monitoring Contributor** on the management group and its descendants.
+      1. Select the add button to continue. Its label reflects whether you selected one or multiple management groups.
+
+   - If you choose **Subscription**:
 
       1. Use the search box to find subscriptions. Select the ones that you want the agent to access.
       1. Select **Next** to review agent permissions.
-      1. The agent's managed identity is automatically granted the Reader role on each selected subscription. Review the permissions status.
-      1. Select **Add subscriptions**.
+      1. Review the permissions status. The agent's managed identity receives **Reader** and **Azure Monitor Monitoring Contributor** on each selected subscription.
+      1. Select **Add subscription** for one selection or **Add subscriptions** for multiple selections.
 
-   - If you choose **Resource groups**:
+   - If you choose **Resource group**:
 
-       1. To filter by subscription, use the subscription dropdown list to filter which resource groups are shown.
-       1. To select resource groups, use the search box to find resource groups. Select the ones that you want the agent to access. The grid shows the resource group name, subscription, and region.
+       1. Use the multi-select **Subscription** filter to choose which subscriptions are shown.
+       1. Search by resource-group or subscription name, and then select the resource groups you want the agent to access. The grid shows the resource group name, subscription, and region.
        1. Select **Next** to review agent permissions.
-       1. Choose the permission level for the agent, and review the role assignments.
+       1. Choose the permission level and review the role assignments:
+          - **Reader** assigns the base **Reader**, **Monitoring Reader**, and **Log Analytics Reader** roles, plus reader or operator roles required by the resource types in the group.
+          - **Privileged** keeps the base roles and adds contributor, administrator, or operator roles required by the resource types in the group.
        1. Select **Add resource group**.
 
-**Checkpoint:** The **Azure Resources** card shows the connected subscriptions or resource groups.
+**Checkpoint:** The **Azure Resources** card lists each connected management group, subscription, or resource group.
 
-The subscription picker shows all of your subscriptions in two sections. It shows the subscriptions that you can assign (where you have Owner or User Access Administrator privileges), and the subscriptions that require a higher role. A **User role** column shows your current role on each subscription. If you use **Privileged Identity Management (PIM)** for just-in-time access, the picker detects your active PIM role within seconds. You don't need to wait for cache refreshes.
-
-After you add subscriptions or resource groups, the agent automatically assigns the required permissions to its managed identity. This step can take a few seconds. The status update appears in the permissions review step. The Reader role provides read-only access. For advanced permission management, see [Manage permissions and access](manage-permissions.md).
+> [!NOTE]
+> After you select the final add button, role assignment can take several minutes. To remove access, remove the scope from the **Azure Resources** card. The portal attempts to revoke the managed role assignments; manually remove remaining assignments only if it reports a partial cleanup failure. See [Manage permissions and access](manage-permissions.md).
 
 ### Select Done and go to agent
 

@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewers: estfan, kewear, azla
 ms.topic: how-to
-ai.usage: ai-assisted
+ai-usage: ai-assisted
 ms.update-cycle: 1095-days
 ms.date: 04/10/2026
 ms.custom:

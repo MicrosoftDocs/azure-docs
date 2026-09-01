@@ -1,7 +1,8 @@
 ### YamlMime:Landing
 
 title: Azure SRE Agent documentation
-summary: Azure SRE Agent is an AI-powered reliability assistant for diagnosing and resolving production issues, reducing operational toil, and lowering mean time to resolution (MTTR). Whether you're a solo operator or part of a large SRE team, the agent works alongside you, investigating root causes, proposing mitigations, and automating runbook-driven responses within guardrails and approval workflows you define.
+summary: 
+  Azure SRE Agent is an AI-powered operations teammate that helps you improve uptime, reduce incident impact, and cut operational toil. It automates triage, accelerates root cause analysis, and runs governed mitigations across your Azure environment.
 
 metadata:
   title: Azure SRE Agent documentation
@@ -36,6 +37,8 @@ landingContent:
             url: create-and-set-up.md
           - text: Complete setup
             url: complete-setup.md
+          - text: Evaluate SRE Agent
+            url: evaluate.md
           - text: Run your first investigation
             url: first-investigation.md
           - text: Explore starter prompts
@@ -124,6 +127,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Live reports
+            url: live-reports.md
           - text: Workspace tools overview
             url: agent-reasoning.md
           - text: Persistent memory

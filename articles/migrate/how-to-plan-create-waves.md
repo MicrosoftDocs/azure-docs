@@ -4,7 +4,7 @@ description: Learn how to create migration waves in Azure Migrate to group workl
 author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.topic: how-to
 ms.date: 11/04/2025
 ms.update-cycle: 365-days

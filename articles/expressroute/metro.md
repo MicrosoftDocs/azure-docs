@@ -44,12 +44,12 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 | Metro location | Location address | Zone | Local Azure Region | ER Direct | Service Provider |
 |--|--|--|--|--|--|
 | Amsterdam Metro | Equinix AM5<br>Digital Realty AMS8 | 1 | West Europe | &check; | Colt<br>DE-CIX<br>Digital Realty<br>Equinix<br>euNetworks<br>Eurofiber<br>GTT<br>Megaport<br>NL-IX<br>SURF |
-| Atlanta Metro | Equinix AT1<br>Digital Realty ATL14 | 1 | &cross; | &check; |  Centurylink Cloud Connect<sup>1</sup><br>Equinix<br>Megaport |
+| Atlanta Metro | Equinix AT1<br>Digital Realty ATL14 | 1 | &cross; | &check; |  Lumen (CenturyLink Cloud Connect)<sup>1</sup><br>Equinix<br>Megaport |
 | Auckland Metro | Vocus VDCAKL01<br>Spark MDR | 2 | New Zealand North | &check; | | 
 | Brussels Metro | Digital Realty BR4<br>LCL Brussels North | 1 | Belgium Central | &check; | Belnet<br>Colt<br>Eurofiber<br>Megaport |
-| Chicago Metro | Equinix CH1<br>CoreSite CH1 | 1 | North Central US | &check; | CenturyLink Cloud Connect<br>Cox Communication<sup>1</sup><br>Crown Castle<br>Digital Realty<br>Equinix<br>Megaport<br>Zayo Dynamiclink |
+| Chicago Metro | Equinix CH1<br>CoreSite CH1 | 1 | North Central US | &check; | Lumen (CenturyLink Cloud Connect)<br>Cox Communication<sup>1</sup><br>Crown Castle<br>Digital Realty<br>Equinix<br>Megaport<br>Zayo Dynamiclink |
 | Copenhagen Metro | Digital Realty CPH1<br>Global Connect Copenhagen | 1 | Denmark East | &check; | GlobalConnect<sup>1</sup><br>Megaport |
-| Dallas Metro | Equinix DA6 <br>Digital Realty DFW10 | 1 | &cross; | &check; | Centurylink Cloud Connect<sup>1</sup><br>Equinix<br>Megaport<br>Zayo Dynamiclink |
+| Dallas Metro | Equinix DA6 <br>Digital Realty DFW10 | 1 | &cross; | &check; | Lumen (CenturyLink Cloud Connect)<sup>1</sup><br>Equinix<br>Megaport<br>Zayo Dynamiclink |
 | Dammam Metro | Center3 DDC352 <br> MIS AL ANWAR | 3 | &cross; | &check; | | 
 | Doha Metro | Meeza MV2 <br> Ooredoo QDC5 | 3 | Qatar central | &check; | | 
 | Dublin Metro | Equinix DB3 <br>Digital Realty DUB02 | 1 | North Europe | &check; | Colt<br>Equinix<br>Megaport |
@@ -62,11 +62,11 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 | Melbourne Metro | NextDC MEL01<br>Equinix ME1/2 | 2 | Australia Southeast | &check; | Internet Association of Australia<sup>1</sup><br>Megaport<br>Next DC |
 | Milan Metro | Irideos Milan<br>Data4Italy Milan | 1 | Italy North | &check; | Colt<br>De-cix<br>Equinix<br>Megaport<br>Retelit<sup>1</sup><br>Telecom Italia Sparkle<br>Telia Carrier (Arelion)<sup>1</sup> |
 | Mumbai Metro | STT LVSB<br>Nxtra Data | 2 | West India | &check; |  |
-| New York Metro | Equinix NY5<br>165 Halsey Street | 1 | &cross; | &check; | Centurylink Cloud Connect<sup>1</sup><br>DE-CIX<br>Equinix<br>Megaport |
+| New York Metro | Equinix NY5<br>165 Halsey Street | 1 | &cross; | &check; | Lumen (CenturyLink Cloud Connect)<sup>1</sup><br>DE-CIX<br>Equinix<br>Megaport |
 | Paris Metro | Digital Realty PAR5<br>Equinix PA4 | 1 | France Central | &check; | Colt<br>Digital Realty<br>Equinix<sup>1</sup><br>Megaport |
-| Phoenix Metro | EdgeConnex POR01 <br>PhoenixNAP | 1 | West US 3 | &check; | Centurylink Cloud Connect<sup>1</sup><br>Megaport |
+| Phoenix Metro | EdgeConnex POR01 <br>PhoenixNAP | 1 | West US 3 | &check; | Lumen (CenturyLink Cloud Connect)<sup>1</sup><br>Megaport |
 | Oslo Metro |  DigiPlex Ulven <br>Bulk Data IX | 2 |  Norway East | &check; | Colt<sup>1</sup><br>GlobalConnect<br>Telenor Secure Cloud Connect<sup>1</sup> |
-| Silicon Valley Metro | Equinix SV10<br>CoreSite SV7 | 1 | West US | &check; | Centurylink Cloud Connect<sup>1</sup><br>Equinix<sup>1</sup><br>Megaport<br>Zayo Dynamiclink |
+| Silicon Valley Metro | Equinix SV10<br>CoreSite SV7 | 1 | West US | &check; | Lumen (CenturyLink Cloud Connect)<sup>1</sup><br>Equinix<sup>1</sup><br>Megaport<br>Zayo Dynamiclink |
 | Singapore Metro | Global Switch Tai Seng<br>Equinix SG1 | 2 | Southeast Asia | &check; | Colt<br>DE-CIX<br>Equinix<br>IX Reach<br>MegaPOP (Singtel)<br>Megaport<br>Singtel International |
 | Stockholm Metro | Equinix SK1<br>Digital Realty STO6 | 1 | Sweden Central | &check; | De-cix<sup>1</sup><br>GlobalConnect<sup>1</sup><br>Megaport<sup>1</sup><br>Telia Carrier (Arelion) |
 | Sydney Metro | Equinix SY2 <br>NextDC S1 | 2 | Australia East | &check; | Megaport<br>Next DC |
@@ -75,7 +75,7 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 | Toronto Metro | Cologix TOR1<br>Allied King West | 1 | Canda Central | &check; | Megaport<br>Sprint<br>Zayo<sup>1</sup> |
 | Vienna Metro |  Digital Realty VIE1<br>NTT GDC | 1 | Austria East | &check; | A1 Telekom Austria<br>Colt<br>Next Layer GMBH<br>Telia Carrier (Arelion) |
 | Zurich Metro |  Digital Realty ZUR2<br>Equinix ZH5 | 1 | Switzerland North | &check; | BICS<br>Colt<br>Digital Realty<br>Megaport<br>Orange<sup>1</sup><br>Swisscom |
-| Washington DC Metro | Equinix DC6<br>CoreSite VA3 | 1 | East US<br/>East US 2 | &check; | Centurylink Cloud Connect<sup>1</sup><br>Equinix<br>Megaport<br>Sprint<br>Zayo Dynamiclink |
+| Washington DC Metro | Equinix DC6<br>CoreSite VA3 | 1 | East US<br/>East US 2 | &check; | Lumen (CenturyLink Cloud Connect)<sup>1</sup><br>Equinix<br>Megaport<br>Sprint<br>Zayo Dynamiclink |
 
 <sup>1<sup> These service providers will be available in the future. While they are listed under the peering location, circuit creation is expected to fail until the providers become active.
 

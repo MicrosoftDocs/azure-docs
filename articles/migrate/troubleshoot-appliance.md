@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 10/16/2024
 ms.custom: engagement-fy25
 # Customer intent: "As an IT administrator, I want to troubleshoot issues with the Azure Migrate appliance, so that I can ensure successful deployment and connectivity for on-premises server migrations."
@@ -88,7 +88,7 @@ The Virtual Disk Development Kit (VDDK) check failed because the appliance could
 
 ### Remediation
 
-1. Ensure that you've downloaded VDDK 6.7 and have copied its files to- **C:\Program Files\VMware\VMware Virtual Disk Development Kit** on the appliance server.
+1. Ensure that you downloaded a supported VDDK version and copied its files to `C:\Program Files\VMware\VMware Virtual Disk Development Kit` on the appliance server.
 1. Ensure that no other software or application is using another version of the VDDK on the appliance.
 
 ## Project key-related error occurs during appliance registration

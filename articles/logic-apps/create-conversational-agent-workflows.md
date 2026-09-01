@@ -1,8 +1,7 @@
 ---
 title: Create Conversational AI Agentic Workflows
 description: Build conversational agentic workflows that use AI agent loops and LLMs to complete tasks with human interactions in Azure Logic Apps.
-service: ecfan
-services: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewers: estfan, divswa, krmitta, azla
 ms.topic: how-to

@@ -661,6 +661,9 @@ Security improvements.
 Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.23.0
 Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.22.1...v3.23.0
 
+##### Gatekeeper 3.23.1
+Gatekeeper Release & Changelog: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.23.1
+
 #### 1.15.5-1
 Introducing Validating Admission Policy (VAP) generation. [Validating Admission Policies](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/) are Kubernetes-native validating policy resources that are evaluated in-process, allowing for reduced latency and fail-close evaluation. Azure Policies that contain Common Expression Language (CEL) will automatically generate VAPs. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
 

@@ -39,6 +39,11 @@ productDirectory:
       links:
         - url: ./astronomer/astronomer-overview.md
           text: Deploy a fully managed and seamless Apache Airflow on Astro on Azure.
+    - title: Protect workloads with Commvault
+      imageSrc: ./media/index/commvault.png
+      links:
+        - url: ./commvault/overview.md
+          text: Protect, recover and manage your Azure workloads directly in Azure Portal with Commvault's Azure-Native and fully managed cyber-resilience service.
     - title: Confluent
       imageSrc: ./media/index/confluent.svg
       links:
@@ -109,3 +114,4 @@ productDirectory:
       links:
         - url: ./qumulo/qumulo-overview.md
           text: Use a multi-petabyte scale, single namespace, multi-protocol file data platform with the performance, security, and simplicity to meet the most demanding enterprise workloads.
+

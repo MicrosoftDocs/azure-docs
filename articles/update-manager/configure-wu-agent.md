@@ -4,8 +4,8 @@ description: This article describes how to configure Windows Update settings to 
 ms.service: azure-update-manager
 ms.date: 02/27/2025
 ms.topic: how-to
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ms.update-cycle: 1095-days
 # Customer intent: As a system administrator, I want to configure Windows Update settings for Azure Update Manager so that I can keep all Windows servers consistently updated with the latest patches and maintain compliance across the environment.

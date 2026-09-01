@@ -2,11 +2,10 @@
 title:  Performance vs As-is on-premises assessments
 description: Describes how Azure Migrate provides sizing recommendations for the assessed workloads.
 author: rashi-ms
-ms.author: v-uhabiba
+ms.author: jsuri
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 04/17/2025
-monikerRange:
 # Customer intent: As an IT administrator, I want to evaluate workload sizing using performance-based assessments, so that I can ensure optimal resource allocation on Azure and reduce costs without compromising resilience.
 ---
 

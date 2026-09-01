@@ -7,7 +7,7 @@ ms.service: azure-iot-operations
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023
-ms.date: 06/10/2026
+ms.date: 08/25/2026
 ---
 
 # Troubleshoot Azure IoT Operations
@@ -138,6 +138,48 @@ When you use the operations experience to add secrets or certificates, you might
 When you use the operations experience to add secrets or certificates, it adds them as secrets in your Azure Key Vault. Your Microsoft Entra ID account needs **Key Vault Secrets Officer** permissions at the resource level for the Azure Key Vault used by your Azure IoT Operations instance.
 
 For more information about assigning the required permissions, see [Configure Azure Key Vault permissions](../secure-iot-ops/howto-manage-secrets.md#configure-azure-key-vault-permissions).
+
+## Troubleshoot device and asset lifecycle operations
+
+Create, update, and delete operations for devices and assets require a connected Azure Arc-enabled Kubernetes cluster. Azure Device Registry represents each device and asset as an Azure Resource Manager resource and synchronizes its configuration to the associated cluster. If Azure can't connect to the cluster when you run a lifecycle operation, the operation can fail with the error code `ClusterNetworkUnavailable` and reach the terminal provisioning state `Failed`.
+
+When a device or asset create, update, or delete operation fails because the cluster is disconnected, you see an error similar to the following example:
+
+```output
+(ClusterNetworkUnavailable) Failed to establish a network connection with the kubernetes cluster '<connected-cluster-resource-id>'. Please make sure the underlying cluster is running and has network connectivity before retrying the operation.
+Code: ClusterNetworkUnavailable
+Message: Failed to establish a network connection with the kubernetes cluster '<connected-cluster-resource-id>'. Please make sure the underlying cluster is running and has network connectivity before retrying the operation.
+```
+
+The nested error indicates that Azure can't connect because no agent is connected in the target Azure Arc resource: `Cannot connect to the hybrid connection because no agent is connected in the target arc resource.`
+
+To troubleshoot and recover a failed lifecycle operation, follow these steps:
+
+1. Verify that the Azure Arc-enabled Kubernetes cluster exists and is connected. Run the following command and check the connectivity status in the output:
+
+  ```azurecli
+  az connectedk8s show -g <RESOURCE_GROUP> -n <CLUSTER_NAME>
+  ```
+
+1. Show the affected device or asset and inspect `properties.provisioningState` and `properties.lastTransitionTime`. A failed resource remains available to view with `provisioningState` set to `Failed` and a populated `lastTransitionTime`.
+
+  To show a device:
+
+  ```azurecli
+  az iot ops ns device show --name <DEVICE_NAME> --instance <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
+  ```
+
+  To show an asset:
+
+  ```azurecli
+  az iot ops ns asset show --name <ASSET_NAME> --instance <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
+  ```
+
+1. Restore connectivity to the cluster and confirm that its Azure Arc agent is connected.
+
+1. Rerun the same create, update, or delete operation. In the observed create case, the operation succeeded after the cluster reconnected, and the failed resource didn't need to be deleted before the create operation was retried. This cleanup detail applies only to the observed create case. Don't assume the same behavior for update or delete operations.
+
+For more information about how lifecycle operations depend on cluster connectivity, see [Lifecycle operations and cluster connectivity](../discover-manage-assets/concept-assets-devices.md#lifecycle-operations-and-cluster-connectivity).
 
 ## Troubleshoot device and asset discovery
 

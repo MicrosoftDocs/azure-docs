@@ -26,8 +26,8 @@ Before August 31, 2026, transition your Linux VPN users to one of the following 
 
 |Client|Tunnel Type|Authentication Type|Gateway Configuration|Client Configuration |
 |---|---|---|---|---|
-|OpenVPN client|OpenVPN|Certificate|[Configure your Azure VPN gateway to Support Certificate authentication](point-to-site-certificate-gateway.md)|[Configure OpenVPN client for P2S certificate authentication connections - Linux](point-to-site-vpn-client-certificate-openvpn-linux.md)|
-|strongSwan|IKEv2|Certificate|[Configure your Azure VPN gateway to Support Certificate authentication](point-to-site-certificate-gateway.md)|[Configure strongSwan for P2S IKEv2 — Linux](point-to-site-vpn-client-certificate-ike-linux.md)|
+|OpenVPN client|OpenVPN|Certificate|[Configure your Azure VPN gateway to Support Certificate authentication](point-to-site-certificate-gateway.md)|[Configure a VPN client for P2S certificate authentication connections - Linux](point-to-site-vpn-client-certificate.md?pivots=linux#openvpn-client)|
+|strongSwan|IKEv2|Certificate|[Configure your Azure VPN gateway to Support Certificate authentication](point-to-site-certificate-gateway.md)|[Configure a VPN client for P2S certificate authentication connections - Linux](point-to-site-vpn-client-certificate.md?pivots=linux#strongswan)|
 |||RADIUS Authentication|[Configure your Azure VPN gateway to Support RADIUS authentication](point-to-site-radius-gateway.md)|[Configure strongSwan for P2S IKEv2 — Linux](point-to-site-vpn-client-configuration-radius-password.md#linux-vpn-client---strongswan)|
 
 ## <a name="high-level"></a>High-level migration steps

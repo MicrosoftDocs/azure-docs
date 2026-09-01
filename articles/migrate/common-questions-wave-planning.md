@@ -4,7 +4,7 @@ description: Get answers to common questions about wave planning in Azure Migrat
 author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.topic: concept-article
 ms.date: 11/04/2025
 monikerRange: migrate 

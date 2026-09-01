@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 #ms.subservice:
 ms.topic: concept-article
-ms.date: 04/22/2026
+ms.date: 08/25/2026
 ai-usage: ai-assisted
 
 #customer intent: As an industrial edge IT or operations user, I want to understand the types of Azure resources that Azure Device Registry creates to manage assets.
@@ -42,6 +42,14 @@ graph LR
     A -- "`References an inbound endpoint`" --&gt; IE1>
 ```
 --->
+
+## Lifecycle operations and cluster connectivity
+
+Create, update, and delete operations for both assets and devices require the associated Azure Arc-enabled Kubernetes cluster to be connected.
+
+Azure Device Registry represents each asset and device as a resource in Azure and synchronizes its configuration to a custom resource on the edge cluster. Because lifecycle operations must reach the cluster to apply these custom resource changes, they can fail when Azure can't connect to the associated Azure Arc-enabled Kubernetes cluster.
+
+If a create, update, or delete operation fails because Azure can't reach the cluster, see [Troubleshoot device and asset lifecycle operations](../troubleshoot/troubleshoot.md#troubleshoot-device-and-asset-lifecycle-operations).
 
 ## Devices
 

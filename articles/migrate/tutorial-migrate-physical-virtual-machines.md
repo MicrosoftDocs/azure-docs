@@ -6,7 +6,7 @@ ms.author: dhananjayanr
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 08/26/2025
 ms.update-cycle: 365-days
 ms.custom: MVC, engagement-fy25

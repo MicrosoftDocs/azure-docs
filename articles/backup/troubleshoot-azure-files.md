@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Files backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure Files.
 ms.service: azure-backup
-ms.date: 08/11/2025
+ms.date: 08/12/2026
 ms.topic: troubleshooting
 author: AbhishekMallick-MS
 ms.author: v-mallicka

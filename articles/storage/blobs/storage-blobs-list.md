@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 
 [!INCLUDE [storage-dev-guide-selector-list-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-list-blob.md)]
 
-This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
+This article shows how to list blobs by using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 [!INCLUDE [storage-dev-guide-prereqs-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-dotnet.md)]
 
@@ -28,11 +28,11 @@ This article shows how to list blobs using the [Azure Storage client library for
 
 #### Authorization
 
-The authorization mechanism must have the necessary permissions to list a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [List Blobs (REST API)](/rest/api/storageservices/list-blobs#authorization).
+The authorization mechanism must have the necessary permissions to list a blob. For authorization with Microsoft Entra ID (recommended), you need the Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [List Blobs (REST API)](/rest/api/storageservices/list-blobs#authorization).
 
 ## About blob listing options
 
-When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
+When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. You can list blobs in a flat listing structure or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
 
 To list the blobs in a storage account, call one of these methods:
 
@@ -63,9 +63,9 @@ If you name your blobs using a delimiter, then you can choose to list blobs hier
 
 ## Use a flat listing
 
-By default, a listing operation returns blobs in a flat listing. In a flat listing, blobs are not organized by virtual directory.
+By default, a listing operation returns blobs in a flat listing. In a flat listing, blobs aren't organized by virtual directory.
 
-The following example lists the blobs in the specified container using a flat listing, with an optional segment size specified, and writes the blob name to a console window.
+The following example lists the blobs in the specified container by using a flat listing, with an optional segment size specified, and writes the blob name to a console window.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsFlatListing":::
 
@@ -84,15 +84,15 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 ```
 
 > [!NOTE]
-> The sample output shown assumes that you have a storage account with a flat namespace. If you've enabled the hierarchical namespace feature for your storage account, directories are not virtual. Instead, they are concrete, independent objects. As a result, directories appear in the list as zero-length blobs.</br></br>For an alternative listing option when working with a hierarchical namespace, see [List directory contents (Azure Data Lake Storage)](data-lake-storage-directory-file-acl-dotnet.md#list-directory-contents).
+> The sample output shown assumes that you have a storage account with a flat namespace. If you enable the hierarchical namespace feature for your storage account, directories aren't virtual. Instead, they're concrete, independent objects. As a result, directories appear in the list as zero-length blobs.</br></br>For an alternative listing option when working with a hierarchical namespace, see [List directory contents (Azure Data Lake Storage)](data-lake-storage-directory-file-acl-dotnet.md#list-directory-contents).
 
 ## Use a hierarchical listing
 
 When you call a listing operation hierarchically, Azure Storage returns the virtual directories and blobs at the first level of the hierarchy.
 
-To list blobs hierarchically, call the [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy), or the [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync) method.
+To list blobs hierarchically, call the [BlobContainerClient.GetBlobsByHierarchy](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchy) or the [BlobContainerClient.GetBlobsByHierarchyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsbyhierarchyasync) method.
 
-The following example lists the blobs in the specified container using a hierarchical listing, with an optional segment size specified, and writes the blob name to the console window.
+The following example lists the blobs in the specified container by using a hierarchical listing, with an optional segment size specified, and writes the blob name to the console window.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobsHierarchicalListing":::
 
@@ -116,23 +116,53 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 ```
 
 > [!NOTE]
-> Blob snapshots cannot be listed in a hierarchical listing operation.
+> Blob snapshots can't be listed in a hierarchical listing operation.
 
 ### List blob versions or snapshots
 
-To list blob versions or snapshots, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** or **Snapshot** field. Versions and snapshots are listed from oldest to newest.
+To list blob versions or snapshots, specify the [BlobStates](/dotnet/api/azure.storage.blobs.models.blobstates) parameter with the **Version** or **Snapshot** field. The service returns versions and snapshots from oldest to newest.
 
 The following code example shows how to list blob versions.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ListBlobVersions":::
 
+## List blobs in Apache Arrow format (preview)
+
+> [!IMPORTANT]
+> Listing blobs in Apache Arrow format is currently in **PREVIEW**. This scenario requires a **beta (preview) version** of the Azure Blob Storage client library for .NET (for example, `Azure.Storage.Blobs` **12.30.0-beta.1** or later preview release). Preview features are provided without a service-level agreement and aren't recommended for production workloads. Some features might not be supported, or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This capability is built on the existing `List Blobs` API. Instead of using the default XML, it uses the compact, columnar [Apache Arrow](https://arrow.apache.org/) format as the response format on the wire. You enable it by setting a single option on the container listing call. The .NET SDK decodes Apache Arrow behind the scenes and still returns the same `BlobItem` objects. This approach improves listing throughput and reduces client-side CPU when enumerating large containers. It preserves the response contract that applications rely on.
+
+> [!WARNING]
+> Listing blobs in Apache Arrow format isn't supported on storage accounts that have hierarchical namespace (Azure Data Lake Storage) enabled.
+
+To request Apache Arrow-formatted results, set the [ResponseFormat](/dotnet/api/azure.storage.blobs.models.getblobsoptions.responseformat?view=azure-dotnet-preview&preserve-view=true) property of [GetBlobsOptions](/dotnet/api/azure.storage.blobs.models.getblobsoptions?view=azure-dotnet-preview&preserve-view=true) to [StorageResponseFormat.Arrow](/dotnet/api/azure.storage.storageresponseformat?view=azure-dotnet-preview&preserve-view=true), then pass the options to the [BlobContainerClient.GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs?view=azure-dotnet-preview&preserve-view=true) overload that accepts `GetBlobsOptions`. When using Apache Arrow output, you can also set the `StartFrom` and `EndBefore` properties to control the range of paths returned.
+
+The following example lists the blobs in a container and requests the results in Apache Arrow format:
+
+```csharp
+using Azure.Storage;
+using Azure.Storage.Blobs.Models;
+
+GetBlobsOptions options = new GetBlobsOptions
+{
+    Prefix = "FolderA/",
+    ResponseFormat = StorageResponseFormat.Arrow
+};
+
+foreach (BlobItem blobItem in containerClient.GetBlobs(options))
+{
+    Console.WriteLine("Blob name: " + blobItem.Name);
+}
+```
+
 ## Resources
 
-To learn more about how to list blobs using the Azure Blob Storage client library for .NET, see the following resources.
+To learn more about how to list blobs by using the Azure Blob Storage client library for .NET, see the following resources.
 
 ### REST API operations
 
-The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for listing blobs use the following REST API operation:
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API. By using these libraries, you can interact with REST API operations through familiar .NET paradigms. The client library methods for listing blobs use the following REST API operation:
 
 - [List Blobs](/rest/api/storageservices/list-blobs) (REST API)
 

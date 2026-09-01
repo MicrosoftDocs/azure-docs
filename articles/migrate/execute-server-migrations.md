@@ -5,7 +5,7 @@ ms.topic: how-to
 author: dhananjayanr98 
 ms.author: dhananjayanr
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 03/13/2026
 monikerRange: migrate 
 Customer intent: This article is intended to guide users on leveraging the new portal for executing and tracking server migrations. 

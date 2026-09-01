@@ -7,6 +7,8 @@
     href: storage-files-introduction.md
   - name: Plan for an Azure Files deployment
     href: storage-files-planning.md
+  - name: Azure Files management concepts
+    href: files-management-concepts.md
   - name: SMB file shares
     href: files-smb-protocol.md
   - name: NFS file shares
@@ -123,6 +125,10 @@
     href: glusterfs-migration-guide.md
 - name: Security and networking
   items:
+  - name: Secure your Azure Files
+    href: secure-files.md
+  - name: Secure your Azure Storage account
+    href: ../common/secure-storage.md?toc=/azure/storage/files/toc.json
   - name: Networking
     items:
     - name: Networking considerations for direct access
@@ -379,8 +385,10 @@
       href: /javascript/api/overview/azure/storage
   - name: APIs for resource management
     items:
-    - name: REST API
+    - name: Storage Resource Provider REST API
       href: /rest/api/storagerp/
+    - name: Microsoft.FileShares Resource Provider REST API
+      href: /rest/api/fileshares/      
     - name: .NET SDK
       href: /dotnet/api/overview/azure/resourcemanager.storage-readme
     - name: Java SDK

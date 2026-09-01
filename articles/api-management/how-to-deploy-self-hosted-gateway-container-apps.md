@@ -253,11 +253,11 @@ date: Wed, 28 Feb 2024 22:45:09 GMT
 ```
 
 > [!TIP]
-> If you enable [logging for your API to Application insights](api-management-howto-app-insights.md), you can query the logs to see the requests and responses.
+> If you enable [logging for your API to Application Insights](api-management-howto-app-insights.md), you can query the logs to see the requests and responses.
 
 ## Limitations
 
-Self-hosted gateway instances rely on the UDP protocol for [heartbeat and rate-limit communications](self-hosted-gateway-settings-reference.md#cross-instance-discovery--synchronization). Because Azure Container Apps currently doesn't support the UDP protocol, neither for ingress nor for internal traffic, the `rate-limit` policy can't synchronize its counter across instances. Consequently, maintaining three replicas of a self-hosted gateway container app with limit X might result in three times the traffic until limit X is reached. 
+Self-hosted gateway instances rely on the UDP protocol for [heartbeat and rate-limit communications](self-hosted-gateway-settings-reference.md#cross-instance-discovery-and-synchronization). Because Azure Container Apps currently doesn't support the UDP protocol, neither for ingress nor for internal traffic, the `rate-limit` policy can't synchronize its counter across instances. Consequently, maintaining three replicas of a self-hosted gateway container app with limit X might result in three times the traffic until limit X is reached. 
 
 Azure Container Apps distributes requests linearly across each available and healthy replica. To implement rate limiting, you can divide the desired limit by the number of replicas you want to run and set the resulting value in configuration. This approach has its own downsides as you might not be able to account for adjusted counters if and when your container apps scale.
 

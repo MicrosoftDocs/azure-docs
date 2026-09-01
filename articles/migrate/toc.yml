@@ -57,6 +57,8 @@ items:
     items:
     - name: Appliance requirements
       href: migrate-appliance.md
+    - name: Register appliance by onboarding to Azure Arc
+      href: how-to-register-appliance-using-arc-agent.md
     - name: Register appliance using pre-configured Entra app
       href: how-to-register-appliance-using-entra-app.md
     - name: Appliance configuration

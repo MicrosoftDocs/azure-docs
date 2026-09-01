@@ -71,6 +71,7 @@ The following limitations apply to HSR deployments.
 | Limitation | Description |
 | --- | --- |
 | HSR + DR scenario | This combined scenario isn't supported. |
+| HSR + Async | A-sync isn't supported. |
 | Original Location Recovery (OLR) | OLR isn't supported for HSR. |
 | Restore target type | Restore to an HSR instance isn't supported; restore to a HANA instance is supported. |
 

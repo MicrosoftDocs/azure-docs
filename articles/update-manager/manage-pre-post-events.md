@@ -4,8 +4,8 @@ description: The article provides the steps to manage the pre and post maintenan
 ms.service: azure-update-manager
 ms.date: 02/18/2025
 ms.topic: how-to
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.update-cycle: 1095-days
 ms.custom:
   - build-2025

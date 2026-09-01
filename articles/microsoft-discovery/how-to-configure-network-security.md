@@ -3,7 +3,7 @@ title: Configure network security for Microsoft Discovery workspaces
 description: Learn how to assign NSP roles, configure subnets, create private endpoints, and configure DNS for Microsoft Discovery workspaces.
 ms.service: azure
 ms.topic: how-to
-ms.date: 03/30/2026
+ms.date: 08/05/2026
 ms.author: umamm
 author: umamm
 ms.custom: networking, private-link, nsp
@@ -375,6 +375,59 @@ TOKEN=$(az account get-access-token --resource "https://discovery.azure.com/" --
 
 curl -sS -H "Authorization: Bearer $TOKEN" \
   "https://{workspaceName}.workspace.discovery.azure.com/projects/{projectName}/investigations?api-version=2026-02-01-preview"
+```
+
+## Configure outbound internet access
+
+Discovery-delegated subnets don't have a default outbound route to the internet. You provide the egress path by using Azure Firewall, NAT gateway, or your own NVA. When you set `outboundType = UserDefinedRouting` on a Microsoft Discovery supercomputer, you must also provide a dedicated management subnet for the AKS API server's internal load balancer.
+
+### Management subnet ID requirements
+
+`managementSubnetId` is the ID of a dedicated subnet in your virtual network. This subnet hosts the internal load balancer (ILB) that fronts the supercomputer's AKS API server. When you provide this ID, it enables **AKS API server VNet integration**, which keeps every node-to-API-server call inside your virtual network.
+
+#### When it's required
+
+| Supercomputer configuration | `managementSubnetId` |
+|---|---|
+| `outboundType = LoadBalancer` (default) | **Optional**. Recommended for defense in depth. |
+| `outboundType = UserDefinedRouting` | **Required**. Provisioning is rejected without it. |
+
+#### Requirements
+
+| Requirement | Value |
+|---|---|
+| Subnet delegation | `Microsoft.ContainerService/managedClusters` (required) |
+| Minimum size | `/28` (16 addresses) |
+| Location | Same virtual network as your supercomputer's `aksSubnet` (control plane) and `supercomputerNodepoolSubnet` (node pools) |
+| Address space | Must not overlap the AKS overlay pod CIDR (default `10.244.0.0/16`) |
+| Reuse | Dedicated per supercomputer. Don't share with other supercomputers, workspaces, or bookshelves. |
+| Mutability | Immutable after supercomputer create |
+
+> [!IMPORTANT]
+> The delegation service name must be the fully qualified value **`Microsoft.ContainerService/managedClusters`**.
+
+#### Portal
+
+In the Azure portal, select the management subnet from the **Management Virtual Network** dropdown on the supercomputer **Networking** tab. The portal doesn't create the subnet for you. Provision the subnet on your virtual network first, then select it.
+
+#### REST, Bicep, and ARM
+
+Set `properties.managementSubnetId` on the supercomputer resource to the full subnet resource ID:
+
+```bicep
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2024-01-01' existing = {
+  name: '<vnet-name>'
+}
+
+resource sc 'Microsoft.Discovery/supercomputers@2026-06-01' = {
+  name: '<sc-name>'
+  location: '<region>'
+  properties: {
+    outboundType: 'UserDefinedRouting'
+    managementSubnetId: '${virtualNetwork.id}/subnets/managementSubnet'
+    // Add other properties as needed.
+  }
+}
 ```
 
 ## Disable public network access (optional)

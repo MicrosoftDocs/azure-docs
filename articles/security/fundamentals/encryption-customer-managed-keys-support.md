@@ -142,7 +142,7 @@ The following services support server-side encryption with customer-managed keys
 |---|---|---|---|
 | [Archive Storage](../../storage/blobs/archive-blob.md) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](../../storage/common/customer-managed-keys-overview.md) |
 | [Azure Backup](../../backup/index.yml) | Yes | Yes | [Encrypt backup data using customer-managed keys](../../backup/encryption-at-rest-with-cmk.md) |
-| [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | Yes\*\* | Yes | [Configure disk encryption for Azure Cache for Redis instances using customer-managed keys](../../azure-cache-for-redis/cache-how-to-encryption.md) |
+| [Azure Cache for Redis](/azure/azure-cache-for-redis/) | Yes\*\* | Yes | [Configure disk encryption for Azure Cache for Redis instances using customer-managed keys](/azure/azure-cache-for-redis/cache-how-to-encryption) |
 | [Azure Data Box](../../databox/index.yml) | Yes | | [Use a customer-managed key to secure your Data Box](../../databox/data-box-customer-managed-encryption-key-portal.md) |
 | [Azure Elastic SAN](../../storage/elastic-san/index.yml) | Yes | | [Configure customer-managed keys for Azure Elastic SAN](../../storage/elastic-san/elastic-san-configure-customer-managed-keys.md) |
 | [Azure Import/Export](../../import-export/index.yml) | Yes | | [Use customer-managed keys for Azure Import/Export service](../../import-export/storage-import-export-encryption-key-portal.md) |
@@ -168,7 +168,7 @@ The following services support server-side encryption with customer-managed keys
 
 \* This service supports storing data in your own Azure Key Vault, storage account, or other data-persisting service that already supports server-side encryption with a customer-managed key.
 
-\*\* Any transient data stored temporarily on disk such as page files or swap files are encrypted with a Microsoft key (all tiers) or a customer-managed key (using the Enterprise and Enterprise Flash tiers). For more information, see [Configure disk encryption in Azure Cache for Redis](../../azure-cache-for-redis/cache-how-to-encryption.md).
+\*\* Any transient data stored temporarily on disk such as page files or swap files are encrypted with a Microsoft key (all tiers) or a customer-managed key (using the Enterprise and Enterprise Flash tiers). For more information, see [Configure disk encryption in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-encryption).
 
 ## Related content
 

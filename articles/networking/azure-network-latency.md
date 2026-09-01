@@ -1,6 +1,6 @@
 ---
 title: Azure network round-trip latency statistics
-description: Learn about round-trip latency statistics between Azure regions.
+description: View P50 round-trip latency measurements between Azure regions to help you plan multi-region deployments and select regions that minimize latency.
 services: networking
 author: mbender-ms
 ms.service: azure-virtual-network
@@ -34,18 +34,24 @@ The latency statistics presented in this article are based on the 50th percentil
 
 ## Round-trip latency data by region
 
-The monthly Percentile P50 round trip times between Azure regions for a 30-day window are shown in the following tabs. The latency is measured in milliseconds (ms).
+The following tabs show the monthly percentile P50 round-trip times between Azure regions for a 30-day window. Latency values are in milliseconds (ms).
 
-The current dataset was taken on *July 30, 2026*, and it covers the 30-day period ending on *July 30, 2026*.
+The current dataset dates from *July 30, 2026* and covers the 30-day period ending on *July 30, 2026*.
 
-For readability, each table is split into tabs for groups of Azure regions. The tabs are organized by regions, and then by source region in the first column of each table. For example, the *East US* tab also shows the latency from all source regions to the two *East US* regions: *East US* and *East US 2*. 
+For readability, tabs divide each table into groups of Azure regions. The tabs organize data by region, then by source region in the first column of each table. For example, the *East US* tab also shows latency from all source regions to the two *East US* regions: *East US* and *East US 2*.
 
-Each latency value is directional. The latency from one region to another can differ from the latency in the reverse direction, because traffic might take a different network path each way. When you compare regions, use the value that matches the direction your traffic flows.
+Each latency value is directional. The latency from one region to another can differ from the latency in the reverse direction because traffic might take a different network path each way. When you compare regions, use the value that matches the direction your traffic flows.
+
+### How to read the latency tables
+
+Each table lists the *source* region in the first column and each *destination* region across the top row. To find a latency value, locate the row for your source region, then read across to the column for your destination region. The value is the P50 (50th-percentile, or median) round-trip time in milliseconds.
+
+For example, in the **East US** tab, the row for source *East US* and the column for destination *East US 2* shows a latency of 8 ms. Because latency is directional, the reverse path uses a different value: the row for source *East US 2* and the column for destination *East US* shows 9 ms. Always use the value that matches the direction your traffic flows.
+
+To measure latency between your own workloads rather than between regions, see [Test VM network latency](/troubleshoot/azure/virtual-network/virtual-network-test-latency) to run a VM-to-VM latency test in your Azure subscription.
 
 > [!IMPORTANT]
-> Monthly latency numbers across Azure regions do not change on a regular basis. You can expect an update of these tables every 6 to 9 months. Not all public Azure regions are listed in the following tables. When new regions come online, we will update this document as soon as latency data is available.
-> 
-> You can perform VM-to-VM latency between regions using [test Virtual Machines](../virtual-network/virtual-network-test-latency.md) in your Azure subscription.
+> Monthly latency numbers across Azure regions rarely change. Expect an update to these tables every 6 to 9 months. The following tables don't list all public Azure regions. When new regions come online, we update this document as soon as latency data becomes available.
 
 #### [North America / South America](#tab/Americas)
 
@@ -1096,6 +1102,10 @@ West US 2,166,167,161,172,163,152,177,64,74,210,38,146,141,73,68,149,148,151,155
 West US 3,149,149,146,157,151,136,157,70,79,231,43,141,156,57,52,130,139,146,142,196,171,150,112,118,253,136,132,187,39,134,53,125,149,141,155,200,263,245,22,214,183,123,158,146,140,239,243,132,132,34,137,19,40,
 ```
 
-## Next steps
+## Related content
 
-Learn about [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
+- [Test VM network latency](/troubleshoot/azure/virtual-network/virtual-network-test-latency)
+- [Plan virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md)
+- [Azure Virtual Network concepts and best practices](../virtual-network/concepts-and-best-practices.md)
+- [Cross-region and multicloud connectivity](design-guide/cross-region.md)
+- [Microsoft global network](microsoft-global-network.md)

@@ -1,6 +1,26 @@
 {
     "redirections": [
         {
+            "source_path": "articles/azure-functions/compare-serverless-agents-runtime.md",
+            "redirect_url": "/azure/azure-functions/functions-hosted-skills",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/azure-functions/functions-serverless-agents-runtime.md",
+            "redirect_url": "/azure/azure-functions/functions-hosted-skills",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/azure-functions/functions-serverless-agents-runtime-reference.md",
+            "redirect_url": "/azure/azure-functions/functions-hosted-skills-reference",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/azure-functions/scenario-serverless-agents-runtime.md",
+            "redirect_url": "/azure/azure-functions/scenario-hosted-skills",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/azure-functions/durable/durable-functions-create-portal.md",
             "redirect_url": "/azure/durable-task/durable-functions/durable-functions-isolated-create-first-csharp",
             "redirect_document_id": false

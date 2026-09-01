@@ -293,7 +293,7 @@ For example, to create a new broker listener with the `LoadBalancer` service typ
 
 1. In the Azure portal, go to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
-1. Select **MQTT broker listener for NodePort** > **Create**. You can create only one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
+1. Select **MQTT broker listener for LoadBalancer** > **Create**. You can create only one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
 
     > [!CAUTION]
     > Setting authentication to **None** and not configuring TLS [turns off authentication and TLS for testing purposes only](#only-turn-off-tls-and-authentication-for-testing).

@@ -764,7 +764,10 @@ builder.Services.AddOpenTelemetry()
 
 builder.Services.AddMvc().AddNewtonsoftJson();
 
-// Only needed if using HttpRequestData/HttpResponseData and a serializer that doesn't support asynchronous IO
+// Only needed when something performs synchronous IO on the request or
+// response stream, for example StreamReader.ReadToEnd() on the body,
+// HttpResponseData.WriteString(), or a serializer without asynchronous IO
+// such as NewtonsoftJsonObjectSerializer
 // builder.Services.Configure<KestrelServerOptions>(options => options.AllowSynchronousIO = true);
 
 builder.Build().Run();
@@ -787,7 +790,10 @@ var host = new HostBuilder()
         services.AddOpenTelemetry().UseAzureMonitorExporter();
         services.AddMvc().AddNewtonsoftJson();
 
-        // Only needed if using HttpRequestData/HttpResponseData and a serializer that doesn't support asynchronous IO
+        // Only needed when something performs synchronous IO on the request or
+        // response stream, for example StreamReader.ReadToEnd() on the body,
+        // HttpResponseData.WriteString(), or a serializer without asynchronous IO
+        // such as NewtonsoftJsonObjectSerializer
         // services.Configure<KestrelServerOptions>(options => options.AllowSynchronousIO = true);
     })
     .Build();

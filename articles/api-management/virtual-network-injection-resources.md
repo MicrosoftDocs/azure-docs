@@ -1,10 +1,12 @@
 ---
-title: Azure API Management virtual network injection - network resources
+title: Azure API Management virtual network injection resources
 description: Learn about requirements for network resources when you deploy (inject) your API Management Developer or Premium tier instance in an Azure virtual network.
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 04/17/2025
+ms.date: 08/24/2026
+
+#customer intent: As a network administrator, I want to understand the virtual network resource requirements for API Management injection so that I can correctly size and configure my subnet and related resources.
 ---
 
 # Network resource requirements for API Management injection into a virtual network
@@ -63,7 +65,7 @@ The following table shows subnet sizing examples for API Management virtual netw
 - **Recommended sizing**: For high-scale scenarios approaching the Premium SKU limit, consider /26 or /25 subnets
 
 > [!NOTE]
-> It is currently possible to scale the Premium SKU to 31 units. If you foresee demand approaching this limit, consider the /26 subnet or /25 subnet.
+> You can currently scale the Premium tier to 31 units. If you foresee demand approaching this limit, consider the /26 subnet or /25 subnet.
 
 > [!IMPORTANT]
 > The private IP addresses of internal load balancer and API Management units are assigned dynamically. Therefore, it is impossible to anticipate the private IP of the API Management instance prior to its deployment. Additionally, changing to a different subnet and then returning might cause a change in the private IP address.

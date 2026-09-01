@@ -42,9 +42,9 @@
       - name: Host MCP server using SDKs
         displayName: AI, agent, agentic, tools, MCP SDKs
         href: scenario-host-mcp-server-sdks.md
-    - name: Serverless agents
-      displayName: AI, agent, agentic, serverless agents runtime, timer, email, connector, MCP, Foundry
-      href: scenario-serverless-agents-runtime.md
+    - name: Event-driven AI app
+      displayName: AI, agent, agentic, hosted skills, timer, email, connector, MCP, Foundry
+      href: scenario-hosted-skills.md
     - name: Respond to database changes
       items:
       - name: Azure Cosmos DB (NoSQL)
@@ -268,14 +268,8 @@
     - name: Handle binding errors
       href: functions-bindings-errors.md
   - name: Managed connectors
-    items:
-    - name: Use connectors in Azure Functions
-      displayName: managed connectors, connector trigger, connector SDK, connector namespace, Office 365, Teams, SharePoint, SaaS integration
-      href: functions-connectors-overview.md
-  - name: Frameworks
-    items:
-    - name: Express.js
-      href: shift-expressjs.md
+    displayName: managed connectors, connector trigger, connector SDK, connector namespace, Office 365, Teams, SharePoint, SaaS integration
+    href: functions-connectors-overview.md
   - name: Security
     items:
     - name: Security overview
@@ -671,20 +665,17 @@
       href: functions-mcp-foundry-tools.md
     - name: Register an MCP server in API Center
       href: register-mcp-server-api-center.md
-  - name: Serverless agents runtime
+  - name: Hosted skills
     items:
     - name: Overview
-      displayName: AI, agent, agentic, serverless agents runtime, Foundry, MCP, connectors
-      href: functions-serverless-agents-runtime.md
+      displayName: AI, agent, agentic, hosted skills, event-driven AI, Foundry, MCP, connectors
+      href: functions-hosted-skills.md
     - name: Get started
-      displayName: AI, agent, agentic, serverless agents runtime, timer, email, connector, MCP, Foundry
-      href: scenario-serverless-agents-runtime.md
+      displayName: AI, agent, agentic, hosted skills, event-driven AI, timer, email, connector, MCP, Foundry
+      href: scenario-hosted-skills.md
     - name: Reference
-      displayName: AI, agent, agentic, serverless agents runtime, configuration, mcp.json, agents.config.yaml, tools, skills
-      href: functions-serverless-agents-runtime-reference.md
-    - name: Compare agent options
-      displayName: Foundry, Copilot Studio, Scout, prompt agents, hosted agents, compare
-      href: compare-serverless-agents-runtime.md
+      displayName: AI, agent, agentic, hosted skills, configuration, mcp.json, agents.config.yaml, tools, skills
+      href: functions-hosted-skills-reference.md
   - name: Azure MCP server for Azure Functions
     href: /azure/developer/azure-mcp-server/services/azure-mcp-server-for-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: GitHub Copilot for Azure
@@ -711,6 +702,8 @@
       href: functions-node-upgrade-v4.md
   - name: Migrate .NET apps to the isolated model
     href: migrate-dotnet-to-isolated-model.md
+  - name: Migrate from Express.js
+    href: shift-expressjs.md
   - name: Move resources
     items:
     - name: Move between subscriptions
@@ -734,9 +727,9 @@
       href: /java/api/overview/azure/functions/runtime
     - name: Python
       href: /python/api/azure-functions/azure.functions
-  - name: Serverless agents runtime
-    displayName: AI, agent, agentic, serverless agents runtime, configuration, mcp.json, agents.config.yaml, tools, skills
-    href: functions-serverless-agents-runtime-reference.md
+  - name: Azure Functions hosted skills
+    displayName: AI, agent, agentic, hosted skills, configuration, mcp.json, agents.config.yaml, tools, skills
+    href: functions-hosted-skills-reference.md
   - name: App settings reference
     href: functions-app-settings.md
   - name: Triggers and bindings

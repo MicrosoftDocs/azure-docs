@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 07/10/2026
+ms.date: 08/20/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -41,11 +41,38 @@ A SMART client typically performs these steps:
 
 ## Configure access for end users
 
-Assign users to the FHIR SMART user role by using Azure role assignment guidance: [Assign Users to Role](/azure/role-based-access-control/role-assignments-portal).
-Users in this role can access the FHIR service when requests satisfy SMART requirements. Access is limited by fhirUser context and SMART clinical scopes.
+Assign users to the FHIR SMART user role by using Azure role assignment guidance: [Assign Users to Role](/azure/role-based-access-control/role-assignments-portal). Users in this role can access the FHIR service when requests satisfy SMART requirements.
 
 > [!NOTE]
->  A user with the SMART user role has access to perform read API interactions on FHIR service. The SMART user role doesn't grant write access to the FHIR service.
+> The SMART user role by itself doesn't grant access to data. Each request is further limited by the `fhirUser` context and the SMART clinical scopes in the access token. See [SMART user role capabilities](#smart-user-role-capabilities).
+
+## SMART user role capabilities
+
+The SMART user role supports read and search interactions. The scopes in the access token determine which resource types a request can reach, and the `fhirUser` claim determines whose data is in reach.
+
+### Supported FHIR interactions
+
+| SMART v2 verb | SMART v1 equivalent | Permitted interaction |
+| --- | --- | --- |
+| `r` (read) | `read` | Read a resource by ID (`GET [type]/[id]`). |
+| `s` (search) | `read` | Search (`GET [type]?[params]`), and `$export` where a system scope applies. |
+
+> [!NOTE]
+> In SMART v2, `r` grants read-by-ID only. A client that needs to search must also request `s`. For example, `patient/Observation.r` can't run a search. Use `patient/Observation.rs` instead.
+
+### Interactions not available to the SMART user role
+
+The following interactions and operations aren't available to a user with only this role, even when the scopes in the token grant the underlying interaction.
+
+| Interaction or operation | Reason |
+| --- | --- |
+| `$export` with `patient/` or `user/` scopes, or with scopes that carry search-parameter constraints | `$export` requires `system/` scopes without search-parameter constraints. |
+| `$member-match` | Not available to SMART users when the SMART member-match restriction is enabled. The system rejects the request as unauthorized. |
+| `_include`, `_revinclude`, chained searches (for example, `subject.name`), and reverse-chained searches (`_has`) that reach an uncovered resource type | The system rejects the search when it would return a resource type that the scopes in the token don't cover. |
+| Create, update, patch, or delete a resource (`POST`, `PUT`, `PATCH`, `DELETE`) | Write interactions aren't supported. |
+
+> [!IMPORTANT]
+> A principal that holds the FHIR SMART User role and presents a token without SMART clinical scopes gets no data access at all, including read.
 
 ## Identity provider support
 

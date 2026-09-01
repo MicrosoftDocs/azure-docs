@@ -4,13 +4,13 @@ title: Migrate on-premises to Microsoft Azure
 summary: Replatforming an entire workload from on-premises to Azure involves migrating various components, including compute, databases, storage, and applications. This section offers service comparisons between both platforms and example scenarios to help integrate components for transition to Azure.
 metadata:
   title: Migrate on-premises to Microsoft Azure
-  description: Learn about resources that can help you transition your workload components from Amazon Web Services (AWS) to Azure.
+  description: Learn about resources that can help you transition your workload components from on-premises to Azure.
   ms.topic: landing-page
   ms.service: azure-migrate
   author: reginahack
   ms.author: rhackenberg
   ms.reviewr: rhackenberg, chkittel
-  ms.date: 07/01/2026
+  ms.date: 08/20/2026
   ms.collection:
    - migration
    - onprem-to-azure
@@ -23,6 +23,8 @@ landingContent:
         links:
           - text: Fundamentals of Azure for on-premises experts
             url:  /azure/migration/migrate-from-on-premises-fundamentals
+          - text: Azure landing zones for on-premises experts
+            url:  /azure/migration/migrate-from-on-premises-platform-landing-zone
           - text: Plan your migration
             url:  /azure/cloud-adoption-framework/migrate/plan-migration
           - text: Select your migration strategy

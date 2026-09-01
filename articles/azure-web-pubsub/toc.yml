@@ -67,15 +67,7 @@
         - name: Send client events to Event Hubs
           href: howto-develop-event-listener.md
         - name: Use server SDK with Azure Identity
-          items:
-            - name: Use server SDK with Azure Identity and .NET
-              href: howto-create-serviceclient-with-net-and-azure-identity.md
-            - name: Use server SDK with Azure Identity and Java
-              href: howto-create-serviceclient-with-java-and-azure-identity.md
-            - name: Use server SDK with Azure Identity and JavaScript
-              href: howto-create-serviceclient-with-javascript-and-azure-identity.md
-            - name: Use server SDK with Azure Identity and Python
-              href: howto-create-serviceclient-with-python-and-azure-identity.md
+          href: howto-use-azure-identity.md
     - name: Monitor
       items:
         - name: Audit compliance using Azure Policy

@@ -22,6 +22,9 @@ When you're using RADIUS authentication, there are multiple authentication instr
 > [!NOTE]
 > [!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 
+> [!NOTE]
+>Microsoft recommends using Windows 11 with Point-to-Site VPN connections. Windows 10 reached end of support in October 2025. For more information, see [Supported Windows versions for Azure VPN Client](azure-vpn-client-versions.md#supported-windows-versions).
+
 ## Workflow
 
 The configuration workflow for P2S RADIUS authentication is as follows:

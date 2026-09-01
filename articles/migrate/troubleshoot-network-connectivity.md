@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot network connectivity issues | Microsoft Docs
 description: Provides troubleshooting tips for common errors in using Azure Migrate with private endpoints.
-author: vijain
+author: jyothisuri
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.topic: troubleshooting
 ms.date: 09/09/2024
 ms.custom:

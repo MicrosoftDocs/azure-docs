@@ -475,7 +475,9 @@
         href: azure-stack-edge-contact-microsoft-support.md
   - name: Shared release notes
     items:
-    - name: 2604 - Current
+    - name: 2607 - Current
+      href: azure-stack-edge-gpu-2607-release-notes.md
+    - name: "2604"
       href: azure-stack-edge-gpu-2604-release-notes.md
     - name: "2510"
       href: azure-stack-edge-gpu-2510-release-notes.md

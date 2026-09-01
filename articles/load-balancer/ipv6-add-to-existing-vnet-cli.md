@@ -111,7 +111,7 @@ az network nic ip-config create \
 --subnet mySubnet \
 --private-ip-address-version IPv6 \
 --lb-address-pools dsLbBackEndPool_v6 \
---lb-name dsLB
+--lb-name myLoadBalancer
 
 az network nic ip-config create \
 --name dsIp6Config_NIC2 \

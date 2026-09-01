@@ -9,7 +9,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
-ms.date: 07/25/2025
+ms.date: 08/28/2026
 ms.author: zhiyuanliang
 # customer intent: As a .NET developer, I want to find out how to use feature flags so that I can control feature availability quickly and confidently.
 ---
