@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Create a WAF policy for Azure Front Door - Azure portal'
-titleSufix: Azure Web Application Firewall
-description: In this tutorial, you learn how to create a web application firewall (WAF) policy by using the Azure portal.
+title: 'Tutorial: Create a WAF Policy for Azure Front Door - Azure Portal'
+titleSuffix: Azure Web Application Firewall
+description: Learn how to create an Azure Front Door WAF policy in the Azure portal, associate it at profile, domain, or route scope, and configure WAF rules.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: tutorial
-ms.date: 04/30/2026
+ms.date: 09/01/2026
 ms.custom: sfi-image-nochange
 
 # Customer intent: As a security administrator, I want to create and configure a web application firewall policy for Azure Front Door, so that I can protect my applications from web vulnerabilities and control traffic effectively.
@@ -21,9 +21,9 @@ This tutorial shows you how to create a basic web application firewall (WAF) pol
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a WAF policy.
-> * Associate it with a front-end host.
-> * Configure WAF rules.
+> - Create a WAF policy.
+> - Associate it at profile, domain, or route scope.
+> - Configure WAF rules.
 
 ## Prerequisites
 
@@ -53,10 +53,17 @@ First, create a basic WAF policy by using the Azure portal.
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Front door profile              | Select your Azure Front Door profile name. |
-    | Domains          | Select the domains you want to associate the WAF policy to and then select **Add**. |
+    | Association scope | Select **Profile**, **Domain**, or **Route**. |
+    | Domains | If you selected **Domain** or **Route**, select the domains to associate. |
+    | Routes | If you selected **Route**, select the routes to associate. |
+
+    When needed, repeat these steps to add additional associations.
     
     > [!NOTE]
-    > If you associate the domain to a WAF policy, it's shown as grayed out. You must first remove the domain from the associated policy and then re-associate the domain to a new WAF policy.
+    > If multiple policy scopes apply to a request, route-level policy takes precedence over domain-level policy, and domain-level policy takes precedence over profile-level policy.
+
+    > [!NOTE]
+    > If you associate a domain with a WAF policy, it appears grayed out. Remove the domain from the existing association before associating it to a different policy.
 
 1. Select **Review + create** > **Create**.
 
