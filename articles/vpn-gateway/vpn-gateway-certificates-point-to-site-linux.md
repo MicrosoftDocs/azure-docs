@@ -33,4 +33,4 @@ For more information, see [Additional instructions to install the Azure CLI](/cl
 
 ## Next steps
 
-Continue with your point-to-site configuration. See  [Configure P2S VPN clients: certificate authentication - Linux](point-to-site-vpn-client-certificate-ike-linux.md).
+Continue with your point-to-site configuration. See [Configure a VPN client for P2S certificate authentication connections - Linux](point-to-site-vpn-client-certificate.md).

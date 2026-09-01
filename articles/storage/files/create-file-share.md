@@ -27,9 +27,9 @@ The Microsoft.FileShares resource provider only supports the [provisioned v2 bil
 
 The Microsoft.FileShares resource provider only supports locally redundant storage (LRS) and zone-redundant storage (ZRS). It doesn't support geo-redundant storage. See [Azure Files redundancy](./files-redundancy.md) for more information.
 
-To see which features are missing from the Microsoft.FileShares resource provider, see the [comparison chart](storage-files-planning.md#comparing-resource-providers-microsoftstorage-versus-microsoftfileshares).
+To see which features are missing from the Microsoft.FileShares resource provider, see the [comparison chart](files-management-concepts.md#comparing-resource-providers-microsoftstorage-versus-microsoftfileshares).
 
-For more information on Azure Files management concepts, see [Plan for an Azure Files deployment](storage-files-planning.md#management-concepts).
+For more information on Azure Files management concepts, see [Azure Files management concepts](files-management-concepts.md).
 
 ## Prerequisites
 

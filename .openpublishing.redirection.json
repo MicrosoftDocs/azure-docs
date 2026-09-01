@@ -1,6 +1,61 @@
 {
   "redirections": [
     {
+      "source_path": "articles/automation/automation-linux-hrw-install.md",
+      "redirect_url": "/azure/automation/extension-based-hybrid-runbook-worker-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-windows-hrw-install.md",
+      "redirect_url": "/azure/automation/extension-based-hybrid-runbook-worker-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md",
+      "redirect_url": "/azure/automation/extension-based-hybrid-runbook-worker-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/troubleshoot/hybrid-runbook-worker.md",
+      "redirect_url": "/azure/automation/troubleshoot/extension-based-hybrid-runbook-worker",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-architecture.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-troubleshoot-configuration-server.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-physical-azure-troubleshoot-process-server.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/deployment-environments/tutorial-deploy-environments-in-cicd-github.md",
+      "redirect_url": "/previous-versions/azure/deployment-environments/tutorial-deploy-environments-in-cicd-github",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/durable-task/scheduler/durable-task-scheduler-on-demand-sandboxes.md",
+      "redirect_url": "/azure/durable-task/scheduler/durable-task-scheduler",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/durable-task/scheduler/durable-task-scheduler-configure-on-demand-sandboxes.md",
+      "redirect_url": "/azure/durable-task/scheduler/durable-task-scheduler",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-china-delivery.md",
+      "redirect_url": "/azure/frontdoor/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-compute-fleet/modify-fleet.md",
       "redirect_url": "/azure/azure-compute-fleet/managed-mode",
       "redirect_document_id": false
@@ -3949,6 +4004,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/azure-web-pubsub/howto-create-serviceclient-with-java-and-azure-identity.md",
+      "redirect_url": "/azure/azure-web-pubsub/howto-use-azure-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-web-pubsub/howto-create-serviceclient-with-javascript-and-azure-identity.md",
+      "redirect_url": "/azure/azure-web-pubsub/howto-use-azure-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-web-pubsub/howto-create-serviceclient-with-net-and-azure-identity.md",
+      "redirect_url": "/azure/azure-web-pubsub/howto-use-azure-identity",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-web-pubsub/howto-create-serviceclient-with-python-and-azure-identity.md",
+      "redirect_url": "/azure/azure-web-pubsub/howto-use-azure-identity",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-sql-edge/alter-external-stream-transact-sql.md",
       "redirect_url": "/azure/azure-sql-edge/release-notes",
       "redirect_document_id": false
@@ -7681,6 +7756,56 @@
     {
       "source_path": "articles/vpn-gateway/about-zone-redundant-vnet-gateways.md",
       "redirect_url": "/azure/reliability/reliability-virtual-network-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-native.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-azure-vpn-client.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-openvpn-client.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-certificate-client-linux-azure-vpn-client.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-linux.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-ike-linux.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-cert-mac.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-mac.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-ios.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-certificate",
       "redirect_document_id": false
     },
     {

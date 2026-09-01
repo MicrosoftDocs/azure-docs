@@ -181,11 +181,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-cache-for-redis/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/databox/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/databox-security-baseline",
       "redirect_document_id": false

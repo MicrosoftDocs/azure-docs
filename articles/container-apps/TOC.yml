@@ -49,6 +49,20 @@ items:
       items:
         - name: Overview
           href: sandboxes-overview.md
+        - name: Get started
+          href: sandboxes-get-started.md
+        - name: Quickstarts
+          items:
+            - name: Azure portal
+              href: sandboxes-quickstart-portal.md
+            - name: Agent skills
+              href: sandboxes-quickstart-agent-skills.md
+            - name: CLI
+              href: sandboxes-quickstart-cli.md
+            - name: Bicep
+              href: sandboxes-quickstart-bicep.md
+            - name: Python SDK
+              href: sandboxes-quickstart-python-sdk.md
         - name: Snapshots and state management
           href: sandboxes-snapshots-state-management.md
         - name: Egress policies

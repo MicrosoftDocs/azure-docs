@@ -39,9 +39,9 @@ Here are some of the benefits of using Connection monitor:
 
 - Cross-subscription, cross-workspace monitoring experience for Azure and Hybrid cloud environments.
 
-- Supported source endpoints enabled with Network Watcher extension: Azure VMs, Azure virtual machine scale sets, and Arc enabled on-premises hosts.
+- Supported source endpoints enabled with Network Watcher extension: Azure VMs, Azure virtual machine scale sets, and Azure Arc-enabled on-premises hosts.
 
-- Supported destination endpoints: Azure Virtual Machines, Azure virtual machine scale sets, Arc enabled on-premises hosts, URLs, FQDNs, or IP addresses, including on-premises endpoints without Arc. Destination endpoints don't require the Network Watcher extension.
+- Supported destination endpoints: Azure Virtual Machines, Azure virtual machine scale sets, Azure Arc-enabled on-premises hosts, URLs, FQDNs, or IP addresses, including on-premises endpoints without Azure Arc. Destination endpoints don't require the Network Watcher extension.
 
 - High probing frequencies and visibility into network performance  
 
@@ -62,7 +62,7 @@ Connection monitor relies on lightweight executable files to run connectivity ch
 
 ### Monitoring connectivity from Azure virtual machines and virtual machine scale sets
 
-To monitor connectivity from an Azure virtual machine or virtual machine scale set, Connection monitor must recognize these resources as monitoring sources. To achieve this, you need to install the Network Watcher Agent virtual machine extension, also known as the Network Watcher extension, on your Azure VMs or scale sets. This extension is required for enabling end-to-end monitoring and accessing other advanced functionalities. For more information, see [Manage Network Watcher extension for Windows](network-watcher-agent-windows.md) or [Manage Network Watcher extension for Linux](network-watcher-agent-linux.md).
+To monitor connectivity from an Azure virtual machine or virtual machine scale set, Connection Monitor must recognize these resources as monitoring sources. To achieve this recognition, install the Network Watcher Agent virtual machine extension, also known as the Network Watcher extension, on your Azure VMs or scale sets. This extension is required for enabling end-to-end monitoring and accessing other advanced functionalities. For more information, see [Manage Network Watcher Agent virtual machine extension](network-watcher-agent-manage.md).
 
 ### Monitoring connectivity from on-premises hosts
 
@@ -74,7 +74,7 @@ Once the Azure Arc agent is enabled, proceed to enable the Azure Monitor Agent. 
 You can escape the installation process of the Azure Monitor Agent extension if you use the Azure portal to create your connection monitor. However, you still need to enable the Azure Arc agent on the on-premises host machines. 
 
 > [!NOTE]
-> Currently, Connection monitor only supports Arc-enabled on-premises hosts as source endpoints. Log Analytics agent is no longer supported for monitoring on-premises machines with Connection monitor.
+> Currently, Connection monitor only supports Azure Arc-enabled on-premises hosts as source endpoints. Log Analytics agent is no longer supported for monitoring on-premises machines with Connection monitor.
 
 ### Log Analytics workspace monitoring solution
 

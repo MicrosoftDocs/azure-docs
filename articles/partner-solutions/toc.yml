@@ -15,7 +15,7 @@ items:
       href: ./arize-ai/index.yml
     - name: LambdaTest - HyperExecute
       href: ./lambda-test/index.yml
-    - name: Napster Companion API
+    - name: Napster API
       href: ./napster/index.yml
   - name: Observability partners
     items:
@@ -35,6 +35,8 @@ items:
     items:
     - name: Astro
       href: ./astronomer/index.yml
+    - name: Commvault
+      href: ./commvault/index.yml
     - name: Confluent
       href: ./apache-kafka-confluent-cloud/index.yml
     - name: Dell PowerScale Preview
@@ -54,3 +56,4 @@ items:
     - name: Palo Alto Network
       href: ./palo-alto/index.yml
   expanded: true
+

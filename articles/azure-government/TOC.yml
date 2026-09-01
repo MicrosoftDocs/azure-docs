@@ -67,8 +67,6 @@
     items:
     - name: Impact Level 5 isolation guidance 
       href: documentation-government-impact-level-5.md
-    - name: Azure secure isolation guidance
-      href: azure-secure-isolation-guidance.md
     - name: Secure Azure computing architecture 
       href: compliance/secure-azure-computing-architecture.md
   - name: Deploy

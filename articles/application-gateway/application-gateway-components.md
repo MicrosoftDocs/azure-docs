@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 07/16/2026
+ms.date: 08/18/2026
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to understand the components of an application gateway, so that I can effectively design and implement a solution to manage incoming application traffic and distribute it across backend resources.
 ---
@@ -49,11 +49,22 @@ A port is where a listener listens for the client request. You can configure por
 
 ### Protocols
 
-Application Gateway provides support for web protocols HTTP, HTTPS, HTTP/2, and WebSocket through its Layer 7 proxy. Additionally, it supports TLS and TCP protocols via its [Layer 4 proxy](tcp-tls-proxy-overview.md) in Preview, which can be configured on the same resource.
+Application Gateway provides support for web protocols HTTP, HTTPS, HTTP/2, and WebSocket through its Layer 7 proxy. Additionally, it supports TLS and TCP protocols via its [Layer 4 proxy](tcp-tls-proxy-overview.md), which can be configured on the same resource.
 
 - Choose between the HTTP, HTTPS, TLS or TCP protocols in the listener configuration.
 - You can use an HTTPS or TLS listener for TLS termination. An HTTPS/TLS listener offloads the encryption and decryption work to your application gateway, so your servers aren't burdened by TLS computation overhead.
 - Support for [WebSockets and HTTP/2 protocols](features.md#websocket-and-http2-traffic) is provided natively, and [WebSocket support](application-gateway-websocket.md) is enabled by default. There's no user-configurable setting to selectively enable or disable WebSocket support. Use WebSockets with both HTTP and HTTPS listeners.
+
+The following table summarizes how Application Gateway supports each protocol.
+
+| Protocol | Proxy | Selectable as a listener protocol | Support details |
+| ---------- | ---------- | ---------- | ---------- |
+| HTTP | Layer 7 | Yes | Supported natively through the Layer 7 proxy. |
+| HTTPS | Layer 7 | Yes | Use an HTTPS listener for TLS termination so the gateway offloads encryption and decryption work from your servers. |
+| HTTP/2 | Layer 7 | No | Available to clients connecting to application gateway listeners only. Communication to backend server pools is always over HTTP/1.1. Disabled by default; you can choose to enable it. |
+| WebSocket | Layer 7 | No | Enabled by default with no user-configurable setting to selectively enable or disable it. Use WebSockets with both HTTP and HTTPS listeners. |
+| TLS | Layer 4 | Yes | Supported through the [Layer 4 proxy](tcp-tls-proxy-overview.md), which you can configure on the same resource. |
+| TCP | Layer 4 | Yes | Supported through the [Layer 4 proxy](tcp-tls-proxy-overview.md), which you can configure on the same resource. |
 
 >[!NOTE]
 >HTTP/2 protocol support is available to clients connecting to application gateway listeners only. The communication to backend server pools is always over HTTP/1.1. By default, HTTP/2 support is disabled. You can choose to enable it.
@@ -90,6 +101,13 @@ There are two types of request routing rules:
 
 - **Path-based**. This routing rule lets you route the requests on the associated listener to a specific backend pool, based on the URL in the request. If the path of the URL in a request matches the path pattern in a path-based rule, the rule routes that request. It applies the path pattern only to the URL path, not to its query parameters. If the URL path on a listener request doesn't match any of the path-based rules, it routes the request to the default backend pool and HTTP settings.
 
+The following table compares the two rule types.
+
+| Rule type | Use case | Routing basis | Supported backends |
+| ---------- | ---------- | ---------- | ---------- |
+| Basic | Send every request that a listener accepts to the same application. | All requests on the associated listener, for example `blog.contoso.com/*`. | A single associated backend pool, reached by using the associated HTTP setting. |
+| Path-based | Route requests that arrive on one listener to different applications based on the requested URL. | The path of the URL in the request. The path pattern applies only to the URL path, not to its query parameters. | A specific backend pool for each matching path pattern, plus a default backend pool and HTTP settings for requests that don't match any path-based rule. |
+
 For more information, see [URL-based routing](url-route-overview.md).
 
 ### Redirection support
@@ -106,7 +124,7 @@ Application Gateway can add, remove, or update HTTP(S) request and response head
 
 ## HTTP settings
 
-An application gateway routes traffic to the backend servers (specified in the request routing rule that include HTTP settings) by using the port number, protocol, and other settings detailed in this component.
+An HTTP setting, also called a backend setting, is the configuration that determines how traffic reaches the backend servers. It defines the port and protocol that the application gateway uses to connect to those servers, how connections behave, and how the gateway monitors backend health. A request routing rule specifies which HTTP setting to apply when it forwards a request to a backend pool.
 
 The port and protocol used in the HTTP settings determine whether the traffic between the application gateway and backend servers is encrypted (providing end-to-end TLS) or unencrypted.
 

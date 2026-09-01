@@ -1,12 +1,12 @@
 ---
 title: Upgrade Windows Operating System
 description: Learn how to upgrade Windows OS during migration.
-author: vijain
-ms.author: vijain 
+author: jyothisuri
+ms.author: jsuri
 ms.manager: vijain
 ms.topic: how-to
 ms.date: 05/08/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 # Customer intent: As a system administrator, I want to upgrade the Windows Server OS during migration to Azure, so that I can ensure a seamless transition while preserving my settings, server roles, and data integrity.
@@ -42,10 +42,6 @@ This article describes how to upgrade Windows Server OS while migrating to Azure
 The Windows OS upgrade capability helps you move from an older operating system to a newer one while keeping your settings, server roles, and data intact. Since both upgrade and migration operations are completed at once, this reduces duplicate planning, downtime, and test efforts. The upgrade capability also reduces the risk, as customers can first test their OS upgrade in an isolated environment in Azure using test migration without any impact on their on-premises server.    
 
 You can upgrade to up to two versions from the current version.   
-
-> [!NOTE]
-> After you migrate and upgrade to Windows Server 2012 in Azure, you will get 3 years of free Extended Security Updates in Azure. [Learn more](/windows-server/get-started/extended-security-updates-overview).
-
 
 **Source** | **Supported target versions**
 --- | ---

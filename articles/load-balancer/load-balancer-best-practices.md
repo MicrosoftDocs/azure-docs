@@ -6,7 +6,7 @@ services: load-balancer
 author: cozhang8
 ms.service: azure-load-balancer
 ms.topic: troubleshooting
-ms.date: 07/17/2026
+ms.date: 08/27/2026
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to implement best practices for deploying and configuring a load balancer, so that I can enhance the reliability and performance of my Azure network infrastructure.
 ---
@@ -107,11 +107,11 @@ Along with new improvements and updates to Azure Load Balancer, there are also d
 
 ### Use or upgrade to Standard Load Balancer
 
-[Basic Load Balancer was retired September 30, 2025](https://azure.microsoft.com/updates?id=azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer) and customers should upgrade from Basic Load Balancer to Standard Load Balancer by then. Standard Load Balancer provides significant improvements including high performance, ultra-low latency, security by default, and SLA of 99.99% availability. 
+[Basic Load Balancer was retired on September 30, 2025](https://azure.microsoft.com/updates?id=azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer). If you're still using Basic Load Balancer, upgrade to Standard Load Balancer as soon as possible. Standard Load Balancer provides significant improvements including high performance, ultra-low latency, security by default, and an SLA of 99.99% availability.
 
 ### Don't use default outbound access
 
-Moving forward, don't use [default outbound access](../virtual-network/ip-services/default-outbound-access.md) and ensure all VMs have a defined explicit outbound method. This is recommended for better security and greater control over how your VMs connect to the internet. Default outbound access will [retire September 30, 2025](https://azure.microsoft.com/updates?id=default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access) and VMs created after this date must use one of the following outbound solutions to communicate to the internet:
+Moving forward, don't use [default outbound access](../virtual-network/ip-services/default-outbound-access.md) and ensure all VMs have a defined explicit outbound method. This approach offers better security and greater control over how your VMs connect to the internet. Default outbound access was [retired March 31, 2026](https://azure.microsoft.com/updates?id=default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access) and VMs created after this date must use one of the following outbound solutions to communicate to the internet:
 - Associate a NAT GW to the subnet
 - Use one or more frontend IPs of a Load Balancer for outbound via outbound rules
 - Assign an instance-level public IP address to the VM 

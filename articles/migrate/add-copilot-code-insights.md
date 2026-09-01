@@ -5,8 +5,9 @@ ms.topic: how-to
 author: sudesai
 ms.author: sudesai
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 10/23/2025
+ms.update-cycle: 180-days
 ms.custom: engagement-fy24
 # Customer intent: As a cloud administrator, I want to add code insights by using GitHub Copilot modernization so that I can improve assessments.
 ---

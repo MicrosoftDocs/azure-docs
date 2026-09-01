@@ -5,7 +5,7 @@ keywords: azure app service, web app, health check, route traffic, healthy insta
 author: msangapu-msft
 
 ms.topic: overview
-ms.date: 08/29/2025
+ms.date: 08/24/2026
 ms.author: msangapu
 ms.service: azure-app-service
 ---
@@ -41,7 +41,7 @@ Note that _/api/health_ is just an example. There's no default Health check path
 1. Select **Save**.
 
 > [!NOTE]
-> - Your [App Service plan](./overview-hosting-plans.md) should be scaled to two or more instances to fully utilize Health check. 
+> - To fully utilize Health check, your app should have at least two active replicas and its [App Service plan](./overview-hosting-plans.md) should have sufficient capacity. Scaling the plan to two or more instances isn't enough when [per-app scaling](manage-scale-per-app.md) caps the app at one instance.
 > - The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application can't connect to a critical component, the path should return a 500-level response code to indicate that the app is unhealthy. Also, if the path doesn't return a response within one minute, the health check ping is considered unhealthy.
 > - When selecting the Health check path, make sure you're selecting a path that returns a 200 status code only when the app is fully warmed up.
 > - To use Health check on a function app, you must use a [premium or dedicated hosting plan](../azure-functions/functions-scale.md#overview-of-plans).
@@ -58,7 +58,7 @@ In addition to configuring the Health check options, you can also configure the 
 | App setting name | Allowed values | Description |
 |-|-|-|
 |`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | The number of failed requests required for an instance to be deemed unhealthy and removed from the load balancer. For example, when this setting is set to `2`, your instances are removed after 2 failed pings. (The default value is `10`.) |
-|`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | 1 - 100 | By default, to avoid overwhelming the remaining healthy instances, no more than half of the instances will be excluded from the load balancer at a time. For example, if an App Service plan is scaled to four instances and three are unhealthy, two are excluded. The other two instances (one healthy and one unhealthy) continue to receive requests. In a scenario where all instances are unhealthy, none are excluded. <br /> To override this behavior, set this app setting to a value between `1` and `100`. A higher value means more unhealthy instances are removed. (The default value is `50`.) |
+|`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | 1 - 100 | By default, to avoid overwhelming the remaining healthy instances, no more than half of the app's active instances are excluded from the load balancer at a time. For example, assume that an app has four active instances. If three are unhealthy, two are excluded. The other two instances (one healthy and one unhealthy) continue to receive requests. In a scenario where all instances are unhealthy, none are excluded. <br /> To override this behavior, set this app setting to a value between `1` and `100`. A higher value means more unhealthy instances are removed. The default value is `50`. |
 
 #### Authentication and security
 
@@ -159,7 +159,7 @@ After providing your application's Health check path, you can monitor the health
 
 ## Limitations
 
-- Health check can be enabled for **Free** and **Shared** App Service plans, so you can have metrics on the site's health and set up alerts. However, because **Free** and **Shared** sites don't support scale out, unhealthy instances won't be replaced automatically. You should scale up to the **Basic** tier or higher so you can scale out to two or more instances and get the full benefit of Health check. We recommend this configuration for production-facing applications because it increases your app's availability and performance.
+- You can enable Health check for **Free** and **Shared** App Service plans, so you can have metrics on the site's health and set up alerts. However, because **Free** and **Shared** sites don't support scale out, unhealthy instances aren't replaced automatically. To get the full benefit of Health check, scale up to the **Basic** tier or higher, provide sufficient plan capacity, and configure the app with at least two active replicas. Plan capacity alone isn't sufficient if per-app scaling limits the app to one instance. We recommend this configuration for production-facing applications because it increases your app's availability and performance.
 - An App Service plan can have a maximum of one unhealthy instance replaced per hour and, at most, three instances per day.
 - There's a nonconfigurable limit on the total number of instances replaced by Health check per scale unit. If this limit is reached, no unhealthy instances are replaced. This value is reset every 12 hours.
 
@@ -167,7 +167,7 @@ After providing your application's Health check path, you can monitor the health
 
 ### What happens if my app runs on a single instance?
 
-If your app is only scaled to one instance and becomes unhealthy, it won't be removed from the load balancer because that would take down your application entirely. However, after one hour of continuous unhealthy pings, the instance is replaced. Scale out to two or more instances to get the rerouting benefit of Health check. If your app runs on a single instance, you can still use the Health check [monitoring](#monitoring) feature to keep track of your application's health.
+If your app has only one active instance and becomes unhealthy, the load balancer doesn't remove it because that action would take down your application entirely. However, after one hour of continuous unhealthy pings, the instance is replaced. To get the rerouting benefit of Health check, configure the app with at least two active replicas and provide sufficient App Service plan capacity. If your app runs on a single instance, you can still use the Health check [monitoring](#monitoring) feature to keep track of your application's health.
  
 ### Why are the Health check requests not showing in my web server logs?
 
@@ -187,7 +187,7 @@ Unhealthy instances will always be removed from the load balancer rotation regar
 
 #### Example 
 
-Assume you have two applications (or one app with a slot) with Health check enabled. They're called App A and App B. They're on the same App Service plan, and the plan is scaled out to four instances. If App A becomes unhealthy on two instances, the load balancer stops sending requests to App A on those two instances. Requests are still routed to App B on those instances, assuming App B is healthy. If App A remains unhealthy for more than an hour on those two instances, the instances are only replaced if App B is *also* unhealthy on those instances. If App B is healthy, the instances aren't replaced.
+Assume you have two applications (or one app with a slot) with Health check enabled. They're called App A and App B. They're on the same App Service plan, and each app has four active replicas. If App A becomes unhealthy on two instances, the load balancer stops sending requests to App A on those two instances. Requests are still routed to App B on those instances, assuming App B is healthy. If App A remains unhealthy for more than an hour on those two instances, the instances are only replaced if App B is *also* unhealthy on those instances. If App B is healthy, the instances aren't replaced.
 
 ![Diagram of the example scenario.][2]
 

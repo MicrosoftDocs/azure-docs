@@ -6,7 +6,7 @@ author: richarddiver-ms
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 07/21/2026
+ms.date: 08/24/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 
@@ -15,13 +15,18 @@ ai-usage: ai-assisted
 
 As you consider and evaluate AI-enabled integration, it's critical to understand the shared responsibility model and which tasks the AI platform or application provider handles and which tasks you handle. The workload responsibilities vary depending on whether the AI integration is based on software as a service (SaaS), platform as a service (PaaS), or infrastructure as a service (IaaS).
 
+This article extends the [shared responsibility in the cloud](shared-responsibility.md) model to generative AI workloads. For autonomous, tool-using AI agents, see the [AI agent shared responsibility model](shared-responsibility-ai-agent.md).
+
+> [!NOTE]
+> This article uses "responsibility" in a governance sense: who is expected to configure, operate, and monitor each control. It is illustrative guidance and is not intended to convey legal conclusions or to modify or contradict the terms of any agreement between you and Microsoft.
+
 ## Division of responsibility
 
 As with cloud services, multiple options exist when you implement AI capabilities for your organization. Depending on which option you choose, you take responsibility for different parts of the necessary operations and policies needed to use AI safely.
 
 The following diagram illustrates the areas of responsibility between you and Microsoft according to the type of deployment.
 
-:::image type="content" source="media/shared-responsibility-ai/ai-shared-responsibility.svg" alt-text="Diagram of the shared responsibility matrix for AI deployments showing user and Microsoft responsibilities across AI platform, application, and usage layers." border="false":::
+:::image type="content" source="media/shared-responsibility-ai/ai-shared-responsibility.svg" alt-text="Diagram of the AI shared responsibility model showing how security responsibility is divided between the customer and Microsoft across IaaS, PaaS, and SaaS AI deployment models, with three functional layers stacked from top to bottom: AI usage, AI application, and AI platform." border="false":::
 
 ## AI layer overview
 
@@ -57,18 +62,7 @@ The following resources define AI-specific attack types:
 - [OWASP Machine Learning (ML) security top 10](https://owasp.org/www-project-machine-learning-security-top-10/)
 - [NIST AI risk management framework](https://www.nist.gov/itl/ai-risk-management-framework)
 
-## Security lifecycle
-As with security for other types of capability, it's critical to plan for a complete approach. A complete approach includes people, process, and technology across the full security lifecycle: identify, protect, detect, respond, recover, and govern. Any gap or weakness in this lifecycle could cause you to:
-
-- Fail to secure important assets
-- Experience preventable attacks
-- Be unable to handle attacks
-- Be unable to quickly restore business-critical services
-- Apply controls inconsistently
-
-For more information about the unique nature of AI threat testing, see [Microsoft AI Red Team is building the future of safer AI](https://www.microsoft.com/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/).
-
-## Configure before customize
+## Configure before you customize
 Microsoft recommends that organizations start with SaaS-based approaches like the Copilot model for their initial adoption of AI and for all subsequent AI workloads. This approach minimizes the level of responsibility and expertise your organization must provide to design, operate, and secure these highly complex capabilities.
 
 If the current off-the-shelf capabilities don't meet the specific needs for a workload, you can adopt a PaaS model by using AI services, such as [Azure OpenAI Service](/azure/ai-services/openai/overview), to meet those specific requirements.
@@ -86,3 +80,7 @@ Learn more about [Azure AI security best practices](ai-security-best-practices.m
 Learn more about Microsoft's product development requirements for responsible AI in the [Microsoft Responsible AI Standard](https://www.microsoft.com/ai/principles-and-approach/).
 
 Learn about [shared responsibilities for cloud computing](shared-responsibility.md).
+
+Learn about the [AI agent shared responsibility model](shared-responsibility-ai-agent.md) for autonomous, tool-using AI systems.
+
+Read about the unique nature of AI threat testing in [Microsoft AI Red Team is building the future of safer AI](https://www.microsoft.com/security/blog/2023/08/07/microsoft-ai-red-team-building-future-of-safer-ai/).

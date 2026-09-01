@@ -1,9 +1,9 @@
 items:
-- name: Azure Native Pure Storage Cloud Documentation
+- name: Everpure Cloud Azure Native Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Native Pure Storage Cloud?
+  - name: What is Everpure Cloud Azure Native?
     href: overview.md 
   - name: FAQ
     href: faq.yml

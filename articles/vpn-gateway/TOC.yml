@@ -197,35 +197,7 @@
             - name: Azure PowerShell
               href: vpn-gateway-howto-point-to-site-rm-ps.md
         - name: VPN client configuration
-          items:
-            - name: Windows clients
-              items:
-                - name: Native VPN client
-                  href: point-to-site-vpn-client-certificate-windows-native.md
-                - name: Azure VPN client
-                  href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
-                - name: OpenVPN client
-                  items:
-                    - name: Version 2.x
-                      href: point-to-site-vpn-client-certificate-windows-openvpn-client.md
-                    - name: Version 3.x
-                      href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md
-            - name: Linux clients
-              items:
-                - name: Azure VPN client
-                  href: point-to-site-certificate-client-linux-azure-vpn-client.md
-                - name: OpenVPN client
-                  href: point-to-site-vpn-client-certificate-openvpn-linux.md
-                - name: IKEv2 - strongSwan
-                  href: point-to-site-vpn-client-certificate-ike-linux.md
-            - name: macOS and iOS clients
-              items:
-                - name: Native VPN client
-                  href: point-to-site-vpn-client-cert-mac.md
-                - name: OpenVPN client - macOS
-                  href: point-to-site-vpn-client-certificate-openvpn-mac.md
-                - name: OpenVPN client - iOS
-                  href: point-to-site-vpn-client-certificate-openvpn-ios.md
+          href: point-to-site-vpn-client-certificate.md
         - name: Generate self-signed certificates
           items:
             - name: .cer and .pfx files

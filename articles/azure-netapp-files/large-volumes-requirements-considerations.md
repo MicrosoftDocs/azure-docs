@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: concept-article
-ms.date: 02/10/2026
+ms.date: 08/28/2026
 ms.author: anfdocs
 # Customer intent: As a storage administrator, I want to review the requirements and limitations of large volumes in Azure NetApp Files, so that I can effectively plan the deployment and management of storage solutions to meet my organization's data capacity and performance needs.
 ---
@@ -194,38 +194,26 @@ If this is your first time using large volumes, register the feature with the [l
 
 # [Azure CLI](#tab/azurecli)
 
-1.  Register the feature by running the following commands:
+1. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** is in the `Registering` state. Wait until the status is `Registered` before continuing.
 
     ```azurecli
     az account set --subscription <subscriptionId>
-    az feature register --namespace Microsoft.NetApp --name ANFLargeVolumes
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurecli
     az feature show --namespace Microsoft.NetApp --name ANFLargeVolumes
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 # [Azure PowerShell](#tab/azurepowershell)
 
-1.  Register the feature by running the following commands:
+1. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** is in the `Registering` state. Wait until the status is `Registered` before continuing.
 
     ```azurepowershell
     Set-AzContext -SubscriptionId <subscriptionId>
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
-
-    ```azurepowershell
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
