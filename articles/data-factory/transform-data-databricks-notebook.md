@@ -77,7 +77,7 @@ definition:
 |type|For Databricks Notebook Activity, the activity type is DatabricksNotebook.|Yes|
 |linkedServiceName|Name of the Databricks Linked Service on which the Databricks notebook runs. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article.|Yes|
 |notebookPath|The absolute path of the notebook to be run in the Databricks Workspace. This path must begin with a slash.|Yes|
-|baseParameters|An array of Key-Value pairs. Base parameters can be used for each activity run. If the notebook takes a parameter that isn't specified, the default value from the notebook will be used. Find more on parameters in [Databricks Notebooks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|No|
+|baseParameters|An array of key-value pairs. Use base parameters for each activity run. If the notebook takes a parameter that you don't specify, the default value from the notebook is used. For more information about parameters, see [Databricks Notebooks](/azure/databricks/jobs/task-parameters).|No|
 |libraries|A list of libraries to be installed on the cluster that will execute the job. It can be an array of \<string, object>.|No|
 
 ## Supported libraries for Databricks activities

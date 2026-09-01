@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev 
 ms.service: azure-managed-grafana
 ms.topic: how-to 
-ms.date: 10/23/2024
+ms.date: 08/28/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -19,7 +19,7 @@ In this article, you learn how to monitor an Azure Managed Grafana workspace by 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An Azure Managed Grafana workspace with access to at least one data source. If you don't have an Azure Managed Grafana instance yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md) and [add a data source](how-to-data-source-plugins-managed-identity.md).
+- An Azure Managed Grafana workspace with access to at least one data source. If you don't have a workspace yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
 
 ## Sign in to Azure
 
@@ -27,11 +27,11 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ## Add diagnostic settings
 
-To monitor an Azure Managed Grafana workspace, the first step to take is to configure diagnostic settings. In this process, you configure the streaming export of your workspace's logs to a destination of your choice.
+Configure diagnostic settings to stream your workspace logs to one or more destinations.
 
 You can create up to five different diagnostic settings to send different logs to independent destinations.
 
-1. Open an Azure Managed Grafana resource, and go to **Diagnostic settings**, under **Monitoring**
+1. Open an Azure Managed Grafana resource, and under **Monitoring**, select **Diagnostic settings**.
 
    :::image type="content" source="media/monitoring-logs/diagnostic-overview.png" alt-text="Screenshot of the Azure platform. Diagnostic settings.":::
 
@@ -39,11 +39,9 @@ You can create up to five different diagnostic settings to send different logs t
 
 1. For **Diagnostic setting name**, enter a unique name.
 
-1. Select **allLogs** from the following options:
-   - **audit** streams all audit logs (Currently not supported. See the following link for additional information about the types of logs available for the Microsoft.Dashboard/grafana resource type: [Supported logs for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-logs/microsoft-dashboard-grafana-logs)).
-   - **allLogs** streams all logs
-   - **Grafana Login Events** streams all Grafana login events
-   - **AllMetrics** streams all metrics (Currently not supported. See the following link for additional information about metrics available for the Microsoft.Dashboard/grafana resource type: [Supported metrics for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-metrics/microsoft-dashboard-grafana-metrics)).
+1. Under **Logs**, select **allLogs** to stream all supported logs. To select individual categories instead, see [Supported logs for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-logs/microsoft-dashboard-grafana-logs).
+
+   The **AllMetrics** option isn't currently supported. For available platform metrics, see [Supported metrics for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-metrics/microsoft-dashboard-grafana-metrics).
 
 1. Under **Destination details**, select one or more destinations, fill out details and select **Save**.
 
@@ -54,11 +52,11 @@ You can create up to five different diagnostic settings to send different logs t
    | Event hub               | Stream to an event hub                 | Select a **subscription** and an existing Azure Event Hubs **namespace**. Optionally also choose an existing **event hub**. Lastly, choose an **event hub policy** from the list. Only event hubs in the same region as the Grafana workspace are displayed in the dropdown menu. |
    | Partner solution        | Send to a partner solution             | Select a **subscription** and a **destination**. For more information about available destinations, go to [partner destinations](/azure/azure-monitor/partners).                 |
 
-   :::image type="content" source="media//monitoring-logs/monitoring-settings.png" alt-text="Screenshot of the Azure platform. Diagnostic settings configuration.":::
+   :::image type="content" source="media/monitoring-logs/monitoring-settings.png" alt-text="Screenshot of the Azure platform. Diagnostic settings configuration.":::
 
 ## Access logs
 
-Now that you've configured your diagnostic settings, Azure streams all new events to your selected destinations and generate logs. You can now create queries and access logs to monitor your application.
+After you configure diagnostic settings, Azure streams new events to your selected destinations and generates logs. You can then create queries and access logs to monitor your workspace.
 
 1. In your Azure Managed Grafana workspace, select **Logs** from the left menu. The Azure platform displays a **Queries** page, with suggestions of queries to choose from.
 
@@ -71,7 +69,7 @@ Now that you've configured your diagnostic settings, Azure streams all new event
    :::image type="content" source="media/monitoring-logs/query.png" alt-text="Screenshot of the Azure platform. Log query editing." lightbox="media/monitoring-logs/query-expanded.png":::
 
 1. Select **Schema and Filter** on the left side of the screen to access tables, queries, and functions. You can also filter and group results, and find your favorites.
-1. Select **Columns** on the right of **Results** to  edit the columns of the results table, and manage the table like a pivot table.
+1. Select **Columns** on the right of **Results** to edit the columns of the results table and manage the table like a pivot table.
 
    :::image type="content" source="media/monitoring-logs/filters.png" alt-text="Screenshot of the Azure platform. Log query filters and columns." lightbox="media/monitoring-logs/filters-expanded.png":::
 

@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 09/29/2025
+ms.date: 08/27/2026
 ms.custom: sfi-image-nochange
 
 # Customer intent: As a network administrator, I want to transition from SSTP to IKEv2 or OpenVPN.
@@ -18,13 +18,9 @@ A point-to-site (P2S) VPN gateway connection lets you create a secure connection
 
 ## <a name="protocol"></a>What protocol does P2S use?
 
-Point-to-site VPN can use one of the following protocols:
+Point-to-site VPN can use the OpenVPN&reg; protocol, Secure Socket Tunneling Protocol (SSTP), or IKEv2. For protocol descriptions and the client operating system versions that each protocol supports, see [About point-to-site VPN](point-to-site-about.md#protocol).
 
-- **OpenVPN&reg; Protocol**, an SSL/TLS based VPN protocol. An SSL VPN solution can pass through firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (macOS versions 12.x and above).
-
-- **Secure Socket Tunneling Protocol (SSTP)**, a proprietary SSL-based VPN protocol. An SSL VPN solution can pass through firewalls, since most firewalls open TCP port 443 outbound, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later). **SSTP supports up to 128 concurrent connections only regardless of the gateway SKU**.
-
-- **IKEv2 VPN**, a standard-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (macOS versions 10.11 and above).
+SSTP supports up to 128 concurrent connections, regardless of the gateway SKU.
 
 > [!NOTE]
 > Currently, Basic SKU supports SSTP protocol only and all new Basic SKU gateways are created with SSTP protocol. Effective November 2025, Basic SKU will also support IKEv2, and all new Basic SKU VPN gateways will be created with IKEv2 by default.
@@ -100,7 +96,7 @@ You can enable OpenVPN along side with IKEv2 if you desire. OpenVPN is TLS-based
 
 1. Select **Save** to apply the changes.
 
-Once the gateway has been configured, existing clients won't be able to connect until you [deploy and configure the OpenVPN clients](point-to-site-vpn-client-certificate-windows-openvpn-client.md). If you're using Windows 10 or later, you can also use the [Azure VPN Client](point-to-site-vpn-client-certificate-windows-azure-vpn-client.md).
+Once the gateway has been configured, existing clients won't be able to connect until you [deploy and configure the OpenVPN clients](point-to-site-vpn-client-certificate.md). If you're using Windows 10 or later, you can also use the [Azure VPN Client](point-to-site-vpn-client-certificate.md).
 
 > [!NOTE]
 >Microsoft recommends using Windows 11 with Point-to-Site VPN connections. Windows 10 reached end of support in October 2025. For more information, see [Supported Windows versions for Azure VPN Client](azure-vpn-client-versions.md#supported-windows-versions).

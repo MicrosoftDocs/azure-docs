@@ -117,6 +117,7 @@ Availability for file access log is limited to the following regions:
 - Sweden Central
 - Switzerland North
 - Switzerland West
+- Taiwan North
 - UAE Central 
 - UAE North 
 - UK South

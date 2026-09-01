@@ -3,7 +3,6 @@ title: Azure Service Bus Emulator Overview and Key Features
 description: This article describes benefits, features, limitations, and other overview information for the Azure Service Bus emulator.
 #customer intent: As a developer, I want to understand the features of the Azure Service Bus emulator so that I can determine if it meets my local development needs.
 ms.topic: article
-ms.author: Saglodha
 ms.date: 02/05/2026
 ---
 

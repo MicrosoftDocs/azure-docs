@@ -39,6 +39,8 @@ The following table shows connectivity locations and the service providers for e
 
 * **Local Azure Regions** refers to the regions that can be accessed by [ExpressRoute Local](expressroute-faqs.md#expressroute-local) at each peering location. **&cross;** indicates that ExpressRoute Local isn't available at that peering location.
 
+* If your desired service provider is not available or does not support the peering location you want to use, please reach out to them and request they add ExpressRoute support or expand their offering.
+
 * **Zone** refers to [pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
 * **ER Direct** refers to [ExpressRoute Direct](expressroute-erdirect-about.md) support at each peering location. If you want to view the available bandwidth at a location, see [Determine available bandwidth](expressroute-howto-erdirect.md#resources)
