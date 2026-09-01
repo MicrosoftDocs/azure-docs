@@ -1,5 +1,5 @@
 ---
-title: Azure SRE Agent Network Integration (Preview)
+title: Azure SRE Agent Network Integration
 description: Learn how VNet integration controls outbound access for the SRE Agent. Understand the three network control modes, traffic routing, and how to configure Azure VNet mode.
 ms.topic: concept-article
 ms.date: 06/02/2026
@@ -10,43 +10,9 @@ ms.service: azure-sre-agent
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Azure SRE Agent network integration (preview)
+# Azure SRE Agent network integration
 
-You can improve the security of your agent in Azure SRE Agent in a couple of ways: through appropriate role-based access control (RBAC) permissions, and through virtual network (VNet) integration.
-
-If you grant the agent's managed identity the appropriate RBAC permissions, the agent can act on your infrastructure, query your databases, and run commands against your clusters. RBAC is the primary security boundary that controls what the agent can do.
-
-Virtual network integration adds a complementary layer of protection by controlling where the agent can send traffic. Without this integration, outbound traffic from the agent flows over the public internet. With it, every outbound call routes through Azure Virtual Network and your existing network security infrastructure.
-
-This article explains why network-level control matters for enterprise deployments, how virtual network integration works, and how to choose the right network control mode for your workload.
-
-## Why network control matters
-
-By default, the agent can reach any endpoint on the internet. For development and test workloads, this behavior is acceptable. For production enterprise deployments, this level of access creates unnecessary risk.
-
-Two risks drive the enterprise requirement for network controls:
-
-- **Data exfiltration**: An agent with access to sensitive internal data and unrestricted internet access can create a path for data to leave your organization.
-
-- **Prompt injection**: Malicious content on the public internet can be crafted to manipulate agent behavior. An unrestricted agent that fetches external content is exposed to injection attacks through those responses.
-
-Place the agent inside a virtual network for better control over its behavior.
-
-## How virtual network integration works
-
-Virtual network integration connects SRE Agent to your existing virtual network. When the agent makes an outbound call, traffic flows through your network infrastructure instead of the public internet.
-
-After you configure virtual network integration, agent traffic:
-
-- Appears in your network logs for auditing and monitoring.
-- Passes through your layer 4 and layer 7 firewalls.
-- Respects your custom Domain Name System (DNS) configuration.
-- Follows your enterprise security policies and egress rules.
-
-After SRE Agent joins the virtual network, it operates under the same rules as any other workload on that network, including firewall inspection, DNS resolution, and traffic logging.
-
-> [!IMPORTANT]
-> Virtual network integration controls outbound (egress) traffic only.
+Virtual network (VNet) integration controls where the SRE Agent can send outbound traffic. Without it, outbound calls flow over the public internet. With it, traffic routes through your Azure Virtual Network. This network integration gives you the same network-level controls you use for other Azure workloads: integration with firewalls, communication with resources behind private endpoints, and visibility in your network logs.
 
 ## Network control modes
 
@@ -93,8 +59,8 @@ The agent can reach resources behind private endpoints, internal services, and o
 | Code repositories (GitHub, GHE, Azure DevOps) | SRE Agent infra network (toggle on) or your VNet (FQDN rule) | Yes. Per-provider toggle |
 | Remote MCP servers | SRE Agent infra network (toggle on) or your VNet (FQDN rule) | Yes. Single toggle |
 | Additional hostnames | SRE Agent infra network (for hosts in the list) | Yes. Custom list |
-| Connector traffic | Public internet | No. Not routed through VNet in this preview. |
-| Inbound (private endpoint) | Not supported | No. Egress only in this preview. |
+| Connector traffic | Public internet | No. Not routed through VNet. |
+| Inbound (private endpoint) | Not supported | No. Egress only. |
 
 ## Configure Azure VNet mode
 
@@ -102,7 +68,7 @@ The agent can reach resources behind private endpoints, internal services, and o
 
 Azure VNet mode requires a dedicated subnet in your virtual network:
 
-- **Size**: /28 or larger. A /28 supports a single agent's concurrent sessions. Size up to /26 for larger fleets or burst capacity.
+- **Size**: /27 or larger.
 - **Delegation**: The subnet must be delegated to `Microsoft.App/environments`.
 - **Region**: The subnet must be in the same region as your SRE Agent resource.
 - **Dedicated**: The subnet can't be shared with other services.
@@ -169,17 +135,23 @@ The following controls are available:
 
 Access to these controls is scoped to users with the SRE Agent Administrator role. Creating an SRE agent in an enterprise environment is itself a significant governance act because organizations typically require substantial approval to deploy services into production. The bypass controls are one aspect of the broader enterprise governance story that includes managed identity, on-behalf-of (OBO) credentials, and RBAC permissions. The agent can only do what its permissions allow, and network configuration controls where that traffic goes.
 
+## Inspect network activity
+
+Administrators can open **Settings** > **Workspace configuration** > **Inspect** and use **Network audit** to review filtered allowed and denied outbound requests from the agent. Use the host, method, path, and decision to identify destinations blocked by Limited or Azure VNet policy.
+
+Network audit covers agent egress-policy decisions only. It isn't a complete network audit trail and doesn't include every runtime, connector, platform, firewall, DNS, or proxy event.
+
 ## What happens when the network blocks a call
 
 If an outbound request is denied by an NSG rule or has no route, the agent sees the same network error any workload on that subnet would see. The agent reports the failure in its investigation output (for example, "Failed to reach Log Analytics workspace: connection timed out") and continues with the tools and data it can reach. If a critical data source is unreachable, the investigation is incomplete, and the agent reports this condition.
 
 ## Limitations
 
-The following limitations apply during preview.
+The following limitations apply.
 
 - **Egress only**: Virtual network integration controls outbound (egress) traffic only. Inbound connections to the agent from inside a private network aren't supported.
 
-- **Connectors don't route through the virtual network**: There's no support for routing connector traffic through the virtual network. Connectors are also in preview. During preview, connector traffic routes over the public internet. For more information, see [SRE Agent connectors](mcp-connectors.md).
+- **Connectors don't route through the virtual network**: Connector traffic routes over the public internet.
 
 ## Related content
 

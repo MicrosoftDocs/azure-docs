@@ -115,3 +115,5 @@ Here are some other articles to learn about the new Azure Enclave resources:
 - [What is an enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)
 - [Azure Enclave tutorials](./1-1-create-community.md)
+- [Azure Enclave API reference](https://aka.ms/ae/api)
+- [Azure Enclave API source and specs](https://aka.ms/ae/apigithub)

@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-faq.yml",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/common/azure-defender-storage-configure.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-storage-introduction",
             "redirect_document_id": false
@@ -69,11 +74,6 @@
             "source_path_from_root": "/articles/storage/automation-manage-storage.md",
             "redirect_url": "/azure/storage/common/storage-manage-with-automation",
             "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/storage/blobs/blob-inventory-faq.md",
-            "redirect_url": "/azure/storage/blobs/storage-blob-faq#multiple-inventory-file-output",
-            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/blobs/anonymous-read-access-client.md",
@@ -487,7 +487,7 @@
         },
         {
             "source_path_from_root": "/articles/storage/blobs/storage-lifecycle-management-concepts.md#faq",
-            "redirect_url": "/azure/storage/blobs/storage-blob-faq#lifecycle-management-policies",
+            "redirect_url": "/azure/storage/blobs/lifecycle-management-policy-faq",
             "redirect_document_id": false
         },
         {
@@ -2918,6 +2918,31 @@
         {
             "source_path_from_root": "/articles/storage/file-sync/file-sync-extension.md",
             "redirect_url": "/azure/storage/file-sync/file-sync-deployment-guide#install-on-azure-arc-enabled-servers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-choose-data-transfer-solution.md",
+            "redirect_url": "/azure/storage/common/storage-migration-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-solution-large-dataset-low-network.md",
+            "redirect_url": "/azure/storage/common/storage-migration-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-solution-large-dataset-moderate-high-network.md",
+            "redirect_url": "/azure/storage/common/storage-migration-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-solution-small-dataset-low-moderate-network.md",
+            "redirect_url": "/azure/storage/common/storage-migration-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-solution-periodic-data-transfer.md",
+            "redirect_url": "/azure/storage/common/storage-solution-periodic-data-transfer",
             "redirect_document_id": false
         }
     ]

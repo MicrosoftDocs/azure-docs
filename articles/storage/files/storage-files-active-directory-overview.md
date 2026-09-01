@@ -59,6 +59,9 @@ Use the following guidelines to determine which identity source you should choos
 
 - If you need to authenticate macOS clients, choose Microsoft Entra Kerberos.
 
+> [!TIP]
+> You can change the identity source on a storage account later if your requirements change. For example, if you're moving from on-premises AD DS to cloud-only or hybrid identities backed by Microsoft Entra ID, you can migrate the storage account from AD DS to Microsoft Entra Kerberos authentication. For guidance, see [Change the identity source for Azure file shares](change-identity-source.md).
+
 ## Enable an identity source on your storage account
 
 After you choose an identity source, enable it on your storage account.

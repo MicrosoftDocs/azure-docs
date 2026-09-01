@@ -4,7 +4,7 @@ description: This page provides router configuration samples for Cisco and Junip
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 03/11/2026
+ms.date: 08/27/2026
 ms.author: duau
 ---
 
@@ -17,7 +17,7 @@ This article provides NAT configuration samples for Cisco ASA and Juniper SRX se
 > 
 > 
 
-* The following router configuration samples apply to Azure Public and Microsoft peerings. You don't configure NAT for Azure private peering. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute NAT requirements](expressroute-nat.md) for more details.
+* The following router configuration samples apply to Microsoft peering. You don't configure NAT for Azure private peering. Review [ExpressRoute peerings](expressroute-circuit-peerings.md) and [ExpressRoute NAT requirements](expressroute-nat.md) for more details.
 
 * You MUST use separate NAT IP pools for connectivity to the internet and ExpressRoute. Using the same NAT IP pool across the internet and ExpressRoute results in asymmetric routing and loss of connectivity.
 

@@ -1,8 +1,8 @@
 ---
 title: Import on-premises servers in a VMware environment using RVTools XLSX (preview)
 description: Learn how to import on-premises servers in a VMware environment by using the RVTools XLSX (preview).
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.topic: tutorial
 ms.date: 05/12/2025
 ms.service: azure-migrate

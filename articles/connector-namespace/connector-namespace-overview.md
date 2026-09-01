@@ -133,18 +133,36 @@ This section describes ways that your app can use connector namespaces and conne
 
 - To support end-to-end tracing across your connector namespace and compute services, diagnostic logs and correlation IDs flow to Azure Monitor.
 
+## Pricing
+
+Connector namespace pricing uses a consumption model. Charges for connector action executions vary by connector type. The following table explains how each component in a connector namespace is metered:
+
+| Capability                  | Metering             |
+|-----------------------------|----------------------|
+| Connectors                  | Per connector action |
+| Triggers                    | Per trigger action   |
+| Managed MCP connectors      | Per tool call        |
+| Configurable MCP connectors | Per tool call        |
+| Data retention              | Per GB monthly       |
+
+Connector per-unit rates are published under **Connector pricing** on the [Azure Logic Apps pricing page](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+MCP connector tool calls are metered based on the underlying connector action calls.
+
+> [!NOTE]
+> Billing for hosted MCP servers isn't enabled during preview. Microsoft provides notice before billing begins for this capability.
+
 ## Considerations and limitations
 
 While Connector Namespace is in preview, review the following considerations if you're planning a deployment during preview:
 
 | Consideration | Description |
 |---------------|-------------|
-| No Service Level Agreement (SLA) for preview | Connector Namespace (preview) isn't currently recommended for production workloads. |
+| No service level agreement (SLA) for preview | Connector Namespace (preview) isn't currently recommended for production workloads. |
 | Region availability | Support for regions is currently limited, but expands over time. |
 | Connector coverage | High-usage and standard connectors are available first, while enterprise connectors, such as SAP, IBM MQ, and Oracle Database, follow in later waves. |
 | Identity | API key and OAuth connections are currently supported. Managed identity support for connections arrives later, but is planned earlier for select MCP servers. |
 | Versioning | SDK and namespace runtime versions are paired during preview. Expect breaking changes between preview milestones. |
-| Pricing | The pricing model isn't yet finalized. Metering shape might change before general availability. |
 
 ## Related content
 
@@ -152,13 +170,4 @@ While Connector Namespace is in preview, review the following considerations if 
 - [Create reusable connections in connector namespaces for integration](create-connector-namespace-connection.md)
 - Learn about [hosted MCP servers](connector-namespace-hosted-mcp.md) and how they differ from managed MCP servers.
 - Add a [hosted MCP server](hosted-mcp-quickstart.md) from the catalog and configure it for your scenario.
-
-<!---
-What are these links? Seems like they belong to how-to docs:
-- Call a connector action from Azure Functions by using the Connectors SDK for C#, Node.js, or Python
-- Subscribe to a connector trigger from Azure Container Apps
-- Publish a connector as a managed MCP server and connect to an AI agent
-- Add a hosted MCP server from the catalog and configure for your scenario
-- Review the catalog for available connectors and MCP servers
---->
 

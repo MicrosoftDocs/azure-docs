@@ -5,19 +5,20 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 07/01/2024
+ms.date: 08/28/2026
 ms.author: mametcal
 ms.custom: devx-track-python, mode-other
-#Customer intent: As an Python developer, I want to use feature flags to control feature availability quickly and confidently.
+ai-usage: ai-assisted
+# Customer intent: As a Python developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 
 # Quickstart: Add feature flags to a Python app
 
- In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control Python apps to create an end-to-end implementation of feature management.
+In this quickstart, you create a feature flag in Azure App Configuration and use it to dynamically control a Python app, creating an end-to-end implementation of feature management.
 
-The feature management support extends the dynamic configuration feature in App Configuration. These examples in the quickstart build on the python app introduced in the dynamic configuration tutorial. Before you continue, finish the [quickstart](./quickstart-python-provider.md) and the [tutorial](./enable-dynamic-configuration-python.md) to create python apps with dynamic configuration first.
+Feature management support extends the dynamic configuration feature in App Configuration. The examples in this quickstart build on the Python app introduced in the dynamic configuration tutorial. Before you continue, complete the [quickstart](./quickstart-python-provider.md) and the [tutorial](./enable-dynamic-configuration-python.md) to create Python apps with dynamic configuration.
 
-This library does **not** have a dependency on any Azure libraries. They seamlessly integrate with App Configuration through its Python configuration provider.
+The feature management library doesn't depend on any Azure libraries. It integrates with App Configuration through the Python configuration provider.
 
 ## Prerequisites
 

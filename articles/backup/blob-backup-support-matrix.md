@@ -66,7 +66,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - You can take up to five backups per storage account in a day.
 - You can back up storage accounts with *up to 1000 containers*, there is no limit on the number of blobs within those containers. You can also select a subset of containers to back up (up to 1000 containers).
   - If your storage account contains more than 1000 containers, you need to select *up to 1000 containers* to back up.
-  - To back up any new containers that get created after backup configuration for the storage account, modify the protection of the storage account. These containers aren't backed up automatically.
+  - You can choose to auto-protect containers. When auto-protection is enabled, new containers created after backup configuration are automatically protected until the protected container count reaches 1000. Selecting auto-protection for all present and future containers is permanent, and you can't switch back to the earlier container selection options.
 - The storage accounts to be backed up must contain *a minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error may appear when you configure backup.
 - Only `$web` and `$root` system containers are supported for vaulted backup.
 - If you stop protection (vaulted backup) on a storage account, it doesn't delete the object replication policy created on the storage account. In these scenarios, you need to manually delete the *OR policies*.
@@ -74,6 +74,8 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - When you remove backups, Azure Backup automatically deletes the **object replication policy** from the source. If custom locks exist, remove the policy manually. If you stop protection, it disconnects only the storage account from the Backup vault and tools (such as Backup center). This action doesn't disable blob point-in-time restore, versioning, or change feed settings.
 - Archive tier blob backup isn't supported. Cool and cold tier blobs are restored in hot tier. 
 - The backup operation isn't supported for blobs that are uploaded by using [Data Lake Storage APIs](/rest/api/storageservices/data-lake-storage-gen2).
+  - During the initial backup, these blobs might be included in recovery points. However, if they're modified later, Azure Backup doesn't capture the updates. Exclude these blobs when you plan backup and recovery.
+    
 - When you delete and recreate a container in storage account with the same name, **Object Replication** doesn't recognize the change. As a result, future Recovery Points continue to include the older blobs and their versions.
 - Similarly, if you delete and recreate a container with the same name, **Object Replication** doesn't track the change, and future Recovery Points still include the previous blobs and versions.
 - If you suspend and resume protection or delete the **Object Replication policy** on the **source storage account**, the policy triggers a full backup.
@@ -96,4 +98,3 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - [Create a backup policy for  Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md).
 - [Back up Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
 - [Restore Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
-

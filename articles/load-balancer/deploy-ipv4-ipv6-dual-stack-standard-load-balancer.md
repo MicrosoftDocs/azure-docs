@@ -5,7 +5,7 @@ description: This article shows how to deploy an IPv6 dual stack application usi
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 03/21/2025
+ms.date: 08/27/2026
 ms.author: mbender
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 # Customer intent: "As a cloud administrator, I want to deploy a dual stack (IPv4 + IPv6) application using a load balancer, so that I can ensure my application is accessible over both IP protocols in a Microsoft Azure environment."
@@ -126,7 +126,7 @@ $probe = New-AzLoadBalancerProbeConfig -Name MyProbe -Protocol tcp -Port 3389 -I
 ```
 ### Create a load balancer rule
 
-A load balancer rule is used to define how traffic is distributed to the VMs. You define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. To make sure only healthy VMs receive traffic, you can optionally define a health probe. Basic load balancer uses an IPv4 probe to assess health for both IPv4 and IPv6 endpoints on the VMs. Standard load balancer includes support for explicitly IPv6 health probes.
+You use a load balancer rule to define how traffic is distributed to the VMs. Define the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. To ensure only healthy VMs receive traffic, optionally define a health probe. Standard Load Balancer supports explicit IPv6 health probes.
 
 Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). The following example creates load balancer rules named *dsLBrule_v4* and *dsLBrule_v6* and balances traffic on *TCP* port *80* to the IPv4 and IPv6 frontend IP configurations:
 

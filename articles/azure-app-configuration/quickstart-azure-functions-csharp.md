@@ -1,15 +1,16 @@
 ---
-title: Quickstart for Azure App Configuration with Azure Functions | Microsoft Docs
+title: Quickstart for Azure App Configuration with Azure Functions
 description: "In this quickstart, make an Azure Functions app with Azure App Configuration and C#. Create and connect to an App Configuration store. Test the function locally."
 services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 11/21/2025
+ms.date: 08/28/2026
 ms.author: zhenlwa
 ms.custom: "devx-track-csharp, azure-functions"
 ms.tgt_pltfrm: Azure Functions
+ai-usage: ai-assisted
 
 #Customer intent: As an Azure Functions developer, I want to manage all my app settings in one place using Azure App Configuration.
 ---
@@ -32,11 +33,11 @@ Add the following key-value to the App Configuration store and leave **Label** a
 | -------------------------- | ----------------------------------- |
 | *TestApp:Settings:Message* | *Data from Azure App Configuration* |
 
-## Create a Function App
+## Create a function app
 
 Create an Azure Functions app using Visual Studio by selecting the **Azure Functions (C#)** template. This template guides you through configuring essential settings for your project. For detailed instructions, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md?pivots=isolated).
 
-Use the following table as a reference for key parameters when creating your Function App.
+Use the following table as a reference for key parameters when creating your function app.
 
 | Setting              | Value                      |
 |----------------------|----------------------------|
@@ -216,7 +217,7 @@ For example, consider a queue-triggered Function app. Instead of specifying the 
    |------------------------------|----------------------------------------------|
    | *TestApp:Storage:QueueName*  | _`<StorageQueueName>`_  |
 
-1. In your Function app, select **Settings** -> **Environment variables** -> **App settings** in the Azure portal, and create an application setting that references the App Configuration key:
+1. In your function app, select **Settings** > **Environment variables** > **App settings** in the Azure portal, and create an application setting that references the App Configuration key:
 
    | Name                 | Value                                      |
    |----------------------|--------------------------------------------|

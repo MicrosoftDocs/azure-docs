@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy23
 ms.update-cycle: 180-days

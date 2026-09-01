@@ -2,8 +2,8 @@
 title: Azure Update Manager update sources, and types
 description: This article provides information on update sources, update types, Microsoft updates and Third party updates for managing updates on your Azure VMs and servers.
 ms.service: azure-update-manager
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.date: 02/26/2025
 ms.topic: overview
 ms.update-cycle: 1095-days

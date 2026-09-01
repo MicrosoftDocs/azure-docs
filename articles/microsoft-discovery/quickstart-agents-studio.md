@@ -17,7 +17,7 @@ ms.custom:
 
 In this quickstart, you will set up resources for your Microsoft Discovery project, such as agents and shared sessions to run your first AI-powered scientific research. You will complete the following tasks:
 
-- Log in to Microsoft Discovery Studio
+- Sign in to Microsoft Discovery Studio
 - Access Microsoft Discovery project
 - (Optional) Create a custom agent
 - Create a shared session
@@ -29,20 +29,20 @@ In this quickstart, you will set up resources for your Microsoft Discovery proje
 - Review [Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure.md) before you begin this tutorial.
 - The **Scientist** or **Platform Administrator** persona role set assigned to the user. For the recommended one-step assignment, see [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md).
 
-## 1. Log in to Microsoft Discovery Studio
+## 1. Sign in to Microsoft Discovery Studio
 
 Microsoft Discovery Studio is a secure, AI-powered research environment that enables scientists and engineers to accelerate innovation through autonomous agents, simulation workflows, and integrated data tools—all within a unified interface.
 
-After your infrastructure is set up, you can log in to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com) directly via the URL, or find the URL in the Workspace overview page in the Azure portal.
+After your infrastructure is set up, you can sign in to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com) directly via the URL, or find the URL in the Workspace overview page in the Azure portal.
 
 :::image type="content" source="media/quickstart-agents-studio/studio-home.jpg" alt-text="Screenshot of the Microsoft Discovery Studio homepage." lightbox="media/quickstart-agents-studio/studio-home.jpg":::
 
 After signing in, you land on the **Discovery** tab, which provides quick access to recent shared sessions and common actions like creating new project or links to the official documentation.
 
-You must sign in with your Entra ID (work or school account) credentials. Microsoft Discovery Studio supports single sign-on (SSO) with Entra ID so that you don't have to explicitly provide credentials if you're already signed in to another service with your Entra ID in the same browser.
+You must sign in with your Microsoft Entra ID (work or school account) credentials. Microsoft Discovery Studio supports single sign-on (SSO) with Microsoft Entra ID so that you don't have to explicitly provide credentials if you're already signed in to another service with your Microsoft Entra ID in the same browser.
 
 > [!NOTE]
-> If you have access to multiple Entra tenants, make sure the right tenant is selected when signing in by selecting your profile icon on the top right corner of the page.
+> If you have access to multiple Microsoft Entra tenants, ensure the right tenant is selected when signing in by selecting your profile icon on the top right corner of the page.
 
 ## 2. (Optional) Create a custom agent
 
@@ -53,15 +53,20 @@ Agents are autonomous, AI-powered systems that perform specific scientific tasks
 In this example, create a basic Chemistry Agent that answers questions about chemical properties of molecules and provides a plan to calculate any property.
 
 1. Sign in to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com/).
-1. Select the **Projects** tab in the left navigation pane.
-   :::image type="content" source="media/quickstart-agents-studio/create-project-list.jpg" alt-text="Screenshot showing the Project list page in Microsoft Discovery Studio." lightbox="media/quickstart-agents-studio/create-project-list.jpg":::
-1. Open the project that you created in the [previous tutorial](./quickstart-infrastructure.md#9-create-a-project) by selecting the name. It opens the project in a new tab.
-   :::image type="content" source="media/quickstart-agents-studio/studio-welcome.jpg" alt-text="Screenshot showing the Welcome page in Microsoft Discovery Studio." lightbox="media/quickstart-agents-studio/studio-welcome.jpg":::
+1. Select the **Workspaces** tab in the left navigation pane. This tab lists all existing workspaces across your Azure subscriptions.
+   :::image type="content" source="media/quickstart-infrastructure-portal/workspace-list.jpg" alt-text="Screenshot showing the Workspace list page in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/workspace-list.jpg":::
+1. Select the workspace you created in the [previous tutorial](./quickstart-infrastructure.md#4-create-a-workspace). This selection opens your workspace in the studio.
+1. Select the project that you created in the [previous tutorial](./quickstart-infrastructure.md#9-create-a-project).
+   :::image type="content" source="media/quickstart-infrastructure-portal/create-project-list.jpg" alt-text="Screenshot showing the Project list page after project creation in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/create-project-list.jpg":::
 1. In the **Resources** tab in the left navigation pane, select the **+** button next to **AGENTS (FOUNDRY)** to create a new agent.
 1. Enter a **Name** and **Description** for the agent. For example:
    - **Name**: `ChemistryAgent`
    - **Description**: `A chemistry expert agent that answers questions about chemical properties of molecules and provides high-level plans for computational needs.`
 1. Under **Chat model**, select the model deployment created in the [previous tutorial](./quickstart-infrastructure.md#6-create-chat-model-deployment).
+
+   > [!NOTE]
+   > The following parameters are currently unsupported with reasoning models: `temperature`, `top_p`. To learn more about reasoning models, see [Azure OpenAI reasoning models](/azure/foundry/openai/how-to/reasoning#not-supported).
+
 1. Enter the agent **Instructions**. For example:
    ```
    You are a chemistry expert agent who can answer questions about chemical properties of molecules and provide high-level plans for the user's computational needs.

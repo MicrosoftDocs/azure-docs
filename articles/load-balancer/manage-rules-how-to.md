@@ -6,6 +6,7 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to 
 ms.date: 12/06/2024
+ai-usage: ai-assisted
 ms.custom:
   - template-how-to
   - engagement-fy23
@@ -31,9 +32,13 @@ There are four types of rules:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
+- A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the public examples in this article is **myPublicLoadBalancer**.
 
-- A standard internal load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a internal load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-internal-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
+- A standard internal load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create an internal load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-internal-portal.md). The load balancer name for the internal examples in this article is **myInternalLoadBalancer**.
+
+The public and internal load balancers are separate resources. Each procedure in this article states which one to select.
+
+To open any load balancer used in this article, sign in to the [Azure portal](https://portal.azure.com), enter **Load balancer** in the search box at the top of the portal, select **Load balancers** in the search results, and then select the load balancer named in that procedure.
 
 ## Load-balancing rules
 
@@ -41,19 +46,15 @@ In this section, you learn how to add and remove a load-balancing rule. A public
 
 ### Add a load-balancing rule
 
-In this example, you create a rule to load balance port 80.
+In this example, you create a rule to load balance port 80 on the public load balancer.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Open **myPublicLoadBalancer** in the Azure portal.
 
-2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+1. In the load balancer page, select **Load balancing rules** in **Settings**.
 
-3. Select **myLoadBalancer** or your load balancer.
+1. Select **+ Add** in **Load balancing rules** to add a rule.
 
-4. In the load balancer page, select **Load balancing rules** in **Settings**.
-
-5. Select **+ Add** in **Load balancing rules** to add a rule.
-
-6. Enter or select the following information in **Add load balancing rule**.
+1. Enter or select the following information in **Add load balancing rule**.
 
     | Setting | Value |
     | ------- | ----- |
@@ -71,23 +72,23 @@ In this example, you create a rule to load balance port 80.
     | Floating IP | Leave the default of **Disabled** or enable if your deployment requires floating IP.</br> For information on floating IP, see [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md). |
     | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.**</br> For more information on outbound rules and (SNAT), see [Outbound rules Azure Load Balancer](outbound-rules.md) and [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md).|
 
-7. Select **Add**.
+1. Select **Add**.
+
+1. Confirm that **myHTTPRule** appears in the **Load balancing rules** list. Select **Health status**, and then select **View details** to confirm that the health probe reports your backend instances as healthy. Traffic reaches the backend pool only when at least one instance is healthy.
 
 ### Remove a load-balancing rule
 
 In this example, you remove a load-balancing rule.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Open **myPublicLoadBalancer** in the Azure portal.
 
-2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+1. In the load balancer page, select **Load balancing rules** in **Settings**.
 
-3. Select **myLoadBalancer** or your load balancer.
+1. Select the three dots next to the rule you want to remove.
 
-4. In the load balancer page, select **Load balancing rules** in **Settings**.
+1. Select **Delete**.
 
-5. Select the three dots next to the rule you want to remove.
-
-6. Select **Delete**.
+1. Confirm that the rule no longer appears in the **Load balancing rules** list.
 
 ## High availability ports
 
@@ -97,19 +98,15 @@ HA ports rules are supported on a standard internal load balancer.
 
 ### Add high availability ports rule
 
-In this example, you create a high availability ports rule.
+In this example, you create a high-availability ports rule on the internal load balancer.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Open **myInternalLoadBalancer** in the Azure portal.
 
-2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+1. In the load balancer page, select **Load balancing rules** in **Settings**.
 
-3. Select **myLoadBalancer** or your load balancer.
+1. Select **+ Add** in **Load balancing rules** to add a rule.
 
-4. In the load balancer page, select **Load balancing rules** in **Settings**.
-
-5. Select **+ Add** in **Load balancing rules** to add a rule.
-
-6. Enter or select the following information in **Add load balancing rule**.
+1. Enter or select the following information in **Add load balancing rule**.
 
     | Setting | Value |
     | ------- | ----- |
@@ -125,23 +122,23 @@ In this example, you create a high availability ports rule.
 
     For more information on HA ports rule configuration, see **[High availability ports overview](load-balancer-ha-ports-overview.md)**.
 
-7. Select **Add**.
+1. Select **Add**.
+
+1. Confirm that **myHARule** appears in the **Load balancing rules** list and shows **HA Ports** as the port configuration.
 
 ### Remove a high availability ports rule
 
-In this example, you remove a load-balancing rule.
+In this example, you remove a high availability ports rule.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Open **myInternalLoadBalancer** in the Azure portal.
 
-2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+1. In the load balancer page, select **Load balancing rules** in **Settings**.
 
-3. Select **myLoadBalancer** or your load balancer.
+1. Select the three dots next to the rule you want to remove.
 
-4. In the load balancer page, select **Load balancing rules** in **Settings**.
+1. Select **Delete**.
 
-5. Select the three dots next to the rule you want to remove.
-
-6. Select **Delete**.
+1. Confirm that the rule no longer appears in the **Load balancing rules** list.
 
 ## Inbound NAT rule
 
@@ -155,19 +152,15 @@ Outbound rules are supported on standard public load balancers.
 
 ### Add outbound rule
 
-In this example, you create an outbound rule.
+In this example, you create an outbound rule on the public load balancer.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Open **myPublicLoadBalancer** in the Azure portal.
 
-2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+1. In the load balancer page, select **Outbound rules** in **Settings**.
 
-3. Select **myLoadBalancer** or your load balancer.
+1. Select **+ Add** in **Outbound rules** to add a rule.
 
-4. In the load balancer page, select **Outbound rules** in **Settings**.
-
-5. Select **+ Add** in **Outbound rules** to add a rule.
-
-6. Enter or select the following information in **Add outbound rule**.
+1. Enter or select the following information in **Add outbound rule**.
 
     | Setting | Value |
     | ------- | ----- |
@@ -184,23 +177,23 @@ In this example, you create an outbound rule.
     | Choose by | Select **Ports per instance**. |
     | Ports per instance | Enter **10000**. |
 
-7. Select **Add**.
+1. Select **Add**.
+
+1. Confirm that **myOutboundRule** appears in the **Outbound rules** list with the port allocation you selected.
 
 ### Remove an outbound rule
 
 In this example, you remove an outbound rule.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Open **myPublicLoadBalancer** in the Azure portal.
 
-2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+1. In the load balancer page, select **Outbound rules** in **Settings**.
 
-3. Select **myLoadBalancer** or your load balancer.
+1. Select the three dots next to the rule you want to remove.
 
-4. In the load balancer page, select **Outbound rules** in **Settings**.
+1. Select **Delete**.
 
-5. Select the three dots next to the rule you want to remove.
-
-6. Select **Delete**.
+1. Confirm that the rule no longer appears in the **Outbound rules** list. Backend instances lose the outbound connectivity that rule provided unless another outbound path exists.
 
 ## Next steps
 
