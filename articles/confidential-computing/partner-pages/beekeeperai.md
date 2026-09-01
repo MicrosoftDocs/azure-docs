@@ -5,7 +5,7 @@ services: virtual-machines
 author: ananyagarg
 ms.service: azure-confidential-computing
 ms.topic: concept-article
-ms.date: 09/01/26
+ms.date: 09/01/2026
 ms.author: ananyagarg
 # Customer intent: "As an AI, data, or security leader evaluating Azure confidential computing, I want to run proprietary models and agents on protected data without either side exposing its data or IP, so that I can collaborate across organizational boundaries and prove compliance with an auditable record — not just claim it."
 ---
