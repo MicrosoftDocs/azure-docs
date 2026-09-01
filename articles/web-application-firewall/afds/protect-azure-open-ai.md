@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 08/28/2023
+ms.date: 08/31/2026
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud architect, I want to implement Azure Web Application Firewall on Azure Front Door for my Azure OpenAI APIs, so that I can enhance security and protect against evolving web application attacks.
 ---
@@ -70,7 +70,10 @@ Now use the Azure portal to create an Azure Front Door instance with Azure WAF.
 
 ## Configure a WAF policy to protect against web application and API vulnerabilities
 
-Enable the WAF policy in prevention mode and ensure **Microsoft_DefaultRuleSet_2.1** and **Microsoft_BotManagerRuleSet_1.0** are enabled.
+Enable the WAF policy in prevention mode, and enable the latest Azure-managed rule sets: **Microsoft_DefaultRuleSet_2.2** and **Microsoft_BotManagerRuleSet_1.1**.
+
+> [!NOTE]
+> Azure updates the managed rule sets over time. Use the latest available versions, and validate and tune any rule-set changes in a test environment before you deploy them to production. For the available versions, see [Web Application Firewall DRS rule groups and rules](waf-front-door-drs.md).
 
 ## Verify access to Azure OpenAI via Azure Front Door endpoint
 
