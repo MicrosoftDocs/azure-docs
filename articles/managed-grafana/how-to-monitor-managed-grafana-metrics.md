@@ -1,25 +1,24 @@
 ---
 title: Monitor Azure Managed Grafana metrics
-description: Learn how to monitor an Azure Managed Grafana workspace using Azure Monitor's metric chart
+description: Learn how to monitor an Azure Managed Grafana workspace by using Azure Monitor metric charts.
 author: maud-lv 
 ms.author: malev 
 ms.service: azure-managed-grafana
 ms.topic: how-to 
-ms.date: 08/27/2026
-ai-usage: ai-assisted
+ms.date: 08/28/2026
 #customer intent: I want to monitor my Azure Managed Grafana workspace.
 ---
 
 # Monitor Azure Managed Grafana using Azure Monitor's metric chart
 
-In this article, you learn how to leverage Azure Monitor's metric chart feature to monitor an Azure Managed Grafana workspace. 
+In this article, you learn how to use Azure Monitor metric charts to monitor an Azure Managed Grafana workspace.
 
 In Azure Monitor, metrics are a series of measured values and counts that are collected and stored over time. These metrics reflect the health and usage statistics of your Azure resources.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md) 
+- An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
 
 ## Supported metrics
 
@@ -42,14 +41,14 @@ These metrics can be accessed from your Azure Managed Grafana workspace, from Az
 
 1. Open a Managed Grafana resource and go to **Monitoring** > **Metrics**.
 1. Configure your chart:
-    * The scope and metric namespace are prepopulated.
-    * Select a metric from the list.
-    * Select an aggregation type among: **Count**, **Avg**, **Min**, **Max**, **Sum**.
-    * Select the time range and granularity that are relevant for your investigation.
+    - The portal prepopulates the scope and metric namespace.
+    - Select a metric from the list.
+    - Select an aggregation type: **Count**, **Avg**, **Min**, **Max**, or **Sum**.
+    - Select the time range and granularity that are relevant for your investigation.
 
    :::image type="content" source="media/monitoring-metrics/metric-chart.png" alt-text="Screenshot of the Azure platform showing a metric chart.":::
 
-1. Optionally create a new alert rule to be notified if the metric you configured exceeds or drops below a threshold, or pin your dashboard to an Azure Dashboard, Grafana workspace or a Workbook.
+1. Optionally, create an alert rule to receive a notification if the metric exceeds or drops below a threshold. You can also pin the chart to an Azure dashboard, a Grafana workspace, or a workbook.
 
 ## Next step
 

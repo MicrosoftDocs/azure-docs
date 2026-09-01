@@ -51,7 +51,7 @@ The package is in the process of being removed from Microsoft's Linux software r
 
 Two fully supported options exist:
 
-* OpenVPN client - uses the OpenVPN tunnel type with [certificate authentication](../articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-linux.md). Works broadly across Linux distributions.
-* strongSwan - uses the IKEv2 tunnel type with [certificate authentication](../articles/vpn-gateway/point-to-site-vpn-client-certificate-ike-linux.md) or [RADIUS authentication](../articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-password.md#linux-vpn-client---strongswan). Works on a wide range of Linux distributions.
+* OpenVPN client - uses the OpenVPN tunnel type with [certificate authentication](../articles/vpn-gateway/point-to-site-vpn-client-certificate.md?pivots=linux#openvpn-client). Works broadly across Linux distributions.
+* strongSwan - uses the IKEv2 tunnel type with [certificate authentication](../articles/vpn-gateway/point-to-site-vpn-client-certificate.md?pivots=linux#strongswan) or [RADIUS authentication](../articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-password.md#linux-vpn-client---strongswan). Works on a wide range of Linux distributions.
 
 Both support more Linux distributions than the preview client did (which was limited to Ubuntu 20.04 and 22.04).

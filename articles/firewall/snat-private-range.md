@@ -1,11 +1,11 @@
 ---
 title: Azure Firewall SNAT private IP address ranges
-description: You can configure IP address ranges for SNAT.
+description: Learn how to configure SNAT private IP address ranges and auto-learn SNAT routes in Azure Firewall.
 author: duongau
 ms.author: duau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 03/28/2026
+ms.date: 08/31/2026
 ms.custom:
   - devx-track-azurepowershell
   - devx-track-azurecli
@@ -27,34 +27,35 @@ You can change Azure Firewall SNAT behavior in the following ways:
 
 - To configure Azure Firewall to **never** SNAT traffic processed by network rules regardless of the destination IP address, use **0.0.0.0/0** as your private IP address range. With this configuration, Azure Firewall can't route traffic directly to the Internet.
 - To configure the firewall to **always** SNAT traffic processed by network rules regardless of the destination address, use **255.255.255.255/32** as your private IP address range.
-- You can configure Azure Firewall to [autolearn](#auto-learn-snat-routes-preview) registered and private ranges every hour and use the learned routes for SNAT. This preview capability requires [Azure Route Server](../route-server/overview.md) deployed in the same virtual network as the Azure Firewall.
+- To configure Azure Firewall to [automatically learn](#auto-learn-snat-routes) registered and private IP address ranges at regular intervals, enable auto-learn SNAT routes. Learned address ranges are treated as internal and traffic destined to these ranges isn't SNATed.
 
 > [!IMPORTANT]
 > - The private address range configuration only applies to network rules. Application rules always use SNAT.
 > - If you want to specify your own private IP address ranges and keep the default IANA RFC 1918 address ranges, make sure your custom list still includes the IANA RFC 1918 range.
 
-You can configure the SNAT private IP addresses by using the following methods. Use the method appropriate for your configuration. Firewalls associated with a firewall policy must specify the range in the policy and not use `AdditionalProperties`.
+The following table shows the supported configuration methods. Firewalls associated with a firewall policy must specify the range in the policy and not use `AdditionalProperties`.
 
-| Method            | Using classic rules  | Using firewall policy  |
-|-------------------|----------------------|------------------------|
-| Azure portal      | [supported](#classic-rules-3) | [supported](#firewall-policy-1) |
-| Azure PowerShell  | [configure `PrivateRange`](#classic-rules) | currently unsupported |
-| Azure CLI         | [configure `--private-ranges`](#classic-rules-1) | currently unsupported |
-| ARM template      | [configure `AdditionalProperties` in firewall property](#classic-rules-2) | [configure `snat/privateRanges` in firewall policy](#firewall-policy) |
+| Method | Classic rules | Firewall policy |
+|---|---|---|
+| Azure PowerShell | Supported | Not supported |
+| Azure CLI | Supported | Not supported |
+| ARM template | Supported | Supported |
+| Azure portal | Supported | Supported |
 
+## Configure SNAT private IP address ranges
 
-## Configure SNAT private IP address ranges - Azure PowerShell
+Choose your configuration method. Azure PowerShell and Azure CLI only support classic rules. To configure SNAT ranges with a firewall policy, use an ARM template or the Azure portal.
 
-### Classic rules
+### [Azure PowerShell](#tab/powershell)
 
 Use Azure PowerShell to specify private IP address ranges for the firewall.
 
 > [!NOTE]
-> The firewall `PrivateRange` property is ignored for firewalls associated with a Firewall Policy. You must use the `SNAT` property in `firewallPolicies` as described in [Configure SNAT private IP address ranges - ARM template](#firewall-policy).
+> The firewall `PrivateRange` property is ignored for firewalls associated with a Firewall Policy. You must use the `SNAT` property in `firewallPolicies` as described on the **ARM template** tab.
 
 #### New firewall
 
-For a new firewall that uses classic rules, use the following Azure PowerShell cmdlet:
+For a new firewall that uses classic rules, create the firewall by using [New-AzFirewall](/powershell/module/az.network/new-azfirewall):
 
 ```azurepowershell
 $azFw = @{
@@ -73,11 +74,9 @@ New-AzFirewall @azFw
 > - Deploying Azure Firewall by using `New-AzFirewall` requires an existing virtual network and public IP address. For a full deployment guide, see [Deploy and configure Azure Firewall using Azure PowerShell](deploy-ps.md).
 > - `IANAPrivateRanges` expands to the current defaults on Azure Firewall while the other ranges are added to it. To keep the `IANAPrivateRanges` default in your private range specification, it must remain in your `PrivateRange` specification as shown in the example.
 
-For more information, see [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
-
 #### Existing firewall
 
-To configure an existing firewall that uses classic rules, use the following Azure PowerShell cmdlets:
+To configure an existing firewall that uses classic rules, get the firewall by using [Get-AzFirewall](/powershell/module/az.network/get-azfirewall) and update it by using [Set-AzFirewall](/powershell/module/az.network/set-azfirewall):
 
 ```azurepowershell
 $azfw = Get-AzFirewall -Name '<fw-name>' -ResourceGroupName '<resourcegroup-name>'
@@ -85,15 +84,16 @@ $azfw.PrivateRange = @("IANAPrivateRanges", "192.168.1.0/24", "192.168.1.10")
 Set-AzFirewall -AzureFirewall $azfw
 ```
 
-## Configure SNAT private IP address ranges - Azure CLI
+### [Azure CLI](#tab/cli)
 
-### Classic rules
+Use Azure CLI to specify private IP address ranges for the firewall.
 
-Use Azure CLI to specify private IP address ranges for the firewall by using classic rules.
+> [!NOTE]
+> The CLI `--private-ranges` option only applies to firewalls that use classic rules. For firewalls associated with a firewall policy, use an ARM template or the Azure portal to configure SNAT ranges.
 
 #### New firewall
 
-For a new firewall that uses classic rules, use the following Azure CLI command:
+For a new firewall that uses classic rules, create the firewall by using [az network firewall create](/cli/azure/network/firewall#az-network-firewall-create):
 
 ```azurecli-interactive
 az network firewall create \
@@ -108,7 +108,7 @@ az network firewall create \
 
 #### Existing firewall
 
-To configure an existing firewall that uses classic rules, use the following Azure CLI command:
+To configure an existing firewall that uses classic rules, update the firewall by using [az network firewall update](/cli/azure/network/firewall#az-network-firewall-update):
 
 ```azurecli-interactive
 az network firewall update \
@@ -117,9 +117,9 @@ az network firewall update \
 --private-ranges 192.168.1.0/24 192.168.1.10 IANAPrivateRanges
 ```
 
-## Configure SNAT private IP address ranges - ARM template
+### [ARM template](#tab/arm)
 
-### Classic rules
+#### Classic rules
 
 To configure SNAT during ARM template deployment, add the following code to the `additionalProperties` property:
 
@@ -128,14 +128,15 @@ To configure SNAT during ARM template deployment, add the following code to the 
    "Network.SNAT.PrivateRanges": "IANAPrivateRanges, IPRange1, IPRange2"
 },
 ```
-### Firewall policy
 
-Azure Firewalls associated with a firewall policy support SNAT private ranges since API version 2020-11-01. You can use a template to update the SNAT private range on the Firewall Policy. The following sample configures the firewall to **always** SNAT network traffic:
+#### Firewall policy
+
+Azure Firewalls associated with a firewall policy support SNAT private ranges starting with API version 2020-11-01. Use a template to update the SNAT private range on the Firewall Policy. The following sample configures the firewall to **always** SNAT network traffic:
 
 ```json
 {
    "type": "Microsoft.Network/firewallPolicies",
-   "apiVersion": "2020-11-01",
+   "apiVersion": "2024-05-01",
    "name": "[parameters('firewallPolicies_DatabasePolicy_name')]",
    "location": "eastus",
    "properties": {
@@ -149,42 +150,61 @@ Azure Firewalls associated with a firewall policy support SNAT private ranges si
 }
 ```
 
-## Configure SNAT private IP address ranges - Azure portal
+### [Azure portal](#tab/portal)
 
-### Classic rules
+#### Classic rules
 
 Use the Azure portal to specify private IP address ranges for the firewall.
 
 1. Select your resource group, and then select your firewall.
-2. On the **Overview** pane, **Private IP Ranges**, select the default value **IANA RFC 1918**.
+1. On the **Overview** pane, under **Private IP Ranges**, select the default value **IANA RFC 1918**.
 
    The **Edit Private IP Prefixes** page opens:
 
-3. By default, **IANAPrivateRanges** is configured.
-4. Edit the private IP address ranges for your environment and then select **Save**.
+1. By default, Azure Firewall configures **IANAPrivateRanges**.
+1. Edit the private IP address ranges for your environment and then select **Save**.
 
-### Firewall policy
+#### Firewall policy
 
 1. Select your resource group, and then select your firewall policy.
-2. Select **Private IP ranges (SNAT)** in the **Settings** column.
-3. Select the conditions to perform SNAT for your environment under **Perform SNAT** to customize the SNAT configuration.
-4. Select **Apply**.
+1. Select **Private IP ranges (SNAT)** in the **Settings** column.
+1. Select the conditions to perform SNAT for your environment under **Perform SNAT** to customize the SNAT configuration.
+1. Select **Apply**.
 
-## Auto-learn SNAT routes (preview)
+---
 
-You can configure Azure Firewall to autolearn both registered and private ranges every 30 minutes. These learned address ranges are internal to the network, so traffic to destinations in the learned ranges isn't SNATed. Auto-learn SNAT ranges requires Azure Route Server to be deployed in the same virtual network as the Azure Firewall. The firewall must be associated with the Azure Route Server and configured to autolearn SNAT ranges in the Azure Firewall Policy. You can currently use an ARM template, Azure PowerShell, or the Azure portal to configure autolearn SNAT routes.
+## Auto-learn SNAT routes
+
+You can configure Azure Firewall to auto-learn both registered and private ranges every 30 minutes. These learned address ranges are internal to the network, so traffic to destinations in the learned ranges isn't SNATed. Both virtual network (VNet) deployments and secured virtual hub (vHub) deployments support auto-learn SNAT routes.
 
 > [!NOTE]
-> Auto-learn SNAT routes is available only on virtual network deployments (hub virtual network). It isn't available on VWAN deployments (secured virtual hub). For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md)
+> - Auto-learn SNAT requires Azure Firewall to be associated with Azure Route Server.
+> - For VNet deployments, you must deploy Azure Route Server in the same virtual network as Azure Firewall.
+> - For vHub deployments, Azure Route Server is already deployed and associated by default.
+> - For both deployment models, you must enable auto-learn SNAT in the Azure Firewall Policy after the association is complete.
+> - For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md)
 
-### Configure by using an ARM template
+### VNet firewall
 
-You can use the following JSON to configure autolearn. Azure Firewall must be associated with an Azure Route Server.
+For VNet deployments, you need to deploy and associate Azure Route Server before enabling auto-learn SNAT routes.
+
+**Prerequisites:**
+
+- A subnet named **RouteServerSubnet** in your firewall virtual network with a size of at least /27.
+- Azure Route Server deployed in the same virtual network as your firewall. For deployment steps, see [Quickstart: Create and configure Route Server by using the Azure portal](../route-server/quickstart-configure-route-server-portal.md).
+
+#### [Azure CLI](#tab/cli)
+
+Azure CLI doesn't support configuring auto-learn SNAT routes. Use an ARM template, Azure PowerShell, or the Azure portal.
+
+#### [ARM template](#tab/arm)
+
+Use the following JSON to enable auto-learn in a firewall policy:
 
 ```json
 {
    "type": "Microsoft.Network/firewallPolicies",
-   "apiVersion": "2022-11-01",
+   "apiVersion": "2024-05-01",
    "name": "[parameters('firewallPolicies_DatabasePolicy_name')]",
    "location": "eastus",
    "properties": {
@@ -198,12 +218,12 @@ You can use the following JSON to configure autolearn. Azure Firewall must be as
 }
 ```
 
-Use the following JSON to associate an Azure Route Server:
+Use the following JSON to associate an Azure Route Server with the firewall:
 
 ```json
 {
    "type": "Microsoft.Network/azureFirewalls",
-   "apiVersion": "2022-11-01",
+   "apiVersion": "2024-05-01",
    "name": "[parameters('azureFirewalls_testFW_name')]",
    "location": "eastus",
    "properties": {
@@ -219,93 +239,194 @@ Use the following JSON to associate an Azure Route Server:
 }
 ```
 
-### Configure using Azure PowerShell
+#### [Azure PowerShell](#tab/powershell)
 
-- Create a new firewall with a RouteServerId.
+In the following examples, replace the variable names (`$azureFirewallName`, `$rgname`, `$location`, etc.) with your own values.
+
+1. Create a new firewall with a Route Server ID by using [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
 
    ```azurepowershell
-   # specify RouteServerId Uri
+   # Specify the Route Server resource ID
    $routeServerId="/subscriptions/your_sub/resourceGroups/testRG/providers/Microsoft.Network/virtualHubs/TestRS"
 
-   # Create AzureFirewall
-   $azureFirewall = New-AzFirewall -Name $azureFirewallName -ResourceGroupName `
-    $rgname -Location $location -RouteServerId $routeServerId
+   # Create the firewall
+   $azureFirewall = New-AzFirewall -Name $azureFirewallName `
+       -ResourceGroupName $rgname `
+       -Location $location `
+       -RouteServerId $routeServerId
 
-   # Get firewall and confirm if RouteServerId is included on the response under additional properties (Network.RouteServerInfo.RouteServerID)
+   # Verify the Route Server ID is set
    Get-AzFirewall -Name $azureFirewallName -ResourceGroupName $rgname
    ```
 
-- Update an existing firewall with RouteServerId
+1. Associate a Route Server with an existing firewall by using [Get-AzFirewall](/powershell/module/az.network/get-azfirewall) and [Set-AzFirewall](/powershell/module/az.network/set-azfirewall).
 
    ```azurepowershell
-   # specify RouteServerId Uri
+   # Specify the Route Server resource ID
    $routeServerId="/subscriptions/your_sub/resourceGroups/testRG/providers/Microsoft.Network/virtualHubs/TestRS"
 
-   # Get firewall
+   # Get the firewall
    $azFirewall = Get-AzFirewall -Name $azureFirewallName -ResourceGroupName $rgname
 
-   # Update the response with RouteServerId and do firewall SET
+   # Associate the Route Server and update the firewall
    $azFirewall.RouteServerId = $routeServerId
    Set-AzFirewall -AzureFirewall $azFirewall
 
-   # Do firewall Get and confirm if routeServerId is updated
+   # Verify the Route Server ID is updated
    Get-AzFirewall -Name $azureFirewallName -ResourceGroupName $rgname
    ```
 
-- Create new firewall policy with SNAT parameter provided.
+1. Create a new firewall policy with auto-learn enabled by using [New-AzFirewallPolicySnat](/powershell/module/az.network/new-azfirewallpolicysnat) and [New-AzFirewallPolicy](/powershell/module/az.network/new-azfirewallpolicy).
 
    ```azurepowershell
-   # If AutoLearnPrivateRange parameter is provided, auto learn will be enabled, if not it will be disabled
+   # Include AutoLearnPrivateRange to enable auto-learn
    $snat = New-AzFirewallPolicySnat -PrivateRange $privateRange -AutoLearnPrivateRange
 
-   # Create AzureFirewallPolicy (with SNAT)
+   # Create the firewall policy with SNAT configuration
    $azureFirewallPolicy = New-AzFirewallPolicy -Name $azureFirewallPolicyName `
-    -ResourceGroupName $rgname -Location $location -Snat $snat
+       -ResourceGroupName $rgname `
+       -Location $location `
+       -Snat $snat
 
-   # Get AzureFirewallPolicy and verify
+   # Verify the firewall policy
    Get-AzFirewallPolicy -Name $azureFirewallPolicyName -ResourceGroupName $rgname
    ```
 
-- Update an existing firewall policy with SNAT
+1. Update an existing firewall policy with SNAT by using [New-AzFirewallPolicySnat](/powershell/module/az.network/new-azfirewallpolicysnat) and [Set-AzFirewallPolicy](/powershell/module/az.network/set-azfirewallpolicy).
 
    ```azurepowershell
-   $snat = New-AzFirewallPolicySnat -PrivateRange $privateRange2
+   $snat = New-AzFirewallPolicySnat -PrivateRange $privateRange2 -AutoLearnPrivateRange
 
-   # Set AzureFirewallPolicy
+   # Update the firewall policy
    $azureFirewallPolicy.Snat = $snat
    Set-AzFirewallPolicy -InputObject $azureFirewallPolicy
 
-   # Do Get and Verify
+   # Verify the update
    Get-AzFirewallPolicy -Name $azureFirewallPolicyName -ResourceGroupName $rgname
    ```
 
-- Get Firewall Learned Prefixes
+1. Verify the learned prefixes by using [Get-AzFirewallLearnedIpPrefix](/powershell/module/az.network/get-azfirewalllearnedipprefix).
 
    ```azurepowershell
    Get-AzFirewallLearnedIpPrefix -Name $azureFirewallName -ResourceGroupName $rgname
    ```
 
-### Configure using the Azure portal
+#### [Azure portal](#tab/portal)
 
-To configure autolearn SNAT routes (preview) using the Azure portal, follow these steps:
+To configure auto-learn SNAT routes on your VNet firewall by using the Azure portal:
 
-1. **Add a subnet**:
-   - Add a subnet named **RouteServerSubnet** to your existing firewall virtual network.
-   - Make sure the subnet size is at least /27.
+1. Select your firewall, and then select **Learned SNAT IP Prefixes**. Add the route server.
+1. Select your firewall policy, and then select **Private IP ranges (SNAT)**. Enable **Auto-learn IP prefixes**, and then select **Apply**.
+1. To verify, go back to your firewall and select **Learned SNAT IP Prefixes** to view the learned routes.
 
-2. **Deploy a Route Server**:
-   - Deploy a Route Server into the existing firewall virtual network.
-   - For detailed steps, see [Quickstart: Create and configure Route Server by using the Azure portal](../route-server/quickstart-configure-route-server-portal.md).
+---
 
-3. **Associate the Route Server**:
-   - On the firewall's **Learned SNAT IP Prefixes (preview)** page, add the route server.
+### vHub firewall
 
-4. **Modify firewall policy**:
-   - Enable **Auto-learn IP prefixes (preview)** in the **Private IP ranges (SNAT)** section of your firewall policy.
+For vHub deployments, Azure Route Server is already deployed and associated by default. You only need to enable auto-learn in your firewall policy.
 
-5. **View learned routes**:
-   - Check the learned routes on the **Learned SNAT IP Prefixes (preview)** pane.
+#### [Azure CLI](#tab/cli)
+
+Azure CLI doesn't support configuring auto-learn SNAT routes. Use an ARM template, Azure PowerShell, or the Azure portal.
+
+#### [ARM template](#tab/arm)
+
+Use the following JSON to enable auto-learn in a firewall policy. For vHub deployments, you don't need to manually associate Azure Route Server.
+
+```json
+{
+   "type": "Microsoft.Network/firewallPolicies",
+   "apiVersion": "2024-05-01",
+   "name": "[parameters('firewallPolicies_DatabasePolicy_name')]",
+   "location": "eastus",
+   "properties": {
+      "sku": {
+         "tier": "Standard"
+      },
+      "snat": {
+         "autoLearnPrivateRanges": "Enabled"
+      }
+   }
+}
+```
+
+#### [Azure PowerShell](#tab/powershell)
+
+In the following examples, replace the variable names (`$azureFirewallName`, `$rgname`, `$location`, etc.) with your own values.
+
+1. Create a new firewall policy with auto-learn enabled by using [New-AzFirewallPolicySnat](/powershell/module/az.network/new-azfirewallpolicysnat) and [New-AzFirewallPolicy](/powershell/module/az.network/new-azfirewallpolicy).
+
+   ```azurepowershell
+   # Include AutoLearnPrivateRange to enable auto-learn
+   $snat = New-AzFirewallPolicySnat -PrivateRange $privateRange -AutoLearnPrivateRange
+
+   # Create the firewall policy with SNAT configuration
+   $azureFirewallPolicy = New-AzFirewallPolicy -Name $azureFirewallPolicyName `
+       -ResourceGroupName $rgname `
+       -Location $location `
+       -Snat $snat
+
+   # Verify the firewall policy
+   Get-AzFirewallPolicy -Name $azureFirewallPolicyName -ResourceGroupName $rgname
+   ```
+
+1. Update an existing firewall policy with SNAT by using [New-AzFirewallPolicySnat](/powershell/module/az.network/new-azfirewallpolicysnat) and [Set-AzFirewallPolicy](/powershell/module/az.network/set-azfirewallpolicy).
+
+   ```azurepowershell
+   $snat = New-AzFirewallPolicySnat -PrivateRange $privateRange2 -AutoLearnPrivateRange
+
+   # Update the firewall policy
+   $azureFirewallPolicy.Snat = $snat
+   Set-AzFirewallPolicy -InputObject $azureFirewallPolicy
+
+   # Verify the update
+   Get-AzFirewallPolicy -Name $azureFirewallPolicyName -ResourceGroupName $rgname
+   ```
+
+1. Get the virtual hub by using [Get-AzVirtualHub](/powershell/module/az.network/get-azvirtualhub) and the firewall policy by using [Get-AzFirewallPolicy](/powershell/module/az.network/get-azfirewallpolicy).
+
+   ```azurepowershell
+   $Hub = Get-AzVirtualHub -ResourceGroupName $rgname -Name $virtualHubName
+   $azureFirewallPolicy = Get-AzFirewallPolicy -Name $azureFirewallPolicyName -ResourceGroupName $rgname
+   ```
+
+1. Create a public IP configuration by using [New-AzFirewallHubPublicIpAddress](/powershell/module/az.network/new-azfirewallhubpublicipaddress) and [New-AzFirewallHubIpAddress](/powershell/module/az.network/new-azfirewallhubipaddress).
+
+   ```azurepowershell
+   $azureFirewallPIPs = New-AzFirewallHubPublicIpAddress -Count 1
+   $azureFirewallHubIPs = New-AzFirewallHubIpAddress -PublicIP $azureFirewallPIPs
+   ```
+
+1. Create the vHub firewall with the auto-learn policy by using [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
+
+   ```azurepowershell
+   $azureFirewall = New-AzFirewall -Name $azureFirewallName `
+       -ResourceGroupName $rgname `
+       -Location $location `
+       -VirtualHubId $Hub.Id `
+       -FirewallPolicyId $azureFirewallPolicy.Id `
+       -SkuName "AZFW_Hub" `
+       -HubIPAddress $azureFirewallHubIPs `
+       -SkuTier $FirewallTier
+   ```
+
+1. Verify the learned prefixes by using [Get-AzFirewallLearnedIpPrefix](/powershell/module/az.network/get-azfirewalllearnedipprefix).
+
+   ```azurepowershell
+   Get-AzFirewallLearnedIpPrefix -Name $azureFirewallName -ResourceGroupName $rgname
+   ```
+
+#### [Azure portal](#tab/portal)
+
+Because Azure Route Server is already deployed in secured virtual hub environments, you only need to enable the feature in your firewall policy:
+
+1. Select your firewall policy, and then select **Private IP ranges (SNAT)**. Enable **Auto-learn IP prefixes**, and then select **Apply**.
+1. To verify, go back to your firewall and select **Learned SNAT IP Prefixes** to view the learned routes.
+
+---
 
 ## Next steps
 
-- Learn about [Azure Firewall forced tunneling](forced-tunneling.md).
+- [Azure Firewall forced tunneling](forced-tunneling.md)
+- [What is Azure Route Server?](../route-server/overview.md)
+- [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md)
