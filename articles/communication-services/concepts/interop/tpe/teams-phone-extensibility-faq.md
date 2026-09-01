@@ -72,8 +72,6 @@ When recording starts or pauses in a call that includes a PSTN user and a Teams 
 
 Administrators can suppress these announcements by setting the Teams meeting policy parameter `DisableAudioAnnouncementsForResourceAccounts` to `$true`. `$false` is the default and means Teams plays system recording announcements. `$true` suppresses CVA-driven announcements for Azure Communication Services Call Recording and Teams convenience recording. It doesn't govern Teams compliance recording.
 
-Apply the setting to the Global meeting policy to cover all relevant TPE resource accounts that inherit it, or to a custom meeting policy assigned to specific Teams resource accounts.
-
 When you disable these notifications, you're responsible for ensuring that your contact center solution informs participants of recording and transcription in real time in accordance with applicable laws.
 
 For configuration details, see [`Set-CsTeamsMeetingPolicy - DisableAudioAnnouncementsForResourceAccounts`](https://learn.microsoft.com/powershell/module/microsoftteams/set-csteamsmeetingpolicy#-disableaudioannouncementsforresourceaccounts).
