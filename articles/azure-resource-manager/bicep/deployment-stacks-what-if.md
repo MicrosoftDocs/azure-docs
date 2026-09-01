@@ -3,7 +3,7 @@ title: Preview deployment stack changes with what-if
 description: Learn how to use the what-if operation to preview the changes a deployment stack makes before you create or update it.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 08/31/2026
+ms.date: 09/01/2026
 ---
 
 # Preview deployment stack changes by using what-if
@@ -75,24 +75,28 @@ Because the baseline is recorded when the stack is deployed, noise reduction app
 > [!NOTE]
 > Noise reduction removes many common differences, but it doesn't remove every one. Review the reported changes rather than assuming that every difference is a real change.
 
-## Use what-if to investigate configuration drift
+## Evaluate what-if results for possible configuration drift
 
-Configuration drift occurs when the current state of a resource differs from the intended configuration in your template and parameters. Deployment stack what-if can help you investigate possible drift because it evaluates the intended configuration against the current state of resources managed by the stack.
+Configuration drift occurs when the current state of a resource differs from the intended configuration in your template and parameters. Because deployment stack what-if evaluates the template against the current state of resources managed by the stack, its results might provide leads when you investigate possible drift.
 
 What-if is a point-in-time prediction of what the stack would change if you applied it. It isn't a continuous drift-monitoring service, and a reported difference doesn't identify who or what changed a resource.
 
-### Before you begin
+> [!IMPORTANT]
+> This workflow is a conditional investigation pattern, not a validated or guaranteed drift-detection method. When you rerun what-if with an unchanged template and parameters, a change made outside the stack might or might not appear in the result. Validate the behavior for your resource types in a nonproduction environment before you rely on the workflow.
+
+### Before you test this pattern
 
 - Retain the Bicep file or ARM template and parameter values that represent the intended configuration.
 - Target the same deployment stack and scope that manage the resources.
 - Use the same `actionOnUnmanage` and deny settings as the stack's intended configuration. Changing these inputs can change the what-if result.
 - Deploy or update the stack once after noise reduction became available to establish its baseline.
 - Make sure that you have the [permissions required to run what-if](./deploy-what-if.md#prerequisites).
+- Use representative nonproduction resources to verify whether what-if reports a controlled configuration change made outside the stack.
 
-### Check for possible drift
+### Evaluate possible drift signals
 
 1. Before the period that you want to investigate, deploy or update the stack by using the template, parameters, scope, and stack settings that define the intended configuration. This operation establishes the baseline and might correct existing differences.
-1. Later, run what-if against the same stack by using the same inputs. The following example checks a resource group stack:
+1. Later, as one part of your investigation, run what-if against the same stack by using the same inputs. The following example checks a resource group stack:
 
    ```azurecli
    az stack-whatif group create \
@@ -119,14 +123,14 @@ What-if is a point-in-time prediction of what the stack would change if you appl
 
 1. Investigate unexpected results:
 
-   - **NoChange** means the evaluated properties wouldn't change.
-   - An unexpected **Modify** result with identical inputs can indicate possible configuration drift.
+   - **NoChange** means what-if predicts that the properties it evaluated wouldn't change. It doesn't prove that no configuration drift exists.
+   - **Modify** means that applying the stack would modify an existing resource. With identical inputs, an unexpected modification might be a possible drift signal, but it can also result from noise or evaluation limitations.
    - **Create** can indicate that a resource is missing.
    - **Delete** or **Detach** can reflect the template or `actionOnUnmanage` state and require review before you treat the result as drift.
    - **Unsupported**, **Ignore**, incomplete results, and diagnostics are inconclusive.
 
 > [!IMPORTANT]
-> Never treat every reported difference as definitive configuration drift. Resource-provider defaults and normalization can appear as changes, and baseline filtering doesn't remove all noise. `reference()`, other [unevaluated expressions](./deploy-what-if.md#unevaluated-expressions), runtime and nondeterministic functions, secure values, unsupported resource types, expansion limits, and short-circuiting can make results incomplete or produce apparent changes. Confirm unexpected differences against the live resource and the intended template before you correct anything.
+> Don't treat a reported difference as definitive configuration drift or the absence of a difference as proof that no drift exists. Resource-provider defaults and normalization can appear as changes, and baseline filtering doesn't remove all noise. `reference()`, other [unevaluated expressions](./deploy-what-if.md#unevaluated-expressions), runtime and nondeterministic functions, secure values, unsupported resource types, expansion limits, and short-circuiting can make results incomplete or produce apparent changes. Confirm the live resource state against the intended template and parameters before you correct anything.
 
 ## Run what-if before you create or update a stack
 
