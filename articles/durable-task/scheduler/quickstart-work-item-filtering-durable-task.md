@@ -459,7 +459,7 @@ builder.useWorkItemFilters(filter);
 
 Before you begin:
 
-- Install [Python 3.10](https://www.python.org/downloads/) or later.
+- [Python 3.10](https://www.python.org/downloads/) or later.
 - [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
 - [Azure CLI](/cli/azure/install-azure-cli) if you use a deployed Durable Task Scheduler.
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler).
