@@ -30,9 +30,7 @@ A container organizes a set of blobs, similar to a directory in a file system. A
 
 To create a container in the [Azure portal](https://portal.azure.com), follow these steps:
 
-1. In the portal navigation pane on the left side of the screen, select **Storage accounts** and choose a storage account. If the navigation pane isn't visible, select the menu button to toggle its visibility.
-
-    :::image type="content" source="media/blob-containers-portal/menu-expand-sml.png" alt-text="Screenshot of the Azure portal homepage showing the location of the Menu button in the browser." lightbox="media/blob-containers-portal/menu-expand-lrg.png":::
+1. In the search box at the top of the Azure portal, search for and select **Storage accounts**, and then select a storage account.
 
 1. In the navigation pane for the storage account, scroll to the **Data storage** section and select **Containers**.
 1. Within the **Containers** pane, select the **+ Container** button to open the **New container** pane.
