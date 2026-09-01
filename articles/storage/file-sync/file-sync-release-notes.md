@@ -14,7 +14,7 @@ ms.custom:
 
 # Release notes for Azure File Sync
 
-This article provides the release notes for Azure File Sync. Major releases of Azure File Sync include service and agent improvements, such as version 18.0.0.0. Minor releases typically include agent improvements, such as version 18.2.0.0.
+This article provides the release notes for Azure File Sync. Major releases of Azure File Sync include service and agent improvements, such as version 22.0.0.0. Minor releases typically include agent improvements, such as version 22.3.0.0.
 
 ## Supported versions
 
@@ -66,7 +66,7 @@ The following release notes are for Azure File Sync version 23.1.0.0 (released S
 ### Improvements and fixed issues
 
 **Recommended alerts**
-You can now enable a set of preconfigured recommended alerts for your Storage Sync Service to monitor sync health, server connectivity, storage availability, and agent expiration. See [Monitor Azure File Sync](/file-sync-monitoring?branch=main&branchFallbackFrom=pr-en-us-315746).
+You can now enable a set of preconfigured recommended alerts for your Storage Sync Service to monitor sync health, server connectivity, storage availability, and agent expiration. See [Monitor Azure File Sync](file-sync-monitoring.md#set-up-recommended-alerts.md).
 
 **Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
 - Improved the performance of directory enumeration on the server, delivering roughly a 25% speedup when scanning large directory structures.
@@ -79,10 +79,10 @@ Before deploying Azure File Sync, evaluate whether it's compatible with your sys
 ### Agent installation and server configuration
 For more information about how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
 
-- The agent installation requires a restart for servers that have an existing Azure File Sync agent installation if the agent version is older than 18.2.0.0.
 - You must install the agent installation package with elevated (admin) permissions.
 - The agent isn't supported on the Nano Server deployment option.
 - The agent supports only Windows Server 2016, Windows Server 2019, Windows Server 2022, and Windows Server 2025.
+- The agent requires .NET Framework 4.7.2 or later. Windows Server 2019 and later include .NET Framework 4.7.2 by default. For Windows Server 2016, verify that .NET Framework 4.7.2 or later is installed before installing Azure File Sync.
 - The Azure File Sync agent installation package is specific to the operating system version. If you're upgrading a server to a newer version of Windows Server, you must first uninstall the Azure File Sync agent and restart the server. ***Don't unregister and re-register the server during the OS upgrade, or it leads to orphaned tiered files on existing server endpoints.*** Then, upgrade the operating system to the new version. After the upgrade is complete, install the Azure File Sync agent that matches the new Windows Server version such as 2016, 2019, 2022, or 2025. After installing the agent on the upgraded server, the Azure portal reflects the correct server status within 30 minutes.
 - The agent requires at least 2 GiB of memory. If the server runs in a virtual machine with dynamic memory enabled, configure the VM with a minimum 2048 MiB of memory. See [Recommended system resources](file-sync-planning.md#recommended-system-resources) for more information.
 - The agent uses TLS 1.2 or 1.3 (Windows Server 2022 or newer) by default. TLS 1.0 and 1.1 aren't supported.
