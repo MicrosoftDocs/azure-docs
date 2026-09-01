@@ -74,7 +74,7 @@ For more information about large file optimization, see [Large file optimization
 Dynamic site acceleration (DSA) isn't available for **Azure CDN from Microsoft (classic)**.
 
 > [!NOTE]
-> Dynamic site acceleration from Microsoft is offered through [Azure Front Door](../frontdoor/front-door-overview.md), which is a global unicast service that uses Microsoft's private global network to deliver your app workloads.
+> You get dynamic site acceleration from Microsoft through [Azure Front Door](../frontdoor/front-door-overview.md), which is a global unicast service that uses Microsoft's private global network to deliver your app workloads.
 
 DSA includes various techniques that benefit the latency and performance of dynamic content. Techniques include route and network optimization, TCP optimization, and more.
 
