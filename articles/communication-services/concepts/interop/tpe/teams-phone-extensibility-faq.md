@@ -68,8 +68,13 @@ For TPE calls, we provide access to telemetry details similar to what is offered
 
 ## Why is my end user hearing an announcement that I didn't trigger whenever I start or pause the call recording?
 
-When a recording is started or paused in a call that includes a PSTN user and a Teams or Dual Persona user, the PSTN user will hear an announcement indicating the change. This is due to compliance requirements on Teams to ensure that all participants are aware of the recording status.
-If a partner wishes to disable these announcements, they may submit a request via this [form](https://forms.microsoft.com/r/6vW9Fc7RT8), which will be reviewed and processed promptly.
+When recording starts or pauses in a call that includes a PSTN user and a Teams or Dual Persona user, Teams plays a system recording announcement by default.
+
+Administrators can suppress these announcements by setting the Teams meeting policy parameter `DisableAudioAnnouncementsForResourceAccounts` to `$true`. `$false` is the default and means Teams plays system recording announcements. `$true` suppresses Teams-driven announcements for Azure Communication Services Call Recording and Teams convenience recording.
+
+When you disable these notifications, you're responsible for ensuring that your contact center solution informs participants of recording and transcription in real time in accordance with applicable laws.
+
+For configuration details, see [`Set-CsTeamsMeetingPolicy - DisableAudioAnnouncementsForResourceAccounts`](/powershell/module/microsoftteams/set-csteamsmeetingpolicy#-disableaudioannouncementsforresourceaccounts).
 
 ## How do Microsoft Purview Information Barriers (IB) apply to Teams Phone extensibility?
 
