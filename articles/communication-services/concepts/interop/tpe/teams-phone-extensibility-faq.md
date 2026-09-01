@@ -70,7 +70,7 @@ For TPE calls, we provide access to telemetry details similar to what is offered
 
 When recording starts or pauses in a call that includes a PSTN user and a Teams or Dual Persona user, Teams plays a system recording announcement by default.
 
-Administrators can suppress these announcements by setting the Teams meeting policy parameter `DisableAudioAnnouncementsForResourceAccounts` to `$true`. `$false` is the default and means Teams plays system recording announcements. `$true` suppresses CVA-driven announcements for Azure Communication Services Call Recording and Teams convenience recording. It does not govern Teams compliance recording.
+Administrators can suppress these announcements by setting the Teams meeting policy parameter `DisableAudioAnnouncementsForResourceAccounts` to `$true`. `$false` is the default and means Teams plays system recording announcements. `$true` suppresses CVA-driven announcements for Azure Communication Services Call Recording and Teams convenience recording. It doesn't govern Teams compliance recording.
 
 When these notifications are disabled, you are responsible for ensuring that your contact center solution informs participants of recording/transcription in real time in accordance with applicable laws.
 
