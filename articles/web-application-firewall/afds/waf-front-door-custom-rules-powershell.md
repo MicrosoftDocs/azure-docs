@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 09/05/2019
+ms.date: 08/31/2026
 ms.custom: devx-track-azurepowershell
 # Customer intent: As a security engineer, I want to configure a web application firewall policy with custom rules and a default rule set for Azure Front Door, so that I can enhance the security of my application against various threats.
 ---
@@ -14,41 +14,25 @@ ms.custom: devx-track-azurepowershell
 
 A web application firewall (WAF) policy defines the inspections that are required when a request arrives at Azure Front Door.
 
-This article shows how to configure a WAF policy that consists of some custom rules and has the Azure-managed Default Rule Set enabled.
+This article shows how to configure a WAF policy for Azure Front Door Standard or Premium that consists of some custom rules and has the Azure-managed Default Rule Set enabled. Custom rules apply to both the Standard and Premium tiers. Managed rule sets, such as the Default Rule Set, require the Premium tier.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+Custom rules and the Default Rule Set are optional; include either or both to suit your needs. You set the WAF policy mode (Detection or Prevention) when you create the policy in a later step.
 
 ## Prerequisites
 
-Before you begin to set up a rate limit policy, set up your PowerShell environment and create an Azure Front Door profile.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure Front Door Standard or Premium profile. If you need to create one, see [Quickstart: Create an Azure Front Door Standard/Premium profile using PowerShell](../../frontdoor/create-front-door-powershell.md). The examples in this article use a Premium profile because managed rule sets require the Premium tier.
+- Azure Cloud Shell or Azure PowerShell.
 
-### Set up your PowerShell environment
+    The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the cmdlets in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing your Azure resources.
+    You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+- The `Az.Cdn` and `Az.FrontDoor` PowerShell modules. Use the `Az.Cdn` module to work with Azure Front Door Standard and Premium resources, and the `Az.FrontDoor` module to work with WAF resources. Install both modules by running the following commands:
 
-You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page to sign in with your Azure credentials. Then install the Az PowerShell module.
-
-#### Sign in to Azure
-
-```
-Connect-AzAccount
-
-```
-Before you install the Azure Front Door module, make sure you have the current version of PowerShellGet installed. Run the following command and reopen PowerShell.
-
-```
-Install-Module PowerShellGet -Force -AllowClobber
-``` 
-
-#### Install the Az.FrontDoor module
-
-```
-Install-Module -Name Az.FrontDoor
-```
-
-### Create an Azure Front Door profile
-
-Create an Azure Front Door profile by following the instructions described in [Quickstart: Create an Azure Front Door profile](../../frontdoor/quickstart-create-front-door.md).
+    ```azurepowershell
+    Install-Module -Name Az.Cdn
+    Install-Module -Name Az.FrontDoor
+    ```
 
 ## Custom rule based on HTTP parameters
 
@@ -71,7 +55,7 @@ $BlockPUT = New-AzFrontDoorWafCustomRuleObject -Name "BlockPUT" -RuleType MatchR
 
 ## Create a custom rule based on size constraint
 
-The following example creates a rule blocking requests with a URL that's longer than 100 characters by using Azure PowerShell.
+The following example creates a rule that blocks requests with a URL longer than 100 characters by using Azure PowerShell.
 
 ```powershell-interactive
 $url = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
@@ -80,42 +64,52 @@ $URLOver100 = New-AzFrontDoorWafCustomRuleObject -Name "URLOver100" -RuleType Ma
 
 ## Add a managed Default Rule Set
 
-The following example creates a managed Default Rule Set by using Azure PowerShell.
+Managed rule sets are available on Azure Front Door Premium. The following example creates a managed Default Rule Set object by using Azure PowerShell.
 
 ```powershell-interactive
-$managedRules =  New-AzFrontDoorWafManagedRuleObject -Type DefaultRuleSet -Version 1.0
+$managedRules = New-AzFrontDoorWafManagedRuleObject -Type Microsoft_DefaultRuleSet -Version 2.2
 ```
 
-## Configure a security policy
+> [!NOTE]
+> Managed rule sets require Azure Front Door Premium. Azure Front Door Standard supports custom rules only. This example uses `Microsoft_DefaultRuleSet` version 2.2. For all available versions, see [Web Application Firewall DRS rule groups and rules](waf-front-door-drs.md).
 
-Find the name of the resource group that contains the Azure Front Door profile by using `Get-AzResourceGroup`. Next, configure a security policy with created rules in the previous steps by using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) in the specified resource group that contains the Azure Front Door profile.
+## Create a WAF policy
+
+Create a WAF policy that includes the custom rules and the managed Default Rule Set from the previous steps by using [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy). Set `-Sku` to `Premium_AzureFrontDoor` to include managed rules, or to `Standard_AzureFrontDoor` for custom rules only.
 
 ```powershell-interactive
-$myWAFPolicy=New-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $resourceGroupName -Customrule $AllowFromTrustedSites,$BlockPUT,$URLOver100 -ManagedRule $managedRules -EnabledState Enabled -Mode Prevention
+$myWAFPolicy = New-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $resourceGroupName -Sku Premium_AzureFrontDoor -CustomRule $AllowFromTrustedSites,$BlockPUT,$URLOver100 -ManagedRule $managedRules -EnabledState Enabled -Mode Prevention
 ```
 
-## Link policy to an Azure Front Door front-end host
+## Associate the WAF policy with your endpoint
 
-Link the security policy object to an existing Azure Front Door front-end host and update Azure Front Door properties. First, retrieve the Azure Front Door object by using [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor).
-Next, set the front-end `WebApplicationFirewallPolicyLink` property to the `resourceId` of the `$myWAFPolicy$` created in the previous step by using [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor).
+For Azure Front Door Standard and Premium, you associate a WAF policy with your endpoint by creating a security policy on the Azure Front Door profile. A security policy associates your WAF policy with the domains that you want the WAF to protect.
 
-> [!NOTE]
-> For Azure Front Door Standard and Premium, you should use [Get-AzFrontDoorCdnProfile](/powershell/module/az.cdn/Get-AzFrontDoorCdnProfile).
-
-The following example uses the resource group name `myResourceGroupFD1` with the assumption that you've created the Azure Front Door profile by using instructions provided in [Quickstart: Create an Azure Front Door](../../frontdoor/quickstart-create-front-door.md). Also, in the following example, replace `$frontDoorName` with the name of your Azure Front Door profile.
+Retrieve your endpoint by using [Get-AzFrontDoorCdnEndpoint](/powershell/module/az.cdn/get-azfrontdoorcdnendpoint), and replace the resource group, profile, and endpoint names with your own. Then use [New-AzFrontDoorCdnSecurityPolicy](/powershell/module/az.cdn/new-azfrontdoorcdnsecuritypolicy) to associate the endpoint's default hostname with your WAF policy.
 
 ```powershell-interactive
-   $FrontDoorObjectExample = Get-AzFrontDoor `
-     -ResourceGroupName myResourceGroupFD1 `
-     -Name $frontDoorName
-   $FrontDoorObjectExample[0].FrontendEndpoints[0].WebApplicationFirewallPolicyLink = $myWAFPolicy.Id
-   Set-AzFrontDoor -InputObject $FrontDoorObjectExample[0]
- ```
+$frontDoorEndpoint = Get-AzFrontDoorCdnEndpoint -ResourceGroupName $resourceGroupName -ProfileName $frontDoorProfileName -EndpointName $frontDoorEndpointName
+
+$securityPolicyAssociation = New-AzFrontDoorCdnSecurityPolicyWebApplicationFirewallAssociationObject `
+  -PatternsToMatch @("/*") `
+  -Domain @(@{"Id"=$($frontDoorEndpoint.Id)})
+
+$securityPolicyParameters = New-AzFrontDoorCdnSecurityPolicyWebApplicationFirewallParametersObject `
+  -Association $securityPolicyAssociation `
+  -WafPolicyId $myWAFPolicy.Id
+
+New-AzFrontDoorCdnSecurityPolicy `
+  -Name 'MySecurityPolicy' `
+  -ProfileName $frontDoorProfileName `
+  -ResourceGroupName $resourceGroupName `
+  -Parameter $securityPolicyParameters
+```
 
 > [!NOTE]
-> You only need to set the `WebApplicationFirewallPolicyLink` property once to link a security policy to an Azure Front Door front end. Subsequent policy updates are automatically applied to the front end.
+> A security policy applies to the domains in its association. To protect more domains, add them to the association or create additional security policies.
 
-## Next steps
+## Related content
 
-- Learn more about [Azure Front Door](../../frontdoor/front-door-overview.md).
-- Learn more about [Azure Web Application Firewall on Azure Front Door](afds-overview.md).
+- [Web Application Firewall on Azure Front Door](afds-overview.md)
+- [Web Application Firewall DRS rule groups and rules](waf-front-door-drs.md)
+- [Best practices for Web Application Firewall on Azure Front Door](waf-front-door-best-practices.md)

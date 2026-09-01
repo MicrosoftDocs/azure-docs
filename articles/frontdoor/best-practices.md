@@ -82,7 +82,7 @@ Before you rewrite the `Host` header of your requests, carefully consider whethe
 
 ## WAF best practices
 
-For internet-facing applications, enable the Azure Front Door WAF and configure it to use managed rules. Using a WAF and Microsoft-managed rules helps protect your application from a wide range of attacks. For more information, see [Web Application Firewall (WAF) on Azure Front Door](web-application-firewall.md).
+For internet-facing applications, enable the Azure Front Door WAF. On Azure Front Door Premium, configure the WAF to use Microsoft-managed rules to help protect your application from a wide range of attacks. For tier-specific WAF feature availability, see [Compare Azure Front Door tiers](compare-cdn-front-door-price.md). For more information, see [Web Application Firewall (WAF) on Azure Front Door](web-application-firewall.md).
 
 The WAF for Azure Front Door has its own set of best practices for its configuration and use. For more information, see [Best practices for Web Application Firewall in Azure Front Door](../web-application-firewall/afds/waf-front-door-best-practices.md).
 
