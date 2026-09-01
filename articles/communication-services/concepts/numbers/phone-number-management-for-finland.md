@@ -22,7 +22,7 @@ Use the below tables to find all the relevant information on number availability
 >
 > To submit the required LOA:
 >
-> - Download the [Letter of Authorization (LOA)](https://github.com/Azure/Communication/raw/refs/heads/master/Forms/LOA-FI-SMS-SENDER-ID-EN.docx).
+> - Download the [Letter of Authorization (LOA)](https://raw.githubusercontent.com/Azure/Communication/refs/pull/601/head/Forms/LOA-FI-SMS-SENDER-ID-EN.docx).
 > - Complete and sign the Finland LOA for the affected Sender ID or IDs.
 > - Email the completed form to [acstns@microsoft.com](mailto:acstns@microsoft.com).
 >
