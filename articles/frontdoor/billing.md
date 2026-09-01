@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 07/14/2026
+ms.date: 08/31/2026
 ---
 
 # Understanding Azure Front Door billing
@@ -87,7 +87,7 @@ When you configure a Private Link origin, you select a region for the private en
 
 ## Cross-region traffic
 
-Some of the Front Door billing meters have different rates depending on the location of the Front Door edge location that processes a request. Usually, [the Front Door edge location that processes a request is the one that's closest to the client](front-door-traffic-acceleration.md#select-the-front-door-edge-location-for-the-request-anycast), which helps to reduce latency and maximize performance.
+Some of the Front Door billing meters have different rates depending on the location of the Front Door edge location that processes a request. Usually, [the Front Door edge location that processes a request is the one that's closest to the client](front-door-traffic-acceleration.md?pivots=front-door-standard-premium#select-the-front-door-edge-location-for-the-request-unicast), which helps to reduce latency and maximize performance.
 
 Front Door charges for traffic from the edge location to the origin. Traffic is charged at different rates depending on the location of the Front Door edge location. If your origin is in a different Azure region, you aren't billed extra for inter-region traffic.
 

@@ -1,7 +1,7 @@
 ---
 title: Pool and node errors
 description: Learn about background operations, errors to check for, and how to avoid errors when you create Azure Batch pools and nodes.
-ms.date: 01/05/2026
+ms.date: 08/31/2026
 ms.topic: how-to
 # Customer intent: As a cloud developer managing Batch pools, I want to understand common pool and node errors, so that I can troubleshoot issues efficiently and ensure optimal performance and cost management of my cloud resources.
 ---
@@ -113,6 +113,8 @@ If the pool deletion is taking longer than expected, Batch retries periodically 
 
 Even when Batch successfully allocates nodes in a pool, various issues can cause some nodes to be unhealthy and unable to run tasks. These nodes still incur charges, so it's important to detect problems to avoid paying for nodes you can't use. Knowing about common node errors and knowing the current [job state](/rest/api/batchservice/jobs/get-job) is useful for troubleshooting.
 
+For Batch accounts that use user subscription pool allocation mode, you can proactively collect CPU, memory, disk, network, and operating system log data from compute nodes. For more information, see [Monitor Azure Batch pool compute nodes with Azure Monitor Agent](monitor-batch-pool-nodes.md).
+
 ### Start task failures
 
 You can specify an optional [start task](/rest/api/batchservice/tasks/create-task) for a pool. As with any task, the start task uses a command line and can download resource files from storage. The start task runs for each node when the node starts. The `waitForSuccess` property specifies whether Batch waits until the start task completes successfully before it schedules any tasks to a node. If you configure the node to wait for successful start task completion, but the start task fails, the node isn't usable but still incurs charges.
@@ -181,6 +183,8 @@ When you add a pool in the Azure portal, you can display the full list of VM siz
 You can specify a retention time for files written by each task. The retention time determines how long to keep the task files before automatically cleaning them up. You can reduce the retention time to lower storage requirements.
 
 If the temporary or OS disk runs out of space, or is close to running out of space, the node moves to the `unusable` [computeNoteState](/rest/api/batchservice/nodes/get-node#computenodestate), and the node error says that the disk is full.
+
+If Azure Monitor Agent is configured on the pool, create alerts for free disk space on the relevant mount-point instances so you can respond before a node becomes unusable.
 
 If you're not sure what's taking up space on the node, try remote connecting to the node and investigating manually. You can also use the [File - List From Compute Node](/rest/api/batchservice/nodes/list-node-files) API to examine files, for example task outputs, in Batch managed folders. This API only lists files in the Batch managed directories. If your tasks created files elsewhere, this API doesn't show them.
 

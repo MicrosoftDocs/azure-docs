@@ -1,11 +1,11 @@
 ---
-title: What is Azure Web Application Firewall on Azure Front Door?
-description: Learn how Azure Web Application Firewall on Azure Front Door protects your web applications from malicious attacks.
+title: What Is Azure Web Application Firewall on Azure Front Door?
+description: Learn how Azure Web Application Firewall protects Azure Front Door applications and how WAF policies, attachment scopes, rules, modes, and actions work.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 08/31/2026
+ms.date: 09/01/2026
 
 # Customer intent: As a security administrator, I want to configure Azure Web Application Firewall policies on Azure Front Door, so that I can protect my web applications from malicious attacks and ensure compliance with security standards while maintaining high availability.
 ---
@@ -54,6 +54,29 @@ When both are present, custom rules are processed before processing the rules in
 Rules within a policy are processed in a priority order. Priority is a unique integer that defines the order of rules to process. A smaller integer value denotes a higher priority, and those rules are evaluated before rules with a higher integer value. After a rule is matched, the corresponding action that you defined in the rule is applied to the request. After such a match is processed, rules with lower priorities aren't processed further.
 
 A web application delivered by Azure Front Door can have only one WAF policy associated with it at a time. However, you can have an Azure Front Door configuration without any WAF policies associated with it. If a WAF policy is present, it's replicated to all of Microsoft's edge locations to ensure consistent security policies across the world.
+
+### Policy attachment scopes
+
+With Azure Front Door, you can attach WAF policies at multiple scopes so you can balance broad protection with targeted controls:
+
+- **Profile-level policy**: Applies a shared baseline policy across the Azure Front Door profile.
+- **Domain-level policy**: Applies policy settings to specific domains in the profile.
+- **Route-level policy**: Applies the most specific policy to selected routes.
+
+You can use one scope or combine scopes based on your deployment needs.
+
+### Policy precedence
+
+When more than one policy scope applies to a request, Azure Front Door WAF uses the most specific scope:
+
+1. **Route-level policy**
+2. **Domain-level policy**
+3. **Profile-level policy**
+
+For example, if a request matches both a profile-level policy and a route-level policy, Azure Front Door WAF applies the route-level policy for that request.
+
+> [!TIP]
+> Start with a profile-level baseline policy, and then apply domain-level or route-level policies only where you need different protections.
 
 ## WAF modes
 

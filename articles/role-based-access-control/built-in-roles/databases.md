@@ -647,7 +647,7 @@ Execute semantic reranking operations against registered inference accounts. Thi
 
 ## SQL DB Contributor
 
-Lets you manage SQL databases, but not access to them. Also, you can't manage their security-related policies or their parent SQL servers.
+Lets you manage SQL databases, including copying, restoring, exporting, deleting, and configuring certain database-level security settings such as identities, encryption protectors, and enclaves. Although it grants no SQL query permissions directly, its data-movement capabilities can enable access to or exfiltration of database data. It cannot manage parent SQL servers and excludes the security-related operations listed in NotActions.
 
 [Learn more](/azure/data-share/concepts-roles-permissions)
 
@@ -1012,7 +1012,7 @@ Lets you manage the security-related policies of SQL servers and databases, but 
 
 ## SQL Server Contributor
 
-Lets you manage SQL servers and databases, but not access to them, and not their security-related policies.
+Lets you manage SQL servers and databases, including server administrator credentials and certain server security and network settings. Although it grants no SQL data-plane permissions directly, control of administrator credentials can enable data-plane access. It excludes the security-related policies listed in NotActions.
 
 [Learn more](/azure/azure-sql/database/authentication-aad-configure)
 
