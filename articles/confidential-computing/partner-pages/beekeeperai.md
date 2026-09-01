@@ -5,7 +5,7 @@ services: virtual-machines
 author: ananyagarg
 ms.service: azure-confidential-computing
 ms.topic: concept-article
-ms.date: 09/01/2026
+ms.date: 09/01/26
 ms.author: ananyagarg
 # Customer intent: "As an AI, data, or security leader evaluating Azure confidential computing, I want to run proprietary models and agents on protected data without either side exposing its data or IP, so that I can collaborate across organizational boundaries and prove compliance with an auditable record — not just claim it."
 ---
@@ -19,9 +19,10 @@ EscrowAI enables organizations to execute proprietary models and agents on prote
 ## Confidence. Control. Compliance. 
 
 EscrowAI delivers value to everyone at the table:
-Chief AI Officer - Confidence - Bring third-party models and agents in, or send your proprietary models out, without exposing IP, to support the AI lifecycle (from training to deployment). 
-Chief Data Officer - Control - Put protected data to work without ever losing custody or sovereignty - or exposing it. 
-Chief Information Officer - Compliance - Approve the policy-aligned run — EscrowAI attests before it computes, enforces during, and logs after: proof of compliance, not promises.
+
+- Chief AI Officer - Confidence - Bring third-party models and agents in, or send your proprietary models out, without exposing IP, to support the AI lifecycle (from training to deployment). 
+- Chief Data Officer - Control - Put protected data to work without ever losing custody or sovereignty - or exposing it. 
+- Chief Information Officer - Compliance - Approve the policy-aligned run — EscrowAI attests before it computes, enforces during, and logs after: proof of compliance, not promises.
 
 ## Confidential & Verifiable AI Execution Capabilities 
 
@@ -55,10 +56,11 @@ Other Regulated Industries – EscrowAI is relevant for any organization where A
 
 ## Outcomes 
 
-Zero IP exposure incidents across 4+ years in commercial production.
-Cuts security and compliance approval timelines by 6+ months — approval in as little as 2 weeks.
-100% of computation stays inside the customer's secure boundary, and 100% of runs generate an immutable, tamper-proof audit record.
-Supports data sovereignty requirements — HIPAA, GDPR, PIPEDA, and more.
+- Zero IP exposure incidents across 4+ years in commercial production.
+- Cuts security and compliance approval timelines by 6+ months — approval in as little as 2 weeks.
+- 100% of computation stays inside the customer's secure boundary, and 100% of runs generate an immutable, tamper-proof audit record.
+- Supports data sovereignty requirements, 
+- Ensures compliance with regulatory requirements: HIPAA, GDPR, PIPEDA, and more.
 
 ## Trust & Compliance 
 
