@@ -37,7 +37,7 @@ The Azure-managed DRS includes rules against the following threat categories:
 
 The version number of the DRS increments when new attack signatures are added to the rule set.
 
-DRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the DRS to meet your application requirements. You can also set specific actions per rule. The available actions are [Allow, Block, Log, Redirect, and Anomaly score](afds-overview.md#waf-actions). The **Anomaly score** action (`AnomalyScoring`) is the default action for Default Rule Set 2.0 or later and isn't applicable to the Bot Manager rule set. For more information, see [Anomaly scoring](#anomaly-scoring-mode).
+DRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the DRS to meet your application requirements. You can also set specific actions per rule. The available actions are [Allow, Block, Log, Redirect, and Anomaly score](afds-overview.md#waf-actions). The *Anomaly score* action (`AnomalyScoring`) is the default action for Default Rule Set 2.0 or later and isn't applicable to the Bot Manager rule set. For more information, see [Anomaly scoring](#anomaly-scoring-mode).
 
 Sometimes you might need to omit certain request attributes from a web application firewall (WAF) evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You might configure an exclusion list for a managed rule, a rule group, or the entire rule set. For more information, see [Azure Web Application Firewall on Azure Front Door exclusion lists](./waf-front-door-exclusion.md).
 
