@@ -153,4 +153,4 @@ Validate the APIs and policies in the target instance after publishing. When you
 
 - Review the [APIOps CLI getting-started guide](https://github.com/Azure/apiops-cli/blob/main/docs/getting-started.md).
 - Learn about [APIOps CLI commands and CI/CD integration](https://github.com/Azure/apiops-cli/blob/main/docs/README.md).
-- Learn more about [DevOps and CI/CD for API Management](devops-api-development-templates.md).
+- Learn how to [Use DevOps and CI/CD to publish APIs](devops-api-development-templates.md).
