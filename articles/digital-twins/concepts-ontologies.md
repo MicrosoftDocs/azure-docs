@@ -15,7 +15,7 @@ ms.custom: engagement-fy23
 This article describes the concept of industry ontologies and how they can be used within the context of Azure Digital Twins.
 
 >[!NOTE]
->The concept of ontologies as it's used in this article is different from [Fabric ontology](https://learn.microsoft.com/fabric/iq/ontology/overview), a Fabric item for defining an enterprise vocabulary.
+> The concept of ontologies in this article is different from [Fabric ontology](/fabric/iq/ontology/overview), a Fabric item for defining an enterprise vocabulary.
 
 The vocabulary of an Azure Digital Twins solution is defined using [models](concepts-models.md), which describe the types of entities that exist in your environment. An *ontology* is a set of models that comprehensively describe a given domain, like manufacturing, building structures, IoT systems, smart cities, energy grids, web content, and more.
 
