@@ -3,7 +3,7 @@ title: Preview deployment stack changes with what-if
 description: Learn how to use the what-if operation to preview the changes a deployment stack makes before you create or update it.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 08/12/2026
+ms.date: 08/31/2026
 ---
 
 # Preview deployment stack changes by using what-if
@@ -74,6 +74,59 @@ Because the baseline is recorded when the stack is deployed, noise reduction app
 
 > [!NOTE]
 > Noise reduction removes many common differences, but it doesn't remove every one. Review the reported changes rather than assuming that every difference is a real change.
+
+## Use what-if to investigate configuration drift
+
+Configuration drift occurs when the current state of a resource differs from the intended configuration in your template and parameters. Deployment stack what-if can help you investigate possible drift because it evaluates the intended configuration against the current state of resources managed by the stack.
+
+What-if is a point-in-time prediction of what the stack would change if you applied it. It isn't a continuous drift-monitoring service, and a reported difference doesn't identify who or what changed a resource.
+
+### Before you begin
+
+- Retain the Bicep file or ARM template and parameter values that represent the intended configuration.
+- Target the same deployment stack and scope that manage the resources.
+- Use the same `actionOnUnmanage` and deny settings as the stack's intended configuration. Changing these inputs can change the what-if result.
+- Deploy or update the stack once after noise reduction became available to establish its baseline.
+- Make sure that you have the [permissions required to run what-if](./deploy-what-if.md#prerequisites).
+
+### Check for possible drift
+
+1. Before the period that you want to investigate, deploy or update the stack by using the template, parameters, scope, and stack settings that define the intended configuration. This operation establishes the baseline and might correct existing differences.
+1. Later, run what-if against the same stack by using the same inputs. The following example checks a resource group stack:
+
+   ```azurecli
+   az stack-whatif group create \
+     --name "<what-if-result-name>" \
+     --resource-group "<resource-group-name>" \
+     --stack-id "<deployment-stack-resource-id>" \
+     --template-file "main.bicep" \
+     --parameters "@main.parameters.json" \
+     --action-on-unmanage "detachAll" \
+     --deny-settings-mode "none" \
+     --retention-interval "PT3H"
+   ```
+
+   The example uses `detachAll` and `none` as placeholders. Use the `actionOnUnmanage` and deny settings that match your stack's intended configuration.
+
+1. Retrieve the result with property-level changes:
+
+   ```azurecli
+   az stack-whatif group show \
+     --name "<what-if-result-name>" \
+     --resource-group "<resource-group-name>" \
+     --with-property-changes true
+   ```
+
+1. Investigate unexpected results:
+
+   - **NoChange** means the evaluated properties wouldn't change.
+   - An unexpected **Modify** result with identical inputs can indicate possible configuration drift.
+   - **Create** can indicate that a resource is missing.
+   - **Delete** or **Detach** can reflect the template or `actionOnUnmanage` state and require review before you treat the result as drift.
+   - **Unsupported**, **Ignore**, incomplete results, and diagnostics are inconclusive.
+
+> [!IMPORTANT]
+> Never treat every reported difference as definitive configuration drift. Resource-provider defaults and normalization can appear as changes, and baseline filtering doesn't remove all noise. `reference()`, other [unevaluated expressions](./deploy-what-if.md#unevaluated-expressions), runtime and nondeterministic functions, secure values, unsupported resource types, expansion limits, and short-circuiting can make results incomplete or produce apparent changes. Confirm unexpected differences against the live resource and the intended template before you correct anything.
 
 ## Run what-if before you create or update a stack
 
@@ -267,4 +320,3 @@ Use what-if as a confirmation step in interactive sessions and in pipelines:
 
 - **Interactively**, run the what-if command, review the predicted changes, and then run the stack create command to apply them.
 - **In automation**, capture the what-if result and gate the apply step on review or approval. This step is valuable for stacks because an update can detach or delete resources depending on the `actionOnUnmanage` setting.
-
