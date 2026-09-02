@@ -3,7 +3,7 @@ title: Guide for Using Azure Functions with Aspire
 description: Learn how to use Azure Functions with Aspire, which simplifies authoring of distributed applications in the cloud.
 ms.service: azure-functions
 ms.topic: integration
-ms.date: 10/31/2025
+ms.date: 08/25/2026
 ---
 
 # Azure Functions with Aspire
@@ -53,7 +53,7 @@ builder.Build().Run();
 
 To successfully configure the integration, make sure that the Azure Functions project meets the following requirements:
 
-- The Functions project must reference the [2.x versions](./dotnet-isolated-process-guide.md#version-2x) of [Microsoft.Azure.Functions.Worker] and [Microsoft.Azure.Functions.Worker.Sdk]. You must also update any [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore] references to the 2.x version.
+- Use `Azure.Functions.Sdk` version 1.0.0 or later as the [project SDK](./dotnet-isolated-process-guide.md#core-sdk-and-package) and reference the 2.x version of [Microsoft.Azure.Functions.Worker]. Also, update any [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore] references to the 2.x version.
 - Your `Program.cs` file must use the `IHostApplicationBuilder` version of the [host instance startup](./dotnet-isolated-process-guide.md#start-up-and-configuration). This requirement means that you must use `FunctionsApplication.CreateBuilder(args)`.
 - If your solution includes a service defaults project, ensure that your Functions project is configured to use it:
 
@@ -381,7 +381,6 @@ Consider the following points when you're evaluating the integration of Azure Fu
 [host-storage-identity]: ./manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections
 
 [Microsoft.Azure.Functions.Worker]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/
-[Microsoft.Azure.Functions.Worker.Sdk]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/
 [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/
 
 [Aspire.Hosting.Azure.Functions]: https://www.nuget.org/packages/Aspire.Hosting.Azure.Functions

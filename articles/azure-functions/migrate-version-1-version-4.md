@@ -3,7 +3,7 @@ title: Migrate apps from Azure Functions version 1.x to 4.x
 description: This article shows you how to migrate your existing function apps running on version 1.x of the Azure Functions runtime to be able to run on version 4.x of the runtime.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 08/26/2026
 zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom:
   - template-how-to-pattern

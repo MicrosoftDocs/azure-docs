@@ -40,7 +40,7 @@ When managed from Azure Stack, the following tiered storage accounts are support
 |    |  Blob storage: Block Blob       | Supported only for NAS     |
 
 *Page blobs and Azure Files are currently not supported in Azure Stack.
-**Hot and cold tier do not exist in Azure Stack. Use the Azure PowerShell to move the data to the archive tier once the data is uploaded. For step-by-step instructions, go to [Use Azure PowerShell to set the blob tier]()
+**Hot and cold tier do not exist in Azure Stack. Use the Azure PowerShell to move the data to the archive tier once the data is uploaded. For step-by-step instructions, go to [Use Azure PowerShell to set the blob tier](/azure/storage/blobs/access-tiers-online-manage)
 
 ## Supported storage types
 

@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 02/24/2026
+ms.date: 08/26/2026
 recommendations: false
 ms.custom:
   - template-concept
@@ -54,33 +54,129 @@ A .NET project for Azure Functions that uses the isolated worker model is basica
  
 For complete examples, see the [.NET 8 sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/FunctionApp) and the [.NET Framework 4.8 sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/NetFxWorker).
 
-## Package references
+## Project and package references
 
-A .NET project for Azure Functions that uses the isolated worker model uses a unique set of packages for both core functionality and binding extensions. 
+A .NET project for Azure Functions that uses the isolated worker model uses a Functions-specific project SDK and a unique set of packages for core functionality and binding extensions.
 
-### Core packages 
+### Core SDK and package
 
-To run your .NET functions in an isolated worker process, you need the following packages:
+To build and run your .NET functions in an isolated worker process, you need:
 
-+ [Microsoft.Azure.Functions.Worker]
-+ [Microsoft.Azure.Functions.Worker.Sdk]
+- [Microsoft.Azure.Functions.Worker], which provides the worker runtime.
+- A build SDK that generates function metadata and prepares the project for deployment.
 
- The minimum versions of these packages depend on your target .NET version:
+For projects that target a supported version of .NET or .NET Framework, use `Azure.Functions.Sdk` as the project SDK. The following example shows the basic project configuration:
 
-| .NET version   | `Microsoft.Azure.Functions.Worker` | `Microsoft.Azure.Functions.Worker.Sdk` |
-|----------------|------------------------------------|-----------------------------------------|
-| .NET 10        | 2.50.0 or later                    | 2.0.5 or later                         |
-| .NET 9         | 2.0.0 or later                     | 2.0.0 or later                         |
-| .NET 8         | 1.16.0 or later                    | 1.11.0 or later                        |
-| .NET Framework | 1.16.0 or later                    | 1.11.0 or later                        |
+```xml
+<Project Sdk="Azure.Functions.Sdk/1.0.0">
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.52.0" />
+        <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="2.1.0" />
+    </ItemGroup>
+</Project>
+```
+
+`Azure.Functions.Sdk` also supports standard [MSBuild project SDK resolution](/visualstudio/msbuild/how-to-use-project-sdk#how-project-sdks-are-resolved). If your repository uses a _global.json_ file to manage MSBuild project SDK versions, you can omit the version from the project file:
+
+```xml
+<Project Sdk="Azure.Functions.Sdk" />
+```
+
+Then specify the version in _global.json_:
+
+```json
+{
+    "msbuild-sdks": {
+        "Azure.Functions.Sdk": "1.0.0"
+    }
+}
+```
+
+You must explicitly reference `Microsoft.Azure.Functions.Worker`. Keeping this reference explicit lets NuGet resolve the highest worker version required by your dependency graph. If the package is missing after restore, the SDK emits [AZFW0111](errors-diagnostics/msbuild-sdk-rules/azfw0111.md).
+
+`Azure.Functions.Sdk` automatically provides the underlying .NET SDK, sets `AzureFunctionsVersion` to `v4`, adds the source generators and analyzers used for function metadata, and integrates with Functions tooling so that [`dotnet run`](/dotnet/core/tools/dotnet-run) starts the Functions host when [Azure Functions Core Tools](./functions-run-local.md) is installed.
+
+The minimum worker and build SDK versions depend on your target .NET version:
+
+| .NET version | `Microsoft.Azure.Functions.Worker` | Build SDK |
+| --- | --- | --- |
+| .NET 10 | 2.50.0 or later | `Azure.Functions.Sdk` 1.0.0 or later |
+| .NET 9 | 2.0.0 or later | `Azure.Functions.Sdk` 1.0.0 or later |
+| .NET 8 | 1.16.0 or later | `Azure.Functions.Sdk` 1.0.0 or later |
+| .NET Framework | 1.16.0 or later | `Azure.Functions.Sdk` 1.0.0 or later |
+
+### Migrate to Azure.Functions.Sdk
+
+For a project that targets a supported version of .NET or .NET Framework, migrate from the `Microsoft.Azure.Functions.Worker.Sdk` package to `Azure.Functions.Sdk` by making the following changes to the project file. This migration doesn't require changes to your application code, _Program.cs_ file, function classes, or _host.json_ file.
+
+1. Change the `Sdk` attribute on the `Project` element from `Microsoft.NET.Sdk` to `Azure.Functions.Sdk/1.0.0`.
+1. Remove the `Microsoft.Azure.Functions.Worker.Sdk` package reference.
+1. Keep the `Microsoft.Azure.Functions.Worker` package reference and update it to a version supported by your target framework.
+1. Remove the `OutputType` property. The new SDK sets it automatically.
+1. Remove the `AzureFunctionsVersion` property. The new SDK defaults to Functions runtime version 4.x.
+1. Remove the `FunctionsEnableWorkerIndexing` property. Worker indexing is always enabled, and setting this property causes [AZFW0110](errors-diagnostics/msbuild-sdk-rules/azfw0110.md).
+
+The following example shows a project before migration:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.52.0" />
+        <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="2.0.7" />
+        <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="2.1.0" />
+    </ItemGroup>
+</Project>
+```
+
+The following example shows the same project after migration:
+
+```xml
+<Project Sdk="Azure.Functions.Sdk/1.0.0">
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.52.0" />
+        <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore" Version="2.1.0" />
+    </ItemGroup>
+</Project>
+```
+
+After you update the project file, run the project to restore and build it and to verify that the Functions host starts and discovers your functions:
+
+```dotnetcli
+dotnet run
+```
+
+### Generated extension project
+
+During restore, `Azure.Functions.Sdk` generates an _azure_functions.g.csproj_ helper project in the _obj_ directory. This project resolves the extension assemblies required by the Functions host. Don't build, edit, or reference this generated project directly. For more information, see [AZFW0109](errors-diagnostics/msbuild-sdk-rules/azfw0109.md).
+
+Restore the function project directly so that the post-restore hook generates and restores the extension project. Restoring a solution or traversal project doesn't invoke this hook automatically. If your build restores a solution or traversal project, follow the remediation in [AZFW0108](errors-diagnostics/msbuild-sdk-rules/azfw0108.md).
+
+The SDK has the following extension metadata limitations:
+
+- Attributes that derive from `WebJobsStartupAttribute` aren't discovered. The SDK recognizes direct uses of `WebJobsStartupAttribute` and `FunctionsStartupAttribute`.
+- `ExtensionInformationAttribute` metadata from project-to-project references isn't used.
 
 #### Version 2.x
 
 The 2.x versions of the core packages change the supported frameworks and bring in support for new .NET APIs from these later versions. When updating to the 2.x versions, note the following changes:
 
-- Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker.Sdk]:
+- Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker.Sdk], or when you use `Azure.Functions.Sdk`:
     - The SDK includes default configurations for [SDK container builds](/dotnet/core/docker/publish-as-container).
-    - The SDK includes support for [`dotnet run`](/dotnet/core/tools/dotnet-run) when the [Azure Functions Core Tools](./functions-develop-local.md) is installed. On Windows, install the Core Tools through a mechanism other than NPM.
+    - The SDK includes support for [`dotnet run`](/dotnet/core/tools/dotnet-run) when [Azure Functions Core Tools](./functions-run-local.md) is installed. On Windows, install Core Tools through a mechanism other than npm.
 - Starting with version 2.0.0 of [Microsoft.Azure.Functions.Worker]:
     - This version adds support for `IHostApplicationBuilder`. Some examples in this guide include tabs to show alternatives using `IHostApplicationBuilder`. These examples require the 2.x versions.
     - Service provider scope validation is included by default if run in a development environment. This behavior matches ASP.NET Core.
@@ -102,7 +198,7 @@ When you use the isolated worker model, you have access to the start-up of your 
 
 # [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
-_To use `IHostApplicationBuilder`, your app must use version 2.x or later of the [core packages](#core-packages)._
+_To use `IHostApplicationBuilder`, your app must use version 2.x or later of the [core SDK and package](#core-sdk-and-package)._
 
 The following code shows an example of an [IHostApplicationBuilder] pipeline:
 
@@ -651,16 +747,16 @@ public class MultipleOutputBindings
 }
 ```
 
-When you use custom return types for multiple output bindings with ASP.NET Core integration, you must add the `[HttpResult]` attribute to the property that provides the result. The `HttpResult` attribute is available when using [SDK 1.17.3-preview2 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/1.17.3-preview2) along with [version 3.2.0 or later of the HTTP extension](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http/3.2.0) and [version 1.3.0 or later of the ASP.NET Core extension](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/1.3.0).
+When you use custom return types for multiple output bindings with ASP.NET Core integration, add the `[HttpResult]` attribute to the property that provides the result. The `HttpResult` attribute is available when using `Azure.Functions.Sdk` version 1.0.0 or later, [version 3.2.0 or later of the HTTP extension](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http/3.2.0), and [version 1.3.0 or later of the ASP.NET Core extension](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/1.3.0).
 
 ### SDK types
 
 For some service-specific binding types, you can provide binding data by using types from service SDKs and frameworks. These types offer capabilities beyond what a serialized string or plain-old CLR object (POCO) can provide. To use the newer types, update your project to use newer versions of core dependencies.
 
 | Dependency | Version requirement |
-|-|-|
-|[Microsoft.Azure.Functions.Worker]| 1.18.0 or later |
-|[Microsoft.Azure.Functions.Worker.Sdk]| 1.13.0 or later |
+| --- | --- |
+| [Microsoft.Azure.Functions.Worker] | 1.18.0 or later |
+| `Azure.Functions.Sdk` | 1.0.0 or later |
 
 When testing SDK types locally on your machine, you also need to use [Azure Functions Core Tools](./functions-run-local.md), version 4.0.5000 or later. You can check your current version by using the `func --version` command.
 
@@ -686,9 +782,9 @@ To enable ASP.NET Core integration for HTTP:
 
 1. Add a reference in your project to the [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/) package, version 1.0.0 or later.
 
-1. Update your project to use these specific package versions:
+1. Update your project to use these specific SDK and package versions:
 
-    + [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/), version 1.11.0. or later
+    + `Azure.Functions.Sdk` version 1.0.0 or later as the project SDK.
     + [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/), version 1.16.0 or later.
 
 1. In your `Program.cs` file, update the host builder configuration to call `ConfigureFunctionsWebApplication()`. This method replaces `ConfigureFunctionsWorkerDefaults()` if you would use that method otherwise. The following example shows a minimal setup without other customizations:
@@ -1104,7 +1200,7 @@ This section outlines options you can enable that improve performance around [co
 In general, your app should use the latest versions of its core dependencies. At a minimum, update your project as follows:
 
 1. Upgrade [Microsoft.Azure.Functions.Worker] to version 1.19.0 or later.
-1. Upgrade [Microsoft.Azure.Functions.Worker.Sdk] to version 1.16.4 or later.
+1. Use `Azure.Functions.Sdk` version 1.0.0 or later as the project SDK.
 1. Add a framework reference to `Microsoft.AspNetCore.App`, unless your app targets .NET Framework.
 
 The following snippet shows this configuration in the context of a project file:
@@ -1113,7 +1209,6 @@ The following snippet shows this configuration in the context of a project file:
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.21.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.4" />
   </ItemGroup>
 ```
 

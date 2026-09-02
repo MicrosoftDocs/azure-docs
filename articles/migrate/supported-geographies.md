@@ -64,6 +64,19 @@ Target replication | United States | Target regions: US DoD Central, US DoD East
 --- | ---
 Microsoft Azure operated by 21Vianet | China North 2
 
+## Network Assessment 
+
+**Geography** | **Metadata storage location**
+--- | ---
+Brazil | Brazil South
+France | France Central
+India | South India
+Italy | North Italy
+Korea | Korea Central
+Spain | Spain Central
+Switzerland | Switzerland North
+United States | Central US or West US 2
+
 ## Next steps
 
 [Review](migrate-support-matrix.md) the Azure Migrate Support Matrix for more information.

@@ -5,7 +5,7 @@ author: pavanatgit
 ms.author: plekkala
 ms.service: partner-services
 ms.topic: overview
-ms.date: 10/31/2025
+ms.date: 08/28/2026
 ai-usage: ai-assisted
 
 #customer intent: As a customer, I want to discover Azure Native Integrations partner solutions so that I can extend Azure capabilities with trusted partner services.
@@ -52,7 +52,7 @@ The following Azure Native Integrations partners provide data management, integr
 | **Informatica**               | [Informatica Intelligent Data Management Cloud](informatica/overview.md) enables the management of an Informatica organization in Azure. Informatica delivers solutions that help organizations manage and secure their cloud data assets. |
 | **MongoDB**    | [MongoDB Atlas](mongo-db/overview.md) is a managed document database with vector search capabilities. It supports modern application development. |
 | **Neon (retired)**  | [Neon Serverless Postgres](neon/overview.md) offers a serverless Postgres database service that enables scalable and cost-effective relational data storage. |
-| **Pure Storage Cloud** | [Pure Storage Cloud](pure-storage/overview.md) provides managed block storage to help organizations manage their storage and compute resources. |
+| **Everpure Cloud** | [Everpure Cloud](pure-storage/overview.md) provides managed block storage to help organizations manage their storage and compute resources. |
 | **Qumulo**                    | [Azure Native Qumulo](qumulo/overview.md) is a service that provisions a Qumulo file system that supports multiple protocols. It helps organizations efficiently manage unstructured data. |
 
 ## Network and security partners
