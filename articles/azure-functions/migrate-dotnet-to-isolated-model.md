@@ -6,7 +6,7 @@ ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: how-to
-ms.date: 08/23/2026
+ms.date: 09/01/2026
 ---
 
 # Migrate C# apps from the in-process model to the isolated worker model
@@ -52,9 +52,9 @@ On version 4.x of the Functions runtime, your .NET function app targets .NET 8 w
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **We recommend upgrading to .NET 8 on the isolated worker model.** This provides a quick migration path to the fully released version with the longest support window from .NET.
+> Upgrade to .NET 10 on the isolated worker model. .NET 10 is the current long-term support (LTS) release and has the longest remaining support window. Support for .NET 8 and .NET 9 ends on November 10, 2026, the same day that support ends for the in-process model. If you target either version during this migration, you'd have to upgrade again immediately to stay in support.
 
-This guide doesn't present specific examples for .NET 10 or .NET 9. If you need to target one of those versions, you can adapt the .NET 8 examples.
+The examples in this guide target .NET 8 so that only the process model changes during the migration. If you target .NET 10, set `<TargetFramework>net10.0</TargetFramework>` in your project file and adapt the examples accordingly.
 
 ## Prepare for migration
 

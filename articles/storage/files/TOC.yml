@@ -52,7 +52,7 @@
     - name: Enable Microsoft Entra Domain Services
       href: storage-files-identity-auth-domain-services-enable.md
     - name: Configure Linux clients
-      href: storage-files-identity-auth-linux-kerberos-enable.md      
+      href: storage-files-identity-auth-linux-kerberos-entra-domain-services.md
   - name: Microsoft Entra Kerberos authentication
     items:
     - name: Enable authentication for hybrid or cloud-only identities

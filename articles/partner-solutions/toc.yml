@@ -45,7 +45,7 @@ items:
       href: ./informatica/index.yml
     - name: MongoDB Atlas
       href: ./mongo-db/index.yml
-    - name: Pure Storage Cloud
+    - name: Everpure Cloud
       href: ./pure-storage/index.yml
     - name: Qumulo
       href: ./qumulo/index.yml
