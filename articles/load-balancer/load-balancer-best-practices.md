@@ -74,7 +74,7 @@ Use a load-balancing rule to map frontend traffic to a backend pool, and use a n
 
 ### Unblock 168.63.129.16 IP address
 
-Check health-probe access separately from application-traffic access. Allow health probes from the `AzureLoadBalancer` service tag in NSGs and from 168.63.129.16 in local firewall policies. If application traffic is blocked but probes succeed, review the application-traffic NSG rule; if probes fail, review the probe allowance and the application listening on the probe port. For more information, see [Azure Load Balancer health probe](load-balancer-custom-probe-overview.md) and [What is IP address 168.63.129.16?](../virtual-network/what-is-ip-address-168-63-129-16.md).
+Check health-probe access separately from application-traffic access. Allow health probes from the `AzureLoadBalancer` service tag in NSGs and from 168.63.129.16 in local firewall policies. If you block application traffic but the probes succeed, review the application-traffic NSG rule. If the probes fail, review the probe allowance and the application listening on the probe port. For more information, see [Azure Load Balancer health probe](load-balancer-custom-probe-overview.md) and [What is IP address 168.63.129.16?](../virtual-network/what-is-ip-address-168-63-129-16.md)
 
 ### Use outbound rules with manual port allocation
 
