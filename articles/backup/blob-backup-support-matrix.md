@@ -63,6 +63,7 @@ Operational backup of blobs uses blob point-in-time restore, blob versioning, so
 - You can back up only block blobs in a *standard general-purpose v2 storage account* using the vaulted backup solution for blobs.
 - Blob vaulted backup is also supported when the storage account has private endpoints.
 - Storage accounts using NFS 3.0*, and *SFTP protocols* for blobs are currently not supported. 
+- Blob vaulted backup doesn't support backing up blobs encrypted with a customer-provided key.
 - You can take up to five backups per storage account in a day.
 - You can back up storage accounts with *up to 1000 containers*, there is no limit on the number of blobs within those containers. You can also select a subset of containers to back up (up to 1000 containers).
   - If your storage account contains more than 1000 containers, you need to select *up to 1000 containers* to back up.
