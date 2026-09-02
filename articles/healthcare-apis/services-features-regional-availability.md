@@ -50,7 +50,7 @@ For information about general Microsoft product availability, refer to [Products
 
 | Region | FHIR service | Azure API for FHIR | DICOM service | De-Identification service | Events |
 |--------|--------------|---------------|---------------|---------------------------|--------|
-| Canada Central | &check; | &check; | &check; | &check; |   |
+| Canada Central | &check; | &check; | &check; | &check; | &check; |
 | Canada East | &check; |   |   |   |   |
 
 ### Europe
