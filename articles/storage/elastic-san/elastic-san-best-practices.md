@@ -51,7 +51,10 @@ This article provides guidance on how to get optimal performance with an environ
 > Configuring your nodes to use seven iSCSI sessions ensures that if you need to attach an extra node (for maintenance) then you have available iSCSI sessions.
 
 #### Azure VMWare Solution Gen2 Private Cloud 
-- Configure one Private Endpoint on the ESAN volume group to create 7 iSCSI sessions from AVS host to Elastic SAN volume. 
+- Configure one Private Endpoint on the ESAN volume group to create 7 iSCSI sessions from AVS host to Elastic SAN volume.
+
+#### SQL Server
+- Add delayed start for SQL Services to ensure iSCSI connectivity is established prior to SQL services starting up.
 
 ### MPIO
 
