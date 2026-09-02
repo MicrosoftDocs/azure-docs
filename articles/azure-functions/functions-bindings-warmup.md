@@ -126,7 +126,7 @@ The [configuration](#configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```JavaScript
-module.exports = async function (warmupContext, context) {
+module.exports = async function (context, warmupContext) {
     context.log('Function App instance is warm.');
 };
 ```
