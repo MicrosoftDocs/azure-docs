@@ -2,7 +2,7 @@
 
 Welcome to the open-source [Microsoft Azure documentation](https://learn.microsoft.com/azure/?product=popular).
 
-This repository contains the source content for Microsoft Azure documentation. If you'd like to contribute, this README provides an overview of the prerequisites and resources you need to get started.
+This repository contains the source content for Microsoft Azure documentation. If you'd like to contribute, this README provides an overview of the prerequisites and resources you need to get started. 
 
 ## Getting Started
 
