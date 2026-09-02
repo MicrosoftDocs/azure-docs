@@ -203,7 +203,7 @@ To view supplemental documents for an invoice:
 
 1. Select **Invoices** from the left side of the page.
 
-1. Select an invoice
+1. Select an invoice.
 
 1. Select the **Supplemental docs** tab at the bottom of the invoice details page.
 
