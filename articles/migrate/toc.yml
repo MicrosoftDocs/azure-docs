@@ -191,6 +191,10 @@ items:
           href: target-right-sizing.md
         - name: Review assessment report
           href: review-assessment.md
+        - name: Plan Azure Network assessment
+          href: network-assessment.md
+        - name: Review Azure Network assessment
+          href: review-network-assessment.md
       - name: Azure VMware Solution (AVS) assessment
         items:
         - name: Create an Azure VMware Solution (AVS) assessment
