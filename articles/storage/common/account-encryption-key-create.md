@@ -35,7 +35,7 @@ To learn more about creating a storage account, see [Create a storage account](s
 
 To create a storage account that relies on the account encryption key with the Azure portal, follow these steps:
 
-1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts.
+1. In the search box at the top of the Azure portal, search for and select **Storage accounts**.
 1. On the **Storage accounts** page, select **New**.
 1. Fill in the fields on the **Basics** tab.
 1. On the Advanced tab, locate the **Tables and Queues** section, and select **Enable support for customer-managed keys**.

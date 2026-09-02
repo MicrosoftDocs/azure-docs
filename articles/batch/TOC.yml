@@ -266,6 +266,9 @@
   - name: Monitor Azure Batch
     href: monitor-batch.md
     items:
+    - name: Monitor pool compute node performance
+      displayName: Azure Monitor Agent, AMA, DCR, guest metrics, performance counters, Syslog
+      href: monitor-batch-pool-nodes.md
     - name: Monitor with Application Insights
       displayName: debug
       href: monitor-application-insights.md
