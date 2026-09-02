@@ -5,7 +5,7 @@ author: surajmb
 ms.author: surmb
 ms.service: azure
 ms.topic: concept-article
-ms.date: 05/20/2026
+ms.date: 08/17/2026
 
 #CustomerIntent: As a researcher or scientist, I want to understand how projects and shared sessions work in Microsoft Discovery so that I can organize my scientific research effectively.
 ---
@@ -18,16 +18,16 @@ Microsoft Discovery organizes scientific research through two key concepts: **pr
 
 A project is the organizational unit within a Microsoft Discovery workspace where you bring together agents, tools, knowledge bases, storage containers, and shared sessions into a single, access-controlled boundary. Every research activity in Microsoft Discovery happens within the context of a project.
 
-### What a project contains
+### Resources a project contains and uses
 
-Projects scope access to the following resources:
+Projects contain project-owned resources and reference shared resources:
 
 | Resource | Description |
 | --- | --- |
 | **Agents** | Every project includes a default **Discovery** agent ready to use. You can also create custom prompt agents that execute specific scientific tasks. Agents declare their project affiliation at creation and can't be shared across projects. However, you can clone agents between projects using the **add existing agents** option.|
-| **Tools and knowledge bases** | Tools and knowledge bases are not directly associated to a project, however, they are used by agents within a project.
+| **Tools and knowledge bases** | Shared resources that exist outside the project scope. Users need the corresponding companion roles to view and select them while creating or updating an agent. A Project Contributor can run a pre-created agent without those reader roles. |
 | **Shared sessions** | Research sessions where you chat with agents, run analyses, and collect insights. |
-| **Storage containers** | Azure Blob Storage containers that hold input and output data for your shared sessions. |
+| **Storage containers** | Shared Microsoft Discovery resources that reference Azure Blob Storage for project inputs and outputs. They exist outside the project scope and require separate Discovery and Azure Storage role assignments. |
 
 ### Project and workspace relationship
 
@@ -37,6 +37,14 @@ Projects exist within a [workspace](quickstart-infrastructure.md#4-create-a-work
 - **Projects** consume workspace-level resources while maintaining their own isolated set of agents, shared sessions, and data.
 
 This separation allows platform administrators to manage infrastructure at the workspace level while scientists work independently within their projects.
+
+### Project access boundary
+
+Each project is an Azure RBAC access boundary. A platform administrator can assign **Microsoft Discovery Project Contributor (Preview)** or **Microsoft Discovery Project Reader (Preview)** directly to a project without granting access to other projects in the workspace.
+
+Project roles cover project-owned resources such as agents, investigations, shared sessions, conversations, tasks, and Discovery Engine operations. Tools, chat model deployments, storage containers, and bookshelves are shared resources outside the project scope and require separate least-privilege role assignments.
+
+For role inheritance, supplementary roles, and security limitations, see [Project-level access control in Microsoft Discovery](concept-project-rbac.md). For assignment steps, see [Configure project-level access](how-to-configure-project-rbac.md).
 
 ### Creating a project
 
@@ -77,13 +85,14 @@ Subscription
     │   └── Node Pools
     ├── Bookshelf
     │   └── Knowledge Bases
+    ├── Tool
+    ├── Storage Container
+    │   └── Storage Assets
     └── Workspace
         ├── Chat Model Deployments (shared across projects)
         └── Project
             ├── Agents (prompt and workflow)
-            │   └── Knowledge Bases
-            │   └── Tools
-            ├── Storage Containers
+            │   └── References to approved tools and knowledge bases
             └── Shared Sessions
                 └── Conversations with agents
 ```
@@ -97,6 +106,8 @@ Subscription
 
 ## Related content
 
+- [Project-level access control in Microsoft Discovery](concept-project-rbac.md)
+- [Configure project-level access](how-to-configure-project-rbac.md)
 - [Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure.md)
 - [Get started with agents and shared sessions in Microsoft Discovery Studio](quickstart-agents-studio.md)
 - [Microsoft Discovery agents](concept-discovery-agent.md)
