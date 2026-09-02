@@ -99,7 +99,7 @@ To verify that the downloaded collector installer ZIP file is secure, check its 
 
    | Algorithm | Version | Download | SHA256 |
    | --- | --- | --- | --- |
-   | Collector zip file (651.26 MB) | 20260804.1 | [Latest version](https://aka.ms/Migrate/DownloadCollector) | 4CA4E3965D5744462CF3C123EE9C5A9F20B278C265CC18A8B1CF3D60DE404865 |
+   | Collector zip file (670.25 MB) | 20260827.3 | [Latest version](https://aka.ms/Migrate/DownloadCollector) | 1AF404274728EAC90B9B0F500FA4D12B75A7AFE68373E3FFEC51A42170BA5F69 |
 
 ### Provide vCenter credentials
 
