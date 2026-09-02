@@ -5,7 +5,7 @@ keywords: App Service certificate, buy SSL certificate, Azure security, domain e
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 02/15/2025
+ms.date: 09/02/2026
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
@@ -209,6 +209,17 @@ The rekey process requires that the service principal for App Service has the re
    The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
 
    If you don't select **Sync**, App Service automatically syncs your certificate within 24 hours.
+
+### Why a rekey returns a shorter certificate than a renewal
+
+A rekey replaces the private key on your certificate and keeps the existing expiration date. The new certificate is valid only for the days that were left on the previous one. If you rekey 60 days before expiration, the new certificate is valid for about 60 days. A reissue behaves the same way.
+
+A renewal is different. It issues a fresh certificate. On a subscription based order, the new certificate is valid for 198 days.
+
+> [!NOTE]
+> Rekey keeps your current expiration date. Renew resets it.
+
+Neither a rekey nor a renewal can issue a certificate that outlives the paid term of the order. If fewer than 30 days remain on a subscription based order, the request is refused. Renew the order first to extend the term, and then rekey.
 
 ## Export an App Service certificate
 
