@@ -77,7 +77,7 @@ After distributing the updated profile, monitor your gateway to confirm all clie
 
 ## Known issues
 
-The Azure VPN Client for Linux (Preview) did not have a supported update method. If you used the Azure VPN Client on Linux (Preview), there was no supported migration path for updating the client profile during a certificate migration. As of August 31, 2026, the Azure VPN Client for Linux is retired and is no longer supported.
+The Azure VPN Client for Linux (Preview) didn't have a supported update method. If you used the Azure VPN Client on Linux (Preview), no supported migration path existed for updating the client profile during a certificate migration. As of August 31, 2026, the Azure VPN Client for Linux is retired and is no longer supported.
 
 ## Next steps
 
