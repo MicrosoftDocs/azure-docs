@@ -19,9 +19,6 @@ ms.author: kendownie
 For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md).
 
 > [!NOTE]
-> Microsoft Entra Kerberos is distinct from Microsoft Entra Domain Services and isn't supported for Linux clients, regardless of Linux distribution or whether identities are hybrid or cloud-only. For identity sources and supported client operating systems, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md).
-
-> [!NOTE]
 > This article uses Ubuntu for the example steps. Similar configurations work for RHEL and SLES clients, allowing you to mount Azure file shares by using on-premises AD DS.
 
 ## Linux SMB client limitations
