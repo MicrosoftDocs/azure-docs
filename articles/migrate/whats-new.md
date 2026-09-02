@@ -16,11 +16,19 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
+
+## Update (September 2026)
+
+- Public preview: Auto Wave Planning (Preview) is now available in Azure Migrate. Use Auto Wave Planning to automatically generate recommended migration waves based on workload inventory, assessment data, application mappings, and dependencies. The feature helps sequence migrations by applying planning conditions and providing priority, confidence, and risk indicators for each wave. [Learn more](automatic-wave-planning-architecture.md).
+
+- Public preview: Azure Migrate now supports network assessments for VMware environments, including those integrated with NSX. You can assess application-associated network resources and receive recommendations for Azure networking components such as virtual networks, subnets, Network Security Groups (NSGs), Azure Firewall, load balancers, and Azure Virtual Network Manager configurations. The assessment also provides migration readiness insights, estimated network costs, and sustainability metrics to help you plan application migrations to Azure. A new assessment report experience lets you review recommended network resources, cost estimates, and migration considerations before migration. [Learn more](network-assessment.md).
+
+
 ## Update (August 2026)
 
 - Public preview: Azure Migrate now supports the discovery of networking resources in VMware and VMware environments that use NSX. During discovery, Azure Migrate collects network inventory information, including subnets, VLANs, NSX segments, VMware port groups, load balancers, firewall policies, and NAT policies. You can view discovered network resources on the Network tab under Infrastructure. This view helps you understand network inventory and the relationships between network resources and virtual machines before you plan your migration.
 
-The dependency map is also enhanced to display network-aware relationships and workload communication paths. By using network discovery, Azure Migrate extends beyond compute-focused discovery to support network-aware migration planning. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
+  The dependency map is also enhanced to display network-aware relationships and workload communication paths. By using network discovery, Azure Migrate extends beyond compute-focused discovery to support network-aware migration planning. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
 
 ## Update (June 2026)
 
