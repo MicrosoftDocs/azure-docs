@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: quickstart
-ms.date: 07/30/2026
+ms.date: 08/17/2026
 ms.custom:
   - template-quickstart
   - subject-armqs
@@ -93,7 +93,7 @@ Assign the following built-in roles to users at the desired scope (subscription 
 - Network Contributor
 - ACRPush
 - Foundry User
-- Microsoft Discovery Bookshelf Index Data Reader (Preview) 
+- Microsoft Discovery Bookshelf Index Data Reader - Preview
 
 > [!NOTE]
 > If you're assigning all roles at the subscription level, you can skip this note. If you're assigning roles at the resource group level, skip the **Foundry User** role for now. Continue with the next steps and revisit this role assignment after the workspace resource is created. This role must be assigned to each Platform Admin or Scientist user at the workspace managed resource group level.

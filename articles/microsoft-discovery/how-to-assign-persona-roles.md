@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 08/17/2026
 # Customer intent: As a platform administrator, I want to assign all the Azure roles a Microsoft Discovery persona requires in one step, so that scientists and platform admins can start using the platform without hitting permission errors at runtime.
 ---
 
@@ -28,6 +28,9 @@ Use the script when you need to:
 - Automate persona onboarding from CI/CD with `-Force` and `-SkipModuleInstall`.
 
 If you only need to assign a single Microsoft Discovery built-in role, the Azure portal, Azure CLI, or Azure PowerShell instructions in [Role assignments in Microsoft Discovery](concept-role-assignments.md#assign-roles) are sufficient.
+
+> [!IMPORTANT]
+> This script assigns broad Platform Administrator or Scientist persona access at subscription or resource group scope. It doesn't configure project-only access. To isolate a user to one project and selected shared resources, see [Configure project-level access](how-to-configure-project-rbac.md).
 
 ## Prerequisites
 
@@ -53,7 +56,7 @@ The script assigns the following roles for each persona. Roles marked *(Subscrip
 - AcrPush
 - Reader *(Subscription)*
 - Foundry Owner *(Subscription, or the workspace managed resource group when `-Scope ResourceGroup`)*
-- Microsoft Discovery Bookshelf Index Data Reader (Preview)
+- Microsoft Discovery Bookshelf Index Data Reader - Preview
 
 ### Scientist
 
@@ -63,7 +66,7 @@ The script assigns the following roles for each persona. Roles marked *(Subscrip
 - AcrPush
 - Reader *(Subscription)*
 - Foundry User *(Subscription, or the workspace managed resource group when `-Scope ResourceGroup`)*
-- Microsoft Discovery Bookshelf Index Data Reader (Preview)
+- Microsoft Discovery Bookshelf Index Data Reader - Preview
 
 For the full description of each role, see [Role assignments in Microsoft Discovery](concept-role-assignments.md).
 
@@ -193,6 +196,8 @@ For the full troubleshooting guide, including cross-tenant authentication, see t
 
 ## Related content
 
+- [Configure project-level access](how-to-configure-project-rbac.md)
+- [Project-level access control in Microsoft Discovery](concept-project-rbac.md)
 - [Role assignments in Microsoft Discovery](concept-role-assignments.md)
 - [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md)
 - [Configure network security](how-to-configure-network-security.md)
