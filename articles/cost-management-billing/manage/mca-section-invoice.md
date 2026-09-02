@@ -205,7 +205,7 @@ To view supplemental documents for an invoice:
 
 1. Select an invoice
 
-1. Select the Supplemental docs tab at the bottom of the invoice details page.
+1. Select the **Supplemental docs** tab at the bottom of the invoice details page.
 
 ## Things to consider when adding new billing profiles
 
