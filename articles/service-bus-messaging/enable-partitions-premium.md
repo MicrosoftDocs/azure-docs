@@ -17,7 +17,7 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > - You can't change the partitioning option on any existing namespace. You set the number of partitions during namespace creation.
 > - The number of assigned messaging units is always a multiplier of the number of partitions in a namespace, and is equally distributed across the partitions. For example, in a namespace with 16 MU and 4 partitions, each partition is assigned 4 MU.
 > - Using multiple partitions with lower messaging units (MU) gives you better performance over a single partition with higher MUs.
-> - This feature is currently available in all regions except West India, Qatar Central, and Austria East.
+> - This feature is currently available in all regions except Qatar Central and Austria East.
 
 > [!IMPORTANT]
 > **Not supported with partitioned namespaces:**
