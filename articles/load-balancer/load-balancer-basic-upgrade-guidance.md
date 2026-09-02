@@ -45,7 +45,7 @@ Related Basic public IP addresses might also require an upgrade. For guidance, s
 ## Upgrade manually
 
 > [!NOTE]
-> We recommend the [PowerShell module](./upgrade-basic-standard-with-powershell.md) for supported scenarios because it reduces the number and complexity of manual steps.
+> Use the [PowerShell module](./upgrade-basic-standard-with-powershell.md) for supported scenarios because it reduces the number and complexity of manual steps.
 
 > [!WARNING]
 > Before manually upgrading a Basic Load Balancer, make sure that all Public IPs associated with both the Load Balancer and its backend Virtual Machines are set to 'static'. If you disassociate a Public IP or remove all backend VMs before changing the IP allocation to static, the IP address may be lost.
