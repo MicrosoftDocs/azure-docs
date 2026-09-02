@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: concept-article
-ms.date: 03/31/2026
+ms.date: 09/02/2026
 ms.author: cshoe
 ms.custom:
   - build-2023
@@ -54,17 +54,30 @@ A Container Apps environment is a secure boundary around one or more container a
 
 ## Permissions
 
-To start a container app job, you need to have the appropriate permissions. Ensure that your user account or service principal has the following roles assigned:
+To start a container app job, your user account or service principal needs the appropriate permissions. Consider the following roles:
 
-* **Container Apps Contributor:** Allows permissions to create and manage container apps and jobs.
+* **Container Apps Jobs Contributor:** Allows permissions to create and manage jobs.
+* **Container Apps Jobs Operator:** Allows permissions to read, start, and stop jobs.
 * **Monitoring Reader (optional):** Enables viewing monitoring data for jobs.
-* **Custom Role:** For more granular permissions, you can create a custom role with the following actions:
 
-- microsoft.app/jobs/start/action
-- microsoft.app/jobs/read
-- microsoft.app/jobs/execution/read
+Both the **Container Apps Jobs Contributor** and **Container Apps Jobs Operator** roles include the `Microsoft.App/jobs/*/action` wildcard permission. This wildcard matches `Microsoft.App/jobs/listSecrets/action`, so both roles grant permission to read the job's secret values in plain text.
 
-When you start a job, you get access to all the secrets configured for the job. For more information about assigning roles and permissions, see [Azure role-based access control](/azure/role-based-access-control/overview).
+> [!IMPORTANT]
+> When you start a job execution, you also get access to all the secrets configured for the job.
+
+If you want to allow users to run jobs without granting access to job secrets, create a [custom role](/azure/role-based-access-control/custom-roles) that lists only the actions you need. Built-in roles are a convenience. You're free to define your own role with exactly the permissions you want.
+
+For example, the following actions allow a user to view, start, and stop jobs without granting the `Microsoft.App/jobs/listSecrets/action` permission:
+
+- `Microsoft.App/jobs/read`
+- `Microsoft.App/jobs/start/action`
+- `Microsoft.App/jobs/stop/action`
+- `Microsoft.App/jobs/executions/read`
+- `Microsoft.App/managedEnvironments/read`
+
+Avoid wildcard patterns such as `Microsoft.App/jobs/*/action` in a custom role definition. A wildcard grants every current and future action for that resource type, including `listSecrets`.
+
+For more information, see [Permissions for managing secrets](manage-secrets.md#permissions-for-managing-secrets) and [Azure role-based access control](/azure/role-based-access-control/overview).
 
 ## Job trigger types
 

@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 03/31/2026
+ms.date: 09/02/2026
 ms.author: cshoe
 ms.custom:
   - devx-track-azurecli
@@ -29,6 +29,53 @@ An updated or deleted secret doesn't automatically affect existing revisions in 
 2. Restart an existing revision.
 
 Before you delete a secret, deploy a new revision that no longer references the old secret. Then deactivate all revisions that reference the secret.
+
+## Permissions for managing secrets
+
+The `listSecrets` action returns secret values in plain text. Grant this permission only to identities that need to read secret values.
+
+Several Azure built-in roles for Container Apps define their permissions using wildcard patterns as a convenience. These wildcards match the `listSecrets` action, so the following roles grant the ability to read secret values, even when the role name or description suggests narrower access:
+
+| Built-in role | Permission in the role definition | Matching secrets operation |
+|---|---|---|
+| Container Apps Contributor | `Microsoft.App/containerApps/*/action` | `Microsoft.App/containerApps/listSecrets/action` |
+| Container Apps Operator | `Microsoft.App/containerApps/*/action` | `Microsoft.App/containerApps/listSecrets/action` |
+| Container Apps Jobs Contributor | `Microsoft.App/jobs/*/action` | `Microsoft.App/jobs/listSecrets/action` |
+| Container Apps Jobs Operator | `Microsoft.App/jobs/*/action` | `Microsoft.App/jobs/listSecrets/action` |
+| Container Apps ManagedEnvironments Contributor | `Microsoft.App/managedEnvironments/*/action` | `Microsoft.App/managedEnvironments/daprComponents/listSecrets/action` |
+| Container Apps ConnectedEnvironments Contributor | Explicit permission, not a wildcard | `Microsoft.App/connectedEnvironments/daprComponents/listSecrets/action` |
+
+> [!IMPORTANT]
+> The **Container Apps Operator** and **Container Apps Jobs Operator** roles are described as roles that read, start, and stop resources. However, their wildcard actions also grant permission to list secrets. Review the full permission list of a role before you assign it. To see the permissions of each role, see [Azure built-in roles for containers](/azure/role-based-access-control/built-in-roles/containers).
+
+### Create a custom role with narrower permissions
+
+Built-in roles are a convenience, not a limitation. If no built-in role matches the level of access you want to grant, define an [Azure custom role](/azure/role-based-access-control/custom-roles) that lists only the operations you need and omits the `listSecrets` action.
+
+For example, the following custom role allows a user to view, start, and stop jobs without granting access to job secrets:
+
+```json
+{
+  "Name": "Container Apps Jobs Runner",
+  "IsCustom": true,
+  "Description": "View, start, and stop Container Apps jobs without access to job secrets.",
+  "Actions": [
+    "Microsoft.App/jobs/read",
+    "Microsoft.App/jobs/start/action",
+    "Microsoft.App/jobs/stop/action",
+    "Microsoft.App/jobs/executions/read",
+    "Microsoft.App/managedEnvironments/read"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<SUBSCRIPTION_ID>"
+  ]
+}
+```
+
+Avoid wildcard patterns such as `Microsoft.App/jobs/*/action` in a custom role definition. A wildcard grants every current and future action for that resource type, including `listSecrets`.
+
+For more information, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
 ## Defining secrets
 
