@@ -152,14 +152,14 @@ worker.use_work_item_filters()  # auto-generate from registered tasks
 To supply explicit filters instead of auto-generating them from the registry, pass `WorkItemFilters`:
 
 ```python
-from durabletask import worker
+from durabletask.worker import WorkItemFilters, OrchestrationWorkItemFilter, ActivityWorkItemFilter
 
-worker.use_work_item_filters(worker.WorkItemFilters(
+worker.use_work_item_filters(WorkItemFilters(
     orchestrations=[
-        worker.OrchestrationWorkItemFilter(name="order_processing_orchestrator"),
+        OrchestrationWorkItemFilter(name="order_processing_orchestrator"),
     ],
     activities=[
-        worker.ActivityWorkItemFilter(name="validate_order"),
+        ActivityWorkItemFilter(name="validate_order"),
     ],
 ))
 ```

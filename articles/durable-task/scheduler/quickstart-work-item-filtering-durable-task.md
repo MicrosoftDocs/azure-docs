@@ -553,17 +553,17 @@ For example:
 
 When a worker connects to Durable Task Scheduler, the SDK sends its filter list. The scheduler creates per-filter queues and routes each work item to the matching queue. Workers never receive work item types they didn't register.
 
-To supply explicit filters instead of auto-generating them from the registry, pass `WorkItemFilters` with optional version constraints:
+To supply explicit filters instead of auto-generating them from the registry, pass `WorkItemFilters`:
 
 ```python
-from durabletask import worker
+from durabletask.worker import WorkItemFilters, OrchestrationWorkItemFilter, ActivityWorkItemFilter
 
-worker.use_work_item_filters(worker.WorkItemFilters(
+worker.use_work_item_filters(WorkItemFilters(
     orchestrations=[
-        worker.OrchestrationWorkItemFilter(name="greeting_orchestrator", versions=["1.0"]),
+        OrchestrationWorkItemFilter(name="greeting_orchestrator"),
     ],
     activities=[
-        worker.ActivityWorkItemFilter(name="say_hello"),
+        ActivityWorkItemFilter(name="say_hello"),
     ],
 ))
 ```
