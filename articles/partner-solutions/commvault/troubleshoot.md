@@ -127,6 +127,4 @@ If you can't delete a resource because of Compliance Lock or another dependency,
 ## Get support
 
 - Contact [Commvault support](https://support.commvault.com/) for Commvault product issues.
-- [Create an Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for Azure platform issues (deployment failures, role assignments, resource provider registration).
-
 
