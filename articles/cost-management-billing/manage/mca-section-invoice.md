@@ -175,6 +175,24 @@ If you have existing Azure subscriptions or other products such as Azure Marketp
 
 6. Select **Save**.
 
+### View supplemental documents
+
+Purchase orders help align purchases with your organization's internal procurement processes. For information about creating and managing purchase orders, see [Purchase orders](/marketplace/purchase-orders).
+
+After you configure purchase orders, you can enable **supplemental documents**. Supplemental documents provide purchase order-specific or invoice section-specific views of billed charges, helping you reconcile costs and distribute charges within your organization.
+
+To view supplemental documents for an invoice:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for **Cost Management + Billing**.
+
+1. Select **Invoices** from the left side of the page
+
+1. Select an invoice
+
+1. Select the Supplemental docs tab at the bottom of the invoice details page.
+
 ## Things to consider when adding new billing profiles
 
 The following sections describe how adding new billing profiles might impact your overall cost.
