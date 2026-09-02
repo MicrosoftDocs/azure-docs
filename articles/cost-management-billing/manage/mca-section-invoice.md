@@ -201,7 +201,7 @@ To view supplemental documents for an invoice:
 
 1. Search for **Cost Management + Billing**.
 
-1. Select **Invoices** from the left side of the page
+1. Select **Invoices** from the left side of the page.
 
 1. Select an invoice
 
