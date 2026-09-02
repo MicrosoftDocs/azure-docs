@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/10/2026
+ms.date: 09/02/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
@@ -581,7 +581,7 @@ To remove a datapoint from the output schema, use the `builtInTransformationSett
           "weight"
         ],
         "output": ""
-      }
+      },
       {
           "inputs": [
           "weight.SourceTimestamp"
