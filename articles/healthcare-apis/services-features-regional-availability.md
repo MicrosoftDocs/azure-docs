@@ -2,7 +2,7 @@
 title: Azure Health Data Services regional availability of services and features
 description: This article is an overview of Azure Health Data Services regional availability of services and features. The availability of Azure Health Data Services services and features can vary by region. 
 services: healthcare-apis
-author: KendalBond007
+author: expekesheth
 ms.service: azure-health-data-services
 ms.topic: overview
 ms.date: 09/01/2026
