@@ -5,7 +5,7 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.author: mbender
 ms.topic: concept-article
-ms.date: 08/27/2026
+ms.date: 09/02/2026
 # Customer intent: As an cloud engineer with Basic Load Balancer services, I need guidance and direction on migrating my workloads off Basic to Standard SKUs
 ---
 
@@ -23,8 +23,11 @@ We recommend the following approach for upgrading to Standard Load Balancer:
 1. Learn about some of the [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) between Basic Load Balancer and Standard Load Balancer. 
 1. Identify the Basic Load Balancer to upgrade. 
 1. Create a migration plan for planned downtime. 
-1. Perform migration with [automated PowerShell scripts](#upgrade-using-automated-scripts-recommended) for your scenario or create a new Standard Load Balancer with the Basic Load Balancer configurations.
+1. [Choose a migration method](#choose-a-migration-method) for your scenario.
 1. Verify your application and workloads are receiving traffic through the Standard Load Balancer. Then delete your Basic Load Balancer resource. 
+
+> [!IMPORTANT]
+> Migration requires downtime and is one-way. Schedule a maintenance window, validate your scenario before migration, and resolve reported blockers. If the PowerShell migration fails, correct the issue and retry from the saved state instead of attempting to restore the Basic Load Balancer.
 
 ## Basic Load Balancer SKU vs. Standard Load Balancer SKU 
 
@@ -32,16 +35,17 @@ Before you plan your migration, review the full comparison of Basic and Standard
 
 For information on limits, see [Load Balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
 
-## Upgrade using automated scripts (recommended)
+## Choose a migration method
 
-Use these PowerShell scripts to help with upgrading from Basic to Standard SKU:
+- **PowerShell module (recommended)**: Use the [`AzureBasicLoadBalancerUpgrade` module](./upgrade-basic-standard-with-powershell.md) when your scenario is supported. Run its validation command and resolve reported blockers before migration.
+- **Azure portal manual rebuild**: Follow the [manual migration steps](#upgrade-manually) when the PowerShell module doesn't support your scenario or when you need direct control over recreating the configuration. The portal steps are a manual rebuild, not a separate in-place upgrade.
 
-- [Upgrading a Basic to Standard public load balancer with PowerShell](./upgrade-basic-standard-with-powershell.md)
+Related Basic public IP addresses might also require an upgrade. For guidance, see [Upgrade a Basic public IP address to Standard SKU](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md).
 
 ## Upgrade manually
 
 > [!NOTE]
-> Although manually upgrading your Basic Load Balancer to a Standard Load Balancer using the Portal is an option, we recommend using the [**automated script option**](./upgrade-basic-standard-with-powershell.md) above, due to the number of steps and complexity of the migration. The automation ensures a consistent migration and minimizes downtime to load balanced applications.
+> We recommend the [PowerShell module](./upgrade-basic-standard-with-powershell.md) for supported scenarios because it reduces the number and complexity of manual steps.
 
 > [!WARNING]
 > Before manually upgrading a Basic Load Balancer, make sure that all Public IPs associated with both the Load Balancer and its backend Virtual Machines are set to 'static'. If you disassociate a Public IP or remove all backend VMs before changing the IP allocation to static, the IP address may be lost.
@@ -83,7 +87,7 @@ The following list suggests the order of operations for manually upgrading a Bas
 1. Delete the Basic Load Balancer 
    > [!NOTE]
    > For Virtual Machine Scale Set backends, you'll need to remove the load balancer association in the Networking settings. Once removed, you'll also need to [**update the instances**](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades) 
-1. [Upgrade all Public IPs](../virtual-network/ip-services/public-ip-upgrade-portal.md) previously associated with the Basic Load Balancer and backend Virtual Machines to Standard SKU. For Virtual Machine Scale Sets, remove any instance-level public IP configuration, update the instances, then add a new one with Standard SKU and update the instances again. 
+1. [Upgrade all Public IPs](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md) previously associated with the Basic Load Balancer and backend Virtual Machines to Standard SKU. For Virtual Machine Scale Sets, remove any instance-level public IP configuration, update the instances, then add a new one with Standard SKU and update the instances again.
 1. Recreate the frontend configurations from the Basic Load Balancer on the newly created Standard Load Balancer, using the same public or private IP addresses as on the Basic Load Balancer
 1. Update the load balancing and NAT rules to use the appropriate frontend configurations
 1. For public Load Balancers, [create one or more outbound rules](./outbound-rules.md) to enable internet access for backend pools
