@@ -278,6 +278,8 @@
     href: howto-telemetry-review-results.md
   - name: Analyze the impact of feature flags
     href: howto-metric-scorecards.md
+  - name: Enhanced feature flags
+    href: concept-enhanced-feature-flags.md
 
 - name: Hyperscale configuration
   items:

@@ -64,19 +64,7 @@ For a production-ready deployment, include the following configurations during t
 
 In the Azure portal deployment wizard, the broker resource is set up in the **Configuration** tab.
 
-* [Configure cardinality settings](../deployment-plan/deployment-planning.md#understand-broker-cardinality) based on memory profile and needs for handling connections and messages. For example, the following settings could support a single-node or multi-node cluster:
-
-  | Setting | Single node | Multi node |
-  | ------- | ----------- | ---------- |
-  | **frontendReplicas** | 1 | 5 |
-  | **frontendWorkers** | 4 | 8 |
-  | **backendRedundancyFactor** | 2 | 2 |
-  | **backendWorkers** | 1 | 4 |
-  | **backendPartitions** | 1 | 5 |
-  | [Memory profile](../deployment-plan/deployment-planning.md#choose-your-memory-profile) | Low | High |
-
-  > [!NOTE]
-  > The backend redundancy factor must be **2 or greater**. The broker requires at least two backend replicas per partition for high availability and rolling upgrade support.
+* [Configure cardinality settings](../deployment-plan/deployment-planning.md#choose-your-cluster-topology) based on memory profile and needs for handling connections and messages.
 
 * [Encrypt internal traffic](../deployment-plan/deployment-planning-encryption.md).
 
@@ -206,5 +194,4 @@ When using data flows in production:
 * Always used managed identity authentication. When possible, [use user-assigned managed identity](../connect-to-cloud/howto-configure-mqtt-endpoint.md#user-assigned-managed-identity) in data flow endpoints for flexibility and auditability.
 * [Scale data flow profiles](../connect-to-cloud/howto-configure-dataflow-profile.md#scaling) to improve throughput and have high availability.
 * Group multiple data flows into data flow profiles and customize scaling for each profile accordingly. 
-
 

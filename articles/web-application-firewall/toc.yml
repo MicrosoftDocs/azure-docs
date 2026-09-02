@@ -158,6 +158,10 @@ items:
         href: geomatch-custom-rules-examples.md
       - name: Configure IP restrictions
         href: ./afds/waf-front-door-configure-ip-restriction.md
+      - name: AS number matching
+        href: ./afds/asn-match-condition.md
+      - name: Client fingerprint matching
+        href: ./afds/client-fingerprint-match-condition.md
     - name: Tuning
       href: ./afds/waf-front-door-tuning.md
   - name: Use Azure Policy

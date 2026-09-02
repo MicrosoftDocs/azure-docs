@@ -925,38 +925,6 @@ items:
     - name: How to parameterize
       displayName: formatdatetime, todate, replace, string, substring, utc, utcnow, dynamic content, user properties, format date
       href: how-to-expression-language-functions.md
-  - name: Security
-    items:
-    - name: Data movement security considerations
-      href: data-movement-security-considerations.md
-    - name: Data access strategies
-      href: data-access-strategies.md
-    - name: Azure integration runtime IP addresses
-      href: azure-integration-runtime-ip-addresses.md
-    - name: Store credentials in Azure Key Vault
-      href: store-credentials-in-key-vault.md
-    - name: Use Azure Key Vault secrets in pipeline activities
-      href: how-to-use-azure-key-vault-secrets-pipeline-activities.md
-    - name: Encrypt credentials for self-hosted integration runtime
-      href: encrypt-credentials-self-hosted-integration-runtime.md
-    - name: Configure outbound allow lists (Preview)
-      displayName: self hosted
-      href: configure-outbound-allow-list-azure-policy.md
-    - name: Credentials in Data Factory
-      href: credentials.md
-    - name: Managed identity for Data Factory
-      displayName: active directory
-      href: data-factory-service-identity.md
-    - name: Encrypt data factory with customer managed key
-      href: enable-customer-managed-key.md
-    - name: Managed virtual network
-      href: managed-virtual-network-private-endpoint.md
-    - name: Azure private link for Data Factory
-      href: data-factory-private-link.md
-    - name: Azure security baseline
-      href: /security/benchmark/azure/baselines/data-factory-security-baseline?toc=/azure/data-factory/TOC.json
-    - name: Modern Trusted Service Data Factory
-      href: modern-trusted-service.md
   - name: Settings
     items:
     - name: Manage Azure Data Factory settings and preferences
@@ -1384,6 +1352,34 @@ items:
   items:
   - name: Secure your Azure Data Factory
     href: secure-your-azure-data-factory.md
+  - name: Data movement security considerations
+    href: data-movement-security-considerations.md
+  - name: Data access strategies
+    href: data-access-strategies.md
+  - name: Azure integration runtime IP addresses
+    href: azure-integration-runtime-ip-addresses.md
+  - name: Store credentials in Azure Key Vault
+    href: store-credentials-in-key-vault.md
+  - name: Use Azure Key Vault secrets in pipeline activities
+    href: how-to-use-azure-key-vault-secrets-pipeline-activities.md
+  - name: Encrypt credentials for self-hosted integration runtime
+    href: encrypt-credentials-self-hosted-integration-runtime.md
+  - name: Configure outbound allow lists (Preview)
+    displayName: self hosted
+    href: configure-outbound-allow-list-azure-policy.md
+  - name: Credentials in Data Factory
+    href: credentials.md
+  - name: Managed identity for Data Factory
+    displayName: active directory
+    href: data-factory-service-identity.md
+  - name: Encrypt data factory with customer managed key
+    href: enable-customer-managed-key.md
+  - name: Managed virtual network
+    href: managed-virtual-network-private-endpoint.md
+  - name: Azure private link for Data Factory
+    href: data-factory-private-link.md
+  - name: Modern Trusted Service Data Factory
+    href: modern-trusted-service.md
   - name: Business continuity and disaster recovery
     href: pipelines-disaster-recovery.md
 - name: Reference

@@ -1,16 +1,16 @@
 ---
 title: Role assignments in Microsoft Discovery
-description: Learn about Azure role-based access control (RBAC) for Microsoft Discovery, including the three built-in roles, their permissions, and how to assign them.
+description: Learn about Azure role-based access control (RBAC) for Microsoft Discovery, including platform, project, and resource-specific roles and how to assign them.
 author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: concept-article
-ms.date: 03/10/2026
+ms.date: 08/17/2026
 ---
 
 # Role assignments in Microsoft Discovery
 
-Microsoft Discovery uses Azure role-based access control permissions to control who can access resources and what actions they can perform. This article explains the three built-in Microsoft Discovery roles, the other Azure roles commonly required alongside them, and how to assign roles using the Azure portal, Azure CLI, or Azure PowerShell.
+Microsoft Discovery uses Azure role-based access control permissions to control who can access resources and what actions they can perform. This article explains the platform, project, and resource-specific Microsoft Discovery roles, the other Azure roles commonly required alongside them, and how to assign roles by using the Azure portal, Azure CLI, or Azure PowerShell.
 
 ## Understanding role assignments
 
@@ -30,7 +30,7 @@ For background on Azure RBAC concepts, see [Azure role-based access control docu
 
 ## Built-in Microsoft Discovery roles
 
-Microsoft Discovery provides four built-in roles. Three are designed around research personas; one is a specialized role for agent-knowledgebase integration scenarios. They're listed here in order of decreasing permissions.
+Microsoft Discovery provides platform-wide roles and least-privilege roles for individual projects and shared resources. Platform roles are listed first in order of decreasing permissions.
 
 ### Microsoft Discovery Platform Administrator (Preview)
 
@@ -192,34 +192,75 @@ Readers have limited privileges to view and review information. They can't creat
 
 ---
 
-### Microsoft Discovery Bookshelf Index Data Reader (Preview)
+### Project-level roles
 
-**Target persona:** AI developers other than the owner who created the Knowledge base
+Assign project roles directly to an individual project so a user can work in one project without gaining access to every project in the workspace.
+
+| Role | Capabilities | Recommended scope |
+|---|---|---|
+| **Microsoft Discovery Project Contributor (Preview)** | Manage an existing project's investigations, shared sessions, agents, tasks, Discovery Engine operations, and project settings. Can't create a new project or assign roles. | Project |
+| **Microsoft Discovery Project Reader (Preview)** | Read a project and its project-owned content without creating, changing, running, or deleting resources. | Project |
+
+Project roles don't automatically grant access to shared tools, chat model deployments, storage containers, storage accounts, or bookshelves. Assign project roles as part of the following access bundles:
+
+- Pair **Project Contributor** with Tools Reader, Chat Model Reader, Storage Account Contributor, Storage Blob Data Contributor, Storage Container Contributor, and Bookshelf Index Data Reader when the user authors agents and manages project artifacts.
+- Pair **Project Reader** with Storage Container Reader and Storage Blob Data Reader to review investigation assets and content. Add Tools Reader if the user must view tool definitions. Add Bookshelf Index Data Reader only if the user should also be able to list and query accessible knowledge bases.
+
+You don't need Tools Reader and Chat Model Reader solely to run agents that a platform administrator already created. Project Contributor also permits Discovery Engine execution without a separate Chat Model Reader assignment for its platform-configured `gpt-5-4` deployment.
+
+For the complete access model, see [Project-level access control in Microsoft Discovery](concept-project-rbac.md).
+
+---
+
+### Resource-specific roles
+
+Use resource-specific roles with project roles to grant access only to the shared resources that a project user needs.
+
+| Role | Capabilities | Recommended scope |
+|---|---|---|
+| **Microsoft Discovery Tools Reader (Preview)** | Read and select registered tools, including attaching an approved tool to an agent. | Tool, resource group, or subscription |
+| **Microsoft Discovery Chat Model Reader (Preview)** | Read and select chat model deployments when creating or updating an agent. | Chat model deployment or workspace |
+| **Microsoft Discovery Storage Container Reader (Preview)** | Read Discovery storage container and storage asset metadata. | Storage container |
+| **Microsoft Discovery Storage Container Contributor (Preview)** | Create, update, and delete Discovery storage assets without managing the container resource itself. | Storage container |
+
+The storage container roles don't grant access to the underlying blob contents. Assign **Storage Blob Data Reader** or **Storage Blob Data Contributor** separately on the backing Azure Storage scope.
+
+---
+
+### Microsoft Discovery Bookshelf Index Data Reader - Preview
+
+**Role definition ID:** `8ec773c5-7ce6-4b78-91d1-182f8faa536d`
+
+**Target persona:** AI developers who need to discover and query knowledge bases they didn't create
 
 **Assignable scopes:** Subscription, resource group, resource
 
 **Primary interface:** REST APIs, SDKs
 
-**Description:** Grants query access to search and retrieve data from Microsoft Discovery Bookshelf knowledge bases. 
+**Description:** Grants query access to search and retrieve data from Microsoft Discovery Bookshelf knowledge bases and read-only access to list bookshelves and their knowledge bases.
 
 **Key capabilities:**
 
 - Retrieving data from Microsoft Discovery Bookshelf knowledge base versions using Discovery Agents
 - Minimum required access for agents to query linked knowledge bases
+- Discovering and listing bookshelves and knowledge bases that you can access
 
 **Key limitations:**
 
-- Can't create, update, or delete any resources
-- Can't perform any control plane or other data plane operations
-- No data action permissions; access is limited to the single search action
+- Can't create, update, index, or delete bookshelves or knowledge bases
+- Can't manage knowledge base versions or indexing operations
+- Doesn't grant access to Microsoft Discovery operations beyond the listed bookshelf and knowledge base permissions
 
 **Permissions:**
 
 | Permission | Purpose |
 |------------|---------|
-| `Microsoft.Discovery/bookshelf/knowledgeBaseVersions/search` | Search and retrieve data from Bookshelf knowledge base versions |
+| `Microsoft.Discovery/bookshelves/read` | List and read accessible Bookshelf resources |
+| `Microsoft.Discovery/bookshelf/knowledgebases/read` | List accessible knowledge bases |
+| `Microsoft.Discovery/bookshelf/knowledgebases/operations/read` | Read knowledge base operation status |
+| `Microsoft.Discovery/bookshelf/knowledgeBaseVersions/query/action` | Query and retrieve data from knowledge base versions |
 
-**Data actions:** None
+**Data actions:** Knowledge base list, operation-status read, and query actions shown in the preceding table
 
 ---
 
@@ -274,10 +315,10 @@ The following table summarizes the recommended role combinations for each user p
 | Storage Account Contributor | AcrPush | |
 | Storage Blob Data Contributor | Reader (subscription level) | |
 | Network Contributor | Foundry User (Workspace MRG level) | |
-| AcrPush | Microsoft Discovery Bookshelf Index Data Reader (Preview) | |
+| AcrPush | Microsoft Discovery Bookshelf Index Data Reader - Preview | |
 | Reader | | |
 | Foundry Owner (Workspace MRG level) | | |
-| Microsoft Discovery Bookshelf Index Data Reader (Preview) | | |
+| Microsoft Discovery Bookshelf Index Data Reader - Preview | | |
 
 ## Other Azure roles definition
 
@@ -287,8 +328,9 @@ Some workflows require Azure built-in roles beyond the Microsoft Discovery roles
 |------|----------|-------------------|
 | Managed Identity Contributor | Create, read, update, and delete User Assigned Managed Identity (UAMI) resources | Subscription, resource group |
 | Managed Identity Operator | Assign roles to managed identity resources | Subscription, resource group, resource |
-| Storage Account Contributor | Create, read, update, and delete Azure Storage account resources including blob containers | Subscription, resource group |
+| Storage Account Contributor | Create, read, update, and delete Azure Storage account resources including blob containers | Subscription, resource group, resource |
 | Storage Blob Data Contributor | Upload, manage, and delete files within Azure Blob Storage containers | Subscription, resource group, resource |
+| Storage Blob Data Reader | Read files within Azure Blob Storage containers | Subscription, resource group, resource |
 | Network Contributor | Create, read, update, and delete virtual network resources | Subscription, resource group |
 | AcrPush | Upload tool or model images to Azure Container Registry | Subscription, resource group, resource |
 | Reader | Read API operation status for deployments | Subscription |
@@ -309,7 +351,8 @@ To assign Microsoft Discovery roles, you need one of the following Azure RBAC pe
 
 ## Understanding assignment scopes
 
-Microsoft Discovery roles can be assigned at two scope levels:
+Assign Microsoft Discovery roles at the scope levels that each role supports:
+
 
 **Subscription scope**
 - Grants access to all Microsoft Discovery resources within the subscription.
@@ -320,6 +363,11 @@ Microsoft Discovery roles can be assigned at two scope levels:
 - Grants access to all Microsoft Discovery resources within a specific resource group.
 - Well suited for team-based access where multiple workspaces exist in the same resource group.
 - Recommended: Assign roles after the resource group containing Discovery resources is created to avoid inheritance gaps.
+
+**Resource scope**
+- Grants access to one workspace, project, tool, chat model deployment, storage container, or bookshelf, depending on the role.
+- Best suited for project isolation and least-privilege access to shared resources.
+- Recommended for project users who shouldn't inherit access to sibling projects or resources.
 
 ## Assign roles
 
@@ -361,7 +409,7 @@ az role assignment create \
 # Assign Bookshelf Index Data Reader role to a managed identity at resource group scope
 az role assignment create \
   --assignee {managed-identity-object-id} \
-  --role "Microsoft Discovery Bookshelf Index Data Reader (Preview)" \
+  --role "Microsoft Discovery Bookshelf Index Data Reader - Preview" \
   --scope "/subscriptions/{subscription-id}/resourceGroups/{rg-name}"
 ```
 
@@ -389,7 +437,7 @@ New-AzRoleAssignment `
 # Assign Bookshelf Index Data Reader role to a managed identity at resource group scope
 New-AzRoleAssignment `
   -ObjectId {managed-identity-object-id} `
-  -RoleDefinitionName "Microsoft Discovery Bookshelf Index Data Reader (Preview)" `
+  -RoleDefinitionName "Microsoft Discovery Bookshelf Index Data Reader - Preview" `
   -Scope "/subscriptions/{subscription-id}/resourceGroups/{rg-name}"
 ```
 
@@ -401,6 +449,8 @@ The script validates the executor's permissions, supports both subscription and 
 
 ## Related content
 
+- [Project-level access control in Microsoft Discovery](concept-project-rbac.md)
+- [Configure project-level access](how-to-configure-project-rbac.md)
 - [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md)
 - [What is Microsoft Discovery?](overview-what-is-microsoft-discovery.md)
 - [Resource provider registration in Microsoft Discovery](concept-resource-provider-registration.md)

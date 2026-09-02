@@ -129,7 +129,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[`Internet2`](https://internet2.edu/services/cloud-connect/#service-cloud-connect)** | &check; | &check; | Chicago<br/>Dallas<br/>Los Angeles<br/>Silicon Valley<br/>Washington DC |
 | **[`Internet Initiative Japan Inc. - IIJ`](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** | &check; | &check; | Osaka<br/>Tokyo<br/>Tokyo2 |
 | **[`Internet Solutions - Cloud Connect`](https://www.is.co.za/solution/cloud-connect/)** | &check; | &check; | Cape Town<br/>Johannesburg<br/>London |
-| **[`Internet Association of Australia`](https://www.internet.asn.au/)** | &check; | &check; | Melbourne<br/>Perth<br/>Sydney2 |
+| **[`Internet Association of Australia (IX Australia)`](https://www.internet.asn.au/)** | &check; | &check; | Melbourne<br/>Perth<br/>Sydney2 |
 | **[`Interxion (Digital Realty)`](https://www.digitalrealty.com/partners/microsoft-azure)** | &check; | &check; | Amsterdam<br/>Amsterdam2<br/>Copenhagen<br/>Dublin<br/>Dublin2<br/>Frankfurt<br/>London<br/>London2<br/>Madrid<br/>Marseille<br/>Paris<br/>Stockholm<br/>Zurich |
 | **`IPC`** | &check; |&check; | Chicago<br/>Singapore<br/>Tokyo2<br/>Washington DC |
 | **[`IRIDEOS`](https://irideos.it/)** | &check; | &check; | Milan |

@@ -82,6 +82,9 @@ items:
           - name: Projects and Investigations
             href: concept-projects-investigations.md
             displayName: Microsoft Discovery, projects, investigations, workspace, research, organization
+          - name: Project-level access control
+            href: concept-project-rbac.md
+            displayName: Microsoft Discovery, project RBAC, project roles, resource roles, isolation, access control
           - name: GitHub Copilot & Microsoft Discovery
             href: concept-copilot.md
             displayName: Microsoft Discovery, projects, investigations, GitHub Copilot
@@ -136,6 +139,9 @@ items:
     items:
       - name: Identity & Access
         items:
+          - name: Configure project-level access
+            href: how-to-configure-project-rbac.md
+            displayName: Microsoft Discovery, project RBAC, Project Contributor, Project Reader, Tools Reader, Chat Model Reader, least privilege
           - name: Assign persona roles with a PowerShell script
             href: how-to-assign-persona-roles.md
             displayName: Microsoft Discovery, RBAC, persona, Platform Administrator, Scientist, PowerShell, Set-DiscoveryRoleAssignments, onboarding
