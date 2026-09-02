@@ -13,4 +13,3 @@ ms.topic: include
 | Microsoft Entra ID |    | |  |
 |   | OpenVPN| Windows | [Azure VPN client](../articles/vpn-gateway/point-to-site-entra-vpn-client-windows.md)|
 |  | OpenVPN| macOS |[Azure VPN Client](../articles/vpn-gateway/point-to-site-entra-vpn-client-mac.md) |
-|  | OpenVPN| Linux |[Azure VPN Client](../articles/vpn-gateway/point-to-site-entra-vpn-client-linux.md) |
