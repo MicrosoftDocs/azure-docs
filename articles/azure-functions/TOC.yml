@@ -1079,6 +1079,32 @@
         href: errors-diagnostics/sdk-rules/azf0001.md
       - name: AZF0002
         href: errors-diagnostics/sdk-rules/azf0002.md
+    - name: MSBuild SDK rules
+      items:
+      - name: AZFW0100
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0100.md
+      - name: AZFW0101
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0101.md
+      - name: AZFW0102
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0102.md
+      - name: AZFW0103
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0103.md
+      - name: AZFW0104
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0104.md
+      - name: AZFW0105
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0105.md
+      - name: AZFW0106
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0106.md
+      - name: AZFW0107
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0107.md
+      - name: AZFW0108
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0108.md
+      - name: AZFW0109
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0109.md
+      - name: AZFW0110
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0110.md
+      - name: AZFW0111
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0111.md
     - name: Diagnostic events
       items:
       - name: AZFD0001
