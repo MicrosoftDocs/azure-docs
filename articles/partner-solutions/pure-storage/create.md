@@ -1,15 +1,15 @@
 ---
-title: "Quickstart: Create an Azure Native Pure Storage Cloud Resource"
-description: Learn how to create a resource for Pure Storage Cloud by using the Azure portal.
+title: "Quickstart: Create an Everpure Cloud Azure Native resource"
+description: Learn how to create an Everpure Cloud resource by using the Azure portal.
 author: agrimayadav
 ms.author: agrimayadav
 ms.topic: quickstart
-ms.date: 12/10/2025
+ms.date: 08/28/2026
 
 ---
-# Quickstart: Create an Azure Native Pure Storage Cloud resource
+# Quickstart: Create an Everpure Cloud Azure Native resource
 
-This quickstart shows you how to create a Pure Storage Cloud resource by using the Azure portal.
+This quickstart shows you how to create an Everpure Cloud resource by using the Azure portal.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ The **Basics** tab has four sections:
 - Billing Details
 - Company Details
 
-:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create an Azure Native Pure Storage Cloud Storage options inside of the Azure portal's working pane with the Basics tab displayed.":::
+:::image type="content" source="media/create/basics-tab.png" alt-text="A screenshot of the Create Everpure Cloud Azure Native options in the Azure portal, with the Basics tab displayed.":::
 
 Enter values for each required setting.
 
@@ -70,9 +70,9 @@ Enter values for each required setting.
 [!INCLUDE [review-create](../includes/review-create.md)]
 
 > [!IMPORTANT]
-> After you create the Pure Storage resource, you need to [create a storage pool](manage.md#create-a-storage-pool) to use and manage your storage volumes. 
+> After you create the Everpure Cloud resource, you need to [create a storage pool](manage.md#create-a-storage-pool) to use and manage your storage volumes.
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Manage Azure Native Pure Storage resources](manage.md)
+> [Manage Everpure Cloud Azure Native resources](manage.md)
