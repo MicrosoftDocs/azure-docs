@@ -4,7 +4,7 @@ description: Concept guide on what SKR is and its usage with Azure Confidential 
 author: angarg05
 ms.service: azure-confidential-computing
 ms.topic: concept-article
-ms.date: 8/22/2023
+ms.date: 09/03/2026
 ms.author: ananyagarg
 # Customer intent: "As a security architect, I want to implement Secure Key Release with Azure Key Vault and Trusted Execution Environments, so that I can enhance the protection and access control for sensitive encryption keys during their use in cloud applications."
 ---
@@ -85,13 +85,13 @@ Follow these references examples for various TEE types offering with Azure:
 
 ## Frequently Asked Questions (FAQ)
 
-### Can I perform SKR with non confidential computing offerings?
+### Can I perform SKR with non-confidential-computing offerings?
 
-No. The policy attached to SKR only understands MAA claims that are associated to hardware based TEEs.
+Yes. Secure Key Release is a feature of Azure Key Vault Premium and Managed HSM. The release operation validates a signed Microsoft Azure Attestation (MAA) token against the key's release policy, independent of the compute type. Confidential computing offerings (confidential VMs, confidential containers) are the most common source of these tokens because they carry hardware-based TEE claims, but they aren't required. Trusted Launch VMs also produce MAA attestation tokens—for example the `secureboot` claim and the vTPM-measured `x-ms-azurevm-attested-pcr-values` PCR claims—and a release policy can gate key release on those claims. For the token requirements and claim structure, see [Azure Key Vault secure key release policy grammar](/azure/key-vault/keys/policy-grammar). Confidential computing additionally protects the released key material in memory from the host; use a confidential computing offering when that protection is required.
 
 ### Can I bring my own attestation provider or service and use those claims for AKV to validate and release?
 
-No. AKV only understands and integrates with MAA today.
+Microsoft Azure Attestation is the natively integrated attestation service. A release policy can also validate tokens from another attestation authority, provided the token conforms to the expected structure, supports OpenID Connect, carries the expected claims, and is signed by a certificate that chains to a public CA that Key Vault trusts—currently DigiCert. For more information, see [Azure Key Vault secure key release policy grammar](/azure/key-vault/keys/policy-grammar).
 
 ### Can I use AKV SDKs to perform key RELEASE?
 

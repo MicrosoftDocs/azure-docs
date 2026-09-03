@@ -33,6 +33,9 @@
       href: scenario-blob-storage-events.md  
     - name: AI tools and MCP
       items:
+      - name: Event-driven AI-enabled app
+        displayName: AI, agent, agentic, hosted skills, timer, email, connector, MCP, Foundry
+        href: scenario-hosted-skills.md
       - name: Custom remote MCP server
         displayName: AI, agent, agentic, tools, trigger
         href: scenario-custom-remote-mcp-server.md
@@ -42,9 +45,6 @@
       - name: Host MCP server using SDKs
         displayName: AI, agent, agentic, tools, MCP SDKs
         href: scenario-host-mcp-server-sdks.md
-    - name: Event-driven AI app
-      displayName: AI, agent, agentic, hosted skills, timer, email, connector, MCP, Foundry
-      href: scenario-hosted-skills.md
     - name: Respond to database changes
       items:
       - name: Azure Cosmos DB (NoSQL)
@@ -670,9 +670,12 @@
     - name: Overview
       displayName: AI, agent, agentic, hosted skills, event-driven AI, Foundry, MCP, connectors
       href: functions-hosted-skills.md
-    - name: Get started
-      displayName: AI, agent, agentic, hosted skills, event-driven AI, timer, email, connector, MCP, Foundry
-      href: scenario-hosted-skills.md
+    - name: Dynamic workflows
+      displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows
+      href: functions-hosted-skills-dynamic-workflows.md
+    - name: Create and run dynamic workflows
+      displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows, how-to
+      href: functions-hosted-skills-dynamic-workflows-how-to.md
     - name: Reference
       displayName: AI, agent, agentic, hosted skills, configuration, mcp.json, agents.config.yaml, tools, skills
       href: functions-hosted-skills-reference.md

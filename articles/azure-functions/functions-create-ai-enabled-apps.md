@@ -32,7 +32,7 @@ This article is language-specific, so make sure you choose your programming lang
 
 ## Azure Functions hosted skills
 
-Azure Functions hosted skills is a preview programming model for building cloud-hosted, event-driven intelligent capabilities on Azure Functions. You define behavior with Markdown, natural-language instructions, and declarative configuration. The runtime discovers `.agent.md` files, registers triggers and endpoints, and runs tasks through Microsoft Agent Framework when events fire.
+Azure Functions hosted skills is a programming model for building cloud-hosted, event-driven intelligent capabilities on Azure Functions. You define behavior with Markdown, natural-language instructions, and declarative configuration. The runtime discovers `.agent.md` files, registers triggers and endpoints, and runs hosted skills when events fire.
 
 Use Azure Functions hosted skills when you want to add intelligent behavior to an event-driven application in response to an HTTP request, schedule, message, data change, or other event. You can also use them to build capabilities that other applications, agents, or agent harnesses consume through HTTP or MCP.
 
