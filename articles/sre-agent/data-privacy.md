@@ -35,7 +35,9 @@ Data shared and generated while using SRE Agent follows these data residency sta
 
 - The agent processes and stores data within the region you select when you create the agent.
 
-- When you use Anthropic or Azure OpenAI models, inference processing might occur outside the agent’s selected Azure region. For agents deployed in EU regions, inference processing remains within the EU data boundary.
+- When you use Anthropic or Azure OpenAI models, inference processing might occur outside the agent’s selected Azure region.
+
+- For agents running within the [EU data boundary](/privacy/eudb/eu-data-boundary-learn) that use Azure OpenAI models, inference processing remains within the EU data boundary.
 
 ## Privacy
 
