@@ -30,7 +30,7 @@ This article builds on top of [SAP's documentation and architecture center](http
 
 Use [the accelerator project](https://github.com/Azure/sap-edge-integration-cell-on-azure-accelerator) for SAP Edge Integration Cell with Azure to get started quickly and discover blue prints for production-ready deployments. It uses terraform as common language to deploy the Azure infrastructure and the SAP Business Technology Platform (BTP) footprint at the same time.
 
-In addition to the guidance given in this article, follow the SAP Learning course ["Accelerating Hybrid Integrations with SAP Integration Suite on Microsoft Azure"](https://learning.sap.com/courses/accelerating-hybrid-integrations-with-sap-integration-suite-on-microsoft-azure) for a comprehensive experience.
+In addition to the guidance given in this article, follow the **SAP Learning course** ["Accelerating Hybrid Integrations with SAP Integration Suite on Microsoft Azure"](https://learning.sap.com/courses/accelerating-hybrid-integrations-with-sap-integration-suite-on-microsoft-azure) for a comprehensive experience.
 
 ## Setup Considerations
 
