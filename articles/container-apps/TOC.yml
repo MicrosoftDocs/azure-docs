@@ -408,6 +408,8 @@ items:
           href: authentication-openid.md
 - name: Security
   items:
+    - name: Secure your Azure Container Apps deployment
+      href: secure-deployment.md
     - name: Overview
       href: security.md
       displayName: Security overview
@@ -421,8 +423,6 @@ items:
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
-    - name: Secure deployments
-      href: secure-deployment.md
     - name: Confidential compute
       href: confidential-compute.md
 - name: Resiliency (preview)
@@ -691,12 +691,12 @@ items:
       href: azure-arc-create-container-app.md
 - name: Compliance
   items:
+    - name: Secure your Azure Container Apps deployment
+      href: secure-deployment.md
     - name: Microsoft Azure Compliance Offerings
       href: https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3
     - name: Azure, Dynamics 365, Microsoft 365, and Power Platform compliance offerings
       href: /azure/compliance/offerings/
-    - name: Azure security baseline for Azure Container Apps
-      href: /security/benchmark/azure/baselines/azure-container-apps-security-baseline
 - name: Samples & FAQs
   items:
     - name: Samples
