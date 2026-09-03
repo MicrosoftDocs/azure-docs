@@ -172,7 +172,7 @@ To fix this issue, follow these steps to ensure that your appliance can validate
     
         :::image type="content" source="./media/common-questions-appliance/settings-inline.png" alt-text="Screenshot of Windows settings." lightbox="./media/common-questions-appliance/settings-expanded.png":::
 
-    1. In the certificate manager, you must see the entry for **Microsoft Root Certificate Authority 2011** and **Microsoft Code Signing PCA 2024**.
+    1. In the certificate manager, look for the entries for **Microsoft Root Certificate Authority 2011** and **Microsoft Code Signing PCA 2024**.
     
         :::image type="content" source="./media/common-questions-appliance/certificate-1.png" alt-text="Screenshot of certificate 1." lightbox="./media/common-questions-appliance/certificate-1.png":::
 
