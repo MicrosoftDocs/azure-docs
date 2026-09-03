@@ -340,7 +340,7 @@ The actual number of data points depends on your specific configuration, includi
 
 ## Limits and considerations
 > [!NOTE]
-> Advanced platform metrics is supported only on storage accounts that support Azure Blob Storage. Standard Azure Files accounts, Premium Azure Files accounts, and Premium Page Blob accounts aren't supported.
+> Advanced platform metrics is supported only on storage accounts that support Azure Blob Storage. Premium Azure Files accounts, and Premium Page Blob accounts aren't supported.
 
 The following limit applies when using advanced platform metrics:
 
