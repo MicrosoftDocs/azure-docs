@@ -459,7 +459,7 @@ items:
           href: configure-authentication-mcp-server-vscode.md
 - name: Security and networking
   items:
-    - name: Security overview
+    - name: Secure your Azure App Service deployment
       href: overview-security.md
     - name: Deploy a multi-region app (tutorial)
       href: tutorial-multi-region-app.md
@@ -479,8 +479,6 @@ items:
           href: overview-name-resolution.md
         - name: About subdomain takeover
           href: reference-dangling-subdomain-prevention.md
-        - name: Security baseline reference
-          href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Security controls by Azure Policy reference
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
