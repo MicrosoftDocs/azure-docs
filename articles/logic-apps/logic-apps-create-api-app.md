@@ -47,7 +47,8 @@ You can host your APIs on
 a platform-as-a-service (PaaS) offering that provides highly scalable, 
 easy API hosting.
 
-> [!TIP] 
+> [!TIP]
+>
 > Although you can deploy your APIs as web apps, 
 > consider deploying your APIs as API apps, 
 > which can make your job easier when you build, host, and consume APIs 
@@ -55,7 +56,7 @@ easy API hosting.
 > APIs--just deploy your code to an API app. For example, learn how to 
 > build API apps created with these languages: 
 > 
-> * [ASP.NET](../app-service/quickstart-dotnetcore.md). 
+> * [ASP.NET Core](../app-service/quickstart-dotnetcore.md). 
 > * [Java](../app-service/quickstart-java.md)
 > * [Node.js](../app-service/quickstart-nodejs.md)
 > * [PHP](../app-service/quickstart-php.md)
@@ -119,7 +120,7 @@ with an [HTTP action](../connectors/connectors-native-http.md)
 or an [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) action. 
 By default, responses must be returned within the [request timeout limit](./logic-apps-limits-and-config.md). 
 
-![Standard action pattern](./media/logic-apps-create-api-app/standard-action.png)
+:::image type="content" source="media/logic-apps-create-api-app/standard-action.png" alt-text="Diagram that shows the Azure Logic Apps engine sending an HTTP request to a custom API and receiving a prompt HTTP response." lightbox="media/logic-apps-create-api-app/standard-action.png":::
 
 <a name="pattern-overview"></a>
 To make a workflow wait while your API finishes longer-running tasks, 
@@ -169,7 +170,7 @@ The engine continues checking job status until your API responds
 that the job is done and returns data to your logic app, 
 which then continues workflow. 
 
-![Polling action pattern](./media/logic-apps-create-api-app/custom-api-async-action-pattern.png)
+:::image type="content" source="media/logic-apps-create-api-app/custom-api-async-action-pattern.png" alt-text="Diagram that shows the asynchronous polling pattern between the Azure Logic Apps engine and a custom API using 202 responses and status checks." lightbox="media/logic-apps-create-api-app/custom-api-async-action-pattern.png":::
 
 Here are the specific steps for your API to follow, 
 described from the API's perspective:
@@ -208,8 +209,8 @@ valid `location` header, the engine respects the asynchronous pattern,
 and checks the `location` header until your API returns a non-202 response.
 
 > [!TIP]
-> For an example asynchronous pattern, review this 
-> [asynchronous controller response sample in GitHub](https://github.com/logicappsio/LogicAppsAsyncResponseSample).
+>
+> For an example asynchronous pattern, see the [asynchronous controller response sample in GitHub](https://github.com/logicappsio/LogicAppsAsyncResponseSample).
 
 <a name="webhook-actions"></a>
 
@@ -247,7 +248,7 @@ headers as input to the logic app.
 
 * `unsubscribe` endpoint: If the workflow run is canceled, the Azure Logic Apps engine calls the `unsubscribe` endpoint. Your API can then unregister the callback URL and stop any processes as necessary.
 
-![Webhook action pattern](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
+:::image type="content" source="media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png" alt-text="Diagram that shows the webhook action pattern where the Azure Logic Apps engine calls a custom API subscribe endpoint, then receives a callback and unregisters from the endpoint." lightbox="media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png":::
 
 Currently, the workflow designer doesn't support discovering webhook endpoints through Swagger. So for this pattern, you have to add a [**Webhook** action](../connectors/connectors-native-webhook.md) and specify the URL, headers, and body for your request. See also [Workflow actions and triggers](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). For an example webhook pattern, review this [webhook trigger sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
@@ -283,40 +284,35 @@ calls and checks the trigger endpoint for new data or events.
 If the engine finds new data or an event that meets your specified condition, 
 the trigger fires. Then, the engine creates a workflow instance that processes the data as input. 
 
-![Polling trigger pattern](./media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png)
+:::image type="content" source="media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png" alt-text="Diagram that shows a polling trigger where the Azure Logic Apps engine checks a custom API for new data, then returns 202 or 200 responses." lightbox="media/logic-apps-create-api-app/custom-api-polling-trigger-pattern.png":::
 
 > [!NOTE]
-> Each polling request counts as an action execution, even when no workflow instance is created. 
-> To prevent processing the same data multiple times, 
-> your trigger should clean up data that was already read and passed to the logic app.
+>
+> Each polling request counts as an action execution, even when no workflow instance is created. To prevent processing the same data multiple times, your trigger should clean up data that was already read and passed to the logic app.
 
 Here are specific steps for a polling trigger, described from the API's perspective:
 
-| Found new data or event?  | API response | 
+| Found new data or event?  | API response |
 | ------------------------- | ------------ |
-| Found | Return an HTTP `200 OK` status with the response payload (input for next step). <br/>This response creates a workflow instance and starts the workflow. | 
-| Not found | Return an HTTP `202 ACCEPTED` status with a `location` header and a `retry-after` header. <br/>For triggers, the `location` header should also contain a `triggerState` query parameter, which is usually a "timestamp." Your API can use this identifier to track the last time that the workflow was triggered. | 
-||| 
+| Found | Return an HTTP `200 OK` status with the response payload (input for next step). <br/>This response creates a workflow instance and starts the workflow. |
+| Not found | Return an HTTP `202 ACCEPTED` status with a `location` header and a `retry-after` header. <br/>For triggers, the `location` header should also contain a `triggerState` query parameter, which is usually a "timestamp." Your API can use this identifier to track the last time that the workflow was triggered. |
 
-For example, to periodically check your service for new files, 
-you might build a polling trigger that has these behaviors:
+For example, to periodically check your service for new files, you might build a polling trigger that has these behaviors:
 
-| Request includes `triggerState`? | API response | 
-| -------------------------------- | -------------| 
-| No | Return an HTTP `202 ACCEPTED` status plus a `location` header with `triggerState` set to the current time and the `retry-after` interval to 15 seconds. | 
-| Yes | Check your service for files added after the `DateTime` for `triggerState`. | 
-||| 
+| Request includes `triggerState`? | API response |
+| -------------------------------- | -------------|
+| No | Return an HTTP `202 ACCEPTED` status plus a `location` header with `triggerState` set to the current time and the `retry-after` interval to 15 seconds. |
+| Yes | Check your service for files added after the `DateTime` for `triggerState`. |
 
-| Number of files found | API response | 
-| --------------------- | -------------| 
-| Single file | Return an HTTP `200 OK` status and the content payload, update `triggerState` to the `DateTime` for the returned file, and set `retry-after` interval to 15 seconds. | 
-| Multiple files | Return one file at a time and an HTTP `200 OK` status, update `triggerState`, and set the `retry-after` interval to 0 seconds. </br>These steps let the engine know that more data is available, and that the engine should immediately request the data from the URL in the `location` header. | 
-| No files | Return an HTTP `202 ACCEPTED` status, don't change `triggerState`, and set the `retry-after` interval to 15 seconds. | 
-||| 
+| Number of files found | API response |
+| --------------------- | -------------|
+| Single file | Return an HTTP `200 OK` status and the content payload, update `triggerState` to the `DateTime` for the returned file, and set `retry-after` interval to 15 seconds. |
+| Multiple files | Return one file at a time and an HTTP `200 OK` status, update `triggerState`, and set the `retry-after` interval to 0 seconds. </br>These steps let the engine know that more data is available, and that the engine should immediately request the data from the URL in the `location` header. |
+| No files | Return an HTTP `202 ACCEPTED` status, don't change `triggerState`, and set the `retry-after` interval to 15 seconds. |
 
 > [!TIP]
-> For an example polling trigger pattern, review this 
-> [poll trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/PollTriggerController.cs).
+>
+> For an example polling trigger pattern, see the [poll trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/PollTriggerController.cs).
 
 <a name="webhook-triggers"></a>
 
@@ -335,10 +331,9 @@ When there's new data or an event that meets the specified condition,
 your API calls back with an HTTP POST to the URL. 
 The content payload and headers pass as input to the logic app.
 
-* `unsubscribe` endpoint: If the webhook trigger or entire logic app resource is deleted, the Azure Logic Apps engine calls the `unsubscribe` endpoint. 
-Your API can then unregister the callback URL and stop any processes as necessary.
+* `unsubscribe` endpoint: If the webhook trigger or entire logic app resource is deleted, the Azure Logic Apps engine calls the `unsubscribe` endpoint. Your API can then unregister the callback URL and stop any processes as necessary.
 
-![Webhook trigger pattern](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
+:::image type="content" source="media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png" alt-text="Diagram that shows a webhook trigger pattern between the Azure Logic Apps Engine and a custom API using subscribe and unsubscribe callbacks." lightbox="media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png":::
 
 Currently, the workflow designer doesn't support discovering webhook endpoints through Swagger. So for this pattern, you have to add a [**Webhook** trigger](../connectors/connectors-native-webhook.md) and specify the URL, headers, and body for your request. See also [HTTPWebhook trigger](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). For an example webhook pattern, review this [webhook trigger controller sample in GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
@@ -352,18 +347,18 @@ Here are some other tips and notes:
 
 ## Improve security for calls to your APIs from logic apps
 
-After creating your custom APIs, set up authentication for your APIs so that you can call them securely from logic apps. Learn [how to improve security for calls to custom APIs from logic apps](../logic-apps/logic-apps-custom-api-authentication.md).
+After creating your custom APIs, set up authentication for your APIs so that you can call them securely from logic apps. Learn [how to improve security for calls to custom APIs from logic apps](logic-apps-custom-api-authentication.md).
 
 ## Deploy and call your APIs
 
 After you set up authentication, set up deployment for your APIs. 
-Learn [how to deploy and call custom APIs from logic apps](../logic-apps/logic-apps-custom-api-host-deploy-call.md).
+Learn [how to deploy and call custom APIs from logic apps](logic-apps-custom-api-host-deploy-call.md).
 
 ## Publish custom APIs to Azure
 
 To make your custom APIs available for other Azure Logic Apps users, 
 you must add security and register them as Azure Logic Apps connectors. 
-For more information, see [Custom connectors overview](../logic-apps/custom-connector-overview.md). 
+For more information, see [Custom connectors overview](custom-connector-overview.md). 
 
 To make your custom APIs available to all users in Logic Apps, 
 Power Automate, and Microsoft Power Apps, you must add security, 
@@ -372,6 +367,6 @@ register your APIs as Azure Logic Apps connectors, and nominate your connectors 
 
 ## Next steps
 
-* [Handle errors and exceptions](../logic-apps/logic-apps-exception-handling.md)
-* [Call, trigger, or nest logic apps with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md)
-* [Usage metering for actions and triggers](../logic-apps/logic-apps-pricing.md)
+* [Handle errors and exceptions](logic-apps-exception-handling.md)
+* [Call, trigger, or nest logic apps with HTTP endpoints](logic-apps-http-endpoint.md)
+* [Usage metering for actions and triggers](logic-apps-pricing.md)
