@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/site-recovery/site-recovery-whats-new-archive.md",
+      "redirect_url": "/azure/site-recovery/site-recovery-whats-new",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/automation-linux-hrw-install.md",
       "redirect_url": "/azure/automation/extension-based-hybrid-runbook-worker-install",
       "redirect_document_id": false
