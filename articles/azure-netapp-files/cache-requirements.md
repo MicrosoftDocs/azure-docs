@@ -49,8 +49,6 @@ Before you configure [cache volumes](configure-cache-volumes.md), make sure that
 
 ### Write-back considerations 
 
-If you're enabling write-back on the external origin volume:
-
 * If you enable write-back on the external origin volume, the system must run one of the following ONTAP versions:
   * ONTAP 9.17.1P8 or later
   * ONTAP 9.18.1P3 or later

@@ -22,7 +22,7 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 ## August 2026
 ### FHIR service
 
-**Stricter SMART on FHIR scope validation**: Improved security validation for SMART on FHIR scopes to properly reject mixed scope contexts.
+**Rejection of mixed-context SMART clinical scopes**: SMART clinical scopes that mix `patient`, `user`, and `system` contexts are now rejected with HTTP 400 Bad Request, ensuring consistent authorization enforcement.
 
 **Null-safety improvements in resource validation**: Added null-safety checks to improve the reliability of resource validation.
 
@@ -37,6 +37,10 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 **Fix for race condition in bundle processing**: Fixed a race condition in bundle processing that could cause intermittent failures.
 
 **Fix for search parameter deletion in sequential transaction bundles**: Fixed a bug where deleting a search parameter in a sequential transaction bundle could fail.
+
+**Fix for `$validate` ignoring canonical profile version**: Fixed an issue where the `$validate` operation ignored the version specified in a canonical profile URL (for example, `|1.0.0`) and resolved whichever profile version was last loaded instead of the requested version.
+
+**Fix for orphaned SearchParameter URLs after update**: Fixed an issue where updating a SearchParameter's URL left the previous URL orphaned with an unchanged status, preventing proper cleanup.
 
 ## July 2026
 ### FHIR service

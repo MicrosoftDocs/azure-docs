@@ -339,6 +339,8 @@ If you have **50 containers** in your storage account:
 The actual number of data points depends on your specific configuration, including the number of containers, enabled metrics, and the blob types and access tiers in use.
 
 ## Limits and considerations
+> [!NOTE]
+> Advanced platform metrics is supported only on storage accounts that support Azure Blob Storage. Premium Azure Files accounts, and Premium Page Blob accounts aren't supported.
 
 The following limit applies when using advanced platform metrics:
 
