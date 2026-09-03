@@ -841,7 +841,7 @@ For the isolated worker model, use an app setting expression for `HttpsCaPem` in
 )]
 ```
 
-In Azure, set the `KafkaHttpsCaPem` app setting to a [Key Vault reference](/azure/app-service/app-service-key-vault-references) for the secret that contains the PEM value:
+In Azure, set the `KafkaHttpsCaPem` app setting to a [Key Vault reference](/azure/app-service/app-service-key-vault-references) for the secret that contains the PEM value. This `KafkaHttpsCaPem` setting might look like this example, where `<keyVaultName>` is the name of your vault:
 
 ```text
 @Microsoft.KeyVault(SecretUri=https://<keyVaultName>.vault.azure.net/secrets/httpscapem)
