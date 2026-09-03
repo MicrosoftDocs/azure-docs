@@ -810,7 +810,7 @@ The following table explains the properties you can set by using this attribute:
 | **OAuthBearerExtensions** | (Optional) Comma-separated list of key=value pairs to be provided as additional information to broker when `oidc` method is used. For example: `supportFeatureX=true,organizationId=sales-emea`. |
 
 > [!IMPORTANT]
-> `HttpsCaLocation` and `HttpsCaPem` don't currently support scaling. Use these properties only with function apps hosted on a [Dedicated (App Service) plan](dedicated-plan.md). Support for scaling plans is expected in a future release.
+> The `HttpsCaLocation` and `HttpsCaPem` options aren't currently support on dynamic scale plans. At this time, you can only use these properties when your function app is hosted in a [Dedicated (App Service) plan](dedicated-plan.md).
 
 For the isolated worker model, use an app setting expression for `HttpsCaPem` instead of putting the PEM value in the attribute:
 
