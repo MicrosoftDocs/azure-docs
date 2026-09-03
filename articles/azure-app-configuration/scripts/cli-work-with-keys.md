@@ -1,31 +1,31 @@
 ---
 title: Azure CLI Script Sample - Work with key-values in App Configuration Store
 titleSuffix: Azure App Configuration
-description: Use Azure CLI script to create, view, update and delete key-values from App Configuration store
-services: azure-app-configuration
+description: Use an Azure CLI script to create, view, update, and delete key-values from an App Configuration store.
 author: maud-lv
-
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 04/12/2024
+ms.date: 9/1/2026
 ms.author: malev 
 ms.custom: devx-track-azurecli
+ai-usage: ai-assisted
 ---
 
 # Work with key-values in an Azure App Configuration store
 
 This sample script shows how to:
-* Create a new key-value pair
-* List all existing key-value pairs
-* Update the value of a newly created key
-* Delete the new key-value pair
+
+* Create a new key-value pair.
+* List all existing key-value pairs.
+* Update the value of a newly created key.
+* Delete the new key-value pair.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
- - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This sample requires version 2.0 or later of the Azure CLI. If you use Azure Cloud Shell, the latest version is already installed.
 ## Sample script
 
 In the following example, replace the placeholder text _`<AppConfigurationStoreName>`_ with the name of your App Configuration store.
@@ -77,7 +77,7 @@ az appconfig kv list --name $appConfigName
 
 ## Script explanation
 
-This table lists the commands used in our sample script. 
+This table lists the commands used in the sample script.
 
 | Command | Notes |
 |---|---|
