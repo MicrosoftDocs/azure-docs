@@ -1,19 +1,18 @@
 ---
-title: Integrate Azure App Configuration with Kubernetes Deployment using Helm
-description: Learn how to use dynamic configurations in Kubernetes deployment with Helm.
-services: azure-app-configuration
+title: Integrate Azure App Configuration with Kubernetes deployment using Helm
+description: Learn how to use dynamic configuration in a Kubernetes deployment with Helm.
 author: maud-lv
-
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 03/27/2023
+ms.date: 9/1/2026
 ms.author: malev
+ai-usage: ai-assisted
 
-#Customer intent: I want to use Azure App Configuration data in Kubernetes deployment with Helm.
+# Customer intent: I want to use Azure App Configuration data in a Kubernetes deployment with Helm.
 ---
-# Integrate with Kubernetes Deployment using Helm
+# Integrate with Kubernetes deployment using Helm
 
-Applications hosted in Kubernetes can access data in App Configuration [using the App Configuration provider library](./enable-dynamic-configuration-aspnet-core.md). The App Configuration provider has built-in caching and refreshing capabilities so applications can have dynamic configuration without redeployment. If you prefer not to update your application, this tutorial shows how to bring data from App Configuration to your Kubernetes using Helm via deployment. This way, your application can continue accessing configuration from Kubernetes variables and secrets. You run Helm upgrade when you want your application to pick up new configuration changes.
+Applications hosted in Kubernetes can access data in App Configuration [by using the App Configuration provider library](./enable-dynamic-configuration-aspnet-core.md). The App Configuration provider has built-in caching and refresh capabilities, so applications can use dynamic configuration without redeployment. If you prefer not to update your application, this tutorial shows how to bring data from App Configuration to Kubernetes by using Helm during deployment. This way, your application can continue to access configuration from Kubernetes variables and secrets. Run a Helm upgrade when you want your application to pick up configuration changes.
 
 > [!TIP]
 > See [options](./howto-best-practices.md#azure-kubernetes-service-access-to-app-configuration) for workloads hosted in Kubernetes to access Azure App Configuration.
@@ -34,8 +33,8 @@ This tutorial assumes basic understanding of managing Kubernetes with Helm. Lear
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- Install [Azure CLI](/cli/azure/install-azure-cli) (version 2.4.0 or later)
-- Install [Helm](https://helm.sh/docs/intro/install/) (version 2.14.0 or later)
+- Install [Azure CLI](/cli/azure/install-azure-cli) version 2.4.0 or later.
+- Install [Helm](https://helm.sh/docs/intro/install/) version 2.14.0 or later.
 - An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A Kubernetes cluster.
 
