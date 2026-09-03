@@ -18,7 +18,7 @@ Some scenarios require your workflow to process session-related messages in a sp
 
 For example, suppose you have a Service Bus queue that receives messages from multiple sessions. You have 10 messages from a session named *Session 1* and 5 messages from a session named *Session 2*. You can create a workflow that alternates between sessions to process messages from the queue. When the trigger first fires, the workflow run handles all the messages from Session 1. When the trigger fires again, the workflow run handles all the messages from Session 2.
 
-:::image type="content" source="./media/send-related-messages-sequential-convoy/sequential-convoy-pattern-general.png" alt-text="Diagram shows the general sequential convoy pattern.":::
+:::image type="content" source="./media/send-related-messages-sequential-convoy/sequential-convoy-pattern-general.png" alt-text="Diagram that shows the general Service Bus sequential convoy pattern with different sessions processed in separate workflow runs.":::
 
 This guide shows how to create a workflow that sets up the sequential convoy pattern to perform the following high-level steps:
 
@@ -65,7 +65,7 @@ Your logic app resource and workflow need permissions to access your Service Bus
 
 1. On the sidebar menu, under **Settings**, select **Shared access policies**. Check that you have **Manage** permissions for that namespace.
 
-   :::image type="content" source="./media/send-related-messages-sequential-convoy/check-service-bus-permissions.png" alt-text="Screenshot shows the Shared access policies page for a Service Bus namespace." lightbox="./media/send-related-messages-sequential-convoy/check-service-bus-permissions.png":::
+   :::image type="content" source="./media/send-related-messages-sequential-convoy/check-service-bus-permissions.png" alt-text="Screenshot that shows the Shared access policies page for a Service Bus namespace." lightbox="./media/send-related-messages-sequential-convoy/check-service-bus-permissions.png":::
 
 1. Get the connection string for your Service Bus namespace by following these steps:
 
@@ -73,7 +73,7 @@ Your logic app resource and workflow need permissions to access your Service Bus
    
    1. On the **SAS Policy: RootManageSharedAccessKey** pane, next to the primary connection string, select the copy button.
 
-      :::image type="content" source="./media/send-related-messages-sequential-convoy/copy-service-bus-connection-string.png" alt-text="Screenshot shows the Shared access policies where you can copy a Service Bus namespace connection string.":::
+      :::image type="content" source="./media/send-related-messages-sequential-convoy/copy-service-bus-connection-string.png" alt-text="Screenshot that shows the Shared access policies where you can copy a Service Bus namespace connection string.":::
 
       > [!TIP]
       >
@@ -99,7 +99,7 @@ These steps create a workflow from the template named **Azure Service Bus: Proce
 
    The following example partially shows the workflow templates gallery:
 
-   :::image type="content" source="./media/send-related-messages-sequential-convoy/select-workflow-template.png" alt-text="Screenshot shows a page where you can select a service bus sessions template." lightbox="./media/send-related-messages-sequential-convoy/select-workflow-template.png":::
+   :::image type="content" source="./media/send-related-messages-sequential-convoy/select-workflow-template.png" alt-text="Screenshot that shows the page where you can select a Service Bus sessions template." lightbox="./media/send-related-messages-sequential-convoy/select-workflow-template.png":::
 
 1. On the **Create a new workflow from template** pane, follow these steps:
 
@@ -117,7 +117,7 @@ These steps create a workflow from the template named **Azure Service Bus: Proce
 
       1. For Service Bus, in the **Connection** column, select **Connect**.
 
-         :::image type="content" source="./media/send-related-messages-sequential-convoy/connect-service-bus.png" alt-text="Screenshot shows pane to start connecting to Azure Service Bus namespace.":::
+         :::image type="content" source="./media/send-related-messages-sequential-convoy/connect-service-bus.png" alt-text="Screenshot that shows the pane where you connect to an Azure Service Bus namespace.":::
 
       1. Provide the following information:
 
@@ -127,7 +127,7 @@ These steps create a workflow from the template named **Azure Service Bus: Proce
          | **Authentication Type** | **Connection String** | The authentication type to use. |
          | **Connection String** | <*namespace-connection-string*> | The connection string that you saved earlier from your Service Bus namespace. |
 
-          :::image type="content" source="./media/send-related-messages-sequential-convoy/service-bus-connection-standard.png" alt-text="Screenshot shows Service Bus connection pane in Standard workflow.":::
+          :::image type="content" source="./media/send-related-messages-sequential-convoy/service-bus-connection-standard.png" alt-text="Screenshot that shows the Service Bus connection pane for a Standard workflow.":::
 
       1. When you're done, select **Add connection** > **Next**.
 
@@ -146,7 +146,7 @@ These steps create a workflow from the template named **Azure Service Bus: Proce
 
    The designer shows a workflow prepopulated with the trigger named **When messages are available in a queue (peek-lock)** and various actions, for example:
 
-   :::image type="content" source="./media/send-related-messages-sequential-convoy/workflow-from-template.png" alt-text="Screenshot shows workflow with all operations.":::
+   :::image type="content" source="./media/send-related-messages-sequential-convoy/workflow-from-template.png" alt-text="Screenshot that shows the workflow with all operations.":::
 
    This workflow includes predefined cross-environment parameters to abstract values that change across various environments where your workflow runs, such as development, test, and production. Many operations in the workflow use these parameters instead of hardcoded values.
 
@@ -201,7 +201,7 @@ The outer parent [**Scope** action](logic-apps-control-flow-run-steps-group-scop
 
 1. For clarity, rename the outer parent [**Scope** action](logic-apps-control-flow-run-steps-group-scopes.md) to `Process message`.
 
-   :::image type="content" source="./media/send-related-messages-sequential-convoy/rename-parent-scope.png" alt-text="Screenshot shows the parent scope renamed as Process message.":::
+   :::image type="content" source="./media/send-related-messages-sequential-convoy/rename-parent-scope.png" alt-text="Screenshot that shows the parent scope renamed as Process message.":::
 
 1. Expand the inner nested action named **Business Logic Scope**.
 
@@ -216,11 +216,11 @@ Under the **Business Logic Scope** action, the **Process Finished** action is se
 - **Is skipped**
 - **Has failed**
 
-:::image type="content" source="./media/send-related-messages-sequential-convoy/run-after-settings-template.png" alt-text="Screenshot shows the Run after settings for the Process Finished action.":::
+:::image type="content" source="./media/send-related-messages-sequential-convoy/run-after-settings-template.png" alt-text="Screenshot that shows the Run after settings for the Process Finished action.":::
 
 The **Process Finished** action changes the `processCompleted` variable value from **false** to **true**, which indicates that message processing finished.
 
-:::image type="content" source="./media/send-related-messages-sequential-convoy/process-finished-updated.png" alt-text="Screenshot shows the updated values in the Process Finished action.":::
+:::image type="content" source="./media/send-related-messages-sequential-convoy/process-finished-updated.png" alt-text="Screenshot that shows the updated values in the Process Finished action.":::
 
 ##### Until
 
@@ -228,7 +228,7 @@ At the **Business Logic Scope** level, a parallel branch runs an **Until** loop 
 
 `processCompleted = true`
 
-:::image type="content" source="./media/send-related-messages-sequential-convoy/parallel-branch-until-loop-standard.png" alt-text="Screenshot shows the parallel branch with the Until loop.":::
+:::image type="content" source="./media/send-related-messages-sequential-convoy/parallel-branch-until-loop-standard.png" alt-text="Screenshot that shows the parallel branch with the Until loop.":::
 
 ##### Renew lock on a message in a queue
 
@@ -272,7 +272,7 @@ Under the `Process message` scope, two parallel branches exist to handle the cas
 
      For example:
 
-     :::image type="content" source="./media/send-related-messages-sequential-convoy/error-handling-consumption.png" alt-text="Screenshot shows error handling scope and run after settings.":::
+     :::image type="content" source="./media/send-related-messages-sequential-convoy/error-handling-consumption.png" alt-text="Screenshot that shows the error handling scope and run after settings.":::
 
   Under the error-handling actions, the Service Bus action named **Abandon the message in a queue** unlocks a message and requeues the message for another attempt.
 
@@ -285,7 +285,7 @@ Under the `Process message` scope, two parallel branches exist to handle the cas
 
   For example:
 
-  :::image type="content" source="./media/send-related-messages-sequential-convoy/abandon-message-standard.png" alt-text="Screenshot shows Abandon message action for Standard workflow.":::
+  :::image type="content" source="./media/send-related-messages-sequential-convoy/abandon-message-standard.png" alt-text="Screenshot that shows the Abandon the message in a queue action for a Standard workflow.":::
 
 - Branch 2
 
@@ -300,7 +300,7 @@ Under the `Process message` scope, two parallel branches exist to handle the cas
 
   For example:
 
-  :::image type="content" source="./media/send-related-messages-sequential-convoy/complete-message-standard.png" alt-text="Screenshot shows Complete message action for Standard workflow.":::
+  :::image type="content" source="./media/send-related-messages-sequential-convoy/complete-message-standard.png" alt-text="Screenshot that shows the Standard workflow designer and the Complete the message in a queue action with the queue name and lock token fields.":::
 
 ### [Consumption](#tab/consumption)
 
@@ -320,7 +320,7 @@ Follow these [general steps](create-parameters-workflows.md) to create the cross
 
 When you're done, your cross-environment parameters look like the following example:
 
-:::image type="content" source="./media/send-related-messages-sequential-convoy/workflow-parameters.png" alt-text="Screenshot shows cross-environment parameters.":::
+:::image type="content" source="./media/send-related-messages-sequential-convoy/workflow-parameters.png" alt-text="Screenshot that shows the cross-environment parameters with delayInMinutes, messageBatchSize, and queueName values for the workflow.":::
 
 #### Add a Service Bus trigger
 
@@ -340,7 +340,7 @@ These steps add a Service Bus trigger that initializes sessions and checks the s
    | **Authentication Type** | **Access key** | The authentication type to use. |
    | **Connection String** | <*namespace-connection-string*> | The connection string that you saved earlier from your Service Bus namespace. |
 
-   :::image type="content" source="./media/send-related-messages-sequential-convoy/service-bus-connection-consumption.png" alt-text="Screenshot shows Service Bus connection pane in Consumption workflow.":::
+   :::image type="content" source="./media/send-related-messages-sequential-convoy/service-bus-connection-consumption.png" alt-text="Screenshot that shows the Service Bus trigger's Create connection pane, connection name, access key, and connection string fields for a Consumption workflow.":::
 
 1. When you're done, select **Create new**.
 
@@ -376,7 +376,7 @@ These steps add a Service Bus trigger that initializes sessions and checks the s
 
    The completed trigger looks like the following example:
 
-   :::image type="content" source="./media/send-related-messages-sequential-convoy/when-messages-arrive-trigger.png" alt-text="Screenshot shows the completed Service Bus trigger.":::
+   :::image type="content" source="./media/send-related-messages-sequential-convoy/when-messages-arrive-trigger.png" alt-text="Screenshot that shows the Service Bus trigger with the queue name, maximum message count, and 3-minute recurrence settings.":::
 
    The trigger outputs a [ServiceBusMessage object](/connectors/servicebus/#servicebusmessage).
 
@@ -407,7 +407,7 @@ To help your workflow determine whether any more messages from a session need pr
 
    When you're done, your workflow looks like the following example:
 
-   :::image type="content" source="./media/send-related-messages-sequential-convoy/initialize-process-complete.png" alt-text="Screenshot shows the information for Vitalize Process Complete Flag.":::
+   :::image type="content" source="./media/send-related-messages-sequential-convoy/initialize-process-complete.png" alt-text="Screenshot that shows the information for Vitalize Process Complete Flag.":::
 
    For more information, see [Initialize the session](#initialize-process-complete-flag).
 
@@ -421,13 +421,13 @@ These steps add a [**Scope** action](logic-apps-control-flow-run-steps-group-sco
 
 1. Rename the scope action to `Process message`, for example:
 
-   :::image type="content" source="./media/send-related-messages-sequential-convoy/process-message-scope.png" alt-text="Screenshot shows the workflow with the Process Message scope.":::
+   :::image type="content" source="./media/send-related-messages-sequential-convoy/process-message-scope.png" alt-text="Screenshot that shows the workflow with the Process Message scope.":::
 
 1. In the **Process message** scope, add another **Scope** action.
 
    1. Change the second scope name to `Business Logic Scope`, for example:
 
-      :::image type="content" source="./media/send-related-messages-sequential-convoy/business-logic-scope.png" alt-text="Screenshot shows the workflow with Business Logic Scope.":::
+      :::image type="content" source="./media/send-related-messages-sequential-convoy/business-logic-scope.png" alt-text="Screenshot that shows the workflow with Business Logic Scope.":::
 
    1. Inside `Business Logic Scope`, add the actions to process the current message, based on your scenario's business logic.
 
@@ -448,7 +448,7 @@ These steps add a [**Scope** action](logic-apps-control-flow-run-steps-group-sco
 
    1. Select all the unselected statuses: **Has timed out**, **Is skipped**, and **Has failed**, for example:
 
-      :::image type="content" source="./media/send-related-messages-sequential-convoy/run-after-settings.png" alt-text="Screenshot shows the run after settings for Process Finished.":::
+      :::image type="content" source="./media/send-related-messages-sequential-convoy/run-after-settings.png" alt-text="Screenshot that shows the run after settings for Process Finished.":::
 
 1. At the same level as the **Business Logic Scope**, add a parallel branch to determine whether any other messages exist in the same session.
 
@@ -456,7 +456,7 @@ These steps add a [**Scope** action](logic-apps-control-flow-run-steps-group-sco
 
    1. In the **Add an action** pane, add a **Control** action named **Until**, which is a type of loop, for example:
 
-      :::image type="content" source="./media/send-related-messages-sequential-convoy/parallel-branch-until-loop.png" alt-text="Screenshot shows the parallel branch with the Until loop.":::
+      :::image type="content" source="./media/send-related-messages-sequential-convoy/parallel-branch-until-loop.png" alt-text="Screenshot that shows the parallel branch with the Until loop.":::
 
    1. On the **Until** action information pane, provide the condition that stops running the loop.
 
@@ -472,7 +472,7 @@ These steps add a [**Scope** action](logic-apps-control-flow-run-steps-group-sco
 
          The expression resolves, and the partially completed condition looks like the following example:
 
-         :::image type="content" source="./media/send-related-messages-sequential-convoy/process-completed-until-loop.png" alt-text="Screenshot shows the resolved expression for processCompleted variable.":::
+         :::image type="content" source="./media/send-related-messages-sequential-convoy/process-completed-until-loop.png" alt-text="Screenshot that shows the resolved expression for processCompleted variable.":::
 
       1. In the middle list, make sure the operation is set to the equal sign (**=**).
 
@@ -480,7 +480,7 @@ These steps add a [**Scope** action](logic-apps-control-flow-run-steps-group-sco
 
          The completed condition looks like the following example:
 
-         :::image type="content" source="./media/send-related-messages-sequential-convoy/until-loop-completed.png" alt-text="Screenshot shows the completed Until loop.":::
+         :::image type="content" source="./media/send-related-messages-sequential-convoy/until-loop-completed.png" alt-text="Screenshot that shows the completed Until loop.":::
 
    1. Add actions for message detection to the **Until** loop by following these steps:
 
@@ -500,7 +500,7 @@ These steps add a [**Scope** action](logic-apps-control-flow-run-steps-group-sco
 
          The following example shows the completed Service Bus action:
 
-         :::image type="content" source="./media/send-related-messages-sequential-convoy/renew-lock-on-message-complete.png" alt-text="Screenshot shows the completed renew lock action.":::
+         :::image type="content" source="./media/send-related-messages-sequential-convoy/renew-lock-on-message-complete.png" alt-text="Screenshot that shows the completed renew lock action.":::
 
       1. Under the Service Bus action, add a **Schedule** action named **Delay**.
 
@@ -518,11 +518,11 @@ These steps add a [**Scope** action](logic-apps-control-flow-run-steps-group-sco
 
          The following example shows the completed delay duration:
 
-         :::image type="content" source="./media/send-related-messages-sequential-convoy/wait-process-complete.png" alt-text="Screenshot shows the completed delay duration.":::
+         :::image type="content" source="./media/send-related-messages-sequential-convoy/wait-process-complete.png" alt-text="Screenshot that shows the completed Wait for Process to Complete action with Count set to delayInMinutes_Get_Message_Service_Bus_Queue_Peek_Lock_Renew and Unit set to Minute.":::
 
       When you're done, the **Until** loop looks like the following example:
 
-      :::image type="content" source="./media/send-related-messages-sequential-convoy/until-loop-actions.png" alt-text="Screenshot shows the actions in the Until loop.":::
+      :::image type="content" source="./media/send-related-messages-sequential-convoy/until-loop-actions.png" alt-text="Screenshot that shows the actions in the Until loop.":::
 
       [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
@@ -544,7 +544,7 @@ Under the `Process message` scope, set up the following two branches:
 
      For example:
 
-     :::image type="content" source="./media/send-related-messages-sequential-convoy/error-handling-consumption.png" alt-text="Screenshot shows error handling scope and run after settings.":::
+     :::image type="content" source="./media/send-related-messages-sequential-convoy/error-handling-consumption.png" alt-text=" the error handling scope and run after settings.":::
 
   1. Under the error-handling actions, add the Service Bus action named **Abandon the message in a queue**, and then set up the action as follows:
 
@@ -562,7 +562,7 @@ Under the `Process message` scope, set up the following two branches:
 
      When you're done, the Service Bus action looks like the following example:
 
-     :::image type="content" source="./media/send-related-messages-sequential-convoy/abandon-message-consumption.png" alt-text="Screenshot shows Abandon message in queue for Consumption workflow.":::
+     :::image type="content" source="./media/send-related-messages-sequential-convoy/abandon-message-consumption.png" alt-text="Screenshot that shows the Abandon the message in a queue action for a Consumption workflow.":::
 
 - Branch 2: Add the Service Bus action named **Complete the message in a queue**. This action runs only if the `Process message` scope successfully completes. Set up the action as follows:
 
@@ -580,7 +580,7 @@ Under the `Process message` scope, set up the following two branches:
 
   When you're done, the Service Bus action looks like the following example:
 
-  :::image type="content" source="./media/send-related-messages-sequential-convoy/complete-message-consumption.png" alt-text="Screenshot shows Complete message in queue for Consumption workflow.":::
+  :::image type="content" source="./media/send-related-messages-sequential-convoy/complete-message-consumption.png" alt-text="Screenshot that shows the Complete the message in a queue for a Consumption workflow.":::
 
 ---
 
