@@ -62,12 +62,7 @@ To start a container app job, your user account or service principal needs the a
 
 Both the **Container Apps Jobs Contributor** and **Container Apps Jobs Operator** roles include the `Microsoft.App/jobs/*/action` wildcard permission. This wildcard matches `Microsoft.App/jobs/listSecrets/action`, so both roles grant permission to read the job's secret values in plain text.
 
-> [!IMPORTANT]
-> When you start a job execution, you also get access to all the secrets configured for the job.
-
-If you want to allow users to run jobs without granting access to job secrets, create a [custom role](/azure/role-based-access-control/custom-roles) that lists only the actions you need. Built-in roles are a convenience. You're free to define your own role with exactly the permissions you want.
-
-For example, the following actions allow a user to view, start, and stop jobs without granting the `Microsoft.App/jobs/listSecrets/action` permission:
+Built-in roles are a convenience. If neither role matches the access you want to grant, create a [custom role](/azure/role-based-access-control/custom-roles) that lists only the actions you need. For example, the following actions let a user view, start, and stop jobs without using the `Microsoft.App/jobs/*/action` wildcard:
 
 - `Microsoft.App/jobs/read`
 - `Microsoft.App/jobs/start/action`
@@ -76,6 +71,9 @@ For example, the following actions allow a user to view, start, and stop jobs wi
 - `Microsoft.App/managedEnvironments/read`
 
 Avoid wildcard patterns such as `Microsoft.App/jobs/*/action` in a custom role definition. A wildcard grants every current and future action for that resource type, including `listSecrets`.
+
+> [!IMPORTANT]
+> Permission to start a job grants access to that job's secrets, even when the role doesn't include the `listSecrets` action. When you [start a job execution](#start-a-job-execution-on-demand), you can supply a template that overrides the container image, command, and environment variables. A user who holds `Microsoft.App/jobs/start/action` can run a container of their choosing with the job's secrets injected into it and read the values from inside that container. Grant permission to start a job only to identities you trust with the job's secrets and managed identity.
 
 For more information, see [Permissions for managing secrets](manage-secrets.md#permissions-for-managing-secrets) and [Azure role-based access control](/azure/role-based-access-control/overview).
 

@@ -52,18 +52,17 @@ Several Azure built-in roles for Container Apps define their permissions using w
 
 Built-in roles are a convenience, not a limitation. If no built-in role matches the level of access you want to grant, define an [Azure custom role](/azure/role-based-access-control/custom-roles) that lists only the operations you need and omits the `listSecrets` action.
 
-For example, the following custom role allows a user to view, start, and stop jobs without granting access to job secrets:
+For example, the following custom role allows a user to monitor jobs and stop running executions, without granting the `listSecrets` action:
 
 ```json
 {
-  "Name": "Container Apps Jobs Runner",
+  "Name": "Container Apps Jobs Monitor",
   "IsCustom": true,
-  "Description": "View, start, and stop Container Apps jobs without access to job secrets.",
+  "Description": "View Container Apps jobs and stop running executions.",
   "Actions": [
     "Microsoft.App/jobs/read",
-    "Microsoft.App/jobs/start/action",
-    "Microsoft.App/jobs/stop/action",
     "Microsoft.App/jobs/executions/read",
+    "Microsoft.App/jobs/stop/action",
     "Microsoft.App/managedEnvironments/read"
   ],
   "NotActions": [],
@@ -74,6 +73,9 @@ For example, the following custom role allows a user to view, start, and stop jo
 ```
 
 Avoid wildcard patterns such as `Microsoft.App/jobs/*/action` in a custom role definition. A wildcard grants every current and future action for that resource type, including `listSecrets`.
+
+> [!WARNING]
+> Omitting the `listSecrets` action from a custom role isn't enough to protect secret values if the role also grants `Microsoft.App/jobs/start/action`. When you start a job execution, you can supply a template that overrides the container image, command, and environment variables. A user who can start a job can run a container of their choosing with the job's secrets injected into it and read the values from inside that container. Treat permission to start a job as equivalent to permission to read that job's secrets.
 
 For more information, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
