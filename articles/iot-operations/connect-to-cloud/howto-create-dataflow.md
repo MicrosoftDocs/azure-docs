@@ -500,7 +500,7 @@ For example, you can use the `temperature` field in the source data to convert t
 
 # [Bicep](#tab/bicep)
 
-You can access MQTT metadata properties by using the format `$metadata.user_property.<property>` or `$metadata.topic`. You can also enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+Access MQTT metadata properties by using the format `$metadata.user_property.<property>` or `$metadata.topic`. Enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
 For example, you can use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. Enrich the source data with the `location` field from the contextualization dataset:
 
@@ -528,7 +528,7 @@ builtInTransformationSettings: {
 
 [!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
-You can access MQTT metadata properties by using the format `$metadata.user_property.<property>` or `$metadata.topic`. You can also enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+Access MQTT metadata properties by using the format `$metadata.user_property.<property>` or `$metadata.topic`. Enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
 For example, you can use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. Enrich the source data with the `location` field from the contextualization dataset:
 
