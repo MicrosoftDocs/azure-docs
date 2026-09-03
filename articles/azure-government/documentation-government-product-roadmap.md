@@ -242,7 +242,7 @@ For comprehensive information about compliance in Azure Government clouds, see [
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foundry Agent Service | Forecasted | Forecasted | Forecasted | Forecasted |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Foundry Models | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | Forecasted |
 | Microsoft Graph | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
-| Microsoft Planetary Computer Pro | Awaiting Review | Forecasted | Forecasted | Forecasted |
+| Microsoft Planetary Computer Pro | Awaiting review | Forecasted | Forecasted | Forecasted |
 | Microsoft Purview Compliance | Forecasted | Forecasted | Forecasted | n/a |
 | Microsoft Secure Score | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | Awaiting Review | n/a |
 | Microsoft Sentinel | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: | :::image alt-text="GA" type="content" source="media/check-mark.svg" border="false"::: |
