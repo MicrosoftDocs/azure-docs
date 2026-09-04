@@ -177,7 +177,7 @@ If you have existing Azure subscriptions or other products such as Azure Marketp
 
 ### View supplemental documents
 
-Purchase orders help align purchases with your organization's internal procurement processes. For information about creating and managing purchase orders, see [Purchase orders](/marketplace/purchase-orders).
+Purchase orders help align purchases with your organization's internal procurement processes. For information about creating and managing purchase orders, see [Purchase orders](https://learn.microsoft.com/marketplace/purchase-orders).
 
 After you configure purchase orders, you can enable **supplemental documents**. Supplemental documents provide purchase order-specific or invoice section-specific views of billed charges, helping you reconcile costs and distribute charges within your organization.
 
