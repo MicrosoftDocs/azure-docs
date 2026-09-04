@@ -8,7 +8,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 12/5/2025
+ms.date: 09/04/2026
 zone_pivot_groups: appconfig-aspire
 ms.author: zhiyuanliang
 #Customer intent: As an Aspire developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -16,7 +16,7 @@ ms.author: zhiyuanliang
 
 # Quickstart: Add feature flags to an Aspire app
 
-In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control the availability of a new web page in an Aspire app without restarting or redeploying it.
+In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control the availability of a new web page in an [Aspire](https://aspire.dev/get-started/what-is-aspire/) app without restarting or redeploying it.
 
 The feature management support extends the dynamic configuration feature in App Configuration. The example in this quickstart builds on the Aspire app introduced in the dynamic configuration tutorial. Before you continue, finish the [quickstart](./quickstart-aspire.md), and the [tutorial](./enable-dynamic-configuration-aspire.md) to create an Aspire app with dynamic configuration first.
 
@@ -47,7 +47,7 @@ Add the following key-value through the App Configuration emulator UI.
 
 :::image type="content" source="media/aspire/emulator-feature-flag.png" alt-text="Screenshot of adding a feature flag to emulator." lightbox="media/aspire/emulator-feature-flag.png":::
 
- Feature flags are special key-values that define Microsoft feature flags. Configuration providers identify feature flag by their specific content type and key prefix. The value of a feature flag is a json object that follows [`Microsoft Feature Flag schema`](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureFlag.v2.0.0.schema.json).
+ Feature flags are special key-values that define Microsoft feature flags. Configuration providers identify a feature flag by its specific content type and key prefix. The value of a feature flag is a JSON object that follows the [`Microsoft Feature Flag schema`](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureFlag.v2.0.0.schema.json).
 
  - Feature flag content type: `application/vnd.microsoft.appconfig.ff+json;charset=utf-8`
  - Feature flag key prefix: `.appconfig.featureflag/`
@@ -56,10 +56,10 @@ Add the following key-value through the App Configuration emulator UI.
 
 ## Use a feature flag
 
-1. Navigate into the `Web` project's directory (created in the [Prerequisites](./enable-dynamic-configuration-aspire.md#prerequisites) steps). Run the following command to add the [`Microsoft.FeatureManagement.AspNetCore`](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) Nuget package.
+1. Navigate into the `Web` project's directory (created in the [Prerequisites](./enable-dynamic-configuration-aspire.md#prerequisites) steps). Run the following command to add the [`Microsoft.FeatureManagement`](https://www.nuget.org/packages/Microsoft.FeatureManagement) NuGet package.
 
     ```dotnetcli
-    dotnet add package Microsoft.FeatureManagement.AspNetCore
+    dotnet add package Microsoft.FeatureManagement
     ```
 
 1. Open *Program.cs*, and add a call to the `UseFeatureFlags` method inside the `AddAzureAppConfiguration` call. You can connect to App Configuration using either Microsoft Entra ID (recommended) or a connection string. The following code snippet demonstrates using Microsoft Entra ID.
@@ -86,9 +86,11 @@ Add the following key-value through the App Configuration emulator UI.
     > options.UseFeatureFlags(featureFlagOptions =>
     > {
     >     featureFlagOptions.Select("TestApp:*", "dev");
-    >     featureFlagOptions.CacheExpirationInterval = TimeSpan.FromMinutes(5);
+    >     featureFlagOptions.SetRefreshInterval(TimeSpan.FromMinutes(5));
     > });
     > ```
+
+    For more information about feature flags in the Aspire client integration, see [Connect to Azure App Configuration](https://aspire.dev/integrations/cloud/azure/azure-app-configuration/azure-app-configuration-connect/#use-feature-flags).
 
 1. Add feature management to the service collection of your app by calling `AddFeatureManagement`.
 
@@ -193,7 +195,7 @@ Add the following key-value through the App Configuration emulator UI.
 
 ## Run the app locally
 
-1. Run the `AppHost` project. Go to the Aspire dashboard and open the web app.
+1. From the solution root, run `aspire run`. Go to the Aspire dashboard and open the web app.
 
     :::image type="content" source="media/aspire/feature-flag-disabled.png" alt-text="Screenshot of a web app with three buttons on the side bar." lightbox="media/aspire/feature-flag-disabled.png":::
 
@@ -201,7 +203,7 @@ Add the following key-value through the App Configuration emulator UI.
 
 1. Refresh the page a few times. When the refresh interval time window passes, the page will show with updated content.
 
-    :::image type="content" source="media/aspire/feature-flag-disabled.png" alt-text="Screenshot of a web app with Beta button on the side bar." lightbox="media/aspire/feature-flag-disabled.png":::
+    :::image type="content" source="media/aspire/feature-flag-enabled.png" alt-text="Screenshot of a web app with Beta button on the side bar." lightbox="media/aspire/feature-flag-enabled.png":::
 
 1. Click the **Beta** button. It will bring you to the beta page that you enabled dynamically.
 
@@ -213,7 +215,7 @@ Add the following key-value through the App Configuration emulator UI.
 
 ## Run the app locally
 
-1. Run the `AppHost` project. Go to the Aspire dashboard and open the web app.
+1. From the solution root, run `aspire run`. Go to the Aspire dashboard and open the web app.
 
     :::image type="content" source="media/aspire/feature-flag-disabled.png" alt-text="Screenshot of a web app with three buttons on the side bar." lightbox="media/aspire/feature-flag-disabled.png":::
 
@@ -221,7 +223,7 @@ Add the following key-value through the App Configuration emulator UI.
 
     | Key                          | Value                          |
     |------------------------------|--------------------------------|
-    | *appconfig.featureflag/Beta* | *{"id":"Beta","enabled":true}* |
+    | *.appconfig.featureflag/Beta* | *{"id":"Beta","enabled":true}* |
 
 1. Refresh the page a few times. When the refresh interval time window passes, the page will show with updated content.
 
@@ -235,7 +237,7 @@ Add the following key-value through the App Configuration emulator UI.
 
 ## Next steps
 
-In this quickstart, you added feature management capability to an Aspire app on top of dynamic configuration. The [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) library offers integration with ASP.NET Core apps, including feature management in MVC controller actions, razor pages, views, routes, and middleware. For the full feature rundown of the .NET feature management library, continue to the following document.
+In this quickstart, you added feature management capability to an Aspire app on top of dynamic configuration. The [Microsoft.FeatureManagement](https://www.nuget.org/packages/Microsoft.FeatureManagement) library provides the feature management APIs used by the app. For the full feature rundown of the .NET feature management library, continue to the following document.
 
 > [!div class="nextstepaction"]
 > [.NET Feature Management](./feature-management-dotnet-reference.md)

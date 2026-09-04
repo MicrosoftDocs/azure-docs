@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 12/3/2025
+ms.date: 09/04/2026
 zone_pivot_groups: appconfig-aspire
 ms.author: zhiyuanliang
 #Customer intent: As an Aspire developer, I want to learn the centralized configuration cloud-native solution for Aspire.
@@ -15,20 +15,27 @@ ms.author: zhiyuanliang
 
 # Quickstart: Create an Aspire solution with Azure App Configuration
 
-In this quickstart, you'll use Azure App Configuration to externalize storage and management of your app settings for an Aspire project. You will use Azure App Configuration Aspire integration libraries to provision an App Configuration resource and use App Configuration in each distributed app.
+In this quickstart, you'll use Azure App Configuration to externalize storage and management of your app settings for an [Aspire](https://aspire.dev/get-started/what-is-aspire/) project. You will use Azure App Configuration Aspire integration libraries to provision an App Configuration resource and use App Configuration in each distributed app.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- [Set up the development environment](https://aspire.dev/get-started/prerequisites) for Aspire.
+- [Set up the development environment](https://aspire.dev/get-started/prerequisites/) for Aspire. A C# AppHost requires the .NET 10 SDK.
+- [Install the Aspire CLI](https://aspire.dev/get-started/install-cli/).
 - [Create a new Aspire solution](https://aspire.dev/get-started/first-app/?lang=csharp) using the Aspire Starter template.
-- An OCI compliant container runtime, such as [Docker Desktop](https://www.docker.com/products/docker-desktop).
+- For the emulator steps, an OCI-compliant container runtime such as [Docker Desktop](https://www.docker.com/products/docker-desktop).
 
 ## Test the app locally
 
-The Aspire Starter template includes a frontend web app that communicates with a Minimal API project. The API project is used to provide fake weather data to the frontend. The frontend app is configured to use service discovery to connect to the API project. There is also an [`AppHost`](/dotnet/aspire/fundamentals/app-host-overview) project which orchestrates all distributed applications in the Aspire solution.
+The Aspire Starter template includes a frontend web app that communicates with a Minimal API project. The API project is used to provide fake weather data to the frontend. The frontend app is configured to use service discovery to connect to the API project. An [AppHost](https://aspire.dev/get-started/app-host/) orchestrates all resources in the Aspire solution.
 
-1. Run the `AppHost` project. You see the Aspire dashboard in your browser.
+1. From the solution root, run the AppHost:
+
+    ```bash
+    aspire run
+    ```
+
+    You see the Aspire dashboard in your browser.
 
     :::image type="content" source="media/aspire/dashboard.png" alt-text="Screenshot of the Aspire dashboard with web frontend and API service resources." lightbox="media/aspire/dashboard.png":::
 
@@ -40,13 +47,13 @@ The Aspire Starter template includes a frontend web app that communicates with a
 
 ## Add Azure App Configuration to the Aspire solution
 
-1. Navigate into to the `AppHost` project's directory. Run the following command to add the [`Aspire.Hosting.Azure.AppConfiguration`](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppConfiguration) Nuget package.
+1. Navigate to the AppHost directory. Run the following command to add the [`Aspire.Hosting.Azure.AppConfiguration`](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppConfiguration) NuGet package.
 
-    ```dotnetcli
-    dotnet add package Aspire.Hosting.Azure.AppConfiguration
+    ```bash
+    aspire add Aspire.Hosting.Azure.AppConfiguration
     ```
 
-1. Open the *AppHost.csproj* file to verify packages. You should see a package named `Aspire.Hosting.AppHost` being referenced. Ensure that the `Aspire.Hosting.AppHost` package version is at least as high as the version of `Aspire.Hosting.Azure.AppConfiguration` that was installed.
+    For more information, see [`aspire add`](https://aspire.dev/reference/cli/commands/aspire-add/) and [Azure App Configuration Hosting integration](https://aspire.dev/integrations/cloud/azure/azure-app-configuration/azure-app-configuration-host/).
 
 1. Open the *AppHost.cs* file and add the following code.
 
@@ -60,13 +67,23 @@ The Aspire Starter template includes a frontend web app that communicates with a
     > [!IMPORTANT]
     > When you call `AddAzureAppConfiguration`, you instruct the app to generate Azure resources dynamically during app startup. The app must configure the appropriate subscription and location. For more information, see [Local Azure provisioning](https://aspire.dev/integrations/cloud/azure/local-provisioning/#configuration).
     > If you are using the latest Aspire SDK, you can configure the subscription information through the Aspire dashboard.
-    > :::image type="content" source="media/aspire/azure-subscription.png" alt-text="Screenshot of Aspire dashboard asking for Azure Subscription information." lightbox="media/aspire/azure-subscription.png":::
+    > :::image type="content" source="media/aspire/azure-subscription.png" alt-text="Screenshot of the Aspire dashboard Change Azure context dialog." lightbox="media/aspire/azure-subscription.png":::
 
     > [!NOTE]
     > You must have either the **Owner** or **User Access Administrator** role assigned on the Azure subscription. These roles are required to create role assignments as part of the provisioning process.
 
     > [!TIP]
-    > You can reference existing App Configuration resources by chaining a call `RunAsExisting()` on `builder.AddAzureAppConfiguration("appconfig")`. For more information, go to [Use existing Azure resources](https://aspire.dev/integrations/cloud/azure/overview/#use-existing-azure-resources).
+    > You can reference an existing App Configuration store by passing its name and resource group as parameters to `AsExisting()`:
+    >
+    > ```csharp
+    > var storeName = builder.AddParameter("appConfigurationName");
+    > var resourceGroup = builder.AddParameter("appConfigurationResourceGroup");
+    >
+    > var appConfiguration = builder.AddAzureAppConfiguration("appconfiguration")
+    >     .AsExisting(storeName, resourceGroup);
+    > ```
+    >
+    > For more information, see [Use existing Azure resources](https://aspire.dev/integrations/cloud/azure/overview/#use-existing-azure-resources).
 
 1. Add the reference of App Configuration resource and configure the `webfrontend` project to wait for it.
 
@@ -80,7 +97,7 @@ The Aspire Starter template includes a frontend web app that communicates with a
         .WaitFor(appConfiguration); // wait for the App Configuration resource to enter the Running state before starting the resource
     ```
 
-1. Run the `AppHost` project. You see the Azure App Configuration resource is provisioning.
+1. From the solution root, run `aspire run`. You see the Azure App Configuration resource being provisioned.
 
     :::image type="content" source="media/aspire/resource-provisioning.png" alt-text="Screenshot of Aspire dashboard provisioning Azure App Configuration resource." lightbox="media/aspire/resource-provisioning.png":::
 
@@ -106,13 +123,13 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 ## Add Azure App Configuration to the Aspire solution
 
-1. Navigate into to the `AppHost` project's directory. Run the following command to add the [`Aspire.Hosting.Azure.AppConfiguration`](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppConfiguration) Nuget package.
+1. Navigate to the AppHost directory. Run the following command to add the [`Aspire.Hosting.Azure.AppConfiguration`](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppConfiguration) NuGet package.
 
-    ```dotnetcli
-    dotnet add package Aspire.Hosting.Azure.AppConfiguration
+    ```bash
+    aspire add Aspire.Hosting.Azure.AppConfiguration
     ```
 
-1. Open the *AppHost.csproj*. Make sure that the `Aspire.Hosting.AppHost` package version is not earlier than the version you installed. Otherwise, you need to upgrade the `Aspire.Hosting.AppHost` package.
+    For more information, see [`aspire add`](https://aspire.dev/reference/cli/commands/aspire-add/) and [Azure App Configuration Hosting integration](https://aspire.dev/integrations/cloud/azure/azure-app-configuration/azure-app-configuration-host/).
 
 1. Open the *AppHost.cs* file and add the following code.
 
@@ -146,7 +163,7 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 1. Start your container runtime. In this tutorial, we use Docker Desktop.
 
-1. Run the `AppHost` project. Go to the Aspire dashboard. You see the App Configuration emulator resource is running.
+1. From the solution root, run `aspire run`. Go to the Aspire dashboard. You see the App Configuration emulator resource is running.
 
     :::image type="content" source="media/aspire/dashboard-emulator.png" alt-text="Screenshot of the Aspire dashboard showing the App Configuration emulator resource." lightbox="media/aspire/dashboard-emulator.png":::
 
@@ -176,7 +193,7 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
 ## Use App Configuration in the web application
 
-1. Navigate into to the `Web` project's directory. Run the following command to add the [`Aspire.Microsoft.Extensions.Configuration.AzureAppConfiguration`](https://www.nuget.org/packages/Aspire.Microsoft.Extensions.Configuration.AzureAppConfiguration) Nuget package.
+1. Navigate to the `Web` project's directory. Run the following command to add the [`Aspire.Microsoft.Extensions.Configuration.AzureAppConfiguration`](https://www.nuget.org/packages/Aspire.Microsoft.Extensions.Configuration.AzureAppConfiguration) NuGet package.
 
     ```dotnetcli
     dotnet add package Aspire.Microsoft.Extensions.Configuration.AzureAppConfiguration
@@ -216,19 +233,21 @@ Add the following key-value to your App Configuration store and leave **Label** 
 
         protected override void OnInitialized()
         {
-            string msg = Configuration["TestApp:Settings:Message"];
+            string? msg = Configuration["TestApp:Settings:Message"];
             message = string.IsNullOrWhiteSpace(msg) ? null : msg;
         }
     }
     ```
 
-1. **Restart** the `AppHost` project. Go to the Aspire dashboard and click the URL of the web frontend. 
+1. Stop the current `aspire run` process, run `aspire run` again, and then select the web frontend URL in the Aspire dashboard.
 
     :::image type="content" source="media/aspire/dashboard-updated.png" alt-text="Screenshot of Aspire dashboard showing resources." lightbox="media/aspire/dashboard-updated.png":::
 
 1. You see a page with a welcome message from Azure App Configuration.
 
     :::image type="content" source="media/aspire/web-app-message.png" alt-text="Screenshot of a web app with a welcome message from Azure App Configuration." lightbox="media/aspire/web-app-message.png":::
+
+For more information about how consuming applications receive and use the App Configuration endpoint, see [Connect to Azure App Configuration](https://aspire.dev/integrations/cloud/azure/azure-app-configuration/azure-app-configuration-connect/).
 
 ## Next steps
 

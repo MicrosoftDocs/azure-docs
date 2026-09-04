@@ -3,7 +3,7 @@ title: Configure Aspire apps
 description: Learn how to configure Aspire apps deployed to Azure App Service, including App Service plan settings, Application Insights, dashboard, and health probes.
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 01/31/2026
+ms.date: 09/04/2026
 author: cephalin
 ms.author: cephalin
 #customer intent: As a .NET developer, I want to configure my Aspire app deployment to Azure App Service so that I can customize the hosting infrastructure and app behavior.
@@ -11,19 +11,23 @@ ms.service: azure-app-service
 ms.custom:
   - devx-track-csharp
   - devx-track-dotnet
-  - devx-track-extended-azdevcli
 ---
 
 # Configure an Aspire app for Azure App Service
 
-This article describes how to configure [Aspire](/dotnet/aspire/get-started/aspire-overview) apps deployed to [Azure App Service](overview.md). Aspire provides a streamlined, opinionated way to build observable, production-ready cloud-native applications, and App Service integration allows you to customize the underlying Azure infrastructure through code.
+This article describes how to configure [Aspire](https://aspire.dev/get-started/what-is-aspire/) apps deployed to [Azure App Service](overview.md). The Aspire Azure App Service integration lets you model and customize the underlying Azure infrastructure in your AppHost.
 
-If you haven't deployed an Aspire app to App Service yet, see the [quickstart guide](quickstart-dotnet-aspire.md) first.
+> [!IMPORTANT]
+> The Aspire Azure App Service integration is currently in preview.
+
+If you haven't deployed an Aspire app to App Service yet, see the [quickstart guide](quickstart-aspire.md) first.
 
 ## Prerequisites
 
-- An existing Aspire app with the Azure App Service hosting integration. See [Quickstart: Deploy an Aspire app to Azure App Service](quickstart-dotnet-aspire.md).
+- An existing Aspire app with the Azure App Service hosting integration. See [Quickstart: Deploy an Aspire app to Azure App Service](quickstart-aspire.md).
 - The [Aspire.Hosting.Azure.AppService](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppService) package added to your AppHost project.
+
+For current installation and AppHost setup guidance, see [Azure App Service Hosting integration](https://aspire.dev/integrations/cloud/azure/azure-app-service/azure-app-service-host/).
 
 ## Understand what gets provisioned
 
@@ -48,14 +52,11 @@ var builder = DistributedApplication.CreateBuilder(args);
 var existingAppServicePlanName = builder.AddParameter("existingAppServicePlanName");
 var existingResourceGroup = builder.AddParameter("existingResourceGroup");
 
-var appServiceEnv = builder.AddAzureAppServiceEnvironment("app-service-env")
+builder.AddAzureAppServiceEnvironment("app-service-env")
     .AsExisting(existingAppServicePlanName, existingResourceGroup);
 
 builder.AddProject<Projects.WebApi>("api")
-    .PublishAsAzureAppServiceWebsite((infra, website) =>
-    {
-        // Optional: customize the Azure App Service website here
-    });
+    .WithExternalHttpEndpoints();
 
 builder.Build().Run();
 ```
@@ -66,9 +67,11 @@ This approach is useful when you want to:
 - Use an App Service plan that was provisioned outside of Aspire
 - Connect to resources in a different resource group
 
-## Publish projects as App Service websites
+For more information, see [Use existing Azure resources](https://aspire.dev/integrations/cloud/azure/overview/#use-existing-azure-resources).
 
-Use the `PublishAsAzureAppServiceWebsite` method to deploy compute resources as Azure App Service websites:
+## Customize generated App Service websites
+
+When an App Service environment is present, Aspire automatically targets eligible project resources and Dockerfile-backed web containers to App Service. Use `PublishAsAzureAppServiceWebsite` only when you need to customize the generated website or deployment slot:
 
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
@@ -76,15 +79,18 @@ var builder = DistributedApplication.CreateBuilder(args);
 var appServiceEnv = builder.AddAzureAppServiceEnvironment("app-service-env");
 
 builder.AddProject<Projects.WebApi>("api")
+    .WithExternalHttpEndpoints()
     .PublishAsAzureAppServiceWebsite((infra, website) =>
     {
-        // Optional: customize the Azure App Service website here
+        website.Tags.Add("Environment", "Production");
     });
 
 builder.Build().Run();
 ```
 
-During local development (when running with F5 or `dotnet run`), the project runs locally. When you publish your app with `azd up`, the project is deployed as an Azure App Service website within the provisioned environment.
+During local development with `aspire run` or IDE launch support, the project runs locally. When you run `aspire deploy`, the project is deployed as an Azure App Service website within the provisioned environment.
+
+For more information, see [Deploy to Azure App Service](https://aspire.dev/deployment/azure/app-service/) and [`aspire run`](https://aspire.dev/reference/cli/commands/aspire-run/).
 
 ## Configure App Service plan SKU and tier
 
@@ -128,6 +134,8 @@ builder.AddAzureAppServiceEnvironment("app-service-env");
 
 The deployed dashboard provides the same experience as local development: view logs, traces, metrics, and application topology for your production environment.
 
+For more information about dashboard capabilities, see [Aspire dashboard overview](https://aspire.dev/dashboard/overview/).
+
 To disable the dashboard:
 
 ```csharp
@@ -162,9 +170,11 @@ builder.AddAzureAppServiceEnvironment("app-service-env")
 
 ## Configure app settings
 
-You can add custom app settings to your App Service apps by using the `PublishAsAzureAppServiceWebsite` method with infrastructure configuration.
+You can add custom app settings to your App Service apps by using the `PublishAsAzureAppServiceWebsite` customization callback.
 
 ```csharp
+using Azure.Provisioning.AppService;
+
 builder.AddProject<Projects.aspire_starter_Web>("webfrontend")
     .WithExternalHttpEndpoints()
     .WithReference(apiService)
@@ -184,7 +194,7 @@ builder.AddProject<Projects.aspire_starter_Web>("webfrontend")
     });
 ```
 
-You can add any App Service app settings through the `SiteConfig.AppSettings` collection.
+You can add App Service application settings through the `SiteConfig.AppSettings` collection. App Service setting names can contain only letters, numbers, and underscores. For more information, see [Azure App Service Hosting integration](https://aspire.dev/integrations/cloud/azure/azure-app-service/azure-app-service-host/).
 
 ## Add tags to resources
 
@@ -262,9 +272,12 @@ The `WithExternalHttpEndpoints()` method configures the project to be accessible
 - Backend services that other services in your Aspire app need to call
 - Frontend applications that users access directly
 
+App Service supports only external HTTP and HTTPS endpoints and one distinct external target port for each deployed app. Aspire upgrades generated external HTTP endpoint URLs and service-discovery connection strings to HTTPS by default. For more information, see [Deploy to Azure App Service](https://aspire.dev/deployment/azure/app-service/#how-aspire-maps-your-app-to-azure-app-service).
+
 ## Related content
 
-- [Quickstart: Deploy an Aspire app to Azure App Service](quickstart-dotnet-aspire.md)
-- [Aspire documentation](/dotnet/aspire/)
-- [Azure App Service integration for Aspire](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppService)
+- [Quickstart: Deploy an Aspire app to Azure App Service](quickstart-aspire.md)
+- [Aspire documentation](https://aspire.dev/)
+- [Azure App Service Hosting integration](https://aspire.dev/integrations/cloud/azure/azure-app-service/azure-app-service-host/)
+- [Azure App Service deployment](https://aspire.dev/deployment/azure/app-service/)
 - [Configure an ASP.NET Core app for Azure App Service](configure-language-dotnetcore.md)
