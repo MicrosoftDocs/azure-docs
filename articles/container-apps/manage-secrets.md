@@ -32,21 +32,21 @@ Before you delete a secret, deploy a new revision that no longer references the 
 
 ## Permissions for managing secrets
 
-The `listSecrets` action returns secret values in plain text. Grant this permission only to identities that need to read secret values.
+The `listSecrets` operations return secret values in plain text. Grant these permissions only to identities that need to read secret values.
 
-Several Azure built-in roles for Container Apps define their permissions using wildcard patterns as a convenience. These wildcards match the `listSecrets` action, so the following roles grant the ability to read secret values, even when the role name or description suggests narrower access:
+Several Azure built-in roles for Container Apps define permissions using wildcard patterns as a convenience. The following roles grant the ability to read secret values through a wildcard or explicit `listSecrets` permission, even when the role name or description suggests narrower access:
 
 | Built-in role | Permission in the role definition | Matching secrets operation |
-|---|---|---|
+| --- | --- | --- |
 | Container Apps Contributor | `Microsoft.App/containerApps/*/action` | `Microsoft.App/containerApps/listSecrets/action` |
 | Container Apps Operator | `Microsoft.App/containerApps/*/action` | `Microsoft.App/containerApps/listSecrets/action` |
 | Container Apps Jobs Contributor | `Microsoft.App/jobs/*/action` | `Microsoft.App/jobs/listSecrets/action` |
 | Container Apps Jobs Operator | `Microsoft.App/jobs/*/action` | `Microsoft.App/jobs/listSecrets/action` |
 | Container Apps ManagedEnvironments Contributor | `Microsoft.App/managedEnvironments/*/action` | `Microsoft.App/managedEnvironments/daprComponents/listSecrets/action` |
-| Container Apps ConnectedEnvironments Contributor | Explicit permission, not a wildcard | `Microsoft.App/connectedEnvironments/daprComponents/listSecrets/action` |
+| Container Apps ConnectedEnvironments Contributor | `Microsoft.App/connectedEnvironments/*` and an explicit `Microsoft.App/connectedEnvironments/daprComponents/listSecrets/action` permission | `Microsoft.App/connectedEnvironments/daprComponents/listSecrets/action` |
 
 > [!IMPORTANT]
-> The **Container Apps Operator** and **Container Apps Jobs Operator** roles are described as roles that read, start, and stop resources. However, their wildcard actions also grant permission to list secrets. Review the full permission list of a role before you assign it. To see the permissions of each role, see [Azure built-in roles for containers](/azure/role-based-access-control/built-in-roles/containers).
+> The descriptions of the **Container Apps Operator** and **Container Apps Jobs Operator** roles emphasize operational tasks such as reading resources, streaming logs, connecting to a console, and starting or stopping jobs. However, their wildcard actions also grant permission to list secrets. Review the full permission list of a role before you assign it. To see the permissions of each role, see [Azure built-in roles for containers](/azure/role-based-access-control/built-in-roles/containers).
 
 ### Create a custom role with narrower permissions
 
@@ -62,7 +62,9 @@ For example, the following custom role allows a user to monitor jobs and stop ru
   "Actions": [
     "Microsoft.App/jobs/read",
     "Microsoft.App/jobs/executions/read",
+    "Microsoft.App/jobs/execution/read",
     "Microsoft.App/jobs/stop/action",
+    "Microsoft.App/jobs/stop/execution/action",
     "Microsoft.App/managedEnvironments/read"
   ],
   "NotActions": [],
@@ -72,10 +74,10 @@ For example, the following custom role allows a user to monitor jobs and stop ru
 }
 ```
 
-Avoid wildcard patterns such as `Microsoft.App/jobs/*/action` in a custom role definition. A wildcard grants every current and future action for that resource type, including `listSecrets`.
+Avoid wildcard patterns such as `Microsoft.App/jobs/*/action` in a custom role definition. This wildcard grants every current and future operation that matches the pattern, including `listSecrets`.
 
 > [!WARNING]
-> Omitting the `listSecrets` action from a custom role isn't enough to protect secret values if the role also grants `Microsoft.App/jobs/start/action`. When you start a job execution, you can supply a template that overrides the container image, command, and environment variables. A user who can start a job can run a container of their choosing with the job's secrets injected into it and read the values from inside that container. Treat permission to start a job as equivalent to permission to read that job's secrets.
+> For Container Apps jobs, omitting the `listSecrets` action from a custom role isn't enough to protect secret values if the role also grants `Microsoft.App/jobs/start/action`. The [Jobs - Start REST API](/rest/api/resource-manager/containerapps/jobs/start) accepts an optional execution template that can override the container image, command, and environment variables. A user who can start a job and knows a secret's name can reference that secret from a container of their choosing and read its value inside the container. The container can also use any managed identity configured to be available to it. Treat permission to start a job as permission to use the job's secrets and available managed identities.
 
 For more information, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
