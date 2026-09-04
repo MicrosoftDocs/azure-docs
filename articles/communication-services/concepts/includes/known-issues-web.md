@@ -235,7 +235,7 @@ The Azure Communication Services Job Router's `GetQueueStatisticsAsync` API may 
 
 In certain scenarios, a race condition in Job Router's initial worker-matching process can leave a worker's matching state pending. The worker might appear available but stop receiving new job offers. In this condition, `RouterWorkerOfferIssued` events aren't generated for the affected worker; this condition isn't an Event Grid delivery issue.
 
-This is a product limitation. Using a single worker doesn't, by itself, explain the failure, and using multiple workers doesn't eliminate the underlying race condition.
+This condition is a product limitation. Using a single worker doesn't, by itself, explain the failure, and using multiple workers doesn't eliminate the underlying race condition.
 
 #### Recommended best practices
 
