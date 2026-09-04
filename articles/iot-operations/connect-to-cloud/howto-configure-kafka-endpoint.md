@@ -1220,7 +1220,7 @@ In the operations experience data flow endpoint settings page, select the **Adva
 }
 ```
 
-The `partitionStrategy` setting can be `Default`, `Static`, `Topic`, or `Property`. The `partitionKeyProperty` setting is required when `partitionStrategy` is `Property`.
+The `partitionStrategy` setting can be `Default`, `Static`, `Topic`, or `Property`. You must set the `partitionKeyProperty` when `partitionStrategy` is `Property`.
 
 # [Bicep](#tab/bicep)
 
@@ -1274,7 +1274,7 @@ In the operations experience data flow endpoint settings page, select the **Adva
 }
 ```
 
-The `kafkaAcks` setting can be `All`, `One`, or `Zero`.
+Set the `kafkaAcks` value to `All`, `One`, or `Zero`.
 
 # [Bicep](#tab/bicep)
 
