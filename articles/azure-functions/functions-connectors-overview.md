@@ -2,7 +2,7 @@
 title: Use managed connectors in Azure Functions
 description: Learn how Azure Functions integrates with Azure Connector Namespace so that you can create managed connectors to interact with services like Office 365, Teams, and SharePoint and respond to events in these services.
 ms.topic: concept-article
-ms.date: 08/18/2026
+ms.date: 09/04/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.custom:
@@ -36,7 +36,7 @@ You can use managed connectors alongside classic Functions triggers and bindings
 
 | Dimension | Availability |
 |---|---|
-| **Connector Namespace region** | West Central US (`westcentralus`).<br/>Function app can be in any supported region. |
+| **Connector Namespace region** | Any region where Connector Namespace is supported. |
 | **Languages** | .NET 10/.NET 8 isolated, Python 3.13+, Node.js 22+ (JS/TS). Java, PowerShell, and Go aren't supported. |
 | **Hosting plans** | [Flex Consumption](./flex-consumption-plan.md) (recommended), [Premium](./functions-premium-plan.md), [Dedicated](./dedicated-plan.md), and [Container Apps](./functions-container-apps-hosting.md). |
 | **Pricing** | [Standard Functions pricing](https://azure.microsoft.com/pricing/details/functions/): No extra charge for connector trigger/SDK during preview.<br/>*Connector Namespace has separate billing.* |
@@ -374,7 +374,7 @@ Because this check runs at the App Service edge, your function code never sees a
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  Connector namespace  (westcentralus)                           │
+│  Connector namespace                                            │
 │  • System-assigned or user-assigned managed identity enabled    │
 │  • Trigger config: authentication.type = ManagedServiceIdentity │
 │                    authentication.audience = <Entra app ID>     │
@@ -388,7 +388,7 @@ Because this check runs at the App Service edge, your function code never sees a
                          │     oid = managed identity principalId
                          ▼
 ┌──────────────────────────────────────────────────────────────┐
-│  Function App  (any region)                                  │
+│  Function App                                                │
 │                                                              │
 │   ┌──────────────────────────────────────────────────────┐   │
 │   │ Built-in authentication  (App Service edge)          │   │

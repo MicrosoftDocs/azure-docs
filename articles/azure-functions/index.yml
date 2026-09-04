@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: ggailey777
   ms.author: glenga
-  ms.date: 10/15/2025
+  ms.date: 09/04/2026
   ms.custom: build-2025
 landingContent:
   - title: About Azure Functions
@@ -89,6 +89,8 @@ landingContent:
             url: functions-reference.md
           - text: Azure Functions triggers and bindings concepts
             url: functions-triggers-bindings.md
+          - text: Managed connectors in Azure Functions
+            url: functions-connectors-overview.md
           - text: Code and test Azure Functions locally
             url: functions-develop-local.md
       - linkListType: sample
