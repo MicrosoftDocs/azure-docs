@@ -71,7 +71,7 @@ For this reason, `Microsoft.Devices/IotHubs/write` is functionally equivalent to
 If you need to separate resource configuration from shared access policy credential administration, use one of the following patterns instead:
 
 - **Prefer Microsoft Entra ID authentication for the data plane.** Assign the built-in **IoT Hub Data Contributor**, **IoT Hub Data Reader**, **IoT Hub Registry Contributor**, or **IoT Hub Twin Contributor** roles for data-plane operations, and [enforce Microsoft Entra authentication](#enforce-microsoft-entra-authentication) on the resource to disable shared-access-signature access.
-- **Restrict `write` at the resource scope.** Because `write` implies key control, grant it only to principals that you would otherwise trust with shared access policy credentials.
+- **Restrict `write` at the resource scope.** Because `write` implies key control, grant it only to principals that you trust with shared access policy credentials.
 - **Audit control-plane activity.** Changes to `authorizationPolicies` made through the control-plane PUT are recorded in the Azure Activity Log under the `Microsoft.Devices/IotHubs/write` operation. Review these events alongside `listkeys/action` events when auditing credential access.
 
 The same considerations apply to Azure IoT Hub Device Provisioning Service (DPS). For details, see [Control access to DPS by using Microsoft Entra ID](../iot-dps/concepts-control-access-dps-azure-ad.md).
