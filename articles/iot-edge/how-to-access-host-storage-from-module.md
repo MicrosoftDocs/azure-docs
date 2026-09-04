@@ -72,7 +72,7 @@ Your deployment manifest would be similar to the following:
 ```
 
 > [!IMPORTANT]
-> Starting with IoT Edge 1.6.3, if `allow_elevated_docker_permissions` is set to `false` on the device, add `/srv/edgeAgent` and `/srv/edgeHub` to the device's `allowed_bind_sources` setting. Otherwise, IoT Edge removes these bind mounts when it creates the modules. For more information, see [Allowed bind sources](configure-device.md#allowed-bind-sources).
+> Starting with IoT Edge 1.6.3, if you set `allow_elevated_docker_permissions` to `false` on the device, add `/srv/edgeAgent` and `/srv/edgeHub` to the device's `allowed_bind_sources` setting. Otherwise, IoT Edge removes these bind mounts when it creates the modules. For more information, see [Allowed bind sources](configure-device.md#allowed-bind-sources).
 
 > [!NOTE]
 > If you are using a snap installation, ensure you choose a host storage path that is accessible to the snaps. For example, `$HOME/snap/azure-iot-edge/current/modules/`.
@@ -112,7 +112,7 @@ The following example shows how to use a bind mount in the module's create optio
 
 Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path. Refer to the [Docker Engine storage documentation](https://docs.docker.com/engine/storage/bind-mounts/) for option details.
 
-Starting with IoT Edge 1.6.3, if `allow_elevated_docker_permissions` is set to `false` on the device, add `<HostStoragePath>` to the device's `allowed_bind_sources` setting. For more information, see [Allowed bind sources](configure-device.md#allowed-bind-sources).
+Starting with IoT Edge 1.6.3, if you set `allow_elevated_docker_permissions` to `false` on the device, add `<HostStoragePath>` to the device's `allowed_bind_sources` setting. For more information, see [Allowed bind sources](configure-device.md#allowed-bind-sources).
 
 ### Host system permissions
 

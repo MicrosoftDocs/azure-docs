@@ -3,7 +3,7 @@ title: Develop modules for Azure IoT Edge
 description: Develop custom modules for Azure IoT Edge that can communicate with the runtime and Azure IoT Hub. Learn how to package your program as an IoT Edge module.
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/02/2026
+ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -110,12 +110,6 @@ In the config file on an IoT Edge device, a parameter called `allow_elevated_doc
 
 > [!NOTE]
 > Currently, this flag is **true** by default, which grants privileged permissions to deployments. Set this flag to **false** to improve device security.
-
-### Restrict bind mount sources
-
-Starting with IoT Edge 1.6.3, when `allow_elevated_docker_permissions` is set to **false**, the device-level `allowed_bind_sources` setting controls which host paths modules can use as bind mount sources. Unlisted bind mounts are removed before the container is created.
-
-If your module requires host storage, make sure its host path is included in `allowed_bind_sources`. Docker-managed named volumes don't need to be included. For configuration details, see [Allowed bind sources](configure-device.md#allowed-bind-sources).
 
 ### Enable CAP_CHOWN and CAP_SETUID
 
