@@ -60,7 +60,7 @@ For this reason, `Microsoft.Devices/provisioningServices/write` is functionally 
 If you need to separate resource configuration from shared access policy credential administration, use one of the following patterns instead:
 
 - **Prefer Microsoft Entra ID authentication for the data plane.** Assign the built-in **Device Provisioning Service Data Contributor** or **Device Provisioning Service Data Reader** roles for enrollment management, and disable shared-access-signature access on the resource where possible.
-- **Restrict `write` at the resource scope.** Because `write` implies key control, grant it only to principals that you would otherwise trust with shared access policy credentials.
+- **Restrict `write` at the resource scope.** Because `write` implies key control, grant it only to principals that you trust with shared access policy credentials.
 - **Audit control-plane activity.** Changes to `authorizationPolicies` made through the control-plane PUT are recorded in the Azure Activity Log under the `Microsoft.Devices/provisioningServices/write` operation. Review these events alongside `listkeys/action` events when auditing credential access.
 
 The same considerations apply to Azure IoT Hub. For details, see [Control access to IoT Hub by using Microsoft Entra ID](../iot-hub/authenticate-authorize-azure-ad.md).
