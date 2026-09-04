@@ -291,3 +291,6 @@ items:
       href: reference-javascript-sdks.md
     - name: Python SDKs
       href: reference-python-sdks.md
+    - name: FAQ
+      href: faq.yml
+      displayName: faq, frequently asked questions

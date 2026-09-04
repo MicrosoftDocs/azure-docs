@@ -5,7 +5,7 @@ author: DaveMuhich
 ms.author: damuhic
 ms.service: azure
 ms.topic: overview
-ms.date: 04/17/2026
+ms.date: 09/04/2026
 
 #CustomerIntent: As a platform administrator or researcher, I want to understand the Microsoft Discovery service architecture so that I can plan deployments and understand how the platform's resources relate to each other.
 ---
@@ -131,3 +131,4 @@ For details, see [Bookshelf & Knowledge Bases](concept-bookshelf-knowledge-bases
 - [Projects and investigations](concept-projects-investigations.md)
 - [Discovery Tool concepts](concept-tools-model-integration.md)
 - [Bookshelf & Knowledge Bases](concept-bookshelf-knowledge-bases.md)
+- [Microsoft Discovery FAQ](faq.yml)
