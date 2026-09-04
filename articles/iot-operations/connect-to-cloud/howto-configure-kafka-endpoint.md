@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/18/2026
+ms.date: 09/04/2026
 ai-usage: ai-assisted
 ms.custom:
   - sfi-image-nochange
@@ -634,7 +634,7 @@ az iot ops dataflow endpoint create $ENDPOINT_TYPE --auth-type UserAssignedManag
 
 Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter
 
-In this example, assume a configuration file with the following content:
+In this example, assume a configuration file with the following content. The `scope` setting is optional.
 
 ```json
 {
@@ -645,7 +645,6 @@ In this example, assume a configuration file with the following content:
           "userAssignedManagedIdentitySettings": {
             "clientId": "<ID>",
             "tenantId": "<ID>",
-            // Optional
             "scope": "https://<Scope_Url>"
           }
         }
@@ -945,7 +944,7 @@ In the operations experience data flow endpoint settings page, select the **Adva
     "endpointType": "Kafka",
     "kafkaSettings": {
         "tls": {
-            "mode": "Enabled",
+            "mode": "Enabled"
         }
     }
 }
@@ -1045,7 +1044,7 @@ In the operations experience data flow endpoint settings page, select the **Adva
 {
     "endpointType": "Kafka",
     "kafkaSettings": {
-        "consumerGroupId": "<ID>",
+        "consumerGroupId": "<ID>"
     }
 }
 ```
@@ -1215,11 +1214,13 @@ In the operations experience data flow endpoint settings page, select the **Adva
 {
     "endpointType": "Kafka",
     "kafkaSettings": {
-        "partitionStrategy": "Property", // Or Default, Topic, Property
-        "partitionKeyProperty": "<PROPERTY_NAME>" // Required if partitionStrategy is Property
+        "partitionStrategy": "Property",
+        "partitionKeyProperty": "<PROPERTY_NAME>"
     }
 }
 ```
+
+The `partitionStrategy` setting can be `Default`, `Static`, `Topic`, or `Property`. The `partitionKeyProperty` setting is required when `partitionStrategy` is `Property`.
 
 # [Bicep](#tab/bicep)
 
@@ -1268,10 +1269,12 @@ In the operations experience data flow endpoint settings page, select the **Adva
 {
     "endpointType": "Kafka",
     "kafkaSettings": {
-        "kafkaAcks": "All" // Or One, Zero
+        "kafkaAcks": "All"
     }
 }
 ```
+
+The `kafkaAcks` setting can be `All`, `One`, or `Zero`.
 
 # [Bicep](#tab/bicep)
 
