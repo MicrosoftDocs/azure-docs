@@ -77,6 +77,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |
 | Azure App Service | Microsoft.Web/hostingEnvironments | hosting environment |
 | Azure App Service | Microsoft.Web/sites | sites |
+| Azure App Service Slot | Microsoft.Web/sites | sites-[slot-name] |
 | Azure Attestation Service | Microsoft.Attestation/attestationProviders | standard |
 | Azure Automation | Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 | Azure Backup | Microsoft.RecoveryServices/vaults | AzureBackup, AzureSiteRecovery |
