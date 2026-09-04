@@ -6,7 +6,7 @@ manager: chpalmer
 services: azure-communication-services
 
 ms.author: micahvivion
-ms.date: 02/08/2024
+ms.date: 09/04/2026
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -227,4 +227,27 @@ The following limitations are known issues in the Communication Services Call Au
 
 ## Job Router
 
+### Inaccurate queue statistics
+
 The Azure Communication Services Job Router's `GetQueueStatisticsAsync` API may return inaccurate queue statistics data in certain scenarios. Specifically, the API returns incorrect values for metrics such as `LongestJobWaitTimeMinutes` and `EstimatedWaitTimes`, including zero wait times and inconsistent estimates. If you encounter unexpected or inconsistent values, consider implementing additional logic in your application to validate or smooth out the reported statistics and avoid using these values for application-specific logic. The product team is aware of this issue and is actively working on a fix. For the latest updates, refer to the [Azure Communication Services documentation](/azure/communication-services/).
+
+### Workers can stop receiving job offers despite being available
+
+In certain scenarios, a race condition in Job Router's initial worker-matching process can leave a worker's matching state pending. The worker might appear available but stop receiving new job offers. In this condition, `RouterWorkerOfferIssued` events aren't generated for the affected worker; this condition isn't an Event Grid delivery issue.
+
+This condition is a product limitation. Using a single worker doesn't, by itself, explain the failure, and using multiple workers doesn't eliminate the underlying race condition.
+
+#### Recommended best practices
+
+- Monitor queued job progress and offer issuance for eligible workers with available capacity. Maintain a tested recovery procedure for cases where routing stops progressing.
+- Where your application allows, configure multiple eligible workers to reduce dependence on a single worker. Ensure that the workers have the queue membership, channels, labels, and available capacity required for the jobs they handle. This condition improves resilience if one worker is affected, but doesn't guarantee that the issue won't recur.
+- Preserve your application's intended aggregate capacity and concurrency limits when adding workers. Each worker has its own capacity, so adding workers can increase the number of jobs handled concurrently. For more information, see [Worker capacity](/azure/communication-services/concepts/router/worker-capacity-concepts).
+
+#### Recovery workaround
+
+1. Fully deregister the affected worker by setting `availableForOffers` to `false`. Wait for deregistration to complete, as indicated by the `RouterWorkerDeregistered` event, before setting `availableForOffers` back to `true`. Detaching and reattaching queue assignments alone isn't equivalent to deregistering and re-registering a worker. For more information, see [Worker deregistration](/azure/communication-services/concepts/router/matching-concepts#worker-deregistration).
+1. If routing doesn't resume or the issue recurs, deregister the affected worker again and create a replacement worker with a new worker ID and the required queue, channel, capacity, and label configuration. Update any application references to the worker ID, and keep the original worker unavailable for new offers.
+1. Confirm that eligible jobs receive offers through the recovered or replacement worker before relying on it for recovery. Account for any jobs still assigned to the original worker in your application's recovery procedure.
+
+> [!NOTE]
+> Deregistering a worker revokes its outstanding offers. Replacing a worker is a recovery workaround, not a permanent fix for this limitation.
