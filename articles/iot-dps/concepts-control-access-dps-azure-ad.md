@@ -44,6 +44,27 @@ Azure IoT Hub Device Provisioning Service (DPS) provides the following Azure bui
 
 You can also define custom roles to use with Azure IoT Hub Device Provisioning Service (DPS) by combining the [permissions](#permissions-for-azure-iot-hub-device-provisioning-service-dps-apis) that you need. For more information, see [Create custom roles for Azure role-based access control](../role-based-access-control/custom-roles.md).
 
+### Control-plane write and shared access policy keys
+
+The `Microsoft.Devices/provisioningServices/write` action lets a principal create or update any property of the DPS resource, including the `authorizationPolicies` collection. Because the Azure Resource Manager (ARM) contract for [CreateOrUpdate](/rest/api/iot-dps/iot-dps-resource/create-or-update) accepts caller-supplied `primaryKey` and `secondaryKey` values on each policy, a principal that holds `write` on a DPS resource can:
+
+- Set the primary or secondary key of any shared access policy (including the root `provisioningserviceowner` policy) to a value they choose, and then authenticate as that policy.
+- Rotate the keys of any shared access policy, which invalidates existing consumers.
+- Add a new named shared access policy with a chosen key value.
+
+For this reason, `Microsoft.Devices/provisioningServices/write` is functionally equivalent to full administration of the resource's shared access policy credentials, regardless of whether the principal also holds `Microsoft.Devices/provisioningServices/listkeys/action` or `Microsoft.Devices/provisioningServices/listkey/action`.
+
+> [!IMPORTANT]
+> A custom role that grants `Microsoft.Devices/provisioningServices/write` on a DPS resource without granting `listkeys/action` does **not** isolate credential administration from resource configuration. The principal still has full control over shared access policy key material through the write path. Don't rely on this pattern for least-privilege configuration.
+
+If you need to separate resource configuration from shared access policy credential administration, use one of the following patterns instead:
+
+- **Prefer Microsoft Entra ID authentication for the data plane.** Assign the built-in **Device Provisioning Service Data Contributor** or **Device Provisioning Service Data Reader** roles for enrollment management, and disable shared-access-signature access on the resource where possible.
+- **Restrict `write` at the resource scope.** Because `write` implies key control, grant it only to principals that you would otherwise trust with shared access policy credentials.
+- **Audit control-plane activity.** Changes to `authorizationPolicies` made through the control-plane PUT are recorded in the Azure Activity Log under the `Microsoft.Devices/provisioningServices/write` operation. Review these events alongside `listkeys/action` events when auditing credential access.
+
+The same considerations apply to Azure IoT Hub. For details, see [Control access to IoT Hub by using Microsoft Entra ID](../iot-hub/authenticate-authorize-azure-ad.md).
+
 ### Resource scope
 
 Before you assign an Azure RBAC role to a security principal, determine the scope of access that the security principal should have. It's always best to grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them.

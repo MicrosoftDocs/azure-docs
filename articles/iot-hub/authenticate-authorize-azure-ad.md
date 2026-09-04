@@ -55,6 +55,27 @@ IoT Hub provides the following Azure built-in roles for authorizing access to Io
 
 You can also define custom roles to use with IoT Hub by combining the [permissions](#permissions-for-iot-hub-service-apis) that you need. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
+### Control-plane write and shared access policy keys
+
+The `Microsoft.Devices/IotHubs/write` action lets a principal create or update any property of the IoT Hub resource, including the `authorizationPolicies` collection. Because the Azure Resource Manager (ARM) contract for [CreateOrUpdate](/rest/api/iothub/iot-hub-resource/create-or-update) accepts caller-supplied `primaryKey` and `secondaryKey` values on each policy, a principal that holds `write` on an IoT hub can:
+
+- Set the primary or secondary key of any shared access policy (including the root `iothubowner` policy) to a value they choose, and then authenticate as that policy.
+- Rotate the keys of any shared access policy, which invalidates existing consumers.
+- Add a new named shared access policy with a chosen key value.
+
+For this reason, `Microsoft.Devices/IotHubs/write` is functionally equivalent to full administration of the resource's shared access policy credentials, regardless of whether the principal also holds `Microsoft.Devices/IotHubs/listkeys/action` or `Microsoft.Devices/IotHubs/IotHubKeys/listkeys/action`.
+
+> [!IMPORTANT]
+> A custom role that grants `Microsoft.Devices/IotHubs/write` on an IoT hub without granting `listkeys/action` does **not** isolate credential administration from resource configuration. The principal still has full control over shared access policy key material through the write path. Don't rely on this pattern for least-privilege configuration.
+
+If you need to separate resource configuration from shared access policy credential administration, use one of the following patterns instead:
+
+- **Prefer Microsoft Entra ID authentication for the data plane.** Assign the built-in **IoT Hub Data Contributor**, **IoT Hub Data Reader**, **IoT Hub Registry Contributor**, or **IoT Hub Twin Contributor** roles for data-plane operations, and [enforce Microsoft Entra authentication](#enforce-microsoft-entra-authentication) on the resource to disable shared-access-signature access.
+- **Restrict `write` at the resource scope.** Because `write` implies key control, grant it only to principals that you would otherwise trust with shared access policy credentials.
+- **Audit control-plane activity.** Changes to `authorizationPolicies` made through the control-plane PUT are recorded in the Azure Activity Log under the `Microsoft.Devices/IotHubs/write` operation. Review these events alongside `listkeys/action` events when auditing credential access.
+
+The same considerations apply to Azure IoT Hub Device Provisioning Service (DPS). For details, see [Control access to DPS by using Microsoft Entra ID](../iot-dps/concepts-control-access-dps-azure-ad.md).
+
 ### Resource scope
 
 Before you assign an Azure RBAC role to a security principal, determine the scope of access that the security principal should have. It's always best to grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them.
