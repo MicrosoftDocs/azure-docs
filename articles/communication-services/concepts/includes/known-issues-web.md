@@ -240,7 +240,7 @@ This is a product limitation. Using a single worker doesn't, by itself, explain 
 #### Recommended best practices
 
 - Monitor queued job progress and offer issuance for eligible workers with available capacity. Maintain a tested recovery procedure for cases where routing stops progressing.
-- Where your application allows, configure multiple eligible workers to reduce dependence on a single worker. Ensure that the workers have the queue membership, channels, labels, and available capacity required for the jobs they handle. This improves resilience if one worker is affected, but doesn't guarantee that the issue won't recur.
+- Where your application allows, configure multiple eligible workers to reduce dependence on a single worker. Ensure that the workers have the queue membership, channels, labels, and available capacity required for the jobs they handle. This condition improves resilience if one worker is affected, but doesn't guarantee that the issue won't recur.
 - Preserve your application's intended aggregate capacity and concurrency limits when adding workers. Each worker has its own capacity, so adding workers can increase the number of jobs handled concurrently. For more information, see [Worker capacity](/azure/communication-services/concepts/router/worker-capacity-concepts).
 
 #### Recovery workaround
