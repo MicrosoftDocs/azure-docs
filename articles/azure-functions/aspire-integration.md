@@ -3,43 +3,51 @@ title: Guide for Using Azure Functions with Aspire
 description: Learn how to use Azure Functions with Aspire, which simplifies authoring of distributed applications in the cloud.
 ms.service: azure-functions
 ms.topic: integration
-ms.date: 08/25/2026
+ms.date: 09/04/2026
 ---
 
 # Azure Functions with Aspire
 
-[Aspire](/dotnet/aspire/get-started/aspire-overview) is an opinionated stack that simplifies development of distributed applications in the cloud. The integration of Aspire with Azure Functions enables you to develop, debug, and orchestrate an Azure Functions .NET project as part of the Aspire app host.
+[Aspire](https://aspire.dev/get-started/what-is-aspire/) is a toolchain for building, running, debugging, and deploying distributed applications. The Aspire Azure Functions integration enables you to develop, debug, and orchestrate an Azure Functions project as part of an Aspire AppHost. The .NET examples in this article use the isolated worker model.
 
 ## Prerequisites
 
 Set up your development environment for using Azure Functions with Aspire:
 
-- [Install the Aspire Prerequisites](/dotnet/aspire/fundamentals/setup-tooling#install-aspire-prerequisites).
-    - Full support for the Azure Functions integration requires Aspire 13.1 or later. Aspire 13.0 also includes a preview version of `Aspire.Hosting.Azure.Functions` which acts as a release candidate with go-live support.
+- [Install the Aspire prerequisites](https://aspire.dev/get-started/prerequisites/), including the .NET SDK required by your AppHost.
+- [Install the Aspire CLI](https://aspire.dev/get-started/install-cli/).
+- Install the Aspire Azure Functions hosting integration from the AppHost directory:
+
+  ```bash
+  aspire add Aspire.Hosting.Azure.Functions
+  ```
+
 - Install the [Azure Functions Core Tools](./functions-run-local.md).
 
-If you use Visual Studio, update to version 17.12 or later. You must also have the latest version of the Azure Functions tools for Visual Studio. To check for updates:
+If you use Visual Studio, install the latest Visual Studio and Azure Functions tooling updates:
   1. Go to **Tools** > **Options**.
   1. Under **Projects and Solutions**, select **Azure Functions**.
   1. Select **Check for updates** and install updates as prompted.
 
+For more information about the integration package and supported AppHost APIs, see [Set up Azure Functions in the AppHost](https://aspire.dev/integrations/cloud/azure/azure-functions/azure-functions-host/).
+
 ## Solution structure
 
-A solution that uses Azure Functions and Aspire has multiple projects, including an [app host project](/dotnet/aspire/fundamentals/app-host-overview) and one or more Functions projects.
+A solution that uses Azure Functions and Aspire has multiple projects, including an [AppHost](https://aspire.dev/get-started/app-host/) and one or more Functions projects.
 
-The app host project is the entry point for your application. It orchestrates the setup of the components of your application, including the Functions project.
+The AppHost is the entry point for your application. It orchestrates the setup of the components of your application, including the Functions project.
 
 The solution typically also includes a *service defaults* project. This project provides a set of default services and configurations to be used across projects in your application.
 
-### App host project
+### AppHost project
 
-To successfully configure the integration, make sure that the app host project meets the following requirements:
+To successfully configure the integration, make sure that the AppHost project meets the following requirements:
 
-- The app host project must reference [Aspire.Hosting.Azure.Functions]. This package defines the necessary logic for the integration.
-- The app host project needs to have a project reference for each Functions project that you want to include in the orchestration.
-- In the app host's `AppHost.cs` file, you must include the project by calling `AddAzureFunctionsProject<TProject>()` on your `IDistributedApplicationBuilder` instance. You use this method instead of using the `AddProject<TProject>()` method that you use for other project types in Aspire. If you use `AddProject<TProject>()`, the Functions project can't start properly.
+- The AppHost must reference [Aspire.Hosting.Azure.Functions]. This package defines the integration.
+- A C# AppHost can reference a Functions project and call `AddAzureFunctionsProject<TProject>()`, or call `AddAzureFunctionsProject(name, projectPath)` with the path to the project file. TypeScript AppHosts use the project-path form of `addAzureFunctionsProject`.
+- Use `AddAzureFunctionsProject` instead of `AddProject`. A Functions project added with `AddProject` can't start properly.
 
-The following example shows a minimal `AppHost.cs` file for an app host project:
+The following example shows a minimal `AppHost.cs` file for a C# AppHost project:
 
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
@@ -53,7 +61,8 @@ builder.Build().Run();
 
 To successfully configure the integration, make sure that the Azure Functions project meets the following requirements:
 
-- Use `Azure.Functions.Sdk` version 1.0.0 or later as the [project SDK](./dotnet-isolated-process-guide.md#core-sdk-and-package) and reference the 2.x version of [Microsoft.Azure.Functions.Worker]. Also, update any [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore] references to the 2.x version.
+- Target .NET 8 or later, use the .NET 9 SDK or later, and use the [isolated worker model](./dotnet-isolated-process-guide.md).
+- Reference [Microsoft.Azure.Functions.Worker], [Microsoft.Azure.Functions.Worker.Sdk], and, for HTTP triggers, [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore].
 - Your `Program.cs` file must use the `IHostApplicationBuilder` version of the [host instance startup](./dotnet-isolated-process-guide.md#start-up-and-configuration). This requirement means that you must use `FunctionsApplication.CreateBuilder(args)`.
 - If your solution includes a service defaults project, ensure that your Functions project is configured to use it:
 
@@ -75,16 +84,16 @@ builder.ConfigureFunctionsWebApplication();
 builder.Build().Run();
 ```
 
-This example doesn't include the default Application Insights configuration that appears in many other `Program.cs` examples and in the Azure Functions templates. Instead, you configure OpenTelemetry integration in Aspire by calling the `builder.AddServiceDefaults` method.
+This example doesn't include the default Application Insights configuration that appears in many other `Program.cs` examples and in the Azure Functions templates. Instead, you configure OpenTelemetry integration in Aspire by calling the `builder.AddServiceDefaults()` method.
 
 To get the most out of the integration, consider the following guidelines:
 
 - Don't include any direct Application Insights integrations in the Functions project. Monitoring in Aspire is instead handled through its OpenTelemetry support. You can configure Aspire to export data to Azure Monitor through the service defaults project.
-- Don't define custom app settings in the `local.settings.json`  file for the Functions project. The only setting that should be in `local.settings.json` is `"FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"`. Set all other app configurations through the app host project.
+- When Aspire runs the Functions project, prefer settings injected by the AppHost. You can keep equivalent settings in `local.settings.json` for running the project independently with `func start`; Aspire-injected environment variables override them.
 
 ## Connection configuration with Aspire
 
-The app host project defines resources and helps you create connections between them by using code. This section shows how to configure and customize connections that your Azure Functions project uses.
+The AppHost defines resources and helps you create connections between them by using code. This section shows how to configure and customize connections that your Azure Functions project uses.
 
 Aspire includes default connection permissions that can help you get started. However, these permissions might not be appropriate or sufficient for your application.
 
@@ -92,7 +101,7 @@ For scenarios that use Azure role-based access control (RBAC), you can customize
 
 ### Azure Functions host storage
 
-Azure Functions requires a [host storage connection (`AzureWebJobsStorage`)][host-storage-identity] for several of its core behaviors. When you call `AddAzureFunctionsProject<TProject>()` in your app host project, an `AzureWebJobsStorage` connection is created by default and provided to the Functions project. This default connection uses the Azure Storage emulator for local development runs and automatically provisions a storage account when it's deployed. For more control, you can replace this connection by calling `.WithHostStorage()` on the Functions project resource.
+Azure Functions requires a [host storage connection (`AzureWebJobsStorage`)][host-storage-identity] for several of its core behaviors. When you call `AddAzureFunctionsProject<TProject>()` in your AppHost, an `AzureWebJobsStorage` connection is created by default and provided to the Functions project. This default connection uses the Azure Storage emulator for local development runs and automatically provisions a storage account when it's deployed. For more control, you can replace this connection by calling `.WithHostStorage()` on the Functions project resource.
 
 The default permissions that Aspire sets for the host storage connection depend on whether you call `WithHostStorage()` or not. Adding `WithHostStorage()` removes a [Storage Account Contributor] assignment. The following table lists the default permissions that Aspire sets for the host storage connection:
 
@@ -101,7 +110,7 @@ The default permissions that Aspire sets for the host storage connection depend 
 | No call to `WithHostStorage()`  | [Storage Blob Data Contributor],<br/>[Storage Queue Data Contributor],<br/>[Storage Table Data Contributor],<br/>[Storage Account Contributor] |
 | Calling `WithHostStorage()` | [Storage Blob Data Contributor],<br/>[Storage Queue Data Contributor],<br/>[Storage Table Data Contributor] |
 
-The following example shows a minimal `AppHost.cs` file for an app host project that replaces the host storage and specifies a role assignment:
+The following example shows a minimal `AppHost.cs` file that replaces the host storage and specifies a role assignment:
 
 ```csharp
 using Azure.Provisioning.Storage;
@@ -130,12 +139,12 @@ Your triggers and bindings reference connections by name. The following Aspire i
 
 | Aspire integration                                                          | Default roles                                                                                             |
 |-----------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| [Azure Blob Storage](/dotnet/aspire/storage/azure-storage-blobs-integration)       | [Storage Blob Data Contributor],<br/>[Storage Queue Data Contributor],<br/>[Storage Table Data Contributor] |
-| [Azure Queue Storage](/dotnet/aspire/storage/azure-storage-queues-integration)     | [Storage Blob Data Contributor],<br/>[Storage Queue Data Contributor],<br/>[Storage Table Data Contributor] |
-| [Azure Event Hubs](/dotnet/aspire/messaging/azure-event-hubs-integration)   | [Azure Event Hubs Data Owner]                                                                               |
-| [Azure Service Bus](/dotnet/aspire/messaging/azure-service-bus-integration) | [Azure Service Bus Data Owner]                                                                              |
+| [Azure Blob Storage](https://aspire.dev/integrations/cloud/azure/azure-storage-blobs/azure-storage-blobs-get-started/) | [Storage Blob Data Contributor],<br/>[Storage Queue Data Contributor],<br/>[Storage Table Data Contributor] |
+| [Azure Queue Storage](https://aspire.dev/integrations/cloud/azure/azure-storage-queues/azure-storage-queues-get-started/) | [Storage Blob Data Contributor],<br/>[Storage Queue Data Contributor],<br/>[Storage Table Data Contributor] |
+| [Azure Event Hubs](https://aspire.dev/integrations/cloud/azure/azure-event-hubs/azure-event-hubs-get-started/) | [Azure Event Hubs Data Owner] |
+| [Azure Service Bus](https://aspire.dev/integrations/cloud/azure/azure-service-bus/azure-service-bus-get-started/) | [Azure Service Bus Data Owner] |
 
-The following example shows a minimal `AppHost.cs` file for an app host project that configures a queue trigger. In this example, the corresponding queue trigger has its `Connection` property set to `MyQueueTriggerConnection`, so the call to `WithReference()` specifies the name.
+The following example shows a minimal `AppHost.cs` file that configures a queue trigger. In this example, the corresponding queue trigger has its `Connection` property set to `MyQueueTriggerConnection`, so the call to `WithReference()` specifies the name.
 
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
@@ -149,7 +158,7 @@ builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProjec
 builder.Build().Run();
 ```
 
-For other integrations, calls to `WithReference` set the configuration in a different way. They make the configuration available to [Aspire client integrations](/dotnet/aspire/fundamentals/integrations-overview#client-integrations), but not to triggers and bindings. For these integrations, call `WithEnvironment()` to pass the connection information for the trigger or binding to resolve.
+For other integrations, calls to `WithReference` set the configuration in a different way. They make the configuration available to [Aspire client integrations](https://aspire.dev/integrations/overview/#wiring-resources-to-consuming-projects-with-references), but not to triggers and bindings. For these integrations, call `WithEnvironment()` to pass the connection information for the trigger or binding to resolve.
 
 The following example shows how to set the environment variable `MyBindingConnection` for a resource that exposes a connection string expression:
 
@@ -171,35 +180,39 @@ builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProjec
 
 For details on the connection formats that each binding supports, and the permissions that those formats require, consult the binding's [reference pages](./functions-triggers-bindings.md#supported-bindings).
 
+For more information about how Functions code reads values injected by `WithReference`, see [Azure Functions runtime configuration](https://aspire.dev/integrations/cloud/azure/azure-functions/azure-functions-connect/).
+
 ## Hosting the application
 
-Aspire supports two different ways to host your Functions project in Azure:
+Aspire supports Azure Container Apps deployment for Functions projects. You can also use the separate preview App Service integration to target a container-capable function app:
 
-- [Publish as a container app (default)](#publish-as-a-container-app)
-- [Publish as a function app](#publish-as-a-function-app) using preview App Service integration
+- [Deploy as a container app](#deploy-as-a-container-app)
+- [Deploy as a function app](#deploy-as-a-function-app) using the preview App Service integration
 
 In both cases, your project is deployed as a container. Aspire takes care of building the container image for you and pushing it to Azure Container Registry.
 
-### Publish as a container app
+### Deploy as a container app
 
-By default, when you publish an Aspire project to Azure, it's deployed to Azure Container Apps. The system sets up scaling rules for your Functions project using [KEDA](https://keda.sh/). When using Azure Container Apps, additional setup is needed for function keys. See [Access keys on Azure Container Apps](#access-keys-on-azure-container-apps) for more information.
+When your AppHost targets Azure Container Apps, Aspire sets up scaling rules for your Functions project using [KEDA](https://keda.sh/). When using Azure Container Apps, additional setup is needed for function keys. See [Access keys on Azure Container Apps](#access-keys-on-azure-container-apps) for more information.
+
+Deploy the configured AppHost by running `aspire deploy`. For more information, see [Deploy to Azure Container Apps](https://aspire.dev/deployment/azure/container-apps/) and [`aspire deploy`](https://aspire.dev/reference/cli/commands/aspire-deploy/).
 
 #### Access keys on Azure Container Apps
 
 Several Azure Functions scenarios use access keys to provide a basic mitigation against unwanted access. For example, HTTP trigger functions by default require an access key to be invoked, though this requirement can be disabled using the [`AuthLevel` property](./functions-bindings-http-webhook-trigger.md#attributes). See [Work with access keys in Azure Functions](./function-keys-how-to.md) for scenarios which may require a key.
 
-When you deploy a Functions project using Aspire to Azure Container Apps, the system doesn't automatically create or manage Functions access keys. If you need to use access keys, you can manage them as part of your App Host setup. This section shows you how to create an extension method that you can call from your app host's `Program.cs` file to create and manage access keys. This approach uses Azure Key Vault to store the keys and mounts them into the container app as secrets.
+When you deploy a Functions project using Aspire to Azure Container Apps, the system doesn't automatically create or manage Functions access keys. If you need to use access keys, you can manage them as part of your AppHost setup. This section shows you how to create an extension method that you can call from your AppHost's `AppHost.cs` file to create and manage access keys. This approach uses Azure Key Vault to store the keys and mounts them into the container app as secrets.
 
 > [!NOTE]
-> The behavior here relies on the `ContainerApps` secret provider, which is only available starting with Functions host version `4.1044.0`. This version is not yet available in all regions, and until it is, when you publish your Aspire project, the base image used for the Functions project may not include the necessary changes.
+> The behavior here relies on the `ContainerApps` secret provider, which requires Functions host version `4.1044.0` or later.
 
 These steps require Bicep version `0.38.3` or later. You can check your Bicep version by running `bicep --version` from a command prompt. If you have the Azure CLI installed, you can use `az bicep upgrade` to quickly update Bicep to the latest version.
 
-Add the following NuGet packages to your app host project:
+Add the following NuGet packages to your AppHost project:
 - [Aspire.Hosting.Azure.AppContainers](https://www.nuget.org/packages/Aspire.Hosting.Azure.AppContainers)
 - [Aspire.Hosting.Azure.KeyVault](https://www.nuget.org/packages/Aspire.Hosting.Azure.KeyVault)
 
-Create a new class in your app host project and include the following code:
+Create a new class in your AppHost project and include the following code:
 
 ```csharp
 using Aspire.Hosting.Azure;
@@ -320,7 +333,7 @@ internal static class Extensions
 }
 ```
 
-You can then use this method in your app host's `Program.cs` file:
+You can then use this method in your AppHost's `AppHost.cs` file:
 
 ```csharp
 builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProject")
@@ -333,24 +346,24 @@ This example uses a default key vault created by the extension method. It result
 
 To use these keys from clients, you need to retrieve them from the key vault.
 
-### Publish as a function app
+### Deploy as a function app
 
 > [!NOTE]
-> Publishing as a function app requires the Aspire Azure App Service integration, which is currently in preview.
+> Deploying as a function app requires the Aspire Azure App Service integration, which is currently in preview.
 
-You can configure Aspire to deploy to a function app using the [Aspire Azure App Service integration](https://aspire.dev/integrations/cloud/azure/azure-functions). Because Aspire publishes the Functions project as a container, the hosting plan for your function app must support deploying containerized applications.
+You can configure Aspire to deploy to a function app using the [Aspire Azure App Service integration](https://aspire.dev/integrations/cloud/azure/azure-app-service/azure-app-service-host/). Because Aspire deploys the Functions project as a container, the hosting plan for your function app must support deploying containerized applications.
 
-To publish your Aspire Functions project as a function app, follow these steps:
+To deploy your Aspire Functions project as a function app, follow these steps:
 
-1. Add a reference to the [Aspire.Hosting.Azure.AppService] NuGet package in your app host project.
+1. From the AppHost directory, run `aspire add Aspire.Hosting.Azure.AppService` to add the [Aspire.Hosting.Azure.AppService] NuGet package.
 1. In the `AppHost.cs` file, call `AddAzureAppServiceEnvironment()` on your `IDistributedApplicationBuilder` instance to create an App Service plan. Note that despite the name, this does not provision an App Service Environment resource. 
 1. On the Functions project resource, call `.WithExternalHttpEndpoints()`. This is required for deploying with the Aspire Azure App Service integration.
-1. On the Functions project resource, call `.PublishAsAzureAppServiceWebsite((infra, app) => app.Kind = "functionapp,linux")` to publish that project to the plan.
+1. On the Functions project resource, call `.PublishAsAzureAppServiceWebsite((infra, app) => app.Kind = "functionapp,linux")` to customize that project as a function app in the plan.
 
 > [!IMPORTANT]
 > Make sure that you set the `app.Kind` property to `"functionapp,linux"`. This setting ensures the resource is created as a function app, which affects experiences for working with your application.
 
-The following example shows a minimal `AppHost.cs` file for an app host project that publishes a Functions project as a function app:
+The following example shows a minimal `AppHost.cs` file that deploys a Functions project as a function app:
 
 ```csharp
 var builder = DistributedApplication.CreateBuilder(args);
@@ -358,6 +371,8 @@ builder.AddAzureAppServiceEnvironment("functions-env");
 builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProject")
     .WithExternalHttpEndpoints()
     .PublishAsAzureAppServiceWebsite((infra, app) => app.Kind = "functionapp,linux");
+
+builder.Build().Run();
 ```
 
 This configuration creates a Premium V3 plan. When using a dedicated App Service plan SKU, scaling isn't event-based. Instead, scaling is managed through the App Service plan settings.
@@ -368,19 +383,22 @@ Consider the following points when you're evaluating the integration of Azure Fu
 
 - Trigger and binding configuration through Aspire is currently limited to specific integrations. For details, see [Connection configuration with Aspire](#connection-configuration-with-aspire) in this article.
 
-- Your function project's `Program.cs` file should use the `IHostApplicationBuilder` version of [host instance startup](./dotnet-isolated-process-guide.md#start-up-and-configuration). `IHostApplicationBuilder` allows you to call `builder.AddServiceDefaults()` to add [Aspire service defaults](/dotnet/aspire/fundamentals/service-defaults) to your Functions project.
+- Your function project's `Program.cs` file should use the `IHostApplicationBuilder` version of [host instance startup](./dotnet-isolated-process-guide.md#start-up-and-configuration). `IHostApplicationBuilder` allows you to call `builder.AddServiceDefaults()` to add [Aspire Service Defaults](https://aspire.dev/get-started/csharp-service-defaults/) to your Functions project.
 
 - Aspire uses OpenTelemetry for monitoring. You can configure Aspire to export data to Azure Monitor through the service defaults project.
 
-  In many other Azure Functions contexts, you might include direct integration with Application Insights by registering the worker service. We don't recommend this kind of integration in Aspire. It can lead to runtime errors with version 2.22.0 of `Microsoft.ApplicationInsights.WorkerService`, though version 2.23.0 addresses this problem. When you're using Aspire, remove any direct Application Insights integrations from your Functions project.
+  In many other Azure Functions contexts, you might include direct integration with Application Insights by registering the worker service. Don't register a second, direct Application Insights pipeline when you're using Aspire Service Defaults.
 
-- For Functions projects enlisted into an Aspire orchestration, most of the application configuration should come from the Aspire app host project. Avoid setting things in `local.settings.json`, other than the `FUNCTIONS_WORKER_RUNTIME` setting. If you set the same environment variable in `local.settings.json` and Aspire, the system uses the Aspire version.
+- For Functions projects enlisted into an Aspire orchestration, most application configuration should come from the AppHost. You can use `local.settings.json` to run the Functions project independently with `func start`. When Aspire runs the project, Aspire-injected environment variables override values with the same names in `local.settings.json`.
 
-- Don't configure the Azure Storage emulator for any connections in `local.settings.json`. Many Functions starter templates include the emulator as a default for `AzureWebJobsStorage`. However, emulator configuration can prompt some developer tooling to start a version of the emulator that can conflict with the version that Aspire uses.
+- Avoid starting a second Azure Storage emulator for connections that the AppHost manages. Competing emulator instances can cause port and storage conflicts.
+
+For more information, see [Azure Functions runtime configuration](https://aspire.dev/integrations/cloud/azure/azure-functions/azure-functions-connect/) and [Aspire telemetry](https://aspire.dev/fundamentals/telemetry/).
 
 [host-storage-identity]: ./manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections
 
 [Microsoft.Azure.Functions.Worker]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/
+[Microsoft.Azure.Functions.Worker.Sdk]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/
 [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore/
 
 [Aspire.Hosting.Azure.Functions]: https://www.nuget.org/packages/Aspire.Hosting.Azure.Functions

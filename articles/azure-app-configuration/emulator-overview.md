@@ -7,7 +7,7 @@ author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 08/05/2026
+ms.date: 09/04/2026
 #Customer intent: I want to learn about how to use Azure App Configuration emulator for local development.
 ---
 
@@ -26,7 +26,7 @@ The following table lists the features supported by the latest Azure App Configu
 | Web UI                                                           | Available |
 | Anonymous Authentication                                         | Available |
 | [HMAC Authentication](./rest-api-authentication-hmac.md)         | Available |
-| .NET Aspire Integration                                          | Available |
+| [Aspire integration](https://aspire.dev/integrations/cloud/azure/azure-app-configuration/azure-app-configuration-host/) | Available |
 
 | API                                                              | Status    |
 | ---------------------------------------------------------------- | --------- |

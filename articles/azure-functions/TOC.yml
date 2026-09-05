@@ -307,7 +307,7 @@
       displayName: .NET isolated
       href: dotnet-isolated-process-guide.md
     - name: Aspire integration
-      href: dotnet-aspire-integration.md
+      href: aspire-integration.md
     - name: Legacy models
       items:
       - name: Execution mode comparison

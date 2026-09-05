@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 07/29/2026
+ms.date: 09/04/2026
 ms.author: cshoe
 ---
 
@@ -54,7 +54,7 @@ Azure Functions on Container Apps are ideal for a wide range of use cases, espec
 - **Microservices:** Integrate Azure Functions with other Container Apps hosted services.
 - **Custom containers:** Package Functions with custom runtimes or sidecars.
 - **Private apps:** Secure internal-only Functions using VNet and internal ingress.
-- **.NET Aspire:** The integration of .NET Aspire with Azure Functions enables you to develop, debug, and orchestrate an Azure Functions .NET project as part of the .NET Aspire app host. Read more on [Azure Functions with .NET Aspire](../azure-functions/dotnet-aspire-integration.md)
+- **Aspire:** The Aspire integration with Azure Functions enables you to develop, debug, and orchestrate an Azure Functions project as part of an Aspire AppHost. For more information, see [Azure Functions with Aspire](../azure-functions/aspire-integration.md) and [Set up Azure Functions in the AppHost](https://aspire.dev/integrations/cloud/azure/azure-functions/azure-functions-host/).
 - **General Functions:** Run any supported standard [Azure Functions scenarios](../azure-functions/functions-scenarios.md) (for example, timers, file processing, database triggers).
 
 ## Deployment and setup
