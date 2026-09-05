@@ -7,7 +7,7 @@ ms.custom:
   - build-2024
   - ignite-2024
   - build-2025
-ms.date: 09/02/2025
+ms.date: 09/02/2026
 ms.author: cachai
 # customer intent: As a developer, I want to become familiar with concurrency in Azure Functions so that I know when to use which concurrency model and can optimize concurrency settings.
 ---
@@ -105,12 +105,22 @@ You can turn on dynamic concurrency in your function app by adding the following
         "version": "2.0", 
         "concurrency": { 
             "dynamicConcurrencyEnabled": true, 
+            "maximumFunctionConcurrency": 500,
+            "cpuThreshold": 0.80,
             "snapshotPersistenceEnabled": true 
         } 
     } 
 ```
 
- When `snapshotPersistenceEnabled` is `true`, which is the default value, the learned concurrency values are periodically persisted to storage. New instances start from those values instead of starting from a level of one and having to redo the learning. 
+The following settings control how dynamic concurrency behaves:
+
+| Setting | Default | Description |
+| --- | --- | --- |
+| `maximumFunctionConcurrency` | 500 | Sets an upper limit for the concurrency that the host can learn for each function on an instance. Use a positive integer, or set the value to `-1` to remove the limit. This setting is a ceiling; it doesn't force a function to run at the configured concurrency. |
+| `cpuThreshold` | 0.80 | Sets the CPU usage level at which the host's CPU health throttle can activate. Use a value greater than 0 and less than 1. For example, `0.75` represents 75 percent CPU usage. Lower values cause the host to reduce concurrency at a lower CPU usage level. |
+| `snapshotPersistenceEnabled` | true | Controls whether the host periodically saves learned concurrency values to storage. New instances can start from saved values instead of starting from a concurrency of one and relearning the workload. |
+
+The host applies `maximumFunctionConcurrency` and `cpuThreshold` only when `dynamicConcurrencyEnabled` is `true`.
 
 ### Concurrency manager 
 
