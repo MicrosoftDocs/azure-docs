@@ -32,18 +32,25 @@ Before you delete a secret, deploy a new revision that no longer references the 
 
 ## Permissions for managing secrets
 
-The `listSecrets` operations return secret values in plain text. Grant these permissions only to identities that need to read secret values.
+Azure Container Apps exposes separate `listSecrets` operations for container apps, jobs, and Dapr components. These operations return secret values in plain text. Grant these permissions only to identities that need to read secret values.
 
 Several Azure built-in roles for Container Apps define permissions using wildcard patterns as a convenience. The following examples grant the ability to read secret values through a wildcard or explicit `listSecrets` permission, even when the role name or description suggests narrower access. This list isn't exhaustive; review the current [Azure built-in roles for containers](/azure/role-based-access-control/built-in-roles/containers) before assigning a role.
 
-| Built-in role | Permission in the role definition | Matching secrets operation |
+The following roles grant access to container app or job secret values:
+
+| Built-in role | Relevant permissions in the role definition | Matching secrets operation |
 | --- | --- | --- |
 | Container Apps Contributor | `Microsoft.App/containerApps/*/action` | `Microsoft.App/containerApps/listSecrets/action` |
 | Container Apps Operator | `Microsoft.App/containerApps/*/action` | `Microsoft.App/containerApps/listSecrets/action` |
 | Container Apps Jobs Contributor | `Microsoft.App/jobs/*/action` | `Microsoft.App/jobs/listSecrets/action` |
 | Container Apps Jobs Operator | `Microsoft.App/jobs/*/action` | `Microsoft.App/jobs/listSecrets/action` |
+
+The following roles grant access to secret values configured for Dapr components:
+
+| Built-in role | Relevant permissions in the role definition | Matching secrets operation |
+| --- | --- | --- |
 | Container Apps ManagedEnvironments Contributor | `Microsoft.App/managedEnvironments/*/action` | `Microsoft.App/managedEnvironments/daprComponents/listSecrets/action` |
-| Container Apps ConnectedEnvironments Contributor | `Microsoft.App/connectedEnvironments/*` and an explicit `Microsoft.App/connectedEnvironments/daprComponents/listSecrets/action` permission | `Microsoft.App/connectedEnvironments/daprComponents/listSecrets/action` |
+| Container Apps ConnectedEnvironments Contributor | `Microsoft.App/connectedEnvironments/*`, `Microsoft.App/connectedEnvironments/daprComponents/listSecrets/action` | `Microsoft.App/connectedEnvironments/daprComponents/listSecrets/action` |
 
 The effective access depends on the role assignment scope. For example, an assignment at the resource group scope grants the matching permission for every applicable resource in that resource group.
 

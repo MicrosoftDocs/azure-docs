@@ -64,7 +64,7 @@ In this tutorial, you learn how to run Azure Pipelines agents as an [event-drive
 > Container apps and jobs don't support running Docker in containers. Any steps in your workflows that use Docker commands fail when run on a self-hosted runner or agent in a Container Apps job.
 
 > [!WARNING]
-> This tutorial stores a personal access token as a job secret. An identity that can start the job can use an execution template to reference that secret, even without the `listSecrets` permission. Grant job start permission only to trusted identities. For more information, see [Job permissions](jobs.md#permissions).
+> This tutorial stores a personal access token as a job secret. An identity that can start the job can use an execution template to reference that secret by name, even without the `listSecrets` permission. Grant job start permission only to trusted identities. For more information, see [Job permissions](jobs.md#permissions).
 
 ## Prerequisites
 

@@ -70,7 +70,7 @@ Azure Container Apps provides built-in mechanisms to securely store and access s
 - Use Azure Key Vault integration for centralized secret management.
 - Implement least privilege when granting access to secrets.
 - Review the full permission list of a built-in role before you assign it. Several Container Apps built-in roles use wildcard actions that include the `listSecrets` action, which returns secret values in plain text.
-- For jobs, treat `Microsoft.App/jobs/start/action` as permission to use the job's secrets and available managed identities, even when a custom role omits `listSecrets`.
+- For jobs, treat `Microsoft.App/jobs/start/action` as permission to use job secrets whose names the identity knows and managed identities configured to be available to its containers, even when a custom role omits `listSecrets`.
 - Create a [custom role](/azure/role-based-access-control/custom-roles) when no built-in role matches the level of access you want to grant.
 - Use secret references in environment variables instead of hard-coding values.
 - Use volume mounts to access secrets as files when appropriate.

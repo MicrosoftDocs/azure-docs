@@ -62,7 +62,7 @@ To start a container app job, your user account or service principal needs the a
 
 Both the **Container Apps Jobs Contributor** and **Container Apps Jobs Operator** roles include the `Microsoft.App/jobs/*/action` wildcard permission. This wildcard matches `Microsoft.App/jobs/listSecrets/action`, so both roles grant permission to read the job's secret values in plain text.
 
-Built-in roles are a convenience. If neither role matches the access you want to grant, create a [custom role](/azure/role-based-access-control/custom-roles) that lists only the actions you need. For example, the following actions let a user view, start, and stop jobs without using the `Microsoft.App/jobs/*/action` wildcard:
+Built-in roles are a convenience. If neither role matches the access you want to grant, create a [custom role](/azure/role-based-access-control/custom-roles) that lists only the actions you need. For example, the following actions let a user view, start, and stop jobs without using the `Microsoft.App/jobs/*/action` wildcard. Because this set includes `Microsoft.App/jobs/start/action`, grant it only to identities you trust to use the job's secrets and managed identities configured to be available to its containers:
 
 - `Microsoft.App/jobs/read`
 - `Microsoft.App/jobs/start/action`
@@ -403,11 +403,10 @@ To start a job execution in the Azure portal, select **Run now** on the job's ov
 
 When you start a job execution, you can choose to override the job's configuration. For example, you can override an environment variable or the startup command to run the same job with different inputs. The overridden configuration is only used for the current execution and doesn't change the job's configuration.
 
-> [!WARNING]
-> An identity that can start a job can use an execution template to reference the job's secrets and use its available managed identities. For more information, see [Permissions](#permissions).
+When you override a configuration, the job's entire template configuration is replaced with the new configuration. Ensure that the new configuration includes all required settings.
 
-> [!IMPORTANT]
-> When you override a configuration, the job's entire template configuration is replaced with the new configuration. Ensure that the new configuration includes all required settings.
+> [!WARNING]
+> An identity that can start a job can use an execution template to reference job secrets whose names it knows and use managed identities configured to be available to the container. For more information, see [Permissions](#permissions).
 
 # [Azure CLI](#tab/azure-cli)
 
