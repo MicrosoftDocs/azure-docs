@@ -23,7 +23,7 @@ Azure Managed Grafana has the following known limitations:
 
 * You can't install, uninstall, or upgrade plugins from the Grafana Catalog.
 
-* In Grafana 12, the **Metrics** drilldown requires the `grafana-metricsdrilldown-app` plugin, which isn't installed by default. For more information about installing it after an upgrade, see [Restore the Metrics drilldown](how-to-upgrade-grafana-12.md#restore-the-metrics-drilldown).
+* In Grafana 12, the **Metrics** drilldown requires the `grafana-metricsdrilldown-app` plugin, which isn't installed by default. For more information about installing it, see [Add a plugin](how-to-manage-plugins.md#add-a-plugin).
 
 * Querying Azure Data Explorer might take a long time or return 50x errors. To resolve these problems, use a table format instead of a time series, shorten the time duration, or avoid having many panels querying the same data cluster that can trigger throttling.
 

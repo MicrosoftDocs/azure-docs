@@ -3,7 +3,7 @@ title: Apache Kafka output binding for Azure Functions
 description: Use Azure Functions to write messages to an Apache Kafka stream.
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 12/11/2025
+ms.date: 08/31/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -805,7 +805,28 @@ The following table explains the properties you can set by using this attribute:
 | **OAuthBearerClientSecret** | (Optional) When `OAuthBearerMethod` is set to `oidc`, this specifies the OAuth bearer client secret. See [Connections](#connections) for more information. |
 | **OAuthBearerScope** | (Optional) Specifies the scope of the access request to the broker. |
 | **OAuthBearerTokenEndpointUrl** | (Optional) OAuth/OIDC issuer token endpoint HTTP(S) URI used to retrieve token when `oidc` method is used. See [Connections](#connections) for more information. |
+| **HttpsCaLocation** | (Optional) File or directory path to CA certificates for verifying the OAuth/OIDC token endpoint certificate. The special value `probe` uses the operating system's default certificate paths. Supported only by the isolated worker model. |
+| **HttpsCaPem** | (Optional) CA certificate for verifying the OAuth/OIDC token endpoint certificate in PEM format. Supported only by the isolated worker model. |
 | **OAuthBearerExtensions** | (Optional) Comma-separated list of key=value pairs to be provided as additional information to broker when `oidc` method is used. For example: `supportFeatureX=true,organizationId=sales-emea`. |
+
+> [!IMPORTANT]
+> The `HttpsCaLocation` and `HttpsCaPem` options aren't currently support on dynamic scale plans. At this time, you can only use these properties when your function app is hosted in a [Dedicated (App Service) plan](dedicated-plan.md).
+
+For the isolated worker model, use an app setting expression for `HttpsCaPem` instead of putting the PEM value in the attribute:
+
+```csharp
+[KafkaOutput(
+    "BrokerList",
+    "topic",
+    HttpsCaPem = "%KafkaHttpsCaPem%"
+)]
+```
+
+In Azure, set the `KafkaHttpsCaPem` app setting to a [Key Vault reference](/azure/app-service/app-service-key-vault-references) for the secret that contains the PEM value. This `KafkaHttpsCaPem` setting might look like this example, where `<keyVaultName>` is the name of your vault:
+
+```text
+@Microsoft.KeyVault(SecretUri=https://<keyVaultName>.vault.azure.net/secrets/httpscapem)
+```
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"

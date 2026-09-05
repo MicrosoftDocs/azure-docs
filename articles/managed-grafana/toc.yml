@@ -111,8 +111,6 @@ items:
     href: how-to-migrate.md
   - name: Configure Grafana settings
     href: grafana-settings.md
-  - name: Upgrade to Grafana 12
-    href: how-to-upgrade-grafana-12.md
   - name: Migrate from Essential service tier
     href: how-to-migrate-essential-service-tier.md
   - name: Troubleshoot issues

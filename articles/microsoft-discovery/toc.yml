@@ -283,5 +283,14 @@ items:
     items:
     - name: REST API
       href: /rest/api/discovery/
+    - name: .NET SDKs
+      href: reference-dotnet-sdks.md
+    - name: Java SDKs
+      href: reference-java-sdks.md
+    - name: JavaScript SDKs
+      href: reference-javascript-sdks.md
     - name: Python SDKs
       href: reference-python-sdks.md
+    - name: FAQ
+      href: faq.yml
+      displayName: faq, frequently asked questions
