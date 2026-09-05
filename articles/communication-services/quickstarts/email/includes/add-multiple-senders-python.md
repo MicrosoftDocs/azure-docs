@@ -31,7 +31,7 @@ Replace the field in the sample code with the subscription ID of the subscriptio
 
 ```python
 from azure.mgmt.communication import CommunicationServiceManagementClient
-from azure.identity import AzureCliCredential
+from azure.identity import DefaultAzureCredential
 
 credential = DefaultAzureCredential()
 subscription_id = "<your-subscription-id>"
