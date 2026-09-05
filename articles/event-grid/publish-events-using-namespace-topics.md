@@ -50,7 +50,7 @@ The general steps to use Cloud Shell to run commands are:
     az group create --name $resource_group --location eastus
     ```
 
-[!INCLUDE [register-provider-cli.md](./includes/register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](~/reusable-content/ce-skilling/azure/includes/event-grid/register-provider-cli.md)]
 
 ## Create a namespace
 

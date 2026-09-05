@@ -12,6 +12,8 @@ ms.date: 01/05/2024
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 A vital security goal of an organization is to protect their data stores from random access over the internet, may it be an on-premises or a Cloud/ SaaS data store.
 
 Typically a cloud data store controls access using the below mechanisms:

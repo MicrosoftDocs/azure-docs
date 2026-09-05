@@ -23,11 +23,14 @@ Use AI Gateway tier (preview) to manage the models and tools that applications a
 - Access to the provider model or backend you plan to add.
 - For managed identity backend authentication, permission to assign the required role on the backend resource.
 
+  > [!CAUTION]
+  > **Security consideration:** Users with permissions to edit API Management policies can use this policy to authenticate as the service's managed identity. However, they can't gain direct access to resources without first assigning a managed identity to the API Management instance. Once a managed identity is assigned, users who can modify policies might be able to exfiltrate the authentication token, propagate it to a backend, or log it for later use. For detailed security guidance and mitigation strategies, see [Security considerations for managed identities](api-management-howto-use-managed-service-identity.md#security-considerations-for-managed-identities) in the managed identity overview.
+
 ## Import models
 
-Use the **Add models** wizard to connect AI Gateway tier to Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, OpenAI, Anthropic, or custom endpoints. The gateway serves each model on the endpoints that its backend supports, under the prefix `https://<gateway>.azure-api.net/default/models`. The next path segment is the provider API format. For example, OpenAI-compatible models are served at `.../default/models/openai/v1` (such as `/chat/completions` and `/responses`), and Anthropic models at `.../default/models/anthropic/v1/messages`. The connection fields that the wizard requires vary by provider.
+Use the **Add models** wizard to connect the AI Gateway tier to Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, OpenAI, Anthropic, or custom endpoints. The gateway serves each model on the endpoints that its backend supports, under the prefix `https://<gateway>.azure-api.net/default/models`. The next path segment is the provider API format. For example, OpenAI-compatible models are served at `.../default/models/openai/v1` (such as `/chat/completions` and `/responses`), and Anthropic models at `.../default/models/anthropic/v1/messages`. The connection fields that the wizard requires vary by provider.
 
-Choose **Import from Foundry** when your model runs in a Microsoft Foundry resource, which includes Azure OpenAI and Azure AI Services deployments — the wizard discovers the resource's deployments automatically. Choose **Add a custom model** for AWS Bedrock, Google Vertex, OpenAI, Anthropic, or any other supported endpoint, where you enter the endpoint and model names yourself.
+Choose **Import from Foundry** when your model runs in a Microsoft Foundry resource, which includes Azure OpenAI and Azure AI Services deployments. The wizard automatically discovers the resource's deployments. Choose **Add a custom model** for AWS Bedrock, Google Vertex, OpenAI, Anthropic, or any other supported endpoint, where you enter the endpoint and model names yourself.
 
 Use managed identity when the provider supports Microsoft Entra ID backend authentication, such as Microsoft Foundry. Grant the gateway identity the required role on the backend resource before import. Otherwise, provide the provider's API key or secret during import. The gateway stores and protects the credential.
 
@@ -65,7 +68,7 @@ To add models, open the **Models** page and select **Add models**. Choose how yo
 ### Add a custom model
 
 1. Select **Add a custom model**.
-1. On **Provider**, enter a display name and provider name, and an optional description.
+1. On **Provider**, enter a display name, provider name, and an optional description.
 1. On **Endpoint**, enter the base endpoint URL, the authentication header name (for example, `Authorization`), and the API key.
 1. On **Models**, enter each model name and select its supported endpoints - **OpenAI chat completions**, **OpenAI responses**, **Anthropic messages**, or **Other**. Select **Add model** for each model you define.
 1. Select **Create**.
@@ -90,7 +93,7 @@ If you didn't create a runtime access key yet, create one from the **Keys** page
 
 ## Anthropic Messages API passthrough
 
-Different providers expose different API formats, and the gateway serves each at its own path under `/default/models`. Anthropic models use the Anthropic Messages API in **passthrough** mode: the gateway preserves the native Anthropic Messages request and response format and forwards calls to Anthropic at `/default/models/anthropic/v1/messages`. Use it when applications already use the Anthropic SDK or `/v1/messages`.
+Different providers expose different API formats. The gateway serves each format at its own path under `/default/models`. Anthropic models use the Anthropic Messages API in **passthrough** mode. The gateway preserves the native Anthropic Messages request and response format and forwards calls to Anthropic at `/default/models/anthropic/v1/messages`. Use it when applications already use the Anthropic SDK or `/v1/messages`.
 
 To add an Anthropic model, use **Add models** > **Add a custom model**:
 

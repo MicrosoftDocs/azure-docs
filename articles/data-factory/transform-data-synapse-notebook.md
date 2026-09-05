@@ -15,6 +15,8 @@ ms.custom:
 # Transform data by running a Synapse Notebook
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 The Azure Synapse Notebook Activity in a [pipeline](concepts-pipelines-activities.md) runs a Synapse notebook in your Azure Synapse Analytics workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 You can create an Azure Synapse Analytics notebook activity directly through the Azure Data Factory Studio user interface. For a step-by-step walkthrough of how to create a Synapse notebook activity using the user interface, you can refer to the following.

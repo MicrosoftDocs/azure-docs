@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move Azure resources across resource groups, subscriptions, or regions.
 description: Overview of Azure resource types that can be moved across resource groups, subscriptions, or regions.
 ms.topic: article
@@ -112,7 +112,7 @@ The following tables provide links to each Azure service relocation document. Th
 
 | Product  | Relocation | Relocation with data migration | Resource Mover |
 | --- | --- | --- | ---|
-|[Azure Cache for Redis](../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/operational-excellence/toc.json)| Y |  N| N |
+|[Azure Cache for Redis](/azure/azure-cache-for-redis/cache-moving-resources?toc=/azure/operational-excellence/toc.json)| Y |  N| N |
 |[Azure Cosmos DB](./relocation/relocation-cosmos-db.md)|Y | Y|  N  |
 |[Azure Database for MariaDB Server](/azure/mariadb/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json)|Y | Y|  N  |
 |[Azure Database for MySQL Server](/azure/mysql/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json)|Y | Y|  N  |

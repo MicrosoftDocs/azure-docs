@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 03/04/2025
+ms.date: 07/30/2026
 ms.topic: reference
 ---
 
@@ -130,7 +130,7 @@ The optional `metadata` property stores information about the policy assignment.
 
 ## Resource selectors
 
-The optional `resourceSelectors` property facilitates safe deployment practices (SDP) by enabling you to gradually roll out policy assignments based on factors like resource location, resource type, or whether a resource has a location. When resource selectors are used, Azure Policy only evaluates resources that are applicable to the specifications made in the resource selectors. Resource selectors can also be used to narrow down the scope of [exemptions](exemption-structure.md) in the same way.
+The optional `resourceSelectors` property facilitates safe deployment practices (SDP) by enabling you to gradually roll out policy assignments based on factors like resource location, resource type, or whether a resource has a location. When resource selectors are used, Azure Policy only evaluates resources that are applicable to the specifications made in the resource selectors. Resource selectors can also be used to narrow down the scope of [exemptions](exemption-structure.md) and [enrollments](enrollment-structure.md) in the same way.
 
 In the following example scenario, the new policy assignment is evaluated only if the resource's location is either **East US** or **West US**.
 
@@ -277,9 +277,7 @@ One override can be used to replace the effect of many policies by specifying mu
 
 ## Enforcement mode
 
-The `enforcementMode` property provides customers the ability to test the outcome of a policy on existing resources without initiating the policy effect or triggering entries in the [Azure Activity log](/azure/azure-monitor/essentials/platform-logs-overview).
-
-This scenario is commonly referred to as _What If_ and aligns to safe deployment practices. `enforcementMode` is different from the [Disabled](./effect-disabled.md) effect, as that effect prevents resource evaluation from happening at all.
+The `enforcementMode` property provides customers the ability to control the outcome of a policy on existing resources without initiating the policy effect or triggering entries in the [Azure Activity log](/azure/azure-monitor/essentials/platform-logs-overview).
 
 This property has the following values:
 
@@ -287,8 +285,29 @@ This property has the following values:
 |-|-|-|-|-|-|
 |Enabled |Default |string |Yes |Yes |The policy effect is enforced during resource creation or update. |
 |Disabled |DoNotEnforce |string |Yes |No | The policy effect isn't enforced during resource creation or update. |
+|Enroll |Enroll |string |Yes |Yes for enrolled resources |The policy effect is enforced during resource creation or update only for resources that are enrolled in the assignment. |
 
-If `enforcementMode` isn't specified in a policy or initiative definition, the value _Default_ is used. [Remediation tasks](../how-to/remediate-resources.md) can be started for [deployIfNotExists](./effect-deploy-if-not-exists.md) policies, even when `enforcementMode` is set to _DoNotEnforce_.
+If `enforcementMode` isn't specified in a policy or initiative definition, the value _Default_ is used. [Remediation tasks](../how-to/remediate-resources.md) can be started for [deployIfNotExists](./effect-deploy-if-not-exists.md) policies, even when `enforcementMode` is set to _DoNotEnforce_. For more information about Enroll mode, see [Azure Policy enrollment structure](./enrollment-structure.md).
+
+Use `Default` for standard policy assignments where the policy effect should apply to all resources in scope.
+
+Use `DoNotEnforce` when you want to evaluate the policy assignment before enforcement. This mode is useful for testing a new assignment, reviewing compliance impact, or validating policy logic before the policy effect is enforced.
+
+### Choose an enforcement mode
+
+Use the enforcement mode that matches how you want the assignment to affect resources.
+
+| Scenario | Enforcement mode |
+| --- | --- |
+| Enforce the policy effect for all resources in scope during resource creation or update. | `Default` |
+| Evaluate compliance without enforcing the policy effect or writing deny entries to the Azure Activity log. | `DoNotEnforce` |
+| Make the assignment available for staged enforcement through policy enrollments. | `Enroll` |
+
+Use `Default` for standard policy assignments where the policy effect should apply to all resources in scope.
+
+Use `DoNotEnforce` when you want to evaluate the policy assignment before enforcement. This mode is useful for testing a new assignment, reviewing compliance impact, or validating policy logic before the policy effect is enforced.
+
+Use `Enroll` when you want to make the assignment available for staged enforcement through policy enrollments. In this mode, scope owners can create enrollment resources to indicate that enforcement should be applied to specific scopes. When an enrollment resource isn't present, policy evaluation is the same as if the assignment used `DoNotEnforce` by default, but this behavior is configurable. This mode is useful when you want to slowly batch and add subscopes to an assignment.
 
 ## Excluded scopes
 

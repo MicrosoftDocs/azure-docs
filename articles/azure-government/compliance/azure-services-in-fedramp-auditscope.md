@@ -80,7 +80,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Arc-enabled servers](/azure/azure-arc/servers/) | &#x2705; | &#x2705; |
 | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) | &#x2705; | &#x2705; |
 | [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview) | &#x2705; | &#x2705; |
-| [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; |
+| [Azure Cache for Redis](/azure/azure-cache-for-redis/) | &#x2705; | &#x2705; |
 | [Azure Cosmos DB (Including DocumentDB)](/azure/cosmos-db/) | &#x2705; | &#x2705; |
 | [Azure Container Apps](../../container-apps/index.yml) | &#x2705; | &#x2705; |
 | [Azure Database for MySQL](/azure/mysql/) | &#x2705; | &#x2705; |
@@ -313,7 +313,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Arc-enabled servers](/azure/azure-arc/servers/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview) | &#x2705; | &#x2705; | |  |  |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
-| [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Cache for Redis](/azure/azure-cache-for-redis/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Container Apps](../../container-apps/index.yml) | &#x2705; | &#x2705; |  |  |  |
 | [Azure Cosmos DB (Including DocumentDB)](/azure/cosmos-db/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure CXP Nomination Portal](https://cxp.azure.com/nominationportal/nominationform/fasttrack) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |

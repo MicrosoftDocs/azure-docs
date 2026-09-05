@@ -13,6 +13,8 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 To copy data from a data warehouse in Oracle Server, Netezza, Teradata, or SQL Server to Azure Synapse Analytics, you have to load huge amounts of data from multiple tables. Usually, the data has to be partitioned in each table so that you can load rows with multiple threads in parallel from a single table. This article describes a template to use in these scenarios.
 
 >[!NOTE]

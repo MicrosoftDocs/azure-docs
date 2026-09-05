@@ -19,6 +19,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 In this quickstart, you create a data factory by using Python. The pipeline in this data factory copies data from one folder to another folder in Azure Blob storage.
 
 Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows, called pipelines.

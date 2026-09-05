@@ -93,7 +93,7 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 ## Frequently asked questions (FAQ)
 
-See [Lifecycle management FAQ](storage-blob-faq.yml#lifecycle-management-policies).
+See [Lifecycle management policy FAQ](lifecycle-management-policy-faq.md).
 
 ## Next steps
 

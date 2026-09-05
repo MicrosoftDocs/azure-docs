@@ -78,7 +78,7 @@ Azure DDoS Protection focuses on network-layer (L3/L4) attacks. For application-
 - Enable [bot protection](../web-application-firewall/afds/waf-front-door-policy-configure-bot-protection.md) to block known malicious bots.
 - Use [geo-filtering](../web-application-firewall/afds/waf-front-door-geo-filtering.md) to restrict traffic from regions where you don't expect legitimate users.
 
-For detailed guidance on application-layer DDoS defense strategies, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
+For detailed guidance on application-layer DDoS defense strategies, see [Application DDoS protection](../web-application-firewall/application-ddos-protection.md).
 
 ### Integrate with Microsoft Sentinel
 
@@ -125,5 +125,5 @@ For detailed guidance on building your response strategy, see [DDoS response str
 - [Configure Azure DDoS Protection metric alerts](alerts.md)
 - [Test through simulations](test-through-simulations.md)
 - [DDoS response strategy](ddos-response-strategy.md)
-- [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md)
+- [Application DDoS protection](../web-application-firewall/application-ddos-protection.md)
 - [DDoS Protection cost optimization](ddos-optimization-guide.md)

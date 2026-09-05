@@ -28,10 +28,11 @@ Soft delete is now enforced by default as part of secure-by-default assurance fo
 
 Secure by default with soft delete is available in the following regions:
 
-| Vault type               | Availability type    | Regions                                      |
-|--------------------------|----------------------|---------------------------------------------|
-| Recovery Services vault  | General Availability | All Azure Public Regions and National Clouds |
-| Backup vault             | Public Preview | All Azure Public Regions and National Clouds |
+| Vault type              | Availability type    | Regions                                      |
+|-------------------------|----------------------|---------------------------------------------|
+| Recovery Services vault | General Availability | All Azure Public Regions and National Clouds |
+| Backup vault            | General Availability | Australia East, West Central US, East Asia |
+| Backup vault            | Public Preview | All remaining Azure Public Regions and National Clouds |
 
 For a Backup vault, in regions other than Australia East, West Central US, and East Asia, you still have the option to disable soft delete from the Azure portal.
 

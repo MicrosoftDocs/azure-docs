@@ -11,7 +11,7 @@ ms.custom: engagement-fy24
  
 # About Azure Data Lake Storage vaulted backup
 
-[Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) vaulted backup is a streamlined, cloud-native solution to back up, and restore general-purpose v2 storage accounts with a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace). It allows selective backup and restoration of containers, and store backups in a dedicated vault for granular control.
+[Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) vaulted backup is a streamlined, cloud-native solution to back up and restore general-purpose v2 storage accounts with a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace). You can selectively back up and restore containers, and store backups in a dedicated vault for granular control.
 
 Azure Backup now enables enhanced protection and recovery for Azure Data Lake Storage through vaulted backups that offer ransomware resilience, secure offsite storage, and long-term data retention. See the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azurestorageblog/protect-azure-data-lake-storage-with-vaulted-backups/4410707).
 
@@ -34,7 +34,7 @@ Learn about the [supported scenarios and limitations for Azure Data Lake Storage
 
 ## Azure Data Lake Storage backup configuration and retention
 
-The Azure Data Lake Storage backup requires a Backup vault that provides a centralized view of configured backups. Vaulted backup is set at the storage account level, with the option to exclude containers. 
+The Azure Data Lake Storage backup requires a Backup vault that provides a centralized view of configured backups. Vaulted backup is set at the storage account level. You can choose to auto-protect all containers or exclude containers that don't need backup. When you use auto-protection, new containers created after backup configuration are automatically protected until the protected container count reaches 1000. Selecting auto-protection for all present and future containers is permanent, and you can't switch back to the earlier container selection options.
 > [!Note]
 > The maximum number of containers in a storage account that can be protected has been increased to 1000 effective May-2026.  If an account has over 1000 containers, reduce the count to **<= 1000**. Learn [about the supported container count for backup](azure-data-lake-storage-backup-support-matrix.md#protection-limits).
 

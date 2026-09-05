@@ -14,6 +14,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Continuous integration is the practice of testing each change made to your codebase automatically and as early as possible. Continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
 
 In Azure Data Factory, continuous integration and delivery (CI/CD) means moving Data Factory pipelines from one environment (development, test, production) to another. Azure Data Factory uses [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to store the configuration of your various Data Factory entities (for example, pipelines, datasets, and data flows). There are two suggested methods to promote a data factory to another environment:

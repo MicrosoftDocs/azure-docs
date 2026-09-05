@@ -32,8 +32,8 @@ For more information about this topic, see
 
 ```
 ktutil
-ktutil: addent -password -p user1@TEST.COM -k 1 -e RC4-HMAC
-Password for user1@TEST.COM:
+ktutil: addent -password -p <username>@<DOMAIN.COM> -k 1 -e RC4-HMAC
+Password for <username>@<DOMAIN.COM>:
 ktutil: wkt user1.keytab
 ktutil: q
 ```

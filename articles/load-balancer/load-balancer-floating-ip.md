@@ -49,7 +49,7 @@ In order to function, you configure the Guest OS for the virtual machine to rece
 <details>
   <summary>Expand</summary>
 
-For each VM in the backend pool, run the following commands at a Windows Command Prompt on the server.  
+For each VM in the backend pool, first add a loopback network adapter by using Windows Server network adapter management. Then run the following commands at an elevated Windows Command Prompt on the server.
 
 1. To get the list of interface names you have on your VM, enter this command:
 
@@ -69,7 +69,7 @@ For each VM in the backend pool, run the following commands at a Windows Command
     netsh interface ipv4 set interface <loopback-interface-name> weakhostreceive=enabled  weakhostsend=enabled 
     ```
 
-4. Finally, if the guest host uses a firewall, ensure a rule set up so the traffic can reach the VM on the appropriate ports. This example configuration assumes a load balancer frontend IP configuration of 1.2.3.4 and a load balancing rule for port 80:
+4. If the guest host uses a firewall, ensure you set up a rule so the traffic can reach the VM on the appropriate ports. This example configuration assumes a load balancer frontend IP configuration of 1.2.3.4 and a load-balancing rule for port 80:
 
     ```console
     netsh int ipv4 set int "Ethernet" weakhostreceive=enabled
@@ -77,6 +77,14 @@ For each VM in the backend pool, run the following commands at a Windows Command
     netsh int ipv4 set int "Loopback Pseudo-Interface 1" weakhostreceive=enabled weakhostsend=enabled
     netsh advfirewall firewall add rule name="http" protocol=TCP localport=80 dir=in action=allow enable=yes
     ```
+
+5. Verify that the loopback interface has the frontend IP address assigned:
+
+    ```console
+    netsh interface ipv4 show addresses name="<loopback-interface-name>"
+    ```
+
+    Confirm that the output includes the frontend IP address. From a client that can reach the load balancer, connect to the frontend IP address and rule port to verify that traffic reaches the VM.
 </details>
 
 ### Ubuntu
@@ -84,7 +92,7 @@ For each VM in the backend pool, run the following commands at a Windows Command
 <details>
   <summary>Expand</summary>
 
-For each VM in the backend pool, run the following commands via an SSH session.
+For each VM in the backend pool, run the following commands through an SSH session. Linux already provides the `lo` loopback device; the command uses `lo:0` as an address label, so you don't create a separate loopback interface.
 
 1. To get the list of interface names you have on your VM, type this command:
 
@@ -92,21 +100,31 @@ For each VM in the backend pool, run the following commands via an SSH session.
     ip addr
     ```
 
-2. For each loopback interface you added, enter these commands after replacing **loopback-interface-name** with the name of the loopback interface and **floating-IP** and **floating-IPnetmask** with the appropriate values that correspond to the load balancer frontend IP:
+2. Add the frontend IP address to the loopback device. Replace **floating-IP** with the load balancer frontend IP address and **floating-IPnetmask** with the Linux CIDR prefix length, such as `24`:
 
     ```console
     sudo ip addr add <floating-IP>/<floating-IPnetmask> dev lo:0
     ```
 
-3. Finally, if the guest host uses a firewall, ensure a rule set up so the traffic can reach the VM on the appropriate ports. This example configuration assumes a load balancer frontend IP configuration of 1.2.3.4, a load balancing rule for port 80, and the use of [UFW (Uncomplicated Firewall)](https://www.wikipedia.org/wiki/Uncomplicated_Firewall) in Ubuntu.
+3. If the guest host uses a firewall, ensure you set up a rule so the traffic can reach the VM on the appropriate ports. This example configuration assumes a load balancer frontend IP configuration of 1.2.3.4, a load-balancing rule for port 80, and the use of [UFW (Uncomplicated Firewall)](https://www.wikipedia.org/wiki/Uncomplicated_Firewall) in Ubuntu.
 
     ```console
     sudo ip addr add 1.2.3.4/24 dev lo:0
     sudo ufw allow 80/tcp
     ```
+
+4. Verify that the loopback device has the frontend IP address assigned:
+
+    ```console
+    ip address show dev lo
+    ```
+
+    Confirm that the output includes the frontend IP address. From a client that can reach the load balancer, connect to the frontend IP address and rule port to verify that traffic reaches the VM.
 </details>
 
 ## <a name = "limitations"></a>Limitations 
+
+When you enable Floating IP, outbound connectivity depends on which network interface IP configuration the application uses and how the application binds to the loopback frontend IP address.
 
 -  With Floating IP enabled on a load balancing rule, your application must use the primary IP configuration of the network interface for outbound.
 -  If your application binds to the frontend IP address configured on the loopback interface in the guest OS, Azure's outbound connection doesn't rewrite the outbound flow, and the flow fails. Review [outbound scenarios](load-balancer-outbound-connections.md).

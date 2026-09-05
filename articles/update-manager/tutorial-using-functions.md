@@ -4,8 +4,8 @@ description: In this tutorial, you learn how to create pre-maintenance and post-
 ms.service: azure-update-manager
 ms.date: 08/21/2025
 ms.topic: tutorial 
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.custom: sfi-image-nochange
 ms.update-cycle: 1095-days
 # Customer intent: "As a cloud administrator, I want to create pre-maintenance and post-maintenance event triggers by using serverless functions, so that I can automate the starting and stopping of virtual machines during scheduled maintenance tasks."

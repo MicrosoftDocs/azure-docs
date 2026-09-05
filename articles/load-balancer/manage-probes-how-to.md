@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 07/07/2026
+ms.date: 08/27/2026
 ms.custom: template-how-to
 # Customer intent: "As a network administrator, I want to manage health probes for my load balancer, so that I can ensure backend instances are monitored and remain operational."
 ---
@@ -16,7 +16,7 @@ Azure Load Balancer uses health probes to monitor the health of backend instance
 
 There are three types of health probes:
 
-| | Standard SKU | Basic SKU |
+| | Standard SKU | Basic SKU (retired) |
 | --- | --- | --- |
 | **Probe types** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **Probe down behavior** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 

@@ -2,13 +2,12 @@
 title: Create an SQL assessment with Azure Migrate | Microsoft Docs
 description: Describes how to create SQL Azure assessment with the Azure Migrate 
 author: rashi-ms
-ms.author: v-uhabiba
+ms.author: jsuri
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.custom: engagement-fy23
-monikerRange:
 # Customer intent: "As a cloud architect, I want to create SQL assessments for migration using Azure Migrate, so that I can evaluate target environments, understand readiness, right-sizing, and cost implications for running SQL applications in the cloud."
 ---
 

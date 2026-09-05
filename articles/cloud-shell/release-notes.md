@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 07/27/2026
+ms.date: 09/03/2026
 ms.topic: release-notes
 ---
 
@@ -24,6 +24,25 @@ criteria, see [Cloud Shell Package inclusion guide][12].
 
 You can install any tool you need in your Cloud Shell session as long as it doesn't require root
 access. For installation instructions, consult the documentation for the package you require.
+
+## September 2026
+
+Tool updates
+
+- Azure CLI upgraded to v2.89.1
+- Azure Developer CLI upgraded to v1.31.1
+- Azure Functions Core Tools CLI upgraded to v4.13.0
+- Azure PowerShell upgraded to v16.2.0
+- `azcopy` upgraded to v10.33.0
+- Bicep CLI upgraded to v0.45.15
+- CLI for M365 upgraded to v11.10.0
+- Inspektor Gadget (`ig`) upgraded to v0.55.0
+- Node.js upgraded to v24.18.1
+- `npm` upgraded to v11.16.0
+
+## August 2026
+
+As of August 7, 2026, the classic user interface has been removed from all regions.
 
 ## July 2026
 
@@ -236,6 +255,6 @@ require.
 [13]: https://github.com/Azure/generator-az-terra-module
 [14]: https://inspektor-gadget.io/
 [15]: https://yeoman.io/
-[16]: use-the-shell-window-new.md
-[17]: use-cloud-shell-editor-new.md
-[18]: use-the-shell-window-new.md
+[16]: use-the-shell-window.md
+[17]: use-cloud-shell-editor.md
+[18]: use-the-shell-window.md

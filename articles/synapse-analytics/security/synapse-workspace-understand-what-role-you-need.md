@@ -128,6 +128,7 @@ All Synapse RBAC permissions/actions shown in the table are prefixed with `Micro
 |ACCESS MANAGEMENT|
 |Review Synapse RBAC role assignments at any scope|Synapse User|read|
 |Assign and remove Synapse RBAC role assignments for users, groups, and service principals| Synapse Administrator at the workspace or at a specific workspace item scope|roleAssignments/write, delete|
+|View dedicated SQL pool data warehouse query details| Azure role assignment that grants access to query details APIs, such as a custom role that includes the _Microsoft.Synapse/workspaces/sqlPools/dataWarehouseQueries/read_ DataAction. | |
 
 ## Related content
 

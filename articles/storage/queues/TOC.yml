@@ -77,22 +77,6 @@
       href: passwordless-migrate-queues.md?toc=/azure/storage/queues/toc.json
   - name: Authorizing management operations
     href: ../common/authorization-resource-provider.md?toc=/azure/storage/queues/toc.json
-  - name: Security
-    items:
-    - name: Azure Storage encryption at rest
-      href: ../common/storage-service-encryption.md?toc=/azure/storage/queues/toc.json
-      items:
-      - name: Encryption with customer-managed keys
-        href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/queues/toc.json
-    - name: Use Azure Private Endpoints
-      href: ../common/storage-private-endpoints.md?toc=/azure/storage/queues/toc.json
-    - name: Security controls by Azure Policy
-      displayName: regulatory, compliance, standards, domains
-      href: ../common/security-controls-policy.md?toc=/azure/storage/tables/toc.json
-    - name: Security recommendations
-      href: security-recommendations.md
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/storage-security-baseline?toc=/azure/storage/queues/toc.json?toc=/azure/storage/queues/TOC.json
   - name: Reliability
     items:
     - name: Reliability in Azure Queue storage
@@ -125,6 +109,24 @@
         href: ../common/storage-analytics-logging.md?toc=/azure/storage/queues/toc.json
       - name: Monitor, diagnose, and troubleshoot
         href: /troubleshoot/azure/azure-storage/storage-monitoring-diagnosing-troubleshooting
+- name: Security
+  items:
+  - name: Secure your Azure Queue storage
+    href: secure-queues.md
+  - name: Secure your Azure Storage account
+    href: ../common/secure-storage.md?toc=/azure/storage/queues/toc.json
+  - name: Azure Storage encryption at rest
+    href: ../common/storage-service-encryption.md?toc=/azure/storage/queues/toc.json
+    items:
+    - name: Encryption with customer-managed keys
+      href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/queues/toc.json
+  - name: Use Azure Private Endpoints
+    href: ../common/storage-private-endpoints.md?toc=/azure/storage/queues/toc.json
+  - name: Security controls by Azure Policy
+    displayName: regulatory, compliance, standards, domains
+    href: ../common/security-controls-policy.md?toc=/azure/storage/tables/toc.json
+  - name: Security recommendations
+    href: security-recommendations.md
 - name: How to
   items:
   - name: Create and manage storage accounts

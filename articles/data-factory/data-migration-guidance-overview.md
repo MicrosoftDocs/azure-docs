@@ -12,6 +12,8 @@ ms.date: 05/15/2024
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 If you want to migrate your data lake or enterprise data warehouse (EDW) to Microsoft Azure, consider using Azure Data Factory. Azure Data Factory is well-suited to the following scenarios:
 
 - Big data workload migration from Amazon Simple Storage Service (Amazon S3) or an on-premises Hadoop Distributed File System (HDFS) to Azure

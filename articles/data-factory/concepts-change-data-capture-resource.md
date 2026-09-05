@@ -13,6 +13,8 @@ ms.date: 07/29/2024
 # Change data capture resource overview
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Adapting to the cloud-first big data world can be incredibly challenging for data engineers who are responsible for building complex data integration and ETL pipelines. 
 
 Azure Data Factory is introducing a new mechanism to make the life of a data engineer easier. 

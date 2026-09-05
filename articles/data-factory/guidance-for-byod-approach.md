@@ -14,6 +14,8 @@ ms.date: 11/19/2025
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article provides step-by-step guidance for using connectors with Bring Your Own Driver (BYOD) approach and upgrading from outdated V1 connectors to the latest V2 connectors in scenarios where the BYOD approach is required.
 
 ## Guidance on using connectors with BYOD approach 

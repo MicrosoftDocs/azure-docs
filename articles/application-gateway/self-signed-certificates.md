@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 12/09/2025
+ms.date: 08/18/2026
 ms.author: mbender
 ms.custom:
   - devx-track-azurepowershell
@@ -53,7 +53,7 @@ Create your root CA certificate by using OpenSSL.
 
 ### Create the root key
 
-1. Sign in to your computer where OpenSSL is installed and run the following command. This command creates an encrypted key.
+1. Sign in to your computer where OpenSSL is installed and run the following command. This command creates the root private key. The key isn't encrypted and isn't protected by a password, so store the *contoso.key* file securely.
 
    ```
    openssl ecparam -out contoso.key -name prime256v1 -genkey
@@ -67,7 +67,7 @@ Create your root CA certificate by using OpenSSL.
    openssl req -new -sha256 -key contoso.key -out contoso.csr
    ```
 
-1. When prompted, type the password for the root key, and the organizational information for the custom CA such as country/region, state, org, OU, and the fully qualified domain name (this domain is the issuer).
+1. When prompted, type the organizational information for the custom CA such as country/region, state, org, OU, and the fully qualified domain name (this domain is the issuer). Because the root key isn't password protected, OpenSSL doesn't prompt you for a password.
 
    :::image type="content" source="media/self-signed-certificates/root-cert.png" alt-text="Screenshot of create root certificate.":::
 
@@ -104,7 +104,7 @@ The CSR is a public key that you give to a CA when requesting a certificate. The
    openssl req -new -sha256 -key fabrikam.key -out fabrikam.csr
    ```
 
-1. When prompted, type the password for the root key, and the organizational information for the custom CA: Country/Region, State, Org, OU, and the fully qualified domain name. This domain is the website's domain and it should be different from the issuer.
+1. When prompted, type the organizational information for the custom CA: Country/Region, State, Org, OU, and the fully qualified domain name. This domain is the website's domain and it should be different from the issuer. Like the root key, the server key isn't password protected, so OpenSSL doesn't prompt you for a password.
 
    :::image type="content" source="media/self-signed-certificates/server-cert.png" alt-text="Screenshot of server certificate.":::
 
@@ -182,9 +182,11 @@ openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 
 :::image type="content" source="media/self-signed-certificates/openssl-verify.png" alt-text="Screenshot of OpenSSL certificate verification.":::
 
-## Upload the root certificate to Application Gateway's HTTP Settings
+## Upload the root certificate to Application Gateway's backend settings
 
-To upload the certificate in Application Gateway, you must export the .crt certificate into a .cer format Base-64 encoded. Since .crt already contains the public key in the base-64 encoded format, just rename the file extension from .crt to .cer.
+Application Gateway accepts a trusted root certificate only as a Base-64 encoded X.509 certificate that uses the *.cer* file name extension. Base-64 encoded X.509 is a text encoding, and it's the encoding that the `openssl x509` command already produced for the *contoso.crt* file earlier in this article.
+
+Because *contoso.crt* already contains the public key in Base-64 encoded format, rename the file name extension from *.crt* to *.cer*. This rename changes the file name extension only. It doesn't convert the certificate's encoding, and no conversion is needed here. A certificate that isn't already Base-64 encoded requires an actual encoding conversion instead of a rename.
 
 ### Azure portal
 
@@ -193,10 +195,14 @@ To upload the trusted root certificate from the portal, select the **Backend Set
 :::image type="content" source="./media/self-signed-certificates/portal-cert.png" alt-text="Screenshot of adding a certificate using the portal.":::
 ### Azure PowerShell
 
-Or, use Azure CLI or Azure PowerShell to upload the root certificate. The following code is an Azure PowerShell sample.
+Or, use Azure CLI or Azure PowerShell to upload the root certificate. The following Azure PowerShell steps add a trusted root certificate to the application gateway, create a health probe, create a backend setting, add a routing rule, and then apply the changes to the gateway.
 
 > [!NOTE]
-> The following sample adds a trusted root certificate to the application gateway, creates a new HTTP setting, and adds a new rule, assuming the backend pool and the listener already exist.
+> These steps assume that the application gateway *appgwv2* in the resource group *rgOne*, the backend pool *testbackendpool*, and the listener *basichttps* already exist. Run the steps in order in the same PowerShell session, because each step uses the `$gw` object that the first step retrieves.
+
+#### Step 1: Add the trusted root certificate
+
+This step assumes that the application gateway *appgwv2* already exists in the resource group *rgOne*. It retrieves the gateway into the `$gw` variable that every later step uses, and uploads the *contoso.cer* file that you renamed earlier.
 
 ```azurepowershell
 ## Add the trusted root certificate to the Application Gateway
@@ -211,17 +217,13 @@ Add-AzApplicationGatewayTrustedRootCertificate `
 $trustedroot = Get-AzApplicationGatewayTrustedRootCertificate `
    -Name CustomCARoot `
    -ApplicationGateway $gw
+```
 
-## Get the listener, backend pool and probe
+#### Step 2: Create the health probe
 
-$listener = Get-AzApplicationGatewayHttpListener `
-   -Name basichttps `
-   -ApplicationGateway $gw
+This step assumes that you have the `$gw` variable from step 1. It creates an HTTPS probe for `www.fabrikam.com` and stores it in the `$probe` variable.
 
-$bepool = Get-AzApplicationGatewayBackendAddressPool `
-  -Name testbackendpool `
-  -ApplicationGateway $gw
-
+```azurepowershell
 Add-AzApplicationGatewayProbeConfig `
   -ApplicationGateway $gw `
   -Name testprobe `
@@ -235,7 +237,13 @@ Add-AzApplicationGatewayProbeConfig `
 $probe = Get-AzApplicationGatewayProbeConfig `
   -Name testprobe `
   -ApplicationGateway $gw
+```
 
+#### Step 3: Create the backend setting
+
+This step assumes that you have the `$gw`, `$trustedroot`, and `$probe` variables from the previous steps. It creates the backend setting that uses the trusted root certificate and the probe.
+
+```azurepowershell
 ## Add the configuration to the HTTP Setting and don't forget to set the "hostname" field
 ## to the domain name of the server certificate as this will be set as the SNI header and
 ## will be used to verify the backend server's certificate. Note that TLS handshake will
@@ -252,10 +260,22 @@ Add-AzApplicationGatewayBackendHttpSettings `
   -RequestTimeout 20 `
   -HostName www.fabrikam.com
 
-## Get the configuration and update the Application Gateway
-
 $backendhttp = Get-AzApplicationGatewayBackendHttpSettings `
   -Name testbackend `
+  -ApplicationGateway $gw
+```
+
+#### Step 4: Create the routing rule
+
+This step assumes that you have the `$gw` variable from step 1 and the `$backendhttp` variable from step 3, and that the listener *basichttps* and the backend pool *testbackendpool* already exist on the gateway.
+
+```azurepowershell
+$listener = Get-AzApplicationGatewayHttpListener `
+   -Name basichttps `
+   -ApplicationGateway $gw
+
+$bepool = Get-AzApplicationGatewayBackendAddressPool `
+  -Name testbackendpool `
   -ApplicationGateway $gw
 
 Add-AzApplicationGatewayRequestRoutingRule `
@@ -265,7 +285,13 @@ Add-AzApplicationGatewayRequestRoutingRule `
   -BackendHttpSettings $backendhttp `
   -HttpListener $listener `
   -BackendAddressPool $bepool
+```
 
+#### Step 5: Update the application gateway
+
+The previous steps change the `$gw` object in memory only. This step assumes that you have the `$gw` variable from step 1 with all the previous changes applied, and commits those changes to the gateway in Azure.
+
+```azurepowershell
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 

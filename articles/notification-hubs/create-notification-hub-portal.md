@@ -48,7 +48,7 @@ A namespace contains one or more notification hubs, so type a name for the hub i
 
     :::image type="content" source="./media/create-notification-hub-portal/notification-hub-details.png" alt-text="Screenshot showing notification hub details for existing namespaces." lightbox="./media/create-notification-hub-portal/notification-hub-details.png":::
 
-1. Review the [**Availability Zones**](./notification-hubs-high-availability.md#zone-redundant-resiliency) option. If you chose a region that has availability zones, the check box is selected by default. Availability Zones is a paid feature, so an additional fee is added to your tier.
+1. Review the [**Availability Zones**](/azure/reliability/reliability-notification-hubs?toc=/azure/notification-hubs/toc.json) option. If you chose a region that has availability zones, the check box is selected by default. Availability Zones is a paid feature, so an extra fee is added to your tier.
 
 1. Choose a **Disaster recovery** option: **None**, **Paired recovery region**, or **Flexible recovery region**. If you choose **Paired recovery region**, the failover region is displayed. If you select **Flexible recovery region**, use the drop-down to choose from a list of recovery regions.
 
@@ -59,4 +59,5 @@ A namespace contains one or more notification hubs, so type a name for the hub i
 ## Next steps
 
 - In this quickstart, you created a notification hub. To learn how to configure the hub with platform notification system (PNS) settings, see [Configure a notification hub with PNS settings](configure-notification-hub-portal-pns-settings.md).
-- For more information about availability zones, see [High availability for Azure Notification Hubs](notification-hubs-high-availability.md).
+- For more information about availability zones and disaster recovery, see [Reliability in Azure Notification Hubs](/azure/reliability/reliability-notification-hubs?toc=/azure/notification-hubs/toc.json).
+- To enable disaster recovery for an existing namespace, see [Enable disaster recovery for an existing namespace](enable-disaster-recovery-existing-namespace.md).

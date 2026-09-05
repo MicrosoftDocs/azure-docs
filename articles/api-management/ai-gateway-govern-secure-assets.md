@@ -51,12 +51,11 @@ The following diagram shows where governance policies apply in the request flow.
 
 To configure a policy:
 
-1. In the AI Gateway tier portal, select **Policies**, and then select **Add policy**.
-1. On **Type**, choose the policy (guardrail) you want to add - content safety, IP filter, token rate limit, or request rate limit.
+1. In the AI Gateway tier portal, select **Policies** > **Add policy**.
+1. On **Type**, choose each policy (guardrail) you want to add such as **Content safety**, **IP filter**, **Token rate limit**, or **Request rate limit**.
+    :::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-add-policy.png" alt-text="Screenshot of the Add policy wizard Type step, listing guardrails grouped as Security (content safety, IP filter) and Cost and rate limits (token rate limit, request rate limit), with badges showing whether each applies to models, MCP servers, or both." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-add-policy.png":::
 1. On **Assets**, select the models or tools the policy applies to. For a gateway-wide baseline, select all applicable assets.
-1. On **Configure**, fill in the validated fields, and then select **Create**.
-
-:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-add-policy.png" alt-text="Screenshot of the Add policy wizard Type step, listing guardrails grouped as Security (content safety, IP filter) and Cost and rate limits (token rate limit, request rate limit), with badges showing whether each applies to models, MCP servers, or both." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-add-policy.png":::
+1. On **Configure**, enter or choose values for the validated fields, and then select **Create**.
 
 Start with these policy types:
 

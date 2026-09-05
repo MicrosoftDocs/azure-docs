@@ -49,6 +49,20 @@ items:
       items:
         - name: Overview
           href: sandboxes-overview.md
+        - name: Get started
+          href: sandboxes-get-started.md
+        - name: Quickstarts
+          items:
+            - name: Azure portal
+              href: sandboxes-quickstart-portal.md
+            - name: Agent skills
+              href: sandboxes-quickstart-agent-skills.md
+            - name: CLI
+              href: sandboxes-quickstart-cli.md
+            - name: Bicep
+              href: sandboxes-quickstart-bicep.md
+            - name: Python SDK
+              href: sandboxes-quickstart-python-sdk.md
         - name: Snapshots and state management
           href: sandboxes-snapshots-state-management.md
         - name: Egress policies
@@ -316,6 +330,8 @@ items:
           href: logging.md
         - name: Logging options
           href: log-options.md
+        - name: Change logging from Log Analytics to Azure Monitor
+          href: migrate-logs-azure-monitor.md
         - name: Log monitoring
           href: log-monitoring.md
         - name: Metrics
@@ -392,6 +408,8 @@ items:
           href: authentication-openid.md
 - name: Security
   items:
+    - name: Secure your Azure Container Apps deployment
+      href: secure-deployment.md
     - name: Overview
       href: security.md
       displayName: Security overview
@@ -405,8 +423,6 @@ items:
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
-    - name: Secure deployments
-      href: secure-deployment.md
     - name: Confidential compute
       href: confidential-compute.md
 - name: Resiliency (preview)
@@ -675,12 +691,12 @@ items:
       href: azure-arc-create-container-app.md
 - name: Compliance
   items:
+    - name: Secure your Azure Container Apps deployment
+      href: secure-deployment.md
     - name: Microsoft Azure Compliance Offerings
       href: https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3
     - name: Azure, Dynamics 365, Microsoft 365, and Power Platform compliance offerings
       href: /azure/compliance/offerings/
-    - name: Azure security baseline for Azure Container Apps
-      href: /security/benchmark/azure/baselines/azure-container-apps-security-baseline
 - name: Samples & FAQs
   items:
     - name: Samples

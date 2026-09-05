@@ -1,12 +1,12 @@
 ---
 title: Create an IoT Hub with Certificate Management in Azure Device Registry by using the Azure Portal
 description: This article explains how to create an IoT hub with Azure Device Registry and certificate management integration by using the Azure portal.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: include
 ai-usage: ai-assisted
-ms.date: 04/10/2026
+ms.date: 08/06/2026
 ---
 
 ## More prerequisites for Azure portal
@@ -17,6 +17,9 @@ Before you begin, make sure that you have:
 - The [Contributor](/azure/role-based-access-control/built-in-roles/privileged#contributor) role assigned to Azure IoT Hub at the resource group level. When you select members during the role assignment, search for and select **Azure IoT Hub** from the list of service principals. For more information, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Overview
+
+> [!NOTE]
+> To create an IoT Hub that is linked to an ADR namespace, you must [use the Azure CLI](/azure/iot-hub/iot-hub-device-registry-setup?pivots=azure-cli#create-an-iot-hub-with-device-registry-integration).
 
 Use the Azure portal to create an IoT hub with Device Registry and certificate management integration.
 
@@ -124,88 +127,9 @@ Create custom policies within your Device Registry namespace to define how certi
 1. Select **Next**, and then select **Review + create**.
 1. To review the policy, select **Credential policies** to see the policy name and validity period.
 
-## Create an IoT hub in the Azure portal
+### Create an IoT hub in the Azure portal
 
-In this section, you create a new IoT hub instance with the Device Registry namespace and your user-assigned managed identity.
-
-1. In the [Azure portal](https://portal.azure.com), search for and select **IoT Hub**.
-1. On the **IoT Hub** page, select **+ Create** to create a new IoT hub.
-1. On the **Basics** tab, fill in the fields that are listed in the following table.
-
-   [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
-
-   | Property | Value |
-   | ----- | ----- |
-   | **Subscription** | Select the subscription to use for your hub. |
-   | **Resource group** | Select a resource group or create a new one. To create a new one, select **Create new** and fill in the name that you want to use.|
-   | **IoT hub name** | Enter a name for your hub. This name must be globally unique, with a length between 3 and 50 alphanumeric characters. The name can also include the dash (`-`) character.|
-   | **Region** | Device Registry integration and certificate management functionalities are in preview and available only in certain regions. See the [supported regions](../articles/iot-hub/iot-hub-what-is-new.md#supported-regions). Select the region closest to you where you want your hub to be located.|
-   | **Tier** | Select the **Preview** tier. To compare the features available to each tier, select **Compare tiers**.|
-   | **Daily message limit** | Select the maximum daily quota of messages for your hub. The available options depend on the tier that you select for your hub. To see the available messaging and pricing options, select **See all options** and select the option that best matches the needs of your hub. For more information, see [IoT Hub quotas and throttling](/azure/iot-hub/iot-hub-devguide-quotas-throttling).|
-   | **Device registry namespace** | Select the Device Registry namespace that you created in the previous section.|
-   | **User-managed identity** | Select the user-assigned managed identity that you associated to the Device Registry namespace and link it to your IoT hub. |
- 
-   :::image type="content" source="../articles/iot-hub/media/device-registry/iot-hub-gen-2-basics.png" alt-text="Screenshot that shows how to create an IoT hub in the Azure portal.":::
-
-   > [!NOTE]
-   > Prices shown are for example purposes only.
-
-### Configure the networking, management, and add-ons settings
-
-After you fill in the **Basics** tab, configure your IoT hub by following these steps:
-
-1. Select **Next: Networking** to continue creating your hub.
-1. On the **Networking** tab, fill in the following fields:
-
-   | Property | Value |
-   | ----- | ----- |
-   | **Connectivity configuration** | Choose the endpoints that devices can use to connect to your IoT hub. Accept the default setting, **Public access**, for this example. You can change this setting after the IoT hub is created. For more information, see [IoT Hub endpoints](/azure/iot-hub/iot-hub-devguide-endpoints). |
-   | **Minimum Transport Layer Security version** | Select the minimum [TLS version](/azure/iot-hub/iot-hub-tls-support#tls-12-enforcement-available-in-select-regions) supported by your IoT hub. After the IoT hub is created, you can't change this value. Accept the default setting, **1.2**, for this example. |
-
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-network-screen.png" alt-text="Screenshot that shows how to choose the endpoints that can connect to a new IoT hub.":::
-
-1. Select **Next: Management** to continue creating your hub.
-1. On the **Management** tab, accept the default settings. If you want, you can modify any of the following fields:
-
-   | Property | Value |
-   | ----- | ----- |
-   | **Permission model** | This property is part of role-based access control. The property decides how you manage access to your IoT hub. Allow shared access policies or choose only role-based access control. For more information, see [Control access to IoT Hub by using Microsoft Entra ID](/azure/iot-hub/iot-hub-dev-guide-azure-ad-rbac). |
-   | **Assign me** | This property enables you to access IoT Hub data APIs to manage elements within an instance. If you have access to role assignments, select **IoT Hub Data Contributor role** to grant yourself full access to the data APIs.<br><br>To assign Azure roles, you must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner). |
-   | **Device-to-cloud partitions** | This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most IoT hubs need only four partitions. |
-
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-management.png" alt-text="Screenshot that shows how to set the role-based access control and scale for a new IoT hub.":::
-
-1. Select **Next: Add-ons** to continue to the next screen.
-1. On the **Add-ons** tab, accept the default settings. If you want, you can modify any of the following fields:
-
-   | Property | Value |
-   | -------- | ----- |
-   | **Enable Device Update for IoT Hub** | Turn on **Device Update for IoT Hub** to enable over-the-air updates for your devices. If you select this option, you're prompted to provide information to provision a Device Update for IoT Hub account and instance. For more information, see [What is Device Update for IoT Hub?](/azure/iot-hub-device-update/understand-device-update). |
-   | **Enable Defender for IoT** | Turn on **Defender for IoT** to add an extra layer of protection to IoT and your devices. This option isn't available for hubs in the free tier. For more information, see [Security recommendations for IoT Hub](/azure/defender-for-iot/device-builders/concept-recommendations) in [Microsoft Defender for IoT](/azure/defender-for-iot/device-builders) documentation. |
-
-   :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-add-ons.png" alt-text="Screenshot that shows how to set the optional add-ons for a new IoT hub.":::
-
-   > [!NOTE]
-   > Prices shown are for example purposes only.
-
-1. Select **Next: Tags** to continue to the next screen.
-
-    Tags are name/value pairs. You can assign the same tag to multiple resources and resource groups to categorize resources and consolidate billing. In this article, you don't add any tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources).
-
-    :::image type="content" source="./media/iot-hub-include-create-hub/iot-hub-create-tags.png" alt-text="Screenshot that shows how to assign tags for a new IoT hub.":::
-
-1. Select **Next: Review + create** to review your choices.
-1. Select **Create** to start the deployment of your new hub. Your deployment might progress for a few minutes while the hub is being created. After the deployment is finished, select **Go to resource** to open the new hub.
-
-### Link your user-assigned managed identity to the IoT hub
-
-After you create your IoT hub, you need to associate your user-assigned managed identity with the hub. This step enables the IoT hub to use the managed identity for secure access to other Azure resources, such as the Device Registry namespace.
-
-1. In the [Azure portal](https://portal.azure.com), go to your IoT hub resource.
-1. On the sidebar menu, under **Security settings**, select **Identity**.
-1. At the top of the **Identity** pane, select the **User-assigned** tab.
-1. Select **Associate**.
-1. Select the user-assigned managed identity that you used with your namespace and select **Add**.
+To create an IoT Hub that is linked to an ADR namespace, you must [use the Azure CLI](/azure/iot-hub/iot-hub-device-registry-setup?pivots=azure-cli#create-an-iot-hub-with-device-registry-integration).
 
 ### Assign roles to the Device Registry namespace principal ID on your IoT hub
 
@@ -310,8 +234,7 @@ To provision devices with leaf certificates, you need to create an enrollment gr
 
     | Property | Value |
     | -------- | ----- |
-    | **Attestation mechanism** | Select **X.509 intermediate certificate** as the attestation method. |
-    | **X.509 certificate settings** | Upload the intermediate certificate files. Enrollments have one or two certificates, which are known as primary and secondary certificate files. |
+    | **Attestation mechanism** | Select any supported attestation method, such as symmetric key, X.509, TPM, and more. For more information, see [Attestation mechanism](../articles/iot-dps/concepts-service.md#attestation-mechanism).  |
     | **Group name** | Enter a name for your enrollment group. Skip this field if you're creating an individual enrollment. |
     | **Provisioning status** | Select **Enabled** to enable the enrollment from provisioning. |
     | **Reprovision policy** | Specify the reprovisioning policy for the enrollment. This policy determines how the enrollment behaves during device reprovisioning. |

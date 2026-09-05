@@ -4,7 +4,7 @@ description: Understand what is Azure NetApp Files cache volumes and the benefit
 author: netapp-manishc
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 11/06/2025
+ms.date: 09/01/2026
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a cloud administrator, I want to understand about Azure NetApp Files cache volumes and the benefits of using Azure NetApp Files cache volumes. 
@@ -92,7 +92,6 @@ Cache volumes are supported in the following regions:
 * Sweden Central
 * Switzerland North
 * Switzerland West
-* Taiwan North
 * UAE North
 * UK South
 * UK West

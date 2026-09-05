@@ -53,7 +53,7 @@ Ensure you choose the workflow for the correct service level.
 
     * The **Capacity pool** that the backup is restored into must have sufficient unused capacity to host the new restored volume. Otherwise, the restore operation fails.
     * The **Protocol** field is pre-populated from the original volume and cannot be changed.    
-    * The **Quota** value must be **at least 20% greater** than the size of the backup from which the restore is triggered. Once the restore is complete, the volume can be resized depending on the size used. 
+    * The **Quota** value must be **at least 20% greater** than the size of the backup from which the restore is triggered. After the restore finishes, you can resize the volume depending on the size used. Because the maximum size of a regular volume is 100 TiB, you can't restore backups larger than approximately **83.33 TiB** to a new regular volume. If your backups are approaching this size, reduce data on the source volume or plan migration to a large volume before you need to restore.
 
     Select **Review + Create** to begin restoring the backup to a new volume.
 

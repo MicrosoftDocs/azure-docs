@@ -13,6 +13,8 @@ ms.date: 01/29/2025
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 The following is a guide for setting up an Azure Pipelines release that automates the deployment of a data factory to multiple environments.
 
 ## Requirements

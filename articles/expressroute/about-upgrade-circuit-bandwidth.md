@@ -22,7 +22,7 @@ A bandwidth upgrade can fail when the physical port hosting your circuit doesn't
 
 If your upgrade fails because the port lacks capacity, you need to create a new ExpressRoute circuit on a port with sufficient capacity and then migrate your traffic. For detailed migration steps, see [Migrate to a new ExpressRoute circuit](circuit-migration.md).
 
-After creating the new ExpressRoute circuit, link your existing virtual networks to it. Test and validate the connectivity of the new circuit before deprovisioning the old one. These steps help minimize downtime and disruption to your production workload.
+After creating the new ExpressRoute circuit, validate it before it carries production traffic. Link the new circuit to the gateway of a test virtual network, then test and validate connectivity. Don't link a virtual network gateway that has a production deployment to the new circuit until validation is complete. Connect your production virtual network gateways during switchover, then deprovision the old circuit. These steps help minimize downtime and disruption to your production workload. For the full procedure, see [Migrate to a new ExpressRoute circuit](circuit-migration.md).
 
 ### <a name="bandwidth"></a>Insufficient ExpressRoute partner bandwidth
 

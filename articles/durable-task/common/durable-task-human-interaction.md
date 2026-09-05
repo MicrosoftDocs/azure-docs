@@ -96,10 +96,84 @@ The Durable Task SDKs simplify this scenario with:
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.DurableTask;
+
+public static partial class PhoneVerification
+{
+    [Function("E4_SmsPhoneVerification")]
+    public static async Task<bool> Run(
+        [OrchestrationTrigger] TaskOrchestrationContext context)
+    {
+        string phoneNumber = context.GetInput<string>()
+            ?? throw new ArgumentNullException(
+                nameof(phoneNumber),
+                "A phone number input is required.");
+
+        int challengeCode = await context.CallActivityAsync<int>(
+            "E4_SendSmsChallenge",
+            phoneNumber);
+
+        using var timeoutCts = new CancellationTokenSource();
+
+        // The user has 90 seconds to respond with the code they received.
+        DateTime expiration = context.CurrentUtcDateTime.AddSeconds(90);
+        Task timeoutTask = context.CreateTimer(expiration, timeoutCts.Token);
+
+        bool authorized = false;
+        for (int retryCount = 0; retryCount <= 3; retryCount++)
+        {
+            Task<int> challengeResponseTask =
+                context.WaitForExternalEvent<int>("SmsChallengeResponse");
+
+            Task winner = await Task.WhenAny(challengeResponseTask, timeoutTask);
+            if (winner == challengeResponseTask)
+            {
+                if (challengeResponseTask.Result == challengeCode)
+                {
+                    authorized = true;
+                    break;
+                }
+            }
+            else
+            {
+                break;
+            }
+        }
+
+        if (!timeoutTask.IsCompleted)
+        {
+            // All pending timers must complete or be canceled before the function exits.
+            timeoutCts.Cancel();
+        }
+
+        return authorized;
+    }
+}
+```
+
+> [!NOTE]
+> This orchestrator is deterministic because `CurrentUtcDateTime` returns the same value at the same point in every replay. This behavior ensures that `winner` is the same for every repeated call to `Task.WhenAny`.
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
 
 > [!NOTE]
 > It might not be obvious at first, but this orchestrator doesn't violate the [deterministic orchestration constraint](durable-task-code-constraints.md). It's deterministic because the `CurrentUtcDateTime` property calculates the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior ensures that `winner` is the same for every repeated call to `Task.WhenAny`.
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -510,14 +584,71 @@ This orchestrator performs the following actions:
 
 ### E4_SendSmsChallenge activity function
 
-The **E4_SendSmsChallenge** function uses the Twilio binding to send an SMS message that includes a four-digit code to the user.
+The **E4_SendSmsChallenge** function sends an SMS message that includes a four-digit code to the user.
 
 # [C#](#tab/csharp)
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Logging;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+
+public static partial class PhoneVerification
+{
+    [Function("E4_SendSmsChallenge")]
+    public static async Task<int> SendSmsChallenge(
+        [ActivityTrigger] string phoneNumber,
+        FunctionContext executionContext)
+    {
+        ILogger logger = executionContext.GetLogger("E4_SendSmsChallenge");
+
+        int challengeCode = Random.Shared.Next(10000);
+        logger.LogInformation(
+            "Sending verification code {ChallengeCode:0000} to {PhoneNumber}.",
+            challengeCode,
+            phoneNumber);
+
+        string accountSid = Environment.GetEnvironmentVariable("TwilioAccountSid")
+            ?? throw new InvalidOperationException("TwilioAccountSid is not configured.");
+        string authToken = Environment.GetEnvironmentVariable("TwilioAuthToken")
+            ?? throw new InvalidOperationException("TwilioAuthToken is not configured.");
+        string fromNumber = Environment.GetEnvironmentVariable("TwilioPhoneNumber")
+            ?? throw new InvalidOperationException("TwilioPhoneNumber is not configured.");
+
+        TwilioClient.Init(accountSid, authToken);
+        await MessageResource.CreateAsync(
+            to: new PhoneNumber(phoneNumber),
+            from: new PhoneNumber(fromNumber),
+            body: $"Your verification code is {challengeCode:0000}");
+
+        return challengeCode;
+    }
+}
+```
+
+> [!NOTE]
+> To run the isolated worker sample, install the `Twilio` NuGet package. Configure the `TwilioAccountSid`, `TwilioAuthToken`, and `TwilioPhoneNumber` app settings.
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
 
 > [!NOTE]
 > To run the sample, install the `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet package. Don't install the main [Twilio NuGet package](https://www.nuget.org/packages/Twilio/) because it can cause version conflicts and build errors.
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 

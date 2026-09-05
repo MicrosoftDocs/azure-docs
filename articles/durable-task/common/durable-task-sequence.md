@@ -58,9 +58,40 @@ This article describes these components in the sample app:
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("E1_HelloSequence")]
+public static async Task<List<string>> RunOrchestrator(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    var outputs = new List<string>();
+
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
+    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
+
+    return outputs;
+}
+```
+
+In the isolated worker model, C# orchestration functions include a parameter of type `TaskOrchestrationContext` from the `Microsoft.DurableTask` package. Use this context object to call activity functions and pass input parameters by using its `CallActivityAsync` method.
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=13-25)]
 
-All C# orchestration functions must have a parameter of type `DurableOrchestrationContext`, which exists in the `Microsoft.Azure.WebJobs.Extensions.DurableTask` assembly. This context object lets you call other *activity* functions and pass input parameters by using its `CallActivityAsync` method.
+In the in-process model, C# orchestration functions include a parameter of type `DurableOrchestrationContext`, which exists in the `Microsoft.Azure.WebJobs.Extensions.DurableTask` assembly. Use this context object to call other *activity* functions and pass input parameters by using its `CallActivityAsync` method.
+
+</details>
+
+<br>
 
 The code calls `E1_SayHello` three times in sequence with different parameter values. The return value of each call is added to the `outputs` list, which the function returns at the end.
 
@@ -314,6 +345,26 @@ In Java, orchestrators are defined using `TaskOrchestrationFactory`. The context
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("E1_SayHello")]
+public static string SayHello([ActivityTrigger] string name)
+{
+    return $"Hello {name}!";
+}
+```
+
+In the isolated worker model, activities use the `ActivityTrigger` attribute and can bind directly to the input type that the orchestrator passes to the activity.
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=27-32)]
 
 Activities use the `ActivityTrigger` attribute. Use `IDurableActivityContext` for activity actions, like reading input with `GetInput<T>`.
@@ -322,6 +373,10 @@ Activities use the `ActivityTrigger` attribute. Use `IDurableActivityContext` fo
 
 Instead of binding to `IDurableActivityContext`, bind directly to the type you pass into the activity function. For example:
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -565,9 +620,41 @@ Start an orchestrator function instance from a client function. Use the `HttpSta
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("HttpStart")]
+public static async Task<HttpResponseData> HttpStart(
+    [HttpTrigger(
+        AuthorizationLevel.Anonymous,
+        "get",
+        "post",
+        Route = "orchestrators/{functionName}")] HttpRequestData request,
+    [DurableClient] DurableTaskClient client,
+    string functionName)
+{
+    string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(functionName);
+    return await client.CreateCheckStatusResponseAsync(request, instanceId);
+}
+```
+
+In the isolated worker model, use `DurableTaskClient` to schedule an orchestration and return an HTTP response with URLs for managing the new instance.
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs?range=13-30)]
 
-To interact with orchestrators, add a `DurableClient` input binding. Use the client to start an orchestration and return an HTTP response that includes URLs to check the status of the new orchestration.
+In the in-process model, add a `DurableClient` input binding. Use the client to start an orchestration and return an HTTP response that includes URLs to check the status of the new orchestration.
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 

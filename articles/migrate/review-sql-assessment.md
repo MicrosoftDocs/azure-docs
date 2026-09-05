@@ -5,10 +5,9 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 04/17/2025
 ms.custom: engagement-fy24
-monikerRange:
 # Customer intent: As a database administrator, I want to review SQL assessments created for migration to Azure SQL services, so that I can understand readiness and cost estimates for my SQL deployments and make informed decisions for the migration process.
 ---
 

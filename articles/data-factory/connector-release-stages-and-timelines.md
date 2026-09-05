@@ -14,6 +14,8 @@ ms.date: 05/12/2026
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article provides an overview of the release stages and timelines for each connector available in Azure Data Factory.
 For comprehensive details on support levels and recommended usage at each stage, please see [this article](connector-lifecycle-overview.md#release-rhythm).
 

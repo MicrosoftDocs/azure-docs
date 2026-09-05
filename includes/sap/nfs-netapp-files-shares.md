@@ -11,7 +11,7 @@ ms.author: zamasiel
 manager: radeltch
 ---
 
-1. **[A]** Disable ID Mapping
+1. **[A]** Disable ID Mapping (NFSv4.1 Only)
    1. Edit the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, `defaultv4iddomain.com`. Also verify that the mapping is set to `nobody`.
 
       ```bash
@@ -49,7 +49,10 @@ manager: radeltch
    ```bash
    # Temporarily mount the volume.
    sudo mkdir -p /saptmp
+   # NFSv4.1
    sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,nfsvers=4.1,sec=sys,tcp 10.27.1.5:/sapnw1 /saptmp
+   # NFSv3
+   sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,nfsvers=3,tcp 10.27.1.5:/sapnw1 /saptmp
 
    # Create the SAP directories.
    cd /saptmp
@@ -77,9 +80,15 @@ manager: radeltch
    ```bash
    sudo vi /etc/fstab
    [...]
+   # NFSv4.1
    10.27.1.5:/sapnw1/sapmntNW1 /sapmnt/NW1 nfs nfsvers=4.1,sec=sys,hard 0 0
    10.27.1.5:/sapnw1/usrsapNW1 /usr/sap/NW1 nfs nfsvers=4.1,sec=sys,hard 0 0
    10.27.1.5:/saptrans /usr/sap/trans nfs nfsvers=4.1,sec=sys,hard 0 0
+
+   # NFSv3
+   10.27.1.5:/sapnw1/sapmntNW1 /sapmnt/NW1 nfs nfsvers=3,hard 0 0
+   10.27.1.5:/sapnw1/usrsapNW1 /usr/sap/NW1 nfs nfsvers=3,hard 0 0
+   10.27.1.5:/saptrans /usr/sap/trans nfs nfsvers=3,hard 0 0
 
    # Mount the file systems.
    sudo mount -a

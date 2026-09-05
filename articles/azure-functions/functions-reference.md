@@ -181,8 +181,6 @@ The code for Azure Functions is open source. You can find key components in thes
 
 * [Azure Functions host](https://github.com/Azure/azure-functions-host/)
 
-* [Azure Functions portal](https://github.com/azure/azure-functions-ux)
-
 * [Azure Functions templates](https://github.com/azure/azure-functions-templates)
 
 * [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/)

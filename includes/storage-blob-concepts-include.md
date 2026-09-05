@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-storage
 ms.topic: "include"
-ms.date: 05/18/2026
+ms.date: 08/19/2026
 ms.author: normesta
 ms.custom: "include file"
 ---
@@ -33,13 +33,13 @@ Users or client applications can access objects in Blob Storage via HTTP or HTTP
 
 Clients can also securely connect to Blob Storage by using SSH File Transfer Protocol (SFTP) and mount Blob Storage containers by using the Network File System (NFS) 3.0 protocol. 
 
-## About Azure Data Lake Storage Gen2
+## About Azure Data Lake Storage
 
-Blob Storage supports Azure Data Lake Storage Gen2, Microsoft's enterprise big data analytics solution for the cloud. Azure Data Lake Storage Gen2 offers a hierarchical file system as well as the advantages of Blob Storage, including:
+Blob Storage supports Azure Data Lake Storage, Microsoft's enterprise big data analytics solution for the cloud. Azure Data Lake Storage offers a hierarchical file system as well as the advantages of Blob Storage, including:
 
 - Low-cost, tiered storage
 - High availability
 - Strong consistency
 - Disaster recovery capabilities
 
-For more information about Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md).
+For more information about Data Lake Storage, see [Introduction to Azure Data Lake Storage](../articles/storage/blobs/data-lake-storage-introduction.md).

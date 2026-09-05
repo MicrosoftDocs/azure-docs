@@ -182,6 +182,8 @@
   items:
   - name: GitHub - Azure Blueprints samples
     href: https://github.com/Azure/azure-blueprints
+  - name: GitHub - Blueprints migration skill (Copilot)
+    href: https://github.com/Azure/azure-blueprints/tree/master/skills/azure-blueprints-migration
   - name: Microsoft Q&A for Azure Blueprints
     href: /answers/topics/azure-blueprints.html
   - name: Governance YouTube Channel

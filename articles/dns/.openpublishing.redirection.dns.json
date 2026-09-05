@@ -4,6 +4,11 @@
             "source_path_from_root": "/articles/dns/dns-troubleshoot.md",
             "redirect_url": "/troubleshoot/azure/dns/troubleshoot-dns",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dns/private-resolver-reliability.md",
+            "redirect_url": "/azure/reliability/reliability-dns-private-resolver?toc=/azure/dns/toc.json",
+            "redirect_document_id": false
         }
     ]
 }

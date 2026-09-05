@@ -13,6 +13,8 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This tutorial provides minimum steps via Azure portal/Azure Data Factory (ADF) UI to configure your Azure-SQL Server Integration Services (SSIS) integration runtime (IR) to join a virtual network with express injection method.  The steps include:
 
 1. Configure a virtual network for express injection method via Azure portal.

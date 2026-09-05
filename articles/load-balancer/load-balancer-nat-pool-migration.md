@@ -6,6 +6,7 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 01/28/2025
+ai-usage: ai-assisted
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to migrate inbound NAT rules from version 1 to version 2 for multiple VMs or VMSS in Azure Load Balancer, so that I can ensure compliance with the upcoming retirement timeline and leverage improved deployment efficiency and optimized updates for my backend infrastructure.
 ---
@@ -36,7 +37,7 @@ An [inbound NAT rule](inbound-nat-rules.md) is used to forward traffic from a lo
 
 ## How do I know if I’m using version 1 of Inbound NAT rules? 
 
-The easiest way to identify if your deployments are using version 1 of the feature is by inspecting the load balancer’s configuration. Version 1 nat rules will have a **Type** value of *Azure Virtual Machine* with a defined **Target virtual machine** value.
+The easiest way to identify if your deployments are using version 1 of the feature is by inspecting the load balancer’s configuration. Version 1 NAT rules have a **Type** value of *Azure Virtual Machine* with a defined **Target virtual machine** value.
 
 :::image type="content" source="media/load-balancer-nat-pool-migration/nat-rule-version-1.png" alt-text="Screenshot of NAT rule version 1 configuration in Azure portal.":::
 
@@ -84,12 +85,12 @@ Prior to migrating it's important to review the following information:
 
 ### Manual Migration  
 
-The following three steps need to be performed to migrate to version 2 of inbound NAT rules  
+The following three steps migrate Inbound NAT Pools to version 2 of Inbound NAT rules. A single VM Inbound NAT rule V1 doesn't require these steps.
 
-1. Delete the version 1 of inbound NAT rules on the load balancer’s configuration.
-2. Remove the reference to the NAT rule on the virtual machine or virtual machine scale set configuration.
-   1. All virtual machine scale set instances need to be updated.
-3. Deploy version 2 of Inbound NAT rules.
+1. Delete the Inbound NAT Pool on the load balancer's configuration.
+1. Remove the `loadBalancerInboundNatPools` reference on the virtual machine scale set network interface configuration.
+   - Update all virtual machine scale set instances.
+1. Deploy version 2 of Inbound NAT rules against the load balancer's backend pool.
 
 ### Virtual Machine Scale Set
 
@@ -141,6 +142,14 @@ $slb | Set-AzLoadBalancer
 ```
 ---
 
+### Verify the migration
+
+After you complete either procedure, confirm all three outcomes:
+
+- The load balancer no longer has Inbound NAT Pools. `az network lb inbound-nat-pool list -g MyResourceGroup --lb-name MyLoadBalancer` returns an empty result, or `$slb.InboundNatPools` is empty in PowerShell.
+- The new version 2 rule targets the intended backend pool. Confirm the rule shows a **Target backend pool** value in the Azure portal, or that `backendAddressPool` is populated in the rule configuration.
+- The expected port mappings exist. In the Azure portal, open the new inbound NAT rule and review the **Port mapping** section for each backend instance.
+
 ## Migration with automation script for Virtual Machine Scale Set 
 
 The migration process will reuse existing backend pools with membership matching the NAT Pools to be migrated; if no matching backend pool is found, the script will exit (without making changes). Alternatively, use the  `-backendPoolReuseStrategy` parameter to either always create new backend pools (`NoReuse`) or create a new backend pool if a matching one doesn't exist (`OptionalFirstMatch`). Backend pools and NAT Rule associations can be updated post migration to match your preference.
@@ -168,8 +177,8 @@ Install-Module -Name AzureLoadBalancerNATPoolMigration -Scope CurrentUser -Repos
 With the `azureLoadBalancerNATPoolMigration` module installed, upgrade your NAT Pools to NAT Rules with the following steps:
 
 1. Connect to Azure with `Connect-AzAccount`.
-2. Collect the names of the **target load balancer** for the NAT Rules upgrade and its **Resource Group** name.
-3. Run the migration command with your resource names replacing the placeholders of `<loadBalancerResourceGroupName>` and `<loadBalancerName>`:
+1. Collect the names of the **target load balancer** for the NAT rules upgrade and its **resource group** name.
+1. Run the migration command with your resource names replacing the placeholders of `<loadBalancerResourceGroupName>` and `<loadBalancerName>`:
 
     ```powershell
     # Run the migration command 

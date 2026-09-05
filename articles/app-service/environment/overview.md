@@ -3,7 +3,7 @@ title: App Service Environment Overview
 description: Learn about App Service Environments, which are fully isolated and single-tenant App Service deployments that provide high-scale, network-secured hosting.
 author: seligj95
 ms.topic: overview
-ms.date: 04/20/2026
+ms.date: 08/24/2026
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
@@ -51,7 +51,7 @@ Multitenant App Service apps can use several networking features to reach networ
 
 An App Service Environment is a single-tenant deployment of App Service that runs on your virtual network.
 
-Applications are hosted in App Service plans, which you create in an App Service Environment. An App Service plan serves as a provisioning profile for an application host. As you scale out your App Service plan, you add more application hosts. All apps in that plan run on each host. A single App Service Environment v3 supports up to 200 total instances across all App Service plans. A single App Service Isolated v2 (Iv2) plan supports up to 100 instances.
+You host applications in App Service plans, which you create in an App Service Environment. An App Service plan serves as a provisioning profile for an application host. As you scale out your App Service plan, you add more application hosts. By default, when per-app scaling is disabled, all apps in that plan run on each host. By using [per-app scaling](../manage-scale-per-app.md), an app or deployment slot can run on only a subset of the plan's hosts. A single App Service Environment v3 supports up to 200 total instances across all App Service plans. A single App Service Isolated v2 (Iv2) plan supports up to 100 instances.
 
 If you require physical isolation down to the hardware level, you can deploy your App Service Environment v3 on dedicated hosts.
 
@@ -93,6 +93,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
   Consider the following factors for an environment that has zone redundancy:
  
   - Each App Service plan must have at least two instances to distribute them across zones.
+  - Plan zone redundancy and the minimum plan instance count don't by themselves ensure that an app or deployment slot has two active replicas. A [per-app scaling](../manage-scale-per-app.md) limit of one allows only one active replica for that app or slot.
   - Each App Service plan's zone redundancy status is independent, so you can use a mix of zone-redundant and non-zone-redundant plans.
   - To make plans zone redundant, the App Service Environment must have zone redundancy enabled.
   - You can scale non-zone-redundant plans down to a single instance.

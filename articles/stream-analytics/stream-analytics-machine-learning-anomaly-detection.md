@@ -144,7 +144,7 @@ You can find sample code to run the nonpartitioned configurations in the [Stream
 > For a more accurate estimate, customize the samples to fit your scenario.
 
 ### Identifying bottlenecks
-To identify bottlenecks in your pipeline, use the Metrics pane in your Azure Stream Analytics job. Review **Input/Output Events** for throughput and ["Watermark Delay"](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-job-analysis-with-metric-dimensions) or **Backlogged Events** to see if the job keeps up with the input rate. For Event Hubs metrics, look for **Throttled Requests** and adjust the Threshold Units accordingly. For Azure Cosmos DB metrics, review **Max consumed RU/s per partition key range** under Throughput to ensure your partition key ranges are uniformly consumed. For Azure SQL DB, monitor **Log IO** and **CPU**.
+To identify bottlenecks in your pipeline, use the Metrics pane in your Azure Stream Analytics job. Review **Input/Output Events** for throughput and ["Watermark Delay"](stream-analytics-job-analysis-with-metric-dimensions.md) or **Backlogged Events** to see if the job keeps up with the input rate. For Event Hubs metrics, look for **Throttled Requests** and adjust the Threshold Units accordingly. For Azure Cosmos DB metrics, review **Max consumed RU/s per partition key range** under Throughput to ensure your partition key ranges are uniformly consumed. For Azure SQL DB, monitor **Log IO** and **CPU**.
 
 ## Demo video
 

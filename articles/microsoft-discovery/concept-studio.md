@@ -89,7 +89,7 @@ Use the **Refresh** and **Filter** controls above the table to update the list o
 
 ## Projects view
 
-When you open a project, Microsoft Discovery Studio transitions into a full **Visual Studio Code for the Web** environment. This portal is where you conduct your research—running shared sessions, interacting with agents, and managing project resources.
+To open a project, select **Workspaces** in the sidebar, open the workspace that contains the project, and then select the project name. When you open a workspace, Microsoft Discovery Studio transitions into a full **Visual Studio Code for the Web** environment. This portal is where you conduct your research—running shared sessions, interacting with agents, and managing project resources.
 
 The project includes:
 

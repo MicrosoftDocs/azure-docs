@@ -6,24 +6,24 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: how-to 
-ms.date: 02/06/2025
+ms.date: 08/28/2026
 #customer intent : As a data analyst, I want to share Grafana dashboards and panels with stakeholders.
 ---
 
 # Share a Grafana dashboard or panel
 
-In this guide for Azure Managed Grafana, learn how to share Grafana dashboards with internal and external stakeholders, whether you want to collaborate on a Grafana project with team members, generate files, reports, or share information publicly.
+In this guide, learn how to share Grafana dashboards with internal and external stakeholders, collaborate with team members, generate files and reports, or share information publicly.
 
 This article covers information about sharing access to Grafana dashboards with internal stakeholders, managing dashboard permissions, and generating the following dashboard elements:
 
-  - direct links
-  - snapshots
-  - library panels
-  - JSON or PDF files
-  - reports
+- Direct links.
+- Snapshots.
+- Library panels.
+- JSON or PDF files.
+- Reports.
 
 > [!NOTE]
-> The Grafana UI may change periodically. This article shows the Grafana interface and user flow at a given point. Your experience may slightly differ from the examples below at the time of reading this document. If so, refer to the [Grafana Labs documentation.](https://grafana.com/docs/grafana/latest/dashboards/)
+> The Grafana UI changes periodically, so your experience might differ from the examples in this article. For current interface details, see the [Grafana Labs documentation](https://grafana.com/docs/grafana/latest/dashboards/).
 
 ## Prerequisites
 
@@ -52,12 +52,12 @@ The Grafana portal provides several options to share access to Grafana dashboard
 1. In the Grafana portal, go to **Dashboards > Browse**, and open a dashboard.
 1. Open sharing options:
    - To share a whole dashboard, select **Share** at the top of the page.
-   - To share a single dashboard panel, hover over a panel title, open the panel menu and select **Share**. A new window opens, offering various sharing options.
+   - To share a single dashboard panel, hover over a panel title, open the panel menu, and select **Share**. A new window opens with various sharing options.
 
       :::image type="content" source="media/share-dashboard/find-share-option.png" alt-text="Screenshot of the Grafana workspace. Create a new dashboard.":::
 
 > [!TIP] 
-> If you update a dashboard or a panel, ensure you save your changes before sharing it so that it contains your latest changes.
+> If you update a dashboard or panel, save your changes before sharing it so that the shared version contains your latest changes.
 
 For more information about the sharing methods presented below, refer to Grafana's [Share dashboards and panels documentation](https://grafana.com/docs/grafana/latest/visualizations/dashboards/share-dashboards-panels/).
 
@@ -65,18 +65,18 @@ For more information about the sharing methods presented below, refer to Grafana
 
 The **Link** tab lets you create a direct link to a Grafana dashboard or panel.
 
-Create a sharable link in one step, by selecting **Copy**, at the bottom of the tab. Optionally customize sharing with the options below:
+Create a shareable link by selecting **Copy** at the bottom of the tab. You can customize sharing with the following options:
 
 - **Lock time range**: sets the time range of the shared panel or dashboard to the time range currently displayed in your shared panel or dashboard.
 - **Theme**: keep the current theme or choose a dark or a light theme.
-- **Shorten URL**: shortens the sharable link.
+- **Shorten URL**: Shortens the shareable link.
 
 > [!NOTE] 
 > Users must have Grafana Viewer permission to view shared links.
 
 ### Share a snapshot
 
-The **Snapshot** tab lets you share an interactive dashboard or panel publicly. Sensitive data like queries (metric, template, and annotation) and panel links are removed from the snapshot, leaving only the visible metric data and series names embedded in your dashboard. A snapshot can be viewed by anyone that has the link and can access the URL.
+Use the **Snapshot** tab to share an interactive dashboard or panel publicly. The snapshot removes queries, including metric, template, and annotation queries, and panel links. However, the visible metric data and series names remain embedded in the dashboard. Anyone who has the link and can access the URL can view this data. Review the snapshot for sensitive information before you publish it.
 
 1. Optionally update the snapshot name, select an expiry date, and change the time-out value.
 1. To publish the Grafana snapshot, choose one of the following options:

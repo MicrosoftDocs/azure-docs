@@ -4,8 +4,8 @@ description: This article describes the updates and maintenance options availabl
 ms.service: azure-update-manager
 ms.date: 06/11/2025
 ms.topic: overview
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator, I want to enable automated update management for my virtual machines, so that I can ensure timely application of security patches and OS upgrades without manual intervention, minimizing downtime and maintaining system security."
 ---

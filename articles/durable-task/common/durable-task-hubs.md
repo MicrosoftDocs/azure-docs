@@ -122,6 +122,34 @@ In addition to **host.json**, task hub names can also be set up in [orchestratio
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("HttpStart")]
+public static async Task<HttpResponseData> Run(
+  [HttpTrigger(AuthorizationLevel.Function, "post", Route = "orchestrators/{functionName}")] HttpRequestData req,
+  [DurableClient(TaskHub = "%MyTaskHub%")] DurableTaskClient starter,
+  string functionName,
+  FunctionContext executionContext)
+{
+  string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+  string instanceId = await starter.ScheduleNewOrchestrationInstanceAsync(functionName, requestBody);
+
+  ILogger logger = executionContext.GetLogger("HttpStart");
+  logger.LogInformation("Started orchestration with ID = '{instanceId}'.", instanceId);
+
+  return await starter.CreateCheckStatusResponseAsync(req, instanceId);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
@@ -142,6 +170,10 @@ public static async Task<HttpResponseMessage> Run(
 
 > [!NOTE]
 > The previous example is for Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -563,6 +595,26 @@ Consider a fan-out-fan-in orchestration that starts two activities in parallel, 
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("Example")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+  Task t1 = context.CallActivityAsync("MyActivity", 1);
+  Task t2 = context.CallActivityAsync("MyActivity", 2);
+  await Task.WhenAll(t1, t2);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("Example")]
 public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
@@ -572,6 +624,10 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
     await Task.WhenAll(t1, t2);
 }
 ```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 

@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.update-cycle: 1825-days
 ms.date: 09/11/2025
 ms.custom: engagement-fy25, devx-track-extended-java

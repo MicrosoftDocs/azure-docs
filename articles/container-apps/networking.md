@@ -69,7 +69,7 @@ In the [ingress](azure-resource-manager-api-spec.md#propertiesconfiguration) sec
 
 - Enable or disable ingress for your container app.
 
-- Accept traffic to your container app from anywhere or from only within the same Container Apps environment.
+- Accept traffic to your container app from anywhere or from only within the same Container Apps environment. In an internal environment, "anywhere" means anywhere in your virtual network, because the environment has no public endpoint. For more information, see [How ingress visibility interacts with the environment type](ingress-overview.md#how-ingress-visibility-interacts-with-the-environment-type).
 
 - Define traffic-splitting rules between revisions of your application. For more information, see [Traffic splitting](traffic-splitting.md).
 

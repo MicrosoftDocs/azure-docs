@@ -17,6 +17,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from and to a MongoDB Atlas database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!NOTE]
@@ -150,7 +152,7 @@ The following properties are supported in the copy activity **source** section:
 | batchSize | Specifies the number of documents to return in each batch of the response from MongoDB Atlas instance. In most cases, modifying the batch size will not affect the user or the application. Azure Cosmos DB limits each batch cannot exceed 40MB in size, which is the sum of the batchSize number of documents' size, so decrease this value if your document size being large. | No<br/>(the default is **100**) |
 
 >[!TIP]
->The service supports consuming BSON document in **Strict mode**. Make sure your filter query is in Strict mode instead of Shell mode. More description can be found at [MongoDB manual](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
+>The service supports consuming BSON documents in **Strict mode**. Ensure your filter query is in Strict mode instead of Shell mode. For more information, see [MongoDB manual](https://www.mongodb.com/docs/manual/reference/mongodb-extended-json/).
 
 **Example:**
 

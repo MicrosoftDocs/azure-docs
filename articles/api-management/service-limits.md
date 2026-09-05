@@ -3,7 +3,7 @@ title: Understanding Azure API Management Service Limits
 description: Learn about service limits in Azure API Management, including their purpose, how they're enforced, and guidelines for managing your service.
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 02/17/2026
+ms.date: 08/19/2026
 ai-usage: ai-assisted
 ---
 
@@ -20,6 +20,14 @@ Azure API Management operates on finite physical infrastructure. To ensure relia
 * Typical customer usage patterns
 
 Resource limits are interrelated and tuned to prevent any single aspect from disrupting overall service performance.
+
+## Gateway capacity throttling
+
+Gateway capacity throttling is a service protection that helps prevent an API Management gateway from becoming overloaded.
+
+Gateway capacity throttling can reject incoming requests with HTTP 429 (Too Many Requests) to protect capacity. An HTTP 429 response by itself doesn't indicate a service incident. If capacity constraints affect your traffic, scale out where your service tier supports it or scale up to a tier with more capable hardware.
+
+For capacity guidance, see [Capacity of an Azure API Management instance](api-management-capacity.md).
 
 ## Changes to service limits - 2026 update
 

@@ -52,7 +52,7 @@ This article describes how to configure vaulted backups for Azure Data Lake Stor
 
 Before you configure vaulted backup for Azure Data Lake Storage, ensure that the following prerequisites are met:
 
-- Install the Azure PowerShell version Az 14.6.0. Learn [how to install Azure PowerShell](/powershell/azure/install-az-ps).
+- Install Azure PowerShell version Az 14.6.0 or later and Az.DataProtection version 3.0.1 or later. Learn [how to install Azure PowerShell](/powershell/azure/install-az-ps).
 - Identify or [create a Backup vault](backup-blobs-storage-account-ps.md?tabs=operational-backup#create-a-backup-vault) to configure Azure Data Lake Storage backup.
 - Review the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md) for Azure Data Lake Storage backup.
 - [Create a backup policy for Azure Data Lake Storage](azure-data-lake-storage-backup-create-policy-quickstart.md?pivots=client-powershell) that defines the backup schedule and retention range.
@@ -85,13 +85,21 @@ You need to assign the required permissions via Azure role-based access control 
 
 ### Trigger the request for vaulted backup configuration
 
-After all the relevant permissions are set, configure Azure Date Lake Storage vaulted backup by running the following cmdlets:
+After you set all the relevant permissions, configure Azure Data Lake Storage vaulted backup by running the following cmdlets:
 
-1. Create a new backup configuration object to specify the set of containers you want to back up. 
+1. Create a new backup configuration object to specify the set of containers you want to back up.
 
-   To back up all containers, pass the *`-IncludeAllContainer`* parameter. For specific containers, pass the list of containers to the *`-VaultedBackupContainer`* parameter.
+   To back up all present containers, pass the *`-IncludeAllContainer`* parameter. To auto-protect all present and future containers, pass the *`-AutoProtection`* parameter. When you use this parameter, new containers created after backup configuration are automatically protected until the protected container count reaches 1000. Selecting auto-protection for all present and future containers is permanent, and you can't switch back to the earlier container selection options. To exclude containers from auto-protection, pass prefix-based rules to the *`-AutoProtectionExclusionRule`* parameter. For specific containers, pass the list of containers to the *`-VaultedBackupContainer`* parameter.
     ```azurepowershell-interactive
-    $backupConfig=New-AzDataProtectionBackupConfigurationClientObject -DatasourceType AzureDataLakeStorage -IncludeAllContainer -StorageAccountResourceGroupName "StorageRG" -StorageAccountName "testpscmd"
+    $adlsRules = @(
+        @{ ObjectType = "BlobBackupAutoProtectionRule"; Pattern = "staging-" }
+        @{ ObjectType = "BlobBackupAutoProtectionRule"; Pattern = "temporary-" }
+    )
+
+    $backupConfig = New-AzDataProtectionBackupConfigurationClientObject `
+        -DatasourceType AzureDataLakeStorage `
+        -AutoProtection `
+        -AutoProtectionExclusionRule $adlsRules
     ```
 
 1. Prepare the request by using the relevant vault, policy, storage account, and the backup configuration object you created using the [`Initialize-AzDataProtectionBackupInstance`](/powershell/module/az.dataprotection/initialize-azdataprotectionbackupinstance) cmdlet.
@@ -120,6 +128,7 @@ Before you configure vaulted backup for Azure Data Lake Storage, ensure that the
 - Identify or [create a Backup vault](backup-blobs-storage-account-cli.md?tabs=operational-backup#create-a-backup-vault) to configure Azure Data Lake Storage backup.
 - Review the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md) for Azure Data Lake Storage backup.
 - [Create a backup policy for Azure Data Lake Storage](azure-data-lake-storage-backup-create-policy-quickstart.md?pivots=client-cli) that defines the backup schedule and retention range.
+- Install the Azure CLI `dataprotection` extension version 1.10.0 or later.
 
 ## Configure vaulted backup for the Azure Data Lake Storage using Azure CLI
 
@@ -152,21 +161,43 @@ You need to assign the required permissions via Azure role-based access control 
 
 ### Trigger the request for vaulted backup configuration
 
-After all the relevant permissions are set, configure Azure Date Lake Storage vaulted backup by running the following example cmdlets:
+After you set all the relevant permissions, configure Azure Data Lake Storage vaulted backup by running the following example commands:
+
+1. Initialize the backup configuration with auto-protection enabled. Use `--exclusion-prefixes` to exclude containers whose names start with the specified prefixes.
+
+    ```azurecli-interactive
+    az dataprotection backup-instance initialize-backupconfig `
+      --datasource-type AzureDataLakeStorage `
+      --auto-protection true `
+      --exclusion-prefixes "staging-" "temporary-" `
+      --output json |
+      Set-Content adls-autoprotection.json -Encoding utf8
+    ```
 
 1. Prepare the request by using the relevant vault, policy, storage account, and the backup configuration object you created using the [`az dataprotection backup-instance initialize`](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-initialize) command.
 
     ```azurecli-interactive
-    az dataprotection backup-instance initialize --datasource-type AzureDataLakeStorage  -l southeastasia --policy-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/AdlsPolicy1" --datasource-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/adlsrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" > backup_instance.json
+    az dataprotection backup-instance initialize `
+      --datasource-type AzureDataLakeStorage `
+      --datasource-location "southeastasia" `
+      --policy-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/AdlsPolicy1" `
+      --datasource-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/adlsrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" `
+      --backup-config adls-autoprotection.json `
+      --output json |
+      Set-Content backup_instance.json -Encoding utf8
     ```
 
 1. Submit the request to trigger backup configuration using the [`az dataprotection backup-instance create`](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-create) command.
 
     ```azurecli-interactive
-    az dataprotection backup-instance create -g adlsrg--vault-name TestBkpVault --backup-instance backup_instance.json
+    az dataprotection backup-instance create `
+      --subscription "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e" `
+      --resource-group "testBkpVaultRG" `
+      --vault-name "TestBkpVault" `
+      --backup-instance backup_instance.json
     ```
 
-   The following example JSON configures an Azure Data Lake Storage backup for a specified storage account with specified policy and container list.
+   The following example JSON configures an Azure Data Lake Storage backup for a specified storage account with a specified policy and explicit container list. Use an explicit container list when you want to protect only selected containers instead of auto-protecting all containers.
 
     ```JSON
     {
@@ -218,6 +249,3 @@ After all the relevant permissions are set, configure Azure Date Lake Storage va
 - [Manage vaulted backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).
 - [Troubleshoot Azure Data Lake Storage backup](azure-data-lake-storage-backup-troubleshoot.md). 
  
-
-
-

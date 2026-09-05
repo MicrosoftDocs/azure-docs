@@ -7,7 +7,7 @@ ms.manager: vijain
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 03/12/2026
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.custom: engagement-fy25
 ms.update-cycle: 180-days
 monikerRange: migrate 

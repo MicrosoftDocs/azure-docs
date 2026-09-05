@@ -2,7 +2,6 @@
 title: Test locally by using the Azure Service Bus emulator
 description: This article describes how to develop and test locally by using the Azure Service Bus emulator.
 ms.topic: how-to
-ms.author: Saglodha
 ms.date: 10/27/2025
 ---
 

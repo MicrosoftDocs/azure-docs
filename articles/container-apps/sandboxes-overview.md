@@ -99,7 +99,6 @@ You can build disk images from:
 
 - **Public images**: Prebuilt images available to all sandbox groups.
 - **Container registry images**: Pull from public or private registries with optional authentication.
-- **Dockerfiles**: Build custom images with a Dockerfile.
 
 ### Snapshots
 
@@ -177,7 +176,7 @@ Sandboxes and [dynamic sessions](./sessions.md) both provide isolated compute en
 | **Image model** | Code interpreter (built-in) or custom container | Disk images (OCI), snapshots, content packages |
 | **Persistent storage** | Not available | Volumes (Azure Blob, Data Disk) |
 | **Networking** | Basic isolation | Egress policies, VNet integration, port management |
-| **SDKs** | REST API through pool endpoint | Coming soon: dedicated SDKs (C#, Python) |
+| **SDKs** | REST API through pool endpoint | Python SDK (`azure-containerapps-sandbox`) and REST API |
 
 Choose dynamic sessions when you need a managed execution experience that abstracts infrastructure. Choose Sandboxes when you need programmable control over isolated compute with state persistence.
 

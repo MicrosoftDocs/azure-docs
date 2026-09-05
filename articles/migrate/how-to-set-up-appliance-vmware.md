@@ -6,7 +6,7 @@ ms.author: molir
 ms.manager: runai
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 05/09/2025
 ms.update-cycle: 365-days
 ms.custom: vmware-scenario-422, engagement-fy23
@@ -127,7 +127,7 @@ In the configuration manager, select **Set up prerequisites**, and complete thes
 
         After the appliance is successfully registered, select **View details** to see the registration details.
 
-1. **Install the VDDK**: The appliance checks if the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. Download VDDK version 8.0 from the [Broadcom Developer portal](https://developer.broadcom.com/sdks/vmware-virtual-disk-development-kit-vddk/8.0). After downloading, extract the zip file to the default location: C:\Program Files\VMware\VMware Virtual Disk Development Kit, as mentioned in the installation instructions.
+1. [!INCLUDE [vmware-vddk-download](includes/vmware-vddk-download.md)]
 
     The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 

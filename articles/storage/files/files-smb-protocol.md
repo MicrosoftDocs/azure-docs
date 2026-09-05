@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Server Mess
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/20/2026
+ms.date: 08/13/2026
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 # Customer intent: As an IT admin, I want to implement SMB file shares in Azure Files, so that I can provide scalable and secure file storage solutions for my organization's applications and end-user needs.
@@ -358,6 +358,42 @@ az storage account file-service-properties update --require-smb-encryption-in-tr
 ```
 
 ---
+
+#### Disable SMB 1 on Linux clients
+
+Azure Files doesn't support SMB 1. Starting with Linux kernel 4.18, you can disable SMB 1 on Linux clients by using the `disable_legacy_dialects` module parameter in the `cifs` kernel module.
+
+Check whether your distribution supports this parameter:
+
+```bash
+sudo modinfo -p cifs | grep disable_legacy_dialects
+```
+
+To disable SMB 1, first unmount any SMB shares and unload the module:
+
+```bash
+sudo modprobe -r cifs
+```
+
+Reload the module with SMB 1 disabled:
+
+```bash
+sudo modprobe cifs disable_legacy_dialects=Y
+```
+
+To make this change persistent across reboots, add the setting to your module configuration:
+
+```bash
+echo "options cifs disable_legacy_dialects=Y" | sudo tee -a /etc/modprobe.d/local.conf > /dev/null
+```
+
+Verify the setting is active:
+
+```bash
+cat /sys/module/cifs/parameters/disable_legacy_dialects
+```
+
+The output should be `Y`.
 
 ## Limitations
 

@@ -40,7 +40,12 @@ Messages are deleted after being processed, but instance states persist unless t
 
 For an example of how states and messages represent the progress of an orchestration, see the [task hub execution example](../common/durable-task-hubs.md#execution-example).
 
-Where and how states and messages are represented in storage [depends on the storage provider](../common/durable-task-hubs.md#representation-in-storage). Durable Functions' default provider is [Azure Storage](durable-functions-azure-storage-provider.md), which persists data to queues, tables, and blobs in an [Azure Storage](https://azure.microsoft.com/services/storage/) account that you specify.
+Where and how states and messages are represented in storage [depends on the storage provider](../common/durable-task-hubs.md#representation-in-storage). Use [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) because it provides a managed backend for task hubs and handles the underlying state store for you. However, Azure Storage remains a solid option for existing workloads and for apps that want to manage their own storage resources.
+
+| Storage provider | How state is stored | Recommended use |
+| --- | --- | --- |
+| Durable Task Scheduler | Orchestration and entity state are stored in the managed scheduler backend behind a task hub resource. | Preferred option for new Durable Functions apps and managed deployments. |
+| Azure Storage | State and messages are represented in queues, tables, and blobs in an Azure Storage account. | Good fit for existing apps or deployments that already rely on Azure Storage. |
 
 ### Types of data that are serialized and persisted
 The following list shows the different types of data that will be serialized and persisted when using features of Durable Functions:
@@ -66,19 +71,97 @@ To mitigate the impact of large inputs and outputs, you can:
 - Delegate work to sub-orchestrators to load balance the history memory burden across multiple orchestrators, keeping the memory footprint of individual histories small.
 - Store large data in external storage (such as Azure Blob Storage) and pass lightweight identifiers that allow you to retrieve that data inside activity functions when needed.
 
-If you use Durable Task Scheduler, you can also use [large payload support](../scheduler/durable-task-scheduler-large-payloads.md) to offload larger payloads to Azure Blob Storage.
+For the Durable Task Scheduler, use [large payload support](../scheduler/durable-task-scheduler-large-payloads.md) to offload larger payloads to Azure Blob Storage. For new apps, this pattern is recommended when an orchestration must pass large payloads between durable operations. If you use the Azure Storage provider, you can still apply the claim-check pattern shown in the following section and pass lightweight references between operations.
 
 > [!TIP]
 > The best practice for dealing with large data is to keep it in external storage and materialize that data only inside activities, when needed.
 
 #### Pass references to large payloads
 
-The following examples apply the [Claim Check pattern](/azure/architecture/patterns/claim-check). The orchestrator receives a small reference containing a blob container and blob name, passes that reference to an activity, and returns the activity's output reference. Only the activity downloads and uploads the payload.
+Choose the pattern that fits your storage provider.
 
-Before you run these examples, upload a blob to any container in your storage account. Start the orchestration with a reference such as `{"container":"large-payloads","blobName":"input/job-123.json"}`. The activity creates the `processed-payloads` output container if necessary. The sample processing step copies the input bytes unchanged; replace it with your application logic.
+##### Durable Task Scheduler
+
+If you use Durable Task Scheduler, enable [large payload support](../scheduler/durable-task-scheduler-large-payloads.md) so the runtime writes larger payloads to Azure Blob Storage and sends a small reference through the scheduler. A typical configuration is shown in the scheduler docs:
+
+```json
+{
+  "version": "2.0",
+  "extensions": {
+    "durableTask": {
+      "storageProvider": {
+        "type": "azureManaged",
+        "connectionStringName": "DTS_CONNECTION_STRING",
+        "payloadStorageEnabled": true,
+        "payloadStorageThresholdBytes": 262144
+      },
+      "hubName": "%TASKHUB_NAME%"
+    }
+  }
+}
+```
+
+##### Azure Storage
+
+With the Azure Storage provider, you can use the [Claim Check pattern](/azure/architecture/patterns/claim-check) to keep orchestration history small while still processing large payloads. The orchestrator passes a lightweight reference that contains the blob container and blob name, and the activity reads or writes the payload from Azure Blob Storage as needed.
+
+The following examples assume that you already have a blob in your storage account. Start the orchestration with a reference such as `{"container":"large-payloads","blobName":"input/job-123.json"}`. The activity creates the `processed-payloads` output container if necessary. The sample processing step copies the input bytes unchanged; replace it with your application logic.
 
 > [!IMPORTANT]
 > Never include storage credentials or a shared access signature (SAS) in the reference. The system persists the reference in orchestration history. These examples use an app setting named `PAYLOAD_STORAGE_CONNECTION_STRING` to keep the storage code concise. For production workloads, use Microsoft Entra ID to [authorize access to blob data](/azure/storage/blobs/authorize-access-azure-active-directory).
+
+# [C# (Isolated)](#tab/csharp-isolated-large-payload)
+
+This example requires the [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs) NuGet package.
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using Azure.Storage.Blobs;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.DurableTask;
+
+public record BlobReference(string Container, string BlobName);
+
+public static class LargePayloadFunctions
+{
+    [Function("ProcessLargePayload")]
+    public static async Task<BlobReference> RunOrchestrator(
+        [OrchestrationTrigger] TaskOrchestrationContext context)
+    {
+        BlobReference inputReference = context.GetInput<BlobReference>()
+            ?? throw new InvalidOperationException("A blob reference is required.");
+
+        return await context.CallActivityAsync<BlobReference>(
+            nameof(ProcessLargePayloadActivity), inputReference);
+    }
+
+    [Function(nameof(ProcessLargePayloadActivity))]
+    public static async Task<BlobReference> ProcessLargePayloadActivity(
+        [ActivityTrigger] BlobReference inputReference)
+    {
+        string connectionString =
+            Environment.GetEnvironmentVariable("PAYLOAD_STORAGE_CONNECTION_STRING")
+            ?? throw new InvalidOperationException("Payload storage is not configured.");
+        BlobServiceClient service = new BlobServiceClient(connectionString);
+
+        BlobClient inputBlob = service
+            .GetBlobContainerClient(inputReference.Container)
+            .GetBlobClient(inputReference.BlobName);
+        BinaryData inputData = (await inputBlob.DownloadContentAsync()).Value.Content;
+
+        BlobContainerClient outputContainer =
+            service.GetBlobContainerClient("processed-payloads");
+        await outputContainer.CreateIfNotExistsAsync();
+
+        string outputName = $"processed/{Guid.NewGuid():N}.json";
+        await outputContainer.GetBlobClient(outputName)
+            .UploadAsync(inputData, overwrite: true);
+
+        return new BlobReference(outputContainer.Name, outputName);
+    }
+}
+```
 
 # [C# (InProc)](#tab/csharp-inproc-large-payload)
 
@@ -137,59 +220,6 @@ public static class LargePayloadFunctions
             Container = outputContainer.Name,
             BlobName = outputName,
         };
-    }
-}
-```
-
-# [C# (Isolated)](#tab/csharp-isolated-large-payload)
-
-This example requires the [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs) NuGet package.
-
-```csharp
-using System;
-using System.Threading.Tasks;
-using Azure.Storage.Blobs;
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.DurableTask;
-
-public record BlobReference(string Container, string BlobName);
-
-public static class LargePayloadFunctions
-{
-    [Function("ProcessLargePayload")]
-    public static async Task<BlobReference> RunOrchestrator(
-        [OrchestrationTrigger] TaskOrchestrationContext context)
-    {
-        BlobReference inputReference = context.GetInput<BlobReference>()
-            ?? throw new InvalidOperationException("A blob reference is required.");
-
-        return await context.CallActivityAsync<BlobReference>(
-            nameof(ProcessLargePayloadActivity), inputReference);
-    }
-
-    [Function(nameof(ProcessLargePayloadActivity))]
-    public static async Task<BlobReference> ProcessLargePayloadActivity(
-        [ActivityTrigger] BlobReference inputReference)
-    {
-        string connectionString =
-            Environment.GetEnvironmentVariable("PAYLOAD_STORAGE_CONNECTION_STRING")
-            ?? throw new InvalidOperationException("Payload storage is not configured.");
-        BlobServiceClient service = new BlobServiceClient(connectionString);
-
-        BlobClient inputBlob = service
-            .GetBlobContainerClient(inputReference.Container)
-            .GetBlobClient(inputReference.BlobName);
-        BinaryData inputData = (await inputBlob.DownloadContentAsync()).Value.Content;
-
-        BlobContainerClient outputContainer =
-            service.GetBlobContainerClient("processed-payloads");
-        await outputContainer.CreateIfNotExistsAsync();
-
-        string outputName = $"processed/{Guid.NewGuid():N}.json";
-        await outputContainer.GetBlobClient(outputName)
-            .UploadAsync(inputData, overwrite: true);
-
-        return new BlobReference(outputContainer.Name, outputName);
     }
 }
 ```
@@ -473,7 +503,10 @@ The storage backend that hosts your task hub is a critical trust boundary. The D
 
 Securing the storage backend is your responsibility, the same as securing any database that stores application state or code. The Durable Task Framework doesn't perform integrity verification on stored data, so it relies on the storage layer's access controls to prevent unauthorized modifications.
 
-If you use the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md), the storage backend is fully managed and secured by the service, using managed identity authentication and role-based access control (RBAC). For bring-your-own (BYO) storage backends such as [Azure Storage](durable-functions-azure-storage-provider.md), [MSSQL](../common/durable-task-storage-providers.md#mssql), or [Netherite](../common/durable-task-storage-providers.md#netherite), you must secure the underlying storage resources yourself.
+| Backend | Security responsibility | Guidance |
+| --- | --- | --- |
+| Durable Task Scheduler | Microsoft manages the underlying storage backend. You manage identities, task hub access, and app-level security. | Preferred default for new Durable Functions apps. |
+| Azure Storage and other BYO providers | You manage the storage account or database and its security controls. | Good fit for existing workloads or deployments that already rely on Azure Storage. |
 
 > [!NOTE]
 > Don't share a single task hub between untrusted tenants. A task hub doesn't enforce access boundaries between its users, so any tenant that can read or write to the task hub can affect all orchestrations and entities within it. Similarly, don't rely on separate task hubs within the same backend as a security boundary. While [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) supports [RBAC scoped to individual task hubs](../scheduler/durable-task-scheduler-identity.md), network controls such as IP allow lists and private endpoints apply only at the scheduler level, so task hubs within a scheduler aren't a security isolation boundary. The same is true for BYO storage providers—any tenant with access to the storage account or database can reach all task hubs on that backend. When you need security isolation between tenants, provision separate infrastructure for each tenant: separate storage accounts or databases for BYO providers, or separate Durable Task Scheduler instances.
@@ -482,16 +515,27 @@ If you use the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md),
 
 Apply the following best practices to protect your task hub storage:
 
-- **Use identity-based connections** instead of connection strings with storage keys. Managed identities provide fine-grained access control and eliminate the risk of credential leakage. See [Configure a managed identity for Durable Functions](durable-functions-configure-managed-identity.md).
-- **Apply least-privilege RBAC roles**. Grant only the minimum permissions required. Avoid granting broad storage account access to users or services that don't need it.
-- **Restrict network access** to your storage account using [private endpoints or service endpoints](../../azure-functions/configure-networking-how-to.md). This prevents unauthorized network-level access to task hub data.
+- **Use identity-based connections** for the backend you choose. 
+  - With Durable Task Scheduler, rely on managed identities and RBAC for the scheduler and task hubs. 
+  - With Azure Storage and other BYO providers, prefer managed identity over connection strings where possible. 
+  
+  See [Configure a managed identity for Durable Functions](durable-functions-configure-managed-identity.md).  
+- **Apply least-privilege RBAC roles**. Grant only the minimum permissions required. Avoid granting broad storage access to users or services that don't need it.
+- **Restrict network access** to your storage account or scheduler deployment by using [private endpoints or service endpoints](../../azure-functions/configure-networking-how-to.md). This restriction helps prevent unauthorized network-level access to task hub data.
 - **Monitor storage access** by enabling Azure Monitor resource logs for your storage account, especially the `StorageWrite` log category. Route these logs to a destination outside of the monitored storage account, such as Log Analytics, so they can't be tampered with. See [Storage logs](../../azure-functions/storage-considerations.md#storage-logs).
 - **Rotate credentials regularly** if you use connection strings. Treat storage account keys with the same care as any other high-privilege credential.
-- **Consider a managed storage backend**. The [Durable Task Scheduler](../common/durable-task-storage-providers.md) handles storage security automatically, including encryption, authentication, and network isolation.
+- **Consider a managed storage backend**. [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) handles storage security automatically, including authentication, RBAC, and network isolation, while Azure Storage offers explicit storage control.
 
 ## Customize serialization and deserialization
 
 Serialization customization options vary by language. Select your language tab to see the available options.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+### .NET Isolated and System.Text.Json
+
+Durable Functions running in the [.NET Isolated worker process](../../azure-functions/dotnet-isolated-process-guide.md) use the same object serializer configured globally for your Azure Functions app (see [`WorkerOptions`](/dotnet/api/microsoft.azure.functions.worker.workeroptions)). This serializer is [`System.Text.Json`](/dotnet/api/system.text.json) by default rather than `Newtonsoft.Json`. Any changes to `WorkerOptions.Serializer` transitively apply to Durable Functions.
+
+For more information on the built-in support for JSON serialization in .NET, see the [JSON serialization and deserialization in .NET overview documentation](/dotnet/standard/serialization/system-text-json-overview).
 
 # [C# (InProc)](#tab/csharp-inproc)
 
@@ -575,13 +619,6 @@ namespace MyApplication
 }
 ```
 
-# [C# (Isolated)](#tab/csharp-isolated)
-### .NET Isolated and System.Text.Json
-
-Durable Functions running in the [.NET Isolated worker process](../../azure-functions/dotnet-isolated-process-guide.md) uses the same object-serializer configured globally for your Azure Functions app (see [WorkerOptions](/dotnet/api/microsoft.azure.functions.worker.workeroptions)). This serializer happens to be [System.Text.Json](/dotnet/api/system.text.json) by default rather than Newtonsoft.Json. Any changes to `WorkerOptions.Serializer` will transitively apply to Durable Functions.
-
-For more information on the built-in support for JSON serialization in .NET, see the [JSON serialization and deserialization in .NET overview documentation](/dotnet/standard/serialization/system-text-json-overview).
-
 # [JavaScript](#tab/javascript)
 
 ### Serialization and deserialization logic
@@ -590,6 +627,15 @@ Azure Functions Node applications use [`JSON.stringify()` for serialization](htt
 
 For full customization of the serialization/deserialization pipeline, consider handling the serialization and deserialization with your own code and passing around data as strings.
 
+# [PowerShell](#tab/powershell)
+
+### Serialization and deserialization logic
+
+Durable Functions PowerShell apps use the default PowerShell JSON handling for orchestration and activity payloads. In most cases, plain JSON-compatible objects serialize and deserialize correctly without extra configuration.
+
+If you need custom behavior for a payload shape, serialize or deserialize the data yourself inside your functions and pass the resulting JSON-compatible values between orchestrators, activities, and entities. This approach keeps the data format explicit and avoids depending on a serializer customization API that isn't exposed for PowerShell.
+
+For more complex scenarios, consider representing your data as simple strings, arrays, or hashtables and converting between formats inside your function code.
 
 # [Python](#tab/python)
 

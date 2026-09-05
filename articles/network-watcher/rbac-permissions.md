@@ -107,6 +107,7 @@ Because enabling traffic analytics is part of the flow log resource, you need th
 > | Microsoft.Network/networkWatchers/connectivityCheck/action, <br> Microsoft.Network/networkWatchers/connectivityCheck/read | Verify the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint |
 > | Microsoft.Network/networkWatchers/queryTroubleshootResult/action | Query results of a connection troubleshoot test |
 > | Microsoft.Network/networkWatchers/troubleshoot/action | Run a connection troubleshoot test |
+> | Microsoft.Network/networkWatchers/networkConfigurationDiagnostic/read | Read Network Configuration Diagnostic results and diagnostic information for Azure networking resources. |
 
 ## Packet capture
 

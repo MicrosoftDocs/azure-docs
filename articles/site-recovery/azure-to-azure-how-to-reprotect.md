@@ -71,13 +71,6 @@ By default, the following occurs:
 1. The target side virtual machine is turned off if it's running.
 1. If the virtual machine is using managed disks, a copy of the original disk is created with an `-ASRReplica` suffix. The original disks are deleted. The `-ASRReplica` copies are used for replication.
 
-**When you trigger a reprotect job, and the target virtual machine and disks don't exist, the following occurs:**
-
-1. If the virtual machine is using managed disks, replica disks are created with `-ASRReplica` suffix. The `-ASRReplica` copies are used for replication.
-1. If the virtual machine is using unmanaged disks, replica disks are created in the target storage account.
-1. The entire disks are copied from the failed over region to the new target region.
-1. After the synchronization completes, the delta replication begins, and a recovery point is created in line with the replication policy.
-
 > [!NOTE]
 > The `ms-asr` disks are temporary disks that are deleted after the *reprotect* action is completed.  You will be charged a minimal cost based on the Azure managed disk price for the time that these disks are active.
 

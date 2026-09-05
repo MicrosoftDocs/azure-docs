@@ -13,17 +13,15 @@ ms.custom: template-concept, engagement-fy23
 
 # High availability ports overview
 
-Azure Standard Load Balancer helps you load-balance **all** protocol flows on **all** ports simultaneously when you're using an internal load balancer via HA Ports.
+Azure Standard Load Balancer helps you load-balance **all** protocol flows on **all** ports simultaneously when you use an internal load balancer with high availability (HA) ports.
 
-High availability (HA) ports are a type of load balancing rule that provides an easy way to load-balance **all** flows that arrive on **all** ports of an internal standard load balancer. The load-balancing decision is made per flow. This action is based on the following five-tuple connection: source IP address, source port, destination IP address, destination port, and protocol
+HA ports are a type of load-balancing rule that provides an easy way to load-balance **all** flows that arrive on **all** ports of an internal Standard Load Balancer. The load-balancing decision is made per flow. This action is based on the following five-tuple connection: source IP address, source port, destination IP address, destination port, and protocol.
 
 The HA ports load-balancing rules help you with critical scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can also help when a large number of ports must be load-balanced. 
 
 The HA ports load-balancing rules are configured when you set the frontend and backend ports to **0** and the protocol to **All**. The internal load balancer resource then balances all TCP and UDP flows, regardless of port number
 
-## Why use HA ports?
-
-### Network virtual appliances
+## Use HA ports for network virtual appliances
 
 You can use NVAs to help secure your Azure workload from multiple types of security threats. When you use NVAs in these scenarios, they must be reliable and highly available, and they must scale out for demand. Add NVA instances to the backend pool of your internal load balancer and configure an HA ports rule.
 
@@ -37,20 +35,27 @@ For NVA HA scenarios, HA ports offer the following advantages:
 
 - Eliminate the need for complex solutions, such as Apache ZooKeeper nodes for monitoring appliances
 
-The following diagram presents a hub-and-spoke virtual network deployment. The spokes force-tunnel their traffic to the hub virtual network and through the NVA, before leaving the trusted space. The NVAs are behind an internal Standard Load Balancer with an HA ports configuration. All traffic can be processed and forwarded accordingly. When configured as show in the following diagram, an HA Ports load-balancing rule additionally provides flow symmetry for ingress and egress traffic.
+The following diagram presents a hub-and-spoke virtual network deployment. The spokes force-tunnel their traffic to the hub virtual network and through the NVA, before leaving the trusted space. The NVAs are behind an internal Standard Load Balancer with an HA ports configuration. All traffic can be processed and forwarded accordingly. When configured as shown in the following diagram, an HA ports load-balancing rule additionally provides flow symmetry for ingress and egress traffic.
 
 :::image type="content" source="./media/load-balancer-ha-ports-overview/nvahathmb.png" alt-text="Diagram of hub-and-spoke virtual network, with NVAs deployed in HA mode." lightbox="media/load-balancer-ha-ports-overview/nvaha.png":::
 
 >[!NOTE]
 > If you are using NVAs, confirm with their providers how to best use HA ports and to learn which scenarios are supported.
 
-### Load balance a large number of ports
+## Use HA ports to load balance many ports
 
 You can also use HA ports for applications that require load balancing of large numbers of ports. You can simplify these scenarios by using an internal [standard load balancer](./load-balancer-overview.md) with HA ports. A single load-balancing rule replaces multiple individual load-balancing rules, one for each port.
 
 ## Supported configurations
 
-### A single, nonfloating IP (non-Direct Server Return) HA-ports configuration on an internal standard load balancer
+| Configuration | Frontend IP addresses | Floating IP | Compatible additional rules or load balancers | Key restriction |
+|---|---:|---|---|---|
+| Single nonfloating HA ports rule | One | Disabled | A public Standard Load Balancer can use the same backend instances | No other load-balancing rule can use the internal load balancer resource for the same backend instances. |
+| Single floating HA ports rule | One | Enabled | More floating-IP rules or a public load balancer | You can't add a nonfloating HA ports rule on top of this configuration. |
+| Multiple HA ports rules | Multiple private frontend IP addresses | Enabled for every rule | Multiple HA ports rules for the same backend pool | Each rule must select a unique frontend IP address. |
+| Internal HA ports and public load balancer | One internal Standard Load Balancer plus one public Standard Load Balancer | Depends on the internal rule design | One public Standard Load Balancer | The backend resources can use only one internal Standard Load Balancer with HA ports. |
+
+### A single nonfloating HA ports configuration on an internal Standard Load Balancer
 
 This configuration is a basic HA ports configuration. Use the following steps to configure an HA ports load-balancing rule on a single frontend IP address:
 
@@ -62,13 +67,13 @@ This configuration doesn't allow any other load-balancing rule configuration on 
 
 However, you can configure a public Standard Load Balancer for the backend instances in addition to this HA ports rule.
 
-### A single, floating IP (Direct Server Return) HA-ports configuration on an internal standard load balancer
+### A single floating HA ports configuration on an internal Standard Load Balancer
 
 You can similarly configure your load balancer to use a load-balancing rule with **HA Port** with a single front end by setting the **Floating IP** to **Enabled**. 
 
-With this configuration, you can add more floating IP load-balancing rules and/or a public load balancer. However, you can't use a nonfloating IP, HA-ports load-balancing configuration on top of this configuration.
+With this configuration, you can add more floating IP load-balancing rules and a public load balancer. However, you can't use a nonfloating IP, HA ports load-balancing configuration on top of this configuration.
 
-### Multiple HA-ports configurations on an internal standard load balancer
+### Multiple HA ports configurations on an internal Standard Load Balancer
 
 To configure more than one HA port frontend for the same backend pool, use the following steps:
 
@@ -84,7 +89,7 @@ You can configure **one** public standard load balancer resource for the backend
 
 ## Flow symmetry
 
- Flow symmetry is only supported in the architecture described in the above diagram, for the following configurations:
+HA ports flow symmetry is supported for a single internal Standard Load Balancer that distributes traffic across NVAs in one backend pool, as shown in the preceding architecture. The backend instances must use one of the following network interface configurations:
  
 - When the load balancer backend pool contains instances that only have one NIC and one IP configuration each
 
@@ -94,8 +99,9 @@ You can configure **one** public standard load balancer resource for the backend
 
 Flow symmetry isn't guaranteed in any scenarios that involve two or more load balancer components, such as across two different load balancers, multiple backend pools, or multiple frontend IP configurations. Since traffic is distributed based on load balancing rules, which make independent decisions and aren't coordinated, flow symmetry cannot be guaranteed in such scenarios. As a result, flow symmetry isn't supported when placing NVAs between a public and internal load balancer. If you need flow symmetry in such scenarios, consider leveraging [Gateway Load Balancer](gateway-overview.md) instead.
 
-## Design Consideration
-- ICMP traffic is supported for internal standard load balancer when HA port is enabled.
+## ICMP support for HA ports
+
+ICMP traffic is supported for an internal Standard Load Balancer when an HA ports rule is enabled.
 
 ## Limitations
 

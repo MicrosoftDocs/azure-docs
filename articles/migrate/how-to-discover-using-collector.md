@@ -6,7 +6,7 @@ ms.author: molir
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 05/26/2026
 ms.custom: engagement-fy26
 ms.update-cycle: 1095-days
@@ -32,7 +32,7 @@ Before you set up the collector, [create a new Azure Migrate project](quickstart
 |---|---|
 | Operating System | A server running Windows Server 2019, 2022, or 2025 Operating System. Ensure the server has IIS role installed. |
 | Compute and storage | A server with 16 GB of RAM, 8 vCPUs, and approximately 80 GB of disk storage. |
-| Supported vCenter versions | 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5. |
+| Supported vCenter versions | [!INCLUDE [vmware-discovery-supported-versions](includes/vmware-discovery-supported-versions.md)] |
 | Networking - vCenter | Network line of sight from collector to vCenter with inbound access allowed on TCP port 443. <br><br> If the server running vCenter server listens on a different port, you can modify the port when you provide the vCenter server details in the collector configuration manager. |
 | Networking – ESXi hosts | Network line of sight from collector to all ESXi hosts with inbound access allowed on TCP port 443. |
 | Networking – Windows/Linux | To collect data about installed software, webapps and database (SQL, MySQL, PostgreSQL) inventory, network line of sight isn't required from collector to guest machines. Collector captures guest data using the following ports via VMware pipe. <br><br> Windows - WinRM https (5986) or http (5985) <br> Linux - SSH over port 22 |
@@ -77,6 +77,29 @@ Before you set up the collector, [create a new Azure Migrate project](quickstart
      - Logs: `%ProgramData%\Microsoft Azure\OfflineData`
 
 7.  After successful execution, the appliance configuration manager launches automatically and creates a desktop shortcut.
+
+### Verify security
+
+To verify that the downloaded collector installer ZIP file is secure, check its hash value:
+
+1. On the server where you downloaded the file, open a Command Prompt window by using the **Run as administrator** option.
+1. Run this command to create the hash for the ZIP file:
+
+   ```
+   C:\>CertUtil -HashFile <file_location> SHA256
+   ```
+
+   For example:
+
+   ```
+   C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\AzureMigratecollector.zip SHA256
+   ```
+
+1. Verify the latest collector version and hash value:
+
+   | Algorithm | Version | Download | SHA256 |
+   | --- | --- | --- | --- |
+   | Collector zip file (670.25 MB) | 20260827.3 | [Latest version](https://aka.ms/Migrate/DownloadCollector) | 1AF404274728EAC90B9B0F500FA4D12B75A7AFE68373E3FFEC51A42170BA5F69 |
 
 ### Provide vCenter credentials
 

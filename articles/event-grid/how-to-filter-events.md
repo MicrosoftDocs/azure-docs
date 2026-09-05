@@ -1,21 +1,31 @@
 ---
 title: How to filter events for Azure Event Grid
-description: This article shows how to filter events (by event type, by subject, by operators and data, etc.) when creating an Event Grid subscription. 
+description: Learn how to filter events by event type, subject, or advanced fields and operators when you create an Event Grid subscription.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 01/22/2025
-# Customer intent: I want to know how to subscribe for a subset of events from a source by filtering them. 
+ms.date: 08/26/2026
+ai-usage: ai-assisted
+# Customer intent: I want to know how to subscribe for a subset of events from a source by filtering them.
 ---
 
 # Filter events for Event Grid
 
-This article shows how to filter events when creating an Event Grid subscription. To learn about the options for event filtering, see [Understand event filtering for Event Grid subscriptions](event-filtering.md).
+This article shows you how to filter the events that Event Grid delivers to your endpoint when you create an event subscription. You can filter by event type, by subject, or by advanced fields and operators, so that only the events you care about reach your handler.
+
+The examples use Azure PowerShell, the Azure CLI, the Azure portal, and Azure Resource Manager (ARM) templates. Use whichever tool fits your workflow. To learn about the available filtering options in more depth, see [Understand event filtering for Event Grid subscriptions](event-filtering.md).
+
+## Prerequisites
+
+- An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- Azure PowerShell or the Azure CLI installed, if you plan to run the PowerShell or CLI examples. For more information, see [Install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell) or [How to install the Azure CLI](/cli/azure/install-azure-cli).
+- An existing Event Grid topic or system topic, and an endpoint to receive the filtered events. Some examples create the required topic for you.
 
 ## Filter by event type
 
-When creating an Event Grid subscription, you can specify which [event types](event-schema.md) to send to the endpoint. The examples in this section create event subscriptions for a resource group but limit the events that are sent to `Microsoft.Resources.ResourceWriteFailure` and `Microsoft.Resources.ResourceWriteSuccess`. If you need more flexibility when filtering events by event types, see [Filter by operators and data](#filter-by-operators-and-data).
+When creating an Event Grid subscription, you can specify which [event types](event-schema.md) to send to the endpoint. The following examples create event subscriptions for a resource group but limit the events sent to `Microsoft.Resources.ResourceWriteFailure` and `Microsoft.Resources.ResourceWriteSuccess`. If you need more flexibility when filtering events by event types, see [Filter by operators and data](#filter-by-operators-and-data).
 
 ### Azure PowerShell
+
 For PowerShell, use the `-IncludedEventType` parameter when creating the subscription.
 
 ```powershell
@@ -29,6 +39,7 @@ New-AzEventGridSubscription `
 ```
 
 ### Azure CLI
+
 For Azure CLI, use the `--included-event-types` parameter. The following example uses Azure CLI in a Bash shell:
 
 ```azurecli
@@ -43,23 +54,24 @@ az eventgrid event-subscription create \
 
 ### Azure portal
 
-While creating an event subscription to a **system topic**, use the drop-down list to select the event types as shown in the following image. 
+While creating an event subscription to a **system topic**, use the drop-down list to select the event types as shown in the following image.
 
 :::image type="content" source="./media/how-to-filter-events/filter-create-subscription-system-topic.png" alt-text="Screenshot showing the Create Subscription page with event types selected.":::
 
-For an existing subscription to a system topic, use the **Filters** tab of the **Event Subscription** page as shown in the following image. 
+For an existing subscription to a system topic, use the **Filters** tab of the **Event Subscription** page as shown in the following image.
 
 :::image type="content" source="./media/how-to-filter-events/filter-existing-subscription-system-topic.png" alt-text="Screenshot showing the Event Subscription page with the Filters tab selected.":::
 
-You can specify filters while creating a **custom topic** by selecting **Add Event Type** link as shown in the following image.
+Specify filters while creating a **custom topic** by selecting the **Add Event Type** link as shown in the following image.
 
 :::image type="content" source="./media/how-to-filter-events/custom-topic-subscription-create-filter.png" alt-text="Screenshot showing the Create Event Subscription page for a custom topic.":::
 
-To specify a filter for an existing subscription to a custom topic, use the **Filters** tab in the **Event Subscription** page. 
+To specify a filter for an existing subscription to a custom topic, use the **Filters** tab in the **Event Subscription** page.
 
-:::image type="content" source="./media/how-to-filter-events/add-event-type-button.png" alt-text="Screenshot of the Event Subscription page with Add Event Type button selected.":::    
-      
+:::image type="content" source="./media/how-to-filter-events/add-event-type-button.png" alt-text="Screenshot of the Event Subscription page with Add Event Type button selected.":::
+
 ### Azure Resource Manager template
+
 For a Resource Manager template, use the `includedEventTypes` property.
 
 ```json
@@ -67,7 +79,7 @@ For a Resource Manager template, use the `includedEventTypes` property.
   {
     "type": "Microsoft.EventGrid/eventSubscriptions",
     "name": "[parameters('eventSubName')]",
-    "apiVersion": "2018-09-15-preview",
+    "apiVersion": "2025-02-15",
     "properties": {
       "destination": {
         "endpointType": "WebHook",
@@ -90,7 +102,7 @@ For a Resource Manager template, use the `includedEventTypes` property.
 ```
 
 > [!NOTE]
-> To learn more about these filters (event types, subject, and advanced), see [Understand event filtering for Event Grid subscriptions](event-filtering.md). 
+> To learn more about these filters (event types, subject, and advanced), see [Understand event filtering for Event Grid subscriptions](event-filtering.md).
 
 ## Filter by subject
 
@@ -99,6 +111,7 @@ You can filter events by the subject in the event data. You can specify a value 
 In the following PowerShell example, you create an event subscription that filters by the beginning of the subject. You use the `-SubjectBeginsWith` parameter to limit events to ones for a specific resource. You pass the resource ID of a network security group.
 
 ### Azure PowerShell
+
 ```powershell
 $resourceId = (Get-AzResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
 
@@ -122,6 +135,7 @@ New-AzEventGridSubscription `
 ```
 
 ### Azure CLI
+
 In the following Azure CLI example, you create an event subscription that filters by the beginning of the subject. You use the `--subject-begins-with` parameter to limit events to ones for a specific resource. You pass the resource ID of a network security group.
 
 ```azurecli
@@ -148,20 +162,21 @@ az eventgrid event-subscription create \
 
 ### Azure portal
 
-For an existing event subscription: 
+For an existing event subscription:
 
-1. On the **Event Subscription** page, select **Enable subject filtering**. 
-1. Enter values for one or more of the following fields: **Subject begins with** and **Subject ends with**. In the following example, both options are selected. 
+1. On the **Event Subscription** page, select **Enable subject filtering**.
+1. Enter values for one or more of the following fields: **Subject begins with** and **Subject ends with**. In the following example, both options are selected.
 
     :::image type="content" source="./media/how-to-filter-events/subject-filter-example.png" alt-text="Screenshot of Event Subscription page with subject filtering example.":::
-1. Select **Case-sensitive subject matching** option if you want the subject of the event to match the case of the filters specified. 
+1. Select **Case-sensitive subject matching** option if you want the subject of the event to match the case of the filters specified.
 
-When creating an event subscription, use the **Filters** tab on the creation wizard. 
+When creating an event subscription, use the **Filters** tab on the creation wizard.
 
 :::image type="content" source="./media/how-to-filter-events/create-subscription-custom-topic-subject-filter.png" alt-text="Screenshot of Create Event Subscription page with the Filters tab selected.":::
 
 
 ### Azure Resource Manager template
+
 In the following Resource Manager template example, you create an event subscription that filters by the beginning of the subject. You use the `subjectBeginsWith` property to limit events to ones for a specific resource. You pass the resource ID of a network security group.
 
 ```json
@@ -169,7 +184,7 @@ In the following Resource Manager template example, you create an event subscrip
   {
     "type": "Microsoft.EventGrid/eventSubscriptions",
     "name": "[parameters('eventSubName')]",
-    "apiVersion": "2018-09-15-preview",
+    "apiVersion": "2025-02-15",
     "properties": {
       "destination": {
         "endpointType": "WebHook",
@@ -195,7 +210,7 @@ The next Resource Manager template example creates a subscription for a blob sto
   {
     "type": "Microsoft.Storage/storageAccounts/providers/eventSubscriptions",
     "name": "[concat(parameters('storageName'), '/Microsoft.EventGrid/', parameters('eventSubName'))]",
-    "apiVersion": "2018-09-15-preview",
+    "apiVersion": "2025-02-15",
     "properties": {
       "destination": {
         "endpointType": "WebHook",
@@ -215,7 +230,7 @@ The next Resource Manager template example creates a subscription for a blob sto
 ```
 
 > [!NOTE]
-> To learn more about these filters (event types, subject, and advanced), see [Understand event filtering for Event Grid subscriptions](event-filtering.md). 
+> To learn more about these filters (event types, subject, and advanced), see [Understand event filtering for Event Grid subscriptions](event-filtering.md).
 
 ## Filter by operators and data
 
@@ -241,7 +256,7 @@ New-AzEventGridTopic -ResourceGroupName gridResourceGroup -Location eastus2 -Nam
 $topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Id
 
 $expDate = '<mm/dd/yyyy hh:mm:ss>' | Get-Date
-$AdvFilter1=@{operatorType="StringIn"; key="Data.color"; values=@('blue', 'red', 'green')}
+$AdvFilter1=@{operatorType="StringIn"; key="data.color"; values=@('blue', 'red', 'green')}
 
 New-AzEventGridSubscription `
   -ResourceId $topicid `
@@ -277,21 +292,23 @@ Notice that an [expiration date](concepts.md#event-subscription-expiration) is s
 
 ### Azure portal
 
-1. On the **Event Subscription** page, select **Add new filter** in the **ADVANCED FILTERS** section. 
+1. On the **Event Subscription** page, select **Add new filter** in the **ADVANCED FILTERS** section.
 
-    :::image type="content" source="./media/how-to-filter-events/add-new-filter-button.png" alt-text="Screenshot showing the Event Subscription page with Add new filter link highlighted.":::    
-2. Specify a key, operator, and value or values to compared. In the following example, **data.color** is used as a key, **String is in** as an operator, and **blue**, **red**, and **green** values are specified for values. 
+    :::image type="content" source="./media/how-to-filter-events/add-new-filter-button.png" alt-text="Screenshot showing the Event Subscription page with Add new filter link highlighted.":::
+1. Specify a key, operator, and value or values to compare. In the following example, **data.color** is used as a key, **String is in** as an operator, and **blue**, **red**, and **green** values are specified for values.
 
-    :::image type="content" source="./media/how-to-filter-events/advanced-filter-example.png" alt-text="Screenshot showing an example of an advanced filter."::: 
+    :::image type="content" source="./media/how-to-filter-events/advanced-filter-example.png" alt-text="Screenshot showing an example of an advanced filter.":::
 
     > [!NOTE]
-    > To learn more about advanced filters, see [Understand event filtering for Event Grid subscriptions](event-filtering.md). 
+    > To learn more about advanced filters, see [Understand event filtering for Event Grid subscriptions](event-filtering.md).
 
 
 ### Test the filter
+
 To test the filter, send an event with the color field set to green. Because green is one of the values in the filter, the event is delivered to the endpoint.
 
 ### Azure PowerShell
+
 For PowerShell, use:
 
 ```powershell
@@ -340,6 +357,7 @@ Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-ke
 
 
 ### Azure CLI
+
 For Azure CLI, use:
 
 ```azurecli
@@ -362,4 +380,7 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 
 ## Related content
-To learn more about filters (event types, subject, and advanced), see [Understand event filtering for Event Grid subscriptions](event-filtering.md). 
+
+- [Understand event filtering for Event Grid subscriptions](event-filtering.md)
+- [Event Grid schema](event-schema.md)
+- [Event Grid concepts](concepts.md)

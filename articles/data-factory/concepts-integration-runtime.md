@@ -15,6 +15,8 @@ ai-usage: ai-assisted
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 The integration runtime (IR) is the compute infrastructure used by Azure Data Factory and Azure Synapse pipelines to provide the following data integration capabilities across different network environments:
 
 - **Data Flow**: Execute a [Data Flow](concepts-data-flow-overview.md) in a managed Azure compute environment.

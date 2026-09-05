@@ -9,7 +9,7 @@ ms.date: 06/04/2025
 zone_pivot_groups: appconfig-data-plane-api-version
 
 ---
-:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 # Snapshot
 :::zone-end
 
@@ -18,7 +18,7 @@ zone_pivot_groups: appconfig-data-plane-api-version
 Snapshot resource isn't available in API version 1.0.
 
 :::zone-end
-:::zone target="docs" pivot="v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 A snapshot is a resource identified uniquely by its name. See details for each operation.
 
@@ -58,7 +58,7 @@ A snapshot is a resource identified uniquely by its name. See details for each o
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v26-04"
+:::zone target="docs" pivot="v26-04,v26-05-preview"
 
 ```json
 {
@@ -78,7 +78,7 @@ A snapshot is a resource identified uniquely by its name. See details for each o
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 `SnapshotFilter`
 
@@ -93,7 +93,7 @@ A snapshot is a resource identified uniquely by its name. See details for each o
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v23-11,v24-09,v26-04,v26-05-preview"
 
 ```json
 {
@@ -104,7 +104,7 @@ A snapshot is a resource identified uniquely by its name. See details for each o
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 ## Get snapshot
 
@@ -151,7 +151,7 @@ Link: </kv?snapshot=prod-2023-03-20&api-version={api-version}>; rel="items"
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v26-04"
+:::zone target="docs" pivot="v26-04,v26-05-preview"
 
 ```json
 {
@@ -178,7 +178,7 @@ Link: </kv?snapshot=prod-2023-03-20&api-version={api-version}>; rel="items"
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 If a snapshot with the provided name doesn't exist, the following response is returned:
 
@@ -475,7 +475,7 @@ Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-ve
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v26-04"
+:::zone target="docs" pivot="v26-04,v26-05-preview"
 
 | Property Name | Required | Default value | Validation |
 |-|-|-|-|
@@ -549,7 +549,7 @@ Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-ve
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 The status of the newly created snapshot is `provisioning`.
 Once the snapshot is fully provisioned, the status updates to `ready`.

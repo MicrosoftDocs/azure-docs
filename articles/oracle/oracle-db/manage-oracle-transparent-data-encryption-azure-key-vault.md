@@ -376,7 +376,7 @@ Manage the lifecycle of the keys in Azure:
 * **Managed HSM**: Follow the [Managed HSM disaster recovery](/azure/key-vault/managed-hsm/disaster-recovery-guide?tabs=uami) guide. For increased availability, see [Enable multi-region replication on Azure Managed HSM](/azure/key-vault/managed-hsm/multi-region-replication).
 * **Standard and Premium**: Automatic replication is enabled for paired regions. For more information, see [Azure Key Vault availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance).
 
-If you use Oracle Data Guard for DR between two Oracle Exadata Database@Azure VM clusters, use the following tasks to make sure that the DR site is configured similarly. (Cross-region Data Guard scenarios aren't currently supported.)
+If you use Oracle Data Guard for DR between two Oracle Exadata Database@Azure VM clusters, use the following tasks to make sure that the DR site is configured similarly.
 
 * Perform the procedures in [Step 1: Create and prepare a key vault](#step-1-create-and-prepare-a-key-vault) through [Step 5: Register the key vault in OCI](#step-5-register-the-key-vault-in-oci-optional-as-needed) on the DR Exadata VM cluster. You can use the same key vault in the DR region.
 

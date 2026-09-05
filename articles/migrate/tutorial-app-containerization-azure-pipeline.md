@@ -1,11 +1,11 @@
 ---
 title: Continuous Deployment for containerized applications with Azure DevOps
 description: Tutorial:Continuous Deployment for containerized applications with Azure DevOps
-author: vijain
-ms.author: vijain
+author: jyothisuri
+ms.author: jsuri
 ms.manager: kmadnani
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.topic: tutorial
 ms.date: 02/06/2025
 ms.custom: engagement-fy23

@@ -6,7 +6,7 @@ services: private-link
 author: altheapm
 ms.service: azure-private-link
 ms.topic: how-to
-ms.date: 07/14/2025
+ms.date: 08/10/2026
 ms.author: altheabata
 ms.reviewer: altheabata
 ms.custom: references_regions
@@ -357,7 +357,7 @@ az network vnet subnet update \
     --resource-group $peResourceGroupName \
     --vnet-name $peVnetName \
     --name $peSubnetName \
-    --private-link-service-network-policies Disabled
+    --disable-private-endpoint-network-policies true
 
 # Create Private Endpoint
 az network private-endpoint create \

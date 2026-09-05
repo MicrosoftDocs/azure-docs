@@ -4,8 +4,8 @@ description: This article provides details on known issues and how to troublesho
 ms.service: azure-update-manager
 ms.date: 02/17/2025
 ms.topic: troubleshooting-known-issue
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.custom: sfi-image-nochange
 ms.update-cycle: 1095-days
 # Customer intent: As a system administrator who manages virtual machines, I want to troubleshoot issues with Azure Update Manager so that I can ensure successful patching and compliance for my deployed resources.

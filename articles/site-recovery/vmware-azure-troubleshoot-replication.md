@@ -166,6 +166,19 @@ This error occurs when the source machine's time moves forward and then moves ba
 **Workaround**: 
 To resolve this issue, wait until the system time crosses the skewed future time. Another option is to disable and enable replication once again, which is only feasible for forward replication (data replicated from on-premises to Azure) and isn't applicable for reverse replication (data replicated from Azure to on-premises). 
 
+## Troubleshoot Subscription not found error and Cache storage account stuck at loading while enabling replication
+When you enable replication, you might see a "Subscription not found" error, or the cache storage account list stays stuck at loading and no account is listed.
+
+### Possible cause
+The **Microsoft.Storage** resource provider isn't registered in the subscription being used for Site Recovery. As a result, Azure Site Recovery can't discover or access the cache storage account required for replication configuration.
+
+### Resolution
+1. Go to **Subscriptions** in the Azure portal and select the affected subscription.
+1. Open **Resource providers** and search for **Microsoft.Storage**.
+1. If the provider isn't registered, select **Register**.
+
+Wait for the registration to complete, refresh the Azure portal and retry enabling replication.
+
 ## Next steps
 
 If you need more help, post your question on the [Microsoft Q&A question page for Azure Site Recovery](/answers/topics/azure-site-recovery.html). We have an active community, and one of our engineers can assist you.

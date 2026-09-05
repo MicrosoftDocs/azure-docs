@@ -16,6 +16,9 @@ ms.author: duau
 
 This article helps you configure an Always On VPN user tunnel. For information about configuring a device tunnel, see [Configure an Always On VPN device tunnel](vpn-gateway-howto-always-on-device-tunnel.md).
 
+> [!NOTE]
+>Microsoft recommends using Windows 11 with Point-to-Site VPN connections. Windows 10 reached end of support in October 2025. For more information, see [Supported Windows versions for Azure VPN Client](azure-vpn-client-versions.md#supported-windows-versions).
+
 ## Configure the gateway
 
  Use the instructions in the [Configure a Point-to-Site VPN connection](point-to-site-certificate-gateway.md) article to configure the VPN gateway to use IKEv2 and certificate-based authentication.

@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 You can log your copied file names in a Copy activity.  This can help ensure data not only copies successfully from source to destination, but also validate consistency between source and destination.  
 
 When you enable fault tolerance setting in a Copy activity to skip faulty data, the skipped files and skipped rows can also be logged.  You can get more details from [fault tolerance in copy activity](copy-activity-fault-tolerance.md). 

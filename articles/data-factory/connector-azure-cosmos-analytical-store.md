@@ -15,6 +15,8 @@ ms.update-cycle: 1095-days
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article outlines how to use Data Flow to transform data in Azure Cosmos DB analytical store. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 >[!NOTE]

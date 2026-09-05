@@ -35,7 +35,7 @@ This article covers built-in policy controls for the following compliance framew
 - **System and Organization Controls (SOC) 2**
 - **Microsoft Cloud for Sovereignty Baseline Confidential Policies**
 
-[!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
+[!INCLUDE [azure-policy-compliancecontrols-introwarning](~/reusable-content/ce-skilling/azure/includes/policy/standards/intro-warning.md)]
 
 [!INCLUDE [azure-policy-compliancecontrols-backup](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.recoveryservices.md)]
 

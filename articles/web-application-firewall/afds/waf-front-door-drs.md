@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 03/17/2026
+ms.date: 08/31/2026
 
 # Customer intent: As a web application administrator, I want to configure and manage the Default Rule Set (DRS) for the Web Application Firewall, so that I can effectively protect my applications from various vulnerabilities and security threats.
 ---
@@ -19,7 +19,7 @@ Azure Web Application Firewall on Azure Front Door protects web applications fro
 The Default Rule Set (DRS) also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
 
 > [!NOTE]
-> When a ruleset version is changed in a WAF Policy, any existing customizations you made to your ruleset will be reset to the defaults for the new ruleset. See: [Upgrading or changing ruleset version](#upgrading-or-changing-ruleset-version).
+> When a ruleset version is changed in a WAF Policy, any existing customizations you made to your ruleset are reset to the defaults for the new ruleset. See: [Upgrading or changing ruleset version](#upgrading-or-changing-ruleset-version).
 
 ## Default rule sets
 
@@ -37,7 +37,7 @@ The Azure-managed DRS includes rules against the following threat categories:
 
 The version number of the DRS increments when new attack signatures are added to the rule set.
 
-DRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the DRS to meet your application requirements. You can also set specific actions per rule. The available actions are [Allow, Block, Log, and Redirect](afds-overview.md#waf-actions).
+DRS is enabled by default in Detection mode in your WAF policies. You can disable or enable individual rules within the DRS to meet your application requirements. You can also set specific actions per rule. The available actions are [Allow, Block, Log, Redirect, and Anomaly score](afds-overview.md#waf-actions).
 
 Sometimes you might need to omit certain request attributes from a web application firewall (WAF) evaluation. A common example is Active Directory-inserted tokens that are used for authentication. You might configure an exclusion list for a managed rule, a rule group, or the entire rule set. For more information, see [Azure Web Application Firewall on Azure Front Door exclusion lists](./waf-front-door-exclusion.md).
 
@@ -83,19 +83,19 @@ Paranoia Levels 3 and 4 aren't currently supported in Azure WAF.
 
 ### Upgrading or changing ruleset version
 
-If you're upgrading, or assigning a new ruleset version, and would like to preserve existing rule overrides and exclusions, it's recommended to use PowerShell, CLI, REST API, or a template to make ruleset version changes. A new version of a ruleset can have newer rules, additional rule groups, and may have updates to existing signatures to enforce better security and reduce false positives. It's recommended to validate changes in a test environment, fine tune if necessary, and then deploy in a production environment.
+If you want to upgrade or assign a new ruleset version and keep your existing rule overrides and exclusions, use PowerShell, CLI, REST API, or a template to change the ruleset version. A new version of a ruleset can include new rules, extra rule groups, and updates to existing signatures that improve security and reduce false positives. Validate changes in a test environment, fine tune if necessary, and then deploy in a production environment.
 
 > [!NOTE]
-> If you're using the Azure portal to assign a new managed ruleset to a WAF policy, all the previous customizations from the existing managed ruleset such as rule state, rule actions, and rule level exclusions will be reset to the new managed ruleset's defaults. However, any custom rules, or policy settings will remain unaffected during the new ruleset assignment. You need to redefine rule overrides and validate changes before deploying in a production environment.
+> If you use the Azure portal to assign a new managed ruleset to a WAF policy, the portal resets all previous customizations from the existing managed ruleset, such as rule state, rule actions, and rule level exclusions, to the new managed ruleset's defaults. However, the assignment doesn't affect any custom rules or policy settings. You need to redefine rule overrides and validate changes before deploying in a production environment.
 
 ### DRS 2.2
 
-DRS 2.2 rules offer better protection than earlier versions of the DRS. It includes other rules developed by the Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
+DRS 2.2 rules offer better protection than earlier versions of the DRS. They include rules developed by the Microsoft Threat Intelligence team and updates to signatures to reduce false positives. They also support transformations beyond just URL decoding.
 
-DRS 2.2 includes 18 rule groups, as shown in the following table. Each group contains multiple rules, and you can customize behavior for individual rules, rule groups, or an entire rule set. DRS 2.2 is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.4 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team.
+DRS 2.2 includes 18 rule groups, as shown in the following table. Each group contains multiple rules, and you can customize behavior for individual rules, rule groups, or an entire rule set. DRS 2.2 is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.4 and includes additional proprietary protections rules developed by the Microsoft Threat Intelligence team.
 
 #### Disabled rules
-DRS 2.2 rules configured in Paranoia Level 2 are disabled by default. You can leave their state as disabled if you wish to keep your WAF policy configured in Paranoia Level 1. If you wish to increase the policy's paranoia level, you can safely change these rules' state to enabled and their action to log mode. Analyze the log, make the required fine tuning and enable the rules accordingly. For more information, see [Tuning Web Application Firewall (WAF) for Azure Front Door](waf-front-door-tuning.md) and [Paranoia level](#paranoia-level).
+DRS 2.2 rules configured in Paranoia Level 2 are disabled by default. Leave their state as disabled if you want to keep your WAF policy configured in Paranoia Level 1. To increase the policy's paranoia level, change these rules' state to enabled and their action to log mode. Analyze the log, make the required fine tuning, and enable the rules accordingly. For more information, see [Tuning Web Application Firewall (WAF) for Azure Front Door](waf-front-door-tuning.md) and [Paranoia level](#paranoia-level).
 
 
 Some OWASP rules are superseded by Microsoft-authored replacements. The original rules are disabled by default and their descriptions end with "(replaced by …)".
@@ -123,9 +123,9 @@ Some OWASP rules are superseded by Microsoft-authored replacements. The original
 
 ### DRS 2.1
 
-DRS 2.1 rules offer better protection than earlier versions of the DRS. It includes other rules developed by the Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
+DRS 2.1 rules offer better protection than earlier versions of the DRS. It includes rules developed by the Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
 
-DRS 2.1 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, and you can customize behavior for individual rules, rule groups, or an entire rule set. DRS 2.1 is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team.
+DRS 2.1 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, and you can customize behavior for individual rules, rule groups, or an entire rule set. DRS 2.1 is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes proprietary protection rules developed by the Microsoft Threat Intelligence team.
 
 For more information, see [Tuning Web Application Firewall (WAF) for Azure Front Door](waf-front-door-tuning.md).
 
@@ -181,12 +181,12 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |Rule group|ruleGroupName|Description|
 |---|---|---|
 |[General](?tabs=drs20#general-20)|General|General group|
-|[METHOD-ENFORCEMENT](?tabs=drs20#drs911-20)|METHOD-ENFORCEMENT|Lock-down methods (PUT, PATCH)|
+|[METHOD-ENFORCEMENT](?tabs=drs20#drs911-20)|METHOD-ENFORCEMENT|Lock down methods (PUT, PATCH)|
 |[PROTOCOL-ENFORCEMENT](?tabs=drs20#drs920-20)|PROTOCOL-ENFORCEMENT|Protect against protocol and encoding issues|
 |[PROTOCOL-ATTACK](?tabs=drs20#drs921-20)|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
 |[APPLICATION-ATTACK-LFI](?tabs=drs20#drs930-20)|LFI|Protect against file and path attacks|
 |[APPLICATION-ATTACK-RFI](?tabs=drs20#drs931-20)|RFI|Protect against remote file inclusion (RFI) attacks|
-|[APPLICATION-ATTACK-RCE](?tabs=drs20#drs932-20)|RCE|Protect again remote code execution attacks|
+|[APPLICATION-ATTACK-RCE](?tabs=drs20#drs932-20)|RCE|Protect against remote code execution attacks|
 |[APPLICATION-ATTACK-PHP](?tabs=drs20#drs933-20)|PHP|Protect against PHP-injection attacks|
 |[APPLICATION-ATTACK-NodeJS](?tabs=drs20#drs934-20)|NODEJS|Protect against Node JS attacks|
 |[APPLICATION-ATTACK-XSS](?tabs=drs20#drs941-20)|XSS|Protect against cross-site scripting attacks|
@@ -203,8 +203,8 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |---|---|---|
 |[PROTOCOL-ATTACK](?tabs=drs11#drs921-11)|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
 |[APPLICATION-ATTACK-LFI](?tabs=drs11#drs930-11)|LFI|Protect against file and path attacks|
-|[APPLICATION-ATTACK-RFI](?tabs=drs11#drs931-11)|RFI|Protection against remote file inclusion attacks|
-|[APPLICATION-ATTACK-RCE](?tabs=drs11#drs932-11)|RCE|Protection against remote command execution|
+|[APPLICATION-ATTACK-RFI](?tabs=drs11#drs931-11)|RFI|Protect against remote file inclusion attacks|
+|[APPLICATION-ATTACK-RCE](?tabs=drs11#drs932-11)|RCE|Protect against remote command execution|
 |[APPLICATION-ATTACK-PHP](?tabs=drs11#drs933-11)|PHP|Protect against PHP-injection attacks|
 |[APPLICATION-ATTACK-XSS](?tabs=drs11#drs941-11)|XSS|Protect against cross-site scripting attacks|
 |[APPLICATION-ATTACK-SQLI](?tabs=drs11#drs942-11)|SQLI|Protect against SQL-injection attacks|
@@ -221,8 +221,8 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |---|---|---|
 |[PROTOCOL-ATTACK](?tabs=drs10#drs921-10)|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
 |[APPLICATION-ATTACK-LFI](?tabs=drs10#drs930-10)|LFI|Protect against file and path attacks|
-|[APPLICATION-ATTACK-RFI](?tabs=drs10#drs931-10)|RFI|Protection against remote file inclusion attacks|
-|[APPLICATION-ATTACK-RCE](?tabs=drs10#drs932-10)|RCE|Protection against remote command execution|
+|[APPLICATION-ATTACK-RFI](?tabs=drs10#drs931-10)|RFI|Protect against remote file inclusion attacks|
+|[APPLICATION-ATTACK-RCE](?tabs=drs10#drs932-10)|RCE|Protect against remote command execution|
 |[APPLICATION-ATTACK-PHP](?tabs=drs10#drs933-10)|PHP|Protect against PHP-injection attacks|
 |[APPLICATION-ATTACK-XSS](?tabs=drs10#drs941-10)|XSS|Protect against cross-site scripting attacks|
 |[APPLICATION-ATTACK-SQLI](?tabs=drs10#drs942-10)|SQLI|Protect against SQL-injection attacks|
@@ -233,7 +233,7 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 
 ### Bot Manager 1.0
 
-The Bot Manager 1.0 rule set provides protection against malicious bots and detection of good bots. The rules provide granular control over bots detected by WAF by categorizing bot traffic as Good, Bad, or Unknown bots. 
+The Bot Manager 1.0 rule set provides protection against malicious bots and detection of good bots. The rules provide granular control over bots detected by WAF by categorizing bot traffic as *good*, *bad*, or *unknown* bots.  
 
 |Rule group|Description|
 |---|---|
@@ -243,7 +243,7 @@ The Bot Manager 1.0 rule set provides protection against malicious bots and dete
 
 ### Bot Manager 1.1
 
-The Bot Manager 1.1 rule set is an enhancement to Bot Manager 1.0 rule set. It provides enhanced protection against malicious bots, and increases good bot detection.
+The Bot Manager 1.1 rule set is an enhancement to the Bot Manager 1.0 rule set. It provides better protection against malicious bots, and improves good bot detection.
 
 |Rule group|Description|
 |---|---|
@@ -273,7 +273,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 ### <a name="drs920-22"></a> Protocol enforcement
 |Rule ID|Anomaly score severity|Paranoia Level|Description|
 |---|---|--|--|
-|920100|Notice - 2|1|Invalid HTTP Request Line|
+|920100|Notice - 2|1|Invalid HTTP request line|
 |920120|Critical - 5|1|Attempted multipart/form-data bypass|
 |920121|Critical - 5|2|Attempted multipart/form-data bypass|
 |920160|Critical - 5|1|Content-Length HTTP header isn't numeric.|
@@ -285,20 +285,20 @@ The following rule groups and rules are available when you use Azure Web Applica
 |920200|Warning - 3|2|Range: Too many fields (6 or more)|
 |920201|Warning - 3|2|Range: Too many fields for pdf request (63 or more)|
 |920210|Warning - 3|1|Multiple/Conflicting Connection Header Data Found.|
-|920220|Warning - 3|1|URL Encoding Abuse Attack Attempt|
-|920230|Warning - 3|2|Multiple URL Encoding Detected|
-|920240|Warning - 3|1|URL Encoding Abuse Attack Attempt|
-|920260|Warning - 3|1|Unicode Full/Half Width Abuse Attack Attempt|
+|920220|Warning - 3|1|URL encoding abuse attack attempt|
+|920230|Warning - 3|2|Multiple URL encoding detected|
+|920240|Warning - 3|1|URL encoding abuse attack attempt|
+|920260|Warning - 3|1|Unicode full-width or half-width abuse attack attempt|
 |920270|Critical - 5|1|Invalid character in request (null character)|
 |920271|Critical - 5|2|Invalid character in request (non printable characters)|
-|920280|Warning - 3|1|Request Missing a Host Header|
-|920290|Warning - 3|1|Empty Host Header|
-|920300|Notice - 2|2|Request Missing an Accept Header|
-|920310|Notice - 2|1|Request Has an Empty Accept Header|
-|920311|Notice - 2|1|Request Has an Empty Accept Header|
-|920320|Notice - 2|2|Missing User Agent Header|
-|920330|Notice - 2|1|Empty User Agent Header|
-|920340|Notice - 2|1|Request Containing Content, but Missing Content-Type header|
+|920280|Warning - 3|1|Request missing a Host header|
+|920290|Warning - 3|1|Empty Host header|
+|920300|Notice - 2|2|Request missing an Accept header|
+|920310|Notice - 2|1|Request has an empty Accept header|
+|920311|Notice - 2|1|Request has an empty Accept header|
+|920320|Notice - 2|2|Missing User-Agent header|
+|920330|Notice - 2|1|Empty User-Agent header|
+|920340|Notice - 2|1|Request containing content but missing Content-Type header|
 |920341|Critical - 5|2|Request Containing Content Requires Content-Type header|
 |920350|Warning - 3|1|Host header is a numeric IP address|
 |920420|Critical - 5|2|Request content type is not allowed by policy|
@@ -380,7 +380,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |933210|Critical - 5|1|PHP Injection Attack: Variable Function Call Found|
 
 
-### <a name="drs934-22"></a> Node JS attacks
+### <a name="drs934-22"></a> Node.js attacks
 |Rule ID|Anomaly score severity|Paranoia Level|Description|
 |---|---|--|--|
 |934100|Critical - 5|1|Node.js Injection Attack|
@@ -435,7 +435,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942190|Critical - 5|1|Detects MSSQL code execution and information gathering attempts|
 |942200|Critical - 5|2|Detects MySQL comment-/space-obfuscated injections and backtick termination|
 |942210|Critical - 5|2|Detects chained SQL injection attempts 1/2|
-|942220|Critical - 5|1|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
+|942220|Critical - 5|1|Looking for integer overflow attacks, these rules come from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
 |942230|Critical - 5|1|Detects conditional SQL injection attempts|
 |942240|Critical - 5|1|Detects MySQL charset switch and MSSQL DoS attempts|
 |942250|Critical - 5|1|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
@@ -480,8 +480,8 @@ The following rule groups and rules are available when you use Azure Web Applica
 |944110|Critical - 5|1|Remote Command Execution: Java process spawn (CVE-2017-9805)|
 |944120|Critical - 5|1|Remote Command Execution: Java serialization (CVE-2015-5842)|
 |944130|Critical - 5|1|Suspicious Java class detected|
-|944200|Critical - 5|2|Magic bytes Detected, probable java serialization in use|
-|944210|Critical - 5|2|Magic bytes Detected Base64 Encoded, probable java serialization in use|
+|944200|Critical - 5|2|Magic bytes detected, probable Java serialization in use|
+|944210|Critical - 5|2|Magic bytes detected Base64 encoded, probable Java serialization in use|
 |944240|Critical - 5|2|Remote Command Execution: Java serialization and Log4j vulnerability (CVE-2021-44228, CVE-2021-45046)|
 |944250|Critical - 5|2|Remote Command Execution: Suspicious Java method detected|
 
@@ -572,32 +572,32 @@ The following rule groups and rules are available when you use Azure Web Applica
 ### <a name="drs920-21"></a> Protocol enforcement
 |Rule ID|Anomaly score severity|Paranoia Level|Description|
 |---|---|--|--|
-|920100|Notice - 2|1|Invalid HTTP Request Line|
+|920100|Notice - 2|1|Invalid HTTP request line|
 |920120|Critical - 5|1|Attempted multipart/form-data bypass|
 |920121|Critical - 5|2|Attempted multipart/form-data bypass|
 |920160|Critical - 5|1|Content-Length HTTP header isn't numeric|
-|920170|Critical - 5|1|GET or HEAD Request with Body Content|
-|920171|Critical - 5|1|GET or HEAD Request with Transfer-Encoding|
-|920180|Notice - 2|1|POST request missing Content-Length Header|
+|920170|Critical - 5|1|GET or HEAD request with body content|
+|920171|Critical - 5|1|GET or HEAD request with Transfer-Encoding|
+|920180|Notice - 2|1|POST request missing Content-Length header|
 |920181|Warning - 3|1|Content-Length and Transfer-Encoding headers present 99001003|
-|920190|Warning - 3|1|Range: Invalid Last Byte Value|
+|920190|Warning - 3|1|Range: Invalid last byte value|
 |920200|Warning - 3|2|Range: Too many fields (6 or more)|
-|920201|Warning - 3|2|Range: Too many fields for pdf request (35 or more)|
-|920210|Warning - 3|1|Multiple/Conflicting Connection Header Data Found|
-|920220|Warning - 3|1|URL Encoding Abuse Attack Attempt|
-|920230|Warning - 3|2|Multiple URL Encoding Detected|
-|920240|Warning - 3|1|URL Encoding Abuse Attack Attempt|
-|920260|Warning - 3|1|Unicode Full/Half Width Abuse Attack Attempt|
+|920201|Warning - 3|2|Range: Too many fields for PDF request (35 or more)|
+|920210|Warning - 3|1|Multiple or conflicting Connection header data found|
+|920220|Warning - 3|1|URL encoding abuse attack attempt|
+|920230|Warning - 3|2|Multiple URL encoding detected|
+|920240|Warning - 3|1|URL encoding abuse attack attempt|
+|920260|Warning - 3|1|Unicode full-width or half-width abuse attack attempt|
 |920270|Critical - 5|1|Invalid character in request (null character)|
 |920271|Critical - 5|2|Invalid character in request (nonprintable characters)|
-|920280|Warning - 3|1|Request Missing a Host Header|
-|920290|Warning - 3|1|Empty Host Header|
-|920300|Notice - 2|2|Request Missing an Accept Header|
-|920310|Notice - 2|1|Request Has an Empty Accept Header|
-|920311|Notice - 2|1|Request Has an Empty Accept Header|
-|920320|Notice - 2|2|Missing User Agent Header|
-|920330|Notice - 2|1|Empty User Agent Header|
-|920340|Notice - 2|1|Request Containing Content, but Missing Content-Type header|
+|920280|Warning - 3|1|Request missing a Host header|
+|920290|Warning - 3|1|Empty Host header|
+|920300|Notice - 2|2|Request missing an Accept header|
+|920310|Notice - 2|1|Request has an empty Accept header|
+|920311|Notice - 2|1|Request has an empty Accept header|
+|920320|Notice - 2|2|Missing User-Agent header|
+|920330|Notice - 2|1|Empty User-Agent header|
+|920340|Notice - 2|1|Request containing content but missing Content-Type header|
 |920341|Critical - 5|2|Request containing content requires Content-Type header|
 |920350|Warning - 3|1|Host header is a numeric IP address|
 |920420|Critical - 5|1|Request content type isn't allowed by policy|
@@ -670,7 +670,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |933200|Critical - 5|1|PHP Injection Attack: Wrapper scheme detected|
 |933210|Critical - 5|1|PHP Injection Attack: Variable Function Call Found|
 
-### <a name="drs934-21"></a> Node JS attacks
+### <a name="drs934-21"></a> Node.js attacks
 |Rule ID|Anomaly score severity|Paranoia Level|Description|
 |---|---|--|--|
 |934100|Critical - 5|1|Node.js Injection Attack|
@@ -723,7 +723,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942190|Critical - 5|1|Detects MSSQL code execution and information gathering attempts|
 |942200|Critical - 5|2|Detects MySQL comment-/space-obfuscated injections and backtick termination|
 |942210|Critical - 5|2|Detects chained SQL injection attempts 1/2|
-|942220|Critical - 5|1|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
+|942220|Critical - 5|1|Looking for integer overflow attacks, these rules come from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
 |942230|Critical - 5|1|Detects conditional SQL injection attempts|
 |942240|Critical - 5|1|Detects MySQL charset switch and MSSQL DoS attempts|
 |942250|Critical - 5|1|Detects MATCH AGAINST, MERGE, and EXECUTE IMMEDIATE injections|
@@ -744,7 +744,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942390|Critical - 5|2|SQL Injection Attack|
 |942400|Critical - 5|2|SQL Injection Attack|
 |942410|Critical - 5|2|SQL Injection Attack|
-|942430|Warning - 3|2|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
+|942430|Warning - 3|2|Restricted SQL Character Anomaly Detection (args): number of special characters exceeded (12)|
 |942440|Critical - 5|2|SQL Comment Sequence Detected|
 |942450|Critical - 5|2|SQL Hex Encoding Identified|
 |942470|Critical - 5|2|SQL Injection Attack|
@@ -935,7 +935,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |933200|PHP Injection Attack: Wrapper scheme detected|
 |933210|PHP Injection Attack: Variable Function Call Found|
 
-### <a name="drs934-20"></a> Node JS attacks
+### <a name="drs934-20"></a> Node.js attacks
 |Rule ID|Description|
 |---|---|
 |934100|Node.js Injection Attack|
@@ -988,7 +988,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942190|Detects MSSQL code execution and information gathering attempts|
 |942200|Detects MySQL comment-/space-obfuscated injections and backtick termination|
 |942210|Detects chained SQL injection attempts 1/2|
-|942220|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
+|942220|Looking for integer overflow attacks, these rules come from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
 |942230|Detects conditional SQL injection attempts|
 |942240|Detects MySQL charset switch and MSSQL DoS attempts|
 |942250|Detects MATCH AGAINST, MERGE, and EXECUTE IMMEDIATE injections|
@@ -1009,7 +1009,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942390|SQL Injection Attack|
 |942400|SQL Injection Attack|
 |942410|SQL Injection Attack|
-|942430|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
+|942430|Restricted SQL Character Anomaly Detection (args): number of special characters exceeded (12)|
 |942440|SQL Comment Sequence Detected|
 |942450|SQL Hex Encoding Identified|
 |942460|Meta-Character Anomaly Detection Alert - Repetitive Non-Word Characters|
@@ -1075,7 +1075,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 
 # [DRS 1.1](#tab/drs11)
 
-## <a name="drs11"></a> 1.1 rule sets
+## <a name="drs11"></a> 1.1 Rule sets
 
 ### <a name="drs921-11"></a> Protocol attack
 |Rule ID|Description|
@@ -1179,7 +1179,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942190|Detects MSSQL code execution and information gathering attempts|
 |942200|Detects MySQL comment-/space-obfuscated injections and backtick termination|
 |942210|Detects chained SQL injection attempts 1/2|
-|942220|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
+|942220|Looking for integer overflow attacks, these rules come from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
 |942230|Detects conditional SQL injection attempts|
 |942240|Detects MySQL charset switch and MSSQL DoS attempts|
 |942250|Detects MATCH AGAINST, MERGE, and EXECUTE IMMEDIATE injections|
@@ -1200,7 +1200,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942390|SQL Injection Attack|
 |942400|SQL Injection Attack|
 |942410|SQL Injection Attack|
-|942430|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
+|942430|Restricted SQL Character Anomaly Detection (args): number of special characters exceeded (12)|
 |942440|SQL Comment Sequence Detected|
 |942450|SQL Hex Encoding Identified|
 |942470|SQL Injection Attack|
@@ -1220,8 +1220,8 @@ The following rule groups and rules are available when you use Azure Web Applica
 |944110|Possible Session Fixation Attack: Setting Cookie Values in HTML|
 |944120|Remote Command Execution: Java serialization (CVE-2015-5842)|
 |944130|Suspicious Java class detected|
-|944200|Magic bytes Detected, probable Java serialization in use|
-|944210|Magic bytes Detected Base64 Encoded, probable Java serialization in use|
+|944200|Magic bytes detected, probable Java serialization in use|
+|944210|Magic bytes detected Base64 encoded, probable Java serialization in use|
 |944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
 
@@ -1360,7 +1360,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942190|Detects MSSQL code execution and information gathering attempts|
 |942200|Detects MySQL comment-/space-obfuscated injections and backtick termination|
 |942210|Detects chained SQL injection attempts 1/2|
-|942220|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
+|942220|Looking for integer overflow attacks, these rules come from skipfish, except 3.0.00738585072007e-308 is the "magic number" crash|
 |942230|Detects conditional SQL injection attempts|
 |942240|Detects MySQL charset switch and MSSQL DoS attempts|
 |942250|Detects MATCH AGAINST, MERGE, and EXECUTE IMMEDIATE injections|
@@ -1381,7 +1381,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |942390|SQL Injection Attack|
 |942400|SQL Injection Attack|
 |942410|SQL Injection Attack|
-|942430|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
+|942430|Restricted SQL Character Anomaly Detection (args): number of special characters exceeded (12)|
 |942440|SQL Comment Sequence Detected|
 |942450|SQL Hex Encoding Identified|
 |942470|SQL Injection Attack|
@@ -1427,7 +1427,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |Rule ID|Description|
 |---|---|
 |Bot100100|Malicious bots detected by threat intelligence|
-|Bot100200|Malicious bots that have falsified their identity|
+|Bot100200|Malicious bots that falsified their identity|
  
  Bot100100 scans both client IP addresses and IPs in the `X-Forwarded-For` header.
 
@@ -1458,7 +1458,7 @@ Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header
 |Rule ID|Description|
 |---|---|
 |Bot100100|Malicious bots detected by threat intelligence|
-|Bot100200|Malicious bots that have falsified their identity|
+|Bot100200|Malicious bots that falsified their identity|
 |Bot100300|High risk bots detected by threat intelligence|
  
  Bot100100 scans both client IP addresses and IPs in the `X-Forwarded-For` header.

@@ -7,6 +7,7 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: overview
 ms.date: 07/07/2026
+ai-usage: ai-assisted
 ms.author: mbender
 ms.custom: portfolio-consolidation-2025
 #customer intent: As an IT administrator, I want to understand what Azure Load Balancer is so that I can decide if it fits my organization's needs.
@@ -21,10 +22,17 @@ Azure Load Balancer is a cloud service that distributes incoming network traffic
 
 *Load balancing* refers to efficiently distributing incoming network traffic across a group of backend virtual machines (VMs) or virtual machine scale sets (VMSS).
 
+Use Azure Load Balancer when you need to distribute Layer 4 TCP or UDP traffic across VMs or virtual machine scale sets. Choose a scenario to get started:
+
+- [Create a public load balancer](quickstart-load-balancer-standard-public-portal.md) for internet-facing traffic.
+- [Create an internal load balancer](quickstart-load-balancer-standard-internal-portal.md) for private traffic within a virtual network.
+- [Configure outbound connectivity](load-balancer-outbound-connections.md) for backend instances.
+- [Upgrade a retired Basic Load Balancer](load-balancer-basic-upgrade-guidance.md) to Standard Load Balancer.
+
 > [!NOTE]
 > Azure Load Balancer is one of the services that make up the Load Balancing and Content Delivery category in Azure. Other services in this category include [Azure Front Door](../frontdoor/front-door-overview.md) and [Azure Application Gateway](../application-gateway/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Load Balancing and Content Delivery](../networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md).
 
-## Load balancer overview
+## How Azure Load Balancer distributes Layer 4 traffic
 
 Azure Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients. The service distributes inbound flows that arrive at the load balancer's frontend to backend pool instances. These flows are distributed according to configured load-balancing rules and health probes. The backend pool instances can be Azure virtual machines (VMs) or virtual machine scale sets.
 
@@ -36,9 +44,9 @@ Alternatively, an [internal (or private) load balancer](./components.md#frontend
 
 For more information on the service's individual components, see [Azure Load Balancer components](./components.md).
 
-Azure Load Balancer has three SKUs - Basic, Standard, and Gateway. Each SKU caters to a specific scenario and has differences in scale, features, and pricing. For more information, see [Azure Load Balancer SKUs](skus.md).
+Azure Load Balancer offers two current SKUs: Standard and Gateway. Each SKU caters to a specific scenario and has differences in scale, features, and pricing. A third SKU, Basic, was retired on September 30, 2025. For more information, see [Azure Load Balancer SKUs](skus.md).
 
-## Why use Azure Load Balancer
+## Why use Azure Load Balancer?
 
 By using Azure Load Balancer, you can scale your applications and create highly available services. The service supports both inbound and outbound scenarios, provides low latency and high throughput, and scales up to millions of flows for all TCP and UDP applications.
 
@@ -60,8 +68,8 @@ Azure Load Balancer provides:
 
 ### Advanced features
 
-- **IPv6 support**: Enable [load balancing of IPv6](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) traffic.
-- **Cross-region mobility**: Move [internal](./move-across-regions-internal-load-balancer-portal.md) and [external](./move-across-regions-external-load-balancer-portal.md) load balancer resources across Azure regions.
+- **IPv6 support**: Enable [load balancing of IPv6](./deploy-ipv4-ipv6-dual-stack-standard-load-balancer.md) traffic.
+- **Cross-region mobility**: [Move internal and external load balancer resources](./move-across-regions-azure-load-balancer.md) across Azure regions.
 - **Gateway load balancer integration**: Chain Standard Load Balancer and [Gateway Load Balancer](./tutorial-create-gateway-load-balancer.md).
 - **Global load balancing integration**: Distribute traffic [across multiple Azure regions](./cross-region-overview.md) for global applications.
 - **Admin State**: [Override health probe behavior](./manage-admin-state-how-to.md) for maintenance and operational management.
@@ -100,7 +108,7 @@ To learn about NSGs and how to apply them to your scenario, see [Network securit
 
 For [Standard Load Balancer](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/load-balancer/skus.md) pricing information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/). For service-level agreements (SLAs), see the [Microsoft licensing information for online services](https://aka.ms/lbsla).
 
-Basic Load Balancer is offered at no charge and has no SLA. It was retired on September 30, 2025.
+Microsoft retired Basic Load Balancer on September 30, 2025. It was offered at no charge and had no SLA. To move existing deployments, see [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md).
 
 ## What's new?
 

@@ -116,7 +116,7 @@ Both **Agent Identity** and **Project Managed Identity** use Microsoft Entra aut
     
     1. In the left menu, select **Manage** > **Expose an API**.
     
-    1. Copy the **Application ID URI** at the top of the page. This ID value looks like `api://00001111-aaaa-2222-bbbb-3333cccc4444`.
+    1. Copy the **Application ID URI** at the top of the page. This ID value looks like `api://aaaabbbb-0000-cccc-1111-dddd2222eeee`.
 
 ### [OAuth identity](#tab/oauth-id)
 
@@ -217,7 +217,7 @@ To connect to your MCP server endpoint:
     | **Remote MCP Server endpoint** | The URL endpoint for your MCP server. | `https://contoso-mcp-tools.azurewebsites.net/runtime/webhooks/mcp` |
     | **Authentication** | The authentication method to use. | `Microsoft Entra` |
     | **Type** | The identity type the agent uses to authenticate. | `Project Managed Identity` |
-    | **Audience** | The Application ID URI of your function app's Entra registration. This value tells the identity provider which app the token is intended for. | `api://00001111-aaaa-2222-bbbb-3333cccc4444` |
+    | **Audience** | The Application ID URI of your function app's Entra registration. This value tells the identity provider which app the token is intended for. | `api://aaaabbbb-0000-cccc-1111-dddd2222eeee` |
 
 1. Select **Connect** to create a connection to your MCP server endpoint. You see your server name listed under **Tools**.
 
@@ -247,7 +247,7 @@ When you use OAuth identity passthrough, the agent prompts the user to sign in a
     | **Token URL** | The endpoint your server app calls to exchange an authorization code or credential for an access token. | `https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token` |
     | **Auth URL** | The endpoint where users are redirected to authenticate and grant authorization to your server app. | `https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/authorize` |
     | **Refresh URL** | The endpoint used to obtain a new access token when the current one expires. | `https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token` |
-    | **Scopes** | The specific permissions or resource access levels your server app requests from the authorization server | `api://00001111-aaaa-2222-bbbb-3333cccc4444/user_impersonation` |
+    | **Scopes** | The specific permissions or resource access levels your server app requests from the authorization server | `api://aaaabbbb-0000-cccc-1111-dddd2222eeee/user_impersonation` |
 
 1. Select **Connect** to create a connection to your MCP server endpoint. 
 

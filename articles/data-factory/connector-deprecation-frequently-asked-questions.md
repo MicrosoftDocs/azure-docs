@@ -16,6 +16,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article provides answers to frequently asked questions about connector upgrade.
 
 ## <a name="why-does-azure-data-factory-adf-release-new-connectors-and-ask-users-to-upgrade-their-existing-connectors"></a> Why does Azure Data Factory (ADF) release new connector versions and ask users to upgrade their existing connectors?

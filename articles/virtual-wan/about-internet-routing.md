@@ -5,7 +5,7 @@ description: Learn how to secure internet traffic with routing intent.
 author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 03/26/2025
+ms.date: 08/27/2026
 ms.author: wellee
 ---
 
@@ -110,6 +110,8 @@ The default route can be learnt from the following sources.
 
 The default route **can't be configured** in the following way:
 * Static route in the defaultRouteTable with next hop Virtual Network connection 
+
+This restriction applies to hubs that use routing intent, which is the scope of this article. Virtual WAN designs that don't use routing intent can use a static `0.0.0.0/0` route in the defaultRouteTable with a Virtual Network connection next hop to steer internet traffic to an NVA in a spoke. For those patterns, see [Basic: Route traffic to indirect spokes or the internet](indirect-spoke-architecture.md) and [Advanced: Combine static routing to Azure Firewall and spoke NVAs](hybrid-firewall-spoke-static.md).
 
 ### Effective routes
 

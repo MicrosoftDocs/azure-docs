@@ -12,6 +12,8 @@ ms.date: 05/15/2024
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 When planning a migration of on-premises SSIS to SSIS in Azure Data Factory (ADF) or Synapse Pipelines, assessment will help identify issues with the source SSIS packages that would prevent a successful migration.
 
 [Data Migration Assistant (DMA) for Integration Services](/sql/dma/dma-assess-ssis) can perform assessment of your project, and below are full list of potential issues, known as DMA rules as well. 

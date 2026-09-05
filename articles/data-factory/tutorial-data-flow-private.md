@@ -14,6 +14,8 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](./introduction.md).
 
 In this tutorial, you'll use the Data Factory user interface (UI) to create a pipeline that copies and transforms data *from an Azure Data Lake Storage Gen2 source to a Data Lake Storage Gen2 sink (both allowing access to only selected networks)* by using mapping data flow in [Data Factory Managed Virtual Network](managed-virtual-network-private-endpoint.md). You can expand on the configuration pattern in this tutorial when you transform data by using mapping data flow.

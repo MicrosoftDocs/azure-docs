@@ -7,7 +7,7 @@ ms.service: azure-private-link
 ms.custom:
   - ignite-2024
 ms.topic: concept-article
-ms.date: 07/16/2026
+ms.date: 08/11/2026
 # Customer intent: As a network administrator, I want to configure private DNS zone values for Azure services with private endpoints, so that I can ensure proper DNS resolution for secure connections within my network.
 ---
 
@@ -64,7 +64,7 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Azure Machine Learning workspace (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.azureml.ms<br/>privatelink.notebooks.azure.net | api.azureml.ms<br/>notebooks.azure.net<br/>instances.ml.azure.ms<br/>aznbcontent.net<br/>inference.ml.azure.com |
 > | Azure Machine Learning registry (Microsoft.MachineLearningServices/registries) | amlregistry | privatelink.api.azureml.ms | api.azureml.ms |
-> | Foundry Tools (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com <br/> privatelink.services.ai.azure.com | cognitiveservices.azure.com <br/> openai.azure.com <br/> services.ai.azure.com |
+> | Foundry Tools (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.com <br/> privatelink.openai.azure.com <br/> privatelink.services.ai.azure.com<sup>4</sup> | cognitiveservices.azure.com <br/> openai.azure.com <br/> services.ai.azure.com |
 > | Azure Bot Service (Microsoft.BotService/botServices) | Bot | privatelink.directline.botframework.com | directline.botframework.com |
 > | Azure Bot Service (Microsoft.BotService/botServices) | Token | privatelink.token.botframework.com | token.botframework.com |
 
@@ -114,12 +114,13 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.windows.net | database.windows.net |
 > | Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | managedInstance | privatelink.{dnsPrefix}.database.windows.net | {dnsPrefix}.database.windows.net |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.com | documents.azure.com |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Analytical | privatelink.analytics.cosmos.azure.com | analytics.cosmos.azure.com |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Sql | privatelink.documents.azure.com | documents.azure.com |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | SqlDedicated | privatelink.sqlx.cosmos.azure.com | sqlx.cosmos.azure.com |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Analytical | privatelink.analytics.cosmos.azure.com | analytics.cosmos.azure.com |
 > | Azure Cosmos DB (Microsoft.DBforPostgreSQL/serverGroupsv2) | coordinator | privatelink.postgres.cosmos.azure.com | postgres.cosmos.azure.com |
 > | Azure Cosmos DB for MongoDB - vCore (Microsoft.DocumentDB/mongoClusters) | MongoCluster | privatelink.mongocluster.cosmos.azure.com | mongocluster.cosmos.azure.com | 
 > | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
@@ -235,6 +236,8 @@ For Azure services, use the recommended zone names as described in the following
 
 <sup>3</sup>To use with the Kudu console or Kudu REST API, you must create two DNS records that point to the private endpoint IP address in your Azure DNS private zone `privatelink.azurewebsites.net` or custom DNS server. The first record is for your app. The second record is for source control management (SCM) for your app. If you use private DNS zones in Azure, don't deploy this as an additional zone.
 
+<sup>4</sup>For Foundry Tools, use the private DNS zone that corresponds to each public endpoint suffix: `privatelink.cognitiveservices.azure.com` for `cognitiveservices.azure.com`, `privatelink.openai.azure.com` for `openai.azure.com`, and `privatelink.services.ai.azure.com` for `services.ai.azure.com`. A Foundry resource can expose all three endpoints. Configure DNS for each endpoint that your workload uses.
+
 > [!Note]
 > In the above text, **`{regionCode}`** refers to the region code (for example, **eus** for East US and **ne** for North Europe). Refer to the following lists for regions codes:
 >
@@ -294,11 +297,11 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.usgovcloudapi.net | database.usgovcloudapi.net |
 > | Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | managedInstance | privatelink.{dnsPrefix}.database.usgovcloudapi.net | {dnsPrefix}.database.usgovcloudapi.net |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.us | documents.azure.us |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.us | mongo.cosmos.azure.us |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.us | cassandra.cosmos.azure.us |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.us | gremlin.cosmos.azure.us |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.us | table.cosmos.azure.us |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Sql | privatelink.documents.azure.us | documents.azure.us |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.us | mongo.cosmos.azure.us |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.us | cassandra.cosmos.azure.us |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.us | gremlin.cosmos.azure.us |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.us | table.cosmos.azure.us |
 > | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.usgovcloudapi.net | postgres.database.usgovcloudapi.net |
 > | Azure Database for PostgreSQL - Flexible server (Microsoft.DBforPostgreSQL/flexibleServers) | postgresqlServer | privatelink.postgres.database.usgovcloudapi.net | postgres.database.usgovcloudapi.net |
 > | Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.usgovcloudapi.net | mysql.database.usgovcloudapi.net |
@@ -435,11 +438,11 @@ For Azure services, use the recommended zone names as described in the following
 > | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 > |---|---|---|---|
 > | Azure SQL Database (Microsoft.Sql/servers) | sqlServer | privatelink.database.chinacloudapi.cn | database.chinacloudapi.cn |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Sql | privatelink.documents.azure.cn | documents.azure.cn |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.cn | mongo.cosmos.azure.cn |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.cn | cassandra.cosmos.azure.cn |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.cn | gremlin.cosmos.azure.cn |
-> | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.cn | table.cosmos.azure.cn |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Sql | privatelink.documents.azure.cn | documents.azure.cn |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | MongoDB | privatelink.mongo.cosmos.azure.cn | mongo.cosmos.azure.cn |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Cassandra | privatelink.cassandra.cosmos.azure.cn | cassandra.cosmos.azure.cn |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Gremlin | privatelink.gremlin.cosmos.azure.cn | gremlin.cosmos.azure.cn |
+> | Azure Cosmos DB (Microsoft.DocumentDB/databaseAccounts) | Table | privatelink.table.cosmos.azure.cn | table.cosmos.azure.cn |
 > | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) | postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
 > | Azure Database for PostgreSQL - Flexible server (Microsoft.DBforPostgreSQL/flexibleServers) | postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
 > | Azure Database for MySQL - Single Server (Microsoft.DBforMySQL/servers) | mysqlServer | privatelink.mysql.database.chinacloudapi.cn | mysql.database.chinacloudapi.cn |

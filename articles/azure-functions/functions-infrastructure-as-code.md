@@ -1591,7 +1591,7 @@ You maintain these application configurations in `functionAppConfig`:
 | [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency) | `scaleAndConcurrency.triggers.http.perInstanceConcurrency` |
 | [Language runtime](functions-app-settings.md#functions_worker_runtime) | `runtime.name` |
 | [Language version](supported-languages.md) | `runtime.version` |
-| [Maximum instance count](event-driven-scaling.md#flex-consumption-plan) | `scaleAndConcurrency.maximumInstanceCount` |
+| [Maximum instance count](event-driven-scaling.md#limit-scale-out) | `scaleAndConcurrency.maximumInstanceCount` |
 | [Site update strategy](flex-consumption-site-updates.md) | `siteUpdateStrategy.type` |
 
 The Flex Consumption plan also supports these application settings:

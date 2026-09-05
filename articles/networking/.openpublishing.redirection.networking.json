@@ -41,6 +41,10 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/networking/network-monitoring-overview.md",
+            "redirect_url": "/azure/network-watcher/connection-monitor-overview"
+        },
+        {
             "source_path_from_root": "/articles/networking/manage-apps/connectivty-interoperability-configuration.md",
             "redirect_url": "/azure/networking/connectivity-interoperability-configuration",
             "redirect_document_id": false
@@ -102,9 +106,17 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/networking/scripts/load-balancer-windows-powershell-sample-nlb.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-powershell"
+        },
+        {
             "source_path_from_root": "/articles/networking/scripts/traffic-manager-cli-websites-high-availability.md",
             "redirect_url": "/previous-versions/azure/networking/scripts/traffic-manager-cli-websites-high-availability",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/scripts/traffic-manager-powershell-websites-high-availability.md",
+            "redirect_url": "/azure/traffic-manager/quickstart-create-traffic-manager-profile-powershell"
         },
       
         {

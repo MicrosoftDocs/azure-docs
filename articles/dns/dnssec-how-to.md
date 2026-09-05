@@ -77,7 +77,7 @@ To sign your zone with DNSSEC using the Azure portal:
 
 1. Sign a zone using the Azure CLI:
 
-```azurepowershell-interactive
+```azurecli-interactive
 # Ensure you are logged in to your Azure account
 az login
 
@@ -95,7 +95,7 @@ az network dns dnssec-config show --resource-group "your-resource-group" --zone-
 
 You can use the following Azure CLI command to display the DS record information:
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network dns zone show --name "adatum.com" --resource-group "your-resource-group" | jq '.signingKeys[] | select(.delegationSignerInfo != null) | .delegationSignerInfo'
 ```
 Sample output:
@@ -131,7 +131,7 @@ In these examples, the DS values are:
 
 4. If you own the parent zone, you can add a DS record directly to the parent yourself. The following example shows how to add a DS record to the DNS zone **adatum.com** for the child zone **secure.adatum.com** when both zones are signed and hosted using Azure Public DNS:
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network dns record-set ds add-record --resource-group "your-resource-group" --zone-name "adatum.com" --record-set-name "secure" --key-tag <key-tag> --algorithm <algorithm> --digest <digest> --digest-type <digest-type>
 ```
 

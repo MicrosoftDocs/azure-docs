@@ -14,7 +14,7 @@ manager: radeltch
 2. **[A]** Configure host name resolution.
    You can either use a DNS server or modify `/etc/hosts` on all nodes. This example shows how to use the `/etc/hosts` file.
 
-   Update the entries to match your IPs and Hostnames.
+   Update the entries to match your IPs and hostnames.
 
    ```bash
    sudo vi /etc/hosts
@@ -35,9 +35,9 @@ manager: radeltch
    10.27.0.5    sapdb
    ```
 
-3. **[A]** Configure TCP KeepAlive Settings
+3. **[A]** Configure TCP KeepAlive settings.
    
-   To ensure communication channels between nodes aren't dropped, configure the following keepalive settings on both nodes. More information can be found in SAP Note [1410736][sapnote-1410736-tcpkeepalive]
+   To ensure communication channels between nodes aren't dropped, configure the following keepalive settings on both nodes. For more information, see SAP Note [1410736][sapnote-1410736-tcpkeepalive].
 
    ```bash
    # Check Current Settings:
@@ -58,20 +58,7 @@ manager: radeltch
    sudo sysctl --system
    ```
 
-4. **[1]** Configure Pacemaker Resource Defaults
-   
-   ```bash
-   # Check Values
-   sudo pcs resource defaults
-   Meta Attrs: build-resource-defaults
-     migration-threshold=3
-     resource-stickiness=1
-   
-   # Set Values if Required
-   sudo pcs resource defaults update resource-stickiness=1 migration-threshold=3
-   ```
-
-5. **[A]** Configure the SWAP file.
+4. **[A]** Configure the SWAP file.
    Follow [Create a SWAP partition for an Azure Linux VM][azdoc-vm-linux-swap] to configure a SWAP space for each VM.
 
 [sapnote-1410736-tcpkeepalive]: https://me.sap.com/notes/1410736

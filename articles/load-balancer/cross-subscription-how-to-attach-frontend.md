@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 10/17/2024
+ms.date: 07/17/2026
 ms.author: mbender
 ms.custom: devx-track-azurepowershell
 # Customer intent: As an Azure user managing multiple subscriptions, I want to attach a frontend IP address from one subscription to a load balancer in another subscription, so that I can efficiently route traffic between different environments while maintaining centralized control.
@@ -196,7 +196,7 @@ With Azure CLI, you create a load balancer with [`az network lb create`](/cli/az
 az network lb create --resource-group myResourceGroupLB --name myLoadBalancer --sku Standard --public-ip-address '/subscriptions/<subscription A ID>/resourceGroups/{resource group name} /providers/Microsoft.Network/publicIPAddresses/{public IP address name}’  --frontend-ip-name myFrontEnd --backend-pool-name MyBackendPool --tags 'IsRemoteFrontend=true'
 ```
 
-In order to utilize the cross-subscription feature of Azure load balancer, backend pools need to have the syncMode property enabled and a virtual network reference. This section updates the backend pool created prior by attaching the cross-subscription virtual network and enabling the syncMode property. 
+This section updates the backend pool you created earlier by attaching the cross-subscription virtual network and enabling the `syncMode` property required for cross-subscription frontends. For details on the `syncMode` requirement, see [Create a load balancer](cross-subscription-how-to-attach-backend.md#create-a-load-balancer).
 
 ```azurecli
 ## Configure the backend address pool and syncMode property

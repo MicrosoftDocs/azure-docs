@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: quickstart
-ms.date: 07/30/2026
+ms.date: 09/04/2026
 ms.custom:
   - template-quickstart
   - subject-armqs
@@ -93,7 +93,7 @@ Assign the following built-in roles to users at the desired scope (subscription 
 - Network Contributor
 - ACRPush
 - Foundry User
-- Microsoft Discovery Bookshelf Index Data Reader (Preview) 
+- Microsoft Discovery Bookshelf Index Data Reader - Preview
 
 > [!NOTE]
 > If you're assigning all roles at the subscription level, you can skip this note. If you're assigning roles at the resource group level, skip the **Foundry User** role for now. Continue with the next steps and revisit this role assignment after the workspace resource is created. This role must be assigned to each Platform Admin or Scientist user at the workspace managed resource group level.
@@ -350,15 +350,17 @@ Storage containers store both input and output data as storage assets. Both inpu
 Projects help you organize and manage scientific investigations within a workspace. Each project defines the functional boundary for access to your agents, tools, and storage containers. Within a project, you can run experiments, analyze data, apply AI models, and track research progress in a collaborative environment.
 
 > [!IMPORTANT]
-> Your project name must be all lowercase and no more than 12 characters long. Also, ensure you refresh your studio UI before you create a project.
+> Your project name must be all lowercase and no more than 12 characters long. Also, ensure you refresh the page before you create a project.
+You can create a project by opening your workspace in the studio.
 
-1. In **Microsoft Discovery Studio**, on the left navigation pane, select **Projects**. This lists all existing projects across your Azure subscriptions.
+1. In **Microsoft Discovery Studio**, on the left navigation pane, select **Workspaces**. This lists all existing workspaces across your Azure subscriptions.
+   :::image type="content" source="media/quickstart-infrastructure-portal/workspace-list.jpg" alt-text="Screenshot showing the Workspace list page in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/workspace-list.jpg":::
+1. Select the workspace you created in [step 4](#4-create-a-workspace). This action opens your workspace in the studio.
+   :::image type="content" source="media/quickstart-infrastructure-portal/create-project.jpg" alt-text="Screenshot showing the Project list page in a workspace in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/create-project.jpg":::
 1. Select **Create Project**.
-1. Enter the name of the project and select the workspace you created in [step 4](#4-create-a-workspace).
-1. For this exercise, **uncheck** the "Create storage container for me" option
-1. Select the storage container you created in [step 8](#8-create-storage-containers).
+1. Enter the name of the project and select the storage container you created in [step 8](#8-create-storage-containers).
 1. Select **Create**.
-   :::image type="content" source="media/quickstart-infrastructure-portal/create-project.jpg" alt-text="Screenshot showing the Project creation page in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/create-project.jpg":::
+   :::image type="content" source="media/quickstart-infrastructure-portal/create-project-new.jpg" alt-text="Screenshot showing the Project creation page with details in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/create-project-new.jpg":::
 
    :::image type="content" source="media/quickstart-infrastructure-portal/create-project-list.jpg" alt-text="Screenshot showing the Project list page after project creation in Microsoft Discovery Studio." lightbox="media/quickstart-infrastructure-portal/create-project-list.jpg":::
 
@@ -459,8 +461,9 @@ Remove-AzResourceGroup -Name exampleRG
 
 ---
 
-## Next step
+## Next steps
 
-After you set up your infrastructure and create your project, continue with the following next step:
+After you set up your infrastructure and create your project, use the following resources:
 
 - [Get started with agents and shared sessions in Microsoft Discovery Studio](quickstart-agents-studio.md)
+- Review the [Microsoft Discovery FAQ](faq.yml) for common deployment, networking, security, quota, and cleanup questions.

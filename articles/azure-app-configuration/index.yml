@@ -167,6 +167,8 @@ landingContent:
           url: howto-variant-feature-flags.md
         - text: Enable telemetry for feature flags
           url: howto-telemetry.md
+        - text: View feature flag events
+          url: howto-telemetry-review-results.md
       - linkListType: reference
         links:
         - text: Overview

@@ -203,12 +203,6 @@
       items:
       - name: Deploy extension-based worker
         href: extension-based-hybrid-runbook-worker-install.md
-      - name: Migrate existing Agent-based Hybrid Workers to Extension-based Workers
-        href: migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md
-      - name: Deploy agent-based Windows worker
-        href: automation-windows-hrw-install.md
-      - name: Deploy agent-based Linux worker
-        href: automation-linux-hrw-install.md
       - name: Run runbooks on Hybrid Runbook Worker
         href: automation-hrw-run-runbooks.md
       - name: Use Azure Policy to enforce job execution
@@ -293,8 +287,6 @@
     items:
     - name: Troubleshoot Extension-based Hybrid Runbook Worker Issues
       href: troubleshoot/extension-based-hybrid-runbook-worker.md
-    - name: Troubleshoot Agent-based Hybrid Runbook Worker Issues
-      href: troubleshoot/hybrid-runbook-worker.md
   - name: Troubleshoot State Configuration Issues
     href: troubleshoot/desired-state-configuration.md
   - name: Data to Collect when Opening a Case for Microsoft Azure Automation

@@ -32,11 +32,41 @@ Durable timers are tasks created using the appropriate `create timer` API for th
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
 ```csharp
-// Put the orchestrator to sleep for 72 hours
-DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
-await context.CreateTimer(dueTime, CancellationToken.None);
+[Function("TimerOrchestration")]
+public static async Task Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    // Put the orchestrator to sleep for 72 hours
+    DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
+    await context.CreateTimer(dueTime, CancellationToken.None);
+}
 ```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
+```csharp
+[FunctionName("TimerOrchestration")]
+public static async Task Run(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    // Put the orchestrator to sleep for 72 hours
+    DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
+    await context.CreateTimer(dueTime, CancellationToken.None);
+}
+```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -151,6 +181,30 @@ The following example shows how to use durable timers to delay execution. The ex
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("BillingIssuer")]
+public static async Task Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    for (int i = 0; i < 10; i++)
+    {
+        DateTime deadline = context.CurrentUtcDateTime.Add(TimeSpan.FromDays(1));
+        await context.CreateTimer(deadline, CancellationToken.None);
+        await context.CallActivityAsync("SendBillingEvent");
+    }
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("BillingIssuer")]
 public static async Task Run(
@@ -167,6 +221,10 @@ public static async Task Run(
 
 > [!NOTE]
 > The preceding C# example targets Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -323,6 +381,44 @@ This example shows how to use durable timers to implement timeouts:
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("TryGetQuote")]
+public static async Task<bool> Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    TimeSpan timeout = TimeSpan.FromSeconds(30);
+    DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
+
+    using var timeoutCts = new CancellationTokenSource();
+
+    Task activityTask = context.CallActivityAsync("GetQuote");
+    Task timeoutTask = context.CreateTimer(deadline, timeoutCts.Token);
+
+    Task winner = await Task.WhenAny(activityTask, timeoutTask);
+    if (winner == activityTask)
+    {
+        // Success case
+        timeoutCts.Cancel();
+        return true;
+    }
+    else
+    {
+        // Timeout case
+        return false;
+    }
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("TryGetQuote")]
 public static async Task<bool> Run(
@@ -354,6 +450,10 @@ public static async Task<bool> Run(
 
 > [!NOTE]
 > The previous C# example targets Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 

@@ -12,6 +12,8 @@ ms.subservice: authoring
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 You can change the default settings of your Azure Data Factory to meet your own preferences. 
 Azure Data Factory settings are available in the Settings menu in the top right section of the global page header as indicated in the screenshot below. 
 

@@ -194,4 +194,4 @@ The following sections describe the properties for Azure Storage resource logs w
 
 - For a description of monitoring Azure Blob Storage, see [Monitor Azure Blob Storage](monitor-blob-storage.md).
 - For details on monitoring Azure resources, see [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).
-- For frequently asked questions and answers, see [Metrics and logs FAQ](storage-blob-faq.yml#metrics-and-logs).
+- For frequently asked questions and answers, see [Metrics and logs FAQ](monitor-blob-storage-faq.md).

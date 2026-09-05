@@ -16,6 +16,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-mp.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article explores common troubleshooting methods for self-hosted integration runtime (IR) in Azure Data Factory and Synapse workspaces.
 
 ## Gather self-hosted IR logs

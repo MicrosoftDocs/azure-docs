@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: This article describes geocoding in Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 01/23/2025
+ms.date: 08/10/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
@@ -49,6 +49,15 @@ To ensure fields are correctly geocoded, you can set the Data Category on the da
 >
 > - Correct Usage: State = GA, County = Decatur County
 > - Incorrect Usage: State = Decatur County, GA, or County = Decatur County, GA
+
+## Limitations
+
+Power BI translates non-English field names for geocoding. In Japanese, a field with its **Data category** set to **Uncategorized** that translates to **Address** is processed as an address line, which can cause issues if its values aren't complete addresses.
+
+To avoid this issue:
+
+- Rename the field so it doesn't translate to **Address**, and leave its **Data category** as **Uncategorized**.
+- Keep the **Address** field name, use complete addresses, and set its **Data category** to **Address** or **Uncategorized**.
 
 ## Next steps
 

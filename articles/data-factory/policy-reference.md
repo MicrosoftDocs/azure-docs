@@ -12,6 +12,8 @@ ms.date: 02/06/2024
 # Azure Policy built-in definitions for Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy definitions for Data Factory. For additional Azure Policy built-ins for other services, see [Azure Policy built-in definitions](/azure/governance/policy/samples/built-in-policies).
 
 The name of each built-in policy definition links to the policy definition in the Azure portal. Use

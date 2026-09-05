@@ -18,6 +18,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 > [!IMPORTANT]
 > This connector is at [End of Support stage](connector-deprecation-plan.md). Please migrate to [Azure Database for MySQL connector](connector-azure-database-for-mysql.md). You can also refer to this [article](https://techcommunity.microsoft.com/blog/adformysql/migrating-from-azure-database-for-mariadb-to-azure-database-for-mysql/3838455) for the Azure Database for MariaDB migration guidance.
 

@@ -1,11 +1,11 @@
 ---
 title: Discover and assess using Azure Private Link
 description: Create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration.
-author: vijain
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.update-cycle: 1825-days
 ms.date: 09/26/2024
 ms.custom:
@@ -133,7 +133,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
         After the appliance is successfully registered, to see the registration details, select **View details**.
 
-4. **Install the VDDK**: The appliance checks if the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. Download VDDK version 8.0 from the [Broadcom Developer portal](https://developer.broadcom.com/sdks/vmware-virtual-disk-development-kit-vddk/8.0). After downloading, extract the zip file to the default location: C:\Program Files\VMware\VMware Virtual Disk Development Kit, as mentioned in the installation instructions.
+1. [!INCLUDE [vmware-vddk-download](includes/vmware-vddk-download.md)]
 
 You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites.
 

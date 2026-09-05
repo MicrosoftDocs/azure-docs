@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: concept-article
-ms.date: 11/10/2025
+ms.date: 08/27/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
@@ -22,7 +22,7 @@ When you deploy Azure IoT Operations, you install a suite of services on an Azur
 > [!NOTE]
 > Billing usage records are collected on any environment where you install Azure IoT Operations, regardless of support or availability levels.
 
-To install Azure IoT Operations, you need to have the following hardware requirements available. If you're using a multinode cluster that enables fault tolerance, scale up to the recommended capacity for better performance.
+For a production deployment of Azure IoT Operations, you need to have the following hardware requirements available. If you're using a multinode cluster that enables fault tolerance, scale up to the recommended capacity for better performance. For more information about hardware requirements for other deployment scenarios, see [Baseline resource profiles for Azure IoT Operations](../reference/concept-resource-profiles.md#hardware-sizing-guidance).
 
 | Spec | Minimum | Recommended |
 |------|---------|-------------|
@@ -124,6 +124,9 @@ When assigning this built-in role, you need to ensure that the following roles a
 #### Azure IoT Operations Onboarding role
 
 Azure IoT Operations Onboarding is a specialized role that provides the necessary permissions to deploy Azure IoT Operations components.
+
+> [!IMPORTANT]
+> The Azure IoT Operations Onboarding role can assign the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor) and [Azure Device Registry Administrator](/azure/role-based-access-control/built-in-roles/internet-of-things#azure-device-registry-administrator) roles to any principal within its assigned scope. This capability isn't limited to Azure IoT Operations component identities. Assign the onboarding role at the narrowest resource group scope required for deployment, and remove the role assignment after deployment is complete.
 
 When assigning this built-in role, you need to ensure that the following roles are also assigned to the user:
 

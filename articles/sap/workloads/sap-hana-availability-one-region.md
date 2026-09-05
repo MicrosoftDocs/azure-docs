@@ -59,7 +59,7 @@ But in Azure, where the underlying infrastructure of Azure provides a healthy ta
 
 High availability architectures based on standby node or HANA System Replication can be found in following documents. There are cases where standby nodes or HANA system replication high availability isn't used in SAP HANA scale-out configurations. You can depend on Azure VMs service healing capabilities and the automatic restart of the SAP HANA instance once the VM is operational again.
 
-- RedHat Enterprise Linux
+- Red Hat Enterprise Linux
 
   - [High availability of SAP HANA scale-out system with HSR on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md).
 
@@ -118,7 +118,7 @@ In this scenario, replicated data to the HANA instance in the second VM is prelo
 
 ### SAP HANA system replication with automatic failover
 
-In the standard and most common availability configuration within one Azure region, two Azure VMs running Linux with high availability packages have a failover cluster defined. The Linux cluster with high availability is based on the `Pacemaker` framework using [SLES](./high-availability-guide-suse-pacemaker.md) or [RHEL](./high-availability-guide-rhel-pacemaker.md) with a `fencing device` [SLES](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device) or [RHEL](./high-availability-guide-rhel-pacemaker.md#azure-fence-agent-configuration) as an example.
+In the standard and most common availability configuration within one Azure region, two Azure VMs running Linux with high availability packages have a failover cluster defined. The Linux cluster with high availability is based on the `Pacemaker` framework using a `fencing device` on [SLES](./high-availability-guide-suse-pacemaker.md) or [RHEL](./high-availability-guide-rhel-pacemaker.md).
 
 From an SAP HANA perspective, the replication mode used is synced and an automatic failover is configured. In the second VM, the SAP HANA instance acts as a hot standby node. The standby node receives a synchronous stream of change records from the primary SAP HANA instance.
 

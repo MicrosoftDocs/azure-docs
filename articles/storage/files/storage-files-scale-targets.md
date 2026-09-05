@@ -36,11 +36,11 @@ The following limits apply to storage accounts or child resources of the storage
 
 | Attribute | Limit |
 |-|-|
-| Maximum number of storage accounts per subscription per region | 250 storage accounts |
+| Maximum number of storage accounts per subscription per region | 250 storage accounts by default. You can [request a quota increase](/azure/quotas/storage-account-quota-requests) to raise this limit to 500. |
 | Maximum number of classic file shares per storage account | <ul><li>**SSD / HDD provisioned v2**: 50 classic file shares</li><li>**SSD provisioned v1**: 1,024 classic file shares (recommended to use 50 or fewer)</li><li>**HDD pay-as-you-go**: Unlimited (recommended to use 50 or fewer)</li></ul> |
 | Maximum number of file share snapshots per classic file share | 200 |
-| Maximum number of virtual network rules per storage account | 200 |
-| Maximum number of IP address rules per storage account | 200 |
+| Maximum number of virtual network rules per storage account | 400 |
+| Maximum number of IP address rules per storage account | 400 |
 | Management read operations | 800 per 5 minutes |
 | Management write operations | 10 per second / 1,200 per hour |
 | Management list operations | 100 per 5 minutes |

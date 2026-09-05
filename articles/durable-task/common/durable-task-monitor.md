@@ -21,6 +21,8 @@ This article explains how to implement the monitor pattern by using durable orch
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 The Durable Functions examples include a weather monitoring scenario (C#/JavaScript) and a GitHub issue monitoring scenario (Python).
 
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
@@ -40,7 +42,9 @@ The Durable Task SDKs example demonstrates job status monitoring with configurab
 # [C#](#tab/csharp)
 
 * [Complete the quickstart article](../durable-functions/durable-functions-isolated-create-first-csharp.md)
-* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/precompiled)
+* Clone or download the samples project from GitHub
+  * [Isolated model samples](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-functions/dotnet)
+  * [In-process model samples](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/precompiled)
 
 # [JavaScript](#tab/javascript)
 
@@ -201,7 +205,97 @@ Java samples for Durable Functions aren't yet available for this scenario. See t
 
 # [C#](#tab/csharp)
 
+<br>
+
+<details>
+<summary><b>Isolated model</b></summary>
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.DurableTask;
+using Microsoft.Extensions.Logging;
+
+namespace VSSample;
+
+public static partial class Monitor
+{
+    [Function("E3_Monitor")]
+    public static async Task Run(
+        [OrchestrationTrigger] TaskOrchestrationContext context)
+    {
+        MonitorRequest input = context.GetInput<MonitorRequest>()
+            ?? throw new ArgumentNullException(nameof(context), "An input object is required.");
+        VerifyRequest(input);
+
+        ILogger logger = context.CreateReplaySafeLogger("E3_Monitor");
+        DateTime endTime = context.CurrentUtcDateTime.AddHours(6);
+        logger.LogInformation(
+            "Instantiating monitor for {Location}. Expires: {EndTime}.",
+            input.Location,
+            endTime);
+
+        while (context.CurrentUtcDateTime < endTime)
+        {
+            logger.LogInformation(
+                "Checking current weather conditions for {Location} at {CurrentTime}.",
+                input.Location,
+                context.CurrentUtcDateTime);
+
+            bool isClear = await context.CallActivityAsync<bool>(
+                "E3_GetIsClear",
+                input.Location);
+
+            if (isClear)
+            {
+                await context.CallActivityAsync(
+                    "E3_SendGoodWeatherAlert",
+                    input.Phone);
+                break;
+            }
+
+            DateTime nextCheckpoint = context.CurrentUtcDateTime.AddMinutes(30);
+            await context.CreateTimer(nextCheckpoint, CancellationToken.None);
+        }
+
+        logger.LogInformation("Monitor expiring.");
+    }
+
+    private static void VerifyRequest(MonitorRequest request)
+    {
+        ArgumentNullException.ThrowIfNull(request.Location);
+        ArgumentException.ThrowIfNullOrEmpty(request.Phone);
+    }
+}
+
+public sealed class MonitorRequest
+{
+    public required Location Location { get; init; }
+
+    public required string Phone { get; init; }
+}
+
+public sealed class Location
+{
+    public required string State { get; init; }
+
+    public required string City { get; init; }
+
+    public override string ToString() => $"{City}, {State}";
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
+
+</details>
+
+<br>
 
 The orchestrator function requires a location to monitor and a phone number to send a message to when the weather becomes clear at the location. You pass this data to the orchestrator function as a strongly typed `MonitorRequest` object.
 
@@ -550,7 +644,40 @@ As with other samples, the helper activity functions are regular functions that 
 
 The **E3_GetIsClear** function gets the current weather conditions by using the Weather Underground API and determines whether the sky is clear.
 
+<br>
+
+<details>
+<summary><b>Isolated model</b></summary>
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+
+namespace VSSample;
+
+public static partial class Monitor
+{
+    [Function("E3_GetIsClear")]
+    public static async Task<bool> GetIsClear([ActivityTrigger] Location location)
+    {
+        WeatherCondition currentConditions =
+            await WeatherUnderground.GetCurrentConditionsAsync(location);
+        return currentConditions == WeatherCondition.Clear;
+    }
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=80-85)]
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -607,12 +734,61 @@ public boolean getIsClear(
 
 # [C#](#tab/csharp)
 
-The **E3_SendGoodWeatherAlert** function uses the Twilio binding to send an SMS message that notifies the end user that it's a good time for a walk.
+The **E3_SendGoodWeatherAlert** function uses Twilio to send an SMS message that notifies the end user that it's a good time for a walk.
+
+<br>
+
+<details>
+<summary><b>Isolated model</b></summary>
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+
+namespace VSSample;
+
+public static partial class Monitor
+{
+    [Function("E3_SendGoodWeatherAlert")]
+    public static async Task SendGoodWeatherAlert(
+        [ActivityTrigger] string phoneNumber)
+    {
+        string accountSid = Environment.GetEnvironmentVariable("TwilioAccountSid")
+            ?? throw new InvalidOperationException("TwilioAccountSid is not configured.");
+        string authToken = Environment.GetEnvironmentVariable("TwilioAuthToken")
+            ?? throw new InvalidOperationException("TwilioAuthToken is not configured.");
+        string fromNumber = Environment.GetEnvironmentVariable("TwilioPhoneNumber")
+            ?? throw new InvalidOperationException("TwilioPhoneNumber is not configured.");
+
+        TwilioClient.Init(accountSid, authToken);
+        await MessageResource.CreateAsync(
+            to: new PhoneNumber(phoneNumber),
+            from: new PhoneNumber(fromNumber),
+            body: "The weather's clear outside! Go take a walk!");
+    }
+}
+```
+
+> [!NOTE]
+> To run the isolated worker sample code, install the `Twilio` NuGet package.
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
 
 > [!NOTE]
-> To run the sample code, install the `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet package.
+> To run the in-process sample code, install the `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet package.
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 

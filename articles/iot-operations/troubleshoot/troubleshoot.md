@@ -7,7 +7,7 @@ ms.service: azure-iot-operations
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023
-ms.date: 06/10/2026
+ms.date: 08/26/2026
 ---
 
 # Troubleshoot Azure IoT Operations
@@ -139,6 +139,48 @@ When you use the operations experience to add secrets or certificates, it adds t
 
 For more information about assigning the required permissions, see [Configure Azure Key Vault permissions](../secure-iot-ops/howto-manage-secrets.md#configure-azure-key-vault-permissions).
 
+## Troubleshoot device and asset lifecycle operations
+
+Create, update, and delete operations for devices and assets require a connected Azure Arc-enabled Kubernetes cluster. Azure Device Registry represents each device and asset as an Azure Resource Manager resource and synchronizes its configuration to the associated cluster. If Azure can't connect to the cluster when you run a lifecycle operation, the operation can fail with the error code `ClusterNetworkUnavailable` and reach the terminal provisioning state `Failed`.
+
+When a device or asset create, update, or delete operation fails because the cluster is disconnected, you see an error similar to the following example:
+
+```output
+(ClusterNetworkUnavailable) Failed to establish a network connection with the kubernetes cluster '<connected-cluster-resource-id>'. Please make sure the underlying cluster is running and has network connectivity before retrying the operation.
+Code: ClusterNetworkUnavailable
+Message: Failed to establish a network connection with the kubernetes cluster '<connected-cluster-resource-id>'. Please make sure the underlying cluster is running and has network connectivity before retrying the operation.
+```
+
+The nested error indicates that Azure can't connect because no agent is connected in the target Azure Arc resource: `Cannot connect to the hybrid connection because no agent is connected in the target arc resource.`
+
+To troubleshoot and recover a failed lifecycle operation, follow these steps:
+
+1. Verify that the Azure Arc-enabled Kubernetes cluster exists and is connected. Run the following command and check the connectivity status in the output:
+
+  ```azurecli
+  az connectedk8s show -g <RESOURCE_GROUP> -n <CLUSTER_NAME>
+  ```
+
+1. Show the affected device or asset and inspect `properties.provisioningState` and `properties.lastTransitionTime`. A failed resource remains available to view with `provisioningState` set to `Failed` and a populated `lastTransitionTime`.
+
+  To show a device:
+
+  ```azurecli
+  az iot ops ns device show --name <DEVICE_NAME> --instance <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
+  ```
+
+  To show an asset:
+
+  ```azurecli
+  az iot ops ns asset show --name <ASSET_NAME> --instance <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
+  ```
+
+1. Restore connectivity to the cluster and confirm that its Azure Arc agent is connected.
+
+1. Rerun the same create, update, or delete operation. In the observed create case, the operation succeeded after the cluster reconnected, and the failed resource didn't need to be deleted before the create operation was retried. This cleanup detail applies only to the observed create case. Don't assume the same behavior for update or delete operations.
+
+For more information about how lifecycle operations depend on cluster connectivity, see [Lifecycle operations and cluster connectivity](../discover-manage-assets/concept-assets-devices.md#lifecycle-operations-and-cluster-connectivity).
+
 ## Troubleshoot device and asset discovery
 
 Akri discovery requires that resource sync rules are enabled on your cluster. To enable resource sync rules, follow these steps:
@@ -214,37 +256,6 @@ To create a suitable Microsoft Entra ID account in your Azure tenant:
 1. Select **Review and assign** to complete setting up the new user.
 
 You can now use the new user account to sign in to the [operations experience](https://iotoperations.azure.com) web UI.
-
-## Troubleshoot the operations experience and private endpoints
-
-When you use the operations experience web UI, it may need to access Azure resources on your behalf such as:
-
-- Azure Key Vault to manage secrets
-- Azure storage to access the schema registry
-- Azure Container Storage endpoints to access custom connectors and data flow graphs
-
-If you configure these resources to use a private endpoint on a virtual network, the operations experience might not be able to access them. This configuration can cause errors when you try to use the operations experience web UI to manage secrets, connectors, or data flows.
-
-To allow the operations experience to access these resources on your behalf, configure an allow list for the IP addresses used by the operations experience in the resource's firewall. For example, if you restrict access to your Azure Key Vault by using a private endpoint and firewall, add the following IP addresses to the allow list in the firewall:
-
-```azurecli
-# Operations experience location eastus:
-az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 48.211.120.64
-
-# Operations experience location northeurope:
-az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 72.145.25.40
-
-# Operations experience location westcentralus:
-az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 128.24.193.24
-
-# Operations experience location westeurope:
-az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 72.145.132.248
-
-# Operations experience location westus3:
-az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 57.154.126.80
-```
-
-An operations experience request typically comes from the same region as the customer, but it could come from any region. Microsoft recommends that you allow all of the IP addresses for any Azure service that the operations experience uses.
 
 ## Troubleshoot data flows
 

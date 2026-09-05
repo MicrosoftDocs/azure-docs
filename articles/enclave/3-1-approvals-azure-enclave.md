@@ -4,6 +4,7 @@ description: Learn how to use Azure Enclave approvals to improve governance of A
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
+ms.service: azure-enclave
 ms.date: 7/6/2026
 ---
 
@@ -15,7 +16,7 @@ This tutorial mirrors the core resources from the [Tutorial 1-1](./1-1-create-co
 
 ## Scenario
 
-A fictional customer, **Fabrikam**, runs a shared Azure Enclave community for regulated workloads. A platform engineer needs to:
+A fictional customer, **Fabrikam**, runs a shared Azure Enclave community for regulated workloads. An Azure engineer needs to:
 
 - Create a new enclave for a data workload.
 - Allow the workload to reach a partner API over HTTPS.

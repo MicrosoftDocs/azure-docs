@@ -2,7 +2,7 @@
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus.
 ms.topic: article
-ms.date: 07/27/2026
+ms.date: 08/07/2026
 ms.custom:
   - build-2025
 ---
@@ -34,6 +34,7 @@ Depending on the host environment and network, a connectivity issue might presen
 To troubleshoot:
 
 - Verify that the connection string or fully qualified domain name that you specified when creating the client is correct. For information on how to acquire a connection string, see [Get a Service Bus connection string](service-bus-dotnet-get-started-with-queues.md?tabs=connection-string#get-the-connection-string).
+- If your namespace uses a private endpoint with public access disabled, confirm from a host inside the virtual network that the namespace resolves to the private IP address. For details, see [Troubleshoot private endpoint connectivity](private-link-service.md#troubleshoot-private-endpoint-connectivity).
 - Check the firewall and port permissions in your hosting environment. Check that the Advanced Message Queuing Protocol (AMQP) ports 5671 and 5672 are open and that the endpoint is allowed through the firewall.
 - Try using the Web Socket transport option, which connects using port 443. For details, see [configure the transport](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample13_AdvancedConfiguration.md#configuring-the-transport).
 - See if your network is blocking specific IP addresses. For details, see [What IP addresses do I need to allow?](/azure/service-bus-messaging/service-bus-faq#what-ip-addresses-do-i-need-to-add-to-allowlist-)
@@ -251,6 +252,7 @@ Information about Service Bus quotas can be found [here][ServiceBusQuotas].
 ## Connectivity, certificate, or timeout issues
 The following steps help you with troubleshooting connectivity/certificate/timeout issues for all services under *.servicebus.windows.net. 
 
+- If your namespace uses a private endpoint with public access disabled, confirm name resolution before you run the connectivity checks that follow. A port check can succeed against the public endpoint even in that configuration, so resolution to a public IP address from inside the virtual network points to a DNS problem. For details, see [Troubleshoot private endpoint connectivity](private-link-service.md#troubleshoot-private-endpoint-connectivity).
 - Browse to or [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. It helps with checking whether you have IP filtering or virtual network or certificate chain issues, which are common when using Java SDK.
 
     An example of successful message:

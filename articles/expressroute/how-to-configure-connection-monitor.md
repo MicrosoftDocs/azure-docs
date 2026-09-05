@@ -40,7 +40,7 @@ If you're already using Network Performance Monitor (deprecated) or Connection M
 
 ## Create a workspace
 
-Create a workspace in the subscription that has the VNets linked to the ExpressRoute circuit.
+Create a workspace in the subscription that has the virtual networks linked to the ExpressRoute circuit.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). From the subscription with the virtual networks connected to your ExpressRoute circuit, select **+ Create a resource**. Search for *Log Analytics Workspace*, then select **Create**.
 
@@ -131,7 +131,7 @@ If creating a new Azure VM for monitoring connectivity, you can install the Netw
 
 #### Existing Azure virtual machine
 
-If using an existing VM, install the Network Agent separately for [Linux](../network-watcher/network-watcher-agent-linux.md) and [Windows](../network-watcher/network-watcher-agent-windows.md).
+If you use an existing VM, install the [Network Watcher Agent](../network-watcher/network-watcher-agent-manage.md) separately for Linux and Windows.
 
 ### Open firewall ports on monitoring agent servers
 

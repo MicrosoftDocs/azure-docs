@@ -1,6 +1,6 @@
 ---
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.topic: include
 ms.date: 09/19/2024
 ms.custom: sfi-ga-nochange

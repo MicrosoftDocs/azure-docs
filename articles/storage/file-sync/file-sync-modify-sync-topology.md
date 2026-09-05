@@ -17,6 +17,9 @@ This article covers the most common ways customers want to modify their Azure Fi
 
 Migrating a server endpoint moves the sync configuration to a new sync group or Storage Sync Service. This change doesn't affect the data in the Azure file share. After you ensure that your data is up to date on your local server, [deprovision your Azure File Sync server endpoint](./file-sync-server-endpoint-delete.md#scenario-2-i-want-to-delete-server-endpoint-and-i-need-the-azure-file-sync-server-to-have-the-entire-dataset). Then, reprovision the server endpoint in the desired sync group and Storage Sync Service.
 
+> [!NOTE]
+> This section covers reconfiguring sync to use a different Storage Sync Service. If you want to move the Storage Sync Service *resource itself* to a different subscription, resource group, or Microsoft Entra tenant, see [Move Azure File Sync resources to a different resource group, subscription, or Microsoft Entra tenant](file-sync-resource-move.md).
+
 If you want to migrate all server endpoints associated with a server to a different sync group or Storage Sync Service, see [Deprovision all server endpoints associated with a registered server](#deprovision-all-server-endpoints-associated-with-a-registered-server).
 
 ## Change the path scope of a server endpoint

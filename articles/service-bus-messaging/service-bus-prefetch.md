@@ -2,9 +2,9 @@
 title: Prefetch messages from Azure Service Bus
 description: Improve performance by prefetching messages from Azure Service Bus queues or subscriptions. Messages are readily available for local retrieval before the application requests for them.
 ms.topic: article
-ms.date: 06/18/2024
+ms.date: 08/05/2026
 ms.devlang: csharp
-# ms.devlang: csharp, java, javascript, python
+# ms.devlang: csharp, java, python
 ---
 
 # Prefetch Azure Service Bus messages
@@ -25,9 +25,11 @@ You can set **prefetch_count** on the [azure.servicebus.ServiceBusReceiver](/pyt
 ---
 
 > [!NOTE]
-> Java Script SDK doesn't support the **Prefetch** feature. 
+> The JavaScript and Go SDKs don't support the prefetch feature.
 
 While messages are available in the prefetch buffer, any subsequent receive calls are immediately fulfilled from the buffer. The buffer is replenished in the background as space becomes available. If there are no messages available for delivery, the receive operation empties the buffer and then waits or blocks, as expected.
+
+The prefetch count is a setting on the receiver, while the message count you pass to a receive call is an argument to a single operation. The prefetch count governs what the receiver holds ahead of your calls, and the per-call count bounds how many messages one call returns. When prefetch is turned off, a receive call requests the per-call count directly from the service, which is why the two can look like a single setting. For guidance on choosing the two together, see [Prefetching and ReceiveMessagesAsync](service-bus-performance-improvements.md#prefetching-and-receivemessagesasync).
 
 It's important to note that `PrefetchCount` defines the maximum number of messages that can exist in the local buffer at any time. This also means that it acts as a strict upper limit on how many messages can be processed concurrently. If `MaxConcurrentCalls` is set higher than `PrefetchCount`, the processor will not be able to utilize all concurrent message handlers, as only up to `PrefetchCount` messages can be active in memory at once.
 

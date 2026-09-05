@@ -17,6 +17,8 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This quickstart describes how to use either [Azure Data Factory Studio](https://adf.azure.com) or the [Azure portal UI](https://portal.azure.com) to create a data factory.
 
 If you're new to Azure Data Factory, see the [introduction to the service](introduction.md) before you try this quickstart.

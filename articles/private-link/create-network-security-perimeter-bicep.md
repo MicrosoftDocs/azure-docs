@@ -6,8 +6,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 08/01/2025
-ms.custom: subject-armqs, mode-arm, template-concept, devx-track-bicep
+ms.date: 08/05/2026
+ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-bicep
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource in the Bicep, so that I can control the network traffic to and from the resource.
 # Customer intent: As a network administrator, I want to create a network security perimeter for an Azure Key Vault using Bicep, so that I can manage network traffic securely within a defined boundary.
 ---
@@ -37,7 +37,7 @@ The Bicep file that this quickstart uses is from [Azure Quickstart Templates](ht
 
 The Bicep file defines multiple Azure resources:
 
-- [**Microsoft.KeyVault/vaults**](/azure/templates/microsoft.keyvault/vaults): The instance of Key Vault with the sample database.
+- [**Microsoft.KeyVault/vaults**](/azure/templates/microsoft.keyvault/vaults): The instance of Key Vault that the network security perimeter protects.
 - [**Microsoft.Network/networkSecurityPerimeters**](/azure/templates/microsoft.network/networksecurityperimeters): The network security perimeter that you use to access the instance of Key Vault.
 - [**Microsoft.Network/networkSecurityPerimeters/profiles**](/azure/templates/microsoft.network/networksecurityperimeters/profiles): The network security perimeter profile that you use to access the instance of Key Vault.
 - [**Microsoft.Network/networkSecurityPerimeters/profiles/accessRules**](/azure/templates/microsoft.network/networksecurityperimeters/profiles/accessrules): The access rules that you use to access the instance of Key Vault.
@@ -51,41 +51,44 @@ The Bicep file defines multiple Azure resources:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az group create --name resource-group --location eastus
-    az deployment group create --resource-group resource-group --template-file main.bicep --parameters
-    networkSecurityPerimeterName=<network-security-perimeter-name>
+    az group create --name exampleRG --location eastus
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters nspName=<network-security-perimeter-name>
     ```
+
     # [PowerShell](#tab/PowerShell)
 
-    ```powershell
-    New-AzResourceGroup -Name resource-group -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName resource-group -TemplateFile main.bicep
+    ```azurepowershell
+    New-AzResourceGroup -Name exampleRG -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -nspName "<network-security-perimeter-name>"
     ```
+
+    ---
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Validate the deployment
 
-1. Sign into the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Enter **Network security perimeter** in the search box at the top of the portal. Select **Network security perimeters** in the search results.
-1. Select the **networkPerimeter** resource from the list of network security perimeters.
-1. Verify that the **networkPerimeter** resource is created successfully. The **Overview** page shows the details of the network security perimeter, including the profiles and associated resources.
+1. Select the **networkSecurityPerimeter** resource from the list of network security perimeters.
+1. Verify that the **networkSecurityPerimeter** resource is created successfully. The **Overview** page shows the details of the network security perimeter, including the profiles and associated resources.
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the network security perimeter service, delete the resource group. This removes the network security perimeter service and all the related resources.
+When you no longer need the resources that you created with the network security perimeter, delete the resource group. This action removes the network security perimeter and all the related resources.
 
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az group delete --name resource-group
+az group delete --name exampleRG --yes --no-wait
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name resource-group
+Remove-AzResourceGroup -Name exampleRG -Force
 ```
+
 ---
 
 [!INCLUDE [network-security-perimeter-delete-resources](../../includes/network-security-perimeter-delete-resources.md)]

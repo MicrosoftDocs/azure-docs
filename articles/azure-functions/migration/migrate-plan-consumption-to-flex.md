@@ -28,7 +28,7 @@ The following table shows which migration methods are available for each operati
 
 | Migration method | Description | Linux | Windows |
 | --- | --- | --- | --- |
-| [Azure Skills in GitHub Copilot](https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugin/skills/azure-upgrade/references/services/functions/consumption-to-flex.md).  | Let Copilot guide and automate your migration interactively (recommended for Linux). | ✅ | ❌ |
+| [Azure Skills in GitHub Copilot](https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugins/azure-skills/skills/azure-upgrade/references/services/functions/consumption-to-flex.md).  | Let Copilot guide and automate your migration interactively (recommended for Linux). | ✅ | ❌ |
 | CLI migration command | Use [`az functionapp flex-migration`](/cli/azure/functionapp/flex-migration) to automate migration. | ✅ | ❌ |
 | Standard CLI commands | Stepwise migration using Azure CLI commands. | ➖ | ✅ |
 | [Azure portal](https://portal.azure.com) | Stepwise migration in the Azure portal. | ✅ | ✅ |
@@ -945,7 +945,7 @@ The migration command supports several options to customize the migration:
 | Option | Description |
 |--------|-------------|
 | `--storage-account` | Specify a different storage account for the new app |
-| `--maximum-instance-count` | Set the maximum number of instances for scaling |
+| `--maximum-instance-count` | Set the maximum number of on-demand instances per function group |
 | `--skip-access-restrictions` | Skip migrating IP access restrictions |
 | `--skip-cors` | Skip migrating CORS settings |
 | `--skip-hostnames` | Skip migrating custom domains |

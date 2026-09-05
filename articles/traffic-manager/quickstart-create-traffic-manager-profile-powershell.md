@@ -5,7 +5,7 @@ services: traffic-manager
 author: asudbring
 ms.author: allensu
 manager: kumud
-ms.date: 02/18/2023
+ms.date: 08/10/2026
 ms.topic: quickstart
 ms.service: azure-traffic-manager
 ms.custom: template-quickstart, devx-track-azurepowershell, mode-api
@@ -101,14 +101,16 @@ New-AzTrafficManagerEndpoint -Name "myPrimaryEndpoint" `
 -ProfileName "$mytrafficmanagerprofile" `
 -Type AzureEndpoints `
 -TargetResourceId $App1ResourceId `
--EndpointStatus "Enabled"
+-EndpointStatus "Enabled" `
+-Priority 1
 
 New-AzTrafficManagerEndpoint -Name "myFailoverEndpoint" `
 -ResourceGroupName MyResourceGroup `
 -ProfileName "$mytrafficmanagerprofile" `
 -Type AzureEndpoints `
 -TargetResourceId $App2ResourceId `
--EndpointStatus "Enabled"
+-EndpointStatus "Enabled" `
+-Priority 2
 ```
 
 ## Test Traffic Manager profile

@@ -4,7 +4,7 @@ description: Learn how to deploy the Azure Virtual Network container network int
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 03/24/2023
+ms.date: 07/30/2026
 ms.author: allensu
 # Customer intent: As a cloud engineer, I want to deploy the Azure Virtual Network CNI plug-in for Kubernetes clusters, so that I can enable virtual network capabilities for my containers and manage their networking efficiently.
 ---
@@ -167,20 +167,22 @@ The CNI network configuration file is described in JSON format. It is, by defaul
 
 Download the plug-in from [GitHub](https://github.com/Azure/azure-container-networking/releases). Download the latest version for the platform that you're using:
 
-- **Linux**: [azure-vnet-cni-linux-amd64-\<version no.\>.tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.4.20/azure-vnet-cni-linux-amd64-v1.4.20.tgz)
+- **Linux**: `azure-vnet-cni-linux-amd64-<version number>.tgz`
 
-- **Windows**: [azure-vnet-cni-windows-amd64-\<version no.\>.zip](https://github.com/Azure/azure-container-networking/releases/download/v1.4.20/azure-vnet-cni-windows-amd64-v1.4.20.zip)
+- **Windows**: `azure-vnet-cni-windows-amd64-<version number>.zip`
 
 Copy the install script for [Linux](https://github.com/Azure/azure-container-networking/blob/master/scripts/install-cni-plugin.sh) or [Windows](https://github.com/Azure/azure-container-networking/blob/master/scripts/Install-CniPlugin.ps1) to your computer. Save the script to a `scripts` directory on your computer and name the file `install-cni-plugin.sh` for Linux, or `install-cni-plugin.ps1` for Windows.
 
-To install the plug-in, run the appropriate script for your platform, specifying the version of the plug-in you're using. For example, you might specify *v1.4.20*. For the Linux install, provide an appropriate [CNI plugin version](https://github.com/containernetworking/plugins/releases), such as *v1.0.1*:
+To install the plug-in, run the appropriate script for your platform. The first argument is the Azure CNI plug-in version and is required. Use the latest version listed on the [azure-container-networking releases page](https://github.com/Azure/azure-container-networking/releases).
+
+The Linux script accepts an optional second argument, the [containernetworking CNI plug-in version](https://github.com/containernetworking/plugins/releases). If you omit it, the script uses its built-in default. The Windows script takes only the Azure CNI plug-in version.
 
    ```bash
-   scripts/install-cni-plugin.sh [azure-cni-plugin-version] [cni-plugin-version]
+   scripts/install-cni-plugin.sh <azure-cni-plugin-version> [cni-plugin-version]
    ```
 
    ```powershell
-   scripts\\ install-cni-plugin.ps1 [azure-cni-plugin-version]
+   scripts\install-cni-plugin.ps1 <azure-cni-plugin-version>
    ```
 
 The script installs the plug-in under `/opt/cni/bin` for Linux and `c:\cni\bin` for Windows. The installed plug-in comes with a simple network configuration file that works after installation. It doesn't need to be updated. To learn more about the settings in the file, see [CNI network configuration file](#cni-network-configuration-file).

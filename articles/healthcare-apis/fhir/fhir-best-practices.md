@@ -52,6 +52,7 @@ In Azure FHIR service, bundles act as containers for multiple resources. Batch a
 Azure FHIR service is provisioned with predefined search parameters per resource. The service indexes search parameters for ease of use and efficient searching. The service updates indexes for every write. [Selectable search parameters](selectable-search-parameters.md) allow you to enable or disable built-in search parameter indexes. This functionality helps you optimize storage use and performance by only enabling necessary search parameters. Focusing on relevant search parameters helps minimize the volume of data retrieved during ingestion.
 
 **Consider** disabling search indexes that your organization doesn't use to optimize performance.
+**Consider** throttling reindex jobs for large resources and datasets to avoid performance degradation. For more information, see [Run a reindex job in FHIR service](how-to-run-a-reindex.md#performance-considerations).
 
 ## Query performance optimization
 

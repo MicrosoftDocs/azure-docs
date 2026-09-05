@@ -5,7 +5,7 @@ author: varunkalyana
 ms.author: duau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 03/28/2026
+ms.date: 08/27/2026
 ms.custom: sfi-image-nochange
 # Customer intent: As a network engineer, I want to integrate Azure Firewall with an Azure Standard Load Balancer, so that I can optimize traffic routing and enhance security in my virtual network setup.
 ---
@@ -50,7 +50,7 @@ For more information, see [Integration of NAT Gateway with Azure Firewall](../na
 
 :::image type="content" source="media/integrate-lb/nat-firewall-routing.png" alt-text="Diagram of routing with NAT Gateway associated to the Azure Firewall subnet.":::
 
-When a NAT Gateway is associated with the Azure Firewall subnet, inbound traffic from the internet lands on the Azure Firewall's public IP address. The Azure Firewall then changes (SNAT) the source IP to the NAT Gateway's public IP address before forwarding the traffic to the load balancer's public IP address.
+When a NAT Gateway is associated with the Azure Firewall subnet, inbound traffic from the internet lands on the Azure Firewall's public IP address. The firewall forwards that traffic to the load balancer's public IP address using its own private IP address, and the NAT Gateway performs the public SNAT as the traffic leaves the subnet. The load balancer therefore sees the NAT Gateway's public IP address as the source. For more information about this traffic flow, see [Integrate Azure Firewall with NAT Gateway V2](integrate-with-nat-gateway-v2.md).
 
 Without a NAT Gateway, the Azure Firewall changes the source IP address to its own public IP address before forwarding the traffic to the load balancer's public IP address.
 

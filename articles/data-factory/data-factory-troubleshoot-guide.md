@@ -15,6 +15,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article explores common troubleshooting methods for external control activities in Azure Data Factory and Synapse pipelines.
 
 ## Connector and copy activity

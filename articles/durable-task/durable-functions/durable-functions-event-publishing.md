@@ -63,7 +63,7 @@ Create a resource group with the `az group create` command. Pick a location that
 az group create --name <resource-group-name> --location <location>
 ```
 
-[!INCLUDE [register-provider-cli.md](../../event-grid/includes/register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](~/reusable-content/ce-skilling/azure/includes/event-grid/register-provider-cli.md)]
 
 ### Create a custom topic
 

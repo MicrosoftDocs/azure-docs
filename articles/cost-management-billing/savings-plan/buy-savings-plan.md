@@ -40,10 +40,11 @@ After you buy a savings plan, you can [change the savings plan scope](manage-sav
 1. Complete all the required fields:
     - **Name**: Friendly name for the new savings plan.
     - **Billing subscription**: Subscription used to pay for the savings plan. For more information about permissions and roles required to purchase a savings plan, see [Permissions to buy a savings plan](permission-buy-savings-plan.md).
+    - **Savings plan**: Compute or database.
     - **Apply to any eligible resource**: Scope of resources that are eligible for savings plan benefits. For more information, see [Savings plan scopes](scope-savings-plan.md).
     - **Term length**: One year or three years.
-    - **Hourly commitment**: Amount available through the plan each hour. In the Azure portal, up to 10 recommendations might appear. Recommendations are scope-specific. Azure doesn't currently provide recommendations for management groups. Each recommendation includes:
-        - An hourly commitment.
+    - **Hourly commitment in USD**: Either select a recommended value from dropdown or enter a customer commitment maount. Each recommendation includes:
+        - The hourly commitment.
         - The potential savings percentage compared to on-demand costs for the commitment.
         - The percentage of the selected scope's resource usage that is covered by the new savings plan. It includes the commitment amount plus any other previously purchased savings plan or reservation.
     - **Billing frequency**: **All upfront** or **Monthly**. The total cost of the savings plan is the same regardless of the selected frequency.

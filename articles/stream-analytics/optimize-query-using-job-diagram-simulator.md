@@ -1,8 +1,6 @@
 ---
 title: Optimize query performance using the Job Simulation feature
 description: This article provides guidance for evaluating query parallelism and optimizing query execution using the Job Simulation.
-author: alexlzx
-ms.author: zhenxilin
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 05/09/2023

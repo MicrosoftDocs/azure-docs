@@ -73,8 +73,8 @@
     href: uwp-react.md
 - name: Concepts
   items:
-  - name: Availability zones and disaster recovery
-    href: /azure/reliability/reliability-notification-hubs?toc=/azure/reliability/toc.json
+  - name: Reliability in Azure Notification Hubs
+    href: /azure/reliability/reliability-notification-hubs?toc=/azure/notification-hubs/toc.json
   - name: EU Data Boundary
     href: eu-data-boundary.md
   - name: Data encryption at rest
@@ -106,6 +106,8 @@
       href: firebase-migration-update-sdk.md
   - name: Change pricing tier
     href: change-pricing-tier.md
+  - name: Enable disaster recovery for an existing namespace
+    href: enable-disaster-recovery-existing-namespace.md
   - name: Send cross-platform notifications
     href: notification-hubs-aspnet-cross-platform-notification.md
   - name: Use Private Link

@@ -1,11 +1,12 @@
 ---
 title: Snapshots in Azure App Configuration
-description: Details of Snapshots in Azure App Configuration
+description: Learn how snapshots in Azure App Configuration support controlled deployments, rollback, versioning, auditing, and consistent environments.
 author: Muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
-ms.topic: concept-article 
-ms.date: 06/04/2025
+ms.topic: concept-article
+ms.date: 08/28/2026
+ai-usage: ai-assisted
 ---
 
 # Snapshots
@@ -28,15 +29,15 @@ Configuration changes should be deployed in a controlled, consistent way. Develo
 
 * **Configuration versioning**: Snapshots can be used to create a version history of configuration settings to sync with release versions. Settings captured in each snapshot can be compared to identify changes between versions.
 
-* **Auditing**: Snapshots can be used for auditing and compliance purposes. Developers can maintain a record of configuration changes in between releases by using the snapshots for the releases.
+* **Auditing**: Use snapshots for auditing and compliance purposes. Developers can maintain a record of configuration changes between releases by using snapshots for the releases.
 
 * **Testing and Staging environments**: Snapshots can be used to create consistent testing and staging environments. Developers can ensure that the same configuration is used across different environments, by using the same snapshot, which can help with debugging and testing.
 
-* **Simplified Client Configuration composition**: Usually, the clients of App Configuration need a subset of the key-values from the App Configuration instance. To get the set of required key-values, they need to have query logic written in code. As Snapshots support providing filters during creation time, it helps simplify client composition because clients can now refer to the set of key-values they require by name.
+* **Simplified client configuration composition**: Usually, App Configuration clients need a subset of the key-values from an App Configuration instance. Without snapshots, clients need query logic in code to retrieve the required key-values. Because snapshots support filters at creation time, clients can refer to the required set of key-values by name.
 
 ## Snapshot operations
 
-As snapshots are immutable entities, snapshots can only be created and archived. No deleting, purging or editing is possible.  
+Because snapshots are immutable, you can create and archive them, but you can't delete, purge, or edit them.
 
 * **Create snapshot**: Snapshots can be created by defining the key and label filters to capture the required key-values from App Configuration instance. The filtered key-values are stored as a snapshot with the name provided during creation.  
 
@@ -68,7 +69,7 @@ To archive and/or recover a snapshot using HMAC authentication, a read-write acc
 
 ### Read and list snapshots
 
-To  list all snapshots, or get all the key-values in an individual snapshot by name the following permission is needed for stores utilizing Microsoft Entra authentication. The built-in Data Owner and Data Reader roles already have this permission.
+To list all snapshots or get all the key-values in an individual snapshot by name, you need the following permission for stores that use Microsoft Entra authentication. The built-in Data Owner and Data Reader roles already include this permission.
 - `Microsoft.AppConfiguration/configurationStores/snapshots/read`
 
 For stores that use HMAC authentication, both the "read snapshot" operation (to read the key-values from a snapshot) and the "list snapshots" operation can be performed using either the read-write access keys or the read-only access keys.
