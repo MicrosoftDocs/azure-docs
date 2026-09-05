@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: concept-article
-ms.date: 09/02/2026
+ms.date: 09/04/2026
 ms.author: cshoe
 ms.custom:
   - build-2023
@@ -74,8 +74,8 @@ Built-in roles are a convenience. If neither role matches the access you want to
 
 Avoid wildcard patterns such as `Microsoft.App/jobs/*/action` in a custom role definition. This wildcard grants every current and future operation that matches the pattern, including `listSecrets`.
 
-> [!IMPORTANT]
-> Permission to start a job can provide access to that job's secrets even when the role doesn't include the `listSecrets` action. The [Jobs - Start REST API](/rest/api/resource-manager/containerapps/jobs/start) accepts an optional execution template that can override the container image, command, and environment variables. A user who holds `Microsoft.App/jobs/start/action` and knows a secret's name can reference that secret from a container of their choosing and read its value inside the container. The container can also use any managed identity configured to be available to it. Grant permission to start a job only to identities you trust to use the job's secrets and available managed identities.
+> [!WARNING]
+> Permission to start a job can provide access to that job's secrets even when the role doesn't include the `listSecrets` action. The [Jobs - Start REST API](/rest/api/resource-manager/containerapps/jobs/start) accepts an optional execution template that can override the main and init container images, commands, and environment variables. A user who holds `Microsoft.App/jobs/start/action` and knows a secret's name can reference that secret from a container of their choosing and read its value inside the container. The container can also use any managed identity [configured to be available to it](managed-identity.md#control-managed-identity-availability). Grant permission to start a job only to identities you trust to use the job's secrets and available managed identities.
 
 For more information, see [Permissions for managing secrets](manage-secrets.md#permissions-for-managing-secrets) and [Azure role-based access control](/azure/role-based-access-control/overview).
 
@@ -402,6 +402,9 @@ To start a job execution in the Azure portal, select **Run now** on the job's ov
 ---
 
 When you start a job execution, you can choose to override the job's configuration. For example, you can override an environment variable or the startup command to run the same job with different inputs. The overridden configuration is only used for the current execution and doesn't change the job's configuration.
+
+> [!WARNING]
+> An identity that can start a job can use an execution template to reference the job's secrets and use its available managed identities. For more information, see [Permissions](#permissions).
 
 > [!IMPORTANT]
 > When you override a configuration, the job's entire template configuration is replaced with the new configuration. Ensure that the new configuration includes all required settings.

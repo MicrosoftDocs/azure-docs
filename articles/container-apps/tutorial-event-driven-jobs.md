@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 02/02/2026
+ms.date: 09/04/2026
 ms.author: cshoe
 ms.custom:
   - build-2023
@@ -37,6 +37,9 @@ The job you create starts an execution for each message that's sent to an Azure 
 > The scaler monitors the queue's length to determine how many jobs to start. For accurate scaling, don't delete a message from the queue until the job execution finishes processing it.
 
 The source code for the job you run in this tutorial is available in an Azure Samples [GitHub repository](https://github.com/Azure-Samples/container-apps-event-driven-jobs-tutorial/blob/main/index.js).
+
+> [!WARNING]
+> This tutorial stores a storage account connection string as a job secret. An identity that can start the job can use an execution template to reference that secret, even without the `listSecrets` permission. Grant job start permission only to trusted identities. For more information, see [Job permissions](jobs.md#permissions).
 
 [!INCLUDE [container-apps-create-cli-steps-jobs.md](../../includes/container-apps-create-cli-steps-jobs.md)]
 

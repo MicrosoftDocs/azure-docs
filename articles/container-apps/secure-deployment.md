@@ -6,7 +6,7 @@ ms.author: cshoe
 ms.service: azure-container-apps
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 12/18/2025
+ms.date: 09/04/2026
 ai-usage: ai-assisted
 ---
 
@@ -44,7 +44,7 @@ Identity and access management controls ensure that only authorized users and ap
 
 - **Use managed identities for service connections**: Configure system-assigned or user-assigned managed identities to authenticate to other Azure services without storing credentials in code or configuration. Managed identities eliminate credential management overhead and provide automatic secret rotation. See [Use managed identities in Azure Container Apps](/azure/container-apps/managed-identity).
 
-- **Implement role-based access control (RBAC)**: Use Azure RBAC to provide fine-grained permissions for Container Apps management operations. Assign users the minimum required roles such as Contributor, Owner, or Reader based on their responsibilities. See [Azure security baseline for Azure Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline).
+- **Implement role-based access control (RBAC)**: Assign only the permissions required for each Container Apps management task. Some built-in roles use wildcard permissions that include actions for reading secret values. If no built-in role provides the access boundary you need, create a custom role with explicit permissions. See [Permissions for managing secrets](manage-secrets.md#permissions-for-managing-secrets) and the [Azure security baseline for Azure Container Apps](/security/benchmark/azure/baselines/azure-container-apps-security-baseline).
 
 - **Configure Microsoft Entra ID authentication**: Use Microsoft Entra ID for centralized identity management and enable conditional access policies to control access based on user, location, and device conditions. This configuration provides enterprise-grade authentication capabilities with multifactor authentication support. See [Enable authentication and authorization in Azure Container Apps with Azure Active Directory](/azure/container-apps/authentication-entra).
 
@@ -60,7 +60,7 @@ Data protection mechanisms safeguard sensitive information processed by containe
 
 - **Enable mutual Transport Layer Security (mTLS)**: Use mTLS to authenticate and encrypt traffic between services, providing bidirectional authentication that verifies both client and server identities. This feature enhances security for service-to-service communication within your container app environment. See [Use Mutual Transport Layer Security (mTLS)](/azure/container-apps/mtls).
 
-- **Implement proper secrets management**: Use Container Apps built-in secrets management with proper isolation and access controls. Avoid storing secrets directly in container images or environment variables; instead use secret references and Key Vault integration for production environments. See [Security overview in Azure Container Apps](/azure/container-apps/security).
+- **Implement proper secrets management**: Use Container Apps built-in secrets management with proper isolation and access controls. Avoid storing secrets directly in container images or environment variables; instead use secret references and Key Vault integration for production environments. See [Permissions for managing secrets](manage-secrets.md#permissions-for-managing-secrets).
 
 - **Secure container image storage**: Store container images in Azure Container Registry with authentication enabled and configure geo-replication for disaster recovery. Use private registries instead of public repositories for production workloads to maintain control over image access. See [Architecture best practices for Azure Container Apps](/azure/well-architected/service-guides/azure-container-apps).
 
