@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: concept-article
-ms.date: 03/31/2026
+ms.date: 09/04/2026
 ms.author: cshoe
 ms.custom:
   - build-2023
@@ -54,17 +54,30 @@ A Container Apps environment is a secure boundary around one or more container a
 
 ## Permissions
 
-To start a container app job, you need to have the appropriate permissions. Ensure that your user account or service principal has the following roles assigned:
+To start a container app job, your user account or service principal needs the appropriate permissions. Consider the following roles:
 
-* **Container Apps Contributor:** Allows permissions to create and manage container apps and jobs.
+* **Container Apps Jobs Contributor:** Allows permissions to create and manage jobs.
+* **Container Apps Jobs Operator:** Allows permissions to read, start, and stop jobs.
 * **Monitoring Reader (optional):** Enables viewing monitoring data for jobs.
-* **Custom Role:** For more granular permissions, you can create a custom role with the following actions:
 
-- microsoft.app/jobs/start/action
-- microsoft.app/jobs/read
-- microsoft.app/jobs/execution/read
+Both the **Container Apps Jobs Contributor** and **Container Apps Jobs Operator** roles include the `Microsoft.App/jobs/*/action` wildcard permission. This wildcard matches `Microsoft.App/jobs/listSecrets/action`, so both roles grant permission to read the job's secret values in plain text.
 
-When you start a job, you get access to all the secrets configured for the job. For more information about assigning roles and permissions, see [Azure role-based access control](/azure/role-based-access-control/overview).
+Built-in roles are a convenience. If neither role matches the access you want to grant, create a [custom role](/azure/role-based-access-control/custom-roles) that lists only the actions you need. For example, the following actions let a user view, start, and stop jobs without using the `Microsoft.App/jobs/*/action` wildcard. Because this set includes `Microsoft.App/jobs/start/action`, grant it only to identities you trust to use the job's secrets and managed identities configured to be available to its containers:
+
+- `Microsoft.App/jobs/read`
+- `Microsoft.App/jobs/start/action`
+- `Microsoft.App/jobs/stop/action`
+- `Microsoft.App/jobs/stop/execution/action`
+- `Microsoft.App/jobs/executions/read`
+- `Microsoft.App/jobs/execution/read`
+- `Microsoft.App/managedEnvironments/read`
+
+Avoid wildcard patterns such as `Microsoft.App/jobs/*/action` in a custom role definition. This wildcard grants every current and future operation that matches the pattern, including `listSecrets`.
+
+> [!WARNING]
+> Permission to start a job can provide access to that job's secrets even when the role doesn't include the `listSecrets` action. The [Jobs - Start REST API](/rest/api/resource-manager/containerapps/jobs/start) accepts an optional execution template that can override the main and init container images, commands, and environment variables. A user who holds `Microsoft.App/jobs/start/action` and knows a secret's name can reference that secret from a container of their choosing and read its value inside the container. The container can also use any managed identity [configured to be available to it](managed-identity.md#control-managed-identity-availability). Grant permission to start a job only to identities you trust to use the job's secrets and available managed identities.
+
+For more information, see [Permissions for managing secrets](manage-secrets.md#permissions-for-managing-secrets) and [Azure role-based access control](/azure/role-based-access-control/overview).
 
 ## Job trigger types
 
@@ -380,7 +393,7 @@ Authorization: Bearer <TOKEN>
 
 Replace `<SUBSCRIPTION_ID>` with your subscription ID.
 
-To authenticate the request, replace `<TOKEN>` in the `Authorization` header with a valid bearer token. The identity used to generate the token must have `Contributor` permission to the Container Apps job resource. For more information, see [Azure REST API reference](/rest/api/azure).
+To authenticate the request, replace `<TOKEN>` in the `Authorization` header with a valid bearer token. The identity used to generate the token must have the `Microsoft.App/jobs/start/action` permission on the Container Apps job resource. The **Container Apps Jobs Operator** and **Container Apps Jobs Contributor** built-in roles include this permission. For more information, see the [Jobs - Start REST API](/rest/api/resource-manager/containerapps/jobs/start).
 
 # [Azure portal](#tab/azure-portal)
 
@@ -390,8 +403,10 @@ To start a job execution in the Azure portal, select **Run now** on the job's ov
 
 When you start a job execution, you can choose to override the job's configuration. For example, you can override an environment variable or the startup command to run the same job with different inputs. The overridden configuration is only used for the current execution and doesn't change the job's configuration.
 
-> [!IMPORTANT]
-> When you override a configuration, the job's entire template configuration is replaced with the new configuration. Ensure that the new configuration includes all required settings.
+When you override a configuration, the job's entire template configuration is replaced with the new configuration. Ensure that the new configuration includes all required settings.
+
+> [!WARNING]
+> An identity that can start a job can use an execution template to reference job secrets whose names it knows and use managed identities configured to be available to the container. For more information, see [Permissions](#permissions).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -457,7 +472,7 @@ Authorization: Bearer <TOKEN>
 }
 ```
 
-Replace `<SUBSCRIPTION_ID>` with your subscription ID and `<TOKEN>` in the `Authorization` header with a valid bearer token. The identity used to generate the token must have `Contributor` permission to the Container Apps job resource. For more information, see [Azure REST API reference](/rest/api/azure).
+Replace `<SUBSCRIPTION_ID>` with your subscription ID and `<TOKEN>` in the `Authorization` header with a valid bearer token. The identity used to generate the token must have the `Microsoft.App/jobs/start/action` permission on the Container Apps job resource. The **Container Apps Jobs Operator** and **Container Apps Jobs Contributor** built-in roles include this permission. For more information, see the [Jobs - Start REST API](/rest/api/resource-manager/containerapps/jobs/start).
 
 # [Azure portal](#tab/azure-portal)
 
