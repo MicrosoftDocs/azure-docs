@@ -13,6 +13,8 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article describes the feature of Azure-enabled SQL Server Integration Services (SSIS) projects on SQL Server Data Tools (SSDT). It allows you to assess the cloud compatibility of your SSIS packages and run them on Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF). You can use this feature to test your existing packages before you lift & shift/migrate them to Azure or to develop new packages to run in Azure.
 
 With this feature, you can attach a newly created/existing Azure-SSIS IR to SSIS projects and then execute your packages on it.  We support running packages to be deployed into SSIS catalog (SSISDB) hosted by your Azure SQL Database server or managed instance in Project Deployment Model. We also support running packages to be deployed into file system/Azure Files/SQL Server database (MSDB) hosted by your Azure SQL managed instance in Package Deployment Model. 

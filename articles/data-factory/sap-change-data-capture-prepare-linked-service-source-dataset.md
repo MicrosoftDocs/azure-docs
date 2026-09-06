@@ -14,6 +14,8 @@ ms.custom: sfi-image-nochange
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Learn how to set up the linked service and source dataset for the SAP CDC connector in Azure Data Factory.
 
 ## Set up a linked service

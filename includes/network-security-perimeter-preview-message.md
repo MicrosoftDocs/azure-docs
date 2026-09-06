@@ -6,7 +6,7 @@
  ms.service: azure-private-link
  ms.topic: include
  ms.date: 07/30/2025
- ms.author: mbender> -ms
+ ms.author: mbender
 ms.custom: include file, ignite-2024
 ---
 

@@ -6,7 +6,7 @@ services: private-link
 author: asudbring
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 03/30/2026
+ms.date: 08/11/2026
 ms.author: allensu
 ms.custom:
   - references_regions
@@ -85,9 +85,8 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Cache for Redis Enterprise | Microsoft.Cache/redisEnterprise | redisEnterprise |
 | Azure Container Apps | Microsoft.App/ManagedEnvironments | managedEnvironments |
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
-| Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
-| Azure Cosmos DB | Microsoft.DocumentDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table, Analytical |
-| Azure Cosmos DB for MongoDB vCore | Microsoft.DocumentDb/mongoClusters | mongoCluster |
+| Azure Cosmos DB | Microsoft.DocumentDB/databaseAccounts | Sql, SqlDedicated, MongoDB, Cassandra, Gremlin, Table, Analytical |
+| Azure Cosmos DB for MongoDB vCore | Microsoft.DocumentDB/mongoClusters | mongoCluster |
 | Azure Cosmos DB for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | coordinator |
 | Azure Data Explorer | Microsoft.Kusto/clusters | cluster |
 | Azure Data Factory | Microsoft.DataFactory/factories | dataFactory |

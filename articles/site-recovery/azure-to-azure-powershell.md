@@ -5,7 +5,7 @@ ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.topic: how-to
 ms.author: v-gajeronika 
-ms.date: 09/09/2025
+ms.date: 08/17/2026
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As an IT administrator, I want to set up and manage disaster recovery for Azure virtual machines using PowerShell, so that I can ensure business continuity during unexpected outages."
 ---
@@ -561,6 +561,9 @@ Succeeded
 ## Fail over to Azure
 
 Fail over the virtual machine to a specific recovery point.
+
+> [!NOTE]
+> The `RecoveryPointTime` values that this command returns are in UTC. The portal shows the **Latest Recovery Points** timestamp in your local time zone.
 
 ```azurepowershell
 $RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedItem $ReplicationProtectedItem

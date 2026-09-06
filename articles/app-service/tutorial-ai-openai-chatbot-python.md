@@ -235,6 +235,7 @@ This approach lets your code run securely and seamlessly in both local and cloud
 
 ## Related content
 
+- [Build grounded agent applications with Foundry Agent Service and Foundry IQ](scenario-ai-chatbot-retrieval-augmented-generation.md)
 - [Tutorial: Run a chatbot in App Service with a Phi-4 sidecar extension (FastAPI)](tutorial-ai-slm-fastapi.md)
 - [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource)
 - [Use managed identities for App Service and Azure Functions](overview-managed-identity.md)

@@ -121,7 +121,7 @@ An event subscription is a configuration resource associated with a single topic
 For an example of creating subscriptions for namespace topics, see [Publish and consume messages using namespace topics using CLI](publish-events-using-namespace-topics.md).
 
 > [!NOTE]
-> The event subscriptions under a namespace topic feature a simplified resource model when compared to the model used for custom, domain, partner, and system topics (Event Grid Basic). For more information, see Create, view, and manage [event subscriptions](create-view-manage-event-subscriptions.md#simplified-resource-model).
+> The event subscriptions under a namespace topic feature a simplified resource model when compared to the model used for custom, domain, partner, and system topics (Event Grid Basic). For more information, see Create, view, and manage [event subscriptions](create-view-manage-event-subscriptions.md#simplified-filtering-model-for-namespace-topic-subscriptions).
 
 
 ## Pull delivery

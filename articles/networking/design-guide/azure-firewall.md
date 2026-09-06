@@ -15,11 +15,11 @@ zone_pivot_groups: networking-scenario
 
 Azure Firewall is a managed, cloud-native network security service that provides centralized traffic inspection and filtering for your Azure virtual networks. Unlike network security groups that operate at Layer 4, Azure Firewall inspects traffic at Layers 3 through 7. This capability enables fully qualified domain name (FQDN) filtering, threat intelligence, intrusion detection and prevention (IDPS), and TLS inspection. You deploy Azure Firewall in a dedicated subnet within your hub virtual network and route traffic from spoke workloads through the firewall for inspection before it reaches its destination.
 
-This article explains how to select the right Azure Firewall SKU, position the firewall in a hub-spoke topology, configure rule types, and integrate with complementary services like NAT Gateway and Route Server.
+This article explains how to select the right Azure Firewall SKU, position the firewall in a hub-spoke topology, configure rule types, and integrate with complementary services like NAT Gateway and Route Server. Azure Firewall is one of three core [Azure network security](../security/network-security.md) services, alongside Azure DDoS Protection and Azure Web Application Firewall.
 
 ## What this article covers
 
-This article covers centralized network traffic inspection using Azure Firewall. You learn about:
+This article covers centralized network traffic inspection by using Azure Firewall. You learn about:
 
 - SKU tier selection based on security requirements and workload sensitivity.
 - Hub placement and user-defined route (UDR) patterns that force traffic through the firewall.
@@ -111,7 +111,7 @@ In a hub-spoke topology, spoke workload subnets don't route traffic directly to 
 | Spoke subnet B | 0.0.0.0/0 | Virtual appliance | Firewall private IP |
 | Spoke subnet B | 10.0.0.0/16 (other spoke) | Virtual appliance | Firewall private IP |
 
-The `AzureFirewallSubnet` itself doesn't require UDRs in most scenarios because the firewall uses system routes to reach spoke networks through VNet peering. When you integrate with Azure Route Server, the firewall subnet learns routes through BGP. This approach removes the need for manual route maintenance as your network grows.
+The `AzureFirewallSubnet` itself doesn't require UDRs in most scenarios because the firewall uses system routes to reach spoke networks through virtual network peering. When you integrate with Azure Route Server, the firewall subnet learns routes through BGP. This approach removes the need for manual route maintenance as your network grows.
 
 > [!TIP]
 > Azure Virtual Network Manager can automate the configuration of route tables to use Azure Firewall as the next hop, reducing manual UDR management across many spoke subscriptions.
@@ -171,7 +171,7 @@ Application rules filter outbound HTTP/S and MSSQL traffic based on FQDNs, URLs,
 Application rules provide FQDN tags for common Azure services (such as Windows Update, Azure Backup, and HDInsight) that simplify rule creation by grouping the required FQDNs into a single tag.
 
 > [!IMPORTANT]
-> When you enable the DNS proxy on Azure Firewall, the firewall acts as the DNS resolver for workloads. Configure your VNet DNS settings to point to the firewall's private IP so FQDN-based rules resolve correctly. For DNS architecture details, see [DNS security and private name resolution](dns-security.md).
+> When you enable the DNS proxy on Azure Firewall, the firewall acts as the DNS resolver for workloads. Configure your virtual network DNS settings to point to the firewall's private IP so FQDN-based rules resolve correctly. For DNS architecture details, see [DNS security and private name resolution](dns-security.md).
 
 ### SNAT behavior
 
@@ -201,7 +201,7 @@ In some regulatory environments, all internet-bound traffic must first route thr
 When you enable forced tunneling:
 
 - The `AzureFirewallManagementSubnet` carries the firewall management traffic directly to the internet. This subnet must have a route to 0.0.0.0/0 with next hop Internet. You can't force management traffic through on-premises inspection.
-- The `AzureFirewallSubnet` routes internet-bound workload traffic to an on-premises firewall or third-party NVA through ExpressRoute or VPN Gateway.
+- The `AzureFirewallSubnet` routes internet-bound workload traffic to an on-premises firewall or third-party network virtual appliance (NVA) through ExpressRoute or VPN Gateway.
 - DNAT rules aren't supported in forced tunneling mode because inbound traffic can't reach the firewall public IP directly.
 - The firewall doesn't require a public IP on the `AzureFirewallSubnet` when you configure forced tunneling, because all outbound traffic exits through the on-premises path.
 
@@ -317,6 +317,7 @@ Before you deploy Azure Firewall:
 - [Outbound internet access](outbound-egress.md): Egress control patterns with Azure Firewall and NAT Gateway.
 - [Web Application Firewall](web-application-firewall.md): Layer 7 HTTP/S protection that complements the Azure Firewall network-level inspection.
 - [DNS security and private name resolution](dns-security.md): DNS proxy configuration that enables FQDN-based rules.
+- [What is Azure network security?](../security/network-security.md): Overview hub that compares Azure Firewall, DDoS Protection, and Web Application Firewall.
 
 ## Learn more
 

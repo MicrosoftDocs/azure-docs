@@ -60,7 +60,7 @@ Azure Digital Twins [3D Scenes Studio (preview)](concepts-3d-scenes-studio.md) i
 
 Here's an example of a scene in 3D Scenes Studio, showing how digital twin properties can be visualized with 3D elements: 
 
-:::image type="content" source="media/quickstart-3d-scenes-studio/studio-full.png" alt-text="Screenshot of a sample scene in 3D Scenes Studio." lightbox="media/quickstart-3d-scenes-studio/studio-full.png":::
+:::image type="content" source="media/overview/studio-full.png" alt-text="Screenshot of a sample scene in 3D Scenes Studio." lightbox="media/overview/studio-full.png":::
 
 ## Share twin data to other Azure services
 

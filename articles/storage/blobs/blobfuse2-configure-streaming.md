@@ -30,12 +30,13 @@ The following table describes each parameter and its default setting.
 | Parameter | Description | Default value |
 |-----------|-------------|---------------|
 | Block size | The size in MB of each block to cache in memory | 16 MB |
-| Memory size | Total amount of memory in MB to preallocate for the block cache | 80% of free memory |
+| Memory size | Total amount of memory in MB to preallocate for the block cache | 60% of free memory |
 | Path | The path to local disk cache where downloaded blocks are stored | Not applicable |
-| Disk size | Maximum disk cache size allowed in MB | 80% of free disk space |
+| Disk size | Maximum disk cache size allowed in MB | 60% of free disk space |
 | Disk timeout | Disk cache eviction timeout in seconds | 120 seconds |
 | Prefetch | The number of blocks to prefetch for serial read operations | 2 × number of CPU cores |
 | Parallelism | The number of parallel threads downloading data and writing to disk cache | 3 × number of CPU cores |
+| Clean up on start | Cleanup the temp directory on startup, if it's not empty | false |
 
 The following example sets these values as parameters to the `mount` command.
 
@@ -48,11 +49,12 @@ The following example shows how these settings appear in the BlobFuse configurat
 ```yaml
 block_cache:
   block-size-mb: 16
-  mem-size-mb: 80
-  disk-timeout-sec: 120
+  mem-size-mb: 4096
+  parallelism: 128
 ```
 
 For a complete example, see [Sample streaming configuration](https://github.com/Azure/azure-storage-fuse/blob/main/sampleBlockCacheConfig.yaml).
+For a complete list of command line parameters, see [CLI Parameters](https://github.com/Azure/azure-storage-fuse/wiki/Blobfuse2%E2%80%90Cli%E2%80%90Parameters).
 
 When you choose optimal configuration values, use the following diagram as a guide.
 

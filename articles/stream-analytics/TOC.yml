@@ -231,6 +231,8 @@
       href: stream-analytics-job-reliability.md
     - name: Geo-redundancy
       href: geo-redundancy.md
+    - name: Move job to another region
+      href: move-across-regions.md
     - name: Encrypt your data (CMK)
       href: data-protection.md
   - name: Manage Stream Analytics clusters
@@ -680,6 +682,9 @@
               maintainContext: true
             - name: CONCAT_WS
               href: /stream-analytics-query/concat-ws-azure-stream-analytics
+              maintainContext: true
+            - name: JSON_PARSE
+              href: /stream-analytics-query/json-parse-azure-stream-analytics
               maintainContext: true
             - name: LEFT
               href: /stream-analytics-query/left-azure-stream-analytics

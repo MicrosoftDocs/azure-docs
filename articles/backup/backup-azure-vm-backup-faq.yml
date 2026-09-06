@@ -54,7 +54,9 @@ sections:
 
       - question: I recently enabled Azure Disk Encryption on some VMs. Will my backups continue to work?
         answer: |
-          Provide permissions for Azure Backup to access the Key Vault. Specify the permissions in PowerShell as described in the **Enable backup** section in the [Azure Backup PowerShell](backup-azure-vms-automation.md) documentation.
+          Yes. ADE backup and restore operations continue to be supported and aren't blocked before the planned ADE retirement in September 2028. For existing ADE-enabled VMs, consider migrating to encryption at host. For the latest retirement timeline and migration guidance, see the official [ADE overview](/azure/virtual-machines/disk-encryption-overview) and [Migrate from Azure Disk Encryption to encryption at host](/azure/virtual-machines/disk-encryption-migrate) documentation.
+
+          If you enable ADE on a VM that's already protected by Azure Backup, provide permissions for Azure Backup to access the Key Vault. Specify the permissions in PowerShell as described in the **Enable backup** section in the [Azure Backup PowerShell](backup-azure-vms-automation.md) documentation.
 
       - question: I migrated VM disks to managed disks. Will my backups continue to work?
         answer: Yes, backups work seamlessly. There's no need to reconfigure anything.

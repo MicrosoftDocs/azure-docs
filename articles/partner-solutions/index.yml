@@ -39,6 +39,11 @@ productDirectory:
       links:
         - url: ./astronomer/astronomer-overview.md
           text: Deploy a fully managed and seamless Apache Airflow on Astro on Azure.
+    - title: Commvault Cloud - Preview
+      imageSrc: ./media/index/commvault.png
+      links:
+        - url: ./commvault/overview.md
+          text: Protect, recover and manage your Azure workloads directly in Azure Portal with Commvault's Azure-Native and fully managed cyber-resilience service.
     - title: Confluent
       imageSrc: ./media/index/confluent.svg
       links:
@@ -99,7 +104,7 @@ productDirectory:
       links:
         - url: ./palo-alto/palo-alto-overview.md
           text: Protect your organization with a next generation firewall solution integrated with Azure.
-    - title: Pure Storage
+    - title: Everpure Cloud
       imageSrc: ./media/index/pure-storage.svg
       links:
         - url: pure-storage/overview.md

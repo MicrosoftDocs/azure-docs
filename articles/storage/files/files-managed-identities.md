@@ -294,11 +294,11 @@ If you created a user-assigned managed identity, follow these steps to add it to
 
 ## Prepare your client to authenticate by using a managed identity
 
-The steps for preparing your system to mount the file share by using managed identity authentication are different for Windows and Linux clients. Clients shouldn't be domain joined.
+The steps for preparing your system to mount the file share by using managed identity authentication are different for Windows and Linux clients. Windows clients can't be joined to a domain, or managed identity authentication won't work.
 
 ::: zone pivot="windows"
 
-To prepare your client VM or Windows device to authenticate by using a managed identity, follow these steps:
+To prepare your client VM or Windows device to authenticate by using a managed identity, ensure the client isn't joined to a domain and follow these steps.
 
 1. Sign in to your VM or device that has the managed identity assigned and open a PowerShell window as administrator. You need either PowerShell 5.1+ or PowerShell 7+.
 
@@ -355,8 +355,8 @@ The package location and installation steps differ depending on your Linux distr
 Run the following commands to install `azfilesauth` on Azure Linux 3.0:
 
 ```bash
-tdnf update 
-tdnf install azfilesauth
+sudo tdnf update 
+sudo tdnf install azfilesauth
 ```
 
 #### RHEL 9.6+
@@ -367,8 +367,8 @@ Run the following commands to install `azfilesauth` on RHEL 9.6+:
 curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
 sudo rpm -i packages-microsoft-prod.rpm
 rm packages-microsoft-prod.rpm
-dnf update
-dnf install -y azfilesauth
+sudo dnf update
+sudo dnf install -y azfilesauth
 ```
 
 Sometimes RHEL can block kernel upcall access to the credential cache file. If a failure occurs, see `/var/log/messages` for potential causes.
@@ -376,10 +376,10 @@ Sometimes RHEL can block kernel upcall access to the credential cache file. If a
 RHEL uses a persistent credential or KCM cache by default. You can switch to a file-based cache for `azfilesauth`:
 
 ```bash
-  sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
-  [libdefaults]
-    default_ccache_name = FILE:/tmp/krb5cc_%{uid}
-  EOF
+sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
+[libdefaults]
+  default_ccache_name = FILE:/tmp/krb5cc_%{uid}
+EOF
 ```
 
 #### SLES 15 SP6+
@@ -397,10 +397,10 @@ sudo zypper install -y azfilesauth
 SLES 15 SP6+ uses a persistent credential or KCM cache by default. You can switch to a file-based cache for `azfilesauth`:
 
 ```bash
-  sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
-  [libdefaults]
-    default_ccache_name = FILE:/tmp/krb5cc_%{uid}
-  EOF
+sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
+[libdefaults]
+  default_ccache_name = FILE:/tmp/krb5cc_%{uid}
+EOF
 ```
 
 #### Ubuntu 22.04

@@ -15,6 +15,8 @@ ms.custom:
 # Create a tumbling window trigger dependency
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article provides steps to create a dependency on a tumbling window trigger. For general information about tumbling window triggers, see [Create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
 
 To build a dependency chain and make sure that a trigger is executed only after the successful execution of another trigger within the service, use this advanced feature to create a tumbling window dependency.

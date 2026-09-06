@@ -12,6 +12,8 @@ ms.author: noelleli
 # Troubleshoot the Change data capture resource in Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article provides suggestions on how to troubleshoot common problems with the change data capture resource in Azure Data Factory.
 
 ## Issue: Trouble enabling native CDC in my SQL source. 

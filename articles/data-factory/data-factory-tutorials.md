@@ -13,6 +13,8 @@ ms.date: 06/17/2026
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This is a list of our top tutorials to help explain and walk through a series of Data Factory concepts and scenarios.
 
 Search the table of contents to the side for the full list of tutorials.

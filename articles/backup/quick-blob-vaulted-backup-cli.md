@@ -23,6 +23,7 @@ Before you configure blob vaulted backup, ensure that:
 
 - You review the [support matrix](../backup/blob-backup-support-matrix.md) to learn about the Azure Blob region availability, supported scenarios, and limitations.
 - Have a Backup vault to configure Azure Blob backup. If you don't have a Backup vault, [create one](../backup/backup-blobs-storage-account-cli.md#create-a-backup-vault).
+- Install the Azure CLI `dataprotection` extension version 1.10.0 or later to configure auto-protection for present and future containers.
 
 ## Create a backup policy
 
@@ -39,5 +40,4 @@ Before you configure blob vaulted backup, ensure that:
 ## Next steps
 
 Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
-
 

@@ -13,6 +13,8 @@ ms.date: 03/31/2025
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article describes how to copy or clone a data factory in Azure Data Factory.
 
 ## Use cases for cloning a data factory

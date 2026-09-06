@@ -15,6 +15,8 @@ ms.date: 02/13/2025
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article describes the storage event triggers that you can create in your Azure Data Factory or Azure Synapse Analytics pipelines.
 
 Event-driven architecture is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require customers to trigger pipelines that are triggered from events on an Azure Storage account, such as the arrival or deletion of a file in Azure Blob Storage account. Data Factory and Azure Synapse Analytics pipelines natively integrate with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), which lets you trigger pipelines on such events.

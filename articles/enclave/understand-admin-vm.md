@@ -1,75 +1,102 @@
 ---
 title: Understanding Admin VMs in Azure Enclave
-description: Understanding Admin VMs in Azure Enclave.
+description: Understanding admin VMs in Azure Enclave.
 author: aserfass-msft
 ms.author: aserfass
+ms.service: azure-enclave
+ai-usage: ai-assisted
 ms.topic: overview
-ms.date: 9/30/2025
+ms.date: 8/6/2026
 ---
 
-# Understanding Admin VMs in Azure Enclave
+# Understanding admin VMs in Azure Enclave
 
-A Virtual Machine (VM) created to securely access enclave resources for administrative purposes and can be remotely accessed through [Azure Bastion](https://aka.ms/bastion). These VMs are meant to be temporarily lived resources for break-glass system administration of an enclave and the enclave resources
+An admin VM is a virtual machine you create to securely access enclave resources for administrative purposes. Deploy admin VMs to the enclave's management subnet and access them remotely through [Azure Bastion](https://aka.ms/bastion). They serve as your access point for focused, privileged enclave administration. Use them for time-limited administrative tasks, not persistent workloads.
 
 ## Create an Admin VM
 Use the [Admin VM](./deploy-admin-vm-service-catalog.md) to quickly create a VM that can access and configure your enclave resources.
 
-## Access Admin VM
-By default, Azure Enclave creates an Azure Bastion instance for community or enclave owners to access their enclaves.
+## When to use an admin VM
 
-### Enable enclave access to the Azure portal
-Azure portal access is restricted by default for enclaves. This means you need to create endpoint rules and connections to access the Azure portal from within the Admin VM or enclave.
+Use admin VMs when you need to:
 
-- [Create enclave endpoint in the Azure portal](./create-enclave-endpoint-portal.md)
-- [Create community endpoint in the Azure portal](./create-community-endpoint-portal.md)
-- [Create enclave in the Azure portal](./create-enclave-connection-portal.md)
+- Perform privileged administrative tasks in your enclave
+- Access enclave workloads or resources from outside the enclave boundary
+- Troubleshoot or manage enclave connectivity
 
-### Accessing enclaves through Azure Bastion
-Azure Enclave natively uses existing Azure user interface controls to allow for access into Admin VMs. [Learn more on how to Connect to a Windows VM using RDP - Azure Bastion](/azure/bastion/bastion-connect-vm-rdp-windows).
+> [!NOTE]
+> Admin VMs are administrative tools, not production workload resources. For workload-specific access patterns, consider [creating a workload with its own access endpoints and connections](./create-azure-virtual-desktop-workloads.md).
 
-For certain community and enclave owners, this default access model might not be granular enough. For example, some enclave owners might have regulatory requirements for their workloads that do not authorize Azure Bastion. 
+## Access admin VM
 
-If the default behavior of Admin VMs or the configurations that Azure Enclave allows to be changed are insufficient for your use-cases, Azure Enclave recommends [creating a workload, Virtual Machines in the workload, an Endpoint, and Connections that function similarly to how Admin VMs function](./create-azure-virtual-desktop-workloads.md).
+By default, Azure Enclave provisions an Azure Bastion instance within the enclave managed resource group to enable community and enclave owners to securely access admin VMs through Remote Desktop Protocol (RDP).
 
-1. After you [create an Admin VM](#create-an-admin-vm), navigate to that Virtual Machine resource in the Azure portal.
+### Connect to the Admin VM by using Azure Bastion
+1. In the Azure portal, go to the Admin VM resource.
 1. Select `Connect` and then select `Connect via Bastion`.
 
-[ ![Screenshot showing virtual machine overview page with connect dropdown button highlighted.](./media/admin-vm-connect-bastion.png) ](./media/admin-vm-connect-bastion.png#lightbox)
+   [ ![Screenshot showing virtual machine overview page with connect dropdown button highlighted.](./media/admin-vm-connect-bastion.png) ](./media/admin-vm-connect-bastion.png#lightbox)
 
-1. Enter your credentials for the admin VM and select `Connect`.
+1. Enter your credentials for the Admin VM and select **Connect**.
 
-[ ![Screenshot showing where to enter your credentials to login to the virtual machine.](./media/admin-vm-bastion-credentials.png) ](./media/admin-vm-bastion-credentials.png#lightbox)
+   [ ![Screenshot showing where to enter your credentials to login to the virtual machine.](./media/admin-vm-bastion-credentials.png) ](./media/admin-vm-bastion-credentials.png#lightbox)
 
-1. Once you see the desktop for the Admin VM, select the windows start menu icon and enter `RDC` in the search field.
+### Connect to resources inside the enclave
 
-[ ![Screenshot showing the admin VM desktop view with Remote Desktop Connection highlighted in the start menu.](./media/admin-vm-desktop-remote.png) ](./media/admin-vm-desktop-remote.png#lightbox)
+After you connect to the Admin VM, use Remote Desktop to access other VMs within the enclave:
+
+1. When the Admin VM desktop appears, select the **Windows Start** menu and enter `RDC` in the search field.
+
+   [ ![Screenshot showing the admin VM desktop view with Remote Desktop Connection highlighted in the start menu.](./media/admin-vm-desktop-remote.png) ](./media/admin-vm-desktop-remote.png#lightbox)
 
 1. Select the `Remote Desktop Connection` application from the list.
-1. Enter the IP address of the VM you want to access in the enclave.
+1. Enter the IP address or hostname of the enclave resource you want to access by using Remote Desktop.
 
-![Screenshot showing the login screen for the remote virtual machine.](./media/remote-desktop-connection.png)
+   ![Screenshot showing the login screen for the remote virtual machine.](./media/remote-desktop-connection.png)
 
-1. Perform the task you needed to on the remote VM.
+1. Complete your administrative tasks on the remote VM.
 
-[ ![Screenshot showing the remote connection to the virtual machine.](./media/admin-vm-connect-remote-machine.png) ](./media/admin-vm-connect-remote-machine.png#lightbox)
+   [ ![Screenshot showing the remote connection to the virtual machine.](./media/admin-vm-connect-remote-machine.png) ](./media/admin-vm-connect-remote-machine.png#lightbox)
 
-### Reset password
-You can reset the password with the instructions below. Starting from the portal:
-1. Select the VM name to open that VM resource
-1. Scroll to the bottom of the blades and select "Reset Password"
-1. Enter the new password twice and select "Update"
+## Manage admin VMs
 
-## Size
-You can adjust the VM size for Azure Enclave Admin VMs based on the number of users you expect to have on a VM at the same time.
+### Reset the admin VM password
 
-## Image
-Community and enclave owners might also have concerns regarding the default VM image used for these VMs. Currently, Azure Enclave uses Azure Marketplace's Windows Server Datacenter image for Admin VMs. You can select a custom image of your own by providing the resource ID in the [Admin VM](./deploy-admin-vm-service-catalog.md) template advanced tab.
+If you forget the Admin VM's operating system password, reset it from the Azure portal:
+
+1. In the Azure portal, go to the Admin VM resource.
+1. In the left menu under **Support + troubleshooting**, select `Reset password`.
+1. Select a reset method and follow the prompts to set a new password.
+1. Enter your new password twice and select `Update`.
+
+> [!NOTE]
+> To reset the password, you need the Azure Contributor role on the VM resource.
+
+### Choose admin VM size
+
+The Admin VM size depends on the number of concurrent administrators accessing the enclave. Larger VMs support more simultaneous Remote Desktop connections. You can resize the Admin VM after deployment from the VM's **Compute** page in the Azure portal.
+
+For sizing recommendations, see [Virtual Machine sizing](/azure/virtual-machines/sizes) in Azure documentation.
+
+### Customize the admin VM image
+
+By default, Azure Enclave deploys Admin VMs by using the Windows Server Datacenter image from the Azure Marketplace. Use a custom image if you need preconfigured tools, security configurations, or organizational standards.
+
+To use a custom image, provide the image resource ID in the **Advanced** tab when deploying the Admin VM from the [service catalog template](./deploy-admin-vm-service-catalog.md).
 
 ## References
+
+### Conceptual
 - [What is Azure Enclave?](./what-azure-enclave.md)
-- [Best Practices](./best-practices.md)
 - [What is an enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)
-- [Azure Bastion](https://aka.ms/bastion)
-- [Connect to a Windows VM using RDP - Azure Bastion](/azure/bastion/bastion-connect-vm-rdp-windows)
+- [Best practices](./best-practices.md)
+
+### Related tasks
+- [Deploy an Admin VM from the service catalog](./deploy-admin-vm-service-catalog.md)
+- [Create enclave endpoints](./create-enclave-endpoint-portal.md)
+- [Connect using Azure Bastion](/azure/bastion/bastion-connect-vm-rdp-windows)
+
+### External resources
+- [Azure Bastion documentation](https://aka.ms/bastion)
 - [Azure Support](https://azure.microsoft.com/support/)

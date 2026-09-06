@@ -1,6 +1,6 @@
 ---
-author: habibaum
-ms.author: v-uhabiba 
+author: jyothisuri
+ms.author: jsuri
 ms.topic: include
 ms.date: 08/30/2024
 # Customer intent: As a cloud architect, I want to assess different cloud service models, so that I can choose the best option that aligns with my organization's scalability and flexibility requirements.

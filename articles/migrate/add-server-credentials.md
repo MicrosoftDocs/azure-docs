@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 09/19/2025
-ms.reviewer: v-uhabiba
+ms.date: 07/10/2026
+ms.reviewer: jsuri
 ms.custom: engagement-fy25
 ms.update-cycle: 1095-days
 # Customer intent: As a cloud migration consultant, I want to provide server credentials in the configuration manager, so that I can accurately discover software inventory, web apps, and SQL Server instances to facilitate a smooth migration process.
@@ -74,6 +74,13 @@ Feature | Windows credentials | Linux credentials
 - The appliance uses the credentials automatically mapped on a server for all the subsequent discovery cycles until the credentials are able to fetch the required discovery data. If the credentials stop working, appliance again attempts to map from the list of added credentials and continues the ongoing discovery on the server.
 - The domain credentials added will be automatically validated for authenticity against the Active Directory of the domain. This is to prevent any account lockouts when the appliance attempts to map the domain credentials against discovered servers. The appliance won't attempt to map the domain credentials that have failed validation.
 - If the appliance can't map any domain or nondomain credentials against a server, you'll see "Credentials not available" status against the server in your project.
+
+## Credentials for VMware networking discovery
+
+To discover networking resources from VMware environments, provide vCenter Server credentials in the appliance configuration manager. 
+
+The appliance uses NSX credentials to discover networking inventory and configuration metadata from the VMware NSX environment. These credentials are different from guest credentials, which you use to access individual Windows or Linux servers for features such as software inventory and agentless dependency analysis. Provide NSX credentials at the environment level. Use these credentials to discover networking resources and relationships. 
+
 
 ## Next steps
 

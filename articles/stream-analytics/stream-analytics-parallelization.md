@@ -317,7 +317,7 @@ All [Streaming at Scale Azure samples](https://github.com/Azure-Samples/streamin
 
 ### Identifying bottlenecks
 
-Use the Metrics pane in your Azure Stream Analytics job to identify bottlenecks in your pipeline. Review **Input/Output Events** for throughput and ["Watermark Delay"](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-job-analysis-with-metric-dimensions) or **Backlogged Events** to see if the job is keeping up with the input rate. For Event Hubs metrics, look for **Throttled Requests** and adjust the Threshold Units accordingly. For Azure Cosmos DB metrics, review **Max consumed RU/s per partition key range** under Throughput to ensure your partition key ranges are uniformly consumed. For Azure SQL DB, monitor **Log IO** and **CPU**.
+Use the Metrics pane in your Azure Stream Analytics job to identify bottlenecks in your pipeline. Review **Input/Output Events** for throughput and ["Watermark Delay"](stream-analytics-job-analysis-with-metric-dimensions.md) or **Backlogged Events** to see if the job is keeping up with the input rate. For Event Hubs metrics, look for **Throttled Requests** and adjust the Threshold Units accordingly. For Azure Cosmos DB metrics, review **Max consumed RU/s per partition key range** under Throughput to ensure your partition key ranges are uniformly consumed. For Azure SQL DB, monitor **Log IO** and **CPU**.
 
 ## Get help
 

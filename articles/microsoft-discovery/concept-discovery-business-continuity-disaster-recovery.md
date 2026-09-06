@@ -22,7 +22,7 @@ To enable business continuity during a regional outage, take the following steps
 
 1. **Have a secondary environment** available in a separate Azure region. The secondary deployment should mirror the primary deployment, including all Microsoft Discovery infrastructure, agents, tools, models, configurations, and any required integrations. For deployment instructions, see [**Quickstart: Deploy Microsoft Discovery infrastructure**](https://learn.microsoft.com/azure/microsoft-discovery/quickstart-infrastructure?tabs=portal).
 
-    To support disaster recovery, configure the Azure Storage account as Geo-Redundant Storage (GRS) and share it between both deployments so that input and output files are available regardless of which region is active. Similarly, you can share a single Azure Container Registry (ACR) between both environments, but you should configure it with geo-replication to ensure that tool container images are available locally in each deployment region.
+    To support disaster recovery, [configure object replication](https://learn.microsoft.com/azure/storage/blobs/object-replication-overview) between the primary Azure Storage account and the Azure Storage account for the secondary deployment so that input and output files are available regardless of which region is active. Similarly, you can share a single Azure Container Registry (ACR) between both environments, but you should [configure it with geo-replication](https://learn.microsoft.com/azure/container-registry/container-registry-geo-replication) to ensure that tool container images are available in each deployment region.
 
 1. **Keep the secondary environment synchronized** with the primary environment by ensuring that configuration changes, agent definitions, tools, and application updates are deployed consistently to both regions.
 1. **Establish an operational failover procedure.** During a regional outage, instruct users to access the Microsoft Discovery instance hosted in the secondary region. The service continues to operate from the secondary deployment, so users can keep creating new investigations and performing new work.
@@ -33,7 +33,7 @@ To enable business continuity during a regional outage, take the following steps
 
 Evaluate geo-replication for the following Azure resources used by your Microsoft Discovery deployment. This approach ensures that no data is lost during an outage and all data is available once the primary region is back up.
 
-- **Azure Blob Storage** – Enable Geo-Redundant Storage (GRS), Read-Access Geo-Redundant Storage (RA-GRS), Geo-Zone-Redundant Storage (GZRS), or Read-Access Geo-Zone-Redundant Storage (RA-GZRS), as appropriate for recovery objectives.
+- **Azure Blob Storage** – Enable Object replication for block blobs as appropriate for recovery objectives.
 - **Azure Container Registry (ACR)** – Configure geo-replication to ensure container images are available in all deployment regions.
 - **Azure Key Vault** – Use Azure Key Vault backup and restore procedures or deploy regionally redundant Key Vaults as part of the disaster recovery strategy, ensuring that secrets, certificates, and keys required by the secondary deployment remain available.
 

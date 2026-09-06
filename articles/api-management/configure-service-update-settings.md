@@ -8,7 +8,7 @@ ms.date: 04/13/2026
 
 # Configure service update settings for your API Management instances 
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-standard-basic.md)]
 
 
 This article shows you how to configure *service update* settings (preview) in your API Management instance. Azure periodically applies service updates automatically to API Management instances by using a phased rollout approach. These updates include new features, security enhancements, and reliability improvements. 

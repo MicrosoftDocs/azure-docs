@@ -2,7 +2,7 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: how-to
-ms.date: 06/26/2026
+ms.date: 08/06/2026
 ms.custom:
   - devx-track-azurepowershell
   - devx-track-azurecli
@@ -172,7 +172,7 @@ Resources defined within the **resources** section of the template are applied t
 
 ### Scope to management group
 
-To target a management group within the tenant, add a nested deployment and specify the `scope` property:
+To target a management group within the tenant, add a nested deployment and specify the `scope` property. Set the `scope` property to the fully qualified resource ID of the management group. Use the [`tenantResourceId()`](template-functions-resource.md#tenantresourceid) function to construct the ID in the `/providers/Microsoft.Management/managementGroups/<mg-name>` format.
 
 ```json
 {
@@ -184,7 +184,7 @@ To target a management group within the tenant, add a nested deployment and spec
     }
   },
   "variables": {
-    "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+    "mgId": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('mgName'))]"
   },
   "resources": [
     {

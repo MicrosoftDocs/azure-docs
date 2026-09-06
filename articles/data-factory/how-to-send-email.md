@@ -14,6 +14,8 @@ ms.subservice: monitoring
 
 [!INCLUDE [appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 It's often necessary to send notifications during or after execution of a pipeline. Notification provides proactive alerting and reduces the need for reactive monitoring to discover issues.  This article shows how to configure email notifications from an Azure Data Factory or Azure Synapse pipeline. 
 
 ## Prerequisites

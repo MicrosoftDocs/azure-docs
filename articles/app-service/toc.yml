@@ -82,8 +82,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-dotnet.md
-        - name: RAG with Azure OpenAI and your data
-          href: tutorial-ai-openai-search-dotnet.md
         - name: RAG Azure OpenAI and Azure SQL
           href: deploy-intelligent-apps-dotnet-to-azure-sql.md
         - name: Add MCP server to app
@@ -141,8 +139,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-java.md
-        - name: RAG with Azure OpenAI with your data
-          href: tutorial-ai-openai-search-java.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-spring-boot.md
         - name: Add MCP server to app
@@ -171,8 +167,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-node.md
-        - name: RAG with Azure OpenAI and your data
-          href: tutorial-ai-openai-search-nodejs.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-expressjs.md
         - name: Add MCP server to app
@@ -201,8 +195,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-python.md
-        - name: RAG with Azure OpenAI and your data
-          href: tutorial-ai-openai-search-python.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-fastapi.md
         - name: Add MCP server to app
@@ -467,7 +459,7 @@ items:
           href: configure-authentication-mcp-server-vscode.md
 - name: Security and networking
   items:
-    - name: Security overview
+    - name: Secure your Azure App Service deployment
       href: overview-security.md
     - name: Deploy a multi-region app (tutorial)
       href: tutorial-multi-region-app.md
@@ -487,8 +479,6 @@ items:
           href: overview-name-resolution.md
         - name: About subdomain takeover
           href: reference-dangling-subdomain-prevention.md
-        - name: Security baseline reference
-          href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Security controls by Azure Policy reference
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md

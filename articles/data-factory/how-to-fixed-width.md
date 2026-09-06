@@ -13,6 +13,8 @@ ai-usage: ai-assisted
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 By using mapping data flows in Azure Data Factory, you can transform data from fixed-width text files (also known as fixed-length files). In the following task, you define a dataset for a text file without a delimiter and then set up substring splits based on ordinal position.
 
 ## Create a pipeline

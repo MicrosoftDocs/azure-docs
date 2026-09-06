@@ -2764,7 +2764,7 @@ Lets you read, enable, and disable logic apps, but not edit or update them.
 }
 ```
 
-## Logic Apps Standard Contributor (Preview)
+## Logic Apps Standard Contributor
 
 You can manage all aspects of a Standard logic app and workflows. You can't change access or ownership.
 
@@ -2823,13 +2823,13 @@ You can manage all aspects of a Standard logic app and workflows. You can't chan
       "notDataActions": []
     }
   ],
-  "roleName": "Logic Apps Standard Contributor (Preview)",
+  "roleName": "Logic Apps Standard Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Logic Apps Standard Developer (Preview)
+## Logic Apps Standard Developer
 
 You can create and edit workflows, connections, and settings for a Standard logic app. You can't make changes outside the workflow scope.
 
@@ -2912,13 +2912,13 @@ You can create and edit workflows, connections, and settings for a Standard logi
       "notDataActions": []
     }
   ],
-  "roleName": "Logic Apps Standard Developer (Preview)",
+  "roleName": "Logic Apps Standard Developer",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Logic Apps Standard Operator (Preview)
+## Logic Apps Standard Operator
 
 You can enable and disable the logic app, resubmit workflow runs, as well as create connections. You can't edit workflows or settings.
 
@@ -2993,13 +2993,13 @@ You can enable and disable the logic app, resubmit workflow runs, as well as cre
       "notDataActions": []
     }
   ],
-  "roleName": "Logic Apps Standard Operator (Preview)",
+  "roleName": "Logic Apps Standard Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-## Logic Apps Standard Reader (Preview)
+## Logic Apps Standard Reader
 
 You have read-only access to all resources in a Standard logic app and workflows, including the workflow runs and their history.
 
@@ -3046,7 +3046,7 @@ You have read-only access to all resources in a Standard logic app and workflows
       "notDataActions": []
     }
   ],
-  "roleName": "Logic Apps Standard Reader (Preview)",
+  "roleName": "Logic Apps Standard Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

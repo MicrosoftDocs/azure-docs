@@ -4,8 +4,8 @@ description: Explore the July 2025 release notes for Azure Arc-enabled VM extens
 ms.service: azure-update-manager
 ms.date: 07/09/2025
 ms.topic: overview
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.update-cycle: 1095-days
 ---
 

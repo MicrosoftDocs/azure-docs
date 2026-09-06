@@ -3,8 +3,8 @@ title: Reserved instances of Azure VMware Solution
 description: Learn how to buy a reserved instance for Azure VMware Solution. The reserved instance covers only the compute part of your usage and includes software licensing costs.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/20/2026
-ms.custom: engagement-fy23
+ms.date: 8/10/2026
+ms.custom: engagement-fy27
 # Customer intent: As a cloud administrator, I want to purchase reserved instances for Azure VMware Solution, so that I can optimize compute costs and ensure software licensing is properly covered for my organization's usage.
 ---
 
@@ -18,7 +18,7 @@ Reserved instances are available with some exceptions:
 
 - **Clouds**: Reservations are available only in the regions listed on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) page.
 - **Insufficient quota**: A reservation scoped to a single or shared subscription must have hosts quota available in the subscription for the new reserved instance. You can [create a quota increase request](request-host-quota-azure-vmware-solution.md) to resolve this issue.
-- **Offer eligibility**: You need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
+- **Offer eligibility**: You need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) or a [Microsoft Customer Agreement (MCA)](../cost-management-billing/understand/mca-overview.md) with Microsoft.
 - **Capacity restrictions**: In rare circumstances, Azure limits the purchase of new reservations for Azure VMware Solution host SKUs because of low capacity in a region.
 
 ## Buy a reservation

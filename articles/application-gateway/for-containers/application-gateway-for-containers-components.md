@@ -56,6 +56,8 @@ For associations created on or after **April 23, 2026**, Network Security Groups
 > In addition to NSG rules on the association subnet, **Deny all outbound** rules on an NSG applied to the AKS subnet can block traffic from the Application Gateway for Containers ALB controller. To ensure ALB Controller can properly reconcile load balancing intent, ensure outbound traffic is allowed to [these endpoints](application-gateway-for-containers-components.md#alb-controller-outbound-connectivity).
 
 For associations created **before April 23, 2026**, inbound NSG rules can be configured; however, traffic on **ports 80 and 443** is always allowed, regardless of the rules defined.
+> [!NOTE]
+> If the association is deleted and recreated, it is treated as a new association and is subject to the current NSG enforcement model. Ensure the required NSG allow rules (including the _AzureLoadBalancer_ tag) are configured **before** recreating the association to avoid frontend connectivity or health probe issues.
 
 #### User defined routes on the association subnet
 

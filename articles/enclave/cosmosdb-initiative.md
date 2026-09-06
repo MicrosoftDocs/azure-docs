@@ -4,6 +4,7 @@ description: Cosmos DB Initiative.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
+ms.service: azure-enclave
 ms.date: 9/30/2025
 ---
 
@@ -18,7 +19,7 @@ This article describes the Policy guardrails in place to ensure Cosmos DB is dep
 
 | Name | Description | Version | Type | Effect | Policy definition |
 | :---- | :---- | :---- | :---- | :---- | :---- |
-| Cosmos DB accounts should use private link | Azure Private Link lets you connect your virtual network to Azure services without a public IP address at the source or destination. The Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. You can map private endpoints to your Cosmos DB account, reduces data leakage risks. Learn more about private links at: `/azure/cosmos-db/how-to-configure-private-endpoints`. | 1.0.0 | Built in | Audit | [Link](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f58440f8a-10c5-4151-bdce-dfbaad4a20b7) |
+| Cosmos DB accounts should use private link | Azure Private Link lets you connect your virtual network to Azure services without a public IP address at the source or destination. The Private Link service handles the connectivity between the consumer and services over the Azure backbone network. You can map private endpoints to your Cosmos DB account, which reduces data leakage risks. Learn more about private links at: `/azure/cosmos-db/how-to-configure-private-endpoints`. | 1.0.0 | Built in | Audit | [Link](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f58440f8a-10c5-4151-bdce-dfbaad4a20b7) |
 | Azure Cosmos DB should disable public network access | Disabling public network access improves security by ensuring that your Cosmos DB account isn't exposed on the public internet. Creating private endpoints can limit exposure of your Cosmos DB account. Learn more at: `/azure/cosmos-db/how-to-configure-private-endpoints#blocking-public-network-access-during-account-creation`. | 1.0.0 | Built in | AuditDeny | [Link](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f797b37f7-06b8-444c-b1ad-fc62867f335a) |
 | Cosmos DB database accounts should have local authentication methods disabled | Disabling local authentication methods improves security by ensuring that Cosmos DB database accounts exclusively require Microsoft Entra ID identities for authentication. Learn more at: `/azure/cosmos-db/how-to-setup-rbac#disable-local-auth`. | 1.1.0 | Built in | AuditDeny | [Link](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5450f5bd-9c72-4390-a9c4-a7aba4edfdd2) |
 

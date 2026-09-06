@@ -1,9 +1,9 @@
 ---
-title: Azure Event Hubs Premium Overview
+title: Azure Event Hubs Premium overview
 description: Learn about Azure Event Hubs Premium, a high-performance, multitenant PaaS solution for low-latency, high-throughput streaming with predictable performance.
-#customer intent: As a developer, I want to understand the features of Azure Event Hubs Premium so that I can determine if it meets my high-performance streaming needs.  
-ms.topic: article
-ms.date: 07/28/2025
+#customer intent: As a developer, I want to understand the features of Azure Event Hubs Premium so that I can determine if it meets my high-performance streaming needs.
+ms.topic: concept-article
+ms.date: 08/25/2026
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-title
@@ -35,25 +35,25 @@ For more information, see [Comparison between Event Hubs SKUs](event-hubs-quotas
 
 ## Why choose Event Hubs Premium?
 
-The Premium tier offers three compelling benefits for customers who require better isolation in a multitenant environment with low latency and high-throughput data ingestion needs.
+The Premium tier offers three key benefits for customers who need better isolation in a multitenant environment with low-latency, high-throughput data ingestion.
 
 ### Superior performance with a two-tier storage engine
 
-The Premium tier uses a new two-tier log storage engine that drastically improves the data ingress performance with substantially reduced overall latency without compromising the durability guarantees.
+The Premium tier uses a two-tier log storage engine that significantly improves data ingress performance and substantially reduces overall latency without compromising durability guarantees.
 
 ### Better isolation and predictability
 
-The Premium tier offers an isolated compute and memory capacity to achieve more predictable latency and far reduced *noisy neighbor* impact risk in a multitenant deployment.
+The Premium tier offers isolated compute and memory capacity to achieve more predictable latency and greatly reduce *noisy neighbor* impact in a multitenant deployment.
 
 It implements a *cluster in cluster* model in its multitenant clusters to provide predictability and performance while retaining all the benefits of a managed multitenant PaaS environment.
 
 ### Cost savings and scalability
 
-The Premium tier is a multitenant offering, so it can dynamically scale flexibly and quickly. Capacity is allocated in PUs that allocate isolated pods of CPU and memory inside the cluster. The number of those pods can be scaled up or down per namespace. For this reason, the Premium tier is a low-cost option for messaging scenarios with the overall throughput range that's less than 120 MB/sec but higher than what you can achieve with the Standard tier.
+The Premium tier is a multitenant offering, so it can dynamically scale flexibly and quickly. Capacity is allocated in PUs that allocate isolated pods of CPU and memory inside the cluster. You can scale up or down the number of pods per namespace. For this reason, the Premium tier is a low-cost option for messaging scenarios with the overall throughput range that's less than 120 MB/sec but higher than what you can achieve with the Standard tier.
 
 ## Encryption of events
 
-Event Hubs provides encryption of data at rest with Azure Storage Service Encryption. The Event Hubs service uses Azure Storage to store the data. All the data that's stored with Azure Storage is encrypted by using Microsoft-managed keys. If you use your own key (also referred to as Bring Your Own Key [BYOK] or customer-managed key), the data is still encrypted by using the Microsoft-managed key.
+Event Hubs provides encryption of data at rest with Azure Storage Service Encryption. The Event Hubs service uses Azure Storage to store the data. Azure Storage encrypts all the data it stores by using Microsoft-managed keys. If you use your own key (also referred to as Bring Your Own Key [BYOK] or customer-managed key), the data is still encrypted by using the Microsoft-managed key.
 
 In addition, the Microsoft-managed key is encrypted by using the customer-managed key. This feature enables you to create, rotate, disable, and revoke access to customer-managed keys that are used for encrypting Microsoft-managed keys. Enabling the BYOK feature is a one-time setup process on your namespace. For more information, see [Configure customer-managed keys for encrypting Azure Event Hubs data at rest](configure-customer-managed-key.md).
 
@@ -66,7 +66,7 @@ The Premium tier offers all the features of the Standard plan but with better pe
 
 ## High availability with availability zones
 
-Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](/azure/reliability/availability-zones-service-support) support with no extra cost. By using availability zones, you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures.
+Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](/azure/reliability/availability-zones-service-support) support at no extra cost. By using availability zones, you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures.
 
 > [!IMPORTANT]
 > - Availability zone support is only available in [Azure regions with availability zones](/azure/reliability/availability-zones-region-support).
@@ -74,11 +74,11 @@ Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](/az
 
 ## Premium vs. Dedicated tiers
 
-In comparison to the Dedicated offering, the Premium tier provides the following benefits:
+Compared to the Dedicated offering, the Premium tier provides the following benefits:
 
 - Isolation inside a large multitenant environment can shift resources quickly.
 - Scaling is far more elastic and quick.
-- PUs can be dynamically adjusted.
+- You can dynamically adjust PUs.
 
 When compared to the Dedicated tier, the Premium tier is often a more cost-effective option for event streaming workloads up to 160 MB/sec (per namespace), especially with changing loads throughout the day or week.
 

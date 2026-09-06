@@ -25,7 +25,7 @@ This article provides an overview on Runtime environment, scope and its capabili
 You can change these components independently without impacting the other.
 
 > [!NOTE]
-> You can associate each runbook with a single Runtime environment. However, a Runtime environment could be linked to multiple runbooks.
+> Runtime environments are supported in all Public and Gov clouds. You can associate each runbook with a single Runtime environment. However, a Runtime environment could be linked to multiple runbooks.
 
 
 ## Components of Runtime environment
@@ -77,7 +77,6 @@ You can't edit these Runtime environments. However, any changes that are made in
 
 ## Limitations
 
-- Runtime environment is currently supported in all Public regions except Brazil Southeast and Gov clouds.
 - PowerShell Workflow, Graphical PowerShell, and Graphical PowerShell Workflow runbooks only work with System-generated PowerShell-5.1 Runtime environment.
 - Runbooks created in Runtime environment experience with Runtime version PowerShell 7.2+ would show as PowerShell 5.1 runbooks in old experience.
 - RBAC permissions cannot be assigned to Runtime environment.

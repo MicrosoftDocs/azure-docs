@@ -15,6 +15,8 @@ ms.custom:
 # Copy data from Netezza by using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article outlines how to use Copy Activity in Azure Data Factory or Synapse Analytics pipelines to copy data from Netezza. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 >[!TIP]

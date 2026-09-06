@@ -2,8 +2,8 @@
 title: Discovery methods in Azure Migrate 
 description: Azure Migrate offers modes for discovering resources
 ms.topic: concept-article
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.manager: molir
 ms.service: azure-migrate
 ms.date: 10/21/2025

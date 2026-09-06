@@ -17,6 +17,54 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## September 2026
+### FHIR service
+
+**SMART-on-FHIR compartment authorization enforced on `_include` and `_revinclude`**: SMART-on-FHIR compartment authorization is now enforced on `_include` and `_revinclude` query results. Previously, included resources could be returned without verifying they belonged to the authorized patient compartment. Queries using `_include` or `_revinclude` under SMART scopes might now return fewer results.
+
+**Reindex operation optimizations**: Reindex operations are significantly optimized with reduced memory usage, removal of unnecessary database scans, and a fail-fast approach for improved reliability.
+
+#### Bug fixes:
+
+**Fix for conditional patch with required ETags**: Fixed an issue where conditional patch requests failed when ETags were required. Conditional patches now correctly pass the ETag for optimistic concurrency checks.
+
+**Fix for intermittent errors from non-thread-safe HTTP header access**: Fixed intermittent errors in request processing caused by non-thread-safe HTTP header access, improving overall service stability.
+
+**Fix for NullReferenceException in security provider during background jobs**: Fixed a NullReferenceException in the security provider that occurred during background jobs when the capability statement cache hadn't yet been built.
+
+**Fix for HTTP 500 on mixed SMART v1 and v2 scopes**: Fixed an incorrect HTTP 500 error response when a request contained a mix of SMART v1 and v2 scopes. The service now returns a proper authorization error.
+
+**Fix for `$import` status endpoint HTTP 500 with processing job ID**: Fixed an HTTP 500 error from the `$import` status endpoint when polling with a processing job ID instead of the orchestrator's ID.
+
+## August 2026
+### FHIR service
+
+**Security enhancements for FHIR resource narrative content**: Improved security protections for FHIR resource narrative content to help prevent potential cross-site scripting (XSS) scenarios.
+
+**Rejection of mixed-context SMART clinical scopes**: SMART clinical scopes that mix `patient`, `user`, and `system` contexts are now rejected with HTTP 400 Bad Request, ensuring consistent authorization enforcement.
+
+**Null-safety improvements in resource validation**: Added null-safety checks to improve the reliability of resource validation.
+
+**Reindex reliability improvement**: The running reindex check was moved to the data store, improving reliability of the reindex operation.
+
+#### Bug fixes:
+
+**Fix for date filtering in bulk delete jobs**: Fixed an issue where the date filter was not correctly applied to bulk delete jobs, which could result in deletions beyond the intended date range.
+
+**Fix for race condition in bundle processing**: Fixed a race condition in bundle processing that could cause intermittent failures.
+
+**Fix for search parameter deletion in sequential transaction bundles**: Fixed a bug where deleting a search parameter in a sequential transaction bundle could fail.
+
+**Fix for search parameters retained on deleted resources**: Fixed an issue where deleted resources could incorrectly retain search parameters.
+
+**Fix for validation ordering in convert-data operations**: Fixed validation ordering for convert-data operations.
+
+**Fix for `$validate` ignoring canonical profile version**: Fixed an issue where the `$validate` operation ignored the version specified in a canonical profile URL (for example, `|1.0.0`) and resolved whichever profile version was last loaded instead of the requested version.
+
+**Fix for orphaned SearchParameter URLs after update**: Fixed an issue where updating a SearchParameter's URL left the previous URL orphaned with an unchanged status, preventing proper cleanup.
+
+**Fix for SearchParameter URL collision on create**: Fixed an issue where creating a SearchParameter with a URL already owned by a different active resource was allowed, which could cause errors during bundle processing.
+
 ## July 2026
 ### FHIR service
 

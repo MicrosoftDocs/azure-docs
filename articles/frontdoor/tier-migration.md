@@ -5,16 +5,16 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 07/31/2026
+ms.date: 08/27/2026
 ---
 
-# Azure Front Door (classic) to Standard/Premium tier migration
+# Azure Front Door (classic) to Standard or Premium tier migration
 
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-Azure Front Door Standard and Premium tiers were released in March 2022 as the next generation content delivery network service. The newer tiers combine the capabilities of Azure Front Door (classic), Microsoft CDN (classic), and Web Application Firewall (WAF). With features such as Private Link integration, enhanced rules engine, and advanced diagnostics, you can secure and accelerate your web applications to bring a better experience to your customers.
+Azure Front Door Standard and Premium tiers were released in March 2022 as the next generation content delivery network service. The newer tiers combine the capabilities of Azure Front Door (classic), Microsoft CDN (classic), and Web Application Firewall (WAF). By using features such as Private Link integration, enhanced rules engine, and advanced diagnostics, you can secure and accelerate your web applications to bring a better experience to your customers.
 
 Migrate your classic profile to one of the newer tiers to take advantage of the new features and improvements. To make the move to the new tiers easier, Azure Front Door provides a zero-downtime migration to move your workload from Azure Front Door (classic) to either Standard or Premium.
 
@@ -72,6 +72,21 @@ Before you commit to migration in this step, if you decide you no longer want to
 The migration is on control plane and the data plane remains the same. In normal cases, the migration doesn't fail. However, in rare cases, if the migration fails at this step, there's no impact on traffic delivery. The only impact is you can't make changes to the Azure Front Door profile.
 
 Service charges for Azure Front Door Standard or Premium tier start when migration completes.
+
+#### Post-migration endpoint cutover
+
+Azure Front Door (classic) uses a different fully qualified domain name (FQDN) than Azure Front Door Standard or Premium. For example, a classic endpoint might be `contoso.azurefd.net`, while a Standard or Premium endpoint might be `contoso-mdjf2jfgjf82mnzx.z01.azurefd.net`. For more information, see [Endpoints in Azure Front Door](endpoint.md).
+
+Even though Azure Front Door automatically routes traffic from the classic endpoint to your new Standard or Premium profile without any configuration changes, you must complete the following post-migration action depending on your scenario:
+
+- Custom domains: Update the DNS record to point to the new Azure Front Door Standard/Premium endpoint.
+
+- Direct use of the classic default endpoint: Replace the classic hostname with the new endpoint hostname in your applications, clients, and integrations.
+
+Both endpoints remain functional during the transition, so you can make and validate this change without downtime.
+
+> [!WARNING]
+> Complete the endpoint cutover to the new Azure Front Door Standard/Premium endpoint by March 31, 2028. Starting April 1, 2028, classic endpoints are no longer supported and might stop functioning. Custom domains, applications, or clients that still depend on a classic endpoint might stop receiving traffic.
 
 ## Breaking changes when migrating to Standard or Premium tier
 

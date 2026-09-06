@@ -5,7 +5,7 @@ description: This article provides a step-by-step guide on how to configure an "
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 02/26/2026
+ms.date: 07/17/2026
 ms.author: mbender
 ms.custom: template-how-to
 # Customer intent: As an IT administrator, I want to configure an outbound-only load balancer using internal and public load balancers, so that I can enable secure outbound connectivity for virtual machines without allowing inbound public access.
@@ -86,7 +86,7 @@ In this section, you create the internal load balancer.
 
 1. Enter **lb-int-backend-pool** for **Name** in **Add backend pool**.
 
-1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+1. Select **NIC** for **Backend Pool Configuration**.
 
 1. Select **Save**.
 
@@ -155,7 +155,7 @@ In this section, you create the public load balancer.
 
 1. Select **lb-vnet** in **Virtual network**.
 
-1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+1. Select **NIC** for **Backend Pool Configuration**.
 
 1. Select **Save**.
 
@@ -256,7 +256,7 @@ In this section, you add the virtual machine you created previously to the backe
 
 1.  Enter **https://ifconfig.me** in the address bar.
 
-1.  The connection fails. By default, standard public load balancer [doesn't allow outbound traffic without a defined outbound rule](load-balancer-overview.md#securebydefault).
+1.  The connection fails. By default, standard public load balancer [doesn't allow outbound traffic without a defined outbound rule](load-balancer-overview.md#securebydefault). This behavior applies to the NIC-based backend pool configured in this tutorial. IP-address backend pools have different default outbound behavior. For more information, see [Backend pool management](backend-pool-management.md).
  
 ## Create a public load balancer outbound rule
 

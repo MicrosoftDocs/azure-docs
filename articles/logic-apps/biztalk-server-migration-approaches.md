@@ -48,7 +48,7 @@ BizTalk Server and Azure Logic Apps have different architectures. For a higher r
 
 To complete such a project, we recommend that you follow the iterative or wave-based approach and use the [Scrum process](https://www.scrum.org/). While Scrum doesn't include a Sprint Zero (Sprint 0) concept for pre-sprint activities, we recommend that you focus your first sprint on team alignment and technical discovery. After Sprint 0, follow the execution of multiple migration sprints and focus on releasing features towards a minimum viable product (MVP).
 
-:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-gradual-migration.png" alt-text="Diagram shows migration waves." border="false":::
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-gradual-migration.png" alt-text="Diagram that shows nine AI-based migration waves for BizTalk Server to Azure Logic Apps from planning and MVP to repeat cycles." border="false":::
 
 > [!TIP]
 >
@@ -148,11 +148,11 @@ During each wave, migration focuses on the agreed User Stories. For the first wa
 
 The following diagram shows an example initial migration environment with a Standard logic app that orchestrates workflows that communicate with APIs, services, hybrid solutions, and on-premises resources:
 
-:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-migration-environment.png" alt-text="Diagram shows example initial migration environment." border="false":::
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/biztalk-migration-environment.png" alt-text="Diagram that shows an example initial migration environment with a Standard logic app orchestrating APIs, Azure services, and on-premises BizTalk environments." border="false":::
 
 The following diagram shows an example initial migration environment with an on-premises deployed Standard logic app that orchestrates workflows for communicating with APIs, services, hybrid solutions, and on-premises resources:
 
-:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/architecture-overview-hybrid.png" alt-text="Diagram shows example migration environment with deployed on-premises Standard logic app." border="false":::
+:::image type="content" source="./media/biztalk-server-to-azure-integration-services-overview/architecture-overview-hybrid.png" alt-text="Diagram that shows an example migration environment with a hybrid deployment model for an on-premises Standard logic app and Kubernetes clusters." border="false":::
 
 ## Test your migration
 

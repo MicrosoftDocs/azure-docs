@@ -13,6 +13,8 @@ ms.author: ulrichchrist
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Learn about the prerequisites for the SAP CDC connector in Azure Data Factory and how to set up the solution in Azure Data Factory Studio.
 
 ## Prerequisites

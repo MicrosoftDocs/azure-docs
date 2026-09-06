@@ -1,22 +1,24 @@
 ---
-title: Azure Stream Analytics resource log data errors
-description: This article explains the different input and output data errors that can occur when using Azure Stream Analytics.
+title: Data errors in Azure Stream Analytics
+description: Explore the input and output data errors in Azure Stream Analytics, their causes, and resource log details so you can diagnose and resolve job issues.
 author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
-ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.topic: error-reference
+ms.date: 08/25/2026
+ai-usage: ai-assisted
+#customer intent: As a Stream Analytics job operator, I want to understand each input and output data error, its cause, and its impact so that I can diagnose and resolve data errors in my job.
 ---
 
 # Azure Stream Analytics data errors
 
-Data errors are errors that occur while processing the data.  These errors most often occur during data de-serialization, serialization, and write operations.  When data errors occur, Stream Analytics writes detailed information and example events to the resource logs. Enable diagnostic logs in your job to get these additional details. In some cases, a summary of this information is also provided through portal notifications.
+Data errors occur when Azure Stream Analytics processes your streaming data. These errors most often occur during data deserialization, serialization, and write operations. When data errors occur, Stream Analytics writes detailed information and example events to the resource logs. Enable diagnostic logs in your job to get these extra details. In some cases, portal notifications also provide a summary of this information.
 
 This article outlines the different error types, causes, and resource log details for input and output data errors.
 
-## Resource Logs schema
+## Resource logs schema
 
-See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azure-stream-analytics-reference.md#resource-logs-schema) to see the schema for resource logs. The following JSON is an example value for the **Properties** field of a resource log for a data error.
+To see the schema for resource logs, see [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azure-stream-analytics-reference.md#resource-logs-schema). The following JSON is an example value for the **Properties** field of a resource log for a data error.
 
 ```json
 {
@@ -36,12 +38,12 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
 
 ### InputDeserializerError.InvalidCompressionType
 
-* Cause: The input compression type selected doesn't match the data.
+* Cause: The input compression type you selected doesn't match the data.
 * Portal notification provided: Yes
 * Resource log level: Warning
-* Impact: Messages with any deserialization errors including invalid compression type are dropped from the input.
-* Log details
-   * Input message identifier. For Event Hub, the identifier is the PartitionId, Offset, and Sequence Number.
+* Impact: Stream Analytics drops messages with any deserialization errors, including an invalid compression type, from the input.
+* Log details:
+   * Input message identifier. For Azure Event Hubs, the identifier is the PartitionId, Offset, and Sequence Number.
 
 **Error message**
 
@@ -54,10 +56,10 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
 * Cause: The header of input data is invalid. For example, a CSV has columns with duplicate names.
 * Portal notification provided: Yes
 * Resource log level: Warning
-* Impact: Messages with any deserialization errors including invalid header are dropped from the input.
-* Log details
+* Impact: Messages with any deserialization errors, including an invalid header, are dropped from the input.
+* Log details:
    * Input message identifier. 
-   * Actual payload up to few kilobytes.
+   * Actual payload up to a few kilobytes.
 
 **Error message**
 
@@ -67,11 +69,11 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
 
 ### InputDeserializerError.MissingColumns
 
-* Cause: The input columns defined with CREATE TABLE or through TIMESTAMP BY doesn't exist.
+* Cause: The input columns you define with `CREATE TABLE` or through `TIMESTAMP BY` don't exist.
 * Portal notification provided: Yes
 * Resource log level: Warning
 * Impact: Events with missing columns are dropped from the input.
-* Log details
+* Log details:
    * Input message identifier. 
    * Names of the columns that are missing. 
    * Actual payload up to a few kilobytes.
@@ -88,11 +90,11 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
 
 ### InputDeserializerError.TypeConversionError
 
-* Cause: Unable to convert the input to the type specified in the CREATE TABLE statement.
+* Cause: Stream Analytics can't convert the input to the type you specified in the `CREATE TABLE` statement.
 * Portal notification provided: Yes
 * Resource log level: Warning
-* Impact: Events with type conversion error are dropped from the input.
-* Log details
+* Impact: Stream Analytics drops events with a type conversion error from the input.
+* Log details:
    * Input message identifier. 
    * Name of the column and expected type.
 
@@ -108,13 +110,13 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
 
 ### InputDeserializerError.InvalidData
 
-* Cause: Input data is not in the right format. For example, the input isn't valid JSON.
+* Cause: Input data isn't in the right format. For example, the input isn't valid JSON.
 * Portal notification provided: Yes
 * Resource log level: Warning
-* Impact: All events in the message after an invalid data error has been encountered are dropped from the input.
-* Log details
+* Impact: Stream Analytics drops all events in the message after it encounters an invalid data error.
+* Log details:
    * Input message identifier. 
-   * Actual payload up to few kilobytes.
+   * Actual payload up to a few kilobytes.
 
 **Error messages**
 
@@ -132,10 +134,10 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
 * Portal notification provided: Yes
 * Resource log level: Warning
 * Impact: Events with invalid input timestamp are dropped from the input.
-* Log details
+* Log details:
    * Input message identifier. 
    * Error message. 
-   * Actual payload up to few kilobytes.
+   * Actual payload up to a few kilobytes.
 
 **Error message**
 
@@ -149,8 +151,8 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
 * Portal notification provided: Yes
 * Resource log level: Warning
 * Impact: Events with invalid input timestamp key are dropped from the input.
-* Log details
-   * The actual payload up to few kilobytes.
+* Log details:
+   * The actual payload up to a few kilobytes.
 
 **Error message**
 
@@ -160,13 +162,13 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
 
 ### LateInputEvent
 
-* Cause: The difference between application time and arrival time is greater than late arrival tolerance window.
+* Cause: The difference between application time and arrival time is greater than the late arrival tolerance window.
 * Portal notification provided: No
 * Resource log level: Information
-* Impact:  Late input events are handled according to the "Handle other events" setting in the Event Ordering section of the job configuration. For more information see [Time Handling Policies](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
-* Log details
+* Impact: Late input events are handled according to the "Handle other events" setting in the Event Ordering section of the job configuration. For more information, see [Time Handling Policies](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Log details:
    * Application time and arrival time. 
-   * Actual payload up to few kilobytes.
+   * Actual payload up to a few kilobytes.
 
 **Error message**
 
@@ -176,13 +178,13 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
 
 ### EarlyInputEvent
 
-* Cause: The difference between Application time and Arrival time is greater than 5 minutes.
+* Cause: The difference between application time and arrival time is greater than five minutes.
 * Portal notification provided: No
 * Resource log level: Information
-* Impact:  Early input events are handled according to the "Handle other events" setting in the Event Ordering section of the job configuration. For more information see [Time Handling Policies](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
-* Log details
+* Impact: Early input events are handled according to the "Handle other events" setting in the Event Ordering section of the job configuration. For more information, see [Time Handling Policies](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Log details:
    * Application time and arrival time. 
-   * Actual payload up to few kilobytes.
+   * Actual payload up to a few kilobytes.
 
 **Error message**
 
@@ -192,12 +194,12 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
 
 ### OutOfOrderEvent
 
-* Cause: Event is considered out of order according to the out of order tolerance window defined.
+* Cause: The event is out of order according to the defined out-of-order tolerance window.
 * Portal notification provided: No
 * Resource log level: Information
-* Impact:  Out of order events are handled according to the "Handle other events" setting in the Event Ordering section of the job configuration. For more information see [Time Handling Policies](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
-* Log details
-   * Actual payload up to few kilobytes.
+* Impact: The job handles out-of-order events according to the **Handle other events** setting in the **Event Ordering** section of the job configuration. For more information, see [Time Handling Policies](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Log details:
+   * Actual payload up to a few kilobytes.
 
 **Error message**
 
@@ -207,17 +209,17 @@ See [Troubleshoot Azure Stream Analytics by using diagnostics logs](monitor-azur
 
 ## Output data errors
 
-Azure Stream Analytics can identify output data errors with or without an I/O request to the output sink depending on the configuration. For example, missing a required column, such as  `PartitionKey`, when using Azure Table output can be identified without an I/O request. However, constraint violations in SQL output do require an I/O request.
+Azure Stream Analytics can identify output data errors with or without an I/O request to the output sink depending on the configuration. For example, Stream Analytics can identify a missing required column, such as `PartitionKey`, when you use Azure Table output, without an I/O request. However, constraint violations in SQL output do require an I/O request.
 
-There are several data errors that can only be detected after making a call to the output sink, which can slow down processing. To resolve this, change your job's configuration or the query that is causing the data error.
+Stream Analytics can detect several data errors only after it calls the output sink, which can slow down processing. To resolve this issue, change your job's configuration or the query that causes the data error.
 
 ### OutputDataConversionError.RequiredColumnMissing
 
 * Cause: The column required for the output doesn't exist. For example, a column defined as Azure Table PartitionKey doesn't exist.
 * Portal notification provided: Yes
 * Resource log level: Warning
-* Impact:  All output data conversion errors including missing required column are handled according to the [Output Data Policy](./stream-analytics-output-error-policy.md) setting.
-* Log details
+* Impact: The [Output Data Policy](./stream-analytics-output-error-policy.md) setting handles all output data conversion errors, including missing required columns.
+* Log details:
    * Name of the column and either the record identifier or part of the record.
 
 **Error message**
@@ -231,8 +233,8 @@ There are several data errors that can only be detected after making a call to t
 * Cause: The column value doesn't conform with the output. For example, the column name isn't a valid Azure table column.
 * Portal notification provided: Yes
 * Resource log level: Warning
-* Impact:  All output data conversion errors including invalid column name are handled according to the [Output Data Policy](./stream-analytics-output-error-policy.md) setting.
-* Log details
+* Impact: All output data conversion errors including invalid column name are handled according to the [Output Data Policy](./stream-analytics-output-error-policy.md) setting.
+* Log details:
    * Name of the column and either record identifier or part of the record.
 
 **Error message**
@@ -246,8 +248,8 @@ There are several data errors that can only be detected after making a call to t
 * Cause: A column can't be converted to a valid type in the output. For example, the value of column is incompatible with constraints or type defined in SQL table.
 * Portal notification provided: Yes
 * Resource log level: Warning
-* Impact:  All output data conversion errors including type conversion error are handled according to the [Output Data Policy](./stream-analytics-output-error-policy.md) setting.
-* Log details
+* Impact: All output data conversion errors including type conversion error are handled according to the [Output Data Policy](./stream-analytics-output-error-policy.md) setting.
+* Log details:
    * Name of the column.
    * Either record identifier or part of the record.
 
@@ -259,11 +261,11 @@ There are several data errors that can only be detected after making a call to t
 
 ### OutputDataConversionError.RecordExceededSizeLimit
 
-* Cause: The value of the message is greater than the supported output size. For example, a record is larger than 1 MB for an Event Hub output.
+* Cause: The value of the message is greater than the supported output size. For example, a record is larger than 1 MB for an event hub output.
 * Portal notification provided: Yes
 * Resource log level: Warning
-* Impact:  All output data conversion errors including record exceeded size limit are handled according to the [Output Data Policy](./stream-analytics-output-error-policy.md) setting.
-* Log details
+* Impact: All output data conversion errors including record exceeded size limit are handled according to the [Output Data Policy](./stream-analytics-output-error-policy.md) setting.
+* Log details:
    * Either record identifier or part of the record.
 
 **Error message**
@@ -274,13 +276,15 @@ There are several data errors that can only be detected after making a call to t
 
 ### OutputDataConversionError.DuplicateKey
 
-* Cause: A record already contains a column with the same name as a System column. For example, CosmosDB output with a column named ID when ID column is to a different column.
+* Cause: A record already contains a column with the same name as a system column. For example, Azure Cosmos DB output with a column named ID when ID column is to a different column.
 * Portal notification provided: Yes
 * Resource log level: Warning
-* Impact:  All output data conversion errors including duplicate key are handled according to the [Output Data Policy](./stream-analytics-output-error-policy.md) setting.
-* Log details
+* Impact: All output data conversion errors including duplicate key are handled according to the [Output Data Policy](./stream-analytics-output-error-policy.md) setting.
+* Log details:
    * Name of the column.
    * Either record identifier or part of the record.
+
+**Error message**
 
 ```json
 "BriefMessage": "Column 'devicePartitionKey' is being mapped to multiple columns."

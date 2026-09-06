@@ -3,7 +3,7 @@ title: ASP.NET app containerization and migration to App Service
 description: This tutorial demonstrates how to containerize ASP.NET applications and migrate them to Azure App Service.
 ms.manager: kmadnani
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.topic: tutorial
 ms.date: 09/19/2025
 ms.update-cycle: 365-days

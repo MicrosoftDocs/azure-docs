@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-route-server
 ms.topic: concept-article
-ms.date: 02/10/2025
+ms.date: 08/27/2026
 ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want to use Azure Route Server so it dynamically injects routes in spoke virtual networks (VNets).
@@ -38,7 +38,7 @@ In this configuration, the network virtual appliance advertises network prefixes
 
 **Key requirements for route injection:**
 - Spoke virtual networks must be peered with the hub virtual network
-- Virtual network peering must include the setting **Use the remote virtual network's gateway or Route Server**
+- Virtual network peering must have **Use the remote virtual network's gateway or Route Server** enabled on the spoke peering, so that spokes use the Route Server hosted in the hub. In a dual-homed ExpressRoute topology, where each spoke hosts its own Route Server, disable this setting instead. For more information, see [Dual-homed network topology](about-dual-homed-network.md).
 - Network virtual appliance must establish BGP peering with Route Server
 
 This approach eliminates the need for manual user-defined routes in spoke networks, as the Route Server handles route distribution automatically. For example, a default route (0.0.0.0/0) advertised by the NVA directs all traffic from spoke networks through the security appliance for inspection.
@@ -84,10 +84,7 @@ To inspect private traffic between spokes, configure the NVA to advertise supern
 This behavior is consistent with [BGP route advertisement principles with VPN Gateway](../vpn-gateway/vpn-gateway-vpn-faq.md#advertise-exact-prefixes).
 
 > [!IMPORTANT]
-> When routes with identical prefix lengths are advertised from both ExpressRoute and NVAs, Azure prioritizes ExpressRoute routes. For more information about route selection, see [Routing preference](hub-routing-preference.md).
-
-> [!IMPORTANT]
-> If you have a scenario where prefixes with the same length are being advertised from ExpressRoute and the NVA, Azure prefers and programs the routes learned from ExpressRoute. For more information, see [Routing preference](hub-routing-preference.md).
+> By default, when routes with identical prefix lengths are advertised from both ExpressRoute and NVAs, Azure prioritizes the routes learned from ExpressRoute. This preference isn't fixed. Configuring a VPN or AS Path hub routing preference changes which routes Azure selects. For more information, see [Routing preference](hub-routing-preference.md).
 
 ## Hybrid connectivity with virtual network gateways
 
@@ -172,6 +169,6 @@ This design ensures proper traffic forwarding while maintaining Route Server's r
 ## Related content
 
 - Learn more about [Azure Route Server support for ExpressRoute and Azure VPN](expressroute-vpn-support.md).
-- Learn how to [Configure peering between Azure Route Server and Network Virtual Appliance](tutorial-configure-route-server-with-quagga.md).
+- Learn how to [Configure peering between Azure Route Server and Network Virtual Appliance](peer-route-server-with-virtual-appliance.md).
 
 

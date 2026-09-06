@@ -5,17 +5,19 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: include
-ms.date: 03/26/2026
+ms.date: 08/05/2026
 ms.author: allensu
 ms.custom: include file
 ---
 
 ## Deploy Azure Bastion
 
-Azure Bastion uses your browser to connect to virtual machines (VMs) in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The virtual machines don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview).
+Azure Bastion uses your browser to connect to virtual machines (VMs) in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The virtual machines don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [What is Azure Bastion?](/azure/bastion/bastion-overview).
 
 >[!NOTE]
 >[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+This procedure deploys the **Developer** tier, which uses shared infrastructure and doesn't require an **AzureBastionSubnet** or a public IP address. The Azure CLI and Azure PowerShell versions of this procedure deploy the **Basic** SKU, which requires both. For a comparison of features and deployment requirements, see [Choose the right Azure Bastion SKU](/azure/bastion/bastion-sku-comparison).
 
 1. In the search box at the top of the portal, enter **Bastion**. Select **Bastions** in the search results.
 

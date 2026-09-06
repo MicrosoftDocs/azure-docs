@@ -16,7 +16,7 @@
             "source_path_from_root": "/articles/cloud-shell/limitations.md"
         },
         {
-            "redirect_document_id": true,
+            "redirect_document_id": false,
             "redirect_url": "/azure/cloud-shell/faq-troubleshooting",
             "source_path_from_root": "/articles/cloud-shell/troubleshooting.md"
         },
@@ -27,23 +27,28 @@
         },
         {
             "redirect_document_id": false,
-            "redirect_url": "/azure/cloud-shell/get-started/classic",
+            "redirect_url": "/azure/cloud-shell/get-started/new-storage",
             "source_path_from_root": "/articles/cloud-shell/cloud-shell-windows-users.md"
         },
         {
             "redirect_document_id": false,
-            "redirect_url": "/azure/cloud-shell/get-started/classic",
+            "redirect_url": "/azure/cloud-shell/get-started/new-storage",
             "source_path_from_root": "/articles/cloud-shell/quickstart.md"
         },
         {
             "redirect_document_id": false,
-            "redirect_url": "/azure/cloud-shell/get-started/classic",
+            "redirect_url": "/azure/cloud-shell/get-started/new-storage",
             "source_path_from_root": "/articles/cloud-shell/quickstart-powershell.md"
         },
         {
-            "redirect_document_id": true,
-            "redirect_url": "/azure/cloud-shell/get-started/classic",
+            "redirect_document_id": false,
+            "redirect_url": "/azure/cloud-shell/get-started/new-storage",
             "source_path_from_root": "/articles/cloud-shell/get-started.md"
+        },
+        {
+            "redirect_document_id": false,
+            "redirect_url": "/azure/cloud-shell/get-started/new-storage",
+            "source_path_from_root": "/articles/cloud-shell/get-started/classic.md"
         },
         {
             "redirect_document_id": false,
@@ -52,18 +57,38 @@
         },
         {
             "redirect_document_id": false,
-            "redirect_url": "/azure/cloud-shell/use-the-shell-window-new",
+            "redirect_url": "/azure/cloud-shell/use-the-shell-window",
             "source_path_from_root": "/articles/cloud-shell/new-ui-shell-window.md"
         },
         {
             "redirect_document_id": false,
-            "redirect_url": "/azure/cloud-shell/use-the-shell-window-classic",
+            "redirect_url": "/azure/cloud-shell/use-the-shell-window",
             "source_path_from_root": "/articles/cloud-shell/using-the-shell-window.md"
         },
         {
             "redirect_document_id": false,
-            "redirect_url": "/azure/cloud-shell/use-cloud-shell-editor-classic",
+            "redirect_url": "/azure/cloud-shell/use-cloud-shell-editor",
             "source_path_from_root": "/articles/cloud-shell/using-cloud-shell-editor.md"
+        },
+        {
+            "redirect_document_id": false,
+            "redirect_url": "/azure/cloud-shell/use-the-shell-window",
+            "source_path_from_root": "/articles/cloud-shell/use-the-shell-window-classic.md"
+        },
+        {
+            "redirect_document_id": false,
+            "redirect_url": "/azure/cloud-shell/use-cloud-shell-editor",
+            "source_path_from_root": "/articles/cloud-shell/use-cloud-shell-editor-classic.md"
+        },
+        {
+            "redirect_document_id": false,
+            "redirect_url": "/azure/cloud-shell/use-the-shell-window",
+            "source_path_from_root": "/articles/cloud-shell/use-the-shell-window-new.md"
+        },
+        {
+            "redirect_document_id": false,
+            "redirect_url": "/azure/cloud-shell/use-cloud-shell-editor",
+            "source_path_from_root": "/articles/cloud-shell/use-cloud-shell-editor-new.md"
         },
         {
             "redirect_document_id": false,
@@ -71,7 +96,7 @@
             "source_path_from_root": "/articles/cloud-shell/quickstart-deploy-vnet.md"
         },
         {
-            "redirect_document_id": true,
+            "redirect_document_id": false,
             "redirect_url": "/azure/cloud-shell/vnet/deployment",
             "source_path_from_root": "/articles/cloud-shell/vnet-deployment.md"
         },
@@ -81,17 +106,17 @@
             "source_path_from_root": "/articles/cloud-shell/private-vnet.md"
         },
         {
-            "redirect_document_id": true,
+            "redirect_document_id": false,
             "redirect_url": "/azure/cloud-shell/vnet/overview",
             "source_path_from_root": "/articles/cloud-shell/vnet-overview.md"
         },
         {
-            "redirect_document_id": true,
+            "redirect_document_id": false,
             "redirect_url": "/azure/cloud-shell/vnet/troubleshooting",
             "source_path_from_root": "/articles/cloud-shell/vnet-troubleshooting.md"
         },
         {
-            "redirect_document_id": true,
+            "redirect_document_id": false,
             "redirect_url": "/azure/active-directory/managed-identities-azure-resources/managed-identities-status",
             "source_path_from_root": "/articles/cloud-shell/msi-authorization.md"
         },

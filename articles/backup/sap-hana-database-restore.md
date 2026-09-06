@@ -251,7 +251,7 @@ For example, you might have a backup policy of weekly fulls, daily differentials
 
 #### Excluding backup file types
 
-*ExtensionSettingOverrides.json* is a JSON (JavaScript Object Notation) file that contains overrides for multiple settings of the Azure Backup service for SQL. For a *partial restore as files* operation, you must add a new JSON field, `RecoveryPointsToBeExcludedForRestoreAsFiles`. This field holds a string value that denotes which recovery point types should be excluded in the next *restore as files* operation.
+*ExtensionSettingOverrides.json* is a JSON (JavaScript Object Notation) file that contains overrides for multiple settings of the Azure Backup service for SQL. For a *partial restore as files* operation, you must add a new JSON field, `RecoveryPointTypesToBeExcludedForRestoreAsFiles`. This field holds a string value that denotes which recovery point types should be excluded in the next *restore as files* operation.
 
 1. On the target machine where files are to be downloaded, go to the *opt/msawb/bin* folder.
 
@@ -261,7 +261,7 @@ For example, you might have a backup policy of weekly fulls, daily differentials
 
     ```json
     {
-    "RecoveryPointsToBeExcludedForRestoreAsFiles": "ExcludeFull"
+    "RecoveryPointTypesToBeExcludedForRestoreAsFiles": "ExcludeFull"
     }
     ```
 
@@ -274,7 +274,7 @@ For example, you might have a backup policy of weekly fulls, daily differentials
 
 1. No restart of any service is required. The Azure Backup service will attempt to exclude backup types in the restore chain, as mentioned in this file.
 
-```RecoveryPointsToBeExcludedForRestoreAsFiles``` takes only specific values, which denote the recovery points to be excluded during restore. For SAP HANA, these values are:
+```RecoveryPointTypesToBeExcludedForRestoreAsFiles``` takes only specific values, which denote the recovery points to be excluded during restore. For SAP HANA, these values are:
 
 - `ExcludeFull`. Other backup types such as differential, incremental, and logs will be downloaded, if they're present in the restore point chain.
 - `ExcludeFullAndDifferential`. Other backup types such as incremental and logs will be downloaded, if they're present in the restore point chain.

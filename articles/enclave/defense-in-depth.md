@@ -24,7 +24,7 @@ Azure Enclave provides defense-in-depth through multiple layers of boundary prot
   > [!NOTE]
   > 
   > Virtual Network integration is only one pattern of isolating platform resources. You can further isolate your workloads through other Identity and Access Management solutions such as Microsoft Entra ID and Attribute-based Access Control.
-1. **Secrets, Logging, and Monitoring** - Enclave-specific secret store (Key Vault) and Log Analytics Workspace. Although these services are platform services, they are only accessible from within the enclave virtual network (firewall + private endpoint).​ All platform-managed and customer workload resources automatically log [diagnostics settings](/azure/azure-monitor/essentials/diagnostic-settings) data and [Azure Activity](https://aka.ms/activity-log) logging. When a community owner creates a new enclave, they can choose a destination for this logging data (enclave Log Analytics Workspace, community Log Analytics Workspace, or both).
+1. **Secrets, Logging, and Monitoring** - Enclave-specific secret store (Key Vault) and Log Analytics Workspace. Although these services are platform services, they're only accessible from within the enclave virtual network (firewall + private endpoint).​ Azure Enclave managed and customer workload resources automatically log [diagnostics settings](/azure/azure-monitor/essentials/diagnostic-settings) data and [Azure Activity](https://aka.ms/activity-log) logging. When a community owner creates a new enclave, they can choose a destination for this logging data (enclave Log Analytics Workspace, community Log Analytics Workspace, or both).
 
 ## Layered Security
 Multi-layer protections provided by Azure Enclave include:

@@ -14,6 +14,8 @@ ms.date: 02/17/2025
 
 [!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article shows you how to enable Microsoft Entra authentication with the specified system/user-assigned managed identity for your Azure Data Factory (ADF) or Azure Synapse and use it instead of conventional authentication methods (like SQL authentication) to:
 
 - Create an Azure-SSIS integration runtime (IR) that will in turn provision SSIS catalog database (SSISDB) in Azure SQL Database server/Managed Instance on your behalf.

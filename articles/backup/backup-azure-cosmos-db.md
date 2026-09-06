@@ -2,7 +2,7 @@
 title: Configure backup for Azure Cosmos DB using Azure portal
 description: Learn about how to configure backup for Azure Cosmos DB using Azure portal. 
 ms.topic: how-to
-ms.date: 05/15/2026
+ms.date: 08/27/2026
 ms.service: azure-backup
 ms.custom:
   - build-2026
@@ -32,20 +32,30 @@ To create a backup policy, follow these steps:
 
 2.	On the **Protection policies** pane, select **+ Create policy > Create backup policy**.
 
-3.	On the **Start: Create Policy** pane and, select **Datasource type** as **Azure Cosmos DB (Preview)**, and select **Continue**. 
+3.	On the **Start: Create Policy** pane, select **Datasource type** as **Azure Cosmos DB (Preview)**, and select **Continue**. 
 
 4. On the **Create Backup Policy** pane, on the **Basics** tab,  enter a **Policy name** for the new backup policy.
 
 5. On the **Schedule + retention** tab, under **Backup schedule**, define the Backup frequency.
    
-   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png" alt-text="Screenshot shows how to define the backup frequency and retention rule." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png":::
+   A Cosmos DB backup policy uses two backup rules: 
 
-   The preview feature supports weekly backup frequency only.
+   - **Full backup** - Runs once per week, on the day you select. A weekly full backup is required in every policy. 
+   - **Incremental backup** - Runs on the remaining days of the week. Each incremental backup copies only the data that changed since the previous backup.
+   
+   Together, a weekly full backup and daily incremental backups provide a 1-day RPO.
+
+   >[!NOTE]
+   >You can't schedule more than one full backup per week, and you can't create an incremental-only policy. 
+   
+   :::image type="content" source="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png" alt-text="Screenshot shows how to define the backup frequency and retention rule." lightbox="./media/backup-azure-cosmos-db/backup-cosmos-backup-policy-schedule-retention.png":::
 
 6. Under **Retention rules**, select **Add retention rule** to define retention rules for specific backups and set retention duration.
 
    >[!Note]
-   >You can apply rules in priority order: yearly, monthly, then weekly. When a recovery point matches multiple rules, apply the highest-priority rule. For example, apply monthly retention over weekly. The default retention rule (with a period of 1 year) applies when no rule matches.
+   > - The default retention rule applies to every backup taken, regardless of backup type (full or incremental). Custom retention rules apply to full backups only. 
+   > - A full backup and its dependent incremental backups are retained and expire together as a chain. A full backup isn't deleted while incremental backups that depend on it are still within retention.
+   > - You can apply rules in priority order: yearly, monthly, then weekly. When a recovery point matches multiple rules, apply the highest-priority rule. For example, apply monthly retention over weekly. The default retention rule (with a period of 1 year) applies when no rule matches.
 
 7. On the **Review + create** tab, select **Create** and complete the backup policy creation.
 
@@ -80,7 +90,7 @@ To configure vaulted backup Cosmos DB account via Resiliency, follow these steps
    
    Ensure that the primary write region of the Azure Cosmos DB account is same as that of the Backup vault region.
 
-   On the **Datasources** tab,  the Azure Backup service validates if all the necessary access permissions to connect to the Cosmos DB account. If one or more access permissions are missing, one of the following  error messages appears:
+   On the **Datasources** tab,  the Azure Backup service validates if it has all the necessary access permissions to connect to the Cosmos DB account. If one or more access permissions are missing, one of the following  error messages appears:
    - **User cannot assign roles** or 
    - **Role assignment not done**.
    

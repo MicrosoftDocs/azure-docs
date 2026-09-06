@@ -42,6 +42,9 @@ A *prompt agent* is a declaratively defined agent that combines model configurat
 
 1. Under **Chat model**, select your workspace-level model deployment.
 
+   > [!NOTE]
+   > The following parameters are currently unsupported with reasoning models: `temperature`, `top_p`. See [Azure OpenAI reasoning models](/azure/foundry/openai/how-to/reasoning#not-supported) to learn more.
+
 1. Enter the agent instructions. Instructions are natural language prompts that define the agent's behavior, persona, and reasoning approach.
 
 1. (Optional) Attach tools to give the agent access to external capabilities:

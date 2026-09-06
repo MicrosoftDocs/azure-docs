@@ -5,6 +5,7 @@ author: jadean-msft
 ms.author: jadean
 ai-usage: ai-assisted
 ms.topic: how-to
+ms.service: azure-enclave
 ms.date: 06/10/2026
 ---
 
@@ -32,7 +33,7 @@ To access Azure Enclave, you need an Azure subscription. If you don't already ha
    - `Community address space`: Enter the community IP address space, such as `10.0.0.0/16`.
 
    > [!NOTE]
-   > `192.168.0.0/16` is reserved as the platform-managed enclave range. Don't create communities with any address space that overlaps or includes this range, such as `192.0.0.0/8` or `192.128.0.0/9`, because it creates conflicts with platform-managed enclave management IP ranges.
+   > `192.168.0.0/16` is reserved as the Azure Enclave managed enclave range. Don't create communities with any address space that overlaps or includes this range, such as `192.0.0.0/8` or `192.128.0.0/9`, because it creates conflicts with Azure Enclave managed enclave management IP ranges.
 
    :::image type="content" source="./media/create-community-tab-1-basics.png" alt-text="Screenshot showing the community basics settings page during community creation in the portal." border="True" lightbox="./media/create-community-tab-1-basics.png":::
 

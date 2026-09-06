@@ -1,14 +1,13 @@
 --- 
 title: Overview of Azure Migrate Assessment Report 
 description: Learn about assessment report, Azure readiness, and recommendations. 
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.reviewer: jsuri
 ms.service: azure-migrate 
 ms.topic: concept-article 
 ms.date: 09/17/2025
 ms.custom: engagement-fy24 
 ms.update-cycle: 1825-days
-monikerRange:
 # Customer intent: As a cloud architect, I want to generate an Azure Migrate assessment report, so that I can evaluate workload readiness, receive sizing recommendations, and estimate migration costs effectively for a successful cloud transition.
 --- 
 

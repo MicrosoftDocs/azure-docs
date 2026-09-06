@@ -2,10 +2,9 @@
 title: Azure Migrate supported geographies
 description: Provides a list of regions where Azure Migrate is supported
 ms.topic: concept-article
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 04/17/2025
 ms.update-cycle: 1825-days
-monikerRange:
 # Customer intent: "As a cloud architect, I want to understand the supported geographies for Azure Migrate, so that I can plan and execute migration projects while ensuring compliance with data residency requirements."
 ---
 
@@ -64,6 +63,19 @@ Target replication | United States | Target regions: US DoD Central, US DoD East
 **Geography** | **Metadata storage location**
 --- | ---
 Microsoft Azure operated by 21Vianet | China North 2
+
+## Network Assessment 
+
+**Geography** | **Metadata storage location**
+--- | ---
+Brazil | Brazil South
+France | France Central
+India | South India
+Italy | North Italy
+Korea | Korea Central
+Spain | Spain Central
+Switzerland | Switzerland North
+United States | Central US or West US 2
 
 ## Next steps
 

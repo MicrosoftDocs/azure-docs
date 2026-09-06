@@ -2,15 +2,16 @@
 title: Capture Streaming Events
 description: Learn how Azure Event Hubs Capture automatically saves streaming data to Azure Blob Storage or Data Lake Storage for processing.
 ms.topic: concept-article
-ms.date: 05/20/2025
+ms.date: 08/25/2026
+ai-usage: ai-assisted
 #customer intent: As a developer, I want to know how to capture events that flow through an event hub to Azure Blob Storage or Azure Data Lake Storage.
 ---
 
 # Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage
 
-The Azure Event Hubs Capture feature automatically captures streaming data that flows through Event Hubs to an [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) account. To control when Event Hubs stores the data, you can specify a time or a size interval. You can quickly enable or set up the Event Hubs Capture feature. It doesn't require administrative costs to run, and it scales automatically with Event Hubs capacity.
+The Azure Event Hubs Capture feature automatically captures streaming data that flows through Event Hubs to an Azure Blob Storage or Azure Data Lake Storage account. To control when Event Hubs stores the data, you can specify a time or a size interval. You can quickly enable or set up the Event Hubs Capture feature. It doesn't require administrative costs to run, and it scales automatically with Event Hubs capacity.
 
-The Standard tier uses [throughput units](event-hubs-scalability.md#throughput-units), and the Premium tier uses [processing units](event-hubs-scalability.md#processing-units). Event Hubs Capture simplifies the process of loading streaming data into Azure and enables you to focus on data processing rather than data capture.
+The Standard tier uses [throughput units](event-hubs-scalability.md#throughput-units), the Premium tier uses [processing units](event-hubs-scalability.md#processing-units), and the Dedicated tier uses [capacity units](event-hubs-dedicated-overview.md). Event Hubs Capture simplifies the process of loading streaming data into Azure and enables you to focus on data processing rather than data capture.
 
 :::image type="content" source="./media/event-hubs-features/capture.png" alt-text="Diagram that shows a process that captures Event Hubs data into Blob Storage or Data Lake Storage." border="false":::
 
@@ -18,8 +19,8 @@ Use Event Hubs Capture to process real-time and batch-based pipelines on the sam
 
 ## Important points to consider
 
+- Event Hubs Capture is available in the Standard, Premium, and Dedicated tiers. The Basic tier doesn't support Capture.
 - The destination storage account, either Blob Storage or Data Lake Storage, must reside in the same subscription as the event hub when you don't use managed identity for authentication.
-
 - Event Hubs doesn't support capturing events in premium Azure Storage accounts.
 - Event Hubs Capture supports nonpremium Storage accounts that allow block blobs.
 
@@ -60,7 +61,7 @@ If your Storage blob becomes temporarily unavailable, Event Hubs Capture retains
 
 ### Scale throughput units or processing units
 
-In the Standard tier of Event Hubs, [throughput units](event-hubs-scalability.md#throughput-units) control traffic. In the Premium tier, [processing units](event-hubs-scalability.md#processing-units) control traffic. Event Hubs Capture copies data directly from the internal Event Hubs storage, which bypasses throughput unit or processing unit egress quotas and saves your egress for other processing readers such as Stream Analytics or Apache Spark.
+In the Standard tier of Event Hubs, [throughput units](event-hubs-scalability.md#throughput-units) control traffic. In the Premium tier, [processing units](event-hubs-scalability.md#processing-units) control traffic. In the Dedicated tier, [capacity units](event-hubs-dedicated-overview.md) control traffic. Event Hubs Capture copies data directly from the internal Event Hubs storage, which bypasses throughput unit, processing unit, or capacity unit egress quotas and saves your egress for other processing readers such as Stream Analytics or Apache Spark.
 
 After you configure Event Hubs Capture, it starts automatically when you send your first event and continues running. To help downstream systems confirm that the process works, Event Hubs writes empty files when no data is available. This process provides a predictable cadence and marker that can feed your batch processors.
 
@@ -76,7 +77,7 @@ To configure Capture when you create an event hub, use the [Azure portal](https:
 
 ## Event Hubs Capture billing
 
-The Event Hubs Premium tier includes the Capture feature. For the Standard tier, Azure charges for Capture monthly based on the number of throughput units for the namespace. As you scale throughput units up or down, Event Hubs Capture adjusts its metering to match performance. These meters scale in tandem.
+The Event Hubs Premium and Dedicated tiers include the Capture feature at no extra charge. For the Standard tier, Azure charges for Capture monthly based on the number of throughput units for the namespace. As you scale throughput units up or down, Event Hubs Capture adjusts its metering to match performance. These meters scale in tandem.
 
 Capture doesn't consume egress quota because Azure bills it separately.
 
@@ -112,7 +113,7 @@ To resolve this problem, add the user account or the service principal to the [S
 
 ## Related content
 
-Event Hubs Capture provides a straightforward way to ingest data into Azure. With Data Lake Storage, Azure Data Factory, and Azure HDInsight, you can perform batch processing and analytics by using familiar tools and platforms at any scale.
+Event Hubs Capture provides a straightforward way to ingest data into Azure. By using Data Lake Storage, Azure Data Factory, and Azure HDInsight, you can perform batch processing and analytics by using familiar tools and platforms at any scale.
 
 To enable this feature, use the Azure portal or an ARM template:
 

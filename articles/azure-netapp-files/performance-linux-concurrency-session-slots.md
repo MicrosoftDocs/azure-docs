@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 07/02/2025
+ms.date: 08/25/2026
 ms.author: anfdocs
 ms.custom:
   - linux-related-content
@@ -164,7 +164,7 @@ Module = "nfs"
 
 To tune `max_session_slots`, create a configuration file under `/etc/modprobe.d` as such.  Make sure that no “quotes” are present for the line in the file. Otherwise, the option doesn't take effect.
 
-`$ sudo echo “options nfs max_session_slots=180” > /etc/modprobe.d/nfsclient.conf`
+`$ sudo echo 'options nfs max_session_slots=180' > /etc/modprobe.d/nfsclient.conf`  
 `$ sudo reboot`
 
 Azure NetApp Files limits each session to 180 max commands. As such, consider 180 the maximum value currently configurable. The client will be unable to achieve a concurrency greater than 128 unless the session is divided across more than one connection as Azure NetApp Files restricts each connection to 128 max NFS commands. To get more than one connection, the `nconnect` mount option is recommended, and a value of two or greater is required.

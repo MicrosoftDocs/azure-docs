@@ -39,8 +39,8 @@ Service endpoints with network identifiers are available for the following Azure
 |---------|------------------|-------------|
 | [Azure Storage](../storage/common/storage-network-security.md) | *Microsoft.Storage* | Generally available in all Azure regions |
 | [Azure Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints) | *Microsoft.KeyVault* | Generally available in all Azure regions |
-| [Azure SQL Database](/azure/azure-sql/database/vnet-service-endpoint-rule-overview) | *Microsoft.Sql* | In preview |
-| [Azure Cosmos DB](/azure/cosmos-db/how-to-configure-vnet-service-endpoint) | *Microsoft.AzureCosmosDB* | In preview |
+| [Azure SQL Database](/azure/azure-sql/database/vnet-service-endpoint-rule-overview) | *Microsoft.Sql* | Generally available in all Azure regions |
+| [Azure Cosmos DB](/azure/cosmos-db/how-to-configure-vnet-service-endpoint) | *Microsoft.AzureCosmosDB* | Generally available in all Azure regions |
 
 ## Key benefits
 

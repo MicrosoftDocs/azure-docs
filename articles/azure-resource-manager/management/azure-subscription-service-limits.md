@@ -126,7 +126,7 @@ The following limits are introduced starting March 2026. Services in the classic
 
 ## Azure Cache for Redis limits
 
-[!INCLUDE [redis-cache-service-limits](../../azure-cache-for-redis/includes/redis-cache-service-limits.md)]
+[!INCLUDE [redis-cache-service-limits](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-service-limits.md)]
 
 ## Azure Cloud Services limits
 

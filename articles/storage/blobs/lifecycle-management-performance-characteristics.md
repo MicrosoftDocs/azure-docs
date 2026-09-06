@@ -62,6 +62,6 @@ The request rate and bandwidth of your storage account depend on object size, ac
 You should periodically evaluate the performance of your lifecycle management policy. Set up [Event Grid Notifications](../../event-grid/blob-event-quickstart-portal.md) to get notified on when a lifecycle management policy run is completed. To dive into run details, use storage resource logs in [Azure Monitor](monitor-blob-storage.md) .
 
 ## Next Steps
-- [Blob Storage FAQ](storage-blob-faq.yml)
+- [Lifecycle management policy FAQ](lifecycle-management-policy-faq.md)
 - [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
 - [Plan and manage Costs for Blob Storage](../common/storage-plan-manage-costs.md)

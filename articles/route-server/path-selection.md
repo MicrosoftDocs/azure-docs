@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-route-server
 ms.topic: concept-article
-ms.date: 09/17/2025
+ms.date: 08/27/2026
 ms.custom: sfi-image-nochange
 
 #CustomerIntent: As a network administrator, I want to understand path selection options with Azure Route Server so I can optimize traffic routing between Azure and on-premises networks for either performance or cost.
@@ -13,9 +13,12 @@ ms.custom: sfi-image-nochange
 
 # Path selection with Azure Route Server
 
-Azure Route Server enables sophisticated path selection capabilities for network virtual appliances (NVAs) in hybrid connectivity scenarios. By configuring routing preferences, you can optimize traffic flows between Azure virtual networks and on-premises networks based on your specific requirements for performance, cost, or resilience.
+Azure Route Server enables sophisticated path selection capabilities for network virtual appliances (NVAs) in hybrid connectivity scenarios. By configuring the routing preference on the public IP addresses your NVAs use, you can optimize traffic flows between Azure virtual networks and on-premises networks based on your specific requirements for performance, cost, or resilience.
 
-This article explains how path selection works with Azure Route Server and how to configure routing preferences to meet your business needs.
+This article explains how path selection works with Azure Route Server and how to configure public IP routing preference to meet your business needs.
+
+> [!NOTE]
+> The routing preference described in this article is the [Azure public IP routing preference](../virtual-network/ip-services/routing-preference-overview.md), which controls whether traffic travels over the Microsoft global network or the public internet. It's a different feature from [Azure Route Server hub routing preference](hub-routing-preference.md), which controls whether Route Server selects routes learned over ExpressRoute, VPN, or AS Path when the same prefix is advertised from more than one source.
 
 ## What is path selection
 
@@ -26,9 +29,9 @@ Path selection in Azure Route Server refers to the ability to control how traffi
 - **Enhance resilience**: Implement multiple paths for redundancy and failover
 - **Meet compliance requirements**: Ensure traffic follows specific network routes
 
-## Routing preference options
+## Public IP routing preference options
 
-Azure Route Server supports two primary routing preferences that determine how traffic travels between Azure and your on-premises networks.
+Azure supports two public IP routing preferences that determine how traffic travels between Azure and your on-premises networks.
 
 ### Microsoft network routing (cold potato routing)
 

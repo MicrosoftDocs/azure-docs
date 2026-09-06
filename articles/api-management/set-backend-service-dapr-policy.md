@@ -5,7 +5,7 @@ services: api-management
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 03/18/2024
+ms.date: 08/18/2026
 ---
 
 # Send request to a service

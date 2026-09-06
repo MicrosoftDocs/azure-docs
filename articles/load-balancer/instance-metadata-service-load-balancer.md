@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 01/29/2026
+ms.date: 07/17/2026
 ms.author: mbender
 # Customer intent: "As a cloud infrastructure engineer, I want to retrieve load balancer and virtual machine IP information using the Instance Metadata Service, so that I can efficiently manage and troubleshoot my virtual machine instances behind the load balancer."
 ---
@@ -17,11 +17,7 @@ IMDS (Azure Instance Metadata Service) provides information about currently runn
 
 When you place virtual machine or virtual machine set instances behind an Azure Standard Load Balancer, you can use IMDS to retrieve metadata related to the load balancer and the instances.
 
-The metadata includes the following information for the virtual machines or virtual machine scale sets:
-
-* The instance level Public or Private IP of the specific Virtual Machine instance
-* Inbound rule configurations of the load balancer of each private IP of the network interface.
-* Outbound rule configurations of the load balancer of each private IP of the network interface.
+IMDS returns load balancer metadata for the VM instance, including its public or private IP address and its inbound and outbound rule configurations. For the detailed field-level schema, see the [schema breakdown](howto-load-balancer-imds.md#schema-breakdown).
 
 ## Access the load balancer metadata using IMDS
 

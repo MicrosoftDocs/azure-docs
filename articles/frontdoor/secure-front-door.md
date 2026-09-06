@@ -64,9 +64,9 @@ Data protection for Azure Front Door focuses on encrypting traffic, protecting c
 
 - **Use end-to-end TLS**: Configure HTTPS from clients to Azure Front Door and from Azure Front Door to origins so traffic remains encrypted across the full request path. For more information, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
 
-- **Configure current TLS policies**: Use the newest predefined TLS policy or a custom TLS policy that meets your security requirements for minimum protocol versions and cipher suites. For more information, see [Azure Front Door TLS policy](standard-premium/tls-policy.md).
+- **Configure current TLS policies**: Use the newest predefined TLS policy or a custom TLS policy that meets your security requirements for minimum protocol versions and cipher suites. For more information, see [Azure Front Door TLS policy](tls-policy.md).
 
-- **Don't rely on Front Door for client certificate authentication**: Front Door Standard and Premium don't currently support client or mutual authentication (mTLS). If your workload requires mTLS, implement that control at an origin or alternate ingress layer and validate the complete request path. For more information, see [Azure Front Door TLS policy](standard-premium/tls-policy.md).
+- **Don't rely on Front Door for client certificate authentication**: Front Door Standard and Premium don't currently support client or mutual authentication (mTLS). If your workload requires mTLS, implement that control at an origin or alternate ingress layer and validate the complete request path. For more information, see [Azure Front Door TLS policy](tls-policy.md).
 
 - **Manage certificates in Azure Key Vault**: Store customer-managed TLS certificates in Key Vault, use a managed identity for access, enable automatic certificate renewal where applicable, and protect the vault with soft-delete and purge protection. For more information, see [Configure HTTPS on an Azure Front Door custom domain](standard-premium/how-to-configure-https-custom-domain.md) and [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview).
 

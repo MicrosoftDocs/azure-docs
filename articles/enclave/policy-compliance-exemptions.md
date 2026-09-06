@@ -5,16 +5,17 @@ description: Policy compliance exemptions within Azure Enclave.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
+ms.service: azure-enclave
 ms.date: 9/30/2025
 ---
 
 # Azure Enclave Policy exemptions
 
-By default, all enclave [workloads](./what-workload.md) are governed following Azure Enclave platform-managed Azure Policy Initiatives detailed in [Azure Enclave governance/Governance](./what-azure-enclave.md#multi-layered-governance-security-and-monitoring). This means that all user workloads are governed by a set of Azure Policy Initiative assignments deployed by Azure Enclave.
+By default, all enclave [workloads](./what-workload.md) follow Azure Enclave managed Azure Policy Initiatives detailed in [Azure Enclave governance/Governance](./what-azure-enclave.md#multi-layered-governance-security-and-monitoring). This policy set governs all user workloads through Azure Enclave managed Azure Policy Initiative assignments.
 
 For certain enclave owners, this level of governance might be too protective or not protective enough for various reasons. For example, some enclave owners might have regulatory requirements for their workloads to have Public IP addresses, but Azure Enclave governance/Governance policies would block the creation of Public IP addresses for security or compliance reasons.
 
-Currently, this example would be expected behavior for governance on a workload. However, should enclave owners require greater flexibility or granularity over their enclave governance, they can manually exempt the platform-managed Azure Policies. This can be done using native Azure Policy capabilities called Policy exemptions, though it would require enclave owners to specifically modify platform-designed governance behavior on workloads within their enclave.
+Currently, this example is expected behavior for governance on a workload. However, if enclave owners require greater flexibility or granularity over their enclave governance, they can manually exempt the Azure Enclave managed Azure Policies. Use native Azure Policy capabilities called Policy exemptions to make these changes. However, enclave owners must specifically modify platform-designed governance behavior on workloads within their enclave.
 
 ## Overview
 

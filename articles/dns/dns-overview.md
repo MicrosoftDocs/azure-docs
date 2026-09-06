@@ -4,7 +4,7 @@ description: Learn how Azure DNS provides public and private DNS hosting, resolu
 author: asudbring
 ms.service: azure-dns
 ms.topic: overview
-ms.date: 06/22/2026
+ms.date: 07/28/2026
 ms.author: allensu
 #Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 # Customer intent: As an IT administrator, I want to assess Azure DNS services, so that I can decide if it meets my organization's DNS hosting and management needs better than our current solution.
@@ -12,18 +12,18 @@ ms.author: allensu
 
 # Azure DNS overview
 
-The Domain Name System (DNS) translates (resolves) a service name to an IP address. Azure DNS provides DNS hosting, resolution, and load balancing for your applications by using the Microsoft Azure infrastructure. 
+The Domain Name System (DNS) translates (resolves) a service name to an IP address. Azure DNS provides DNS hosting, resolution, and load balancing for your applications by using the Microsoft Azure infrastructure.
 
 Azure DNS supports both internet-facing DNS domains and private DNS zones. It provides the following services:
 - **[Azure Public DNS](public-dns-overview.md)** is a hosting service for DNS domains. By hosting your domains in Azure, you can manage your DNS records by using the same credentials, APIs, tools, and billing as your other Azure services.
 
-- **[Azure Private DNS](private-dns-overview.md)** is a DNS service for your virtual networks. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution. 
+- **[Azure Private DNS](private-dns-overview.md)** is a DNS service for your virtual networks. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution.
 
 - **[Azure DNS Private Resolver](dns-private-resolver-overview.md)** is a service that enables you to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers.
 
 - **[Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview)** is a DNS-based traffic load balancer. This service allows you to distribute traffic to your public facing applications across the global Azure regions.
 
-- **[DNS Security Policy](dns-security-policy.md)** offers the ability to filter and log DNS queries at the virtual network level. It also includes a Threat Intelligence feed which allows early detection and prevention of security incidents on your Virtual Networks where known malicious domains sourced by [Microsoft's Security Response Center (MSRC)](https://www.microsoft.com/msrc) can be blocked from name resolution. 
+- **[DNS Resolver Policy](dns-security-policy.md)** offers the ability to filter and log DNS queries at the virtual network level. It also includes a Threat Intelligence feed which allows early detection and prevention of security incidents on your Virtual Networks where known malicious domains sourced by [Microsoft's Security Response Center (MSRC)](https://www.microsoft.com/msrc) can be blocked from name resolution.
 
 Azure DNS enables multiple scenarios, including:
 

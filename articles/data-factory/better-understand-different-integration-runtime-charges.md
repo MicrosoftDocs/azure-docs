@@ -12,6 +12,8 @@ ms.date: 01/05/2024
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 In this article, we'll illustrate the pricing model using different integration runtime through some concrete examples. These examples only focus on copy activity, pipeline activity and external activity running on the integration runtime. It doesn't involve charges for Data Factory Pipeline Orchestration, Data Factory Operations and Data Factory Operations. For all pricing details, see [Data Pipeline Pricing and FAQ](pricing-concepts.md).
 
 The integration runtime, which is serverless in Azure and self-hosted in hybrid scenarios, provides the compute resources used to execute the activities in a pipeline. Integration runtime charges are prorated by the minute and rounded up.

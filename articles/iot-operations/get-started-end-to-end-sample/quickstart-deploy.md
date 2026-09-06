@@ -128,6 +128,7 @@ To connect your cluster to Azure Arc:
    az provider register -n "Microsoft.DeviceRegistry"
    az provider register -n "Microsoft.SecretSyncController"
    az provider register -n "Microsoft.Storage"
+   az provider register -n "Microsoft.Insights"
    ```
 
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:

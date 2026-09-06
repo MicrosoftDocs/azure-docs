@@ -28,6 +28,9 @@ Azure NetApp Files supports identity-based authentication over SMB through the f
 * **Microsoft Entra Domain Services authentication**: Cloud-based, Microsoft Entra Domain Services-joined Windows VMs can access Azure NetApp Files file shares with Microsoft Entra Domain Services credentials. In this solution, Microsoft Entra Domain Services runs a traditional Windows Server AD domain on behalf of the customer.
 * **AD Kerberos authentication for Linux clients**: Linux clients can use Kerberos authentication over SMB for Azure NetApp Files using AD DS.
 
+>[!NOTE]
+>Azure NetApp Files supports hybrid identity scenarios for SMB access. Hybrid identity users can access Azure NetApp Files SMB shares from Microsoft Entra ID-joined devices.
+
 ### <a name="network-requirements"></a>Network requirements 
 
 For predictable Active Directory Domain Services operations with Azure NetApp Files volumes, reliable and low-latency network connectivity (equal to or less than 10 milliseconds [ms] roundtrip time [RTT]) to AD DS domain controllers is highly recommended. Poor network connectivity or high network latency between Azure NetApp Files and AD DS domain controllers can cause client access interruptions or client timeouts.

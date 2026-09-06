@@ -15,7 +15,7 @@ ms.author: kendownie
 
 This article explains how you can use identity-based authentication, either on-premises or in Azure, to enable identity-based access to Azure Files over Server Message Block (SMB) protocol. Just like Windows file servers, you can grant permissions to an identity at the share, directory, or file level. There's no extra service charge to enable identity-based authentication on your storage account.
 
-Azure Files supports identity-based authentication over SMB for Windows, [Linux](storage-files-identity-auth-linux-kerberos-enable.md), and [macOS](identity-kerberos-authentication-macos.md) clients. Azure Files doesn't currently support identity-based authentication for Network File System (NFS) file shares.
+Azure Files supports identity-based authentication over SMB for Windows, Linux, and [macOS](identity-kerberos-authentication-macos.md) clients. To configure Linux clients, see [Configure Linux clients for Azure Files with on-premises AD DS](storage-files-identity-auth-linux-kerberos-enable.md) or [Configure Linux clients for Azure Files with Microsoft Entra Domain Services](storage-files-identity-auth-linux-kerberos-entra-domain-services.md). Azure Files doesn't currently support identity-based authentication for Network File System (NFS) file shares.
 
 ## Why use identity-based authentication?
 
@@ -58,6 +58,9 @@ Use the following guidelines to determine which identity source you should choos
 - If you already use Microsoft Entra Domain Services, choose Microsoft Entra Domain Services as your identity source.
 
 - If you need to authenticate macOS clients, choose Microsoft Entra Kerberos.
+
+> [!TIP]
+> You can change the identity source on a storage account later if your requirements change. For example, if you're moving from on-premises AD DS to cloud-only or hybrid identities backed by Microsoft Entra ID, you can migrate the storage account from AD DS to Microsoft Entra Kerberos authentication. For guidance, see [Change the identity source for Azure file shares](change-identity-source.md).
 
 ## Enable an identity source on your storage account
 

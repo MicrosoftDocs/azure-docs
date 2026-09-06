@@ -27,6 +27,9 @@ GPU-enabled functions require:
 - A custom container image that includes the Functions runtime and GPU libraries (CUDA, cuDNN, AI frameworks)
 - GPU quota approved for your Azure subscription
 
+> [!IMPORTANT]
+> Azure Container Apps serverless GPU workloads must run as non-root users. Update your container image and startup configuration so they don't require root access. Move package installation to image build time, and write runtime files to the working directory, `/tmp`, or a mounted volume. Don't rely on a specific injected username, user ID, or group ID. For more information, see [Removal of root access for Serverless GPU workloads](https://github.com/microsoft/azure-container-apps/issues/1746).
+
 ## Prerequisites
 
 Before you start, verify that you have the following items:

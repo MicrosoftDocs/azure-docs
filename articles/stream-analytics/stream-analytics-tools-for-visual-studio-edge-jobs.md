@@ -1,71 +1,85 @@
 ---
 title: Azure Stream Analytics Edge jobs in Visual Studio
-description: This article describes how to author, debug, and create your Stream Analytics on IoT Edge jobs using the Stream Analytics tools for Visual Studio.
-author: su-jie
-ms.author: sujie
-
+description: Author, debug, and create Azure Stream Analytics jobs for IoT Edge by using Stream Analytics tools for Visual Studio, then deploy them to your devices.
+author: spelluru
+ms.author: spelluru
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 12/07/2018
+ms.date: 08/25/2026
+ai-usage: ai-assisted
+
+#customer intent: As a Stream Analytics developer, I want to author, debug, and create Stream Analytics Edge jobs in Visual Studio so that I can deploy them to my IoT Edge devices.
 ---
 
-# Develop Stream Analytics Edge jobs using Visual Studio tools
+# Develop Stream Analytics Edge jobs by using Visual Studio tools
 
-In this tutorial, you learn how to use Stream Analytics tools for Visual Studio. You learn how to author, debug, and create your Stream Analytics Edge jobs. After you create and test the job, you can go to the Azure portal to deploy it to your devices. 
+In this article, you learn how to use Stream Analytics tools for Visual Studio to author, debug, and create Stream Analytics Edge jobs. After you create and test the job, you go to the Azure portal to deploy it to your devices.
 
-## Prerequisites
+## Prerequisites for developing Edge jobs
 
-You need the following prerequisites to complete this tutorial:
+You need the following prerequisites to complete the steps in this article:
 
-* Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/), or [Visual Studio 2013 Update 4](https://www.microsoft.com/download/details.aspx?id=45326). Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition isn't supported.  
+1. Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/), [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/), or [Visual Studio 2013 Update 4](https://www.microsoft.com/download/details.aspx?id=45326). Stream Analytics tools support the Enterprise (Ultimate/Premium), Professional, and Community editions, but not the Express edition.
 
-* Follow the [installation instructions](stream-analytics-tools-for-visual-studio-edge-jobs.md) to install Stream Analytics tools for Visual Studio.
+1. Follow the [installation instructions](stream-analytics-tools-for-visual-studio-install.md) to install Stream Analytics tools for Visual Studio.
  
-## Create a Stream Analytics Edge project 
+## Create a Stream Analytics Edge project
 
-From Visual Studio, select **File** > **New** > **Project**. Navigate to the **Templates** list on the left > expand **Azure Stream Analytics** > **Stream Analytics Edge** > **Azure Stream Analytics Edge Application**. Provide a Name, Location, and Solution name for your project and select **OK**.
+Create the Edge project that contains your job definition.
 
-![New Stream Analytics Edge project in Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
+1. From Visual Studio, select **File** > **New** > **Project**. Go to the **Templates** list on the left, and then expand **Azure Stream Analytics** > **Stream Analytics Edge** > **Azure Stream Analytics Edge Application**. Enter a name, location, and solution name for your project, and then select **OK**.
 
-After the project gets created, navigate to the **Solution Explorer** to view the folder hierarchy.
+   :::image type="content" source="./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png" alt-text="Screenshot of the New Project dialog box for creating an Azure Stream Analytics Edge application in Visual Studio.":::
 
-![Solution explorer view of Stream Analytics Edge job](./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png)
+1. After Visual Studio creates the project, go to **Solution Explorer** to view the folder hierarchy.
+
+   :::image type="content" source="./media/stream-analytics-tools-for-visual-studio-edge-jobs/edge-project-in-solution-explorer.png" alt-text="Screenshot of Solution Explorer showing the folder hierarchy of a Stream Analytics Edge project in Visual Studio.":::
 
  
 ## Choose the correct subscription
 
-1. From your Visual Studio **View** menu, select **Server Explorer**.  
+Connect Visual Studio to the Azure subscription where you want to create the job.
 
-2. Right click on **Azure** > Select **Connect to Microsoft Azure Subscription** > and then sign in with your Azure account.
+1. From your Visual Studio **View** menu, select **Server Explorer**.
+
+1. Select and hold (or right-click) **Azure**, select **Connect to Microsoft Azure Subscription**, and then sign in with your Azure account.
 
 ## Define inputs
 
-1. From the **Solution Explorer**, expand the **Inputs** node you should see an input named **EdgeInput.json**. Double-click to view its settings.  
+Configure the Edge Hub input that the job reads streaming events from.
 
-2. Set Source Type to **Data Stream**. Then set Source to **Edge Hub**, Event Serialization Format to **Json**, and Encoding to **UTF8**. Optionally, you can rename the **Input Alias**, let’s leave it as is for this example. In case you rename the input alias, use the name you specified when defining the query. Select **Save** to save the settings.  
-   ![Stream Analytics job input configuration](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
+1. From the **Solution Explorer**, expand the **Inputs** node. You see an input named **EdgeInput.json**. Open it to view its settings.
+
+1. Set Source Type to **Data Stream**. Then set Source to **Edge Hub**, Event Serialization Format to **Json**, and Encoding to **UTF8**. Optionally, rename the **Input Alias**, but leave it as is for this example. If you rename the input alias, use the name you specify when you define the query. Select **Save** to save the settings.
+   :::image type="content" source="./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png" alt-text="Screenshot of the Stream Analytics Edge Hub input configuration settings in Visual Studio.":::
  
 
 
 ## Define outputs
 
-1. From the **Solution Explorer**, expand the **Outputs** node you should see an output named **EdgeOutput.json**. Double-click to view its settings.  
+Configure the Edge Hub output that the job writes results to.
 
-2. Make sure to set Sink to select **Edge Hub**, set Event Serialization Format to **Json**, set Encoding to **UTF8**, and set Format **Array**. Optionally, you can rename the **Output Alias**, let’s leave it as is for this example. In case you rename the output alias, use the name you specified when defining the query. Select **Save** to save the settings. 
-   ![Stream Analytics job output configuration](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
+1. From the **Solution Explorer**, expand the **Outputs** node. You see an output named **EdgeOutput.json**. Open it to view its settings.
+
+1. Set Sink to **Edge Hub**, set Event Serialization Format to **Json**, set Encoding to **UTF8**, and set Format to **Array**. Optionally, rename the **Output Alias**, but leave it as is for this example. If you rename the output alias, use the name you specify when you define the query. Select **Save** to save the settings.
+   :::image type="content" source="./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png" alt-text="Screenshot of the Stream Analytics Edge Hub output configuration settings in Visual Studio.":::
  
+## Review unsupported operations
+
+Stream Analytics jobs deployed in the Stream Analytics IoT Edge environments support most of the [Stream Analytics Query Language reference](/stream-analytics-query/stream-analytics-query-language-reference). However, the following operations aren't supported for Stream Analytics Edge jobs:
+
+1. PARTITION BY
+1. TIMESTAMP BY OVER
+1. JavaScript UDF
+1. User-defined aggregates (UDA)
+1. GetMetadataPropertyValue
+1. Using more than 14 aggregates in a single step
+
+When you create a Stream Analytics Edge job in the portal, the compiler automatically warns you if you aren't using a supported operator.
+
 ## Define the transformation query
 
-Stream Analytics jobs deployed in the Stream Analytics IoT Edge environments support most of [Stream Analytics Query Language reference](/stream-analytics-query/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396). However, the following operations aren't yet supported for Stream Analytics Edge jobs: 
-
-
-|**Category**  | **Command**  |
-|---------|---------|
-|Other operators | <ul><li>PARTITION BY</li><li>TIMESTAMP BY OVER</li><li>JavaScript UDF</li><li>User-defined aggregates (UDA)</li><li>GetMetadataPropertyValue</li><li>Using more than 14 aggregates in a single step</li></ul>   |
-
-When you create a Stream Analytics Edge job in the portal, the compiler will automatically warn you if you aren't using a supported operator.
-
-From your Visual Studio, define the following transformation query in the query editor (**script.asaql file**)
+From Visual Studio, define the following transformation query in the query editor (the `script.asaql` file).
 
 ```sql
 SELECT * INTO EdgeOutput
@@ -74,47 +88,53 @@ FROM EdgeInput
 
 ## Test the job locally
 
-To test the query locally, you should upload the sample data. You can get sample data by downloading Registration data from the [GitHub repository](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/Registration.json) and save it to your local computer. 
+To test the query locally, upload the sample data. To get sample data, download the registration data from the [GitHub repository](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/Registration.json) and save it to your local computer.
 
-1. To upload sample data, right click on **EdgeInput.json** file and choose **Add Local Input**  
+1. To upload sample data, select and hold (or right-click) the **EdgeInput.json** file, and then select **Add Local Input**.
 
-2. In the pop-up window > **Browse** the sample data from your local path > Select **Save**.
-   ![Local input configuration in Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-local-input-configuration.png)
- 
-3. A file named **local_EdgeInput.json** is added automatically to your inputs folder.  
-4. You can either run it locally or submit to Azure. To test the query, select **Run Locally**.  
-   ![Stream Analytics job run options in Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-visual-stuidio-run-options.png)
- 
-5. The command prompt window shows the status of the job. When the job runs successfully, it creates a folder that looks like "2018-02-23-11-31-42" in your project folder path "Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42". Navigate to the folder path to view the results in the local folder:
+1. In the pop-up window, **Browse** the sample data from your local path and select **Save**.
+
+   :::image type="content" source="./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-local-input-configuration.png" alt-text="Screenshot of the local input configuration for uploading sample data in Visual Studio.":::
+
+1. Visual Studio automatically adds a file named **local_EdgeInput.json** to your inputs folder.
+
+1. You can either run it locally or submit it to Azure. To test the query, select **Run Locally**.
+
+   :::image type="content" source="./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-visual-stuidio-run-options.png" alt-text="Screenshot of the Stream Analytics job run options showing Run Locally in Visual Studio.":::
+
+1. The command prompt window shows the status of the job. When the job runs successfully, it creates a folder that looks like `2018-02-23-11-31-42` in your project folder path `Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42`. Go to the folder path to view the results in the local folder.
 
    You can also sign in to the Azure portal and verify that the job is created. 
 
-   ![Stream Analytics job result folder](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-job-result-folder.png)
+   :::image type="content" source="./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-job-result-folder.png" alt-text="Screenshot of the Stream Analytics job result folder showing local run output in Visual Studio.":::
 
 ## Submit the job to Azure
 
-1. Before you submit the job to Azure, you must connect to your Azure Subscription. Open **Server Explorer** > right click on **Azure** > **Connect to Microsoft Azure subscription** > sign in to your Azure subscription.  
+After you test the query, publish the job to your Azure subscription.
 
-2. To submit the job to Azure, navigate to the query editor > select **Submit to Azure**.  
+1. Before you submit the job to Azure, connect to your Azure subscription. Open **Server Explorer**, select and hold (or right-click) **Azure**, select **Connect to Microsoft Azure subscription**, and then sign in to your Azure subscription.
 
-3. A pop-up window opens. Choose to update an existing Stream Analytics Edge job or create a new one. When you update an existing job, it will replace all the job configuration, in this scenario, you'll publish a new job. Select **Create a New Azure Stream Analytics Job** > enter a name for your job something like **MyASAEdgeJob** > choose the required **Subscription**, **Resource Group**, and **Location** > Select **Submit**.
+1. To submit the job to Azure, go to the query editor and select **Submit to Azure**.
 
-   ![Submit Stream Analytics job to Azure from Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-stream-analytics-job-to-azure.png)
+1. A pop-up window opens. Choose to update an existing Stream Analytics Edge job or create a new one. When you update an existing job, it replaces all the job configuration. In this scenario, you publish a new job. Select **Create a New Azure Stream Analytics Job**, enter a name for your job such as **MyASAEdgeJob**, choose the required **Subscription**, **Resource Group**, and **Location**, and then select **Submit**.
+
+   :::image type="content" source="./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-stream-analytics-job-to-azure.png" alt-text="Screenshot of the dialog box for submitting a Stream Analytics Edge job to Azure from Visual Studio.":::
  
-   Now your Stream Analytics Edge job has been created. You can refer to the [Run jobs on IoT Edge tutorial](stream-analytics-edge.md) to learn how to deploy it to your devices. 
+   You now have a Stream Analytics Edge job. To learn how to deploy it to your devices, see [Run jobs on IoT Edge](stream-analytics-edge.md).
 
-## Manage the job 
+## Manage the job
 
-You can view the status of job and the job diagram from the Server Explorer. From **Stream Analytics** in **Server Explorer**, expand the subscription and the resource group where you deployed the Stream Analytics Edge job. You can view the MyASAEdgejob with status **Created**. Expand your job node and double-click on it to open the job view.
+Manage the job status and the job diagram from Server Explorer.
 
-![Server explorer job management options](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
- 
-The job view window provides you with operations such as refreshing the job, deleting the job, and opening the job from Azure portal.
+1. From **Stream Analytics** in **Server Explorer**, expand the subscription and the resource group where you deployed the Stream Analytics Edge job. You see **MyASAEdgejob** with the status **Created**. Expand your job node, and then open it to view the job.
 
-![Job diagram and other options in Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/job-diagram-and-other-options.png) 
+   :::image type="content" source="./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png" alt-text="Screenshot of Server Explorer showing job management options for a Stream Analytics Edge job.":::
 
-## Next steps
+1. In the job view window, you can refresh the job, delete it, and open it in the Azure portal.
 
-* [More information on Azure IoT Edge](../iot-edge/about-iot-edge.md)
-* [ASA on IoT Edge tutorial](../iot-edge/tutorial-deploy-stream-analytics.md)
-* [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u)
+   :::image type="content" source="./media/stream-analytics-tools-for-visual-studio-edge-jobs/job-diagram-and-other-options.png" alt-text="Screenshot of the job view window showing the job diagram and other options in Visual Studio.":::
+
+## Related content
+
+* [What is Azure IoT Edge?](../iot-edge/about-iot-edge.md)
+* [Deploy Azure Stream Analytics as an IoT Edge module](../iot-edge/tutorial-deploy-stream-analytics.md)

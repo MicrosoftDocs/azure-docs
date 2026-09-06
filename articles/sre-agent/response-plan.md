@@ -90,7 +90,7 @@ Select **Next**. The incidents preview shows a table of past incidents that matc
 The table displays:
 
 - **Priority**, **Date created**, **Title**, **Incident ID**, and **Status** for each matching incident
-- A time range filter (default: Last 90 days) to adjust the preview window
+- A time range filter. The default is **Last 90 days** for most incident platforms and **Last 30 days** for Azure Monitor.
 
 Review the results:
 
@@ -98,7 +98,7 @@ Review the results:
 - **No matches?** This result is normal for new services. Your plan still works for future incidents.
 - **Right number?** Your filter is well-tuned.
 
-Select **Create incident response plan** to save the plan.
+Select **Create** to save the plan.
 
 **Checkpoint:** The plan appears in the grid with Status **On** (green badge).
 
@@ -162,6 +162,6 @@ Deleted plans stop routing incidents immediately. Active investigations that the
 | Resource | What you learn |
 |----------|-------------------|
 | [Incident response plans](incident-response-plans.md) | Understand the full response plans capability |
-| [Connect a data source](kusto-connector.md) | Give your custom agent access to log data |
+| [Connect a telemetry source](kusto-connector.md) | Give your custom agent access to log data |
 | [Deep investigation](deep-investigation.md) | Complex root cause analysis |
 | [Custom agents](sub-agents.md) | Specialized custom agents for different incident types |

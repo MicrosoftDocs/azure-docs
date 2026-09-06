@@ -1,59 +1,60 @@
 ---
-title: Soft Delete in Azure App Configuration
-description: Soft Delete in Azure App Configuration 
+title: Soft delete in Azure App Configuration
+description: Learn how soft delete helps you recover deleted Azure App Configuration stores.
 author: muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
 ms.custom:
 ms.topic: concept-article
-ms.date: 06/04/2025
+ms.date: 9/1/2026
+ai-usage: ai-assisted
 ---
 
 # Soft delete
 
-Azure App Configuration's Soft delete feature allows recovery of your data such as key-values, feature flags, and revision history of a deleted store. It's automatically enabled for all stores in the Standard and Premium tiers. In this article, learn more about the soft delete feature and its functionality.
+Azure App Configuration's soft delete feature allows you to recover data such as key-values, feature flags, and the revision history of a deleted store. It's automatically enabled for all stores in the Standard and Premium tiers. In this article, you learn about the soft delete feature and its functionality.
 
 Learn how to [recover Azure App Configuration stores](./howto-recover-deleted-stores-in-azure-app-configuration.md) using the soft delete feature.
 
 > [!NOTE]
-> When an App Configuration store is soft-deleted, services that are integrated with the store will be deleted. For example Azure RBAC roles assignments, managed identity, Event Grid subscriptions, and private endpoints. Recovering a soft-deleted App Configuration store will not restore these services. They will need to be recreated.
+> When an App Configuration store is soft deleted, services that are integrated with the store are deleted. Examples include Azure RBAC role assignments, managed identities, Event Grid subscriptions, and private endpoints. Recovering a soft-deleted App Configuration store doesn't restore these services. You must recreate them.
 
 ## Scenarios
 
 The soft delete feature addresses the recovery of the deleted stores, whether the deletion was accidental or intentional. The soft delete feature will act as a safeguard in the following scenarios:
 
-* **Recovery of a deleted App Configuration store**: A deleted app configuration store could be recovered in the retention time period.
+* **Recovery of a deleted App Configuration store**: You can recover a deleted App Configuration store during the retention period.
 
-* **Permanent deletion of App Configuration store**: This feature helps you to permanently delete an app configuration store.
+* **Permanent deletion of an App Configuration store**: You can permanently delete an App Configuration store.
 
 ## Recover
-Recover is the operation to get the stores in a soft deleted state back to an active state where one can request the store for configuration and feature management.
+Recover returns a store in a soft-deleted state to an active state, where you can use the store for configuration and feature management.
 
 ## Retention period
-A variable to specify the time period, in days, for which a soft deleted store will be retained. This value can only be set at the creation of store and once set, it can't be changed. Once the retention period elapses, the store will be permanently deleted automatically.
+The retention period specifies how long, in days, a soft-deleted store is retained. You can set this value only when you create the store, and you can't change it afterward. When the retention period elapses, the store is permanently deleted automatically.
 
 ## Purge
-Purge is the operation to permanently delete the stores in a soft deleted state, provided the store doesn't have purge-protection enabled. To recreate the App Configuration store with the same name as a deleted store, you need to purge the store first if it's not already past the retention period.
+Purge permanently deletes a store in a soft-deleted state, provided the store doesn't have purge protection enabled. To recreate an App Configuration store with the same name as a deleted store, you must purge the deleted store first if its retention period hasn't elapsed.
 
 ## Purge protection
-With Purge protection enabled, soft deleted stores can't be purged in the retention period. If disabled, the soft deleted store can be purged before the retention period expires. Once purge protection is enabled on a store, it can't be disabled.
+When purge protection is enabled, soft-deleted stores can't be purged during the retention period. When purge protection is disabled, a soft-deleted store can be purged before the retention period expires. After you enable purge protection on a store, you can't disable it.
 
 ## Permissions to recover a deleted store
 
 - `Microsoft.AppConfiguration/configurationStores/write`
 
-To recover a deleted App Configuration store the `Microsoft.AppConfiguration/configurationStores/write` permission is needed. The built-in "App Configuration Contributor", "Owner", and "Contributor" roles contain this permission by default. The permission can be assigned at the subscription or resource group scope.
+To recover a deleted App Configuration store, you need the `Microsoft.AppConfiguration/configurationStores/write` permission. The built-in [App Configuration Contributor](../role-based-access-control/built-in-roles/integration.md#app-configuration-contributor), [Owner](../role-based-access-control/built-in-roles/privileged.md#owner), and [Contributor](../role-based-access-control/built-in-roles/privileged.md#contributor) roles include this permission by default. Assign the permission at the subscription or resource group scope.
 
 ## Permissions to read and purge deleted stores
 
 * Read: `Microsoft.AppConfiguration/locations/deletedConfigurationStores/read`
 * Purge: `Microsoft.AppConfiguration/locations/deletedConfigurationStores/purge/action`
 
-To list deleted App Configuration stores, or get an individual store by name the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/read` permission is needed. To purge a deleted App Configuration store the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/purge/action` permission is needed. The built-in "App Configuration Contributor" and "App Configuration Reader" roles contain the permission for reading deleted App Configuration stores but not the permission for purging deleted App Configuration stores. The built-in "Owner" and "Contributor" roles contain these permissions by default. Permissions for reading and purging deleted App Configuration stores must be assigned at the subscription level. This is because deleted configuration stores exist outside of individual resource groups. 
+To list deleted App Configuration stores or get an individual store by name, you need the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/read` permission. To purge a deleted App Configuration store, you need the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/purge/action` permission. The built-in [App Configuration Contributor](../role-based-access-control/built-in-roles/integration.md#app-configuration-contributor) and [App Configuration Reader](../role-based-access-control/built-in-roles/integration.md#app-configuration-reader) roles contain the permission for reading deleted App Configuration stores but not the permission for purging them. The built-in [Owner](../role-based-access-control/built-in-roles/privileged.md#owner) and [Contributor](../role-based-access-control/built-in-roles/privileged.md#contributor) roles contain both permissions by default. You must assign permissions for reading and purging deleted App Configuration stores at the subscription level because deleted configuration stores exist outside individual resource groups.
 
 ## Billing implications
 
-There won't be any charges for the soft deleted stores. Once you recover a soft deleted store, the usual charges will start applying. Soft delete isn't available in the Free and Developer tiers.
+There are no charges for soft-deleted stores. After you recover a soft-deleted store, the usual charges apply. Soft delete isn't available in the Free and Developer tiers.
 
 ## Next steps
 

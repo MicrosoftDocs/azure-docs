@@ -1,24 +1,24 @@
 ---
 title: Azure Backup pricing
-description: Learn how to estimate your costs for budgeting Azure Backup pricing.
+description: Learn how Azure Backup pricing works and estimate backup costs for Azure VMs, on-premises servers, SQL Server, SAP HANA, and Azure Files.
 ms.topic: how-to
-ms.date: 09/19/2025
+ms.date: 08/26/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a finance manager, I want to utilize a cost estimator for Azure Backup, so that I can accurately budget and compare costs for backing up various workloads within our organization."
 ---
 
-# Estimate and understand Azure Backup pricing
+# Estimate Azure Backup costs and understand pricing
 
-This article describes how to estimate and understand the costs associated with using Azure Backup. You learn about the available pricing tools, key parameters that affect backup costs, and how to use the Azure Backup pricing estimator to budget for different workloads and scenarios.
+This article explains the factors that affect Azure Backup pricing and how to use the Azure Backup pricing estimator. You can estimate backup costs for Azure VMs, on-premises servers, SQL Server in Azure VMs, SAP HANA in Azure VMs, and Azure Files.
 
 To learn about Azure Backup pricing, visit the [Azure Backup pricing page](https://azure.microsoft.com/pricing/details/backup/).
 
-## Download detailed estimates for Azure Backup pricing
+## Download and use the Azure Backup pricing estimator
 
 If you're looking to estimate your costs for budgeting or cost comparison purposes, download the detailed [Azure Backup pricing estimator](https://aka.ms/AzureBackupCostEstimates).  
 
-### What does the estimator contain?
+### Workloads supported by the Azure Backup pricing estimator
 
 The Azure Backup cost estimator sheet has an option for you to estimate all possible workloads you're looking to back up using Azure Backup. These workloads include:
 
@@ -26,7 +26,7 @@ The Azure Backup cost estimator sheet has an option for you to estimate all poss
 - On-premises servers
 - SQL in Azure VMs
 - SAP HANA in Azure VMs
-- Azure files shares
+- Azure Files
 
 ## Estimate costs for backing up Azure VMs or on-premises servers
 
@@ -56,31 +56,31 @@ To estimate the costs of backing up Azure VMs or on-premises servers using Azure
 
   - How long do you expect to retain **Yearly** backups? (in years)
 
-  - How long do you expect to retain **Instant restore snapshots**? (1-5 days)
+  - How long do you expect to retain **Instant restore snapshots**? (1-5 days for Standard backup policy, 30 days for Enhanced backup policy)
 
-    - This option lets you restore from as far back as seven days in a quick manner using snapshots stored on disks.
+    - This option lets you restore from as far back as 30 days in a quick manner by using snapshots stored on disks.
 
-- **Optional** – Selective Disk backup
+- **Optional**: Selective disk backup
 
   - If you're using the **Selective Disk Backup** option while backing up Azure VMs, choose the **Exclude Disk** option and enter the percentage of disks excluded from backup in terms of size. For example, if you have a VM connected to three disks with 200 GB used in each disk and if you want to exclude two of them from backing up, enter 66.7%.
 
-- **Optional** – Backup Storage Redundancy
+- **Optional**: Backup storage redundancy
 
   - This indicates the redundancy of the Storage Account your backup data goes into. We recommend using **GRS** for the highest availability. Since it ensures that a copy of your backup data is kept in a different region, it helps you meet multiple compliance standards. Change the redundancy to **LRS** if you're backing up development or test environments that don't need an enterprise-level backup. Select the **RAGRS** option in the sheet if you want to understand costs when [Cross-Region Restore](backup-azure-arm-restore-vms.md#cross-region-restore) is enabled for your backups.
 
-- **Optional** – Modify regional pricing or apply discounted rates
+- **Optional**: Modify regional pricing or apply discounted rates
 
   - If you want to check your estimates for a different region or discounted rates, select **Yes** for the **Try estimates for a different region?** option and enter the rates with which you want to run the estimates.
 
-## Estimate costs for backing up SQL servers in Azure VMs
+## Estimate costs for SQL Server in Azure VMs
 
-To estimate the costs of backing up SQL servers running in Azure VMs using Azure Backup, you’ll need the following parameters:
+To estimate the costs of backing up SQL Server workloads running in Azure VMs using Azure Backup, you need the following parameters:
 
-- Size of the SQL servers that you're trying to back up
+- Size of the SQL Server workloads that you want to back up
 
-- Number of SQL servers with the above size
+- Number of SQL Server workloads with the above size
 
-- What is the expected compression for your SQL servers’ backup data?
+- Expected compression for your SQL Server backup data
 
   - Most Azure Backup customers see that the backup data has 80% compression compared to the SQL server size when the SQL compression is **enabled**.
 
@@ -114,11 +114,11 @@ To estimate the costs of backing up SQL servers running in Azure VMs using Azure
 
   - How long do you expect to retain **Yearly** backups? (in years)
 
-- **Optional** – Backup Storage Redundancy
+- **Optional**: Backup storage redundancy
 
   - This indicates the redundancy of the Storage Account your backup data goes into. We recommend using **GRS** for the highest availability. Since it ensures that a copy of your backup data is kept in a different region, it helps you meet multiple compliance standards. Change the redundancy to **LRS** if you're backing up development or test environments that don't need an enterprise-level backup.
 
-- **Optional** – Modify regional pricing or apply discounted rates
+- **Optional**: Modify regional pricing or apply discounted rates
 
   - If you want to check your estimates for a different region or discounted rates, select **Yes** for the **Try estimates for a different region?** option and enter the rates with which you want to run the estimates.
 
@@ -144,14 +144,14 @@ To estimate the costs of backing up SAP HANA servers running in Azure VMs using 
   - How long do you expect to retain **Weekly** backups? (in weeks)
   - How long do you expect to retain **Monthly** backups? (in months)
   - How long do you expect to retain **Yearly** backups? (in years)
-- **Optional** – Backup Storage Redundancy
+- **Optional**: Backup storage redundancy
   
   - This indicates the redundancy of the Storage Account your backup data goes into. We recommend using **GRS** for the highest availability. Since it ensures that a copy of your backup data is kept in a different region, it helps you meet multiple compliance standards. Change the redundancy to **LRS** if you're backing up development or test environments that don't need an enterprise-level backup.
-- **Optional** – Modify regional pricing or apply discounted rates
+- **Optional**: Modify regional pricing or apply discounted rates
   
   - If you want to check your estimates for a different region or discounted rates, select **Yes** for the **Try estimates for a different region?** option and enter the rates with which you want to run the estimates.
   
-## Estimate costs for backing up Azure file shares
+## Estimate Azure Files backup costs
 
 To estimate the costs of backing up Azure file shares using the [snapshot-based backup solution](azure-file-share-backup-overview.md) offered by Azure Backup, you’ll need the following parameters:
 
@@ -167,14 +167,14 @@ To estimate the costs of backing up Azure file shares using the [snapshot-based 
 - Type of storage account (standard or premium) and the storage redundancy setting of the storage account hosting the backed-up file share. <br>In the current backup solution for Azure file shares, snapshots are stored in the same storage account as the backed-up file share. So the storage cost associated with snapshots is billed as part of your Azure files bill, based on the snapshot pricing for the account type and redundancy setting of the storage account hosting the backed-up file share and snapshots.
 
 - Retention for different backups
-  - How long do you expect to retain “Daily” backups? (in days)
-  - How long do you expect to retain “Weekly” backups? (in weeks)
-  - How long do you expect to retain “Monthly” backups? (in months)
-  - How long do you expect to retain “Yearly” backups? (in years)
+  - How long do you expect to retain **Daily** backups? (in days)
+  - How long do you expect to retain **Weekly** backups? (in weeks)
+  - How long do you expect to retain **Monthly** backups? (in months)
+  - How long do you expect to retain **Yearly** backups? (in years)
 
   Refer to [the Azure File share support matrix](azure-file-share-support-matrix.md#retention-limits) for the maximum supported retention values in each category.
 
-- **Optional** – Modify regional pricing or apply discounted rates.
+- **Optional**: Modify regional pricing or apply discounted rates.
   - The default values set for snapshot storage cost per GB and protected instance cost in the estimator are for the East US region. If you want to check your estimates for a different region or discounted rates, select **Yes** for the **Try estimates for a different region?** option, and enter the rates with which you want to run the estimates.
 
 ## Related content

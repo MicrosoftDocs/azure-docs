@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/10/2026
+ms.date: 08/25/2026
 ai-usage: ai-assisted
 ms.custom:
   - sfi-image-nochange

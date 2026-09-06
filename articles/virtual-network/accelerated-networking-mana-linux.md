@@ -18,14 +18,9 @@ For Windows support, see [Windows VMs with the Microsoft Azure Network Adapter](
 
 For more info about MANA, see [Microsoft Azure Network Adapter overview](./accelerated-networking-mana-overview.md).
 
-## Supported Azure Marketplace images
+## Linux support for MANA
 
-Several Linux images from [Azure Marketplace](/marketplace/azure-marketplace-overview) have built-in support for the Ethernet driver in MANA:
-
-Operating system support details are listed at [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
-
-> [!NOTE]
-> Newer MANA features are under active development and Linux distribution vendors partner with Microsoft to update their kernels with upstream changes. Cadence of updates varies by distribution vendor. The newer your distribution and kernel is, the more likely it is to have the latest updates. 
+For a list of all the [Endorsed Linux distributions](/azure/virtual-machines/linux/endorsed-distros) and minimum recommended kernel versions for MANA, see [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
 
 ## Check the status of MANA support
 

@@ -3,8 +3,8 @@ title: 'Quickstart: Deploy updates by using Update Manager in the Azure portal'
 description: This quickstart helps you to deploy updates immediately and view results for supported machines in Azure Update Manager by using the Azure portal.
 ms.service: azure-update-manager
 ms.date: 03/06/2024
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.topic: quickstart
 ms.update-cycle: 1095-days
 # Customer intent: As a system administrator, I want to deploy on-demand updates to selected Azure virtual machines, so that I can ensure they are compliant and maintain optimal performance.

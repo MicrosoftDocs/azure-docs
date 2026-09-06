@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: quickstart
-ms.date: 05/12/2026
+ms.date: 07/10/2026
 ---
 
 # Migrate data from Google Cloud Storage to Azure Blob Storage with Azure Storage Mover 
@@ -65,6 +65,8 @@ To access your GCS bucket using the S3-compatible interface, you need to generat
 
 After generating HMAC keys for your GCS bucket, store them as secrets in Azure Key Vault for secure access by the Storage Mover service. 
 
+### [Azure portal](#tab/portal)
+
 1. Using the [Azure portal](https://portal.azure.com), navigate to the Azure Key Vault that resides within the same subscription as your Storage Mover resource.
 
 1. Within the left navigation, expand the **Objects** menu and select **Secrets**. Next, select **Generate/Import**.
@@ -91,6 +93,22 @@ After generating HMAC keys for your GCS bucket, store them as secrets in Azure K
     
 1. Note the full **Secret Identifier** URI for each secret. You need these identifiers when creating the source endpoint.
 
+### [Azure CLI](#tab/CLI)
+
+Use `az keyvault secret set` to store the GCS HMAC access key and secret key:
+
+```azurecli
+az keyvault secret set --vault-name "my-gcs-key-vault" --name "gcs-access-key" --value "<gcs-hmac-access-key>" --query id --output tsv
+```
+
+```azurecli
+az keyvault secret set --vault-name "my-gcs-key-vault" --name "gcs-secret-key" --value "<gcs-hmac-secret-key>" --query id --output tsv
+```
+
+Each command returns the versioned secret identifier used when you create the source endpoint.
+
+---
+
 > [!NOTE]
 > To ensure optimal security, we recommend disabling public access on the Key Vault containing HMAC secrets and adding Storage Mover as a trusted service.
 
@@ -110,6 +128,8 @@ Source endpoints identify locations from which your data is migrated. Source end
 
 The following steps describe the process of creating a source endpoint.
 
+### [Azure portal](#tab/portal)
+
 1. Navigate to your Storage Mover instance in the Azure portal. 
 1. From the **Resource management** group within the left navigation, select **Storage endpoints**. Select the **Source endpoints** tab, and then select **Create endpoint** to open the **Create source endpoint** pane. 
 1. In the **Create source endpoint** pane: 
@@ -127,48 +147,23 @@ The following steps describe the process of creating a source endpoint.
     > [!NOTE] 
     > When the source endpoint is created, a system-assigned managed identity is automatically provisioned. This identity requires **Key Vault Secrets User** Role-Based Access Control (RBAC) role access on your Azure Key Vault to retrieve the HMAC credentials during migration. The portal attempts to assign this role automatically. If the assignment fails due to insufficient permissions, assign them manually or contact your Azure administrator to grant the role manually.
 
-<!--
-# [Azure Portal](#tab/portal)
+### [Azure CLI](#tab/CLI)
 
-Portal example
+Use `az storage-mover endpoint create-for-s3-with-hmac` to create the GCS source endpoint:
 
-# [Azure PowerShell](#tab/powershell)
+```azurecli
+az storage-mover endpoint create-for-s3-with-hmac --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --endpoint-name "my-gcs-endpoint" --source-uri "https://storage.googleapis.com/my-gcs-bucket/" --source-type GCS --access-key-uri "https://my-gcs-key-vault.vault.azure.net/secrets/gcs-access-key/<secret-version>" --secret-key-uri "https://my-gcs-key-vault.vault.azure.net/secrets/gcs-secret-key/<secret-version>" --endpoint-kind Source --description "GCS source endpoint"
+```
 
-PowerShell example.
+The command automatically assigns a system-assigned managed identity to the source endpoint.
 
-```powershell 
+To migrate only a prefix from the bucket, use `https://storage.googleapis.com/my-gcs-bucket/my-prefix/` as the source URI.
 
-New-AzStorageMoverEndpoint ` 
-
-    -ResourceGroupName "myResourceGroup" ` 
-    -StorageMoverName "myStorageMover" ` 
-    -Name "gcs-source-endpoint" ` 
-    -EndpointType "S3WithHMAC" ` 
-    -SourceUri "https://storage.googleapis.com/my-bucket/" ` 
-    -AccessKeySecretUri "https://myvault.vault.azure.net/secrets/gcs-access-key" ` 
-    -SecretKeySecretUri "https://myvault.vault.azure.net/secrets/gcs-secret-key" 
-
-``` 
-
-# [Azure CLI](#tab/cli)
-
-CLI example.
-
-```azurecli 
-az storage-mover endpoint create \ 
-    --resource-group "myResourceGroup" \ 
-    --storage-mover-name "myStorageMover" \ 
-    --name "gcs-source-endpoint" \ 
-    --endpoint-type "S3WithHMAC" \ 
-    --source-uri "https://storage.googleapis.com/my-bucket/" \ 
-    --access-key-secret-uri "https://myvault.vault.azure.net/secrets/gcs-access-key" \ 
-    --secret-key-secret-uri "https://myvault.vault.azure.net/secrets/gcs-secret-key" 
-``` 
-
---- 
---->
+---
 
 ### Configure an Azure Blob Storage target endpoint
+
+### [Azure portal](#tab/portal)
 
 1. From the **Resource management** group within the left navigation, select **Storage endpoints**. Select the **Target endpoints** tab, and then select **Add endpoint** to open the **Create target endpoint** pane. 
 1. In the **Create target endpoint** pane: 
@@ -180,37 +175,19 @@ az storage-mover endpoint create \
 
 1. Verify that your selections are correct and select **Create** to create the endpoint. 
 
-<!--
-#### Azure PowerShell 
+### [Azure CLI](#tab/CLI)
 
-```powershell 
+Use `az storage-mover endpoint create-for-storage-container` to create the target endpoint:
 
-New-AzStorageMoverEndpoint ` 
-    -ResourceGroupName "myResourceGroup" ` 
-    -StorageMoverName "myStorageMover" ` 
-    -Name "blob-target-endpoint" ` 
-    -EndpointType "AzureBlobContainer" ` 
-    -StorageAccountResourceId "/subscriptions/<sub-id>/resourceGroups/<rg>/providers/Microsoft.Storage/storageAccounts/<account>" ` 
-    -ContainerName "my-target-container" 
+```azurecli
+az storage-mover endpoint create-for-storage-container --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --endpoint-name "my-blob-endpoint" --container-name "migration-container" --storage-account-id "/subscriptions/<subscription-id>/resourceGroups/c2c-migration-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount" --endpoint-kind Target --description "Azure Blob Storage target endpoint"
+```
 
-``` 
-
-#### Azure CLI 
-
-```azurecli 
-az storage-mover endpoint create \ 
-    --resource-group "myResourceGroup" \ 
-    --storage-mover-name "myStorageMover" \ 
-    --name "blob-target-endpoint" \ 
-    --endpoint-type "AzureBlobContainer" \ 
-    --storage-account-resource-id "/subscriptions/<sub-id>/resourceGroups/<rg>/providers/Microsoft.Storage/storageAccounts/<account>" \ 
-    --container-name "my-target-container" 
-``` 
-
---- 
--->
+---
 
 ### Assign RBAC roles 
+
+### [Azure portal](#tab/portal)
 
 When you create endpoints through the Azure portal, the required RBAC roles are automatically assigned to the system-assigned managed identities: 
  
@@ -222,33 +199,33 @@ When you create endpoints through the Azure portal, the required RBAC roles are 
 
 If automatic assignment fails (for example, due to insufficient permissions), you must manually assign these roles or contact your Azure administrator. 
 
-<!--
-#### Azure PowerShell / Azure CLI 
+### [Azure CLI](#tab/CLI)
 
-If you create endpoints using PowerShell or CLI, manually assign the required RBAC roles: 
+The source endpoint creation command automatically assigns a system-assigned managed identity. Get its principal ID:
 
-**Source endpoint → Key Vault:** 
+```azurecli
+az storage-mover endpoint identity show --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --endpoint-name "my-gcs-endpoint" --query principalId --output tsv
+```
 
-```azurecli 
-az role assignment create \ 
-    --assignee "<source-endpoint-managed-identity-principal-id>" \ 
-    --role "Key Vault Secrets User" \ 
-    --scope "/subscriptions/<sub-id>/resourceGroups/<rg>/providers/Microsoft.KeyVault/vaults/<vault-name>" 
-``` 
+Assign the **Key Vault Secrets User** role on the Key Vault:
 
-**Target endpoint → Blob container:** 
+```azurecli
+az role assignment create --assignee-object-id "<source-endpoint-principal-id>" --assignee-principal-type ServicePrincipal --role "Key Vault Secrets User" --scope "/subscriptions/<subscription-id>/resourceGroups/c2c-migration-rg/providers/Microsoft.KeyVault/vaults/my-gcs-key-vault"
+```
 
-```azurecli 
+Get the target endpoint managed identity:
 
-az role assignment create \ 
-    --assignee "<target-endpoint-managed-identity-principal-id>" \ 
-    --role "Storage Blob Data Contributor" \ 
-    --scope "/subscriptions/<sub-id>/resourceGroups/<rg>/providers/Microsoft.Storage/storageAccounts/<account>/blobServices/default/containers/<container>" 
+```azurecli
+az storage-mover endpoint show --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "my-blob-endpoint" --query identity.principalId --output tsv
+```
 
-``` 
+Assign the **Storage Blob Data Contributor** role on the target container:
+
+```azurecli
+az role assignment create --assignee-object-id "<target-endpoint-principal-id>" --assignee-principal-type ServicePrincipal --role "Storage Blob Data Contributor" --scope "/subscriptions/<subscription-id>/resourceGroups/c2c-migration-rg/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/containers/migration-container"
+```
 
 ---
--->
 
 ## Create a migration project and job definition 
 
@@ -260,6 +237,8 @@ Follow the steps in this section to create a migration project and run a migrati
 
 ### Create a project 
 
+### [Azure portal](#tab/portal)
+
 1. Navigate to the **Projects** section under **Plan + run migrations** in your Storage Mover instance and select **Create project** in **Projects** tab. 
 1. Provide values for the following fields: 
 
@@ -270,7 +249,19 @@ Follow the steps in this section to create a migration project and run a migrati
 
     :::image type="content" source="media/google-migration/create-project-sml.png" lightbox="media/google-migration/create-project-lrg.png" alt-text="Screen capture displaying the fields relevant to the Storage Mover 'Create project' window.":::
 
+### [Azure CLI](#tab/CLI)
+
+Use `az storage-mover project create` to create a migration project:
+
+```azurecli
+az storage-mover project create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --name "my-migration-project" --description "GCS to Azure migration"
+```
+
+---
+
 ### Create a job definition 
+
+### [Azure portal](#tab/portal)
 
 Select the project after it appears, then select **Create a job**. The job creation wizard has four tabs: **Basics**, **Schedule**, **Settings**, and **Review**. 
 
@@ -358,11 +349,23 @@ Review the summary of your configuration:
 
 If all settings are correct, select **Create** to deploy the job. Select **Previous** to make changes. 
 
+### [Azure CLI](#tab/CLI)
+
+Use `az storage-mover job-definition create` to create a cloud-to-cloud job definition:
+
+```azurecli
+az storage-mover job-definition create --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-job-definition" --job-type CloudToCloud --copy-mode Additive --source-name "my-gcs-endpoint" --target-name "my-blob-endpoint" --source-subpath "/" --target-subpath "/" --description "GCS to Azure Blob Storage"
+```
+
+For a private GCS source, add `--connections "/subscriptions/<subscription-id>/resourceGroups/c2c-migration-rg/providers/Microsoft.StorageMover/storageMovers/myStorageMover/connections/private-connection"` to the command.
+
+---
+
 ## Run a migration job 
 
 ### Start a job 
 
-#### Azure portal 
+### [Azure portal](#tab/portal)
 
 1. Navigate to the **Projects** tab. Your newly created job appears in the list under your project. 
 1. Select your job definition to view its details in the **Properties** tab. 
@@ -370,6 +373,16 @@ If all settings are correct, select **Create** to deploy the job. Select **Previ
 1. In the **Start job** pane, confirm the job details and select **Start** to begin the migration. 
 
 The job runs in the background. You can monitor its progress in the **Migration overview** tab. 
+
+### [Azure CLI](#tab/CLI)
+
+Use `az storage-mover job-definition start-job` to start the migration:
+
+```azurecli
+az storage-mover job-definition start-job --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-job-definition"
+```
+
+The command output contains the job run resource ID and job run name.
 
 --- 
 
@@ -379,10 +392,28 @@ As you use Storage Mover to migrate your data, you should monitor the copy opera
 
 When configured, Azure Storage Mover also provides **Copy logs** and **Job run logs**. These logs allow you to trace the migration result of job runs and of individual files. 
 
+### [Azure portal](#tab/portal)
+
 1. Navigate to the **Migration Jobs** tab. 
 1. Select your job to view progress, speed, and estimated completion time. 
 1. Select **Logs** to check for any errors or warnings. 
 1. After the migration is complete, verify the data in Azure Blob Storage. 
+
+### [Azure CLI](#tab/CLI)
+
+Use `az storage-mover job-run show` to check a job run.  
+
+```azurecli
+az storage-mover job-run show --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-job-definition" --name "<job-run-name>" --query "{name:name,status:status}" --output table
+```
+
+Use `az storage-mover job-run list` to list all runs for the job definition.  
+
+```azurecli
+az storage-mover job-run list --resource-group "c2c-migration-rg" --storage-mover-name "myStorageMover" --project-name "my-migration-project" --job-definition-name "my-job-definition" --output table
+```
+
+---
 
 To learn more about Storage Mover Copy and Job logs, refer to the [How to enable Azure Storage Mover copy and job logs](log-monitoring.md) article. 
 

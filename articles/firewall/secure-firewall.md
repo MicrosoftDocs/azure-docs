@@ -1,96 +1,146 @@
 ---
 title: Secure your Azure Firewall deployment
-description: Learn how to secure Azure Firewall with best practices for network security, data protection, logging, threat detection, and advanced security features to protect your cloud infrastructure.
+description: Learn how to secure Azure Firewall deployments by using network, identity, data protection, monitoring, governance, and recovery best practices.
 author: duongau
 ms.author: duau
 ms.service: azure-firewall
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 07/07/2025
+ms.date: 08/11/2026
 ai-usage: ai-assisted
 ---
 
 # Secure your Azure Firewall deployment
 
-Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. As a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability, it's critical to properly configure and secure Azure Firewall to maximize protection for your cloud infrastructure and applications.
+Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. As a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability, Azure Firewall provides centralized policy enforcement for traffic that enters, leaves, and moves across your Azure networks.
 
-This article provides guidance on how to best secure your Azure Firewall deployment.
+This article provides security recommendations for Azure Firewall. Implementing these recommendations helps you fulfill your security obligations and improves the overall security posture of your deployment. For an overview of Azure's network security services and how they work together, see [What is Azure network security?](../networking/security/network-security.md)
+
+[!INCLUDE [Security horizontal Zero Trust statement](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-security-horizontal.md)]
 
 ## Network security
 
-Network security for Azure Firewall focuses on proper deployment within your virtual network infrastructure and ensuring secure traffic inspection capabilities. Azure Firewall serves as a central point for network security enforcement, making its proper configuration essential for protecting your entire network perimeter.
+Network security for Azure Firewall focuses on secure deployment, centralized inspection, and policy controls that reduce exposure across hub-and-spoke and hybrid networks.
 
-- **Deploy Azure Firewall in a dedicated subnet**: Always deploy Azure Firewall in its own dedicated subnet called "AzureFirewallSubnet" within your virtual network. This subnet requires a minimum size of /26 and shouldn't have Network Security Groups applied, as Azure Firewall has built-in platform protection. For more information, see [Tutorial: Secure your hub virtual network using Azure Firewall Manager](/azure/firewall-manager/secure-hybrid-network).
+- **Deploy Azure Firewall in a dedicated subnet**: Use the required `AzureFirewallSubnet` with a minimum size of /26, don't deploy other resources in the subnet, and keep workload route tables on workload subnets instead of the firewall subnet unless a documented forced-tunneling design requires firewall-subnet routes. For more information, see [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
-- **Enable threat intelligence-based filtering**: Configure threat intelligence-based filtering to alert and deny traffic from known malicious IP addresses, FQDNs, and URLs. This feature processes rules before any NAT, network, or application rules and provides protection based on Microsoft's threat intelligence feed. Start in alert mode and progress to alert and deny mode after testing. For more information, see [Azure Firewall threat intelligence-based filtering](threat-intel.md).
+- **Choose the right Azure Firewall SKU**: Azure Firewall is available in three SKUs: Basic for small and medium-sized businesses with throughput up to 250 Mbps, Standard, and Premium. Use Premium when you need advanced security features such as IDPS, TLS inspection, and URL filtering. Use Standard or Premium when you need web categories, which aren't available in Basic. For more information, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
 
-- **Implement IDPS for advanced threat detection**: Use Azure Firewall Premium's Intrusion Detection and Prevention System (IDPS) to monitor network activities for malicious patterns and signatures. IDPS provides signature-based detection with over 67,000 rules across 50+ categories and can operate in alert or alert-and-deny mode. For more information, see [Azure Firewall Premium features](premium-features.md#idps).
+- **Enable threat intelligence-based filtering**: Configure threat intelligence-based filtering to alert on traffic from known malicious IP addresses, FQDNs, and URLs. Use Standard or Premium when you need alert and deny mode, because Basic supports alert mode only. For more information, see [Azure Firewall threat intelligence-based filtering](threat-intel.md) and [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
 
-- **Configure DNS proxy functionality**: Enable Azure Firewall's DNS proxy feature to ensure consistent name resolution between clients and the firewall. This prevents issues where clients and firewall resolve FQDNs to different IP addresses, which could cause connection failures. For more information, see [Azure Firewall DNS Proxy details](dns-details.md).
+- **Implement IDPS for advanced threat detection**: Use Azure Firewall Premium intrusion detection and prevention system (IDPS) to detect and block malicious network activity based on Microsoft-managed signatures. Tune signature actions to reduce false positives and deny high-confidence threats. For more information, see [Azure Firewall Premium features](premium-features.md#idps).
 
-- **Use forced tunneling for hybrid environments**: Configure forced tunneling when you need to route internet-bound traffic through on-premises security appliances. Enable the Management NIC to support this configuration while maintaining firewall management connectivity. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
+- **Configure DNS proxy functionality**: Enable DNS proxy so clients and Azure Firewall use consistent name resolution for FQDN-based rules. This DNS configuration reduces the risk of rule bypass or connection failures caused by different DNS answers. For more information, see [Azure Firewall DNS Proxy details](dns-details.md).
 
-- **Enable TLS inspection for encrypted traffic**: Configure Azure Firewall Premium to inspect TLS traffic by enabling TLS inspection features. This creates dedicated TLS connections to examine encrypted traffic while maintaining security. You'll need to provide certificates through Azure Key Vault for this functionality. For more information, see [Azure Firewall Premium features](premium-features.md#tls-inspection).
+- **Use managed rule targets for Azure and Microsoft services**: Use service tags in network rules and FQDN tags in application rules instead of manually maintaining IP address ranges and service endpoint lists. For TCP or UDP protocols that need domain-based filtering, use FQDN filtering in network rules and enable DNS proxy. For more information, see [Overview of Azure Firewall service tags](service-tags.md), [FQDN tags overview for Azure Firewall](fqdn-tags.md), and [Azure Firewall FQDN filtering in network rules](fqdn-filtering-network-rules.md).
 
-- **Implement web categories filtering**: Use web categories to allow or deny access to specific website categories such as gambling, social media, or adult content. Azure Firewall Premium provides more granular control by examining the complete URL rather than just the domain name. For more information, see [Azure Firewall web categories](web-categories.md).
+- **Use forced tunneling for hybrid environments**: Configure forced tunneling when internet-bound traffic must route through on-premises security appliances or centralized inspection paths. Enable the management network interface and `AzureFirewallManagementSubnet` so firewall management traffic stays separate from customer traffic. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
-- **Configure multiple public IP addresses**: Add multiple public IP addresses to prevent SNAT port exhaustion, which provides 2,496 SNAT ports per additional public IP. Consider using Azure NAT Gateway for advanced SNAT capabilities in high-traffic scenarios. For more information, see [Best practices for Azure Firewall performance](firewall-best-practices.md).
+- **Enable TLS inspection for encrypted traffic**: Use Azure Firewall Premium TLS inspection to inspect encrypted outbound and east-west traffic where your security policy requires it. Store and manage the required certificates in Azure Key Vault. For more information, see [Azure Firewall Premium certificates](premium-certificates.md).
+
+- **Evaluate explicit proxy for controlled HTTP/S egress**: Use Azure Firewall explicit proxy (preview) when you can configure applications to send outbound HTTP/S traffic directly to the firewall private IP address without a user-defined route. Use application rules for explicit proxy traffic, and use a proxy auto-configuration (PAC) file when you need centrally managed client proxy settings. For more information, see [Azure Firewall explicit proxy (preview)](explicit-proxy.md).
+
+- **Enable web categories**: Use web categories to control access to categories of websites, such as social networking or gambling, that don't meet your acceptable use policy. Web categories reduce administrative overhead compared to maintaining allow and deny lists of individual FQDNs. For more information, see [Azure Firewall web categories](web-categories.md).
+
+- **Plan SNAT capacity for outbound scale**: Add multiple public IP addresses or integrate with Azure NAT Gateway when you need more SNAT ports for high-volume outbound workloads. Don't use NAT Gateway with secured virtual hub firewalls. Use NAT Gateway V2 when you need zone-redundant SNAT with a zone-redundant firewall. For more information, see [Scale SNAT ports with Azure NAT Gateway](integrate-with-nat-gateway.md) and [Integrate Azure Firewall with NAT Gateway V2](integrate-with-nat-gateway-v2.md).
+
+## Identity and access management
+
+Identity and access management for Azure Firewall controls who can administer firewall resources, modify Firewall Policy, and automate management-plane operations.
+
+- **Use Microsoft Entra ID for management-plane access**: Require administrators and automation identities to authenticate through Microsoft Entra ID when they manage Azure Firewall through the Azure portal, Azure Resource Manager, Azure CLI, or PowerShell. For more information, see [About roles and permissions for Azure Firewall](roles-permissions.md).
+
+- **Assign least-privilege Azure RBAC roles**: Scope built-in roles such as Network Contributor to the specific firewall, firewall policy, resource group, or management group that administrators need to manage. Avoid broad Owner or Contributor assignments when network-only permissions are sufficient. For more information, see [About Azure Firewall roles and permissions](roles-permissions.md).
+
+- **Create custom roles for firewall-policy-only access**: Use custom Azure RBAC roles when administrators need to edit Firewall Policy but shouldn't manage virtual networks, public IP addresses, route tables, or other network resources. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md).
+
+- **Use Privileged Identity Management for elevation**: Make high-impact roles eligible rather than permanently active. Require approval, justification, multifactor authentication, and time-bound activation for role activations that grant write access to Azure Firewall, Firewall Policy, public IP addresses, and virtual network resources — such as Network Contributor and any custom firewall administrator roles. For more information, see [Privileged Identity Management integration with Azure RBAC](../role-based-access-control/pim-integration.md).
+
+- **Require Conditional Access for admin sessions**: Apply Conditional Access policies that require multifactor authentication and compliant devices for identities that can create, modify, or delete Azure Firewall instances, Firewall Policies, public IP addresses, route tables, and the hub virtual networks the firewall depends on. For more information, see [Require MFA for Azure management](/entra/identity/conditional-access/policy-old-require-mfa-azure-mgmt).
+
+- **Limit service principal permissions for automation**: Assign automation identities only the permissions required to deploy, export, or update firewall resources and policies, and scope those assignments as narrowly as possible. Prefer managed identities when supported by your automation platform. For more information, see [About roles and permissions for Azure Firewall](roles-permissions.md).
+
+- **Separate duties across administrator tiers**: Design a tiered administrator model where DevOps teams can request or deploy application changes but can't directly modify shared security policy, and security administrators approve or manage Firewall Policy. Use role assignments, custom roles, and deployment pipelines to enforce separation of duties. For more information, see [About roles and permissions for Azure Firewall](roles-permissions.md).
 
 ## Data protection
 
-Data protection in Azure Firewall centers on securing traffic in transit and managing certificates properly. Since Azure Firewall processes network traffic, ensuring proper encryption and certificate management is crucial for maintaining data security.
+Data protection for Azure Firewall focuses on protecting inspected traffic, configuration data, certificates, and logs that can contain sensitive network information.
 
-- **Use platform-managed encryption for data at rest**: Azure Firewall automatically encrypts any customer content at rest using Microsoft-managed platform keys. This includes derived certificates generated from customer certificates in Key Vault, ensuring your configuration data remains protected without additional configuration.
+- **Implement TLS inspection with proper certificate management**: Store the TLS inspection intermediate CA certificate in Azure Key Vault and grant the firewall managed identity only the required secret permissions. Use the Key Vault access policy model for this integration, because Azure Firewall doesn't support Azure RBAC authorization for retrieving TLS inspection certificates. For more information, see [Azure Firewall Premium certificates](premium-certificates.md).
 
-- **Implement TLS inspection with proper certificate management**: When using TLS inspection features, configure Azure Firewall to use certificates stored in Azure Key Vault. The firewall generates derived certificates from your customer certificate, maintaining the security chain while enabling traffic inspection capabilities. For more information, see [Azure Firewall Premium certificates](premium-certificates.md).
+- **Restrict access to encrypted protocols**: Configure firewall rules to allow encrypted protocols (such as HTTPS) and block or restrict plaintext ports where business requirements allow. Combining rule collections with priorities and processing order helps enforce these decisions predictably. For more information, see [Azure Firewall rule processing logic](rule-processing.md).
 
-- **Enforce secure transfer protocols**: Configure your firewall policies to enforce HTTPS for web applications and services, ensuring TLS v1.2 or later is used. Disable legacy protocols like SSL 3.0 and TLS v1.0 to maintain strong encryption standards.
+- **Use URL filtering for granular control**: Apply URL filtering to control complete URLs rather than only FQDNs when you need precise allow or deny decisions for web traffic. This filtering helps block malicious paths hosted on otherwise legitimate domains. For more information, see [Azure Firewall Premium features](premium-features.md#url-filtering).
 
-- **Use URL filtering for granular control**: Enable URL filtering to extend FQDN filtering capabilities to consider entire URLs rather than just domain names. This provides more precise control over web traffic and reduces the risk of accessing malicious content through legitimate domains. For more information, see [Azure Firewall Premium features](premium-features.md#url-filtering).
+- **Restrict access to diagnostic data**: Treat Azure Firewall logs as sensitive because they can contain source and destination IP addresses, URLs, ports, and rule decisions. Use RBAC on Log Analytics workspaces, storage accounts, and event hubs that receive firewall diagnostics. For more information, see [Monitor Azure Firewall logs and metrics](monitor-firewall.md).
 
-## Privileged access
+## Logging and monitoring
 
-Privileged access security for Azure Firewall focuses on controlling administrative access and implementing proper governance for firewall management operations.
+Logging and monitoring for Azure Firewall provide visibility into traffic flows, policy decisions, threats, performance, and configuration changes for investigation and response.
 
-- **Use Azure Policy for governance and compliance**: Implement Azure Policy definitions to enforce security requirements such as enabling threat intelligence, deploying across availability zones, and ensuring only encrypted traffic is allowed. Use built-in policies like "Azure Firewall Policy should enable Threat Intelligence" to maintain compliance. For more information, see [Use Azure Policy to help secure your Azure Firewall deployments](firewall-azure-policy.md).
+- **Enable Azure Firewall diagnostic logging**: Configure diagnostic settings to send Azure Firewall logs and metrics to a Log Analytics workspace, storage account, or event hub. Capture network rule, application rule, NAT rule, threat intelligence, IDPS, DNS proxy, internal FQDN resolution failure, top flow, and flow trace logs as appropriate for your deployment. For more information, see [Monitor Azure Firewall logs and metrics](monitor-firewall.md).
 
-- **Implement least privilege access with RBAC**: Apply role-based access control to limit who can modify firewall configurations and policies. Use specific Azure Firewall roles and custom roles to ensure users have only the minimum permissions necessary for their responsibilities.
+- **Use resource-specific structured logs**: Send Azure Firewall logs to resource-specific Log Analytics tables such as `AZFWApplicationRule`, `AZFWNetworkRule`, `AZFWNatRule`, `AZFWThreatIntel`, `AZFWIdpsSignature`, and `AZFWDnsQuery` instead of relying only on the legacy `AzureDiagnostics` table. Resource-specific tables improve query performance, schema discovery, and table-level access control. For more information, see [Monitor Azure Firewall logs and metrics](monitor-firewall.md#resource-specific-mode).
 
-- **Enable policy analytics for rule optimization**: Use Azure Firewall Policy Analytics to identify unused rules, optimize rule performance, and maintain clean security policies. This helps reduce attack surface and improves firewall performance. For more information, see [Use Azure Policy to help secure your Azure Firewall deployments](firewall-azure-policy.md).
+- **Integrate with Microsoft Sentinel for threat detection**: Connect Azure Firewall logs to Microsoft Sentinel so security operations teams can correlate firewall events with identity, endpoint, and workload signals. Use analytics rules and workbooks to detect malware and suspicious traffic patterns. For more information, see [Detect malware with Azure Firewall and Microsoft Sentinel](detect-malware-with-sentinel.md).
 
-## Logging and threat detection
+- **Use Security Copilot for IDPS investigations**: When your organization uses Microsoft Security Copilot, enable the Azure Firewall integration to investigate IDPS detections across firewalls by using structured IDPS logs in Log Analytics and appropriate RBAC permissions. For more information, see [Azure Firewall integration in Microsoft Security Copilot](firewall-copilot.md).
 
-Comprehensive logging and monitoring are essential for Azure Firewall security, enabling threat detection, security investigation, and compliance reporting. Proper log configuration provides visibility into network traffic patterns and security events.
+- **Monitor threat intelligence alerts**: Create alerts and operational processes for threat intelligence hits so analysts can quickly investigate traffic to or from known malicious sources. Use automation for high-confidence indicators when response actions are well tested. For more information, see [Azure Firewall threat intelligence-based filtering](threat-intel.md).
 
-- **Enable Azure Firewall diagnostic logging**: Configure diagnostic settings to capture Azure Firewall logs and metrics, sending them to your preferred data sink such as a Log Analytics workspace, storage account, or event hub. This provides detailed information about allowed and denied traffic, threat intelligence hits, and firewall performance. For more information, see [Monitor Azure Firewall logs and metrics](firewall-diagnostics.md).
+- **Configure performance monitoring and alerting**: Monitor throughput, latency, firewall health, SNAT port utilization, and rule hit counts by using Azure Monitor. Alert on capacity or availability thresholds before users experience application outages. For more information, see [Best practices for Azure Firewall performance](firewall-best-practices.md).
 
-- **Integrate with Microsoft Sentinel for advanced threat detection**: Connect Azure Firewall logs to Microsoft Sentinel to enable advanced security analytics, correlation with other security events, and automated response capabilities. Use the Azure Firewall connector to detect malware and analyze threat patterns. For more information, see [Detect malware with Azure Firewall and Microsoft Sentinel](detect-malware-with-sentinel.md).
+- **Monitor Resource Health for firewall availability**: Use Azure Resource Health with Azure Firewall metrics so operations teams can detect platform degradation, investigate service health events, and receive notifications when firewall availability is affected. For more information, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
-- **Monitor threat intelligence alerts**: Configure monitoring for threat intelligence alerts to quickly identify and respond to traffic from known malicious sources. Set up automated responses for high-priority threat intelligence matches to block attackers before they can establish persistence.
+- **Review policy analytics and rule changes**: Use Policy Analytics to identify unused rules and overly broad rules. Use rule set change tracking to detect unexpected configuration changes. Regular reviews reduce rule sprawl and improve policy effectiveness. For more information, see [Azure Firewall Policy Analytics](policy-analytics.md) and [Track Azure Firewall rule set changes](rule-set-change-tracking.md).
 
-- **Configure performance monitoring and alerting**: Use Azure Monitor to track firewall performance metrics including throughput, latency, SNAT port utilization, and rule hit counts. Set up alerts for critical thresholds to ensure optimal firewall performance and prevent service disruption. For more information, see [Best practices for Azure Firewall performance](firewall-best-practices.md).
+- **Use Azure Firewall Workbook for analysis**: Deploy and review Azure Firewall Workbook dashboards to analyze events, rules, threats, and trends across multiple firewalls from a single Azure portal experience. For more information, see [Azure Firewall Workbook](firewall-workbook.md).
 
-- **Implement IDPS signature rule customization**: Customize IDPS signature rules by changing their mode from alert to alert-and-deny for high-priority threats, or disable signatures that generate false positives. Use smart search capabilities to find specific signatures by CVE-ID or other attributes.
+- **Set log retention for investigations and compliance**: Configure retention periods based on incident response, audit, and regulatory needs. Store long-term archives in protected storage when operational workspaces use shorter retention. For more information, see [Monitor Azure Firewall logs and metrics](monitor-firewall.md).
 
-- **Configure log retention policies**: Set appropriate log retention policies based on your compliance requirements and investigation needs. Ensure logs are retained long enough to support security investigations and meet regulatory obligations.
+## Compliance and governance
 
-## Asset management
+Compliance and governance for Azure Firewall help you maintain consistent policy, inventory, and security baselines across subscriptions, regions, and network architectures.
 
-Asset management for Azure Firewall involves using Azure Policy for configuration monitoring and enforcement, ensuring consistent security posture across your firewall deployments.
+- **Use Azure Policy for configuration enforcement**: Assign built-in and custom Azure Policy definitions to audit or enforce requirements such as threat intelligence, diagnostic settings, allowed SKUs, and availability zone deployment. For more information, see [Use Azure Policy to help secure your Azure Firewall deployments](firewall-azure-policy.md).
 
-- **Implement Azure Policy for configuration enforcement**: Use Azure Policy to monitor and enforce Azure Firewall configurations across your environment. Deploy policies that require threat intelligence enablement, availability zone deployment, and Premium SKU usage for enhanced security features. For more information, see [Use Azure Policy to help secure your Azure Firewall deployments](firewall-azure-policy.md).
+- **Maintain resource inventory with Azure Resource Graph**: Query Azure Firewall, Firewall Policy, public IP, route table, and diagnostic setting resources across subscriptions to identify coverage gaps and configuration drift. Use saved queries or dashboards for recurring reviews. For more information, see [Azure Resource Graph overview](../governance/resource-graph/overview.md).
 
-- **Use Microsoft Defender for Cloud integration**: Enable Microsoft Defender for Cloud monitoring for your Azure Firewall resources to receive security recommendations and compliance assessments. This provides centralized security management and helps identify configuration drift or security gaps.
+- **Apply consistent tags to firewall resources**: Use tags for ownership, environment, cost center, data classification, and criticality so teams can govern firewall resources and related policies consistently. Enforce required tags with Azure Policy. For more information, see [Use Azure Policy to enforce tagging rules and conventions](../azure-resource-manager/management/tag-policies.md).
 
-- **Upgrade to Azure Firewall Premium**: Consider upgrading from Standard to Premium SKU to access advanced security features including IDPS, TLS inspection, URL filtering, and web categories. Premium provides enhanced threat protection suitable for highly regulated environments. For more information, see [Choose the right Azure Firewall SKU to meet your needs](choose-firewall-sku.md).
+- **Centralize policy with Azure Firewall Manager**: Use Azure Firewall Manager to manage firewall policies across secured virtual hubs and hub virtual networks from a centralized control plane. This centralized management helps reduce inconsistent rules across subscriptions and regions. For more information, see [What is Azure Firewall Manager?](../firewall-manager/overview.md)
 
-- **Optimize rule configuration for performance**: Organize firewall rules using Rule Collection Groups and Rule Collections, prioritizing them based on frequency of use. Use IP Groups to reduce the number of individual IP rules and ensure you stay within Azure Firewall limits. For more information, see [Best practices for Azure Firewall performance](firewall-best-practices.md).
+- **Use policy hierarchy and inheritance for hub-and-spoke**: Structure parent and child Firewall Policies so global security requirements inherit to regional or application-specific policies while allowing controlled local exceptions. This model supports consistent governance in large hub-and-spoke deployments. For more information, see [Azure Firewall Manager policy overview](../firewall-manager/policy-overview.md).
 
-- **Configure policy-based deployment standards**: Establish and enforce deployment standards through Azure Policy's "deny" and "deploy if not exists" effects. This ensures all new Azure Firewall deployments meet your organization's security requirements automatically.
+- **Associate DDoS Protection with secured hub virtual networks**: Use Azure Firewall Manager to associate Azure DDoS Protection plans with hub virtual networks that contain Azure Firewall. DDoS Protection doesn't support Virtual WAN hubs, so use the association for virtual network hub designs. For more information, see [Configure Azure DDoS Protection Plan using Azure Firewall Manager](../firewall-manager/configure-ddos.md).
 
-- **Monitor compliance with security baselines**: Regularly review your Azure Firewall configurations against the Microsoft cloud security benchmark using Microsoft Defender for Cloud's regulatory compliance dashboard. This helps maintain consistent security posture and identifies areas for improvement.
+- **Review compliance certifications**: Review Azure Firewall audit scope against your regulatory requirements and organizational standards. Use the authoritative compliance offering list when you assess whether Azure Firewall is in scope for a required audit. For more information, see [Azure Firewall certifications](compliance-certifications.md).
+
+- **Standardize deployment through infrastructure as code**: Deploy Azure Firewall and Firewall Policy by using Bicep, ARM templates, Terraform, or approved pipelines so teams review changes consistently and keep deployments repeatable and auditable. For more information, see [Bicep deployment for Azure Firewall](deploy-bicep.md).
+
+## Backup and recovery
+
+Backup and recovery for Azure Firewall focus on preserving Firewall Policy as the source of truth and designing resilient deployments that teams can restore or fail over during outages.
+
+- **Manage Firewall Policy as infrastructure as code**: Define and version Firewall Policy in Bicep, ARM templates, or Terraform stored in a source-controlled repository. Treat that repository as the source of truth. Use policy export as a bootstrap or point-in-time snapshot, not as the ongoing source of truth. For more information, see [Export template in the Azure portal](../azure-resource-manager/templates/export-template-portal.md).
+
+- **Deploy Azure Firewall across Availability Zones**: Use zone-redundant deployments in supported regions to improve resilience to datacenter-level failures. Include zone requirements in deployment standards and Azure Policy assignments. For more information, see [Deploy Azure Firewall with Availability Zones using Azure PowerShell](deploy-availability-zone-powershell.md).
+
+- **Plan multiregion firewall deployment for disaster recovery**: Deploy Azure Firewall and aligned policies in paired or strategically selected regions for workloads that require regional disaster recovery. Ensure you can recreate route tables, public IPs, diagnostics, and policy assignments in the secondary region. For more information, see [Use Azure Firewall to route a hub-and-spoke topology across multiple hubs](firewall-multi-hub-spoke.md).
+
+- **Use parent and child Firewall Policy hierarchy for recovery**: Keep global rules in parent policies and regional or workload rules in child policies so recovered environments inherit required controls consistently. This policy structure reduces manual rule reconstruction during recovery. For more information, see [Azure Firewall Manager rule hierarchy](../firewall-manager/rule-hierarchy.md).
+
+- **Test failover procedures regularly**: Validate that routing, DNS, load balancing, monitoring, and security rules work when traffic moves to a secondary hub or region. Include security operations teams in drills so alerting and incident response processes continue during failover. For more information, see [Azure Firewall best practices](firewall-best-practices.md).
+
+- **Plan recovery capacity around autoscale behavior**: Standard and Premium Azure Firewall deployments scale out automatically, but scale-out can take several minutes after traffic increases. Monitor throughput and plan failover traffic so recovery events don't exceed the capacity available during the scale-out window. For more information, see [Azure Firewall performance](firewall-performance.md).
 
 ## Next steps
 
-- [Well-Architected Framework: Security](/azure/architecture/framework/security)
-- [Cloud Adoption Framework: Security](/azure/cloud-adoption-framework/secure/overview)
+- [Azure Firewall overview](overview.md)
+- [Azure Firewall best practices](firewall-best-practices.md)
+- [Azure Firewall Premium features](premium-features.md)
+- [Monitor Azure Firewall logs and metrics](monitor-firewall.md)
+- [Use Azure Policy to help secure your Azure Firewall deployments](firewall-azure-policy.md)
+- [Secure your Virtual Network deployment](../virtual-network/secure-virtual-network.md)
+- [What is Azure network security?](../networking/security/network-security.md)
+- [Azure network security best practices](../security/fundamentals/network-best-practices.md)

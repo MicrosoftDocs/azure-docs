@@ -1,7 +1,7 @@
 ---
 title: Azure Container Apps hosting of Azure Functions 
 description: Learn about how you can use Azure Functions on Azure Container Apps to host and manage containerized function apps in Azure.
-ms.date: 04/22/2025
+ms.date: 08/08/2026
 ms.topic: concept-article
 ms.custom:
   - build-2024
@@ -13,6 +13,8 @@ ms.custom:
 # Azure Container Apps hosting of Azure Functions 
 
 [!INCLUDE [functions-aca-v2-note](../../includes/functions-aca-v2-note.md)]
+
+This article documents the legacy approach that uses the `Microsoft.Web` resource provider to deploy containerized function apps to a Container Apps environment.
 
 Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container-hosted programs. Container Apps hosting lets you run your functions in a fully managed, Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and Kubernetes Event-driven Autoscaling (KEDA).
 

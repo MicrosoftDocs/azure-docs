@@ -4,7 +4,7 @@ description: Describes how to assess on-premises physical servers for migration 
 ms.topic: tutorial
 ms.date: 02/06/2025
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.custom: MVC, engagement-fy25
 ms.update-cycle: 180-days
 monikerRange:

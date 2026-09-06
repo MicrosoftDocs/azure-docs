@@ -1,11 +1,11 @@
 ---
-title: Configure a WAF rate-limit rule for Azure Front Door
-description: Learn how to configure a rate-limit rule for an existing Azure Front Door endpoint.
+title: Configure a WAF Rate-Limit Rule for Azure Front Door
+description: Learn how to create and associate an Azure Front Door WAF rate-limit rule by using the Azure portal, Azure PowerShell, Azure CLI, or Bicep.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 05/19/2023
+ms.date: 09/01/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 zone_pivot_groups: web-application-firewall-configuration
 # Customer intent: "As a web application administrator, I want to configure a rate-limit rule for my Azure Front Door endpoint, so that I can manage incoming traffic and protect my back-end services from performance issues during high-traffic promotions."
@@ -19,11 +19,19 @@ The Azure Web Application Firewall rate-limit rule for Azure Front Door controls
 
 This article shows how to configure a web application firewall (WAF) rate-limit rule on Azure Front Door Standard and Premium tiers.
 
+Before you configure rate limiting, decide the policy association scope:
+
+- Profile scope for shared baseline controls.
+- Domain scope for domain-specific behavior.
+- Route scope for the most targeted control.
+
+If multiple scopes apply, route-level policy takes precedence over domain-level policy, and domain-level policy takes precedence over profile-level policy.
+
 ::: zone pivot="portal,powershell,cli"
 
 ## Scenario
 
-Suppose you're responsible for a public website. You've just added a page with information about a promotion your organization is running. You're concerned that if clients visit that page too often, some of your back-end services might not scale quickly and the application might have performance issues.
+Suppose you're responsible for a public website. You just added a page with information about a promotion your organization is running. You're concerned that if clients visit that page too often, some of your back-end services might not scale quickly and the application might have performance issues.
 
 You decide to create a rate-limit rule that restricts each source IP address to a maximum of 1,000 requests per minute. You only apply this rule to requests that contain `*/promo*` in the request URL.
 
@@ -60,7 +68,7 @@ You decide to create a rate-limit rule that restricts each source IP address to 
 
 1. Select **Review + create** > **Create**.
 
-1. After the deployment is finished, select **Go to resource**.
+1. After the deployment finishes, select **Go to resource**.
 
 ## Create a rate-limit rule
 
@@ -240,7 +248,7 @@ $wafPolicy = New-AzFrontDoorWafPolicy `
 
 ## Configure a security policy to associate your Azure Front Door profile with your WAF policy
 
-Use the [New-AzFrontDoorCdnSecurityPolicy](/powershell/module/az.cdn/new-azfrontdoorcdnsecuritypolicy) cmdlet to create a security policy for your Azure Front Door profile. A security policy associates your WAF policy with domains that you want to be protected by the WAF rule.
+Use the [New-AzFrontDoorCdnSecurityPolicy](/powershell/module/az.cdn/new-azfrontdoorcdnsecuritypolicy) cmdlet to create a security policy for your Azure Front Door profile. A security policy associates your WAF policy with the selected profile, domain, or route scope that you want protected by the WAF rule.
 
 In this example, you associate the endpoint's default hostname with your WAF policy:
 
@@ -388,7 +396,7 @@ When you submit this command, the Azure CLI creates the rate-limit rule and matc
 
 ## Configure a security policy to associate your Azure Front Door profile with your WAF policy
 
-Use the [az afd security-policy create](/cli/azure/afd/security-policy#az-afd-security-policy-create) command to create a security policy for your Azure Front Door profile. A security policy associates your WAF policy with domains that you want to be protected by the WAF rule.
+Use the [az afd security-policy create](/en-us/cli/azure/afd/security-policy#az-afd-security-policy-create) command to create a security policy for your Azure Front Door profile. A security policy associates your WAF policy with the selected profile, domain, or route scope that you want protected by the WAF rule.
 
 In this example, you associate the endpoint's default hostname with your WAF policy:
 
@@ -413,7 +421,15 @@ The preceding code looks up the Azure resource identifiers for the WAF policy an
 ::: zone pivot="powershell,cli"
 
 > [!NOTE]
-> Whenever you make changes to your WAF policy, you don't need to re-create the Azure Front Door security policy. WAF policy updates are automatically applied to the Azure Front Door domains.
+> Whenever you make changes to your WAF policy, you don't need to re-create the Azure Front Door security policy. WAF policy updates are automatically applied to the associated Azure Front Door.
+
+If your deployment uses multiple policy association scopes, updates are applied according to policy precedence for each request:
+
+1. Route-level policy
+2. Domain-level policy
+3. Profile-level policy
+
+Review effective scope behavior in your validation tests before moving to prevention mode.
 
 ::: zone-end
 

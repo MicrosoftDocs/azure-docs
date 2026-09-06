@@ -333,7 +333,7 @@ AzureDiagnostics:
    "ActivityId": "11111111-1111-1111-1111-111111111111",
    "category": "error"
    "resourceId": "/SUBSCRIPTIONS/11111111-1111-1111-1111-11111111111/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
-   "keyVault": "https://mykeyvault.vault-int.azure-int.net",
+   "keyVault": "https://mykeyvault.vault.azure.net",
    "key": "mykey",
    "version": "1111111111111111111111111111111",
    "operation": "wrapKey",
@@ -345,7 +345,7 @@ AzureDiagnostics:
    "ActivityId": "11111111111111-1111-1111-1111111111111",
    "category": "info"
    "resourceId": "/SUBSCRIPTIONS/111111111-1111-1111-1111-11111111111/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
-   "keyVault": "https://mykeyvault.vault-int.azure-int.net",
+   "keyVault": "https://mykeyvault.vault.azure.net",
    "key": "mykey",
    "version": "111111111111111111111111111111",
    "operation": "disable | restore",
@@ -361,7 +361,7 @@ Resource specific table entry:
    "ActivityId": "11111111-1111-1111-1111-111111111111",
    "category": "error"
    "resourceId": "/SUBSCRIPTIONS/11111111-1111-1111-1111-11111111111/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
-   "keyVault": "https://mykeyvault.vault-int.azure-int.net",
+   "keyVault": "https://mykeyvault.vault.azure.net",
    "key": "mykey",
    "version": "1111111111111111111111111111111",
    "operation": "wrapKey",
@@ -376,7 +376,7 @@ Resource specific table entry:
    "ActivityId": "11111111111111-1111-1111-1111111111111",
    "category": "info"
    "resourceId": "/SUBSCRIPTIONS/111111111-1111-1111-1111-11111111111/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
-   "keyVault": "https://mykeyvault.vault-int.azure-int.net",
+   "keyVault": "https://mykeyvault.vault.azure.net",
    "key": "mykey",
    "version": "111111111111111111111111111111",
    "operation": "disable | restore",

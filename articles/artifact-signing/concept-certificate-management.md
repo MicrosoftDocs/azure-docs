@@ -58,7 +58,7 @@ Artifact Signing aims to simplify signing as much as possible for each subscribe
 
 It includes:
 
-- Secure key generation, storage, and usage in FIPS 140-2 Level 3 hardware crypto modules that the service manages.
+- Secure key generation, storage, and usage in FIPS 140-3 Level 3 hardware crypto modules that the service manages.
 - Daily renewals of certificates to ensure that you always have a valid certificate to use to sign your certificate profile resources.
 
 Every certificate that you create and issue is logged in the Azure portal. You can view logging data feeds that include certificate serial number, thumbprint, created date, expiry date, and status (for example, **Active**, **Expired**, or **Revoked**) in the portal.

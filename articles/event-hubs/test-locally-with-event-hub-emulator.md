@@ -3,8 +3,10 @@ title: Test Applications Locally with the Azure Event Hubs Emulator
 description: Learn how to test your applications locally using the Azure Event Hubs emulator. Follow step-by-step instructions to set up, run, and interact with the emulator using Docker or scripts.
 #customer intent: As a developer, I want to test my application locally using the Azure Event Hubs emulator so that I can validate its functionality without connecting to the cloud.  
 ms.topic: how-to
-ms.author: Saglodha
-ms.date: 07/28/2025
+author: spelluru
+ms.author: spelluru
+ms.date: 08/25/2026
+ai-usage: ai-assisted
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-title
@@ -14,24 +16,25 @@ ms.custom:
 ---
 
 # Test locally by using the Azure Event Hubs emulator
-The Azure Event Hubs emulator enables developers to test and validate their applications locally without connecting to the cloud. This guide provides step-by-step instructions for setting up, running, and interacting with the emulator using Docker or automated scripts. 
+
+The Azure Event Hubs emulator lets you test and validate your applications locally, without connecting to the cloud. This article shows you how to set up, run, and interact with the emulator by using Docker or an automated script.
 
 ## Prerequisites
 
-- [Docker desktop](https://docs.docker.com/desktop/install/windows-install/#:~:text=Install%20Docker%20Desktop%20on%20Windows%201%20Download%20the,on%20your%20choice%20of%20backend.%20...%20More%20items) 
+- [Docker Desktop](https://docs.docker.com/desktop/install/windows-install/)
 - Minimum hardware requirements:
   - 2 GB of RAM
   - 5 GB of disk space
-- Windows Subsystem for Linux (WSL) configuration (only for Windows):
+- Windows Subsystem for Linux (WSL) configuration (Windows only):
   - [Install WSL](/windows/wsl/install)
-  - [Configure Docker to use WSL](https://docs.docker.com/desktop/wsl/#:~:text=Turn%20on%20Docker%20Desktop%20WSL%202%201%20Download,engine%20..%20...%206%20Select%20Apply%20%26%20Restart)
+  - [Configure Docker Desktop to use WSL](https://docs.docker.com/desktop/wsl/)
 
 > [!NOTE]
-> Before you continue with the steps in this article, make sure Docker Desktop is operational in the background.
+> Before you continue with the steps in this article, ensure Docker Desktop is running.
 
 ## Run the Azure Event Hubs emulator
 
-Run the Azure Event Hubs emulator using either an automated script or a Linux container. Choose the method that best fits your development environment.
+Run the Azure Event Hubs emulator by using either an automated script or a Linux container. Choose the method that best fits your development environment.
 
 ### [Automated script](#tab/automated-script)
 
@@ -41,18 +44,23 @@ Before you run an automated script, clone the emulator's [GitHub installer repos
 
 Use the following steps to run the Event Hubs emulator locally on Windows.
 
-1. **Open PowerShell** and navigate to the directory where the [common](https://github.com/Azure/azure-event-hubs-emulator-installer/tree/main/EventHub-Emulator/Scripts/Common) scripts folder is cloned using `cd`:
+1. Open PowerShell and go to the directory where you cloned the [common scripts folder](https://github.com/Azure/azure-event-hubs-emulator-installer/tree/main/EventHub-Emulator/Scripts/Common), by using `cd`.
+
    ```powershell
    cd <path to your common scripts folder> # Update this path
-      
-2. Issue wsl command to open WSL at this directory.
+   ```
+
+1. Enter the `wsl` command to open WSL in this directory.
+
    ```powershell
    wsl
+   ```
 
-3. **Run the setup script** *./LaunchEmulator.sh* Running the script brings up two containers: the Event Hubs emulator and Azurite (a dependency for the emulator).
+1. Run the setup script `LaunchEmulator.sh`. The script brings up two containers: the Event Hubs emulator and Azurite, a dependency for the emulator.
+
    ```bash
-   ./Launchemulator.sh
- 
+   ./LaunchEmulator.sh
+   ```
 
 ### Linux and macOS
 
@@ -62,9 +70,9 @@ To run the Event Hubs emulator locally on Linux or macOS:
 
 ### [Docker (Linux container)](#tab/docker-linux-container)
 
-1. To start the emulator, supply a configuration for the entities that you want to use. Save the following JSON file locally as *config.json*:
+1. To start the emulator, provide a configuration for the entities that you want to use. Save the following JSON locally as *config.json*:
 
-   ```JSON
+   ```json
    {
        "UserConfig": {
            "NamespaceConfig": [
@@ -83,79 +91,76 @@ To run the Event Hubs emulator locally on Linux or macOS:
                }
                ]
            }
-           ], 
+           ],
            "LoggingConfig": {
                "Type": "File"
            }
        }
    }
-
    ```
 
-2. To spin up containers for Event Hubs emulator, Save the following .yaml file as *docker-compose.yaml*.
+1. To spin up the containers for the Event Hubs emulator, save the following file as *docker-compose.yaml*:
 
-  ```yaml
-  name: microsoft-azure-eventhubs
-  services:
-    emulator:
-      container_name: "eventhubs-emulator"
-      image: "mcr.microsoft.com/azure-messaging/eventhubs-emulator:latest"
-      pull_policy: always
-      volumes:
-        - "${CONFIG_PATH}:/Eventhubs_Emulator/ConfigFiles/Config.json"
-      ports:
-        - "5672:5672"
-        - "9092:9092"
-        - "5300:5300"
-      environment:
-        BLOB_SERVER: azurite
-        METADATA_SERVER: azurite
-        ACCEPT_EULA: ${ACCEPT_EULA}
-      depends_on:
-        - azurite
-      networks:
-        eh-emulator:
-          aliases:
-            - "eventhubs-emulator"
-    azurite:
-      container_name: "azurite"
-      image: "mcr.microsoft.com/azure-storage/azurite:latest"
-      pull_policy: always
-      ports:
-        - "10000:10000"
-        - "10001:10001"
-        - "10002:10002"
-      networks:
-        eh-emulator:
-          aliases:
-            - "azurite"
-  networks:
-    eh-emulator:
-
-```
-
-3. Create an .env file to declare the environment variables for the Event Hubs emulator:
-
+   ```yaml
+   name: microsoft-azure-eventhubs
+   services:
+     emulator:
+       container_name: "eventhubs-emulator"
+       image: "mcr.microsoft.com/azure-messaging/eventhubs-emulator:latest"
+       pull_policy: always
+       volumes:
+         - "${CONFIG_PATH}:/Eventhubs_Emulator/ConfigFiles/Config.json"
+       ports:
+         - "5672:5672"
+         - "9092:9092"
+         - "5300:5300"
+       environment:
+         BLOB_SERVER: azurite
+         METADATA_SERVER: azurite
+         ACCEPT_EULA: ${ACCEPT_EULA}
+       depends_on:
+         - azurite
+       networks:
+         eh-emulator:
+           aliases:
+             - "eventhubs-emulator"
+     azurite:
+       container_name: "azurite"
+       image: "mcr.microsoft.com/azure-storage/azurite:latest"
+       pull_policy: always
+       ports:
+         - "10000:10000"
+         - "10001:10001"
+         - "10002:10002"
+       networks:
+         eh-emulator:
+           aliases:
+             - "azurite"
+   networks:
+     eh-emulator:
    ```
+
+1. Create an *.env* file to declare the environment variables for the Event Hubs emulator:
+
+   ```text
    # Centralized environment variables store for docker-compose
- 
-   # 1. CONFIG_PATH: Path to config.json file
-   CONFIG_PATH="<Replace with path to config.json file>" 
- 
-   # 2. ACCEPT_EULA: Pass 'Y' to accept license terms. 
+
+   # 1. CONFIG_PATH: Path to the config.json file
+   CONFIG_PATH="<Replace with path to config.json file>"
+
+   # 2. ACCEPT_EULA: Pass 'Y' to accept the license terms.
    ACCEPT_EULA="N"
-
    ```
 
-   The argument `ACCEPT_EULA` confirms the [Microsoft Software License Terms](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EMULATOR_EULA.md). Be sure to place the .env file in the same directory as the *docker-compose.yaml* file.
-   
+   The `ACCEPT_EULA` argument confirms the [Microsoft Software License Terms](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EMULATOR_EULA.md). Set it to `Y` to accept the terms and start the emulator. Place the *.env* file in the same directory as the *docker-compose.yaml* file.
+
    > [!IMPORTANT]
-   > When you're specifying file paths in Windows, use double backslashes (`\\`) instead of single backslashes (`\`) to avoid confusion with escape characters.
+   > When you specify file paths in Windows, use double backslashes (`\\`) instead of single backslashes (`\`) to avoid confusion with escape characters.
 
-4. To run the emulator, execute the following command:
+1. To run the emulator, run the following command:
 
-   ```
-    docker compose -f <PathToDockerComposeFile> up -d
+   ```bash
+   docker compose -f <PathToDockerComposeFile> up -d
    ```
 
    ---
@@ -166,58 +171,64 @@ After the steps are successful, you can find the containers running in Docker.
 
 ## Interact with the emulator
 
-By default, emulator uses [config.json](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EventHub-Emulator/Config/Config.json) configuration file. You can configure entities (Event Hubs/ Kafka topics) by making changes to configuration file. To know more, visit [make configuration changes](overview-emulator.md#quota-configuration-changes)
+By default, the emulator uses the [config.json](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EventHub-Emulator/Config/Config.json) configuration file. You can configure entities, such as event hubs and Kafka topics, by editing this file. For more information, see [Quota configuration changes](overview-emulator.md#quota-configuration-changes).
 
-You can use the following connection string to connect to the Event Hubs emulator:
+The connection string that you use to connect to the Event Hubs emulator depends on where your application runs:
 
- - When the emulator container and interacting application are running natively on local machine, use following connection string:
-```
-"Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
-```
-  - Applications (Containerized/Non-containerized) on the different machine and same local network can interact with Emulator using the IPv4 address of the machine. Use following connection string:
-```
-"Endpoint=sb://192.168.y.z;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
-```
-  - Application containers on the same bridge network can interact with Emulator using its alias or IP. Following connection string assumes the name of Emulator has default value that is"eventhubs-emulator":
-```
-"Endpoint=sb://eventhubs-emulator;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
-```
-  - Application containers on the different bridge network can interact with Emulator using the "host.docker.internal" as host. Use following connection string:
-```
-"Endpoint=sb://host.docker.internal;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
-```
+- When the emulator container and your application run natively on the local machine, use this connection string:
+
+  ```text
+  "Endpoint=sb://localhost;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+  ```
+
+- When your application runs on a different machine on the same local network (containerized or not), connect to the emulator by using the IPv4 address of the host machine:
+
+  ```text
+  "Endpoint=sb://192.168.y.z;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+  ```
+
+- When your application container runs on the same bridge network, connect to the emulator by using its alias or IP address. This connection string assumes that the emulator uses the default name, `eventhubs-emulator`:
+
+  ```text
+  "Endpoint=sb://eventhubs-emulator;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+  ```
+
+- When your application container runs on a different bridge network, connect to the emulator by using `host.docker.internal` as the host:
+
+  ```text
+  "Endpoint=sb://host.docker.internal;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=SAS_KEY_VALUE;UseDevelopmentEmulator=true;"
+  ```
 
 ### [Using Kafka](#tab/using-kafka)
 
-While interacting with Kafka, ensure to set the Producer and consumer config as following:
+To interact with Kafka, set the producer and consumer configuration as follows:
 
+```csharp
+{
+    BootstrapServers =  // The value depends on the connection string that you use.
+    SecurityProtocol = SecurityProtocol.SaslPlaintext,
+    SaslMechanism = SaslMechanism.Plain,
+    SaslUsername = "$ConnectionString",
+    SaslPassword =  // The value depends on your topology.
+};
 ```
 
-        {
-            BootstrapServers =  //Value of bootstrap servers would depend on kind of connection string being used
-            SecurityProtocol = SecurityProtocol.SaslPlaintext,
-            SaslMechanism = SaslMechanism.Plain,
-            SaslUsername = "$ConnectionString",
-            SaslPassword = //Value of connection string would depend on topology
-        };
-
-```
-Value of BootstrapServers and SaslPassword would depend on your setup topology. Refer to [Interact with Emulator](#interact-with-the-emulator) section for details. 
+The values of `BootstrapServers` and `SaslPassword` depend on your setup topology. For details, see the [Interact with the emulator](#interact-with-the-emulator) section.
 
 > [!IMPORTANT]
-> When using Kafka, only Producer and consumer APIs are compatible with Event Hubs emulator. 
+> When you use Kafka, only the producer and consumer APIs are compatible with the Event Hubs emulator.
 
 ### [Using AMQP](#tab/using-amqp)
 
-With the latest client SDK releases, you can interact with the emulator in various programming languages. For details, see
+By using the latest client SDK releases, you can interact with the emulator in various programming languages. For details, see
 [Client SDKs](./sdks.md).
 
 
 ---
 
-To get started, refer to the [Event Hubs emulator samples on GitHub](https://github.com/Azure/azure-event-hubs-emulator-installer/tree/main/Sample-Code-Snippets/dotnet/EventHubs-Emulator-Demo/EventHubs-Emulator-Demo).
+To get started, see the [Event Hubs emulator samples on GitHub](https://github.com/Azure/azure-event-hubs-emulator-installer/tree/main/Sample-Code-Snippets/dotnet/EventHubs-Emulator-Demo/EventHubs-Emulator-Demo).
 
 ## Related content
 
-[Overview of the Azure Event Hubs emulator](overview-emulator.md)  
-[Event Hubs emulator samples on GitHub](https://github.com/Azure/azure-event-hubs-emulator-installer/tree/main/Sample-Code-Snippets/dotnet/EventHubs-Emulator-Demo/EventHubs-Emulator-Demo)
+- [Overview of the Azure Event Hubs emulator](overview-emulator.md)
+- [Event Hubs emulator samples on GitHub](https://github.com/Azure/azure-event-hubs-emulator-installer/tree/main/Sample-Code-Snippets/dotnet/EventHubs-Emulator-Demo/EventHubs-Emulator-Demo)

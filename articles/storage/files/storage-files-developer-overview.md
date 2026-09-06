@@ -1,11 +1,11 @@
 ---
-title: Overview of application development with Azure Files
+title: Overview of Application Development with Azure Files
 titleSuffix: Azure Storage
 description: Learn how to develop applications and services that use Azure Files to store data.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 08/13/2026
 ms.author: kendownie
 # Customer intent: "As an application developer, I want to utilize Azure Files for data storage, so that I can select the best approach to manage and access application data based on my specific needs and existing code compatibility."
 ---
@@ -14,14 +14,14 @@ ms.author: kendownie
 
 This article provides an overview of application development with Azure Files and helps you decide which approach is best based on the needs of your app.
 
-## About app development with Azure Files
+## Approaches for accessing Azure Files data
 
 Azure Files offers several ways for developers to access data and manage resources in Azure file shares. The following table lists the approaches, summarizes how they work, and provides guidance on when to use each approach:
 
 | Approach | How it works | When to use |
 | --- | --- | --- |
 | [Standard file I/O libraries](#standard-file-io-libraries) | Uses OS-level API calls through Azure file shares mounted using the industry standard Server Message Block (SMB) and Network File System (NFS) protocols. When you mount a file share using SMB/NFS, you can use file I/O libraries for a programming language or framework, such as `System.IO` for .NET, `os` and `io` for Python, `java.io` and `java.nio` for Java, or `fs` for JavaScript (Node.js). | You have line-of-business apps with existing code that uses standard file I/O, and you don't want to rewrite code for the app to work with an Azure file share. |
-| [FileREST API](#filerest-api)| Directly calls HTTPS endpoints to interact with data stored in Azure Files. Provides programmatic control over file share resources. The Azure SDK provides client libraries that build on the FileREST API, allowing you interact with FileREST API operations through familiar programming language paradigms. | You're building value-added cloud services and apps for customers and you want to use advanced features not available through native protocols. |
+| [FileREST API](#filerest-api)| Directly calls HTTPS endpoints to interact with data stored in Azure Files. Provides programmatic control over file share resources. The Azure SDK provides client libraries that build on the FileREST API, allowing you to interact with FileREST API operations through familiar programming language paradigms. | You're building value-added cloud services and apps for customers and you want to use advanced features not available through native protocols. |
 | [Storage resource provider REST API](#storage-resource-provider-rest-api) | Uses Azure Resource Manager (ARM) to manage storage accounts and file shares. Calls REST API endpoints for various resource management operations. | Your app or service needs to perform resource management tasks, such as creating, deleting, or updating storage accounts or file shares. |
 
 ### Standard file I/O libraries
@@ -117,7 +117,7 @@ Control plane libraries build on top of the Azure Storage resource provider REST
 
 Resource management libraries are designed to handle resource management operations at the *file service* or *file share* level. To learn more about the operations, see [File Services](/rest/api/storagerp/file-services) or [File Shares](/rest/api/storagerp/file-shares). The following sections show the Azure Storage management libraries for .NET, Java, Python, JavaScript, and Go.
 
-## [.NET](#tab/dotnet)
+### [.NET](#tab/dotnet)
 
 The following table shows the Azure Storage client library for resource management:
 
@@ -127,7 +127,7 @@ The following table shows the Azure Storage client library for resource manageme
 
 To learn more about using the Azure Storage management library for specific resource management scenarios, see the [Azure Storage management library developer guide for .NET](../common/storage-srp-dotnet-get-started.md).
 
-## [Java](#tab/java)
+### [Java](#tab/java)
 
 The following table shows the Azure Storage client libraries for resource management:
 
@@ -135,15 +135,15 @@ The following table shows the Azure Storage client libraries for resource manage
 | ------- | --------- | ------- | ------ |
 | **azure-resourcemanager-storage** | [Reference](/java/api/overview/azure/resourcemanager-storage-readme) | [Maven](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-storage) | [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager) |
 
-## [JavaScript](#tab/javascript)
+### [JavaScript](#tab/javascript)
 
 The following table shows the Azure Storage client libraries for resource management:
 
 | Library | Reference | Package | Source |
 | ------- | --------- | ------- | ------ |
-| **@azure/arm-storage** | [Reference](/javascript/api/overview/azure/arm-storage-readme) | [NPM](https://www.npmjs.com/package/@azure/arm-storage) | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage) |
+| **@azure/arm-storage** | [Reference](/javascript/api/overview/azure/arm-storage-readme) | [npm](https://www.npmjs.com/package/@azure/arm-storage) | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage) |
 
-## [Python](#tab/python)
+### [Python](#tab/python)
 
 The following table shows the Azure Storage client libraries for resource management:
 
@@ -151,7 +151,7 @@ The following table shows the Azure Storage client libraries for resource manage
 | ------- | --------- | ------- | ------ |
 | **azure-mgmt-storage** | [Reference](/python/api/overview/azure/mgmt-storage-readme) | [PyPi](https://pypi.org/project/azure-mgmt-storage/) | [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-mgmt-storage) |
 
-## [Go](#tab/go)
+### [Go](#tab/go)
 
 The following table shows the Azure Storage client libraries for resource management:
 

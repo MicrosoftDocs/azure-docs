@@ -10,7 +10,7 @@ ms.custom:
   - mode-other
   - build-2025
 ms.topic: quickstart
-ms.date: 07/30/2025
+ms.date: 08/28/2026
 ms.author: junbchen
 # customer intent: As an Azure Kubernetes Service (AKS) user, I want to find out how to use Azure App Configuration Kubernetes Provider so that I can use Azure App Configuration to manage all my app settings in one place.
 ---

@@ -3,7 +3,7 @@ title: Authorize an application request by using Microsoft Entra ID
 description: This article provides information about authorizing requests to Azure Web PubSub resources with Microsoft Entra applications.
 author: terencefan
 ms.author: lianwei
-ms.date: 03/11/2025
+ms.date: 08/28/2026
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
@@ -37,12 +37,7 @@ After registering an app, you can add **certificates, client secrets (a string),
 
 ## Code samples with Microsoft Entra authorization
 
-Check out our samples that show how to use Microsoft Entra authorization in programming languages we officially support.
-
-- [C#](./howto-create-serviceclient-with-net-and-azure-identity.md)
-- [Python](./howto-create-serviceclient-with-python-and-azure-identity.md)
-- [Java](./howto-create-serviceclient-with-java-and-azure-identity.md)
-- [JavaScript](./howto-create-serviceclient-with-javascript-and-azure-identity.md)
+To create a `WebPubSubServiceClient` that uses Microsoft Entra authorization in .NET, Java, JavaScript, or Python, see [Use Azure Identity with `WebPubSubServiceClient`](howto-use-azure-identity.md).
 
 ## Related content
 

@@ -134,7 +134,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Cyber Cloud Technologies](https://www.cyber-cloud.com)|
 |[Cyber Korp Inc.](https://cyberkorp.com/)|
 |[Dalecheck Technology Group](https://www.dalechek.com/)|
-|[Dasher Technologies, Inc.](https://www.dasher.com)|
+|Dasher Technologies, Inc.|
 |[Data Center Services Inc](https://www.d8acenter.com)|
 |[Data Defenders LLC](https://data-defenders.com/)|
 |[Datapipe (RackSpace Company)](https://www.rackspace.com)|

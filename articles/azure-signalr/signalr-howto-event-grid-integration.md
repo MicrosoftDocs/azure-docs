@@ -88,7 +88,7 @@ Once the deployment succeeds (it might take a few minutes), open your browser, a
 
 `http://<your-site-name>.azurewebsites.net`
 
-[!INCLUDE [register-provider-cli.md](../../articles/event-grid/includes/register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](~/reusable-content/ce-skilling/azure/includes/event-grid/register-provider-cli.md)]
 
 ## Subscribe to registry events
 

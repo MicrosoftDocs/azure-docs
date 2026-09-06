@@ -18,6 +18,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article describes what linked services are, how they're defined in JSON format, and how they're used in Azure Data Factory and Azure Synapse Analytics.
 
 To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse](../synapse-analytics/overview-what-is.md).

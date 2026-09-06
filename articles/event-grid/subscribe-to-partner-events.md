@@ -24,7 +24,7 @@ Follow these steps to receive events from a partner.
 1. [Activate partner topic](#activate-a-partner-topic) so that your events start flowing to your partner topic.
 1. [Subscribe to events](#subscribe-to-events).
 
-[!INCLUDE [register-provider](./includes/register-provider.md)]
+[!INCLUDE [register-provider](~/reusable-content/ce-skilling/azure/includes/event-grid/register-provider.md)]
 
 [!INCLUDE [authorize-partner-to-create-topic](includes/authorize-partner-to-create-topic.md)]
 

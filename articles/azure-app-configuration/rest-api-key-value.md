@@ -9,7 +9,7 @@ ms.date: 08/02/2024
 zone_pivot_groups: appconfig-data-plane-api-version
 
 ---
-:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 # Key-values
 
@@ -45,7 +45,7 @@ A key-value is a resource identified by unique combination of `key` + `label`. `
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v26-04"
+:::zone target="docs" pivot="v26-04,v26-05-preview"
 
 ```json
 {
@@ -62,7 +62,7 @@ A key-value is a resource identified by unique combination of `key` + `label`. `
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 ## Get key-value
 
@@ -77,7 +77,7 @@ GET /kv/{key}?label={label}&api-version={api-version}
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v24-09,v26-04"
+:::zone target="docs" pivot="v24-09,v26-04,v26-05-preview"
 
 Optional: ``tags`` (If not specified, it implies any tags.)
 
@@ -88,7 +88,7 @@ GET /kv/{key}?label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version={api
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 **Responses:**
 
@@ -119,7 +119,7 @@ ETag: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v26-04"
+:::zone target="docs" pivot="v26-04,v26-05-preview"
 
 ```json
 {
@@ -139,7 +139,7 @@ ETag: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 If the key doesn't exist, the following response is returned:
 
@@ -192,7 +192,7 @@ Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v23-11,v24-09,v26-04,v26-05-preview"
 
 Optional: ``tags`` (If not specified, it implies any tags.)
 
@@ -207,12 +207,12 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 For more options, see the "Filtering" section later in this article.
 
 :::zone-end
-:::zone target="docs" pivot="v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 ## List key-values (conditionally)
 
@@ -258,7 +258,7 @@ HTTP/1.1 200 OK
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 ## Pagination
 
@@ -299,7 +299,7 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v23-11,v24-09,v26-04,v26-05-preview"
 
 A combination of `key`, `label`, and `tags` filtering is supported.
 Use the optional `key`, `label`, and `tags` query string parameters.
@@ -310,7 +310,7 @@ GET /kv?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version=
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 
 ### Supported filters
@@ -331,7 +331,7 @@ GET /kv?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version=
 |`label=prod,test`|Matches labels **prod** or **test** (limited to 5 CSV)|
 
 :::zone-end
-:::zone target="docs" pivot="v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v23-11,v24-09,v26-04,v26-05-preview"
 
 |Tags filter|Effect|
 |--|--|
@@ -342,7 +342,7 @@ GET /kv?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version=
 |`tags=tag1=`|Matches key-values that have a tag named `tag1` with empty value|
 
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 ***Reserved characters***
 
@@ -448,7 +448,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v26-04"
+:::zone target="docs" pivot="v26-04,v26-05-preview"
 
 ```json
 {
@@ -463,7 +463,7 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 **Responses:**
 
@@ -493,7 +493,7 @@ ETag: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v26-04"
+:::zone target="docs" pivot="v26-04,v26-05-preview"
 
 ```json
 {
@@ -512,7 +512,7 @@ ETag: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 If the item is locked, the following response is returned:
 

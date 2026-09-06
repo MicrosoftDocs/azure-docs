@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 11/20/2025
+ms.date: 08/16/2026
 ms.author: kesheth
 ms.devlang: azurecli
 ms.custom:
@@ -61,11 +61,13 @@ In the authority box, enter a valid secondary Microsoft Entra tenant. Once the t
 
 * A Microsoft Entra user.
 * A Microsoft Entra service principal.
-* A Microsoft Entra security group.
+
+> [!NOTE]
+> Assigning access to a Microsoft Entra security group is no longer supported. Grant access directly to individual users or service principals instead. This change keeps Azure API for FHIR aligned with current security practices and limits the access the service needs to your directory.
 
 You can read the article on how to [find identity object IDs](find-identity-object-ids.md) for more details.
 
-After entering the required Microsoft Entra object IDs, select **Save** and wait for changes to be saved before trying to access the data plane using the assigned users, service principals, or groups. The object IDs are granted with all permissions, an equivalent of the "FHIR Data Contributor" role.
+After entering the required Microsoft Entra object IDs, select **Save** and wait for changes to be saved before trying to access the data plane using the assigned users or service principals. The object IDs are granted with all permissions, an equivalent of the "FHIR Data Contributor" role.
 
 The local RBAC setting is only visible from the authentication blade; it isn't visible from the Access Control (IAM) blade.
 

@@ -363,7 +363,6 @@ public static async Task<IActionResult> Run(
 + [Quickstart: Build a scalable web API using Azure Functions](create-first-function-azure-developer-cli.md?pivots=programming-language-csharp)
 + [Create serverless APIs in Visual Studio using Azure Functions and API Management integration](./openapi-apim-integrate-visual-studio.md)
 + [Expose serverless APIs from HTTP endpoints using Azure API Management](functions-openapi-definition.md)
-+ [Sample: Web application with a C# API and Azure SQL DB on Static Web Apps and Functions](/samples/azure-samples/todo-csharp-sql-swa-func/todo-csharp-sql-swa-func/)
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

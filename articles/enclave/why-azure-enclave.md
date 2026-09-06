@@ -4,8 +4,9 @@ description: Learn why organizations use Azure Enclave to create secure, isolate
 author: mitchellly-msft
 ms.author: mitchellly
 ms.topic: overview
-ms.date: 06/26/2026
 ai-usage: ai-assisted
+ms.service: azure-enclave
+ms.date: 06/26/2026
 ---
 
 # Why use Azure Enclave?
@@ -21,7 +22,7 @@ Azure Enclave provides value in several ways:
 
 - **Simplify secure workload connectivity** - Create and manage secure workloads, enclave connectivity, and controlled access to trusted endpoints, destinations, and mission partners.
 
-- **Deploy secure environments faster** - Use platform-managed creation of secure environments, boundary isolation, enclave management, and governance controls to reduce setup time.
+- **Deploy secure environments faster** - Use Azure Enclave managed creation of secure environments, boundary isolation, enclave management, and governance controls to reduce setup time.
 
 - **Support compliance readiness** - Use Azure Policy guardrails, logging and diagnostics, and compliance reporting to help maintain a known security posture.
 

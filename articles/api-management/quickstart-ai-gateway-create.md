@@ -57,7 +57,7 @@ The gateway is a dedicated resource in your Azure subscription. You don't choose
 
 The fastest way to create a model is by importing it from Microsoft Foundry accounts.
 
-1. Under **Home**, **Configure your gateway**, select **Get started** option or open the setup page directly at the `/settings/start` route.
+1. Under **Home** > **Configure your gateway**, select **Get started** option or open the setup page directly at the `/settings/start` route.
 
    :::image type="content" source="./media/ai-gateway-setup/aigw-configure-your-gateway-home.png" alt-text="Screenshot of the AI Gateway tier portal in a newly created resource."  :::
 
@@ -67,7 +67,7 @@ The fastest way to create a model is by importing it from Microsoft Foundry acco
 
    :::image type="content" source="./media/ai-gateway-setup/aigw-foundry-select-accounts.png" alt-text="A screenshot showing multiple Foundry accounts selected with models to import."  :::
 
-1. Choose a **backend authentication** method for this import:
+1. Choose a backend **authentication method** for this import:
 
    - **Key-based** (default). The gateway stores the account's API key and sends it in the `api-key` header. The wizard retrieves the key at import time.
    - **Managed identity (Microsoft Entra ID)**. The gateway authenticates with its managed identity. If the gateway has no managed identity, the wizard enables a system-assigned identity. If one already exists, you choose which identity to use. The wizard grants the identity the **Foundry User** role on each selected account.

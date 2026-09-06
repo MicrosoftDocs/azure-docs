@@ -4,7 +4,7 @@ description: Azure Load Balancer health probes and configuration for detecting a
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 07/07/2026
+ms.date: 08/27/2026
 ms.author: mbender
 # Customer intent: As a network engineer, I want to understand how to configure health probes for Azure Load Balancer so that I can detect application failures, manage load, and plan for downtime.
 ---
@@ -64,7 +64,7 @@ The protocol used by the health probe can be configured to one of the following 
 | Scenario | TCP connections | UDP datagrams |
 | --- | --- | --- | 
 | Single instance probes down |  New TCP connections succeed to remaining healthy backend endpoint. Established TCP connections to this backend endpoint continue. |   Existing UDP flows move to another healthy instance in the backend pool.|
-| All instances probe down | No new flows are sent to the backend pool. Standard Load Balancer allows established TCP flows to continue given that a backend pool has more than one backend instance. Basic Load Balancer terminates all existing TCP flows to the backend pool. |  All existing UDP flows terminate. |
+| All instances probe down | No new flows are sent to the backend pool. Standard Load Balancer allows established TCP flows to continue given that a backend pool has more than one backend instance. Basic Load Balancer (retired) terminates all existing TCP flows to the backend pool. |  All existing UDP flows terminate. |
 
 ## Probe interval & timeout
 
@@ -114,7 +114,7 @@ For HTTP probes, explicit responses will immediately mark the probe as up or dow
 
 ## Monitoring
 
-[Standard Load Balancer](./load-balancer-overview.md) exposes per endpoint and backend endpoint health probe status through [Azure Monitor](./monitor-load-balancer.md). Other Azure services or partner applications can consume these metrics. Azure Monitor logs aren't supported for Basic Load Balancer.
+[Standard Load Balancer](./load-balancer-overview.md) exposes per endpoint and backend endpoint health probe status through [Azure Monitor](./monitor-load-balancer.md). Other Azure services or partner applications can consume these metrics. Azure Monitor logs aren't supported for Basic Load Balancer (retired).
 
 ## Probe source IP address
 
@@ -130,7 +130,7 @@ If you don't allow the [source IP](#probe-source-ip-address) of the probe in you
 
 - Enabling TCP timestamps can cause throttling or other performance issues, which can then cause health probes to time out.
 
-- A Basic SKU load balancer health probe isn't supported with a virtual machine scale set.
+- Health probes for Basic Load Balancer (retired) aren't supported with a virtual machine scale set.
 
 - HTTP probes don't support probing on the following ports due to security concerns: 19, 21, 25, 70, 110, 119, 143, 220, 993. 
 

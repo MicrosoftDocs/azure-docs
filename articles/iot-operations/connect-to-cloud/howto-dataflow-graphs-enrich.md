@@ -1,6 +1,6 @@
 ---
-title: Enrich data with external datasets in data flow graphs
-description: Learn how to augment incoming messages with data from an external state store by configuring datasets in Azure IoT Operations data flow graphs.
+title: Enrich data flow graphs with datasets
+description: Enrich incoming messages in Azure IoT Operations data flow graphs with datasets read from the state store, so transform rules can reference contextual fields.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
@@ -8,6 +8,8 @@ ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 07/24/2026
 ai-usage: ai-assisted
+
+#customer intent: As a data flow author, I want to enrich incoming messages with data from an external state store so that my transform rules can reference contextual fields that aren't present in the message.
 
 ---
 
@@ -27,19 +29,19 @@ Enrichment works with **map**, **filter**, and **branch** transforms, and with *
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 
-- A default registry endpoint named `default` that points to `mcr.microsoft.com` is automatically created during deployment.
+- Deployment automatically creates a default registry endpoint named `default` that points to `mcr.microsoft.com`.
 
 [!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
 
 ## Set up the state store
 
-The runtime reads dataset records from the Azure IoT Operations distributed state store. Each dataset key maps to one or more records in NDJSON format (one JSON object per line). The runtime caches records and receives change notifications, so state store updates are reflected in processing.
+The runtime reads dataset records from the Azure IoT Operations distributed state store. Each dataset key maps to one or more records in NDJSON format (one JSON object per line). The runtime caches records and receives change notifications, so state store updates take effect during processing.
 
 For information on configuring the distributed state store, see [State store overview](../develop-edge-apps/overview-state-store.md).
 
 ### Populate the state store key
 
-The state store isn't prepopulated. You write dataset records to it yourself over MQTT by using the state store's `SET` command. For the `device-metadata as device` dataset configured later in this article, publish the following request to seed two NDJSON records (one per line) under the `device-metadata` key. Include every field referenced by rules that use this dataset - including `location`, used by the [Deploy a data flow graph with enrichment](#deploy-a-data-flow-graph-with-enrichment) example later in this article - otherwise, the field resolves to `null` for every message:
+The state store isn't prepopulated. Write dataset records to it over MQTT by using the state store's `SET` command. For the `device-metadata as device` dataset configured later in this article, publish the following request to seed two NDJSON records (one per line) under the `device-metadata` key. Include every field referenced by rules that use this dataset, including `location`. The [Deploy a data flow graph with enrichment](#deploy-a-data-flow-graph-with-enrichment) example uses `location` later in this article. Otherwise, the field resolves to `null` for every message:
 
 ```console
 mosquitto_pub -h <BROKER_HOST> -p <BROKER_PORT> -V mqttv5 -q 1 \
@@ -70,7 +72,7 @@ In the transform configuration, add a dataset. Configure:
 
 # [Azure CLI](#tab/cli)
 
-The CLI applies the whole graph from one config file, so add this to the transform node's `configuration` in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
+The CLI applies the whole graph from one config file. Add these rules to the transform node's `configuration` in your `graph.json` and apply them by using [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
 
 The rules are a JSON object:
 
@@ -147,28 +149,28 @@ Each dataset entry has these properties:
 | Property | Required | Description |
 |----------|----------|-------------|
 | `key` | Yes | The state store key where the dataset records are stored. Supports an optional alias with the `as` keyword. To populate this key, publish a `SET` request over MQTT (see [Populate the state store key](#populate-the-state-store-key)). |
-| `dynamicValues` | No | List of message field paths substituted into `$N` placeholders in `key`, letting the state store key be derived per message. See [Dynamic keys](#dynamic-keys). |
+| `dynamicValues` | No | List of message field paths substituted into `$N` placeholders in `key`, letting the runtime derive the state store key for each message. See [Dynamic keys](#dynamic-keys). |
 | `inputs` | Yes | List of field references used in the match expression. Each entry uses a `$source.` or `$context.` prefix. |
 | `expression` | Yes | A boolean expression that determines which dataset record matches the incoming message. |
 
 ### Key and alias
 
-The `key` value is the state store key that the runtime reads. Assign a shorter alias with the `as` keyword. For example, `datasets.parag10.rule42 as position` lets you reference fields as `$context(position).WorkingHours`.
+The `key` value is the state store key that the runtime reads. Assign a shorter alias by using the `as` keyword. For example, `datasets.parag10.rule42 as position` lets you reference fields as `$context(position).WorkingHours`.
 
-A key can also be a template that's resolved separately for every message. For more information, see [Dynamic keys](#dynamic-keys).
+A key can also be a template that the runtime resolves separately for each message. For more information, see [Dynamic keys](#dynamic-keys).
 
 ### Dynamic keys
 
-A static `key` works well when every message should be enriched from the same state store record. But sometimes each message needs a different record - for example, per-device calibration data, where the record to look up depends on a field in the incoming message.
+A static `key` works well when you enrich every message from the same state store record. But sometimes each message needs a different record. For example, with per-device calibration data, the record to look up depends on a field in the incoming message.
 
 Instead of deploying a separate dataset (and a separate graph) for every possible lookup value, make `key` a template with `$1`, `$2`, and so on, placeholders. Add a `dynamicValues` property that lists the message field to substitute for each placeholder. The runtime resolves the template for every message before it queries the state store.
 
 > [!TIP]
-> Pair a dynamic `key` with an alias by using `as`. The alias - not the resolved key - is the fixed name you reference in rules as `$context(<alias>).<field>`. Keep the alias a stable identifier even though the underlying key changes per message.
+> Pair a dynamic `key` with an alias by using `as`. The alias, not the resolved key, is the fixed name you reference in rules as `$context(<alias>).<field>`. Keep the alias a stable identifier even though the underlying key changes per message.
 
 #### Prerequisite: Populate a dynamic state store key
 
-Because the resolved key is data-driven, you need to populate the state store with a record for each resolved value you expect to look up. In the example provided in the following section, for a message with `sensorId: "TEMP-42"`, the runtime looks up `calibration:TEMP-42`, so publish a `SET` request for that exact key. The record must include every field used by the dataset's match `inputs` - here, `sensorId`, compared against the incoming message's `$source.sensorId` - in addition to any field the rules enrich with, such as `offset`. Otherwise, the match never succeeds and the enrichment fields stay unavailable:
+Because the resolved key is data-driven, you need to populate the state store with a record for each resolved value you expect to look up. In the example in the following section, for a message with `sensorId: "TEMP-42"`, the runtime looks up `calibration:TEMP-42`, so publish a `SET` request for that exact key. The record must include every field used by the dataset's match `inputs` (here, `sensorId`, compared against the incoming message's `$source.sensorId`), in addition to any field the rules enrich with, such as `offset`. Otherwise, the match never succeeds and the enrichment fields stay unavailable:
 
 ```console
 mosquitto_pub -h <BROKER_HOST> -p <BROKER_PORT> -V mqttv5 -q 1 \
@@ -189,7 +191,7 @@ In the transform configuration, add a dataset and configure:
 
 | Setting | Description |
 |---------|-------------|
-| **State store key** | A template such as `calibration:$1 as calibration`, where `$1` is replaced by a message field at processing time. To populate the resolved key, publish a `SET` request over MQTT (see [Populate a dynamic state store key](#prerequisite-populate-a-dynamic-state-store-key)). |
+| **State store key** | A template such as `calibration:$1 as calibration`, where a message field replaces `$1` at processing time. To populate the resolved key, publish a `SET` request over MQTT (see [Populate a dynamic state store key](#prerequisite-populate-a-dynamic-state-store-key)). |
 | **Dynamic values** | The message field to substitute for each placeholder, in order (for example, `sensorId`). |
 | **Match inputs / Match expression** | Configure the same way as a static-key dataset. |
 
@@ -327,7 +329,7 @@ If no record matches, the enrichment fields aren't available. Rules that depend 
 
 ## Use enriched data in rules
 
-Reference matched record fields in any rule's `inputs` array using `$context(<alias>).<fieldPath>`.
+Reference matched record fields in any rule's `inputs` array by using `$context(<alias>).<fieldPath>`.
 
 ### Map example
 
@@ -397,7 +399,7 @@ Add a filter rule with inputs `rawValue`, `$context(limits).multiplier`, and `$c
 
 # [Azure CLI](#tab/cli)
 
-The CLI applies the whole graph from one config file. The rules are a JSON object:
+The CLI applies the whole graph from one config file. The following filter rule references the enriched `$context(limits)` fields in its match expression, provided as a JSON object:
 
 ```json
 {
@@ -437,6 +439,8 @@ Add these rules to the transform node's `configuration` in your `graph.json` as 
 
 # [Bicep](#tab/bicep)
 
+The following filter rule references the enriched `$context(limits)` fields in the rules JSON:
+
 ```bicep
 '{"datasets":[{"key":"device_limits as limits","inputs":["$source.deviceId","$context.deviceId"],"expression":"$1 == $2"}],"filter":[{"inputs":["rawValue","$context(limits).multiplier","$context(limits).baseLimit"],"expression":"$1 * $2 > $3"}]}'
 ```
@@ -473,7 +477,7 @@ Configure a branch rule with inputs `quantity`, `$context(mult).factor`, and `$c
 
 # [Azure CLI](#tab/cli)
 
-The CLI applies the whole graph from one config file. The rules are a JSON object:
+The CLI applies the whole graph from one config file. The following branch rule routes messages by using the enriched `$context(mult)` fields, provided as a JSON object:
 
 ```json
 {
@@ -511,6 +515,8 @@ Add these rules to the transform node's `configuration` in your `graph.json` as 
 
 # [Bicep](#tab/bicep)
 
+The following branch rule references the enriched `$context(mult)` fields in the rules JSON:
+
 ```bicep
 '{"datasets":[{"key":"multipliers as mult","inputs":["$source.productCode","$context.productCode"],"expression":"$1 == $2"}],"branch":{"inputs":["quantity","$context(mult).factor","$context(mult).threshold"],"expression":"$1 * $2 > $3"}}'
 ```
@@ -547,7 +553,7 @@ Add a map rule with input `$context(device).*` and output `*`.
 
 # [Azure CLI](#tab/cli)
 
-The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+The CLI applies the whole graph from one config file, so add this rule to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
 
 ```json
 {
@@ -579,9 +585,9 @@ The CLI applies the whole graph from one config file, so add this to the corresp
 
 ---
 
-You can also target a nested object within the dataset record. For example, `$context(device).configuration.*` copies only the fields under `configuration`.
+Wildcards can also target a nested object within the dataset record. For example, `$context(device).configuration.*` copies only the fields under `configuration`.
 
-Wildcard enrichment inputs are supported only in map rules. Filter and branch rules don't support wildcard inputs.
+Only map rules support wildcard enrichment inputs. Filter and branch rules don't support wildcard inputs.
 
 ## Deploy a data flow graph with enrichment
 
@@ -591,12 +597,12 @@ In the Operations experience, create a data flow graph with enrichment:
 
 1. Add a **source** that reads from your MQTT topic.
 1. Add a **map** transform. In the dataset configuration, add a dataset with the state store key and match condition.
-1. In the map rules, reference enriched fields using `$context(<alias>).<field>` syntax.
+1. In the map rules, reference enriched fields by using `$context(<alias>).<field>` syntax.
 1. Add a **destination** that sends to your output topic.
 
 # [Azure CLI](#tab/cli)
 
-The Azure CLI applies a data flow graph from a single JSON config file. Create a `graph.json` file with the graph properties. In the `graph.json` file, each transform's rules are stored in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
+The Azure CLI uses a data flow graph from a single JSON config file. Create a `graph.json` file with the graph properties. In the `graph.json` file, each transform stores its rules in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to article for that transform type.
 
 ```json
 {
@@ -656,7 +662,7 @@ The Azure CLI applies a data flow graph from a single JSON config file. Create a
 }
 ```
 
-Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
+Apply the config file.
 
 ```azurecli
 az iot ops dataflowgraph apply \
@@ -772,15 +778,15 @@ spec:
 
 ---
 
-## Limitations
+## Enrichment limitations
 
 - **Window support is trigger-only.** In window transforms, dataset enrichment is available for trigger rules (`triggers.datasets`) in `azureiotoperations/graph-dataflow-window:1.1.0` or later, not for accumulation rules.
 - **First match wins.** The runtime uses the first record where the expression evaluates to `true`.
-- **Missing matches don't fail the message.** If no dataset record matches, rules that reference `$context(<alias>)` fields still run but resolve to `null` - the output field is present with a `null` value, not omitted. The transformation doesn't fail.
+- **Missing matches don't fail the message.** If no dataset record matches, rules that reference `$context(<alias>)` fields still run but resolve to `null`. The output field is present with a `null` value, not omitted. The transformation doesn't fail.
 - **State store errors propagate.** If the state store is unreachable, the transformation fails for that message.
 - **No wildcard inputs in dataset definitions.** Each input must be a specific `$source.<field>` or `$context.<field>` reference.
 
-## Next steps
+## Related content
 
 - [Transform data with map](howto-dataflow-graphs-map.md)
 - [Filter and route data](howto-dataflow-graphs-filter-route.md)

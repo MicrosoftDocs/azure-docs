@@ -44,7 +44,7 @@ This section describes the core benefits that Azure Web Application Firewall on 
 
 - Protect your web applications from malicious bots by using the IP Reputation Rule Set.
 
-- Protect your application against DDoS attacks. For more information, see [Application (Layer 7) DDoS protection](../shared/application-ddos-protection.md).
+- Protect your application against DDoS attacks. For more information, see [Application (Layer 7) DDoS protection](../application-ddos-protection.md).
 
 ### Monitoring
 

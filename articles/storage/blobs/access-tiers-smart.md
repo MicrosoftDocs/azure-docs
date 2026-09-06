@@ -74,27 +74,18 @@ To update the default access tier to *Smart* for an existing storage account in 
 
 #### [PowerShell](#tab/azure-powershell)
 
-To configure `Smart` as the default access tier setting for a storage account with PowerShell, call the Azure REST API directly.
+To configure `Smart` as the default access tier setting for a storage account by using PowerShell, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command.
 
 ```azurepowershell-interactive
-# Set variables
-$SubscriptionId = <subscription-id>
-$ResourceGroup = <resource-group>
-$StorageAccountName = <storage-account-name>
-
-# Update the storage account access tier to Smart
-$Path = "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroup/providers/Microsoft.Storage/storageAccounts/${StorageAccountName}?api-version=2025-08-01"
-$Payload = @{ properties = @{ accessTier = "Smart" } } | ConvertTo-Json -Depth 3
-
-Invoke-AzRestMethod -Method PATCH -Path $Path -Payload $Payload
+Set-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account-name> -AccessTier Smart
 ```
 
 #### [Azure CLI](#tab/azure-cli)
 
-To configure `Smart` as the default access tier setting for a storage account with Azure CLI, call the Azure REST API directly.
+To configure `Smart` as the default access tier setting for a storage account by using Azure CLI, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command.
 
 ```azurecli-interactive
-az rest --method patch --url "https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>?api-version=2025-08-01" --body '{"properties":{"accessTier":"Smart"}}'
+az storage account update --resource-group <resource-group> --name <storage-account-name> --access-tier Smart
 ```
 
 ---

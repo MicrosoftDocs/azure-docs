@@ -5,7 +5,7 @@ description: Learn how to configure Virtual WAN routing policies.
 author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 08/01/2025
+ms.date: 08/27/2026
 ms.author: wellee
 ms.custom:
   - devx-track-bicep
@@ -96,7 +96,7 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 
 * The following table describes the availability of routing intent in different Azure environments.
     * Routing intent isn't available in Microsoft Azure operated by 21 Vianet.
-    * Palo Alto Cloud NGFW is only available in Azure Public. Reach out to Palo Alto Networks regarding availability of Cloud NGFW in Azure Government and Microsoft Azure operated by Viacom.
+    * Palo Alto Cloud NGFW is only available in Azure Public. Contact Palo Alto Networks regarding availability of Cloud NGFW in Azure Government and Microsoft Azure operated by 21 Vianet.
     * Network Virtual Appliances aren't available in all Azure Government regions. Contact your NVA partner regarding availability in Azure Government.  
 
 | Cloud Environment| Azure Firewall| Network Virtual Appliance| SaaS solutions|

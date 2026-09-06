@@ -13,6 +13,8 @@ ms.author: ulrichchrist
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Learn about advanced topics for the SAP CDC connector like metadata driven data integration, debugging, and more.
 
 ## Parameterizing an SAP CDC mapping data flow

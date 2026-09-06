@@ -17,6 +17,8 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 Welcome to Azure Data Factory! This article helps you create your first data factory and pipeline within five minutes.
 
 The Azure Resource Manager template (ARM template) in this article creates and configures everything you need. Then you can go to your demo data factory and trigger the pipeline, which moves some sample data from one Azure Blob Storage folder to another.
