@@ -158,7 +158,7 @@ To copy data from Dynamics AX, set the **type** property of the dataset to **Dyn
 ```
 
 > [!NOTE]
-> Complex data types (such as **Enum**) aren't supported.
+> Complex data types, such as **Enum**, aren't supported.
 
 ## Copy Activity properties
 
