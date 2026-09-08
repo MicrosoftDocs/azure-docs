@@ -170,7 +170,7 @@ public static async Task<UserDelegationKey> RequestUserDelegationKey(
 }
 ```
 
-The following code sample shows how to request the user-bound user delegation for Blobs: 
+The following code sample shows how to request the user-bound user delegation key for blobs:
 
 ```csharp
 
