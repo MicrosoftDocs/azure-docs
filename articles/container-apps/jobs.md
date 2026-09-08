@@ -62,7 +62,7 @@ To start a container app job, your user account or service principal needs the a
 
 Both the **Container Apps Jobs Contributor** and **Container Apps Jobs Operator** roles include the `Microsoft.App/jobs/*/action` wildcard permission. This wildcard matches `Microsoft.App/jobs/listSecrets/action`, so both roles grant permission to read the job's secret values in plain text.
 
-Built-in roles are a convenience. If neither role matches the access you want to grant, create a [custom role](/azure/role-based-access-control/custom-roles) that lists only the actions you need. For example, the following actions let a user view, start, and stop jobs without using the `Microsoft.App/jobs/*/action` wildcard. Because this set includes `Microsoft.App/jobs/start/action`, grant it only to identities you trust to use the job's secrets and managed identities configured to be available to its containers:
+If neither role matches the access you want to grant, create a [custom role](/azure/role-based-access-control/custom-roles) that lists only the actions you need. For example, the following actions let a user view, start, and stop jobs without using the `Microsoft.App/jobs/*/action` wildcard. Because this set includes `Microsoft.App/jobs/start/action`, grant it only to identities you trust to use the job's secrets and managed identities configured to be available to its containers:
 
 - `Microsoft.App/jobs/read`
 - `Microsoft.App/jobs/start/action`
