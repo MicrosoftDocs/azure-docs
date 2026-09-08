@@ -17,6 +17,6 @@ A SAS token for access to a container or blob may be secured by using either Mic
 Microsoft recommends that you use Microsoft Entra credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures, use Microsoft Entra credentials to create a user delegation SAS for superior security. For more information about the user delegation SAS, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 > [!CAUTION]
-> Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS, and have a plan in place for revoking a compromised SAS.
+> Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS and have a plan in place for revoking a compromised SAS. To prevent unintended use, please use user-bound user delegated SAS, which ties the SAS token to the intended end user and cannot be used by anyone else.
 
 For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../articles/storage/common/storage-sas-overview.md).
