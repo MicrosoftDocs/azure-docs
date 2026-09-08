@@ -1,12 +1,12 @@
 ---
 title: Azure Multicloud Interconnect Preview availability and limits
-description: Review supported cloud providers, regions, bandwidth, pricing, and known limitations for Azure Multicloud Interconnect Preview.
+description: Review supported cloud providers, regions, bandwidth, routing requirements, pricing, and known limitations for Azure Multicloud Interconnect Preview.
 author: duongau
 ms.author: duau
 ms.service: azure
 ms.custom: references_regions
 ms.topic: concept-article
-ms.date: 08/25/2026
+ms.date: 09/07/2026
 ---
 
 # Azure Multicloud Interconnect Preview availability and limits
@@ -35,6 +35,20 @@ Region availability is subject to change during preview.
 ## Supported bandwidth
 
 Azure Multicloud Interconnect supports 1 Gbps during preview.
+
+## Supported virtual network gateway connections
+
+Azure Multicloud Interconnect supports one gateway connection per Azure Multicloud Interconnect.
+
+## Routing requirements
+
+Microsoft reserves the following resources for internal use:
+
+- ASN range: 65515–65520
+- IPv4 prefix: 169.254.255.0/24
+- IPv6 prefix: fc00:ffff:ffff:ffff/120
+ 
+When you configure connectivity between Microsoft and other cloud providers, use ASNs and IP addresses outside of these reserved ranges.
 
 ## Pricing
 

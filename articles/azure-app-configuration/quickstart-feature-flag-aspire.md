@@ -33,7 +33,7 @@ Follow the documents to create an Aspire solution with dynamic configuration.
 
 Add a feature flag called *Beta* to the App Configuration store (created in the [Prerequisites](./quickstart-feature-flag-aspire.md#prerequisites) steps), and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
-:::image type="content" source="media/add-beta-feature-flag.png" alt-text="Screenshot of adding a feature flag called Beta." lightbox="media/add-beta-feature-flag.png":::
+:::image type="content" source="media/quickstart-feature-flag-aspire/add-beta-feature-flag.png" alt-text="Screenshot of adding a feature flag called Beta." lightbox="media/quickstart-feature-flag-aspire/add-beta-feature-flag.png":::
 
 :::zone-end
 

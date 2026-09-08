@@ -258,7 +258,7 @@ Add the following key-values to the App Configuration store and leave **Label** 
 
 1. Press Ctrl + F5 to build and run the web application.
 
-    ![App launch local](./media/dotnet-fx-web-app-launch.png)
+    ![App launch local](./media/enable-dynamic-configuration-aspnet-netfx/dotnet-fx-web-app-launch.png)
 
 1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following keys. 
 
@@ -270,7 +270,7 @@ Add the following key-values to the App Configuration store and leave **Label** 
 
 1. Refresh the browser page to see the new configuration settings. You may need to refresh more than once for the changes to be reflected or change your refresh interval to less than 5 minutes. 
 
-    ![App refresh local](./media/dotnet-fx-web-app-refresh.png)
+    ![App refresh local](./media/enable-dynamic-configuration-aspnet-netfx/dotnet-fx-web-app-refresh.png)
 
 > [!NOTE]
 > You can download the example code used in this tutorial from the [Azure App Configuration GitHub repo](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetFramework/WebFormApp).

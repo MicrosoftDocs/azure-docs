@@ -24,7 +24,7 @@ The original App Configuration store is also considered a replica, so to achieve
 
 The following diagram illustrates the topology between your application and two replicas:
 
-:::image type="content" source="./media/geo-redundant-app-configuration-replicas.png" alt-text="Diagram of geo-redundant replicas." lightbox="./media/geo-redundant-app-configuration-replicas.png":::
+:::image type="content" source="./media/concept-disaster-recovery/geo-redundant-app-configuration-replicas.png" alt-text="Diagram of geo-redundant replicas." lightbox="./media/concept-disaster-recovery/geo-redundant-app-configuration-replicas.png":::
 
 Your application loads its configuration from the more preferred replica. If the preferred replica is not available, configuration is loaded from the less preferred replica. This increases the chance of successfully getting the configuration data. The data in both replicas is always in sync. 
 

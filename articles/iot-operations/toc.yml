@@ -167,6 +167,9 @@ items:
               - name: Understand the connector for OPC UA
                 href: discover-manage-assets/overview-opc-ua-connector.md
                 displayName: OPC UA server, OPC UA client, payload, southbound
+              - name: Monitor OPC UA server availability
+                href: discover-manage-assets/concept-opc-ua-server-heartbeat-monitoring.md
+                displayName: heartbeat, server heartbeat, liveness, CurrentTime, endpoint health, southbound
               - name: OPC UA asset discovery modes
                 href: discover-manage-assets/concept-opc-ua-asset-discovery.md
                 displayName: OPC UA, discovery, DI-based, type-based, segmented, start-node, periodic, Akri, southbound
