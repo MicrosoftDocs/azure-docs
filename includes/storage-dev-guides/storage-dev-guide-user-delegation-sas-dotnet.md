@@ -115,6 +115,8 @@ Every SAS is signed with a key. To create a user delegation SAS, you must first 
 
 Once you have the user delegation key, you can use that key to create any number of user delegation shared access signatures, over the lifetime of the key. The user delegation key is independent of the OAuth 2.0 token used to acquire it, so the token doesn't need to be renewed if the key is still valid. You can specify the length of time that the key remains valid, up to a maximum of seven days.
 
+Getting the user delegation key now optionally supports providing the delegatedusertid, which allows you to specify the identity of the intended end user of the SAS token, and is referred to as a user-bound user delegation SAS token. 
+
 Use one of the following methods to request the user delegation key:
 
 - [GetUserDelegationKey](/dotnet/api/azure.storage.blobs.blobserviceclient.getuserdelegationkey)
@@ -165,5 +167,24 @@ public static async Task<UserDelegationKey> RequestUserDelegationKey(
             DateTimeOffset.UtcNow.AddDays(1));
 
     return userDelegationKey;
+}
+```
+
+The following code sample shows how to request the user-bound user delegation for Blobs: 
+
+```csharp
+
+public static async Task<UserDelegationKey> RequestUserDelegationKey(
+BlobServiceClient blobServiceClient)
+{     
+    //Get a user-bound user delegation key for the Blob service that's valid for 1 day 
+    BlobGetUserDelegationKeyOptions options =
+        new BlobGetUserDelegationKeyOptions(startsOn: DateTimeOffset.UtcNow, endsOn: DateTimeOffset.UtcNow.AddDays(1)){ 
+        DelegatedUserTenantId = "delegatedUserTenantId" 
+    }; 
+
+    Task<UserDelegationKey> userDelegationKey = await blobServiceClient.GetUserDelegationKeyAsync(options); 
+    return userDelegationKey.Value; 
+
 }
 ```
