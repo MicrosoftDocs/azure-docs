@@ -3,7 +3,7 @@ title: Azure Functions Scale and Hosting
 description: Compare the various options you need to consider when choosing a hosting plan in which to run your function app in Azure Functions.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: limits-and-quotas
-ms.date: 12/09/2025
+ms.date: 09/08/2026
 ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023, build-2024, ignite-2024
 #customer intent: As a cloud developer or platform engineer, I want guidance on Functions scaling and hosting so I can choose the best hosting plan for performance and cost-efficiency when running my code in Azure.
 ---
@@ -132,7 +132,7 @@ Maximum instances are given on a per-function app (Consumption), per-plan (Premi
 
 You need to manage certificates when you use a custom domain name with your function app, when your function code authenticates to an external service using a client certificate, or when you require mutual TLS (mTLS). The default `*.azurewebsites.net` domain already has a platform-managed certificate. The following table shows certificate support across hosting plans:
 
-| Feature | [Flex Consumption plan](flex-consumption-how-to.md#configure-site-scoped-certificates)<sup>3</sup> | [Premium plan](../app-service/configure-ssl-certificate.md) | [Dedicated plan/ASE](../app-service/configure-ssl-certificate.md) | [Container Apps] | [Consumption plan](../app-service/configure-ssl-certificate.md) |
+| Feature | [Flex Consumption plan](flex-consumption-how-to.md#configure-site-scoped-certificates) | [Premium plan](../app-service/configure-ssl-certificate.md) | [Dedicated plan/ASE](../app-service/configure-ssl-certificate.md) | [Container Apps] | [Consumption plan](../app-service/configure-ssl-certificate.md) |
 | --- | --- | --- | --- | --- | --- |
 | Managed certificates | ✅ <sup>2</sup> | ✅ | ✅ | ✅ | ✅ |
 | Private certificates (.pfx) | ✅ (3 per app) | ✅ (unlimited<sup>1</sup>) | ✅ (unlimited<sup>1</sup>) | [✅](../container-apps/custom-domains-certificates.md) | ✅ (unlimited<sup>1</sup>) |
@@ -143,7 +143,6 @@ You need to manage certificates when you use a custom domain name with your func
 
 1. Subject to [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
 2. Certificates imported from Key Vault are automatically synced within 24 hours after renewal.
-3. Flex Consumption certificate support is currently in preview.
 
 ## Billing
 
