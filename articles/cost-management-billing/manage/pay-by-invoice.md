@@ -56,7 +56,7 @@ Users who have a Microsoft Customer Agreement can request approval to pay by wir
 
 1. A panel opens on the right with the results of the eligibility check.
 
-If your request is approved, you can switch your billing profile to use wire transfer as its default payment method. For steps, see [Switch your billing profile to wire transfer](#switch-your-billing-profile-to-wire-transfer).
+If your request is approved, you can switch your billing profile to use wire transfer as its default payment method. For steps, see **Switch your billing profile to wire transfer** section in this article.
 
 If wire transfer isn't currently available for your account based on the eligibility review, you see the message **"Wire transfer isn't available for your account."** You can continue making payments with your existing payment method or add a new one. If you later meet the eligibility requirements, you can request to check eligibility again.
 
