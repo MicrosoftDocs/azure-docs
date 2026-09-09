@@ -335,9 +335,23 @@ The following table shows two examples of the effective control plane permission
 > | `Microsoft.CostManagement/exports/*` | *none* | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/delete`</br>`Microsoft.CostManagement/exports/run/action` |
 > | `Microsoft.CostManagement/exports/*` | `Microsoft.CostManagement/exports/delete` | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/run/action` |
 
+The following table shows additional examples of effective control plane permissions when `Actions` and `NotActions` overlap:
+
+> [!div class="mx-tableFixed"]
+> | Actions | NotActions | Effective control plane permissions |
+> | --- | --- | --- |
+> | `*`</br>`Microsoft.Network/virtualNetworks/subnets/join/action` | `Microsoft.Network/*` | All control plane permissions except `Microsoft.Network/*`</br>`Microsoft.Network/virtualNetworks/subnets/join/action` is excluded |
+> | `Microsoft.Authorization/*/read` | `Microsoft.Authorization/*/read` | *none* |
+
+These examples highlight two important behaviors:
+
+- An action explicitly listed in `Actions` is still excluded if it matches any pattern in `NotActions`.
+- A broader pattern in `NotActions`, such as `Microsoft.Network/*`, excludes all matching actions in that role, including actions that are also listed explicitly in `Actions`.
+
 > [!NOTE]
 > If a user is assigned a role that excludes an action in `NotActions`, and is assigned a second role that grants access to the same action, the user is allowed to perform that action. `NotActions` is not a deny rule – it is simply a convenient way to create a set of allowed actions when specific actions need to be excluded.
 >
+> Also note that `NotActions` only excludes actions that match valid Azure resource provider operations. If an entry in `NotActions` does not correspond to a valid operation pattern, it does not exclude anything in practice. For this reason, both `Actions` and `NotActions` should be validated against the current Azure resource provider operations catalog.
 
 ### Differences between NotActions and deny assignments
 
