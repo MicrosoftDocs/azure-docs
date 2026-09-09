@@ -170,7 +170,7 @@ If you use enterprise firewalls or proxies to manage outbound traffic, configure
   | `global.prod.microsoftmetrics.com` | Required for usage telemetry and error reporting metrics sent from the cluster to Microsoft (Geneva Metrics). This is the primary MetricsExtension endpoint. If this endpoint is blocked, Microsoft loses visibility into service health and usage on the cluster. |
   | `*.prod.microsoftmetrics.com` | Wildcard covering all Geneva Metrics stamp-specific endpoints. Customers who prefer a narrower allowlist can use `global.prod.microsoftmetrics.com` instead. |
 
-
+If you're deploying to clusters in regulated, network-restricted, or disconnected environments, follow the steps in [Mirror deployment images to a private registry](../secure-iot-ops/howto-mirror-images-private-registry.md) to ensure that all required deployment images are available in your environment.
 
 ## Data residency
 
