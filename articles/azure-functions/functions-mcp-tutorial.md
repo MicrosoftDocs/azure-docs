@@ -269,7 +269,7 @@ func start
 
 1. When Copilot requests to run a tool from the local MCP server, select **Allow**.
 
-1. Disconnect from the server when you finish testing by selecting **Stop**, and `Cntrl+C` to stop running it locally. 
+1. Disconnect from the server when you finish testing by selecting **Stop**, and press `Ctrl+C` to stop running it locally.
 
 >[!TIP]
 >In the Copilot chat window, select the tool icon in the bottom to see the list of servers and tools available for the chat. Ensure the local MCP server is checked when testing.
@@ -387,7 +387,7 @@ You can also manually add connection information:
     | Prompt | Suggestion |
     | --- | --- |
     | Type of server to be added | **HTTP** |
-    | URL of your MCP server | `https://<FUNCTION_APP_NAME>.azurewebsites.azurewebsites.net/runtime/webhooks/mcp` |
+    | URL of your MCP server | `https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/mcp` |
     | **Server name** | **remote-mcp-server** |
     | Where to install the server | **Workspace** |
 
@@ -396,7 +396,7 @@ You can also manually add connection information:
     | Prompt | Suggestion |
     | --- | --- |
     | Type of server to be added | **HTTP** |
-    | URL of your MCP server | `https://<FUNCTION_APP_NAME>.azurewebsites.azurewebsites.net/mcp` |
+    | URL of your MCP server | `https://<FUNCTION_APP_NAME>.azurewebsites.net/mcp` |
     | **Server name** | **remote-mcp-server** |
     | Where to install the server | **Workspace** |
 
