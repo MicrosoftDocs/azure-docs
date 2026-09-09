@@ -36,12 +36,21 @@ Billing and payment for the service is done through Azure. Payment for Oracle AI
 
 ## Integration with Azure Monitor 
 
-Metrics monitoring for Oracle AI Databases running on dedicated Exadata Infrastructure, Exascale Infrastructure, and Autonomous database service is now available through Azure Monitor. This powerful capability enables comprehensive monitoring and insights to ensure optimal performance and reliability.
+**Metrics** and **Logs** monitoring for Oracle AI Databases running on dedicated Exadata Infrastructure, Exascale Infrastructure,  Autonomous AI database service,  Oracle Base Database Service, Oracle GoldenGate is now available through Azure Monitor. This powerful capability enables comprehensive monitoring and insights to ensure optimal performance and reliability.
 
-For detailed information on the list of supported metrics, please refer to the following:
+For detailed information on the list of supported **metrics**, please refer to the following:
 - [Oracle Exadata Database Service running on dedicated ExaData Infrastructure](/azure/azure-monitor/reference/supported-metrics/oracle-database-cloudvmclusters-metrics).
 - [Oracle Autonomous AI Database Service](/azure/azure-monitor/reference/supported-metrics/oracle-database-autonomousdatabases-metrics).
 - [Oracle Exadata Database Service running on Exascale Infrastructure](/azure/azure-monitor/reference/supported-metrics/oracle-database-exadbvmclusters-metrics).
+- [Oracle Base Database Service](/azure/azure-monitor/reference/supported-metrics/oracle-database-dbsystems-metrics).
+- [Oracle GoldenGate](/azure/azure-monitor/reference/supported-metrics/oracle-database-goldengatedeployments-metrics).
+
+For detailed information on the list of supported **logs**, please refer to the following:
+- [Oracle Exadata Database Service running on dedicated ExaData Infrastructure](/azure/azure-monitor/reference/supported-logs/oracle-database-cloudvmclusters-logs).
+- [Oracle Autonomous AI Database Service](/azure/azure-monitor/reference/supported-logs/oracle-database-autonomousdatabases-logs).
+- [Oracle Exadata Database Service running on Exascale Infrastructure](/azure/azure-monitor/reference/supported-logs/oracle-database-exadbvmclusters-logs).
+- [Oracle Base Database Service](/azure/azure-monitor/reference/supported-logs/oracle-database-dbsystems-logs).
+- [Oracle GoldenGate](/azure/azure-monitor/reference/supported-logs/oracle-database-goldengatedeployments-logs).
   
 ## Compliance
 
