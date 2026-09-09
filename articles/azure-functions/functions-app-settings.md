@@ -678,9 +678,7 @@ By default, function apps use an automatically generated key to encrypt secrets 
 In Azure Functions, this key protects more than App Service authentication (Easy Auth) tokens and sessions. It's also used as the encryption key for the function app's secret store, which holds your [function access keys](function-keys-how-to.md) (host keys, function keys, and system keys). These access keys authorize calls to your HTTP-triggered functions and admin (host) APIs.
 
 > [!WARNING]
-> Treat `WEBSITE_AUTH_ENCRYPTION_KEY` as a high-value secret, and don't share the same value across function apps that shouldn't share a trust boundary. Any app configured with a given key can decrypt the access keys and tokens protected by that key. Sharing the key across apps lets one app decrypt—and effectively use—another app's access keys, which can allow unauthorized invocation of that app's functions. Although App Service documents this setting as a way to [share tokens or sessions across apps](../app-service/reference-app-settings.md), in Functions that sharing also extends to function access keys, so only do it when every app that has the key is within the same trust boundary.
-
-Because the underlying encryption key is shared across an app's [deployment slots](functions-deployment-slots.md), every slot of the same app can decrypt the secrets this key protects. Don't rely on slots as an isolation boundary for these secrets.
+> Treat `WEBSITE_AUTH_ENCRYPTION_KEY` as a high-value secret, and don't share the same value across function apps that shouldn't share a trust boundary. Any app configured with a given key can decrypt the access keys and tokens protected by that key. Sharing the key across apps lets one app decrypt - and effectively use - another app's access keys, which can allow unauthorized invocation of that app's functions. Although App Service documents this setting as a way to [share tokens or sessions across apps](../app-service/reference-app-settings.md), in Functions that sharing also extends to function access keys, so only do it when every app that has the key is within the same trust boundary.
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
