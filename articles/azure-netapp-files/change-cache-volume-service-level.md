@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: netapp-manishc
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/10/2026
+ms.date: 08/09/2026
 ms.author: anfdocs
 ms.custom: sfi-image-nochange
 
@@ -20,7 +20,7 @@ The capacity pool that you want to move the cache volume to must already exist a
 
 ## Considerations
 
-* Dynamically changing the service level of a cache volume is supported within the same NetApp account. You can't move the cache volume to a capacity pool in a different NetApp Account.
+* You can move a cache volume between capacity pools within the same NetApp account. However, moving a cache volume to a capacity pool in a different NetApp account isn't supported.
 
 * You can't convert a Flexible service level capacity pool to Standard, Premium, or Ultra. Standard, Premium, and Ultra service level capacity pools can't be converted to the Flexible service level.
 

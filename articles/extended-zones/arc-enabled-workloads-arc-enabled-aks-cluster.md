@@ -98,7 +98,7 @@ function createArcEnabledAksOnEz {
 }
 
 
-createArcEnabledAksOnEz -SubscriptionId "ffc37441-49e9-4291-a520-0b2d4972bb99" `
+createArcEnabledAksOnEz -SubscriptionId "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e" `
                         -AKSClusterResourceGroupName "t1" `
                         -location "westus" `
                         -AKSName "my-aks-cluster" `

@@ -6,7 +6,7 @@ author: jyothisuri
 ms.author: jsuri
 ms.date: 05/04/2026
 ms.topic:  include
-ms.service: azure-site-recovery
+ms.service: azure-migrate
 
 ---
 > [!NOTE]

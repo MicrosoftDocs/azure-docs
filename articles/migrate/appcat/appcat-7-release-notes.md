@@ -18,6 +18,11 @@ This article provides the release notes for Azure Migrate application and code a
 
 ## Release history
 
+### 7.7.0.11
+
+This release contains the following enhancement:
+- Updated outdated Azure migration recommendations across the rulesets.
+
 ### 7.7.0.10
 
 This release contains the following features and enhancements:
@@ -179,6 +184,10 @@ This release is based on a different set of components of the Konveyor project.
 - A new engine based on the [Konveyor Analyzer LSP](https://github.com/konveyor/analyzer-lsp) project, with a CLI based on the [Konveyor Kantra](https://github.com/konveyor/kantra/) project.
 
 ## Known issues
+
+### 7.7.0.11
+
+- An error in the **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 
 ### 7.7.0.10
 

@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: reference
-ms.date: 06/09/2022
+ms.date: 09/08/2026
 ---
 
 # Azure Web PubSub service data plane REST API reference
@@ -17,6 +17,17 @@ As illustrated by the above workflow graph, and also detailed workflow described
 [!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
 
 ## Using REST API
+
+### Group names and user IDs in request paths
+
+REST operations that include a group name or user ID in the request path have a limitation with forward slashes (`/`) in these values. URL-encoding the slash as `%2F` might not resolve the limitation: the operation can fail to address the intended group or user. For example, a client connected with the user ID `tenant/alice` might not be found by a REST request whose path contains `/users/tenant%2Falice`.
+
+This limitation applies to operations that use these path parameters, such as sending messages, checking whether a group or user exists, closing connections, and managing group membership. Server SDK methods that call these REST endpoints are subject to the same limitation. This is a REST request-path limitation, not a general prohibition on `/` in Web PubSub group names or user IDs.
+
+To avoid the limitation, use group names and user IDs without `/` when your application needs these REST operations. If your application's identifiers contain `/`, map them to unique, slash-free identifiers and use the mapped values consistently in client access tokens, group membership, and REST calls. Changing only the value in the REST request doesn't change the user ID or group name associated with an existing connection.
+
+> [!NOTE]
+> A `202 Accepted` response from a send operation indicates that the request was accepted for processing. It doesn't confirm delivery to the intended user or group.
 
 ### Authenticate via Azure Web PubSub Service AccessKey
 

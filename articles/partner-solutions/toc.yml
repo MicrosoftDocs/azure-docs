@@ -39,7 +39,7 @@ items:
       href: ./commvault/index.yml
     - name: Confluent
       href: ./apache-kafka-confluent-cloud/index.yml
-    - name: Dell PowerScale Preview
+    - name: Dell PowerScale
       href: ./dell/index.yml
     - name: Informatica
       href: ./informatica/index.yml

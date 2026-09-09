@@ -165,6 +165,9 @@ items:
           - name: Manage Workspaces
             href: how-to-manage-workspaces.md
             displayName: Microsoft Discovery, workspace, create, update, delete, networking, supercomputers
+          - name: Delete Discovery resources
+            href: how-to-delete-discovery-resources.md
+            displayName: Microsoft Discovery, delete, cleanup, deletion order, dependencies, resource group, teardown, supercomputer, workspace
       - name: Agents
         items:
           - name: Create agents
