@@ -3,7 +3,7 @@ title: How to manage Azure Backup Immutable vault operations
 description: This article explains how to manage Azure Backup Immutable vault operations.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 12/30/2025
+ms.date: 09/09/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy24, ignite-2024
@@ -17,8 +17,7 @@ This article describes how to manage Azure Backup Immutable vault operations for
 [Immutable vault](backup-azure-immutable-vault-concept.md) can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to enable WORM storage immutability and make it irreversible to prevent any malicious actors from disabling immutability and deleting backups.
 
 > [!NOTE]
-> - Immutable WORM storage is generally available for Recovery Services vaults in the following regions: Australia Central 2, Switzerland West, South Africa West, Korea Central, Germany North, Korea South, Spain Central, Israel Central, India South, India West, Mexico Central, Norway West, Poland Central, Japan East.
-> - Immutable WORM storage is currently in preview for Backup vaults in the following regions: South Africa West, Korea Central, India South, India West, Poland Central
+> For supported regions, vault types, and workloads, see the [support matrix](backup-azure-immutable-vault-concept.md#support-matrix).
 
 ## Enable Immutable vault
 
