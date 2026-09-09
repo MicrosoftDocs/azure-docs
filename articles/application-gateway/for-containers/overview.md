@@ -6,7 +6,7 @@ author: mbender-ms
 ms.custom: references_regions
 ms.service: azure-application-gateway-containers
 ms.topic: overview
-ms.date: 6/24/2026
+ms.date: 9/8/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand how Application Gateway for Containers functions, so that I can effectively implement it for load balancing and traffic management within my Kubernetes cluster."
 ---
@@ -90,6 +90,7 @@ Application Gateway for Containers supports the following features for traffic m
   - Methods
   - Ports (80/443)
 - Mutual authentication (mTLS) to frontend, backend, or end-to-end
+- Request mirroring
 - Server-sent event (SSE) support
 - TLS policies
 - URL redirect
@@ -110,9 +111,12 @@ There are two deployment strategies for management of Application Gateway for Co
 
 Application Gateway for Containers is currently available in the following regions:
 
+- Australia Central 2
 - Australia East
+- Australia Southeast
 - Brazil South
 - Canada Central
+- Canada East
 - Central India
 - Central US
 - East Asia
@@ -120,6 +124,8 @@ Application Gateway for Containers is currently available in the following regio
 - East US 2
 - France Central
 - Germany West Central
+- Italy North
+- Japan West
 - Korea Central
 - North Central US
 - North Europe

@@ -99,6 +99,8 @@ items:
       href: ./how-to/ccws/plan-your-deployment.md
     - name: Configure Open OnDemand with CycleCloud
       href: ./how-to/ccws/configure-open-ondemand.md
+    - name: Configure ThinLinc with Open OnDemand
+      href: ./how-to/ccws/configure-thinlinc.md
     - name: How to deploy using the CLI
       href: ./how-to/ccws/deploy-with-cli.md
     - name: How to connect to a Login Node through Bastion

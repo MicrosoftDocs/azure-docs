@@ -6,7 +6,7 @@ manager: chpalmer
 services: azure-communication-services
 
 ms.author: micahvivion
-ms.date: 09/04/2026
+ms.date: 09/09/2026
 ms.topic: include
 ms.service: azure-communication-services
 ---
@@ -251,3 +251,13 @@ This condition is a product limitation. Using a single worker doesn't, by itself
 
 > [!NOTE]
 > Deregistering a worker revokes its outstanding offers. Replacing a worker is a recovery workaround, not a permanent fix for this limitation.
+
+### Concurrent offer decline and worker deregistration can leave a job stuck
+
+This limitation can occur when an application declines an offer while it deregisters the same worker. Both operations can return HTTP 412 (Precondition Failed).
+
+Job Router can process the decline but fail to send the `RouterWorkerOfferDeclined` event. The offer can continue to appear active. Job Router can then leave the job without a new offer, even when other workers are available.
+
+The configured offer expiry time can pass without a `RouterWorkerOfferExpired` event or a new offer for the job.
+
+This condition is a known product limitation.

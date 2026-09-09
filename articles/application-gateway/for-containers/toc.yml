@@ -101,6 +101,8 @@
       href: how-to-multiple-site-hosting-gateway-api.md
     - name: Path, header, and query string based routing
       href: how-to-path-header-query-string-routing-gateway-api.md
+    - name: Request mirroring
+      href: how-to-request-mirroring-gateway-api.md
     - name: Traffic Splitting / Weighted Round Robin
       href: how-to-traffic-splitting-gateway-api.md
     - name: URL redirect

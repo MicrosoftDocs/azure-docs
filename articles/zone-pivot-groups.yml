@@ -1256,6 +1256,17 @@ groups:
   - id: portal
     title: Azure portal
 # Owner: cshoe
+- id: azure-aspire-cli-portal
+  title: Interface
+  prompt: Choose your interface
+  pivots:
+  - id: aspirecli
+    title: Aspire CLI
+  - id: azurecli
+    title: Azure CLI
+  - id: portal
+    title: Azure portal
+# Owner: cshoe
 - id: container-apps-java-artifacts
   title: Artifact type
   prompt: Select an artifact type
