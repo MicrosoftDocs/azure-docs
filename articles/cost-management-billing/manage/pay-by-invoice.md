@@ -129,6 +129,7 @@ Use the following steps to switch your Azure subscription to payment by wire tra
 1. On the left menu, under **Billing**, select **Payment methods**.
 1. On the **Payment methods** pane, select the ellipsis (**...**), and then select **Make default** to change the default payment method to wire transfer.
 
+<a name="switch-your-billing-profile-to-wire-transfer"></a>
 ### Switch your billing profile to wire transfer
 
 Use the following steps to switch a billing profile to wire transfer. Only the person who signed up for Azure can change the default payment method of a billing profile.
