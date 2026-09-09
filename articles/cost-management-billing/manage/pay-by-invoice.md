@@ -30,7 +30,7 @@ When you switch to payment by wire transfer:
 
 ## Prerequisites
 
-Users who have a Microsoft Customer Agreement can request approval to pay by wire transfer in the Azure portal. Any user who has access to the Microsoft Online Subscription Program (pay-as-you-go) billing profile can [submit an Azure support request](#submit-a-request-to-set-up-payment-by-wire-transfer) to pay by wire transfer.
+Users who have a Microsoft Customer Agreement can request approval to pay by wire transfer in the Azure portal. Any user who has access to the Microsoft Online Subscription Program (pay-as-you-go) billing profile can submit an Azure support request to pay by wire transfer.
 
 To qualify for wire transfer payments, you must:
 
