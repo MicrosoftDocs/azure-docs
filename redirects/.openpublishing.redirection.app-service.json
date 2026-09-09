@@ -3009,6 +3009,16 @@
       "source_path_from_root": "/articles/app-service/environment/auto-migration.md",
       "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/quickstart-dotnet-aspire.md",
+      "redirect_url": "/azure/app-service/quickstart-aspire",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/app-service/configure-language-dotnet-aspire.md",
+      "redirect_url": "/azure/app-service/configure-language-aspire",
+      "redirect_document_id": true
     }
   ]
 }
