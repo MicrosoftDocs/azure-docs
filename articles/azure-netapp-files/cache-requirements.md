@@ -22,7 +22,7 @@ Before you configure [cache volumes](configure-cache-volumes.md), make sure that
 * You should enable encryption on the origin volume.
 * The source cluster must be running ONTAP 9.15.1 or later version.
 * You should configure an Active Directory (AD) or LDAP connection within the NetApp account to create an LDAP-enabled cache volume.
-* You can't move a cache volume to another capacity pool.
+* You can move a cache volume between capacity pools within the same NetApp account. However, moving a cache volume to a capacity pool in a different NetApp account isn't supported.
 * The `globalFileLocking` parameter value must be the same on all cache volumes that share the same origin volume. Global file locking can be enabled when creating the first cache volume by setting `globalFileLocking` to true. The subsequent cache volumes from the same origin volume must have this setting set to true. To change the global file locking setting on existing cache volumes, you must update the origin volume first. After updating the origin volume, the change propagates to all the cache volumes associated with that origin volume. The `volume flexcache origin config modify -is-global-file-locking-enabled` command should be executed on the source cluster to change the setting on the origin volume.
 * The volume security style for a cache volume is inherited from the external ONTAP origin volume only at creation time and is not a configurable parameter on a cache volume. If the security style is changed on the external origin volume, the cache volume must be deleted and recreated with the correct protocol choice to align to the security styles.
 

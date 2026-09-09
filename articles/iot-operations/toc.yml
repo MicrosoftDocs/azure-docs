@@ -91,6 +91,9 @@ items:
               - name: Validate images
                 href: secure-iot-ops/howto-validate-images.md
                 displayName: docker, helm, integrity, container, certificate
+              - name: Mirror deployment images
+                href: secure-iot-ops/howto-mirror-images-private-registry.md
+                displayName: DIL, Deployment Image List, air-gap, air-gapped, disconnected, offline, private registry, ACR, MCR, image inventory, image scan, container registry, image mirroring
               - name: Secure your solution
                 href: ../iot/iot-overview-security.md
                 displayName: security, best practice, guidelines, defender

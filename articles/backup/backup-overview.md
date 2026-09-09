@@ -2,7 +2,7 @@
 title: What is Azure Backup?
 description: Provides an overview of the Azure Backup service, and how it contributes to your business continuity and disaster recovery (BCDR) strategy.
 ms.topic: overview
-ms.date: 01/23/2026
+ms.date: 07/17/2026
 ms.custom: mvc, engagement-fy24, ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -10,33 +10,73 @@ ms.author: v-mallicka
 ---
 # What is the Azure Backup service?
 
-The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
+Azure Backup is a native Azure service that helps you protect your data and restore it when required. It provides a centralized, policy-based solution to back up workloads across Azure and on-premises environments without the need to deploy or manage backup infrastructure.
+
+Azure Backup  delivers a simple, secure, and cost-effective way to safeguard your data and recover it from the Azure cloud, enabling you to manage backup and recovery operations efficiently at scale.
 
 > [!VIDEO https://www.youtube.com/embed/elODShatt-c]
 
+## When to use Azure Backup
+
+Use Azure Backup when you want to:
+
+- Protect data against accidental deletion, corruption, or ransomware
+- Retain data for short-term and long-term compliance needs
+- Manage backups centrally across workloads and environments
+- Restore individual items or entire workloads based on your business requirements
+
+>[!NOTE]
+>Azure Backup focuses on data protection (backup and restore). For disaster recovery and failover orchestration, use [Azure Site Recovery](../site-recovery/site-recovery-overview.md).
+
 ## What can I back up?
 
-- **On-premises** - Back up files, folders, system state using the [Microsoft Azure Recovery Services (MARS) agent](backup-support-matrix-mars-agent.md), or use the DPM or Azure Backup Server (MABS) agent to protect on-premises VMs ([Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) and [VMware](backup-azure-backup-server-vmware.md)) and other [on-premises workloads](backup-mabs-protection-matrix.md).
-- **Azure VMs** - [Back up entire Windows/Linux VMs](backup-azure-vms-introduction.md) (using backup extensions), or back up files, folders, and system state using the [MARS agent](backup-azure-about-mars.md).
-- **Azure Managed Disks** - [Back up Azure Managed Disks](backup-managed-disks.md)
-- **Azure Files** - [Back up Azure Files to a storage account](backup-afs.md)
-- **SQL Server in Azure VMs** -  [Back up SQL Server databases running on Azure VMs](backup-azure-sql-database.md)
-- **SAP HANA databases in Azure VMs** - [Backup SAP HANA databases running on Azure VMs](backup-azure-sap-hana-database.md)
-- **Azure Database for PostgreSQL servers** -  [Back up Azure PostgreSQL databases and retain the backups for up to 10 years](backup-azure-database-postgresql.md)
-- **Azure Blobs** - Overview of [operational](blob-backup-overview.md?tabs=operational-backup)/ [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backup for Azure Blobs
-- **Azure Database for PostgreSQL Flexible server** - [Overview of Azure Database for PostgreSQL Flexible server backup](backup-azure-database-postgresql-flex-overview.md)
-- **Azure Kubernetes service** - [Overview of AKS backup](azure-kubernetes-service-backup-overview.md)
-- **Azure Database for MySQL - Flexible Server** - [Overview of Azure Database for MySQL - Flexible Server  (preview)](backup-azure-mysql-flexible-server-about.md)
-- **SAP ASE (Sybase) database on Azure VMs** - [About SAP ASE (Sybase) database backup on Azure VMs](sap-ase-database-about.md)
-- **Azure Data Lake Storage** - [About Azure Data Lake Storage vaulted backup](azure-data-lake-storage-backup-overview.md)
-- **Azure Elastic SAN** - [About Azure Elastic SAN backup (preview)](azure-elastic-san-backup-overview.md)
+Azure Backup supports a wide range of workloads, that include:
 
+| Category | Workloads | Backup article reference |
+| --- | --- | --- |
+| Azure compute | - Azure Virtual Machines<br>- Azure Disks | - [Azure VM backup overview](backup-azure-vms-introduction.md)<br>- [Overview of Azure Disk Backup](disk-backup-overview.md) |
+| Databases | - SQL Server<br>- SAP HANA<br>- PostgreSQL Server<br>- PostgreSQL Flexible Server<br>- MySQL Flexible Server<br>- Azure Cosmos DB | - [Back up SQL Server databases to Azure Overview](backup-azure-sql-database.md)<br>- [SAP HANA database backup on Azure VMs overview](sap-hana-database-about.md)<br>- [Azure Database for PostgreSQL Backup overview](backup-azure-database-postgresql-overview.md)<br>- [Azure Database for PostgreSQL Flexible server backup overview](backup-azure-database-postgresql-flex-overview.md)<br>- [Retention of Azure Database for MySQL - Flexible Server overview (preview)](backup-azure-mysql-flexible-server-about.md)<br>- [Azure Cosmos DB backup overview (preview)](backup-azure-cosmos-db-overview.md) |
+| Storage | - Azure Files<br>- Azure Blobs<br>- Azure Data Lake Storage | - [Azure Files backup overview](azure-file-share-backup-overview.md)<br>- [Azure Blob backup overview](blob-backup-overview.md)<br>- [Azure Data Lake Storage Vaulted Backup overview](azure-data-lake-storage-backup-overview.md) |
+| Containers | Azure Kubernetes Service (AKS) | [Azure Kubernetes Service (AKS) Backup overview](azure-kubernetes-service-backup-overview.md) |
+| On-premises | Files, folders, system state, Hyper-V, VMware (via agents) | - [Microsoft Azure Recovery Server (MARS) Agent overview](backup-azure-about-mars.md)<br>- [What's new in Microsoft Azure Backup Server (MABS)](backup-mabs-whats-new-mabs.md) |
 
-![Azure Backup Overview](./media/backup-overview/azure-backup-overview.png)
+:::image type="content" source="./media/backup-overview/azure-backup-overview.png" alt-text="Diagram that shows high level workflow of Azure Backup.":::
+
+## How Azure Backup works
+
+Azure Backup uses a policy-driven workflow to protect your data:
+
+1. **Configures backup policy**: Define the schedule, frequency, and retention based on your requirements.
+
+1. **Captures data**: Azure Backup takes snapshots or workload-aware backups of your data.
+
+1. **Stores recovery points**: Store backup data in a secured vault, which maintains recovery points.
+
+1. **Restores data**: Restore data at different levels (files, disks, databases, or full workloads).
+
+For Azure VMs, Azure Backup takes a snapshot and transfers the data to a vault without impacting production workloads.
+
+## Key components in Azure Backup
+
+Azure Backup uses the following key components:
+
+- **[Recovery Services vault](backup-azure-recovery-services-vault-overview.md)** or **[Backup vault](backup-vault-overview.md)**: Stores backup data and recovery points, and acts as a security boundary.
+- **Backup policies**: Define when backups run and how long data is retained.
+- **Backup extension or agent**: Enables workload-aware or file-level backups.
+- **[Resiliency](../resiliency/resiliency-overview.md)**: Provides centralized backup management and monitoring capabilities.
+
+## Backup types and tiers
+
+Azure Backup supports different backup approaches based on workload and backup requirements:
+
+- Snapshot-based backup – Fast backups and restores for supported workloads.
+- Vaulted backup – Copies data to a vault for durability and isolation.
+- Operational + vaulted backup (for some services) – Combines fast restore and long-term retention.
+- Vault-archive tier – Stores backup data in archived state for long-term retention, enabling cost-efficient storage of infrequently accessed recovery points that are retained primarily to meet compliance requirements. [Learn more](archive-tier-support.md).
 
 ## Why use Azure Backup?
 
-Azure Backup delivers these key benefits:
+By using Azure Backup, you can protect your data, simplify backup management, and recover quickly when needed. Azure Backup delivers these key benefits:
 
 - **Offload on-premises backup**: Azure Backup offers a simple solution for backing up your on-premises resources to the cloud. Get short and long-term backup without the need to deploy complex on-premises backup solutions.
 - **Back up Azure IaaS VMs**: Azure Backup provides independent and isolated backups to guard against accidental destruction of original data. Backups are stored in a Recovery Services vault with built-in management of recovery points. Configuration and scalability are simple, backups are optimized, and you can easily restore as needed.
@@ -56,15 +96,32 @@ Azure Backup delivers these key benefits:
 
     **Zone-redundancy** for Recovery Services vault and Backup vault, as well as optional zone-redundancy for backup data. Learn about [Reliability for Azure Backup](/azure/reliability/reliability-backup).
 
-## How Azure Backup protects from ransomware?
+## Security and ransomware protection by Azure Backup
 
-Azure Backup helps protect your critical business systems and backup data against a ransomware attack by implementing preventive measures and providing tools that protect your organization from every step that attackers take to infiltrate your systems. It provides security to your backup environment, both when your data is in transit and at rest. 
+Azure Backup helps protect your critical business systems and backup data from ransomware attacks. It applies preventive controls and provides capabilities to address different stages of an attack lifecycle. It also secures your backup data both in transit and at rest.
 
-In addition to various security features offered by default, you can also leverage several enhanced features that can provide you with highest levels of security for your backed-up data. Learn more about [security in Azure Backup](security-overview.md). Also, [learn](../security/fundamentals/backup-plan-to-protect-against-ransomware.md) about how backups can help you protect backups against ransomware better and how Azure helps you ensure rapid recovery.
+In addition to its default protections, Azure Backup offers advanced security features that provide enhanced protection for your backup environment. 
+
+Azure Backup includes the following built-in security capabilities:
+
+- Isolated vault storage: Stores backup data in a Recovery Services vault, isolated from the production environment to reduce exposure to operational and security risks.
+- Soft delete: Retains deleted backup data for a defined period to protect against accidental or malicious deletion. [Learn more](secure-by-default.md).
+- Immutable backup: Locks recovery points to prevent modification or deletion, ensuring data integrity. [Learn more](backup-azure-immutable-vault-concept.md).
+- Role-based access control (RBAC): Restricts access to backup resources using fine-grained permissions. [Learn more](backup-rbac-rs-vault.md).
+
+[Learn more about security in Azure Backup and how backups help protect against ransomware](security-overview.md).
+
+## Design considerations for workload protection
+
+Before you configure backups, review the following aspects to design an effective and scalable strategy:
+
+- Workload type and protection requirements: Identify the workloads you need to protect (for example, VMs, databases, or file shares) and their specific backup requirements, such as frequency, consistency, and supported features.
+- Recovery objectives (RPO and RTO): Define your Recovery Point Objective (RPO) and Recovery Time Objective (RTO) to determine how often backups run and how quickly you must restore data during a failure.
+- Retention and compliance requirements: Establish retention policies based on business, regulatory, and compliance needs. Plan for both short-term and long-term data retention.
+- Vault design and subscription strategy: Plan how you organize Recovery Services vaults across subscriptions, regions, and environments to support isolation, scalability, and management.
 
 ## Next steps
 
-- [Review](backup-architecture.md) the architecture and components for different backup scenarios.
-- [Verify](backup-support-matrix.md) support requirements and limitations for backup, and for [Azure VM backup](backup-support-matrix-iaas.md).
-- [About Recovery Services vault](backup-azure-recovery-services-vault-overview.md).
-- [About Backup vault](backup-vault-overview.md).
+- [Learn about backup architecture](backup-architecture.md).
+- [Learn about Azure Backup terminology](azure-backup-glossary.md).
+- [Explore security and best practices guidance](guidance-best-practices.md).
