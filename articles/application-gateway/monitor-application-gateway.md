@@ -131,7 +131,7 @@ AzureDiagnostics
 | sort by AggregatedValue desc
 ```
 
-For access logs collected in resource-specific mode, use `AGWAccessLogs` instead of `AzureDiagnostics`. The following query counts 5xx responses by gateway instance and status code in five-minute intervals. Replace `<application-gateway-resource-id>` with the resource ID of the gateway being investigated.
+For access logs collected in resource-specific mode, use `AGWAccessLogs` instead of `AzureDiagnostics`. The following query counts 5xx responses by gateway instance and status code in five-minute intervals. Replace `<application-gateway-resource-id>` with the resource ID of the gateway you're investigating.
 
 ```kusto
 AGWAccessLogs
