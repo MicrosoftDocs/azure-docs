@@ -24,11 +24,11 @@ To allow access key authentication for an Azure App Configuration resource in th
 1. Navigate to your Azure App Configuration resource in the Azure portal.
 1. Locate the **Access settings** setting under **Settings**.
 
-    :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
+    :::image type="content" border="true" source="./media/howto-disable-access-key-authentication/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
 
 1. Set the **Enable access keys** toggle to **Enabled**.
 
-    :::image type="content" border="true" source="./media/enable-access-keys.png" alt-text="Screenshot showing how to enable access key authentication for Azure App Configuration.":::
+    :::image type="content" border="true" source="./media/howto-disable-access-key-authentication/enable-access-keys.png" alt-text="Screenshot showing how to enable access key authentication for Azure App Configuration.":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -54,11 +54,11 @@ To check if access key authentication is enabled for an Azure App Configuration 
 1. Navigate to your Azure App Configuration resource in the Azure portal.
 1. Locate the **Access settings** setting under **Settings**.
 
-    :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
+    :::image type="content" border="true" source="./media/howto-disable-access-key-authentication/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
 
 1. Check if there are access keys displayed and if the toggled state of **Enable access keys** is enabled.
 
-    :::image type="content" border="true" source="./media/get-access-keys-list.png" alt-text="Screenshot showing access keys for an Azure App Configuration resource.":::
+    :::image type="content" border="true" source="./media/howto-disable-access-key-authentication/get-access-keys-list.png" alt-text="Screenshot showing access keys for an Azure App Configuration resource.":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -87,11 +87,11 @@ To disallow access key authentication for an Azure App Configuration resource in
 1. Navigate to your Azure App Configuration resource in the Azure portal.
 1. Locate the **Access settings** setting under **Settings**.
 
-    :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
+    :::image type="content" border="true" source="./media/howto-disable-access-key-authentication/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
 
 1. Set the **Enable access keys** toggle to **Disabled**.
 
-    :::image type="content" border="true" source="./media/disable-access-keys.png" alt-text="Screenshot showing how to disable access key authentication for Azure App Configuration":::
+    :::image type="content" border="true" source="./media/howto-disable-access-key-authentication/disable-access-keys.png" alt-text="Screenshot showing how to disable access key authentication for Azure App Configuration":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -117,11 +117,11 @@ To verify access key authentication is disabled for an Azure App Configuration r
 1. Navigate to your Azure App Configuration resource in the Azure portal.
 1. Locate the **Access settings** setting under **Settings**.
 
-    :::image type="content" border="true" source="./media/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
+    :::image type="content" border="true" source="./media/howto-disable-access-key-authentication/access-settings-blade.png" alt-text="Screenshot showing how to access an Azure App Configuration resources access key blade.":::
 
 1. Check that there are no access keys displayed and the toggled state of **Enable access keys** is off.
 
-    :::image type="content" border="true" source="./media/disable-access-keys.png" alt-text="Screenshot showing access keys being disabled for an Azure App Configuration resource":::
+    :::image type="content" border="true" source="./media/howto-disable-access-key-authentication/disable-access-keys.png" alt-text="Screenshot showing access keys being disabled for an Azure App Configuration resource":::
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -168,7 +168,7 @@ You must have only one key in your code, because when you regenerate your second
 
     Go to your resource's page on the Azure portal, open the **Settings** > **Access settings** menu, and select **Regenerate** under **Secondary key**.
 
-    :::image type="content" border="true" source="./media/regenerate-secondary-key.png" alt-text="Screenshot showing regenerate secondary key.":::
+    :::image type="content" border="true" source="./media/howto-disable-access-key-authentication/regenerate-secondary-key.png" alt-text="Screenshot showing regenerate secondary key.":::
 
     ### [Azure CLI](#tab/azure-cli)
 

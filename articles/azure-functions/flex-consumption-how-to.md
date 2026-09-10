@@ -2,7 +2,7 @@
 title: Create and Manage Function Apps in a Flex Consumption Plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
 ms.service: azure-functions
-ms.date: 08/04/2026
+ms.date: 09/08/2026
 ms.topic: how-to
 ms.custom:
   - build-2024
@@ -854,7 +854,7 @@ Visual Studio Code doesn't currently support site update strategy configuration.
 
 ## Configure end-to-end TLS encryption
 
-End-to-end (E2E) TLS encryption encrypts traffic between the Azure platform front ends and the workers that run your functions. This feature is currently in preview for function apps in the Flex Consumption plan.
+End-to-end (E2E) TLS encryption encrypts traffic between the Azure platform front ends and the workers that run your functions.
 
 Enable E2E TLS encryption by setting the `endToEndEncryptionEnabled` site property to `true` in an ARM or Bicep template.
 
@@ -874,7 +874,6 @@ Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL 
 
 ### Considerations for site-scoped certificates
 
-- Support for using site-scoped certificates with apps running in a Flex Consumption plan is currently in preview.
 - Existing apps created before this feature became available don't currently have a migration path for certificates. To use site-scoped certificates, create a new Flex Consumption function app.
 - Azure CLI support for managing site-scoped certificates isn't yet available. In the meantime, use the [Azure portal](https://portal.azure.com) or [ARM/Bicep templates](functions-infrastructure-as-code.md?pivots=flex-consumption-plan#site-scoped-certificates) to manage certificates.
 - Each app supports a maximum of three private certificates and three public certificates.

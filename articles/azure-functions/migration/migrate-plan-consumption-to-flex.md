@@ -4,7 +4,7 @@ description: Learn how to migrate an existing function app in Azure running in a
 ms.service: azure-functions
 ms.collection: 
  - migration
-ms.date: 04/09/2026
+ms.date: 09/08/2026
 ms.topic: concept-article
 zone_pivot_groups: app-service-platform-windows-linux
 
@@ -490,7 +490,7 @@ If your function app is currently using deployment slots, you can't currently re
 
 ### Verify the use of certificates
 
-The Flex Consumption plan supports TLS/SSL certificates through a [site-scoped certificate model](../flex-consumption-how-to.md#configure-site-scoped-certificates), currently in preview. Unlike other hosting plans where certificates are shared across apps in the same region and resource group, Flex Consumption certificates are scoped to each individual app. If your existing app uses certificates, be aware of these differences:
+The Flex Consumption plan supports TLS/SSL certificates through a [site-scoped certificate model](../flex-consumption-how-to.md#configure-site-scoped-certificates). Unlike other hosting plans where certificates are shared across apps in the same region and resource group, Flex Consumption certificates are scoped to each individual app. If your existing app uses certificates, be aware of these differences:
 
 - The `WEBSITE_LOAD_CERTIFICATES` app setting isn't used in the Flex Consumption plan. Instead, you make each certificate accessible to your code by using the **Accessible to app code** toggle in the portal. For more information, see [Make a certificate accessible to your code](../flex-consumption-how-to.md#make-a-certificate-accessible-to-your-code).
 - Because Flex Consumption runs on Linux, your code must load certificates from file paths (`/var/ssl/certs` for public, `/var/ssl/private` for private) rather than from the Windows certificate store.
@@ -1219,7 +1219,7 @@ The Copilot migration skill automatically verifies the new app as part of the mi
 
 The automated migration command transfers most configurations. However, manually verify that these items are migrated. You might need to configure them manually:
 
-- **Certificates**: TLS/SSL certificates aren't supported in Flex Consumption yet.
+- **Certificates**: Re-add TLS/SSL certificates to the Flex Consumption app by using the [site-scoped certificate process](../flex-consumption-how-to.md#add-a-certificate).
 - **Deployment slots**: Not supported in Flex Consumption.
 - **Built-in authentication settings**: You need to reconfigure these settings manually.
 - **CORS settings**: You might need to verify these settings manually depending on your configuration.

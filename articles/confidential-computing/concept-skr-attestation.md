@@ -4,7 +4,7 @@ description: Concept guide on what SKR is and its usage with Azure Confidential 
 author: angarg05
 ms.service: azure-confidential-computing
 ms.topic: concept-article
-ms.date: 09/03/2026
+ms.date: 09/09/2026
 ms.author: ananyagarg
 # Customer intent: "As a security architect, I want to implement Secure Key Release with Azure Key Vault and Trusted Execution Environments, so that I can enhance the protection and access control for sensitive encryption keys during their use in cloud applications."
 ---
@@ -116,5 +116,7 @@ No. Not at this time.
 [AKV REST API With SKR Details](/rest/api/keyvault/keys/create-key/create-key?tabs=HTTP)
 
 [Azure Key Vault secure key release policy grammar](/azure/key-vault/keys/policy-grammar)
+
+[Protect intellectual property on Azure VMs with attestation-gated Secure Key Release](/azure/virtual-machines/secure-key-release-pattern-trusted-launch)
 
 [AKV SDKs](/azure/key-vault/general/client-libraries)

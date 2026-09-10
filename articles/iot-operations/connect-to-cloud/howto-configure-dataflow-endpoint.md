@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/10/2026
+ms.date: 09/03/2026
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a data flow.
 ---
@@ -185,7 +185,7 @@ az iot ops dataflow apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTA
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
 
-In this example, assume a configuration file named `data-flow.json` with the following content stored in the user's home directory:
+In this example, assume a configuration file named `data-flow.json` with the following content stored in the user's home directory. The destination endpoint must exist before you reference it in the data flow configuration.
 
 ```json
 {
@@ -203,7 +203,6 @@ In this example, assume a configuration file named `data-flow.json` with the fol
     {
       "operationType": "Destination",
       "destinationSettings": {
-        // The endpoint needs to be created before you can reference it here
         "endpointRef": "example-event-hub-endpoint",
         "dataDestination": "example/topic/4"
       }
