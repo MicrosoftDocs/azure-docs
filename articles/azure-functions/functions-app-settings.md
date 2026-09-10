@@ -667,6 +667,19 @@ Controls the timeout, in seconds, when connected to streaming logs. The default 
 
 The preceding sample value of `1800` sets a timeout of 30 minutes. For more information, see [Enable streaming execution logs in Azure Functions](streaming-logs.md).
 
+## WEBSITE\_AUTH\_ENCRYPTION\_KEY
+
+By default, function apps use an automatically generated key to encrypt secrets at rest. When you set `WEBSITE_AUTH_ENCRYPTION_KEY`, its value is used as the encryption key instead. If you don't need to control the key value, don't set this setting and let the platform manage the key for you.
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE_AUTH_ENCRYPTION_KEY|`<a 32-byte key, hex- or Base64-encoded>`|
+
+In Azure Functions, this key protects more than App Service authentication (Easy Auth) tokens and sessions. It's also used as the encryption key for the function app's secret store, which holds your [function access keys](function-keys-how-to.md) (host keys, function keys, and system keys), and as the signing key for administrative JSON Web Tokens (JWTs). These access keys authorize calls to your HTTP-triggered functions and admin (host) APIs.
+
+> [!WARNING]
+> Treat `WEBSITE_AUTH_ENCRYPTION_KEY` as a high-value secret, and don't share the same value across function apps that shouldn't share a trust boundary. Any app configured with a given key can decrypt the access keys and tokens protected by that key. Sharing the key across apps lets one app decrypt - and effectively use - another app's access keys, which can allow unauthorized invocation of that app's functions. Although App Service documents this setting as a way to [share tokens or sessions across apps](../app-service/reference-app-settings.md), in Functions that sharing also extends to function access keys, so only do it when every app that has the key is within the same trust boundary.
+
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
 Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans. For more information, see [Storage account connection setting](storage-considerations.md#storage-account-connection-setting).
