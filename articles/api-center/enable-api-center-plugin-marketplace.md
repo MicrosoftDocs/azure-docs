@@ -4,7 +4,7 @@ description: Enable discovery of registered plugins through the API Center plugi
 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 08/17/2026
+ms.date: 09/10/2026
  
 ms.custom: 
 # Customer intent: As an API program manager, I want to create a plugin marketplace from my API center so AI developers can find and install plugins from my inventory.
@@ -75,6 +75,9 @@ Developers can add the plugin marketplace from their API center's marketplace en
 ```bash
 /plugin marketplace add https://myapicenter.data.eastus.azure-apicenter.ms/workspaces/default/plugins/marketplace.git
 ```
+
+> [!IMPORTANT]
+> If the command returns `fatal: Cannot prompt because user interactivity has been disabled.`, Git Credential Manager isn't configured to authenticate to your API Center data endpoint with Microsoft Entra ID. Complete the one-time setup in [Marketplace Git - Client Authentication (Entra ID)](https://github.com/Azure/api-center/blob/main/scripts/git-client-authentication.md), and then run the command again. Entering a Git username and password doesn't resolve this error.
 
 Follow the prompts to add the plugin marketplace to your GitHub Copilot CLI. 
 
