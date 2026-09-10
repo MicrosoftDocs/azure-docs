@@ -44,6 +44,7 @@ Use these front matter fields to configure an agent:
 | `system_tools` | No | Lets an agent opt out of configured system tools, such as [sandboxed execution](#sandboxed-execution). |
 | `timeout` | No | Overrides the default execution timeout, in seconds. |
 | `tools` | No | Controls access to discovered [custom Python tools](#custom-python-tools). Use `false` to disable custom tools for this agent, or use `exclude` to remove specific tools. |
+| `workflows` | No | Enables experimental dynamic workflows, filters workflow-safe tools, and grants access to workflow subagents. For more information, see [Dynamic workflows in Azure Functions hosted skills](functions-hosted-skills-dynamic-workflows.md). |
 
 ### Trigger configuration
 
@@ -342,7 +343,7 @@ tools/
   lookup_customer.py
 ```
 
-The runtime discovers `.py` files in `tools/` whose file names don't start with `_`. In the current preview, the runtime registers the first supported tool from each file. Use one tool per file to keep discovery predictable.
+The runtime discovers `.py` files in `tools/` whose file names don't start with `_`. The runtime registers the first supported tool from each file. Use one tool per file to keep discovery predictable.
 
 ### Defining tools
 
@@ -399,7 +400,7 @@ tools:
 
 ## Model provider configuration
 
-The runtime uses Microsoft Agent Framework to call model providers. Preview support includes Azure OpenAI, Azure AI Foundry, and OpenAI.
+The runtime supports these model providers, including Azure OpenAI, Azure AI Foundry, and OpenAI.
 
 ### Provider selection
 

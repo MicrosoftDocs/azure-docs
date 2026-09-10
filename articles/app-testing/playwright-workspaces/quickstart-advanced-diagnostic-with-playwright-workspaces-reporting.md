@@ -56,6 +56,9 @@ To get started with Playwright Workspaces reporting, the first step is to enable
 
     > [!NOTE]
     > Optionally, you can configure more details on the **Tags** tab. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
+    
+    > [!NOTE]
+    > Uploading reporting artifacts to a customer-managed Azure Storage account currently requires network access to the storage account's public endpoint. Storage accounts configured for private-endpoint-only access aren't supported for artifact upload scenarios.
 
 1. After you finish configuring the resource, select **Review + Create**.
 
@@ -85,6 +88,9 @@ To get started with Playwright Workspaces reporting, the first step is to enable
 
     > [!NOTE]
     > Playwright Workspaces reporting uses Azure Storage to store your test reports and other artifacts. Storage costs are determined based on your storage account's data-retention settings.
+    
+    > [!NOTE]
+    > Uploading reporting artifacts to a customer-managed Azure Storage account currently requires network access to the storage account's public endpoint. Storage accounts configured for private-endpoint-only access aren't supported for artifact upload scenarios.
 
 1. Select **Save**.
 
@@ -250,7 +256,7 @@ To run your Playwright test suite in Visual Studio Code with Playwright Workspac
 
 ## Debug test runs and results in the Azure portal
 
-#### Add Role Based Access Control (RBAC) roles for the linked storage account
+#### Add role-based access control (RBAC) roles for the linked storage account
 
 1. Open the linked storage account in [Azure portal](https://portal.azure.com/).
 
@@ -262,7 +268,7 @@ To run your Playwright test suite in Visual Studio Code with Playwright Workspac
 
     :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-add-role.png" alt-text="Screenshot that shows storage account add role page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-add-role.png":::
 
-1. Under **Privileged administrator roles**, search for and select **Contributor*** role and click **Next**.
+1. Under **Privileged administrator roles**, search for and select **Contributor** role and click **Next**.
 
     :::image type="content" source="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-contributor.png" alt-text="Screenshot that shows storage account administrative role page." lightbox="./media/quickstart-advanced-diagnostic-with-playwright-reporting/storage-account-contributor.png":::
 

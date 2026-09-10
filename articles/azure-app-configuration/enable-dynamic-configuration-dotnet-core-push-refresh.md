@@ -91,7 +91,7 @@ This tutorial uses the Service Bus integration for Event Grid to streamline the 
 
 1. Select **Events**, and then select **Event Subscription**.
 
-    :::image type="content" source="./media/events-pane.png" alt-text="Screenshot of the overview page in the Azure portal for an App Configuration store. Events and Event Subscription are highlighted." lightbox="./media/events-pane.png":::
+    :::image type="content" source="./media/enable-dynamic-configuration-dotnet-core-push-refresh/events-pane.png" alt-text="Screenshot of the overview page in the Azure portal for an App Configuration store. Events and Event Subscription are highlighted." lightbox="./media/enable-dynamic-configuration-dotnet-core-push-refresh/events-pane.png":::
 
 1. In the **Create Event Subscription** dialog, enter the following information:
 
@@ -99,24 +99,24 @@ This tutorial uses the Service Bus integration for Event Grid to streamline the 
     * Under **Topic Details**, enter a name for the system topic.
     * Under **Event Types**, select **Key-value modified** and **Key-value deleted**.
 
-    :::image type="content" source="./media/create-event-subscription.png" alt-text="Screenshot of the Create Event Subscription dialog. The event type filter list and the subscription and topic names are highlighted." lightbox="./media/create-event-subscription.png":::
+    :::image type="content" source="./media/enable-dynamic-configuration-dotnet-core-push-refresh/create-event-subscription.png" alt-text="Screenshot of the Create Event Subscription dialog. The event type filter list and the subscription and topic names are highlighted." lightbox="./media/enable-dynamic-configuration-dotnet-core-push-refresh/create-event-subscription.png":::
 
 1. Under **Endpoint Details**, make the following selections:
 
     * For **Endpoint Type**, select **Service Bus Topic**.
     * Next to **Endpoint**, select **Configure an endpoint**.
 
-    :::image type="content" source="./media/select-endpoint-type.png" alt-text="Screenshot of the Create Event Subscription dialog. The Service Bus Topic endpoint type and the Configure an endpoint link are highlighted." lightbox="./media/select-endpoint-type.png":::
+    :::image type="content" source="./media/enable-dynamic-configuration-dotnet-core-push-refresh/select-endpoint-type.png" alt-text="Screenshot of the Create Event Subscription dialog. The Service Bus Topic endpoint type and the Configure an endpoint link are highlighted." lightbox="./media/enable-dynamic-configuration-dotnet-core-push-refresh/select-endpoint-type.png":::
 
 1. In the **Select Service Bus Topic** dialog, select the subscription and resource group of the Service Bus namespace that you set up in the previous section. Also select the namespace and the topic that you set up, and then select **Confirm Selection**.
 
-    :::image type="content" source="./media/event-subscription-servicebus-endpoint.png" alt-text="Screenshot of the Select Service Bus Topic dialog. All input fields and the Confirm Selection button are highlighted." lightbox="./media/event-subscription-servicebus-endpoint.png":::
+    :::image type="content" source="./media/enable-dynamic-configuration-dotnet-core-push-refresh/event-subscription-service-bus-endpoint.png" alt-text="Screenshot of the Select Service Bus Topic dialog. All input fields and the Confirm Selection button are highlighted." lightbox="./media/enable-dynamic-configuration-dotnet-core-push-refresh/event-subscription-service-bus-endpoint.png":::
 
 1. To create the event subscription, select **Create**.
 
 1. On the **Events** page, go to the **Event Subscriptions** tab and verify that the subscription exists.
 
-    :::image type="content" source="./media/event-subscription-view.png" alt-text="Screenshot of the Events page for an App Configuration store. Events, Event Subscriptions, and a subscription in the list are highlighted." lightbox="./media/event-subscription-view.png":::
+    :::image type="content" source="./media/enable-dynamic-configuration-dotnet-core-push-refresh/event-subscription-view.png" alt-text="Screenshot of the Events page for an App Configuration store. Events, Event Subscriptions, and a subscription in the list are highlighted." lightbox="./media/enable-dynamic-configuration-dotnet-core-push-refresh/event-subscription-view.png":::
 
 > [!NOTE]
 > When you subscribe to configuration changes, you can use one or more filters to reduce the number of events sent to your application. You can configure these filters as [Event Grid subscription filters](../event-grid/event-filtering.md) or [Service Bus subscription filters](../service-bus-messaging/topic-filters.md). For example, you can use a subscription filter to subscribe only to events for changes in a key that starts with a specific string.
@@ -279,7 +279,7 @@ The `ProcessPushNotification` method takes in a `PushNotification` object that c
     dotnet run
     ```
 
-    :::image type="content" source="./media/dotnet-core-app-pushrefresh-initial.png" alt-text="Screenshot of a Command Prompt window. Output from a console app includes a line with the text Initial value: Data from Azure App Configuration.":::
+    :::image type="content" source="./media/enable-dynamic-configuration-dotnet-core-push-refresh/dotnet-core-app-push-refresh-initial.png" alt-text="Screenshot of a Command Prompt window. Output from a console app includes a line with the text Initial value: Data from Azure App Configuration.":::
 
 1. Sign in to the [Azure portal](https://portal.azure.com/), and then go to the App Configuration store from the tutorial listed in [Prerequisites](#prerequisites).
 
@@ -291,7 +291,7 @@ The `ProcessPushNotification` method takes in a `PushNotification` object that c
 
 1. Wait a few moments for the event to be processed. The updated configuration then appears in the app output.
 
-    :::image type="content" source="./media/dotnet-core-app-pushrefresh-final.png" alt-text="Screenshot of a Command Prompt window. Output from a console app includes a line with the text New value: Data from Azure App Configuration - Updated.":::
+    :::image type="content" source="./media/enable-dynamic-configuration-dotnet-core-push-refresh/dotnet-core-app-push-refresh-final.png" alt-text="Screenshot of a Command Prompt window. Output from a console app includes a line with the text New value: Data from Azure App Configuration - Updated.":::
 
 ## Clean up resources
 

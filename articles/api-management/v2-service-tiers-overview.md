@@ -5,7 +5,7 @@ services: api-management
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/20/2026
+ms.date: 09/04/2026
 ms.custom:
   - references_regions
   - build-2025
@@ -23,7 +23,7 @@ The following v2 tiers are generally available:
 
 * **Standard v2** - Standard v2 is a production-ready tier with support for network-isolated backends.
 
-* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, and availability zones. [Read the blog post](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcing-the-general-availability-ga-of-the-premium-v2-tier-of-azure-api-manag/4471499) announcing general availability.
+* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, and availability zones (zone redundancy). [Read the blog post](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcing-the-general-availability-ga-of-the-premium-v2-tier-of-azure-api-manag/4471499) announcing general availability.
 
 ## Key capabilities
 
@@ -125,7 +125,7 @@ The Premium tier and Premium v2 tier support full network isolation by deploymen
 
 ### Q: Can I deploy an instance of the Basic v2 or Standard v2 tier entirely in my virtual network? 
 
-A: No, such a deployment is only supported in the Premium and Premium v2 tiers. 
+A: No, Azure only supports this deployment in the Premium and Premium v2 tiers. 
 
 ### Q: Does a Premium v2 instance run on dedicated compute infrastructure?
 

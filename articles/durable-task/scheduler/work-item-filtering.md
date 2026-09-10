@@ -6,7 +6,7 @@ title: Work item filtering in the Durable Task Scheduler
 titleSuffix: Durable Task
 description: "Learn how work item filtering connects distributed application components running across different Azure compute environments in a single workflow."
 ms.topic: concept-article
-ms.date: 07/21/2026
+ms.date: 09/01/2026
 ---
 
 # Work item filtering in the Durable Task Scheduler
@@ -84,13 +84,13 @@ Routing is **strict**. There's no fallback to another worker:
 
 This strictness ensures the scheduler never hands a work item to a worker that can't process it.
 
-## SDK availability
+## Work item filtering support by Durable Task SDK
 
 | Durable Task SDK | Work item filtering |
 | ---------------- | ------------------- |
 | .NET             | Available           |
 | Java             | Available           |
-| Python           | Not yet available   |
+| Python           | Available           |
 | JavaScript       | Not yet available   |
 | PowerShell       | Not yet available   |
 
@@ -137,6 +137,31 @@ WorkItemFilter filter = WorkItemFilter.newBuilder()
         .build();
 
 builder.useWorkItemFilters(filter);
+```
+
+# [Python](#tab/python)
+
+Call `use_work_item_filters()` on the worker after you register its tasks. The SDK generates the filters from the registered tasks.
+
+```python
+worker.add_orchestrator(order_processing_orchestrator)
+worker.add_activity(validate_order)
+worker.use_work_item_filters()  # auto-generate from registered tasks
+```
+
+To supply explicit filters instead of auto-generating them from the registry, pass `WorkItemFilters`:
+
+```python
+from durabletask.worker import WorkItemFilters, OrchestrationWorkItemFilter, ActivityWorkItemFilter
+
+worker.use_work_item_filters(WorkItemFilters(
+    orchestrations=[
+        OrchestrationWorkItemFilter(name="order_processing_orchestrator"),
+    ],
+    activities=[
+        ActivityWorkItemFilter(name="validate_order"),
+    ],
+))
 ```
 
 ---

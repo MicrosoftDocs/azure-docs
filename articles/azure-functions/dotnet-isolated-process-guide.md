@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 08/26/2026
+ms.date: 09/04/2026
 recommendations: false
 ms.custom:
   - template-concept
@@ -1023,7 +1023,7 @@ You can configure your isolated process application to send logs directly to [Ap
 
 Application Insights integration isn't enabled by default in all setup experiences. Some templates create Functions projects with the necessary packages and startup code commented out. If you want to use Application Insights integration, uncomment these lines in `Program.cs` and the project's `.csproj` file. The instructions in the rest of this section also describe how to enable the integration.
 
-If your project is part of an [Aspire orchestration](#aspire), it uses OpenTelemetry for monitoring instead. Don't enable direct Application Insights integration within Aspire projects. Instead, configure the Azure Monitor OpenTelemetry exporter as part of the [service defaults project](/dotnet/aspire/fundamentals/service-defaults#opentelemetry-configuration). If your Functions project uses Application Insights integration in an Aspire context, the application errors on startup.
+If your project is part of an [Aspire orchestration](#aspire), it uses OpenTelemetry for monitoring instead. Don't enable direct Application Insights integration within Aspire projects. Instead, configure the Azure Monitor OpenTelemetry exporter as part of [Aspire Service Defaults](https://aspire.dev/get-started/csharp-service-defaults/#opentelemetry-configuration). If your Functions project uses Application Insights integration in an Aspire context, the application errors on startup.
 
 #### Update host.json
 
@@ -1361,9 +1361,11 @@ To run .NET functions in the isolated worker model in Azure, you need to meet a 
 
 When you create your function app in Azure using the methods in the previous section, these required settings are added for you. When you create these resources [by using ARM templates or Bicep files for automation](functions-infrastructure-as-code.md), you must make sure to set them in the template. 
 
-## <a name = "net-aspire-preview"></a>Aspire
+<a id="net-aspire-preview"></a>
 
-[Aspire](/dotnet/aspire/get-started/aspire-overview) is an opinionated stack that simplifies development of distributed applications in the cloud. You can enlist isolated worker model projects in Aspire 13 orchestrations. See [Azure Functions with Aspire](./dotnet-aspire-integration.md) for more information.
+## Aspire
+
+[Aspire](https://aspire.dev/get-started/what-is-aspire/) is a toolchain for building, running, debugging, and deploying distributed applications. You can add isolated worker model projects to an Aspire AppHost. For more information, see [Azure Functions with Aspire](./aspire-integration.md) and [Set up Azure Functions in the AppHost](https://aspire.dev/integrations/cloud/azure/azure-functions/azure-functions-host/).
 
 ## Debugging
 
@@ -1525,7 +1527,7 @@ Keep these considerations in mind when using Functions with preview versions of 
 > [Migrate .NET apps to the isolated worker model][migrate]
 
 > [!div class="nextstepaction"]
-> [Integrate with Aspire](./dotnet-aspire-integration.md)
+> [Integrate with Aspire](./aspire-integration.md)
 
 [migrate]: ./migrate-dotnet-to-isolated-model.md
 

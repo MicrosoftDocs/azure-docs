@@ -35,6 +35,7 @@ Create an Arc-enabled cluster that meets the system requirements.
 * If possible, have a second cluster as a staging area for testing new changes before deploying to the primary production cluster.
 * [Turn off autoupgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
 * *For multinode clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster.md#configure-azure-container-storage-enabled-by-azure-arc) to prepare for enabling fault tolerance during deployment.
+* *For clusters in regulated or disconnected environments*: Follow the steps in [Mirror deployment images to a private registry](../secure-iot-ops/howto-mirror-images-private-registry.md) to ensure that all required images are available in your environment.
 
 ### Security
 

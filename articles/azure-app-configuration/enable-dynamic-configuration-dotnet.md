@@ -224,7 +224,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
 
 1. Press Ctrl + F5 to build and run the console app.
 
-    ![App launch local](./media/dotnet-app-run.png)
+    ![App launch local](./media/enable-dynamic-configuration-dotnet/dotnet-app-run.png)
 
 1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following key.
 
@@ -234,7 +234,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
 
 1. Back in the running application, press the Enter key to trigger a refresh and print the updated value in the Command Prompt or PowerShell window.
 
-    ![App refresh local](./media/dotnet-app-run-refresh.png)
+    ![App refresh local](./media/enable-dynamic-configuration-dotnet/dotnet-app-run-refresh.png)
     
     > [!NOTE]
     > Since the refresh interval was set to 10 seconds using the `SetRefreshInterval` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.

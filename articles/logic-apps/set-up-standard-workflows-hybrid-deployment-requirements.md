@@ -6,11 +6,11 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/22/2026
+ms.date: 09/11/2026
 ms.custom:
   - build-2025
   - sfi-ropc-nochange
-# Customer intent: As a developer, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
+# Customer intent: As a developer who works with Azure Logic Apps, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
 ---
 
 # Set up your own infrastructure for Standard logic apps using hybrid deployment
@@ -31,7 +31,7 @@ For example, if you have an on-premises scenario, the following architectural ov
 
 :::image type="content" source="media/set-up-standard-workflows-hybrid-deployment-requirements/architecture-overview.png" alt-text="Diagram with architectural overview for where Standard logic apps are hosted in a partially connected environment." border="false":::
 
-For hosting, you can also set up and use [Azure Arc-enabled Kubernetes clusters on Azure Local](/azure/azure-local/overview) or [Azure Arc-enabled Kubernetes clusters on Windows Server](/azure/aks/hybrid/kubernetes-walkthrough-powershell).
+For hosting, you can also set up and use [Azure Arc-enabled Kubernetes clusters on Azure Local](/azure/azure-local/overview) or [Azure Arc-enabled Kubernetes clusters on Windows Server](/azure/aks-hybrid-edge/windows-server/kubernetes-walkthrough-powershell).
 
 The hybrid deployment model combines on-premises and cloud capabilities to provide flexible integration solutions for various needs. For example, your hybrid logic app resource can efficiently adjust resources based on changing workloads. This dynamic scaling helps you manage computing costs by increasing capacity during peak demand and reducing resources when usage drops.
 
@@ -54,7 +54,7 @@ The following section describes the limitations for the hybrid deployment option
 |------------|-------------|
 | Data logging with a disconnected runtime | In partially connected mode, the Azure Logic Apps runtime can stay disconnected up to 24 hours and still retain data logs. However, any logging data past this duration might be lost. |
 | Supported Azure regions | Hybrid deployment is currently available and supported only in the following Azure regions: <br><br>- Australia East <br>- East Asia <br>- East US <br>- North Central US <br>- Southeast Asia <br>- Sweden Central <br>- UK South <br>- West Europe <br>- West US |
-| Supported Azure Arc-enabled Kubernetes clusters | - Azure Arc-enabled AKS clusters <br>- Azure Arc-enabled AKS clusters on Azure Local (formerly Azure Stack HCI) <br>- Azure Arc-enabled AKS clusters on Windows Server |
+| Supported Azure Arc-enabled Kubernetes clusters | - Azure Arc-enabled AKS clusters <br>- Azure Arc-enabled AKS clusters on Azure Local (formerly Azure Stack HCI) <br>- Azure Arc-enabled AKS clusters on Windows Server <br>- Azure Arc-enabled Red Hat OpenShift clusters <br>- Azure Arc-enabled Rancher RKE2 clusters |
 | Unsupported capabilities available in single-tenant Azure Logic Apps (Standard) and related Azure services | - Deployment slots <br><br>- Azure Business process tracking <br><br>- Resource health under **Support + troubleshooting** in Azure portal <br><br>- Managed identity authentication for connector operations. For more information, see [Limitations for creating hybrid deployment workflows](create-standard-workflows-hybrid-deployment.md#limitations). |
 
 ## Prerequisites
@@ -80,7 +80,7 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
 > [!NOTE]
 >
 > You can also create a [Kubernetes cluster on Azure Local](/azure/azure-local/overview) 
-> or [Kubernetes cluster on Windows Server](/azure/aks/hybrid/overview) and apply the steps in this guide 
+> or [Kubernetes cluster on Windows Server](/azure/aks-hybrid-edge/windows-server/overview) and apply the steps in this guide
 > to connect your cluster to Azure Arc and set up your connected environment. For more information about 
 > Azure Local and AKS on Windows Server, see the following resources:
 >
@@ -88,6 +88,10 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
 > - [Deployment prerequisites for Azure Local](/azure/azure-local/deploy/deployment-prerequisites)
 > - [Create Kubernetes clusters using Azure CLI](/azure/aks/aksarc/aks-create-clusters-cli)
 > - [Set up an Azure Kubernetes Service host on Azure Local and Windows Server and deploy a workload cluster using PowerShell](/azure/aks/aksarc/kubernetes-walkthrough-powershell)
+
+The following tabs describe the distribution-specific steps. All clusters must meet the [technical requirements for Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#prerequisites), including the required network access, supported Kubernetes version, and access to a container registry.
+
+### [AKS](#tab/aks)
 
 1. Set the following environment variables for the Kubernetes cluster that you want to create:
 
@@ -145,9 +149,82 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
    - [**az group create**](/cli/azure/group#az-group-create)
    - [**az aks create**](/cli/azure/aks#az-aks-create)
 
-## Connect Kubernetes cluster to Azure Arc
+### [OpenShift](#tab/openshift)
 
-To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes cluster to Azure Arc.
+1. Create a self-managed OpenShift cluster or an [Azure Red Hat OpenShift (ARO)](/azure/openshift/create-cluster) cluster that meets the [Azure Container Apps on Azure Arc prerequisites](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#prerequisites).
+
+   For cluster installation options, see:
+   
+   - [Install OpenShift on bare metal](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/installing_on_bare_metal/index)
+   - [Install Single-Node OpenShift](https://docs.redhat.com/en/documentation/openshift_container_platform/4.18/html/installing_on_a_single_node/index)
+
+1. Install the OpenShift command-line interface (**oc**), and sign in as a cluster administrator. Confirm access to the cluster:
+
+   ```azurecli
+   oc login <api-url> -u <user-name>
+   oc whoami
+   oc get nodes
+   ```
+
+### [Rancher RKE2](#tab/rke2)
+
+1. Create a Rancher RKE2 cluster that meets the [Azure Container Apps on Azure Arc prerequisites](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#prerequisites). For more information, see [Install RKE2](https://docs.rke2.io/install/quickstart).
+
+1. Install RKE2 and start the server on a Linux host:
+
+   ```azurecli
+   curl -sfL https://get.rke2.io | sudo sh -
+   sudo systemctl enable --now rke2-server.service
+   ```
+
+1. Configure **kubectl** to use the RKE2 kubeconfig file and verify the cluster:
+
+   ```azurecli
+   export PATH=$PATH:/var/lib/rancher/rke2/bin
+   export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
+   kubectl get nodes
+   ```
+
+---
+
+## Configure a load balancer
+
+Before you install the Azure Container Apps extension, configure the load balancer that provides the shared Envoy ingress IP for your logic apps.
+
+For AKS in Azure and Azure Red Hat OpenShift, Azure provides the load balancer. For AKS on Azure Local or Windows Server, configure [HAProxy or a custom load balancer](/azure/aks-hybrid-edge/windows-server/configure-load-balancer).
+
+### Choose your ingress path for a self-managed cluster
+
+Every app is reached through one shared Envoy ingress, and the ingress requires an IP address that clients can reach. A self-managed cluster has no cloud load balancer to assign this IP address, so you must provide an ingress path. Choose one of the following options based on your environment.
+
+#### In-cluster load balancer
+
+Install a bare-metal load balancer controller that assigns the Envoy `LoadBalancer` service an IP address from a pool on your node subnet. MetalLB is a common choice. Other options include kube-vip, Cilium, and OpenELB.
+
+Use this option when you have a spare IP address range on the node network and want a self-contained cluster. Complete the following configuration steps:
+
+1. Install the load balancer controller and configure an address pool.
+1. When you install the Azure Container Apps extension, set `envoy.serviceType=LoadBalancer`.
+
+For example, install MetalLB by running the following commands:
+
+```azurecli
+kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.14.9/config/manifests/metallb-native.yaml
+kubectl wait --for=condition=Ready pods --all -n metallb-system --timeout=180s
+```
+
+Choose an unused address range on the node network that doesn't overlap the cluster or service CIDRs, and then create an `IPAddressPool` and `L2Advertisement`. For a complete MetalLB configuration example, see [Hybrid Logic Apps on RKE2: a self-managed cluster with MetalLB](https://techcommunity.microsoft.com/blog/integrationsonazureblog/hybrid-logic-apps-on-rke2-a-self-managed-cluster-with-metallb/4539846).
+
+#### External load balancer with NodePort
+
+Configure an external Layer 4 load balancer to forward traffic to the Envoy NodePort on every cluster node. The load balancer can be an appliance or software load balancer, such as F5, NetScaler, or HAProxy. If your cluster nodes are Azure virtual machines in the same region, you can use Azure Standard Load Balancer.
+
+Use this option when you already have a datacenter load balancer or your cluster runs on Azure virtual machines. Complete the following configuration steps:
+
+1. When you install the Azure Container Apps extension, set `envoy.serviceType=NodePort`.
+1. Configure the external load balancer to forward traffic to the Envoy NodePort on each cluster node.
+
+## Install required tools and register resource providers
 
 > [!NOTE]
 >
@@ -192,7 +269,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    - [Register the required namespaces](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#setup)
    - [**az provider register**](/cli/azure/provider#az-provider-register)
 
-1. Install the Kubernetes command line interface (CLI) named **kubectl**:
+1. Install the Kubernetes command-line interface (CLI) named **kubectl**:
 
    ```azurecli
    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -206,24 +283,6 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    - [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy)
    - [choco install kubernetes-cli](https://docs.chocolatey.org/en-us/choco/commands/install/)
 
-1. Test your connection to your cluster by getting the [**kubeconfig** file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/):
-
-   ```azurecli
-   az aks get-credentials \
-      --resource-group $AKS_CLUSTER_GROUP_NAME \
-      --name $AKS_NAME \
-      --admin
-   kubectl get ns 
-   ```
-
-   By default, the **kubeconfig** file is saved to the path, **~/.kube/config**. This command applies to our example Kubernetes cluster and differs for other kinds of Kubernetes clusters.
-
-   For more information, see the following resources:
-
-   - [Create connected cluster](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#create-a-connected-cluster)
-   - [**az aks get-credentials**](/cli/azure/aks#az-aks-get-credentials)
-   - [**kubectl get**](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/)
-
 1. Install the Kubernetes package manager named **Helm**:
 
    ```azurecli
@@ -235,29 +294,92 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    - [Helm](https://helm.sh/)
    - [choco install kubernetes-helm](https://community.chocolatey.org/packages/kubernetes-helm)
 
-1. Install the SMB driver using the following Helm commands:
+## Test the connection to your Kubernetes cluster
 
-   1. Add the specified chart repository, get the latest information for available charts, and install the specified chart archive.
+### [AKS](#tab/aks)
 
-      ```azurecli
-      helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts 
-      helm repo update
-      helm install csi-driver-smb csi-driver-smb/csi-driver-smb --namespace kube-system --version v1.15.0 
-      ```
+Get the credentials for your AKS cluster and test the connection by running the following commands:
 
-      For more information, see the following resources:
+```azurecli
+az aks get-credentials \
+   --resource-group $AKS_CLUSTER_GROUP_NAME \
+   --name $AKS_NAME \
+   --admin
+kubectl get ns
+```
 
-      - [helm repo add](https://helm.sh/docs/helm/helm_repo_add/)
-      - [helm repo update](https://helm.sh/docs/helm/helm_repo_update/)
-      - [helm install](https://helm.sh/docs/helm/helm_install/)
+### [OpenShift](#tab/openshift)
 
-   1. Confirm that the SMB driver is installed by running the following **kubectl** command, which should list **smb.csi.k8s.io**:
+Confirm that you're signed in to your OpenShift cluster and test the connection by running the following commands:
 
-      ```azurecli
-      kubectl get csidriver
-      ```
+```azurecli
+oc whoami
+oc get nodes
+```
 
-      For more information, see [**kubectl get**](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/).
+### [Rancher RKE2](#tab/rke2)
+
+Configure **kubectl** to use the RKE2 kubeconfig file and test the connection by running the following commands:
+
+```azurecli
+export PATH=$PATH:/var/lib/rancher/rke2/bin
+export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
+kubectl get nodes
+```
+
+---
+
+## Install the SMB driver
+
+### [AKS](#tab/aks)
+
+Add the specified chart repository, get the latest information for available charts, and install the specified chart archive by running the following commands:
+
+```azurecli
+helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+helm repo update
+helm install csi-driver-smb csi-driver-smb/csi-driver-smb --namespace kube-system --version v1.15.0
+kubectl get csidriver
+```
+
+For more information, see:
+
+- [**helm install**](https://helm.sh/docs/helm/helm_install/)
+- [**kubectl get**](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/)
+
+### [OpenShift](#tab/openshift)
+
+Add the specified chart repository, get the latest information for available charts, and install the specified chart archive by running the following commands:
+
+```azurecli
+helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+helm repo update
+helm install csi-driver-smb csi-driver-smb/csi-driver-smb --namespace kube-system --version v1.16.0 --set image.smb.repository=mcr.microsoft.com/oss/kubernetes-csi/csi-driver-smb
+oc get csidriver
+```
+
+For more information, see:
+
+- [**helm install**](https://helm.sh/docs/helm/helm_install/)
+- [**kubectl get**](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/)
+
+### [Rancher RKE2](#tab/rke2)
+
+Add the specified chart repository, get the latest information for available charts, and install the specified chart archive by running the following commands:
+
+```azurecli
+helm repo add csi-driver-smb https://raw.githubusercontent.com/kubernetes-csi/csi-driver-smb/master/charts
+helm repo update
+helm install csi-driver-smb csi-driver-smb/csi-driver-smb --namespace kube-system --version v1.15.0
+kubectl get csidriver
+```
+
+For more information, see:
+
+- [**helm install**](https://helm.sh/docs/helm/helm_install/)
+- [**kubectl get**](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/)
+
+---
 
 ## Connect your Kubernetes cluster to Azure Arc
 
@@ -326,7 +448,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
 
 You can create an optional, but recommended, Azure Log Analytics workspace, which provides access to logs for apps that run in your Azure Arc-enabled Kubernetes cluster.
 
-1. Set the following environment variable to provide a name your Log Analytics workspace:
+1. Set the following environment variable to provide a name for your Log Analytics workspace:
 
    ```azurecli
    WORKSPACE_NAME="$GROUP_NAME-workspace"
@@ -383,16 +505,34 @@ You can create an optional, but recommended, Azure Log Analytics workspace, whic
 
 ## Create and install the Azure Container Apps extension
 
-Now, create and install the Azure Container Apps extension with your Azure Arc-enabled Kubernetes cluster as an on-premises resource.
+The following table describes the parameters that apply to the tabs in this section:
 
-> [!IMPORTANT]
->
-> If you want to deploy to AKS on Azure Local, before you create and 
-> install the Azure Container Apps extension, make sure that you 
-> [set up **HAProxy** or a custom load balancer](/azure/aks/hybrid/configure-load-balancer). 
+| Parameter | Required | Description |
+|-----------|----------|-------------|
+| **Microsoft.CustomLocation.ServiceAccount** | Yes | The service account created for the custom location. <br><br>**Recommendation**: Set the value to **default**. |
+| **appsNamespace** | Yes | The namespace to use for creating app definitions and revisions. This value must match the release namespace for the Azure Container Apps extension. |
+| **clusterName** | Yes | The name for the Azure Container Apps extension Kubernetes environment to create for the extension. |
+| **keda.enabled** | Yes | Enable [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh/). This value is required and must be set to **true**. |
+| **keda.logicAppsScaler.enabled** | Yes | Enable the Azure Logic Apps scaler in KEDA. This value is required and must be set to **true**. |
+| **keda.logicAppsScaler.replicaCount** | Yes | The initial number of logic app scalers to start. The default value set to **1**. This value scales up or scales down to **0**, if no logic apps exist in the environment. |
+| **containerAppController.api.functionsServerEnabled** | Yes | Enable the service responsible for converting logic app workflow triggers to KEDA-scaled objects. This value is required and must be set to **true**. |
+| **envoy.externalServiceAzureILB** | Yes | Determines whether the envoy acts as an internal load balancer or a public load balancer. <br><br>- **true**: The envoy acts as an internal load balancer. The Azure Logic Apps runtime is accessible only within private network. <br><br>- **false**: The envoy acts as a public load balancer. The Azure Logic Apps runtime is accessible over the public network. |
+| **functionsProxyApiConfig.enabled** | Yes | Enable the proxy service that facilitates API access to the Azure Logic Apps runtime from the Azure portal. This value is required and must be set to **true**. |
+| **envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group** | Yes, but only when the underlying cluster is Azure Kubernetes Service. | The name for the resource group where the Kubernetes cluster exists. |
+| **logProcessor.appLogs.destination** | No | The destination to use for application logs. The value is either **log-analytics** or **none**, which disables logging. |
+| **logProcessor.appLogs.logAnalyticsConfig.customerId** | Yes, but only when **logProcessor.appLogs.destination** is set to **log-analytics**. | The base64-encoded ID for your Log Analytics workspace. Make sure to configure this parameter as a protected setting. |
+| **logProcessor.appLogs.logAnalyticsConfig.sharedKey** | Yes, but only when **logProcessor.appLogs.destination** is set to **log-analytics**. | The base64-encoded shared key for your Log Analytics workspace. Make sure to configure this parameter as a protected setting. |
+| **loadBalancerIp** | Yes, but only when using an on-premises AKS cluster. | Configure a load balancer for the cluster and provide the IP address for the load balancer. |
 
-1. Set the following environment variables to the following values:
-   
+For more information, see the following resources:
+
+- [Install the Azure Container Apps extension](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#install-the-container-apps-extension)
+- [**az k8s-extension create**](/cli/azure/k8s-extension?#az-k8s-extension-create)
+
+### [AKS](#tab/aks)
+
+1. Set the following environment variables:
+
    ```azurecli
    EXTENSION_NAME="logicapps-aca-extension"
    NAMESPACE="logicapps-aca-ns"
@@ -433,27 +573,113 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
       --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${LOG_ANALYTICS_KEY_ENC}"
    ```
 
-   | Parameter | Required | Description |
-   |-----------|----------|-------------|
-   | **Microsoft.CustomLocation.ServiceAccount** | Yes | The service account created for the custom location. <br><br>**Recommendation**: Set the value to **default**. |
-   | **appsNamespace** | Yes | The namespace to use for creating app definitions and revisions. This value must match the release namespace for the Azure Container Apps extension. |
-   | **clusterName** | Yes | The name for the Azure Container Apps extension Kubernetes environment to create for the extension. |
-   | **keda.enabled** | Yes | Enable [Kubernetes Event-driven Autoscaling (KEDA)](https://keda.sh/). This value is required and must be set to **true**. |
-   | **keda.logicAppsScaler.enabled** | Yes | Enable the Azure Logic Apps scaler in KEDA. This value is required and must be set to **true**. |
-   | **keda.logicAppsScaler.replicaCount** | Yes | The initial number of logic app scalers to start. The default value set to **1**. This value scales up or scales down to **0**, if no logic apps exist in the environment. |
-   | **containerAppController.api.functionsServerEnabled** | Yes | Enable the service responsible for converting logic app workflow triggers to KEDA-scaled objects. This value is required and must be set to **true**. |
-   | **envoy.externalServiceAzureILB** | Yes | Determines whether the envoy acts as an internal load balancer or a public load balancer. <br><br>- **true**: The envoy acts as an internal load balancer. The Azure Logic Apps runtime is accessible only within private network. <br><br>- **false**: The envoy acts as a public load balancer. The Azure Logic Apps runtime is accessible over the public network. |
-   | **functionsProxyApiConfig.enabled** | Yes | Enable the proxy service that facilitates API access to the Azure Logic Apps runtime from the Azure portal. This value is required and must be set to **true**. |
-   | **envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group** | Yes, but only when the underlying cluster is Azure Kubernetes Service. | The name for the resource group where the Kubernetes cluster exists. |
-   | **logProcessor.appLogs.destination** | No | The destination to use for application logs. The value is either **log-analytics** or **none**, which disables logging. |
-   | **logProcessor.appLogs.logAnalyticsConfig.customerId** | Yes, but only when **logProcessor.appLogs.destination** is set to **log-analytics**. | The base64-encoded ID for your Log Analytics workspace. Make sure to configure this parameter as a protected setting. |
-   | **logProcessor.appLogs.logAnalyticsConfig.sharedKey** | Yes, but only when **logProcessor.appLogs.destination** is set to **log-analytics**. | The base64-encoded shared key for your Log Analytics workspace. Make sure to configure this parameter as a protected setting. |
-   | **loadBalancerIp** | Yes, but only when using an on-premises AKS cluster. | Configure a load balancer for the cluster and provide the IP address for the load balancer. |
+### [OpenShift](#tab/openshift)
 
-   For more information, see the following resources:
+1. Set the following environment variables:
 
-   - [Install the Azure Container Apps extension](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#install-the-container-apps-extension)
-   - [**az k8s-extension create**](/cli/azure/k8s-extension?#az-k8s-extension-create)
+   ```azurecli
+   EXTENSION_NAME="logicapps-aca-extension"
+   NAMESPACE="logicapps-aca-ns"
+   CONNECTED_ENVIRONMENT_NAME="<connected-environment-name>"
+   ```
+
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **EXTENSION_NAME** | Yes | **logicapps-aca-extension** | The name for the Azure Container Apps extension. |
+   | **NAMESPACE** | Yes | **logicapps-aca-ns** | The cluster namespace where you want to provision resources. |
+   | **CONNECTED_ENVIRONMENT_NAME** | Yes | <*connected-environment-name*> | A unique name to use for the Azure Container Apps connected environment. This name becomes part of the domain name for the Standard logic app that you create, deploy, and host in the Azure Container Apps connected environment. |
+
+1. Create and install the extension with Log Analytics enabled for your Azure Arc-enabled Kubernetes cluster. You can't later add Log Analytics to the extension.
+
+   ```azurecli
+   oc create namespace logicapps-aca-ns
+   oc adm policy add-scc-to-group anyuid system:serviceaccounts:logicapps-aca-ns
+   oc adm policy add-scc-to-group privileged system:serviceaccounts:logicapps-aca-ns
+   oc adm policy add-scc-to-group hostnetwork system:serviceaccounts:logicapps-aca-ns
+   az k8s-extension create \
+      --resource-group $GROUP_NAME \
+      --name $EXTENSION_NAME \
+      --cluster-type connectedClusters \
+      --cluster-name $CONNECTED_CLUSTER_NAME \
+      --extension-type 'Microsoft.App.Environment' \
+      --release-train stable \
+      --auto-upgrade-minor-version true \
+      --scope cluster \
+      --release-namespace $NAMESPACE \
+      --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
+      --configuration-settings "appsNamespace=${NAMESPACE}" \
+      --configuration-settings "keda.enabled=true" \
+      --configuration-settings "keda.logicAppsScaler.enabled=true" \
+      --configuration-settings "keda.logicAppsScaler.replicaCount=1" \
+      --configuration-settings "containerAppController.api.functionsServerEnabled=true" \
+      --configuration-settings "functionsProxyApiConfig.enabled=true" \
+      --configuration-settings "clusterName=${CONNECTED_ENVIRONMENT_NAME}" \
+      --configuration-settings "Azure.Cluster.Distribution=openshift" \
+      --configuration-settings "coreDNSVersion=1.8.6" \
+      --configuration-settings "envoy.serviceType=LoadBalancer" \
+      --configuration-settings "logProcessor.appLogs.destination=log-analytics" \
+      --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${LOG_ANALYTICS_WORKSPACE_ID_ENC}" \
+      --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${LOG_ANALYTICS_KEY_ENC}"
+   ```
+
+   For a self-managed cluster with an external load balancer, replace `envoy.serviceType=LoadBalancer` with `envoy.serviceType=NodePort`. Azure Red Hat OpenShift uses `LoadBalancer`.
+
+### [Rancher RKE2](#tab/rke2)
+
+1. Set the following environment variables:
+
+   ```azurecli
+   EXTENSION_NAME="logicapps-aca-extension"
+   NAMESPACE="logicapps-aca-ns"
+   CONNECTED_ENVIRONMENT_NAME="<connected-environment-name>"
+   ```
+
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **EXTENSION_NAME** | Yes | **logicapps-aca-extension** | The name for the Azure Container Apps extension. |
+   | **NAMESPACE** | Yes | **logicapps-aca-ns** | The cluster namespace where you want to provision resources. |
+   | **CONNECTED_ENVIRONMENT_NAME** | Yes | <*connected-environment-name*> | A unique name to use for the Azure Container Apps connected environment. This name becomes part of the domain name for the Standard logic app that you create, deploy, and host in the Azure Container Apps connected environment. |
+
+1. Run the following commands on each RKE2 node to raise the inotify limits. These settings prevent the runtime pods from entering `CrashLoopBackOff`:
+
+   ```azurecli
+   sudo sysctl -w fs.inotify.max_user_instances=8192
+   sudo sysctl -w fs.inotify.max_user_watches=1048576
+   printf "fs.inotify.max_user_instances=8192\nfs.inotify.max_user_watches=1048576\n" | sudo tee /etc/sysctl.d/99-inotify.conf
+   ```
+
+1. Create and install the extension with Log Analytics enabled for your Azure Arc-enabled Kubernetes cluster. You can't later add Log Analytics to the extension.
+
+   ```azurecli
+   az k8s-extension create \
+      --resource-group $GROUP_NAME \
+      --name $EXTENSION_NAME \
+      --cluster-type connectedClusters \
+      --cluster-name $CONNECTED_CLUSTER_NAME \
+      --extension-type 'Microsoft.App.Environment' \
+      --release-train stable \
+      --auto-upgrade-minor-version true \
+      --scope cluster \
+      --release-namespace $NAMESPACE \
+      --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
+      --configuration-settings "appsNamespace=${NAMESPACE}" \
+      --configuration-settings "keda.enabled=true" \
+      --configuration-settings "keda.logicAppsScaler.enabled=true" \
+      --configuration-settings "keda.logicAppsScaler.replicaCount=1" \
+      --configuration-settings "containerAppController.api.functionsServerEnabled=true" \
+      --configuration-settings "functionsProxyApiConfig.enabled=true" \
+      --configuration-settings "clusterName=${CONNECTED_ENVIRONMENT_NAME}" \
+      --configuration-settings "envoy.serviceType=LoadBalancer" \
+      --configuration-settings "logProcessor.appLogs.destination=log-analytics" \
+      --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.customerId=${LOG_ANALYTICS_WORKSPACE_ID_ENC}" \
+      --configuration-protected-settings "logProcessor.appLogs.logAnalyticsConfig.sharedKey=${LOG_ANALYTICS_KEY_ENC}"
+   ```
+
+   For an external load balancer, replace `envoy.serviceType=LoadBalancer` with `envoy.serviceType=NodePort`.
+
+---
+
+After you complete the steps on the tab that applies to your scenario, finish by following these steps:
 
 1. Save the **ID** value for the Azure Container Apps extension to use later:
 
@@ -569,7 +795,11 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
 
 ## Create the Azure Container Apps connected environment
 
-Now, create your Azure Container Apps connected environment for your Standard logic app to use.
+Now, create your Azure Container Apps connected environment for your Standard logic app to use. Select the tab for your Kubernetes distribution.
+
+### [AKS](#tab/aks)
+
+Create the Azure Container Apps connected environment for your AKS cluster by running the following command:
 
 ```azurecli
 az containerapp connected-env create \
@@ -579,6 +809,36 @@ az containerapp connected-env create \
    --location $LOCATION
 ```
 
+### [OpenShift](#tab/openshift)
+
+Create the Azure Container Apps connected environment for your OpenShift cluster by running the following command:
+
+```azurecli
+az containerapp connected-env create \
+   --resource-group $GROUP_NAME \
+   --name $CONNECTED_ENVIRONMENT_NAME \
+   --custom-location $CUSTOM_LOCATION_ID \
+   --location $LOCATION
+```
+
+For a self-managed cluster that uses an external load balancer and NodePort, add `--static-ip <load-balancer-VIP>` to the command. Don't add this setting when using MetalLB or Azure Red Hat OpenShift.
+
+### [Rancher RKE2](#tab/rke2)
+
+Create the Azure Container Apps connected environment for your RKE2 cluster by running the following command:
+
+```azurecli
+az containerapp connected-env create \
+   --resource-group $GROUP_NAME \
+   --name $CONNECTED_ENVIRONMENT_NAME \
+   --custom-location $CUSTOM_LOCATION_ID \
+   --location $LOCATION
+```
+
+For an external load balancer and NodePort, add `--static-ip <load-balancer-VIP>` to the command. Don't add this setting when using MetalLB.
+
+---
+
 For more information, see the following resources:
 
 - [Create a custom location](/azure/container-apps/azure-arc-enable-cluster?tabs=azure-cli#create-the-azure-container-apps-connected-environment)
@@ -586,9 +846,13 @@ For more information, see the following resources:
 
 <a name="update-coredns-azure-local"></a>
 
-## Update CoreDNS for a Kubernetes cluster in Azure Local
+## Configure cluster DNS
 
-If your Azure Kubernetes cluster is hosted in Azure Local, you must manually update the CoreDNS configuration for your cluster. This step adds a new *config map* to your Azure Kubernetes namespace. In comparison, Azure Logic Apps automatically completes this step when your Kubernetes cluster is hosted in Azure. However, for a cluster hosted elsewhere, you must manually complete this step.
+After you create the connected environment, configure the cluster DNS by using the tab for your Kubernetes distribution.
+
+### [AKS](#tab/aks)
+
+If you use Azure Local to host your Azure Kubernetes cluster, you must manually update the CoreDNS configuration for your cluster. This step adds a new *config map* to your Azure Kubernetes namespace. In comparison, Azure Logic Apps automatically completes this step when you host your Kubernetes cluster in Azure. However, for a cluster hosted elsewhere, you must manually complete this step.
 
 For more information, see the following documentation:
 
@@ -626,6 +890,27 @@ For more information, such as global parameters, see [**az containerapp arc setu
    ```azurecli
    az containerapp arc setup-core-dns --distro AksAzureLocal --kube-config <kubeconfig-file-path> --kube-context <kubeconfig-context-name>
    ```
+
+### [OpenShift](#tab/openshift)
+
+Configure the DNS through the OpenShift DNS Operator by running the following command:
+
+```azurecli
+az containerapp arc setup-core-dns --distro=openshift --verbose
+```
+
+For more information, see [Hybrid Logic Apps Deployment on Red Hat OpenShift](https://techcommunity.microsoft.com/blog/integrationsonazureblog/hybrid-logic-apps-deployment-on-red-hat-openshift/4534828).
+
+### [Rancher RKE2](#tab/rke2)
+
+The `az containerapp arc setup-core-dns` distribution option doesn't support RKE2. Instead, complete the following steps:
+
+1. Mount the `coredns-custom` ConfigMap by using an RKE2 `HelmChartConfig`.
+1. Create a `kube-dns` Service alias for the RKE2 CoreDNS service.
+
+For the required manifests and verification steps, see [Hybrid Logic Apps on RKE2: a self-managed cluster with MetalLB](https://techcommunity.microsoft.com/blog/integrationsonazureblog/hybrid-logic-apps-on-rke2-a-self-managed-cluster-with-metallb/4539846).
+
+---
 
 <a name="create-storage-provider"></a>
 

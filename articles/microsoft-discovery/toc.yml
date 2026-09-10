@@ -162,9 +162,15 @@ items:
           - name: Configure secure networking for Supercomputer
             href: how-to-configure-supercomputer-network-security.md
             displayName: Microsoft Discovery, supercomputer, secure networking, virtual network, subnets, egress
+          - name: Plan network security groups for a Microsoft Discovery Supercomputer
+            href: how-to-plan-supercomputer-network-security-groups.md
+            displayName: Microsoft Discovery, supercomputer, network security group, NSG, rules, priority, service tags, egress, user-defined routing
           - name: Manage Workspaces
             href: how-to-manage-workspaces.md
             displayName: Microsoft Discovery, workspace, create, update, delete, networking, supercomputers
+          - name: Delete Discovery resources
+            href: how-to-delete-discovery-resources.md
+            displayName: Microsoft Discovery, delete, cleanup, deletion order, dependencies, resource group, teardown, supercomputer, workspace
       - name: Agents
         items:
           - name: Create agents
@@ -291,3 +297,6 @@ items:
       href: reference-javascript-sdks.md
     - name: Python SDKs
       href: reference-python-sdks.md
+    - name: FAQ
+      href: faq.yml
+      displayName: faq, frequently asked questions

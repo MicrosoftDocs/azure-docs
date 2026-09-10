@@ -581,7 +581,7 @@ To remove a datapoint from the output schema, use the `builtInTransformationSett
           "weight"
         ],
         "output": ""
-      }
+      },
       {
           "inputs": [
           "weight.SourceTimestamp"

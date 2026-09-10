@@ -1,4 +1,4 @@
-﻿---
+---
 title: Organize your invoice based on your needs - Azure
 description: Learn how to organize costs on your invoice. You can customize your billing account by creating billing profiles and invoice sections.
 author: jkinma39
@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 06/25/2026
+ms.date: 09/01/2026
 ms.author: jkinma
 ms.custom: sfi-image-nochange
 service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
@@ -174,6 +174,24 @@ If you have existing Azure subscriptions or other products such as Azure Marketp
     :::image type="content" border="true" source="./media/mca-section-invoice/mca-select-new-invoice-section.png" lightbox="./media/mca-section-invoice/mca-select-new-invoice-section-zoomed-in.png" alt-text="Screenshot that shows selecting a new invoice section.":::
 
 6. Select **Save**.
+
+### View supplemental documents
+
+Purchase orders help align purchases with your organization's internal procurement processes. For information about creating and managing purchase orders, see [Purchase orders](https://learn.microsoft.com/marketplace/purchase-orders).
+
+After you configure purchase orders, you can enable **supplemental documents**. Supplemental documents provide purchase order-specific or invoice section-specific views of billed charges, helping you reconcile costs and distribute charges within your organization.
+
+To view supplemental documents for an invoice:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for **Cost Management + Billing**.
+
+1. Select **Invoices** from the left side of the page.
+
+1. Select an invoice.
+
+1. Select the **Supplemental docs** tab at the bottom of the invoice details page.
 
 ## Things to consider when adding new billing profiles
 

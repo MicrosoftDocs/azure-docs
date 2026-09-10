@@ -14,12 +14,12 @@ ms.custom:
 
 # Quickstart: Build an event-driven AI app with Azure Functions hosted skills
 
-In this quickstart, you deploy an event-driven AI app to Azure Functions by using the Azure Developer CLI (`azd`). The sample includes two AI tasks:
+In this quickstart, you deploy an event-driven AI app to Azure Functions by using the Azure Developer CLI (`azd`). The sample includes two hosted skills:
 
-+ A chat task that you can use to test the deployed app in a browser. This task can use sandboxed Python code execution and browse the web.
-+ A timer-triggered task that gathers recent Microsoft blog posts, summarizes them, and can email the digest through MCP tools from a managed MCP server for a Microsoft 365 Outlook connector.
++ A chat hosted skill that you can use to test the deployed app in a browser. This hosted skill can use sandboxed Python code execution and browse the web.
++ A timer-triggered hosted skill that gathers recent Microsoft blog posts, summarizes them, and can email the digest through MCP tools from a managed MCP server for a Microsoft 365 Outlook connector.
 
-The project uses the [Azure Functions hosted skills](functions-hosted-skills.md). You define AI tasks in `.agent.md` files, configure app-wide runtime defaults in `agents.config.yaml`, connect remote MCP servers in `mcp.json`, and deploy the app like any other function app.
+The project uses the [Azure Functions hosted skills](functions-hosted-skills.md). You define hosted skills in `.agent.md` files, configure app-wide runtime defaults in `agents.config.yaml`, connect remote MCP servers in `mcp.json`, and deploy the app like any other function app.
 
 [!INCLUDE [functions-hosted-skills-preview](../../includes/functions-hosted-skills-preview.md)]
 
@@ -49,7 +49,13 @@ Use the `azd init` command to create a local project from the sample repository.
 
     This command pulls the project files from the [serverless agents sample repository](https://github.com/Azure-Samples/functions-quickstart-serverless-agents-azd) and initializes the project in the current folder. The `-e` flag names the current `azd` environment, which tracks deployment state and is used in Azure resource names.
 
-1. Enable email delivery by setting the recipient email address used by the timer task. Later in this quickstart, you must sign in to a Microsoft 365 account to authorize the Microsoft 365 Outlook connection that sends the email.
+1. Change to the project root directory:
+
+    ```console
+    cd functions-quickstart-serverless-agents-azd
+    ```
+
+1. Set the recipient email address used by the timer hosted skill. Later in this quickstart, you sign in to a Microsoft 365 account to authorize the Microsoft 365 Outlook connection that sends the email.
 
     ```console
     azd env set TO_EMAIL <recipient@example.com>
@@ -58,7 +64,7 @@ Use the `azd init` command to create a local project from the sample repository.
     Replace `<recipient@example.com>` with your own email address, or with another recipient allowed by your organization's email policies. Some organizations restrict connector-based email to internal recipients or block external recipients, so sending the test message to yourself is the most reliable option.
 
     > [!NOTE]
-    > Email delivery is optional in the sample. If you skip this setting, `azd up` doesn't create the Connector Namespace, Microsoft 365 Outlook connection, or managed MCP server. The timer task still runs and returns the digest in its final response so you can verify the run in logs or Application Insights.
+    > Email delivery is optional in the sample. If you skip this setting, `azd up` doesn't create the Connector Namespace, Microsoft 365 Outlook connection, or managed MCP server. The timer hosted skill still runs and returns the digest in its final response so you can verify the run in logs or Application Insights.
 
 ## Review the project
 
@@ -66,14 +72,14 @@ Before you deploy, review the project files that define the app:
 
 | File or folder | Purpose |
 | --- | --- |
-| `src/main.agent.md` | Defines the chat task and enables built-in endpoints for the debug chat UI. This task can use sandboxed Python code execution and doesn't use the Microsoft 365 Outlook managed MCP server. |
-| `src/daily_microsoft_blog_summary.agent.md` | Defines the timer-triggered blog summary task. The YAML front matter declares the timer trigger, and the markdown body contains the task instructions. |
-| `src/agents.config.yaml` | Defines app-wide runtime defaults, including the model deployment and Azure Container Apps dynamic session pool endpoint used by tasks in the app. |
-| `src/mcp.json` | Lists the remote MCP servers available to the AI tasks. In this template, `src` is the function app project root, and this file includes the managed MCP server endpoint for Microsoft 365 Outlook when email delivery is enabled. |
+| `src/main.agent.md` | Defines the chat hosted skill and enables built-in endpoints for the debug chat UI. This hosted skill can use sandboxed Python code execution and doesn't use the Microsoft 365 Outlook managed MCP server. |
+| `src/daily_microsoft_blog_summary.agent.md` | Defines the timer-triggered blog summary hosted skill. The YAML front matter declares the timer trigger, and the markdown body contains the hosted skill instructions. |
+| `src/agents.config.yaml` | Defines app-wide runtime defaults, including the model deployment and Azure Container Apps dynamic session pool endpoint used by hosted skills in the app. |
+| `src/mcp.json` | Lists the remote MCP servers available to the hosted skills. In this template, `src` is the function app project root, and this file includes the managed MCP server endpoint for Microsoft 365 Outlook when email delivery is enabled. |
 | `infra/` | Contains the Bicep files used by `azd` to provision the function app, storage, monitoring, Foundry resources, model deployment, session pool, optional Connector Namespace resources, and identity configuration. |
 | `src/function_app.py` | Required bootstrap file for the Functions host. You usually don't need to edit this file. |
 
-The timer-triggered task is defined in `daily_microsoft_blog_summary.agent.md`. The front matter declares the timer schedule, and the markdown instructions tell the task to gather recent Microsoft blog posts, create a digest, and send email when `TO_EMAIL` is configured.
+The timer-triggered hosted skill is defined in `daily_microsoft_blog_summary.agent.md`. The front matter declares the timer schedule, and the markdown instructions tell the task to gather recent Microsoft blog posts, create a digest, and send email when `TO_EMAIL` is configured.
 
 ## Deploy to Azure
 
@@ -89,13 +95,11 @@ Use `azd up` to provision Azure resources and deploy the function app.
 
     The template uses its default Microsoft Foundry model deployment settings unless you customize the Bicep parameters.
 
-After the command completes, the app is deployed to a new function app in Azure. The deployment output includes links to the created resources.
+After the command finishes, the app is deployed to a new function app in Azure. The deployment output includes links to the created resources.
 
 ## Authorize the connection
 
-When you set `TO_EMAIL`, the deployment creates a Connector Namespace with a Microsoft 365 Outlook connection and a managed MCP server. This setup lets the timer task send email through connector tools without custom Outlook API code. Before the task can send email, authorize the connection by signing in to a Microsoft 365 account that can send email.
-
-If you don't set `TO_EMAIL`, skip this section.
+The deployment creates a Connector Namespace with a Microsoft 365 Outlook connection and a managed MCP server. This setup lets the timer-hosted skill send email through connector tools without custom Outlook API code. Before the hosted skill can send email, authorize the connection by signing in to a Microsoft 365 account that can send email.
 
 1. In the [Azure portal](https://portal.azure.com), search for `Connector Namespace`.
 
@@ -111,7 +115,7 @@ After authentication succeeds, the function app's managed identity can call the 
 
 ## Use the debug chat UI
 
-The sample includes a chat task that uses Python code execution through the Azure Container Apps dynamic session pool. The chat UI is a debug surface for testing the deployed app.
+The sample includes a chat-hosted skill that uses Python code execution through the Azure Container Apps dynamic session pool. The chat UI is a debug surface for testing the deployed app.
 
 
 After `azd up` completes, open the function app endpoint shown in the deployment output, and then go to `/agents/main/`. When the chat UI loads, it prompts for a function key so it can call the chat endpoint.
@@ -128,13 +132,13 @@ az functionapp keys list \
 
 Paste the returned key into the chat UI prompt.
 
-Try asking the chat task a question that benefits from current public information or code execution. For example, ask `What's the weather in Seattle right now?` or `Compare the current weather in Seattle and New York.`
+Try asking the chat-hosted skill a question that benefits from current public information or code execution. For example, ask `What's the weather in Seattle right now?` or `Compare the current weather in Seattle and New York.`
 
-The chat task doesn't use the Microsoft 365 Outlook managed MCP server. The timer-triggered blog summary task uses email delivery.
+The chat-hosted skill doesn't use the Microsoft 365 Outlook managed MCP server. The timer-triggered blog summary hosted skill uses email delivery.
 
-## Run the timer task on demand
+## Run the timer-hosted skill on demand
 
-The task runs automatically on its timer schedule. To test it immediately, manually run the timer-triggered function from the Azure portal.
+The hosted skill runs automatically on its timer schedule. To test it immediately, manually run the timer-triggered function from the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com), open the function app created by `azd`.
 

@@ -1,6 +1,6 @@
 ---
 description: This article provides instructions now to configure permissions for the new Cloud Shell infrastructure.
-ms.date: 05/27/2026
+ms.date: 09/08/2026
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 title: Assign Necessary Permissions to Prepare for Network Profile Deprecation
@@ -19,10 +19,9 @@ delegated subnet.
 > [!NOTE]
 > As of June 12, 2026, the ARM and Bicep templates for network deployment assign the necessary
 > permissions. For any deployments created using the previous templates, you must assign the role by
-> September 30, 2026, to avoid disruption of your Cloud Shell deployment. For Azure Government
-> users, you must assign the role by October 31, 2026. For more information, see the
-> [FAQ section][03] of this article. For more information about the templates, see
-> [Deploy Azure Cloud Shell in a virtual network with quickstart templates][04].
+> September 30, 2026, to avoid disruption of your Cloud Shell deployment. For more information, see
+> the [FAQ section][03] of this article. For more information about the templates, see [Deploy Azure
+> Cloud Shell in a virtual network with quickstart templates][04].
 
 This article outlines what to expect as Cloud Shell transitions off of network profiles and the
 steps you need to take to assign the proper permissions.
@@ -155,11 +154,9 @@ Get-AzRoleAssignment @getAzRoleAssignmentSplat
 
 ### What happens if I don't add the required role assignment to my virtual network by the deadline?
 
-If the required role assignment isn't added by the applicable deadline, you won't be able to use
-Cloud Shell within your virtual network until you add the role assignment.
-
-- Azure public cloud users: The role assignment must be added by September 30, 2026.
-- Azure Government users: The role assignment must be added by October 31, 2026.
+If you don't add the required role assignment by September 30, 2026, you can't use Cloud
+Shell within your virtual network. To restore access to Cloud Shell, you must add the role
+assignment.
 
 ### I don't have permission to create the role assignment. Why?
 
