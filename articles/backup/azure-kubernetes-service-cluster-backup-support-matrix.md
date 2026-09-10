@@ -42,6 +42,8 @@ China East 2, China East 3, China North 2, China North 3, US GOV Arizona, US GOV
 
 - Both dynamically and statically provisioned volumes are supported; however, for static volumes, the *storage class* must be explicitly defined in the **YAML** specification—otherwise, the volume is skipped during backup. 
 
+- Azure Backup for AKS supports network-isolated AKS clusters, provided the Backup Extension, Trusted Access, and required private connectivity to the backup storage account are configured.
+
 - Azure Backup for AKS supports clusters that use either a [system-assigned](/azure/aks/use-managed-identity#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or [user-assigned managed identity](/azure/aks/use-managed-identity#update-an-existing-cluster-to-use-a-user-assigned-managed-identity). Clusters configured with a service principal aren't supported. To enable backup, update your cluster to use a system-assigned managed identity or a user-assigned managed identity.
 
 - Azure Backup for AKS offers both Operational Tier and Vault Tier backups. Operational Tier backups consist of snapshots of supported persistent volume types (Azure Disks and Azure Files), along with metadata stored in the blob container specified during the installation of the backup extension. Vault Tier backups, on the other hand, are stored offsite—securely and outside of your tenant. Note that Vault Tier is only supported for Azure Disk-based volumes; Azure Files volumes are backed up to Operational Tier only. Using the backup policy, you can choose to enable both Operational and Vault Tier backups, or use only the Operational Tier.
@@ -78,9 +80,9 @@ China East 2, China East 3, China North 2, China North 3, US GOV Arizona, US GOV
 
 - Azure Backup for AKS supports [Multi-user authorization (MUA)](multi-user-authorization-concept.md) allowing you to add another layer of protection to critical operations on your Backup vaults where backups are configured.
 
-- Azure Backup for AKS supports the [Immutable vault](backup-azure-immutable-vault-concept.md), which helps protect your backup data by preventing operations that could result in the loss of recovery points. However, WORM (Write Once, Read Many) storage for backups isn't currently supported.
+- Azure Backup for AKS supports the [Immutable vault](backup-azure-immutable-vault-concept.md) with WORM (Write Once, Read Many) storage, which helps protect your backup data by preventing operations that could result in the loss of recovery points.
 
-- Azure Backup for AKS supports [Customer-Managed Key (CMK) encryption](backup-azure-immutable-vault-concept.md), but it is applicable only to backups stored in the Vault Tier.
+- Azure Backup for AKS supports [Customer-Managed Key (CMK) encryption](encryption-at-rest-with-cmk-for-backup-vault.md), but it is applicable only to backups stored in the Vault Tier.
 
 - For successful backup and restore operations, the Backup vault's managed identity requires role assignments. For Azure Files-based volumes, both the source and target AKS clusters must have the **Storage File Data Privileged Contributor** role assigned on the storage account that hosts the file shares. For statically provisioned file shares, you must assign this role manually; for dynamically provisioned volumes, the Backup vault handles the role assignment automatically. If you don't have the required permissions, permission problems might happen during backup configuration or restore operations soon after you assign roles because the role assignments take a few minutes to take effect. [Learn about role definitions](azure-kubernetes-service-cluster-backup-concept.md#required-roles-and-permissions). 
 
@@ -169,7 +171,7 @@ This behavior prevents accidental data loss and ensures consistent backups. Cons
 
 - During restore from Vault Tier, the hydrated resources in the staging location which includes a storage account and a resource group aren't cleaned after restore. They have to be deleted manually.
 
-- During restore, the staging storage account must have public network access enabled to allow the backup service to access and transfer data. Without public access, the restore operation may fail due to connectivity restrictions.
+- During restore, Azure Backup supports staging storage accounts regardless of whether public network access is enabled or disabled.
 
 - During restore, if the target AKS cluster is deployed within a private virtual network, you must enable a private endpoint between the cluster and the staging storage account to ensure secure and successful data transfer.
 
