@@ -131,6 +131,19 @@ AzureDiagnostics
 | sort by AggregatedValue desc
 ```
 
+For access logs collected in resource-specific mode, use `AGWAccessLogs` instead of `AzureDiagnostics`. The following query counts 5xx responses by gateway instance and status code in five-minute intervals. Replace `<application-gateway-resource-id>` with the resource ID of the gateway being investigated.
+
+```kusto
+AGWAccessLogs
+| where TimeGenerated >= ago(24h)
+| where _ResourceId =~ "<application-gateway-resource-id>"
+| where HttpStatus between (500 .. 599)
+| summarize ErrorCount = count() by InstanceId, HttpStatus, bin(TimeGenerated, 5m)
+| order by TimeGenerated asc, InstanceId asc, HttpStatus asc
+```
+
+Compare these intervals with gateway-wide **Current capacity units** using the same time range and aggregation interval. This metric has no instance dimension; the comparison provides context, not per-instance capacity usage or proof that 5xx responses caused a utilization change. For field definitions and comparison limits, see [Access logs in the monitoring reference](monitor-application-gateway-reference.md#supported-resource-log-categories-for-microsoftnetworkapplicationgateways).
+
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 [!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
