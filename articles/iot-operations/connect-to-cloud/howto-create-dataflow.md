@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/02/2026
+ms.date: 09/03/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
@@ -425,7 +425,7 @@ Use the **Compute** transform to apply a formula to the source data. This operat
 
     Enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Enter `@` or select **Ctrl + Space** to choose datapoints from a dropdown. For built-in formulas, select the `<dataflow>` placeholder to see the list of available datapoints.
 
-    Enter MQTT metadata properties by using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. Enter $metadata headers by using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+    Enter MQTT metadata properties by using the format `@$metadata.user_property.<property>` or `@$metadata.topic`. Enter $metadata headers by using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
     The formula can use the fields in the source data. For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` output field. 
     
@@ -447,7 +447,7 @@ Use the **Rename** transform to rename a datapoint. This operation renames a dat
     | New datapoint name | Enter the new name for the datapoint.                                                                   |
     | Description        | Provide a description for the transformation.                                                           |
 
-    Enter MQTT metadata properties by using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. Enter $metadata headers by using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+    Enter MQTT metadata properties by using the format `@$metadata.user_property.<property>` or `@$metadata.topic`. Enter $metadata headers by using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
 1. Select **Apply**.
 
@@ -500,7 +500,7 @@ For example, you can use the `temperature` field in the source data to convert t
 
 # [Bicep](#tab/bicep)
 
-You can access MQTT metadata properties by using the format `$metadata.user_properties.<property>` or `$metadata.topic`. You can also enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+Access MQTT metadata properties by using the format `$metadata.user_property.<property>` or `$metadata.topic`. Enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
 For example, you can use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. Enrich the source data with the `location` field from the contextualization dataset:
 
@@ -528,7 +528,7 @@ builtInTransformationSettings: {
 
 [!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
-You can access MQTT metadata properties by using the format `$metadata.user_properties.<property>` or `$metadata.topic`. You can also enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+Access MQTT metadata properties by using the format `$metadata.user_property.<property>` or `$metadata.topic`. Enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
 For example, you can use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. Enrich the source data with the `location` field from the contextualization dataset:
 
