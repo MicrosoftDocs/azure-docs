@@ -24,7 +24,7 @@ To demonstrate this functionality, you'll modify the web app created in [Quickst
 In the Azure portal, go to **Configuration Explorer** and find the *TestApp:Settings:FontColor* key that you created in the quickstart. Select its context menu and then select **Add Value**.
 
 > [!div class="mx-imgBorder"]
-> ![Add Value menu item](media/labels-add-value.png)
+> ![Add Value menu item](media/howto-labels-aspnet-core/labels-add-value.png)
 
 On the **Add Value** screen, enter a **Value** of **red** and a **Label** of **Development**. Leave **Content type** empty. Select **Apply**.
 
@@ -71,13 +71,13 @@ dotnet run
 
 Use a web browser to go to `http://localhost:5000`. You'll notice that the font color is black.
 
-![Web application running with production configuration](media/labels-website-prod.png)
+![Web application running with production configuration](media/howto-labels-aspnet-core/labels-website-prod.png)
 
 Update `launchSettings.json` to set the `ASPNETCORE_ENVIRONMENT` variable to `Development`. Run `dotnet run` again. 
 
 You'll notice that the font color is now red. This is because the application now uses the value of `TestApp:Settings:FontColor` that has the `Development` label. All other configuration values remain the same as their production values.
 
-![Web application running with development configuration](media/labels-website-dev.png)
+![Web application running with development configuration](media/howto-labels-aspnet-core/labels-website-dev.png)
 
 ## Next steps
 
