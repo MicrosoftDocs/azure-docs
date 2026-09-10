@@ -4,6 +4,7 @@ description: This article describes how to use the old and new diagnostics event
 ms,service: backup
 ms.topic: how-to
 ms.date: 09/18/2025
+ms.update-cycle: 1825-days
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy2

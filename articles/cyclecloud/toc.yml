@@ -99,6 +99,8 @@ items:
       href: ./how-to/ccws/plan-your-deployment.md
     - name: Configure Open OnDemand with CycleCloud
       href: ./how-to/ccws/configure-open-ondemand.md
+    - name: Configure ThinLinc with Open OnDemand
+      href: ./how-to/ccws/configure-thinlinc.md
     - name: How to deploy using the CLI
       href: ./how-to/ccws/deploy-with-cli.md
     - name: How to connect to a Login Node through Bastion
@@ -237,6 +239,10 @@ items:
       href: slurm.md
     - name: Slurm 3.0 Scheduler Integration
       href: slurm-3.md
+    - name: Configure and Manage Slurm 4.0
+      href: slurm-4.md
+    - name: Operate and Troubleshoot Slurm 4.0
+      href: slurm-4-operations.md
     - name: HT Condor
       href: htcondor.md
     - name: IBM Spectrum LSF
@@ -271,6 +277,8 @@ items:
         href: /previous-versions/azure/cyclecloud/release-notes-previous
       - name: Older Releases
         href: /previous-versions/azure/cyclecloud/release-notes-archive
+      - name: 8.9.3 Release Notes
+        href: ./release-notes/8-9-3.md
       - name: 8.9.2 Release Notes
         href: ./release-notes/8-9-2.md
       - name: 8.9.1 Release Notes
@@ -279,14 +287,12 @@ items:
         href: ./release-notes/8-9-0.md
       - name: 8.8.3 Release Notes
         href: ./release-notes/8-8-3.md
-      - name: 8.8.2 Release Notes
-        href: ./release-notes/8-8-2.md
   - name: Release Notes - CycleCloud Workspace for Slurm
     items:
-      - name: Current Release - 2026.08.07
+      - name: Current Release - 2026.09.02
+        href: ./release-notes/ccws/2026-09-02.md
+      - name: Previous Release - 2026.08.07
         href: ./release-notes/ccws/2026-08-07.md
-      - name: Previous Release - 2026.07.02
-        href: ./release-notes/ccws/2026-07-02.md
       - name: All Releases
         href: ./release-notes/ccws/release-notes.md
   - name: Service Policy

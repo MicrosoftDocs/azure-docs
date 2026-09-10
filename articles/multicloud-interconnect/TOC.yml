@@ -1,0 +1,29 @@
+- name: Azure Multicloud Interconnect documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Multicloud Interconnect?
+    href: overview.md
+  - name: FAQ
+    href: faq.yml
+- name: Plan
+  items:
+  - name: Availability and limits
+    href: availability-limits.md
+- name: Configure
+  items:
+  - name: Create Multicloud Interconnect
+    href: create-interconnect.md
+  - name: Redeem an activation key
+    href: redeem-activation-key.md
+  expanded: true
+- name: Resources
+  items:
+  - name: Azure Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+  - name: Azure support
+    href: https://azure.microsoft.com/support
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing
+  - name: Service updates
+    href: https://azure.microsoft.com/updates

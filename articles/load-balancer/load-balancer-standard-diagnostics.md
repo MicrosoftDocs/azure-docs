@@ -1,11 +1,10 @@
 ---
-title: Diagnostics with metrics, alerts, and resource health
+title: Load Balancer Diagnostics
 titleSuffix: Azure Load Balancer
-description: Use the available metrics, alerts, and resource health information to diagnose your load balancer.
-author: mbender-ms
+description: Learn how to use Azure Load Balancer metrics, alerts, and resource health to monitor availability, diagnose issues, and troubleshoot inbound and outbound connectivity.
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 08/27/2026
+ms.date: 09/03/2026
 ms.author: mbender
 ms.custom: sfi-image-nochange
 # Customer intent: "As a cloud administrator, I want to monitor and diagnose the health of my load balancer using metrics and alerts, so that I can ensure optimal performance and quickly address any availability issues."
@@ -19,13 +18,11 @@ Azure Load Balancer exposes the following diagnostic capabilities:
 
 * **Resource health**: The Resource Health status of your load balancer is available in the **Resource health** page under **Monitor**. This automatic check informs you of the current availability of your load balancer resource.
 
-This article provides a quick tour of these capabilities, and it offers ways to use them for a standard load balancer. 
+This article provides a quick tour of these capabilities, and it offers ways to use them for a standard load balancer.
 
-To start troubleshooting, use [Common diagnostic scenarios and recommended views](#DiagnosticScenarios) to choose the metric and aggregation that match your symptom. Then use the detailed sections to investigate the result.
+## <a name="multi-dimensional-metrics"></a>Monitor Azure Load Balancer with multi-dimensional metrics
 
-## <a name = "MultiDimensionalMetrics"></a>Multi-dimensional metrics
-
-Azure Load Balancer provides multidimensional metrics through Azure Monitor metrics in the Azure portal, which provide real-time diagnostic insights into your load balancer resources. Multidimensional metrics aren't supported for Basic Load Balancer (retired).
+Azure Load Balancer provides multi-dimensional metrics via the Azure Metrics in the Azure portal, and it helps you get real-time diagnostic insights into your load balancer resources. Please note that multi-dimensional metrics are not supported for Basic Load Balancers
 
 The various load balancer configurations provide the following metrics:
 
@@ -36,32 +33,32 @@ The various load balancer configurations provide the following metrics:
 | SYN Count | Public and internal load balancer |A load balancer doesn’t terminate Transmission Control Protocol (TCP) connections or interact with TCP or User Data-gram Packet (UDP) flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received.| Sum |
 | Source Network Address Translation (SNAT) Connection Count | Public load balancer | A load balancer reports the number of outbound flows that are masqueraded to the Public IP address frontend.  SNAT ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows. Counters for successful and failed outbound SNAT flows are reported. The counters can be used to troubleshoot and understand the health of your outbound flows.| Sum |
 | Allocated SNAT Ports | Public load balancer | A load balancer reports the number of SNAT ports allocated per backend instance | Average. |
-| Used SNAT Ports | Public load balancer | A load balancer reports the number of SNAT ports that are utilized per backend instance. | Average | 
+| Used SNAT Ports | Public load balancer | A load balancer reports the number of SNAT ports that are utilized per backend instance. | Average |
 | Byte Count |  Public and internal load balancer | A load balancer reports the data processed per front end. You may notice that the bytes aren’t distributed equally across the backend instances. This is expected as the Azure Load Balancer algorithm is based on flows | Sum |
 | Packet Count |  Public and internal load balancer | A load balancer reports the packets processed per front end.| Sum |
 
-  >[!NOTE]
-  >Bandwidth-related metrics such as SYN packet, byte count, and packet count will not capture any traffic to an internal load balancer via a UDR (eg. from an NVA or firewall). 
-  >
-  >Max and min aggregations are not available for the SYN count, packet count, SNAT connection count, and byte count metrics.
-  >Count aggregation is not recommended for Data path availability and health probe status. Use average instead for best represented health data.
+> [!NOTE]
+> Bandwidth-related metrics such as SYN packet, byte count, and packet count will not capture any traffic to an internal load balancer via a UDR (eg. from an NVA or firewall).
+>
+> Max and min aggregations are not available for the SYN count, packet count, SNAT connection count, and byte count metrics.
+> Count aggregation is not recommended for Data path availability and health probe status. Use average instead for best represented health data.
 
-  >[!NOTE]
-  >Data Path Availability metric may take up to 10 minutes to appear in Azure Monitor metrics after a load balancer is created or updated. 
- 
+> [!NOTE]
+> Data Path Availability metric may take up to 10 minutes to appear in Azure Monitor metrics after a load balancer is created or updated.
+
 ### View your load balancer metrics in the Azure portal
 
-The Azure portal exposes the load balancer metrics via the Metrics page. This page is available on both the load balancer's resource page for a particular resource and the Azure Monitor page. 
+The Azure portal exposes the load balancer metrics through the Metrics page. This page is available on both the load balancer's resource page for a particular resource and the Azure Monitor page. 
 
- >[!NOTE]
-  > Azure Load Balancer does not send health probes to deallocated virtual machines. When virtual machines are deallocated, the load balancer will stop reporting metrics for that instance. Metrics that are unavailable will appear as a dashed line in Portal, or display an error message indicating that metrics cannot be retrieved.
+> [!NOTE]
+  > Azure Load Balancer doesn't send health probes to deallocated virtual machines. When virtual machines are deallocated, the load balancer stops reporting metrics for that instance. Metrics that are unavailable appear as a dashed line in the portal, or display an error message indicating that metrics can't be retrieved.
 
 To view the metrics for your load balancer resources:
 
 1. Go to the metrics page and do either of the following tasks:
 
    * On the load balancer's resource page, select the metric type in the drop-down list.
- 
+
    * On the Azure Monitor page, select the load balancer resource.
 
 2. Set the appropriate metric aggregation type.
@@ -70,29 +67,18 @@ To view the metrics for your load balancer resources:
 
 4. Optionally, configure the time range and aggregation. By default time is displayed in UTC.
 
-  >[!NOTE] 
-  >Time aggregation is important when interpreting certain metrics as data is sampled once per minute. If time aggregation is set to five minutes and metric aggregation type Sum is used for metrics such as SNAT allocation, your graph will display five times the total allocated SNAT ports. 
-  >
-  >Recommendation: When analyzing metric aggregation type Sum and Count, we recommend using a time aggregation value that is greater than one minute.
+> [!NOTE]
+> Time aggregation is important when interpreting certain metrics as data is sampled once per minute. If you set time aggregation to five minutes and use metric aggregation type Sum for metrics such as SNAT allocation, your graph displays five times the total allocated SNAT ports.
+>
+> Recommendation: When analyzing metric aggregation type Sum and Count, use a time aggregation value that's greater than one minute.
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
-For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough#retrieve-metric-definitions). These metrics can be written to a storage account by adding a [diagnostic setting](/azure/azure-monitor/essentials/diagnostic-settings) for the 'All Metrics' category. 
+For API guidance on retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough#retrieve-metric-definitions). You can write these metrics to a storage account by adding a [diagnostic setting](/azure/azure-monitor/essentials/diagnostic-settings) for the **All Metrics** category.
 
-### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
+## <a name="DiagnosticScenarios"></a>Common Azure Load Balancer diagnostic scenarios and recommended views
 
-Use the following table to select a metric before opening the detailed scenarios.
-
-| Symptom or question | Metric | Aggregation | Filter or split | Next action |
-|---|---|---|---|---|
-| Is the load balancer data path available? | Data Path Availability | Average | Frontend IP address or frontend port | Compare the result with Health Probe Status to isolate platform and application health. |
-| Are backend instances responding to probes? | Health Probe Status | Average | Backend IP address and backend port | Check the probe configuration, network security rules, guest firewall, and application listener. |
-| Are outbound connections failing? | SNAT Connection Count | Sum | Connection State | Investigate failed connections for SNAT port exhaustion. |
-| Is SNAT port usage approaching its allocation? | Used SNAT Ports and Allocated SNAT Ports | Average per backend, or Sum for the load balancer | Protocol Type, Backend IP address, or Frontend IP address | Compare used and allocated ports, then adjust outbound connectivity if usage is unsafe. |
-| How many TCP connection attempts occurred? | SYN Count | Sum | Frontend IP address or frontend port | Compare attempts with availability and probe health. |
-| How much traffic crossed a frontend? | Byte Count or Packet Count | Sum | Frontend IP address, frontend port, backend IP address, or backend port | Review traffic distribution and the selected time range. |
-
-#### Is the data path up and available for my load balancer frontend?
+## Is the data path up and available for my load balancer frontend?
 
 <details><summary>Expand</summary>
 
@@ -106,21 +92,21 @@ The Data Path Availability metric describes the health within the region of the 
 
 To get the Data Path Availability for your load balancer resources:
 
-1. Make sure the correct load balancer resource is selected. 
+1. Make sure the correct load balancer resource is selected.
 
-1. In the **Metric** drop-down list, select **Data Path Availability**. 
+1. In the **Metric** drop-down list, select **Data Path Availability**.
 
-1. In the **Aggregation** drop-down list, select **Avg**. 
+1. In the **Aggregation** drop-down list, select **Avg**.
 
 1. Additionally, add a filter on the frontend IP address or frontend port as the dimension with the required frontend IP address or frontend port. Then group them by the selected dimension.
 
-The metric is generated by a probing service within the region that simulates traffic. The probing service periodically generates a packet that matches your deployment's frontend and load balancing rule. The packet then traverse the region from the source to the host of a VM in the backend pool. The load balancer infrastructure performs the same load balancing and translation operations as it does for all other traffic. After the probe arrives on the host, where a VM in the backend pool is located, the host generates a response to the probing service. Your VM doesn’t see this traffic. 
+The metric is generated by a probing service within the region that simulates traffic. The probing service periodically generates a packet that matches your deployment's frontend and load balancing rule. The packet then traverses the region from the source to the host of a VM in the backend pool. The load balancer infrastructure performs the same load balancing and translation operations as it does for all other traffic. After the probe arrives on the host, where a VM in the backend pool is located, the host generates a response to the probing service. Your VM doesn’t see this traffic. 
 
 Please note that the Data Path Availability metric will only be generated on frontend IP configurations with load balancing rules.
 
 The Data Path Availability metric can be degraded for the following reasons:
 
-- Your deployment has no healthy VMs remaining in the backend pool. 
+- Your deployment has no healthy VMs remaining in the backend pool.
 
 - An infrastructure outage has occurred.
 
@@ -130,7 +116,7 @@ Use **Average** as the aggregation for most scenarios.
 
 </details>
 
-#### Are the backend instances for my load balancer responding to probes?
+## Are the backend instances for my load balancer responding to probes?
 
 <details>
 
@@ -140,7 +126,7 @@ The Health Probe Status metric describes the health of your application deployme
 
 To get the Health Probe Status metric for your load balancer resources:
 
-1. Select the **Health Probe Status** metric with **Avg** aggregation type. 
+1. Select the **Health Probe Status** metric with the **Avg** aggregation type. 
 
 2. Apply a filter on the required frontend IP address or port (or both).
 
@@ -154,7 +140,7 @@ Use **Average** as the aggregation for most scenarios.
 
 </details>
 
-#### How do I check my outbound connection statistics? 
+## How do I check my outbound connection statistics?
 
 <details>
 
@@ -164,21 +150,23 @@ The SNAT Connection Count metric describes the volume of successful and failed c
 
 A failed connections volume greater than zero indicates SNAT port exhaustion. You must investigate further to determine what might be causing these failures. SNAT port exhaustion manifests as a failure to establish an [outbound flow](./load-balancer-outbound-connections.md). Review the article about outbound connections to understand the scenarios and mechanisms at work, and to learn how to mitigate and design to avoid SNAT port exhaustion.
 
+If outbound connections fail intermittently, possible SNAT port exhaustion might be the cause. Check the [SNAT port usage and allocation metrics](#how-do-i-check-my-snat-port-usage-and-allocation) and review the [SNAT port exhaustion guidance](./load-balancer-outbound-connections.md#port-exhaustion). For greater SNAT capacity, use [Azure NAT Gateway](/azure/nat-gateway/nat-overview).
+
 To get SNAT connection statistics:
 
-1. Select **SNAT Connection Count** and **Sum** as the aggregation.
+1. Select **SNAT Connections** metric type and **Sum** as aggregation.
 
 2. Group by **Connection State** for successful and failed SNAT connection counts to be represented by different lines.
 
 </details>
 
-#### How do I check my SNAT port usage and allocation?
+## How do I check my SNAT port usage and allocation?
 
 <details>
 
   <summary>Expand</summary>
 
-The used SNAT ports metric tracks how many SNAT ports are being consumed to maintain outbound flows. This metric indicates how many unique flows are established between an internet source and a backend VM or virtual machine scale set that is behind a load balancer and doesn’t have a public IP address. By comparing the number of SNAT ports you’re using with the Allocated SNAT Ports metric, you can determine if your service is experiencing or at risk of SNAT exhaustion and resulting outbound flow failure. 
+The used SNAT ports metric tracks how many SNAT ports are being consumed to maintain outbound flows. This metric indicates how many unique flows are established between an internet source and a backend VM or virtual machine scale set that is behind a load balancer and doesn't have a public IP address. By comparing the number of SNAT ports you're using with the Allocated SNAT Ports metric, you can determine if your service is experiencing or at risk of SNAT exhaustion and resulting outbound flow failure. 
 
 If your metrics indicate risk of [outbound flow](./load-balancer-outbound-connections.md) failure, reference the article and take steps to mitigate this to ensure service health.
 
@@ -187,22 +175,22 @@ To view SNAT port usage and allocation:
 1. Set the time aggregation of the graph to 1 minute to ensure desired data is displayed.
 
 2. Select **Used SNAT Ports** and/or **Allocated SNAT Ports** as the metric type and **Average** as the aggregation.
-    
+
     * By default, these metrics are the average number of SNAT ports allocated to or used by each backend VM or virtual machine scale set. They correspond to all frontend public IPs mapped to the load balancer, aggregated over TCP and UDP.
-    
+
     * To view total SNAT ports used by or allocated for the load balancer use metric aggregation **Sum**.
 
 3. Filter to a specific **Protocol Type**, a set of **Backend IPs**, and/or **Frontend IPs**.
 
 4. To monitor health per backend or frontend instance, apply splitting.
- 
-    * Note splitting only allows for a single metric to be displayed at a time. 
 
-5. For example, to monitor SNAT usage for TCP flows per machine, aggregate by **Average**, split by **Backend IPs** and filter by **Protocol Type**. 
+    * Note splitting only allows for a single metric to be displayed at a time.
+
+5. For example, to monitor SNAT usage for TCP flows per machine, aggregate by **Average**, split by **Backend IPs**, and filter by **Protocol Type**.
 
 </details>
 
-#### How do I check inbound/outbound connection attempts for my service?
+## How do I check inbound and outbound connection attempts for my service?
 
 <details>
 
@@ -215,7 +203,7 @@ Use **Sum** as the aggregation for most scenarios.
 
 </details>
 
-#### How do I check my network bandwidth consumption? 
+## How do I check my network bandwidth consumption?
 
 <details>
 
@@ -227,17 +215,17 @@ Use **Sum** as the aggregation for most scenarios.
 
 To get byte or packet count statistics:
 
-1. Select the **Bytes Count** and/or **Packet Count** metric type, with **Sum** as the aggregation. 
+1. Select the **Bytes Count** and **Packet Count** metric types, with **Sum** as the aggregation. 
 
 2. Do either of the following:
-   
+
     * Apply a filter on a specific frontend IP, frontend port, backend IP, or backend port.
-   
+
     * Get overall statistics for your load balancer resource without any filtering.
 
 </details>
 
-#### <a name = "vipavailabilityandhealthprobes"></a>How do I diagnose my load balancer deployment?
+## <a name="vipavailabilityandhealthprobes"></a>How do I diagnose my load balancer deployment?
 
 <details>
 
@@ -255,11 +243,11 @@ You can take it a step further and use data path availability metric to gain ins
 
 The chart displays the following information:
 
-- The infrastructure hosting your VMs was unavailable and at 0 percent at the beginning of the chart. Later, the infrastructure was healthy and the VMs were reachable, and more than one VM was placed in the back end. This information is indicated by the blue trace for data path availability, which was later at 100 percent. 
+- The infrastructure hosting your VMs was unavailable and at 0 percent at the beginning of the chart. Later, the infrastructure was healthy and the VMs were reachable, and more than one VM was placed in the back end. The blue trace for data path availability, which was later at 100 percent, indicates this information. 
 
 - The health probe status, indicated by the purple trace, is at 0 percent at the beginning of the chart. The circled area in green highlights where the health probe status became healthy, and at which point the customer's deployment was able to accept new flows.
 
-The chart allows customers to troubleshoot the deployment on their own without having to guess or ask support whether other issues are occurring. The service was unavailable because health probes were 
+The chart helps you troubleshoot the deployment without having to guess or ask support whether other issues are occurring. The service was unavailable because health probes were
 failing due to either a misconfiguration or a failed application.
 
 </details>
@@ -268,41 +256,38 @@ failing due to either a misconfiguration or a failed application.
 
 Azure Load Balancer supports easily configurable alerts for multi-dimensional metrics. Configure custom thresholds for specific metrics to trigger alerts with varying levels of severity to empower a no touch resource monitoring experience.
 
-Use the following settings as a starting point and adjust thresholds for your workload.
-
-| Alert goal | Metric | Aggregation | Dimensions or filter | Example condition |
-|---|---|---|---|---|
-| Detect an unavailable load-balancing rule | Data Path Availability | Average | Split by all current and future frontend IP address and frontend port values | Less than or equal to 0 |
-| Detect an unhealthy backend instance | Health Probe Status | Average | Split by backend IP address and backend port | Below the healthy percentage required by your workload for a sustained period |
-| Detect outbound connection failures | SNAT Connection Count | Total | Filter to **Connection State = Failed** and split by all current and future backend IP address values | Greater than 0, or a higher workload-specific value |
-| Detect risk of SNAT port exhaustion | Used SNAT Ports | Average | Split by backend IP address and protocol | Greater than a workload-specific percentage of Allocated SNAT Ports, such as 75% for low severity and 90% or 100% for high severity |
-
 To configure alerts:
 
-1. Go to the alert page for the load balancer.
+1. Go to the alert page for the load balancer
 
-1. Create a new alert rule.
-    
-  1. Configure the alert condition. To avoid noisy availability alerts, use **Average** aggregation, a five-minute lookback window, and a 95% threshold as a starting point.
-    
-  1. Optionally, add an action group for automated repair.
-    
-  1. Assign an alert severity, name, and description that support an intuitive response.
+2. Create new alert rule
 
-1. Verify the alert rule is enabled. Open its condition and confirm that the intended metric, aggregation, dimensions or filters, and threshold match your configuration.
+    1.  Configure alert condition (To avoid noisy alerts, configure alerts with the Aggregation type set to Average, looking back on a five-minute window of data, and with a threshold of 95%)
+
+    2.  (Optional) Add action group for automated repair
+
+    3.  Assign alert severity, name, and description that enables intuitive reaction
 
 ### Inbound availability alerting
 
-  >[!NOTE]
-  > If your load balancer's backend pools are empty, the load balancer will not have any valid data paths to test. As a result, the data path availability metric will not be available, and any configured Azure Alerts on the data path availability metric will not trigger.
+> [!NOTE]
+  > If your load balancer's backend pools are empty, the load balancer doesn't have any valid data paths to test. As a result, the data path availability metric isn't available, and any configured Azure Alerts on the data path availability metric don't trigger.
 
-For inbound availability, create separate alerts for Data Path Availability and Health Probe Status. Use the table in [Configure alerts for multi-dimensional metrics](#configure-alerts-for-multi-dimensional-metrics) as a starting point, and set the aggregation granularity and evaluation frequency for your workload.
+To alert for inbound availability,  you can create two separate alerts by using the data path availability and health probe status metrics. Customers might have different scenarios that require specific alerting logic, but the following examples are helpful for most configurations.
+
+By using data path availability, you can fire alerts whenever a specific load-balancing rule becomes unavailable. You can configure this alert by setting an alert condition for the data path availability and splitting by all current values and future values for both frontend port and frontend IP address. Setting the alert logic to be less than or equal to 0 causes this alert to fire whenever any load-balancing rule becomes unresponsive. Set the aggregation granularity and frequency of evaluation according to your desired evaluation.
+
+By using health probe status, you can alert when a given backend instance fails to respond to the health probe for a significant amount of time. Set up your alert condition to use the health probe status metric and split by backend IP address and backend port, by using the **Average** aggregation type. This ensures that you can alert separately for each individual backend instance’s ability to serve traffic on a specific port.
 
 ### Outbound availability alerting
 
-For outbound availability, create separate alerts for SNAT Connection Count and Used SNAT Ports. Use the table in [Configure alerts for multi-dimensional metrics](#configure-alerts-for-multi-dimensional-metrics) to preserve the failed-connection filter, backend and protocol dimensions, and example thresholds.
+For outbound availability, you can configure two separate alerts by using the SNAT connection count and used SNAT port metrics.
 
-## <a name = "ResourceHealth"></a>Resource health status
+To detect outbound connection failures, configure an alert by using the SNAT connection count metric and filter to **Connection State = Failed**. Use the **Total** aggregation. Then, split this metric by backend IP address and set it to include all current and future values so you can alert separately for each backend instance that has failed connections. Set the threshold to be greater than zero or a higher number if you expect to see some outbound connection failures.
+
+By using the used SNAT ports metric, you can set an alert for a higher risk of SNAT exhaustion and outbound connection failure. Ensure you split by backend IP address and protocol when you use this alert. Use the **Average** aggregation. Set the threshold to be greater than a percentage of the number of ports you allocate per instance that you determine is unsafe. For example, configure a low severity alert when a backend instance uses 75% of its allocated ports. Configure a high severity alert when it uses 90% or 100% of its allocated ports.
+
+## <a name="resource-health-status"></a>Resource health status
 
 Health status for the standard load balancer resources is exposed via the existing **Resource health** under **Monitor > Service health**. It’s evaluated every **two minutes** by measuring data path availability that determines whether your frontend load-balancing endpoints are available.
 
@@ -320,8 +305,8 @@ To view the health of your public standard load balancer resources:
 2. Select **Resource health**, and then make sure that **Subscription ID** and **Resource type = load balancer** are selected.
 
 3. In the list, select the load balancer resource to view its historical health status.
- 
-A generic description of a resource health status is available in the [resource health documentation](/azure/service-health/resource-health-overview). 
+
+A generic description of a resource health status is available in the [resource health documentation](/azure/service-health/resource-health-overview).
 
 ### Resource health alerts
 

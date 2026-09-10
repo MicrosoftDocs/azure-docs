@@ -7,11 +7,14 @@ ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.custom: devx-track-python
-ms.date: 05/12/2025 
+ms.date: 09/02/2026
 ---
 
 # Azure Synapse Runtime for Apache Spark 3.5 (GA)
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.5.
+
+> [!IMPORTANT]
+> Azure Synapse Runtime for Apache Spark 3.5 enters Long Term Support (LTS) on November 1, 2027, for 12 months, extending support through October 31, 2028. We encourage customers to migrate to [Fabric Runtime 2.0](/fabric/data-engineering/runtime-2-0), which is generally available and includes Apache Spark 4.1 and Delta Lake 4.2, with major improvements in performance, stability, and security.
 
 ## Component versions
 

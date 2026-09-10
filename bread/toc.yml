@@ -688,6 +688,9 @@ items:
     - name: Load Balancer
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
+    - name: Multicloud Interconnect
+      tocHref: /azure/multicloud-interconnect/
+      topicHref: /azure/multicloud-interconnect/
     - name: NAT Gateway
       tocHref: /azure/nat-gateway
       topicHref: /azure/nat-gateway

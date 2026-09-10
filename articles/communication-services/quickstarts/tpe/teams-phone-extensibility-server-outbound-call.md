@@ -6,34 +6,42 @@ author: ashwinder
 ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.date: 10/31/2025
+ms.date: 08/28/2026
 ms.author: henikaraa
 services: azure-communication-services
 ---
 
 # Place server-initiated outbound calls with Teams Phone Extensibility
 
-Teams Phone Extensibility (TPE) lets applications place outbound calls through Microsoft Teams by using **Call Automation APIs**. Use this capability to automate customer notifications, enable callbacks, or integrate calling into workflow systems.
+Teams Phone extensibility (TPE) lets a server application place outbound calls from a Teams resource account by using Azure Communication Services Call Automation. This pattern supports proactive customer outreach, callbacks, and contact center workflows while using the resource account's Teams Phone number and PSTN connectivity.
 
-Beginning with **Call Automation version 1.5.0‑beta.1**, you can call the `CreateCallAsync` API to place outbound calls to PSTN numbers or Teams users from a server-side application.
+This article shows how to place an outbound PSTN call with the .NET Call Automation SDK. For other supported targets and operations, see [Microsoft Teams Phone capabilities in Calling and Call Automation SDKs](../../concepts/interop/tpe/teams-phone-extensibility-capabilities.md).
 
 ## Prerequisites
 
 Before you begin, ensure the following:
 
-- Install **Azure.Communication.CallAutomation** version **1.5.0‑beta.1** or later.
-- Have:
-  - A **Teams Resource Account** to use as the caller identity.
-  - The **Object ID (OID)** of the Resource Account.
-  - A valid **callback URI** to receive call events.
+- An Azure account with an active subscription and an [Azure Communication Services resource](../create-communication-resource.md).
+- **Azure.Communication.CallAutomation** version **1.5.0‑beta.1** or later. Use a stable version that supports `CreateCallOptions.TeamsAppSource`.
+- A Teams resource account that:
+  -is provisioned for Teams Phone extensibility and associated with your Azure Communication Services resource;
+  - has a Microsoft Teams Phone Resource Account license;
+  - has a service phone number and outbound-capable PSTN connectivity; and
+  - is authorized for server-side calling through the Teams Phone access assignment API.
+- The Microsoft Entra object ID of the Teams resource account. Retrieve it by using `Get-CsOnlineApplicationInstance`.
+- A public HTTPS callback URI that can receive Call Automation webhook events.
+- A destination phone number in E.164 format, such as `+14123456789`.
 - Review:
   - [Call Automation concepts](/azure/communication-services/concepts/call-automation/call-automation)
   - [Action–event model](/azure/communication-services/concepts/call-automation/call-automation#action-event-model)
   - [User identifier types](/azure/communication-services/concepts/identifiers), including `TeamsExtensionUser` and `PhoneNumberIdentifier`.
+> [!IMPORTANT]
+> Don't hardcode Azure Communication Services credentials in application code. For production deployments, use Microsoft Entra authentication where possible, or store connection strings in a secure secret store and rotate them regularly.
 
 ## Licensing requirements
 
 Starting **November 1, 2025**, Calling Plan licenses assigned to Teams Resource Accounts will no longer support On-Behalf-Of PSTN outbound calls or server-initiated outbound calls. A **[Pay-As-You-Go Calling Plan](/microsoftteams/calling-plans-for-office-365#pay-as-you-go-calling-plan)** is required for these scenarios.
+For the current licensing and funding requirements, see [Outbound calling prerequisites](../../concepts/interop/tpe/teams-phone-extensibility-connectivity-cost.md#outbound-calling-prerequisites).
 
 > **Note:** Direct Routing numbers aren’t affected by these licensing changes.
 
@@ -65,7 +73,7 @@ Starting November 1, 2025, On-Behalf-Of PSTN outbound calls and server-initiated
 - [Enable pay-as-you-go services](/microsoft-365/commerce/subscriptions/manage-pay-as-you-go-services)
 - [Assign Teams add-on licenses](/microsoftteams/teams-add-on-licensing/assign-teams-add-on-licenses)
 
-## How it works
+## Place an outbound PSTN call
 
 1. Create a **CallInvite** by using a target phone number or Teams identity.
 2. Set **TeamsAppSource** to the Resource Account OID.
@@ -125,6 +133,36 @@ sequenceDiagram
     Note over App,CallAutomation: If failure occurs
     CallAutomation-->>App: Event: CreateCallFailed + CallDisconnected
 ```
+
+## Optimize participant-move latency for Proactive Outbound
+
+Some Proactive Outbound contact center flows call the customer first and then use the Call Automation Move participant operation to connect the answered customer to a customer service representative. Move participant is a separate mid-call operation; `CreateCallAsync` doesn't perform it automatically.
+
+For these flows, the availability of the participant-move latency optimization depends on the PSTN connectivity assigned to the Teams resource account.
+
+| PSTN connectivity | Optimization behavior | Customer action |
+| --- | --- | --- |
+| Calling Plan | The optimization is applied automatically. | No action is required. |
+| Operator Connect | A carrier configuration change is required for the optimization to apply. | Ask your Operator Connect provider to configure the trunk so that SIP `INVITE` requests with a `Replaces` header are treated as unsupported for this scenario. |
+| Direct Routing | At publication, this specific optimization isn't applied to Direct Routing. | Check the current Teams Phone extensibility and Direct Routing documentation when designing or updating the flow. |
+
+> [!NOTE]
+> These differences apply only to the Proactive Outbound participant-move latency optimization. Calling Plan, Operator Connect, and Direct Routing remain supported PSTN connectivity options for Teams Phone extensibility.
+
+> [!IMPORTANT]
+> The absence of this optimization doesn't mean that the outbound call or participant-move operation will fail. End-to-end latency and reliability can also be affected by application orchestration, call state, destination readiness, network conditions, and carrier or session border controller behavior. Use correlated application and platform telemetry to investigate a specific result.
+
+For the .NET API, see [`CallConnection.MoveParticipantsAsync`](/dotnet/api/azure.communication.callautomation.callconnection.moveparticipantsasync) and [`MoveParticipantsOptions`](/dotnet/api/azure.communication.callautomation.moveparticipantsoptions).
+
+## Production considerations
+
+- Validate target phone numbers and store them in E.164 format.
+- Treat `ServerCallId` and other service-generated identifiers as opaque values. Don't parse them or store them in fixed-width fields.
+- Use operation context and call correlation identifiers in application logs.
+- Handle `RequestFailedException` from SDK calls and the corresponding failure callback events. Don't assume that an accepted API request results in a connected call.
+- Use [Azure Monitor logs](../../concepts/analytics/logs/voice-and-video-logs.md) and [Call Diagnostics](../../concepts/voice-video-calling/call-diagnostics.md) to investigate call setup and media issues.
+- Apply retry logic only to documented transient failures. Don't retry calls blindly because doing so can create duplicate outbound calls.
+
 
 ## Next steps
 

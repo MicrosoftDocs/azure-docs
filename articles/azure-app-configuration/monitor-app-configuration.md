@@ -23,7 +23,7 @@ Metrics for your App Configuration store are collected automatically, no manual 
 ### Metrics overview
 In the Azure portal, navigate to your App Configuration store. The **Overview** blade displays key usage metrics, including the total number of requests over the time and the average request duration.
 
-:::image type="content" source="./media/monitoring-overview-page.png" alt-text="Screenshot showing the monitoring metrics on the Overview page." lightbox="./media/monitoring-overview-page.png":::
+:::image type="content" source="./media/monitor-app-configuration/monitoring-overview-page.png" alt-text="Screenshot showing the monitoring metrics on the Overview page." lightbox="./media/monitor-app-configuration/monitoring-overview-page.png":::
 
 ### Metrics analysis
 
@@ -71,11 +71,11 @@ Resource Logs (including audit logs and HTTP request logs) aren't collected and 
 1. Navigate to your App Configuration store.
 
 1. In the **Monitoring** section, select **Diagnostic settings**, then select **+Add diagnostic setting**. 
-    :::image type="content" source="./media/diagnostic-settings-add.png" alt-text="Screenshot showing how to add a diagnostic setting." lightbox="./media/diagnostic-settings-add.png":::
+    :::image type="content" source="./media/monitor-app-configuration/diagnostic-settings-add.png" alt-text="Screenshot showing how to add a diagnostic setting." lightbox="./media/monitor-app-configuration/diagnostic-settings-add.png":::
 
 1. In the **Diagnostic setting** page, enter a name for your setting, then select the log categories you want to collect (such as **HTTP Requests** or **Audit**) and choose the destination to send your logs to. Available destinations include Log Analytics workspace, storage account, and event hub. We recommend using Log Analytics workspace. To send them to a Log Analytics workspace, choose **Send to Log Analytics workspace**.
 
-    :::image type="content" source="./media/monitoring-diagnostic-settings-details.png" alt-text="Screenshot showing the details of the diagnostic settings page." lightbox="./media/monitoring-diagnostic-settings-details.png":::
+    :::image type="content" source="./media/monitor-app-configuration/monitoring-diagnostic-settings-details.png" alt-text="Screenshot showing the details of the diagnostic settings page." lightbox="./media/monitor-app-configuration/monitoring-diagnostic-settings-details.png":::
 
 1. Enter the name of your **Subscription** and **Log Analytics workspace**. 
 1. Select **Save** and verify that the Diagnostic settings page now lists your new diagnostic setting. 

@@ -2,7 +2,7 @@
 title: Manage backups of Azure Cosmos DB using Azure portal
 description: Learn about managing backup for Azure Cosmos DB from the Azure portal.
 ms.topic: how-to
-ms.date: 05/15/2026
+ms.date: 08/27/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.service: azure-backup
@@ -51,6 +51,17 @@ To monitor the backup and restore operations for Azure Cosmos DB (preview), foll
 5. On the **Backup jobs** pane, review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details. 
 
 6. Select a job from the list of jobs to view job details.
+
+### Auto-healed jobs
+
+If a scheduled backup fails because of a transient issue, Azure Backup automatically triggers a replacement backup job (auto-heal) to protect your [RPO](azure-backup-glossary.md#recovery-point-objective-rpo).
+
+Auto-healed jobs appear in the **Backup jobs** list with an Auto-healed indicator. Each auto-healed job includes a link to the original failed job. You can also filter the jobs list by Auto-healed, similar to the On-demand filter. 
+
+:::image type="content" source="./media/backup-azure-cosmos-db-manage/backup-cosmos-manage-backup-auto-heal.png" alt-text="Screenshot shows auto heal backup jobs." lightbox="./media/backup-azure-cosmos-db-manage/backup-cosmos-manage-backup-auto-heal.png":::
+
+>[!NOTE]
+>If a scheduled backup runs during a Cosmos DB account maintenance operation, the backup job fails and shows a message indicating that the account is under maintenance, along with the estimated completion time. After the maintenance operation finishes, Azure Backup automatically triggers an auto-heal backup. If you start an on-demand backup during the maintenance operation, it fails. Retry the backup after the operation finishes.
  
 ## Stop Protection for Azure Cosmos DB
 

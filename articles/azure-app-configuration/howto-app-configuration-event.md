@@ -6,12 +6,13 @@ author: maud-lv
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: how-to
-ms.date: 03/04/2020
-ms.author: malev 
+ms.date: 08/28/2026
+ms.author: malev
 ms.custom: devx-track-azurecli
+ai-usage: ai-assisted
 
 
-#Customer intent: I want to be notified or trigger a workload when a key-value is modified.
+# Customer intent: I want to be notified or trigger a workload when a key-value is modified.
 ---
 
 # Use Event Grid for App Configuration data change notifications
@@ -30,11 +31,11 @@ If you aren't using Cloud Shell, you must first sign in using `az login`.
 
 ## Create a resource group
 
-Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
+Event Grid topics are Azure resources and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
 Create a resource group with the [az group create](/cli/azure/group) command. 
 
-The following example creates a resource group named _`<ResourceGroupName>`_ in the *westus* location.  Replace _`<ResourceGroupName>`_ with a unique name for your resource group.
+The following example creates a resource group named _`<ResourceGroupName>`_ in the *westus* location. Replace _`<ResourceGroupName>`_ with a unique name for your resource group.
 
 ```azurecli-interactive
 az group create --name <ResourceGroupName> --location westus
@@ -95,7 +96,7 @@ View your web app again, and notice that a subscription validation event has bee
 
 ## Trigger an App Configuration event
 
-Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. Create a key-value using the _`<AppConfigurationStoreName>`_ from earlier.
+Now, trigger an event to see how Event Grid distributes the message to your endpoint. Create a key-value by using the _`<AppConfigurationStoreName>`_ from earlier.
 
 ```azurecli-interactive
 az appconfig kv set --name <AppConfigurationStoreName> --key Foo --value Bar --yes

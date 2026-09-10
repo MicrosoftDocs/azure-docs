@@ -3,7 +3,7 @@ title: "Handle Errors and Retries in Durable Functions"
 description: Learn how to handle errors, configure automatic retries, and set timeouts in Durable Functions and Durable Task SDKs. Explore retry policies, custom retry handlers, and compensation patterns to build resilient orchestrations.
 ms.topic: how-to
 ms.service: durable-task
-ms.date: 04/22/2026
+ms.date: 09/08/2026
 ms.author: hannahhunter
 author: hhunter-ms
 ms.devlang: csharp
@@ -576,6 +576,8 @@ public static async Task<List<string>> MyOrchestrator(
 <summary><b>In-process model</b></summary>
 
 In Durable Functions with C# in-process, entity functions return their original exception types to the orchestrator.
+
+For information about how unhandled exceptions affect entity state, including changes made in a `finally` block, see [Operation rollback](../durable-functions/durable-functions-dotnet-entities.md?pivots=in-proc#operation-rollback).
 
 ```csharp
 [FunctionName("Function1")]

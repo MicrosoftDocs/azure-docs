@@ -1,19 +1,19 @@
 ---
-title: Tutorial for using Azure App Configuration dynamic configuration in an ASP.NET web application (.NET Framework) | Microsoft Docs
-description: In this tutorial, you learn how to dynamically update the configuration data for ASP.NET web applications (.NET Framework)
-services: azure-app-configuration
+title: Tutorial for using Azure App Configuration dynamic configuration in an ASP.NET web application (.NET Framework)
+description: In this tutorial, you learn how to dynamically update configuration data for ASP.NET web applications (.NET Framework).
 author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.topic: tutorial
-ms.date: 03/19/2025
+ms.date: 9/1/2026
 ms.author: zhenlwa
-#Customer intent: I want to dynamically update my ASP.NET web application (.NET Framework) to use the latest configuration data in App Configuration.
+ai-usage: ai-assisted
+# Customer intent: I want to dynamically update my ASP.NET web application (.NET Framework) to use the latest configuration data in App Configuration.
 ---
 # Tutorial: Use dynamic configuration in an ASP.NET web application (.NET Framework)
 
-Data from App Configuration can be loaded as App Settings in a .NET Framework application. For more information, see the [quickstart](./quickstart-dotnet-app.md). However, as is designed by the .NET Framework, the App Settings can only refresh upon application restart. The App Configuration .NET provider is a .NET Standard library. It supports caching and refreshing configuration dynamically without application restart. This tutorial shows how you can implement dynamic configuration updates in an ASP.NET Web Forms application. The same technique applies to .NET Framework MVC applications.
+You can load data from App Configuration as app settings in a .NET Framework application. For more information, see the [quickstart](./quickstart-dotnet-app.md). By design, .NET Framework app settings refresh only when the application restarts. The App Configuration .NET provider is a .NET Standard library that supports caching and dynamically refreshing configuration without restarting the application. This tutorial shows you how to implement dynamic configuration updates in an ASP.NET Web Forms application. The same technique applies to .NET Framework MVC applications.
 
 In this tutorial, you learn how to:
 
@@ -258,7 +258,7 @@ Add the following key-values to the App Configuration store and leave **Label** 
 
 1. Press Ctrl + F5 to build and run the web application.
 
-    ![App launch local](./media/dotnet-fx-web-app-launch.png)
+    ![App launch local](./media/enable-dynamic-configuration-aspnet-netfx/dotnet-fx-web-app-launch.png)
 
 1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following keys. 
 
@@ -270,7 +270,7 @@ Add the following key-values to the App Configuration store and leave **Label** 
 
 1. Refresh the browser page to see the new configuration settings. You may need to refresh more than once for the changes to be reflected or change your refresh interval to less than 5 minutes. 
 
-    ![App refresh local](./media/dotnet-fx-web-app-refresh.png)
+    ![App refresh local](./media/enable-dynamic-configuration-aspnet-netfx/dotnet-fx-web-app-refresh.png)
 
 > [!NOTE]
 > You can download the example code used in this tutorial from the [Azure App Configuration GitHub repo](https://github.com/Azure/AppConfiguration/tree/main/examples/DotNetFramework/WebFormApp).

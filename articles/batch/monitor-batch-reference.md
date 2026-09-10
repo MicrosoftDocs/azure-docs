@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Batch
 description: This article contains important reference material you need when you monitor Azure Batch.
-ms.date: 08/05/2026
+ms.date: 08/31/2026
 ms.custom: horz-monitor
 ms.topic: reference
 ms.service: azure-batch
@@ -19,6 +19,10 @@ See [Monitor Azure Batch](monitor-batch.md) for details on the data you can coll
 
 ### Supported metrics for Microsoft.Batch/batchaccounts
 The following table lists the metrics available for the Microsoft.Batch/batchaccounts resource type.
+
+> [!NOTE]
+> This table lists Batch account platform metrics. To collect guest operating system performance metrics from pool compute nodes, see [Monitor Azure Batch pool compute nodes with Azure Monitor Agent](monitor-batch-pool-nodes.md).
+
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Batch/batchaccounts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-batch-batchaccounts-metrics-include.md)]  
 

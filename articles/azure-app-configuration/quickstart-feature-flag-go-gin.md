@@ -2,20 +2,20 @@
 title: Quickstart for adding feature flags to Go Gin web apps
 titleSuffix: Azure App Configuration
 description: Learn to implement feature flags in your Go Gin web application using feature management and Azure App Configuration. Dynamically manage feature rollouts and control feature visibility without redeploying the app.
-services: azure-app-configuration
 author: linglingye
 ms.service: azure-app-configuration
 ms.devlang: golang
 ms.custom: devx-track-go, mode-other
 ms.topic: quickstart
-ms.date: 07/03/2025
+ms.date: 9/1/2026
 ms.author: linglingye
-#Customer intent: As a Go developer, I want to use feature flags to control feature availability in my Gin web application quickly and confidently.
+ai-usage: ai-assisted
+# Customer intent: As a Go developer, I want to use feature flags to control feature availability in my Gin web application quickly and confidently.
 ---
 
 # Quickstart: Add feature flags to a Go Gin web app
 
-In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control the availability of a new web page in a Go Gin web app without restarting or redeploying it.
+In this quickstart, you create a feature flag in Azure App Configuration and use it to dynamically control the availability of a new web page in a Go Gin web app without restarting or redeploying it.
 
 The feature management support extends the dynamic configuration feature in App Configuration. This example demonstrates how to integrate feature flags into a Go Gin web application with real-time updates and conditional page rendering.
 
@@ -30,7 +30,7 @@ The feature management support extends the dynamic configuration feature in App 
 
 Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
-:::image type="content" source="./media/add-beta-feature-flag.png" alt-text="Screenshot of creating a feature flag.":::
+:::image type="content" source="./media/quickstart-feature-flag-go-gin/add-beta-feature-flag.png" alt-text="Screenshot of creating a feature flag.":::
 
 ## Create a Go web application
 
@@ -61,10 +61,10 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     mkdir templates
     ```
 
-    Add the following HTML template files from the [GitHub repo](https://github.com/microsoft/FeatureManagement-Go/tree/main/example/quickstart/gin-feature-flag-quickstart/templates) and place them in the `templates` directory:
+    Add the following HTML template files from the [GitHub repository](https://github.com/microsoft/FeatureManagement-Go/tree/main/example/quickstart/gin-feature-flag-quickstart/templates) and place them in the `templates` directory:
     
-    - [`index.html`](https://github.com/microsoft/FeatureManagement-Go/blob/main/example/quickstart/gin-feature-flag-quickstart/templates/index.html) - The home page template
-    - [`beta.html`](https://github.com/microsoft/FeatureManagement-Go/blob/main/example/quickstart/gin-feature-flag-quickstart/templates/beta.html) - The beta page template
+    - [`index.html`](https://github.com/microsoft/FeatureManagement-Go/blob/main/example/quickstart/gin-feature-flag-quickstart/templates/index.html): The home page template.
+    - [`beta.html`](https://github.com/microsoft/FeatureManagement-Go/blob/main/example/quickstart/gin-feature-flag-quickstart/templates/beta.html): The beta page template.
 
 ## Use a feature flag
 

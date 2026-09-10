@@ -279,7 +279,7 @@ items:
         - name: Pricing
           href: https://aka.ms/pww/pricing
         - name: Regional availability
-          href: https://azure.microsoft.com/regions/services/
+          href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table
         - name: Service limits
           displayName: quotas, limits, capacity, supported browsers, supported platforms, supported operating systems, supported OS, supported OSes, supported OSs, supported devices, supported device, supported mobile devices, supported mobile device, supported mobile OS, supported mobile OSes, supported mobile operating systems, supported mobile operating system,
           href: playwright-workspaces/resource-limits-quotas-capacity.md

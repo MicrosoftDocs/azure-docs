@@ -52,7 +52,7 @@ When you select a GPU-accelerated Hardware option in Synapse Spark, you implicit
 
 ## Accelerate ETL workloads
 
-With built-in support for NVIDIA's [RAPIDS Accelerator for Apache Spark](https://nvidia.github.io/spark-rapids/), GPU-accelerated Spark pools in Azure Synapse can provide significant performance improvements compared to standard analytical benchmarks without requiring any code changes. This package is built on top of NVIDIA CUDA and UCX and enables GPU-accelerated SQL, DataFrame operations, and Spark shuffles. Since there are no code changes required to leverage these accelerations, users can also accelerate their data pipelines that rely on Linux Foundation's Delta Lake or Microsoft's Hyperspace indexing. 
+With built-in support for NVIDIA's [RAPIDS Accelerator for Apache Spark](https://docs.nvidia.com/spark-rapids/user-guide/latest/index.html), GPU-accelerated Spark pools in Azure Synapse can provide significant performance improvements compared to standard analytical benchmarks without requiring any code changes. This package is built on top of NVIDIA CUDA and UCX and enables GPU-accelerated SQL, DataFrame operations, and Spark shuffles. Since there are no code changes required to leverage these accelerations, users can also accelerate their data pipelines that rely on Linux Foundation's Delta Lake or Microsoft's Hyperspace indexing.
 
 To learn more about how you can use the NVIDIA RAPIDS Accelerator with your GPU-accelerated pool in Azure Synapse Analytics, visit this guide on how to [improve performance with RAPIDS](apache-spark-rapids-gpu.md).
 

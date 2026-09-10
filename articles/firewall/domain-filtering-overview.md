@@ -5,7 +5,7 @@ services: firewall
 author: sujamiya
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 7/01/2025
+ms.date: 08/27/2026
 ms.author: sujamiya
 ms.custom: ai-usage
 ---
@@ -28,6 +28,9 @@ When DNS resolution is used, Azure Firewall:
 - Uses the resolved IP address to apply the appropriate rule type (DNAT or network)
 - Refreshes FQDN-to-IP mappings every 15 seconds.
 - Removes IP addresses that are no longer resolved or utilized after 15 minutes.  
+
+> [!NOTE]
+> This refresh behavior applies to the FQDN-to-IP mappings that Azure Firewall maintains for rule processing. It's separate from the Azure Firewall DNS proxy cache, which stores DNS responses according to their TTL and doesn't prefetch records before the TTL expires. For DNS proxy caching behavior, see [Azure Firewall DNS settings](dns-settings.md) and [Azure Firewall DNS proxy details](dns-details.md).
 
 ## Differences between FQDN filtering in DNAT rules, and network rules, and application rules
 

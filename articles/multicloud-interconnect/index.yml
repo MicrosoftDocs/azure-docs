@@ -1,0 +1,49 @@
+### YamlMime:Landing
+
+title: Azure Multicloud Interconnect Preview documentation # < 60 chars
+summary: Azure Multicloud Interconnect provides private, high-throughput connectivity between Azure and a supported cloud service provider.
+
+metadata:
+  title: Azure Multicloud Interconnect Preview documentation
+  description: Learn how to use Azure Multicloud Interconnect Preview to connect Azure workloads to a supported cloud service provider over private connectivity. # < 160 chars
+  author: duongau
+  ms.author: duau
+  ms.service: azure
+  ms.custom: ami-preview-metadata-update
+  ms.topic: landing-page
+  ms.date: 08/25/2026
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Multicloud Interconnect
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Multicloud Interconnect Preview?
+            url: overview.md
+      - linkListType: reference
+        links:
+          - text: Frequently asked questions
+            url: faq.yml
+
+  # Card
+  - title: Plan your deployment
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Availability and limits
+            url: availability-limits.md
+
+  # Card
+  - title: Set up connectivity
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create an Azure Multicloud Interconnect Preview resource
+            url: create-interconnect.md
+          - text: Redeem an activation key
+            url: redeem-activation-key.md

@@ -80,6 +80,12 @@ Learn more about overall [Azure networking best practices](/azure/security/funda
 - Workloads associated with a [community](./what-community.md) that has a custom governance setup, use this unique configuration instead of the default Azure Enclave governance configuration.
 - [Considerations for naming Azure resources](/azure/azure-government/documentation-government-concept-naming-resources)
 
+## Compliance
+
+You're wholly responsible for ensuring your own compliance with all applicable laws and regulations. Information provided in Microsoft online documentation doesn't constitute legal advice, and you should consult your legal advisor for any questions regarding regulatory compliance.
+
+For more information, see [Azure compliance offerings](/azure/compliance/offerings/).
+
 ## Security design patterns for Azure Enclave
 Consider these security design patterns when designing your Azure Enclave environments.
 

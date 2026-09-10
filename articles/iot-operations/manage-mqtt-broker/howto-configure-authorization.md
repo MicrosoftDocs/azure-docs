@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/10/2026
+ms.date: 08/31/2026
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -27,7 +27,7 @@ Authorization policies determine what actions the clients can perform on the bro
 
 - For topics and keys, you can use token substitution to build rules that adapt per client: `{principal.username}`, `{principal.clientId}`, and `{principal.attributes.<attributeName>}`.
 - MQTT topic wildcards `+` and `#` are supported in `brokerResources.topics`.
-- When using token substitution in a topic, the token must be the only text in its path segment. For example, `clients/{principal.clientId}/#` is valid, but `client-{principal.clientId}/#` isn't.
+- Token substitution is replaced as literal text before matching. For example, both `clients/{principal.clientId}/#` and `client-{principal.clientId}/#` are valid topic patterns.
 - Connect actions shouldn't include topics.
 
 ## Set your environment variables

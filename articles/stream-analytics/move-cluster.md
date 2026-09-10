@@ -1,8 +1,6 @@
 ---
 title: Move Azure Stream Analytics cluster - Azure PowerShell
 description: Use Azure PowerShell and Azure Resource Manager to Move Azure Stream Analytics cluster to another region. 
-author: xujxu
-ms.author: xujiang1
 ms.service: azure-stream-analytics
 ms.topic: overview
 ms.date: 02/20/2022

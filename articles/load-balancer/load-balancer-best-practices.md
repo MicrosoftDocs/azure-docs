@@ -70,11 +70,11 @@ The following configuration guidance is best practices for configuring your Azur
 
 ### Create Network Security Groups (NSGs)
 
-To explicitly permit allowed inbound traffic, you should create Network Security Groups (NSGs). NSGs must be created on the subnet or network interface card (NIC) of your VM, otherwise there will be no inbound connectivity to your Standard external load balancers. For more information, see [Create, change, or delete an Azure network security group](../virtual-network/manage-network-security-group.md).
+Use a load-balancing rule to map frontend traffic to a backend pool, and use a network security group (NSG) on the backend subnet or network interface to allow the application traffic. For load-balanced traffic, the NSG evaluates the source IP address and source port of the client, not the load balancer, so allow the client source-port range rather than only the application's destination port. For more information, see [Create, change, or delete an Azure network security group](../virtual-network/manage-network-security-group.md).
 
 ### Unblock 168.63.129.16 IP address
 
-Don't block 168.63.129.16 in any Azure network security groups or local firewall policies. Azure Load Balancer uses this IP address for health probes. For details on probe behavior and failure consequences, see [Azure Load Balancer health probe](load-balancer-custom-probe-overview.md) and [What is IP address 168.63.129.16?](../virtual-network/what-is-ip-address-168-63-129-16.md)
+Check health-probe access separately from application-traffic access. Allow health probes from the `AzureLoadBalancer` service tag in NSGs and from 168.63.129.16 in local firewall policies. If you block application traffic but the probes succeed, review the application-traffic NSG rule. If the probes fail, review the probe allowance and the application listening on the probe port. For more information, see [Azure Load Balancer health probe](load-balancer-custom-probe-overview.md) and [What is IP address 168.63.129.16?](../virtual-network/what-is-ip-address-168-63-129-16.md)
 
 ### Use outbound rules with manual port allocation
 

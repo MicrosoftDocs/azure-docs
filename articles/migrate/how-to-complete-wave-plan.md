@@ -4,9 +4,9 @@ description: Learn how to plan Azure execution with high fidelity. Identify targ
 author: shubhamJain1992
 ms.author: shuj
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-uhabiba
 ms.topic: concept-article
-ms.date: 11/04/2025
+ms.date: 09/01/2026
 ms.update-cycle: 365-days
 monikerRange: migrate 
 # Customer intent: Understand concepts such as migration targets, prerequisites, and wave planning. Also, plan and execute a predictable migration and modernization process using Azure Migrate.
@@ -42,7 +42,9 @@ Use the application target settings to link assessments and add migration tasks 
 
 1. In **Target Setting** select **Link assessment** to review the link assessment. You can change assessment or link if none is currently linked.  
 
-To link an assessment to the application links the assessment to all workloads for that application across waves and reset the tasks.  
+Copilot said:
+
+When you link an assessment to an application, you associate that assessment with all workloads under the application across all waves and reset the related tasks.
 
 :::image type="content" source="./media/how-to-complete-wave-plan/application-target-settings.png" alt-text="The screenshot shows how to select link assessment in target settings page." lightbox="./media/how-to-complete-wave-plan/application-target-settings.png"::: 
 
@@ -66,7 +68,7 @@ Use workload target settings to configure Azure targets, select migration tools,
 6. Review and add tasks using **Add tasks** that need to be performed and tracked for migrations.
 7. Select **Save tasks** to save.
     
-See the [FAQ](common-questions-wave-planning.md) for supported tools and targets for the execution phase of migration and modernization.
+See the [FAQ](common-questions-wave-planning.yml) for supported tools and targets for the execution phase of migration and modernization.
 
 ## Prepare your Wave for migration: Key prerequisites
 

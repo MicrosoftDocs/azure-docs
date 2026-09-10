@@ -4,7 +4,7 @@ description: Learn how App Service plans work in Azure App Service, how they're 
 keywords: app service, azure app service, scale, scalable, scalability, app service plan, app service cost
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: overview
-ms.date: 08/18/2026
+ms.date: 08/24/2026
 ms.update-cycle: 1095-days
 ms.author: msangapu
 author: msangapu-msft
@@ -50,13 +50,15 @@ For pricing information, see [App Service pricing](https://azure.microsoft.com/p
 
 In the Free and Shared tiers, an app receives CPU minutes on a shared VM instance and can't scale out.
 
-In other tiers, an app runs and scales as follows:
+In other tiers, the default placement and scaling behavior, when per-app scaling is disabled, is as follows:
 
 - If you create an app in App Service, it's part of an App Service plan. When the app runs, it runs on all the VM instances configured in the App Service plan.
 - If multiple apps are in the same App Service plan, they all share the same VM instances.
 - If you have multiple deployment slots for an app, all deployment slots also run on the same VM instances.
 - If you enable diagnostic logs, perform backups, or run [WebJobs](webjobs-create.md), they also use CPU cycles and memory on these VM instances.
 - All apps in an App Service plan scale together, because they share the same underlying compute resources (VM instances). Scaling the plan — whether manually or through autoscale rules — affects all apps in the plan.
+
+When [per-app scaling](manage-scale-per-app.md) is enabled, you can limit each app or deployment slot to a subset of the plan's VM instances. Plan capacity and billing remain at the App Service plan level. The number of active replicas for an app or slot can change with plan capacity and can't exceed the number of VM instances in the plan.
 
 For more information on scaling out an app, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started).
 

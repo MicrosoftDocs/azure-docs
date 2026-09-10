@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 05/26/2026
 ms.author: duau
 ---
-# Configure Azure VPN Client – P2S User VPN certificate authentication – Linux (Preview)
+# Configure Azure VPN Client – P2S User VPN certificate authentication – Linux (Retired)
 
 [!INCLUDE [Linux retirement](../../includes/vpn-gateway-azure-vpn-client-linux-retirement.md)]
 

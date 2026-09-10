@@ -7,7 +7,7 @@ metadata:
   ms.author: mukeshdua
   ms.service: azure
   ms.topic: faq
-  ms.date: 01/20/2026/31/2025
+  ms.date: 09/04/2026
 title: Microsoft Discovery FAQ
 summary: |
   Get answers to common questions about the Microsoft Discovery service.
@@ -19,71 +19,173 @@ sections:
         answer: |
           Discovery is an online platform with human oversight. Researchers can change, edit, and kick off runs as needed. We're thinking about extending Microsoft Discovery to digital twins and lab automation using natural language, giving researchers more access to lab processes.
 
-  - name: Network security
+      - question: What is the Discovery Toolbox, and how do I get it?
+        answer: |
+          The [Discovery Toolbox](https://github.com/microsoft/discovery/tree/main/utilities/discovery-toolbox) is a Visual Studio Code extension that acts as a command center for setting up, managing, and operating the Azure infrastructure that Microsoft Discovery runs on. It's the fastest way to get started. From inside VS Code, it can:
+
+          - **Deploy end to end**—provision the full platform (virtual networks, supercomputers, workspaces, projects, chat models, storage, and managed identities) from a bundled, hardened Bicep template with live terminal output.
+          - **Validate prerequisites**—automatically check 100+ Azure prerequisites (RBAC roles, resource providers, quotas, policies, and network security perimeter) with one-click remediation.
+          - **Publish agents and tools**—create agents and containerized tools and build the tool images remotely through Azure Container Registry (ACR) Tasks, with no local Docker required.
+          - **Inventory and clean up**—run a subscription-wide scan of every Discovery resource, with per-resource delete and cascade tear-down.
+          - **Visualize, monitor, and analyze cost**—see your deployment topology as an interactive diagram, track per-resource costs, and review a diagnostics dashboard.
+
+          To install it, download the highest-numbered `DiscoveryToolbox-v<version>.vsix` from the [vsix folder](https://github.com/microsoft/discovery/tree/main/utilities/discovery-toolbox/vsix), then run **Extensions: Install from VSIX** from the VS Code Command Palette. Open the Discovery Toolbox icon in the Activity Bar and follow the guided Onboarding Journey.
+
+          For the other operator utilities—resource provider registration, RBAC role assignment, the supercomputer CLI, and deployment teardown—see the **Tools and utilities** section later in this article.
+
+  - name: Infrastructure and deployment
     questions:
-      - question: Do I need to configure network hardening manually?
+      - question: What Azure resources are created when a Microsoft Discovery workspace is provisioned?
         answer: |
-          No. Network hardening is **fully automated** by the Discovery control plane. All NSP associations, private endpoints, and virtual network injection settings are provisioned automatically when you create a workspace, bookshelf, or supercomputer with the `2026-02-01-preview` API version (or later). You only need to:
+          Provisioning a workspace creates a dedicated managed resource group (MRG) in your subscription that holds the workspace's backend resources, such as storage, Azure Cosmos DB, and Azure Container Apps. Additional system-created MRGs (for example, for Container Apps) can also appear.
 
-          1. Assign the **Discovery NSP Perimeter Joiner** custom role before creating the workspace. For the role definition, see [Discovery NSP Perimeter Joiner (custom role)](concept-role-assignments.md#discovery-nsp-perimeter-joiner-custom-role); for the setup steps, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md#assign-the-nsp-perimeter-joiner-role).
-          2. Provide dedicated subnets in your virtual network for Discovery resources (agent workloads, private endpoints, and workspace services).
+          The Bookshelf and the supercomputer are separate Discovery resources that you provision independently, and each gets its own managed resource group (for example, the supercomputer's AKS cluster lands in the supercomputer MRG). For more information, see [Service architecture](overview-service-architecture.md).
 
-      - question: What is the difference between network hardening and private endpoints?
+      - question: In whose subscription are the resources deployed?
         answer: |
-          These are two complementary layers:
+          All resources are deployed in your own (customer) subscription, not a Microsoft-managed subscription. You'll see a primary resource group (the control plane) and multiple managed resource groups (the data plane).
 
-          - **Network hardening (NSP)** protects the managed resources (databases, storage, AI services) that Discovery creates on your behalf. It uses Network Security Perimeters and private endpoints of MRG resources to restrict access to authorized Discovery components only.
-          - **Private endpoints** for the data-plane protect your API traffic to the workspace and bookshelf services. You create these in your own virtual network to route API calls through Azure Private Link instead of the public internet.
-
-      - question: Which Discovery resources support private endpoints?
+      - question: Is Azure Container Registry required?
         answer: |
-          Private endpoints are supported for:
+          No. Azure Container Registry is optional and is only needed when you bring your own tools (container images) to run on the supercomputer. For more information, see [Azure Container Registry](concept-azure-container-registry.md).
 
-          | Resource type | Group ID | Private DNS zone |
-          |---|---|---|
-          | `Microsoft.Discovery/workspaces` | `workspace` | `privatelink.workspace.discovery.azure.com` |
-          | `Microsoft.Discovery/bookshelves` | `bookshelf` | `privatelink.bookshelf.discovery.azure.com` |
-
-          Other Discovery resource types (supercomputers, storage, tools, agents) don't support customer-created private endpoints.
-
-      - question: Can I disable public network access entirely?
+      - question: Which regions support Microsoft Discovery?
         answer: |
-          Yes. After creating private endpoints, you can disable public network access on your workspace or bookshelf by setting `publicNetworkAccess` to `Disabled` through a PATCH request on the resource. For detailed steps, see [Disable public network access](how-to-configure-network-security.md#disable-public-network-access-optional).
+          The control plane is currently available in East US, Sweden Central, and UK South. Managed resource group (data-plane) resources can be deployed in other regions by using cross-region deployment, which is useful when you have data-residency or capacity requirements. Cross-region deployment doesn't add significant latency, because workflow execution time dominates the overall response time.
 
-          When disabled, only requests through approved private endpoints are accepted.
+      - question: Does Microsoft Discovery provide built-in backup or disaster recovery?
+        answer: |
+          Not currently. Microsoft Discovery doesn't provide built-in automatic failover or disaster recovery. If you require higher availability and resiliency, deploy Microsoft Discovery across multiple regions and ensure that any stateful resources are appropriately replicated or backed up to meet your requirements. For more information, see [Business continuity and disaster recovery](concept-discovery-business-continuity-disaster-recovery.md).
 
-  - name: Troubleshooting
+      - question: Who pays for the Azure infrastructure?
+        answer: |
+          You do. Because all resources are deployed into your own subscription, you pay for the underlying Azure infrastructure, which is the primary cost. For more information, see [Billing](concept-discovery-billing.md).
+
+      - question: How do I delete a Microsoft Discovery deployment, and in what order should resources be removed?
+        answer: |
+          Use the deletion utility published in the public Discovery repo, [delete-all-resources-2026-06-01.sh](https://github.com/microsoft/discovery/blob/main/utilities/delete-discovery-deployment/delete-all-resources-2026-06-01.sh), rather than deleting resources by hand. It removes all `Microsoft.Discovery` and supporting Azure resources in a resource group by using the `2026-06-01` GA API version, in the correct dependency order. It also handles nuances such as clearing agent and tool links, unlinking supercomputers from workspaces, and cleaning up subnet delegations before it deletes the virtual network. Run it with `--dry-run` first to preview the deletion plan.
+
+          If you need to delete resources manually, follow the same dependency order that the script uses:
+
+          1. Storage assets (`storageContainers/storageAssets`)
+          2. Data-plane agents (per project)
+          3. Projects
+          4. Agents (clear blocking links first)
+          5. Chat model deployments
+          6. Tools (clear linked agent IDs first)
+          7. Workflows
+          8. Models
+          9. Storage containers
+          10. Workspace private endpoint connections
+          11. Bookshelf private endpoint connections
+          12. Unlink workspaces from supercomputers (set `supercomputerIds` to `[]`)
+          13. Workspaces
+          14. Bookshelves
+          15. Node pools
+          16. Supercomputers
+          17. Storage accounts
+          18. User-assigned managed identities
+          19. Virtual networks (remove subnet delegations and orphaned links first)
+          20. Any remaining resources
+          21. The resource group itself, once it's empty
+
+          This order avoids dependency failures—child resources must be removed before their parents, and workspaces must be unlinked from supercomputers before deletion.
+
+  - name: Compute and the supercomputer
     questions:
-      - question: "I get 'doesn't have permission to perform action joinPerimeterRule/action' when creating a workspace. How do I fix it?"
+      - question: What is the supercomputer in Microsoft Discovery?
         answer: |
-          The custom role assignment for the Discovery service principal is missing or hasn't propagated yet.
+          The supercomputer is a compute abstraction currently implemented on Azure Kubernetes Service (AKS). The AKS cluster and its node pools are deployed into a dedicated managed resource group. Tools aren't persistent resources—they're instantiated dynamically on the supercomputer when they're needed. For more information, see [Supercomputer](concept-supercomputer.md).
 
-          1. Verify the **Discovery NSP Perimeter Joiner** role exists at your subscription scope.
-          2. Ensure it's assigned to the **Discovery control-plane service App** service principal (`92c174ac-8e41-4815-a1b7-d81b19ab03ce`).
-          3. Wait up to 5 minutes for Azure RBAC propagation.
-          4. Retry workspace creation -- the operation is idempotent and safe to retry.
-
-          For the role definition (permissions, scope, capabilities, and limitations), see [Discovery NSP Perimeter Joiner (custom role)](concept-role-assignments.md#discovery-nsp-perimeter-joiner-custom-role). For the step-by-step setup instructions, see [Configure network security](how-to-configure-network-security.md#assign-the-nsp-perimeter-joiner-role).
-
-      - question: "I get 'Service principal not found' when assigning the RBAC role. What should I do?"
+      - question: Which VM families can I use for the supercomputer node pools?
         answer: |
-          The **Discovery control-plane service App** service principal (`92c174ac-8e41-4815-a1b7-d81b19ab03ce`) doesn't exist in your tenant yet. Create the service principal in your tenant by following the steps in [Configure network security](how-to-configure-network-security.md#verify-the-service-principal).
+          The system node pool has modest requirements (for example, `Standard_D4s_v6`, or a v5-family equivalent). For the compute node pool, you can use any region-available, quota-approved Azure VM CPU or GPU family that's well suited to your tools. Check quota and capacity for your target region before you deploy, because quota is allocated per region.
 
-          Then retry the role assignment.
-
-      - question: My private endpoint shows 'Approved' but API calls still fail. What's wrong?
+  - name: Network and security
+    questions:
+      - question: Are Discovery services exposed publicly or privately?
         answer: |
-          Common causes:
+          Most backend resources are private and use private endpoints, a Network Security Perimeter (NSP), and virtual network injection. Backend resources in the managed resource groups aren't directly accessible from outside the environment. For more information, see [Network security](concept-network-security.md).
 
-          | Error | Likely cause | Resolution |
+      - question: Is the Discovery Studio portal public or private?
+        answer: |
+          The Discovery Studio portal UI is publicly accessible over the internet, similar to the Azure portal, and is secured with Microsoft Entra ID authentication. Backend data isn't exposed through public endpoints, and no internal or external DNS entries are required for the portal URL.
+
+      - question: How do I turn on network isolation for a workspace?
+        answer: |
+          Set `networkIsolation` to `true` on the workspace resource at deployment time. This setting deploys the hardened shape with an NSP and private endpoints across the workspace, Bookshelf, and supercomputer managed resource groups. The value is read during provisioning, so apply it when you create the workspace. For step-by-step guidance, see [Configure network security](how-to-configure-network-security.md).
+
+      - question: What subnets does a hardened deployment need?
+        answer: |
+          You pre-create the virtual network and dedicated subnets in your resource group before deployment. A typical hardened deployment uses separate subnets for the workspace, agents, private endpoints, Bookshelf search, and the supercomputer node pools. Size each subnet to your compute scale—a `/24` is a common starting point, and supercomputer node pools might need more capacity. For more information, see [Virtual networks](concept-virtual-networks.md).
+
+      - question: Do I need to allow inbound access from Microsoft into my environment?
+        answer: |
+          No. No explicit inbound access is required. All interactions occur within Container Apps, private endpoints, and internal Azure services.
+
+  - name: Agents, models, and Foundry
+    questions:
+      - question: How are Discovery agents implemented?
+        answer: |
+          Agents are created as data-plane resources, with corresponding agents in Azure AI Foundry. Foundry executes the workflows that user prompts trigger. For more information, see [Discovery agent](concept-discovery-agent.md).
+
+      - question: Which models does Microsoft Discovery require?
+        answer: |
+          Microsoft Discovery requires specific chat completion and text embedding model deployments across the Discovery Engine, agents, and the Bookshelf. Review the [quota reservation](concept-quota-reservation.md) guidance for the current required models and the minimum and recommended tokens-per-minute (TPM) quota per service. Multiply the Bookshelf values by the number of Bookshelf instances you plan to run.
+
+      - question: Can I choose which models my agents use?
+        answer: |
+          Yes. You can select different models for Discovery agents, subject to the minimum required models and any quota reservations. For more information, see [Select models for agents](how-to-select-models-for-agents.md).
+
+      - question: Where do models run—Azure Machine Learning or the supercomputer?
+        answer: |
+          Both are options. You can reuse an existing Azure Machine Learning workspace to host models, or, if a model is containerized, run it on the supercomputer. Choose based on whether you already have machine learning assets or prefer container-based execution.
+
+  - name: Knowledge retrieval (Bookshelf and Azure AI Search)
+    questions:
+      - question: What is the difference between Bookshelf (GraphRAG) and Azure AI Search?
+        answer: |
+          **Bookshelf** runs a GraphRAG pipeline (OCR, normalization, embeddings, and graph-community detection). Its strength is deep, multi-hop, thematic insight that surfaces hidden relationships, but it needs a curated, connected dataset and is memory-intensive (about a 1-GB practical limit). **Azure AI Search** runs an index, embeddings, and agentic retrieval pipeline. Its strength is precise, local queries that work at large scale (100+ GB), but it doesn't provide graph or community reasoning. For more information, see [Bookshelf knowledge bases](concept-bookshelf-knowledge-bases.md).
+
+      - question: Which retrieval tool should I use?
+        answer: |
+          Use **Azure AI Search** for specific, factual lookups (local queries). Use **Bookshelf (GraphRAG)** for broad, thematic, discovery-oriented questions across a corpus (global queries). For production, a hybrid pattern works well: keep the full corpus in Azure AI Search, curate a small, connected subset for Bookshelf, and let an agent route each query to the right tool.
+
+      - question: Can Bookshelf handle a 100+ GB corpus?
+        answer: |
+          Not directly. A realistic Bookshelf input is about 1 GB of normalized text after extraction, because GraphRAG builds an in-memory graph. Keep the full corpus (100+ GB) in Azure AI Search and curate a small, high-quality subset for Bookshelf rather than ingesting everything. For context, roughly 6,000 research papers normalize to about 180 MB of text.
+
+      - question: What document types does Bookshelf support?
+        answer: |
+          Common document types include Word, PowerPoint, Excel, and PDF, covering content such as scientific reports, patents, and research articles.
+
+      - question: Do scientists always need an agent to query a Bookshelf?
+        answer: |
+          No. You can query a Bookshelf directly in natural language. Agents become relevant when a Bookshelf is used as grounding data in multi-step investigations. A good practice is to align specific Bookshelves to specific agents or domains for targeted retrieval.
+
+  - name: Tools and utilities
+    questions:
+      - question: Where can I find utilities to help operate a Microsoft Discovery deployment?
+        answer: |
+          The public [microsoft/discovery](https://github.com/microsoft/discovery/tree/main/utilities) repo includes a set of standalone operator utilities. In addition to the [Discovery Toolbox](https://github.com/microsoft/discovery/tree/main/utilities/discovery-toolbox) VS Code extension, the folder provides:
+
+          | Utility | What it does | When to use it |
           |---|---|---|
-          | 504 Gateway Timeout | Backend temporarily unavailable | Check if the public path also fails. If both fail, the service may be temporarily unavailable. |
-          | 401 Unauthorized | Token audience mismatch or missing role | Verify the token is for `https://discovery.azure.com/` and you have the required role on the resource. |
-          | DNS resolves to public IP | Private DNS zone not linked to virtual network | Create the DNS zone and virtual network link. See [Configure private DNS](how-to-configure-network-security.md#configure-private-dns). |
+          | [Resource provider registration](https://github.com/microsoft/discovery/tree/main/utilities/resource-provider-registration) | Registers every Azure resource provider that Discovery and its dependencies need in a target subscription (cross-platform PowerShell). | First step when onboarding a new subscription. |
+          | [RBAC roles assignment](https://github.com/microsoft/discovery/tree/main/utilities/rbac-roles-assignment) | Assigns the complete set of Azure RBAC roles required for a Discovery persona (Platform Administrator or Scientist) to one or more users. | After provider registration, when granting users access. |
+          | [Supercomputer CLI](https://github.com/microsoft/discovery/tree/main/utilities/supercomputer-cli) | Provides access to the Discovery supercomputer API for submitting and running jobs directly on the supercomputer. | Submitting jobs directly to the supercomputer. |
+          | [Delete Discovery deployment](https://github.com/microsoft/discovery/tree/main/utilities/delete-discovery-deployment) | Deletes all `Microsoft.Discovery` and supporting Azure resources in a resource group, in strict dependency order, then removes the empty resource group. | Tearing down a deployment (destructive). |
 
-      - question: DNS resolves to a public IP even though I created a private endpoint. How do I fix it?
+          Each utility is self-contained, with its own README that documents prerequisites, parameters, and operational notes.
+
+      - question: How do I register the Azure resource providers that Microsoft Discovery needs?
         answer: |
-          1. Verify the private DNS zone exists (for example, `privatelink.workspace.discovery.azure.com`).
-          2. Verify the DNS zone is **linked to your virtual network**.
-          3. Verify a **DNS zone group** is configured on the private endpoint (this autocreates A records).
-          4. If you use custom DNS servers, ensure they forward to Azure DNS (`168.63.129.16`).
+          Use the [resource provider registration](https://github.com/microsoft/discovery/tree/main/utilities/resource-provider-registration) utility, a cross-platform PowerShell script that registers every Azure resource provider that Discovery and its dependencies require in a target subscription. It auto-installs the `Az.Accounts` and `Az.Resources` modules and signs you in if needed. Running it is the recommended first step when onboarding a new subscription. The Discovery Toolbox can also perform and validate provider registration as part of its prerequisite checks.
+
+      - question: How do I grant users the roles they need for Microsoft Discovery?
+        answer: |
+          Use the [RBAC roles assignment](https://github.com/microsoft/discovery/tree/main/utilities/rbac-roles-assignment) utility to assign the complete set of Azure RBAC roles required for a Discovery persona—Platform Administrator or Scientist—to one or more users. It validates the executor's permissions, supports batch assignment, and handles guest users. Run it after resource provider registration. The Discovery Toolbox surfaces the same role requirements through its permission auditing and role summary views.
+
+      - question: How do I submit jobs directly to the supercomputer?
+        answer: |
+          Use the [Supercomputer CLI](https://github.com/microsoft/discovery/tree/main/utilities/supercomputer-cli) utility, which provides access to the Discovery supercomputer API for submitting and running jobs directly on the supercomputer compute pool.
