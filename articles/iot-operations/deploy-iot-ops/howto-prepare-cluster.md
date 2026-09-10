@@ -218,11 +218,11 @@ Connect your cluster to Azure Arc so that you can manage it remotely.
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
-[Azure Kubernetes Service Edge Essentials](/azure/aks-hybrid-edge/edge-essentials/aks-edge-concept-networking/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience that supports PC-class or "light" edge hardware.
+[Azure Kubernetes Service Edge Essentials](/azure/aks-hybrid-edge/edge-essentials/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience that supports PC-class or "light" edge hardware.
 
 The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script automates creating and connecting a cluster, and is the recommended path for deploying Azure IoT Operations on AKS Edge Essentials.
 
-For instructions on running the script, see [Configure an AKS Edge Essentials cluster for Azure IoT Operations](/azure/aks-hybrid-edge/edge-essentials/aks-edge-concept-networking/aks-edge-howto-deploy-azure-iot).
+For instructions on running the script, see [Configure an AKS Edge Essentials cluster for Azure IoT Operations](/azure/aks-hybrid-edge/edge-essentials/aks-edge-howto-deploy-azure-iot).
 
 ### [AKS on Azure Local](#tab/azure-local)
 
