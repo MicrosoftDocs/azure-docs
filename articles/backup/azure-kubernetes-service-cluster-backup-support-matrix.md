@@ -96,8 +96,6 @@ China East 2, China East 3, China North 2, China North 3, US GOV Arizona, US GOV
 
 - The Backup Extension cannot be installed on Windows-based node pools or ARM64-based node pools. AKS clusters using such nodes should provision a separate Linux-based node pool (preferably a system node pool with x86-based processors) to support the installation of the Backup Extension.
 
-- Azure Backup for AKS is currently not supported for Network Isolated AKS clusters. 
-
 - Don't install the AKS Backup Extension alongside Velero or any Velero-based backup solutions, as this can cause conflicts during backup and restore operations. Additionally, ensure that your Kubernetes resources do not use labels or annotations containing the prefix `velero.io`, unless explicitly required by a supported scenario. The presence of such metadata may lead to unexpected behavior.
 
 - Modifying the backup configuration or the snapshot resource group assigned to a backup instance during AKS cluster backup setup isn't supported. You cannot update existing backup instances to include Azure Files-based volumes; you must create a new backup instance to back up these volumes.

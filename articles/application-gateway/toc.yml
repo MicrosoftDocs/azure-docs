@@ -64,15 +64,19 @@
     - name: Overview
       href: tcp-tls-proxy-overview.md
     - name: Client IP preservation
-      href: proxy-protocol-header.md 
-  - name: Support for working remotely
-    href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
-  - name: High traffic support
-    href: high-traffic-support.md
+      href: proxy-protocol-header.md
+  - name: Support
+    items:
+    - name: WebSocket support
+      href: application-gateway-websocket.md
+    - name: High traffic support
+      href: high-traffic-support.md
+    - name: Support for working remotely
+      href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
+    - name: HTTP/3 support in Azure Application Gateway
+      href: http3-quic-support.md
   - name: Autoscaling v2 SKU
     href: application-gateway-autoscaling-zone-redundant.md
-  - name: WebSocket support
-    href: application-gateway-websocket.md
   - name: Ingress for AKS
     href: ingress-controller-overview.md
   - name: Understanding pricing
@@ -155,14 +159,14 @@
         href: application-gateway-end-to-end-ssl-powershell.md
     - name: Mutual authentication
       items:
-      - name: Mutual authentication - Portal 
+      - name: Mutual authentication - Portal
         href: mutual-authentication-portal.md
       - name: Mutual authentication - PowerShell
         href: mutual-authentication-powershell.md
       - name: Mutual authentication - Template
         href: mutual-authentication-arm-template.md
     - name: Manage certificates
-      items:             
+      items:
       - name: Certificates for the backend
         href: certificates-for-backend-authentication.md
       - name: Renew certificates
@@ -175,9 +179,9 @@
       items:
       - name: Configure SSL policy
         href: application-gateway-configure-ssl-policy-powershell.md
-      - name: Listener specific SSL policy 
+      - name: Listener specific SSL policy
         href: application-gateway-configure-listener-specific-ssl-policy.md
-  - name: Ingress for AKS 
+  - name: Ingress for AKS
     items:
     - name: Ingress for AKS via Helm (Greenfield)
       href: ingress-controller-install-new.md
@@ -187,25 +191,25 @@
       href: ingress-controller-install-existing.md
     - name: Ingress Controller add-on for AKS (Brownfield)
       href: tutorial-ingress-controller-add-on-existing.md
-    - name: Migrate from Helm deployment to AKS add-on 
+    - name: Migrate from Helm deployment to AKS add-on
       href: ingress-controller-migration.md
     - name: Disable and re-enable AKS Ingress Controller add-on
       href: ingress-controller-disable-addon.md
-    - name: Enable cookie affinity 
+    - name: Enable cookie affinity
       href: ingress-controller-cookie-affinity.md
-    - name: Enable multiple namespace support 
+    - name: Enable multiple namespace support
       href: ingress-controller-multiple-namespace-support.md
     - name: Use private IP for internal routing
       href: ingress-controller-private-ip.md
     - name: Add health probes to AKS pods
       href: ingress-controller-add-health-probes.md
-    - name: Use Application Gateway to expose AKS service over HTTP/HTTPS 
+    - name: Use Application Gateway to expose AKS service over HTTP/HTTPS
       href: ingress-controller-expose-service-over-http-https.md
-    - name: Upgrade ingress controller using Helm 
+    - name: Upgrade ingress controller using Helm
       href: ingress-controller-update-ingress-controller.md
     - name: Use LetsEncrypt.org with Application Gateway
       href: ingress-controller-letsencrypt-certificate-application-gateway.md
-    - name: Expose WebSocket to Application Gateway 
+    - name: Expose WebSocket to Application Gateway
       href: ingress-controller-expose-websocket-server.md
     - name: Autoscale AKS pods with Application Gateway metrics
       href: ingress-controller-autoscale-pods.md
@@ -259,34 +263,34 @@
     items:
     - name: Header rewrite
       items:
-        - name: Azure portal
-          href: rewrite-http-headers-portal.md
-        - name: Azure PowerShell
-          href: add-http-header-rewrite-rule-powershell.md
-        - name: Create and rewrite HTTP headers
-          href: tutorial-http-header-rewrite-powershell.md
-        - name: Add secure flag for cookies 
-          href: application-gateway-secure-flag-session-affinity.md       
+      - name: Azure portal
+        href: rewrite-http-headers-portal.md
+      - name: Azure PowerShell
+        href: add-http-header-rewrite-rule-powershell.md
+      - name: Create and rewrite HTTP headers
+        href: tutorial-http-header-rewrite-powershell.md
+      - name: Add secure flag for cookies
+        href: application-gateway-secure-flag-session-affinity.md
     - name: URL rewrite
       items:
-        - name: Azure portal
-          href: rewrite-url-portal.md
+      - name: Azure portal
+        href: rewrite-url-portal.md
     - name: Parameter based path selection
       items:
-        - name: Azure portal
-          href: parameter-based-path-selection-portal.md
+      - name: Azure portal
+        href: parameter-based-path-selection-portal.md
     - name: HSTS Policy
       items:
-        - name: Azure portal
-          href: hsts-http-headers-portal.md
+      - name: Azure portal
+        href: hsts-http-headers-portal.md
   - name: Configure custom probes
     items:
-      - name: Portal
-        href: application-gateway-create-probe-portal.md
-      - name: Classic PowerShell
-        href: application-gateway-create-probe-classic-ps.md
-      - name: Resource Manager PowerShell
-        href: application-gateway-create-probe-ps.md
+    - name: Portal
+      href: application-gateway-create-probe-portal.md
+    - name: Classic PowerShell
+      href: application-gateway-create-probe-classic-ps.md
+    - name: Resource Manager PowerShell
+      href: application-gateway-create-probe-ps.md
   - name: Deploy Application Gateway Basic
     href: deploy-basic-portal.md
   - name: Configure App Service
@@ -308,7 +312,7 @@
     - name: About v1 retirement
       href: v1-retirement.md
     - name: Migrate from v1 to v2
-      href: migrate-v1-v2.md  
+      href: migrate-v1-v2.md
     - name: Migration FAQ
       href: retirement-faq.md
   - name: Configure alerts
@@ -324,7 +328,7 @@
   - name: Health probe
     href: application-gateway-probe-overview.md
   - name: Backend health
-    href: application-gateway-backend-health.md      
+    href: application-gateway-backend-health.md
   - name: Diagnostic logs
     href: application-gateway-diagnostics.md
   - name: Metrics
