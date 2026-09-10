@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 01/21/2026
+ms.date: 08/28/2026
 ms.author: mbender
 
 # Customer intent: "As a network administrator, I want to implement Private Link for Application Gateway, so that I can securely connect my workloads over a private network while maintaining the benefits of Layer 7 load balancing."
@@ -35,6 +35,35 @@ All features supported by Application Gateway are supported when accessed throug
 
 > [!NOTE]
 > Private Link configuration for Application Gateway has an idle timeout of approximately **5 minutes (300 seconds)**. To prevent connections from being terminated due to inactivity, applications that connect to Application Gateway through private endpoints should use TCP keepalive intervals of **less than 300 seconds**. If the client can't initiate TCP keepalives, [submit a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to request enabling the required keepalive behavior on Application Gateway.
+
+## Identify traffic from a private endpoint
+
+> [!NOTE]
+> When traffic reaches Application Gateway through a private endpoint, Private Link preserves the client's source IP address and source port. Application Gateway access logs record these values in the `clientIP` and `clientPort` fields. For HTTP and HTTPS requests, the entry that Application Gateway adds to the `X-Forwarded-For` header reflects the same values in `IP:port` format. If another proxy sends the request to the private endpoint, these values identify that proxy as the immediate client.
+
+Consumer virtual networks can use overlapping IP address spaces, so a client IP address alone might not identify the originating consumer. Azure Private Link assigns a `linkIdentifier`, also called `LINKID`, to each private endpoint connection. For HTTP and HTTPS requests, Application Gateway exposes the decimal identifier in the following locations:
+
+| Location | Name | Description |
+| --- | --- | --- |
+| Request forwarded to the backend | `X-Azure-PrivateEndpoint-ID` | Application Gateway adds this header before forwarding the request. Its value is the decimal private endpoint link identifier, for example, `123456`. |
+| Application Gateway access log | `LinkId` | Contains the same decimal link identifier as a string value. For more information, see [Access log category](monitor-application-gateway-reference.md#access-log-category). |
+
+For example, a backend receives the following header for a request that arrived through a private endpoint:
+
+```http
+X-Azure-PrivateEndpoint-ID: 123456
+```
+
+> [!NOTE]
+> Despite its name, `X-Azure-PrivateEndpoint-ID` doesn't contain the Azure resource ID of the private endpoint. It contains the decimal value of the private endpoint connection's `linkIdentifier` property.
+>
+> The `X-Azure-PrivateEndpoint-ID` HTTP header applies to Layer 7 HTTP and HTTPS traffic. It isn't added to Layer 4 TCP/TLS proxy traffic.
+
+Compare either value with the `linkIdentifier` property of the corresponding private endpoint connection in Azure Resource Manager. This comparison lets you associate backend requests and access-log records with a specific private endpoint connection for auditing or access-control decisions.
+
+Application Gateway populates the header and access-log property only for requests received through a private endpoint. For requests sent directly to an Application Gateway public or private frontend IP address, Application Gateway doesn't populate `X-Azure-PrivateEndpoint-ID` or `LinkId`. This behavior applies when the Private Link configuration is associated with either a public or a private Application Gateway frontend.
+
+For the Azure Private Link definition of `LINKID` and its relationship to `linkIdentifier`, see [Get connection information using TCP Proxy v2](../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2).
 
 ## Private Link components
 

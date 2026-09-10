@@ -749,6 +749,11 @@
             "source_path_from_root": "/articles/azure-functions/durable/durable-task-scheduler/durable-task-scheduler-versioning.md",
             "redirect_url": "/azure/durable-task/common/durable-orchestration-versioning",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/dotnet-aspire-integration.md",
+            "redirect_url": "/azure/azure-functions/aspire-integration",
+            "redirect_document_id": true
         }
     ]
 }

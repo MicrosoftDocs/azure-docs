@@ -6,7 +6,7 @@ ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: product-comparison
-ms.date: 08/26/2026
+ms.date: 09/04/2026
 recommendations: false
 #Customer intent: As a developer, I need to understand the differences between running in-process and running in an isolated worker process so that I can choose the best process model for my functions.
 ---
@@ -43,7 +43,7 @@ Use the following table to compare feature and functional differences between th
 | Cold start times<sup>2</sup> | [Configurable optimizations](./dotnet-isolated-process-guide.md#performance-optimizations) | Optimized |
 | ReadyToRun | [Supported](dotnet-isolated-process-guide.md#readytorun) | [Supported](functions-dotnet-class-library.md#readytorun) |
 | [Flex Consumption] | [Supported](./flex-consumption-plan.md#supported-language-stack-versions) | Not supported |
-| .NET Aspire | [Preview](./dotnet-aspire-integration.md) | Not supported |
+| Aspire | [Supported](./aspire-integration.md) | Not supported |
 
 1. When you need to interact with a service using parameters determined at runtime, using the corresponding service SDKs directly is recommended over using imperative bindings. The SDKs are less verbose, cover more scenarios, and have advantages for error handling and debugging purposes. This recommendation applies to both models.
 2. Cold start times could be additionally affected on Windows when using some preview versions of .NET due to just-in-time loading of preview frameworks. This impact applies to both the in-process and isolated worker models but can be noticeable when comparing across different versions. This delay for preview versions isn't present on Linux plans.

@@ -162,6 +162,9 @@ items:
           - name: Configure secure networking for Supercomputer
             href: how-to-configure-supercomputer-network-security.md
             displayName: Microsoft Discovery, supercomputer, secure networking, virtual network, subnets, egress
+          - name: Plan network security groups for a Microsoft Discovery Supercomputer
+            href: how-to-plan-supercomputer-network-security-groups.md
+            displayName: Microsoft Discovery, supercomputer, network security group, NSG, rules, priority, service tags, egress, user-defined routing
           - name: Manage Workspaces
             href: how-to-manage-workspaces.md
             displayName: Microsoft Discovery, workspace, create, update, delete, networking, supercomputers
