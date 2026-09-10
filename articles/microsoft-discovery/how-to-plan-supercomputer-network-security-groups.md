@@ -56,38 +56,37 @@ The following examples use this addressing. Substitute your own ranges, and use 
 
 | Subnet | Example range | Role |
 |---|---|---|
-| System nodes | `10.60.0.0/26` | Supercomputer system node pool |
-| Workload node pools | `10.60.0.64/26` | Workload node pools |
-| Management | `10.60.1.64/27` | API server internal load balancer. Delegated to `Microsoft.ContainerService/managedClusters` |
+| `supercomputerNodepoolSubnet` | `10.0.1.0/24` | Supercomputer system and workload node pools. Matches the subnet you create in the [infrastructure quickstart](quickstart-infrastructure.md) |
+| `managementSubnet` | `10.0.7.0/24` | API server internal load balancer. A new subnet delegated to `Microsoft.ContainerService/managedClusters`, required for `UserDefinedRouting`. It isn't part of the quickstart |
 | Pod CIDR | `10.244.0.0/16` | Azure CNI Overlay default. Not a subnet |
 
-In the following tables, *node subnets* means both `10.60.0.0/26` and `10.60.0.64/26`.
+The system and workload node pools share `supercomputerNodepoolSubnet`, as in the quickstart.
 
 ## Configure node subnet rules
 
-Attach these rules to the network security group on the system and workload node pool subnets.
+Attach these rules to the network security group on `supercomputerNodepoolSubnet`.
 
 Add the following inbound rules:
 
 | Priority | Name | Protocol | Source | Destination | Ports |
 |---|---|---|---|---|---|
-| 100 | `Allow-LB-Probe-In` | TCP | `AzureLoadBalancer` | Node subnets | Your configured health probe ports |
-| 110 | `Allow-Apiserver-To-Kubelet-In` | TCP | `10.60.1.64/27` | Node subnets | 10250 |
-| 120 | `Allow-Node-To-Node-In` | Any | Node subnets | Node subnets | Any |
+| 100 | `Allow-LB-Probe-In` | TCP | `AzureLoadBalancer` | `supercomputerNodepoolSubnet` | Your configured health probe ports |
+| 110 | `Allow-Apiserver-To-Kubelet-In` | TCP | `10.0.7.0/24` | `supercomputerNodepoolSubnet` | 10250 |
+| 120 | `Allow-Node-To-Node-In` | Any | `supercomputerNodepoolSubnet` | `supercomputerNodepoolSubnet` | Any |
 | 4000 | `Deny-All-In` | Any | Any | Any | Any |
 
 The `AzureLoadBalancer` service tag represents health probe infrastructure only. Azure Load Balancer preserves the original client source address, so this tag doesn't match client traffic that arrives through a load balancer. Don't use it to authorize application ingress, and don't open the entire `30000-32767` NodePort range to it. Allow only the probe ports your load balancer actually uses.
 
 To admit client traffic to a service exposed through a load balancer, add a separate rule. Set its source to the intended client prefix or service tag, and set its destination ports to the specific listener or NodePorts for that service.
 
-Don't add an inbound rule that allows the Microsoft Discovery service prefixes to reach the node subnets. Discovery traffic is outbound-initiated and returns on the existing stateful flow. A rule of that shape permits unsolicited traffic from public sources to your entire node range without a corresponding requirement.
+Don't add an inbound rule that allows the Microsoft Discovery service prefixes to reach `supercomputerNodepoolSubnet`. Discovery traffic is outbound-initiated and returns on the existing stateful flow. A rule of that shape permits unsolicited traffic from public sources to your entire node range without a corresponding requirement.
 
-Add the following outbound rules, and set the source on every rule to the node subnets:
+Add the following outbound rules, and set the source on every rule to `supercomputerNodepoolSubnet`:
 
 | Priority | Name | Protocol | Destination | Ports | Purpose |
 |---|---|---|---|---|---|
-| 200 | `Allow-Node-To-Apiserver-Out` | TCP | `10.60.1.64/27` | 443, 4443 | API server internal load balancer |
-| 210 | `Allow-Node-To-Node-Out` | TCP | Node subnets | 80, 10091, 10092, 10249, 10250 | kubelet and kube-proxy between nodes |
+| 200 | `Allow-Node-To-Apiserver-Out` | TCP | `10.0.7.0/24` | 443, 4443 | API server internal load balancer |
+| 210 | `Allow-Node-To-Node-Out` | TCP | `supercomputerNodepoolSubnet` | 80, 10091, 10092, 10249, 10250 | kubelet and kube-proxy between nodes |
 | 220 | `Allow-HostAgent-Out` | TCP | `168.63.129.16/32` | 80, 32526 | Azure guest agent goal state and extension handler |
 | 225 | `Allow-NTP-Out` | UDP | Your NTP servers | 123 | Time synchronization |
 | 230 | `Allow-Storage-Out` | TCP | `Storage.<region>` | 443 | Node artifacts and workload storage |
@@ -107,12 +106,12 @@ Time synchronization matters more than it appears. If node clocks drift, Microso
 
 ## Configure management subnet rules
 
-Attach these rules to the network security group on the delegated management subnet. This subnet hosts the API server internal load balancer. Add rules that authorize node-to-API-server traffic as inbound rules. An outbound rule on the node subnet alone doesn't authorize the traffic that arrives at the management subnet.
+Attach these rules to the network security group on the delegated `managementSubnet`. This subnet hosts the API server internal load balancer. Add rules that authorize node-to-API-server traffic as inbound rules. An outbound rule on `supercomputerNodepoolSubnet` alone doesn't authorize the traffic that arrives at the management subnet.
 
 | Direction | Priority | Name | Protocol | Source | Destination | Ports |
 |---|---|---|---|---|---|---|
-| Inbound | 100 | `Allow-Node-To-Apiserver-In` | TCP | Node subnets | `10.60.1.64/27` | 443, 4443 |
-| Inbound | 110 | `Allow-LB-Probe-In` | TCP | `AzureLoadBalancer` | `10.60.1.64/27` | Your configured probe ports |
+| Inbound | 100 | `Allow-Node-To-Apiserver-In` | TCP | `supercomputerNodepoolSubnet` | `10.0.7.0/24` | 443, 4443 |
+| Inbound | 110 | `Allow-LB-Probe-In` | TCP | `AzureLoadBalancer` | `10.0.7.0/24` | Your configured probe ports |
 
 Port 443 is the load balancer frontend, and 4443 is the backend listener. Allow both. The port visible at each evaluation point differs, and allowing only one port produces intermittent failures that are hard to attribute.
 
@@ -141,7 +140,7 @@ The durable approach is to enforce FQDN dependencies on an FQDN-aware firewall o
 
 ## Configure pod CIDR rules for delegated subnets
 
-With Azure CNI Overlay, pod-to-pod traffic on supercomputer node subnets doesn't traverse the subnet network security group. Pod CIDR rules there have no effect. Don't rely on them for pod segmentation. Use [Kubernetes network policy](/azure/aks/use-network-policies) instead.
+With Azure CNI Overlay, pod-to-pod traffic on `supercomputerNodepoolSubnet` doesn't traverse the subnet network security group. Pod CIDR rules there have no effect. Don't rely on them for pod segmentation. Use [Kubernetes network policy](/azure/aks/use-network-policies) instead.
 
 Delegated subnets that host other Discovery components can behave differently. Some delegated managed environments run their own overlay without source network address translation for intra-virtual-network flows. In that case, the subnet's network security group can see pod overlay addresses. The overlay CIDR sits outside the virtual network's declared prefix, so `AllowVnetInBound` and `AllowVnetOutBound` don't cover it, and provisioning stalls until you add explicit pod CIDR rules. If a delegated subnet's resources fail to provision, add allow rules that cover the pod CIDR in both directions on that subnet's network security group.
 
@@ -149,7 +148,7 @@ Delegated subnets that host other Discovery components can behave differently. S
 
 Network security group rules and route tables can both be correct while traffic still fails. Before you deploy, confirm the following conditions:
 
-- A default route exists from every node subnet toward your egress appliance.
+- A default route exists from `supercomputerNodepoolSubnet` toward your egress appliance.
 - IP forwarding is enabled on the appliance's network interface, if it's a network virtual appliance.
 - The appliance performs source network address translation to a routable public address for internet-bound traffic, and has enough port capacity.
 - Request and response traverse the same stateful device. If different destination prefixes route to different appliances, asymmetric paths drop traffic that either appliance would individually permit.
@@ -185,9 +184,9 @@ A blocked outbound dependency is the most common cause, but not the only one. Wo
 
 - Check name resolution. Confirm nodes can resolve `mcr.microsoft.com` and `management.azure.com`, and that responses return along the same path the query took.
 - Check outbound dependencies. Compare your rules against the outbound table and the [AKS outbound rules](/azure/aks/outbound-rules-control-egress). Container image and OS package endpoints are the most commonly missed, because they resolve into Azure Front Door service tags rather than the registry and package tags.
-- Check API server connectivity. Verify the node subnet can reach the management subnet on both 443 and 4443, and that the rules exist on the management subnet's network security group, not only on the node subnet's.
-- Check flow logs. Look for denied outbound flows from the node subnets during the provisioning window. A deny record names the responsible rule.
-- Look past the network security group if there are no deny records. Check effective routes on the node subnet, and check the egress appliance for drops and for source network address translation port exhaustion.
+- Check API server connectivity. Verify `supercomputerNodepoolSubnet` can reach the management subnet on both 443 and 4443, and that the rules exist on `managementSubnet`'s network security group, not only on `supercomputerNodepoolSubnet`'s.
+- Check flow logs. Look for denied outbound flows from `supercomputerNodepoolSubnet` during the provisioning window. A deny record names the responsible rule.
+- Look past the network security group if there are no deny records. Check effective routes on `supercomputerNodepoolSubnet`, and check the egress appliance for drops and for source network address translation port exhaustion.
 - Check the management subnet configuration. Confirm the subnet exists, is delegated to `Microsoft.ContainerService/managedClusters`, and isn't shared with another service.
 - Check capacity and identity. Look for subnet IP exhaustion, compute quota limits, denied Azure Policy assignments, and managed identity or role assignment failures.
 - Check extension status. Inspect the virtual machine scale set instance and extension provisioning state for the specific failure reported.
