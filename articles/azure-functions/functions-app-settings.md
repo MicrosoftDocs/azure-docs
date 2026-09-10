@@ -2,7 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: reference
-ms.date: 12/22/2025
+ms.date: 09/10/2026
 ms.custom:
   - devx-track-extended-java
   - devx-track-python
@@ -669,16 +669,22 @@ The preceding sample value of `1800` sets a timeout of 30 minutes. For more info
 
 ## WEBSITE\_AUTH\_ENCRYPTION\_KEY
 
-By default, function apps use an automatically generated key to encrypt secrets at rest. When you set `WEBSITE_AUTH_ENCRYPTION_KEY`, its value is used as the encryption key instead. If you don't need to control the key value, don't set this setting and let the platform manage the key for you.
+By default, Azure Functions automatically generates and manages an encryption key for each function app. When you set `WEBSITE_AUTH_ENCRYPTION_KEY`, Functions uses the specified key instead of the automatically generated key. Set this value only when you need to control the encryption key.
 
-|Key|Sample value|
-|---|------------|
-|WEBSITE_AUTH_ENCRYPTION_KEY|`<a 32-byte key, hex- or Base64-encoded>`|
+| Key | Sample value |
+| --- | --- |
+| `WEBSITE_AUTH_ENCRYPTION_KEY` | `<EncryptionKey>` |
 
-In Azure Functions, this key protects more than App Service authentication (Easy Auth) tokens and sessions. It's also used as the encryption key for the function app's secret store, which holds your [function access keys](function-keys-how-to.md) (host keys, function keys, and system keys), and as the signing key for administrative JSON Web Tokens (JWTs). These access keys authorize calls to your HTTP-triggered functions and admin (host) APIs.
+Replace `<EncryptionKey>` with the hexadecimal or Base64 encoding of a 32-byte key. Functions uses this key to encrypt the following data:
 
-> [!WARNING]
-> Treat `WEBSITE_AUTH_ENCRYPTION_KEY` as a high-value secret, and don't share the same value across function apps that shouldn't share a trust boundary. Any app configured with a given key can decrypt the access keys and tokens protected by that key. Sharing the key across apps lets one app decrypt - and effectively use - another app's access keys, which can allow unauthorized invocation of that app's functions. Although App Service documents this setting as a way to [share tokens or sessions across apps](../app-service/reference-app-settings.md), in Functions that sharing also extends to function access keys, so only do it when every app that has the key is within the same trust boundary.
+- The function app's secret store, which contains host keys, function keys, and system keys. These *function access keys* authorize requests to HTTP-triggered functions, system webhooks, and administrative APIs. For more information, see [Function access keys](function-keys-how-to.md).
+- App Service authentication (Easy Auth) tokens and sessions.
+- Administrative JSON Web Tokens (JWTs).
+
+> [!IMPORTANT]
+> Treat `WEBSITE_AUTH_ENCRYPTION_KEY` as a high-value secret. Don't reuse the key across function apps unless all the apps belong to the same trust boundary. Any app configured with the key can decrypt data protected by that key, including function access keys, authentication tokens, and sessions.
+>
+> App Service documents this setting as a way to support sharing authentication tokens or sessions across apps. For function apps, reuse the key only when every app configured with it is in the same trust boundary. For more information, see [Environment variables and app settings in Azure App Service](../app-service/reference-app-settings.md).
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
