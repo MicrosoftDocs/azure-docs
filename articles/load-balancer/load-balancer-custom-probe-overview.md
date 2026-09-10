@@ -122,7 +122,7 @@ To locate existing flow logs in the NVA's region, run the following Azure CLI co
 az network watcher flow-log list --location '<region>' --output table
 ```
 
-To validate an IPv4 probe at the packet level, start a filtered [packet capture on the NVA virtual machine](../network-watcher/packet-capture-manage.md#start-a-packet-capture). Replace the placeholder values in the following command:
+To validate an IPv4 probe at the packet level, start a filtered [packet capture on the NVA virtual machine](../network-watcher/packet-capture-manage.md#start-a-packet-capture). [Network Watcher packet capture](../network-watcher/packet-capture-overview.md) requires the `AzureNetworkWatcherExtension` on the target VM. Verify that the appliance supports the extension and meets the documented packet-capture prerequisites before using this command. For an appliance that can't use the extension, consult the vendor's supported capture procedure. Replace the placeholder values in the following command:
 
 ```azurecli-interactive
 az network watcher packet-capture create \
@@ -134,7 +134,7 @@ az network watcher packet-capture create \
   --filters '[{"protocol":"TCP","remoteIPAddress":"168.63.129.16","localIPAddress":"<management-interface-private-ip>","localPort":"<probe-port>"}]'
 ```
 
-Compare the capture timestamps and connection details with the appliance's operating system and firewall logs. If the packet capture shows inbound probes but no response, review the appliance listener, firewall, and routing configuration, and consult the appliance vendor.
+If the appliance exposes operating system or firewall logs, use the vendor's logging instructions to compare relevant entries with the capture timestamps and connection details. If the packet capture shows inbound probes but no response, investigate the listener, firewall, and return-path configuration using the [NVA troubleshooting checklist](/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-nva#checklist-for-troubleshooting-with-nva-vendor), and involve the appliance vendor as needed.
 
 ## Monitoring
 
