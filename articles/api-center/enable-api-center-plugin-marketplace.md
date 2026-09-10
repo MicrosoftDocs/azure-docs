@@ -76,9 +76,6 @@ Developers can add the plugin marketplace from their API center's marketplace en
 /plugin marketplace add https://myapicenter.data.eastus.azure-apicenter.ms/workspaces/default/plugins/marketplace.git
 ```
 
-> [!IMPORTANT]
-> If the command returns `fatal: Cannot prompt because user interactivity has been disabled.`, Git Credential Manager isn't configured to authenticate to your API Center data endpoint with Microsoft Entra ID. Complete the one-time setup in [Marketplace Git - Client Authentication (Entra ID)](https://github.com/Azure/api-center/blob/main/scripts/git-client-authentication.md), and then run the command again. Entering a Git username and password doesn't resolve this error.
-
 Follow the prompts to add the plugin marketplace to your GitHub Copilot CLI. 
 
 After adding the marketplace, use the `/plugin marketplace browse` command to see the plugins from your API center inventory. 
@@ -114,6 +111,10 @@ Add a plugin from the marketplace to a Claude Code session with the `/plugin ins
 ```
 
 For more information about installing plugins from the marketplace in Claude Code, see [Claude Code documentation](https://code.claude.com/docs/en/discover-plugins).
+
+## Troubleshooting
+
+If the `/plugin marketplace add` command returns `fatal: Cannot prompt because user interactivity has been disabled.`, Git Credential Manager isn't configured to authenticate to your API Center data endpoint with Microsoft Entra ID. Complete the one-time setup in [Marketplace Git - Client Authentication (Entra ID)](https://github.com/Azure/api-center/blob/main/scripts/git-client-authentication.md), and then run the command again. Entering a Git username and password doesn't resolve this error.
 
 ## Related content
 
