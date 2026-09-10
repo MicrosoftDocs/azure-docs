@@ -39,9 +39,16 @@ To enable Immutable vault for a Recovery Services vault, follow these steps:
 
    At this point, immutability of the vault is reversible, and it can be disabled, if needed.
 
+1. Choose how you want immutability to apply to recovery points:
+
+   - **Enable based on backup policy**: The immutability duration matches the retention period configured in the backup policy for each protected item.
+   - **Enable for specific duration**: Immutability applies only for the number of days you specify, irrespective of the overall retention period in the backup policy. After the specified duration passes, recovery points continue to exist as per the policy retention, but they're no longer immutable. When you choose this option, you can't reduce the backup policy retention period to less than the configured immutability duration.
+
+   Learn more about these [immutability enablement options](backup-azure-immutable-vault-concept.md#immutability-enablement-options).
+
 1. Once you enable immutability, the option to lock the immutability for the vault appears.
 
-   Once you enable this lock, it makes immutability setting for the vault irreversible and uses WORM storage for backups. While this helps secure the backup data in the vault, we recommend you make a well-informed decision when opting to lock. You can also test and validate how the current settings of the vault, backup policies, and so on, meet your requirements and can lock the immutability setting later. 
+   When you enable this lock, it makes the immutability setting for the vault irreversible and uses WORM storage for backups. While this change helps secure the backup data in the vault, make sure you understand the implications before you lock it. You can also test and validate how the current settings of the vault, backup policies, and so on, meet your requirements and lock the immutability setting later. <br><br> If you chose **Enable for specific duration**, locking the setting also locks the configured duration, so ensure the duration meets your compliance needs before you lock it.
 
 1. Select **Apply** to save the changes.
 
@@ -64,9 +71,11 @@ To enable Immutable vault for a Backup vault, follow these steps:
 
    At this point, immutability of the vault is reversible, and it can be disabled, if needed.
 
+1. For Backup vaults, immutability is enabled based on the backup policy retention. Time-based immutability, or **Enable for specific duration**, is currently supported only for Recovery Services vaults.
+
 1. Once you enable immutability, the option to lock the immutability for the vault appears.
 
-   Once you enable this lock, it makes immutability setting for the vault irreversible. While this helps secure the backup data in the vault, we recommend you to make a well-informed decision when opting to lock. You can also test and validate how the current settings of the vault, backup policies, and so on, meet your requirements, and can lock the immutability setting later.
+   When you enable this lock, it makes the immutability setting for the vault irreversible. While this lock helps secure the backup data in the vault, ensure you understand the implications before you lock it. You can also test and validate how the current settings of the vault, backup policies, and so on, meet your requirements, and lock the immutability setting later.
 
 1. Select **Apply** to save the changes.
 
