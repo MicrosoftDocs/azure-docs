@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 09/04/2026
+ms.date: 09/09/2026
 recommendations: false
 ms.custom:
   - template-concept
@@ -1278,8 +1278,7 @@ To compile your project as ReadyToRun, update your project file by adding the `<
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>net8.0</TargetFramework>
-  <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    <TargetFramework>net10.0</TargetFramework>
   <RuntimeIdentifier>win-x64</RuntimeIdentifier>
   <PublishReadyToRun>true</PublishReadyToRun>
 </PropertyGroup>

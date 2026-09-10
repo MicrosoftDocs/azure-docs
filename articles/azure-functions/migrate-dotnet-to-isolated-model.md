@@ -6,7 +6,7 @@ ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: how-to
-ms.date: 09/01/2026
+ms.date: 09/09/2026
 ---
 
 # Migrate C# apps from the in-process model to the isolated worker model
@@ -52,9 +52,9 @@ On version 4.x of the Functions runtime, your .NET function app targets .NET 8 w
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> Upgrade to .NET 10 on the isolated worker model. .NET 10 is the current long-term support (LTS) release and has the longest remaining support window. Support for .NET 8 and .NET 9 ends on November 10, 2026, the same day that support ends for the in-process model. If you target either version during this migration, you'd have to upgrade again immediately to stay in support.
+> Upgrade to .NET 10 on the isolated worker model. .NET 10 is the current long-term support (LTS) release and has the longest remaining support window. Support for .NET 8 and .NET 9 ends on November 10, 2026, the same day that support ends for the in-process model. If you target either version during this migration, you'll need to upgrade again to stay in support.
 
-The examples in this guide target .NET 8 so that only the process model changes during the migration. If you target .NET 10, set `<TargetFramework>net10.0</TargetFramework>` in your project file and adapt the examples accordingly.
+The migration examples in this guide target .NET 10. The initial project file shows .NET 8 because that's the latest version the in-process model supports.
 
 ## Prepare for migration
 
@@ -103,9 +103,9 @@ The following example is a *.csproj* project file that uses .NET 8 on version 4.
 
 Use one of the following procedures to update this XML file to run in the isolated worker model:
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
-[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net8](../../includes/functions-dotnet-migrate-project-v4-isolated-net8.md)]
+[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net10](../../includes/functions-dotnet-migrate-project-v4-isolated-net10.md)]
 
 # [.NET Framework 4.8](#tab/netframework48)
 
@@ -125,7 +125,7 @@ When migrating to the isolated worker model, you need to change the packages you
 
 When migrating to run in an isolated worker process, you must add a *Program.cs* file to your project with the following contents:
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -306,7 +306,7 @@ namespace Company.Function
 
 An HTTP trigger for the migrated version might look like the following example:
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
 ```csharp
 using Microsoft.AspNetCore.Http;

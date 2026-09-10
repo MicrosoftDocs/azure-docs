@@ -3,7 +3,7 @@ title: Migrate apps from Azure Functions version 3.x to 4.x
 description: Learn how to migrate your existing function apps running on version 3.x of the Azure Functions runtime to be able to run on version 4.x of the runtime.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 08/26/2026
+ms.date: 09/09/2026
 zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom:
   - devx-track-dotnet
@@ -43,11 +43,11 @@ On version 3.x of the Functions runtime, your C# function app targets .NET Core 
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **We recommend updating to .NET 8 on the isolated worker model.** .NET 8 is the fully released version with the longest support window from .NET.
+> **We recommend updating to .NET 10 on the isolated worker model.** .NET 10 is the current long-term support (LTS) release and has the longest remaining support window.
 >
 > Although you can choose to instead use the in-process model, we don't recommend this approach if you can avoid it. [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model), so you'll need to move to the isolated worker model before then. Doing so while migrating to version 4.x will decrease the total effort required, and the isolated worker model will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you're moving to the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
-This guide doesn't present specific examples for .NET 10 (preview) or .NET 9. If you need to target one of those versions, you can adapt the .NET 8 examples.
+The isolated worker model examples in this guide target .NET 10. The .NET 8 examples apply only to the in-process model.
 
 ::: zone-end
 
@@ -111,9 +111,9 @@ The following example is a `.csproj` project file that uses .NET Core 3.1 on ver
 
 Use one of the following procedures to update this XML file to run in Functions version 4.x:
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
-[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net8](../../includes/functions-dotnet-migrate-project-v4-isolated-net8.md)]
+[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net10](../../includes/functions-dotnet-migrate-project-v4-isolated-net10.md)]
 
 # [.NET Framework 4.8](#tab/netframework48)
 
@@ -129,7 +129,7 @@ Use one of the following procedures to update this XML file to run in Functions 
 
 Based on the model you're migrating to, you might need to update or change the packages your application references. When you adopt the target packages, you then need to update the namespace of using statements and some types you reference. You can see the effect of these namespace changes on `using` statements in the [HTTP trigger template examples](#http-trigger-template) later in this article.
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
@@ -147,7 +147,7 @@ Based on the model you're migrating to, you might need to update or change the p
 
 When migrating to run in an isolated worker process, you must add the following program.cs file to your project:
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -210,7 +210,7 @@ The local.settings.json file is only used when running locally. For information,
 
 When you migrate to version 4.x, make sure that your local.settings.json file has at least the following elements:
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
@@ -245,7 +245,7 @@ When you migrate to version 4.x, make sure that your local.settings.json file ha
 
 ### host.json file
 
-# [.NET 8 (isolated)](#tab/net8)
+# [.NET 10](#tab/net10)
 
 No changes are required to your `host.json` file. However, if your Application Insights configuration in this file from your in-process model project, you might want to make other changes in your `Program.cs` file. The `host.json` file only controls logging from the Functions host runtime, and in the isolated worker model, some of these logs come from your application directly, giving you more control. See [Managing log levels in the isolated worker model](./dotnet-isolated-process-guide.md#managing-log-levels) for details on how to filter these logs.
 
@@ -266,14 +266,14 @@ No changes are required to your `host.json` file.
 
 Some key classes changed names between versions. These changes are a result either of changes in .NET APIs or in differences between in-process and isolated worker process. The following table indicates key .NET classes used by Functions that could change when migrating:
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
-| .NET Core 3.1  | .NET 5 | .NET 8 | 
+| .NET Core 3.1 | .NET 5 | .NET 10 |
 | --- | --- | --- | 
 | `FunctionName` (attribute) | `Function` (attribute) | `Function` (attribute) | 
 | `ILogger` | `ILogger` | `ILogger`, `ILogger<T>` |
-| `HttpRequest` | `HttpRequestData` | `HttpRequestData`, `HttpRequest` (using [ASP.NET Core integration])|
-| `IActionResult` | `HttpResponseData` | `HttpResponseData`, `IActionResult` (using [ASP.NET Core integration])|
+| `HttpRequest` | `HttpRequestData` | `HttpRequestData`, `HttpRequest` (with [ASP.NET Core integration]) |
+| `IActionResult` | `HttpResponseData` | `HttpResponseData`, `IActionResult` (with [ASP.NET Core integration]) |
 | `FunctionsStartup` (attribute) | Uses [`Program.cs`](#programcs-file) instead | Uses [`Program.cs`](#programcs-file) instead | 
 
 # [.NET Framework 4.8](#tab/netframework48)
@@ -305,7 +305,7 @@ There might also be class name differences in bindings. For more information, se
 
 ### Other code changes
 
-# [.NET 8 (isolated)](#tab/net8)
+# [.NET 10](#tab/net10)
 
 This section highlights other code changes to consider as you work through the migration. These changes aren't needed by all applications, but you should evaluate if any are relevant to your scenarios. Make sure to check [Breaking changes between 3.x and 4.x](#breaking-changes-between-3x-and-4x) for other changes you might need to make to your project.
 
@@ -331,7 +331,7 @@ The differences between in-process and isolated worker process can be seen in HT
 
 The HTTP trigger template for the migrated version looks like the following example:
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
 ```csharp
 using Microsoft.AspNetCore.Http;
