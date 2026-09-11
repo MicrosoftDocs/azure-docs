@@ -29,7 +29,7 @@ For example, if you have an on-premises scenario, the following architectural ov
 - An SQL database to locally store workflow run history, inputs, and outputs for processing
 - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
-:::image type="content" source="media/set-up-standard-workflows-hybrid-deployment-requirements/architecture-overview.png" alt-text="Diagram with architectural overview for where Standard logic apps are hosted in a partially connected environment." border="false":::
+:::image type="content" source="media/set-up-standard-workflows-hybrid-deployment-requirements/architecture-overview.png" alt-text="Diagram that shows the hybrid deployment model where Standard logic apps run on Arc-enabled Kubernetes with SQL database and SMB file share." border="false":::
 
 For hosting, you can also set up and use [Azure Arc-enabled Kubernetes clusters on Azure Local](/azure/azure-local/overview) or [Azure Arc-enabled Kubernetes clusters on Windows Server](/azure/aks-hybrid-edge/windows-server/kubernetes-walkthrough-powershell).
 
@@ -187,7 +187,7 @@ The following tabs describe the distribution-specific steps. All clusters must m
 
 ---
 
-## Configure a load balancer
+## Configure a load balancer for Envoy ingress
 
 Before you install the Azure Container Apps extension, configure the load balancer that provides the shared Envoy ingress IP for your logic apps.
 
@@ -330,6 +330,8 @@ kubectl get nodes
 ---
 
 ## Install the SMB driver
+
+Based on your scenario, follow the steps to install the SMB driver:
 
 ### [AKS](#tab/aks)
 
@@ -491,8 +493,8 @@ You can create an optional, but recommended, Azure Log Analytics workspace, whic
    LOG_ANALYTICS_KEY_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($LOG_ANALYTICS_KEY))
    ```
 
-   | Parameter | Required | Value | Description |
-   |-----------|----------|-------|-------------|
+   | Parameter | Required | Description |
+   |-----------|----------|-------------|
    | **LOG_ANALYTICS_WORKSPACE_ID** | Yes | The ID for your Log Analytics workspace. |
    | **LOG_ANALYTICS_WORKSPACE_ID_ENC** | Yes | The base64-encoded ID for your Log Analytics workspace. |
    | **LOG_ANALYTICS_KEY** | Yes | The shared key for your Log Analytics workspace. |
@@ -877,7 +879,7 @@ az containerapp arc setup-core-dns
 
 For more information, such as global parameters, see [**az containerapp arc setup-core-dns**](/cli/azure/containerapp/arc#az-containerapp-arc-setup-core-dns).
 
-### Examples
+### CoreDNS configuration examples for Azure Local
 
 - Set up CoreDNS configuration for Azure Local:
 
@@ -953,7 +955,7 @@ To store artifacts such as maps, schemas, and assemblies for your logic app (con
 
 ### Set up your SMB file share on Windows
 
-Make sure that your SMB file share exists in the same virtual network as the cluster where you mount your file share.
+If you're working on Windows, make sure that your SMB file share exists in the same virtual network as the cluster where you mount your file share by following these steps:
 
 1. In Windows, go to the folder that you want to share, open the shortcut menu, select **Properties**.
 
@@ -987,7 +989,7 @@ Alternatively, for testing purposes, you can use [Azure Files as an SMB file sha
 
    - File share's host name, for example, **mystorage.file.core.windows.net**
    - File share path
-   - Username without **`localhost\`**
+   - Username without `localhost\`
    - Password
 
 1. On the **Overview** page toolbar, select **+ Add directory**, and provide a name to use for the directory. Save this name to use later.
@@ -1017,9 +1019,12 @@ To test the connection between your Arc-enabled Kubernetes cluster and your SMB 
 
   1. Go to the root or home directory that contains the **mnt** folder.
 
-  1. Run the following command:
+  1. Run the following commands:
 
-     **`- mount -t cifs //{ip-address-smb-computer}/{file-share-name}/mnt/smb -o username={user-name}, password={password}`**
+     ```
+     sudo mkdir -p /mnt/smb
+     sudo mount -t cifs //<server-ip>/<file-share-name> /mnt/smb \ -o username=<username>,password=<password>
+     ```
 
 - To confirm that artifacts correctly upload, connect to the SMB file share path, and check whether artifact files exist in the correct folder that you specify during deployment.
 
