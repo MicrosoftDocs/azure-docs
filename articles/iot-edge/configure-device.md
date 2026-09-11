@@ -61,9 +61,21 @@ For more information about the IoT Edge trust bundle, see [Manage trusted root C
 
 ### Elevated Docker Permissions
 
-Some docker capabilities can be used to gain root access. By default, the `--privileged` flag and all capabilities listed in the **CapAdd** parameter of the docker **HostConfig** are allowed.
+Some docker capabilities can be used to gain host access from a docker container. The **allow_elevated_docker_permissions** setting controls whether IoT Edge modules are allowed to use these docker capabilities.
 
-If no modules require privileged or extra capabilities, use **allow_elevated_docker_permissions** to improve the security of the device.
+When **allow_elevated_docker_permissions = true**, the following docker capabilities may be used to create IoT Edge modules:
+- CapAdd
+- CapDrop
+- CgroupParent
+- Devices
+- IpcMode
+- NetworkMode
+- PidMode
+- Privileged
+- SecurityOpt
+- UsernsMode
+
+When **allow_elevated_docker_permissions = false**, the capabilities listed above are not allowed and will be removed from IoT Edge modules if they are set. If no modules require these privileged capabilities, set **allow_elevated_docker_permissions** to false to improve the security of the device.
 
 ```toml
 allow_elevated_docker_permissions = false
