@@ -4,6 +4,7 @@ description: Learn how to manage resources that are created during the virtual m
 author: RochakSingh-blr
 ms.author: v-rochak2
 ms.date: 07/31/2025
+ms.update-cycle: 1095-days
 ms.service: azure-resource-mover
 ms.topic: how-to
 ms.custom: engagement-fy23

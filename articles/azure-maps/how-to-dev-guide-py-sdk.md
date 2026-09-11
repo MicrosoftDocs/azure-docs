@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the Python SDK Developers Guide.
 author: sinnypan
 ms.author: sipa
-ms.date: 01/15/2021
+ms.date: 09/10/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: rest-sdk
@@ -353,11 +353,9 @@ if __name__ == '__main__':
     get_polygon()
 ```
 
+## Use the v1 SDK for Search
 
-## Using v1 SDKs for Search and Render
-
-To use Search v1 and Render v1 SDK, please refer to Search v1 SDK [package](https://pypi.org/project/azure-maps-search/1.0.0b2/) page and Render v1 SDK [package](https://pypi.org/project/azure-maps-render/1.0.0b2/) for more information.
-
+To use the Search v1 SDK, see the Search v1 SDK [package](https://pypi.org/project/azure-maps-search/1.0.0b2/) page. To migrate a Render v1 application, see [Migrate Azure Maps Render 1.0 APIs].
 
 ## Additional information
 
@@ -367,6 +365,7 @@ The [Azure Maps Search package client library] in the *Azure SDK for Python Prev
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Authentication with Azure Maps]: azure-maps-authentication.md
+[Migrate Azure Maps Render 1.0 APIs]: migrate-render-v1-api.md
 
 [Azure Maps Search package client library]: /python/api/overview/azure/maps-search-readme?view=azure-python-preview&preserve-view=true
 [latest release]: https://www.python.org/downloads/

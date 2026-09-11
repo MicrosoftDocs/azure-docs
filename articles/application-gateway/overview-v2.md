@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: overview
-ms.date: 08/18/2026
+ms.date: 09/10/2026
 ms.author: mbender
 ms.custom: references_regions, devx-track-azurepowershell
 # Customer intent: As a cloud architect, I want to understand the features and enhancements of Azure Application Gateway v2, so that I can effectively plan migration from v1 and utilize its capabilities for improved application performance and reliability.
@@ -16,7 +16,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 Application Gateway v2 is the latest version of Application Gateway. It provides advantages over Application Gateway v1 such as performance enhancements, autoscaling, zone redundancy, and static VIPs.
 
 > [!IMPORTANT]
-> Deprecation of Application Gateway V1 was [announced on April 28, 2023](v1-retirement.md). Application Gateway V1 retired on April 28, 2026, and is no longer supported. If you still use the Application Gateway V1 SKU, migrate to Application Gateway v2 now.
+> Deprecation of Application Gateway V1 was [announced on April 28, 2023](v1-retirement.md). Application Gateway V1 retired on April 28, 2026, and is no longer supported. If you still use the Application Gateway V1 SKU, [migrate to Application Gateway v2](migrate-v1-v2.md) now. For answers to common migration questions, see the [V1 retirement FAQ](retirement-faq.md).
 
 ## Key capabilities
 

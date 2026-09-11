@@ -99,7 +99,7 @@ Site Recovery supports replication of Azure VMs running the operating systems li
 
 ### Windows
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 Operating system | Details
 --- | ---

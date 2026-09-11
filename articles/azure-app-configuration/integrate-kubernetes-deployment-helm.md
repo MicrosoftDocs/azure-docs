@@ -230,11 +230,11 @@ else{
 
 Verify that configurations and secrets were set successfully by accessing the [Kubernetes Dashboard](/azure/aks/kubernetes-dashboard). You'll see that the **color** and **message** values from App Configuration were populated into the container's environment variables.
 
-![Quickstart app launch local](./media/kubernetes-dashboard-env-variables.png)
+![Quickstart app launch local](./media/integrate-kubernetes-deployment-helm/kubernetes-dashboard-env-variables.png)
 
 One secret, **password**, stores as Key Vault reference in App Configuration was also added into Kubernetes Secrets.
 
-![Screenshot that highlights the password in the Data section.](./media/kubernetes-dashboard-secrets.png)
+![Screenshot that highlights the password in the Data section.](./media/integrate-kubernetes-deployment-helm/kubernetes-dashboard-secrets.png)
 
 ## Clean up resources
 

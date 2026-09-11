@@ -58,6 +58,17 @@ For Application Gateway v2 SKU, the following metrics are available. What follow
 - **Throughput**. This metric accounts for only the Content size served by the Application Gateway. It doesn't include data transfers such as TLS header negotiations, TCP/IP packet headers, or retransmissions.
 - **Total Requests**. Successful requests that Application Gateway served. The request count can be filtered to show count per each/specific backend pool-http setting combination.
 
+> [!NOTE]
+> Compute units measure compute consumption, while capacity units account for compute, persistent connections, and throughput. For the billing relationship, see [Pricing](#pricing). For demand-based scaling and minimum and maximum instance settings, see [Scaling Application Gateway v2 and WAF v2](application-gateway-autoscaling-zone-redundant.md). Don't interpret current capacity units as an exact count of running instances.
+
+Unlike the v1 **CPU Utilization** metric, which measures use of the CPUs allocated to the gateway, v2 **Current compute units** measures compute consumption from TLS connections, URL rewrite computations, and WAF rule processing. CPU percentage and compute units aren't interchangeable measurements. The **Failed Requests** metric also differs: v2 includes gateway-generated and backend-generated 5xx responses, while v1 excludes backend 4xx and 5xx responses. Use the definitions for the gateway's SKU when comparing errors and utilization.
+
+### Pricing
+
+Application Gateway v2 pricing has two components: a fixed charge while the gateway is provisioned and a capacity-unit charge. The fixed provisioning charge doesn't depend on the number of instances currently running. Capacity-unit billing uses the higher of reserved capacity and actual utilization. A manually configured instance count or the minimum instance count in an autoscale configuration reserves 10 capacity units per instance, even when utilization is lower.
+
+Compute units are one input to utilized capacity units, together with persistent connections and throughput. The highest utilization across these parameters determines utilized capacity units; compute units alone aren't the billed total. **Estimated Billed Capacity units** reflects the greater of **Current capacity units** and **Fixed Billable Capacity Units**. For billing examples, see [Understanding pricing for Azure Application Gateway and Web Application Firewall](understanding-pricing.md). For current regional rates, see [Application Gateway pricing](https://azure.microsoft.com/pricing/details/application-gateway/).
+
 ### Backend metrics for Application Gateway v2 SKU
 
 For Application Gateway v2 SKU, the following backend metrics are available. What follows is expanded descriptions of the backend metrics already listed in the previous [metrics table](#supported-metrics-for-microsoftnetworkapplicationgateways).
@@ -174,7 +185,9 @@ Application Gateway's layer 4 proxy provides the capability to monitor the healt
 
 [!INCLUDE [Microsoft.Network/applicationgateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-applicationgateways-logs-include.md)]
 
-- **Access log**. You can use the Access log to view Application Gateway access patterns and analyze important information. This information includes the caller's IP, requested URL, response latency, return code, and bytes in and out. Access log collection occurs every 60 seconds. This log contains one record per instance of Application Gateway. The `instanceId` property identifies the Application Gateway instance.
+- **Access log**. You can use the Access log to view Application Gateway access patterns and analyze important information. This information includes the caller's IP, requested URL, response latency, return code, and bytes in and out. Access log collection occurs every 60 seconds. This log contains one record per instance of Application Gateway. The `instanceId` property identifies the Application Gateway instance. To analyze access logs per instance, such as correlating 5xx responses with a specific instance, see the Kusto query examples in [Monitor Azure Application Gateway](monitor-application-gateway.md#kusto-queries).
+
+    For logs collected in resource-specific mode, the `InstanceId` column in [AGWAccessLogs](/azure/azure-monitor/reference/tables/agwaccesslogs) identifies the gateway instance that served the request. Group 5xx responses by this column and compare the time intervals with **Current capacity units** for the same gateway in Azure Monitor metrics. Use the same time range and aggregation interval. Current capacity units is a gateway-wide metric with no instance dimension, so this comparison doesn't attribute capacity usage to an individual instance or establish that 5xx responses caused a capacity change. The metric isn't exportable through diagnostic settings; don't assume that it's available in `AzureMetrics` for a log-table join. See [Supported metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-network-applicationgateways-metrics) for dimensions and export support.
 
 - **Firewall log**. You can use the Firewall log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall. Firewall logs are collected every 60 seconds.
 

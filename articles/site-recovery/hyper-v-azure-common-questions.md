@@ -37,7 +37,7 @@ No. Azure Site Recovery supports On-demand Capacity Reservation only for Azure-t
 
 ### What do I need in Hyper-V to orchestrate replication with Site Recovery?
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 For the Hyper-V host server what you need depends on the deployment scenario. Check out the Hyper-V prerequisites in:
 

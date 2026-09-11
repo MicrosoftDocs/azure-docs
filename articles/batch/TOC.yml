@@ -37,6 +37,18 @@
   expanded: true
 - name: Tutorials
   items:
+  - name: Financial risk simulations
+    displayName: monte carlo, finance, risk, pricing, stress testing, back testing, HPC, quant
+    href: tutorials/financial-risk-simulations/index.md
+    items:
+    - name: Plan a simulation run
+      href: tutorials/financial-risk-simulations/plan-a-run.md
+    - name: Automate runs with .NET
+      href: tutorials/financial-risk-simulations/automate-with-dotnet.md
+    - name: Evaluate GPU acceleration
+      href: tutorials/financial-risk-simulations/evaluate-gpu-acceleration.md
+    - name: Package models with containers
+      href: tutorials/financial-risk-simulations/package-models-with-containers.md
   - name: Parallel file processing - .NET
     displayName: tutorial, hpc, high-performance, large, c#, csharp
     href: tutorial-parallel-dotnet.md

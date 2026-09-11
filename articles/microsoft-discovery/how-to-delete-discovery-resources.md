@@ -12,7 +12,7 @@ ms.date: 09/04/2026
 
 # Delete Microsoft Discovery resources
 
-> **Applies to:** Microsoft Discovery (Public Preview)
+> **Applies to:** Microsoft Discovery
 
 When you no longer need a Microsoft Discovery deployment, delete its resources in a specific order. Discovery resources form a parent-child hierarchy. A parent resource refuses deletion while any child still exists.
 

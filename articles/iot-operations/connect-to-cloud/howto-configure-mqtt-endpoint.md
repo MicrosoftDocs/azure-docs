@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/10/2026
+ms.date: 09/04/2026
 ai-usage: ai-assisted
 ms.custom: sfi-image-nochange
 
@@ -733,7 +733,7 @@ az iot ops dataflow endpoint create $ENDPOINT_TYPE --auth-type UserAssignedManag
 
 Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter
 
-In this example, assume a configuration file with the following content:
+In this example, assume a configuration file with the following content. The `scope` setting is optional.
 
 ```json
 {
@@ -744,7 +744,6 @@ In this example, assume a configuration file with the following content:
           "userAssignedManagedIdentitySettings": {
             "clientId": "<ID>",
             "tenantId": "<ID>",
-            // Optional
             "scope": "https://<Scope_Url>"
           }
         }

@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/10/2026
+ms.date: 09/02/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
@@ -80,7 +80,7 @@ Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/e
 az iot ops dataflow endpoint create adls --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --storage-account $STORAGE_ACCOUNT_NAME
 ```
 
-The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`.
+The `--storage-account` value is the Azure Data Lake Storage Gen2 account name only, such as `<account>`, not the full `<account>.blob.core.windows.net` hostname. The CLI builds the endpoint host from this name.
 
 Here's an example command to create or replace an Azure Data Lake Storage Gen2 data flow endpoint named adls-endpoint:
 
@@ -314,7 +314,7 @@ Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/e
 az iot ops dataflow endpoint create adls --auth-type SystemAssignedManagedIdentity --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --storage-account $STORAGE_ACCOUNT_NAME
 ```
 
-The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`.
+The `--storage-account` value is the Azure Data Lake Storage Gen2 account name only, such as `<account>`, not the full `<account>.blob.core.windows.net` hostname. The CLI builds the endpoint host from this name.
 
 An example command to create or replace an Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
 
@@ -397,7 +397,7 @@ Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/e
 az iot ops dataflow endpoint create adls --auth-type SystemAssignedManagedIdentity --audience https://$STORAGE_ACCOUNT_NAME.blob.core.windows.net --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --storage-account $STORAGE_ACCOUNT_NAME
 ```
 
-The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`.
+The `--storage-account` value is the Azure Data Lake Storage Gen2 account name only, such as `<account>`, not the full `<account>.blob.core.windows.net` hostname. The CLI builds the endpoint host from this name.
 
 An example command to create or replace an Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
 
@@ -497,7 +497,7 @@ Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/e
 az iot ops dataflow endpoint create adls --auth-type UserAssignedManagedIdentity --client-id $CLIENT_ID --tenant-id $TENANT_ID --scope $SCOPE --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --storage-account $STORAGE_ACCOUNT_NAME
 ```
 
-The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`. The `--auth-type` parameter specifies the authentication method, which is `UserAssignedManagedIdentity` in this case. The `--client-id`, `--tenant-id`, and `--scope` parameters specify the user-assigned managed identity client ID, tenant ID, and scope respectively.
+The `--storage-account` value is the Azure Data Lake Storage Gen2 account name only, such as `<account>`, not the full `<account>.blob.core.windows.net` hostname. The CLI builds the endpoint host from this name. The `--auth-type` parameter specifies the authentication method, which is `UserAssignedManagedIdentity` in this case. The `--client-id`, `--tenant-id`, and `--scope` parameters specify the user-assigned managed identity client ID, tenant ID, and scope respectively.
 
 An example command to create or replace an Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
 
@@ -625,7 +625,7 @@ Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/e
 az iot ops dataflow endpoint create adls --auth-type AccessToken --secret-name $SAS_SECRET_NAME --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $ENDPOINT --storage-account $STORAGE_ACCOUNT_NAME
 ```
 
-The storage account name is the name of the Azure Data Lake Storage Gen2 account in the format `<account>.blob.core.windows.net`. The `--auth-type` parameter specifies the authentication method, which is `AccessToken` in this case. The `--secret-name` parameter specifies the name of the Kubernetes secret containing the SAS token.
+The `--storage-account` value is the Azure Data Lake Storage Gen2 account name only, such as `<account>`, not the full `<account>.blob.core.windows.net` hostname. The CLI builds the endpoint host from this name. The `--auth-type` parameter specifies the authentication method, which is `AccessToken` in this case. The `--secret-name` parameter specifies the name of the Kubernetes secret containing the SAS token.
 
 An example command to create or replace an Azure Data Lake Storage Gen2 data flow endpoint named `my-endpoint` is:
 

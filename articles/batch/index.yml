@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page 
   author: padmalathas
   ms.author: padmalathas
-  ms.date: 11/20/2025
+  ms.date: 09/01/2026
 
 landingContent:
   - title: About Azure Batch
@@ -18,11 +18,6 @@ landingContent:
         links:
           - text: What is Azure Batch?
             url: batch-technical-overview.md
-      - linkListType: learn
-        links:
-          - text: Free Pluralsight video training
-            url: https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents
-
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -48,6 +43,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
+          - text: Financial risk simulation series
+            url: tutorials/financial-risk-simulations/index.md
           - text: Parallel file processing - .NET
             url: tutorial-parallel-dotnet.md
           - text: Parallel file processing - Python

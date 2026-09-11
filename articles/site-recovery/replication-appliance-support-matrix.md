@@ -35,7 +35,7 @@ Number of disks | 2, including the OS disk (80 GB) and a data disk (620 GB)
 
 ### Software requirements
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 Component | Requirement
 --- | ---

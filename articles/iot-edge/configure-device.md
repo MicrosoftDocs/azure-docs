@@ -3,7 +3,7 @@ title: Configure Azure IoT Edge device settings
 description: This article shows you how to configure Azure IoT Edge device settings and options using the config.toml file.
 author: sethmanheim
 ms.author: sethm
-ms.date: 07/16/2026
+ms.date: 09/02/2026
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -22,7 +22,7 @@ If you change a device's configuration, use `sudo iotedge config apply` to apply
 
 ## Global parameters
 
-The **hostname**, **parent_hostname**, **trust_bundle_cert**, **allow_elevated_docker_permissions**, and **auto_reprovisioning_mode** parameters must be at the beginning of the configuration file before any other sections. Adding parameters before a collection of settings ensures they're applied correctly. For more information on valid syntax, see [toml.io](https://toml.io/).
+You must include the **hostname**, **parent_hostname**, **trust_bundle_cert**, **allow_elevated_docker_permissions**, **allowed_bind_sources**, and **auto_reprovisioning_mode** parameters at the beginning of the configuration file before any other sections. Adding parameters before a collection of settings ensures they're applied correctly. For more information on valid syntax, see [toml.io](https://toml.io/).
 
 ### Hostname
 
@@ -68,6 +68,28 @@ If no modules require privileged or extra capabilities, use **allow_elevated_doc
 ```toml
 allow_elevated_docker_permissions = false
 ```
+
+### Allowed bind sources
+
+> [!IMPORTANT]
+> The **allowed_bind_sources** parameter is available in IoT Edge 1.6.3 and later.
+
+When you set **allow_elevated_docker_permissions** to **false**, use **allowed_bind_sources** to specify the host paths that modules can use as bind mount sources. Each entry allows the specified path and all its descendants.
+
+For example, the following configuration allows the host storage paths used by IoT Edge agent and IoT Edge hub:
+
+```toml
+allow_elevated_docker_permissions = false
+allowed_bind_sources = ["/srv/edgeAgent", "/srv/edgeHub"]
+```
+
+If you omit or leave **allowed_bind_sources** empty, IoT Edge removes all module-requested host bind mounts. IoT Edge automatically allows the workload API socket for each module and the management API socket for IoT Edge agent. When IoT Edge removes a bind mount, it logs a warning and continues creating the module. A module might fail or use nonpersistent storage if a required bind mount is removed.
+
+The setting applies to both string-based Docker **Binds** and structured **Mounts** with a type of `bind`. Docker-managed named volumes remain available. To prevent indirect access to unlisted host paths, IoT Edge also removes **VolumesFrom** and volume mounts that specify a volume driver configuration.
+
+IoT Edge normalizes path components such as `.` and `..` before comparing paths. It doesn't resolve symbolic links, so only allow paths whose contents and symbolic links you trust.
+
+For information about configuring persistent host storage, see [Give Azure IoT Edge modules access to a device's local storage](how-to-access-host-storage-from-module.md).
 
 ### Auto reprovisioning mode
 

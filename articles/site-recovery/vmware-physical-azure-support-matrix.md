@@ -44,7 +44,7 @@ The replication appliance is an on-premises machine that runs Site Recovery comp
 - For VMware VMs, you can create the replication appliance by downloading an OVF template to create a VMware VM.
 - For physical servers, you can set up the replication appliance manually by running a PowerShell script.
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 **Component** | **Requirements**
 --- |---

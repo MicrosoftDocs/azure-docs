@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 09/09/2025
+ms.date: 09/10/2026
 ms.author: normesta
 ms.custom: engagement-fy23
 # Customer intent: As a cloud storage administrator, I want to implement object replication for block blobs, so that I can improve data availability, reduce read latency, and optimize cost-efficiency across multiple regions.
@@ -16,10 +16,10 @@ ms.custom: engagement-fy23
 
 Object replication asynchronously copies block blobs between a source storage account and a destination account. Some scenarios supported by object replication include:
 
-- **Minimizing latency.** Object replication can reduce latency for read requests by enabling clients to consume data from a region that is in closer physical proximity.
+- **Minimize latency.** Object replication reduces latency for read requests by enabling clients to consume data from a region in closer physical proximity.
 - **Increase efficiency for compute workloads.** With object replication, compute workloads can process the same sets of block blobs in different regions.
-- **Optimizing data distribution.** You can process or analyze data in a single location and then replicate only the results to extra regions.
-- **Optimizing costs.** After your data is replicated, you can reduce costs by moving it to the archive tier using life cycle management policies.
+- **Optimize data distribution.** You can process or analyze data in a single location and then replicate only the results to extra regions.
+- **Optimize costs.** After your data is replicated, you can reduce costs by moving it to the archive tier by using lifecycle management policies.
 
 The following diagram shows how object replication replicates block blobs from a source storage account in one region to destination accounts in two different regions.
 
@@ -31,62 +31,62 @@ To learn how to configure object replication, see [Configure object replication]
 
 Object replication requires that the following Azure Storage features are also enabled:
 
-- [Change feed](storage-blob-change-feed.md): Must be enabled on the source account. To learn how to enable change feed, see [Enable and disable the change feed](storage-blob-change-feed.md#enable-and-disable-the-change-feed).
-- [Blob versioning](versioning-overview.md): Must be enabled on both the source and destination accounts. To learn how to enable versioning, see [Enable and manage blob versioning](versioning-enable.md).
+- [Change feed](storage-blob-change-feed.md): Enable on the source account. To learn how to enable change feed, see [Enable and disable the change feed](storage-blob-change-feed.md#enable-and-disable-the-change-feed).
+- [Blob versioning](versioning-overview.md): Enable on both the source and destination accounts. To learn how to enable versioning, see [Enable and manage blob versioning](versioning-enable.md).
 
 Enabling change feed and blob versioning might incur additional costs. For more information, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
-Object replication is supported for general-purpose v2 storage accounts and premium block blob accounts. Both the source and destination accounts must be either general-purpose v2 or premium block blob accounts. Object replication supports block blobs only; append blobs and page blobs aren't supported.
+Object replication supports general-purpose v2 storage accounts and premium block blob accounts. Both the source and destination accounts must be either general-purpose v2 or premium block blob accounts. Object replication supports block blobs only; it doesn't support append blobs and page blobs.
 
-Object replication is supported for accounts that are encrypted with either microsoft-managed keys or customer-managed keys. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
+Object replication supports accounts that are encrypted with either Microsoft-managed keys or customer-managed keys. For more information about customer-managed keys, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
 
-Object replication isn't supported for blobs in the source account that are encrypted with a customer-provided key. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
+Object replication doesn't support blobs in the source account that are encrypted with a customer-provided key. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 
 Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
 
-Object replication isn't yet supported in accounts that have a hierarchical namespace enabled.
+Object replication isn't supported in accounts that have a hierarchical namespace enabled.
 
 Object replication isn't supported for blobs that are uploaded by using [Data Lake Storage](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 
 ## How object replication works
 
-Object replication asynchronously copies block blobs in a container according to rules that you configure. The contents of the blob, any versions associated with the blob, and the blob's metadata and properties are all copied from the source container to the destination container.
+Object replication asynchronously copies block blobs in a container according to rules that you configure. The service copies the contents of the blob, any versions associated with the blob, and the blob's metadata and properties from the source container to the destination container.
 
 > [!IMPORTANT]
 > Because block blob data is replicated asynchronously, the source account and destination account aren't immediately in sync. 
 >
-> OR now supports priority replication, which prioritizes the replication of all operations in an OR Policy. When OR priority replication is enabled, the replication performance of all operations is improved. When a replication policy's source and destination account are within the same continent, OR priority replication also replicates 99.0% of objects within 15 minutes for supported workloads. Feature performance is guaranteed with a service level agreement (SLA). For more information, visit the [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) and the [Object Replication Priority Replication](object-replication-priority-replication.md) article.
+> Object replication (OR) now supports priority replication, which prioritizes the replication of all operations in an OR policy. When OR priority replication is enabled, the replication performance of all operations improves. When a replication policy's source and destination account are within the same continent, OR priority replication also replicates 99.0% of objects within 15 minutes for supported workloads. Feature performance is guaranteed with a service level agreement (SLA). For more information, see the [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) and the [Object Replication Priority Replication](object-replication-priority-replication.md) article.
 >
 > You can also check the replication status on the source blob to determine whether replication is complete. For more information, see [Check the replication status of a blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
 
 ### Blob versioning
 
-Object replication requires that blob versioning is enabled on both the source and destination accounts. When a replicated blob in the source account is modified, a new version of the blob is created in the source account that reflects the previous state of the blob, before modification. The current version in the source account reflects the most recent updates. Both the current version and any previous versions are replicated to the destination account. For more information about how write operations affect blob versions, see [Versioning on write operations](versioning-overview.md#versioning-on-write-operations).
+Object replication requires that you enable blob versioning on both the source and destination accounts. When you modify a replicated blob in the source account, the service creates a new version of the blob in the source account that reflects the previous state of the blob, before modification. The current version in the source account reflects the most recent updates. The service replicates both the current version and any previous versions to the destination account. For more information about how write operations affect blob versions, see [Versioning on write operations](versioning-overview.md#versioning-on-write-operations).
 
 If your storage account has object replication policies in effect, you can't disable blob versioning for that account. You must delete any object replication policies on the account before disabling blob versioning.
 
 > [!NOTE]
-> Only blobs are copied to the destination. A blob's version ID isn't copied. After a blob is placed at the destination location, a new version ID is assigned.
+> Only blobs are copied to the destination. The service doesn't copy a blob's version ID. After the service places a blob at the destination location, it assigns a new version ID.
 
 ### Deleting a blob in the source account
 
-When a blob in the source account is deleted, the current version of the blob becomes a previous version, and there's no longer a current version. All existing previous versions of the blob are preserved. This state is replicated to the destination account. For more information about how to delete operations affect blob versions, see [Versioning on delete operations](versioning-overview.md#versioning-on-delete-operations).
+When you delete a blob in the source account, the current version of the blob becomes a previous version, and there's no longer a current version. The service preserves all existing previous versions of the blob. The service replicates this state to the destination account. For more information about how delete operations affect blob versions, see [Versioning on delete operations](versioning-overview.md#versioning-on-delete-operations).
 
 ### Snapshots
 
-Object replication doesn't support blob snapshots. Any snapshots on a blob in the source account aren't replicated to the destination account.
+Object replication doesn't support blob snapshots. The service doesn't replicate any snapshots on a blob in the source account to the destination account.
 
 ### Blob index tags
 
 Object replication now supports copying index tags from source blobs to destination blobs. You can configure this capability as part of a new or existing replication rule. For more information, see [Configure object replication](object-replication-configure.md#configure-blob-index-tags-replication-preview).
 
 > [!IMPORTANT]
-> Tag replication is currently in PREVIEW.
+> Tag replication is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Blob tiering
 
-Object replication is supported when the source and destination accounts are in any online tier (hot, cool, or cold). The source and destination accounts might be in different tiers. However, object replication fails if a blob in either the source or destination account is moved to the archive tier. Rehydrating an archived blob does not trigger object replication. Object replication is triggered only when the blob data is updated again after rehydration. For more information on blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
+Object replication is supported when the source and destination accounts are in any online tier (hot, cool, or cold). The source and destination accounts might be in different tiers. However, object replication fails if a blob in either the source or destination account is moved to the archive tier. Rehydrating an archived blob doesn't trigger object replication. Object replication is triggered only when the blob data is updated again after rehydration. For more information on blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
 
 ### Immutable blobs
 
@@ -94,7 +94,7 @@ Immutability policies for Azure Blob Storage include time-based retention polici
 
 If the destination container has a container-level immutability policy in place, changes to objects in the source container, such as updates or deletions, might still succeed. However, those changes might fail to replicate to the destination container due to the immutability restriction. For more information about which operations are prohibited with an immutability policy that is scoped to a container, see [Scenarios with container-level scope](immutable-container-level-worm-policies.md#scenarios).
 
-If a destination account's blob version has an active version-level immutability policy, a delete or update operation performed on the corresponding source container's blob version might succeed. However, replication of that operation to the destination object fails. For more information about which operations are prohibited with an immutability policy that is scoped to a container, see [Scenarios with version-level scope](immutable-version-level-worm-policies.md#scenarios).
+If a destination account's blob version has an active version-level immutability policy, a delete or update operation performed on the corresponding source container's blob version might succeed. However, replication of that operation to the destination object fails. For more information about which operations are prohibited with an immutability policy that is scoped to a version, see [Scenarios with version-level scope](immutable-version-level-worm-policies.md#scenarios).
 
 ## Object replication policies and rules
 
@@ -104,11 +104,11 @@ After you configure object replication, Azure Storage checks the change feed for
 
 ### Replication policies
 
-When you configure object replication, you create a replication policy on the destination account via the Azure Storage resource provider. After the replication policy is created, Azure Storage assigns it a policy ID. You must then associate that replication policy with the source account by using the policy ID. The policy ID on the source and destination accounts must be the same in order for replication to take place.
+When you configure object replication, you create a replication policy on the destination account through the Azure Storage resource provider. After you create the replication policy, Azure Storage assigns it a policy ID. You must then associate that replication policy with the source account by using the policy ID. The policy ID on the source and destination accounts must be the same for replication to take place.
 
 A source account can replicate to no more than two destination accounts, with one policy for each destination account. Similarly, an account might serve as the destination account for no more than two replication policies.
 
-The source and destination accounts might be in the same region or in different regions. They might also reside in the same subscription or in different subscriptions. Optionally, the source and destination accounts might reside in different Microsoft Entra tenants. Only one replication policy might be created for each source account/destination account pair.
+The source and destination accounts might be in the same region or in different regions. They might also reside in the same subscription or in different subscriptions. Optionally, the source and destination accounts might reside in different Microsoft Entra tenants. You can create only one replication policy for each source and destination account pair.
 
 ### Replication rules
 
@@ -120,7 +120,7 @@ You can also specify one or more filters as part of a replication rule to filter
 
 The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, write operations to the destination container aren't permitted. Any attempts to write to the destination container fail with error code 409 (Conflict). 
 
-To write to a destination container with a replication rule, you must first disable replication. You can disable the rule by either deleting it for that container, or by removing the entire replication policy.
+To write to a destination container with a replication rule, you must first disable replication. You can disable the rule by either deleting it for that container or by removing the entire replication policy.
 
 Read and delete operations to the destination container are permitted when the replication policy is active.
 
@@ -131,7 +131,7 @@ You can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operat
 
 ## Policy definition file
 
-A JSON file is used to define an object replication policy. You can get the policy definition file from an existing object replication policy, or you can create an object replication policy by uploading a policy definition file.
+Use a JSON file to define an object replication policy. You can get the policy definition file from an existing object replication policy, or you can create an object replication policy by uploading a policy definition file.
 
 ### Sample policy definition file
 
@@ -164,9 +164,10 @@ The following example sets a replication policy on the destination account with 
 }
 ```
 #### Custom filters
-It's possible to customize filters with different options in JSON file
 
-1. Prefix blob for replication, all blobs start with letter b :
+You can customize filters with different options in a JSON file:
+
+- Match blobs by prefix — replicate only blobs whose names start with the letter `b`.
 
 ```json
 "filters": {
@@ -175,14 +176,17 @@ It's possible to customize filters with different options in JSON file
           ],
         }
 ```
-2. Blob Creation Time
+
+- Match blobs by creation time — replicate only blobs created on or after the specified time.
+
 ```json
 "filters": {
   "minCreationTime": "2021-08-28T00:00:00Z"
 }
 ```
 
-3. For ALL BLOBS
+- Replicate all blobs — set the minimum creation time to the earliest possible value.
+
 ```json
 "filters": {
   "minCreationTime": "1601-01-01T00:00:00Z"
@@ -198,7 +202,7 @@ The full resource ID is in the following format:
 /subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-The policy definition file previously required only the account name, instead of the full resource ID for the storage account. With the introduction of the **AllowCrossTenantReplication** security property in version 2021-02-01 of the Azure Storage resource provider REST API, you must now provide the full resource ID for any object replication policies that are created when cross-tenant replication is disallowed for a storage account that participates in the replication policy. Azure Storage uses the full resource ID to verify whether the source and destination accounts reside within the same tenant. To learn more about disallowing cross-tenant replication policies, see [Prevent replication across Microsoft Entra tenants](#prevent-replication-across-azure-ad-tenants).
+The policy definition file previously required only the account name, instead of the full resource ID for the storage account. With the introduction of the **AllowCrossTenantReplication** security property in version 2021-02-01 of the Azure Storage resource provider REST API, you must now provide the full resource ID for any object replication policies that you create when cross-tenant replication is disallowed for a storage account that participates in the replication policy. Azure Storage uses the full resource ID to verify whether the source and destination accounts reside within the same tenant. To learn more about disallowing cross-tenant replication policies, see [Prevent replication across Microsoft Entra tenants](#prevent-replication-across-azure-ad-tenants).
 
 Although using only the account name is still supported for cross-tenant replication, Microsoft recommends using the full resource ID as a best practice. All previous versions of the Azure Storage resource provider REST API support using the full resource ID path in object replication policies.
 
@@ -263,18 +267,18 @@ You can enable replication metrics on the source account for monitoring pending 
 You can check the replication status for a blob in the source account. For more information, see [Check the replication status of a blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
 
 > [!NOTE]
->  While replication is in progress, there's no way to determine the percentage or replicated data. 
+>  While replication is in progress, there's no way to determine the percentage of replicated data. 
 
-If the replication status for a blob in the source account indicates failure, then investigate the following possible causes:
+If the replication status for a blob in the source account indicates failure, investigate the following possible causes:
 
-- Make sure that the object replication policy is configured on the destination account.
+- Ensure that the object replication policy is configured on the destination account.
 - Verify that the destination account still exists.
 - Verify that the destination container still exists.
 - Verify that the destination container isn't deleted, and isn't in the process of being deleted. Deleting a container might take up to 30 seconds.
 - Verify that the destination container is still participating in the object replication policy.
 - If the source blob is encrypted with a customer-provided key as part of a write operation, then object replication fails. For more information about customer-provided keys, see [Provide an encryption key on a request to Blob storage](encryption-customer-provided-keys.md).
 - Check whether the source or destination blob is moved to the archive tier. Archived blobs can't be replicated via object replication. For more information about the archive tier, see [Access tiers for blob data](access-tiers-overview.md).
-- Verify that destination container or blob isn't protected by an immutability policy. Keep in mind that a container or blob can inherit an immutability policy from its parent. For more information about immutability policies, see [Overview of immutable storage for blob data](immutable-storage-overview.md).
+- Verify that destination container or blob isn't protected by an immutability policy. A container or blob can inherit an immutability policy from its parent. For more information about immutability policies, see [Overview of immutable storage for blob data](immutable-storage-overview.md).
 
 ## Feature support
 
@@ -282,7 +286,7 @@ If the replication status for a blob in the source account indicates failure, th
 
 ## Billing
 
-There's no cost to configure object replication, including the task of enabling change feed, enabling versioning, and adding replication policies. However, object replication incurs costs on read and write transactions against the source and destination accounts. Egress charges for the replication of data from the source account to the destination account also incurs cost, as do read charges while processing change feed. 
+There's no cost to configure object replication, including enabling change feed, versioning, and replication policies. However, object replication incurs costs on read and write transactions against the source and destination accounts. Egress charges for the replication of data from the source account to the destination account also incur cost, as do read charges while processing change feed. 
 
 Here's a breakdown of the costs. To find the price of each cost component, see [Azure Blob Storage Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -294,9 +298,9 @@ Here's a breakdown of the costs. To find the price of each cost component, see [
 |Data retrieval costs on cool and cold tiers|Storage cost of the blob and each blob version<sup>1</sup>|
 ||Cost of network egress<sup>3</sup>|
 
-<sup>1</sup>    On the source account, if a blob or version's tier is unchanged, then you're billed for unique blocks of data across that blob, its versions. See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing). At the destination account, for a version, you're billed for all of the blocks of a version whether or not those blocks are unique.
+<sup>1</sup>    On the source account, if a blob or version's tier is unchanged, then you’re billed for unique blocks of data across that blob and its versions. See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing). At the destination account, for a version, you’re billed for all of the blocks of a version whether or not those blocks are unique.
 
-<sup>2</sup>    This includes only blob versions created since the last replication completed.
+<sup>2</sup>    This cost includes only blob versions created since the last replication completed.
 
 <sup>3</sup>    Object replication copies the whole version to destination (not just the unique blocks of the version). This transfer incurs the cost of network egress. See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
