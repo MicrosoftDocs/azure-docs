@@ -12,7 +12,7 @@ ms.date: 06/30/2026
 
 # Best practices for Azure Web Application Firewall (WAF) on Azure Application Gateway
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 This article summarizes the best practices for using Azure Web Application Firewall (WAF) on Azure Application Gateway.
 

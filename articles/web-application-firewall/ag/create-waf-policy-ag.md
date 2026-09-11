@@ -13,7 +13,7 @@ ms.date: 02/25/2026
 
 # Create Web Application Firewall policies for Application Gateway
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 Associating a WAF policy with listeners allows for multiple sites behind a single WAF to be protected by different policies. For example, if there are five sites behind your WAF, you can have five separate WAF policies (one for each listener) to customize the exclusions, custom rules, and managed rulesets for one site without effecting the other four. If you want a single policy to apply to all sites, you can just associate the policy with the Application Gateway, rather than the individual listeners, to make it apply globally. Policies can also be applied to a path-based routing rule. 
 

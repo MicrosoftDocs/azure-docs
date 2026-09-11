@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Web Application Firewall exclusion lists
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 The Azure Application Gateway Web Application Firewall (WAF) provides protection for web applications. This article describes the configuration for WAF exclusion lists. These settings are located in the WAF policy associated to your Application Gateway. To learn more about WAF policies, see [Azure Web Application Firewall on Azure Application Gateway](ag-overview.md) and [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md).
 
