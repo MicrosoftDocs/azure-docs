@@ -1019,9 +1019,12 @@ To test the connection between your Arc-enabled Kubernetes cluster and your SMB 
 
   1. Go to the root or home directory that contains the **mnt** folder.
 
-  1. Run the following command:
+  1. Run the following commands:
 
-     `- mount -t cifs //<ip-address-smb-computer>/<file-share-name>/mnt/smb -o username=<user-name>, password=<password>`
+     ```
+     sudo mkdir -p /mnt/smb
+     sudo mount -t cifs //<server-ip>/<file-share-name>/mnt/smb \ -o username=<username>,password=<password>
+     ```
 
 - To confirm that artifacts correctly upload, connect to the SMB file share path, and check whether artifact files exist in the correct folder that you specify during deployment.
 
