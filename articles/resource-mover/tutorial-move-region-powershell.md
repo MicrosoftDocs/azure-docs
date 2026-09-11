@@ -6,6 +6,7 @@ ms.topic: tutorial
 author: RochakSingh-blr
 ms.author: v-rochak2
 ms.date: 07/31/2025
+ms.update-cycle: 1095-days
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange
