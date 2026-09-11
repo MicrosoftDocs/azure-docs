@@ -1023,7 +1023,7 @@ To test the connection between your Arc-enabled Kubernetes cluster and your SMB 
 
      ```
      sudo mkdir -p /mnt/smb
-     sudo mount -t cifs //<server-ip>/<file-share-name>/mnt/smb \ -o username=<username>,password=<password>
+     sudo mount -t cifs //<server-ip>/<file-share-name> /mnt/smb \ -o username=<username>,password=<password>
      ```
 
 - To confirm that artifacts correctly upload, connect to the SMB file share path, and check whether artifact files exist in the correct folder that you specify during deployment.
