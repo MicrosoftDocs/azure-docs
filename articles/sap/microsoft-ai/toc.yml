@@ -1,7 +1,7 @@
 items:
   - name: Overview
     href: about-sap-with-microsoft-ai.md
-  - name: SAP Joule and Microsoft 365 Copilot
+  - name: SAP Joule and Microsoft Copilot
     href: joule/joule-copilot-overview.md
   - name: Copilot Studio and SAP
     items:
