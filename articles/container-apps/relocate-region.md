@@ -3,7 +3,7 @@ title: Relocate Azure Container Apps to another region
 description: Learn how to relocate an Azure Container Apps workload to a different Azure region by redeploying the managed environment and container apps.
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 04/17/2026
+ms.date: 09/04/2026
 author: craigshoemaker
 ms.author: cshoe
 ---
@@ -24,7 +24,7 @@ Before you begin, verify that you meet the following requirements:
 - You have sufficient quota in the target region for the resources you plan to deploy.
 - You have the following permissions in both the source and target subscriptions:
   - **Owner** or **Contributor** on the resource group.
-  - **Azure Container Apps Contributor** (recommended).
+  - **Container Apps Contributor** (recommended). This role includes wildcard permissions that grant access to Container Apps secret values. For narrower access, see [Permissions for managing secrets](manage-secrets.md#permissions-for-managing-secrets).
 - Your container images are in a registry accessible from the target region (for example, Azure Container Registry or a supported external registry).
 - Dependent Azure resource such as Key Vault, storage accounts, databases, virtual networks, and messaging services are either already available in the target region or have a redeployment plan.
 
