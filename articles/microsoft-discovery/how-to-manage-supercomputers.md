@@ -12,7 +12,7 @@ ms.date: 09/10/2026
 
 > **Applies to:** Microsoft Discovery
 
-This article describes how to create a **Supercomputer** and **NodePools** using the Azure portal.
+This article describes how to create a **Supercomputer** and **NodePools** by using the Azure portal.
 
 ---
 
