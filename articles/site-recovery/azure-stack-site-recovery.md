@@ -79,7 +79,7 @@ Here's what you need to set up this scenario.
 
 Make sure that the VMs are running one of the operating systems summarized in the table.
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 **Operating system** | **Details**
 --- | ---
