@@ -46,14 +46,17 @@ To manage approval requests, you need:
 
 Before approving or rejecting a request, carefully review the details:
 
-1. In the `Approvals` list, select the request you want to review.
+1. In the `Approvals` list, select checkbox for the request you want to review, and select `Review`.
 
 1. The approval details page displays:
-   - `Action type`: The type of resource or operation (for example, `Enclave Connection`)
+   - `Resource`: The requested resource
+   - `Enclave` or `Community`: Links to the parent resources associated with the request
    - `Requester`: The user who submitted the request
-   - `Requested on`: When the request was submitted
-   - `Enclave` and `Community`: Links to the parent resources associated with the request
-   - `Approval status`: The current state of the request (`Pending`, `Approved`, or `Rejected`)
+   - `Request date`: When the request was submitted
+   - `Ticket Id`: An optional field for you to link to your change tracking system
+   - `Approvals`: Allows you to approve or reject this request
+   - `Approval status`: The status of meeting the approval requirements.
+   - `Approver details`: The list of who has approved or rejected the request.
 
 1. Review all information carefully before making a decision.
 
@@ -63,7 +66,7 @@ After reviewing a request, approve it to allow the change to proceed:
 
 1. On the approval details page, select `Approve`.
 
-1. Select `Confirm` to approve the request.
+1. Select `Submit` to approve the request.
 
 1. The request status is now `Approved` and the resource change is automatically implemented.
 
@@ -73,7 +76,7 @@ If a request doesn't meet approval criteria, reject it:
 
 1. On the approval details page, select `Reject`.
 
-1. Select `Confirm` to reject the request.
+1. Select `Submit` to reject the request.
 
 1. The request status changes to `Rejected` and the resource change won't be implemented.
 
