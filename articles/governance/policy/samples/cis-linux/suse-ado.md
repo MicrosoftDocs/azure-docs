@@ -1,9 +1,9 @@
 ---
 title: Reference - CIS Security Benchmarks for SUSE Linux Enterprise via Machine Configuration
 description: Reference - CIS Security Benchmarks for SUSE Linux Enterprise via Machine Configuration
-ms.date: 06/18/2026
-author: pallakatos
-ms.author: pallakatos
+ms.date: 09/11/2026
+author: linux-security-baseline@service.microsoft.com
+ms.author: linux-security-baseline@service.microsoft.com
 ms.topic: reference
 ms.custom: generated
 ---
@@ -95,7 +95,7 @@ This article provides detailed information about the CIS Security Benchmarks for
 |Ensure SSH Idle Timeout Interval is configured|clientaliveintervalValue|[ \t]*([1-9]\|[1-9][0-9]\|[0-2][0-9][0-9]\|300)[ \t]*|
 ||clientalivecountmaxValue|[ \t]*[1-3][ \t]*|
 |Ensure SSH LoginGraceTime is set to one minute or less|logingracetimeValue|[ \t]*([1-9]\|[1-5][0-9]\|60\|1m)[ \t]*|
-|Ensure SSH warning banner is configured|bannerValue|\/(\S+)|
+|Ensure SSH warning banner is configured|bannerValue|\/([^ \t]+)|
 |Ensure SSH MaxStartups is configured|maxstartupsValue|(10\|[1-9])\:(30\|[1-2][0-9]\|[1-9])\:(60\|[1-5][0-9]\|[1-9])[ \t]*|
 |Ensure SSH MaxSessions is limited|maxsessionsValue|([1-9]\|10)[ \t]*|
 |Ensure password expiration is 365 days or less|maxDays|365|
@@ -125,10 +125,10 @@ This article provides detailed information about the CIS Security Benchmarks for
 > [!NOTE]
 > The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.
 
-- Ensure a single time synchronization daemon is in use
-- Ensure password history remember is configured
-- Ensure password history is enforced for the root user
-- Ensure only one logging system is in use
+- 2.3.1.1 Ensure a single time synchronization daemon is in use
+- 5.3.2.3.1 Ensure password history remember is configured
+- 5.3.2.3.2 Ensure password history is enforced for the root user
+- 6.2.1.4 Ensure only one logging system is in use
 
 ### Configurable parameters
 
@@ -303,6 +303,7 @@ This article provides detailed information about the CIS Security Benchmarks for
 ||group|root|
 |Ensure access to crontab is configured|owner|root|
 ||group|root\|crontab|
+||mask|0137|
 |Ensure access to at is configured|filenameEtcAtAllow|/etc/at.allow|
 ||mask|0137|
 ||owner|root|

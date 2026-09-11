@@ -1,7 +1,7 @@
 ---
 title: Reference - Built-in CIS Security Benchmarks for Linux Workloads via Machine Configuration
 description: Reference - Built-in CIS Security Benchmarks for Linux Workloads via Machine Configuration
-ms.date: 06/18/2026
+ms.date: 09/11/2026
 author: pallakatos
 ms.author: pallakatos
 ms.topic: reference
@@ -63,7 +63,7 @@ The following Linux distributions and CIS benchmark versions are currently suppo
 | [Debian Linux 12](cis-linux/debian-ado.md) | v1.1.0 | L1 + L2 Server | ✓ | ✓ | X |
 | [SUSE Linux Enterprise 12](cis-linux/suse-ado.md) | v3.2.1 | L1 + L2 Server | ✓ | ✓ | X |
 | [SUSE Linux Enterprise 15](cis-linux/suse-ado.md) | v2.0.1 | L1 + L2 Server | ✓ | ✓ | X |
-| [AKS Optimized Azure Linux 3](cis-linux/azure-linux-ado.md) | v1.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [AKS Optimized Azure Linux 3](cis-linux/azurelinux-ado.md) | v1.0.0 | L1 + L2 Server | ✓ | ✓ | X |
 
 Auto-remediation capabilities are planned for future releases and will be marked with ✓ when available.
 	
@@ -124,6 +124,16 @@ Follow this same method to apply changes to file permissions, groups, owners, et
 ## Release Notes
 
 ### Current Release
+- **Version**: 1.23.0.0
+- **Release Date**: 2026-09-11
+- **Features**:
+  - Expanded customer-configurable parameters across existing CIS Linux benchmarks for file permissions, crontab access, and DNS service-state rules, including richer validation for owners, groups, permission masks, service names, and package names.
+  - Improved compliance accuracy for crontab access and file-permission rules by aligning audit behavior more closely with CIS benchmark logic, including correct handling of optional files and cron allow/deny precedence.
+  - Corrected affected file-permission rule mappings in existing benchmarks to reduce false compliance results for shadow and group-related checks.
+  - Improved mount option compliance auditing by checking only active `fstab` flags, reducing false failures for CIS mount option rules.
+  - Strengthened benchmark input handling to better protect against malformed XML content during policy generation.
+
+### Release 1.21.0.0
 - **Version**: 1.21.0.0
 - **Release Date**: June 2026
 - **Features**:
