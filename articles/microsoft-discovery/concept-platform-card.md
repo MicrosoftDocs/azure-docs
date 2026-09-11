@@ -5,7 +5,7 @@ author: ffrachon
 ms.author: fabricfr
 ms.service: azure
 ms.topic: concept-article
-ms.date: 04/21/2026
+ms.date: 09/10/2026
 
 #CustomerIntent: As a researcher or deployer, I want to understand Microsoft Discovery and its intended purpose, capabilities, and limitations so that I can make informed decisions about adoption and use.
 ---
@@ -24,7 +24,7 @@ Application and platform cards play a key role in operationalizing these princip
 
 ## Overview
 
-Discovery is in public preview and is currently available to select customers. Use of Discovery is subject to customer eligibility requirements and acceptance of the Microsoft Product Terms and User Code of Conduct. Discovery requires a license and is offered in a limited number of countries. The goal is to ensure that the system remains safe, reliable, and beneficial for all users as we continue to evolve its capabilities.
+Discovery is currently available to select customers. Use of Discovery is subject to customer eligibility requirements and acceptance of the Microsoft Product Terms and User Code of Conduct. Discovery requires a license and is offered in a limited number of countries. The goal is to ensure that the system remains safe, reliable, and beneficial for all users as we continue to evolve its capabilities.
 
 ### Introduction
 

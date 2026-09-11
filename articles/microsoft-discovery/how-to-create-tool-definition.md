@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/07/2026
+ms.date: 09/10/2026
 
 #CustomerIntent: As a tool publisher, I want to write a tool definition YAML file so that Microsoft Discovery can correctly deploy, configure, and invoke my containerized tool within investigations.
 ---
@@ -67,7 +67,7 @@ infra:
       recommended_sku:
         - Standard_D4_v4
         - Standard_D8_v4
-      pool_type: static           # Only supported pool type during preview
+      pool_type: static           # Only supported pool type
       pool_size: 1                # Number of container instances to run
 ```
 
