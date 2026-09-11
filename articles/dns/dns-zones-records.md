@@ -116,7 +116,7 @@ To use TLSA records effectively, [DNSSEC](dnssec.md) must be enabled on your dom
 
 ### NAPTR records
 
-NAPTR (Naming Authority Pointer) records are used to map values in one numbering or naming space to another. They're commonly used in telecommunications and VoIP systems to translate telephone numbers into domain names or service URIs. When specifying an NAPTR record in Azure DNS:
+Use NAPTR (Naming Authority Pointer) records to map values in one numbering or naming space to another. They're commonly used in telecommunications and VoIP systems to translate telephone numbers into domain names or service URIs. When you specify an NAPTR record in Azure DNS:
 
 * **Order**: Enter an integer between 0 and 65,535 that specifies the order in which NAPTR records are processed. Evaluate records in ascending order of the Order value.
 * **Preference**: Enter an integer between 0 and 65,535 that specifies the preference among records with the same Order value. Lower values are preferred.
