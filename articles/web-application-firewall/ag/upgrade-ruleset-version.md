@@ -11,7 +11,7 @@ ms.date: 06/27/2026
 
 # Upgrade CRS or DRS ruleset version
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 The Azure-managed **Default Rule Set (DRS)** in Azure Application Gateway Web Application Firewall (WAF) protects web applications against common vulnerabilities and exploits, including the OWASP top 10 attack types. The default rule set also incorporates the Microsoft Threat Intelligence Collection rules. Always run the **latest ruleset version**, which includes the most recent security updates, rule enhancements, and fixes.
 

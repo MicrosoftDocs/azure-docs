@@ -81,6 +81,8 @@ items:
         href: ./how-to/ssl-configuration.md
     - name: Upgrade and Migrate
       href: ./how-to/upgrade-and-migrate.md
+    - name: Migrate a Slurm cluster to a newer template
+      href: ./how-to/migrate-slurm-cluster.md
     - name: Plan CycleCloud 7 retirement
       href: ./how-to/cyclecloud7-retirement-guide.md
     - name: Backup and Restore
@@ -97,6 +99,8 @@ items:
     items:
     - name: Plan your CycleCloud Workspace for Slurm Deployment
       href: ./how-to/ccws/plan-your-deployment.md
+    - name: Plan an enterprise-secured CycleCloud deployment
+      href: ./how-to/plan-enterprise-secured-deployment.md
     - name: Configure Open OnDemand with CycleCloud
       href: ./how-to/ccws/configure-open-ondemand.md
     - name: Configure ThinLinc with Open OnDemand
@@ -187,6 +191,8 @@ items:
       href: /azure/cyclecloud/how-to/monitor-cyclecloud-cluster-using-prometheus-grafana
   - name: Troubleshoot
     items:
+    - name: Troubleshoot first-time setup issues
+      href: ./how-to/troubleshoot-first-time-setup.md
     - name: Report an Issue
       href: ./how-to/report-issues.md
 - name: Reference
