@@ -24,7 +24,7 @@ Application and platform cards play a key role in operationalizing these princip
 
 ## Overview
 
-Discovery is currently available to select customers. Use of Discovery is subject to customer eligibility requirements and acceptance of the Microsoft Product Terms and User Code of Conduct. Discovery requires a license and is offered in a limited number of countries. The goal is to ensure that the system remains safe, reliable, and beneficial for all users as we continue to evolve its capabilities.
+Discovery is currently available to select customers. Use of Discovery is subject to customer eligibility requirements and acceptance of the Microsoft Product Terms and User Code of Conduct. Discovery requires a license and is offered in a limited number of regions. The goal is to ensure that the system remains safe, reliable, and beneficial for all users as we continue to evolve its capabilities.
 
 ### Introduction
 
