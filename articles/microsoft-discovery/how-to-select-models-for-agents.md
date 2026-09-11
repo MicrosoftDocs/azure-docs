@@ -12,7 +12,7 @@ ms.date: 09/10/2026
 
 # Select models for agents in Microsoft Discovery
 
-Microsoft Discovery is built on [Foundry Agent Service](/azure/foundry/agents/concepts/runtime-components). All models available in the [Microsoft Foundry model catalog](https://ai.azure.com/catalog/models) are accessible for Discovery agents. Use OpenAI GPT-5.x series models for the best experience with Discovery agents.
+Microsoft Discovery is built on [Foundry Agent Service](/azure/foundry/agents/concepts/runtime-components). Discovery agents can use all models available in the [Microsoft Foundry model catalog](https://ai.azure.com/catalog/models). Use OpenAI GPT-5.x series models for the best experience with Discovery agents.
 
 This article helps you choose the right model for your agents based on task complexity, output quality, cost, and response time. The guidance applies to both Microsoft Discovery and the Discovery app, with more flexibility available in the Discovery app for third-party model endpoints. (The Discovery app is a local experience built on GitHub Copilot.)
 
