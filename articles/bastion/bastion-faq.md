@@ -158,7 +158,7 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 ### <a name="aadj"></a>Does Bastion work with Entra ID extension-joined VMs?
 
-Bastion does work with Entra ID extension-joined VMs for Microsoft Entra users with RDP and SSH on the native client, and SSH only on the portal. Entra ID for RDP on the portal isn't yet supported. For more information, see [Sign in to a Windows virtual machine in Azure by using Microsoft Entra ID](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+Bastion does work with Entra ID extension-joined VMs for Microsoft Entra users with RDP and SSH on the native client, and SSH only on the portal. Entra ID for RDP on the portal is supported. For more information, see [https://learn.microsoft.com/en-us/azure/bastion/bastion-entra-id-authentication?tabs=portal%2Cwindows%2Cportal-rdp#connect-using-entra-id-authentication).
 
 ### <a name="rdscal-compatibility"></a>Does Bastion support RDS-related scenarios?
 
