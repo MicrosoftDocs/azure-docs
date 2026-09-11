@@ -2,7 +2,8 @@
 title: Azure Configuration
 description: Understand how to prepare your Azure subscription for Azure CycleCloud. Configure a virtual network, a subnet, and a network security group.
 author: bwatrous
-ms.date: 06/19/2026
+ai-usage: ai-assisted
+ms.date: 08/10/2026
 ms.topic: how-to
 ms.author: bewatrou
 ---
@@ -50,6 +51,8 @@ CycleCloud and CycleCloud clusters can run in locked down environments. For conf
 
 However, for less restrictive networks, follow these general guidelines. First, CycleCloud GUI users need access to the CycleCloud VM through HTTPS, and administrators might need SSH access. Cluster users usually need SSH access to at least the submission nodes in the compute clusters and possibly other access like RDP for Windows clusters. The last general rule is to restrict access to the minimum required.
 
+For source, destination, direction, port, and applicability details, see the [authoritative CycleCloud ports and traffic matrix](network-security.md#required-ports-and-traffic).
+
 To create a new network security group for each of the subnets you created, see [create a network security group](/azure/virtual-network/tutorial-filter-network-traffic#create-a-network-security-group).
 
 ### Inbound security rules
@@ -64,7 +67,7 @@ To create a new network security group for each of the subnets you created, see 
 | ------- | -------- | ----------------- | ------- | -------- | ---------- |
 | SSH     | 100      | VirtualNetwork    | Custom  | TCP      | 22         |
 | HTTPS   | 110      | VirtualNetwork    | Custom  | TCP      | 443        |
-| HTTPS   | 110      | VirtualNetwork    | Custom  | TCP      | 9443       |
+| HTTPS   | 120      | VirtualNetwork    | Custom  | TCP      | 9443       |
 
 #### Compute Subnets
 
@@ -72,7 +75,6 @@ To create a new network security group for each of the subnets you created, see 
 | ------- | -------- | ---------------- | ------- | -------- | ---------- |
 | SSH     | 100      | VirtualNetwork   | Custom  | TCP      | 22         |
 | RDP     | 110      | VirtualNetwork   | Custom  | TCP      | 3389       |
-| Ganglia | 120      | VirtualNetwork   | Custom  | TCP      | 8652       |
 
 ### Outbound Security Rules
 

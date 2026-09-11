@@ -2,14 +2,15 @@
 title: Network Connectivity Configuration
 description: Learn how to configure network connectivity so Azure CycleCloud can access the virtual machines in your clusters.
 author: adriankjohnson
-ms.date: 06/19/2026
+ai-usage: ai-assisted
+ms.date: 08/10/2026
 ms.topic: concept-article
 ms.author: adjohnso
 ---
 
 # Azure CycleCloud and Cluster Connectivity
 
-Nodes in a cluster need to communicate with the Azure CycleCloud server for activities such as monitoring, status reporting, service synchronization, and autoscaling. Both HTTPS and AMQP protocols are used with the default TCP ports (443 and 5672 respectively).
+Nodes in a cluster need to communicate with the Azure CycleCloud server for activities such as monitoring, status reporting, service synchronization, and autoscaling. In CycleCloud 8, nodes use HTTPS on TCP port 9443 for direct communication with the CycleCloud server. For the complete direct, return-proxy, scheduler, monitoring, and egress requirements, see the [CycleCloud ports and traffic matrix](./how-to/network-security.md#required-ports-and-traffic).
 
 If you deploy the Azure CycleCloud server in the same virtual network as the compute cluster, you usually meet the connectivity requirements. However, if your network topology or firewalls block direct communication, consider these alternatives: 
 
@@ -25,9 +26,15 @@ For installations where the CycleCloud application server is installed on-premis
 
 If network topology or firewalls prevent communication between the Azure
 CycleCloud server and cluster nodes, you can designate a node in the cluster as a
-**return proxy**. With this setup, the listening ports on Azure CycleCloud server are forwarded through an SSH tunnel. The cluster nodes reach the CycleCloud server via ports 37140 and 37141 on the proxy. A typical deployment has the cluster
+**return proxy**. With this setup, you forward the listening port on the Azure CycleCloud server through an SSH tunnel. The cluster nodes reach the CycleCloud server through TCP port 37140 on the proxy. A typical deployment has the cluster
 head node designated as the return proxy, but any persistent node can play that
 same role.
+
+::: moniker range="=cyclecloud-7"
+
+CycleCloud 7 nodes also use TCP port 37141 on the return proxy for AMQP traffic to CycleCloud port 5672.
+
+::: moniker-end
 
 For more information about configuring the return proxy, see [Return proxy](~/articles/cyclecloud/how-to/return-proxy.md).
 
