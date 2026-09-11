@@ -6,6 +6,7 @@ ms.topic: tutorial
 author: RochakSingh-blr
 ms.author: v-rochak2
 ms.date: 07/31/2025
+ms.update-cycle: 1095-days
 ms.custom: mvc, engagement-fy23
 # Customer intent: "As an Azure administrator, I want to move SQL databases and elastic pools to different regions, so that I can optimize performance and manage resources according to regional requirements."
 ---

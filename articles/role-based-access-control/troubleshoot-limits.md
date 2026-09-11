@@ -32,10 +32,10 @@ When you try to assign a role, you get the following error message:
 
 ### Cause
 
-Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. [Eligible role assignments](/azure/role-based-access-control/role-assignments-portal#step-6-select-assignment-type) and role assignments scheduled in the future do not count towards this limit. You should try to reduce the number of role assignments in the subscription.
+Azure supports up to **5000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. [Eligible role assignments](/azure/role-based-access-control/role-assignments-portal#step-6-select-assignment-type) and role assignments scheduled in the future do not count towards this limit. You should try to reduce the number of role assignments in the subscription.
 
 > [!NOTE]
-> The **4000** role assignments limit per subscription is fixed and cannot be increased.
+> The **5000** role assignments limit per subscription is fixed and cannot be increased.
 
 To get the number of role assignments, you can view the [chart on the Access control (IAM) page](/azure/role-based-access-control/role-assignments-list-portal#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
 
@@ -113,7 +113,7 @@ To reduce the number of role assignments in the subscription, add principals (us
   
     - To use Azure portal, see [Add or update a user's profile information and settings](../active-directory/fundamentals/how-to-manage-user-profile-info.md).
     - To use PowerShell, see [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?branch=main).
-    - To use Azure, CLI, see [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show).
+    - To use Azure CLI, see [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show).
 
 1. Open the **Access control (IAM)** page at the same scope as the role assignments.
 
@@ -191,7 +191,7 @@ To reduce the number of role assignments in the subscription, remove redundant r
   
     - To use Azure portal, see [Add or update a user's profile information and settings](../active-directory/fundamentals/how-to-manage-user-profile-info.md).
     - To use PowerShell, see [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?branch=main).
-    - To use Azure, CLI, see [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show).
+    - To use Azure CLI, see [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show).
 
 1. Open the **Access control (IAM)** page at the scope for a role assignment you want to remove.
 
@@ -256,7 +256,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
   
     - To use Azure portal, see [Add or update a user's profile information and settings](../active-directory/fundamentals/how-to-manage-user-profile-info.md).
     - To use PowerShell, see [Get-MgUser](/powershell/module/microsoft.graph.users/get-mguser?branch=main).
-    - To use Azure, CLI, see [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show).
+    - To use Azure CLI, see [az ad user show](/cli/azure/ad/user?branch=main#az-ad-user-show).
 
 1. Open the **Access control (IAM)** page at the same scope as the role assignments.
 

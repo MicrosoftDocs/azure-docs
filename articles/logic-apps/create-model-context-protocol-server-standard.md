@@ -1,16 +1,14 @@
 ---
 title: Create Remote MCP Servers from Standard Workflows
-description: Learn how to create remote Model Context Protocol (MCP) servers in a Standard logic app to expose workflows as tools for AI agents, LLMs, and MCP clients in AI enterprise integrations.
-services: logic-apps
+description: Create remote MCP servers from Azure Logic Apps Standard workflows as tools for AI agents, LLMs, and MCP clients for enterprise automations and integrations.
+services: azure-logic-apps
 ms.suite: integration
-author: kewear
-ms.author: kewear
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/25/2026
+ms.date: 09/11/2026
 ms.update-cycle: 180-days
-#Customer intent: As an AI developer working with Azure Logic Apps, I want to create and register a remote MCP server that provides tools for AI agents and large language models (LLMs) to use for completing tasks. I can build these tools from connector actions in Azure Logic Apps.
+#Customer intent: As an AI developer working with Azure Logic Apps, I want to create a remote MCP server that provides tools for AI agents and large language models (LLMs) to use for completing tasks. I can build these tools from connector actions in Azure Logic Apps.
 ---
 
 # Create remote Model Context Protocol (MCP) servers from Standard workflows (preview)
@@ -22,24 +20,40 @@ ms.update-cycle: 180-days
 > This preview feature is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Large language models (LLMs) work with AI agents that handle and fulfill requests by calling prebuilt *tools* to complete tasks, like sending an email, querying a database, or triggering a workflow. In Azure Logic Apps, you can build these tools by setting up a Standard logic app as one or more *remote* Model Context Protocol (MCP) servers. This setup lets you expose workflows as tools that LLMs, AI agents, and MCP clients can use to interact with enterprise resources and assets. In this context, *remote* means that the MCP server runs outside the environment where the AI agent interface runs.
+Create remote MCP servers from Standard logic app workflows so AI agents, large language models (LLMs), and MCP clients can securely discover and call the workflows as enterprise automation tools. In this scenario, *remote* means that the MCP server runs outside the agent, LLM, or MCP client environment.
 
-In this guide, you:
+This guide applies when your workflows:
 
-- Set up a Standard logic app resource with one or more MCP servers.
-- Configure authentication with Easy Auth and generate API keys.
-- Choose or create workflows as MCP tools.
-- Test your MCP server with an MCP client in Visual Studio Code.
+- Run in a Workflow Service Plan or App Service Environment v3.
+- Start with the **When an HTTP request is received** trigger.
+- End with the **Response** action.
+
+This guide shows you how to:
+
+- Create an MCP server from new or existing Standard workflows.
+- Secure the server by setting up key-based or OAuth authentication.
+- Test your MCP server from Visual Studio Code.
+
+Choose your setup path:
+
+| Decision | Continue to |
+|----------|-------------|
+| Use workflows that already start with a Request trigger and end with a Response action | [Create an MCP server from existing workflows](#choose-existing-workflows) |
+| Generate new workflows from connector actions | [Create an MCP server from connector actions](#create-new-workflows) |
+| Authenticate with Microsoft Entra ID and OAuth | [Configure OAuth with Easy Auth](#set-up-easy-auth) |
+| Authenticate with an API key | [Generate an MCP API key](#select-authentication-and-review-mcp-servers) |
+
+After you finish, you can use an MCP client to discover and call your workflows as MCP tools.
 
 ## Why set up Standard logic apps as MCP servers
 
-MCP is an open standard that lets LLMs, AI agents, and MCP clients work with external systems and tools in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so agents can interact with real-world systems like databases, APIs, and business workflows. Consider an MCP server as a bridge between an LLM, AI agent, or MCP client and the tools they use.
+MCP is an open standard that AI agents, LLMs, and MCP clients use to discover and securely run external tools through a standard interface. MCP defines how to describe, run, and authenticate access to external tools so agents can interact with real-world systems like databases, APIs, and business workflows. Consider an MCP server as a bridge between an AI agent, LLM, or MCP client and the tools they use.
 
-For example, suppose you have a Standard logic app-based MCP server that runs in Azure. On your local computer, Visual Studio Code has an MCP client that you use to remotely connect to your MCP server. This scenario differs from local MCP servers that run on your computer.
+The following diagram shows how an MCP client connects AI agents or models to workflows in a Standard logic app:
 
-The following diagram shows how these components interact:
+:::image type="content" source="media/create-model-context-protocol-server-standard/mcp-server-architecture.png" alt-text="Diagram that shows an MCP server hosted in an Azure Logic Apps Standard logic app with workflows exposed as tools and an agent, LLM, or MCP client in Visual Studio Code." lightbox="media/create-model-context-protocol-server-standard/mcp-server-architecture.png":::
 
-:::image type="content" source="media/create-model-context-protocol-server-standard/mcp-server-architecture.png" alt-text="Diagram that shows agent or model interactions with MCP client and MCP server components." lightbox="media/create-model-context-protocol-server-standard/mcp-server-architecture.png":::
+In this architecture, Azure Logic Apps hosts the remote MCP server and exposes Standard workflows as tools. An MCP client, such as Visual Studio Code, connects to the server and makes those tools available to an agent or model. Unlike a local MCP server, this remote server runs outside the environment where the MCP client and agent interface run.
 
 The diagram shows these key interactions:
 
@@ -61,7 +75,7 @@ For more information, see:
 - [MCP client concepts](https://modelcontextprotocol.io/docs/learn/client-concepts)
 - [Introduction - Get started with the Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro)
 
-The following table describes the benefits from setting up Standard logic apps as remote MCP servers:
+The following table describes the benefits for setting up Standard logic apps as remote MCP servers:
 
 | Benefit | Description |
 |---------|-------------|
@@ -75,11 +89,13 @@ The following table describes the benefits from setting up Standard logic apps a
 
 ## Prerequisites
 
+### Required to create the server
+
 - An Azure account with an active subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- The Standard logic app resource to set up as an MCP server with tools that agents or models can call.
+- The Standard logic app resource where you want to create the MCP server.
 
-- One or more workflows in your logic app to use as tools for your MCP server. These workflows must meet the following requirements:
+- One or more workflows in your logic app that meet the following requirements:
 
   | Requirement | Description |
   |-------------|-------------|
@@ -88,40 +104,35 @@ The following table describes the benefits from setting up Standard logic apps a
   | **Action** | Workflows must end with the **Response** action. |
   | **State** | The logic app resource must be running, and the workflow must be enabled. |
 
-  You can select an existing workflow or create a new workflow in your logic app.
+  You can select an existing workflow or create a new workflow in your logic app. If you don't have a qualifying workflow, [create workflows from connector actions](#create-workflows) when you register the MCP server.
 
-  For more information, see:
+  For more information, see [Considerations for workflows as tools](#considerations-for-workflows-as-tools).
 
-  - [Considerations for workflows as tools](#considerations-for-workflows-as-tools)
-  - [Create a Standard logic app and workflow using the Azure portal](create-single-tenant-workflows-azure-portal.md)
+- For OAuth authentication, a [Microsoft Entra app registration](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-registration).
 
-- An [app registration](/entra/identity-platform/app-objects-and-service-principals?tabs=browser#application-registration) to use in the Easy Auth setup for your logic app.
+  Your logic app uses this app registration to delegate identity and access management functions to Microsoft Entra ID. For instructions, see [Create an app registration](#create-an-app-registration).
 
-  This app registration is an identity that your logic app resource uses to delegate identity and access management functions to Microsoft Entra ID.
-
-  For instructions, see [Create an app registration](#create-an-app-registration).
+### Required only for testing
 
 - An MCP client to test your MCP server setup.
 
-  This guide uses [Visual Studio Code](https://code.visualstudio.com/download).
+  For this guide, get the latest version of [Visual Studio Code](https://code.visualstudio.com/download). MCP support is generally available in versions after 1.102. For more information, see 
+  [MCP servers in Visual Studio Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
-  > [!NOTE]
-  >
-  > Make sure to use the latest version of Visual Studio Code for MCP server testing. Visual Studio Code 
-  > includes generally available MCP support in versions after 1.102. For more information, see 
-  > [MCP servers in Visual Studio Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+- The [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
 
-  For the testing example, you need the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). For more information, see:
+  For more information, see:
 
   - [Use extensions in Visual Studio Code](https://code.visualstudio.com/docs/getstarted/extensions)
-  - [Set up Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/setup#_set-up-copilot-in-vs-code)
-  - [Get started with GitHub Copilot in Visual Studio Code](https://code.visualstudio.com/docs/copilot/getting-started)
+  - [Set up Copilot in Visual Studio Code](https://code.visualstudio.com/docs/setup/copilot)
 
-- No other requirements exist to use the Streamable HTTP transport. However, to use the Server-Sent Events (SSE) transport, your logic app must meet the following requirements:
+### Required only for SSE transport
 
-  - Your logic app requires virtual network integration. See [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+Streamable HTTP has no other requirements. For Server-Sent Events (SSE) transport:
 
-  - In your logic app resource, the **host.json** file requires that you add and set the `Runtime.Backend.EdgeWorkflowRuntimeTriggerListener.AllowCrossWorkerCommunication` setting to `true`.
+- Set up your logic app resource with [virtual network integration](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+
+- In your logic app resource, find and open the **host.json** file to add and set the `Runtime.Backend.EdgeWorkflowRuntimeTriggerListener.AllowCrossWorkerCommunication` setting to `true`.
 
 ## Considerations for workflows as tools
 
@@ -135,7 +146,7 @@ The steps in this section use the Azure portal, but you can alternatively use Vi
 
 Your MCP server uses this metadata as the tool description to show end users and to route requests to the correct tool, for example:
 
-:::image type="content" source="media/create-model-context-protocol-server-standard/trigger-description.png" alt-text="Screenshot shows trigger information pane with description box and example description." lightbox="media/create-model-context-protocol-server-standard/trigger-description.png":::
+:::image type="content" source="media/create-model-context-protocol-server-standard/trigger-description.png" alt-text="Screenshot that shows the trigger pane for the When a HTTP request is received action with a highlighted example description." lightbox="media/create-model-context-protocol-server-standard/trigger-description.png":::
 
 To add this description, follow these steps:
 
@@ -149,9 +160,9 @@ To add this description, follow these steps:
 
 ### Input parameter descriptions
 
-This metadata improves the agent's accuracy in passing the correct inputs to tools at runtime, for example:
+This metadata helps the agent pass the correct inputs to tools at runtime. For example:
 
-:::image type="content" source="media/create-model-context-protocol-server-standard/input-parameter-descriptions.png" alt-text="Screenshot shows trigger information pane with Request Body Json Schema box and example descriptions for input parameters." lightbox="media/create-model-context-protocol-server-standard/input-parameter-descriptions.png":::
+:::image type="content" source="media/create-model-context-protocol-server-standard/input-parameter-descriptions.png" alt-text="Screenshot that shows the Request trigger pane with the Request Body JSON Schema box and example descriptions for input parameters." lightbox="media/create-model-context-protocol-server-standard/input-parameter-descriptions.png":::
 
 To add a description for each input parameter, follow these steps:
 
@@ -211,9 +222,13 @@ To add a description for each input parameter, follow these steps:
 
   - You can set up error handling and use the `runAfter` property to return the appropriate error message to the caller. For more information, see [Manage the "run after" behavior](error-exception-handling.md#manage-the-run-after-behavior).
 
-## Create an app registration
+## Set up OAuth authentication
 
-To create an app registration for your logic app to use in your Easy Auth setup, follow these steps:
+Setting up OAuth is a separate identity management task. To use OAuth for your MCP server, complete this section. To use an API key instead, skip this section and continue to [Create an MCP server](#create-an-mcp-server-by-using-workflows).
+
+### Create an app registration
+
+To create an app registration for your logic app to use with Easy Auth, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter **app registrations**.
 
@@ -263,7 +278,7 @@ When you finish these steps, you have the following values to use later with you
 
 <a id="set-up-easy-auth"></a>
 
-## Set up Easy Auth for your MCP server
+### Set up Easy Auth for your MCP server
 
 Set up Easy Auth authentication on the Standard logic app that you want to use as your MCP server.
 
@@ -299,7 +314,7 @@ Set up Easy Auth authentication on the Standard logic app that you want to use a
 
 1. Select **Add**.
 
-1. Continue with the steps to create an MCP server in your logic app.
+1. Continue with [Create an MCP server by using workflows](#create-an-mcp-server-by-using-workflows).
 
 ## Create an MCP server by using workflows
 
@@ -307,14 +322,14 @@ Set up Easy Auth authentication on the Standard logic app that you want to use a
 
 1. On the logic app sidebar, under **Agents**, select **MCP servers** to open the **MCP servers** page, for example:
 
-   :::image type="content" source="media/create-model-context-protocol-server-standard/mcp-servers.png" alt-text="Screenshot shows the Azure portal, Standard logic app resource, and MCP servers page.":::
+   :::image type="content" source="media/create-model-context-protocol-server-standard/mcp-servers.png" alt-text="Screenshot that shows the Azure portal, Standard logic app resource, and MCP servers page.":::
 
-1. Select one of the following options:
+1. Choose the path that matches your scenario:
 
-   | Option | Description |
+   | Path | Description |
    |--------|-------------|
-   | **Use existing workflows** | When you have one or more existing workflows to use for your MCP server. Continue to [Choose existing workflows](#choose-workflows). |
-   | **Create new workflows** | When you want to create new workflows to use for your MCP server. Continue to [Create new workflows](#create-workflows). |
+   | [**Use existing workflows**](#choose-workflows) | Add one or more existing and qualifying Request-Response workflows to your MCP server. |
+   | [**Create new workflows**](#create-workflows) | Create new workflows as tools while registering your MCP server. |
 
 <a id="choose-workflows"></a>
 
@@ -328,13 +343,13 @@ On the **Create an MCP server** pane, follow these steps:
 
 1. Enter a **Description** about the purpose for your MCP server.
 
-   This important information helps agents and other clients choose the server they need.
+   This information helps agents and other clients choose the server they need.
 
 1. Under **Workflows**, select one or multiple workflows to use as tools for your MCP server.
 
    > [!NOTE]
    >
-   > The list shows only workflows that start with the **Request** trigger and contains appro with the **Response** action.
+   > The list shows only workflows that start with the **Request** trigger and contain the **Response** action.
 
 1. When you finish, select **Create**.
 
@@ -350,7 +365,7 @@ On the **Create an MCP server** pane, follow these steps:
 
    - A **Description** about the purpose for your MCP server.
 
-     This important information helps agents and other clients choose the server they need.
+     This information helps agents and other clients choose the server they need.
 
    By default, the **Logic app** value is set to the current logic app name and is uneditable.
 
@@ -360,15 +375,15 @@ On the **Create an MCP server** pane, follow these steps:
 
       1. In the **Connectors** section, select **Add**.
 
-         :::image type="content" source="media/create-model-context-protocol-server-standard/add-connector.png" alt-text="Screenshot shows the Connectors section with the selected option for Add." lightbox="media/create-model-context-protocol-server-standard/add-connector.png":::
+         :::image type="content" source="media/create-model-context-protocol-server-standard/add-connector.png" alt-text="Screenshot that shows the Connectors section with the selected option for Add." lightbox="media/create-model-context-protocol-server-standard/add-connector.png":::
 
       1. On the **Add connector** pane and the **Choose connector** tab, find and select the connector to use, for example:
 
-         :::image type="content" source="media/create-model-context-protocol-server-standard/choose-connector.png" alt-text="Screenshot shows Add connector pane with selected Office 365 Outlook connector." lightbox="media/create-model-context-protocol-server-standard/choose-connector.png":::
+         :::image type="content" source="media/create-model-context-protocol-server-standard/choose-connector.png" alt-text="Screenshot that shows the Add connector pane with selected Office 365 Outlook connector." lightbox="media/create-model-context-protocol-server-standard/choose-connector.png":::
 
       1. On the **Select actions** tab, select each action that you want to create as a tool, for example:
 
-         :::image type="content" source="media/create-model-context-protocol-server-standard/select-actions.png" alt-text="Screenshot shows Add connector pane with selected connector actions to create as tools." lightbox="media/create-model-context-protocol-server-standard/select-actions.png":::
+         :::image type="content" source="media/create-model-context-protocol-server-standard/select-actions.png" alt-text="Screenshot that shows the Add connector pane with selected connector actions to create as tools." lightbox="media/create-model-context-protocol-server-standard/select-actions.png":::
 
       1. When you're done, select **Next**.
 
@@ -380,7 +395,7 @@ On the **Create an MCP server** pane, follow these steps:
 
       The **Connectors** section now shows your selected connector. The **Actions** section shows the selected actions that power the tools that your MCP server provides. By default, any parameters for these actions use an LLM as the input source. You can change this input source to user-provided, based on your scenario's needs.
 
-      :::image type="content" source="media/create-model-context-protocol-server-standard/tools-list.png" alt-text="Screenshot shows the Connectors and Actions sections with the added actions as tools." lightbox="media/create-model-context-protocol-server-standard/tools-list.png":::
+      :::image type="content" source="media/create-model-context-protocol-server-standard/tools-list.png" alt-text="Screenshot that shows the Connectors and Actions sections with the added actions as tools." lightbox="media/create-model-context-protocol-server-standard/tools-list.png":::
 
   1. To help an agent or LLM choose the correct tool and pass correctly sourced inputs to tool parameters, review and update each tool's setup by following these steps:
 
@@ -396,7 +411,7 @@ On the **Create an MCP server** pane, follow these steps:
 
         The following example shows the description and parameters for the **Send email (V2)** tool:
 
-        :::image type="content" source="media/create-model-context-protocol-server-standard/tool-parameters.png" alt-text="Screenshot shows Edit pane for an example tool." lightbox="media/create-model-context-protocol-server-standard/tool-parameters.png":::
+        :::image type="content" source="media/create-model-context-protocol-server-standard/tool-parameters.png" alt-text="Screenshot that shows the Edit pane for an example tool." lightbox="media/create-model-context-protocol-server-standard/tool-parameters.png":::
 
      1. When you finish, select **Save changes**.
 
@@ -441,11 +456,17 @@ The **MCP servers** page now shows the **Authentication** and **Servers** sectio
 
       1. Follow the steps in [Set up Easy Auth for your MCP server](#set-up-easy-auth).
 
-1. Continue to [test your MCP server](#test-your-mcp-server).
+1. Continue to [test your MCP server](#connect-and-test-your-mcp-server).
 
-## Test your MCP server
+## Connect and test your MCP server
 
-You need the URL for your MCP server so you can send a request from Visual Studio Code.
+In this section, you add the MCP server URL to Visual Studio Code, authenticate the connection, confirm that the server status is **Running**, and call one of the MCP server tools from GitHub Copilot.
+
+Before you start, confirm that you have:
+
+- The MCP server URL.
+- An OAuth identity or API key authorized to access the server.
+- The latest version of Visual Studio Code with GitHub Copilot installed.
 
 1. On the logic app sidebar, under **Agents**, select **MCP servers**.
 
@@ -453,7 +474,7 @@ You need the URL for your MCP server so you can send a request from Visual Studi
 
 1. In Visual Studio Code, from the **View** menu, select **Command Palette**. Find and select **MCP: Add Server**.
 
-   :::image type="content" source="media/create-model-context-protocol-server-standard/visual-studio-code-mcp-add-server.png" alt-text="Screenshot shows Visual Studio Code, Command Palette, and command to add MCP server." lightbox="media/create-model-context-protocol-server-standard/visual-studio-code-mcp-add-server.png":::
+   :::image type="content" source="media/create-model-context-protocol-server-standard/visual-studio-code-mcp-add-server.png" alt-text="Screenshot that shows Visual Studio Code, the Command Palette, and command to add MCP server." lightbox="media/create-model-context-protocol-server-standard/visual-studio-code-mcp-add-server.png":::
 
 1. Select **HTTP (HTTP or Server-Sent Events)**. For **Enter Server URL**, enter your MCP server URL.
 
@@ -471,11 +492,11 @@ You need the URL for your MCP server so you can send a request from Visual Studi
 
    **OAuth**
 
-   :::image type="content" source="media/create-model-context-protocol-server-standard/start-server-mcp-json-file-oauth.png" alt-text="Screenshot shows mcp.json file for OAuth with Start link selected." lightbox="media/create-model-context-protocol-server-standard/start-server-mcp-json-file-oauth.png":::
+   :::image type="content" source="media/create-model-context-protocol-server-standard/start-server-mcp-json-file-oauth.png" alt-text="Screenshot that shows the mcp.json file for OAuth with Start link selected." lightbox="media/create-model-context-protocol-server-standard/start-server-mcp-json-file-oauth.png":::
 
    **Key-based**
 
-   :::image type="content" source="media/create-model-context-protocol-server-standard/start-server-mcp-json-file-key-based.png" alt-text="Screenshot shows mcp.json file for Key-based with Start link selected." lightbox="media/create-model-context-protocol-server-standard/start-server-mcp-json-file-key-based.png":::
+   :::image type="content" source="media/create-model-context-protocol-server-standard/start-server-mcp-json-file-key-based.png" alt-text="Screenshot that shows the mcp.json file for Key-based with Start link selected." lightbox="media/create-model-context-protocol-server-standard/start-server-mcp-json-file-key-based.png":::
 
 1. When the authentication prompt appears, select **Allow**, and then select the account to use for authentication.
 
@@ -485,11 +506,11 @@ You need the URL for your MCP server so you can send a request from Visual Studi
 
    **OAuth**
 
-   :::image type="content" source="media/create-model-context-protocol-server-standard/running-mcp-json-file-oauth.png" alt-text="Screenshot shows mcp.json file for OAuth with Running status selected." lightbox="media/create-model-context-protocol-server-standard/running-mcp-json-file-oauth.png":::
+   :::image type="content" source="media/create-model-context-protocol-server-standard/running-mcp-json-file-oauth.png" alt-text="Screenshot that shows the mcp.json file for OAuth with Running status selected." lightbox="media/create-model-context-protocol-server-standard/running-mcp-json-file-oauth.png":::
 
    **Key-based**
 
-   :::image type="content" source="media/create-model-context-protocol-server-standard/running-mcp-json-file-key-based.png" alt-text="Screenshot shows mcp.json file for Key-based with Running status selected." lightbox="media/create-model-context-protocol-server-standard/running-mcp-json-file-key-based.png":::
+   :::image type="content" source="media/create-model-context-protocol-server-standard/running-mcp-json-file-key-based.png" alt-text="Screenshot that shows the mcp.json file for Key-based with Running status selected." lightbox="media/create-model-context-protocol-server-standard/running-mcp-json-file-key-based.png":::
 
 1. As a test, try calling your MCP server from GitHub Copilot:
 
@@ -505,10 +526,14 @@ You need the URL for your MCP server so you can send a request from Visual Studi
 
 Now you can interact with your MCP server through the Copilot chat interface.
 
+<a id="runtime-value-resolution"></a>
+
 [!INCLUDE [ai-action-parameter-values-runtime](includes/ai-action-parameter-values-runtime.md)]
 
-## Related content
+## Next steps
 
-- [Workflows with AI agents and models in Azure Logic Apps](agent-workflows-concepts.md)
+Choose what to do next:
+
+- [Learn how agentic workflows work in Azure Logic Apps](agent-workflows-concepts.md)
 - [Create workflows that use AI agents and models](create-agent-workflows.md)
-- [Run Consumption workflows as actions for agents in Microsoft Foundry](add-agent-action-create-run-workflow.md)
+- [Expose Consumption workflows as actions for Microsoft Foundry agents](add-agent-action-create-run-workflow.md)
