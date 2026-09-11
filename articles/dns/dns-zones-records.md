@@ -123,7 +123,7 @@ NAPTR (Naming Authority Pointer) records are used to map values in one numbering
 * **Flags**: An ASCII string that contains single-character flags that control various aspects of the rewriting and interpretation of the fields in the NAPTR record.
 * **Service**: An ASCII string that specifies the service types available down the chain. Common services include `E2U+sip` (for SIP URIs) and `E2U+mailto` (for email addresses).
 * **Regexp**: A POSIX extended regular expression pattern that is applied to the original string to produce an output string.
-* **Replacement**: The next name in the domain name chain (fully qualified domain name). This field is used if the Regexp field is empty.
+* **Replacement**: Enter the next name in the domain name chain (fully qualified domain name). Use this field if the Regexp field is empty.
 ## Tags and metadata
 
 ### Tags
