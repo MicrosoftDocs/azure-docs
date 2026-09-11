@@ -75,7 +75,7 @@ When **allow_elevated_docker_permissions** is set to `true`, you can use the fol
 - SecurityOpt
 - UsernsMode
 
-When **allow_elevated_docker_permissions = false**, the capabilities listed above are not allowed and will be removed from IoT Edge modules if they are set. If no modules require these privileged capabilities, set **allow_elevated_docker_permissions** to false to improve the security of the device.
+When **allow_elevated_docker_permissions** is set to `false`, the capabilities listed previously aren't allowed and are removed from IoT Edge modules if they're set. If no modules require these privileged capabilities, set **allow_elevated_docker_permissions** to `false` to improve the security of the device.
 
 ```toml
 allow_elevated_docker_permissions = false
