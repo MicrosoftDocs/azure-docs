@@ -187,6 +187,8 @@ items:
       href: /azure/cyclecloud/how-to/monitor-cyclecloud-cluster-using-prometheus-grafana
   - name: Troubleshoot
     items:
+    - name: Troubleshoot first-time setup issues
+      href: ./how-to/troubleshoot-first-time-setup.md
     - name: Report an Issue
       href: ./how-to/report-issues.md
 - name: Reference
