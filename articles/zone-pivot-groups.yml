@@ -2198,6 +2198,15 @@ groups:
     title: Windows
   - id: linux
     title: Linux
+# Owner: kendownie
+- id: azure-files-resource-provider
+  title: Resource provider
+  prompt: Choose a resource provider
+  pivots:
+  - id: microsoft-storage
+    title: Microsoft.Storage
+  - id: microsoft-fileshares
+    title: Microsoft.FileShares
 # Owner: zamasiel
 - id: sap-ha-nfs-solution
   title: Azure NFS Hosting Option
