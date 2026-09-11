@@ -31,7 +31,7 @@ You can use either the Azure portal or an Azure CLI extension to create and mana
 >[!Note]
 > For Public Trust individual identity validation, Artifact Signing automatically sources identity details from the Azure billing account associated with the subscription used to create the Artifact Signing resource. The billing account must have an Account Type of Individual.
 > Before starting validation, confirm that the legal name and billing address are accurate. This information appears on the Public Trust certificate profile. To review or update it, see [Manage billing accounts](/microsoft-365/commerce/manage-billing-accounts?toc=/azure/artifact-signing/toc.json&bc=/azure/artifact-signing/breadcrumb/toc.json).
-> This billing account type requirement applies only to individual identity validation. Organization identity validation does not require an Azure billing account with an Account Type of Organization. 
+> This billing account type requirement applies only to individual identity validation. Organization identity validation doesn't require an Azure billing account with an Account Type of Organization. 
 
 
 To complete this quickstart, you need:
