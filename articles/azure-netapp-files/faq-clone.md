@@ -30,7 +30,7 @@ For Auto QoS capacity pools the clone volume throughput limit is defined by the 
 
 For Manual QoS capacity pools you can manually assign a throughput limit to the clone volume independent of the capacity but within the capacity pool allocated limits. You can change the volume throughput limit after short-term volume clone creation if needed. 
 
-## What are the options available for for volume cloning?
+## What are the options available for volume cloning?
 
 Two cloning options are provided: 
 
