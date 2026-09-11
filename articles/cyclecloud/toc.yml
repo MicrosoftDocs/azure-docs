@@ -99,6 +99,8 @@ items:
     items:
     - name: Plan your CycleCloud Workspace for Slurm Deployment
       href: ./how-to/ccws/plan-your-deployment.md
+    - name: Plan an enterprise-secured CycleCloud deployment
+      href: ./how-to/plan-enterprise-secured-deployment.md
     - name: Configure Open OnDemand with CycleCloud
       href: ./how-to/ccws/configure-open-ondemand.md
     - name: Configure ThinLinc with Open OnDemand
