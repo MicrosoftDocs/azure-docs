@@ -46,7 +46,7 @@ To manage approval requests, you need:
 
 Before approving or rejecting a request, carefully review the details:
 
-1. In the `Approvals` list, select checkbox for the request you want to review, and select `Review`.
+1. In the `Approvals` list, select the checkbox for the request you want to review, and select `Review`.
 
 1. The approval details page displays:
    - `Resource`: The requested resource
@@ -56,7 +56,7 @@ Before approving or rejecting a request, carefully review the details:
    - `Ticket Id`: An optional field for you to link to your change tracking system
    - `Approvals`: Allows you to approve or reject this request
    - `Approval status`: The status of meeting the approval requirements.
-   - `Approver details`: The list of who has approved or rejected the request.
+   - `Approver details`: The list of who approved or rejected the request.
 
 1. Review all information carefully before making a decision.
 
