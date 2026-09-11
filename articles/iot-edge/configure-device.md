@@ -63,7 +63,7 @@ For more information about the IoT Edge trust bundle, see [Manage trusted root C
 
 Some Docker capabilities can be used to gain host access from a Docker container. The **allow_elevated_docker_permissions** setting controls whether IoT Edge modules can use these Docker capabilities.
 
-When **allow_elevated_docker_permissions = true**, the following docker capabilities may be used to create IoT Edge modules:
+When **allow_elevated_docker_permissions** is set to `true`, you can use the following Docker capabilities to create IoT Edge modules:
 - CapAdd
 - CapDrop
 - CgroupParent
