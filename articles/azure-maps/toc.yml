@@ -146,6 +146,8 @@ items:
       href: android-sdk-migration-guide.md	  
     - name: iOS SDK migration guide
       href: ios-sdk-migration-guide.md
+    - name: Migrate Azure Maps Render 1.0 APIs
+      href: migrate-render-v1-api.md
     - name: Migrate Azure Maps Search 1.0 APIs
       href: migrate-search-v1-api.md
     - name: Migrate Azure Maps Route 1.0 APIs

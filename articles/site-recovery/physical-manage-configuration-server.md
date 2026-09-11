@@ -21,7 +21,7 @@ You set up an on-premises configuration server when you use the [Azure Site Reco
 
 ## Prerequisites
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 The table summarizes the prerequisites for deploying the on-premises configuration server machine.
 

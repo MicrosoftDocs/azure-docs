@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the C# SDK Developers Guide.
 author: sinnypan
 ms.author: sipa
-ms.date: 08/27/2024
+ms.date: 09/10/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: rest-sdk
@@ -301,9 +301,9 @@ for (var i = 0; i < count; i++)
 }
 ```
 
-## Using v1 SDKs for Search and Render
+## Use the v1 SDK for Search
 
-For more information on using Search v1, see [Azure Maps Search client library for .NET](https://www.nuget.org/packages/Azure.Maps.Search/1.0.0-beta.5). For more information on using Render v1, see [Azure Maps Render client library for .NET](https://www.nuget.org/packages/Azure.Maps.Rendering/1.0.0-beta.3).
+For more information about using Search v1, see [Azure Maps Search client library for .NET](https://www.nuget.org/packages/Azure.Maps.Search/1.0.0-beta.5/). To migrate a Render v1 application, see [Migrate Azure Maps Render 1.0 APIs].
 
 ## Additional information
 
@@ -320,6 +320,7 @@ The [Azure.Maps Namespace] in the .NET documentation.
 [geolocation package]: https://www.nuget.org/packages/Azure.Maps.geolocation
 [Host a daemon on non-Azure resources]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 [Identity library .NET]: /dotnet/api/overview/azure/identity-readme
+[Migrate Azure Maps Render 1.0 APIs]: migrate-render-v1-api.md
 [rendering package]: https://www.nuget.org/packages/Azure.Maps.Rendering
 [rendering readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Rendering/README.md
 [rendering sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Rendering/samples

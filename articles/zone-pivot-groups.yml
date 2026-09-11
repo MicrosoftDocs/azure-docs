@@ -1,5 +1,14 @@
 ### YamlMime:ZonePivotGroups
 groups:
+# Owner: v-mallicka
+- id: backup-client-portal-cli
+  title: Clients
+  prompt: Choose a client
+  pivots:
+  - id: client-portal
+    title: Azure portal
+  - id: client-cli
+    title: Azure CLI
 # Owner: lilyjma
 - id: connector-namespace-hosted-servers
   title: Hosted server
@@ -53,7 +62,7 @@ groups:
   - id: client-portal
     title: Azure portal
   - id: client-powershell
-    title: PowerShell
+    title: Azure PowerShell
   - id: client-cli
     title: Azure CLI
 #Owner: kraigb
