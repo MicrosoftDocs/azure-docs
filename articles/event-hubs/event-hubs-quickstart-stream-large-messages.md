@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Send and receive large messages with Azure Event Hubs (Preview)'
+title: 'Quickstart: Send and receive large messages with Azure Event Hubs'
 description: In this quickstart, you learn how to send and receive large messages with Azure Event Hubs after you configure an Event Hubs dedicated cluster.
 ms.topic: quickstart
 author: spelluru
@@ -9,7 +9,7 @@ ai-usage: ai-assisted
 #customer intent: As a developer, I want to understand how to send and receive large messages with Azure Event Hubs to support apps that need this ability.
 ---
 
-# Quickstart: Send and receive large messages with Azure Event Hubs (Preview)
+# Quickstart: Send and receive large messages with Azure Event Hubs
 
 In this quickstart, you learn how to send and receive large messages (up to 20 MB) by using Azure Event Hubs. If you're new to Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you begin.
 
