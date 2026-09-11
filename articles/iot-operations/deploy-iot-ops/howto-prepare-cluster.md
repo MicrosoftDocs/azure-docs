@@ -46,8 +46,8 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
   * [Azure IoT Operations supported environments](./overview-deploy.md#supported-environments).
   * [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
-  * [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements).
-  * [AKS Edge Essentials networking guidance](/azure/aks/hybrid/aks-edge-concept-networking).
+  * [AKS Edge Essentials requirements and support matrix](/azure/aks-hybrid-edge/edge-essentials/aks-edge-system-requirements).
+  * [AKS Edge Essentials networking guidance](/azure/aks-hybrid-edge/edge-essentials/aks-edge-concept-networking).
 
 ### [AKS on Azure Local](#tab/azure-local)
 
@@ -218,15 +218,15 @@ Connect your cluster to Azure Arc so that you can manage it remotely.
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
-[Azure Kubernetes Service Edge Essentials](/azure/aks/hybrid/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience that supports PC-class or "light" edge hardware.
+[Azure Kubernetes Service Edge Essentials](/azure/aks-hybrid-edge/edge-essentials/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience that supports PC-class or "light" edge hardware.
 
 The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script automates creating and connecting a cluster, and is the recommended path for deploying Azure IoT Operations on AKS Edge Essentials.
 
-For instructions on running the script, see [Configure an AKS Edge Essentials cluster for Azure IoT Operations](/azure/aks/hybrid/aks-edge-howto-deploy-azure-iot).
+For instructions on running the script, see [Configure an AKS Edge Essentials cluster for Azure IoT Operations](/azure/aks-hybrid-edge/edge-essentials/aks-edge-howto-deploy-azure-iot).
 
 ### [AKS on Azure Local](#tab/azure-local)
 
-- For instructions to create and Arc-enable an AKS cluster on Azure Local, see [Create Kubernetes clusters using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli).
+- For instructions to create and Arc-enable an AKS cluster on Azure Local, see [Create Kubernetes clusters using Azure CLI](/azure/aks-hybrid-edge/local/aks-create-clusters-cli).
 - For instructions to deploy an AKS cluster on Azure Local with workload identity (preview) enabled for enhanced security, see [Deploy and configure workload identity on an AKS cluster](/azure/aks/aksarc/workload-identity). You can enable the workload identity feature only during cluster creation. Running Azure IoT Operations with secure settings requires workload identity.
 
 By default, a Kubernetes cluster includes a node pool that can run Linux containers. If you add more node pools after creation, make sure to set the OS to Linux. Azure IoT Operations doesn't support deployment to Windows nodes.
