@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.custom: devx-track-extended-java
 ms.topic: concept-article
-ms.date: 04/29/2026
+ms.date: 09/10/2026
 author: msmbaldwin
 ms.author: mbaldwin
 manager: femila
@@ -16,7 +16,7 @@ ai-usage: ai-assisted
 
 # Azure Certificate Authority details
 
-This article outlines the specific root and subordinate Certificate Authorities (CAs) that Azure service endpoints use. This CA list is distinct from the trust anchors on Azure VMs and hosted services, which use the trust anchors provided by the operating systems. The scope includes government and national clouds. The sections after the CA details tables provide the minimum requirements for public key encryption and signature algorithms, links to certificate downloads and revocation lists, and information about key concepts. These sections also provide the host names for the URIs that you should add to your firewall allowlists.
+This article outlines the specific root and subordinate Certificate Authorities (CAs) that Azure service endpoints use. This CA list is distinct from the trust anchors on Azure VMs and hosted services, which use the trust anchors provided by the operating systems. The scope includes government and national clouds. The sections after the CA details tables provide the minimum requirements for public key encryption and signature algorithms, links to certificate downloads and revocation lists, and information about key concepts. These sections also provide the host names for the URIs that you should add to your firewall allow lists.
 
 ## Certificate Authority details
 
@@ -195,7 +195,9 @@ Key sizes:
 
 ## Certificate downloads and revocation lists
 
-To optimize connectivity, add the following domains (HTTP on port 80) to your firewall allowlist:
+To optimize connectivity, add the following domains (HTTP on port 80) to your firewall allow list. These domains serve Authority Information Access (AIA), certificate revocation list (CRL), and Online Certificate Status Protocol (OCSP) requests. The certificate revocation and chain-building standards define these requests as HTTP rather than HTTPS, so port 80 is expected.
+
+This article is the authoritative list of these domains. When Azure adds or removes a certificate authority, it updates the corresponding AIA, CRL, and OCSP domains here and records the change in the [Article change log](#article-change-log). If your environment restricts outbound connectivity by fully qualified domain name (FQDN), monitor this article and the change log so that you can update your firewall allow list.
 
 AIA:
 - `cacerts.digicert.com`
@@ -217,7 +219,7 @@ OCSP:
 
 ## Certificate pinning
 
-Certificate pinning is a security technique where you accept only authorized, or *pinned*, certificates when establishing a secure session. The process rejects any attempt to establish a secure session using a different certificate. For more information, see [certificate pinning](certificate-pinning.md).
+Certificate pinning is a security technique where you accept only authorized, or *pinned*, certificates when establishing a secure session. The process rejects any attempt to establish a secure session using a different certificate. For more information, including guidance on static pinning of publicly trusted certificates, see [Certificate pinning](certificate-pinning.md).
 
 ### How to address certificate pinning
 
