@@ -15,7 +15,7 @@ ms.author: hobruche
 > [!IMPORTANT]
 > When you're consuming SAP APIs and interfaces, always ensure that your usage complies with [SAP's API policy](https://help.sap.com/doc/sap-api-policy/latest/en-US/API_Policy_latest.pdf). If you have questions about permitted API usage in your specific scenario, check with your SAP contact or account team.
 
-*SAP with Microsoft AI* refers to the combination of Microsoft's AI platform and tools (including Microsoft 365 Copilot, Copilot Studio, and Foundry) with SAP's enterprise systems. This combination can help you create intelligent, AI-powered business experiences on top of SAP data and processes.
+*SAP with Microsoft AI* refers to the combination of Microsoft's AI platform and tools (including Microsoft Copilot, Copilot Studio, and Foundry) with SAP's enterprise systems. This combination can help you create intelligent, AI-powered business experiences on top of SAP data and processes.
 
 SAP systems are the operational backbone of many organizations. Organizations use them to manage financials, supply chain, procurement, HR, and more. Microsoft AI enables organizations to unlock the value in these systems by:
 
@@ -51,15 +51,15 @@ SAP systems are the operational backbone of many organizations. Organizations us
 
 Microsoft offers three complementary layers for bringing AI to SAP environments.
 
-### Use out of the box: Joule and Microsoft 365 Copilot
+### Use out of the box: Joule and Microsoft Copilot
 
-The managed integration between SAP Joule and Microsoft 365 Copilot provides a prebuilt, bidirectional connection. Users in Microsoft 365 Copilot or Teams can ask SAP-related questions, and the request is routed to SAP Joule for processing. No custom development is required.
+The managed integration between SAP Joule and Microsoft Copilot provides a prebuilt, bidirectional connection. Users in Microsoft Copilot or Teams can ask SAP-related questions, and the request is routed to SAP Joule for processing. No custom development is required.
 
 [Learn more about Joule and Copilot](./joule/joule-copilot-overview.md).
 
 ### Extend with custom agents: Copilot Studio
 
-Use Copilot Studio to build company-specific agents that access SAP data through connectors, APIs, or custom plugins. You can deploy these agents in Microsoft Teams, Microsoft 365 Copilot, websites, or other channels. Options range from low-code (Agent Builder) to pro-code (Microsoft 365 Agents SDK).
+Use Copilot Studio to build company-specific agents that access SAP data through connectors, APIs, or custom plugins. You can deploy these agents in Microsoft Teams, Microsoft Copilot, websites, or other channels. Options range from low-code (Agent Builder) to pro-code (Microsoft 365 Agents SDK).
 
 [Learn more about Copilot Studio and SAP](./copilot-studio/copilot-with-sap-overview.md).
 
@@ -78,7 +78,7 @@ Microsoft Foundry is the full AI platform for advanced scenarios. These scenario
 | Goal | Start with | Details |
 | --- | --- | --- |
 | You want quick value with minimal setup. | [Joule and Copilot](./joule/joule-copilot-overview.md) | If your organization already has Microsoft 365 Copilot licenses and SAP Joule enabled, the managed integration gets you started without custom development. Users can ask SAP questions directly in Teams or Copilot Chat. |
-| You want to build a custom agent by using low-code development for a specific process that needs information from an SAP system. | [Copilot Studio](./copilot-studio/copilot-with-sap-overview.md) | Use Copilot Studio to build agents that are tailored to your business processes. Connect to SAP via OData connectors, custom connectors, or Microsoft Power Platform connectors. Deploy to Teams, Microsoft 365 Copilot, or websites. |
+| You want to build a custom agent by using low-code development for a specific process that needs information from an SAP system. | [Copilot Studio](./copilot-studio/copilot-with-sap-overview.md) | Use Copilot Studio to build agents that are tailored to your business processes. Connect to SAP via OData connectors, custom connectors, or Microsoft Power Platform connectors. Deploy to Teams, Microsoft Copilot, or websites. |
 | You want advanced AI agents with multistep workflows that include SAP systems. | [Foundry](./foundry/foundry-ai-sap.md) | For complex scenarios that involve multi-agent orchestration, custom models, or deep SAP integration (BAPIs, RFCs, multistep transactions), Foundry provides the full platform. |
 | You want all of the preceding items. | A combination of the preceding layers | They all work together. |
 
@@ -95,4 +95,4 @@ Microsoft Foundry is the full AI platform for advanced scenarios. These scenario
 - [Microsoft Foundry](https://ai.azure.com/)
 - [Microsoft Copilot Studio](https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio)
 - [Microsoft Fabric](https://www.microsoft.com/en-us/microsoft-fabric)
-- [Integrating Joule with Microsoft 365 Copilot](https://help.sap.com/docs/joule/integrating-joule-with-sap/integrating-joule-with-microsoft-365-copilot)
+- [Integrating Joule with Microsoft Copilot](https://help.sap.com/docs/joule/integrating-joule-with-sap/integrating-joule-with-microsoft-365-copilot)
