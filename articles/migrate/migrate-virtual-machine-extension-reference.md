@@ -172,6 +172,10 @@ New-AzConnectedMachineExtension `
 
 The extension uses the Arc-enabled server's managed identity to authenticate with Azure Migrate. No other permissions are required on the Azure Migrate project; the project automatically accepts data from Arc-enabled servers within its configured scope.
 
+> [!NOTE]
+> In order for the extension to send data to your Azure Migrate project, ensure that the project's system-assigned managed identity is assigned the **Migrate Arc Discovery Reader - Preview** role on the
+> configured scopes containing your Arc-enabled servers.
+
 ## Extension status and health
 
 ### View extension status
@@ -219,6 +223,7 @@ az connectedmachine extension show \
 | Extension installation fails | Insufficient permissions | Verify you have **Hybrid Server Resource Administrator** role |
 | Extension shows Failed status | Network connectivity issue | Verify connectivity to regional endpoint |
 | Extension installed but data not appearing in project | Project configuration incorrect | Verify project ID and region in extension settings |
+| Extension installation successful, but status later changes to Failed | Incorrect project scope | Verify that the Azure Migrate scope contains your Arc-enabled servers |
 
 ## Update and removal
 
