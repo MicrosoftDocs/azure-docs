@@ -34,7 +34,7 @@ Start by reviewing the system logs for one of the following messages:
 
 | Message | Meaning |
 |---|---|
-| Error mounting volume <VOLUME_NAME>. | The system encountered an issue while trying to to mount the volume. |
+| Error mounting volume <VOLUME_NAME>. | The system encountered an issue while trying to mount the volume. |
 | Error provisioning revision <REVISION_NAME>. ErrorCode: [ErrImagePull] | The system failed to start the revision because of an error pulling the container image. This error could be from an inaccessible image or incorrect image reference. |
 | Error provisioning revision <REVISION_NAME>. ErrorCode: [Time-out] | The a time out possibly due to prolonged startup times or issues within the container. |
 | Error provisioning revision <REVISION_NAME>. ErrorCode: [ContainerCrashing] | The revision's container is repeatedly crashing. |
