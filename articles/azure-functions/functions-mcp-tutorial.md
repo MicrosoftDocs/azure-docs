@@ -269,7 +269,7 @@ func start
 
 1. When Copilot requests to run a tool from the local MCP server, select **Allow**.
 
-1. Disconnect from the server when you finish testing by selecting **Stop**, and press `Ctrl+C` to stop running it locally.
+1. When you finish testing, disconnect from the server by selecting **Stop**, and press `Ctrl+C` to stop running it locally.
 
 >[!TIP]
 >In the Copilot chat window, select the tool icon in the bottom to see the list of servers and tools available for the chat. Ensure the local MCP server is checked when testing.
