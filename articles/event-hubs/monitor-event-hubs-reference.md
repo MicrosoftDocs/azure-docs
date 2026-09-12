@@ -222,7 +222,7 @@ Application metrics logs capture the aggregated information on certain metrics r
 
 | Name | Description |
 |:-------|:------- |
-| `ConsumerLag` |Indicate the lag between consumers and producers.  For more details, see [ConsumerLag](#consumer-lag) section.|
+| `ConsumerLag` |Indicate the lag between consumers and producers.  For more details, see [ConsumerLag](#consumerlag) section.|
 | `NamespaceActiveConnections` | Details of active connections established from a client to the event hub.  |
 | `GetRuntimeInfo` | Obtain run time information from Event Hubs.  |
 | `GetPartitionRuntimeInfo` | Obtain the approximate runtime information for a logical partition of an event hub.  |
