@@ -29,21 +29,21 @@ Networking support differs by [hosting option](functions-scale.md). Compare the 
 | [Consumption](consumption-plan.md) | Supported | Not supported | Not supported | Use [App Service access restrictions](../app-service/app-service-ip-restrictions.md) to control inbound access. |
 | [Elastic Premium](functions-premium-plan.md) | Supported | Supported | Supported | Use this article for Functions-specific behavior and [App Service virtual network integration](../app-service/overview-vnet-integration.md) for shared networking mechanics. |
 | [Dedicated (App Service)](dedicated-plan.md) | Supported | Supported | Supported | Use this article for Functions-specific behavior and [App Service virtual network integration](../app-service/overview-vnet-integration.md) for shared networking mechanics. |
-| [Azure Container Apps (ACA) v1 integration](functions-container-apps-hosting.md) | Managed by the Container Apps environment | Not supported for the function app | Managed by the Container Apps environment | Use the legacy Functions article only for ACA v1. For ACA v2, use the [Azure Functions on Azure Container Apps overview](../container-apps/functions-overview.md). |
+| [Azure Container Apps (legacy)](functions-container-apps-hosting.md) | Managed by the Container Apps environment | Not supported for the function app | Managed by the Container Apps environment | Use the legacy Functions article for this hosting model. For the recommended hosting model, use the [Azure Functions on Azure Container Apps overview](../container-apps/functions-overview.md). |
 
-Custom containers hosted directly on Elastic Premium or Dedicated plans use the networking behavior of their Functions hosting plan. This scenario is separate from both Azure Container Apps integrations.
+Custom containers hosted directly on Elastic Premium or Dedicated plans use the networking behavior of their Functions hosting plan. This scenario is separate from both Azure Container Apps hosting models.
 
 ## Choose a networking path
 
 For inbound traffic, choose the control that matches how clients must reach the app:
 
 - To keep the public endpoint and allow or deny selected sources, use [inbound access restrictions](#inbound-access-restrictions).
-- To expose the app through a private IP address in your virtual network, use a [private endpoint](#private-endpoints). Private endpoints aren't supported on the Consumption plan or for the function app in the ACA v1 integration.
-- For ACA v2 ingress and environment networking, use the [Azure Container Apps networking documentation](../container-apps/networking.md).
+- To expose the app through a private IP address in your virtual network, use a [private endpoint](#private-endpoints). Private endpoints aren't supported on the Consumption plan or for the function app in the legacy Container Apps integration.
+- For the recommended Azure Functions on Azure Container Apps hosting model, use the [Azure Container Apps networking documentation](../container-apps/networking.md).
 
-For outbound traffic, start with the destination or symptom. The Functions virtual network paths in the following table apply to Flex Consumption, Elastic Premium, and Dedicated (App Service). The Consumption plan doesn't support outbound virtual network integration. For both ACA integrations, the Container Apps environment manages outbound connectivity.
+For outbound traffic, choose the scenario that matches what your app needs to access. The Functions virtual network paths in the following table apply to Flex Consumption, Elastic Premium, and Dedicated (App Service). The Consumption plan doesn't support outbound virtual network integration. For both Container Apps hosting models, the Container Apps environment manages outbound connectivity.
 
-| Destination or requirement | Start here |
+| Scenario | Start here |
 | --- | --- |
 | Private endpoint, private IP address, or service restricted to selected subnets | [Virtual network integration](#virtual-network-integration) |
 | Host, content, or deployment storage restricted to a virtual network | [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) |
@@ -51,7 +51,7 @@ For outbound traffic, start with the destination or symptom. The Functions virtu
 | Predictable public source IP address for an allowlist | [Function app IP addresses](ip-addresses.md#virtual-network-nat-gateway-for-outbound-static-ip) |
 | Container image in a network-restricted registry for a custom container on a Functions plan | [Route container image pull traffic](../app-service/configure-vnet-integration-routing.md#container-image-pull) |
 | Deployment to an app or storage account with public access disabled | [Secured virtual networks](functions-deployment-technologies.md#secured-virtual-networks) |
-| Outbound access from an ACA-hosted function | [Networking in Azure Container Apps](../container-apps/networking.md) |
+| Outbound access from a function hosted on Container Apps | [Networking in Azure Container Apps](../container-apps/networking.md) |
 | DNS failure, dependency timeout, or connection that works locally but not in Azure | [Troubleshooting](#troubleshooting) |
 
 Virtual network integration affects outbound traffic from the app. It doesn't provide private inbound access to the app.
@@ -85,7 +85,7 @@ To learn more, see [Azure App Service static access restrictions](../app-service
 ::: zone-end
 ::: zone pivot="container-apps"
 
-For the [legacy ACA v1 integration](./functions-container-apps-hosting.md), inbound access is managed through the Container Apps environment ingress configuration rather than App Service access restrictions. For more information, see [IP restrictions in Azure Container Apps](../container-apps/ip-restrictions.md). For ACA v2, see [Networking and security for Azure Functions on Azure Container Apps](../container-apps/functions-overview.md#networking-and-security).
+For the [legacy Container Apps integration](./functions-container-apps-hosting.md), inbound access is managed through the Container Apps environment ingress configuration rather than App Service access restrictions. For more information, see [IP restrictions in Azure Container Apps](../container-apps/ip-restrictions.md). For the recommended hosting model, see [Networking and security for Azure Functions on Azure Container Apps](../container-apps/functions-overview.md#networking-and-security).
 
 ::: zone-end
 
@@ -240,7 +240,7 @@ Make sure to select your hosting plan at the top of the article for plan-specifi
 ::: zone-end
 ::: zone pivot="container-apps"
 
-For the [legacy ACA v1 integration](./functions-container-apps-hosting.md), virtual network integration, subnet sizing, and subnet configuration are managed through the Container Apps environment. For more information, see [Networking in Azure Container Apps environment](../container-apps/networking.md). For ACA v2, see [Networking and security for Azure Functions on Azure Container Apps](../container-apps/functions-overview.md#networking-and-security).
+For the [legacy Container Apps integration](./functions-container-apps-hosting.md), virtual network integration, subnet sizing, and subnet configuration are managed through the Container Apps environment. For more information, see [Networking in Azure Container Apps environment](../container-apps/networking.md). For the recommended hosting model, see [Networking and security for Azure Functions on Azure Container Apps](../container-apps/functions-overview.md#networking-and-security).
 
 ::: zone-end
 ::: zone pivot="premium-plan,dedicated-plan"
@@ -371,7 +371,7 @@ You must ensure that private [content share routing](../app-service/configure-vn
 ::: zone-end
 ::: zone pivot="container-apps"
 
-For the [legacy ACA v1 integration](./functions-container-apps-hosting.md), use the Container Apps environment networking configuration to reach a network-restricted storage account. For more information, see [Networking in Azure Container Apps environment](../container-apps/networking.md). For ACA v2 storage and networking considerations, see the [Azure Functions on Azure Container Apps overview](../container-apps/functions-overview.md#considerations).
+For the [legacy Container Apps integration](./functions-container-apps-hosting.md), use the Container Apps environment networking configuration to reach a network-restricted storage account. For more information, see [Networking in Azure Container Apps environment](../container-apps/networking.md). For storage and networking considerations in the recommended hosting model, see the [Azure Functions on Azure Container Apps overview](../container-apps/functions-overview.md#considerations).
 
 ::: zone-end
 
@@ -395,7 +395,7 @@ Your workload might require your app to be triggered from an event source protec
 ::: zone pivot="container-apps"
 
 > [!NOTE]
-> For the [legacy ACA v1 integration](./functions-container-apps-hosting.md), connectivity to virtual network-protected trigger sources is managed through the Container Apps environment networking configuration. For more information, see [Networking in Azure Container Apps environment](../container-apps/networking.md). For ACA v2 trigger and scaling behavior, see [Event-driven scaling in Azure Functions on Azure Container Apps](../container-apps/functions-overview.md#event-driven-scaling).
+> For the [legacy Container Apps integration](./functions-container-apps-hosting.md), connectivity to virtual network-protected trigger sources is managed through the Container Apps environment networking configuration. For more information, see [Networking in Azure Container Apps environment](../container-apps/networking.md). For trigger and scaling behavior in the recommended hosting model, see [Event-driven scaling in Azure Functions on Azure Container Apps](../container-apps/functions-overview.md#event-driven-scaling).
 
 ::: zone-end
 ::: zone pivot="flex-consumption-plan"
