@@ -7,14 +7,11 @@ ms.topic: how-to
 ms.date: 07/15/2026
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+zone_pivot_groups: azure-files-resource-provider
 # Customer intent: "As a cloud administrator, I want to configure network endpoints for Azure file shares, so that I can manage access and enhance security for my organization's data storage solutions."
 ---
 
 # Configure network endpoints for accessing Azure file shares
-
-:heavy_check_mark: **Applies to:** Classic file shares created with the Microsoft.Storage resource provider
-
-:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider
 
 Azure Files provides two main types of endpoints for accessing Azure file shares:
 
@@ -74,15 +71,19 @@ In the **Basics** page, select the subscription, resource group, name, network i
 
 :::image type="content" source="media/storage-files-networking-endpoints/private-endpoint-basics.png" alt-text="Screenshot showing how to provide the project and instance details for a new private endpoint." lightbox="media/storage-files-networking-endpoints/private-endpoint-basics.png":::
 
-If you're using classic file shares in a storage account:
+::: zone pivot="microsoft-storage"
 
 On the **Resource** page, select **Microsoft.Storage/storageAccounts** from the drop-down menu for **Resource type**. For **Resource**, select the specific storage account you want to connect to. For **Target sub-resource**, select `file`. Then select **Next: Virtual Network**.
 
 :::image type="content" source="media/storage-files-networking-endpoints/private-endpoint-resources.png" alt-text="Screenshot showing how to select the resource type, resource, and target sub-resource for the new private endpoint." lightbox="media/storage-files-networking-endpoints/private-endpoint-resources.png":::
 
-If you're using file shares created with the Microsoft.FileShares resource provider:
+::: zone-end
+
+::: zone pivot="microsoft-fileshares"
 
 On the **Resource** page, select **Microsoft.FileShares/fileShares** from the drop-down menu for **Resource type**. For **Resource**, select the specific file share you want to connect to. The target sub-resource auto-populates with `FileShare`. Then select **Next: Virtual Network**.
+
+::: zone-end
 
 The **Virtual Network** page allows you to select the specific virtual network and subnet you want to add your private endpoint to. Select dynamic or static IP address allocation for the new private endpoint. If you select static, you also need to provide a name and a private IP address. You can also optionally specify an application security group. When you're finished, select **Next: DNS**.
 
@@ -102,59 +103,67 @@ Select **Create** to create the private endpoint.
 
 To create a private endpoint, first get a reference to your storage account or your file share and the virtual network subnet where you want to add the private endpoint. Replace the placeholder values in the following code with your own values.
 
- For classic file shares, get a reference to the storage account:
+::: zone pivot="microsoft-storage"
 
- ```PowerShell
- $storageAccountResourceGroupName = "<storage-account-resource-group-name>"
- $storageAccountName = "<storage-account-name>"
- 
- $storageAccount = Get-AzStorageAccount `
-         -ResourceGroupName $storageAccountResourceGroupName `
-         -Name $storageAccountName `
-         -ErrorAction SilentlyContinue
- 
- if ($null -eq $storageAccount) {
-     $errorMessage = "Storage account $storageAccountName not found "
-     $errorMessage += "in resource group $storageAccountResourceGroupName."
-     Write-Error -Message $errorMessage -ErrorAction Stop
- }
- 
- # Set common variables for private endpoint creation
- $resourceGroupName = $storageAccountResourceGroupName
- $privateLinkResourceId = $storageAccount.Id
- $groupId = "file"
- $dnsRecordName = $storageAccountName
- ```
-
-For file shares created with the Microsoft.FileShares resource provider, get a reference to the file share:
+Get a reference to the storage account:
 
 ```PowerShell
- $fileShareResourceGroupName = "<resource-group-name>"
- $fileShareName = "<file-share-name>"
+$storageAccountResourceGroupName = "<storage-account-resource-group-name>"
+$storageAccountName = "<storage-account-name>"
  
- $fileShare = Get-AzFileShare `
-         -ResourceGroupName $fileShareResourceGroupName `
-         -ResourceName $fileShareName `
-         -ErrorAction SilentlyContinue
+$storageAccount = Get-AzStorageAccount `
+                -ResourceGroupName $storageAccountResourceGroupName `
+                -Name $storageAccountName `
+                -ErrorAction SilentlyContinue
  
- if ($null -eq $fileShare) {
-     $errorMessage = "File share $fileShareName not found "
-     $errorMessage += "in resource group $fileShareResourceGroupName."
-     Write-Error -Message $errorMessage -ErrorAction Stop
- }
+if ($null -eq $storageAccount) {
+        $errorMessage = "Storage account $storageAccountName not found "
+        $errorMessage += "in resource group $storageAccountResourceGroupName."
+        Write-Error -Message $errorMessage -ErrorAction Stop
+}
  
- # Extract hostName and hostNamePrefix for DNS record
- $hostName = $fileShare.HostName
- $hostNamePrefix = $hostName.Split('.')[0]
- 
- # Set common variables for private endpoint creation
- $resourceGroupName = $fileShareResourceGroupName
- $privateLinkResourceId = $fileShare.Id
- $groupId = "FileShare"
- $dnsRecordName = $hostNamePrefix
+# Set common variables for private endpoint creation
+$resourceGroupName = $storageAccountResourceGroupName
+$privateLinkResourceId = $storageAccount.Id
+$groupId = "file"
+$dnsRecordName = $storageAccountName
 ```
 
-After setting the common variables, the remaining steps are the same for both experiences. Get references to the virtual network and subnet:
+::: zone-end
+
+::: zone pivot="microsoft-fileshares"
+
+Get a reference to the file share:
+
+```PowerShell
+$fileShareResourceGroupName = "<resource-group-name>"
+$fileShareName = "<file-share-name>"
+ 
+$fileShare = Get-AzFileShare `
+                -ResourceGroupName $fileShareResourceGroupName `
+                -ResourceName $fileShareName `
+                -ErrorAction SilentlyContinue
+ 
+if ($null -eq $fileShare) {
+        $errorMessage = "File share $fileShareName not found "
+        $errorMessage += "in resource group $fileShareResourceGroupName."
+        Write-Error -Message $errorMessage -ErrorAction Stop
+}
+ 
+# Extract hostName and hostNamePrefix for DNS record
+$hostName = $fileShare.HostName
+$hostNamePrefix = $hostName.Split('.')[0]
+ 
+# Set common variables for private endpoint creation
+$resourceGroupName = $fileShareResourceGroupName
+$privateLinkResourceId = $fileShare.Id
+$groupId = "FileShare"
+$dnsRecordName = $hostNamePrefix
+```
+
+::: zone-end
+
+Get references to the virtual network and subnet:
 
 ```PowerShell
  $virtualNetworkResourceGroupName = "<vnet-resource-group-name>"
@@ -282,7 +291,9 @@ Now that you have a reference to the private DNS zone, you must create a record.
 
 To create a private endpoint, first get a reference to your storage account or file share, plus the virtual network subnet where you want to add the private endpoint. Replace the placeholder values in the following steps with your own values.
 
-For classic file shares, get a reference to the storage account:
+::: zone pivot="microsoft-storage"
+
+Get a reference to the storage account:
 
 ```bash
 storageAccountResourceGroupName="<storage-account-resource-group-name>"
@@ -300,7 +311,11 @@ groupId="file"
 dnsRecordName=$storageAccountName
 ```
 
-For file shares created with the Microsoft.FileShares resource provider, get a reference to the file share:
+::: zone-end
+
+::: zone pivot="microsoft-fileshares"
+
+Get a reference to the file share:
 
 ```bash
 # Install the fileshare extension
@@ -327,6 +342,8 @@ resourceGroupName=$fileShareResourceGroupName
 groupId="FileShare"
 dnsRecordName=$hostNamePrefix
 ```
+
+::: zone-end
 
 After setting the common variables, the remaining steps are the same for both experiences. Get references to the virtual network and subnet:
 
@@ -464,21 +481,15 @@ az network private-dns record-set a add-record \
 
 If you have a VM inside your virtual network, or you configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md), you can test that your private endpoint is set up correctly. Run the following commands from PowerShell, the command line, or the terminal (works for Windows, Linux, or macOS).
 
-For classic file shares, replace `<storage-account-name>` with the appropriate storage account name:
+::: zone pivot="microsoft-storage"
+
+Replace `<storage-account-name>` with the appropriate storage account name:
 
 ```
 nslookup <storage-account-name>.file.core.windows.net
 ```
 
-For file shares created with the Microsoft.FileShares resource provider, use the file share's host name. In the overview tab of the file share, select **JSON view** from the upper right. In the JSON view, under properties, copy the value for **hostName**. The format looks like `fs-xxxxxxxxxxxxxxxxx.xx.file.storage.azure.net`.
-
-```
-nslookup <file-share-host-name>
-```
-
 If successful, you see output similar to the following, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network (output shown for Windows).
-
-For classic file shares:
 
 ```Output
 Server:  UnKnown
@@ -490,7 +501,17 @@ Address:  192.168.0.5
 Aliases:  storageaccount.file.core.windows.net
 ```
 
-For file shares created with the Microsoft.FileShares resource provider:
+::: zone-end
+
+::: zone pivot="microsoft-fileshares"
+
+Use the file share's host name. In the overview tab of the file share, select **JSON view** from the upper right. In the JSON view, under properties, copy the value for **hostName**. The format looks like `fs-xxxxxxxxxxxxxxxxx.xx.file.storage.azure.net`.
+
+```
+nslookup <file-share-host-name>
+```
+
+If successful, you see output similar to the following, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network (output shown for Windows).
 
 ```Output
 Server:  UnKnown
@@ -502,29 +523,22 @@ Address:  192.168.0.5
 Aliases:  <hostNamePrefix>.<zone>.file.storage.azure.net
 ```
 
+::: zone-end
+
 # [PowerShell](#tab/azure-powershell)
 
 If you have a VM inside your virtual network, or you configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md), you can test that your private endpoint is set up correctly by running the following commands:
 
-For classic file shares:
-
-
-```PowerShell
- $storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
-     Select-Object -ExpandProperty Host
- 
- Resolve-DnsName -Name $storageAccountHostName
- ```
-
-For file shares created with the Microsoft.FileShares resource provider:
+::: zone pivot="microsoft-storage"
 
 ```PowerShell
- Resolve-DnsName -Name $fileShare.HostName
+$storageAccountHostName = [System.Uri]::new($storageAccount.PrimaryEndpoints.file) | `
+        Select-Object -ExpandProperty Host
+
+Resolve-DnsName -Name $storageAccountHostName
 ```
 
 If successful, you see output similar to the following, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network.
-
-For classic file shares:
 
 ```Output
 Name                             Type   TTL   Section    NameHost
@@ -539,7 +553,15 @@ Section    : Answer
 IP4Address : 192.168.0.5
 ```
 
-For file shares created with the Microsoft.FileShares resource provider:
+::: zone-end
+
+::: zone pivot="microsoft-fileshares"
+
+```PowerShell
+Resolve-DnsName -Name $fileShare.HostName
+```
+
+If successful, you see output similar to the following, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network.
 
 ```Output
 Name                                       Type   TTL   Section    NameHost
@@ -554,11 +576,13 @@ Section    : Answer
 IP4Address : 192.168.0.5
 ```
 
+::: zone-end
+
 # [Azure CLI](#tab/azure-cli)
 
 If you have a VM inside your virtual network, or you configured DNS forwarding as described in [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md), you can test that your private endpoint is set up correctly by running the following commands:
 
-For classic file shares:
+::: zone pivot="microsoft-storage"
 
 ```bash
 httpEndpoint=$(az storage account show \
@@ -570,20 +594,7 @@ hostName=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint) | tr -d "/"
 nslookup $hostName
 ```
 
-For file shares created with the Microsoft.FileShares resource provider:
-
-```bash
-hostName=$(az fileshare show \
-        --resource-group $fileShareResourceGroupName \
-        --name $fileShareName \
-        --query "properties.hostName" --output tsv)
-
-nslookup $hostName
-```
-
-If successful, you see output similar to the following, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network. You should still use the original host name (`storageaccount.file.core.windows.net` for classic, or the file share's `hostName` for the new experience) to mount your file share instead of the `privatelink` path.
-
-For classic file shares:
+If successful, you see output similar to the following, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network. You should still use the original host name (`storageaccount.file.core.windows.net`) to mount your file share instead of the `privatelink` path.
 
 ```Output
 Server:         127.0.0.53
@@ -595,7 +606,20 @@ Name:   storageaccount.privatelink.file.core.windows.net
 Address: 192.168.0.5
 ```
 
-For file shares created with the Microsoft.FileShares resource provider:
+::: zone-end
+
+::: zone pivot="microsoft-fileshares"
+
+```bash
+hostName=$(az fileshare show \
+        --resource-group $fileShareResourceGroupName \
+        --name $fileShareName \
+        --query "properties.hostName" --output tsv)
+
+nslookup $hostName
+```
+
+If successful, you see output similar to the following, where `192.168.0.5` is the private IP address of the private endpoint in your virtual network. You should still use the file share's original `hostName` to mount your file share instead of the `privatelink` path.
 
 ```Output
 Server:         127.0.0.53
@@ -606,6 +630,8 @@ Non-authoritative answer:
 Name:   <hostNamePrefix>.privatelink.file.core.windows.net
 Address: 192.168.0.5
 ```
+
+::: zone-end
 ---
 
 ## Restrict public endpoint access
@@ -620,6 +646,8 @@ When you disable public network access, you restrict inbound access while allowi
 
 # [Portal](#tab/azure-portal)
 
+::: zone pivot="microsoft-storage"
+
 To disable public network access for classic file shares, follow these steps:
 
 1. Go to the storage account where you want to restrict all inbound access to the public endpoint.
@@ -628,13 +656,19 @@ To disable public network access for classic file shares, follow these steps:
 1. Select **Disable**, and then select **Proceed**.
 1. Select **Save**.
 
-:::image type="content" source="media/storage-files-networking-endpoints/disable-public-network-access.png" alt-text="Screenshot showing how to disable public network access for a storage account." lightbox="media/storage-files-networking-endpoints/disable-public-network-access.png":::
+::: zone-end
 
-For file shares created with the Microsoft.FileShares resource provider:
+::: zone pivot="microsoft-fileshares"
 
 Go to the file share where you want to disable public access. In the service menu, under **Settings**, select **Configuration**. Set **Public network access** to **Disabled**, and then select **Save**.
 
+::: zone-end
+
+:::image type="content" source="media/storage-files-networking-endpoints/disable-public-network-access.png" alt-text="Screenshot showing how to disable public network access." lightbox="media/storage-files-networking-endpoints/disable-public-network-access.png":::
+
 # [PowerShell](#tab/azure-powershell)
+
+::: zone pivot="microsoft-storage"
 
 For classic file shares, the following PowerShell command denies all traffic to the storage account's public endpoint. Set the `-Bypass` parameter to `AzureServices` to allow trusted first-party services such as Azure File Sync to access the storage account through the public endpoint.
 
@@ -648,7 +682,11 @@ $storageAccount | Update-AzStorageAccountNetworkRuleSet `
     Out-Null
 ```
 
-For file shares created with the Microsoft.FileShares resource provider, set `-PublicNetworkAccess` to `Disabled` on the file share.
+::: zone-end
+
+::: zone pivot="microsoft-fileshares"
+
+Set `-PublicNetworkAccess` to `Disabled` on the file share.
 
 ```PowerShell
 # To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
@@ -663,7 +701,11 @@ Update-AzFileShare `
         -PublicNetworkAccess Disabled
 ```
 
+::: zone-end
+
 # [Azure CLI](#tab/azure-cli)
+
+::: zone pivot="microsoft-storage"
 
 For classic file shares, the following CLI command blocks all traffic to the storage account's public endpoint. Set the `--bypass` parameter to `AzureServices` to allow trusted first-party services such as Azure File Sync to access the storage account through the public endpoint.
 
@@ -678,7 +720,11 @@ az storage account update \
     --output none
 ```
 
-For file shares created with the Microsoft.FileShares resource provider, set `--public-network-access` to `Disabled` on the file share.
+::: zone-end
+
+::: zone pivot="microsoft-fileshares"
+
+Set `--public-network-access` to `Disabled` on the file share.
 
 ```bash
 # Install the fileshare extension
@@ -693,6 +739,8 @@ az fileshare update \
     --public-network-access Disabled
 ```
 
+::: zone-end
+
 ---
 
 ### Restrict access to the public endpoint to specific networks
@@ -700,6 +748,8 @@ az fileshare update \
 When you restrict access to the public endpoint to specific networks, you allow requests to the public endpoint from within specified virtual networks or IP addresses. This restriction works by using a capability called *service endpoints*. You can use service endpoints with or without private endpoints.
 
 # [Portal](#tab/azure-portal)
+
+::: zone pivot="microsoft-storage"
 
 For classic file shares, follow these steps to restrict the public endpoint to specific networks.
 
@@ -711,13 +761,19 @@ For classic file shares, follow these steps to restrict the public endpoint to s
 1. Select the **Allow trusted Microsoft services to access this resource** checkbox to allow trusted first-party Microsoft services such as Azure File Sync to access the storage account.
 1. Select **Save**.
 
-:::image type="content" source="media/storage-files-networking-endpoints/restrict-public-endpoint.png" alt-text="Screenshot showing how to restrict the public endpoint to specific networks." lightbox="media/storage-files-networking-endpoints/restrict-public-endpoint.png":::
+::: zone-end
 
-For file shares created with the Microsoft.FileShares resource provider:
+::: zone pivot="microsoft-fileshares"
 
 Go to the file share where you want to restrict public access. From the service menu, under **Settings**, select **Configuration**. Under **Public network access**, select **Enabled from selected virtual networks**, add the virtual networks and subnets allowed to access the share, and select **Save**.
 
+::: zone-end
+
+:::image type="content" source="media/storage-files-networking-endpoints/restrict-public-endpoint.png" alt-text="Screenshot showing how to restrict the public endpoint to specific networks." lightbox="media/storage-files-networking-endpoints/restrict-public-endpoint.png":::
+
 # [PowerShell](#tab/azure-powershell)
+
+::: zone pivot="microsoft-storage"
 
 For classic file shares, restrict access to the storage account's public endpoint to specific virtual networks by using service endpoints. First, collect information about the storage account and virtual network. Replace the placeholder values in the following steps with your own values.
 
@@ -792,7 +848,11 @@ $storageAccount | Update-AzStorageAccountNetworkRuleSet `
     Out-Null
 ```
 
-For file shares created with the Microsoft.FileShares resource provider, pass the allowed subnet resource IDs directly to `Update-AzFileShare` by using `-AllowedSubnet`. There's no need for separate service endpoint or network rule configuration on the storage account.
+::: zone-end
+
+::: zone pivot="microsoft-fileshares"
+
+Pass the allowed subnet resource IDs directly to `Update-AzFileShare` by using `-AllowedSubnet`. There's no need for separate service endpoint or network rule configuration on the storage account.
 
 ```PowerShell
 # To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
@@ -816,7 +876,11 @@ Update-AzFileShare `
         -AllowedSubnet @($subnet.Id)
 ```
 
+::: zone-end
+
 # [Azure CLI](#tab/azure-cli)
+
+::: zone pivot="microsoft-storage"
 
 For classic file shares, restrict access to the storage account's public endpoint to specific virtual networks by using service endpoints. First, collect information about the storage account and virtual network. Replace the placeholder values in the following steps with your own values.
 
@@ -899,7 +963,11 @@ az storage account update \
         --output none
 ```
 
-For file shares created with the Microsoft.FileShares resource provider, pass the allowed subnet resource IDs directly to `az fileshare update` by using `--allowed-subnets`. There's no need for separate service endpoint or network rule configuration on the storage account.
+::: zone-end
+
+::: zone pivot="microsoft-fileshares"
+
+Pass the allowed subnet resource IDs directly to `az fileshare update` by using `--allowed-subnets`. There's no need for separate service endpoint or network rule configuration on the storage account.
 
 ```bash
 # Install the fileshare extension
@@ -922,6 +990,8 @@ az fileshare update \
         --resource-group $fileShareResourceGroupName \
         --allowed-subnets $subnetId
 ```
+
+::: zone-end
 
 ---
 
