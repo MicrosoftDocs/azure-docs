@@ -2,7 +2,7 @@
 title: Configure your Bicep environment
 description: Learn how to configure your environment for Bicep file deployments.
 ms.topic: article
-ms.date: 06/26/2026
+ms.date: 09/13/2026
 ms.custom: devx-track-bicep
 ---
 
@@ -130,6 +130,10 @@ When working with [modules](modules.md), you can add aliases for module paths. T
 ## Configure Linter rules
 
 The [Bicep linter](linter.md) checks Bicep files for syntax errors and best practice violations. You can modify a _bicepconfig.json_ file to override the default settings for how a Bicep file is validated. For more information, see [Add linter settings to Bicep config](bicep-config-linter.md).
+
+## Configure module documentation
+
+The experimental [`bicep docs generate`](./bicep-cli.md#docs) command renders documentation for a Bicep module. You can set the output file name, a custom template, and the folders that are scanned for usage examples under the `documentation` property in _bicepconfig.json_. For more information, see [Generate documentation for Bicep modules](./generate-module-documentation.md#configure-documentation-settings).
 
 ## Enable experimental features
 
