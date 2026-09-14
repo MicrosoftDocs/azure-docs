@@ -4,10 +4,10 @@ description: Learn how to configure public and private network endpoints for Azu
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/15/2026
+ms.date: 09/14/2026
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-zone_pivot_groups: azure-files-resource-provider
+zone_pivot_groups: azure-files-resource-provider-options
 # Customer intent: "As a cloud administrator, I want to configure network endpoints for Azure file shares, so that I can manage access and enhance security for my organization's data storage solutions."
 ---
 

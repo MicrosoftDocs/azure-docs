@@ -2199,14 +2199,14 @@ groups:
   - id: linux
     title: Linux
 # Owner: kendownie
-- id: azure-files-resource-provider
+- id: azure-files-resource-provider-options
   title: Resource provider
   prompt: Choose a resource provider
   pivots:
   - id: microsoft-storage
-    title: Microsoft.Storage
+    title: '<img src="media/storage-files-planning/icon-service-file-share.svg" width="18" height="18" alt="" aria-hidden="true"> Microsoft.Storage'
   - id: microsoft-fileshares
-    title: Microsoft.FileShares
+    title: '<img src="media/storage-files-planning/icon-service-managed-file-shares.svg" width="18" height="18" alt="" aria-hidden="true"> Microsoft.FileShares'
 # Owner: zamasiel
 - id: sap-ha-nfs-solution
   title: Azure NFS Hosting Option

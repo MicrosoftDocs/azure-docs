@@ -47,6 +47,8 @@ If you prefer, you can complete this procedure by using [Azure PowerShell](deplo
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
+Choose a region that supports [Azure Bastion Developer](../bastion/bastion-sku-comparison.md#regional-availability), such as **West US**. Use that region for all resources in this tutorial.
+
 ## Set up the network
 
 First, create a resource group to contain the resources needed to deploy the firewall. Then create a virtual network, subnets, and a test server.
@@ -101,25 +103,9 @@ This VNet has two subnets.
 
 ## Deploy Azure Bastion
 
-Deploy Azure Bastion Developer edition to securely connect to the **Srv-Work** virtual machine for testing.
+Use Azure Bastion Developer to securely connect to **Srv-Work** for testing. Developer uses shared infrastructure and connects to VMs in the same virtual network. It doesn't require a dedicated **AzureBastionSubnet** or public IP address.
 
-1. In the search box at the top of the portal, enter **Bastion** and select **Bastions** from the results. Select **Create** and enter the following values:
-
-   | Setting | Value |
-   | ------- | ----- |
-   | **Project details** | |
-   | Subscription | Select your Azure subscription. |
-   | Resource group | Select **Test-FW-RG**. |
-   | **Instance details** | |
-   | Name | Enter **Test-Bastion**. |
-   | Region | Select the same location that you used previously. |
-   | Tier | Select **Developer**. |
-   | Virtual network | Select **Test-FW-VN**. |
-   | Subnet | The **AzureBastionSubnet** is created automatically with address space **10.0.0.0/26**. |
-
-1. Select **Review + create** > **Create**.
-
-   The deployment takes a few minutes to complete.
+There's no separate dedicated-host deployment in this tutorial. After you create the VM and configure the firewall, the [test steps](#test-the-application-and-network-rules) connect through Bastion. In a supported region, selecting **Connect** deploys Bastion Developer automatically. For details, see [Deploy Bastion Developer](/azure/bastion/quickstart-developer?tabs=developer).
 
 ### Create a virtual machine
 
@@ -150,21 +136,6 @@ Create the workload virtual machine and place it in the **Workload-SN** subnet.
 1. Select **Review + create** > **Create**. When prompted, select **Download private key and create resource** and save the key file.
 1. After deployment finishes, note the **Srv-Work** private IP address for later use.
 
-### Install a web server
-
-Connect to the virtual machine and install a web server for testing.
-
-1. In the **Test-FW-RG** resource group, select the **Srv-Work** virtual machine.
-1. Select **Operations** > **Run command** > **RunShellScript**, enter the following commands, then select **Run**:
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install -y nginx
-   echo "<html><body><h1>Azure Firewall DNAT Test</h1><p>If you can see this page, the DNAT rule is working correctly!</p></body></html>" | sudo tee /var/www/html/index.html
-   ```
-
-1. Wait for the script to complete successfully.
-
 ## Deploy the firewall and policy
 
 Deploy the firewall into the virtual network.
@@ -186,9 +157,11 @@ Deploy the firewall into the virtual network.
    | Choose a virtual network | Select **Use existing**, and then select **Test-FW-VN**. **Ignore the warning about the Force Tunneling. The warning is resolved in a later step**.|
    | Public IP address     | Select **Add new**, and enter **fw-pip** for the **Name**. Select **OK**. |
 
-1. Clear the **Enable Firewall Management NIC** check box, accept the other default values, and then select **Review + create** > **Create**.
+1. Clear the **Enable Firewall Management NIC** checkbox, and then select **Next: Advanced**.
+1. Leave **Enable NAT gateway** cleared for this tutorial. To configure a StandardV2 NAT gateway during firewall creation, see [Integrate NAT gateway with Azure Firewall](../nat-gateway/tutorial-hub-spoke-nat-firewall.md#create-azure-firewall).
+1. Select **Review + create**, review the settings, and then select **Create**.
 
-   This process takes a few minutes to deploy.
+   Deployment takes a few minutes.
 
 1. After deployment finishes, go to **Test-FW-RG**, select the **Test-FW01** firewall, and note the private and public IP addresses for later use.
 
@@ -209,7 +182,7 @@ For the **Workload-SN** subnet, configure the outbound default route to go throu
 
 1. Select **Review + create** > **Create**.
 
-After deployment finishes, select **Go to resource**.
+   After deployment finishes, select **Go to resource**.
 
 1. On the **Firewall-route** pane, under **Settings**, select **Subnets** > **Associate**.
 1. For **Virtual network**, select **Test-FW-VN**, and for **Subnet**, select **Workload-SN**. Select **OK**.
@@ -227,6 +200,41 @@ After deployment finishes, select **Go to resource**.
    > Azure Firewall is actually a managed service, but virtual appliance works in this situation.
 
 1. Select **Add**.
+
+### Install a web server
+
+The VM has no public IP address. Use the workload route you just created and a temporary application rule to download nginx through the firewall. Keep the VM's default Azure-provided DNS settings during installation.
+
+1. Open **fw-test-pol**. Under **Settings** > **Rules**, select **Application rules** > **Add a rule collection**.
+1. Enter the following values:
+
+   | Setting | Value |
+   | ------- | ----- |
+   | Name | **Install-Nginx** |
+   | Rule collection type | **Application** |
+   | Priority | **100** |
+   | Rule collection action | **Allow** |
+   | Rule collection group | **DefaultApplicationRuleCollectionGroup** |
+   | Rule name | **Allow-Package-Repositories** |
+   | Source type | **IP address** |
+   | Source | **10.0.2.0/24** |
+   | Protocol:port | **http:80**, **https:443** |
+   | Destination type | **FQDN** |
+   | Target FQDNs | **azure.archive.ubuntu.com**, **archive.ubuntu.com**, **security.ubuntu.com**, **packages.microsoft.com** |
+
+1. Select **Add** and wait for the policy update to complete.
+1. In **Test-FW-RG**, select **Srv-Work**. Select **Operations** > **Run command** > **RunShellScript**, enter the following commands, and select **Run**:
+
+   ```bash
+   set -eu
+   sudo apt-get update
+   sudo apt-get install -y nginx
+   echo "<html><body><h1>Azure Firewall DNAT Test</h1><p>If you can see this page, the DNAT rule is working correctly!</p></body></html>" | sudo tee /var/www/html/index.html
+   curl --fail http://localhost
+   ```
+
+1. Confirm that the command completes successfully and returns the **Azure Firewall DNAT Test** page. If package downloads fail, check the repository hostname in the error against the temporary rule. Allow only the configured package repositories; don't add a wildcard internet rule. See [Troubleshoot common issues with APT on Ubuntu](/troubleshoot/azure/virtual-machines/linux/apt-common-issues-in-ubuntu).
+1. Return to **fw-test-pol** and delete the **Install-Nginx** rule collection. Wait for the policy update to complete before continuing. This removal ensures that the later tests evaluate only the tutorial's permanent rules.
 
 ## Configure an application rule
 
@@ -339,7 +347,7 @@ Use Azure Bastion to securely connect to the **Srv-Work** virtual machine and te
 
 1. Select **Connect**.
 
-   A new browser tab opens with an SSH session to the **Srv-Work** virtual machine.
+   Bastion Developer deploys automatically and opens an SSH session to **Srv-Work** in the portal.
 
 1. In the SSH session, enter the following command to test access to Google:
 

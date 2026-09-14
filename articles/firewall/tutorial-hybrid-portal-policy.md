@@ -149,7 +149,9 @@ Deploy the firewall into the firewall hub virtual network.
    |Choose a virtual network     |Use existing:<br> **VNet-hub**|
    |Public IP address     |Add new: <br>**fw-pip** |
 
-1. Select **Next : Tags**, **Next: Review + create**, and then **Create**.
+1. Clear **Enable Firewall Management NIC** for this tutorial's direct-internet configuration, and then select **Next: Advanced**.
+1. Leave **Enable NAT gateway** cleared for this tutorial. To configure a StandardV2 NAT gateway during firewall creation, see [Integrate NAT gateway with Azure Firewall](../nat-gateway/tutorial-hub-spoke-nat-firewall.md#create-azure-firewall).
+1. Select **Next: Tags**, and then **Next: Review + create**. Review the settings, and then select **Create**.
 
    Deployment takes a few minutes.
 1. After deployment finishes, go to the **FW-Hybrid-Test** resource group, and select the **AzFW01** firewall.
@@ -197,8 +199,9 @@ Repeat the following steps for each gateway by using the values in the table.
 1. Enter the **Name** from the table.
 1. For **Region**, select the same region that you used previously.
 1. For **Gateway type**, select **VPN**.
-1. For **SKU**, select **VpnGw1**.
+1. For **SKU**, select **VpnGw1AZ**. New deployments require an availability-zone-supported SKU. For more information, see [VPN Gateway SKU consolidation](../vpn-gateway/gateway-sku-consolidation.md).
 1. Select the **Virtual network** from the table.
+1. Set **Enable active-active mode** to **Enabled** so each gateway has the two public IP addresses listed in the table.
 1. For **Public IP address**, select **Create new**, and enter the name from the table.
 1. For **Second Public IP address**, select **Create new**, and enter the name from the table.
 1. Accept the remaining defaults, select **Review + create**, and then select **Create**.
@@ -223,7 +226,7 @@ Repeat the following steps for each connection by using the values in the table.
 1. Select **VNet-to-VNet** for **Connection type**.
 1. Select **Next : Settings**.
 1. Select the **First virtual network gateway** and **Second virtual network gateway** from the table.
-1. For **Shared key (PSK)**, enter **AzureA1b2C3**.
+1. For **Shared key (PSK)**, enter a strong shared key that you generate for this lab. Use the same value for both connections, and store it securely. Don't reuse a published example value.
 1. Select **Review + create**, and then select **Create**.
 
 #### Verify the connection
@@ -338,16 +341,39 @@ Create a virtual machine in the spoke virtual network, running NGINX, with no pu
 
 After you create the virtual machine, install the Nginx web server.
 
+The spoke's default route sends internet traffic through Azure Firewall. The **AllowWeb** rule permits on-premises-to-spoke HTTP traffic, not package downloads from the spoke. Add a temporary application rule for installation, and remove it before testing the firewall.
+
+1. Open **hybrid-test-pol**. Under **Settings** > **Rules**, select **Application rules** > **Add a rule collection**.
+1. Enter the following values:
+
+   | Setting | Value |
+   | ------- | ----- |
+   | Name | **Install-Nginx** |
+   | Rule collection type | **Application** |
+   | Priority | **100** |
+   | Rule collection action | **Allow** |
+   | Rule collection group | **DefaultApplicationRuleCollectionGroup** |
+   | Rule name | **Allow-Package-Repositories** |
+   | Source type | **IP address** |
+   | Source | **10.6.0.0/24** |
+   | Protocol:port | **http:80**, **https:443** |
+   | Destination type | **FQDN** |
+   | Target FQDNs | **azure.archive.ubuntu.com**, **archive.ubuntu.com**, **security.ubuntu.com**, **packages.microsoft.com** |
+
+1. Select **Add** and wait for the policy update to complete. Keep the VM's default Azure-provided DNS settings for this tutorial.
 1. From the Azure portal, open the Cloud Shell and make sure that it's set to **Bash**.
-1. Run the following command to install Nginx on the virtual machine:
+1. Use [az vm run-command invoke](/cli/azure/vm/run-command#az-vm-run-command-invoke) to install nginx on the virtual machine:
 
    ```azurecli-interactive
    az vm run-command invoke \
       --resource-group FW-Hybrid-Test \
       --name VM-Spoke-01 \
       --command-id RunShellScript \
-      --scripts "sudo apt-get update && sudo apt-get install -y nginx && echo '<h1>'$(hostname)'</h1>' | sudo tee /var/www/html/index.html"
+      --scripts 'set -eu; sudo apt-get update; sudo apt-get install -y nginx; hostname | sudo tee /var/www/html/index.html; curl --fail http://localhost'
    ```
+
+   1. Confirm that the command completes successfully and returns the spoke VM's hostname from the local web server. If package downloads fail, check the repository hostname in the error against the temporary rule. Allow only the configured package repositories; don't add a wildcard internet rule. See [Troubleshoot common issues with APT on Ubuntu](/troubleshoot/azure/virtual-machines/linux/apt-common-issues-in-ubuntu).
+   1. Return to **hybrid-test-pol** and delete the **Install-Nginx** rule collection. Wait for the policy update to complete before continuing.
 
 ### Create the on-premises virtual machine
 
@@ -368,6 +394,7 @@ Use this virtual machine to connect by using Azure Bastion. From there, you conn
 1. For **Public inbound ports**, select **None**.
 1. Select **Next: Disks**, accept the defaults, and then select **Next: Networking**.
 1. Select **VNet-Onprem** for virtual network and the subnet is **SN-Corp**.
+1. For **Public IP**, select **None**. You connect through Bastion in this virtual network.
 1. Select **Next: Management**, and then select **Next: Monitoring**.
 1. For **Boot diagnostics**, select **Disable**.
 1. Select **Review + Create**, review the settings on the summary page, and then select **Create**.
@@ -377,7 +404,10 @@ Use this virtual machine to connect by using Azure Bastion. From there, you conn
 
 ## Deploy Azure Bastion
 
-Deploy Azure Bastion to provide secure access to the virtual machine.
+Deploy Azure Bastion Basic in **VNet-Onprem** to connect directly to **VM-Onprem**. The browser-to-VM connection doesn't need to cross the VPN gateways. The web request you send from **VM-Onprem** still crosses the VPN connection and Azure Firewall to reach the spoke.
+
+1. Open **VNet-Onprem**, select **Subnets**, and select **+ Subnet**.
+1. Select **Azure Bastion** for **Subnet purpose**. Confirm the name is **AzureBastionSubnet**, enter **192.168.3.0** for **Starting address**, and select **/26** for **Size**. Select **Add**.
 
 1. On the Azure portal menu, select **Create a resource**.
 1. In the search box, type **Bastion** and select it from the results.
@@ -388,10 +418,14 @@ Deploy Azure Bastion to provide secure access to the virtual machine.
    |---------|-------|
    | Subscription | Select your subscription |
    | Resource group | **FW-Hybrid-Test** |
-   | Name | **Hub-Bastion** |
+   | Name | **Onprem-Bastion** |
    | Region | Same as your other resources |
-   | Tier | **Developer** |
-   | Virtual network | **VNet-hub** |
+   | Tier | **Basic** |
+   | Virtual network | **VNet-Onprem** |
+   | Subnet | **AzureBastionSubnet** |
+   | Public IP address | Create a new Standard, static public IP address named **public-ip-bastion**. |
+
+   Bastion Basic requires a dedicated subnet and public IP address and incurs charges while deployed. For configuration requirements, see [Azure Bastion configuration settings](../bastion/configuration-settings.md).
 
 1. Select **Review + create**. After validation passes, select **Create**.
 
