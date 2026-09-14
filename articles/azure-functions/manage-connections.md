@@ -85,7 +85,7 @@ The identities that you use for your connections must have permissions to perfor
 
 Keep these considerations in mind when using identity-based connections: 
 
-+ In a Functions-hosted app, identity-based connections use a [managed identity](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). The system-assigned identity, which is specific to to your app, is used by default. However, user-assigned identities, which also require the `*__credential` and `*__clientID` properties, are more flexible and recommended.    
++ In a Functions-hosted app, identity-based connections use a [managed identity](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). The system-assigned identity, which is specific to your app, is used by default. However, user-assigned identities, which also require the `*__credential` and `*__clientID` properties, are more flexible and recommended.    
 
 + When your app runs in other contexts, such as local development, your developer identity is used instead. For more information, see the [local development](functions-develop-local.md#local-settings-file) article.
 
