@@ -47,12 +47,10 @@ $AppInfo
 
 ## Choose your target .NET version
 
-The migration examples in this guide target .NET 10. The initial project file shows .NET 8 because that's the latest version the in-process model supports.
+When migrating to the isolated worker model, choose your target based on whether your function app and its dependencies can run on .NET (formerly .NET Core):
 
-Choose your target based on whether your function app and its dependencies can run on .NET (formerly .NET Core):
-
-- If your app and its dependencies can run on .NET, target .NET 10 on the isolated worker model.
-- If your app depends on libraries or APIs available only in .NET Framework, target .NET Framework 4.8 on the isolated worker model.
+- If your app and its dependencies can run on .NET, target .NET 10.
+- If your app depends on libraries or APIs available only in .NET Framework, target .NET Framework 4.8.
 
 ## Prepare for migration
 
