@@ -7,7 +7,7 @@ ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 06/07/2026
+ms.date: 09/14/2026
 ms.custom:
 - build-2025
 service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
@@ -19,8 +19,9 @@ A cloud subscription is a way to manage the products and services that you buy f
 
 Key aspects of a cloud subscription:
 
-- **No cost for cloud subscriptions** - Cloud subscriptions themselves don't cost any money. They're used to organize and manage the products and services you purchase. While products like virtual machines or Enterprise Support managed within a cloud subscription might incur charges, the subscription itself does't.
+- **No cost for cloud subscriptions** - Cloud subscriptions themselves doesn't cost any money. They're used to organize and manage the products and services you purchase. While products like virtual machines or Enterprise Support managed within a cloud subscription might incur charges, the subscription itself does't.
 - **Multiple subscriptions** - You can create multiple cloud subscriptions to delegate management to different users in your organization or to apply policies for security, budgeting, and compliance.
+- **Default Cloud Subscription.** For billing purposes, Microsoft may create a default Cloud Subscription within Customer's tenant if a Cloud Subscription does not already exist for the applicable billing profile. The default Cloud Subscription may be created through an automated process and may initially be created without an assigned owner. Customer administrators may subsequently assign ownership in accordance with Microsoft's administrative processes.
 - **Familiar management tools** - If you're familiar with Azure subscriptions, you'll manage cloud subscriptions similarly, with more manageability for a broader set of products and services.
 
 ## Frequently asked questions
@@ -50,7 +51,7 @@ To see your cloud subscriptions, navigate to your list of subscriptions in the A
 
 ### Who has access to the cloud subscription?
 
-Cloud subscriptions are created either in an acquisition process like proposal acceptance or can be created as Azure subscriptions today. Cloud subscriptions, like Azure subscriptions, owners are the creating individual or anyone they [delegate management](/azure/lighthouse/how-to/view-manage-customers#view-and-manage-delegations) to. If the subscription was created during proposal acceptance, the purcahser is the subscription owner. You can use the Identity and Access Management (IAM) page for an individual cloud subscription to view and manage access.
+Cloud subscriptions are created either in an acquisition process like proposal acceptance or can be created as Azure subscriptions today. Cloud subscriptions, like Azure subscriptions, owners are the creating individual or anyone they [delegate management](/azure/lighthouse/how-to/view-manage-customers#view-and-manage-delegations) to. If the subscription was created during proposal acceptance, the purchaser is the subscription owner. You can use the Identity and Access Management (IAM) page for an individual cloud subscription to view and manage access.
 
 ### What is the impact of cloud subscriptions?
 
