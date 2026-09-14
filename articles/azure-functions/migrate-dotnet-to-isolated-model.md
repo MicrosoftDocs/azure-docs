@@ -6,7 +6,7 @@ ms.custom:
   - devx-track-dotnet
   - ignite-2023
 ms.topic: how-to
-ms.date: 09/09/2026
+ms.date: 09/14/2026
 ---
 
 # Migrate C# apps from the in-process model to the isolated worker model
@@ -47,14 +47,12 @@ $AppInfo
 
 ## Choose your target .NET version
 
-On version 4.x of the Functions runtime, your .NET function app targets .NET 8 when using the in-process model.
-
-[!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
-
-> [!TIP]
-> Upgrade to .NET 10 on the isolated worker model. .NET 10 is the current long-term support (LTS) release and has the longest remaining support window. Support for .NET 8 and .NET 9 ends on November 10, 2026, the same day that support ends for the in-process model. If you target either version during this migration, you'll need to upgrade again to stay in support.
-
 The migration examples in this guide target .NET 10. The initial project file shows .NET 8 because that's the latest version the in-process model supports.
+
+Choose your target based on whether your function app and its dependencies can run on .NET (formerly .NET Core):
+
+- If your app and its dependencies can run on .NET, target .NET 10 on the isolated worker model.
+- If your app depends on libraries or APIs available only in .NET Framework, target .NET Framework 4.8 on the isolated worker model.
 
 ## Prepare for migration
 
@@ -71,7 +69,7 @@ To migrate the application:
 The section outlines the various changes that you need to make to your local project to move it to the isolated worker model. Some of the steps change based on your target version of .NET. Use the tabs to select the instructions that match your desired version.
 
 > [!TIP]
-> If you're moving to an LTS or STS version of .NET, the [.NET Upgrade Assistant] can be used to automatically make many of the changes mentioned in the following sections.
+> If you're moving to .NET 10, the [.NET Upgrade Assistant] can automatically make many of the changes mentioned in the following sections.
 
 First, convert the project file and update your dependencies. As you do, you see build errors for the project. In subsequent steps, you'll make the corresponding changes to remove these errors.
 
