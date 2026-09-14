@@ -4,7 +4,7 @@ description: Learn how to configure a custom container in Azure App Service. Thi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 04/08/2026
+ms.date: 09/14/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
 ms.service: azure-app-service
@@ -48,14 +48,14 @@ Select the right [parent image (base image)](https://docs.docker.com/develop/dev
 
 It takes some time to download a parent image during app startup. You can reduce startup time by using one of the following parent images that are already cached in Azure App Service:
 
-- [mcr.microsoft.com/windows/servercore:ltsc2025](https://mcr.microsoft.com/artifact/mar/windows/servercore/about)
 - [mcr.microsoft.com/windows/servercore:ltsc2022](https://mcr.microsoft.com/artifact/mar/windows/servercore/about)
 - [mcr.microsoft.com/dotnet/framework/aspnet:4.8.1-windowsservercore-ltsc2022](https://mcr.microsoft.com/artifact/mar/dotnet/framework/aspnet/tag/4.8.1-windowsservercore-ltsc2022)
 - [mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019](https://mcr.microsoft.com/artifact/mar/dotnet/framework/aspnet/tag/4.8-windowsservercore-ltsc2019)
-- [mcr.microsoft.com/dotnet/runtime:10.0-nanoserver-ltsc2025](https://mcr.microsoft.com/artifact/mar/dotnet/runtime/tag/10.0-nanoserver-ltsc2025)
 - [mcr.microsoft.com/dotnet/runtime:8.0-nanoserver-ltsc2022](https://mcr.microsoft.com/artifact/mar/dotnet/runtime/tag/8.0-nanoserver-ltsc2022)
-- [mcr.microsoft.com/dotnet/aspnet:10.0-nanoserver-ltsc2025](https://mcr.microsoft.com/artifact/mar/dotnet/aspnet/tag/10.0-nanoserver-ltsc2025)
 - [mcr.microsoft.com/dotnet/aspnet:8.0-nanoserver-ltsc2022](https://mcr.microsoft.com/artifact/mar/dotnet/aspnet/tag/8.0-nanoserver-ltsc2022)
+
+> [!IMPORTANT]
+> Windows Server 2025 base images aren't supported in Azure App Service.
 
 ::: zone-end
 
