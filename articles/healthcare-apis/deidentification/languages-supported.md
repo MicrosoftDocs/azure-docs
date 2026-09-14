@@ -13,16 +13,23 @@ ms.date: 10/23/2025
 
 # Language support for the Azure Health Data Services de-identification service
 
-The Azure Health Data Services de-identification service currently works on four languages, and includes six language-locale pairings. To tag, redact, or replace unstructured textual data for purposes of de-identification, you can use the languages listed in the following table.
+The Azure Health Data Services de-identification service currently works with five languages and includes 13 language-locale pairings. To tag, redact, or replace unstructured textual data for purposes of de-identification, you can use the languages listed in the following table.
 
 |Language|Locale        |Language-locale pair|Availability         |
 |:-------|:-------------|:-------------------|:--------------------|
 |English |United States |en-US               |Generally available  |
-|English |United Kingdom|en-GB               |Preview              |
-|French  |Canada        |fr-CA               |Preview              |
-|French  |France        |fr-FR               |Preview              |
-|German  |Germany       |de-DE               |Preview              |
-|Spanish |United States |es-US               |Preview              |
+|English |United Kingdom|en-GB               |Generally available  |
+|French  |Canada        |fr-CA               |Generally available  |
+|French  |France        |fr-FR               |Generally available  |
+|German  |Germany       |de-DE               |Generally available  |
+|Spanish |United States |es-US               |Generally available  |
+|Dutch   |Netherlands   |nl-NL               |Private preview      |
+|English |Canada        |en-CA               |Private preview      |
+|German  |Switzerland   |de-CH               |Private preview      |
+|English |Ireland       |en-IE               |Private preview      |
+|German  |Austria       |de-AT               |Private preview      |
+|French  |Belgium       |fr-BE               |Private preview      |
+|Dutch   |Belgium       |nl-BE               |Private preview      |
 
 The following table provides examples of inputs and outputs you can expect, according to the type of de-identification operation you want to do (such as redaction or surrogation).
 
