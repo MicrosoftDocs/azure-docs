@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 09/08/2026
+ms.date: 09/14/2026
 ms.custom:
   - references_regions
   - build-2024
@@ -24,7 +24,7 @@ The Flex Consumption plan builds on the strengths of the serverless Consumption 
 
 + **Reduced cold start times**: Enable [always-ready instances](#always-ready-instances) to achieve faster cold start times compared to the Consumption plan. 
 + **Virtual network support**: [Virtual network integration](#virtual-network-integration) enables your serverless app to run in a virtual network.
-+ **End-to-end TLS encryption (preview)**: Encrypt traffic between the platform front ends and the workers that run your functions. For more information, see [Configure end-to-end TLS encryption](flex-consumption-how-to.md#configure-end-to-end-tls-encryption).
++ **TLS/SSL certificates and end-to-end TLS encryption**: Use [site-scoped certificates](flex-consumption-how-to.md#configure-site-scoped-certificates) for custom domains and certificate-based application scenarios, and encrypt traffic between the platform front ends and the workers that run your functions. For more information, see [Configure end-to-end TLS encryption](flex-consumption-how-to.md#configure-end-to-end-tls-encryption).
 + **Per-function scaling**: Each function in your app [scales independently based on its workload](#per-function-scaling), potentially resulting in more efficient resource allocation.
 + **Improved concurrency handling**: Better handling of concurrent executions with configurable concurrency settings per function.
 + **Flexible memory configuration**: Flex Consumption offers multiple [instance sizes](#instance-sizes) size options, so you can optimize for your specific workload requirements.
