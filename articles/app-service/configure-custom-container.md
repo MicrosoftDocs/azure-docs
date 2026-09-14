@@ -55,7 +55,7 @@ It takes some time to download a parent image during app startup. You can reduce
 - [mcr.microsoft.com/dotnet/aspnet:8.0-nanoserver-ltsc2022](https://mcr.microsoft.com/artifact/mar/dotnet/aspnet/tag/8.0-nanoserver-ltsc2022)
 
 > [!IMPORTANT]
-> Windows Server 2025 base images are not supported in Azure App Service.
+> Windows Server 2025 base images aren't supported in Azure App Service.
 
 ::: zone-end
 
