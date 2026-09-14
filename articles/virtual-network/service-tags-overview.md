@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 07/15/2025
+ms.date: 09/14/2026
 ms.author: allensu
 #customer intent: As a network administrator, I want to utilize service tags for defining security rules, so that I can simplify network access controls and maintain effective security management for Azure resources.
 ---
@@ -119,6 +119,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **CognitiveServicesManagement** | The address ranges for traffic for Foundry Tools. | Both | No | Yes |
 | **DataFactory**  | Azure Data Factory | Both | Yes | Yes |
 | **DataFactoryManagement** | Management traffic for Azure Data Factory. | Outbound | No | Yes |
+| **DevOpsInfrastructure** | The address ranges used by the Managed DevOps Pools / Azure DevOps Infrastructure service when Microsoft-managed agent infrastructure needs to communicate with resources in your VNet. | Inbound | No | No |
 | **[Dynamics365ForMarketingEmail](/dynamics365/customer-insights/journeys/public-ip-addresses-for-email-sending)** | The address ranges for the marketing email service of Dynamics 365. | Both | Yes | Yes |
 | **[Dynamics365BusinessCentral](/dynamics365/business-central/dev-itpro/security/security-service-tags)** | This tag or the IP addresses covered by this tag can be used to restrict access from/to the Dynamics 365 Business Central Services. | Both | No | Yes |
 | **EOPExternalPublishedIPs** | This tag represents the IP addresses used for Security & Compliance Center PowerShell. Refer to the [Connect to Security & Compliance Center PowerShell using the EXO V2 module for more details](/powershell/exchange/connect-to-scc-powershell). | Both | No | Yes |
