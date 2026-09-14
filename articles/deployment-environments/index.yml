@@ -25,8 +25,8 @@ landingContent:
         links:
           - text: What is Azure Deployment Environments?
             url: overview-what-is-azure-deployment-environments.md
-          - text: Maintenance mode for Azure Deployment Environments
-            url: maintenance-mode.md
+          - text: Azure Deployment Environments retirement guide
+            url: deployment-environments-retirement-guide.md
           - text: Key concepts
             url: concept-environments-key-concepts.md
             

@@ -1,12 +1,14 @@
 ---
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 05/01/2026
+ms.date: 09/08/2026
 ms.topic: include
 ms.service: dev-box
 ---
 
 > [!IMPORTANT]
-> Dev Box is now in maintenance mode, with no additional features planned. Microsoft's investments for developer cloud environments are focused on Windows 365, which provides a unified, scalable solution for developer scenarios.
+> Microsoft Dev Box retires at 17:00 UTC on 18 September 2028. Start developing your retirement plan now to validate feature differences, secure licenses and capacity, and transition developer workflows to the recommended Microsoft solution.
 >
-> Customers should consider [Windows 365](/windows-365/) as the recommended path forward for virtualized developer environments. Dev Box will remain supported for existing usage, and guidance will be provided to help customers transition.
+> Transition your Microsoft Dev Box workflows to Windows 365 or another appropriate solution by 18 September 2028. Microsoft Dev Box retires fully on this date. The service begins its closing-down period at 16:00 UTC on 14 September 2026.
+>
+> [Microsoft Dev Box retirement guide](../dev-box-retirement-guide.md)

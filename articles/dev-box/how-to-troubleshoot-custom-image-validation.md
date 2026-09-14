@@ -252,7 +252,6 @@ source "azure-arm" "devbox" {
 
 - Do not use disk_encryption_set_id in Packer configurations for Dev Box images
 - Rely on Dev Box's built-in platform-managed encryption (enabled by default)
-- If your organization requires CMK, monitor the Dev Box roadmap for future CMK support
 - Document this requirement in your image build pipeline to prevent accidental reintroduction
 
 ### Issue: The image exists in the gallery but doesn't appear in the Dev Box definition image list

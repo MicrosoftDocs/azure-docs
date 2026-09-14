@@ -7,7 +7,7 @@ ms.service: azure-migrate
 ms.reviewer: jsuri
 ms.update-cycle: 1095-days
 ms.topic: upgrade-and-migration-article
-ms.date: 11/04/2025
+ms.date: 08/28/2026
 ---
 
 # Web app migration and modernization
@@ -33,11 +33,13 @@ Migrate your applications to Azure App Service for a fully managed platform that
 
 - Upgrade ASP.NET apps to modern code on App Service. [Learn more](tutorial-modernize-asp-net-appservice-code.md).
 
+- Migrate infrastructure-dependent .NET Framework apps to [Managed Instance on Azure App Service](../app-service/overview-managed-instance.md), which supports Windows operating system customization, configuration scripts, registry adapters, and storage mounts.
+
 ## Migrate web apps using GitHub Copilot
 
-Migrate web apps using GitHub Copilot to accelerate modernization with AI-powered code insights and automation.
+Migrate web apps by using GitHub Copilot modernization to accelerate assessment, remediation, validation, and deployment with an agentic workflow.
 
-- Assess and migrate .NET projects to Azure with GitHub Copilot, which evaluates readiness, creates a migration plan, and automates code changes. [Learn more](/dotnet/azure/migration/appmod/quickstart).
+- Assess and migrate .NET projects to Azure by using GitHub Copilot modernization, which evaluates readiness, creates a migration plan, automates code changes, validates the result, and deploys to Azure. For applications that need Windows operating system customization, configure `AppServiceManagedInstance.Windows` as the [assessment target](/dotnet/azure/migration/appmod/working-with-assessment), then [deploy the migrated project](/dotnet/azure/migration/appmod/deploy).
 
 -  Assess and migrate Java projects to Azure using GitHub Copilot app modernization, with automated readiness checks and predefined migration tasks. [Learn more](/azure/developer/java/migration/migrate-github-copilot-app-modernization-for-java-quickstart-assess-migrate).
 
