@@ -1,7 +1,7 @@
 ---
 title: What is Playwright Workspaces?
 titleSuffix: Playwright Workspaces
-description: 'Run Playwright tests with high parallelization across different OS and browser combinations using Playwright Workspaces, a fully managed testing service.'
+description: 'Run browser automation, AI-powered workflows, and Playwright tests on managed cloud browsers. Playwright Workspaces simplifies browser infrastructure while delivering scale, security, and cross-browser execution for modern web applications.'
 ms.topic: overview
 ms.date: 08/07/2025
 ms.service: azure-app-testing
@@ -13,73 +13,110 @@ ms.custom: playwright-workspaces
 
 # What is Playwright Workspaces?
 
-Playwright Workspaces is a fully managed service for end-to-end web testing, built on top of [Playwright](https://playwright.dev). With Playwright Workspaces, you can significantly speed up test execution by running tests in parallel using managed cloud-based browsers. The service takes care of the underlying infrastructure and complexity, allowing you to validate your web app across major browsers on both Linux and Windows—so you can ship features faster and with greater confidence.
+Playwright Workspaces is a fully managed cloud browser platform for testing applications, automating browser workflows, and powering AI agents through browser interactions. Playwright Workspaces provides scalable cloud-hosted browsers, enterprise-grade security, observability, and debugging capabilities without requiring you to manage browser infrastructure. Whether you're running end-to-end tests, automating business workflows, or building browser-based AI agents, Playwright Workspaces helps you execute browser interactions reliably at scale.
 
-Get started with [Quickstart: run your Playwright tests at scale with Playwright Workspaces](./quickstart-run-end-to-end-tests.md).
+Get started:
+- [Quickstart: Run your Playwright tests at scale](./quickstart-run-end-to-end-tests.md).
+- [Quickstart: Automate browser tasks](./quickstart-automate-browser-tasks-remote-mcp.md).
 
-To learn more about how to create end-to-end tests with the Playwright test framework, visit the [Getting started documentation](https://playwright.dev/docs/intro) on the Playwright website.
 
-## Accelerate tests with parallel remote browsers
+## Why use Playwright Workspaces?
 
-As your application becomes more complex, your test suite increases in size. The time to complete your test suite also grows accordingly. Use parallel remote browsers to shorten the overall test suite completion time.
+Modern applications and workflows increasingly depend on browser interactions. Managing browser infrastructure, scaling execution, troubleshooting failures, and securing credentials can become operationally complex.
+Playwright Workspaces removes this complexity by providing:
 
-- Distribute your tests across many parallel browsers, hosted on cloud infrastructure.
+- Fully managed cloud browsers
+- Scalable browser execution
+- Enterprise-grade security and isolation
+- Built-in debugging and observability
+- Session recordings and execution artifacts
+- Integration with Playwright tooling and AI agent frameworks
+- Centralized workspace management
 
-- Scale your tests beyond the processing power of your developer workstation, local infrastructure, or CI agent machines.
+## Common scenarios
 
-- Consistent regional performance by running your tests on browsers in an Azure region that's closest to your client machine.
+### Test applications at scale
 
-Learn more about how you can [configure for optimal performance](./concept-determine-optimal-configuration.md).
+Run Playwright tests on cloud-hosted browsers without maintaining your own test infrastructure.
 
-## Test consistently across multiple operating systems and browsers
+Common testing scenarios include:
+- End-to-end testing
+- Functional testing
+- Regression testing
+- Cross-browser validation
+- CI/CD automation
+- Large-scale parallel test execution
 
-Modern web apps need to work flawlessly across numerous browsers, operating systems, and devices.
+By using Playwright Workspaces, test engineers can scale browser execution while maintaining visibility into failures through logs, recordings, traces, and debugging tools. To learn more, see [running your Playwright tests at scale](./overview-run-playwright-tests-at-scale.md).
 
-- Run tests simultaneously across all modern browsers on Windows, Linux, and mobile emulation of Google Chrome for Android and Mobile Safari.
+### Build AI-powered browser automation agents
 
-- Using service-managed browsers ensures consistent and reliable results for both functional and visual regression testing, whether tests are run from your team's developer workstations or CI pipeline.
+Use Playwright Workspaces to add browser automation tools to AI agents. Agents can connect to managed cloud browsers to interact with websites, applications, and business systems without relying on local machines or self-managed browser infrastructure.
 
-- Playwright Workspaces supports all [browsers supported by Playwright](https://playwright.dev/docs/release-notes).
+By using Playwright Workspaces, AI agents can:
 
-## Endpoint testing
+- Navigate websites and web applications
+- Read, validate, and extract information
+- Complete and submit forms
+- Interact with authenticated applications
+- Automate repetitive business processes
+- Execute complex, multistep browser workflows
 
-Use cloud-hosted remote browsers to test web applications regardless of where they're hosted, without having to allow inbound connections on your firewall.
+By combining AI models with reliable cloud browser execution, organizations can build agents that automate browser tasks that traditionally required human interaction. To learn more, see [Browser Automation Tool in Microsoft Foundry](https://learn.microsoft.com/azure/foundry/agents/how-to/tools/browser-automation?tabs=prompt-agents&pivots=python).
 
-- Test publicly and privately hosted applications.
+### Remote MCP server
 
-- During the development phase, [run tests against a localhost development server](./how-to-test-local-applications.md).
+Playwright Workspaces includes a remote Model Context Protocol (MCP) server that enables AI tools and agents to interact with managed cloud browsers.
 
-## Playwright support
+The remote MCP server provides a secure and scalable interface between AI systems and browser execution environments.
+You can connect Playwright Workspaces to compatible MCP clients and agent platforms, enabling scenarios such as:
+- Agentic browser automation
+- Intelligent web navigation
+- Browser-assisted copilots
+- Information retrieval workflows
+- Human-in-the-loop automation
 
-Playwright Workspaces is built on top of the Playwright framework.
+By using the remote MCP server, your organization can centralize browser infrastructure while enabling multiple AI tools and agents to access cloud browsers through a consistent interface. To learn more, see [Playwright Workspaces remote MCP](./how-to-playwright-workspaces-remote-mcp.md).
 
-- Support for multiple versions of Playwright with each new Playwright release.
+## Core capabilities
 
-- Integrate your existing Playwright test suite without changing your test code.
+### Playwright-native execution
 
-- Use the [Playwright Test Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) for a rich editor experience.
+Playwright Workspaces works seamlessly with existing Playwright applications and workflows. Run Playwright tests by using the Playwright Test Runner or connect directly to cloud browsers through the Chrome DevTools Protocol (CDP). Whether you're executing end-to-end tests, browser automation scripts, or AI-driven workflows, you can use the same Playwright APIs and tooling that developers already know and use today.
 
-- Continuous end-to-end testing by using the Playwright CLI to [integrate with continuous integration (CI) tools](./quickstart-automate-end-to-end-testing.md).
+### Cross-browser and cross-platform testing
 
-## How it works
+Validate application experiences across multiple browser and operating system combinations without managing browser infrastructure. Playwright Workspaces provides cloud-hosted browser environments that help teams verify functionality, compatibility, and user experiences across supported browser and OS configurations at scale.
 
-Playwright Workspaces instantiates cloud-hosted browsers across different operating systems. Playwright executes tests on the client machine—either a developer workstation or a CI agent—and remotely control cloud-hosted browsers via the Playwright Workspaces service. The test code remains on the client machine throughout the test run, while browser interactions are performed in the cloud.
+### Secure access to private applications
 
-:::image type="content" source="./media/overview-what-is-microsoft-playwright-workspaces/playwright-workspaces-architecture-overview.png" alt-text="Diagram that shows an architecture overview of Playwright Workspaces." lightbox="./media/overview-what-is-microsoft-playwright-workspaces/playwright-workspaces-architecture-overview.png":::
+Test and automate applications that aren't publicly accessible. Playwright Workspaces supports connectivity to private websites and internal applications, enabling browser execution against development, staging, and enterprise environments while maintaining organizational security requirements and network controls.
 
-After a test run completes, the test results, trace files, and other test run files are available on the client machine.
+### Built-in observability and browser session data
 
-You don’t need to modify your existing test code to run it with Playwright Workspaces. Simply install the Playwright Workspaces package and specify your workspace endpoint.
+Gain visibility into browser executions with rich diagnostic artifacts and session data. Playwright Workspaces captures information that helps teams understand test failures, investigate automation issues, and analyze browser behavior. Access execution artifacts, logs, traces, screenshots, recordings, and browser session data to accelerate troubleshooting and improve reliability.
 
-Learn more about how to [determine the optimal configuration for optimizing test suite completion](./concept-determine-optimal-configuration.md).
+### Live browser view and Take Control
 
-## In-region data residency & data at rest
+Observe browser activity in real time through Live View. When troubleshooting a test or automation workflow, you can connect to an active browser session to see exactly what is happening as it executes. For deeper investigation, Take Control enables you to interact directly with the running browser, helping you reproduce issues, validate fixes, and debug complex workflows more efficiently.
+
+### Enterprise authentication and access control
+
+Playwright Workspaces integrates with Microsoft Entra ID to provide secure, enterprise-grade authentication and authorization. Users can access workspace resources using their organizational identities, while automation workflows and integrations can authenticate using access tokens where appropriate. This approach enables secure access management, governance, and integration with existing enterprise security policies.
+
+## Architecture
+
+The following diagram illustrates how Playwright Workspaces provides cloud browser infrastructure for different workloads:
+
+:::image type="content" source="./media/overview-what-is-microsoft-playwright-workspaces/playwright-workspaces-architecture.png" alt-text="Diagram that shows an architecture overview of Playwright Workspaces." lightbox="./media/overview-what-is-microsoft-playwright-workspaces/playwright-workspaces-architecture-overview.png":::
+
+## In-region data residency and data at rest
 
 Playwright Workspaces doesn't store or process customer data outside the region you deploy the workspace in. When you use the regional affinity feature, the metadata is transferred from the cloud hosted browser region to the workspace region in a secure and compliant manner.
 
 Playwright Workspaces automatically encrypts all data stored in your workspace with keys managed by Microsoft (service-managed keys). For example, this data includes workspace details, Playwright test run metadata like test start and end time, test minutes, who ran the test, and test results which are published to the service.
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [Quickstart: Run Playwright tests at scale](quickstart-run-end-to-end-tests.md)
+- [Quickstart: Run Playwright tests at scale](quickstart-run-end-to-end-tests.md)
+- [Quickstart: Automate browser tasks](./quickstart-automate-browser-tasks-remote-mcp.md)
