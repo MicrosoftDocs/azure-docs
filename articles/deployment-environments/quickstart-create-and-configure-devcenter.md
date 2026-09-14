@@ -14,7 +14,7 @@ ms.date: 05/19/2026
 
 # Quickstart: Configure Azure Deployment Environments
 
-[!INCLUDE [note-deployment-environments-maintenance-mode](includes/note-deployment-environments-maintenance-mode.md)]
+[!INCLUDE [note-deployment-environments-retirement](includes/note-deployment-environments-retirement.md)]
 
 In this quickstart, you set up all the resources in Azure Deployment Environments to enable self-service deployment environments for development teams. Learn how to create and configure a dev center, add a catalog to the dev center, and define an environment type. Then associate a project with the dev center, add an environment type, and allow developer access to the project.
 

@@ -3,7 +3,7 @@ title: Configure managed identities for Microsoft Discovery
 description: Learn how to create and configure user-assigned managed identities (UAMI) for Microsoft Discovery workspaces, supercomputers, and bookshelves, including the required Azure role assignments.
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/17/2026
+ms.date: 09/10/2026
 ms.author: umamm
 author: umamm
 ms.custom: identity, managed-identity, rbac
@@ -39,7 +39,7 @@ Both approaches work with Microsoft Discovery. The quickstart guides use a singl
 
 ## Prerequisites
 
-- An active Azure subscription enabled for **Microsoft Discovery Public Preview**.
+- An active Azure subscription enabled for **Microsoft Discovery**.
 - **Managed Identity Contributor** role at the resource group or subscription level - required to create UAMI resources.
 - **User Access Administrator** or **Owner** role at the resource group level - required to create role assignments on the UAMI.
 - The `Microsoft.ManagedIdentity` resource provider [registered](concept-resource-provider-registration.md) in your subscription.

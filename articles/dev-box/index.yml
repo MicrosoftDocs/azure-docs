@@ -25,8 +25,8 @@ landingContent:
         links:
           - text: What is Microsoft Dev Box?
             url: overview-what-is-microsoft-dev-box.md
-          - text: Microsoft Dev Box Roadmap
-            url: dev-box-roadmap.md
+          - text: Microsoft Dev Box retirement guide
+            url: dev-box-retirement-guide.md
 
   # Card
   - title: Get started

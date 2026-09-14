@@ -1,18 +1,18 @@
 ---
-title: Select Models for Agents in Microsoft Discovery
+title: Select models for agents in Microsoft Discovery
 description: Choose the right model for your Microsoft Discovery agents, based on use case, output quality, cost, and response time.
 author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: how-to
-ms.date: 05/29/2026
+ms.date: 09/10/2026
 
 #CustomerIntent: As a researcher or scientist, I want to select the best model for my Discovery agents so that I can balance output quality, cost, and response time.
 ---
 
 # Select models for agents in Microsoft Discovery
 
-Microsoft Discovery is built on [Foundry Agent Service](/azure/foundry/agents/concepts/runtime-components). All models available in the [Microsoft Foundry model catalog](https://ai.azure.com/catalog/models) are accessible for Discovery agents. During public preview, use OpenAI GPT-5.x series models for the best experience with Discovery agents.
+Microsoft Discovery is built on [Foundry Agent Service](/azure/foundry/agents/concepts/runtime-components). Discovery agents can use all models available in the [Microsoft Foundry model catalog](https://ai.azure.com/catalog/models). Use OpenAI GPT-5.x series models for the best experience with Discovery agents.
 
 This article helps you choose the right model for your agents based on task complexity, output quality, cost, and response time. The guidance applies to both Microsoft Discovery and the Discovery app, with more flexibility available in the Discovery app for third-party model endpoints. (The Discovery app is a local experience built on GitHub Copilot.)
 
@@ -31,7 +31,7 @@ This article helps you choose the right model for your agents based on task comp
 
 ## Understand available GPT-5.x models
 
-The following table summarizes the OpenAI GPT-5.x models recommended for Discovery agents during public preview.
+The following table summarizes the OpenAI GPT-5.x models recommended for Discovery agents.
 
 | Model | Context window | Strengths | Relative cost | Response time |
 | --- | --- | --- | --- | --- |

@@ -64,7 +64,7 @@ The appliance needs access to the following URLs (directly or via proxy) over an
 
 **URL (Mandatory)** | **Details**  
 --- | --- |
-login.windows.net <br> graph.windows.net <br> *.msftauth.net <br> *.msauth.net <br> *.live.com <br> *.office.com <br> m365.cloud.microsoft.com | Used to sign in to your Azure subscription 
+login.windows.net <br> graph.windows.net <br> *.msftauth.net <br> *.msauth.net <br> *.live.com <br> *.office.com <br> copilot.cloud.microsoft | Used to sign in to your Azure subscription 
 developer.microsoft.com <br> graph.microsoft.com | Used for access control and identity management by Microsoft Entra ID.
 login.microsoftonline.com |  Create Microsoft Entra apps for the appliance to communicate with Site Recovery 
 *.vault.azure.net | Manage secrets in Azure Key Vault. Ensure that the machines that need to be replicated have access to this URL.

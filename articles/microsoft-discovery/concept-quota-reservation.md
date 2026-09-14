@@ -5,7 +5,7 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: concept-article
-ms.date: 04/02/2026
+ms.date: 09/10/2026
 
 #CustomerIntent: As a platform administrator, I want to understand quota requirements so that I can prepare my Azure subscription for a successful Microsoft Discovery deployment.
 ---
@@ -39,7 +39,7 @@ Standard VM SKUs are required for Microsoft Discovery infrastructure components,
 
 Microsoft Discovery supports various VM SKU families for different computational workloads. For more information, see [Azure VM SKU Families](/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist#general-purpose).
 
-The following table lists sample VM SKU families supported in preview:
+The following table lists sample VM SKU families:
 
 | VM SKU Family | Recommended SKUs | Use Case |
 |---|---|---|

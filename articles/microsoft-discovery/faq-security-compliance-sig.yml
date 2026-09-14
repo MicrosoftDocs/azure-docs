@@ -1,0 +1,244 @@
+### YamlMime:FAQ
+
+metadata:
+  title: Microsoft Discovery SIG-based security and compliance FAQ
+  description: Answers to common security and compliance questions about Microsoft Discovery, organized by the Standardized Information Gathering (SIG) questionnaire risk domains.
+  author: yousefi-msft
+  ms.author: yousefi
+  ms.service: azure
+  ms.topic: faq
+  ms.date: 09/05/2026
+  ms.custom: security, compliance
+title: Microsoft Discovery SIG-based security and compliance FAQ
+summary: |
+  This article answers the questions that most often appear in security reviews and third-party risk assessments for Microsoft Discovery. The sections are aligned one-to-one to the **21 risk domains** of the Shared Assessments **Standardized Information Gathering (SIG)** questionnaire, so you can complete a SIG-based assessment (Lite or Core) end to end. To separate the controls you assess in Discovery from the controls you inherit from Azure, and to find the authoritative Microsoft source for each framework question, see [Compliance guidance](concept-compliance-framework-mappings.md). For an orientation to the platform's security posture and the shared responsibility model, see the [Security and compliance overview](concept-security-overview.md).
+
+  Microsoft Discovery is built on Azure and inherits the platform-level controls of Azure and the managed services it uses. Domains that are satisfied by inherited Azure controls (for example, physical security, personnel security, and server hardening) are answered by reference to the central sources of truth—the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Service Trust Portal](https://servicetrust.microsoft.com/).
+
+  > [!IMPORTANT]
+  > This article is provided **for informational purposes only**. It doesn't constitute a certification, attestation, audit, or guarantee of compliance, and it doesn't imply that Microsoft Discovery is certified or independently audited against any framework referenced here. For the current, authoritative list of Microsoft certifications, audit reports, and control implementation details, use the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Service Trust Portal](https://servicetrust.microsoft.com/).
+
+sections:
+  - name: Enterprise risk and cloud services (SIG - Enterprise Risk Management, Cloud Services)
+    questions:
+      - question: What type of service is Microsoft Discovery, and what is the deployment model?
+        answer: |
+          Microsoft Discovery is an enterprise agentic AI platform for scientific research, built on Azure. It's delivered as a cloud service that deploys resources into *your own* Azure subscription and Microsoft Entra tenant, not a Microsoft-managed subscription. When you provision a workspace, supercomputer, or bookshelf, the service creates a managed resource group (MRG) in your subscription that holds the backend resources it operates on your behalf. For the resource model, see [Service architecture overview](overview-service-architecture.md).
+
+      - question: Who is responsible for which security controls?
+        answer: |
+          Security follows the [Azure shared responsibility model](/azure/security/fundamentals/shared-responsibility). Microsoft secures the underlying platform, managed services, and control plane. You're responsible for securing your subscription, virtual networks, identities, role assignments, data classification, and monitoring configuration. For a responsibility breakdown, see [Shared responsibility model](concept-security-overview.md#shared-responsibility-model).
+
+      - question: How does Microsoft govern risk for the platform?
+        answer: |
+          Microsoft Discovery is built and operated under Microsoft's enterprise engineering, security, and responsible AI governance practices, including centralized management, audit trails, and human-oversight checkpoints. For Microsoft's enterprise security governance program, see [Governance, risk, and compliance](/compliance/assurance/assurance-governance), and download independent audit reports from the [Service Trust Portal](https://servicetrust.microsoft.com/).
+
+  - name: Compliance management (SIG - Compliance Management)
+    questions:
+      - question: Is Microsoft Discovery certified for SOC 2, ISO/IEC 27001, HIPAA, or similar frameworks?
+        answer: |
+          Microsoft Discovery is built on Azure and inherits the compliance posture of the Azure platform and the managed services it uses. Microsoft publishes its certifications, audit reports (for example, SOC 1/2/3 and ISO/IEC 27001), and control mappings centrally rather than per service. Review the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and download audit reports from the [Service Trust Portal](https://servicetrust.microsoft.com/). Confirm the applicable certification scope against your requirements before you process regulated data.
+
+      - question: Where do I obtain audit reports and control documentation for a vendor assessment?
+        answer: |
+          Download Azure audit reports, control implementation summaries, bridge letters, and compliance guides from the [Service Trust Portal](https://servicetrust.microsoft.com/). For a mapping of Microsoft compliance offerings to services and regions, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center).
+
+      - question: How does the platform map to control frameworks used in the SIG questionnaire?
+        answer: |
+          Use the framework mappings that Microsoft already publishes rather than deriving your own from product documentation. The [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction) maps Azure security controls to CIS Controls, NIST SP 800-53, and PCI DSS; [Microsoft compliance offerings](/compliance/regulatory/offering-home) map services to specific standards and regulations; and the [Service Trust Portal](https://servicetrust.microsoft.com/) holds the audit evidence. For the Discovery-specific control decisions you need to record alongside those mappings, see [Compliance guidance](concept-compliance-framework-mappings.md).
+
+  - name: Access control (SIG - Access Control)
+    questions:
+      - question: How do users authenticate, and how is access authorized?
+        answer: |
+          Users authenticate through Microsoft Entra ID; the Discovery Studio portal is secured with Entra ID authentication, similar to the Azure portal. Authorization is enforced through Azure role-based access control (RBAC). For more information, see [Role assignments](concept-role-assignments.md).
+
+      - question: What role-based access controls are available?
+        answer: |
+          Microsoft Discovery provides built-in platform roles (Platform Administrator, Platform Contributor, and Platform Reader), project-level roles that isolate investigations, and resource-specific roles. Assign the minimum roles required and avoid broad Owner or subscription-wide permissions. For more information, see [Role assignments](concept-role-assignments.md) and [Project-level access control](concept-project-rbac.md).
+
+      - question: How is service-to-service access authenticated without stored secrets?
+        answer: |
+          Microsoft Discovery uses *user-assigned managed identities* (UAMIs) that you create and control in your own subscription, instead of secrets or connection strings. You grant the identity Azure roles, and the platform uses it to access storage, container registries, and AI services. For more information, see [Managed identities](concept-managed-identities.md).
+
+      - question: How do I enforce least privilege for AI agents and tool execution?
+        answer: |
+          Use separate user-assigned managed identities with scoped role assignments. The workload identity is used by agents through tool execution, so grant it only the permissions strictly necessary (for example, `Storage Blob Data Contributor` scoped to a single storage account), and keep control-plane and networking roles on separate identities. For guidance, see [Granular role assignments per identity](concept-managed-identities.md#advanced-configuration-granular-role-assignments-per-identity).
+
+  - name: Application security and artificial intelligence (SIG - Application Security, Artificial Intelligence)
+    questions:
+      - question: What AI safety controls are built into the platform?
+        answer: |
+          Microsoft Discovery follows the [Microsoft Responsible AI Standard](https://aka.ms/RAI). It applies Foundry Guardrails content filtering by default to all models created in Discovery, provides grounding with hyperlinked citations, and uses input classifiers, output filters, and system-level safeguards aligned with Microsoft AI principles. For more information, see [Safety components](concept-responsible-ai.md#safety-components).
+
+      - question: Are there prohibited uses I should account for in a risk assessment?
+        answer: |
+          Yes. Prohibited uses include weapons development (chemical, biological, radiological, or nuclear), applications that could cause physical, psychological, environmental, or financial harm, uses that violate applicable laws or regulations, and attempts to bypass or disable safety systems. For the full policy, see [Prohibited uses](concept-responsible-ai.md#prohibited-uses) and the [Code of conduct](concept-code-of-conduct.md).
+
+      - question: How is AI model safety validated before release?
+        answer: |
+          Microsoft evaluates Microsoft Discovery against the Responsible AI evaluation framework from Microsoft AI Foundry, targeting safety (for example, jailbreak resistance and content-safety classification) and groundedness. Each release is benchmarked against baseline behavior and prior releases to detect regressions. For more information, see [Evaluations](concept-responsible-ai.md#evaluations).
+
+      - question: How is application and platform code secured?
+        answer: |
+          Microsoft Discovery is developed under the [Microsoft Security Development Lifecycle (SDL)](/azure/security/develop/secure-develop) and engineering practices, and it runs on Azure managed services that inherit Azure platform security operations. Within your deployment, you're responsible for securing custom agents and tools you build; see [Responsible AI best practices for deployers](concept-responsible-ai.md#best-practices-for-deployers).
+
+  - name: Asset and information management (SIG - Asset and Information Management)
+    questions:
+      - question: Where is customer data stored, and how is it managed?
+        answer: |
+          Customer data is stored in resources deployed in your own subscription (for example, Azure Blob Storage in the managed resource groups). Data is organized through storage containers and storage assets, and access is governed by Microsoft Entra ID and RBAC. For how data flows through tools and agents, see [Manage data handling with tools and agents](how-to-data-handling-with-tools-agents.md) and [Storage containers and storage assets](concept-storage-containers-assets.md).
+
+      - question: Who is responsible for data classification?
+        answer: |
+          You are. Under the shared responsibility model, you classify your data and protect it before it's ingested into Microsoft Discovery. The platform provides encryption, access control, and logging to help you enforce your classification policies. For more information, see [Shared responsibility considerations](concept-data-encryption-at-rest.md#shared-responsibility-considerations).
+
+  - name: Information assurance and encryption (SIG - Information Assurance, Server Security)
+    questions:
+      - question: Is data encrypted at rest?
+        answer: |
+          Yes. Microsoft Discovery encrypts customer and system data at rest using Azure platform encryption. Encryption is enabled by default and applied automatically and transparently, with no configuration required unless you choose customer-managed keys. For more information, see [Data encryption at rest](concept-data-encryption-at-rest.md).
+
+      - question: Can I use my own encryption keys?
+        answer: |
+          Yes. Customer-managed keys (CMK) are supported for bookshelf, supercomputer, and workspace resources using a key you create and manage in Azure Key Vault, giving you control over rotation and revocation. Configure CMK when the resource is created; you can't switch key-management models afterward. For more information, see [Data encryption at rest](concept-data-encryption-at-rest.md) and [Configure customer-managed keys](howto-data-encryption-at-rest.md).
+
+      - question: Can Microsoft personnel access my encryption keys or data?
+        answer: |
+          Encryption keys aren't accessible to service operators, engineers, or support personnel. Access to encrypted data is governed by Microsoft Entra ID authentication, Azure RBAC, and managed identities for service-to-service communication, following least-privilege and separation-of-duties principles. Resources are deployed in your own subscription and tenant. For more information, see [Access controls and key isolation](concept-data-encryption-at-rest.md#access-controls-and-key-isolation).
+
+      - question: Is data encrypted in transit?
+        answer: |
+          Data-plane traffic between Discovery components stays on the Azure backbone network. With network hardening (enabled by default) and private endpoints, workspace and bookshelf API traffic is routed through Azure Private Link and doesn't traverse the public internet. For more information, see [Network security](concept-network-security.md).
+
+      - question: How are the servers and managed infrastructure hardened and patched?
+        answer: |
+          The backend runs on Azure managed services (for example, Azure Kubernetes Service, Azure Storage, Azure AI Search, and Azure Cosmos DB) provisioned in Microsoft-managed resource groups. Platform hardening, patching, and vulnerability management for those services are handled as part of Azure operations. For how Microsoft manages this, see [Threat and vulnerability management](/compliance/assurance/assurance-vulnerability-management). You shouldn't modify or delete resources inside the managed resource groups.
+
+  - name: Network security (SIG - Network Security)
+    questions:
+      - question: Are Microsoft Discovery services exposed to the public internet?
+        answer: |
+          Most backend resources are private and are protected by a Network Security Perimeter (NSP), private endpoints, and virtual network injection. Backend resources in the managed resource groups aren't directly accessible from outside the environment. The Discovery Studio portal UI is publicly reachable (like the Azure portal) and secured with Microsoft Entra ID, but backend data isn't exposed through public endpoints. For more information, see [Network security](concept-network-security.md).
+
+      - question: What network isolation controls are available?
+        answer: |
+          Network hardening is enabled by default for workspaces and bookshelves managed with the `2026-02-01-preview` API version and later. It applies Network Security Perimeters around managed resources, private endpoints for data-plane APIs over Azure Private Link, and virtual network injection for workspace services and agents. You can also set `publicNetworkAccess` to `Disabled` so public data-plane calls are rejected. For more information, see [Configure network security](how-to-configure-network-security.md) and [End-to-end network-hardened deployment](how-to-deploy-network-hardened-stack.md).
+
+      - question: Does Microsoft need inbound access into my network?
+        answer: |
+          No. No explicit inbound access from Microsoft into your environment is required. All interactions occur within Azure Container Apps, private endpoints, and internal Azure services. For more information, see [Network security](concept-network-security.md).
+
+      - question: Are there known networking limitations for a hardened deployment?
+        answer: |
+          Yes. Cross-region private endpoints aren't supported (the private endpoint must be in the same region as the resource), each Discovery resource requires its own non-overlapping subnets, and the supercomputer's AKS API server currently has a public FQDN even though workload traffic stays within the virtual network. Network hardening is supported in East US, UK South, and Sweden Central. For the full list, see [Limitations](concept-network-security.md#limitations).
+
+  - name: Endpoint security (SIG - Endpoint Security)
+    questions:
+      - question: What endpoints exist in a Microsoft Discovery deployment, and how are they protected?
+        answer: |
+          Microsoft Discovery is a managed cloud service; it doesn't place agents on customer workstations or servers, and there are no customer-managed operating-system endpoints in the managed data plane. Access is through Microsoft Entra ID-secured interfaces (the Discovery Studio portal and REST APIs) and, for backend resources, private endpoints and Network Security Perimeters. The compute endpoints in the platform are Azure managed services (for example, Azure Kubernetes Service nodes) that run inside Microsoft-managed resource groups and inherit Azure endpoint-protection and hardening controls. For more information, see [Network security](concept-network-security.md).
+
+      - question: Who secures the devices that administrators use to access Microsoft Discovery?
+        answer: |
+          You do. The workstations and devices your administrators and scientists use to reach Discovery Studio or the APIs are part of your environment. Apply your own endpoint protection, conditional access, and device-compliance policies (for example, Microsoft Intune and Microsoft Entra Conditional Access) to those devices as part of your responsibilities under the shared responsibility model.
+
+  - name: IT operations and monitoring (SIG - IT Operations Management)
+    questions:
+      - question: What logging and monitoring does the platform provide?
+        answer: |
+          Microsoft Discovery integrates with Azure Monitor and surfaces three log categories: application logs (automatically collected in each resource's managed resource group Log Analytics workspace), activity logs (control-plane create/update/delete operations), and audit logs (customer-configurable through diagnostic settings). For more information, see [Observability](concept-observability.md).
+
+      - question: How do I retain logs for compliance and long-term auditing?
+        answer: |
+          Enable audit logging through Azure Monitor diagnostic settings and export logs to an Azure Storage account or Log Analytics workspace that you own. Audit logging is supported for workspace, bookshelf, and supercomputer resources and supports compliance retention, security auditing, and long-term retention beyond the 90-day default for activity logs. For more information, see [Enable audit logging](how-to-enable-audit-logging.md).
+
+      - question: How long are control-plane activity logs retained?
+        answer: |
+          Azure activity logs for Discovery control-plane operations are retained for 90 days by default in Azure Monitor. You can extend retention by exporting them to a Log Analytics workspace or storage account through diagnostic settings. For more information, see [Activity logs](concept-observability.md#activity-logs).
+
+  - name: Incident management (SIG - Incident Management)
+    questions:
+      - question: How can I trace a single operation end to end during an investigation or incident?
+        answer: |
+          Each operation initiated in Discovery Studio is assigned a correlation ID that's propagated across all components and included in log entries. Use the correlation ID to trace when a request started, which agents and tools were invoked, any errors, and when it completed. Include the correlation ID when you open a support request to expedite investigation. For more information, see [Correlation IDs](concept-observability.md#correlation-ids).
+
+      - question: How does Microsoft handle platform-level security incidents?
+        answer: |
+          Platform and Azure-service security incident response is operated by Microsoft, with breach-notification commitments in your Microsoft product terms and Data Protection Addendum. For how Microsoft detects, responds to, and notifies customers of security incidents, see [Security incident management](/compliance/assurance/assurance-incident-management). Within your subscription, you're responsible for monitoring your logs and responding to events in your environment.
+
+  - name: Cybersecurity and threat management (SIG - Cybersecurity, Threat Management)
+    questions:
+      - question: How are threats and vulnerabilities managed for the platform?
+        answer: |
+          Microsoft Discovery runs on Azure managed services that inherit Azure platform threat detection, vulnerability management, and security operations. For how Microsoft detects and remediates threats and vulnerabilities across the platform, see [Threat and vulnerability management](/compliance/assurance/assurance-vulnerability-management). Within your subscription, apply your own controls—for example, Microsoft Defender for Cloud, Azure Policy, and network restrictions—to strengthen your posture.
+
+      - question: What defense-in-depth measures protect my deployment?
+        answer: |
+          The platform combines multiple layers: Microsoft Entra ID authentication and RBAC, least-privilege managed identities, encryption at rest and in transit, Network Security Perimeters and private endpoints, and AI content-safety guardrails. For an overview, see [Security and compliance overview](concept-security-overview.md).
+
+  - name: Operational resilience (SIG - Operational Resilience)
+    questions:
+      - question: Is Microsoft Discovery resilient to a regional outage?
+        answer: |
+          Microsoft Discovery uses a highly available, multiregion architecture and deploys critical service components redundantly across Azure regions, so the service has no single point of failure. During a regional outage, you can continue working by accessing a secondary Microsoft Discovery deployment in another region. For more information, see [Business continuity and disaster recovery](concept-discovery-business-continuity-disaster-recovery.md).
+
+      - question: Does the platform back up or replicate my data automatically?
+        answer: |
+          No. Microsoft Discovery doesn't automatically replicate customer state between regional deployments. You're responsible for replicating your own stateful resources to meet recovery objectives—for example, Azure Blob Storage object replication, Azure Container Registry geo-replication, and Azure Key Vault backup. For more information, see [Recommended resources for geo-replication](concept-discovery-business-continuity-disaster-recovery.md#recommended-resources-for-geo-replication).
+
+  - name: Physical and personnel security (SIG - Physical and Environmental Security, Human Resources Security)
+    questions:
+      - question: How is physical and environmental security handled?
+        answer: |
+          Microsoft Discovery runs in Azure datacenters, so physical and environmental security controls (facility access, environmental protections, and media handling) are provided and independently audited as part of the Azure platform. For details, see [Azure facilities, premises, and physical security](/azure/security/fundamentals/physical-security) and [Datacenter physical access security](/compliance/assurance/assurance-datacenter-physical-access-security).
+
+      - question: What personnel-security controls apply to staff who operate the service?
+        answer: |
+          Personnel security controls for Microsoft staff—such as screening, security training, and access governance—are operated by Microsoft. Combined with the platform's key isolation (encryption keys aren't accessible to operators, engineers, or support personnel), these controls limit access to customer environments. For details, see [Personnel management](/compliance/assurance/assurance-human-resources) and [Access controls and key isolation](concept-data-encryption-at-rest.md#access-controls-and-key-isolation).
+
+  - name: Supply chain and nth-party management (SIG - Supply Chain Risk Management, Nth-Party Management)
+    questions:
+      - question: What Azure services and subprocessors does Microsoft Discovery rely on?
+        answer: |
+          Microsoft Discovery is built on Azure services such as Azure Kubernetes Service, Azure Blob Storage, Azure AI Search, Azure Cosmos DB, Azure Key Vault, Azure Container Apps, and Microsoft Foundry, provisioned within managed resource groups in your subscription. Microsoft's list of subprocessors and supply-chain assurance is published centrally. See the [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy) for the subprocessor list and [Service Trust Portal](https://servicetrust.microsoft.com/) for supply-chain documentation.
+
+      - question: Can I bring my own third-party tools and models, and what is my responsibility?
+        answer: |
+          Yes. You can bring your own containerized tools and models. You're responsible for the security of the tools, models, and container images you supply, including scanning images and scoping the managed identities that run them. For guidance, see [Responsible AI best practices for deployers](concept-responsible-ai.md#best-practices-for-deployers) and [Managed identities](concept-managed-identities.md).
+
+  - name: Privacy management and data residency (SIG - Privacy Management)
+    questions:
+      - question: Where is my data located, and can I control data residency?
+        answer: |
+          Because all resources deploy into your own subscription and tenant, customer data remains within the Azure regions you choose. The control plane is available in East US, Sweden Central, and UK South, and managed resource group (data-plane) resources can be deployed in other regions through cross-region deployment to meet data-residency or capacity requirements. For the authoritative statement of Microsoft data-residency commitments, see [Azure data residency](https://azure.microsoft.com/explore/global-infrastructure/data-residency/).
+
+      - question: Where can I find Microsoft's privacy and data-handling commitments?
+        answer: |
+          See the [Microsoft Trust Center privacy information](https://www.microsoft.com/trust-center/privacy), your Microsoft product terms, and the Data Protection Addendum for the authoritative statement of how Microsoft processes and protects customer data. For Microsoft's regulatory data-protection and privacy-rights commitments, see [Microsoft and the GDPR](/compliance/regulatory/gdpr).
+
+  - name: Environmental, social, and governance (SIG - ESG)
+    questions:
+      - question: How does Microsoft address environmental, social, and governance (ESG) requirements?
+        answer: |
+          ESG is addressed by Microsoft at the corporate level rather than in the Microsoft Discovery product documentation. Because Discovery runs on Azure datacenters, it benefits from Microsoft's datacenter sustainability programs and corporate responsibility commitments. For sustainability, carbon, diversity, and governance information to support the ESG domain of a vendor assessment, see [Microsoft Sustainability](https://www.microsoft.com/sustainability) and the [Microsoft Trust Center](https://www.microsoft.com/trust-center).
+
+      - question: Can I measure the cloud carbon impact of my Microsoft Discovery workloads?
+        answer: |
+          Yes. Because Discovery resources deploy into your own Azure subscription, you can use [carbon optimization in Azure](/azure/carbon-optimization/) to measure, analyze, and reduce the estimated carbon emissions of the underlying Azure resources your deployment uses, alongside Microsoft Cost Management. For Microsoft's platform sustainability commitments, see [Microsoft Sustainability](https://www.microsoft.com/sustainability).
+
+additionalContent: |
+  ## Related content
+
+  - [Security and compliance overview](concept-security-overview.md)
+  - [Compliance guidance](concept-compliance-framework-mappings.md)
+  - [Network security](concept-network-security.md)
+  - [Data encryption at rest](concept-data-encryption-at-rest.md)
+  - [Managed identities](concept-managed-identities.md)
+  - [Role assignments](concept-role-assignments.md)
+  - [Observability](concept-observability.md)
+  - [Responsible AI in Microsoft Discovery](concept-responsible-ai.md)
+  - [Business continuity and disaster recovery](concept-discovery-business-continuity-disaster-recovery.md)
+  - [Microsoft Trust Center](https://www.microsoft.com/trust-center)
+  - [Service Trust Portal](https://servicetrust.microsoft.com/)
+  - [Microsoft Discovery FAQ](faq.yml)

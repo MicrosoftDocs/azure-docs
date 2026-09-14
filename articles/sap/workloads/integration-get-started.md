@@ -22,7 +22,7 @@ To learn more about the opportunities of extending SAP applications with Azure s
 
 We have over 30 years of partnership between SAP and Microsoft, which is a foundation to support common goals long-term, including a joint commitment by SAP and Microsoft to simplify and streamline customers’ journeys to the cloud. For more information, see:
 
-- [Redefining Productivity: How Joule and Microsoft 365 Copilot Will Reshape Today’s Workplace](https://news.sap.com/2024/11/joule-microsoft-365-copilot-integration-redefining-productivity/)
+- [Redefining Productivity: How Joule and Microsoft Copilot Will Reshape Today’s Workplace](https://news.sap.com/2024/11/joule-microsoft-365-copilot-integration-redefining-productivity/)
 - [SAP and Microsoft Expand Partnership and Integrate Microsoft Teams Across Solutions](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/257ec7408db6420682462cd1d000e744.html)
 - [Collaborating for Success: How SAP and Microsoft are working together to accelerate customer innovation and transformation](https://www.sap.com/partners/find/microsoft.html)
 
@@ -63,7 +63,7 @@ Also see these SAP resources:
 
 ### Microsoft Copilot
 
-For more information about integration with [Microsoft 365 Copilot](https://blogs.microsoft.com/blog/2023/03/16/introducing-microsoft-365-copilot-your-copilot-for-work/), see the following Microsoft resources:
+For more information about integration with [Microsoft Copilot](https://blogs.microsoft.com/blog/2023/03/16/introducing-microsoft-365-copilot-your-copilot-for-work/), see the following Microsoft resources:
 
 - [Enhancing Copilot Studio Extensions for SAP by using Adaptive Cards and Principal Propagation](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/enhancing-copilot-studio-extensions-for-sap-by-using-adaptive/ba-p/4187096)
 - [The synergy of market leaders: Exploring Microsoft and SAP’s game-changing collaboration | blog](https://azure.microsoft.com/blog/the-synergy-of-market-leaders-exploring-microsoft-and-saps-game-changing-collaboration/)

@@ -31,7 +31,7 @@ sections:
 
       - question: How are backup, high availability, and disaster recovery implemented in Microsoft Dev Box? 
         answer: |
-          Existing [business continuity and disaster recovery](https://learn.microsoft.com/en-us/windows-365/business-continuity-disaster-recovery) mechanisms for Windows 365 also apply to Dev Box. To learn more about upcoming features to enhance disaster recovery, see the [Dev Box roadmap](https://learn.microsoft.com/en-us/azure/dev-box/dev-box-roadmap#fundamental-performance--reliability).  
+          Existing [business continuity and disaster recovery](https://learn.microsoft.com/en-us/windows-365/business-continuity-disaster-recovery) mechanisms for Windows 365 also apply to Dev Box.
 
       - question: What is the preferred monitoring solution?
         answer: |

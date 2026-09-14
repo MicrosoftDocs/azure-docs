@@ -114,6 +114,16 @@ A TLSA (Transport Layer Security Authentication) record is used to associate a T
 
 To use TLSA records effectively, [DNSSEC](dnssec.md) must be enabled on your domain. This process ensures that the TLSA records can be trusted and properly validated
 
+### NAPTR records
+
+Use NAPTR (Naming Authority Pointer) records to map values in one numbering or naming space to another. They're commonly used in telecommunications and VoIP systems to translate telephone numbers into domain names or service URIs. When you specify an NAPTR record in Azure DNS:
+
+* **Order**: Enter an integer between 0 and 65,535 that specifies the order in which NAPTR records are processed. Evaluate records in ascending order of the Order value.
+* **Preference**: Enter an integer between 0 and 65,535 that specifies the preference among records with the same Order value. Lower values are preferred.
+* **Flags**: Enter an ASCII string that contains single-character flags that control various aspects of the rewriting and interpretation of the fields in the NAPTR record.
+* **Service**: Enter an ASCII string that specifies the service types available down the chain. Common services include `E2U+sip` (for SIP URIs) and `E2U+mailto` (for email addresses).
+* **Regexp**: Enter a POSIX extended regular expression pattern that is applied to the original string to produce an output string.
+* **Replacement**: Enter the next name in the domain name chain (fully qualified domain name). Use this field if the Regexp field is empty.
 ## Tags and metadata
 
 ### Tags

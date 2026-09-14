@@ -13,7 +13,7 @@ ms.date: 02/25/2026
 # Azure Web Application Firewall (WAF) policy overview
 
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 Web Application Firewall Policies contain all the WAF settings and configurations. This includes exclusions, custom rules, managed rules, and so on. These policies are then associated to an application gateway (global), a listener (per-site), or a path-based rule (per-URI) for them to take effect.
 

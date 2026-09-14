@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path_from_root": "/articles/dev-box/how-to-enable-guest-access.md",
-      "redirect_url": "/azure/dev-box/dev-box-roadmap#retired-previews",
+      "redirect_url": "/azure/dev-box/dev-box-retirement-guide",
       "redirect_document_id": false
     },
     {
@@ -167,7 +167,12 @@
     },
     {
       "source_path_from_root": "/articles/dev-box/dev-box-windows-365-announcement.md",
-      "redirect_url": "/azure/dev-box/dev-box-roadmap",
+      "redirect_url": "/azure/dev-box/dev-box-retirement-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dev-box/dev-box-roadmap.md",
+      "redirect_url": "/azure/dev-box/dev-box-retirement-guide",
       "redirect_document_id": false
     }
   ]

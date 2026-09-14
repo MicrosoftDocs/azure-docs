@@ -2,7 +2,8 @@
 title: Cloud Bursting Using Azure CycleCloud and Slurm
 description: Learn how to configure Cloud bursting using Azure CycleCloud and Slurm.
 author: vinil-v
-ms.date: 06/19/2026
+ai-usage: ai-assisted
+ms.date: 08/10/2026
 ms.topic: how-to
 ms.author: padmalathas
 ---
@@ -29,23 +30,16 @@ You must have an Azure subscription or be assigned the Owner role for a subscrip
 * To access an existing subscription, go to the [Azure portal](https://portal.azure.com/).
 
 ## Network infrastructure
-To create a Slurm cluster entirely within Azure, deploy both the head nodes and the CycleCloud compute nodes within a single Azure Virtual Network (VNET). 
+To create a Slurm cluster entirely within Azure, deploy both the head nodes and the CycleCloud compute nodes within a single Azure Virtual Network (VNET).
 
 ![Slurm cluster](../../images/slurm-cloud-burst/slurm-cloud-burst-architecture.png)
 
 To create a hybrid HPC cluster with head nodes on your on-premises corporate network and compute nodes in Azure, set up a [Site-to-Site](/azure/vpn-gateway/tutorial-site-to-site-portal) VPN or an [ExpressRoute](/azure/expressroute/) connection. This setup links your network to the Azure VNET. The head nodes must be able to connect to Azure services online. You might need to work with your network administrator to set up this connection.
 
 ## Network ports and security
-To enable communication between the primary node, CycleCloud server, and compute nodes, configure the following NSG rules.
+Use the [CycleCloud ports and traffic matrix](../network-security.md#required-ports-and-traffic) to configure the rules between the CycleCloud server, on-premises Slurm scheduler, and Azure compute nodes. Apply the Slurm TCP 6817 and 6818 rules across the VPN or ExpressRoute connection. If this topology uses NFS or LDAP, also apply the workload-specific rules in the matrix.
 
-| **Service**                        | **Port**        | **Protocol** | **Direction**    | **Purpose**                                                            | **Requirement**                                                                 |
-|------------------------------------|-----------------|--------------|------------------|------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| **SSH (Secure Shell)**             | 22              | TCP          | Inbound/Outbound | Secure command-line access to the Slurm primary node                   | Open on both on-premises firewall and Azure NSGs                                |
-| **Slurm Control (slurmctld, slurmd)** | 6817, 6818   | TCP          | Inbound/Outbound | Communication between Slurm primary and compute nodes                  | Open in on-premises firewall and Azure NSGs                                     |
-| **Munge Authentication Service**   | 4065            | TCP          | Inbound/Outbound | Authentication between Slurm primary and compute nodes                   | Open on both on-premises network and Azure NSGs                                 |
-| **CycleCloud Service**             | 443             | TCP          | Outbound         | Communication between Slurm primary node and Azure CycleCloud            | Allow outbound connections to Azure CycleCloud services from the Slurm primary node |
-| **NFS ports**                      | 2049            | TCP          | Inbound/Outbound | Shared filesystem access between primary node and Azure CycleCloud       | Open on both on-premises network and Azure NSGs                                 |
-| **LDAP port** (Optional)           | 389             | TCP          | Inbound/Outbound | Centralized authentication mechanism for user management                | Open on both on-premises network and Azure NSGs
+Munge uses a local Unix domain socket and a shared key on each Slurm node. It doesn't require TCP port 4065 between the primary and compute nodes in a standard deployment.
 
 See [Slurm Network Configuration Guide](https://slurm.schedmd.com/network.html).
 
@@ -62,7 +56,7 @@ A shared file system between the external Slurm scheduler node and the CycleClou
 In HPC environments, maintaining consistent user IDs (UIDs) and group IDs (GIDs) across the cluster is critical for seamless user access and resource management. A centralized user management system, such as LDAP or Active Directory (AD), ensures that UIDs and GIDs are synchronized across all compute nodes and storage systems.
 
 > [!Important]
-> 
+>
 > For more information on how to set up a centralized user management system, see the blog post about [Slurm Cloud Bursting Using CycleCloud on Azure](https://techcommunity.microsoft.com/blog/azurehighperformancecomputingblog/setting-up-slurm-cloud-bursting-using-cyclecloud-on-azure/4140922).
 
 ### Next steps

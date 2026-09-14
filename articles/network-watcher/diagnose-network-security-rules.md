@@ -439,7 +439,7 @@ Use [Invoke-AzNetworkWatcherNetworkConfigurationDiagnostic](/powershell/module/a
 $profile = New-AzNetworkWatcherNetworkConfigurationDiagnosticProfile -Direction Inbound -Protocol Tcp -Source 10.0.1.0/26 -Destination 10.0.0.4 -DestinationPort *
 # Place the virtual machine configuration into a variable.
 $vm = Get-AzVM -Name 'myVM' -ResourceGroupName 'myResourceGroup'
-# Start the the NSG diagnostics session.
+# Start the NSG diagnostics session.
 Invoke-AzNetworkWatcherNetworkConfigurationDiagnostic -Location 'eastus' -TargetResourceId $vm.Id -Profile $profile | Format-List
 ```
 
@@ -528,7 +528,7 @@ In **myVM-nsg** network security group, the security rule **DenyVnetInBound** de
 Use [az network watcher run-configuration-diagnostic](/cli/azure/network/watcher#az-network-watcher-run-configuration-diagnostic) to start the NSG diagnostics session.
 
 ```azurecli-interactive
-# Start the the NSG diagnostics session.
+# Start the NSG diagnostics session.
 az network watcher run-configuration-diagnostic --resource 'myVM' --resource-group 'myResourceGroup' --resource-type 'virtualMachines' --direction 'Inbound' --protocol 'TCP' --source '10.0.1.0/26' --destination '10.0.0.4' --port '*'
 ```
 
@@ -763,7 +763,7 @@ You can add the security rule to the network security group from the Network Wat
 1. Use [az network watcher run-configuration-diagnostic](/cli/azure/network/watcher#az-network-watcher-run-configuration-diagnostic) to recheck using a new NSG diagnostics session.
 
     ```azurecli-interactive
-    # Start the the NSG diagnostics session.
+    # Start the NSG diagnostics session.
     az network watcher run-configuration-diagnostic --resource 'myVM' --resource-group 'myResourceGroup' --resource-type 'virtualMachines' --direction 'Inbound' --protocol 'TCP' --source '10.0.1.0/26' --destination '10.0.0.4' --port '*'
     ```
 

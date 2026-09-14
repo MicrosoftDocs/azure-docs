@@ -92,8 +92,14 @@ landingContent:
 
   - title: Security and compliance
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Security and compliance overview
+            url: concept-security-overview.md
       - linkListType: concept
         links:
+          - text: Compliance guidance
+            url: concept-compliance-framework-mappings.md
           - text: Role assignments
             url: concept-role-assignments.md
           - text: Project-level access control
@@ -112,6 +118,10 @@ landingContent:
             url: how-to-deploy-network-hardened-stack.md
           - text: Configure customer-managed keys
             url: howto-data-encryption-at-rest.md
+      - linkListType: reference
+        links:
+          - text: SIG-based security and compliance FAQ
+            url: faq-security-compliance-sig.yml
 
   - title: Billing and reference
     linkLists:

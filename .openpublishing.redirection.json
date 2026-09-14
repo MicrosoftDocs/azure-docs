@@ -8048,6 +8048,11 @@
       "source_path": "articles/container-apps/deployment-errors.md",
       "redirect_url": "/azure/container-apps/troubleshoot-deployment-errors",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dns/private-dns-resiliency.md",
+      "redirect_url": "/azure/reliability/reliability-dns-private",
+      "redirect_document_id": false
     }
   ]
 }

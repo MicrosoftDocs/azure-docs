@@ -5,12 +5,12 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/02/2026
+ms.date: 09/10/2026
 ---
 
 # Manage workspaces in Microsoft Discovery
 
-> **Applies to:** Microsoft Discovery (Public Preview)
+> **Applies to:** Microsoft Discovery
 
 This article describes how to create, update, browse, and delete a **Microsoft Discovery workspace** using the Azure portal.
 
@@ -28,7 +28,7 @@ After you create a workspace, you can:
 
 Before you begin, make sure the following requirements are met:
 
-- An active [Azure subscription](https://portal.azure.com) that is enabled for Microsoft Discovery **Public Preview** support.
+- An active [Azure subscription](https://portal.azure.com) that's enabled for Microsoft Discovery support.
 - **Microsoft Discovery Platform Administrator (Preview)** role or **Owner** role on the resource group.
 - A virtual network with the required subnets (`workspaceSubnet`, `privateEndpointSubnet`, `agentSubnet`). For more information, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure.md#b-create-a-virtual-network-and-subnets).
 - A **user-assigned managed identity (UAMI)** with the required role assignments. For more information, see [Create a User Assigned Managed Identity (UAMI)](quickstart-infrastructure.md#c-create-a-user-assigned-managed-identity-uami).
