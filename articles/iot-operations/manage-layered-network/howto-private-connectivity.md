@@ -4,7 +4,7 @@ description: Configure private connectivity for an existing Azure IoT Operations
 author: david-emakenemi
 ms.author: demakenemi
 ms.topic: how-to
-ms.date: 06/01/2026
+ms.date: 08/26/2026
 
 #CustomerIntent: As an operator with an existing Azure IoT Operations deployment, I want to add private connectivity so that no endpoints are exposed to the public internet.
 ms.service: azure-iot-operations
@@ -17,9 +17,10 @@ This article describes how to add private connectivity to an existing Azure IoT 
 | Step | Section | What it does |
 |------|---------|-------------|
 | 1 | [Set up Arc Gateway](#set-up-arc-gateway) | Create the Arc Gateway resource and retrieve the custom locations OID |
-| 2 | [Create private endpoints and DNS zones](#create-private-endpoints-and-dns-zones) | Create private endpoints and DNS zones for Azure Storage, Azure Key Vault, and Azure Event Grid |
-| 3 | [Update Azure Arc connectivity](#update-arc-connectivity) | Update the existing Arc connection with Arc gateway. Choose between **Arc gateway only** or **Arc gateway + explicit proxy** |
-| 4 | [Configure data flow destinations with private endpoints](#configure-data-flow-destinations-with-private-endpoints) | Route data flow traffic to cloud destinations like Event Grid through Azure Private Link |
+| 2 | [Allow the operations experience to access your resources](#allow-the-operations-experience-to-access-your-resources) | Allow-list the operations experience IP address in each resource firewall before you restrict access |
+| 3 | [Create private endpoints and DNS zones](#create-private-endpoints-and-dns-zones) | Create private endpoints and DNS zones for Azure Storage, Azure Key Vault, and Azure Event Grid |
+| 4 | [Update Azure Arc connectivity](#update-arc-connectivity) | Update the existing Arc connection with Arc gateway. Choose between **Arc gateway only** or **Arc gateway + explicit proxy** |
+| 5 | [Configure data flow destinations with private endpoints](#configure-data-flow-destinations-with-private-endpoints) | Route data flow traffic to cloud destinations like Event Grid through Azure Private Link |
 
 These scenarios apply to environments with a single Arc-enabled Kubernetes cluster. There's no Purdue-style network segmentation, no proxy chaining across layers, and no Envoy deployment. If you have a layered network topology, see [Tutorial: Deploy Azure IoT Operations in a layered network with private connectivity](../end-to-end-tutorials/tutorial-layered-network-private-connectivity.md) instead.
 
@@ -74,6 +75,106 @@ az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
 > Don't replace the `--id` value. The GUID `bc313c14-388c-4e7d-a58e-70017303ee3b` is the predefined App ID for the Custom Locations service principal.
 
 ---
+
+## Allow the operations experience to access your resources
+
+Before you restrict access to your resources with private endpoints, allow the [Azure IoT Operations operations experience](https://iotoperations.azure.com) web UI to reach Azure Key Vault, Azure Storage, and Schema Registry. The operations experience accesses these resources on your behalf:
+
+- **Azure Key Vault** to manage secrets.
+- **Azure Storage and Schema Registry** to read and write message schemas in the storage account that backs your schema registry.
+
+When you configure these resources to use a private endpoint and firewall, the operations experience can no longer reach them over the public internet. This configuration causes errors when you manage secrets or schemas in the web UI. To keep the operations experience working, set each resource's firewall to **Public access: Selected networks and IP addresses** and add the operations experience IP addresses to the resource's firewall allow list.
+
+The operations experience IP addresses are allocated by region:
+
+| Operations experience region | IP address |
+|------------------------------|------------|
+| East US | `48.211.120.64` |
+| North Europe | `72.145.25.40` |
+| West Central US | `128.24.193.24` |
+| West Europe | `72.145.132.248` |
+| West US 3 | `57.154.126.80` |
+
+> [!NOTE]
+> An operations experience request typically comes from the same region as your instance, but it can come from any region. Allow all of the listed IP addresses for each resource that the operations experience uses.
+
+> [!NOTE]
+> A Network Security Perimeter or a centrally enforced tenant network policy can override a resource's firewall settings. If your organization applies either control, add the same Data Orchestrator Engine IP exceptions (the operations experience IP addresses in the preceding table) to that policy. Otherwise, access can remain blocked even when the resource firewall allow list is correct.
+
+Configure the firewall allow list for each resource before you create its private endpoint. The following examples add all of the operations experience IP addresses.
+
+### Azure Key Vault
+
+# [Azure portal](#tab/portal-keyvault)
+
+1. In the Azure portal, go to your key vault and select **Networking**.
+1. On the **Firewalls and virtual networks** tab, select **Selected networks** so that public access is set to **Selected networks and IP addresses**.
+1. Under **Firewall**, add all of the operations experience IP addresses from the preceding table.
+1. Select **Apply** to save your changes.
+
+# [Azure CLI](#tab/cli-keyvault)
+
+```azurecli
+az keyvault update \
+  --resource-group $RESOURCE_GROUP \
+  --name $KEY_VAULT_NAME \
+  --default-action Deny
+
+DOE_IP_ADDRESSES=(48.211.120.64 72.145.25.40 128.24.193.24 72.145.132.248 57.154.126.80)
+
+for DOE_IP_ADDRESS in "${DOE_IP_ADDRESSES[@]}"; do
+  az keyvault network-rule add \
+    --resource-group $RESOURCE_GROUP \
+    --name $KEY_VAULT_NAME \
+    --ip-address $DOE_IP_ADDRESS
+done
+```
+
+---
+
+### Azure Storage and Schema Registry
+
+The schema registry is backed by an Azure Storage account. Apply the firewall configuration to that storage account so the operations experience can read and write schemas. Keep the trusted Azure services bypass enabled so the schema registry can continue to reach storage.
+
+# [Azure portal](#tab/portal-schema-storage)
+
+1. In the Azure portal, go to the storage account that backs your schema registry and select **Networking**.
+1. Under **Public network access**, for **Public network access scope**, select **Enabled from selected networks**.
+1. Under **IPv4 Addresses**, add all of the operations experience IP addresses from the preceding table.
+1. Under **Exceptions**, make sure **Allow Azure services on the trusted services list to access this storage account** is selected.
+1. Select **Save**.
+
+# [Azure CLI](#tab/cli-schema-storage)
+
+```azurecli
+az storage account update \
+  --resource-group $RESOURCE_GROUP \
+  --name $STORAGE_ACCOUNT_NAME \
+  --public-network-access Enabled \
+  --default-action Deny \
+  --bypass AzureServices
+
+DOE_IP_ADDRESSES=(48.211.120.64 72.145.25.40 128.24.193.24 72.145.132.248 57.154.126.80)
+
+for DOE_IP_ADDRESS in "${DOE_IP_ADDRESSES[@]}"; do
+  az storage account network-rule add \
+    --resource-group $RESOURCE_GROUP \
+    --account-name $STORAGE_ACCOUNT_NAME \
+    --ip-address $DOE_IP_ADDRESS
+done
+```
+
+---
+
+### Verify the operations experience can access your resources
+
+After you enable the firewall restrictions, confirm that the operations experience can still reach the required resources:
+
+1. Go to the [operations experience](https://iotoperations.azure.com) web UI and open your Azure IoT Operations instance.
+1. Select **Secrets** and confirm that the operations experience loads the secrets stored in Azure Key Vault without a firewall or authorization error.
+1. Select **Schemas** and confirm that the operations experience loads existing schemas and that you can create a schema. Success confirms access to the schema registry storage account.
+
+If any page returns an access or firewall error, verify that you added all of the operations experience IP addresses to the resource's firewall allow list and that public access is set to **Selected networks and IP addresses**. For diagnostics when **Secrets** or **Schemas** returns an access or firewall error, see [The operations experience can't load or manage secrets or schemas after enabling private endpoints](howto-troubleshoot-private-connectivity.md#the-operations-experience-cant-load-or-manage-secrets-or-schemas-after-enabling-private-endpoints).
 
 ## Create private endpoints and DNS zones
 
@@ -582,7 +683,7 @@ After disabling public access on any Azure resource, verify Azure IoT Operations
 ## Known limitations
 
 - **Platform validation:** The private connectivity patterns described here are based on validated K3s on Ubuntu Server 24.04 scenarios. Other Kubernetes distributions or operating systems aren't independently validated.
-- **Schema registry RBAC:** Use the `--skip-ra` flag during schema registry creation if you don't have owner-level permissions. Schema registry accesses storage through the trusted Azure services bypass (`AzureServices`), so no public access is needed.
+- **Schema registry RBAC:** Use the `--skip-ra` flag during schema registry creation if you don't have owner-level permissions. Keep the trusted Azure services bypass (`AzureServices`) enabled in addition to the operations experience IP allow list so schema registry can access storage.
 - **TLS inspection:** Arc Gateway doesn't support TLS termination or inspection. If your firewall performs TLS inspection, you must exclude the Arc Gateway endpoint from inspection. See [Arc Gateway and TLS inspection](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking#azure-arc-gateway-and-tls-inspection).
 - **Arc Gateway limits:** You can have up to five Arc Gateway resources per subscription.
 - **Explicit Proxy:** Only Azure Firewall Explicit Proxy is validated. Third-party proxies (for example, Palo Alto) or transparent proxies aren't supported in validated scenarios. Azure IoT Operations doesn't support proxy servers that require a trusted certificate.

@@ -1,5 +1,14 @@
 ### YamlMime:ZonePivotGroups
 groups:
+# Owner: v-mallicka
+- id: backup-client-portal-cli
+  title: Clients
+  prompt: Choose a client
+  pivots:
+  - id: client-portal
+    title: Azure portal
+  - id: client-cli
+    title: Azure CLI
 # Owner: lilyjma
 - id: connector-namespace-hosted-servers
   title: Hosted server
@@ -53,7 +62,7 @@ groups:
   - id: client-portal
     title: Azure portal
   - id: client-powershell
-    title: PowerShell
+    title: Azure PowerShell
   - id: client-cli
     title: Azure CLI
 #Owner: kraigb
@@ -1256,6 +1265,17 @@ groups:
   - id: portal
     title: Azure portal
 # Owner: cshoe
+- id: azure-aspire-cli-portal
+  title: Interface
+  prompt: Choose your interface
+  pivots:
+  - id: aspirecli
+    title: Aspire CLI
+  - id: azurecli
+    title: Azure CLI
+  - id: portal
+    title: Azure portal
+# Owner: cshoe
 - id: container-apps-java-artifacts
   title: Artifact type
   prompt: Select an artifact type
@@ -2178,6 +2198,15 @@ groups:
     title: Windows
   - id: linux
     title: Linux
+# Owner: kendownie
+- id: azure-files-resource-provider-options
+  title: Resource provider
+  prompt: Choose a resource provider
+  pivots:
+  - id: microsoft-storage
+    title: '<img src="media/storage-files-planning/icon-service-file-share.svg" width="18" height="18" alt="" aria-hidden="true"> Microsoft.Storage'
+  - id: microsoft-fileshares
+    title: '<img src="media/storage-files-planning/icon-service-managed-file-shares.svg" width="18" height="18" alt="" aria-hidden="true"> Microsoft.FileShares'
 # Owner: zamasiel
 - id: sap-ha-nfs-solution
   title: Azure NFS Hosting Option

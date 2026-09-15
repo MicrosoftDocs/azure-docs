@@ -25,15 +25,15 @@ Developing Microsoft Copilot agents with SAP data depends on the infrastructure,
 
 With such a wide range of available tools and frameworks, deciding which ones to use can be challenging. The following considerations can help you identify the right choices for your scenario:
 
-* For business users who have little or no software development experience, Agent Builder in Microsoft 365 Copilot Chat provides a way to create simple declarative agents that automate everyday tasks. This approach can empower users across an organization to benefit from AI agents with minimal impact on IT.
-* If business users have sufficient technical skills to build low-code solutions by using Microsoft Power Platform technologies, Copilot Studio enables them to combine those skills with their business domain knowledge and build agent solutions. These solutions can extend the capabilities of Microsoft 365 Copilot or add agentic functionality to common channels like Microsoft Teams, Slack, or Messenger.
-* When an organization needs more complex extensions to Microsoft 365 Copilot capabilities, professional developers can use the Microsoft 365 Agents SDK to build agents that target the same channels as Copilot Studio.
+* For business users who have little or no software development experience, Agent Builder in Microsoft Copilot Chat provides a way to create simple declarative agents that automate everyday tasks. This approach can empower users across an organization to benefit from AI agents with minimal impact on IT.
+* If business users have sufficient technical skills to build low-code solutions by using Microsoft Power Platform technologies, Copilot Studio enables them to combine those skills with their business domain knowledge and build agent solutions. These solutions can extend the capabilities of Microsoft Copilot or add agentic functionality to common channels like Microsoft Teams, Slack, or Messenger.
+* When an organization needs more complex extensions to Microsoft Copilot capabilities, professional developers can use the Microsoft 365 Agents SDK to build agents that target the same channels as Copilot Studio.
 * To develop agentic solutions that use Azure back-end services with a wide choice of models, custom storage and search services, and integration with Microsoft Foundry Tools, professional developers should use Foundry Agent Service.
 * Developers can use the Microsoft Agent Framework to develop single, standalone agents or build multi-agent solutions that use various orchestration patterns.
 
 ## High-level architecture
 
-When you're building Copilot agents (whether they're integrated in Microsoft 365 Copilot or autonomous agents) for SAP, there are multiple options. On a high level, the agents use the following components:
+When you're building Copilot agents (whether they're integrated in Microsoft Copilot or autonomous agents) for SAP, there are multiple options. On a high level, the agents use the following components:
 
 * User interfaces and entry points
 * Agent and Copilot development
@@ -58,9 +58,9 @@ Although the adoption of autonomous agents is growing, many agents are still acc
 
 ![Diagram that shows user interfaces and entry points.](../media/user-interfaces-entry-points.jpg)
 
-#### Microsoft 365 Copilot
+#### Microsoft Copilot
 
-For Copilot, the [Microsoft 365 Copilot](https://www.microsoft.com/en-us/microsoft-365/copilot) application gives you access to all your Microsoft 365 data and access to your agents.
+For Copilot, the [Microsoft Copilot](https://www.microsoft.com/en-us/microsoft-365/copilot) application gives you access to all your Microsoft 365 data and access to your agents.
 
 Another place to use your apps is in the various Microsoft 365 applications. You can open Copilot (and your agents) directly from:
 
@@ -77,7 +77,7 @@ Copilot agents can also run on websites. They can help and guide a user on where
 
 #### SAP Joule
 
-SAP and Microsoft offer a dedicated, bidirectional integration of SAP Joule and Microsoft 365 Copilot. Via this integration, Microsoft 365 Copilot can also be integrated within Joule. This integration doesn't currently extend to custom-built agents (like agents built from Copilot Studio), but it allows users to access SAP features directly via an SAP Joule agent.
+SAP and Microsoft offer a dedicated, bidirectional integration of SAP Joule and Microsoft Copilot. Via this integration, Microsoft Copilot can also be integrated within Joule. This integration doesn't currently extend to custom-built agents (like agents built from Copilot Studio), but it allows users to access SAP features directly via an SAP Joule agent.
 
 ### Agent and Copilot development
 
@@ -103,15 +103,15 @@ Whether you're streamlining operations, enhancing customer service, or empowerin
 
 #### Microsoft 365 Agents Toolkit
 
-[Microsoft 365 Agents Toolkit](/microsoft-365/developer/overview-m365-agents-toolkit) is a suite of tools for building enterprise-ready agents and apps that work across Microsoft 365 Copilot, Teams, Office, web, and other messaging channels. It's an evolution of Teams Toolkit.
+[Microsoft 365 Agents Toolkit](/microsoft-365/developer/overview-m365-agents-toolkit) is a suite of tools for building enterprise-ready agents and apps that work across Microsoft Copilot, Teams, Office, web, and other messaging channels. It's an evolution of Teams Toolkit.
 
 The following table provides an overview of the tools and their features:
 
 | Capability | Agent Builder | Copilot Studio | Foundry |
 | --- | --- | --- | --- |
 | Knowledge grounding | Built-in retrieval-augmented generation (RAG) tied to enterprise contents (SharePoint, Microsoft 365 documents, and Bing search) | Flexible data connections to organization data (Microsoft 365 and connectors to other enterprise data) | Comprehensive retrieval integration with security, either built in or through own APIs/vector index |
-| User interfaces | Microsoft 365 Copilot Chat surfaced with Microsoft 365 Copilot experiences like in Teams | Microsoft 365 Copilot Chat plus embedded in Microsoft 365/custom apps and chat | Bring-your-own-UI next to integration with Microsoft 365 Copilot and Microsoft 365 Apps |
-| Foundation models | Built-in large language models (LLMs); same models behind Microsoft 365 Copilot, such as GPT-4 or other managed models | Configurable models (bring-your-own-model through Foundry) plus agent-specific fine-tuning | Maximum model flexibility (Foundry model catalog, custom models, and fine-tuning models) |
+| User interfaces | Microsoft Copilot Chat surfaced with Microsoft Copilot experiences like in Teams | Microsoft Copilot Chat plus embedded in Microsoft 365/custom apps and chat | Bring-your-own-UI next to integration with Microsoft Copilot and Microsoft 365 Apps |
+| Foundation models | Built-in large language models (LLMs); same models behind Microsoft Copilot, such as GPT-4 or other managed models | Configurable models (bring-your-own-model through Foundry) plus agent-specific fine-tuning | Maximum model flexibility (Foundry model catalog, custom models, and fine-tuning models) |
 | Prebuilt tools | Minimal toolset for RAG from connected knowledge sources | Large tool library through prebuilt connectors to extend agent actions | Extensive and extensible tool integrations (Microsoft tools, connectors to lines of business, and custom) |
 | Tool use via Model Context Protocol (MCP) | Not supported for users | Available through Microsoft Marketplace with prebuilt 1P/3P MCP servers | Full MCP support for prebuilt 1P/3P MCP servers and custom MCP servers |
 | Memory and learning | Short-term memory within the same chat session | Short-term memory of the session | Extensive stateful short/long-term memory |
@@ -195,7 +195,7 @@ If your SAP system is also running on Azure, you can further secure the connecti
 
 ### Proxies and connectivity
 
-In many cases, a firewall helps protect the SAP system. With a firewall in place, access from the internet (for example, from Microsoft 365 Copilot) isn't possible directly. Instead, you need to install a proxy.
+In many cases, a firewall helps protect the SAP system. With a firewall in place, access from the internet (for example, from Microsoft Copilot) isn't possible directly. Instead, you need to install a proxy.
 
 ![Diagram that shows the proxies and connectivity infrastructure.](../media/proxy.jpg)
 

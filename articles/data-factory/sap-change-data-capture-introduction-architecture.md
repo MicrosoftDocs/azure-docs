@@ -17,6 +17,8 @@ ms.author: ulrichchrist
 
 > [!IMPORTANT]
 > A recent update of SAP Note 3255746 announces a security patch that blocks incoming calls to the ODP RFC API from third-party clients including Azure Data Factory’s SAP CDC connector. We advise customers to review this note for potential impacts before installing it in their SAP system. More information can be found in SAP notes 3255746 and 3439624.
+>
+> For more details, including timelines, see the [SAP ODP FAQ](https://aka.ms/adfsapcdcupdate-odpfaq).
 
 Microsoft Fabric offers various alternatives to the SAP CDC connector in Azure Data Factory that are not affected by SAP Note 3255746, including: 
 - **Mirroring for SAP Datasphere in Fabric (Generally Available)**: Provides an SAP supported way to export data via SAP Datasphere premium outbound integration and continuously mirror it into Microsoft Fabric for analytics and AI scenarios. Details can be found [here](/fabric/mirroring/sap).

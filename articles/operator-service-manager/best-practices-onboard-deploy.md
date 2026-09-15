@@ -226,7 +226,7 @@ These limits would apply to the target subscription used for Azure Operator Serv
 
 |Resource	|Limit|
 |---------|-----|
-|Number of Azure role assignments per Azure subscription|	4,000|
+|Number of Azure role assignments per Azure subscription|	5,000|
 |Number of Azure role assignments per management group| 500|
 |Size of description for Azure role assignments	Recommended maximum| 512 chars|
 |Size of condition for Azure role assignments|	8 KB|

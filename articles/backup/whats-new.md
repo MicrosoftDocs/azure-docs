@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 08/27/2026
+ms.date: 09/03/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -20,6 +20,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- September 2026
+  - [Time-based immutability for Recovery Services vaults](#time-based-immutability-for-recovery-services-vaults)
 - August 2026
   - [Auto-protection support for Azure Blob backup for up to 1,000 containers](#auto-protection-support-for-azure-blob-backup-for-up-to-1000-containers)
   - [Auto-protection support for Azure Data Lake Storage backup for up to 1,000 containers](#auto-protection-support-for-azure-data-lake-storage-backup-for-up-to-1000-containers)
@@ -78,6 +80,12 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+## Time-based immutability for Recovery Services vaults
+
+Azure Backup now supports time-based immutability for Recovery Services vaults, so you can configure immutability for a specific duration that's independent of the backup policy retention period. Recovery points stay immutable for the duration you set and continue to be retained according to the backup policy. This feature prevents backup policy retention from being shorter than the immutability duration you set. It provides greater flexibility to balance data protection requirements with storage costs, especially when immutability is locked.
+
+For more information, see [Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md#immutability-enablement-options).
 
 ## Auto-protection support for Azure Blob backup for up to 1,000 containers
 
@@ -298,7 +306,7 @@ For more information, see [Secure by Default with Azure Backup (Preview)](secure
 
 Azure Backup now provides immutable WORM storage for your backups when immutability is enabled and locked on a Recovery Services vault. When immutability is enabled, Azure Backup ensures that a Recovery Point, once created, can't be deleted or have  its retention period reduced before its intended expiry. 
 
-When immutability is locked, Azure Backup also uses WORM-enabled immutable storage to meet any compliance requirements. This feature is applicable to both existing and new vaults with locked immutability. WORM immutability is available in [these regions](backup-azure-immutable-vault-concept.md#supported-scenarios-for-worm-storage). 
+When you lock immutability, Azure Backup also uses WORM-enabled immutable storage to meet any compliance requirements. This feature applies to both existing and new vaults with locked immutability. WORM immutability is available in [these regions](backup-azure-immutable-vault-concept.md#worm-storage-support). 
 
 For more information, see [About Immutable vault for Azure Backup](backup-azure-immutable-vault-concept.md).
 

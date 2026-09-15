@@ -40,7 +40,7 @@ Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2025, V
 
 ## Replicated VMs
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 The following table summarizes VM support. Site Recovery supports any workloads running on a supported operating system.
 

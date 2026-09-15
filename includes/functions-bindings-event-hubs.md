@@ -1,7 +1,7 @@
 ---
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/21/2020
+ms.date: 09/04/2026
 author: v1212
 ms.author: wujia
 ms.custom:
@@ -67,7 +67,7 @@ Version 1.x of the Functions runtime doesn't require an extension.
 
 [!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
-This version supports configuration of triggers and bindings through [.NET Aspire integration](../articles/azure-functions/dotnet-aspire-integration.md#connection-configuration-with-aspire).
+This version supports configuration of triggers and bindings through [Aspire integration](../articles/azure-functions/aspire-integration.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs), version 6.x.
 
@@ -75,7 +75,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 [!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
-This version supports configuration of triggers and bindings through [.NET Aspire integration](../articles/azure-functions/dotnet-aspire-integration.md#connection-configuration-with-aspire).
+This version supports configuration of triggers and bindings through [Aspire integration](../articles/azure-functions/aspire-integration.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs), version 5.x.
 
