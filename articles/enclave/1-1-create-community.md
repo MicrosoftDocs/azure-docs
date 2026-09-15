@@ -312,7 +312,7 @@ After the community deployment completes, perform these validation steps to ensu
    [ ![Screenshot showing created community on its overview page.](./media/tutorial-step-one-community-overview-page.png) ](./media/tutorial-step-one-community-overview-page.png#lightbox)
 
 **Key information to verify:**
-- **Provisioning State**: Should be `Succeeded`
+- **Provisioning State**: Should be `Succeeded`.
 - **Resource Group**: Correct resource group listed
 - **Location**: Matches selected region
 - **Address Space**: Correct CIDR displayed
@@ -349,13 +349,13 @@ After the community deployment completes, perform these validation steps to ensu
 
 After deployment, confirm:
 
-- Community status shows `Succeeded`
+- Community status shows `Succeeded`.
 - Community managed resource group created with expected resources
 - Managed connectivity resources configured with the correct address space
 - Firewall policy and rule collections created
 - Log Analytics workspace connected
 - Diagnostic settings enabled
-- RBAC permissions are configured
+  - RBAC permissions configured
 - No deployment errors in activity log
 
 ## Clean up resources
@@ -410,7 +410,7 @@ az resource delete \
 ### Issue: Deployment fails with address space overlap error
 
 **Symptom:**
-Deployment fails with an error message about address space conflicts
+Deployment fails with an error message about address space conflicts.
 
 **Possible causes:**
 - Address space overlaps with existing virtual network in subscription
