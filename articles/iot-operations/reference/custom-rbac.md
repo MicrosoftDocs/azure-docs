@@ -114,4 +114,4 @@ An Azure IoT Operations instance and its child resources run on the Azure Arc-en
 - The Azure IoT Operations instance and its child resources.
 - The associated Azure Arc custom location.
 
-Don't rely on removing access to the custom location alone. For some child-resource operations, the `extendedLocation` property is optional. If a request omits this property, Azure Resource Manager might not perform the linked authorization check on the custom location. The deployment target is instead inferred from the parent Azure IoT Operations instance. Review inherited role assignments at the subscription and resource-group scopes, and group memberships, to ensure that the identity doesn't retain access to either resource.
+Don't rely on removing access to either the custom location or the instance resource alone. Both paths can allow access to the underlying cluster.
