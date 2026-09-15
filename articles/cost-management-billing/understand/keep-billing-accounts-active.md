@@ -73,9 +73,9 @@ You can lock your billing account if all of the following conditions are true:
 
 - Your account uses a direct purchase context (not a reseller, partner, or indirect relationship). 
 
-- Your account is an individual or small business account.
+- Your account is created directly without a Microsoft representative.
 
-- Your account isn't an Enterprise enrollment. 
+- Your account isn't an Enterprise enrollment or MCA-E. 
 
 - Your account doesn't have active government contracts. 
 
@@ -90,7 +90,7 @@ The following table lists conditions that make a billing account **ineligible** 
 | -------- | -------- |
 | Partner affiliation (CSP, distributor, or reseller)  | Not eligible for self-service   |
 | Government contract | Not eligible for self-service   |
-| Enterprise enrollment | Not eligible for self-service |
+| Enterprise enrollment or MCA-E | Not eligible for self-service |
 | Trade restriction | Resolve trade compliance restrictions before locking |
 | Non-payment suspension | Pay any outstanding invoices to remove the suspension, then lock the account |
 
