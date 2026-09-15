@@ -114,4 +114,4 @@ An Azure IoT Operations instance and its child resources run on the Azure Arc-en
 - The Azure IoT Operations instance and its child resources.
 - The associated Azure Arc custom location.
 
-Don't rely on removing access to either the custom location or the instance resource alone. Both paths can allow access to the underlying cluster.
+Don't rely on removing access to either the custom location or the instance resource alone. Both paths can allow access to the underlying AIO cluster.
