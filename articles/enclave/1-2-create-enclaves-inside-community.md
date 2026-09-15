@@ -100,7 +100,7 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
 
     [ ![Screenshot showing the enclave administration inputs.](./media/tutorial-step-two-create-webapp-enclave-administration.png) ](./media/tutorial-step-two-create-webapp-enclave-administration.png#lightbox)
 
-    If you select the `Workload permissions` tab, you see that the `Contributor` role you assigned on the enclave is also applied at the workload scope, so you have `Contributor` access on the workloads too.
+    If you select the `Workload permissions` tab, you see that the `Contributor` role you assigned on the enclave also applies at the workload scope, so you have `Contributor` access on the workloads too.
 
     [ ![Screenshot showing the enclave workload permissions inputs.](./media/tutorial-step-two-create-webapp-enclave-workload-permissions.png) ](./media/tutorial-step-two-create-webapp-enclave-workload-permissions.png#lightbox)
 
