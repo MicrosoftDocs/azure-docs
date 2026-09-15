@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Batch
 description: Start here to learn how to monitor Azure Batch.
-ms.date: 05/19/2026
+ms.date: 08/31/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 ms.service: azure-batch
@@ -56,6 +56,12 @@ Examples of metrics in a Batch account are Pool Create Events, Low-Priority Node
 > Metrics emitted in the last 3 minutes might still be aggregating, so values might be underreported during this time frame. Metric delivery isn't guaranteed and might be affected by out-of-order delivery, data loss, or duplication.
 
 For a complete list of available metrics for Batch, see [Batch monitoring data reference](monitor-batch-reference.md#metrics).
+
+### Pool compute node metrics and logs
+
+Batch account platform metrics describe service, allocation, and scheduling activity. They don't include guest operating system performance data from individual pool compute nodes.
+
+For Batch accounts that use user subscription pool allocation mode, you can install Azure Monitor Agent on pool compute nodes and use a data collection rule to collect CPU, memory, disk, network, and operating system log data. For an end-to-end configuration, see [Monitor Azure Batch pool compute nodes with Azure Monitor Agent](monitor-batch-pool-nodes.md).
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
@@ -134,7 +140,7 @@ The following table lists some alert rule triggers for Batch. These alert rules 
 
 ## Other Batch monitoring options
 
-[Batch Explorer](https://github.com/Azure/BatchExplorer) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. You can use [Azure Batch Insights](https://github.com/Azure/batch-insights) with Batch Explorer to get system statistics for your Batch nodes, such as virtual machine (VM) performance counters.
+[Batch Explorer](https://github.com/Azure/BatchExplorer) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications.
 
 In your Batch applications, you can use the [Batch .NET library](/dotnet/api/azure.compute.batch) to monitor or query the status of your resources including jobs, tasks, nodes, and pools. For example:
 
@@ -157,5 +163,6 @@ You can integrate Application Insights with your Azure Batch applications to ins
 ## Related content
 
 - See [Batch monitoring data reference](monitor-batch-reference.md) for a reference of the metrics, logs, and other important values created for Batch.
+- Learn how to [monitor Batch pool compute nodes with Azure Monitor Agent](monitor-batch-pool-nodes.md).
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
 - Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.

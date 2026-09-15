@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Migrate from Integration Platforms
+title: Quickstart - Migrate Integration Projects with Migration Agent
 titleSuffix: Azure Logic Apps
-description: "Automate migration for BizTalk Server, MuleSoft integration projects to Azure Logic Apps (Standard) by using the Migration Agent in Visual Studio Code."
+description: Automate migration for BizTalk Server, MuleSoft, and TIBCO BusinessWorks projects to Azure Logic Apps Standard by using the Migration Agent in Visual Studio Code.
 services: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
@@ -10,17 +10,13 @@ ms.reviewers: estfan, azla
 ms.topic: how-to
 ai-usage: ai-assisted
 ms.update-cycle: 365-days
-ms.date: 04/27/2026
-# Customer intent: As a developer who works with enterprise integration platforms, such as BizTalk Server, MuleSoft, and others, I want to learn how to quickly automate the migration process for my integration project to Standard workflows in Azure Logic Apps by using the Migration Agent extension in Visual Studio Code.
+ms.date: 09/13/2026
+# Customer intent: As an enterprise integration developer who works with BizTalk Server, MuleSoft, TIBCO BusinessWorks, or others, I want to automate the migration process for my integration project to Standard workflows in Azure Logic Apps by using the Migration Agent extension in Visual Studio Code.
 ---
 
-# Quickstart: Automate migration for integration projects to Azure Logic Apps (Standard) (preview)
+# Quickstart: Automate migration for integration projects to Azure Logic Apps Standard
 
 [!INCLUDE [logic-apps-sku-standard](../includes/logic-apps-sku-standard.md)]
-
-> [!NOTE]
->
-> This preview feature is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 When your team needs to migrate workloads from legacy platforms like BizTalk Server to the cloud, you might find the process complex, time-consuming, and challenging. To help simplify and ease this task, the Azure Logic Apps Migration Agent in Visual Studio Code automates this process through five guided stages.
 
@@ -34,19 +30,21 @@ For more information, see [Migration automation from integration platforms to Az
 
 ## Prerequisites
 
+The Migration Agent requires components and tools for the various stages that you run. Requirements can change between extension releases. 
+
 Before you start, make sure to meet the following requirements:
 
 | Requirement | Purpose |
 |-------------|---------|
 | [Azure subscription - Get a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) | Deployment to Azure (Stage 5) |
+| [GitHub Copilot subscription](https://github.com/features/copilot/plans) | AI-powered analysis, planning, and conversion |
 | [Azure CLI](/cli/azure/install-azure-cli) | Azure resource provisioning and deployment |
 | [Visual Studio Code 1.85.0 or later](https://code.visualstudio.com/download) | Local development experience |
 | [Azure Logic Apps Migration Agent extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.logicapps-migration-agent) | Required extension with migration agent for Visual Studio Code |
 | [Azure Logic Apps (Standard) extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps) | Required dependency for the Azure Logic Apps Migration Agent extension |
-| [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) | Local functions runtime and development tasks |
+| [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) | Local functions runtime and development tasks <br><br>The Azure Functions extension supports local function development and local execution in the Azure Logic Apps Standard project. Installing the extension doesn't require you to provision a separate Azure Functions resource. |
 | [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) | Local runtime host for Azure Logic Apps (Standard) |
-| [GitHub Copilot subscription](https://github.com/features/copilot/plans) | AI-powered analysis, planning, and conversion |
-| [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/) | Local connector resource deployment for testing and running connections |
+| [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/) | Local connector resource deployment for testing, validation, and running connections |
 | Folder with BizTalk Server projects | Folder that contains integration project folders with source artifacts and files. For example, a BizTalk project folder includes files with the following file name extensions: `.btproj`, `.odx`, `.btm`, `.xsd`, and `.btp`. |
 
 ### 1: Install the Migration Agent extension
@@ -65,7 +63,7 @@ Before you start, make sure to meet the following requirements:
 
    After installation completes, the Activity Bar shows the icon for the **Azure Logic Apps Migration Agent** (![Icon for Azure Logic Apps Migration Agent.](media/migration-agent-quickstart/migration-agent-icon.png)).
 
- ### 2: Select your source folder
+### 2: Select your source folder
 
 1. In Visual Studio Code, on the Activity Bar, select the **Azure Logic Apps Migration Agent** icon (![Icon for Azure Logic Apps Migration Agent.](media/migration-agent-quickstart/migration-agent-icon.png)).
 
@@ -75,7 +73,7 @@ Before you start, make sure to meet the following requirements:
    >
    > To run this action as a command, open the Command Palette (Keyboard: Ctrl+Shift+P). Enter and run **Azure Logic Apps Migration Agent: Select Source Folder**.
 
-1. Find and select the source folder that contains your BizTalk, MuleSoft, or other integration projects, and then select **Select Source Project Folder or MSI**.
+1. Find and select the source folder that contains your BizTalk Server, MuleSoft Anypoint, or TIBCO BusinessWorks projects, and then select **Select Source Project Folder or MSI**.
 
    :::image type="content" source="media/migration-agent-quickstart/migration-dialog.png" alt-text="Screenshot that shows Visual Studio Code with the Azure Logic Apps Migration Agent and the source folder with projects." lightbox="media/migration-agent-quickstart/migration-dialog.png":::
 
@@ -89,7 +87,7 @@ In this stage, the migration agent finds and catalogs the integration artifacts 
 
 ### Step 1: Detect the source platform
 
-The migration agent determines your source platform, based on file patterns, such as BizTalk Server (`.btproj`) files.
+The migration agent determines your source platform based on file patterns. Examples include BizTalk Server (`.btproj`, `.odx`), MuleSoft Anypoint (`pom.xml`, `mule-*.xml`), and TIBCO BusinessWorks (`tibco.xml`, `module.bwm`, `.process`) files.
 
 The following screenshot shows the identified platform with example detected artifacts and dependencies:
 
@@ -181,8 +179,6 @@ After you finish your analysis, start the Planning stage by creating a migration
    - **Migration gaps**
    - **Integration patterns**
    - **Summary**
-   - **Effort estimates**
-   - **Task plans**
 
    The following example shows a sample generated migration plan:
 
@@ -198,7 +194,6 @@ After you finish your analysis, start the Planning stage by creating a migration
    
    - Ask questions about specific mappings.
    - Request alternative approaches for gap resolution.
-   - Adjust effort estimates.
    - Request plan modifications before moving on to conversion.
 
 1. When you're ready, continue to the Conversion stage by selecting **Home Page** or returning to the **Home** tab.
@@ -236,7 +231,7 @@ When you're satisfied with your migration plan, start the Conversion stage to cr
 
 ### 3.2: Run the conversion tasks
 
-1. To have the `@migration-converter` agent to run each conversion task, select **Execute**, but stop before **Cloud Deployment & Testing**. Or, select **Execute All**, which works the same as selecting **Execute Conversion Tasks** on the **Home** tab.
+1. To run an individual conversion task, select **Execute**. To run all required conversion and local validation tasks in dependency order, select **Execute All**. This option works the same as selecting **Execute Conversion Tasks** on the **Home** tab. The optional **Cloud Deployment & Testing** task isn't included in **Execute All** and requires a separate action.
 
    > [!NOTE]
    >
@@ -362,10 +357,10 @@ Make sure you finished migration agent stages 1 (Discovery) through 4 (Validatio
 
    | Setting name | JSON name | Description | Default | Action |
    |--------------|-----------|-------------|---------|--------|
-   | **Location** | `logicAppsMigrationAssistant.azure.location` | The Azure region for provisioning resources. | `eastus` | Change this value to the region you want. |
-   | **Resource Group** | `logicAppsMigrationAssistant.azure.resourceGroup` | The Azure resource group for provisioning and testing. | `integration-migration-tool-test-rg` | Change this value to the resource group name you want. |
-   | **Subscription ID** | `logicAppsMigrationAssistant.azure.subscriptionId` | The Azure subscription ID for deployment. | (empty) | Enter the GUID for your Azure subscription. |
-   | **Deployment Model** | `logicAppsMigrationAssistant.deploymentModel` | The target deployment model for Azure Logic Apps (Standard). | `workflow-service-plan` | If appropriate, change this value to `hybrid`. |
+   | **Location** | `logicAppsMigrationAgent.azure.location` | The Azure region for provisioning resources. | `eastus` | Change this value to the region you want. |
+   | **Resource Group** | `logicAppsMigrationAgent.azure.resourceGroup` | The Azure resource group for provisioning and testing. | `integration-migration-tool-test-rg` | Change this value to the resource group name you want. |
+   | **Subscription ID** | `logicAppsMigrationAgent.azure.subscriptionId` | The Azure subscription ID for deployment. | (empty) | Enter the GUID for your Azure subscription. |
+   | **Deployment Model** | `logicAppsMigrationAgent.deploymentModel` | The target deployment model for Azure Logic Apps Standard. | `workflow-service-plan` | Keep the default value. Although App Service Environment v3 and Hybrid are listed as future options, version 1.12.1 doesn't support these options. |
 
 ### Step 2: Start the deployment process
 
@@ -381,7 +376,7 @@ Follow these steps to begin deployment to Azure:
 
    :::image type="content" source="media/migration-agent-quickstart/validation-stage-main.png" alt-text="Screenshot that shows the end to end testing task with deployment in target environment." lightbox="media/migration-agent-quickstart/validation-stage-main.png":::
 
-   The migration agent provisions the necessary infrastructure and deploys your Standard logic app resource and workflows by using the Azure CLI.
+   The migration agent generates an ARM template or Bicep template and uses the Azure CLI to provision the Workflow Service Plan, Standard logic app, storage, and other required resources. The agent then uploads the workflow content to the logic app's Azure Files content share and restarts the logic app.
 
    The following example shows a sample completely migrated solution:
 
@@ -403,7 +398,7 @@ After deployment completes, verify that your Standard workflows appear in the Az
 
 1. Test each workflow with sample inputs to make sure they work as expected.
 
-1. To find any runtime errors or performance problems, go to the **Application Insights** page for your Standard logic app resource.
+1. If you separately configured Application Insights for your Standard logic app, use this capability to find runtime errors or performance problems.
 
    1. On the logic app sidebar, under **Monitoring**, select **Application Insights**.
 

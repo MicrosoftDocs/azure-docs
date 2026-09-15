@@ -5,7 +5,7 @@ description: This quickstart shows how to create an internal load balancer using
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 02/25/2026
+ms.date: 08/27/2026
 ms.author: mbender
 ms.custom:
   - mvc
@@ -87,7 +87,7 @@ az network vnet subnet create \
     --resource-group load-balancer-cli-rg  \
     --name AzureBastionSubnet \
     --vnet-name lb-vnet \
-    --address-prefixes 10.1.1.0/27
+  --address-prefixes 10.1.1.0/26
 ```
 
 ### Create the bastion host

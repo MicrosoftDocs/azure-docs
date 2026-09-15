@@ -1,23 +1,31 @@
 items:
-- name: Napster API – Azure Native Integrations Documentation
+- name: Napster API documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
-  - name: What is Napster API – Azure Native Integrations?
+  - name: What is Napster API?
     href: overview.md
-  - name: Napster API resources and developer tools
+  - name: Resources and developer tools
     href: tools.md
   - name: FAQ
     href: faq.yml
 
-- name: Quickstarts
+- name: Quickstart
   expanded: true
   items:
-  - name: Create a Napster API resource
+  - name: Create a resource
     href: create.md
 - name: How to
+  expanded: true
   items:
-  - name: Manage your Napster API resource
+  - name: Manage a resource
     href: manage.md
   - name: Troubleshoot a resource
     href: /troubleshoot/azure/partner-solutions/marketplace-purchases-errors
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/napster/companion-api
+  - name: Azure PowerShell
+    href: /powershell/module/az.napster/get-aznapsterorganization

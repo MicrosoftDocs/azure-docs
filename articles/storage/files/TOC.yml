@@ -7,6 +7,8 @@
     href: storage-files-introduction.md
   - name: Plan for an Azure Files deployment
     href: storage-files-planning.md
+  - name: Azure Files management concepts
+    href: files-management-concepts.md
   - name: SMB file shares
     href: files-smb-protocol.md
   - name: NFS file shares
@@ -50,7 +52,7 @@
     - name: Enable Microsoft Entra Domain Services
       href: storage-files-identity-auth-domain-services-enable.md
     - name: Configure Linux clients
-      href: storage-files-identity-auth-linux-kerberos-enable.md      
+      href: storage-files-identity-auth-linux-kerberos-entra-domain-services.md
   - name: Microsoft Entra Kerberos authentication
     items:
     - name: Enable authentication for hybrid or cloud-only identities
@@ -383,8 +385,10 @@
       href: /javascript/api/overview/azure/storage
   - name: APIs for resource management
     items:
-    - name: REST API
+    - name: Storage Resource Provider REST API
       href: /rest/api/storagerp/
+    - name: Microsoft.FileShares Resource Provider REST API
+      href: /rest/api/fileshares/      
     - name: .NET SDK
       href: /dotnet/api/overview/azure/resourcemanager.storage-readme
     - name: Java SDK

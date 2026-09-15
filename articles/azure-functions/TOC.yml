@@ -33,6 +33,9 @@
       href: scenario-blob-storage-events.md  
     - name: AI tools and MCP
       items:
+      - name: Event-driven AI-enabled app
+        displayName: AI, agent, agentic, hosted skills, timer, email, connector, MCP, Foundry
+        href: scenario-hosted-skills.md
       - name: Custom remote MCP server
         displayName: AI, agent, agentic, tools, trigger
         href: scenario-custom-remote-mcp-server.md
@@ -42,9 +45,6 @@
       - name: Host MCP server using SDKs
         displayName: AI, agent, agentic, tools, MCP SDKs
         href: scenario-host-mcp-server-sdks.md
-    - name: Serverless agents
-      displayName: AI, agent, agentic, serverless agents runtime, timer, email, connector, MCP, Foundry
-      href: scenario-serverless-agents-runtime.md
     - name: Respond to database changes
       items:
       - name: Azure Cosmos DB (NoSQL)
@@ -307,7 +307,7 @@
       displayName: .NET isolated
       href: dotnet-isolated-process-guide.md
     - name: Aspire integration
-      href: dotnet-aspire-integration.md
+      href: aspire-integration.md
     - name: Legacy models
       items:
       - name: Execution mode comparison
@@ -665,20 +665,20 @@
       href: functions-mcp-foundry-tools.md
     - name: Register an MCP server in API Center
       href: register-mcp-server-api-center.md
-  - name: Serverless agents runtime
+  - name: Hosted skills
     items:
     - name: Overview
-      displayName: AI, agent, agentic, serverless agents runtime, Foundry, MCP, connectors
-      href: functions-serverless-agents-runtime.md
-    - name: Get started
-      displayName: AI, agent, agentic, serverless agents runtime, timer, email, connector, MCP, Foundry
-      href: scenario-serverless-agents-runtime.md
+      displayName: AI, agent, agentic, hosted skills, event-driven AI, Foundry, MCP, connectors
+      href: functions-hosted-skills.md
+    - name: Dynamic workflows
+      displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows
+      href: functions-hosted-skills-dynamic-workflows.md
+    - name: Create and run dynamic workflows
+      displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows, how-to
+      href: functions-hosted-skills-dynamic-workflows-how-to.md
     - name: Reference
-      displayName: AI, agent, agentic, serverless agents runtime, configuration, mcp.json, agents.config.yaml, tools, skills
-      href: functions-serverless-agents-runtime-reference.md
-    - name: Compare agent options
-      displayName: Foundry, Copilot Studio, Scout, prompt agents, hosted agents, compare
-      href: compare-serverless-agents-runtime.md
+      displayName: AI, agent, agentic, hosted skills, configuration, mcp.json, agents.config.yaml, tools, skills
+      href: functions-hosted-skills-reference.md
   - name: Azure MCP server for Azure Functions
     href: /azure/developer/azure-mcp-server/services/azure-mcp-server-for-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: GitHub Copilot for Azure
@@ -730,9 +730,9 @@
       href: /java/api/overview/azure/functions/runtime
     - name: Python
       href: /python/api/azure-functions/azure.functions
-  - name: Serverless agents runtime
-    displayName: AI, agent, agentic, serverless agents runtime, configuration, mcp.json, agents.config.yaml, tools, skills
-    href: functions-serverless-agents-runtime-reference.md
+  - name: Azure Functions hosted skills
+    displayName: AI, agent, agentic, hosted skills, configuration, mcp.json, agents.config.yaml, tools, skills
+    href: functions-hosted-skills-reference.md
   - name: App settings reference
     href: functions-app-settings.md
   - name: Triggers and bindings
@@ -1082,6 +1082,32 @@
         href: errors-diagnostics/sdk-rules/azf0001.md
       - name: AZF0002
         href: errors-diagnostics/sdk-rules/azf0002.md
+    - name: MSBuild SDK rules
+      items:
+      - name: AZFW0100
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0100.md
+      - name: AZFW0101
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0101.md
+      - name: AZFW0102
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0102.md
+      - name: AZFW0103
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0103.md
+      - name: AZFW0104
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0104.md
+      - name: AZFW0105
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0105.md
+      - name: AZFW0106
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0106.md
+      - name: AZFW0107
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0107.md
+      - name: AZFW0108
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0108.md
+      - name: AZFW0109
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0109.md
+      - name: AZFW0110
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0110.md
+      - name: AZFW0111
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0111.md
     - name: Diagnostic events
       items:
       - name: AZFD0001

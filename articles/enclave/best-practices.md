@@ -4,6 +4,7 @@ description: Learn best practices for designing, securing, and operating Azure E
 author: jadean-msft
 ms.author: jadean
 ai-usage: ai-assisted
+ms.service: azure-enclave
 ms.topic: overview
 ms.date: 06/21/2026
 ---
@@ -28,31 +29,7 @@ Read through these setup steps to determine whether these configuration steps fi
 
 ### Configure Network Watcher resource groups
 
-To avoid potential issues with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, set up the `NetworkWatcherRG` resource group manually in advance and assign the `Mission Enclave` app the `Owner` role on that resource group, or verify that setup and role assignment happened automatically before creating your first enclave in the subscription.
-
-To mitigate this potential issue, for each subscription, manually create the NetworkWatcher resource group called `NetworkWatcherRG` in new subscriptions, and then grant the `Mission Enclave` Azure Enclave App `Owner` on the NetworkWatcherRG:
-1. Select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
-
-![Screenshot showing resource group add role selection in the portal.](./media/onboard-network-watcher-add-role.png)
-
-1. Select `Privileged administrator roles`, select `owner`, then select `Next`.
-
-![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
-
-1. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
-
-![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
-
-1. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + assign`.
-
-![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
-
-1. Once the update is complete, you can start deploying Azure Enclave resources.
-
-When a community or enclave is created, Azure Enclave attempts the following steps:
-1. Check if the `NetworkWatcherRG` exists. If not, attempt to create that resource group.
-1. Check if the `Mission Enclave` App has a permanent `Owner` assignment on `NetworkWatcherRG`. If not, attempt to assign the `Mission Enclave` App as a permanent `Owner` assignment on `NetworkWatcherRG`. Even if an inherited `Owner` permission exists, a permanent `Owner` assignment creation is attempted.
-1. If any step fails, enclave deployments might fail when attempting to create virtual network flow logs.
+To avoid potential issues with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, ensure you follow the getting started instructions to [configure `NetworkWatcherRG` access](./onboard.md#configure-networkwatcherrg-access).
 
 ## Networking and organizational design patterns for Azure Enclave
 
@@ -102,6 +79,12 @@ Learn more about overall [Azure networking best practices](/azure/security/funda
 - By default, all Azure Enclave workloads are [governed](./what-azure-enclave.md#multi-layered-governance-security-and-monitoring) through built-in Azure Policy initiatives
 - Workloads associated with a [community](./what-community.md) that has a custom governance setup, use this unique configuration instead of the default Azure Enclave governance configuration.
 - [Considerations for naming Azure resources](/azure/azure-government/documentation-government-concept-naming-resources)
+
+## Compliance
+
+You're wholly responsible for ensuring your own compliance with all applicable laws and regulations. Information provided in Microsoft online documentation doesn't constitute legal advice, and you should consult your legal advisor for any questions regarding regulatory compliance.
+
+For more information, see [Azure compliance offerings](/azure/compliance/offerings/).
 
 ## Security design patterns for Azure Enclave
 Consider these security design patterns when designing your Azure Enclave environments.

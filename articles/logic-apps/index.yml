@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure Logic Apps documentation # < 60 chars
-summary: Build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems. # < 160 chars
+summary: Build automated scalable workflows for business processes and enterprise orchestrations to integrate apps and data across cloud services and on-premises systems. # < 160 chars
 
 metadata:
   title: Azure Logic Apps documentation
-  description: Build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems.
+  description: Build automated scalable workflows for business processes and enterprise orchestrations to integrate apps and data across cloud services and on-premises systems.
   ms.service: azure-logic-apps
   ms.topic: landing-page
   author: ecfan
   ms.author: estfan
-  ms.date: 03/10/2026
-  ms.update-cycle: 365-days
+  ms.date: 09/11/2026
+  ms.update-cycle: 1095-days
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -27,28 +27,24 @@ landingContent:
             url: logic-apps-overview.md
       - linkListType: concept
         links:
-          - text: Recurrence schedules for workflows
+          - text: Recurrence for workflows
             url: concepts-schedule-automated-recurring-tasks-workflows.md
-          - text: About connectors
+          - text: What are connectors
             url: ../connectors/introduction.md
           - text: Single-tenant versus multitenant
             url: single-tenant-overview-compare.md
           - text: Agentic workflows
             url: agent-workflows-concepts.md
-          - text: Business rules engine Integration
+          - text: Dynamically-run agentic workflows
+            url: https://auto.azure.com/docs/getting-started/introduction/
+          - text: Business rules engine integration
             url: rules-engine/rules-engine-overview.md
           - text: B2B enterprise integration
             url: logic-apps-enterprise-integration-overview.md
           - text: Mainframe modernization
             url: mainframe-modernization-overview.md
-      - linkListType: learn
-        links:
-          - text: Introduction to Azure Logic Apps
-            url: /training/modules/intro-to-logic-apps/
       - linkListType: video
         links:
-          - text: Introducing Azure Logic Apps
-            url: /Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/
           - text: Azure Logic Apps - Intelligent Automation Platform
             url: https://www.youtube.com/watch?v=IaBLyU28q8w&t=3s
 
@@ -57,9 +53,9 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Create Consumption workflow - Portal
+          - text: Create multitenant Consumption workflow - Portal
             url: quickstart-create-example-consumption-workflow.md
-          - text: Create Standard workflow - Portal
+          - text: Create single-tenant Standard workflow - Portal
             url: create-single-tenant-workflows-azure-portal.md
           - text: Create Standard workflow from template - Portal
             url: create-single-tenant-workflows-templates.md
@@ -67,6 +63,8 @@ landingContent:
             url: create-autonomous-agent-workflows.md
           - text: Create conversational agentic workflows - Portal
             url: create-conversational-agent-workflows.md
+          - text: Create dynamic runtime agentic workflows
+            url: https://auto.azure.com/docs/getting-started/setup/
       - linkListType: tutorial
         links:
           - text: Create a schedule-based workflow
@@ -81,7 +79,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create and manage integration accounts
-            url: logic-apps-enterprise-integration-create-integration-account.md
+            url: enterprise-integration/create-integration-account.md
           - text: Add trading partners
             url: logic-apps-enterprise-integration-partners.md
           - text: Create agreements between partners
@@ -94,12 +92,26 @@ landingContent:
         links:
           - text: Basic enterprise integration
             url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
-
+  # Card (optional)
+  - title: Author and run code in workflows
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Add and run JavaScript code
+            url: add-run-javascript.md
+          - text: Create and run .NET code - Standard workflows
+            url: create-run-custom-code-functions.md
+          - text: Add and run C# scripts - Standard workflows
+            url: add-run-csharp-scripts.md
+          - text: Add and run PowerShell scripts - Standard workflows
+            url: add-run-powershell-scripts.md
   # Card (optional)
   - title: Manage and secure logic apps
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Manage logic apps - Portal
+            url: manage-logic-apps-with-azure-portal.md
           - text: Manage logic apps - Visual Studio Code
             url: manage-logic-apps-visual-studio-code.md
           - text: Secure access and data

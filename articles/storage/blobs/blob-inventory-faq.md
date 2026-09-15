@@ -61,6 +61,8 @@ This change isn't recommended, but it's possible. Please work through your suppo
 
 Please work through your current account team and support channels.
 
-### When will this change take effect?
+## Related content
 
-This change will start gradual rollout starting September 1, 2023.
+- [Azure Storage blob inventory](blob-inventory.md)
+- [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
+- [Blob inventory performance characteristics](blob-inventory-performance-characteristics.md)

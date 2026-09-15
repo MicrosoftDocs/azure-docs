@@ -1,0 +1,142 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Multicloud Interconnect Preview FAQ
+  description: Find answers to common questions about Azure Multicloud Interconnect Preview, including supported providers, activation keys, and ExpressRoute.
+  author: duongau
+  ms.author: duau
+  ms.service: azure
+  ms.custom: ami-preview-metadata-update
+  ms.topic: faq
+  ms.date: 08/25/2026
+  #customer intent: As a cloud architect evaluating cross-cloud connectivity, I want quick answers about supported providers, activation keys, and the ExpressRoute relationship so that I can decide whether Azure Multicloud Interconnect fits my workload.
+
+title: Azure Multicloud Interconnect Preview FAQ
+summary: |
+  This article answers common questions about Azure Multicloud Interconnect.
+
+  > [!IMPORTANT]
+  > Azure Multicloud Interconnect is currently in PREVIEW.
+  > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+sections:
+  - name: Azure Multicloud Interconnect basics
+    questions:
+      - question: |
+          What is Azure Multicloud Interconnect?
+        answer: |
+          Azure Multicloud Interconnect is a managed network service that provides private connectivity between Azure and a supported cloud service provider. It gives workloads that span more than one cloud a dedicated path that doesn't traverse the public internet.
+
+          For more information, see [What is Azure Multicloud Interconnect Preview?](overview.md).
+
+      - question: |
+          How is Azure Multicloud Interconnect different from Azure ExpressRoute?
+        answer: |
+          Azure ExpressRoute connects on-premises and colocation networks to Azure. Azure Multicloud Interconnect connects Azure to a supported cloud service provider through a managed experience, and it uses ExpressRoute as its underlying connectivity technology.
+
+          For a feature-by-feature comparison, see [Azure Multicloud Interconnect and ExpressRoute](overview.md#azure-multicloud-interconnect-and-expressroute).
+
+      - question: |
+          When should I choose Azure Multicloud Interconnect instead of ExpressRoute?
+        answer: |
+          Choose Azure Multicloud Interconnect for managed connectivity between Azure and a supported cloud service provider. Choose ExpressRoute for on-premises, colocation, carrier-based connectivity, or Microsoft peering scenarios.
+
+  - name: Supported providers, regions, and limits
+    questions:
+      - question: |
+          Which cloud providers are supported?
+        answer: |
+          Azure Multicloud Interconnect supports Amazon Web Services (AWS) during preview. Support for other cloud service providers is announced separately.
+
+          See [Supported cloud providers](availability-limits.md#supported-cloud-providers).
+
+      - question: |
+          Which Azure regions are available during preview?
+        answer: |
+          Australia East, East US, Germany West Central, and West US. Region availability is subject to change during preview.
+
+          See [Supported regions](availability-limits.md#supported-regions).
+
+      - question: |
+          What bandwidth is supported?
+        answer: |
+          Azure Multicloud Interconnect supports 1 Gbps during preview.
+
+          See [Supported bandwidth](availability-limits.md#supported-bandwidth).
+
+      - question: |
+          Is there a service-level agreement during preview?
+        answer: |
+          No. Azure Multicloud Interconnect doesn't have a service-level agreement during preview.
+
+          See [Service-level agreement](availability-limits.md#service-level-agreement).
+
+  - name: Activation keys
+    questions:
+      - question: |
+          What is an activation key?
+        answer: |
+          An activation key authorizes the connection between Azure and your cloud service provider. It confirms that the cloud service provider, Azure region, bandwidth, and provider account all match the request before provisioning begins.
+
+      - question: |
+          Who generates the activation key?
+        answer: |
+          Either side generates it. Azure can generate a key that you redeem with your cloud service provider, or your provider can generate a key that you redeem in Azure.
+
+      - question: |
+          Can I start from Azure or from my cloud provider?
+        answer: |
+          Both paths are supported.
+
+          - To start in Azure and generate a key, see [Create an Azure Multicloud Interconnect Preview resource](create-interconnect.md).
+          - To redeem a provider-generated key, see [Redeem an Azure Multicloud Interconnect Preview activation key](redeem-activation-key.md).
+
+      - question: |
+          What happens if activation validation fails?
+        answer: |
+          Provisioning doesn't start. Confirm that the cloud service provider, Azure region, bandwidth, and provider account details match the original request. Correct any mismatch, and then restart activation.
+
+  - name: Networking and configuration
+    questions:
+      - question: |
+          Do I need to configure BGP sessions?
+        answer: |
+          No. Azure and the cloud service provider manage the underlying routing configuration, including virtual LANs, point-to-point addressing, and Border Gateway Protocol (BGP) sessions.
+
+      - question: |
+          Do I need an ExpressRoute gateway?
+        answer: |
+          Yes. Traffic entering Azure over the interconnect uses an ExpressRoute virtual network gateway. That gateway isn't in the outbound path for traffic that originates in Azure.
+
+      - question: |
+          Can I connect multiple virtual networks?
+        answer: |
+          Yes. An ExpressRoute virtual network gateway provides the entry point for traffic entering one or more Azure virtual networks through an ExpressRoute connection.
+
+      - question: |
+          Which networking resources do I still manage?
+        answer: |
+          You manage your Azure and provider virtual networks, gateways, connections, and virtual network attachments. You also manage address planning, route intent, firewalls, traffic inspection, access policies, workload encryption, and application-level resilience.
+
+  - name: Security and resiliency
+    questions:
+      - question: |
+          Is traffic encrypted?
+        answer: |
+          MAC Security (MACsec) is enabled by default on the physical links between Azure and the cloud service provider. You remain responsible for workload-level encryption where your requirements call for it.
+
+          For more information, see [Link encryption](overview.md#link-encryption).
+
+      - question: |
+          Who manages resiliency?
+        answer: |
+          Azure and the cloud service provider manage the redundant infrastructure and recovery operations. A single logical interconnect is backed by redundant devices and links across physically separate locations. You monitor the logical resource and validate that your workloads meet your own recovery requirements.
+
+          For more information, see [Managed resiliency](overview.md#managed-resiliency).
+
+additionalContent: |
+  ## Related content
+
+  - [What is Azure Multicloud Interconnect Preview?](overview.md)
+  - [Availability and limits](availability-limits.md)
+  - [Create an Azure Multicloud Interconnect Preview resource](create-interconnect.md)
+  - [Redeem an Azure Multicloud Interconnect Preview activation key](redeem-activation-key.md)

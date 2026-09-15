@@ -225,6 +225,8 @@ items:
             items:
               - name: Overview
                 href: secure-file-transfer-protocol-support.md
+              - name: Blob SFTP versus a self-hosted server
+                href: secure-file-transfer-protocol-choose-solution.md
               - name: Enable or disable SFTP
                 href: secure-file-transfer-protocol-support-how-to.md
               - name: Authorize access

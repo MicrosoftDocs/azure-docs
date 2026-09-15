@@ -5,17 +5,17 @@ ms.date: 05/27/2026
 ms.service: azure-vpn-gateway
 ms.topic: include
 ---
-### When is the Azure VPN Client for Linux being retired?
+### When was the Azure VPN Client for Linux retired?
 
-The retirement date is August 31, 2026. Microsoft will no longer support the client for VPN gateway P2S connections after this date.
+The Azure VPN Client for Linux retired on August 31, 2026. Microsoft no longer supports the client for VPN Gateway Point-to-Site (P2S) connections.
 
-### Why is the Azure VPN Client for Linux being retired?
+### Why was the Azure VPN Client for Linux retired?
 
-The Azure VPN Client for Linux remained in public preview without a path to general availability. To align with Microsoft's security and reliability standards, the preview client is being retired.
+The Azure VPN Client for Linux remained in public preview throughout its lifecycle and didn't have a path to general availability. To align with Microsoft's security and reliability standards, Microsoft retired the preview client.
 
 ### What happens if I keep using the Azure VPN Client for Linux after August 31, 2026?
 
-After the retirement date, the client will no longer be supported. While existing installations may continue to function for some period, Microsoft will provide no bug fixes, security patches, or support. The package is also being removed from the Microsoft Linux repository. You shouldn't rely on it for production connectivity.
+The client is no longer supported. While existing installations might continue to function, Microsoft no longer provides bug fixes, security patches, or technical support. The package is also removed from the Microsoft Linux repository. Don't rely on it for production connectivity.
 
 ### Does this retirement affect the Azure VPN Client on Windows or macOS?
 
@@ -23,35 +23,35 @@ No. The [Azure VPN Client for Windows and macOS](../articles/vpn-gateway/azure-v
 
 ### Does this retirement affect my VPN gateway or site-to-site VPN?
 
-No. Only the Linux preview client application is being retired. Your VPN gateway, P2S gateway configuration, and any S2S connections are unaffected.
+No. Only the Linux preview client application was retired. Your VPN Gateway, P2S gateway configuration, and any Site-to-Site (S2S) VPN connections remain unaffected.
 
 ### Does Microsoft Entra ID (AAD) authentication work with the alternative Linux clients?
 
-No. The OpenVPN and strongSwan open-source clients don't support Microsoft Entra ID (AAD) with the Azure VPN P2S gateway. Microsoft Entra ID authentication on Linux was only available through the Azure VPN Client for Linux.  
+No. The OpenVPN and strongSwan open-source clients don't support Microsoft Entra ID (AAD) authentication with Azure VPN Gateway P2S connections. Microsoft Entra ID authentication on Linux was only available through the Azure VPN Client for Linux.
 
-If you require Microsoft Entra ID authentication for Linux users, you'll need to evaluate alternative approaches such as certificate-based authentication or connecting via a Windows/macOS client that supports Microsoft Entra ID.
+If you require Microsoft Entra ID authentication for Linux users, you need to evaluate alternative approaches such as certificate-based authentication or connecting through a Windows or macOS client that supports Microsoft Entra ID authentication.
 
-### Does Azure VPN Client for Linux support User groups and IP address pools for point-to-site configurations?
+### Did Azure VPN Client for Linux support User Groups and IP address pools for Point-to-Site configurations?
 
-No. User groups and IP address pools for point-to-site configurations are not supported on the Linux VPN client.
+No. User Groups and IP address pools for Point-to-Site configurations weren't supported on the Linux VPN client.
 
 ### Do I need to change my VPN gateway configuration?
 
-It depends on your current tunnel type setting and authentication method. If your gateway is configured for OpenVPN only with certificates, you can switch to the open-source OpenVPN client with no gateway changes.  
+It depends on your current tunnel type setting and authentication method. If your gateway is configured for OpenVPN only with certificates, you can migrate to the open-source OpenVPN client without changing the gateway configuration.
 
-If you want to use strongSwan, you need to ensure IKEv2 is enabled on the gateway. You can enable multiple tunnel types (for example, IKEv2 and OpenVPN) on the same gateway simultaneously.
+If you choose to use strongSwan, ensure that IKEv2 is enabled on the gateway. You can enable multiple tunnel types, such as IKEv2 and OpenVPN, simultaneously on the same gateway.
 
-You'll also need to enable [certificate](../articles/vpn-gateway/point-to-site-certificate-gateway.md) or [RADIUS authentication](../articles/vpn-gateway/point-to-site-radius-gateway.md) if your gateway currently supports Microsoft Entra ID (AAD) authentication only.
+If your gateway was configured to use Microsoft Entra ID (AAD) authentication only, you need to configure an alternative authentication method, such as [certificate](../articles/vpn-gateway/point-to-site-certificate-gateway.md) or [RADIUS authentication](../articles/vpn-gateway/point-to-site-radius-gateway.md), for Linux clients.
 
-### Will the Microsoft Azure VPN Client for Linux package continue to be available for download?
+### Is the Microsoft Azure VPN Client for Linux package still available for download?
 
-The package is in the process of being removed from Microsoft's Linux software repository. Customers should plan to uninstall it and transition to an alternative before August 31, 2026.
+No. The package has been removed from Microsoft's Linux software repository. Use one of the supported alternatives for Linux connectivity.
 
-### What are my alternatives for connecting from Linux?
+### What are the supported alternatives for connecting from Linux?
 
-Two fully supported options exist:
+The following supported options are available:
 
-* OpenVPN client - uses the OpenVPN tunnel type with [certificate authentication](../articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-linux.md). Works broadly across Linux distributions.
-* strongSwan - uses the IKEv2 tunnel type with [certificate authentication](../articles/vpn-gateway/point-to-site-vpn-client-certificate-ike-linux.md) or [RADIUS authentication](../articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-password.md#linux-vpn-client---strongswan). Works on a wide range of Linux distributions.
+* OpenVPN client - uses the OpenVPN tunnel type with [certificate authentication](../articles/vpn-gateway/point-to-site-vpn-client-certificate-openvpn-linux.md). Works across a broad range of Linux distributions.
+* strongSwan - uses the IKEv2 tunnel type with [certificate authentication](../articles/vpn-gateway/point-to-site-vpn-client-certificate.md?pivots=linux#strongswan) or [RADIUS authentication](../articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-password.md#linux-vpn-client---strongswan). Works on a wide range of Linux distributions.
 
-Both support more Linux distributions than the preview client did (which was limited to Ubuntu 20.04 and 22.04).
+Both options support more Linux distributions than the preview client, which was limited to Ubuntu 20.04 and 22.04.

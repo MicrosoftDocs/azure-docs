@@ -55,7 +55,7 @@ Use connectors when your functions mainly need to interact with external service
   You already built an event-driven function app project with a deployment pipeline and monitoring tools. You can use managed connectors to add a new external service trigger-based function in the same project and take advantage of the existing infrastructure. For example, a function app that used to rely on message queues or Logic Apps can now react directly to Teams activity and connect to Office 365 for in-organization checks and manager lookups.
 
 - **Agentic workflows**  
-  You're building workflows where a function receives an event, reasons with an AI model, and then acts back into an external service through a connector operation. You can leverage the [serverless agents runtime](functions-serverless-agents-runtime.md) to program your agentic workflow while still taking advantage of managed connector-based triggers and managed connector SDKs.
+  You're building workflows where a function receives an event, reasons with an AI model, and then acts back into an external service through a connector operation. You can leverage the [Azure Functions hosted skills](functions-hosted-skills.md) to program your agentic workflow while still taking advantage of managed connector-based triggers and managed connector SDKs.
 
 - **Code-first control with managed integration**  
   You want managed connectors to simplify inbound and outbound communication with external service, but you prefer a code-first programming model and full control over the orchestration, including branching, managing authentication between steps, and reusing your existing libraries.
@@ -502,4 +502,4 @@ The connector SDK isn't available in these languages for the public preview.
 - [Operations to Azure Functions signature mapping](https://github.com/Azure/azure-functions-connector-extension/blob/main/docs/operations-functions-match.md)
 - [Azure connectors overview](/connectors/overview)
 - [What is Azure Connector Namespace?](/azure/logic-apps/connector-namespace/connector-namespace-overview)
-- [Serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md)
+- [Azure Functions hosted skills in Azure Functions](functions-hosted-skills.md)

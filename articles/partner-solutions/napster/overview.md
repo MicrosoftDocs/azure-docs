@@ -1,11 +1,11 @@
 ---
 title: What is Napster API?
-description: Learn about Napster API, an Azure Native Integration for building persistent multimodal AI agents across video, voice, text, and telephony channels.
+description: Learn about Napster API, an Azure Native Integration for building multimodal AI agents across video, voice, text, and telephony channels.
 author: shijoy
 ms.author: shijoy
 ms.topic: overview
 ms.subservice: napster
-ms.date: 08/24/2026
+ms.date: 08/26/2026
 ms.custom:
   - ignite-2026
 #customer intent: As an Azure customer evaluating native integrations, I want to understand what Napster API offers so that I can decide whether to adopt it for my multimodal agent workloads.

@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/13/2024
+ms.date: 08/27/2026
 ms.author: duau
 ---
 # Configure BGP peering to an NVA - PowerShell
@@ -40,7 +40,7 @@ $virtualWan = New-AzVirtualWan -ResourceGroupName "testRG" -Name "myVirtualWAN" 
 A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites.
 
 ```azurepowershell-interactive
-$virtualHub = New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.0.1/24"
+$virtualHub = New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.0.0/23"
 ```
 
 ## Connect the VNet to the hub

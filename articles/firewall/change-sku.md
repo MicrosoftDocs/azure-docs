@@ -5,7 +5,7 @@ services: firewall
 author: duongau
 ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 02/21/2026
+ms.date: 08/27/2026
 ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
@@ -48,6 +48,10 @@ Use the easy SKU change method when:
 - You have a standard deployment without complex custom configurations
 - **For downgrade**: A firewall policy created for a higher SKU (Premium or Standard) can't be attached to a lower SKU firewall. To downgrade, you must create a new firewall policy or use an existing policy that is compatible with the target SKU.
 
+> [!NOTE]
+> Use the easy SKU migration method only when the Azure Firewall resource has **four or fewer instances**. If the firewall has more than four instances, manually scale it down to four or fewer instances before starting the SKU migration.
+
+
 ### Policy considerations for SKU changes
 
 #### Upgrade to Premium
@@ -69,7 +73,9 @@ When downgrading from Premium to Standard, consider the following policy require
 - **TLS inspection**: Disable TLS inspection rules and remove associated certificates
 - **IDPS (Intrusion Detection and Prevention)**: Change IDPS mode from Alert and Deny to Alert Only or Off
 - **URL filtering**: Replace URL filtering rules with FQDN filtering where possible
-- **Web categories**: Remove or replace web category rules with specific FQDN rules
+
+> [!NOTE]
+> Web categories aren't Premium-exclusive and don't block a downgrade. Both Standard and Premium support web categories. Premium matches categories against the entire URL for HTTP and HTTPS traffic, while Standard categorizes by FQDN only, so category matching becomes less granular after a downgrade. For more information, see [Azure Firewall features by SKU](features-by-sku.md).
 
 **Policy handling options:**
 - **Use existing Standard policy**: Select a preexisting Standard policy that doesn't contain Premium features
@@ -94,7 +100,7 @@ To change your firewall SKU using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your Azure Firewall Premium resource.
-1. **Before downgrading**: Ensure your firewall policy doesn't contain Premium-exclusive features (TLS inspection, IDPS Alert and Deny mode, URL filtering, web categories).
+1. **Before downgrading**: Make sure your firewall policy doesn't contain Premium-exclusive features (TLS inspection, IDPS Alert and Deny mode, URL filtering).
 1. On the **Overview** page, select **Change SKU**.
 1. In the SKU change dialog box, select **Standard** as the target SKU.
 1. Choose your policy option:
@@ -121,10 +127,11 @@ The easy SKU change method has the following limitations:
 - Not available for firewalls with certain complex configurations
 - Limited availability in some regions
 - Requires existing firewall policy (not available for Classic rules)
+- Azure Firewall resources with **more than four** instances aren't supported by the easy SKU migration method. Scale the firewall down to four or fewer instances before performing the migration.
 
 **Downgrade-specific limitations:**
-- Premium features (TLS inspection, IDPS Alert and Deny mode, URL filtering, web categories) must be removed before downgrade
-- For the new Firewall SKU, you mustuse an existing compatible policy or create a new Standard policy
+- Premium features (TLS inspection, IDPS Alert and Deny mode, URL filtering) must be removed before downgrade.
+- For the new Firewall SKU, you must use an existing compatible policy or create a new Standard policy.
 - Some rule configurations might need manual adjustment after downgrade
 
 If the easy SKU change method isn't available for your scenario, use the manual migration method described in the next section.
@@ -422,7 +429,6 @@ If you're unable to downgrade from Premium to Standard:
    - TLS inspection rules
    - IDPS in Alert and Deny mode
    - URL filtering rules
-   - Web category rules
 
 2. **Policy modification options**:
    - Create a new Standard policy without Premium features

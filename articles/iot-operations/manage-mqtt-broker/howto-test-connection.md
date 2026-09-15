@@ -25,7 +25,7 @@ By default, an MQTT broker:
 >
 > - [Configure TLS with automatic certificate management to secure MQTT communication in the MQTT broker](./howto-configure-brokerlistener.md).
 > - [Configure authentication in the MQTT broker](./howto-configure-authentication.md).
-> - [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) by using port forwarding or a virtual switch with Azure Kubernetes Services (AKS) Edge Essentials.
+> - [Expose Kubernetes services to external devices](/azure/aks-hybrid-edge/edge-essentials/aks-edge-howto-expose-service) by using port forwarding or a virtual switch with Azure Kubernetes Services (AKS) Edge Essentials.
 
 Before you begin, [install or configure Azure IoT Operations](../get-started-end-to-end-sample/quickstart-deploy.md). Use the following options to test connectivity to the MQTT broker with MQTT clients in a nonproduction environment.
 
@@ -293,7 +293,7 @@ For example, to create a new broker listener with the `LoadBalancer` service typ
 
 1. In the Azure portal, go to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
-1. Select **MQTT broker listener for NodePort** > **Create**. You can create only one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
+1. Select **MQTT broker listener for LoadBalancer** > **Create**. You can create only one listener per service type. If you already have a listener of the same service type, you can add more ports to the existing listener.
 
     > [!CAUTION]
     > Setting authentication to **None** and not configuring TLS [turns off authentication and TLS for testing purposes only](#only-turn-off-tls-and-authentication-for-testing).
@@ -478,7 +478,7 @@ For AKS Edge Essentials, you need to perform a few more steps. With AKS Edge Ess
 
 1. Use the host's public IP address to connect to the MQTT broker.
 
-For more information about port forwarding, see [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service).
+For more information about port forwarding, see [Expose Kubernetes services to external devices](/azure/aks-hybrid-edge/edge-essentials/aks-edge-howto-expose-service).
 
 #### Access through localhost
 

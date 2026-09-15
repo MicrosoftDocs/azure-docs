@@ -26,7 +26,7 @@ For information about generating certificates, see the [Generate certificates](p
 
 ## <a name="installlinux"></a>Linux
 
-The Linux client certificate is installed on the client as part of the client configuration. There are a few different methods to install certificates. You can use [strongSwan](point-to-site-vpn-client-certificate-ike-linux.md), or [OpenVPN client](point-to-site-vpn-client-certificate-openvpn-linux.md) steps.
+The Linux client certificate is installed on the client as part of the client configuration. There are a few different methods to install certificates. See the Linux options in [Configure a VPN client for P2S certificate authentication connections](point-to-site-vpn-client-certificate.md).
 
 ## <a name="vpn-clients"></a>Configure VPN clients
 

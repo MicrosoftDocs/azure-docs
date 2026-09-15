@@ -5,7 +5,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-route-server
 ms.topic: how-to
-ms.date: 09/17/2025
+ms.date: 08/27/2026
 ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an Azure administrator, I want to monitor Azure Route Server metrics and BGP peer status to ensure optimal performance and troubleshoot connectivity issues.
@@ -149,6 +149,6 @@ Use Route Server metrics to diagnose common issues:
 Now that you understand how to monitor Route Server, explore these related articles:
 
 - [Create and configure Route Server](quickstart-configure-route-server-portal.md)
-- [Configure peering between Azure Route Server and an NVA](tutorial-configure-route-server-with-quagga.md)
+- [Configure peering between Azure Route Server and an NVA](peer-route-server-with-virtual-appliance.md)
 - [Azure Route Server FAQ](route-server-faq.md)
 - [Create metric alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-create-new-alert-rule)

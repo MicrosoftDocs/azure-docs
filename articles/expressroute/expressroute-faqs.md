@@ -27,6 +27,8 @@ For service location and availability, see [ExpressRoute partners and locations]
 
 You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations and then peer with Microsoft at the provider location. See [connect through another service provider](expressroute-locations.md#connectivity-through-additional-service-providers) to see if your service provider is present in any of the exchange locations. You can order an ExpressRoute circuit through the service provider to connect to Azure.
 
+If your provider does not support ExpressRoute or does not support the location you would like to use, please reach out to the provider to request that they add support.
+
 ### How much does ExpressRoute cost?
 
 For a breakdown of ExpressRoute cost, see [pricing details](https://azure.microsoft.com/pricing/details/expressroute/).

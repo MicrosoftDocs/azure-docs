@@ -43,10 +43,6 @@ The Windows OS upgrade capability helps you move from an older operating system 
 
 You can upgrade to up to two versions from the current version.   
 
-> [!NOTE]
-> After you migrate and upgrade to Windows Server 2012 in Azure, you will get 3 years of free Extended Security Updates in Azure. [Learn more](/windows-server/get-started/extended-security-updates-overview).
-
-
 **Source** | **Supported target versions**
 --- | ---
 Windows Server 2008 SP2 | Windows Server 2012

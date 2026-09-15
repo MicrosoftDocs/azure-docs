@@ -2728,7 +2728,7 @@ Users with reader access can sign in, have read-only access to the bot resources
 
 ## Search Index Data Contributor
 
-Grants full access to Azure Cognitive Search index data.
+Grants full access to Azure AI Search index data.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2747,7 +2747,7 @@ Grants full access to Azure Cognitive Search index data.
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants full access to Azure Cognitive Search index data.",
+  "description": "Grants full access to Azure AI Search index data.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/8ebe5a00-799e-43f5-93ac-243d3dce84a7",
   "name": "8ebe5a00-799e-43f5-93ac-243d3dce84a7",
   "permissions": [
@@ -2769,7 +2769,7 @@ Grants full access to Azure Cognitive Search index data.
 
 ## Search Index Data Reader
 
-Grants read access to Azure Cognitive Search index data.
+Grants read access to Azure AI Search index data.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -2787,7 +2787,7 @@ Grants read access to Azure Cognitive Search index data.
   "assignableScopes": [
     "/"
   ],
-  "description": "Grants read access to Azure Cognitive Search index data.",
+  "description": "Grants read access to Azure AI Search index data.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/1407120a-92aa-4202-b7e9-c0e197c71c8f",
   "name": "1407120a-92aa-4202-b7e9-c0e197c71c8f",
   "permissions": [
@@ -2808,7 +2808,7 @@ Grants read access to Azure Cognitive Search index data.
 
 ## Search Service Contributor
 
-Lets you manage Search services, but not access to them.
+Lets you manage Azure AI Search services, including retrieving admin and query API keys. An admin key provides full access to the service's data plane. A query key provides read-only access.
 
 [Learn more](/azure/search/search-security-rbac)
 
@@ -2834,7 +2834,7 @@ Lets you manage Search services, but not access to them.
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage Search services, but not access to them.",
+  "description": "Lets you manage Azure AI Search services, including retrieving admin and query API keys. An admin key provides full access to the service's data plane. A query key provides read-only access.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/7ca78c08-252a-4471-8644-bb5ff32d4ba0",
   "name": "7ca78c08-252a-4471-8644-bb5ff32d4ba0",
   "permissions": [

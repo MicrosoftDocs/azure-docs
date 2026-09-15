@@ -6,9 +6,9 @@ items:
       - name: What is Microsoft Dev Box?
         href: overview-what-is-microsoft-dev-box.md
         displayName: DevBox, VDI
-      - name: Dev Box maintenance mode
-        href: dev-box-roadmap.md
-        displayName: roadmap, maintenance mode, Windows 365, transition
+      - name: Microsoft Dev Box retirement guide
+        href: dev-box-retirement-guide.md
+        displayName: retirement, maintenance mode, Windows 365, transition
   - name: Quickstarts
     items:
       - name: Get Started with the quick start template

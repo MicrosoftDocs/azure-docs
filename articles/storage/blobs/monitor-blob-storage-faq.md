@@ -28,3 +28,9 @@ You can configure a resource health alert based on the [Azure Resource Health](/
 ## How often does the blob count and blob capacity metric get updated?
 
 The blob capacity and blob count metric are emitted hourly. A background process computes these metrics and updates them multiple times a day.
+
+## Related content
+
+- [Monitor Blob Storage](monitor-blob-storage.md)
+- [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md)
+- [Best practices for monitoring Azure Blob Storage](blob-storage-monitoring-scenarios.md)

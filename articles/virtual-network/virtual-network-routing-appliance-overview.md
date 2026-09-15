@@ -6,7 +6,7 @@ description: Learn about routing appliances, a high-performance routing solution
 author: asudbring
 ms.author: allensu
 ms.reviewer: allensu
-ms.date: 08/19/2026
+ms.date: 08/27/2026
 ms.topic: concept-article
 ms.service: azure-virtual-network
 ms.custom: references_regions
@@ -151,6 +151,8 @@ Routing appliances are generally available in the following Azure regions. Micro
 - VNet flow logs isn't supported yet.
 
 - Traffic that traverses the appliance isn't encrypted by virtual network encryption.
+
+- Virtual network routing appliance chaining in the same region isn't supported.
 
 - Service endpoints and service tunneling through a routing appliance require a network security group on the appliance subnet. The network security group must allow inbound traffic from the VirtualNetwork service tag and outbound traffic to the VirtualNetwork tag and to the service tag of the destination service.
 

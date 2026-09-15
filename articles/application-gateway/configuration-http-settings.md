@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/12/2026
+ms.date: 09/04/2026
 ms.author: mbender
 ms.custom:
   - build-2025
@@ -109,7 +109,9 @@ The default validation settings ensure secure TLS communication between the gate
 
 ### Request timeout
 
-This setting is the number of seconds that the application gateway waits to receive a response from the backend server. The default value is 20 seconds. However, you can wish to adjust this setting to the needs of your application. Acceptable values are from 1 second to 86400 seconds (24 hours).
+The request timeout specifies how long, in seconds, Application Gateway waits for a response from the backend server. The default is 20 seconds. For a private backend, the supported range is 1 to 86,400 seconds (24 hours). For an external backend, the supported range is 1 to 240 seconds (4 minutes). For more information, see [Azure Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits).
+
+If a backend server doesn't respond before the request timeout expires, the request can fail. In Application Gateway v1, the client can receive an HTTP 502 (Bad Gateway) response. For SKU-specific response behavior and remediation guidance, see [Backend request time-out is exceeded](/troubleshoot/azure/application-gateway/application-gateway-troubleshooting-502#backend-request-time-out-is-exceeded).
 
 ### Override backend path
 
