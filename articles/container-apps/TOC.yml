@@ -67,6 +67,8 @@ items:
           href: sandboxes-snapshots-state-management.md
         - name: Egress policies
           href: sandboxes-egress-policies.md
+        - name: Reliability in Container Apps Sandboxes
+          href: /azure/reliability/reliability-container-apps-sandboxes?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Express
       items:
         - name: Overview
@@ -435,6 +437,8 @@ items:
   items:
     - name: Reliability in Azure Container Apps
       href: /azure/reliability/reliability-container-apps?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+    - name: Reliability in Container Apps Sandboxes
+      href: /azure/reliability/reliability-container-apps-sandboxes?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Create a zone-redundant container app
       href: how-to-zone-redundancy.md
     - name: Relocate to another region
