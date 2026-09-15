@@ -51,7 +51,7 @@ For more information about managed resources, see [What is a community?](./what-
 
 ## Azure Enclave resource types
 
-Azure Enclave resource types help create and connect secure boundaries, including communities, enclaves, community endpoints, enclave endpoints, enclave connections, and transit hubs. Azure infrastructure resources deployed or used by those Azure Enclave resource types can incur separate Azure resource charges.
+Azure Enclave resource types help you create and connect secure boundaries, including communities, enclaves, community endpoints, enclave endpoints, enclave connections, and transit hubs. Azure infrastructure resources deployed or used by those Azure Enclave resource types can incur separate Azure resource charges.
 
 ## Workload resource charges
 
