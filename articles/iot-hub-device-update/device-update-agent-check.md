@@ -9,7 +9,7 @@ ms.service: azure-iot-hub
 ms.subservice: device-update
 ---
 
-# Device Update for Azure IoT Hub agent check
+# Find and fix devices missing from Device Update for IoT Hub using agent check
 
 Learn how to use the **agent check** feature to find, diagnose, and fix devices missing from your Device Update for IoT Hub instance.
 
