@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: reference
-ms.date: 04/16/2025
+ms.date: 09/15/2026
 
 #CustomerIntent: As an IT administrator, I want configure Azure RBAC custom roles on resources in my Azure IoT Operations instance to control access to them.
 ---
@@ -106,3 +106,12 @@ To assign the custom role to a user at the resource group level using the Azure 
 1. Select the user or users you want to assign the role to. You can search for users by name or email address.
 
 1. Select **Review + assign** to review the role assignment. If everything looks good, select **Assign**.
+
+## Remove an identity's access to Azure IoT Operations
+
+An Azure IoT Operations instance and its child resources run on the Azure Arc-enabled cluster specified by the associated custom location. To fully remove an identity's access, remove any Azure RBAC role assignments that grant the identity permissions to both:
+
+- The Azure IoT Operations instance and its child resources.
+- The associated Azure Arc custom location.
+
+Don't rely on removing access to the custom location alone. For some child-resource operations, the `extendedLocation` property is optional. If a request omits this property, Azure Resource Manager might not perform the linked authorization check on the custom location. The deployment target is instead inferred from the parent Azure IoT Operations instance. Review inherited role assignments at the subscription and resource-group scopes, and group memberships, to ensure that the identity doesn't retain access to either resource.
