@@ -5,7 +5,7 @@ description: Learn how to set up a connection to Application Insights and enable
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/03/2026
+ms.date: 09/15/2026
 ms.custom:
   - engagement-fy23
   - devx-track-arm-template
@@ -32,10 +32,10 @@ You can easily integrate Azure Application Insights with Azure API Management. A
 
 * Create an [Azure API Management instance](get-started-create-service-instance.md).
 
-* Create an instance of the [Application Insights service](/previous-versions/azure/azure-monitor/app/create-new-resource). To create an instance using the Azure portal, see [Workspace-based Application Insights resources](/azure/azure-monitor/app/create-workspace-resource).
+* Create an instance of the [Application Insights service](/previous-versions/azure/azure-monitor/app/create-new-resource). To create an instance by using the Azure portal, see [Workspace-based Application Insights resources](/azure/azure-monitor/app/create-workspace-resource).
 
     > [!NOTE]
-    > The Application Insights resource *can be* in a different subscription or even a different tenant than the API Management resource.
+    > The Application Insights resource can be in a different subscription or even a different tenant than the API Management resource.
 
 * If you plan to configure managed identity credentials to use with Application Insights, complete the following steps:
 
@@ -47,31 +47,31 @@ You can easily integrate Azure Application Insights with Azure API Management. A
 
 ## Scenario overview
 
-The following are high-level steps for this scenario.
+The following steps provide a high-level overview of this scenario.
 
 1. Create a connection between Application Insights and API Management.
 
     You can create a connection between Application Insights and your API Management by using the Azure portal, the REST API, or related Azure tools. API Management configures a *logger* resource for the connection.
 
     > [!IMPORTANT]
-    > Currently, in the portal, API Management only supports connections to Application Insights using an Application Insights instrumentation key. For enhanced security, we recommend using an Application Insights connection string with an API Management managed identity. To configure connection string with managed identity credentials, use the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article. To learn more, see [Connection strings in Application Insights](/azure/azure-monitor/app/sdk-connection-string).
+    > Currently, in the portal, API Management only supports connections to Application Insights using an Application Insights instrumentation key. For enhanced security, use an Application Insights connection string with an API Management managed identity. To configure connection string with managed identity credentials, use the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article. To learn more, see [Connection strings in Application Insights](/azure/azure-monitor/app/sdk-connection-string).
 
     > [!NOTE]
-    > If your Application Insights resource is in a different tenant, then you must create the logger using the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article.
+    > If your Application Insights resource is in a different tenant, create the logger by using the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article.
 
 1. Enable Application Insights logging for your API or APIs.
 
     In this article, you enable Application Insights logging for your API by using the Azure portal. API Management configures a *diagnostic* resource for the API.
 
 
-## Create a connection using the Azure portal
+## Create a connection by using the Azure portal
 
 Follow these steps to use the Azure portal to create a connection between Application Insights and API Management. 
 
 > [!NOTE]
 > Where possible, Microsoft recommends using connection string with managed identity credentials for enhanced security. To configure these credentials, use the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article.
 
-1. Navigate to your Azure API Management service instance in the Azure portal.
+1. Go to your Azure API Management service instance in the Azure portal.
 
 1. Under **Monitoring** in the sidebar menu, select **Application Insights**.
 
@@ -81,7 +81,7 @@ Follow these steps to use the Azure portal to create a connection between Applic
 1. Select the **Application Insights** instance you created earlier and provide a short description.
 
 1. To enable [availability monitoring](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) of your API Management instance in Application Insights, select the **Add availability monitor** checkbox.
-    * This setting regularly validates whether the API Management gateway endpoint is responding. 
+    * This setting regularly checks whether the API Management gateway endpoint is responding. 
     * Results appear in the **Availability** pane of the Application Insights instance.
 
 1. Select **Create**.
@@ -96,11 +96,11 @@ Follow these steps to use the Azure portal to create a connection between Applic
 > [!TIP]
 > If you need to update the instrumentation key configured in the Application Insights logger, select the logger's row in the list (not the name of the logger). Enter the instrumentation key, and select **Save**.
 
-## Create a connection using the REST API, Bicep, or ARM template
+## Create a connection by using the REST API, Bicep, or ARM template
 
-Follow these steps to use the REST API, Bicep, or ARM template to create an Application Insights logger for your API Management instance. You can configure a logger that uses connection string with managed identity credentials (recommended), or a logger that uses only a connection string.
+Follow these steps to use the REST API, Bicep, or ARM template to create an Application Insights logger for your API Management instance. You can configure a logger that uses a connection string with managed identity credentials (recommended), or a logger that uses only a connection string.
 
-### Logger with connection string with managed identity credentials (recommended)
+### Logger with connection string and managed identity credentials (recommended)
 
 See the [prerequisites](#prerequisites) for using an API Management managed identity.
 
@@ -188,7 +188,7 @@ Use the API Management [Logger - Create or Update](/rest/api/apimanagement/curre
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar the following example in your Bicep file.
+Include a snippet similar to the following example in your Bicep file.
 
 ```bicep
 resource aiLoggerWithUserAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
@@ -297,7 +297,7 @@ If you're configuring the logger for a workspace, create a `Microsoft.ApiManagem
 
 Use the following steps to enable Application Insights logging for an API. You can also enable Application Insights logging for all APIs.
 
-1. Navigate to your Azure API Management service instance in the Azure portal.
+1. Go to your Azure API Management service instance in the Azure portal.
 
 1. Select **APIs** > **APIs** from the sidebar menu.
 
@@ -313,12 +313,12 @@ Use the following steps to enable Application Insights logging for an API. You c
 
 1. Select your attached logger in the **Destination** dropdown.
 
-1. Input **100** as **Sampling (%)** and select the **Always log errors** checkbox.
+1. Enter `100` as **Sampling (%)** and select the **Always log errors** checkbox.
 
 1. Leave the rest of the settings as is. For details about the settings, see [Diagnostic logs settings reference](diagnostic-logs-reference.md).
 
    > [!WARNING]
-   > Overriding the default **Number of payload bytes to log** value **0** might significantly decrease the performance of your APIs.
+   > Overriding the default **Number of payload bytes to log** value `0` might significantly decrease the performance of your APIs.
 
 1. Select **Save**.
 
@@ -330,13 +330,13 @@ Use the following steps to enable Application Insights logging for an API. You c
 
 ## Loggers for a single API or all APIs
 
-You can specify loggers on different levels: 
+You can specify loggers at different levels: 
 + Single API logger
 + A logger for all APIs
  
-Specifying *both*:
+If you specify *both*:
 - By default, the single API logger (more granular level) overrides the one for all APIs.
-- If the loggers configured at the two levels are different, and you need both loggers to receive telemetry (multiplexing), contact Microsoft Support. Note that multiplexing isn't supported if you're using the same logger (Application Insights destination) at the "All APIs" level and the single API level. For multiplexing to work correctly, you must configure different loggers at the "All APIs" and individual API level and request assistance from Microsoft support to enable multiplexing for your service.
+- If the loggers configured at the two levels are different, and you need both loggers to receive telemetry (multiplexing), contact Microsoft Support. Multiplexing isn't supported if you're using the same logger (Application Insights destination) at the "All APIs" level and the single API level. For multiplexing to work correctly, you must configure different loggers at the "All APIs" and individual API level and request assistance from Microsoft support to enable multiplexing for your service.
 
 ## What data is added to Application Insights
 
@@ -345,30 +345,54 @@ Application Insights receives:
 | Telemetry item | Description |
 | -------------- | ----------- |
 | *Request* | For every incoming request: <ul><li>*frontend request*</li><li>*frontend response*</li></ul> |
-| *Dependency* | For every request forwarded to a backend service: <ul><li>*backend request*</li><li>*backend response*</li></ul> |
+| *Dependency* | Automatic external dependency telemetry from supported policy execution, including requests forwarded to a backend service. |
 | *Exception* | For every failed request: <ul><li>Failed because of a closed client connection</li><li>Triggered an *on-error* section of the API policies</li><li>Has a response HTTP status code matching 4xx or 5xx</li></ul> |
 | *Trace* | If you configure a [trace](trace-policy.md) policy. <br> The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging. |
 
+### External dependency telemetry for supported policies
+
+After you configure and enable Application Insights logging, you don't need to change any policies to collect external dependency telemetry for the following policies:
+
+- `authentication-managed-identity`
+- `authentication-token`
+- `azure-openai-semantic-cache-lookup`
+- `cosmosdb-request-handler`
+- `forward-request`
+- `get-authorization-context`
+- `http-data-source`
+- `invoke-dapr-binding`
+- `llm-content-safety`
+- `llm-semantic-cache-lookup`
+- `send-request`
+- `send-one-way-request`
+- `send-service-bus-message`
+- `sql-data-source`
+- `validate-jwt`
+
+Application Insights records these external calls as correlated child operations. For example, you can see retry attempts, OpenID Connect metadata retrieval by `validate-jwt`, a Service Bus send, or backend forwarding as related operations. To verify the telemetry in the Azure portal, open **End-to-end transaction details** in your Application Insights resource and review the related operations for a request.
+
+Coverage in this release is limited to the policies in the preceding list.
+
 > [!NOTE]
-> See [Application Insights limits](/azure/azure-monitor/service-limits#application-insights) for information about the maximum size and number of metrics and events per Application Insights instance.
+> For information about the maximum size and number of metrics and events per Application Insights instance, see [Application Insights limits](/azure/azure-monitor/service-limits#application-insights).
 
 ## Emit custom metrics
 
-You can emit [custom metrics](/azure/azure-monitor/essentials/metrics-custom-overview) to Application Insights from your API Management instance. API Management emits custom metrics using policies such as [emit-metric](emit-metric-policy.md) and [llm-emit-token-metric](llm-emit-token-metric-policy.md). The following section uses the `emit-metric` policy as an example.
+You can emit [custom metrics](/azure/azure-monitor/essentials/metrics-custom-overview) to Application Insights from your API Management instance. API Management emits custom metrics by using policies such as [emit-metric](emit-metric-policy.md) and [llm-emit-token-metric](llm-emit-token-metric-policy.md). The following section uses the `emit-metric` policy as an example.
 
 > [!NOTE]
-> Custom metrics are a [preview feature](/azure/azure-monitor/essentials/metrics-custom-overview) of Azure Monitor and subject to [limitations](/azure/azure-monitor/essentials/metrics-custom-overview#design-limitations-and-considerations).
+> Custom metrics are a [preview feature](/azure/azure-monitor/essentials/metrics-custom-overview) of Azure Monitor and are subject to [limitations](/azure/azure-monitor/essentials/metrics-custom-overview#design-limitations-and-considerations).
 
-To emit custom metrics, perform the following configuration steps. 
+To emit custom metrics, complete the following configuration steps: 
 
 1. Enable **Custom metrics (Preview)** with custom dimensions in your Application Insights instance. 
 
-    1. Navigate to your Application Insights instance in the portal.
+    1. Go to your Application Insights instance in the portal.
     1. Under **Configure** in the sidebar menu, select **Usage and estimated costs**.
     1. Select **Custom metrics (Preview)** > **With dimensions**.
     1. Select **OK**. 
 
-1. Add the `"metrics": true` property to the `applicationInsights` diagnostic entity that's configured in API Management. Currently you must add this property using the API Management [Diagnostic - Create or Update](/rest/api/apimanagement/current-ga/diagnostic/create-or-update) REST API. For example:
+1. Add the `"metrics": true` property to the `applicationInsights` diagnostic entity that you configure in API Management. Currently, you must add this property by using the API Management [Diagnostic - Create or Update](/rest/api/apimanagement/current-ga/diagnostic/create-or-update) REST API. For example:
 
     ```http
     PUT https://management.azure.com/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.ApiManagement/service/<API-management-service-name>/diagnostics/applicationinsights
@@ -385,9 +409,9 @@ To emit custom metrics, perform the following configuration steps.
     }
     ```
 
-1. Ensure that the Application Insights logger is configured at the scope you intend to emit custom metrics (either all APIs, or a single API). For more information, see [Enable Application Insights logging for your API](#enable-application-insights-logging-for-your-api), earlier in this article.
+1. Ensure that the Application Insights logger is configured at the scope where you want to emit custom metrics (either all APIs or a single API). For more information, see [Enable Application Insights logging for your API](#enable-application-insights-logging-for-your-api), earlier in this article.
 
-1. Configure the `emit-metric` policy at a scope where Application Insights logging is configured (either all APIs, or a single API) and is enabled for custom metrics. For policy details, see the [`emit-metric`](emit-metric-policy.md) policy reference.
+1. Configure the `emit-metric` policy at a scope where Application Insights logging is configured (either all APIs or a single API) and is enabled for custom metrics. For policy details, see the [`emit-metric`](emit-metric-policy.md) policy reference.
 
 ### Limits for custom metrics
 
