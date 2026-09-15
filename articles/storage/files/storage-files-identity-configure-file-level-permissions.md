@@ -216,6 +216,18 @@ If you configure Microsoft Entra Kerberos as the identity source for your storag
 
 1. Select **Save** to set the ACL.
 
+> [!NOTE]
+> When editing inheritable permissions on a folder with the Azure Portal, the permissions will only apply to _future_ direct subfiles and subfolders. They will not automatically be backfilled to _existing_ subfiles and subfolders. To backfill the inheritable permission to all existing items under the folder, use the `Restore-AzFileAclInheritance` command from the [RestSetAcls PowerShell module](https://www.powershellgallery.com/packages/RestSetAcls/). Click the **Manage Inheritance** button to generate a copy-pasteable script to apply the inheritable permission recursively to all items under the folder.
+>
+> ```powershell
+> Install-Module RestSetAcls
+> $AccountName = "<storage-account-name>" # replace with the storage account name 
+> $AccountKey = "<storage-account-key>" # replace with the storage account key 
+> $FolderPath = "/path/to/folder" # replace with the folder path within the file share
+> $context = New-AzStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey 
+> Restore-AzFileAclInheritance -Context $context -FileShareName "test" -Path $FolderPath -Recursive
+> ```
+
 ### Configure Windows ACLs for cloud-only identities by using PowerShell
 
 If you need to assign ACLs in bulk to cloud-only users, use the [RestSetAcls PowerShell module](https://www.powershellgallery.com/packages/RestSetAcls/) to automate the process by using the Azure Files REST API. This module doesn't require network connectivity to Active Directory.
