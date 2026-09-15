@@ -108,7 +108,7 @@ Playwright Workspaces integrates with Microsoft Entra ID to provide secure, ente
 
 The following diagram illustrates how Playwright Workspaces provides cloud browser infrastructure for different workloads:
 
-:::image type="content" source="./media/overview-what-is-microsoft-playwright-workspaces/playwright-workspaces-architecture.png" alt-text="Diagram that shows an architecture overview of Playwright Workspaces." lightbox="./media/overview-what-is-microsoft-playwright-workspaces/playwright-workspaces-architecture-overview.png":::
+:::image type="content" source="./media/overview-what-is-microsoft-playwright-workspaces/playwright-workspaces-architecture-overview.png" alt-text="Diagram that shows an architecture overview of Playwright Workspaces." lightbox="./media/overview-what-is-microsoft-playwright-workspaces/playwright-workspaces-architecture-overview.png":::
 
 ## Regional availability
 
