@@ -1,12 +1,12 @@
 ---
 title: AI Playbook, Examples, and Samples
 description: Learn about AI integration examples, samples, and other resources for Standard and Consumption workflows in Azure Logic Apps.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/18/2026
+ms.date: 09/15/2026
 ms.update-cycle: 180-days
 #Customer intent: As an AI developer who works with Azure Logic Apps, I want a guide that introduces starting points, building blocks, examples, samples, and other resources so I can learn how I can use AI in my integration solutions using Standard and Consumption workflows in Azure Logic Apps.
 ---
@@ -19,9 +19,11 @@ AI capabilities play a fast and growing role in applications and other software 
 
 This guide provides building blocks, examples, and other resources that show how to use Foundry Tools like Azure OpenAI, Microsoft Foundry, and Azure AI Search with Azure Logic Apps to build automated workflows for AI integration solutions.
 
-## AI agent and model-powered workflows
+This article focuses on AI agentic workflows that automate predictable and stable business processes. For AI agentic workflows that automate unpredictable and hard-to-define business processes, see [Azure Logic Apps Automation](automation/dynamic-workflow-automation-introduction.md).
 
-Azure Logic Apps supports Standard logic app workflows that complete tasks by using *agent loops* with *large language models* (LLMs). An agent uses an iterative looped process to solve complex, multistep problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction.
+## AI agentic and model-powered workflows
+
+Azure Logic Apps Standard and Consumption supports workflows that complete tasks by using *agent loops* with *large language models* (LLMs). This agent loop uses an iterative process to solve complex, multistep problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction.
 
 For example, an LLM can perform the following tasks:
 
@@ -29,11 +31,11 @@ For example, an LLM can perform the following tasks:
 - Make decisions based on results and available data.
 - Formulate and return answers to the prompter based on the agent's instructions.
 
-After you create a Standard logic app, you can add a workflow that uses the **Autonomous Agents** or **Conversational Agents** workflow type. These workflow types create a partial workflow that includes an empty **Agent** action. Based on your selected workflow type, you can then set up the agent to work without or with human interaction, which happens through an integrated chat interface.
+For Standard logic apps, you can add a workflow that has **Autonomous Agents** or **Conversational Agents** type. These workflow types create a partial workflow that includes an empty **Agent** action. Based on your selected workflow type, you can then set up the agent to work without or with human interaction, which happens through an integrated chat interface.
 
 > [!TIP]
 >
-> If you choose to start with a nonagent **Stateful** workflow, you can always add an **Agent** action later.
+> For Standard logic apps, if you choose to start with a nonagent **Stateful** workflow, you can always add an **Agent** action later.
 
 The agent uses natural language and the connected LLM to interpret previously provided instructions or real-time human interactions, respectively. The agent also uses model-generated outputs to do work. The model helps the agent provide the following capabilities:
 
