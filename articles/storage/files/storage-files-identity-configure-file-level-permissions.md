@@ -217,7 +217,7 @@ If you configure Microsoft Entra Kerberos as the identity source for your storag
 1. Select **Save** to set the ACL.
 
 > [!NOTE]
-> When editing inheritable permissions on a folder with the Azure Portal, the permissions will only apply to _future_ direct subfiles and subfolders. They will not automatically be backfilled to _existing_ subfiles and subfolders. To backfill the inheritable permission to all existing items under the folder, use the `Restore-AzFileAclInheritance` command from the [RestSetAcls PowerShell module](https://www.powershellgallery.com/packages/RestSetAcls/). Click the **Manage Inheritance** button to generate a copy-pasteable script to apply the inheritable permission recursively to all items under the folder.
+> When you edit inheritable permissions on a folder by using the Azure portal, the permissions apply only to _future_ direct subfiles and subfolders. They don't automatically apply to _existing_ subfiles and subfolders. To apply the inheritable permission to all existing items under the folder, use the `Restore-AzFileAclInheritance` command from the [RestSetAcls PowerShell module](https://www.powershellgallery.com/packages/RestSetAcls/). Select the **Manage Inheritance** button to generate a copy-pasteable script that applies the inheritable permission recursively to all items under the folder.
 >
 > ```powershell
 > Install-Module RestSetAcls
