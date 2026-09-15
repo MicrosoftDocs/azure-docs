@@ -6,7 +6,7 @@ ms.author: duau
 ms.service: azure-firewall
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 08/11/2026
+ms.date: 08/19/2026
 ai-usage: ai-assisted
 ---
 
@@ -90,7 +90,7 @@ Logging and monitoring for Azure Firewall provide visibility into traffic flows,
 
 - **Configure performance monitoring and alerting**: Monitor throughput, latency, firewall health, SNAT port utilization, and rule hit counts by using Azure Monitor. Alert on capacity or availability thresholds before users experience application outages. For more information, see [Best practices for Azure Firewall performance](firewall-best-practices.md).
 
-- **Monitor Resource Health for firewall availability**: Use Azure Resource Health with Azure Firewall metrics so operations teams can detect platform degradation, investigate service health events, and receive notifications when firewall availability is affected. For more information, see [Resource Health overview](/azure/service-health/resource-health-overview).
+- **Monitor Resource Health for firewall availability**: Use Azure Resource Health with Azure Firewall metrics so operations teams can detect platform degradation, investigate service health events, and receive notifications when firewall availability is affected. For more information, see [Monitor firewall health with Resource Health](monitor-firewall.md#monitor-firewall-health-with-resource-health).
 
 - **Review policy analytics and rule changes**: Use Policy Analytics to identify unused rules and overly broad rules. Use rule set change tracking to detect unexpected configuration changes. Regular reviews reduce rule sprawl and improve policy effectiveness. For more information, see [Azure Firewall Policy Analytics](policy-analytics.md) and [Track Azure Firewall rule set changes](rule-set-change-tracking.md).
 

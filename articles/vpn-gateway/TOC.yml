@@ -315,13 +315,7 @@
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md
 - name: IPv6 dual stack connections
-  items:
-    - name: Azure portal
-      href: ipv6-configuration.md
-    - name: Azure PowerShell
-      href: site-to-site-ipv6-azure-powershell.md
-    - name: Azure CLI
-      href: site-to-site-ipv6-azure-cli.md
+  href: site-to-site-ipv6-azure.md
 - name: VNet-to-VNet VPN
   items:
     - name: Configure VNet-to-VNet VPN connections

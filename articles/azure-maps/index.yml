@@ -53,7 +53,7 @@ landingContent:
             url: how-to-manage-account-keys.md
           - text: Manage authentication with Azure Maps
             url: how-to-manage-authentication.md
-          - text: Manage Azure Maps account pricing tier
+          - text: Azure Maps account pricing
             url: how-to-manage-pricing-tier.md
           - text: View Azure Maps API usage metrics
             url: how-to-view-api-usage.md
