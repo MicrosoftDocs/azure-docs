@@ -54,10 +54,10 @@ The following steps provide a high-level overview of this scenario.
     You can create a connection between Application Insights and your API Management by using the Azure portal, the REST API, or related Azure tools. API Management configures a *logger* resource for the connection.
 
     > [!IMPORTANT]
-    > Currently, in the portal, API Management only supports connections to Application Insights using an Application Insights instrumentation key. For enhanced security, use an Application Insights connection string with an API Management managed identity. To configure connection string with managed identity credentials, use the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article. To learn more, see [Connection strings in Application Insights](/azure/azure-monitor/app/sdk-connection-string).
+    > Currently, in the portal, API Management only supports connections to Application Insights using an Application Insights instrumentation key. For enhanced security, use an Application Insights connection string with an API Management managed identity. To configure connection string with managed identity credentials, use the [REST API](#create-a-connection-by-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article. To learn more, see [Connection strings in Application Insights](/azure/azure-monitor/app/sdk-connection-string).
 
     > [!NOTE]
-    > If your Application Insights resource is in a different tenant, create the logger by using the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article.
+    > If your Application Insights resource is in a different tenant, create the logger by using the [REST API](#create-a-connection-by-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article.
 
 1. Enable Application Insights logging for your API or APIs.
 
@@ -69,7 +69,7 @@ The following steps provide a high-level overview of this scenario.
 Follow these steps to use the Azure portal to create a connection between Application Insights and API Management. 
 
 > [!NOTE]
-> Where possible, Microsoft recommends using connection string with managed identity credentials for enhanced security. To configure these credentials, use the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article.
+> Where possible, Microsoft recommends using connection string with managed identity credentials for enhanced security. To configure these credentials, use the [REST API](#create-a-connection-by-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article.
 
 1. Go to your Azure API Management service instance in the Azure portal.
 
