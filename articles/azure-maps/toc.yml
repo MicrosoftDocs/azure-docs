@@ -175,7 +175,7 @@ items:
           href: how-to-secure-spa-app.md
         - name: How to secure input constrained application
           href: how-to-secure-device-code.md
-    - name: Manage pricing tier
+    - name: Azure Maps account pricing
       href: how-to-manage-pricing-tier.md
     - name: View usage metrics
       href: how-to-view-api-usage.md
