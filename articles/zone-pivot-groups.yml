@@ -9,6 +9,17 @@ groups:
     title: Azure portal
   - id: client-cli
     title: Azure CLI
+# Owner: duau
+- id: vpn-dual-stack-deployment-method
+  title: Deployment method
+  prompt: "Select the deployment method:"
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: powershell
+    title: Azure PowerShell
+  - id: cli
+    title: Azure CLI
 # Owner: lilyjma
 - id: connector-namespace-hosted-servers
   title: Hosted server
@@ -1406,6 +1417,7 @@ groups:
     title: Current
   - id: expressroute-preview
     title: Preview
+# Owner: duau
 # Owner: halkazwini
 - id: front-door-tiers
   title: Front Door tiers
