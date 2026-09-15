@@ -39,7 +39,7 @@ The requirements are:
 > [!NOTE]
 > To ensure that the certificate issuance and subsequent renewals proceed successfully, all requirements must be met at all times when the managed certificate is assigned.
 >
-> If certificate issuance or renewal is delayed, Container Apps automatically retries the operation periodically. After you verify that the requirements are still met, you can also submit the managed certificate configuration again to start a new certificate operation. A separate force-renewal API isn't required.
+> If certificate issuance or renewal is delayed, Container Apps automatically retries the operation periodically. After you verify that the requirements are still met, you can also submit the managed certificate configuration again to reconcile the certificate issuance or renewal process.
 
 ## Add a custom domain and managed certificate
 
