@@ -73,9 +73,9 @@ You can lock your billing account if all of the following conditions are true:
 
 - Your account uses a direct purchase context (not a reseller, partner, or indirect relationship). 
 
-- Your account is a business account.
+- Your account is an individual or small business account.
 
-- Your account isn't an Enterprise Agreement (EA) enrollment. 
+- Your account isn't an Enterprise enrollment. 
 
 - Your account doesn't have active government contracts. 
 
