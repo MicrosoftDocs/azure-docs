@@ -39,7 +39,7 @@ Before creating Azure resources in an enclave, create the Azure Enclave workload
 
 1. In the left menu, select `Enclaves`.
 
-1. On the `Enclaves` page for the `cmt-fabrikam` community, select the `Enclave-WebApp` enclave that you created in [Tutorial 1-2: Create enclaves in a community](./1-2-create-enclaves-inside-community.md).
+1. On the `Enclaves` page for the `cmt-fabrikam` community, select the `ve-Enclave-WebApp` enclave that you created in [Tutorial 1-2: Create enclaves in a community](./1-2-create-enclaves-inside-community.md).
 
     [ ![Screenshot showing the WebApp enclave overview.](./media/tutorial-step-two-webapp-enclave-overview-page.png) ](./media/tutorial-step-two-webapp-enclave-overview-page.png#lightbox)
 
