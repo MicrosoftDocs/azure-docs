@@ -51,7 +51,7 @@ Roles applicable at the community level.
 Roles applicable at the enclave level.
 
 | Role Name                | Description                                                                                      |
-|--------------------------|----------------------------------------------------------------------------------------------------|
+|--------------------------|--------------------------------------------------------------------------------------------------|
 | **Enclave Owner**        | Full control of an enclave, including networking, endpoint configuration, and workload creation. |
 | **Enclave Contributor**  | Can modify enclave settings and deploy workloads but can't assign RBAC roles.                    |
 | **Enclave Reader**       | View-only access to enclave metadata, endpoints, and associated workloads.                       |
