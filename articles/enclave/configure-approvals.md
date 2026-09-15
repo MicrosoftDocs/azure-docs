@@ -219,10 +219,10 @@ To configure approval settings when you create an enclave:
 1. Go to the `Approvals` configuration tab.
 1. Review any approval requirements inherited from the community.
 1. For each supported enclave resource type, configure whether approvals are required.
-   - `Enclave endpoint updates`: Require approval when modifying enclave endpoints.
-   - `Enclave connection creation`: Require approval when creating enclave connections.
-   - `Enclave connection updates`: Require approval when modifying enclave connections.
-   - `Maintenance mode changes`: Require approval before maintenance mode is changed on an enclave, including toggling it on or off.
+   - **Enclave endpoint updates**: Require approval when modifying enclave endpoints.
+   - **Enclave connection creation**: Require approval when creating enclave connections.
+   - **Enclave connection updates**: Require approval when modifying enclave connections.
+   - **Maintenance mode changes**: Require approval before maintenance mode is changed on an enclave, including toggling it on or off.
 1. Set the `Minimum approvers` value.
 1. Select the users or groups for `Required approvers`.
 1. Review the configuration and create the enclave.
