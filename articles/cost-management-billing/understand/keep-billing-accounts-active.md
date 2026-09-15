@@ -73,7 +73,7 @@ You can lock your billing account if all of the following conditions are true:
 
 - Your account uses a direct purchase context (not a reseller, partner, or indirect relationship). 
 
-- Your account is created directly without a Microsoft representative.
+- Your account was created directly without a Microsoft representative.
 
 - Your account isn't an Enterprise enrollment or MCA-E. 
 
