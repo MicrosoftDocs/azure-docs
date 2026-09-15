@@ -43,7 +43,7 @@ This overview covers the following areas:
 - [Agentic versus nonagentic workflows](#agentic-versus-nonagentic-workflows)
 - [Agent loop key concepts](#key-concepts)
 - [Autonomous versus conversational agentic workflows](#autonomous-versus-conversational-agentic-workflows)
-- [Agent structure](#explore-agentic-workflow-structure)
+- [Agent structure](#agentic-workflow-structure)
 - [Example scenarios](#more-example-agentic-workflow-scenarios)
 - [Authentication and authorization](#authentication-and-authorization)
 - [Basic billing information](#billing)
