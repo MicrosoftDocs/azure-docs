@@ -29,8 +29,8 @@ You can use either the Azure portal or an Azure CLI extension to create and mana
 > Public Trust certificates are available to organizations in the United States, Canada, the European Union, the United Kingdom, Australia, New Zealand, Japan, South Korea, Singapore, Switzerland, Norway, and Israel. Individual developers must be located in the United States or Canada. These geographic restrictions do not apply to Private Trust certificates.
 
 >[!Note]
-> For Public Trust individual identity validation, Artifact Signing automatically sources identity details from the Azure billing account associated with the subscription used to create the Artifact Signing resource. The billing account must have an Account Type of Individual.
-> Before starting validation, confirm that the legal name and billing address are accurate. This information appears on the Public Trust certificate profile. To review or update it, see [Manage billing accounts](/microsoft-365/commerce/manage-billing-accounts?toc=/azure/artifact-signing/toc.json&bc=/azure/artifact-signing/breadcrumb/toc.json).
+> For Public Trust individual identity validation, Artifact Signing automatically sources identity details from the Azure billing account associated with the subscription used to create the Artifact Signing resource. The billing account must have an Account Type of Individual. The legal name and sold-to address on the billing account must match the information on the government-issued ID used for identity validation.
+>Before starting validation, review and update the legal name and sold-to address as needed. This information appears on the Public Trust certificate profile. For instructions, see [Manage billing accounts](/microsoft-365/commerce/manage-billing-accounts?toc=/azure/artifact-signing/toc.json&bc=/azure/artifact-signing/breadcrumb/toc.json).
 > This billing account type requirement applies only to individual identity validation. Organization identity validation doesn't require an Azure billing account with an Account Type of Organization. 
 
 
