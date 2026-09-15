@@ -8,7 +8,7 @@ ms.service: azure-app-testing
 ms.subservice: playwright-workspaces
 author: johnsta
 ms.author: johnsta
-ms.custom: playwright-workspaces
+ms.custom: playwright-workspaces, references_regions
 ---
 
 # What is Playwright Workspaces?
@@ -64,7 +64,7 @@ By using Playwright Workspaces, AI agents can:
 
 By combining AI models with reliable cloud browser execution, organizations can build agents that automate browser tasks that traditionally required human interaction. To learn more, see [Browser Automation Tool in Microsoft Foundry](https://learn.microsoft.com/azure/foundry/agents/how-to/tools/browser-automation?tabs=prompt-agents&pivots=python).
 
-### Remote MCP server
+## Remote MCP server
 
 Playwright Workspaces includes a remote Model Context Protocol (MCP) server that enables AI tools and agents to interact with managed cloud browsers.
 
@@ -110,11 +110,25 @@ The following diagram illustrates how Playwright Workspaces provides cloud brows
 
 :::image type="content" source="./media/overview-what-is-microsoft-playwright-workspaces/playwright-workspaces-architecture.png" alt-text="Diagram that shows an architecture overview of Playwright Workspaces." lightbox="./media/overview-what-is-microsoft-playwright-workspaces/playwright-workspaces-architecture-overview.png":::
 
+## Regional availability
+
+Playwright Workspaces is available across the following Azure regions:
+
+| Region | Available |
+|---|---|
+| Australia East | ✅ Yes |
+| East Asia | ✅ Yes |
+| East US | ✅ Yes |
+| Japan East | ✅ Yes |
+| Switzerland North | ✅ Yes |
+| West Europe | ✅ Yes |
+| West US 3 | ✅ Yes |
+
 ## In-region data residency and data at rest
 
 Playwright Workspaces doesn't store or process customer data outside the region you deploy the workspace in. When you use the regional affinity feature, the metadata is transferred from the cloud hosted browser region to the workspace region in a secure and compliant manner.
 
-Playwright Workspaces automatically encrypts all data stored in your workspace with keys managed by Microsoft (service-managed keys). For example, this data includes workspace details, Playwright test run metadata like test start and end time, test minutes, who ran the test, and test results which are published to the service.
+Playwright Workspaces automatically encrypts all data stored in your workspace with keys managed by Microsoft (service-managed keys). This data includes workspace details, browser automation run metadata such as start and end time, browser minutes, information about who ran the browser session, and artifacts like recordings and test results that the service publishes.
 
 ## Related content
 

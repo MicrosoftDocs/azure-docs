@@ -156,7 +156,7 @@ Add resources as follows:
 2. Create the target resource settings object per the resource you're moving. In our case, it's a VM.
 
     ```azurepowershell-interactive
-    $targetResourceSettingsObj = New-Object Microsoft.Azure.PowerShell.Cmdlets.ResourceMover.Models.Api202101.VirtualMachineResourceSettings
+    $targetResourceSettingsObj = New-Object Microsoft.Azure.PowerShell.Cmdlets.ResourceMover.Models.VirtualMachineResourceSettings
     ```
 
 3. Set the resource type and target resource name for the object.
