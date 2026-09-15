@@ -3,7 +3,7 @@ title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
 author: faterceros
 ms.author: aterceros
-ms.date: 09/10/2026
+ms.date: 09/17/2026
 ms.topic: overview
 ms.service: azure-maps
 ms.subservice: general
@@ -61,12 +61,6 @@ For more information, see [Geolocation] in the Azure Maps REST API documentation
 [Render] service introduces a new version of the [Get Map Tile] API that supports using Azure Maps tiles not only in the Azure Maps SDKs but other map controls as well. It includes raster and vector tile formats, 256x256 or 512x512 tile sizes (where applicable) and numerous map types such as road, weather, contour, or map tiles. For a complete list, see [TilesetID] in the REST API documentation. You're required to display the appropriate copyright attribution on the map anytime you use the Azure Maps Render service, either as basemaps or layers, in any third-party map control. For more information, see [How to use the Get Map Attribution API].
 
 :::image type="content" source="./media/about-azure-maps/intro_map.png" lightbox="./media/about-azure-maps/intro_map.png" alt-text="Example of a map from the Render service.":::
-
-> [!NOTE]
->
-> **Azure Maps Render v1 service retirement**
->
-> The Azure Maps Render v1 service is now deprecated and will retire on September 17, 2026. To avoid service disruptions, migrate all Render v1 requests to the latest version by that date. For more information, see [Migrate Azure Maps Render 1.0 APIs].
 
 ### Route service
 
@@ -211,7 +205,6 @@ Stay up to date on Azure Maps:
 [Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
 [Render]: /rest/api/maps/render
-[Migrate Azure Maps Render 1.0 APIs]: migrate-render-v1-api.md
 [REST APIs]: /rest/api/maps/
 [Route]: /rest/api/maps/route
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
