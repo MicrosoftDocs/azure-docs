@@ -4,7 +4,7 @@ description: This article provides an overview of components and architecture us
 ms.service: azure-site-recovery
 ms.custom: linux-related-content
 ms.topic: concept-article
-ms.date: 12/14/2023
+ms.date: 09/15/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: "As a systems administrator, I want to implement disaster recovery for physical Windows and Linux servers to Azure, so that I can ensure data availability and minimize downtime during failures."
@@ -144,4 +144,4 @@ App-consistent recovery points are created from app-consistent snapshots.<br/><b
 
 ## Next steps
 
-Follow [this tutorial](vmware-azure-tutorial.md) to enable physical machine and VMware to Azure replication.
+Follow [this tutorial](physical-server-enable-replication.md) to enable physical machine and VMware to Azure replication.
