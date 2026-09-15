@@ -84,7 +84,7 @@ For more information, see [Route] in the Azure Maps REST API documentation.
 
 ### Search service
 
-The Search service helps developers search for addresses, places, business listings by name or category, and other geographic information. Also, services can [reverse geocode] addresses and cross streets based on latitudes and longitudes. [Geocode Autocomplete] (preview) suggests location completions as you type, based on partial input and optional location context.
+The Search service helps developers search for addresses, places, business listings by name or category, and other geographic information. Also, services can [reverse geocode] addresses and cross streets based on latitudes and longitudes. [Geocode Autocomplete] suggests location completions as you type, based on partial input and optional location context.
 
 :::image type="content" source="./media/about-azure-maps/intro_search.png" lightbox="./media/about-azure-maps/intro_search.png"  alt-text="Example of a search on a map.":::
 
