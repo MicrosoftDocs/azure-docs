@@ -5,7 +5,7 @@ keywords: App Service certificate, buy SSL certificate, Azure security, domain e
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 09/02/2026
+ms.date: 09/15/2026
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
@@ -178,13 +178,17 @@ The renewal process requires that the service principal for App Service has the 
 
    :::image type="content" source="./media/configure-ssl-certificate/auto-renew-app-service-cert.png" alt-text="Screenshot that shows the specified certificate's autorenewal settings." lightbox="./media/configure-ssl-certificate/auto-renew-app-service-cert.png":::
 
-1. To manually renew the certificate instead, select **Manual Renew**. You can request to manually renew your certificate 60 days before expiration, but [certificates can't be issued for longer than 397 days](https://www.godaddy.com/help/important-notification-about-ssl-offerings-9322).
+1. To manually renew the certificate instead, select **Manual Renew**. You can request to manually renew your certificate when it expires within the next 90 days, but [certificates can't be issued for longer than 397 days](https://www.godaddy.com/help/important-notification-about-ssl-offerings-9322).
 
 1. After the renewal operation finishes, select **Sync**.
 
    The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
 
    If you don't select **Sync**, App Service automatically syncs your certificate within 24 hours.
+
+### What renewing does before the paid term ends
+
+Being able to request a renewal doesn't mean you get extra validity. If more than 32 days are left on the term you already paid for, a renewal reissues the certificate for free, and the new certificate keeps the same expiration date as the term you already paid for. You are not charged, and repeating the renewal doesn't add any more days. When you renew within the last 32 days of the paid term, the renewal buys the next year, your subscription is charged once, and the expiration date moves out by a year. If you need a certificate that lasts longer than your current term today, buy a new App Service certificate instead.
 
 ## Rekey an App Service certificate
 
