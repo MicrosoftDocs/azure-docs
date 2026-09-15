@@ -89,8 +89,8 @@ The following table lists conditions that make a billing account **ineligible** 
 | Scenario| Eligibility |
 | -------- | -------- |
 | Partner affiliation (CSP, distributor, or reseller)  | Not eligible for self-service   |
-| Government contract (GCC, GCC High, DOD)  | Not eligible for self-service   |
-| Enterprise Agreement (EA) enrollment | Not eligible for self-service |
+| Government contract | Not eligible for self-service   |
+| Enterprise enrollment | Not eligible for self-service |
 | Trade restriction | Resolve trade compliance restrictions before locking |
 | Non-payment suspension | Pay any outstanding invoices to remove the suspension, then lock the account |
 
