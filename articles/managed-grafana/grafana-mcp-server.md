@@ -5,7 +5,7 @@ description: Discover MCP tools for Azure Managed Grafana. Query Application Ins
 author: weng5e
 ms.author: wuweng
 ms.reviewer: malev
-ms.date: 07/19/2026
+ms.date: 09/15/2026
 ms.topic: concept-article
 ms.service: azure-managed-grafana
 ---
