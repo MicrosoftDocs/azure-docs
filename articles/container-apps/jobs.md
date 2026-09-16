@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: concept-article
-ms.date: 09/04/2026
+ms.date: 09/16/2026
 ms.author: cshoe
 ms.custom:
   - build-2023
@@ -534,6 +534,11 @@ The following table includes the job settings that you can configure:
 | Replica retry limit | `replicaRetryLimit` | `--replica-retry-limit` | The maximum number of times to retry a failed replica. To fail a replica without retrying, set the value to `0`. The `replicaTimeout` setting takes precedence if it expires before all retries occur. |
 | Parallelism | `parallelism` | `--parallelism` | The number of replicas to run per execution. For most jobs, set the value to `1`. |
 | Replica completion count | `replicaCompletionCount` | `--replica-completion-count` | The number of replicas to complete successfully for the execution to succeed. Most be equal to or less than the parallelism. For most jobs, set the value to `1`. |
+
+### Long-running jobs
+
+> [!NOTE]
+> Platform maintenance, including routine security updates and upgrades, might interrupt long-running job replicas. Set the replica retry limit to at least `1`, and design your workload for at-least-once processing so that retries can safely complete the work.
 
 ### Example
 
