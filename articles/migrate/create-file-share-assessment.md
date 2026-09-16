@@ -21,7 +21,7 @@ To quickly migrate your on-premises **file shares** to Azure, create an Azure Fi
 
 > [!Note]
 >  All assessments created with Azure Migrate are point‑in‑time snapshots. Assessment results can change based on aggregated server performance data or changes in the source environment configuration.  
-> Azure Migrate supports assessment of file shares hosted on Windows Server with version > Windows Server 2012R2. It is supported on all Linux distros
+> Azure Migrate supports assessment of file shares hosted on Windows Server with version greater than Windows Server 2012 R2. It's supported on all Linux distros.
 
 ## Prerequisites 
 
