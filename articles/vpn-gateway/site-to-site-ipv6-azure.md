@@ -749,4 +749,4 @@ az network vpn-connection delete \
 
 - When your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](/azure/virtual-machines/).
 
-- For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+- For information about BGP, see the [BGP overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](configure-bgp.md).
