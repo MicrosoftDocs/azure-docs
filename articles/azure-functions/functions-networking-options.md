@@ -25,7 +25,7 @@ Networking support differs by [hosting option](functions-scale.md). Compare the 
 
 | Hosting option | Inbound access restrictions | Private endpoint for the function app | Outbound virtual network connectivity | Where to start |
 | --- | --- | --- | --- | --- |
-| [Flex Consumption](flex-consumption-plan.md) | Supported | Supported | Supported | Use this article for the decision path and [Manage Flex Consumption](flex-consumption-how-to.md#virtual-network-integration) for plan-specific configuration. |
+| [Flex Consumption](flex-consumption-plan.md) | Supported | Supported | Supported | Use this article for the decision path and [Manage Flex Consumption](flex-consumption-how-to.md#configure-virtual-network-integration) for plan-specific configuration. |
 | [Consumption](consumption-plan.md) | Supported | Not supported | Not supported | Use [App Service access restrictions](../app-service/app-service-ip-restrictions.md) to control inbound access. |
 | [Elastic Premium](functions-premium-plan.md) | Supported | Supported | Supported | Use this article for Functions-specific behavior and [App Service virtual network integration](../app-service/overview-vnet-integration.md) for shared networking mechanics. |
 | [Dedicated (App Service)](dedicated-plan.md) | Supported | Supported | Supported | Use this article for Functions-specific behavior and [App Service virtual network integration](../app-service/overview-vnet-integration.md) for shared networking mechanics. |
