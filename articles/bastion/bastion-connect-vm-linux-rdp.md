@@ -2,11 +2,11 @@
 title: 'Connect to a Linux VM using RDP'
 titleSuffix: Azure Bastion
 description: Learn how to use Azure Bastion to connect to a Linux VM using RDP via the Azure portal or a specified IP address.
-author: abell
+author: asudbring
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 03/12/2026
-ms.author: abell
+ms.date: 08/11/2026
+ms.author: allensu
 ms.custom:
   - linux-related-content
 # Customer intent: "As a cloud administrator, I want to establish a secure RDP connection to a Linux VM using a Bastion host, so that I can access my virtual machines without exposing them to the public internet."
@@ -26,7 +26,7 @@ The following diagram shows the dedicated deployment architecture using an RDP c
 
 Before you begin, verify that you meet the following criteria:
 
-* An Azure Bastion host deployed in the virtual network where the virtual machine is located, or in a [peered virtual network](vnet-peering.md). To set up a Bastion host, see [Create a bastion host](quickstart-host-portal.md#createhost). The SKU you need depends on your connection method:
+* An Azure Bastion host deployed in the virtual network where the virtual machine is located, or in a [peered virtual network](vnet-peering.md). To set up a Bastion host, see [Create a bastion host](quickstart-host-portal.md#createhost). You need the [Standard SKU](bastion-sku-comparison.md) or higher for RDP connections to Linux VMs, including browser-based connections from the Azure portal. The following table shows the requirements for each connection method:
 
   | Connection method | Minimum SKU | Additional configuration |
   |---|---|---|
@@ -84,7 +84,7 @@ Use the Azure portal to create a browser-based RDP connection to your Linux virt
 1. Enter the **Username** and **Password**, and then select **Connect**. The RDP connection to this virtual machine via Bastion opens directly in the browser (over HTML5) using port 443 and the Bastion service.
 
 > [!NOTE]
-> For troubleshooting tips, see [Troubleshooting](troubleshoot.md).
+> For troubleshooting tips, see [Troubleshooting](/troubleshoot/azure/bastion/welcome-azure-bastion).
 
 # [IP address (portal)](#tab/ip-address)
 

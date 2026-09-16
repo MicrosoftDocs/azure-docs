@@ -105,9 +105,6 @@ Enter Azure Data Explorer configuration settings.
     When you configure an Azure Data Explorer data source with the Current User authentication method, Grafana queries Azure Data Explorer using the user's credentials.
 
    > [!CAUTION]
-   > User-based authentication in Grafana data sources is experimental.
-
-   > [!CAUTION]
    > This feature is incompatible with use cases that requires always-on machine access to the queried data, including Alerting, Reporting, Query caching and Public dashboards. The Current User authentication method relies on a user being logged in, in an interactive session, for Grafana to reach the database. When user-based authentication is used and no user is logged in, automated tasks can't run in the background. To leverage automated tasks for Azure Data Explorer, we recommend setting up another Azure Data Explorer data source using another authentication method.
 
     #### Add a new permission
@@ -184,9 +181,6 @@ az grafana data-source create --name <azure-managed-grafana-workspace> --definit
 Authenticate with the current user method. This method leverages the current Grafana user's Microsoft Entra ID credentials in the configured data source.
 
 When you configure an Azure Data Explorer data source with the Current User authentication method, Grafana queries Azure Data Explorer using the user's credentials.
-
-> [!CAUTION]
-> User-based authentication in Grafana data sources is experimental.
 
 > [!CAUTION]
 > This feature is incompatible with use cases that requires always-on machine access to the queried data, including Alerting, Reporting, Query caching and Public dashboards. The Current User authentication method relies on a user being logged in, in an interactive session, for Grafana to reach the database. When user-based authentication is used and no user is logged in, automated tasks can't run in the background. To leverage automated tasks for Azure Data Explorer, we recommend setting up another Azure Data Explorer data source using another authentication method.

@@ -1,11 +1,11 @@
 ---
 title: VPN Gateway Legacy SKUs
 description: How to work with the old virtual network gateway SKUs, called Standard and High Performance.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 2/27/2026
-ms.author: cherylmc 
+ms.author: duau
 # Customer intent: As a network administrator, I want to manage legacy VPN gateway SKUs so that I can ensure continuity of service and plan for the upcoming deprecation of these SKUs before the migration deadline.
 ---
 # Work with VPN Gateway legacy SKUs
@@ -45,13 +45,13 @@ Pricing differs between gateway SKUs. For more information, see [VPN Gateway pri
 
 ### <a name="change"></a> Move to a new gateway SKUs
 
-Standard and High Performance SKUs will be deprecated on March 31, 2026. All legacy SKUs use Basic IP address today, and we recommend you use the Azure portal to [migrate a Basic IP address to a Standard IP address](basic-public-ip-migrate-about.md) before the retirement date. As part of Basic IP address migration, your legacy SKU will also be migrated to a newer SKU that's supported by availability zones. For more information, see the [Legacy SKU deprecation](#sku-deprecation) section. For the most up-to-date timeline, see [What's new in Azure VPN Gateway?](whats-new.md).
+Standard and High Performance SKUs will be deprecated on June 30th, 2026. All legacy SKUs use Basic IP address today, and we recommend you use the Azure portal to [migrate a Basic IP address to a Standard IP address](basic-public-ip-migrate-about.md) before the retirement date. As part of Basic IP address migration, your legacy SKU will also be migrated to a newer SKU that's supported by availability zones. For more information, see the [Legacy SKU deprecation](#sku-deprecation) section. For the most up-to-date timeline, see [What's new in Azure VPN Gateway?](whats-new.md).
 
 [!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## SKU deprecation
 
-The Standard and High Performance SKUs will be deprecated on March 31, 2026. All legacy SKUs use Basic IP addresses today, and you can use the Azure portal to [migrate a Basic IP address to a Standard IP address](basic-public-ip-migrate-about.md) before the retirement date. As part of Basic IP migration, your legacy SKU will also be migrated to AZ SKU family.
+The Standard and High Performance SKUs will be deprecated on June 30th, 2026. All legacy SKUs use Basic IP addresses today, and you can use the Azure portal to [migrate a Basic IP address to a Standard IP address](basic-public-ip-migrate-about.md) before the retirement date. As part of Basic IP migration, your legacy SKU will also be migrated to AZ SKU family.
 
 For more information, you can:
 

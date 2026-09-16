@@ -39,7 +39,7 @@ If you just created your free Azure account, you're the administrator of your su
 - Create a virtual machine in the selected resource group.
 - Create a virtual machine in the selected virtual network.
 - Write to an Azure storage account.
-- Write to an Azure Managed Disk.
+- Write to an Azure managed disk.
 
 To complete these tasks, your account should be assigned the Virtual Machine Contributor built-in role. In addition, to manage Site Recovery operations in a vault, your account should be assigned the Site Recovery Contributor built-in role.
 
@@ -94,7 +94,7 @@ You can reset the Azure Site Recovery replication appliance only if all componen
 1. If no machines are associated with the appliance, the reset begins.
 1. Once completed successfully, ensure the following:
    - Open `Services.msc` and restart the service `World Wide Web Publishing Service`.
-   - Clear the cache for Microsoft Edge or other browsers you're using. Restart the browser after the cache cleanup. Learn more [here](https://www.microsoft.com/edge/learning-center/how-to-manage-and-clear-your-cache-and-cookies).
+   - Clear the cache for Microsoft Edge or other browsers you're using. Restart the browser after the cache cleanup. Learn more [here](https://support.microsoft.com/edge/manage-cookies-in-microsoft-edge-view-allow-block-delete-and-use).
    - Restart the machine.
 
 

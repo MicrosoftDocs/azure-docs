@@ -2,8 +2,8 @@
 title: Discover and explore data in ADF using Microsoft Purview
 description: Learn how to discover, explore data in Azure Data Factory using Microsoft Purview
 ms.topic: how-to
-author: jianleishen
-ms.author: jianleishen
+author: simplywilson
+ms.author: tinglee
 ms.date: 10/03/2024
 ms.subservice: monitoring
 ---
@@ -11,6 +11,8 @@ ms.subservice: monitoring
 # Discover and explore data in ADF using Microsoft Purview
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In this article, you will register a Microsoft Purview Account to a Data Factory. That connection allows you to discover Microsoft Purview assets and interact with them through ADF capabilities. 
 

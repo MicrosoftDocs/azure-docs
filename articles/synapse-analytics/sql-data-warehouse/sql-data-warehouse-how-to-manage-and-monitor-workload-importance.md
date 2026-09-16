@@ -12,6 +12,8 @@ ms.custom: azure-synapse
 
 # Manage and monitor workload importance in dedicated SQL pool for Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Manage and monitor dedicated SQL pool request level importance in Azure Synapse using DMVs and catalog views.
 
 ## Monitor importance

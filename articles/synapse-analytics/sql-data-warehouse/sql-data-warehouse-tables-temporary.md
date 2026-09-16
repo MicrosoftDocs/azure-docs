@@ -11,6 +11,8 @@ ms.topic: how-to
 
 # Temporary tables in dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables. 
 
 Using the information in this article can help you modularize your code, improving both reusability and ease of maintenance.

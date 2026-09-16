@@ -20,7 +20,7 @@ To learn more about this feature along with known issues and limitations, see [M
 
 ## Upload a new blob with index tags
 
-This task can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role.
+This task can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/permissions/storage.md#microsoftstorage) via a custom Azure role.
 
 ### [Portal](#tab/azure-portal)
 
@@ -102,9 +102,9 @@ See [Upload with index tags](../common/storage-use-azcopy-blobs-upload.md#upload
 
 ## Get, set, and update blob index tags
 
-Getting blob index tags can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role.
+Getting blob index tags can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [Azure resource provider operation](../../role-based-access-control/permissions/storage.md#microsoftstorage) via a custom Azure role.
 
-Setting and updating blob index tags can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role.
+Setting and updating blob index tags can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/permissions/storage.md#microsoftstorage) via a custom Azure role.
 
 ### [Portal](#tab/azure-portal)
 
@@ -201,7 +201,7 @@ See [Replace index tags](../common/storage-use-azcopy-blobs-properties-metadata.
 
 ## Filter and find data with blob index tags
 
-This task can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) via a custom Azure role.
+This task can be performed by a [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) or a security principal that has been given permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [Azure resource provider operation](../../role-based-access-control/permissions/storage.md#microsoftstorage) via a custom Azure role.
 
 > [!NOTE]
 > You can't use index tags to retrieve previous versions. Tags for previous versions aren't passed to the blob index engine. For more information, see [Conditions and known issues](storage-manage-find-blobs.md#conditions-and-known-issues).

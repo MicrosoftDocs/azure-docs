@@ -2,11 +2,11 @@
 title: 'Connect a VNet to a VNet using a VNet-to-VNet connection: Azure CLI'
 description: Learn how to connect virtual networks together by using a VNet-to-VNet connection and Azure CLI.
 titleSuffix: Azure VPN Gateway
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 07/11/2024
-ms.author: cherylmc 
+ms.date: 06/10/2026
+ms.author: duau
 ms.custom: devx-track-azurecli
 
 # Customer intent: "As a cloud architect, I want to configure VNet-to-VNet connections using command-line tools, so that I can establish secure communication between virtual networks across different regions and subscriptions efficiently."
@@ -177,7 +177,7 @@ If you want to use the Azure CLI locally (instead of using Azure CloudShell), us
      --resource-group TestRG1 \
      --vnet TestVNet1 \
      --gateway-type Vpn \
-     --sku VpnGw2 \
+     --sku VpnGw2AZ \
      --vpn-gateway-generation Generation2 \
      --no-wait
    ```
@@ -250,7 +250,7 @@ If you want to use the Azure CLI locally (instead of using Azure CloudShell), us
      -g TestRG4 \
      --vnet TestVNet4 \
      --gateway-type Vpn \
-     --sku VpnGw2 \
+     --sku VpnGw2AZ \
      --vpn-gateway-generation Generation2 \
      --no-wait
    ```
@@ -449,7 +449,7 @@ This step must be done in the context of the new subscription, Subscription 5. T
      -g TestRG5 \
      --vnet TestVNet5 \
      --gateway-type Vpn \
-     --sku VpnGw2 \
+     --sku VpnGw2AZ \
      --vpn-gateway-generation Generation2 \
      --no-wait
    ```
@@ -517,4 +517,4 @@ See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#V2VMulti) for VNet-to-VNet freq
 ## Next steps
 
 * Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see the [Virtual Machines documentation](../index.yml).
-* For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+* For information about BGP, see the [BGP overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](configure-bgp.md).

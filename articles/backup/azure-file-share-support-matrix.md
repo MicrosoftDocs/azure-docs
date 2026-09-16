@@ -122,7 +122,7 @@ Migration of file shares protected with snapshot backup to vaulted backup is sup
 | Setting                                 | Limit     |
 | --------------------------------------- | ------    |
 | Maximum size of file share              | 10 TB      |
-| Maximum number of files in a file share | 10 million |
+| Maximum number of files and folders in a file share | 10 million |
 
 >[!Note]
 >If you have multiple backups scheduled per day, only the last scheduled snapshot of the day is transferred to the vault.
@@ -199,10 +199,10 @@ Migration of file shares protected with snapshot backup to vaulted backup is sup
 
 | Restore method | Description |
 | --- | --- |
-| Full Share Restore | You can restore the complete file share to an alternate location
+| Full Share Restore | You can restore the complete file share to the original or an alternate location
 
 >[!Note]
->Original location restores (OLR) and file-level recovery aren't supported. You can perform restore to an empty folder with the **Overwrite** option only.
+>File-level recovery is not supported.
 
 ---
 

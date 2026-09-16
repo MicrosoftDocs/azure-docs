@@ -3,7 +3,7 @@ title: Frontend MTLS with Application Gateway for Containers - Gateway API
 description: Learn how to configure Application Gateway for Containers with support for frontend MTLS authentication.
 services: application-gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: how-to
 ms.date: 11/05/2024
 ms.author: mbender
@@ -14,8 +14,8 @@ ms.author: mbender
 
 This document helps set up an example application that uses the following resources from Gateway API. Steps are provided to:
 
-- Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
-- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute/) resource that references a backend service.
+- Create a [Gateway](https://gateway-api.sigs.k8s.io/docs/concepts/api-overview/#gateway) resource with one HTTPS listener.
+- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/reference/api-types/httproute//) resource that references a backend service.
 - Create a [FrontendTLSPolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.FrontendTLSPolicy) resource that has a CA certificate.
 
 ## Background

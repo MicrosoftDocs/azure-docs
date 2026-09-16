@@ -167,7 +167,7 @@ Microsoft Defender for IoT is a unified security solution built specifically to 
 
 Defender for IoT provides agentless, network layer monitoring, and integrates with both industrial equipment and security operation center (SOC) tools.
 
-To learn more, see [What is Microsoft Defender for IoT?](../defender-for-iot/organizations/overview.md)
+To learn more, see [What is Microsoft Defender for IoT?](/azure/defender-for-iot/organizations/overview)
 
 ## Other cloud services
 

@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 04/15/2024
+ms.date: 07/29/2026
 ms.custom: references_regions
 #customer intent: As a network administrator, I want to deploy security admin rules in Azure Virtual Network Manager. When creating security admin rules, I want to define network groups as the source and destination of traffic.
 ---
@@ -19,11 +19,9 @@ In this article, you learn how to use network groups with security admin rules i
 
 ## Why use network groups with security admin rules?
 
-Using network groups with security admin rules allows you to define the source and destination of the traffic for the security admin rule. This feature streamlines the process of securing your traffic across workloads and environments by aggregating the CIDR ranges of the network groups to your virtual network manager instance. Aggregation to a virtual network manager removes the manual step of specifying individual CIDR ranges or resource IDs. 
+When you reference a network group as the source or destination of a security admin rule, the virtual network manager instance aggregates the CIDR ranges of that network group. Because the aggregation happens at the virtual network manager instance, the rule follows the network group's membership, and you never enumerate individual CIDR ranges or resource IDs in the rule itself.
 
-For example, you need to ensure traffic is denied between your production and nonproduction environments represented by two separate network groups. Create a security admin rule with an action type of
-**Deny**.
-Specify one network group as the target for your rule collection, these virtual networks will receive the configured rules. Then select the direction of the traffic you want to deny and use the other network group as the corresponding source / destination. You can enforce the traffic between your grouped network resources without the need to specify individual CIDR ranges or resource IDs.
+For example, suppose you need to deny traffic between your production and nonproduction environments, which are represented by two separate network groups. Create a security admin rule with an action type of **Deny**. Specify one network group as the target for your rule collection; those virtual networks receive the configured rules. Then select the direction of the traffic you want to deny, and use the other network group as the corresponding source or destination.
 
 ## How do I deploy a security admin rule using network groups?
 

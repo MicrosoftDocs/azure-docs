@@ -660,7 +660,7 @@ This section describes known issues and conditions in the current release of the
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
 - You currently cannot see the **$blobchangefeed** container when you call the ListContainers API. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
 - Storage account failover of geo-redundant storage accounts with the change feed enabled may result in inconsistencies between the change feed logs and the blob data and/or metadata. For more information about such inconsistencies, see [Change feed and blob data inconsistencies](../common/storage-disaster-recovery-guidance.md#change-feed-and-blob-data-inconsistencies).
-- You might see 404 (Not Found) and 412 (Precondition Failed) errors reported on the **$blobchangefeed** containers. You can safely ignore these errors.
+- You might see 404 (Not Found), 409 (BlobAlreadyExists) and 412 (Precondition Failed) errors reported on the **$blobchangefeed** containers. You can safely ignore these errors.
 - BlobDeleted events are not generated when blob versions or snapshots are deleted. A BlobDeleted event is added only when a base (root) blob is deleted.
 - Event records are added only for changes to blobs that result from requests to the Blob Service endpoint (`blob.core.windows.net`). Changes that result from requests to the Data Lake Storage endpoint (`dfs.core.windows.net`) endpoint aren't logged and won't appear in change feed records.
 
@@ -668,7 +668,15 @@ This section describes known issues and conditions in the current release of the
 
 ## Frequently asked questions (FAQ)
 
-See [Change feed support FAQ](storage-blob-faq.yml#change-feed-support).
+### What is the difference between the change feed and Storage Analytics logging?
+
+Analytics logs have records of all read, write, list, and delete operations with successful and failed requests across all operations. Analytics logs are best-effort and don't guarantee ordering.
+
+The change feed is a solution that provides a transactional log of successful mutations or changes to your account such as blob creation, modification, and deletions. The change feed guarantees all events to be recorded and displayed in the order of successful changes per blob, so you don't have to filter out noise from a huge volume of read operations or failed requests. The change feed is fundamentally designed and optimized for application development that requires certain guarantees.
+
+### Should I use the change feed or Storage events?
+
+You can leverage both features as the change feed and [Blob storage events](storage-blob-event-overview.md) provide the same information with the same delivery reliability guarantee. The main difference is the latency, ordering, and storage of event records. The change feed publishes records to the log within a few minutes of the change and also guarantees the order of change operations per blob. Storage events are pushed in real time and might not be ordered. Change feed events are durably stored inside your storage account as read-only stable logs with your own defined retention, while storage events are transient to be consumed by the event handler unless you explicitly store them. By using the change feed, any number of your applications can consume the logs at their own convenience by using blob APIs or SDKs.
 
 ## Feature support
 

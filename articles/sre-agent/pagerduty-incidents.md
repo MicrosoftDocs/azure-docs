@@ -1,7 +1,7 @@
 ---
 title: PagerDuty Incident Indexing in Azure SRE Agent
 description: Learn how your agent picks up PagerDuty incidents, investigates using connected data sources, and tracks resolution metrics automatically.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 03/16/2026
 author: craigshoemaker
@@ -89,7 +89,7 @@ When the agent resolves a PagerDuty incident, it records an `SREAgent_Resolved` 
 
 ## Get started
 
-For a step-by-step guide, see [Tutorial: Connect to PagerDuty](connect-pagerduty.md).
+For a step-by-step guide, see [Set up PagerDuty incident indexing](set-up-pagerduty-indexing.md).
 
 ## Next step
 

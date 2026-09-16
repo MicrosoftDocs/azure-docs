@@ -2,6 +2,8 @@
 metadata:
   title: MongoDB Atlas frequently asked questions
   description: Answers to common questions about using MongoDB Atlas in Azure, including configuration, management, and support.
+  author: vpriyanshi
+  ms.author: priyverma
   ms.topic: faq
   ai-usage: ai-generated
   ms.date: 12/17/2025

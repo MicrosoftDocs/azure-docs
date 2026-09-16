@@ -2,7 +2,7 @@
 title: Azure Batch task schedule fail event
 description: Reference for Batch task schedule fail event. This event is emitted when a task failed to be scheduled and will retry later.
 ms.topic: reference
-ms.date: 07/01/2025
+ms.date: 08/05/2026
 # Customer intent: As a cloud application developer, I want to understand the details of the task schedule fail event, so that I can diagnose scheduling issues and optimize resource allocation for my batch processing tasks.
 ---
 
@@ -17,7 +17,7 @@ ms.date: 07/01/2025
     "jobId": "job-01",
     "id": "task-01",
     "taskType": "User",
-    "systemTaskVersion": 665378862,
+    "systemTaskVersion": 0,
     "requiredSlots": 1,
     "nodeInfo": {
         "poolId": "pool-01",
@@ -32,7 +32,8 @@ ms.date: 07/01/2025
     "schedulingError": {
         "category": "UserError",
         "code": "JobPreparationTaskFailed",
-        "message": "Task cannot run because the job preparation task failed on node"
+        "message": "Task cannot run because the job preparation task failed on node",
+        "details": []
     }
 }
 ```
@@ -41,7 +42,7 @@ ms.date: 07/01/2025
 |------------------|----------|-----------|
 |`jobId`|String|The ID of the job containing the task.|
 |`id`|String|The ID of the task.|
-|`taskType`|String|The type of the task. It's either 'JobManager' indicating that it's a job manager task or 'User' indicating it's not a job manager task. This event isn't emitted for job preparation tasks, job release tasks, or start tasks.|
+|`taskType`|String|The type of the task. It's either 'JobManager' indicating that it's a job manager task or 'User' indicating it's not a job manager task. This event isn't emitted for job preparation tasks, job release tasks, or start tasks. For those tasks, see [Special task event](batch-special-task-event.md).|
 |`systemTaskVersion`|Int32|The internal retry counter on a task. Internally the Batch service can retry a task to account for transient issues. These issues can include internal scheduling errors or attempts to recover from compute nodes in a bad state.|
 |`requiredSlots`|Int32|The required slots to run the task.|
 |[`nodeInfo`](#nodeInfo)|Complex Type|Contains information about the compute node on which the task ran.|
@@ -76,3 +77,11 @@ ms.date: 07/01/2025
 |`category`|String|The category of the error.|
 |`code`|String|An identifier for the task scheduling error. Codes are invariant and are intended to be consumed programmatically.|
 |`message`|String|A message describing the task scheduling error, intended to be suitable for display in a user interface.|
+|[`details`](#details)|Array|A list of name-value pairs that provides more detail about the scheduling error. If no extra detail values are available, the array is empty.|
+
+###  <a name="details"></a> details
+
+|Element name|Type|Notes|
+|------------------|----------|-----------|
+|`name`|String|The detail name.|
+|`value`|String|The detail value.|

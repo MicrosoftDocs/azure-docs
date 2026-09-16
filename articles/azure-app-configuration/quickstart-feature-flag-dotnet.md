@@ -9,7 +9,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
-ms.date: 07/25/2025
+ms.date: 08/28/2026
 ms.author: zhiyuanliang
 # customer intent: As a .NET developer, I want to find out how to use feature flags so that I can control feature availability quickly and confidently.
 ---
@@ -31,7 +31,7 @@ The .NET feature management libraries extend .NET by providing feature flag supp
 
 Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store by using the Azure portal or the Azure CLI, see [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
-:::image type="content" source="media/add-beta-feature-flag.png" alt-text="Screenshot of the Create a new feature flag dialog in the Azure portal. The name and key fields contain Beta. The label and description are blank." lightbox="media/add-beta-feature-flag.png":::
+:::image type="content" source="media/quickstart-feature-flag-dotnet/add-beta-feature-flag.png" alt-text="Screenshot of the Create a new feature flag dialog in the Azure portal. The name and key fields contain Beta. The label and description are blank." lightbox="media/quickstart-feature-flag-dotnet/add-beta-feature-flag.png":::
 
 ## Configure access settings
 
@@ -50,7 +50,7 @@ Your app uses an environment variable to establish the connection to App Configu
 - If you use Command Prompt, run the following command:
 
   ```console
-  setx Endpoint "<endpoint-of-your-app-configuration-store>"
+  setx Endpoint "<AppConfigurationEndpoint>"
   ```
 
   Close and reopen Command Prompt so that the change takes effect. Verify that the environment variable is set by printing its value to the console.
@@ -58,7 +58,7 @@ Your app uses an environment variable to establish the connection to App Configu
 - If you use Windows PowerShell, run the following command:
 
   ```azurepowershell
-  [System.Environment]::SetEnvironmentVariable("Endpoint", "<endpoint-of-your-app-configuration-store>", "User")
+  [System.Environment]::SetEnvironmentVariable("Endpoint", "<AppConfigurationEndpoint>", "User")
   ```
 
 ### [Connection string](#tab/connection-string)
@@ -68,7 +68,7 @@ Your app uses an environment variable to establish the connection to App Configu
 - If you use Command Prompt, run the following command:
 
   ```console
-  setx ConnectionString "<connection-string-of-your-app-configuration-store>"
+  setx ConnectionString "<AppConfigurationConnectionString>"
   ```
 
   Close and reopen Command Prompt so that the change takes effect. Verify that the environment variable is set by printing its value to the console.
@@ -76,7 +76,7 @@ Your app uses an environment variable to establish the connection to App Configu
 - If you use Windows PowerShell, run the following command:
 
   ```azurepowershell
-  [System.Environment]::SetEnvironmentVariable("ConnectionString", "<connection-string-of-your-app-configuration-store>", "User")
+  [System.Environment]::SetEnvironmentVariable("ConnectionString", "<AppConfigurationConnectionString>", "User")
   ```
 
 ---

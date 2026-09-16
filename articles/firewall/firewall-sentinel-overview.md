@@ -99,5 +99,5 @@ The security researcher removed the malware from the new device, completed mitig
 
 ## Next steps
 
-- Learn more about [Microsoft Sentinel](../sentinel/overview.md).
+- Learn more about [Microsoft Sentinel](/azure/sentinel/overview).
 - [Microsoft security](https://www.microsoft.com/en-us/security/business).

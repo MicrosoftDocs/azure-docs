@@ -1,12 +1,12 @@
 ---
 title: Azure Migrate Reports Overview 
 description: Learn how Azure Migrate Reports help you create decision‑ready reports with insights into security, readiness, cost, ROI, and migration strategies for Azure planning
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.topic: how-to
 ms.service: azure-migrate
 ms.date: 03/25/2026
-monikerRange:
+ms.update-cycle: 365-days
 # Customer intent: As an IT administrator managing migration resources, I want to tag workloads with relevant attributes, so that I can enhance resource organization and visibility during the migration process.
 ---
 
@@ -83,7 +83,6 @@ Configure report generation in one of the following ways:
 
 - **Define configuration**: Specify the scope, settings, and configuration to use when generating the report.
 - **Use configuration from an existing assessment**: Select an existing assessment and reuse its scope, settings, and configuration to generate the report.
-
 
 ## Next steps 
 

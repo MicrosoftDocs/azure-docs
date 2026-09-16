@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 10/07/2024
- ms.author: cherylmc
+ ms.author: duau
 ---
 1. Locate the .pfx certificate file and copy it to your Mac. You can get the certificate to the Mac in several ways. For example, you can email the certificate file.
 1. Double-click the certificate. You'll either be asked to input the password and the certificate will automatically install, or the **Add Certificates** box will appear. On the **Add Certificates** box, click **Add** to begin the install.

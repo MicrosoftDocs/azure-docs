@@ -14,6 +14,8 @@ ms.custom:
 
 # Restore an existing dedicated SQL pool
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you learn how to restore an existing dedicated SQL pool in Azure Synapse Analytics using Azure portal, Synapse Studio, and PowerShell. This article applies to both restores and geo-restores. 
 
 > [!NOTE]
@@ -214,6 +216,7 @@ Steps:
 
 
 ## <a id="troubleshooting"></a> Troubleshoot
+### Error: RequestTimeout during restore
 A restore operation can result in a deployment failure based on a "RequestTimeout" exception. 
 
 :::image type="content" source="../media/sql-pools/restore-sql-pool-troubleshooting-failed.png" alt-text="Screenshot from resource group deployments dialog of a timeout exception.":::
@@ -221,6 +224,18 @@ A restore operation can result in a deployment failure based on a "RequestTimeou
 This timeout can be ignored. Review the dedicated SQL pool page in the Azure portal and it might still have status of "Restoring" and eventually will transition to "Online". 
 
 :::image type="content" source="../media/sql-pools/restore-sql-pool-troubleshooting-restoring.png" alt-text="Screenshot of SQL pool dialog with the status that shows restoring.":::
+
+### Error: "ValidationFailed: The provided resource ID is not valid for this operation. Please use a SQL pool resource"
+If you receive this error, verify that the `sourceDatabaseId` uses a supported resource ID format and identifies the intended source dedicated SQL pool.
+
+**Supported formats**
+
+**Synapse SQL pool resource ID**
+/subscriptions/{subscriptionId}/resourceGroups/{workspaceResourceGroup}/providers/Microsoft.Synapse/workspaces/{workspaceName}/sqlPools/{sqlPoolName}
+
+**Managed SQL Database Resource ID**
+/subscriptions/{subscriptionId}/resourceGroups/{managedResourceGroup}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}
+
 
 ## Related content
 

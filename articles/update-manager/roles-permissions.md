@@ -2,10 +2,11 @@
 title: Roles and Permissions in Azure Update Manager
 description: This article explains the roles and permission required to manage Azure VMs or Azure Arc-enabled servers in Azure Update Manager.
 ms.service: azure-update-manager
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.date: 08/21/2025
 ms.topic: concept-article
+ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator who manages Azure VMs or Azure Arc-enabled servers, I want to understand the required roles and permissions for Azure Update Manager so that I can effectively configure update operations and ensure compliance with organizational policies."
 ---
  

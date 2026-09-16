@@ -1,25 +1,29 @@
 ---
-title: 'Tutorial: Create a WAF policy for Azure Front Door - Azure portal'
-description: In this tutorial, you learn how to create a web application firewall (WAF) policy by using the Azure portal.
+title: 'Tutorial: Create a WAF Policy for Azure Front Door - Azure Portal'
+titleSuffix: Azure Web Application Firewall
+description: Learn how to create an Azure Front Door WAF policy in the Azure portal, associate it at profile, domain, or route scope, and configure WAF rules.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: tutorial
-ms.date: 07/15/2024
+ms.date: 09/01/2026
 ms.custom: sfi-image-nochange
+
 # Customer intent: As a security administrator, I want to create and configure a web application firewall policy for Azure Front Door, so that I can protect my applications from web vulnerabilities and control traffic effectively.
 ---
 
 # Tutorial: Create a WAF policy on Azure Front Door by using the Azure portal
+
+**Applies to:** :heavy_check_mark: Front Door Standard/Premium :heavy_check_mark: Front Door (classic)
 
 This tutorial shows you how to create a basic web application firewall (WAF) policy and apply it to a front-end host at Azure Front Door.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a WAF policy.
-> * Associate it with a front-end host.
-> * Configure WAF rules.
+> - Create a WAF policy.
+> - Associate it at profile, domain, or route scope.
+> - Configure WAF rules.
 
 ## Prerequisites
 
@@ -29,7 +33,7 @@ Create an Azure [Front Door](../../frontdoor/quickstart-create-front-door.md) in
 
 First, create a basic WAF policy by using the Azure portal.
 
-1. In the upper-left side of the screen, select **Create a resource**. Search for **WAF**, select **Web Application Firewall (WAF)**, and select **Create**.
+1. In the upper-left corner of the screen, select **Create a resource**. Search for **WAF**, select **Web Application Firewall (WAF)**, and select **Create**.
 
 1. On the **Basics** tab of the **Create a WAF policy** page, enter or select the following information and accept the defaults for the remaining settings.
 
@@ -49,10 +53,17 @@ First, create a basic WAF policy by using the Azure portal.
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Front door profile              | Select your Azure Front Door profile name. |
-    | Domains          | Select the domains you want to associate the WAF policy to and then select **Add**. |
+    | Association scope | Select **Profile**, **Domain**, or **Route**. |
+    | Domains | If you selected **Domain** or **Route**, select the domains to associate. |
+    | Routes | If you selected **Route**, select the routes to associate. |
+
+    When needed, repeat these steps to add additional associations.
     
     > [!NOTE]
-    > If the domain is associated to a WAF policy, it's shown as grayed out. You must first remove the domain from the associated policy and then re-associate the domain to a new WAF policy.
+    > If multiple policy scopes apply to a request, route-level policy takes precedence over domain-level policy, and domain-level policy takes precedence over profile-level policy.
+
+    > [!NOTE]
+    > If you associate a domain with a WAF policy, it appears grayed out. Remove the domain from the existing association before associating it to a different policy.
 
 1. Select **Review + create** > **Create**.
 
@@ -62,8 +73,8 @@ Follow these steps to configure WAF rules.
 
 ### Change mode
 
-When you create a WAF policy, by default, the WAF policy is in **Detection** mode. In **Detection** mode, the WAF doesn't block any requests. Instead, requests matching the WAF rules are logged at WAF logs.
-To see the WAF in action, you can change the mode settings from **Detection** to **Prevention**. In **Prevention** mode, requests that match defined rules are blocked and logged at WAF logs.
+When you create a WAF policy, the default mode is **Detection**. In **Detection** mode, the WAF doesn't block any requests. Instead, it logs requests that match the WAF rules.
+To see the WAF in action, change the mode settings from **Detection** to **Prevention**. In **Prevention** mode, the WAF blocks and logs requests that match defined rules.
 
  :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Screenshot that shows the Overview page of the Azure Front Door WAF policy that shows how to switch to Prevention mode.":::
 
@@ -88,9 +99,9 @@ To disable an individual rule, select the checkbox in front of the rule number a
 
 ## Clean up resources
 
-When no longer needed, delete the resource group and all related resources.
+When you no longer need the resources, delete the resource group and all related resources.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn more about Azure Front Door tiers](../../frontdoor/standard-premium/tier-comparison.md)

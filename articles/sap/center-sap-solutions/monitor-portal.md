@@ -19,7 +19,7 @@ In this article, you check the health and status of your SAP system and its inst
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed [Virtual Instance for SAP solutions (VIS)](manage-virtual-instance.md) with a running SAP system, including ASCS, application server, and database instances.
 - Azure portal access with at least **Reader** permissions on the VIS resource group.
 - A virtual network and subnet in your Azure subscription (required only if you plan to [create a new Azure Monitor for SAP solutions instance](#create-new-azure-monitor-for-sap-solutions-resource)).

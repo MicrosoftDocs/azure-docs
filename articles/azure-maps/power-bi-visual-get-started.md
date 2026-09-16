@@ -42,8 +42,8 @@ Other than the scenarios previously described, no other data overlaid on the map
 > - `https://atlas.microsoft.com`
 > - `https://us.atlas.microsoft.com`
 > - `https://eu.atlas.microsoft.com`
-> - 'https://kr.atlas.microsoft.com'
-> - 'https://br.atlas.microsoft.com '
+> - `https://kr.atlas.microsoft.com`
+> - `https://br.atlas.microsoft.com`
 
 > [!IMPORTANT]
 > The selection tool within the Azure Maps Power BI visual relies on TomTom data, consequently user data may not always remain within the user's geographical boundary.
@@ -200,7 +200,6 @@ Azure Maps visual isn't supported in the `Embed for your customers` create‑rep
 At this time, Azure Maps is currently available in all countries and regions except:
 
 - China
-- Korea
 - Azure Government (GCC + GCC High)
 
 For coverage details for the different Azure Maps services that power this visual, see [Geographic coverage information].

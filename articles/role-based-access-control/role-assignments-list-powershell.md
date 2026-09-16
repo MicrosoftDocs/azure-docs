@@ -5,7 +5,7 @@ author: rolyon
 ms.author: rolyon
 manager: pmwongera
 ms.reviewer: bagovind
-ms.date: 03/30/2025
+ms.date: 05/06/2026
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom:
@@ -155,6 +155,8 @@ PS C:\> Get-AzRoleAssignment | Where-Object {$_.Scope -eq "/subscriptions/000000
 ```
 
 ## List role assignments for classic service administrator and co-administrators
+
+[!INCLUDE [classic-administrators-retirement-note](./includes/classic-administrators-retirement-note.md)]
 
 To list role assignments for the classic subscription administrator and co-administrators, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 

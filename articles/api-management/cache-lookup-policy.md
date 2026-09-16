@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - cache-lookup | Microsoft Docs
 description: Reference for the cache-lookup policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 11/24/2025
-ms.author: danlep
 ms.custom:
   - build-2025
 ---
@@ -58,7 +56,7 @@ Use the `cache-lookup` policy to perform cache lookup and return a valid cached 
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |vary-by-header|Add one or more of these elements to start caching responses per value of specified header, such as `Accept`, `Accept-Charset`, `Accept-Encoding`, `Accept-Language`, `Authorization`, `Expect`, `From`, `Host`, `If-Match`.|No|
-|vary-by-query-parameter|Add one or more of these elements to start caching responses per value of specified query parameters. Enter a single or multiple parameters. Use semicolon as a separator. |No|
+|vary-by-query-parameter|Add one or more of these elements to start caching responses per value of specified query parameters. |No|
 
 ## Usage
 

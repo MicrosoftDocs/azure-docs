@@ -3,7 +3,7 @@ title: Get started with Azure Automation State Configuration
 description: This article tells how to do the most common tasks in Azure Automation State Configuration.
 services: automation
 ms.subservice: desired-state-config
-ms.date: 11/17/2025
+ms.date: 04/15/2026
 ms.topic: how-to
 ms.service: azure-automation
 ms.author: v-rochak2
@@ -243,7 +243,7 @@ The DSC node can take any of the following six values as follows:
 > [!NOTE]
 > - **RefreshFrequencyMins** - It defines the frequency of node contacting the agent service and can
 >   be provided as part of onboarding to DSC. It takes a maximum value of 10080 minutes.
-> - Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440
+> - Node will be marked as **Unresponsive** if the node doesn't contact the agent service for 1440
 >   minutes (1 Day). We recommend that you use **RefreshFrequencyMins** value < 1440 minutes, else
 >   the node would show in a false **Unresponsive** state.
 
@@ -319,6 +319,7 @@ You can unregister a no if you no longer want State Configuration to manage it. 
 - To understand PowerShell DSC, see [Windows PowerShell Desired State Configuration Overview][17].
 - For pricing information, see [Azure Automation State Configuration pricing][25].
 - For a PowerShell cmdlet reference, see [Az.Automation][20].
+- For troubleshooting issues related to Azure Automation State Configuration (DSC), see [Troubleshoot Azure Automation State Configuration issues](troubleshoot/desired-state-configuration.md).
 
 <!-- link references -->
 [01]: ./automation-security-overview.md

@@ -3,7 +3,7 @@ title: Provision Azure Device Update for IoT Hub agent| Microsoft Docs
 description: Learn how to provision the Azure Device Update for Azure IoT Hub agent.
 author: cwatson-cat
 ms.author: cwatson
-ms.date: 12/19/2024
+ms.date: 5/21/2026
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -14,7 +14,7 @@ ms.subservice: device-update
 The Device Update module agent can run along with other system processes and [IoT Edge modules](../iot-edge/iot-edge-modules.md) that connect to your IoT Hub as part of the same logical device. This article describes how to provision the Device Update agent as a module identity.
 
 >[!NOTE]
->If you use the Device Update agent, make sure you're on the version 1.0.0 general availability (GA) version. You can check the installed versions of the Device Update agent and the Delivery Optimization agent in the [properties](device-update-plug-and-play.md#device-properties) section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). For more information, see [Migrate devices and groups to the latest Device Update release](migration-public-preview-refresh-to-ga.md).
+> Use the latest 1.x version of the Device Update agent reference implementation to benefit from the latest improvements. Check the installed version in the [properties](device-update-plug-and-play.md#device-properties) section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). For information, see the [Device Update for IoT Hub supported platforms](support.md).
 
 ## Module identity and device identity
 
@@ -107,11 +107,13 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
 
 ### On non-IoT Edge enabled devices
 
-Follow these instructions to provision the Device Update agent on Linux IoT devices without IoT Edge installed.
+Follow these instructions to provision the Device Update agent on Linux IoT devices without IoT Edge installed. You can provision the agent using the Azure IoT Identity Service (AIS) or by configuring credentials directly on the device.
+
+### Use Azure IoT Identity Service (AIS)
 
 1. Install the latest version of the IoT Identity Service by following instructions in [Installing the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/installation.html#install-from-packagesmicrosoftcom).
 
-1. Configure the IoT Identity Service by following the instructions in [Configuring the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/configuration.html).
+1. Configure the IoT Identity Service by following the instructions in [Configuring the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/configuration.html). Ensure that the service is configured with the appropriate device or module identity so it can provide connection information to the Device Update agent.
 
 1. Install the Device Update agent by running the following command:
 
@@ -120,17 +122,7 @@ Follow these instructions to provision the Device Update agent on Linux IoT devi
    ```
 
 >[!NOTE]
->If your IoT device isn't able to run the IoT Identity Service or IoT Edge, which bundles the IoT Identity Service, you can still install the Device Update agent and configure it by [using a connection string](#use-a-connection-string).
-
-## Configure the Device Update agent
-
-After you install the device update agent, edit the Device Update configuration file by running the following command.
-
-   ```shell
-   sudo nano /etc/adu/du-config.json
-   ```
-  
-In the *du-config.json* file, set all values that have a `Place value here` placeholder. For agents that use the IoT Identity Service for provisioning, change the `connectionType` to `AIS`, and set the `ConnectionData` field to an empty string. For an example, see [Example "du-config.json" file contents](./device-update-configuration-file.md#example-du-configjson-file-contents).
+>If your IoT device isn't able to run the IoT Identity Service or IoT Edge, which bundles the IoT Identity Service, you can still install the Device Update agent and configure it by [using a connection string](#use-a-connection-string) or [x.509 certificates](#use-x509-certificates).
 
 ### Use a connection string
 
@@ -144,6 +136,60 @@ For testing or on constrained devices, you can configure the Device Update agent
    - For a [Yocto reference image](device-update-raspberry-pi.md): `sudo nano /adu/du-config.json`.
 
 1. In the *du-config.json* file, set all values that have a `Place value here` placeholder, and enter the copied primary connection string as the `connectionData` field value. For an example, see [Example "du-config.json" file contents](./device-update-configuration-file.md#example-du-configjson-file-contents).
+
+### Use X.509 certificates
+The Device Update agent version 1.3.0 and later supports authenticating to IoT Hub using X.509 certificates. Azure IoT Hub supports two X.509 certificate configuration methods:
+
+- **CA-signed certificates (recommended):** Devices authenticate using a certificate issued by a trusted certificate authority (CA).
+- **Self-signed certificates (thumbprint-based):** Each device identity is configured with a certificate thumbprint that IoT Hub validates during authentication.
+
+#### Configure X.509 authentication
+
+Register your device identity in IoT Hub with X.509 authentication enabled.
+
+1. Configure the device using either:
+   - A certificate issued by a trusted certificate authority (CA).
+   - A self-signed certificate with a registered thumbprint.
+1. Install the Device Update agent on the device.
+
+Device Provisioning Service (DPS) can be used to provision device identities and certificates. However, DPS doesn't provision module identities. The Device Update agent configuration must still be completed on the device.
+
+For step-by-step configuration instructions, including advanced scenarios such as hardware-backed keys (for example, hardware security modules (HSMs) or PKCS#11-based key storage for secure key handling), see the X.509 authentication guide: [How to Use X.509 Client Certificate Authentication](https://github.com/Azure/iot-hub-device-update/blob/develop/docs/agent-reference/how-to-x509-authentication.md).
+
+> [!Note]
+> X.509 authentication support in the Device Update agent uses standard Azure IoT Hub identity configuration. 
+> This capability isn't integrated with Azure Device Registry (ADR) certificate management (preview).
+
+## Configure the Device Update agent
+
+After you install the Device Update agent, edit the Device Update configuration file by running the following command.
+
+   ```shell
+   sudo nano /etc/adu/du-config.json
+   ```
+In the *du-config.json* file, set all values that have a `Place value here` placeholder.
+
+**Azure IoT Identity Service (AIS)**
+- `"connectionType"`: `"AIS"`
+- `"connectionData"`: `""` (empty string)
+
+> [!NOTE]
+> When using Azure IoT Identity Service (AIS), the service must be configured to provide the correct identity to the Device Update agent. This includes configuring identities in `config.toml` and ensuring the agent is associated with the appropriate device or module identity. If the Device Update agent runs as a module, a corresponding module identity must be configured so AIS can return the module’s connection information to the agent. For configuration details, see [Configuring the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/configuration.html).
+
+**Connection string**
+- `"connectionType"`: `"string"`    
+- `"connectionData"`: `"HostName=<hub>.azure-devices.net;DeviceId=<device>;SharedAccessKey=<key>"` (replace with your IoT Hub hostname, device ID, and shared access key)
+
+**X.509 certificates**   
+- `"connectionType"`: `"x509"`
+- `"connectionData"`: `"HostName=<hub>.azure-devices.net;DeviceId=<device>;x509=true"` (replace with your IoT Hub hostname and device ID)
+- `"connectionX509CertFilePath"`: `"/etc/adu/certs/client.pem"`
+- `"connectionX509PrivateKeyFilePath"`: `"/etc/adu/certs/client.key"`
+- `"connectionX509CaCertFilePath"`: `"/etc/adu/certs/ca.pem"`
+
+For full configuration details, see the [Azure Device Update Agent Configuration Guide](https://github.com/Azure/iot-hub-device-update/blob/develop/docs/agent-reference/configuration-guide.md).
+
+For more information, see: [Device Update configuration file](/azure/iot-hub-device-update/device-update-configuration-file). For an example, see [Example "du-config.json" file contents](./device-update-configuration-file.md#example-du-configjson-file-contents).
 
 ## Start the Device Update agent
 
@@ -171,7 +217,7 @@ Start the Device Update agent and verify that it's running successfully on your 
 
 Devices running the Device Update agent send HTTPS requests to communicate with IoT Hub. If you connected your device to a network that uses a proxy server, you need to configure the Device Update systemd service to communicate through the server.
 
-Before configuring Device Update, ensure that you have the the Proxy URL. Proxy URL is in the format protocol://proxy_host:proxy_port.
+Before configuring Device Update, ensure that you have the Proxy URL. Proxy URL is in the format protocol://proxy_host:proxy_port.
 
 Create a systemd override configuration directory and the override file by running the following command:
 

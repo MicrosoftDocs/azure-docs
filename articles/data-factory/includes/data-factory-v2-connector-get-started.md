@@ -1,8 +1,8 @@
 ---
-author: jianleishen
+author: simplywilson
 ms.topic: include
 ms.date: 10/20/2023
-ms.author: jianleishen
+ms.author: tinglee
 ---
 <!--
     Separate the generic "Get started" paragraph from each connector-* article in azure-docs-pr/ to ease future central update.

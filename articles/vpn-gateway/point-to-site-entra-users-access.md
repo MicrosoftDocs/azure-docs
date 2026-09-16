@@ -2,18 +2,18 @@
 title: Configure P2S access based on users and groups - Microsoft Entra ID authentication
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure P2S access based on users and groups for Microsoft Entra ID authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/31/2025
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: As an IT administrator managing VPN access, I want to configure point-to-site access based on user and group permissions, so that users can connect to specific VPN gateways according to their assigned roles.
 ---
 
 # Scenario: Configure P2S access based on users and groups - Microsoft Entra ID authentication
 
-This article walks you through a scenario to configure access based on users and groups for point-to-site (P2S) VPN connections that use Microsoft Entra ID authentication. This scenario, you configure this type of access using multiple custom audience app IDs with specified permissions, and multiple P2S VPN gateways. For more information about P2S protocols and authentication, see [About point-to-site VPN](point-to-site-about.md).
+This article walks you through a scenario to configure access based on users and groups for point-to-site (P2S) VPN connections that use Microsoft Entra ID authentication. In this scenario, you configure this type of access using multiple custom audience app IDs with specified permissions, and multiple P2S VPN gateways. For more information about P2S protocols and authentication, see [About point-to-site VPN](point-to-site-about.md).
 
 In this scenario, users have different access based on permissions to connect to specific P2S VPN gateways. At a high level, the workflow is as follows:
 
@@ -28,7 +28,7 @@ Considerations:
 
 * You can't create this type of granular access if you have only one VPN gateway.
 * Microsoft Entra ID authentication is supported only for OpenVPN® protocol connections and requires the Azure VPN Client.
-*Take care configure each Azure VPN Client with the correct client profile package configuration settings to ensure that the user connects to the corresponding gateway to which they have permissions.
+* Take care to configure each Azure VPN Client with the correct client profile package configuration settings to ensure that the user connects to the corresponding gateway to which they have permissions.
 * When you use the configuration steps in this exercise, it might be easiest to run the steps for the first custom app ID and gateway all the way through, then repeat for each subsequent custom app ID and gateway.
 
 ## Prerequisites
@@ -65,12 +65,12 @@ After you add the Azure VPN Client application, go to the **Overview** page and 
 Assign permissions to the users and/or groups that connect to the gateway. If you're specifying a group, the user must be a direct member of the group. Nested groups aren't supported.
 
 1. Go to your Microsoft Entra ID and select **Enterprise applications**.
-1. From the list, locate the application you registered and click to open it.
+1. From the list, select the application you registered to open it.
 1. Expand **Manage**, then select **Properties**. On the **Properties** page, verify that **Enabled for users to sign in** is set to **Yes**. If not, change the value to **Yes**.
 1. For **Assignment required**, change the value to **Yes**. For more information about this setting, see [Application properties](/entra/identity/enterprise-apps/application-properties#enabled-for-users-to-sign-in).
 1. If you've made changes, select **Save** at the top of the page.
 1. In the left pane, select **Users and groups**. On the **Users and groups** page, select **+ Add user/group** to open the **Add Assignment** page.
-1. Click the link under **Users and groups** to open the **Users and groups** page. Select the users and groups that you want to assign, then click **Select**.
+1. Select the link under **Users and groups** to open the **Users and groups** page. Select the users and groups that you want to assign, and then select **Select**.
 1. After you finish selecting users and groups, select **Assign**.
 
 ## Configure a P2S VPN
@@ -87,5 +87,5 @@ Use the Azure VPN Client profile configuration package to configure the Azure VP
 ## Next steps
 
 * [Configure P2S VPN Gateway for Microsoft Entra ID authentication – Microsoft-registered app](point-to-site-entra-gateway.md).
-* To connect to your virtual network, you must configure the Azure VPN client on your client computers. See [Configure a VPN client for P2S VPN connections](point-to-site-entra-vpn-client-windows.md).
+* To connect to your virtual network, you must configure the Azure VPN client on your client computers. See [Configure a VPN client for P2S Microsoft Entra ID authentication connections](point-to-site-entra-vpn-client.md).
 * For frequently asked questions, see the **Point-to-site** section of the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#P2S).

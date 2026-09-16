@@ -12,6 +12,8 @@ ms.author: stefanazaric
 
 # User-defined schemas within Synapse SQL
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions within Synapse SQL.
 
 ## Schemas for application boundaries

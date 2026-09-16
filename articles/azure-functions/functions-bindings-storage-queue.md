@@ -3,7 +3,7 @@ title: Azure Queue storage trigger and bindings for Azure Functions overview
 description: Understand how to use the Azure Queue storage trigger and output binding in Azure Functions.
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 11/11/2022
+ms.date: 09/04/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -80,7 +80,7 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 This version allows you to bind to types from [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
 
-This version supports configuration of triggers and bindings through [.NET Aspire integration](./dotnet-aspire-integration.md#connection-configuration-with-aspire).
+This version supports configuration of triggers and bindings through [Aspire integration](./aspire-integration.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues), version 5.x.
 
@@ -109,6 +109,10 @@ Functions version 1.x doesn't support the isolated worker process.
 
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
+::: zone-end
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -221,7 +225,16 @@ Functions version 1.x doesn't support the isolated worker process. To use the is
 |batchSize|16|The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. When the number being processed gets down to the `newBatchThreshold`, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function is `batchSize` plus `newBatchThreshold`. This limit applies separately to each queue-triggered function. <br><br>If you want to avoid parallel execution for messages received on one queue, you can set `batchSize` to 1. However, this setting eliminates concurrency as long as your function app runs only on a single virtual machine (VM). If the function app scales out to multiple VMs, each VM could run one instance of each queue-triggered function.<br><br>The maximum `batchSize` is 32. |
 |maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.|
 |newBatchThreshold|N*batchSize/2|Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch.<br><br>`N` represents the number of vCPUs available when running on App Service or Premium Plans. Its value is `1` for the Consumption Plan.|
-|messageEncoding|base64| This setting is only available in [extension bundle version 5.0.0 and higher](#storage-extension-5x-and-higher). It represents the encoding format for messages. Valid values are `base64` and `none`.|
+|messageEncoding|base64|The encoding format for messages. Valid values are `base64` and `none`.|
+
+::: zone pivot="programming-language-csharp"  
+> [!NOTE]
+> The `messageEncoding` setting is only available in [Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues) NuGet package version 5.x+.  
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
+> [!NOTE]
+> The `messageEncoding` setting is only available in [extension bundle](./extension-bundles.md) version 4.x and higher.  
+::: zone-end  
 
 ## Next steps
 

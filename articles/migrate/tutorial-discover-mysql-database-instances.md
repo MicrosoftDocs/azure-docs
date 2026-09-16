@@ -4,7 +4,7 @@ description: Learn how to discover MySQL database instances running in your data
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 03/03/2025
 ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
 monikerRange:
@@ -22,14 +22,24 @@ The following table lists the regions that support MySQL Discovery and Assessmen
 
 |**Geography** | **Region** |
 | ---- | ---- |
-| Asia Pacific | Southeast Asia |
-| Australia | Australia East | 
+| Africa | South Africa North |
+| Asia Pacific | East Asia </br> Southeast Asia |
+| Australia | Australia East </br> Australia Southeast |
+| Brazil | Brazil South| 
 | Canada   | Canada Central | 
-| Europe    | North Europe </br> West Europe |
+| Europe    | North Europe </br>West Europe |
 | France | France Central |
-| Japan | Japan East | 
-| Korea | Korea Central | 
-| United Kingdom | UK South |
+| Germany | Germany West Central |
+| India | Central India </br> South India |
+| Italy | Italy North |
+| Japan | Japan East </br> Japan West| 
+| Korea | Korea Central </br> Korea South | 
+| Norway | Norway East|
+| Poland | Poland Central|
+| Spain | Spain Central|
+| Sweden | Sweden Central |
+| United Arab Emirates | UAE North |
+| United Kingdom | UK South </br> UK West |
 | United States  | Central US </br> West US 2 | 
 
 ## Prerequisites
@@ -45,9 +55,6 @@ The following table lists the regions that support MySQL Discovery and Assessmen
    
 - After you create a project, ensure you've completed the server discovery using the Azure Migrate appliance.
 - Ensure that you perform the [discovery of software inventory](how-to-discover-applications.md) by providing the server credentials to the appliance configuration manager.
-
-> [!NOTE]
-> Only Azure Migrate projects created with public endpoint connectivity are supported. Private endpoint projects aren't supported in the preview.
 
 ## Provide MySQL credentials
 

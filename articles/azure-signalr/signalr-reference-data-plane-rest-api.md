@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-signalr-service
 ms.topic: reference
-ms.date: 08/02/2024
+ms.date: 06/03/2026
 ---
 
 # Azure SignalR Service data-plane REST API reference
@@ -53,28 +53,10 @@ The following table shows all supported REST API versions. It also provides the 
 
 | API version   | Status   | Port     | Documentation                                                    | Specification                                                                                    |
 | ------------- | -------- | -------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------- |
-| `20220601`    | Latest   | Standard | [Article](./swagger/signalr-data-plane-rest-v20220601.md)  | [Swagger file](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/V20220601.json)  |
+| `20241201`    | Latest   | Standard | [Article](./swagger/signalr-data-plane-rest-v20241201.md)  | [Swagger file](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v20241201.json)  |
+| `20220601`    | Stable   | Standard | [Article](./swagger/signalr-data-plane-rest-v20220601.md)  | [Swagger file](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/V20220601.json)  |
 | `1.0`         | Stable   | Standard | [Article](./swagger/signalr-data-plane-rest-v1.md)         | [Swagger file](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1.json)         |
 | `1.0-preview` | Obsolete | Standard | [Article](./swagger/signalr-data-plane-rest-v1-preview.md) | [Swagger file](https://github.com/Azure/azure-signalr/blob/dev/docs/swagger/v1-preview.json) |
-
-The following table lists the available APIs.
-
-| API                                                                                                                                                                                       | Path                                                                  |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| [Broadcast a message to all clients connected to target hub](./swagger/signalr-data-plane-rest-v1.md#broadcast-a-message-to-all-clients-connected-to-target-hub)                         | `POST /api/v1/hubs/{hub}`                                             |
-| [Broadcast a message to all clients belong to the target user](./swagger/signalr-data-plane-rest-v1.md#broadcast-a-message-to-all-clients-belong-to-the-target-user)                     | `POST /api/v1/hubs/{hub}/users/{id}`                                  |
-| [Send message to the specific connection](./swagger/signalr-data-plane-rest-v1.md#send-message-to-the-specific-connection)                                                               | `POST /api/v1/hubs/{hub}/connections/{connectionId}`                  |
-| [Check if the connection with the given connectionId exists](./swagger/signalr-data-plane-rest-v1.md#check-if-the-connection-with-the-given-connectionid-exists)                         | `GET /api/v1/hubs/{hub}/connections/{connectionId}`                   |
-| [Close the client connection](./swagger/signalr-data-plane-rest-v1.md#close-the-client-connection)                                                                                       | `DELETE /api/v1/hubs/{hub}/connections/{connectionId}`                |
-| [Broadcast a message to all clients within the target group](./swagger/signalr-data-plane-rest-v1.md#broadcast-a-message-to-all-clients-within-the-target-group)                         | `POST /api/v1/hubs/{hub}/groups/{group}`                              |
-| [Check if there are any client connections inside the given group](./swagger/signalr-data-plane-rest-v1.md#check-if-there-are-any-client-connections-inside-the-given-group)             | `GET /api/v1/hubs/{hub}/groups/{group}`                               |
-| [Check if there are any client connections connected for the given user](./swagger/signalr-data-plane-rest-v1.md#check-if-there-are-any-client-connections-connected-for-the-given-user) | `GET /api/v1/hubs/{hub}/users/{user}`                                 |
-| [Add a connection to the target group](./swagger/signalr-data-plane-rest-v1.md#add-a-connection-to-the-target-group)                                                                     | `PUT /api/v1/hubs/{hub}/groups/{group}/connections/{connectionId}`    |
-| [Remove a connection from the target group](./swagger/signalr-data-plane-rest-v1.md#remove-a-connection-from-the-target-group)                                                           | `DELETE /api/v1/hubs/{hub}/groups/{group}/connections/{connectionId}` |
-| [Check whether a user exists in the target group](./swagger/signalr-data-plane-rest-v1.md#check-whether-a-user-exists-in-the-target-group)                                               | `GET /api/v1/hubs/{hub}/groups/{group}/users/{user}`                  |
-| [Add a user to the target group](./swagger/signalr-data-plane-rest-v1.md#add-a-user-to-the-target-group)                                                                                 | `PUT /api/v1/hubs/{hub}/groups/{group}/users/{user}`                  |
-| [Remove a user from the target group](./swagger/signalr-data-plane-rest-v1.md#remove-a-user-from-the-target-group)                                                                       | `DELETE /api/v1/hubs/{hub}/groups/{group}/users/{user}`               |
-| [Remove a user from all groups](./swagger/signalr-data-plane-rest-v1.md#remove-a-user-from-all-groups)                                                                                   | `DELETE /api/v1/hubs/{hub}/users/{user}/groups`                       |
 
 ## Using the REST API
 

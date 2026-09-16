@@ -1,18 +1,18 @@
 ---
-title: Troubleshoot Oracle Database@Azure
-description: Learn how to troubleshoot problems in Oracle Database@Azure.
+title: Troubleshoot Oracle AI Database@Azure
+description: Learn how to troubleshoot problems in Oracle AI Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: troubleshooting
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
-# Customer intent: "As a database administrator, I want troubleshooting guidance for Oracle Database@Azure, so that I can quickly resolve common issues related to DNS, tags, and network configurations."
+# Customer intent: "As a database administrator, I want troubleshooting guidance for Oracle AI Database@Azure, so that I can quickly resolve common issues related to DNS, tags, and network configurations."
 ---
 
-# Troubleshoot problems in Oracle Database@Azure
+# Troubleshoot problems in Oracle AI Database@Azure
 
-Get troubleshooting tips for problems you might have when you use Oracle Database@Azure.
+Get troubleshooting tips for problems you might have when you use Oracle AI Database@Azure.
 
 ## A private DNS FQDN name can't contain more than four labels
 
@@ -51,23 +51,23 @@ Allow any user to manage tag-defaults in tenancy where request.principal.type = 
 
 ## Microsoft locks
 
-This section includes information about Microsoft locks and how they might affect Oracle Database@Azure deployments.
+This section includes information about Microsoft locks and how they might affect Oracle AI Database@Azure deployments.
 
 ### Terminations and Microsoft locks
 
-We recommend that you remove all Microsoft locks from an Oracle Database@Azure resource before you terminate the resource. If you have a policy to prevent the deletion of locked resources, the Oracle Database@Azure process to delete system resources fails because Oracle Database@Azure can't delete a locked resource. For example, if you're using a locked private endpoint with Oracle Database@Azure, confirm that the endpoint can be deleted, and then remove the lock before you delete the Oracle Database@Azure resource.
+We recommend that you remove all Microsoft locks from an Oracle AI Database@Azure resource before you terminate the resource. If you have a policy to prevent the deletion of locked resources, the Oracle AI Database@Azure process to delete system resources fails because Oracle AI Database@Azure can't delete a locked resource. For example, if you're using a locked private endpoint with Oracle AI Database@Azure, confirm that the endpoint can be deleted, and then remove the lock before you delete the Oracle AI Database@Azure resource.
 
 ## Networking
 
-This section includes information about networking and how it might affect Oracle Database@Azure.
+This section includes information about networking and how it might affect Oracle AI Database@Azure.
 
-### IP address requirement differences between Oracle Database@Azure and Oracle Exadata in OCI
+### IP address requirement differences between Oracle AI Database@Azure and Oracle Exadata in OCI
 
-Oracle Database@Azure has different IP address requirements than Oracle Exadata in Oracle Cloud Infrastructure (OCI). As described in [Requirements for IP address space](https://docs.oracle.com/iaas/exadatacloud/doc/ecs-network-setup.html#ECSCM-GUID-D5C577A1-BC11-470F-8A91-77609BBEF1EA), the following differences in IP address requirements for Oracle Database@Azure must be considered:
+Oracle AI Database@Azure has different IP address requirements than Oracle Exadata in Oracle Cloud Infrastructure (OCI). As described in [Requirements for IP address space](https://docs.oracle.com/iaas/exadatacloud/doc/ecs-network-setup.html#ECSCM-GUID-D5C577A1-BC11-470F-8A91-77609BBEF1EA), the following differences in IP address requirements for Oracle AI Database@Azure must be considered:
 
-- Oracle Database@Azure supports only Oracle Exadata X9M. All other shapes are unsupported.
+- Oracle AI Database@Azure supports only Oracle Exadata X9M. All other shapes are unsupported.
 
-- Oracle Database@Azure reserves 13 IP addresses for the client subnet.
+- Oracle AI Database@Azure reserves 13 IP addresses for the client subnet.
 
 ### Automatic network ingress configuration
 

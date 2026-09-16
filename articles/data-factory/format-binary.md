@@ -2,17 +2,19 @@
 title: Binary format
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This topic describes how to deal with Binary format in Azure Data Factory and Synapse Analytics.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: concept-article
 ms.date: 03/31/2025
-ms.author: jianleishen
+ms.author: tinglee
 ---
 
 # Binary format in Azure Data Factory and Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Binary format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md), and [SFTP](connector-sftp.md).
 

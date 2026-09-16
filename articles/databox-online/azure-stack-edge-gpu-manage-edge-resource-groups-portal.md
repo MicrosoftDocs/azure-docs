@@ -2,12 +2,12 @@
 title: Manage Edge resource groups on your Azure Stack Edge Pro GPU device
 description: Learn how to manage Edge resource groups on your Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R device via the Azure portal.
 services: databox
-author: v-dalc
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 08/02/2021
-ms.author: alkohli
+ms.author: sipastak
 # Customer intent: As an IT admin, I need a quick way to get rid of resource groups no longer in use that were created for VMs on my Azure Stack Edge Pro GPU devices.
 ---
 

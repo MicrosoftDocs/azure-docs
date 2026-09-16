@@ -15,6 +15,8 @@ zone_pivot_groups: front-door-tiers
 
 # Azure Web Application Firewall monitoring and logging
 
+**Applies to:** :heavy_check_mark: Front Door Standard/Premium :heavy_check_mark: Front Door (classic)
+
 Azure Web Application Firewall on Azure Front Door provides extensive logging and telemetry to help you understand how your web application firewall (WAF) is performing and the actions it takes.
 
 The Azure Front Door WAF log is integrated with [Azure Monitor](/azure/azure-monitor/overview). Azure Monitor enables you to track diagnostic information, including WAF alerts and logs. You can configure WAF monitoring within the Azure Front Door resource in the Azure portal under the **Diagnostics** tab, through infrastructure as code approaches, or by using Azure Monitor directly.

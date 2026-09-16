@@ -4,14 +4,18 @@ description: Learn about the administrative roles available to manage Azure Ente
 author: prashantsaini4
 ms.reviewer: prsaini
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: enterprise-agreement
 ms.topic: concept-article
-ms.date: 09/23/2025
+ms.date: 04/21/2026
 ms.author: prsaini
 #customer intent: As an enterprise administrator, I want learn about the administrative roles available to manage Azure Enterprise Agreements so that manage my enterprise agreement.
 ---
 
 # Manage Azure Enterprise Agreement roles
+
+> [!NOTE]
+> Starting October 1, 2026, all new Enterprise Agreement billing role assignments must use Work or School accounts (WSA) managed through Microsoft Entra ID. You can't add Personal Microsoft accounts (MSAs) to new role assignments.
+> Users with existing MSA role assignments aren't impacted at this time. However, these users need to transition to a Work or School account (WSA) in a future phase. Microsoft will provide advance notice and guidance before this change takes effect.
 
 To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement can assign the following six distinct administrative roles.
 

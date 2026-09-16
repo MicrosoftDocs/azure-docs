@@ -4,7 +4,7 @@ description: Learn about Azure Firewall compliance certifications including CSA 
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 03/28/2026
+ms.date: 08/27/2026
 ms.author: duau
 # Customer intent: "As a compliance officer in a regulated industry, I want to review the certifications of Azure Firewall, so that I can ensure it meets the necessary regulatory requirements for our organization."
 ---
@@ -24,7 +24,7 @@ Azure Firewall is included in many Azure compliance audits. The following list s
 - CSA STAR
 - ISO/IEC 27001, 27017, and 27018
 - SOC 1 Type 2, SOC 2 Type 2, and SOC 3
-- PCI DSS Level 1
+- PCI DSS Level 1 — applies to Azure Firewall across all SKUs. For the Premium capabilities that support payment processing environments, see [Azure Firewall features by SKU](features-by-sku.md).
 - HIPAA BAA
 - HITRUST CSF
 - GSMA

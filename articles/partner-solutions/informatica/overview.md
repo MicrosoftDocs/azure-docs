@@ -1,6 +1,8 @@
 ---
 title: What is Informatica Intelligent Data Management Cloud?
 description: Learn about using the Informatica Intelligent Data Management Cloud, an Azure Native Service. This article describes key capabilities.
+author: pavanatgit
+ms.author: plekkala
 ms.topic: overview
 ms.date: 12/10/2025
 #Customer intent: As an information professional, I want to understand how to manage my Informatica organization as an Azure Native Service.

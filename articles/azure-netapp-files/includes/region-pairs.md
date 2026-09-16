@@ -54,8 +54,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | Germany/Europe | Germany West Central | West Europe | 
 | Germany/France | Germany West Central | France Central |
 | Italy/Sweden | Italy North | Sweden Central | 
-| Sweden/Germany | Sweden Central | Germany West Central |
-| Spain/Sweden | Spain Central | Sweden Central |
+| Malaysia/Southeast Asia | Malaysia West | Southeast Asia |
 | North America | Central US | East US |
 | North America | East US | East US 2 |
 | North America | East US | North Central US |
@@ -67,6 +66,8 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | North America | South Central US | Central US |
 | North America | West US 2 | East US |
 | North America | West US 2 | West US 3 |
+| Sweden/Germany | Sweden Central | Germany West Central |
+| Spain/Sweden | Spain Central | Sweden Central |
 | Sweden/Europe | Sweden Central | North Europe |
 | Sweden/Europe | Sweden Central | West Europe |
 | UAE/Sweden*   | UAE North  | Sweden Central |
@@ -75,7 +76,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 
 *Billing
 > [!NOTE]
-> During the initial rollout, your Azure bill may temporarily show cross-region replication charges for an alternative region pair while the final billing SKUs are being implemented. **There is no overbilling** - the cost shown is the same rate that will apply for **UAE Central to Sweden Central** replication.
+> During the initial rollout, your Azure bill may temporarily show cross-region replication charges for an alternative region pair while the final billing SKUs are being implemented. **There is no overbilling** - the cost shown is the same rate that will apply for **UAE North to Sweden Central** replication.
 
 <br/><br/>
 

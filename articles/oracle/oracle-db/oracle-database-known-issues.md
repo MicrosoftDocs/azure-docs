@@ -1,18 +1,18 @@
 ---
-title: Known issues in Oracle Database@Azure
-description: Learn about known issues in Oracle Database@Azure.
+title: Known issues in Oracle AI Database@Azure
+description: Learn about known issues in Oracle AI Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: troubleshooting
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
-# Customer intent: As an IT administrator, I want to identify and resolve known issues in Oracle Database provisioning on Azure, so that I can ensure efficient setup and management of database resources without encountering errors.
+# Customer intent: As an IT administrator, I want to identify and resolve known issues in Oracle AI Database provisioning on Azure, so that I can ensure efficient setup and management of database resources without encountering errors.
 ---
 
-# Known issues in Oracle Database@Azure
+# Known issues in Oracle AI Database@Azure
 
-Learn about known issues in Oracle Database@Azure and how to resolve them.
+Learn about known issues in Oracle AI Database@Azure and how to resolve them.
 
 ## Oracle Exadata virtual machine cluster provisioning
 
@@ -60,7 +60,7 @@ The failure occurs because the user performing the action doesn't have permissio
 
 ### Creating an OracleSubscription resource fails because of 'deny' policy action during offer purchase
 
-When you subscribe to Oracle Database@Azure, you must create a managed resource group in the background to contain the `OracleSubscription` object for billing purposes. The managed resource group must be in the EastUS region. It must have a specific name, and it must initially be created without tags.
+When you subscribe to Oracle AI Database@Azure, you must create a managed resource group in the background to contain the `OracleSubscription` object for billing purposes. The managed resource group must be in the EastUS region. It must have a specific name, and it must initially be created without tags.
 
 Any policy that blocks the creation of the managed resource group triggers the error. For example, a policy that has any of the following rules might cause the purchase to fail:
 

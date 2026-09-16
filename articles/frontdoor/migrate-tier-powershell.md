@@ -5,35 +5,35 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 10/15/2024
+ms.date: 08/27/2026
 ms.custom: devx-track-azurepowershell
 ---
 
-# Migrate Azure Front Door (classic) to Standard/Premium tier with Azure PowerShell
+# Migrate Azure Front Door (classic) to Standard or Premium tier with Azure PowerShell
 
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-Azure Front Door Standard and Premium tier bring the latest cloud delivery network features to Azure. With enhanced security features and an all-in-one service, your application content is secured and closer to your end users using the Microsoft global network. This article guides you through the migration process to move your Azure Front Door (classic) profile to either a Standard or Premium tier profile with Azure PowerShell.
+Azure Front Door Standard and Premium tier bring the latest cloud delivery network features to Azure. By using enhanced security features and an all-in-one service, you secure your application content and bring it closer to your end users through the Microsoft global network. This article guides you through the migration process to move your Azure Front Door (classic) profile to either a Standard or Premium tier profile with Azure PowerShell.
 
 ## Prerequisites
 
 * Review the [About Front Door tier migration](tier-migration.md) article.
 * Ensure your Front Door (classic) profile can be migrated:
-    * Azure Front Door Standard and Premium require all custom domains to use HTTPS. If you don't have your own certificate, you can use an Azure Front Door managed certificate. The certificate is free of charge and gets managed for you.
-    * Session affinity gets enabled in the origin group settings for an Azure Front Door Standard or Premium profile. In Azure Front Door (classic), session affinity is set at the domain level. As part of the migration, session affinity is based on the Front Door (classic) profile settings. If you have two domains in your classic profile that shares the same backend pool (origin group), session affinity has to be consistent across both domains in order for migration validation to pass.
+    * Azure Front Door Standard and Premium require all custom domains to use HTTPS. If you don't have your own certificate, use an Azure Front Door managed certificate. The certificate is free of charge and Azure manages it for you.
+        * Session affinity is enabled in the origin group settings for an Azure Front Door Standard or Premium profile. In Azure Front Door (classic), set session affinity at the domain level. As part of the migration, session affinity is based on the Front Door (classic) profile settings. If you have two domains in your classic profile that share the same backend pool (origin group), session affinity must be consistent across both domains for migration validation to pass.
 * Latest Azure PowerShell module installed locally or Azure Cloud Shell. For more information, see [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). 
 
 
 > [!NOTE]
-> You don't need to make any DNS changes before or during the migration process. However, once the migration completes and traffic is flowing through your new Azure Front Door profile, you need to update your DNS records. For more information, see [Update DNS records](#update-dns-records).
+> You don't need to make any DNS changes before or during the migration process. However, once the migration finishes and traffic flows through your new Azure Front Door profile, you need to update your DNS records. For more information, see [Post-migration endpoint cutover](#post-migration-endpoint-cutover).
 
 ## Validate compatibility
 
 1. Open Azure PowerShell and connect to your Azure account. For more information, see [Connect to Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Test your Azure Front Door (classic) profile to see if it's compatible for migration. You can use the [Test-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/test-azfrontdoorcdnprofilemigration) command to test your profile. Replace the values for the resource group name and resource ID with your own values. Use [Get-AzFrontDoor](/powershell/module/az.frontdoor/get-azfrontdoor) to get the resource ID for your Front Door (classic) profile.
+1. Test your Azure Front Door (classic) profile to see if it's compatible for migration. Use the [Test-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/test-azfrontdoorcdnprofilemigration) command to test your profile. Replace the values for the resource group name and resource ID with your own values. Use [Get-AzFrontDoor](/powershell/module/az.frontdoor/get-azfrontdoor) to get the resource ID for your Front Door (classic) profile.
 
     Replace the following values in the command:
 
@@ -45,7 +45,7 @@ Azure Front Door Standard and Premium tier bring the latest cloud delivery netwo
     Test-AzFrontDoorCdnProfileMigration -ResourceGroupName <resourceGroupName> -ClassicResourceReferenceId /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.Network/frontdoors/<frontdoorClassicName>
     ```
 
-    If the migration is compatible for migration, you see the following output:
+    If the migration is compatible, you see the following output:
 
     ```
     CanMigrate DefaultSku
@@ -64,11 +64,11 @@ Azure Front Door Standard and Premium tier bring the latest cloud delivery netwo
 ## Prepare for migration
 
 > [!NOTE]
-> * Managed certificate is currently **not supported** for Azure Front Door Standard or Premium in Azure Government Cloud. You need to use BYOC for Azure Front Door Standard or Premium in Azure Government Cloud or wait until this capability is available.
+> * Managed certificate isn't currently supported for Azure Front Door Standard or Premium in Azure Government Cloud. You need to use BYOC for Azure Front Door Standard or Premium in Azure Government Cloud or wait until this capability is available.
 
 #### [Without WAF and BYOC (Bring your own certificate)](#tab/without-waf-byoc)
 
-Run the [Start-AzFrontDoorCdnProfilePrepareMigration](/powershell/module/az.cdn/start-azfrontdoorcdnprofilepreparemigration) command to prepare for migration. Replace the values for the resource group name, resource ID, profile name with your own values. For *SkuName* use either **Standard_AzureFrontDoor** or **Premium_AzureFrontDoor**. The *SkuName* is based on the output from the [Test-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/test-azfrontdoorcdnprofilemigration) command.
+Run the [Start-AzFrontDoorCdnProfilePrepareMigration](/powershell/module/az.cdn/start-azfrontdoorcdnprofilepreparemigration) command to prepare for migration. Replace the values for the resource group name, resource ID, and profile name with your own values. For *SkuName*, use either **Standard_AzureFrontDoor** or **Premium_AzureFrontDoor**. The *SkuName* is based on the output from the [Test-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/test-azfrontdoorcdnprofilemigration) command.
 
 Replace the following values in the command:
 
@@ -84,10 +84,10 @@ The output looks similar to the following:
 
 ```
 Starting the parameter validation process.
-The parameters have been successfully validated.
-Your new Front Door profile is being created. Please wait until the process has finished completely. This may take several minutes.
+The parameters are successfully validated.
+Your new Front Door profile is being created. Wait until the process finishes. This process might take several minutes.
 
-Your new Front Door profile with the configuration has been successfully created.
+Your new Front Door profile with the configuration is successfully created.
 ```
 
 #### [With WAF](#tab/with-waf)
@@ -139,17 +139,17 @@ Your new Front Door profile with the configuration has been successfully created
 
     ```
     Starting the parameter validation process.
-    The parameters have been successfully validated.
-    Your new Front Door profile is being created. Please wait until the process has finished completely. This may take several minutes.
+    The parameters are successfully validated.
+    Your new Front Door profile is being created. Wait until the process finishes. This process might take several minutes.
 
-    Your new Front Door profile with the configuration has been successfully created.
+    Your new Front Door profile with the configuration is successfully created.
     ```
 
 #### [With BYOC](#tab/with-byoc)
 
 If you're migrating a Front Door profile with BYOC, you need to enable managed identity on the Front Door profile. You need to grant the Front Door profile access to the key vault where the certificate is stored.
 
-Run the [Start-AzFrontDoorCdnProfilePrepareMigration](/powershell/module/az.cdn/start-azfrontdoorcdnprofilepreparemigration) command to prepare for migration. Replace the values for the resource group name, resource ID, profile name with your own values. For *SkuName* use either **Standard_AzureFrontDoor** or **Premium_AzureFrontDoor**. The *SkuName* is based on the output from the [Test-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/test-azfrontdoorcdnprofilemigration) command. 
+Run the [Start-AzFrontDoorCdnProfilePrepareMigration](/powershell/module/az.cdn/start-azfrontdoorcdnprofilepreparemigration) command to prepare for migration. Replace the values for the resource group name, resource ID, and profile name with your own values. For *SkuName*, use either **Standard_AzureFrontDoor** or **Premium_AzureFrontDoor**. The *SkuName* is based on the output from the [Test-AzFrontDoorCdnProfileMigration](/powershell/module/az.cdn/test-azfrontdoorcdnprofilemigration) command.
 
 ### System assigned
 
@@ -190,10 +190,10 @@ Start-AzFrontDoorCdnProfilePrepareMigration -ResourceGroupName myAFDResourceGrou
 
     ```
     Starting the parameter validation process.
-    The parameters have been successfully validated.
-    Your new Front Door profile is being created. Please wait until the process has finished completely. This may take several minutes.
+    The parameters are successfully validated.
+    Your new Front Door profile is being created. Wait until the process finishes. This process might take several minutes.
 
-    Your new Front Door profile with the configuration has been successfully created.
+    Your new Front Door profile with the configuration is successfully created.
     ```
 
 #### [Multiple WAF and managed identity](#tab/multiple-waf-managed-identity)
@@ -280,10 +280,10 @@ This example shows how to migrate a Front Door profile with multiple WAF policie
 
     ```
     Starting the parameter validation process.
-    The parameters have been successfully validated.
-    Your new Front Door profile is being created. Please wait until the process has finished completely. This may take several minutes.
+    The parameters are successfully validated.
+    Your new Front Door profile is being created. Wait until the process finishes. This process might take several minutes.
 
-    Your new Front Door profile with the configuration has been successfully created.
+    Your new Front Door profile with the configuration is successfully created.
     ```
 ---
 
@@ -301,7 +301,7 @@ The output looks similar to the following:
 
 ```
 Start to migrate.
-This process will disable your Front Door (classic) profile and move all your traffic and configurations to the new Front Door profile.
+This process disables your Front Door (classic) profile and moves all your traffic and configurations to the new Front Door profile.
 Migrate succeeded.
 ```
 
@@ -317,21 +317,28 @@ The output looks similar to the following:
 
 ```
 Start to abort the migration.
-Your new Front Door Profile will be deleted and your existing profile will remain active. WAF policies will not be deleted.
-Please wait until the process has finished completely. This may take several minutes.
+Your new Front Door profile is deleted and your existing profile remains active. WAF policies aren't deleted.
+Wait until the process finishes. This process can take several minutes.
 Abort succeeded.
 ```
 ---
 
-## Update DNS records
+## Post-migration endpoint cutover
 
-Your old Azure Front Door (classic) instance uses a different fully qualified domain name (FQDN) than Azure Front Door Standard and Premium. For example, an Azure Front Door (classic) endpoint might be `contoso.azurefd.net`, while the Azure Front Door Standard or Premium endpoint might be `contoso-mdjf2jfgjf82mnzx.z01.azurefd.net`. For more information about Azure Front Door Standard and Premium endpoints, see [Endpoints in Azure Front Door](endpoint.md).
+Azure Front Door (classic) uses a different fully qualified domain name (FQDN) than Azure Front Door Standard or Premium. For example, a classic endpoint might be `contoso.azurefd.net`, while a Standard or Premium endpoint might be `contoso-mdjf2jfgjf82mnzx.z01.azurefd.net`. For more information, see [Endpoints in Azure Front Door](endpoint.md).
 
-You don't need to update your DNS records before or during the migration process. Azure Front Door automatically sends traffic that it receives on the Azure Front Door (classic) endpoint to your Azure Front Door Standard or Premium profile without you making any configuration changes.
+Even though Azure Front Door automatically routes traffic from the classic endpoint to your new Standard or Premium profile without any configuration changes, you must complete the following post-migration action depending on your scenario:
 
-However, once your migration is finished, we strongly recommend that you update your DNS records to direct traffic to the new Azure Front Door Standard or Premium endpoint. Changing your DNS records helps to ensure that your profile continues to work in the future. The change in DNS record doesn't cause any downtime. You don't need to plan ahead for this update to happen, and can schedule it at your convenience.
+- Custom domains: Update the DNS record to point to the new Azure Front Door Standard/Premium endpoint.
 
-## Next steps
+- Direct use of the classic default endpoint: Replace the classic hostname with the new endpoint hostname in your applications, clients, and integrations.
 
-* Understand the [mapping between Front Door tiers](tier-mapping.md) settings.
-* Learn more about the [Azure Front Door tier migration process](tier-migration.md).
+Both endpoints remain functional during the transition, so you can make and validate this change without downtime.
+
+> [!WARNING]
+> Complete the endpoint cutover to the new Azure Front Door Standard/Premium endpoint by March 31, 2028. Starting April 1, 2028, classic endpoints are no longer supported and might stop functioning. Custom domains, applications, or clients that still depend on a classic endpoint might stop receiving traffic.
+
+## Related content
+
+* [Mapping settings between Front Door tiers](tier-mapping.md)
+* [Azure Front Door tier migration process](tier-migration.md)

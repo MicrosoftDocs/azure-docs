@@ -14,7 +14,7 @@ ms.custom: incidents, pagerduty, servicenow, icm, azure-monitor, alerts, automat
 # Automate incident response in Azure SRE Agent
 Your agent monitors, investigates, and resolves incidents while you sleep. It learns from every fix to get smarter over time. Stop switching context at 3 AM.
 
-> [!VIDEO <VIDEO_URL>/Automated_Incident_Response.mp4]
+<!-- > [!VIDEO <VIDEO_URL>/Automated_Incident_Response.mp4] -->
 
 > [!TIP]
 > - Your agent acknowledges incidents and starts investigating within seconds.

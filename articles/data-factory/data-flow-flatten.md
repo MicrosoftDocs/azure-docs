@@ -8,7 +8,7 @@ ms.review: daperlov
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 02/13/2025
+ms.date: 04/27/2026
 ---
 
 # Flatten transformation in mapping data flow
@@ -16,6 +16,9 @@ ms.date: 02/13/2025
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  For the equivalent transformation (**Expand column**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 Use the flatten transformation to take array values inside hierarchical structures such as JSON and unroll them into individual rows. This process is known as denormalization.
 
@@ -29,23 +32,23 @@ The flatten transformation contains the following configuration settings.
 
 ### Unroll by
 
-Select an array to unroll. The output data will have one row per item in each array. If the unroll by array in the input row is null or empty, there will be one output row with unrolled values as null. You have the option to unroll more than one array per Flatten transformation. Click on the plus (+) button to include multiple arrays in a single Flatten transformation. You can use ADF data flow meta functions here including ```name``` and ```type``` and use pattern matching to unroll arrays that match those criteria. When including multiple arrays in a single Flatten transformation, your results will be a cartesian product of all of the possible array values.
+Select an array to unroll. The output data has one row per item in each array. If the unroll by array in the input row is null or empty, there's one output row with unrolled values as null. You can unroll more than one array per Flatten transformation. Select the plus (+) button to include multiple arrays in a single Flatten transformation. You can use ADF data flow meta functions here including ```name``` and ```type``` and use pattern matching to unroll arrays that match those criteria. When including multiple arrays in a single Flatten transformation, your results are a cartesian product of all of the possible array values.
 
 :::image type="content" source="media/data-flow/flatten-new-002.png" alt-text="Screenshot that shows flatten results." lightbox="media/data-flow/flatten-new-002.png":::
 
 ### Unroll root
 
-By default, the flatten transformation unrolls an array to the top of the hierarchy it exists in. You can optionally select an array as your unroll root. The unroll root must be an array of complex objects that either is or contains the unroll by array. If an unroll root is selected, the output data will contain at least one row per items in the unroll root. If the input row doesn't have any items in the unroll root, it will be dropped from the output data. Choosing an unroll root will always output a less than or equal number of rows than the default behavior.
+By default, the flatten transformation unrolls an array to the top of the hierarchy it exists in. You can optionally select an array as your unroll root. The unroll root must be an array of complex objects that either is or contains the unroll by array. If an unroll root is selected, the output data contains at least one row per items in the unroll root. If the input row doesn't have any items in the unroll root, it's dropped from the output data. Choosing an unroll root always outputs a less than or equal number of rows than the default behavior.
 
 ### Flatten mapping
 
-Similar to the select transformation, choose the projection of the new structure from incoming fields and the denormalized array. If a denormalized array is mapped, the output column will be the same data type as the array. If the unroll by array is an array of complex objects that contains subarrays, mapping an item of that subarry will output an array.
+Similar to the select transformation, choose the projection of the new structure from incoming fields and the denormalized array. If a denormalized array is mapped, the output column is the same data type as the array. If the unroll by array is an array of complex objects that contains subarrays, mapping an item of that subarry outputs an array.
 
 Refer to the inspect tab and data preview to verify your mapping output.
 
 ## Rule-based mapping
 
-The flatten transformation supports rule-based mapping allowing you to create dynamic and flexible transformations that will flatten arrays based on rules and flatten structures based on hierarchy levels.
+The flatten transformation supports rule-based mapping allowing you to create dynamic and flexible transformations that flattens arrays based on rules and flatten structures based on hierarchy levels.
 
 :::image type="content" source="media/data-flow/flatten-pattern.png" alt-text="Flatten pattern":::
 
@@ -63,7 +66,7 @@ Choose the level of the hierarchy that you would like to expand.
 
 ### Name matches (regex)
 
-Optionally choose to express your name matching as a regular expression in this box, instead of using the matching condition above.
+Optionally choose to express your name matching as a regular expression in this box, instead of using the matching condition.
 
 ## Examples
 

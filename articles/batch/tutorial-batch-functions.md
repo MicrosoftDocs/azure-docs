@@ -3,14 +3,14 @@ title: Tutorial - Trigger a Batch job using Azure Functions
 description: Learn how to apply OCR to scanned documents as they're added to a storage blob by using Azure Function Apps.
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/21/2023
+ms.date: 06/16/2026
 ms.custom: mvc, devx-track-csharp
 # Customer intent: As a developer, I want to create an Azure Function that triggers a Batch job for OCR processing, so that I can automate the conversion of scanned documents into searchable text files upon upload.
 ---
 
 # Tutorial: Trigger a Batch job using Azure Functions
 
-In this tutorial, you learn how to trigger a Batch job using [Azure Functions](../azure-functions/functions-overview.md). This article walks through an example that takes documents added to an Azure Storage blob container applies optical character recognition (OCR) by using Azure Batch. To streamline the OCR processing, this example configures an Azure function that runs a Batch OCR job each time a file is added to the blob container. You learn how to:
+In this tutorial, you learn how to trigger a Batch job using [Azure Functions](../azure-functions/functions-overview.md). This article walks through an example that takes documents added to an Azure Storage blob container and applies optical character recognition (OCR) to them by using Azure Batch. To streamline the OCR processing, this example configures an Azure function that runs a Batch OCR job each time a file is added to the blob container. You learn how to:
 
   * Use the Azure portal to create pools and jobs.
   * Create blob containers and a shared access signature (SAS).
@@ -35,7 +35,7 @@ In this section, you use the Azure portal to create the Batch pool and Batch job
 ### Create a pool
 
 1. Sign in to the Azure portal using your Azure credentials.
-1. Create a pool by selecting **Pools** on the left side navigation, and then the select the **Add** button above the search form.
+1. Create a pool by selecting **Pools** on the left side navigation, and then select the **Add** button above the search form.
 
     :::image type="content" source="./media/tutorial-batch-functions/add-pool.png" alt-text="Screenshot of the Pools page in a Batch account that highlights the Add button.":::
 

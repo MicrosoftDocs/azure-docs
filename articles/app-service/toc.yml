@@ -23,6 +23,10 @@ items:
     href: scenario-ai-openapi-tool.md
   - name: Model Context Protocol servers
     href: scenario-ai-model-context-protocol-server.md
+  - name: Built-in MCP (Preview)
+    href: configure-mcp-built-in.md
+  - name: MCP hosting options
+    href: /azure/container-apps/mcp-choosing-azure-service?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
   - name: Local small language models
     href: scenario-ai-local-small-language-model.md
   - name: Secure AI applications
@@ -36,7 +40,7 @@ items:
     - name: Quickstart
       href: quickstart-dotnetcore.md
     - name: Aspire Quickstart
-      href: quickstart-dotnet-aspire.md
+      href: quickstart-aspire.md
     - name: Configure
       items:
       - name: ASP.NET
@@ -44,7 +48,7 @@ items:
       - name: ASP.NET Core
         href: configure-language-dotnetcore.md
       - name: Aspire
-        href: configure-language-dotnet-aspire.md
+        href: configure-language-aspire.md
     - name: Connect
       items:
       - name: ASP.NET Core with SQL DB
@@ -78,8 +82,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-dotnet.md
-        - name: RAG with Azure OpenAI and your data
-          href: tutorial-ai-openai-search-dotnet.md
         - name: RAG Azure OpenAI and Azure SQL
           href: deploy-intelligent-apps-dotnet-to-azure-sql.md
         - name: Add MCP server to app
@@ -88,6 +90,8 @@ items:
           href: tutorial-ai-integrate-azure-ai-agent-dotnet.md
         - name: Agentic web app (.NET)
           href: tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md
+        - name: Monitor agents with OpenTelemetry
+          href: tutorial-ai-agent-monitoring-dotnet.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-dotnet.md
 
@@ -135,8 +139,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-java.md
-        - name: RAG with Azure OpenAI with your data
-          href: tutorial-ai-openai-search-java.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-spring-boot.md
         - name: Add MCP server to app
@@ -165,8 +167,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-node.md
-        - name: RAG with Azure OpenAI and your data
-          href: tutorial-ai-openai-search-nodejs.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-expressjs.md
         - name: Add MCP server to app
@@ -195,8 +195,6 @@ items:
       items:
         - name: Chatbot with OpenAI
           href: tutorial-ai-openai-chatbot-python.md
-        - name: RAG with Azure OpenAI and your data
-          href: tutorial-ai-openai-search-python.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-fastapi.md
         - name: Add MCP server to app
@@ -298,11 +296,13 @@ items:
       href: ../sre-agent/troubleshoot-azure-app-service.md  
     - name: Monitor App Service
       href: monitor-app-service.md
+    - name: Use the App Service site status page
+      href: use-app-service-site-status-page.md
     - name: Monitoring data reference
       href: monitor-app-service-reference.md
     - name: Azure Monitor tutorial
       href: tutorial-troubleshoot-monitor.md
-    - name: Stream diagnostic logs
+    - name: Enable diagnostic logs
       href: troubleshoot-diagnostic-logs.md
     - name: Open SSH session to a web app in a container
       href: configure-linux-open-ssh-session.md
@@ -337,13 +337,16 @@ items:
         - name: Overview of TLS/SSL in App Service
           href: overview-tls.md
           displayName: TLS, SSL
+        - name: Minimum TLS version
+          href: tls-minimum-version.md
+          displayName: TLS, TLS 1.0, TLS 1.1, minimum TLS
         - name: Secure a custom domain with HTTPS
           href: configure-ssl-bindings.md
           displayName: SSL
         - name: Add and manage TLS/SSL certificates
           href: configure-ssl-certificate.md
           displayName: SSL
-        - name: Create and Manage App Service certificates
+        - name: Buy and manage App Service certificates
           href: configure-ssl-app-service-certificate.md
           displayName: SSL
         - name: Use TLS/SSL certificates in app code
@@ -456,7 +459,7 @@ items:
           href: configure-authentication-mcp-server-vscode.md
 - name: Security and networking
   items:
-    - name: Security overview
+    - name: Secure your Azure App Service deployment
       href: overview-security.md
     - name: Deploy a multi-region app (tutorial)
       href: tutorial-multi-region-app.md
@@ -476,8 +479,6 @@ items:
           href: overview-name-resolution.md
         - name: About subdomain takeover
           href: reference-dangling-subdomain-prevention.md
-        - name: Security baseline reference
-          href: /security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json
         - name: Security controls by Azure Policy reference
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
@@ -651,16 +652,6 @@ items:
       href: configure-grpc.md
     - name: Recommended services (preview)
       href: recommended-services.md      
-    - name: App Service on Azure Arc (preview)
-      items:
-        - name: Azure Arc hosting overview
-          href: overview-arc-integration.md
-        - name: Enable App Service on Azure Arc
-          href: manage-create-arc-environment.md
-        - name: Create app on Azure Arc
-          href: quickstart-arc.md
-        - name: Migrate from App Service on Arc-enabled Kubernetes to Container Apps on Arc-enabled Kubernetes
-          href: migrate-app-service-arc.md
     - name: Best practices
       href: app-service-best-practices.md
     - name: Samples

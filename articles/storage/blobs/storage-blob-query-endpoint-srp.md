@@ -263,9 +263,9 @@ This method returns a [StorageAccount](/java/api/com.azure.resourcemanager.stora
 
 To get the properties for a specified storage account, use the following method from a [StorageManagementClient](/javascript/api/@azure/arm-storage/storagemanagementclient) object:
 
-- [storageAccounts.getProperties](/javascript/api/@azure/arm-storage/storageaccounts#@azure-arm-storage-storageaccounts-getproperties)
+- [storageAccounts.getProperties](/javascript/api/@azure/arm-storage/storageaccountsgetpropertiesoptionalparams)
 
-This method returns a [`Promise<StorageAccountsGetPropertiesResponse>`](/javascript/api/@azure/arm-storage/storageaccountsgetpropertiesresponse), which represents the storage account.
+This method returns a [`Promise<StorageAccountsGetPropertiesResponse>`](/javascript/api/@azure/arm-storage/storageaccountsgetpropertiesoptionalparams#@azure-arm-storage-storageaccountsgetpropertiesoptionalparams-onresponse), which represents the storage account.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/blob-query-endpoint/index.js" id="Snippet_query_blob_endpoint":::
 

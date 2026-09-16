@@ -6,7 +6,7 @@ ms.author: whhender
 ms.reviewer: makromer
 ms.subservice: data-flows
 ms.topic: quickstart
-ms.date: 02/13/2025
+ms.date: 04/27/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -15,6 +15,9 @@ ms.custom: sfi-image-nochange
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  To create a dataflow in Microsoft Fabric, see [Quickstart: Create your first Dataflow Gen2 to get and transform data](/fabric/data-factory/create-first-dataflow-gen2).
 
 A mapping data flow provides a way to transform data at scale without any coding required. You can design a data transformation job in the data flow designer by constructing a series of transformations. Start with any number of source transformations, followed by data transformation steps. Then, complete your data flow with a sink to land your results in a destination.
 

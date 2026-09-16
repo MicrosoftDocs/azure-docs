@@ -1,10 +1,9 @@
 ---
 author: cephalin
 ms.service: azure-app-service
-ms.devlang: java
 ms.custom: linux-related-content
 ms.topic: quickstart
-ms.date: 03/18/2025
+ms.date: 04/20/2026
 ms.author: cephalin
 ---
 
@@ -18,7 +17,7 @@ For more information about containerized applications in a serverless environmen
 
 - An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Docker](https://www.docker.com/community-edition).
-- [VS Code](https://code.visualstudio.com/).
+- [Visual Studio Code](https://code.visualstudio.com/).
 - The [Azure App Service extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). You can use this extension to create, manage, and deploy Linux web apps with Azure platform as a service (PaaS).
 - The [Docker extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). You can use this extension to simplify the management of local Docker images and commands and to deploy built app images to Azure.
 
@@ -33,7 +32,7 @@ Create a container registry by following the instructions in [Quickstart: Create
 
 ## Sign in
 
-1. Open VS Code.
+1. Open Visual Studio Code.
 
 1. Select the **Azure** logo on the [activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and then go to **ACCOUNTS & TENANTS**. Select **Sign in to Azure** and follow the instructions.
 
@@ -55,11 +54,11 @@ docker --version
 
 ## Create and build image
 
-1. In VS Code, open an empty folder and add a file called `Dockerfile`. In the file, paste the content based on your desired language framework:
+1. In VS Code, open an empty folder and add a file called `Dockerfile`. In the file, copy and paste the following content based on your desired language framework:
 
    # [.NET](#tab/dotnet)
 
-   In this file, the parent image is one of the built-in .NET containers of App Service.
+   In this Dockerfile, the parent image is one of the built-in .NET containers of App Service.
 
    <!-- https://mcr.microsoft.com/v2/appsvc%2Fdotnetcore/tags/list -->
    ```dockerfile
@@ -75,7 +74,7 @@ docker --version
 
    # [Java](#tab/java)
 
-   In this file, the parent image is one of the built-in Java containers of App Service. You can find the source files at [java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/tmp/appservice`. Your Dockerfile starts that app.
+   In this Dockerfile, the parent image is one of the built-in Java containers of App Service. You can find the source files at [java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/tmp/appservice`. Your Dockerfile starts that app.
 
    <!-- https://mcr.microsoft.com/v2/azure-app-service%2Fjava/tags/list -->
    ```dockerfile
@@ -128,8 +127,11 @@ docker --version
 ## Deploy to container registry
 
 1. In the activity bar, select the **Docker** icon. In the **IMAGES** explorer, find the image you built.
+
 1. Expand the image, right-click on the tag you want, and select **Push**.
+
 1. Make sure the image tag begins with `<acr-name>.azurecr.io` and select **Enter**.
+
 1. When VS Code finishes pushing the image to your container registry, select **Refresh** at the top of the **REGISTRIES** explorer and verify that the image was pushed successfully.
 
    :::image type="content" source="../../media/quickstart-docker/image-in-registry.png" alt-text="Screenshot that shows the image deployed to Azure Container Registry.":::
@@ -137,6 +139,7 @@ docker --version
 ## Deploy to App Service
 
 1. In the **REGISTRIES** explorer, expand the image, right-click the tag, and then select **Deploy Image to Azure App Service**.
+
 1. Follow the prompts to select a subscription, a globally unique app name, a resource group, and an App Service plan. Select **B1 Basic** for the pricing tier, and a region near you.
 
 After deployment, your app is available at `http://<app-name>.azurewebsites.net`.
@@ -162,9 +165,9 @@ To troubleshoot, go to [I ran into an issue](https://www.research.net/r/PWZWZ52?
 - [Secure with a custom domain and certificate](../../tutorial-secure-domain-certificate.md)
 - [Migrate to a Windows container in Azure](../../tutorial-custom-container.md)
 - [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
-- [Use private endpoints for App Service apps](../../networking/private-endpoint.md)
-- [Azure Monitor overview](/azure/azure-monitor/overview)
-- [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
+- [Use private endpoints for App Service apps](../../overview-private-endpoint.md)
+- [Monitor Azure App Service](../../monitor-app-service.md)
+- [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
 - [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
 - [Configure custom container](../../configure-custom-container.md)
 - [Sidecar container tutorial](../../tutorial-custom-container-sidecar.md)
@@ -176,4 +179,3 @@ Other Azure extensions:
 - [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 - [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 - [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack includes all the extensions in this list.
-

@@ -2,11 +2,11 @@
 title: 'Virtual WAN virtual hub routing preference'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN virtual hub routing preference.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 12/10/2024
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 ---
 # Virtual hub routing preference

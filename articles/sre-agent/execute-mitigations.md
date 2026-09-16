@@ -14,7 +14,7 @@ ms.custom: mitigation, remediation, actions, restart, scale, security-hardening,
 # Execute mitigations in Azure SRE Agent
 Your agent diagnoses problems and fixes them. It restarts services, scales resources, hardens security settings, and collects diagnostics, all with the level of control you choose.
 
-> [!VIDEO <VIDEO_URL>/Azure_SRE_Agent__Verified_Fix.mp4]
+<!-- > [!VIDEO <VIDEO_URL>/Azure_SRE_Agent__Verified_Fix.mp4] -->
 
 > [!TIP]
 > - Ask your agent to fix a problem. It proposes a solution, you approve it, and it executes the fix.

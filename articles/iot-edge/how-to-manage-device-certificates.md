@@ -4,7 +4,7 @@ titleSuffix: Azure IoT Edge
 description: How to install and manage certificates on an Azure IoT Edge device to prepare for production deployment. 
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/23/2026
+ms.date: 04/13/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -396,7 +396,28 @@ You can provide your own certificates and manage them manually. However, to avoi
 
 When the Edge CA certificate renews, it regenerates all the certificates it issued, like module server certificates. To give the modules new server certificates, IoT Edge restarts all modules when the Edge CA certificate renews.
 
-To minimize the potential negative effects of module restarts, plan to renew the Edge CA certificate at a specific time (for example, `threshold = "10d"`) and notify dependents of the solution about the downtime.
+The renewal happens automatically based on the `auto_renew` threshold you configure. The following table shows when renewal occurs for common certificate lifetimes, using the default threshold of `80%`:
+
+| Certificate lifetime | Default threshold (80%) | Renewal occurs at |
+|---|---|---|
+| 90 days | 80% | Day 72 (18 days before expiry) |
+| 30 days | 80% | Day 24 (6 days before expiry) |
+| 7 days | 80% | Day 5.6 (~34 hours before expiry) |
+
+During the renewal, the IoT Edge runtime:
+
+1. Regenerates the Edge CA certificate.
+1. Stops all running modules.
+1. Restarts each module so it receives a new server certificate.
+
+This restart cycle causes a brief disruption. Custom modules that connect to EdgeHub must reconnect after the restart. If a module doesn't implement connection retry logic, it might fail to reestablish communication with EdgeHub and stop sending messages.
+
+To minimize the potential negative effects of module restarts:
+
+- **Schedule renewal for a maintenance window.** Set `threshold` to an absolute time (for example, `threshold = "10d"`) so the renewal happens at a predictable point before expiry.
+- **Implement connection retry in custom modules.** Modules should use the Azure IoT device SDK's built-in retry policies, or implement their own exponential backoff retry logic, to automatically reconnect to EdgeHub after a restart. For more information, see [Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs](../iot-hub/iot-hub-reliability-features-in-sdks.md).
+- **Set the module restart policy to `always`.** In your deployment manifest, set `"restartPolicy": "always"` for each custom module so the container runtime restarts modules that fail after the certificate renewal cycle.
+- **Notify dependents of downtime.** If your solution has upstream services or dashboards that consume IoT Edge module telemetry, notify those dependents that a brief disruption will occur during the renewal window.
 
 ### Example: use Edge CA certificate files from PKI provider
 
@@ -490,7 +511,7 @@ In this scenario, the bootstrap certificate and private key are long-lived and p
 
    * Create a test EST server using the steps in [Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge](tutorial-configure-est-server.md).
 
-   * Microsoft partners with GlobalSign to [provide a demo account](https://www.globalsign.com/lp/globalsign-and-microsoft-azure-iot-edge-enroll-demo).
+   * Microsoft partners with GlobalSign to [provide a demo account](https://www.globalsign.com/).
 
 1. In the IoT Edge device configuration file `config.toml`, configure the path to a trusted root certificate that IoT Edge uses to validate the EST server's TLS certificate. This step is optional if the EST server has a publicly trusted root TLS certificate.
 

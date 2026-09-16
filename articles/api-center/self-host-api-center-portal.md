@@ -4,7 +4,7 @@ description: How to self-host the API Center portal, a customer-managed website 
 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 01/13/2026
+ms.date: 05/01/2026
  
 ms.custom: 
 # Customer intent: As an API program manager, I want to self-host a portal for developers and other API stakeholders in my organization to discover the APIs in my organization's API center.
@@ -14,10 +14,9 @@ ms.custom:
 
 This article shows how to self-host the *API Center portal*, a website that developers and other stakeholders in your organization can use to discover the APIs in your [API center](overview.md). Deploy a reference implementation of the portal from the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository.
 
-:::image type="content" source="media/self-host-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
+Self-hosting is an alternative to using the Azure-managed version of the API Center portal. For more information on the Azure-managed portal, see [Set up the API Center portal](set-up-api-center-portal.md).
 
-> [!TIP]
-> New! You can now set up an Azure-managed version of the API Center portal. For more information, see [Set up the API Center portal](set-up-api-center-portal.md).
+:::image type="content" source="media/self-host-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
 
 ## About self-hosting the portal
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot external control activities in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: nabhishek
 ms.topic: troubleshooting
-ms.date: 02/13/2025
+ms.date: 07/29/2026
 ms.author: abnarain
 ms.custom:
   - synapse
@@ -14,6 +14,8 @@ ms.custom:
 # Troubleshoot Azure Data Factory and Synapse pipelines
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article explores common troubleshooting methods for external control activities in Azure Data Factory and Synapse pipelines.
 
@@ -39,7 +41,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Recommendation**: Specify the notebook path in the Databricks activity.
 
-<br/> 
+<br /> 
 
 - **Message**: `Cluster... does not exist.`
 
@@ -47,7 +49,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Recommendation**: Verify that the Databricks cluster exists.
 
-<br/> 
+<br /> 
 
 - **Message**: `Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
 
@@ -55,7 +57,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Recommendation**: Specify either absolute paths for workspace-addressing schemes, or `dbfs:/folder/subfolder/foo.py` for files stored in the Databricks File System (DFS).
 
-<br/> 
+<br /> 
 
 - **Message**: `{0} LinkedService should have domain and accessToken as required properties.`
 
@@ -63,7 +65,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Recommendation**: Verify the [linked service definition](compute-linked-services.md#azure-databricks-linked-service).
 
-<br/> 
+<br /> 
 
 - **Message**: `{0} LinkedService should specify either existing cluster ID or new cluster information for creation.`
 
@@ -71,7 +73,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Recommendation**: Verify the [linked service definition](compute-linked-services.md#azure-databricks-linked-service).
 
-<br/> 
+<br /> 
 
 - **Message**: `Node type Standard_D16S_v3 is not supported. Supported node types: Standard_DS3_v2, Standard_DS4_v2, Standard_DS5_v2, Standard_D8s_v3, Standard_D16s_v3, Standard_D32s_v3, Standard_D64s_v3, Standard_D3_v2, Standard_D8_v3, Standard_D16_v3, Standard_D32_v3, Standard_D64_v3, Standard_D12_v2, Standard_D13_v2, Standard_D14_v2, Standard_D15_v2, Standard_DS12_v2, Standard_DS13_v2, Standard_DS14_v2, Standard_DS15_v2, Standard_E8s_v3, Standard_E16s_v3, Standard_E32s_v3, Standard_E64s_v3, Standard_L4s, Standard_L8s, Standard_L16s, Standard_L32s, Standard_F4s, Standard_F8s, Standard_F16s, Standard_H16, Standard_F4s_v2, Standard_F8s_v2, Standard_F16s_v2, Standard_F32s_v2, Standard_F64s_v2, Standard_F72s_v2, Standard_NC12, Standard_NC24, Standard_NC6s_v3, Standard_NC12s_v3, Standard_NC24s_v3, Standard_L8s_v2, Standard_L16s_v2, Standard_L32s_v2, Standard_L64s_v2, Standard_L80s_v2.`
 
@@ -79,7 +81,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Recommendation**: Refer to the error message.
 
-<br/>
+<br />
 
 ### Error code: 3202
 
@@ -89,7 +91,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Recommendation**: Check all pipelines that use this Databricks workspace for their job creation rate. If pipelines launched too many Databricks runs in aggregate, migrate some pipelines to a new workspace.
 
-<br/> 
+<br /> 
 
 - **Message**: `Could not parse request object: Expected 'key' and 'value' to be set for JSON map field base_parameters, got 'key: "..."' instead.`
 
@@ -97,7 +99,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Recommendation**: Inspect the pipeline JSON and ensure all parameters in the baseParameters notebook specify a nonempty value.
 
-<br/> 
+<br /> 
 
 - **Message**: `User: 'SimpleUserContext{userId=..., name=user@company.com, orgId=...}' is not authorized to access cluster.`
 
@@ -105,7 +107,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Recommendation**: Ensure the user has the required permissions in the workspace.
 
-<br/> 
+<br /> 
 
 - **Message**: `Job is not fully initialized yet. Please retry later.`
 
@@ -161,9 +163,9 @@ The following table applies to U-SQL.
 
 - **Cause**: Incorrect Microsoft Entra tenant.
 
-- **Recommendation**: Incorrect Microsoft Entra tenant.
+- **Recommendation**: Sign in with the correct Microsoft Entra tenant.
 
-<br/>
+<br />
 
 - **Message**: `We cannot accept your job at this moment. The maximum number of queued jobs for your account is 200. `
 
@@ -171,7 +173,7 @@ The following table applies to U-SQL.
 
 - **Recommendation**: Reduce the number of submitted jobs to Data Lake Analytics. Either change triggers and concurrency settings on activities, or increase the limits on Data Lake Analytics.
 
-<br/> 
+<br /> 
 
 - **Message**: `This job was rejected because it requires 24 AUs. This account's administrator-defined policy prevents a job from using more than 5 AUs.`
 
@@ -181,7 +183,7 @@ The following table applies to U-SQL.
 
 ### Error code: 2705
 
-- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
+- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br /> <br /> User is not able to access Data Lake Store. <br /> <br /> User is not authorized to use Data Lake Analytics.`
 
 - **Cause**: The service principal or certificate doesn't have access to the file in storage.
 
@@ -189,13 +191,13 @@ The following table applies to U-SQL.
 
 ### Error code: 2711
 
-- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
+- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br /> <br /> User is not able to access Data Lake Store. <br /> <br /> User is not authorized to use Data Lake Analytics.`
 
 - **Cause**: The service principal or certificate doesn't have access to the file in storage.
 
 - **Recommendation**: Verify that the service principal or certificate that the user provides for Data Lake Analytics jobs has access to both the Data Lake Analytics account, and the default Data Lake Storage instance from the root folder.
 
-<br/> 
+<br /> 
 
 - **Message**: `Cannot find the 'Azure Data Lake Store' file or folder.`
 
@@ -205,7 +207,7 @@ The following table applies to U-SQL.
 
 ### Error code: 2704
 
-- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br/> <br/> User is not able to access Data Lake Store. <br/> <br/> User is not authorized to use Data Lake Analytics.`
+- **Message**: `Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.<br /> <br /> User is not able to access Data Lake Store. <br /> <br /> User is not authorized to use Data Lake Analytics.`
 
 - **Cause**: The service principal or certificate doesn't have access to the file in storage.
 
@@ -229,13 +231,13 @@ The following table applies to U-SQL.
 
    If the resolution isn't clear, contact the Data Lake Analytics support team and provide the job Universal Resource Locator (URL), which includes your account name and the job ID.
  
-## Azure functions
+## Azure Functions
 
 ### Error code: 3602
 
 - **Message**: `Invalid HttpMethod: '%method;'.`
 
-- **Cause**: The Httpmethod specified in the activity payload isn't supported by Azure Function Activity.
+- **Cause**: Azure Function activity doesn't support the Httpmethod specified in the activity payload.
 
 - **Recommendation**: The supported Httpmethods are: PUT, POST, GET, DELETE, OPTIONS, HEAD, and TRACE.
 
@@ -601,7 +603,7 @@ The following table applies to Azure Batch.
 
    For more information, see [Directly connect to Apache Hadoop services](../hdinsight/hdinsight-plan-virtual-network-deployment.md#directly-connect-to-apache-hadoop-services).
  
- </br>
+ <br />
 
 - **Cause**: If the error message contains a message similar to `A task was canceled.`, the job submission timed out.
 
@@ -611,7 +613,7 @@ The following table applies to Azure Batch.
 
    For more information, read [Ambari Web UI](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui).
 
- </br>
+ <br />
 
 - **Cause**: When the error message contains a message similar to `User admin is locked out in Ambari` or `Unauthorized: Ambari user name or password is incorrect`, the credentials for HDInsight are incorrect or have expired.
 
@@ -619,7 +621,7 @@ The following table applies to Azure Batch.
 
    For ESP cluster, reset the password through [self service password reset](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
 
- </br>
+ <br />
 
 - **Cause**: When the error message contains a message similar to `502 - Web server received an invalid response while acting as a gateway or proxy server`, this error is returned by HDInsight service.
 
@@ -636,7 +638,7 @@ The following table applies to Azure Batch.
        * [RpcTimeoutException for Apache Spark thrift server](../hdinsight/spark/apache-spark-troubleshoot-rpctimeoutexception.md)
        * [Troubleshooting bad gateway errors in Application Gateway](../application-gateway/application-gateway-troubleshooting-502.md).
 
- </br>
+ <br />
 
 - **Cause**: When the error message contains a message similar to `Unable to service the submit job request as templeton service is busy with too many submit job requests` or `Queue root.joblauncher already has 500 applications, cannot accept submission of application`, too many jobs are being submitted to HDInsight at the same time.
 
@@ -837,7 +839,7 @@ The following table applies to Azure Batch.
 - **Recommendation**: 
 
    1. Confirm that you correctly set up your ODBC/Java Database Connectivity (JDBC) connection.
-      1. For JDBC, if you're using the same virtual network, you can get this connection from:<br>
+      1. For JDBC, if you're using the same virtual network, you can get this connection from:<br />
         `Hive -> Summary -> HIVESERVER2 JDBC URL`
       1. To ensure that you have the correct JDBC set up, see [Query Apache Hive through the JDBC driver in HDInsight](../hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver.md).
       1. For Open Database (ODB), see [Tutorial: Query Apache Hive with ODBC and PowerShell](../hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell.md) to ensure that you have the correct setup. 
@@ -845,8 +847,7 @@ The following table applies to Azure Batch.
    1. Check the Ambari user interface (UI):
       1. Ensure that all services are still running.
       1. From the Ambari UI, check the alert section in your dashboard.
-         1. For more information on alerts and resolutions to alerts, see [Managing and Monitoring a Cluster
-](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html).
+         1. For more information on alerts and resolutions to alerts, see [Managing and Monitoring a Cluster](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html).
    1. If these steps are not enough to resolve the issue, contact the Azure HDInsight team.
 
 ### Error code: 2347
@@ -858,7 +859,7 @@ The following table applies to Azure Batch.
 - **Recommendation**: 
 
    1. Confirm that you correctly set up your ODBC/Java Database Connectivity (JDBC) connection.
-      1. For JDBC, if you're using the same virtual network, you can get this connection from:<br>
+      1. For JDBC, if you're using the same virtual network, you can get this connection from:<br />
         `Hive -> Summary -> HIVESERVER2 JDBC URL`
       1. To ensure that you have the correct JDBC set up, see [Query Apache Hive through the JDBC driver in HDInsight](../hdinsight/hadoop/apache-hadoop-connect-hive-jdbc-driver.md).
       1. For Open Database (ODB), see [Tutorial: Query Apache Hive with ODBC and PowerShell](../hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell.md) to ensure that you have the correct setup. 
@@ -866,8 +867,7 @@ The following table applies to Azure Batch.
    1. Check the Ambari user interface (UI):
       1. Ensure that all services are still running.
       1. From the Ambari UI, check the alert section in your dashboard.
-         1. For more information on alerts and resolutions to alerts, see [Managing and Monitoring a Cluster
-](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html).
+         1. For more information on alerts and resolutions to alerts, see [Managing and Monitoring a Cluster](https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_predefined_alerts.html).
    1. If these steps are not enough to resolve the issue, contact the Azure HDInsight team.
 
 ### Error code: 2348
@@ -1006,9 +1006,9 @@ The following table applies to Azure Batch.
 
 - **Resolution**: You can navigate to the path **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** and open DriverConfiguration64.exe to change the setting.
 
-    :::image type="content" source="./media/connector-troubleshoot-guide/system-trust-store-setting.png" alt-text="Uncheck Use System Trust Store":::
+    :::image type="content" source="./media/connector-troubleshoot-guide/system-trust-store-setting.png" alt-text="Screenshot of clearing the Use System Trust Store option.":::
 
-### HDI activity stuck in preparing for cluster  
+### HDI activity stuck in preparing for cluster
 
 If the HDI activity is stuck in preparing for cluster, follow the guidelines below:  
 
@@ -1020,9 +1020,9 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 3. Make sure that the service principal used for accessing the HDI cluster is valid.
 4. If the issue still persists, as a workaround, delete the HDI linked service and re-create it with a new name.
 
-## Web Activity  
+## Web activity
 
-### Error Code: 2001
+### Error code: 2001
 
 - **Message**: `The length of execution output is over limit (around 4MB currently).`
 
@@ -1030,7 +1030,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Recommendation**: Make sure the execution output size does not exceed 4 MB. For more information, see [How to scale out the size of data moving using Azure Data Factory](/answers/questions/700102/how-to-scale-out-the-size-of-data-moving-using-azu.html).
 
-### Error Code: 2002
+### Error code: 2002
 
 - **Message**: `The payload including configurations on activity/dataSet/linked service is too large. Please check if you have settings with very large value and try to reduce its size.`
 
@@ -1038,7 +1038,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Recommendation**: Refer to [Payload is too large](data-factory-troubleshoot-guide.md#payload-is-too-large).
 
-### Error Code: 2003
+### Error code: 2003
 
 - **Message**: `There are substantial concurrent external activity executions which is causing failures due to throttling under subscription <subscription id>, region <region code> and limitation <current limit>. Please reduce the concurrent executions. For limits, refer https://aka.ms/adflimits.`
 
@@ -1046,7 +1046,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Recommendation**: Reduce pipeline concurrency. You might have to distribute the trigger time of your pipelines.  
 
-### Error Code: 2010
+### Error code: 2010
 
 - **Message**: `The Self-hosted Integration Runtime ‘<SHIR name>’ is offline`
 
@@ -1054,7 +1054,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Recommendation**: Make sure your self-hosted integration runtime is up and running. Refer to [Troubleshoot self-hosted integration runtime](self-hosted-integration-runtime-troubleshoot-guide.md) for more information.
 
-### Error Code: 2105
+### Error code: 2105
 
 - **Message**: `The value type '<provided data type>', in key '<key name>' is not expected type '<expected data type>'`
 
@@ -1070,7 +1070,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Recommendation**: Verify that the provided URL is accessible.
 
-<br/> 
+<br /> 
 
 - **Message**: `Error calling the endpoint '%url;'. Response status code: '%code;'`
 
@@ -1088,7 +1088,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
     
        1. In the HTTPS tab, select both **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**.
     
-          :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Fiddler options":::
+          :::image type="content" source="media/data-factory-troubleshoot-guide/fiddler-options.png" alt-text="Screenshot of Fiddler options.":::
     
     1. If your application uses TLS/SSL certificates, add the Fiddler certificate to your device.
     
@@ -1114,7 +1114,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
     
     For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
-### Error Code: 2113
+### Error code: 2113
 
 - **Message**: `ExtractAuthorizationCertificate: Unable to generate a certificate from a Base64 string/password combination`
 
@@ -1122,7 +1122,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Recommendation**: Verify that the Base64 encoded PFX certificate and password combination you are using are correctly entered.
 
-### Error Code: 2403
+### Error code: 2403
 
 - **Message**: `Get access token from MSI failed for Datafactory <DF name>, region <region code>. Please verify resource url is valid and retry.`
 
@@ -1133,7 +1133,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 ## General
 
-### REST continuation token NULL error 
+### REST continuation token NULL error
 
 **Error message:** {\"token\":null,\"range\":{\"min\":\..}
 

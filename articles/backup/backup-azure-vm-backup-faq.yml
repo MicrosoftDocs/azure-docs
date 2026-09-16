@@ -54,7 +54,9 @@ sections:
 
       - question: I recently enabled Azure Disk Encryption on some VMs. Will my backups continue to work?
         answer: |
-          Provide permissions for Azure Backup to access the Key Vault. Specify the permissions in PowerShell as described in the **Enable backup** section in the [Azure Backup PowerShell](backup-azure-vms-automation.md) documentation.
+          Yes. ADE backup and restore operations continue to be supported and aren't blocked before the planned ADE retirement in September 2028. For existing ADE-enabled VMs, consider migrating to encryption at host. For the latest retirement timeline and migration guidance, see the official [ADE overview](/azure/virtual-machines/disk-encryption-overview) and [Migrate from Azure Disk Encryption to encryption at host](/azure/virtual-machines/disk-encryption-migrate) documentation.
+
+          If you enable ADE on a VM that's already protected by Azure Backup, provide permissions for Azure Backup to access the Key Vault. Specify the permissions in PowerShell as described in the **Enable backup** section in the [Azure Backup PowerShell](backup-azure-vms-automation.md) documentation.
 
       - question: I migrated VM disks to managed disks. Will my backups continue to work?
         answer: Yes, backups work seamlessly. There's no need to reconfigure anything.
@@ -235,7 +237,7 @@ sections:
         answer: Yes. Even if you delete the VM, you can go to the corresponding backup item in the vault and [restore from a recovery point](backup-azure-arm-restore-vms.md#select-a-restore-point).
 
       - question: How do I restore a VM to the same availability sets?
-        answer: For Managed Disk Azure VMs, restoring to the availability sets is enabled by providing an option in the template while restoring as managed disks. This template has the input parameter called **Availability sets**.
+        answer: For managed disk Azure VMs, restoring to the availability sets is enabled by providing an option in the template while restoring as managed disks. This template has the input parameter called **Availability sets**.
 
       - question: How do we get faster restore performance?
         answer: |
@@ -457,7 +459,7 @@ sections:
 
       - question: When Vault is configured with CRR, what happens to the secondary data if the primary region fails?
         answer: |
-          Backup data fully replicated to the secondary region before the failure of the primary region will remain intact. This remains the case even after the primary region has recovered from the failure. In other words, the virtual machine can be recovered in the secondary region with the data it had before the failure as per the replication schedule. Note that the RPO for the secondary region is 36 hours i.e., data takes approximately 36 hours to be fully replicated from primary to the secondary region.
+          Backup data fully replicated to the secondary region before the failure of the primary region remains intact. This remains true even after the primary region recovers from the failure. In other words, the virtual machine can be recovered in the secondary region with the data it had before the failure, based on the replication schedule. For Azure VM backups, the secondary region RPO can be up to 36 hours in the worst case. With the Standard policy, this is based on up to 24 hours in the primary region plus up to 12 hours for replication to the secondary region. With the Enhanced policy, more frequent local recovery point creation can improve the best-case achievable secondary region RPO, but the worst-case can still be up to 36 hours.
 
       - question: When I update the backup policy, why is the expiry time not getting updated immediately?
         answer: |

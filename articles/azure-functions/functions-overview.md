@@ -1,9 +1,9 @@
 ---
-title: Azure Functions overview
+title: Azure Functions Overview
 description: Learn how you can use Azure Functions to build robust serverless apps without writing extra code.
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
-ms.date: 03/06/2025
+ms.date: 03/23/2026
 ms.custom: devdivchpfy22, build-2023
 #customer intent: As a developer, I want an overview of Azure Functions capabilities and hosting options so that I can choose the right model and plan for my workload.
 ---
@@ -37,7 +37,7 @@ These scenarios allow you to build event-driven systems using modern architectur
 
 Functions supports you through every stage of app development:
 
-1. **Code** in [C#, Java, JavaScript, PowerShell, or Python](./supported-languages.md), or use [custom handlers](./functions-custom-handlers.md) for languages like Rust and Go.
+1. **Code** in [C#, Java, JavaScript, PowerShell, Python, or Go](./supported-languages.md), or use [custom handlers](./functions-custom-handlers.md) for languages like Rust.
 1. **Develop and debug** locally with [Visual Studio, Visual Studio Code, Maven, and other tools](functions-develop-local.md).
 1. **Deploy** to Azure using [CLI, CI/CD pipelines, or your IDE](functions-deployment-technologies.md).
 1. **Monitor** performance and diagnose issues with built-in [Azure Monitor and Application Insights](functions-monitoring.md) integration.

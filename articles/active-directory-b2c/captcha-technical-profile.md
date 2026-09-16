@@ -6,7 +6,7 @@ description: Define a CAPTCHA technical profile custom policy in Azure Active Di
 author: kengaderdus
 manager: mwongerapk
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/17/2024

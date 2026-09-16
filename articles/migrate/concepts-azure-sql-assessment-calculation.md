@@ -4,7 +4,7 @@ description: Learn about Azure SQL assessments in Azure Migrate Discovery and as
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 09/26/2024
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.custom: engagement-fy25
 # Customer intent: As a database administrator, I want to assess the readiness and migration costs of my on-premises SQL Server instances to Azure SQL services, so that I can make informed decisions on the best migration strategy and resources for my organization.
 ---
@@ -92,7 +92,7 @@ Azure SQL Managed Instance sizing | **Service Tier** | Choose the most appropria
 Azure SQL Managed Instance sizing | **Instance type** | Defaulted to *Single instance*.
 Azure SQL Managed Instance sizing | **Pricing Tier** | Defaulted to *Standard*.
 SQL Server on Azure VM sizing | **VM series** | Specify the Azure VM series you want to consider for *SQL Server on Azure VM* sizing. Based on the configuration and performance requirements of your SQL Server or SQL Server instance, the assessment recommends a VM size from the selected list of VM series. <br/>You can edit settings as needed. For example, if you don't want to include D-series VM, you can exclude D-series from this list.<br/> As Azure SQL assessments intend to give the best performance for your SQL workloads, the VM series list only has VMs that are optimized for running your SQL Server on Azure Virtual Machines (VMs). [Learn more](/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?preserve-view=true&view=azuresql#vm-size).
-SQL Server on Azure VM sizing | **Storage Type** | Defaulted to *Recommended*, which means the assessment recommends the best suited Azure Managed Disk based on the chosen environment type, on-premises disk size, IOPS and throughput.
+SQL Server on Azure VM sizing | **Storage Type** | Defaulted to *Recommended*, which means the assessment recommends the best suited Azure managed disk based on the chosen environment type, on-premises disk size, IOPS and throughput.
 Azure SQL Database sizing | **Service Tier** | Choose the most appropriate service tier option to accommodate your business needs for migration to Azure SQL Database:<br/><br/>Select **Recommended** if you want Azure Migrate to recommend the best suited service tier for your servers. This can be General purpose or Business critical.<br/><br/>Select **General Purpose** if you want an Azure SQL configuration designed for budget-oriented workloads.<br/><br/>Select **Business Critical** if you want an Azure SQL configuration designed for low-latency workloads with high resiliency to failures and fast failovers.
 Azure SQL Database sizing | **Instance type** | Defaulted to *Single database*.
 Azure SQL Database sizing | **Purchase model** | Defaulted to *vCore*.

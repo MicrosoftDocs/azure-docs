@@ -6,7 +6,7 @@ description: Specify the TechnicalProfiles element of a custom policy in Azure A
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 03/21/2025

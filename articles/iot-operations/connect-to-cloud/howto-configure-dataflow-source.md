@@ -1,20 +1,18 @@
 ---
 title: Configure a data flow source
 description: Configure source endpoints and data sources for data flows and data flow graphs in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/26/2026
+ms.date: 07/15/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to configure the source for a data flow or data flow graph.
 ---
 
 # Configure a data flow source in Azure IoT Operations
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 The source is where data enters a data flow or data flow graph. You configure the source by specifying an endpoint reference and a list of data sources (topics) for that endpoint.
 
@@ -24,7 +22,7 @@ The source is where data enters a data flow or data flow graph. You configure th
 This page applies to both [data flows](overview-dataflow.md) and [data flow graphs](concept-dataflow-graphs.md). For data flows, the source is an operation in the `Dataflow` resource. For data flow graphs, the source is a `Source` node in the `DataflowGraph` resource.
 
 > [!IMPORTANT]
-> Data flows support MQTT and Kafka source endpoints. Data flow graphs support MQTT, Kafka, and OpenTelemetry source endpoints. Each data flow must have the Azure IoT Operations local MQTT broker default endpoint as either the source or destination. For more information, see [Data flows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#data-flows-must-use-local-mqtt-broker-endpoint).
+> Data flows support MQTT and Kafka source endpoints. Data flow graphs support MQTT and Kafka source endpoints. Each data flow must have the Azure IoT Operations local MQTT broker default endpoint as either the source or destination. For more information, see [Data flows must use local MQTT broker endpoint](./howto-configure-dataflow-endpoint.md#data-flows-must-use-local-mqtt-broker-endpoint).
 
 You can use one of the following options as the source.
 
@@ -73,7 +71,9 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 sourceSettings:
@@ -111,7 +111,9 @@ You can configure an asset as a source only in the operations experience.
 
 You can configure an asset as a source only in the operations experience.
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 You can configure an asset as a source only in the operations experience.
 
@@ -172,7 +174,9 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Replace placeholder values with your custom endpoint name and topics.
 
@@ -258,8 +262,10 @@ sourceSettings: {
 
 Here, the wildcard `+` selects all devices under the `thermostats` and `humidifiers` topics. The `#` wildcard selects all sensor messages under all subtopics of the `temperature` and `humidity` topics.
 
-# [Kubernetes (preview)](#tab/kubernetes)
-  
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
 ```yaml
 sourceSettings:
   endpointRef: <ENDPOINT_NAME>
@@ -312,7 +318,9 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 sourceSettings:
@@ -372,7 +380,9 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 sourceSettings:
@@ -399,7 +409,7 @@ When you use MQTT or Kafka as the source, you can specify a [schema](concept-sch
 If the source is an asset, the portal automatically infers the schema from the asset definition.
 
 > [!TIP]
-> To generate the schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
+> To generate the schema from a sample data file, use the [Schema Gen Helper](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/schema-gen-helper).
 
 To configure the schema used to deserialize the incoming messages from a source:
 
@@ -431,7 +441,9 @@ sourceSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 After you use the [schema registry to store the schema](concept-schema-registry.md), reference it in the data flow configuration.
 

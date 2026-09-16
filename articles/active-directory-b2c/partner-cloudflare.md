@@ -5,7 +5,7 @@ description: Configure Azure Active Directory B2C with Cloudflare Web applicatio
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 06/30/2025
 ms.author: gasinh

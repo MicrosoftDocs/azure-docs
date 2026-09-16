@@ -5,7 +5,7 @@ description: Learn how to configure Virtual WAN routing policies.
 author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 08/01/2025
+ms.date: 08/27/2026
 ms.author: wellee
 ms.custom:
   - devx-track-bicep
@@ -96,7 +96,7 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 
 * The following table describes the availability of routing intent in different Azure environments.
     * Routing intent isn't available in Microsoft Azure operated by 21 Vianet.
-    * Palo Alto Cloud NGFW is only available in Azure Public. Reach out to Palo Alto Networks regarding availability of Cloud NGFW in Azure Government and Microsoft Azure operated by Viacom.
+    * Palo Alto Cloud NGFW is only available in Azure Public. Contact Palo Alto Networks regarding availability of Cloud NGFW in Azure Government and Microsoft Azure operated by 21 Vianet.
     * Network Virtual Appliances aren't available in all Azure Government regions. Contact your NVA partner regarding availability in Azure Government.  
 
 | Cloud Environment| Azure Firewall| Network Virtual Appliance| SaaS solutions|
@@ -173,7 +173,7 @@ Before enabling routing intent, consider the following:
 * Enabling routing intent affects the advertisement of prefixes to on-premises. See [prefix advertisements](#prefixadvertisments) for more information.
 * You can open a support case to enable connectivity across ExpressRoute circuits via a Firewall appliance in the hub. Enabling this connectivity pattern modifies the prefixes advertised to ExpressRoute circuits. See [About ExpressRoute](#expressroute) for more information.
 * Routing intent is the only mechanism in Virtual WAN to enable inter-hub traffic inspection via security appliances deployed in the hub. Inter-hub traffic inspection also requires routing intent to be enabled on all hubs to ensure traffic is routed symmetrically between security appliances deployed in Virtual WAN hubs.
-* Routing intent sends Virtual Network and on-premises traffic to the next hop resource specified in the routing policy. Virtual WAN programs the underlying Azure platform to route your on-premises and Virtual Network traffic in accordance with the configured routing policy and doesn't process the traffic through the Virtual Hub router. Because packets routed via routing intent aren't processed by the router, you don't need to allocate additional [routing infrastructure units](hub-settings.md#capacity) for data-plane packet forwarding on hubs configured with routing intent. However, you might need to allocate additional routing infrastructure units based on the number of Virtual Machines in Virtual Networks connected to the Virtual WAN Hub.
+* Routing intent sends Virtual Network and on-premises traffic to the next hop resource specified in the routing policy. Virtual WAN programs the underlying Azure platform to route your on-premises and Virtual Network traffic in accordance with the configured routing policy and doesn't process the traffic through the Virtual Hub router. This also means Virtual Hub router data processing isn't charged for traffic routed via routing intent. As a result, you don't need to allocate additional [routing infrastructure units](hub-settings.md#capacity) for data-plane packet forwarding on hubs configured with routing intent. However, you might need to allocate additional routing infrastructure units based on the number of Virtual Machines in Virtual Networks connected to the Virtual WAN Hub.
 * Routing intent allows you to configure different next-hop resources for private and internet routing policies. For example, you can set the next hop for private routing policies to Azure Firewall in the hub and the next hop for internet routing policy to an NVA or SaaS solution in the hub. Because SaaS solutions and Firewall NVAs are deployed in the same subnet in the Virtual WAN hub, deploying SaaS solutions with a Firewall NVA in the same hub can impact the horizontal scalability of the SaaS solutions as there are less IP addresses available for horizontal scale-out. Additionally, you can have at most one SaaS solution deployed in each Virtual WAN hub.
 ### <a name="prereq"></a> Prerequisites
 
@@ -381,7 +381,7 @@ Configuring private routing policies with Encrypted ExpressRoute routes VPN ESP 
 To achieve the maximum VPN tunnel throughput, consider the following deployment optimizations:
 
 * Deploy Azure Firewall Premium instead of Azure Firewall Standard or Azure Firewall Basic.
-* Ensure Azure Firewall processes the rule that allows traffic between the VPN tunnel endpoints (192.168.1.4 and 192.168.1.5 in the example above) first by making the rule have the highest priority in your Azure Firewall policy. For more information about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](../firewall/rule-processing.md#rule-processing-using-firewall-policy).
+* Ensure Azure Firewall processes the rule that allows traffic between the VPN tunnel endpoints (192.168.1.4 and 192.168.1.5 in the example above) first by making the rule have the highest priority in your Azure Firewall policy. For more information about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](../firewall/rule-processing.md#rule-processing-by-using-firewall-policy).
 * Turn off deep-packet for traffic between the VPN tunnel endpoints. For information on how to configure Azure Firewall to exclude traffic from deep-packet inspection, reference [IDPS bypass list documentation](../firewall/premium-features.md#idps).
 * Configure VPN devices to use GCMAES256 for both IPSEC Encryption and Integrity to maximize performance.
 

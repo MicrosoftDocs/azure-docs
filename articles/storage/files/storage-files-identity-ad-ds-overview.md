@@ -23,7 +23,7 @@ If you're new to Azure Files, read the [planning guide](storage-files-planning.m
 
 - To use identity-based authentication with Azure Files, you must assign share-level RBAC permissions. You can do this in two ways:
   - **[Default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities):** This option applies RBAC at the share level for all authenticated users. With this configuration, you don't need to sync your on-premises AD DS identities to Microsoft Entra ID.
-  - **[Granular share-level permissions](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-specific-entra-users-or-groups):** If you want to assign RBAC at the share level to specific users or groups, you must synchronize the corresponding identities from your on-premises AD DS to Entra ID by using [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync). Groups created only in Entra ID won't work unless they contain synced user accounts. Password hash synchronization isn't required.
+  - **[Granular share-level permissions](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-specific-microsoft-entra-users-or-groups):** If you want to assign RBAC at the share level to specific users or groups, you must synchronize the corresponding identities from your on-premises AD DS to Entra ID by using [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync). Groups created only in Entra ID won't work unless they contain synced user accounts. Password hash synchronization isn't required.
 - Client OS requirements: Windows 8 / Windows Server 2012 or later, or Linux VMs such as Ubuntu 18.04+ and equivalent RHEL/SLES distributions.
 - Kerberos authentication is available with Active Directory by using [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended). AES 128 Kerberos encryption isn't yet supported.
 - Single sign-on (SSO) is supported.
@@ -34,7 +34,7 @@ When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines
 
 ## Videos
 
-To help you set up identity-based authentication for common use cases, we published two videos with step-by-step guidance for the following scenarios. Note that Azure Active Directory is now Microsoft Entra ID. For more info, see [New name for Azure AD](https://aka.ms/azureadnewname).
+To help you set up identity-based authentication for common use cases, we published two videos with step-by-step guidance for the following scenarios.
 
 | Replace on-premises file servers with Azure Files (including setup on private link for files and AD authentication) | Use Azure Files as the profile container for Azure Virtual Desktop (including setup on AD authentication and FSLogix configuration)  |
 |-|-|
@@ -85,6 +85,10 @@ The following diagram illustrates the end-to-end workflow for enabling AD DS aut
 :::image type="content" source="media/storage-files-active-directory-domain-services-enable/diagram-files-active-directory-domain-services.png" alt-text="Diagram showing AD DS authentication over SMB for Azure Files workflow." lightbox="media/storage-files-active-directory-domain-services-enable/diagram-files-active-directory-domain-services.png" border="false":::
 
 To enforce share-level file permissions through the [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) model, identities used to access Azure file shares must be synced to Microsoft Entra ID. Alternatively, you can use a default share-level permission. [Windows-style DACLs](/previous-versions/technet-magazine/cc161041(v=msdn.10)) on files and directories carried over from existing file servers are preserved and enforced. This setup offers seamless integration with your enterprise AD DS environment. As you replace on-premises file servers with Azure file shares, existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
+
+## Migrate to Microsoft Entra Kerberos
+
+If you're using AD DS authentication today but want to move to cloud-only (Microsoft Entra-only) identities, you can migrate your storage account to [Microsoft Entra Kerberos authentication](storage-files-identity-auth-hybrid-identities-enable.md). Because a storage account supports only one identity source at a time, you must first disable AD DS on the storage account and then enable Microsoft Entra Kerberos. For step-by-step guidance, see [Change the identity source for Azure file shares](change-identity-source.md).
 
 ## Next step
 

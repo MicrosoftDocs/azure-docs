@@ -207,6 +207,6 @@ Console.WriteLine("Invoked firmware update on device.");
 The Azure IoT SDK for .NET provides working samples of service apps that handle message tasks. For more information, see:
 
 * [Invoke Device Method](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/getting%20started/InvokeDeviceMethod)
-* [Method E2E Tests](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/e2e/test/iothub/method)
+* [Method E2E Tests](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/method/MethodE2ETests.cs)
 * [Temperature Controller](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples/TemperatureController)
 * [Thermostat Sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples/Thermostat)

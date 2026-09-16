@@ -2,12 +2,12 @@
 title: Microsoft Azure Stack Edge Mini R technical specifications and compliance| Microsoft Docs
 description: Learn about the technical specifications and compliance for your Azure Stack Edge Mini R device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: reference
 ms.date: 05/21/2024
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Azure Stack Edge Mini R technical specifications
 

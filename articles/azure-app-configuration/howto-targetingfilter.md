@@ -7,7 +7,7 @@ ms.devlang: csharp
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
-ms.date: 08/13/2025
+ms.date: 08/21/2026
 # customer intent: As a developer, I want to find out how to use a targeting filter in an Azure App Configuration feature flag so that I can roll out features in stages to targeted audiences.
 ---
 
@@ -32,12 +32,11 @@ This article shows you how to add and configure a targeting filter for a feature
 
 1. Create a feature flag named *Beta* in your App Configuration store and open it for editing. For more information about how to add and edit a feature flag, see [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag) and [Edit feature flags](./manage-feature-flags.md#edit-feature-flags).
 
-1. In the **Edit feature flag** dialog, select **Enable feature flag** if it isn't already selected. Select **Use feature filter**, and then select **Create**.
+1. In the **Edit feature flag** dialog, select **Enable feature flag** if it isn't already selected. Select **Rollout**, and then select **Audience**.
 
-   :::image type="content" source="./media/feature-filters/edit-feature-flag.png" alt-text="Screenshot of the Azure portal Edit feature flag dialog. The Create button and the Enable feature flag and Use feature filter options are highlighted." lightbox="./media/feature-filters/edit-feature-flag.png":::
+   :::image type="content" source="./media/feature-filters/rollout-audience.png" alt-text="Screenshot of the Azure portal Edit feature flag dialog with Rollout selected, showing the Audience tab with Default Percentage set to 100 and the Override by Groups and Override by Users options." lightbox="./media/feature-filters/rollout-audience.png":::
 
-1. In the **Create a new filter** dialog, make the following selections:
-   - Under **Filter type**, select **Targeting filter**.
+1. Make the following selections:
    - Select **Override by Groups**.
    - Select **Override by Users**.
 
@@ -50,7 +49,7 @@ This article shows you how to add and configure a targeting filter for a feature
    - Under **Include Users**, enter `test@contoso.com`.
    - Under **Exclude Users**, enter `testuser@contoso.com`.
 
-   :::image type="content" source="./media/feature-filters/add-targeting-filter.png" alt-text="Screenshot of the Azure portal. In the Create a new filter dialog, groups, users, and percentages are configured for a targeting filter." lightbox="./media/feature-filters/add-targeting-filter.png":::
+   :::image type="content" source="./media/feature-filters/audience-override-groups-users.png" alt-text="Screenshot of the Azure portal Edit feature flag dialog Audience tab, showing Default Percentage set to 0, Override by Groups with Include Groups and Exclude Groups configured, and Override by Users with Include Users and Exclude Users configured." lightbox="./media/feature-filters/audience-override-groups-users.png":::
 
    These settings result in the following behavior:
 
@@ -64,11 +63,7 @@ This article shows you how to add and configure a targeting filter for a feature
 
    :::image type="content" source="./media/feature-filters/targeting-evaluation-flow.png" alt-text="Flowchart with decision points for percentages, included users and groups, and excluded users and groups, and the end states Enabled and Disabled.":::
 
-1. To save the configuration of the targeting filter, select **Add**. The **Edit feature flag** page lists the targeting feature filter and its parameters.
-
-1. To save the feature flag, select **Apply**.
-
-   :::image type="content" source="./media/feature-filters/feature-flag-edit-apply-targeting-filter.png" alt-text="Screenshot of the Edit feature flag dialog. The targeting filter is listed in the Feature filters section, and an Apply button is available." lightbox="./media/feature-filters/feature-flag-edit-apply-targeting-filter.png":::
+1. To save the feature flag, select **Review + update** at the bottom. After the validation passes, select **Update**. 
 
    The targeting filter is added to your feature flag. This targeting filter uses the targeting rule you configured to enable or disable the feature flag for specific users and groups. 
 
@@ -77,6 +72,7 @@ This article shows you how to add and configure a targeting filter for a feature
    - [ASP.NET Core](./howto-targetingfilter-aspnet-core.md)
    - [Node.js](./howto-targetingfilter-javascript.md)
    - [Go Gin](./howto-targetingfilter-go.md)
+   - [Python](./how-to-targeting-filter-python.md)
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Message Transfers, Locks, and Settlement
 description: Learn how Azure Service Bus handles message transfers, locks, and settlement operations to ensure reliable message delivery and processing.
 #customer intent: As a developer, I want to understand how message transfers work in Azure Service Bus so that I can implement reliable messaging in my application.
 ms.topic: concept-article
-ms.date: 02/10/2026
+ms.date: 07/15/2026
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -100,6 +100,9 @@ The [Peek-Lock](/dotnet/api/azure.messaging.servicebus.servicebusreceivemode) mo
 When a message is locked, other clients receiving from the same queue or subscription can take on locks and retrieve the next available messages that aren't under active lock. When the lock on a message is explicitly released or when the lock expires, the message goes back to the front of the retrieval order for redelivery.
 
 When receivers repeatedly release the message or let the lock elapse for a defined number of times ([Max Delivery Count](service-bus-dead-letter-queues.md#maximum-delivery-count)), the message is automatically removed from the queue or subscription and placed into the associated dead-letter queue.
+
+> [!NOTE]
+> Settle a message while the receiver and its connection are still open. If you close the receiver before you settle a message, the settlement doesn't reach the service, the lock expires, and the message is redelivered. Repeated redelivery moves the message to the dead-letter queue. For more information, see [Settle messages before you close the receiver or connection](service-bus-dead-letter-queues.md#settle-messages-before-you-close-the-receiver-or-connection).
 
 The receiving client initiates settlement of a received message with a positive acknowledgment when it calls the [Complete](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.completemessageasync) API for the message. It indicates to the broker that the message is successfully processed and the message is removed from the queue or subscription. The broker replies to the receiver's settlement intent with a reply that indicates whether the settlement could be performed.
 

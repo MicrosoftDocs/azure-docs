@@ -3,7 +3,7 @@ title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
 author: faterceros
 ms.author: aterceros
-ms.date: 03/31/2025
+ms.date: 09/10/2026
 ms.topic: overview
 ms.service: azure-maps
 ms.subservice: general
@@ -66,7 +66,7 @@ For more information, see [Geolocation] in the Azure Maps REST API documentation
 >
 > **Azure Maps Render v1 service retirement**
 >
-> The Azure Maps Render v1 service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use the [latest version] by 9/17/26.
+> The Azure Maps Render v1 service is now deprecated and will retire on September 17, 2026. To avoid service disruptions, migrate all Render v1 requests to the latest version by that date. For more information, see [Migrate Azure Maps Render 1.0 APIs].
 
 ### Route service
 
@@ -84,7 +84,7 @@ For more information, see [Route] in the Azure Maps REST API documentation.
 
 ### Search service
 
-The Search service helps developers search for addresses, places, business listings by name or category, and other geographic information. Also, services can [reverse geocode] addresses and cross streets based on latitudes and longitudes. [Geocode Autocomplete] (preview) suggests location completions as you type, based on partial input and optional location context.
+Use the Search service to search for addresses, places, business listings by name or category, and other geographic information. Also, use the service to [reverse geocode] addresses and cross streets based on latitudes and longitudes. Use [Geocode Autocomplete] to suggest location completions as you type, based on partial input and optional location context.
 
 :::image type="content" source="./media/about-azure-maps/intro_search.png" lightbox="./media/about-azure-maps/intro_search.png"  alt-text="Example of a search on a map.":::
 
@@ -211,7 +211,7 @@ Stay up to date on Azure Maps:
 [Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
 [Render]: /rest/api/maps/render
-[latest version]: /rest/api/maps/render
+[Migrate Azure Maps Render 1.0 APIs]: migrate-render-v1-api.md
 [REST APIs]: /rest/api/maps/
 [Route]: /rest/api/maps/route
 [Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
@@ -228,7 +228,7 @@ Stay up to date on Azure Maps:
 
 <!---------   External Links     --------------->
 [Azure Maps account]: https://azure.microsoft.com/services/azure-maps/
-[Azure Maps blog]: https://azure.microsoft.com/blog/topics/azure-maps/
+[Azure Maps blog]: https://learn.microsoft.com/azure/azure-maps/
 [Azure portal]: https://portal.azure.com
 [IANA ID]: https://www.iana.org/
 [Microsoft Trust Center]: https://www.microsoft.com/trust-center/privacy

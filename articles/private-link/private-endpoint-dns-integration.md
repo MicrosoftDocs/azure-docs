@@ -2,11 +2,11 @@
 title: Azure Private Endpoint DNS Integration Scenarios
 description: Learn how to configure Azure Private Endpoint DNS for secure and efficient private IP resolution. Discover key scenarios and best practices.
 services: private-link
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: concept-article
 ms.date: 06/25/2025
-ms.author: abell
+ms.author: allensu
 ms.custom:
   - fasttrack-edit
   - sfi-image-nochange
@@ -212,6 +212,7 @@ In a hub-and-spoke topology, a common scenario allows the creation of private DN
 
 > [!NOTE]
 > - Each DNS zone group can support up to five DNS zones.
+> - Each DNS zone group can include only one private DNS zone per DNS zone name. For example, you can't associate more than one private DNS zone resource for `privatelink.blob.core.windows.net` to the same DNS zone group.
 > - Adding multiple DNS zone groups to a single Private Endpoint isn't supported.
 > - Delete and update operations for DNS records can be seen performed by **Azure Traffic Manager and DNS.** This is a normal platform operation necessary for managing your DNS Records.
 

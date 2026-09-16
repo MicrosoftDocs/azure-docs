@@ -1,6 +1,6 @@
 ---
 title: Transfer data to or from Azure Files by using AzCopy v10
-description: Transfer data with AzCopy and file storage. AzCopy is a command-line tool for copying blobs or files to or from a storage account. Use AzCopy with Azure Files.
+description: Transfer data to or from file storage using AzCopy. AzCopy is a command-line tool for copying blobs or files to or from a storage account. Use AzCopy with Azure Files.
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
@@ -740,10 +740,10 @@ AzCopy uses the `--from-to` parameter to explicitly define the source and destin
 
 ## Synchronize files
 
-You can synchronize the contents of a local file system with a file share or synchronize the contents of a file share with another file share. You can also synchronize the contents of a directory in a file share with the contents of a directory that is located in another file share. Synchronization is one way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server to server APIs.
+You can synchronize the contents of a local file system with a file share or synchronize the contents of a file share with another file share. You can also synchronize the contents of a directory in a file share with the contents of a directory that is located in another file share. Synchronization is one way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server-to-server APIs.
 
-> [!Warning]  
-> AzCopy sync is supported but not fully recommended for Azure Files. AzCopy sync supports up to 10 million files per AzCopy job and some file fidelity might be lost as AzCopy uses the Azure Files REST APIs for copying content to your Azure Files share. To learn more, see [Migrate to Azure file shares](../files/storage-files-migration-overview.md#file-copy-tools).
+> [!WARNING]  
+> AzCopy sync is supported but not fully recommended for Azure Files. AzCopy sync supports up to 10 million files per AzCopy job, and some file fidelity might be lost as AzCopy uses the Azure Files REST APIs for copying content to your Azure Files share. To learn more, see [Migrate to SMB Azure file shares](../files/storage-files-migration-overview.md#file-copy-tools). The current release of AzCopy doesn't support synchronizing Azure Files with Azure Blob storage. 
 
 ### Guidelines
 
@@ -897,7 +897,28 @@ To learn more about share snapshots, see [Overview of share snapshots for Azure 
 | **Azure Files SMB**     | NTFSFileAttributes (ReadOn ReadOnly, Hidden, System, Directory, Archive, None, Temporary, Offline, NotContentIndexed, NoScrubData) (x-ms-file-attributes) <br> CreationTime (x-ms-file-creation-time) <br> LastWriteTime (x-ms-file-last-write-time) | ACLs (x-ms-file-permission)              |
 | **Azure Files NFS**     | CreationTime (x-ms-file-creation-time) <br> LastWriteTime (x-ms-file-last-write-time)                                                | Owner (x-ms-owner) <br> Group (x-ms-group) <br> FileMode (x-ms-mode) |
 
+## Hardlink handling for Azure Files NFS
 
+AzCopy supports configurable handling of hardlinked files when transferring data involving **Azure Files NFS**, including uploads to Azure Files NFS shares, downloads from Azure Files NFS shares, and service‑to‑service transfers between Azure Files NFS shares. You can control this behavior by using the `--hardlinks` option.
+
+### Hardlink modes
+
+| **Mode (`--hardlinks`)** | **Behavior** |
+|--------------------------|--------------|
+| `follow` (default) | Hardlinked files are treated as independent files and transferred separately. |
+| `skip` | All hardlinked files are skipped during the transfer. |
+| `preserve` | Hardlink relationships are preserved at the destination. Source and destination file systems must support hardlinks. |
+
+### Behavior when `--hardlinks=preserve` is used
+
+- **Upload and service‑to‑service transfers (Azure Files NFS as destination)**  
+  Existing hardlinks on the destination that are not part of the transfer are preserved. AzCopy writes file content in place by using the Azure Files REST API rather than a temporary file followed by a rename. As a result, the file’s inode is updated directly, and all existing hardlinked paths continue to reference the updated data.
+
+- **Download (local file system as destination)**  
+  Existing hardlinks on the destination that are not part of the transfer are broken. AzCopy uses a temporary file followed by a rename operation (similar to `rsync`), which replaces the directory entry with a new inode. Existing hardlinked paths continue to point to the original inode and therefore to stale data.
+
+> [!NOTE]  
+> Hardlink preservation requires both the source and destination to be on file systems that support hardlinks.
 
 ## Next steps
 

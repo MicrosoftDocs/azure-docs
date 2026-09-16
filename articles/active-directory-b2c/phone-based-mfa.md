@@ -5,7 +5,7 @@ description: Learn tips for securing phone-based multifactor authentication in y
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 02/03/2026
 ms.author: kengaderdus

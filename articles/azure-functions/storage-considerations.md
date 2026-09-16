@@ -17,10 +17,10 @@ When you create a function app instance in Azure, you must provide access to a d
 
 |Storage service  | Functions usage  |
 |---------|---------|
-| [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md)     | Maintain bindings state and function keys<sup>1</sup>.<br/>Deployment source for apps that run in a [Flex Consumption plan](flex-consumption-plan.md).<br/>Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). <br/>Can be used to store function app code for [Linux Consumption remote build](functions-deployment-technologies.md#remote-build) or as part of [external package URL deployments](functions-deployment-technologies.md#external-package-url). |
+| [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md)     | Maintain bindings state and function keys<sup>1</sup>.<br/>Deployment source for apps that run in a [Flex Consumption plan](flex-consumption-plan.md).<br/>Used by default for [task hubs in Durable Functions](../durable-task/common/durable-task-hubs.md). <br/>Can be used to store function app code for [Linux Consumption remote build](functions-deployment-technologies.md#remote-build) or as part of [external package URL deployments](functions-deployment-technologies.md#external-package-url). |
 | [Azure Files](../storage/files/storage-files-introduction.md)<sup>2</sup>  | File share used to store and run your function app code in a [Consumption Plan](consumption-plan.md) and [Premium Plan](functions-premium-plan.md). <br/> Maintain [extension bundles](./extension-bundles.md).<br/>Store deployment logs.<br/>Supports [Managed dependencies in PowerShell](./functions-reference-powershell.md#managed-dependencies-feature). |
-| [Azure Queue storage](../storage/queues/storage-queues-introduction.md)     | Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md). Used for failure and retry handling in [specific Azure Functions triggers](./functions-bindings-storage-blob-trigger.md). Used for object tracking by the [Blob storage trigger](functions-bindings-storage-blob-trigger.md). |
-| [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Used by default for [task hubs in Durable Functions](durable/durable-functions-task-hubs.md).<br/>Used for tracking [diagnostic events](./functions-diagnostics.md).  |
+| [Azure Queue storage](../storage/queues/storage-queues-introduction.md)     | Used by default for [task hubs in Durable Functions](../durable-task/common/durable-task-hubs.md). Used for failure and retry handling in [specific Azure Functions triggers](./functions-bindings-storage-blob-trigger.md). Used for object tracking by the [Blob storage trigger](functions-bindings-storage-blob-trigger.md). |
+| [Azure Table storage](../storage/tables/table-storage-overview.md)  |  Used by default for [task hubs in Durable Functions](../durable-task/common/durable-task-hubs.md).<br/>Used for tracking [diagnostic events](./functions-diagnostics.md).  |
 
 1. Blob storage is the default store for function keys, but you can [configure an alternate store](function-keys-how-to.md#manage-key-storage).
 1. Azure Files is set up by default, but you can [create an app without Azure Files](#create-an-app-without-azure-files) under certain conditions.
@@ -37,6 +37,8 @@ You must strongly consider the following facts regarding the storage accounts us
 
   - Monitor both control plane activity (such as retrieving keys) and data plane operations (such as writing to a blob) in your storage account. Consider maintaining storage logs in a location other than Azure Storage. For more information, see [Storage logs](#storage-logs). 
 
+- If you use [Durable Functions](../durable-task/durable-functions/durable-functions-overview.md), the task hub storage is especially security-sensitive because write access to it can be used to alter application behavior, including triggering arbitrary code execution. For more information, see [Secure your task hub storage](../durable-task/durable-functions/durable-functions-serialization-and-persistence.md#secure-your-task-hub-storage).
+
 ## Storage account requirements
 
 Storage accounts that you create during the function app creation process in the Azure portal work with the new function app. When you choose to use an existing storage account, the list provided doesn't include certain unsupported storage accounts. The following restrictions apply to storage accounts used by your function app. Make sure an existing storage account meets these requirements:
@@ -47,7 +49,7 @@ Storage accounts that you create during the function app creation process in the
 
 - When you create your function app in the Azure portal, you can only choose an existing storage account in the same region as the function app that you create. This requirement is a performance optimization and not a strict limitation. To learn more, see [Storage account location](#storage-account-location).
 
-- When you create your function app on a plan with [availability zone support](/azure/reliability/reliability-functions#resilience-to-availability-zone-failures) enabled, only [zone-redundant storage accounts](../storage/common/storage-redundancy.md#zone-redundant-storage) are supported.
+- When you create your function app on a plan with [availability zone support](/azure/reliability/reliability-functions#availability-zone-support) enabled, only [zone-redundant storage accounts](../storage/common/storage-redundancy.md#zone-redundant-storage) are supported.
 
 When you use deployment automation to create your function app with a network-secured storage account, you must include specific networking configurations in your ARM template or Bicep file. If you don't include these settings and resources, your automated deployment might fail in validation. For ARM template and Bicep guidance, see [Secured deployments](functions-infrastructure-as-code.md#secured-deployments). For an overview on configuring storage accounts with networking, see [How to use a secured storage account with Azure Functions](configure-networking-how-to.md).
 
@@ -63,7 +65,7 @@ The storage account must be accessible to the function app. If you need to use a
 
 ### Storage account connection setting
 
-By default, function apps configure the `AzureWebJobsStorage` connection as a connection string stored in the [AzureWebJobsStorage application setting](./functions-app-settings.md#azurewebjobsstorage). You can also [configure AzureWebJobsStorage to use an identity-based connection](functions-reference.md#connecting-to-host-storage-with-an-identity) without a secret.
+By default, function apps configure the `AzureWebJobsStorage` connection as a connection string stored in the [AzureWebJobsStorage application setting](./functions-app-settings.md#azurewebjobsstorage). You can also [configure AzureWebJobsStorage to use an identity-based connection](manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections) without a secret.
 
 Function apps running in a Consumption plan (Windows only) or an Elastic Premium plan (Windows or Linux) can use Azure Files to store the images required to enable dynamic scaling. For these plans, set the connection string for the storage account in the [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](./functions-app-settings.md#website_contentazurefileconnectionstring) setting and the name of the file share in the [WEBSITE_CONTENTSHARE](./functions-app-settings.md#website_contentshare) setting. This value is usually the same account used for `AzureWebJobsStorage`. You can also [create a function app that doesn't use Azure Files](#create-an-app-without-azure-files), but scaling might be limited.
 
@@ -132,7 +134,7 @@ Use the following table to determine which function trigger best fits your needs
 
 ### In-region data residency
 
-When all customer data must remain within a single region, the storage account associated with the function app must be one with [in-region redundancy](../storage/common/storage-redundancy.md). An in-region redundant storage account also must be used with [Azure Durable Functions](./durable/durable-functions-azure-storage-provider.md#storage-account-selection).
+When all customer data must remain within a single region, the storage account associated with the function app must be one with [in-region redundancy](../storage/common/storage-redundancy.md). An in-region redundant storage account also must be used with [Azure Durable Functions](../durable-task/durable-functions/durable-functions-azure-storage-provider.md#storage-account-selection).
 
 Other platform-managed customer data is only stored within the region when hosting in an internally load-balanced App Service Environment (ASE). To learn more, see [ASE zone redundancy](../app-service/environment/zone-redundancy.md#in-region-data-residency).
 
@@ -185,7 +187,7 @@ You must manually update the deployment package and maintain the deployment pack
 You should also note the following considerations:
 
 - The app can't use version 1.x of the Functions runtime.
-- Your app can't rely on a shared writeable file system.
+- Your app can't rely on a shared writable file system.
 - Portal editing isn't supported.
 - Log streaming experiences in clients such as the Azure portal default to file system logs. You should instead rely on Application Insights logs.
 

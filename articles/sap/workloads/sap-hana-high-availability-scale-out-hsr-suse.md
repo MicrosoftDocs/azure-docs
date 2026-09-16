@@ -6,7 +6,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 03/25/2026
+ms.date: 07/22/2026
 ms.author: radeltch
 ms.custom:
   - devx-track-azurecli
@@ -527,49 +527,12 @@ Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azu
 Few details to consider when setting up basic pacemaker cluster for HANA scale-out.
 
 * Don't set `quorum expected-votes` to 2, as this isn't a two node cluster.
+
 * Set the cluster property `concurrent-fencing=true` to enable deserialized node fencing.
 
   ```bash
   sudo crm configure property concurrent-fencing=true
   ```
-  
-After the base Pacemaker cluster is configured, complete the following additional steps.
-
-1. **[A]** Configure a delayed start for pacemaker.service at boot by creating the file /etc/systemd/system/pacemaker.timer with the following content:
-
-    ```bash
-    vi /etc/systemd/system/pacemaker.timer
-
-    [Unit]
-    Description=Delay start of pacemaker.service after boot
-       
-    [Timer]
-    OnBootSec=216
-    Unit=pacemaker.service
-        
-    [Install]
-    WantedBy=timers.target
-    ```
-
-1. **[A]** Disable the Pacemaker service and enable the timer. This ensures Pacemaker is started by the timer instead of immediately at boot.
-
-    ```bash
-    systemctl disable pacemaker.service
-    systemctl enable pacemaker.timer
-    ```
-  
-1. **[A]** Edit `SBD_DELAY_START` value in `/etc/sysconfig/sbd`. This step applies only if SBD is configured as the STONITH mechanism.
-
-    ```bash
-    SBD_DELAY_START=no
-    ```
-
-1. **[1]** Restart cluster services on all nodes
-
-    ```bash
-    # When --all is specified, cluster service is restarted on all nodes. 
-    crm cluster restart --all
-    ```
 
 ## Installation  
 
@@ -818,7 +781,7 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
 
 ## Implement HANA resource agents
 
-SUSE provides two different software packages for the Pacemaker resource agent to manage SAP HANA. Software packages SAPHanaSR-ScaleOut and SAPHanaSR-angi are using slightly different syntax and parameters and aren't compatible. See [SUSE release notes](https://www.suse.com/releasenotes/x86_64/SLE-SAP/15-SP6/index.html#bsc-1210005) and [documentation](https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-angi-scaleout-perfopt-15/index.html) for details and differences between SAPHanaSR-angi and SAPHanaSR-ScaleOut. This document covers both packages in separate tabs in the respective sections.
+SUSE provides two generations of resource agents for configuring a HANA system replication HA cluster on SLES. The software packages SAPHanaSR-ScaleOut and SAPHanaSR-angi use slightly different syntax and their parameters aren't compatible. For details and differences between SAPHanaSR-angi and SAPHanaSR-ScaleOut, see the [SUSE release notes](https://www.suse.com/releasenotes/x86_64/SLE-SAP/15-SP6/index.html#bsc-1210005) and [documentation](https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-angi-scaleout-perfopt-15/index.html). The packages are mutually exclusive, and you can only configure one on your system at a time. Use the corresponding tab below for your specific configuration.
 
 > [!WARNING]
 > Don't replace the package SAPHanaSR-ScaleOut by SAPHanaSR-angi in an already configured cluster. Upgrading from SAPHanaSR to SAPHanaSR-angi requires a specific procedure. For more details, see SUSE's blog post [How to upgrade to SAPHanaSR-angi](https://www.suse.com/c/how-to-upgrade-to-saphanasr-angi/).
@@ -840,7 +803,8 @@ sudo zypper in -t pattern ha_sles
 ### [SAPHanaSR-ScaleOut](#tab/saphanasr-scaleout)
 
 > [!NOTE]
-> SAPHanaSR-ScaleOut version 0.181 or higher must be installed.
+> The classic `SAPHanaSR` package isn't available on SLES for SAP Applications 16. If you're deploying on SLES 16, switch to the **SAPHanaSR-angi** tab.
+> On other releases, you must install SAPHanaSR-ScaleOut version 0.181 or higher.
 
 SUSE delivers special resource agents for SAP HANA and by default agents for SAP HANA scale-up are installed. Uninstall the packages for scale-up, if installed and install the packages for scenario SAP HANA scale-out. Run the following command on all cluster VMs, including the majority maker to install the high availability packages:
 
@@ -942,7 +906,7 @@ With susChkSrv implemented, an immediate and configurable action is executed. Th
 
       SUSE delivers the HA hooks by default in the `/usr/share/SAPHanaSR-ScaleOut` directory. Using the standard location ensures that OS package updates automatically update the python hook code, and HANA uses the updated code at the next restart. Alternatively, you can specify your own path, such as `/hana/shared/myHooks`, to decouple OS updates from the hook version you use.
 
-   2. **[AH]** The cluster requires sudoers configuration on the cluster nodes for <sid\>adm. In this example that is achieved by creating a new file. Run the following command as root. Replace \<sid\> by lowercase SAP system ID.    
+   1. **[AH]** The cluster requires sudoers configuration on the cluster nodes for <sid\>adm. In this example, you achieve that requirement by creating a new file. Run the following command as root. Replace \<sid\> by lowercase SAP system ID.
 
       ```bash
       cat << EOF > /etc/sudoers.d/20-saphana

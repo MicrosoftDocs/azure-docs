@@ -2,12 +2,12 @@
 title: Tutorial to install Azure Stack Edge Mini R physical device | Microsoft Docs
 description: The second tutorial about installing Azure Stack Edge Mini R device involves how to cable the physical device for power and network.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 11/10/2023
-ms.author: alkohli
+ms.author: sipastak
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Mini R device in datacenter so I can use it to transfer data to Azure.  
 ---
 # Tutorial: Install Azure Stack Edge Mini R

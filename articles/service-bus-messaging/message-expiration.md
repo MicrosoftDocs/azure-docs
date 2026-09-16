@@ -57,16 +57,15 @@ Enable the feature by setting the **auto delete on idle** property on the entity
  
 ## Idleness
 
-Here's what counts as idleness for entities (queues, topics, and subscriptions):
+An entity is idle when no client performs any of the operations listed below against it for the entire `AutoDeleteOnIdle` duration. Idleness is measured by *operations performed by clients*, not by message flow. A send operation counts as activity even if the message is later filtered out. A receive operation counts as activity even when the receiver returns empty because no messages are available. An admin operation against the entity counts as activity.
 
-| Entity | What's considered idle | 
-| ------ | ---------------------- | 
-| Queue | <ul><li>No sends</li><li>No receives</li><li>No updates to the queue</li><li>No scheduled messages</li><li>No browse or peek</li> |
-| Topic | <ul><li>No sends</li><li>No updates to the topic</li><li>No scheduled messages</li><li>No operations on the topic's subscriptions (see the next row)</li></ul> |
-| Subscription | <ul><li>No receives</li><li>No updates to the subscription</li><li>No new rules added to the subscription</li><li>No browse or peek</li></ul> |
+| Entity | Operations that reset the idle timer |
+| ------ | ------------------------------------ |
+| Queue | Sending a message to the queue, receiving from the queue (including receive calls that return empty), peeking or browsing the queue, updating queue properties, scheduling a message |
+| Topic | Sending a message to the topic, updating topic properties, scheduling a message, any operation against one of the topic's subscriptions (see the next row) |
+| Subscription | Receiving from the subscription (including receive calls that return empty), peeking or browsing the subscription, updating subscription properties, adding or removing a rule |
 
- > [!IMPORTANT] 
-> If you set up auto forwarding on the queue or subscription, it's the same as a receiver performing receives on the queue or subscription. These entities aren't idle.
+Auto forwarding from a queue or subscription counts as receive activity against the source entity. A source entity with auto forwarding configured doesn't go idle as long as auto forwarding is enabled, even if no other receivers are connected.
  
 ## SDKs
 Set the time-to-live property by using Software Development Kits (SDKs). 
@@ -74,7 +73,7 @@ Set the time-to-live property by using Software Development Kits (SDKs).
 - To set time-to-live on a message: [.NET](/dotnet/api/azure.messaging.servicebus.servicebusmessage.timetolive), [Java](/java/api/com.azure.messaging.servicebus.servicebusmessage.settimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.servicebusmessage), [JavaScript](/javascript/api/@azure/service-bus/servicebusmessage#@azure-service-bus-servicebusmessage-timetolive)
 - To set the default time-to-live on a queue: [.NET](/dotnet/api/azure.messaging.servicebus.administration.createqueueoptions.defaultmessagetimetolive), [Java](/java/api/com.azure.messaging.servicebus.administration.models.createqueueoptions.setdefaultmessagetimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.management.queueproperties), [JavaScript](/javascript/api/@azure/service-bus/queueproperties#@azure-service-bus-queueproperties-defaultmessagetimetolive)
 - To set the default time-to-live on a topic: [.NET](/dotnet/api/azure.messaging.servicebus.administration.createtopicoptions.defaultmessagetimetolive), [Java](/java/api/com.azure.messaging.servicebus.administration.models.createtopicoptions.setdefaultmessagetimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.management.topicproperties), [JavaScript](/javascript/api/@azure/service-bus/topicproperties#@azure-service-bus-topicproperties-defaultmessagetimetolive)
-- To set the default time-to-live on a subscription: [.NET](/dotnet/api/azure.messaging.servicebus.administration.createsubscriptionoptions.defaultmessagetimetolive), [Java](), [Python](), [JavaScript](/java/api/com.azure.messaging.servicebus.administration.models.createsubscriptionoptions.setdefaultmessagetimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.management.subscriptionproperties), [JavaScript](/javascript/api/@azure/service-bus/subscriptionproperties)
+- To set the default time-to-live on a subscription: [.NET](/dotnet/api/azure.messaging.servicebus.administration.createsubscriptionoptions.defaultmessagetimetolive), [Java](/java/api/com.azure.messaging.servicebus.administration.models.createsubscriptionoptions.setdefaultmessagetimetolive), [Python](/python/api/azure-servicebus/azure.servicebus.management.subscriptionproperties), [JavaScript](/javascript/api/@azure/service-bus/subscriptionproperties)
  
 
 

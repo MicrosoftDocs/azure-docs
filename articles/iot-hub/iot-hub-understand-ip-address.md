@@ -1,8 +1,8 @@
 ---
 title: Understanding the IP address of your IoT hub | Microsoft Docs
 description: Understand how to query your IoT hub IP address and its properties. The IP address of your IoT hub can change during certain scenarios such as disaster recovery or regional failover.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: concept-article
@@ -21,8 +21,8 @@ You can use these IP address prefixes to control connectivity between IoT Hub an
 
 | Goal | Applicable scenarios | Approach |
 |------|-----------|----------|
-| Ensure your devices and services communicate with IoT Hub endpoints only | [Device-to-cloud](./iot-hub-devguide-messaging.md) and [cloud-to-device](./iot-hub-devguide-messages-c2d.md) messaging, [direct methods](./iot-hub-devguide-direct-methods.md), [device and module twins](./iot-hub-devguide-device-twins.md), and [device streams](./iot-hub-device-streams-overview.md) | Use the _AzureIoTHub_ service tag to discover IoT Hub IP address prefixes, then configure ALLOW rules on the firewall setting of your devices and services for these IP address prefixes. Traffic to other destination IP addresses is dropped. |
-| Ensure your IoT Hub device endpoint receives connections only from your devices and network assets | [Device-to-cloud](./iot-hub-devguide-messaging.md) and [cloud-to-device](./iot-hub-devguide-messages-c2d.md) messaging, [direct methods](./iot-hub-devguide-direct-methods.md), [device and module twins](./iot-hub-devguide-device-twins.md), and [device streams](./iot-hub-device-streams-overview.md) | Use IoT Hub [IP filter feature](iot-hub-ip-filtering.md) to allow connections from your devices and network asset IP addresses. For details on restrictions, see the [Limitations and workarounds](#limitations-and-workarounds) section. |
+| Ensure your devices and services communicate with IoT Hub endpoints only | [Device-to-cloud](./iot-hub-devguide-messaging.md) and [cloud-to-device](./iot-hub-devguide-messages-c2d.md) messaging, [direct methods](./iot-hub-devguide-direct-methods.md), and [device and module twins](./iot-hub-devguide-device-twins.md) | Use the _AzureIoTHub_ service tag to discover IoT Hub IP address prefixes, then configure ALLOW rules on the firewall setting of your devices and services for these IP address prefixes. Traffic to other destination IP addresses is dropped. |
+| Ensure your IoT Hub device endpoint receives connections only from your devices and network assets | [Device-to-cloud](./iot-hub-devguide-messaging.md) and [cloud-to-device](./iot-hub-devguide-messages-c2d.md) messaging, [direct methods](./iot-hub-devguide-direct-methods.md), and [device and module twins](./iot-hub-devguide-device-twins.md) | Use IoT Hub [IP filter feature](iot-hub-ip-filtering.md) to allow connections from your devices and network asset IP addresses. For details on restrictions, see the [Limitations and workarounds](#limitations-and-workarounds) section. |
 | Ensure your routes' custom endpoint resources (storage accounts, service bus, and event hubs) are reachable from your network assets only | [Message routing](./iot-hub-devguide-messages-d2c.md) | Follow your resource's guidance on restricting connectivity; for example, via [private links](../private-link/private-endpoint-overview.md), [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), or [firewall rules](../event-hubs/event-hubs-ip-filtering.md#trusted-microsoft-services). For details on firewall restrictions, see the [Limitations and workarounds](#limitations-and-workarounds) section. |
 
 ## Best practices

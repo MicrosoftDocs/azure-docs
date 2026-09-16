@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 01/28/2026
-ms.author: danlep
+ms.author: patricka
 ---
 > [!IMPORTANT]
 > - API Management no longer supports subscriptions for tracing or the **Ocp-Apim-Trace** header.

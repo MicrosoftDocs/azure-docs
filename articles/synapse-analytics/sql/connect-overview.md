@@ -14,6 +14,8 @@ ms.custom:
 ---
 # Connect to Synapse SQL
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Get connected to the Synapse SQL capability in Azure Synapse Analytics.
 
 > [!IMPORTANT]

@@ -1,9 +1,9 @@
 ---
 title: IoT Hub Device Provisioning Service libraries and SDKs
 description: Information about the device and service libraries available for developing solutions with Device Provisioning Service (CPS).
-author: cwatson-cat
-ms.author: cwatson
-ms.date: 02/12/2026
+author: sethmanheim
+ms.author: sethm
+ms.date: 04/01/2026
 ms.topic: reference
 ms.service: azure-iot-hub
 services: iot-dps
@@ -17,7 +17,7 @@ ai-usage: ai-assisted
 The Microsoft SDKs for IoT Hub Device Provisioning Service (DPS) help you build device and backend applications that provision IoT devices to one or more IoT hubs. The SDKs handle the underlying transport and security protocols between your devices or backend apps and DPS, freeing you to focus on application development. By using the SDKs, you get support for future updates to DPS, including security updates. This article describes the three categories of SDKs, lists the DPS SDKs published in popular languages, and provides links to SDK references, samples, and quickstarts.
 
 > [!IMPORTANT]
-> Certificate management in IoT Hub is in **preview** and is supported only in the following DPS Device SDKs: Embedded C (Bare metal, Free RTOS), C, and Python. IoT Hub SDKs don't support it. For more information, see the [What is Certificate Management?](../iot-hub/iot-hub-certificate-management-overview.md)
+> Certificate management in IoT Hub is in **preview** and is supported only in the following DPS Device SDKs: Embedded C (Bare metal, Free RTOS), C, and Python. IoT Hub SDKs don't support it. For more information, see the [What is Certificate Management?](../iot/iot-certificate-management-overview.md)
 
 ## SDK categories
 
@@ -41,12 +41,7 @@ The DPS device SDKs enable your devices to register with DPS and receive their I
 
 ### Certificate management device SDKs (preview)
 
-For SDKs that support Microsoft-backed X.509 certificate management in preview, use the following instructions and samples.
-
-| Platform | Instructions | Sample |
-| ----- | ----- | ----- |
-| C | [Instructions](https://github.com/Azure/azure-iot-sdk-c/tree/feature/dps-csr-preview/provisioning_client/samples/prov_dev_client_ll_x509_csr_sample) | [Sample](https://github.com/Azure/azure-iot-sdk-c/tree/feature/dps-csr-preview/provisioning_client/samples/prov_dev_client_ll_x509_csr_sample) |
-| Python | [Instructions](https://github.com/Azure/azure-iot-sdk-python/blob/feature/dps-csr-preview/azure-iot-device/samples/dps-cert-mgmt/dps_certificate_management.md) | [Sample](https://github.com/Azure/azure-iot-sdk-python/blob/feature/dps-csr-preview/azure-iot-device/samples/dps-cert-mgmt/provisioning_client_certificate_issuance.py) |
+[!INCLUDE [iot-hub-sdks-certificate-management](../../includes/iot-hub-sdks-certificate-management.md)]
 
 ### Embedded device SDKs
 
@@ -54,12 +49,8 @@ For SDKs that support Microsoft-backed X.509 certificate management in preview, 
 
 ### Certificate management embedded device SDKs (preview)
 
-For embedded SDKs that support Microsoft-backed X.509 certificate management in preview, use the following instructions and samples:
 
-| RTOS | SDK | Instructions | Sample |
-| :-- | :-- | :-- | :-- |
-| **FreeRTOS** | FreeRTOS Middleware | [Instructions](https://github.com/Azure-Samples/iot-middleware-freertos-samples/blob/feature/dps-csr-preview/demos/projects/PC/linux/README.md) | [Sample](https://github.com/Azure-Samples/iot-middleware-freertos-samples/tree/feature/dps-csr-preview/demos/projects/PC/linux) |
-| **Bare Metal** | Azure SDK for Embedded C | [Instructions](https://github.com/Azure/azure-sdk-for-c/blob/feature/dps-csr-preview/sdk/samples/iot/README.md) | [Sample](https://github.com/Azure/azure-sdk-for-c/blob/feature/dps-csr-preview/sdk/samples/iot/paho_iot_provisioning_csr_sample.c) |
+[!INCLUDE [iot-hub-sdks-certificate-management-embedded](../../includes/iot-hub-sdks-certificate-management-embedded.md)]
 
 ## Service SDKs
 

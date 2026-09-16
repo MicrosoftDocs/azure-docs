@@ -3,6 +3,7 @@ title: Back up blobs in a storage account using Azure Data Protection REST API.
 description: In this article, learn how to configure, initiate, and manage backup operations of blobs using REST API.
 ms.topic: how-to
 ms.date: 06/17/2025
+ms.update-cycle: 1095-days
 ms.assetid: 7c244b94-d736-40a8-b94d-c72077080bbe
 ms.service: azure-backup
 ms.custom: engagement-fy23
@@ -79,7 +80,7 @@ The following is the request body to configure backup for all blobs within a sto
 }
 ```
 
-To configure backup with vaulted backup enabled, refer the below request body.
+To configure backup with vaulted backup enabled for explicit container selection, use the following request body. Use `containersList` when you want to protect only selected containers instead of auto-protecting all present and future containers. For auto-protection, use a backup configuration generated with the Azure CLI `az dataprotection backup-instance initialize-backupconfig --auto-protection true` command or the Azure PowerShell `New-AzDataProtectionBackupConfigurationClientObject -AutoProtection` cmdlet, and then pass that backup configuration in the backup instance request.
 
 ```json
 {backupInstanceDataSourceType is Microsoft.Storage/storageAccounts/blobServices
@@ -158,7 +159,7 @@ The [request body](#prepare-the-request-to-configure-blob-backup) that you prepa
 }
 ```
 
-#### Example request body for vaulted backup
+#### Example request body for vaulted backup with explicit container selection
 
 ```json
 {
@@ -564,4 +565,4 @@ For more information on the Azure Backup REST APIs, see the following documents:
 
 ## Related content
 
-Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), [Azure CLI](restore-blobs-storage-account-cli.md).
+Restore Azure blobs by using Azure Backup with the [Azure portal](blob-restore.md), [Azure PowerShell](restore-blobs-storage-account-ps.md), or [Azure CLI](restore-blobs-storage-account-cli.md).

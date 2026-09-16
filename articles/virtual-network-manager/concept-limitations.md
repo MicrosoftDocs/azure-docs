@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 07/11/2025
+ms.date: 07/17/2026
 #CustomerIntent: As a network admin, I want understand the limitations in Azure Virtual Network Manager so that I can properly deploy it my environment.
 ms.custom:
   - build-2025
@@ -35,9 +35,9 @@ This article provides an overview of the current limitations when you're using [
 
 * A virtual network can be peered with up to 1,000 virtual networks using Azure Virtual Network Manager's hub-and-spoke connectivity configuration, meaning you can peer up to 1,000 spoke virtual networks to a hub virtual network.
 
-* By default, the maximum number of private endpoints per connected group is 2,000. You can increase this limit to 20,000 using the this feature [enabling high-scale private endpoints in connected groups](./concept-connectivity-configuration.md#enable-high-scale-private-endpoints-in-azure-virtual-network-manager-connected-groups).
+* By default, each connected group supports up to 2,000 private endpoints. You can increase this limit to 20,000 by [enabling high-scale private endpoints in connected groups](./concept-connectivity-configuration.md#enable-high-scale-private-endpoints-in-azure-virtual-network-manager-connected-groups).
 
-* By default, a [connected group](concept-connectivity-configuration.md#behind-the-scenes-connected-group) can have up to 250 virtual networks. This default is a soft limit and can be increased up to 1,000 virtual networks by submitting a request using [this form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRzeHatNxLHpJshECDnD5QidURTM2OERMQlYxWkE1UTNBMlRNUkJUNkhDTy4u&route=shorturl).
+* By default, each [connected group](concept-connectivity-configuration.md#behind-the-scenes-connected-group) supports up to 250 virtual networks. This default is a soft limit. You can increase it to 1,000 virtual networks by submitting a request through [this form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRzeHatNxLHpJshECDnD5QidURTM2OERMQlYxWkE1UTNBMlRNUkJUNkhDTy4u&route=shorturl). In supported regions, register the `AllowHighScaleConnectedGroup` preview feature to enable a [high-scale connected group](concept-connectivity-configuration.md#enable-high-scale-connectivity-in-azure-virtual-network-manager-connected-groups) that contains up to 5,000 virtual networks.
 
 * By default, a virtual network can be part of up to two [connected groups](concept-connectivity-configuration.md#behind-the-scenes-connected-group). For example, a virtual network:
   * Can be part of two mesh connectivity configurations.
@@ -46,7 +46,6 @@ This article provides an overview of the current limitations when you're using [
   * This default is a soft limit and can be adjusted by submitting a request using [this form](https://forms.office.com/r/xXxYrQt0NQ).
 
 * The following BareMetal Infrastructures aren't supported in connected group:
-  * [Azure NetApp Files](../azure-netapp-files/index.yml)
   * [Azure VMware Solution](../azure-vmware/index.yml)
   * [Nutanix Cloud Clusters on Azure](../baremetal-infrastructure/workloads/nc2-on-azure/about-nc2-on-azure.md)
   * [Oracle Database@Azure](../oracle/oracle-db/oracle-database-what-is-new.md)

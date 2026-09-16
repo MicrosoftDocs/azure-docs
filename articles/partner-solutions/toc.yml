@@ -8,14 +8,15 @@ items:
   - name: Frequently asked questions
     href: faq.yml
 - name: Partner services documentation
-  expanded: true
   items:
   - name: AI partners
-    items: 
+    items:
     - name: Arize AI
       href: ./arize-ai/index.yml
     - name: LambdaTest - HyperExecute
       href: ./lambda-test/index.yml
+    - name: Napster API
+      href: ./napster/index.yml
   - name: Observability partners
     items:
     - name: Datadog
@@ -27,26 +28,26 @@ items:
     - name: New Relic
       href: ./new-relic/index.yml
     - name: Features
-      items: 
+      items:
       - name: Metrics and logs
         href: metrics-logs.md
   - name: Data and storage partners
     items:
     - name: Astro
       href: ./astronomer/index.yml
+    - name: Commvault
+      href: ./commvault/index.yml
     - name: Confluent
       href: ./apache-kafka-confluent-cloud/index.yml
-    - name: Dell PowerScale Preview
+    - name: Dell PowerScale
       href: ./dell/index.yml
-    - name: Informatica 
+    - name: Informatica
       href: ./informatica/index.yml
     - name: MongoDB Atlas
       href: ./mongo-db/index.yml
-    - name: Neon Serverless Postgres
-      href: ./neon/index.yml 
-    - name: Pure Storage Cloud
+    - name: Everpure Cloud
       href: ./pure-storage/index.yml
-    - name: Qumulo 
+    - name: Qumulo
       href: ./qumulo/index.yml
   - name: Network and security partners
     items:
@@ -54,7 +55,5 @@ items:
       href: ./nginx/index.yml
     - name: Palo Alto Network
       href: ./palo-alto/index.yml
-
-
-
+  expanded: true
 

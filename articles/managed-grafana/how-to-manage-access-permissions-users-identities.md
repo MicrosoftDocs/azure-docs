@@ -8,7 +8,7 @@ ms.author: malev
 ms.service: azure-managed-grafana
 ms.custom: engagement-fy23
 ms.topic: how-to 
-ms.date: 01/15/2025
+ms.date: 04/01/2026
 ---
 
 # Manage access and permissions for users and identities
@@ -21,8 +21,8 @@ This guide walks you through the supported Grafana roles and shows you how to us
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana workspace](./how-to-permissions.md).
-- You must have Grafana Admin permissions on the workspace.
+- An Azure Managed Grafana workspace. If you don't have one yet, you can [create one in the Azure portal](./quickstart-managed-grafana-portal.md) or [create one using the Azure CLI](./quickstart-managed-grafana-cli.md).
+- You must have Grafana Admin permissions on the workspace. See [how to modify access permissions to Azure Monitor](./how-to-permissions.md).
 
 ## Learn about Grafana roles
 
@@ -40,11 +40,11 @@ The following built-in roles are available in Azure Managed Grafana, each provid
 > | <a name='grafana-limited-viewer'></a>[Grafana Limited Viewer](../role-based-access-control/built-in-roles/monitor.md#grafana-limited-viewer) | View a Grafana home page. This role contains no permissions assigned by default and it is not available for Grafana v9 workspaces. | 41e04612-9dac-4699-a02b-c82ff2cc3fb5 |
 > | <a name='grafana-viewer'></a>[Grafana Viewer](../role-based-access-control/built-in-roles/monitor.md#grafana-viewer) | View a Grafana workspace, including its dashboards and alerts. | 60921a7e-fef1-4a43-9b16-a26c52ad4769 |
 
-To access the Grafana user interface, users must possess one of the roles above. You can find more information about the Grafana roles from the [Grafana documentation](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/#organization-roles). The Grafana Limited Viewer role in Azure maps to the "No Basic Role" in the Grafana docs.
+To access the Grafana user interface, users must possess one of the roles listed in the previous table. You can find more information about the Grafana roles from the [Grafana documentation](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/#organization-roles). The Grafana Limited Viewer role in Azure maps to the "No Basic Role" in the Grafana docs.
 
 ## Assign a Grafana role
 
-Grafana user roles and assignments are fully [integrated within Microsoft Entra ID](../role-based-access-control/built-in-roles.md#grafana-admin). You can assign a Grafana role to any Microsoft Entra user, group, service principal, or managed identity, and grant them access permissions associated with that role. You can manage these permissions from the Azure portal or the command line. This section explains how to assign Grafana roles to users in the Azure portal.
+Grafana [user roles](../role-based-access-control/built-in-roles.md#grafana-admin) and assignments are fully integrated within Microsoft Entra ID. You can assign a Grafana role to any Microsoft Entra user, group, service principal, or managed identity, and grant them access permissions associated with that role. You can manage these permissions from the Azure portal or the command line. This section explains how to assign Grafana roles to users in the Azure portal.
 
 ### [Portal](#tab/azure-portal)
 
@@ -52,21 +52,21 @@ Grafana user roles and assignments are fully [integrated within Microsoft Entra 
 1. Select **Access control (IAM)** in the left menu.
 1. Select **Add role assignment**.
 
-      :::image type="content" source="media/share/iam-page.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
+   :::image type="content" source="media/share/iam-page.png" alt-text="Screenshot of Add role assignment in the Azure platform.":::
 
 1. Select a Grafana role to assign among **Grafana Admin**, **Grafana Editor**, **Grafana Limited Viewer**, or **Grafana Viewer**, then select **Next**.
 
-    :::image type="content" source="media/share/role-assignment.png" alt-text="Screenshot of the Grafana roles in the Azure platform.":::
+   :::image type="content" source="media/share/role-assignment.png" alt-text="Screenshot of the Grafana roles in the Azure platform.":::
 
 1. Choose if you want to assign access to a **User, group, or service principal**, or to a **Managed identity**.
-1. Click on **Select members**, pick the members you want to assign to the Grafana role and then confirm with **Select**.
+1. Choose **Select members** and pick the members you want to assign to the Grafana role. Confirm your choices with **Select**.
 1. Select **Next**, then **Review + assign** to complete the role assignment.
 
 ### [Azure CLI](#tab/azure-cli)
 
 Assign a role using the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command.
 
-In the code below, replace the following placeholders:
+In the following code, replace these placeholders:
 
 - `<assignee>`:
   - For a Microsoft Entra user, enter their email address or the user object ID.
@@ -93,12 +93,12 @@ az role assignment create --assignee "name@contoso.com" \
 --role "Grafana Admin" \
 --scope "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/my-rg/providers/Microsoft.Dashboard/grafana/my-grafana"
 ```
-For more information about assigning Azure roles using the Azure CLI, refer to the [Role based access control documentation](../role-based-access-control/role-assignments-cli.md).
+For more information about assigning Azure roles using the Azure CLI, see [Role based access control documentation](../role-based-access-control/role-assignments-cli.md).
 
 ---
 
 > [!TIP] 
-> When onboarding a new user to your Azure Managed Grafana workspace, granting them the Grafana Limited Viewer role allows them limited access to the Grafana workspace.
+> When you onboard a new user to your Azure Managed Grafana workspace, granting them the Grafana Limited Viewer role allows them limited access to the Grafana workspace.
 > 
 > You can then grant the user access to each relevant dashboard and data source using their management settings. This method ensures that users with the Grafana Limited Viewer role only access the specific components they need, enhancing security and data privacy.
 

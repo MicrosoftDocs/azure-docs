@@ -72,7 +72,7 @@ Set up a secured storage account for your function app:
         * `Microsoft.Storage`: use when your app is in the same region as your virtual network.
         * `Microsoft.Storage.Global`:  use when your app is in a different region than your virtual network. 
 
-1. Copy the file and blob content from the current storage account used by the function app to the newly secured storage account and file share. [AzCopy](../storage/common/storage-use-azcopy-blobs-copy.md) and [Azure Storage Explorer](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-tips-and-tricks-how-to-move-azure-storage-blobs-between/ba-p/3545304) are common methods. If you use Azure Storage Explorer, you might need to allow your client IP address access to your storage account's firewall.
+1. Copy the file and blob content from the current storage account used by the function app to the newly secured storage account and file share. [AzCopy](../storage/common/storage-use-azcopy-blobs-copy.md) and [Azure Storage Explorer](https://techcommunity.microsoft.com/blog/azuredevcommunityblog/azure-tips-and-tricks---how-to-move-azure-storage-blobs-between-containers/3545304) are common methods. If you use Azure Storage Explorer, you might need to allow your client IP address access to your storage account's firewall.
 
 Now you're ready to configure your function app to communicate with the newly secured storage account.
 

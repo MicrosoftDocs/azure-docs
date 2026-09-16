@@ -3,7 +3,7 @@ title: Template functions - string
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 08/01/2025
+ms.date: 06/03/2026
 ---
 
 # String functions for ARM templates
@@ -28,6 +28,7 @@ Resource Manager provides the following functions for working with strings in yo
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
+* [like](#like)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
 * [replace](#replace)
@@ -1142,6 +1143,69 @@ The output of default values from the preceding example is:
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
 | objectLength | Int | 4 |
+
+## like
+
+`like(stringToCheck, pattern)`
+
+Returns `true` if the string matches the specified pattern. Otherwise, returns `false`. The `like()` function performs a case-insensitive match.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+| --- | --- | --- | --- |
+| stringToCheck | Yes | string | The string value to check against the pattern. |
+| pattern | Yes | string | The pattern to match. Supports `*` as a wildcard for any sequence of zero or more characters. |
+
+### Return value
+
+A boolean value: `true` if the string matches the pattern, otherwise `false`.
+
+### Example
+
+The following example demonstrates how the `like()` function is used.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "resourceName": "prod-eastus-vm01"
+  },
+  "outputs": {
+    "containsProd": {
+      "type": "bool",
+      "value": "[like(variables('resourceName'), '*prod*')]"
+    },
+    "startsWithProd": {
+      "type": "bool",
+      "value": "[like(variables('resourceName'), 'prod*')]"
+    },
+    "endsWith01": {
+      "type": "bool",
+      "value": "[like(variables('resourceName'), '*01')]"
+    },
+    "exactMatch": {
+      "type": "bool",
+      "value": "[like(variables('resourceName'), 'prod-eastus-vm01')]"
+    },
+    "noMatch": {
+      "type": "bool",
+      "value": "[like(variables('resourceName'), '*westus*')]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| containsProd | Boolean | true |
+| startsWithProd | Boolean | true |
+| endsWith01 | Boolean | true |
+| exactMatch | Boolean | true |
+| noMatch | Boolean | false |
 
 ## newGuid
 

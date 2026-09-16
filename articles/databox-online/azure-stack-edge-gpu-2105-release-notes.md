@@ -2,12 +2,12 @@
 title: Azure Stack Edge 2105 release notes
 description: Describes critical open issues and resolutions for the Azure Stack Edge running 2105 release.
 services: databox
-author: alkohli
+author: sipastak
  
 ms.service: azure-stack-edge
 ms.topic: release-notes
 ms.date: 05/27/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge 2105 release notes

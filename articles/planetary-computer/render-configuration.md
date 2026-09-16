@@ -1,13 +1,11 @@
 ---
 title: Configure render settings for data visualization in Microsoft Planetary Computer Pro
 description: Learn the step-by-step process to configure render settings for visualizing geospatial data using the Microsoft Planetary Computer Pro data explorer and Tiler API.
-author: prasadko
-ms.author: prasadkomma
+author: beharris
+ms.author: brentharris
 ms.service: planetary-computer-pro
 ms.topic: how-to
-ms.date: 05/08/2025
-ms.custom:
-  - build-2025
+ms.date: 05/27/2026
 ---
 
 # Configure render settings for visualizing data in Microsoft Planetary Computer Pro
@@ -21,7 +19,8 @@ This guide walks you through the process of creating render configurations, from
 Before you can configure rendering, ensure the following prerequisite steps are complete:
 
 1.  **STAC Collection Exists:** You created a [STAC collection in Planetary Computer Pro](./create-stac-collection.md).
-2.  **Data Ingested:** You [added STAC items](./add-stac-item-to-collection.md) containing the geospatial data assets you want to visualize into the collection.
+1.  **Data Ingested:** You [added STAC items](./add-stac-item-to-collection.md) containing the geospatial data assets you want to visualize into the collection.
+1.  A Python 3.10 (or later) environment
 
 ## Process to build a Render Configuration
 | Step | Title                                                                                             | Description                                                                                                |
@@ -105,7 +104,8 @@ Render configurations are defined as a list of JSON objects (or Python dictionar
     "description": "Optional: More details about this render.",
     "type": "raster-tile", // Usually "raster-tile"
     "options": "key1=value1&key2=value2...", // The core TiTiler parameters
-    "minZoom": 8 // Optional: Minimum map zoom level to display this layer
+    "minZoom": 8, // Optional: Minimum map zoom level to display this layer
+    "info_options": "assets=<asset_key>&subdataset_name=<var>" // Optional URL query-string for Explorer time slider discovery
   },
   {
     // ... another render configuration object ...
@@ -119,6 +119,7 @@ Render configurations are defined as a list of JSON objects (or Python dictionar
 *   `type`: Typically `"raster-tile"`.
 *   `options`: A string containing URL query parameters (`key=value` pairs separated by `&`) that control the TiTiler rendering engine. This is where most customization happens.
 *   `minZoom`: Optional integer specifying the minimum map zoom level at which this layer becomes visible. Useful for managing performance with high-resolution data.
+*   `info_options`: Optional URL query-string that enables the Explorer's time slider for data cube collections (NetCDF, HDF5, GRIB2). See [Configuring the Explorer time slider](#8-configuring-the-explorer-time-slider-data-cubes) for details.
 
 Using the same structure, it's possible to have multiple render configurations for the same data so data can be visualized in multiple ways. 
 
@@ -224,8 +225,38 @@ For more information about color correction, see the [TiTiler documentation](htt
 | `subdataset_bands={band_index}` | GRIB | Select specific message/band | `assets=grib_data&subdataset_bands=1&colormap_name=jet&rescale=273,300` |
 | `subdataset_name={variable_name}` | NetCDF | Select variable to visualize | `assets=netcdf_data&subdataset_name=temperature` |
 | `datetime={timestamp}` | NetCDF | Select time slice (ISO 8601) | `datetime=2023-10-26T12:00:00Z` |
+| `sel={dimension}={value}` | Zarr | Xarray-style indexer, repeatable per dimension. | `sel=time=2024-01-01` |
+| `sel_method={method}` | Zarr | Xarray indexing method for inexact matches. | `sel_method=nearest` |
 
 **Full NetCDF example:** `assets=netcdf_data&subdataset_name=temperature&datetime=2023-10-26T12:00:00Z&colormap_name=viridis&rescale=0,30`
+
+### 8. Configuring the Explorer Time Slider (Data Cubes)
+
+To enable the Explorer's time slider for a data cube render option, add an `info_options` field to your render configuration object. `info_options` is a URL query string, in the same format as `options`, that the Explorer forwards to the Tiler's `/info` endpoint for each visible STAC item. The Explorer uses the returned band descriptions to build the slider's tick positions, so the slider reflects what the Tiler can serve. This field is valid only for `raster-tile` render options.
+
+Author `info_options` as the discovery-relevant subset of `options`: typically the `assets` parameter and, for NetCDF, HDF5, and Zarr, `subdataset_name`. Omit styling and slicing parameters such as `rescale`, `colormap_name`, `datetime`, `sel`, and `sel_method` because they don't affect band discovery. When you enable the slider, also remove any `datetime=` from `options`, otherwise the pinned value overrides the slider.
+
+```jsonc
+{
+  "id": "my-netcdf-render",
+  "name": "Temperature over time",
+  "type": "raster-tile",
+  "options": "assets=t2m-kerchunk&subdataset_name=t2m&colormap_name=viridis&rescale=250,310",
+  "minZoom": 1,
+  "info_options": "assets=t2m-kerchunk&subdataset_name=t2m"
+}
+```
+
+For GRIB2 collections, `info_options` typically contains only the asset selection used for discovery:
+
+```jsonc
+{
+  "info_options": "assets=data"
+}
+```
+
+> [!NOTE]
+> When `info_options` is absent, the Explorer falls back to the legacy behavior - reading `cube:dimensions` and `start_datetime`/`end_datetime` from STAC item metadata. Both approaches are supported simultaneously, so existing collections continue to work without changes.
 
 ## Step 6: Add the Render Configuration to Your Collection
 
@@ -245,7 +276,9 @@ For more information on configuring collections, see [Configure a collection wit
 
 **Using the API:**
 
-Define a collection render configuration using the [create stac collection render options](/rest/api/planetarycomputer/data-plane/stac-collection-render-options/create) endpoint. The following is an example of using this endpoint using the REST API with Python:
+Define a collection render configuration using the [create stac collection render options](/rest/api/planetarycomputer/data-plane/stac-collection-render-options/create) endpoint.
+
+# [REST API](#tab/restapi)
 
 ```python
 import requests
@@ -265,7 +298,7 @@ response = requests.post(
     f"{geocatalog_url}/stac/collections/{collection_id}/configurations/render-options",
     json=render_config, # Your list of render config dicts
     headers=headers,
-    params={"api-version": "2025-04-30-preview"} # Use the appropriate API version
+    params={"api-version": "2026-04-15"} # Use the appropriate API version
 )
 
 if response.status_code == 200:
@@ -276,7 +309,34 @@ else:
     print(response.text)
 
 ```
-For more information on using the STAC Collection API, see [Create a STAC collection (API examples)](./create-stac-collection.md). 
+
+# [Python SDK](#tab/pythonsdk)
+
+Install the Planetary Computer Pro Python SDK:
+
+```console
+pip install azure-planetarycomputer azure-identity azure-storage-blob
+```
+
+```python
+from azure.planetarycomputer import PlanetaryComputerProClient
+from azure.identity import DefaultAzureCredential
+
+client = PlanetaryComputerProClient(
+    endpoint="<your-geocatalog-url>",
+    credential=DefaultAzureCredential()
+)
+
+collection_id = "<your-collection-id>"
+client.stac.create_render_option(collection_id, render_config)
+print("Render configuration updated successfully.")
+```
+
+For more information, see the [Python SDK reference](/python/api/overview/azure/planetarycomputer-readme).
+
+---
+
+For more information on using the STAC Collection API, see [Create a STAC collection (API examples)](./create-stac-collection.md).
 
 ## Examples
 
@@ -355,8 +415,9 @@ Here are various examples of the `options` string and the full render configurat
     "name": "Precipitation (1950-07-07)",
     "description": "Precipitation from NetCDF data.",
     "type": "raster-tile",
-    "options": "assets=cmip&rescale=0,0.01&colormap_name=viridis&subdataset_name=pr&datetime=1950-07-07T00:00:00",
-    "minZoom": 4
+    "options": "assets=cmip&rescale=0,0.01&colormap_name=viridis&subdataset_name=pr",
+    "minZoom": 4,
+    "info_options": "assets=cmip&subdataset_name=pr"
   }
 ```
 

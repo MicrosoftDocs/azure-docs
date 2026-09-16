@@ -3,8 +3,8 @@ title: Execute SSIS packages from SSDT
 description: Learn how to execute SSIS packages in Azure from SSDT.
 ms.subservice: integration-services
 ms.topic: concept-article
-ms.author: chugu
-author: chugugrace
+ms.author: makromer
+author: kromerm
 ms.date: 05/15/2024
 ms.custom: sfi-image-nochange
 ---
@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 # Execute SSIS packages in Azure from SSDT
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article describes the feature of Azure-enabled SQL Server Integration Services (SSIS) projects on SQL Server Data Tools (SSDT). It allows you to assess the cloud compatibility of your SSIS packages and run them on Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF). You can use this feature to test your existing packages before you lift & shift/migrate them to Azure or to develop new packages to run in Azure.
 

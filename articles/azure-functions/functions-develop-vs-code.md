@@ -6,7 +6,7 @@ ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.date: 11/02/2025
 
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom:
   - devdivchpfy22
   - vscode-azure-extension-update-complete
@@ -90,9 +90,9 @@ You also need these prerequisites to [run and debug your functions locally](#run
 + [Node.js](https://nodejs.org/), one of the [supported versions](functions-reference-node.md#node-version). Use the `node --version` command to check your version.
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-+ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
++ [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows) recommended. For version information, see [PowerShell versions](functions-reference-powershell.md#powershell-versions).
 
-+ [.NET 6.0 runtime](https://dotnet.microsoft.com/download).
++ [.NET 8 runtime](https://dotnet.microsoft.com/download/dotnet/8.0).
 
 + The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
 ::: zone-end  
@@ -169,7 +169,7 @@ Files generated depend on the chosen Node.js programming model for Functions:
 +  An HttpExample folder that contains: 
 
     + The [function.json definition file](functions-reference-node.md#folder-structure)
-    + An [index.js file](functions-reference-node.md#exporting-a-function), which contains the function code.
+    + An [index.js file](functions-reference-node.md?pivots=nodejs-model-v3#programming-model), which contains the function code.
 
 ---
 
@@ -234,7 +234,7 @@ Visual Studio Code creates a new folder in the project. The folder contains a ne
 This action creates a new folder in the project. The folder contains a new **function.json** file and the new PowerShell code file.
 ::: zone-end
 ::: zone pivot="programming-language-python"
-This action's results depends on the Python model version.
+This action's results depend on the Python model version.
 
 ### [v2](#tab/python-v2)
 
@@ -613,6 +613,7 @@ By default, all C# projects are created as [C# compiled class library projects](
 
 After you complete these steps, calls made to the underlying Core Tools include the `--csx` option, which generates and publishes C# script (.csx) project files. When you specify this default language, all projects that you create default to C# script projects. You're not prompted to choose a project language when a default is set. To create projects in other languages, you must change this setting or remove it from the user settings.json file. After you remove this setting, you're again prompted to choose your language when you create a project.
 ::: zone-end
+
 
 ## Command palette reference
 

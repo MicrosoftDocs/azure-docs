@@ -8,7 +8,7 @@ ms.devlang: azurecli
 ---
 
 # Enable auto forwarding for Azure Service Bus queues and subscriptions
-The Service Bus auto forwarding feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When auto forwarding is enabled, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination). It's still possible to send a message to the destination entity directly. For more information, See [Chaining Service Bus entities with auto forwarding](service-bus-auto-forwarding.md). This article shows you different ways to enable auto forwarding for Service Bus queues and subscriptions. 
+The Service Bus auto forwarding feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When auto forwarding is enabled, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination). It's still possible to send a message to the destination entity directly. For more information, see [Chaining Service Bus entities with auto forwarding](service-bus-auto-forwarding.md). This article shows you different ways to enable auto forwarding for Service Bus queues and subscriptions. 
 
 > [!IMPORTANT]
 > The basic tier of Service Bus doesn't support the auto forwarding feature. The standard and premium tiers support the feature. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).

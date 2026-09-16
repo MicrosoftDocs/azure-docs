@@ -2,12 +2,12 @@
 title: Azure Stack Edge 2111 release notes
 description: Describes critical open issues and resolutions for the Azure Stack Edge running 2111 release.
 services: databox
-author: alkohli
+author: sipastak
  
 ms.service: azure-stack-edge
 ms.topic: release-notes
 ms.date: 01/31/2022
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge 2111 release notes

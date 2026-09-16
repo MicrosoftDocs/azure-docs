@@ -22,7 +22,7 @@ You can deploy an Azure Firewall in a hub virtual network with up to 250 public 
 The limit for an Azure Firewall in a VHUB deployment with Bring your own Public IP is 250 addresses, and for classic VHUB deployment, it's 80 public IP addresses.
 
 > [!NOTE]
-> In scenarios with high traffic volume and throughput, use a [NAT Gateway](/azure/nat-gateway/nat-overview) to provide outbound connectivity. NAT Gateway dynamically allocates SNAT ports across all public IPs associated with it. For more information, see [integrate NAT Gateway with Azure Firewall](/azure/firewall/integrate-with-nat-gateway).
+> Adding multiple public IP addresses is the lower-cost way to scale SNAT ports. In scenarios with high traffic volume and throughput, use a [NAT Gateway](/azure/nat-gateway/nat-overview) instead for a more scalable solution. NAT Gateway dynamically allocates SNAT ports across all public IPs associated with it. For more information, see [Integrate NAT Gateway with Azure Firewall](/azure/firewall/integrate-with-nat-gateway) and the [option comparison in best practices](firewall-best-practices.md#recommendations).
 
 The following Azure PowerShell examples show how you can configure, add, and remove public IP addresses for Azure Firewall.
 

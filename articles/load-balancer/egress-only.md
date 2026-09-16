@@ -5,7 +5,7 @@ description: This article provides a step-by-step guide on how to configure an "
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 02/26/2026
+ms.date: 07/17/2026
 ms.author: mbender
 ms.custom: template-how-to
 # Customer intent: As an IT administrator, I want to configure an outbound-only load balancer using internal and public load balancers, so that I can enable secure outbound connectivity for virtual machines without allowing inbound public access.
@@ -76,7 +76,7 @@ In this section, you create the internal load balancer.
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select no-zone (default option), a specific zone, or zone-redundant. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field doesn't appear. For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select zone-redundant (default option) or a specific zone. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field doesn't appear. For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 1. Select **Add**.
 
@@ -86,7 +86,7 @@ In this section, you create the internal load balancer.
 
 1. Enter **lb-int-backend-pool** for **Name** in **Add backend pool**.
 
-1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+1. Select **NIC** for **Backend Pool Configuration**.
 
 1. Select **Save**.
 
@@ -139,7 +139,7 @@ In this section, you create the public load balancer.
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select no-zone (default option), a specific zone, or zone-redundant. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field doesn't appear. For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select zone-redundant (default option) or a specific zone. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field doesn't appear. For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 1. Leave the default of **Microsoft Network** for **Routing preference**.
 
@@ -155,7 +155,7 @@ In this section, you create the public load balancer.
 
 1. Select **lb-vnet** in **Virtual network**.
 
-1. Select **NIC** or **IP Address** for **Backend Pool Configuration**.
+1. Select **NIC** for **Backend Pool Configuration**.
 
 1. Select **Save**.
 
@@ -256,7 +256,7 @@ In this section, you add the virtual machine you created previously to the backe
 
 1.  Enter **https://ifconfig.me** in the address bar.
 
-1.  The connection fails. By default, standard public load balancer [doesn't allow outbound traffic without a defined outbound rule](load-balancer-overview.md#securebydefault).
+1.  The connection fails. By default, standard public load balancer [doesn't allow outbound traffic without a defined outbound rule](load-balancer-overview.md#securebydefault). This behavior applies to the NIC-based backend pool configured in this tutorial. IP-address backend pools have different default outbound behavior. For more information, see [Backend pool management](backend-pool-management.md).
  
 ## Create a public load balancer outbound rule
 

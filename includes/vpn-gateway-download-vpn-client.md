@@ -1,6 +1,6 @@
 ---
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.date: 05/08/2024
 ms.service: azure-vpn-gateway
 ms.topic: include
@@ -12,10 +12,10 @@ ms.topic: include
    * Install using Client Install files: [https://aka.ms/azvpnclientdownload](https://aka.ms/azvpnclientdownload).
    * Install directly, when signed in on a client computer: [Microsoft Store](https://go.microsoft.com/fwlink/?linkid=2117554).
    * Install using the Windows Package Manager (WinGet). You can run the following command to install and learn more about the WinGet method in [this document](../articles/vpn-gateway/point-to-site-vpn-client-winget.md).
-```azurecli-interactive
-winget install Microsoft.AzureVPNClient --source winget
-```
 
+       ```azurecli-interactive
+       winget install Microsoft.AzureVPNClient --source winget
+       ```
 
 1. Install the Azure VPN Client to each computer.
 

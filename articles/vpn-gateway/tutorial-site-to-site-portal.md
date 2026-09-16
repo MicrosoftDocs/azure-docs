@@ -2,8 +2,8 @@
 title: 'Tutorial - Create S2S VPN connection between on-premises network and Azure virtual network: Azure portal'
 description: In this tutorial, you learn how to create a VPN Gateway site-to-site IPsec connection between your on-premises network and a virtual network.
 titleSuffix: Azure VPN Gateway
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
 ms.date: 07/09/2025
@@ -184,7 +184,7 @@ You can upgrade the SKU of your VPN gateway to a different SKU. There are rules 
 
 You can customize site-to-site configurations in various ways. For more information, see the following articles:
 
-* For information about BGP, see the [BGP overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+* For information about BGP, see the [BGP overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](configure-bgp.md).
 * For information about forced tunneling, see [About forced tunneling](vpn-gateway-forced-tunneling-rm.md).
 * For information about highly available active-active connections, see [Highly available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md).
 * For information about how to limit network traffic to resources in a virtual network, see [Network security](../virtual-network/network-security-groups-overview.md).

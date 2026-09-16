@@ -3,7 +3,7 @@ title: Deploy disaster recovery using VMware HCX
 description: Learn how to deploy disaster recovery of your virtual machines (VMs) with VMware HCX Disaster Recovery. Also learn how to use Azure VMware Solution as the recovery or target site.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 5/21/2025
+ms.date: 4/22/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -13,16 +13,16 @@ ms.custom:
 # Deploy disaster recovery using VMware HCX
 
 >[!IMPORTANT]
->Broadcom has announced that VMware HCX Disaster Recovery is being deprecated as of HCX 4.11 and will be removed in a future release. Please refer to [VMware HCX 4.11 Release Notes](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/hcx-4-11-release-notes/vmware-hcx-411-release-notes.html).
+>Broadcom announced that VMware HCX Disaster Recovery is being deprecated as of HCX 4.11 and is to be removed in a future release. Refer to [VMware HCX 4.11 Release Notes](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/hcx-4-11-release-notes/vmware-hcx-411-release-notes.html).
 
-In this article, learn how to deploy disaster recovery of your virtual machines (VMs) with VMware HCX solution and use an Azure VMware Solution private cloud as the recovery or target site.
+In this article, learn how to deploy disaster recovery for your virtual machines (VMs) with VMware HCX solution. Also learn how to use an Azure VMware Solution private cloud as the recovery or target site.
 
 The diagram shows the deployment of VMware HCX from on-premises VMware vSphere to Azure VMware Solution private cloud disaster recovery scenario.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-disaster-recovery-scenario-1-diagram.png" alt-text="Diagram shows the VMware HCX manual disaster recovery solution in Azure VMware Solution with on-premises VMware vSphere." border="true" lightbox="./media/disaster-recovery-virtual-machines/hcx-disaster-recovery-scenario-1-diagram.png":::
 
 >[!IMPORTANT]
->Although part of VMware HCX, VMware HCX Disaster Recovery (DR) is not recommended for large deployments. The disaster recovery orchestration is 100% manual, and Azure VMware Solution currently doesn't have runbooks or features to support manual VMware HCX DR failover. For enterprise-class disaster recovery, refer to VMware Site Recovery Manager (SRM) or VMware Business Continuity and Disaster Recovery (BCDR) solutions.
+>Although part of VMware HCX, VMware HCX Disaster Recovery (DR) isn't recommended for large deployments. The disaster recovery orchestration is 100% manual, and Azure VMware Solution currently doesn't have runbooks or features to support manual VMware HCX DR failover. For enterprise-class disaster recovery, refer to VMware Site Recovery Manager (SRM) or VMware Business Continuity and Disaster Recovery (BCDR) solutions.
 
 VMware HCX provides various operations for fine control and granularity in replication policies. Available Operations include:
 
@@ -96,7 +96,7 @@ This guide covers the following replication scenarios:
 
    The yellow triangle means the snapshots and the virtual machines weren't tested in a Test Recovery operation.
 
-   There are key differences between a VM that is powered off and one powered on. The image shows the syncing process for a powered-on VM. It starts the syncing process until it finishes the first snapshot, which is a full copy of the VM, and then completes the next ones in the configured interval. It syncs a copy for a powered off VM, and then the VM appears as inactive, and protection operation shows as completed.  When the VM is powered on, it starts the syncing process to the remote site.
+   There are key differences between a VM that is powered off and one powered on. The image shows the syncing process for a powered-on VM. It starts the syncing process until it finishes the first snapshot, which is a full copy of the VM, and then completes the next ones in the configured interval. It syncs a copy for a powered off VM, and then the VM appears as inactive, and protection operation shows as completed. When the VM is powered on, it starts the syncing process to the remote site.
 
 ## Complete a test recover of VMs
 

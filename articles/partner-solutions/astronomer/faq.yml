@@ -2,6 +2,8 @@
 metadata:
   title: Apache Airflow on Astro frequently asked questions
   description: Answers to common questions about using Apache Airflow on Astro on Azure Marketplace and in the Azure portal.
+  author: praveenrajap
+  ms.author: praveenrajap
   ai-usage: ai-generated
   ms.topic: faq
   ms.date: 12/18/2025

@@ -1,9 +1,9 @@
 ---
-title: Set up the Teams connector in Azure SRE Agent
+title: Set Up the Teams Connector in Azure SRE Agent
 description: Connect your Azure SRE Agent to a Microsoft Teams channel so it can post updates, reply to conversation threads, and read channel messages.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/16/2026
+ms.date: 07/17/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -16,6 +16,9 @@ ms.custom: teams, connector, notifications, channels, microsoft teams, setup
 **Estimated time**: 5 minutes
 
 Connect your agent to a Microsoft Teams channel so it can post updates, reply to threads, and read messages. After you complete this tutorial, your agent can send contextual notifications to your team without leaving the SRE Agent portal.
+
+> [!NOTE]
+> This article covers the legacy Teams connector, which uses a managed identity and a Teams channel URL. To set up Teams with single sign-in, per-tool approval, and parameter locking, see [Connect a notification or work-tracking service](connect-notification-service.md). Use this article if you need the managed-identity path or your agent already relies on it.
 
 > [!TIP]
 > To learn how your agent uses Teams and Outlook for contextual notifications, see [Send notifications](send-notifications.md).
@@ -91,6 +94,12 @@ The form automatically extracts the channel ID and group ID from this URL.
 
 **Checkpoint:** The form accepts the URL without error. If the URL is invalid, the field clears the extracted IDs. Verify you copied the link from **Get link to channel** and not from a meeting or chat link.
 
+### Message footer
+
+Below the channel link, a checkbox labeled **Add "Sent by Azure SRE Agent" footer to messages** is enabled by default. When enabled, every message your agent posts to Teams includes a small footer showing "Sent by Azure SRE Agent" with a UTC timestamp and a link back to the conversation thread in the portal.
+
+Clear this checkbox if you prefer messages without the footer.
+
 ## Step 5: Select managed identity and save
 
 Choose a managed identity and finalize the connector.
@@ -129,7 +138,7 @@ Use the following steps to update an existing Teams connector.
 
 1. In the connectors list, select the **⋯** (more actions) menu on the Teams connector row.
 1. Select **Edit connector**.
-1. Update the Teams channel link, reauthenticate, or change the managed identity.
+1. Update the Teams channel link, reauthenticate, change the managed identity, or toggle the **Add "Sent by Azure SRE Agent" footer to messages** checkbox.
 1. Select **Save**.
 
 ### Delete
@@ -165,5 +174,6 @@ Your agent now has an authenticated connection to a Microsoft Teams channel. It 
 ## Related content
 
 - [Send notifications](send-notifications.md): Learn how your agent uses Outlook and Teams for contextual notifications.
+- [Connect a notification or work-tracking service](connect-notification-service.md): Set up Teams through managed connectors.
 - [Connectors](connectors.md): Overview of all connector types.
 - [Scheduled tasks](scheduled-tasks.md): Automate Teams notifications on a schedule.

@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with WhoIAM Rampart
 author: gargi-sinha
 manager: martinco
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 07/31/2024
 ms.author: gasinh

@@ -44,7 +44,7 @@ Use the Azure CLI's [az resource move](/cli/azure/resource#az-resource-move) com
 Example:
 
 ```azurecli 
-az resource move --destination-group <resource-group> --destination-subscription-id <subscription-ID> --ids <"store-resource-ID-1>" <"store-resource-ID-2"> <"store-resource-ID-3">
+az resource move --destination-group <ResourceGroupName> --destination-subscription-id <SubscriptionId> --ids <"store-resource-ID-1>" <"store-resource-ID-2"> <"store-resource-ID-3">
 ```
 
 ---

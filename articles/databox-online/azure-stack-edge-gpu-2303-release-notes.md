@@ -2,12 +2,12 @@
 title: Azure Stack Edge 2303 release notes
 description: Describes critical open issues and resolutions for the Azure Stack Edge running 2303 release.
 services: databox
-author: alkohli
+author: sipastak
  
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 03/31/2023
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge 2303 release notes

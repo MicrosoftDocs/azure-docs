@@ -14,6 +14,8 @@ ms.custom:
 
 # Use multifactor Microsoft Entra authentication with Synapse SQL (SSMS support for MFA)
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Synapse SQL support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. 
 
 This article discusses the differences between the various authentication options, and also the limitations associated with using Universal Authentication. 

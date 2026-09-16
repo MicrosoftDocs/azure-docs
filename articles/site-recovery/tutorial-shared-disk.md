@@ -3,7 +3,7 @@ title: Shared disks in Azure Site Recovery
 description: This article describes how to enable replication, failover, and failback Azure virtual machines for shared disks.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 05/15/2025
+ms.date: 08/10/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 ms.custom:
@@ -15,7 +15,7 @@ ms.custom:
 
 This article describes how to protect, monitor, fail over, and reprotect your workloads that are running on Windows Server Failover Clusters (WSFC) on Azure virtual machines using a shared disk.
 
-Azure shared disks are a feature for Azure Managed Disks that allow you to attach a managed disk to multiple virtual machines simultaneously. Attaching a managed disk to multiple virtual machines allows you to either deploy new or migrate existing clustered applications to Azure.
+Azure shared disks are a feature for Azure managed disks that allow you to attach a managed disk to multiple virtual machines simultaneously. Attaching a managed disk to multiple virtual machines allows you to either deploy new or migrate existing clustered applications to Azure.
 
 Using Azure Site Recovery for Azure shared disks, you can replicate and recover your WSFC-clusters as a single unit throughout the disaster recovery lifecycle, while you create cluster-consistent recovery points that are consistent across all the disks (including the shared disk) of the cluster.
 
@@ -205,6 +205,9 @@ To reprotect the virtual machine, follow these steps:
 
 ## Monitor protection
 
+> [!NOTE]
+> For Azure VMs that use shared disks, the shared disk details appear under the Cluster Group and might not appear under the Disks section for each replicated item. To verify shared disk replication, review the corresponding Cluster Group.
+
 Once the enable replication is in progress, you can view the protected cluster by navigating to the **Protected items** > **Replicated items**. 
     :::image type="content" source="media/tutorial-shared-disk/replicated-items.png" alt-text="Screenshot showing replicated items.":::
 
@@ -229,5 +232,5 @@ To disable replication of your cluster with Azure Site Recovery, follow these st
 
 Learn more about:
 
--  [Azure Managed Disk](/azure/virtual-machines/disks-shared).
+-  [Azure managed disk](/azure/virtual-machines/disks-shared).
 -  [Support matrix for shared disk in Azure Site Recovery](./shared-disk-support-matrix.md).

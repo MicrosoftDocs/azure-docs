@@ -2,7 +2,7 @@
 title: Use certificates and securely access Azure Key Vault with Batch
 description: Learn how to programmatically access your credentials from Key Vault using Azure Batch.
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 06/16/2026
 ms.custom: devx-track-azurepowershell
 # Customer intent: As a developer, I want to use certificates with Azure Batch to securely access Azure Key Vault, so that I can programmatically retrieve credentials for my applications without compromising security.
 ---
@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 # Use certificates to securely access Azure Key Vault with Batch
 
 > [!WARNING]
-> Batch account certificates as detailed in this article are [deprecated](batch-certificate-migration-guide.md). To securely access Azure Key Vault, simply use [Pool managed identities](managed-identity-pools.md) with the appropriate access permissions configured for the user-assigned managed identity to access your Key Vault. If you need to provision certificates on Batch nodes, please utilize the available Azure Key Vault VM extension in conjunction with pool Managed Identity to install and manage certificates on your Batch pool. For more information on deploying certificates from Azure Key Vault with Managed Identity on Batch pools, see [Enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).
+> Batch account certificates as detailed in this article are [deprecated](batch-certificate-migration-guide.md). To securely access Azure Key Vault, use [Pool managed identities](managed-identity-pools.md) with the appropriate access permissions configured for the user-assigned managed identity to access your Key Vault. If you need to provision certificates on Batch nodes, use the available Azure Key Vault VM extension in conjunction with pool Managed Identity to install and manage certificates on your Batch pool. For more information on deploying certificates from Azure Key Vault with Managed Identity on Batch pools, see [Enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).
 
 In this article, you'll learn how to set up Batch nodes with certificates to securely access credentials stored in [Azure Key Vault](/azure/key-vault/general/overview).
 
@@ -44,7 +44,7 @@ $newADApplication = New-AzureRmADApplication -DisplayName "Batch Key Vault Acces
 $newAzureAdPrincipal = New-AzureRmADServicePrincipal -ApplicationId $newADApplication.ApplicationId
 ```
 
-The URLs for the application aren't important, since we're only using them for Key Vault access.
+The URLs for the application aren't important, since we use them only for Key Vault access.
 
 ## Grant rights to Key Vault
 

@@ -12,6 +12,8 @@ tag: azure-Synapse
 
 # Analyze data with Azure Machine Learning
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This tutorial uses [Azure Machine Learning designer](/azure/machine-learning/concept-designer) to build a predictive machine learning model. The model is based on the data stored in Azure Synapse. The scenario for the tutorial is to predict if a customer is likely to buy a bike or not so Adventure Works, the bike shop, can build a targeted marketing campaign.
 
 ## Prerequisites

@@ -124,7 +124,7 @@ If your integration account doesn't have a PIP process configuration, follow the
    | **PIP Code** | Yes | The three-character PIP code. For more information, see [RosettaNet PIPs](/biztalk/adapters-and-accelerators/accelerator-rosettanet/rosettanet-pips). |
    | **PIP Version** | Yes | The PIP version, which depends on the selected PIP code. |
 
-   For more information, visit the [RosettaNet website](https://www.gs1us.org/resources/rosettanet/standards-library/pip-directory).
+   For more information, visit the [RosettaNet website](https://www.gs1us.org/resources/rosettanet).
 
    The following example shows sample information for a PIP process configuration:
 

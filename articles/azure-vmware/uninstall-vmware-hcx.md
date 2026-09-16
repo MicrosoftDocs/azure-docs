@@ -3,7 +3,7 @@ title: Uninstall VMware HCX in Azure VMware Solution
 description: Uninstall VMware HCX in Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 02/26/2025
+ms.date: 06/02/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange

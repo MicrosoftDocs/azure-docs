@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
 ms.topic: how-to
-ms.date: 09/25/2024
+ms.date: 04/27/2026
 ---
 
 # Source transformation in mapping data flows
@@ -14,6 +14,9 @@ ms.date: 09/25/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  For the equivalent transformation (**Get Data**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 A source transformation configures your data source for the data flow. When you design data flows, your first step is always configuring a source transformation. To add a source, select the **Add Source** box in the data flow canvas.
 

@@ -5,7 +5,7 @@ author: dennispadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.date: 03/30/2026
+ms.date: 04/22/2026
 ms.author: depadia
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to deploy SAP dialog instances on high-availability VMs running Red Hat Enterprise Linux so that I can optimize resource usage and ensure continuous service availability for my SAP environment.
@@ -13,9 +13,9 @@ ms.custom: sfi-image-nochange
 
 # Deploy SAP dialog instances with SAP ASCS/SCS high-availability virtual machines on RHEL
 
-This article describes how to install and configure Primary Application Server (PAS) and Additional Application Server (AAS) dialog instances on an existing high-availability cluster running on Red Hat Enterprise Linux (RHEL). The PAS and AAS instances run on the same VMs as Advanced Business Application Programming Central Services (ASCS) or SAP Central Services (SCS).
+This article describes how to install and configure Primary Application Server (PAS) and Additional Application Server (AAS) dialog instances on an existing high-availability cluster running on Red Hat Enterprise Linux (RHEL). The PAS and AAS instances run on the same virtual machines (VMs) as Advanced Business Application Programming SAP Central Services (ASCS) or SAP Central Services (SCS).
 
-By deploying PAS and AAS on the same VMs as SAP ASCS/SCS and Enqueue Replication Server (ERS), you minimize the number of virtual machines (VMs) for a single SAP system. The cluster manages the PAS and AAS instances along with ASCS and ERS, and uses [Network File Share (NFS) on Azure Files](../../storage/files/files-nfs-protocol.md) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) for a highly available instance directory.
+By deploying PAS and AAS on the same VMs as SAP ASCS/SCS and Enqueue Replication Server (ERS), you minimize the number of VMs for a single SAP system. The cluster manages the PAS and AAS instances along with ASCS and ERS, and uses [Network File Share (NFS) on Azure Files](../../storage/files/files-nfs-protocol.md) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) for a highly available instance directory.
 
 ## References
 

@@ -142,7 +142,7 @@ Perform the following steps to connect and copy data from your computer to the D
     > [!IMPORTANT]
     > All the containers, blobs, and filenames should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
 
-1. When copying files, ensure that files don't exceed 4.7 TiB for block blobs, 8 TiB for page blobs, and 1 TiB for Azure Files.
+1. When copying files, ensure that files don't exceed 7 TiB for block blobs, 7 TiB for page blobs, and 4 TiB for Azure Files.
 1. You can use File Explorer's drag and drop functionality to copy the data. You can also use any SMB compatible file copy tool such as Robocopy to copy your data.
 
    One benefit of using a file copy tool is the ability to initiate multiple copy jobs, as in the following example using the Robocopy tool:

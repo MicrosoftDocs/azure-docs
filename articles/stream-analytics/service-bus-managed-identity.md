@@ -27,7 +27,7 @@ First, you create a managed identity for your Azure Stream Analytics job. 
 
    :::image type="content" source="media/event-hubs-managed-identity/system-assigned-managed-identity.png" alt-text="Screenshot showing the System assigned managed identity check box.":::  
 
-3. A service principal for the Stream Analytics job's identity is created in Azure Active Directory. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.  
+3. A service principal for the Stream Analytics job's identity is created in Microsoft Entra ID. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.  
 
    When you save the configuration, the Object ID (OID) of the service principal is listed as the Principal ID as shown in the following image:  
 

@@ -2,8 +2,6 @@
 title: Migrate Amazon API Gateway to Azure API Management
 description: This step-by-step guide for migrating Amazon API Gateway to Azure API Management includes assessment, preparation, evaluation, process, and iterative optimization.
 #customer intent: As the administrator of an Amazon API Gateway service, I want to migrate to Azure API Management and need detailed guidance.
-author: dlepow
-ms.author: danlep
 ms.reviewer: 
 ms.service: azure-api-management
 ms.date: 11/10/2025
@@ -103,6 +101,8 @@ Before you migrate from Amazon API Gateway to Azure API Management, assess the e
 
 > [!NOTE]
 > Amazon API Gateway capabilities can vary depending on whether you expose your APIs as a REST API or an HTTP API product type. In Azure API Management, capabilities vary by service tier, not by API type designation.
+
+To plan to migrate your AWS workload to Azure, see [Migrate networking from Amazon Web Services to Azure](/azure/migration/migrate-networking-from-aws), which includes [example migration scenarios](/azure/migration/migrate-compute-from-aws#migration-guides) that might align to your use case.
 
 ### Assess infrastructure capabilities
 

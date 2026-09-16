@@ -8,7 +8,7 @@ metadata:
   ms.topic: landing-page
   author: whhender
   ms.author: whhender
-  ms.date: 04/17/2025
+  ms.date: 06/17/2026
 landingContent:
   - title: What's New in Azure Data Factory
     linkLists:
@@ -18,8 +18,8 @@ landingContent:
             url: ./whats-new.md
           - text: Change data capture
             url: ./concepts-change-data-capture.md
-          - text: Workflow Orchestration Manager
-            url: ./concepts-workflow-orchestration-manager.md
+          - text: Connector overview
+            url: ./connector-overview.md
   - title: About Azure Data Factory
     linkLists:
       - linkListType: overview
@@ -102,20 +102,6 @@ landingContent:
             url: ./data-flow-create.md
           - text: Copy and transform data from a REST endpoint
             url: ./connector-rest.md         
-  - title: Workflow Orchestration Manager
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Workflow Orchestration Manager
-            url: concepts-workflow-orchestration-manager.md
-      - linkListType: how-to-guide
-        links:
-          - text: How does Workflow Orchestration Manager work?
-            url: how-does-workflow-orchestration-manager-work.md
-      - linkListType: tutorial
-        links:
-          - text: Run an existing pipeline with Workflow Orchestration Manager
-            url: tutorial-run-existing-pipeline-with-airflow.md            
   - title: Change data capture (CDC)
     linkLists:
       - linkListType: overview

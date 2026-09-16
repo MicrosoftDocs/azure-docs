@@ -5,7 +5,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 # Customer intent: As an IT administrator, I want to evaluate the readiness of my on-premises servers for migration to Azure, so that I can determine the appropriate sizing recommendations and estimated costs for moving to cloud infrastructure.
 ---
 
@@ -326,7 +326,7 @@ Here are a few reasons why an assessment could get a low performance coverage:
     - One disk (Disk 2) is found that can satisfy total IOPS requirement. IOPS to be provisioned = (source disk throughput) *1024/256. 
     - One disk (Disk 3) is found that can satisfy total throughput requirement/ 
  
-    Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra Disk offering (Azure Managed Disk types)](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra Disk size.
+    Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra Disk offering (Azure managed disk types)](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra Disk size.
  
     Provisioned IOPS are calculated using the following logic:  
  

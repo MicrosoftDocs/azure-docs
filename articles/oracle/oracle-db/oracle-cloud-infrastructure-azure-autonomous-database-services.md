@@ -1,12 +1,12 @@
 ---
 title: OCI multicloud landing zone for Azure
-description: Learn about Oracle Cloud Infrastructure (OCI) multicloud Oracle Autonomous Database landing zones for Azure.
+description: Learn about Oracle Cloud Infrastructure (OCI) multicloud Oracle Autonomous AI Database landing zones for Azure.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
-# Customer intent: As a cloud architect, I want to utilize Terraform modules for provisioning Oracle Database on Azure, so that I can streamline deployments while ensuring proper identity and access management within a multicloud environment.
+# Customer intent: As a cloud architect, I want to utilize Terraform modules for provisioning Oracle AI Database on Azure, so that I can streamline deployments while ensuring proper identity and access management within a multicloud environment.
 ---
 
 
@@ -14,15 +14,15 @@ ms.date: 08/01/2024
 
 Oracle partnered with Microsoft to develop and distribute HashiCorp Terraform/OpenTofu modules to streamline the process of provisioning Oracle Cloud Infrastructure (OCI) in Azure.
 
-The OCI multicloud landing zone for Azure and Azure Verified Modules for Terraform give you a set of templates that help you provision Oracle Database@Azure. The Terraform/OpenTofu modules use four Terraform providers: AzureRM, AzureAD, AzAPI, and OCI. Together, they cover identity and access management (IAM), networking, and database layer resources. Apply these reference implementations for a quickstart deployment, or customize them for a more complex topology fit to your needs.
+The OCI multicloud landing zone for Azure and Azure Verified Modules for Terraform give you a set of templates that help you provision Oracle AI Database@Azure. The Terraform/OpenTofu modules use four Terraform providers: AzureRM, AzureAD, AzAPI, and OCI. Together, they cover identity and access management (IAM), networking, and database layer resources. Apply these reference implementations for a quickstart deployment, or customize them for a more complex topology fit to your needs.
 
-The following figure illustrates where Terraform or OpenTofu can be introduced to streamline the processes of identity, access, networking, and provisioning in Oracle Database@Azure.
+The following figure illustrates where Terraform or OpenTofu can be introduced to streamline the processes of identity, access, networking, and provisioning in Oracle AI Database@Azure.
 
 :::image type="content" source="media/architecture-diagram.png" border="false" alt-text="Diagram of Terraform architectural components.":::
 
 ## Prerequisites
 
-- Steps 1 and 2 completed in [Onboard Oracle Database@Azure](https://docs.oracle.com/iaas/Content/multicloud/oaaonboard.htm), minimum
+- Steps 1 and 2 completed in [Onboard Oracle AI Database@Azure](https://docs.oracle.com/iaas/Content/multicloud/oaaonboard.htm), minimum
 - Terraform/OpenTofu, the OCI CLI, the Azure CLI, and Python (version 3.4 or later) installed in your environment
 
 For more information, see [Oracle multicloud landing zone for Azure](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure?tab=readme-ov-file#prerequisites) on GitHub.
@@ -46,7 +46,7 @@ For more information about modules, see [Oracle multicloud landing zone for Azur
 
 | Template | Use case and configurations | Terraform/OpenTofu providers |
 | -------- | --------------------------- | ---------------------------- |
-| [az-oci-adbs](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-oci-adbs) | **Quickstart Oracle Autonomous Database** | [hashicorp/azurerm](https://registry.terraform.io/providers/hashicorp/azurerm) |
+| [az-oci-adbs](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-oci-adbs) | **Quickstart Oracle Autonomous AI Database** | [hashicorp/azurerm](https://registry.terraform.io/providers/hashicorp/azurerm) |
 |   | - Configure an Azure virtual network with [delegated subnet limits](https://docs.oracle.com/iaas/Content/database-at-azure/oaa-delegated-subnets-limits.htm) | [azure/api](https://registry.terraform.io/providers/Azure/azapi) |
 |   | - [Provision Autonomous Database](oracle-database-provision-autonomous-database.md) |   |
 | [az-oci-rbac-n-sso-fed](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-oci-rbac-n-sso-fed) | Set up identity federation and role-based access control (RBAC) roles and groups | All the following scenarios: |
@@ -58,14 +58,14 @@ For more information about modules, see [Oracle multicloud landing zone for Azur
 |   | - Assign a test user to a Microsoft Entra ID application |  |
 |   | - Enable a Microsoft Entra ID application as the identity provider (IdP) for OCI IAM |  |
 |   | - Set up [identity lifecycle management between OCI IAM and Microsoft Entra ID](https://docs.oracle.com/iaas/Content/Identity/tutorials/azure_ad/lifecycle_azure/azure_lifecycle.htm#azure-lifecycle) |  |
-| [az-odb-rbac](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-odb-rbac) | Create [roles and groups in Azure](https://docs.oracle.com/iaas/Content/multicloud/oaagroupsroles.htm) for Oracle Exadata and Oracle Autonomous Database | [hashicorp/azuread](https://registry.terraform.io/providers/hashicorp/azuread/) |
+| [az-odb-rbac](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-odb-rbac) | Create [roles and groups in Azure](https://docs.oracle.com/iaas/Content/multicloud/oaagroupsroles.htm) for Oracle Exadata and Oracle Autonomous AI Database | [hashicorp/azuread](https://registry.terraform.io/providers/hashicorp/azuread/) |
 |   | - Create an Azure role definition for the ADBS Administrator role | [hashicorp/azurerm](https://registry.terraform.io/providers/hashicorp/azurerm) |
 |   | - Create an Azure resource group |  |
 |   | - Create an Azure role assignment |  |
 
 ## Related content
 
-- [Quickstart: Oracle Database@Azure with Terraform or OpenTofu modules](https://docs.oracle.com/en/learn/dbazure-terraform/index.html)
+- [Quickstart: Oracle AI Database@Azure with Terraform or OpenTofu modules](https://docs.oracle.com/en/learn/dbazure-terraform/index.html)
 - [Set up OCI Terraform](https://docs.oracle.com/iaas/developer-tutorials/tutorials/tf-provider/01-summary.htm)
 - [Import OCI resources into a Terraform state file](https://docs.oracle.com/en/learn/terraform-statefile-oci-resources/index.html)
 - [Azure Verified Modules for a virtual network](https://github.com/Azure/terraform-azurerm-avm-res-network-virtualnetwork)

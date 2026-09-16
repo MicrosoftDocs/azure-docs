@@ -1,14 +1,12 @@
 ---
 title: 'Quickstart: Enable Azure Change Tracking and Inventory for Single and Multiple Machines from the Portal'
 description: In this quickstart, learn how to enable Azure Change Tracking and Inventory for single and multiple machines from the portal.
-services: automation
-ms.date: 12/09/2025
+ms.date: 06/04/2026
 ms.topic: quickstart
 #Customer intent: As a customer, I want to enable Azure Change Tracking and Inventory so that I can further use Azure Change Tracking and Inventory.
 ms.service: azure-change-tracking-inventory
 ms.author: v-rochak2
 author: RochakSingh-blr
-zone_pivot_groups: enable-change-tracking-inventory-using-monitoring-agent
 ms.custom: sfi-image-nochange
 ---
 
@@ -27,11 +25,9 @@ This article describes how you can enable [Azure Change Tracking and Inventory](
 
 The following sections show how you can enable Change Tracking and Inventory on single and multiple Azure VMs and Azure Arc-enabled VMs from the Azure portal.
 
-### Enable Change Tracking and Inventory for single Azure VMs and Azure Arc-enabled VMs from the Azure portal
+### [Single Azure VM and Azure Arc-enabled VM](#tab/single-VMs)
 
-The next section provides detailed procedures on how you can enable Change Tracking on a single Azure VM and a single Azure Arc-enabled VM.
-
-::: zone pivot="single-portal"
+This section provides detailed procedures on how you can enable Change Tracking on a single Azure VM and a single Azure Arc-enabled VM.
 
 #### Enable Change Tracking and Inventory for a single Azure VM by using the portal
 
@@ -72,11 +68,8 @@ To enable Change Tracking and Inventory for a single Azure Arc-enabled VM by usi
 
    Deployment of Change Tracking and Inventory gets initiated with a notification in the upper-right corner of the pane.
 
-:::zone-end
 
-::: zone pivot="multiple-portal-cli"
-
-### Enable Change Tracking and Inventory for multiple VMs by using the Azure portal and the Azure CLI
+### [Multiple VMs using Azure portal and Azure CLI](#tab/Multiple-VMs)
 
 This section provides detailed procedures on how you can enable Change Tracking and Inventory on multiple Azure VMs and Azure Arc-enabled VMs.
 
@@ -140,8 +133,7 @@ To associate the DCR to the Azure Arc-enabled VMs, follow these steps:
        ```azurecli
        az connectedmachine extension create  --name ChangeTracking-Windows  --publisher Microsoft.Azure.ChangeTrackingAndInventory --type-handler-version 2.20  --type ChangeTracking-Windows  --machine-name XYZ --resource-group XYZ-RG  --location X --enable-auto-upgrade
        ```   
- 
-:::zone-end
+---
 
 ## Related content
 

@@ -25,7 +25,7 @@ ms.custom:
 
 # Tutorial: Deploy a Node.js + MongoDB web app to Azure
 
-This tutorial shows how to create a secure Node.js app in [Azure App Service](overview.md) that's connected to an [Azure DocumentDB](https://learn.microsoft.com/azure/documentdb/) database. Azure App Service provides a highly scalable, self-patching web hosting service using the Linux operating system. When you're finished, you have an Express.js app running on Azure App Service on Linux.
+This tutorial shows how to create a secure Node.js app in [Azure App Service](overview.md) that's connected to an [Azure DocumentDB](/azure/documentdb/) database. Azure App Service provides a highly scalable, self-patching web hosting service using the Linux operating system. When you're finished, you have an Express.js app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Node.js application storing data in Cosmos DB.":::
 
@@ -69,7 +69,7 @@ You can quickly deploy the sample app in this tutorial and see it running in Azu
 ```bash
 mkdir msdocs-nodejs-mongodb-azure-sample-app
 cd msdocs-nodejs-mongodb-azure-sample-app
-azd init --template msdocs-nodejs-mongodb-azure-sample-app
+azd init --template msdocs-nodejs-mongodb-azure-sample-app .
 azd up
 ```
 
@@ -517,7 +517,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
 1. From the repository root, run `azd init`.
 
     ```bash
-    azd init --template nodejs-app-service-cosmos-redis-infra
+    azd init --template nodejs-app-service-cosmos-redis-infra .
     ```
 
 1. When prompted, give the following answers:
@@ -540,7 +540,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 15 minutes to complete. The Redis cache takes the most time. The command also compiles and deploys your application code. You modify your code later to work with App Service.
+    The `azd up` command takes about seven minutes to complete. The command also compiles and deploys your application code. You modify your code later to work with App Service.
 
     While it runs, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
@@ -551,10 +551,10 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **App Service**: Represents your app and runs in the App Service plan.
     - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
     - **Azure Cosmos DB account with MongoDB API**: Accessible only from behind its private endpoint. A database is created for you on the server.
-    - **Azure Cache for Redis**: Accessible only from within the virtual network.
+    - **Azure Managed Redis**: Accessible only from within the virtual network.
     - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
-    - **Private endpoints**: Access endpoints for the key vault, the database server, and the Redis cache in the virtual network.
-    - **Private DNS zones**: Enable DNS resolution of the Cosmos DB database, the Redis cache, and the key vault in the virtual network.
+    - **Private endpoints**: Access endpoints for the key vault, the database server, and the Managed Redis instance in the virtual network.
+    - **Private DNS zones**: Enable DNS resolution of the Cosmos DB database, the Managed Redis instance, and the key vault in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
 
     After the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet. You must make small changes to make it connect to the database in Azure.
@@ -697,6 +697,7 @@ Pricing for the created resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 - The Azure Cosmos DB server is created in a single region and can be distributed to other regions. See [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
+- The Azure Managed Redis instance is created in the **Balanced B0** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Managed Redis pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 

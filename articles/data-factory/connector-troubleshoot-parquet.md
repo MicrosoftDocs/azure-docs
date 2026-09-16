@@ -2,17 +2,19 @@
 title: Troubleshoot the Parquet format connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Parquet format connector in Azure Data Factory and Azure Synapse Analytics. 
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 10/20/2023
-ms.author: jianleishen
+ms.author: tinglee
 ms.custom: has-adal-ref, synapse
 ---
 
 # Troubleshoot the Parquet format connector in Azure Data Factory and Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article provides suggestions to troubleshoot common problems with the Parquet format connector in Azure Data Factory and Azure Synapse.
 

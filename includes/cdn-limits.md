@@ -1,7 +1,7 @@
 ---
-author: mdgattuso
-ms.author: magattus
-ms.service: azure-cdn
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-content-delivery-network
 ms.topic: include
 ms.date: 07/31/2021    
 ms.custom: include file

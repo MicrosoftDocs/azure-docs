@@ -3,7 +3,7 @@ title: Run load test in debug mode
 titleSuffix: Azure Load Testing
 description: 'Learn how you can run a load test in debug mode in Azure Load Testing.'
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.author: nandinim
 author: nandinimurali
 ms.date: 05/23/2024

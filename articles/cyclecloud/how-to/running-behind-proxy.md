@@ -2,7 +2,8 @@
 title: Using a Web Proxy
 description: Configure Azure CycleCloud to use a proxy for HTTP/HTTPS web traffic, which is useful to monitor traffic or when direct internet access isn't allowed.
 author: dpwatrous
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: dawatrou
 ---
 

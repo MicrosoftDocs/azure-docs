@@ -47,7 +47,9 @@ Azure Backup takes snapshots according to the backup schedule.
 
 If you have opted for application or file-system-consistent backups, the VM needs to have a backup extension installed to coordinate for the snapshot process. For [*agentless multi-disk crash-consistent* backups](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md), the VM agent is not required for snapshots.
 
-- **Windows VMs:** For Windows VMs, the Backup service coordinates with VSS to take an app-consistent snapshot of the VM disks.  By default, Azure Backup takes a full VSS backup (it truncates the logs of application such as SQL Server at the time of backup to get application level consistent backup).  If you're using a SQL Server database on Azure VM backup, then you can modify the setting to take a VSS Copy backup (to preserve logs). For more information, see [this article](./backup-azure-vms-troubleshoot.md#troubleshoot-vm-snapshot-issues).
+- **Windows VMs:** For Windows VMs, Azure Backup coordinates with VSS to take an application-consistent snapshot. For VMs running SQL Server, Azure VM Backup triggers a VSS Full (Copy-Only) backup by default to avoid affecting the SQL backup chain used by other backup tools. Copy-Only backups do not truncate SQL Server transaction logs. If you require log truncation (and understand the impact on the SQL backup chain), you can opt in to a VSS Full (Non-Copy-Only) backup by using the UseVssFullBackup registry setting. For more information, see [this article](./backup-azure-vms-troubleshoot.md#troubleshoot-vm-snapshot-issues).
+>[!Note]
+> Azure VM Backup is a VM-level backup. If you need database-level point-in-time recovery using transaction logs, use [Azure Backup for SQL Server in Azure VM (workload backup)](backup-azure-sql-database.md).
 
 - **Linux VMs:** To take app-consistent snapshots of Linux VMs, use the Linux pre-script and post-script framework to write your own custom scripts to ensure consistency.
 

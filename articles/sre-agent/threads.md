@@ -53,6 +53,8 @@ Use the two filter buttons at the top of the thread list to find relevant conver
 | **Unread** | Only threads you didn't read yet. |
 | **Mine** | Only threads you started (excludes scheduled tasks and agent-initiated threads). |
 
+The **Mine** filter is active by default. When you open the sidebar, you see your own threads first. Toggle it off to see all threads on the agent.
+
 When active, a filter button appears filled (blue). You can activate both filters at the same time so that only threads matching **both** conditions appear.
 
 :::image type="content" source="media/threads/thread-filter-mine-active.png" alt-text="Screenshot of thread sidebar with the Mine filter active, showing only user-initiated threads.":::

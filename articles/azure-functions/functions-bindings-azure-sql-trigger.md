@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 02/04/2026
+ms.date: 05/01/2026
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -48,13 +48,12 @@ Changes are processed in the order that their changes were made, with the oldest
 
 For more information on change tracking and how it's used by applications such as Azure SQL triggers, see [work with change tracking](/sql/relational-databases/track-changes/work-with-change-tracking-sql-server) .
 
-[!INCLUDE [functions-sql-database-authentication-note](../../includes/functions-sql-database-authentication-note.md)]
-
-::: zone pivot="programming-language-csharp"
+For a complete end-to-end example of using the Azure SQL trigger, see [Respond to Azure SQL Database changes using Azure Functions](scenario-database-changes-azure-sqldb.md).
 
 ## Example usage
 <a id="example"></a>
 
+::: zone pivot="programming-language-csharp"
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -178,8 +177,6 @@ namespace AzureSQL.ToDo
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-java).
 
@@ -297,8 +294,6 @@ public class ProductsTrigger {
 
 
 ::: zone pivot="programming-language-powershell"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-powershell).
 
@@ -353,8 +348,6 @@ Write-Host "SQL Changes: $changesJson"
 ```
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-js).
 
@@ -410,8 +403,6 @@ module.exports = async function (context, todoChanges) {
 
 
 ::: zone pivot="programming-language-python"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-python).
 
@@ -641,6 +632,37 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
     The trigger needs to have read access on the table being monitored for changes and to the change tracking system tables. Each function trigger has an associated change tracking table and leases table in a schema `az_func`. These tables are created by the trigger if they don't yet exist.  More information on these data structures is available in the Azure SQL binding library [documentation](https://github.com/Azure/azure-functions-sql-extension/blob/main/docs/BindingsOverview.md#internal-state-tables).
 
 
+## Grant permissions for Azure SQL trigger
+
+When using the Azure SQL trigger with Azure Functions (including when using [managed identity](functions-identity-access-azure-sql-with-managed-identity.md)), the database principal must be granted additional permissions beyond those required for input and output bindings.
+
+The `db_datareader` and `db_datawriter` roles used for input and output bindings aren't  sufficient for SQL triggers.
+
+The Azure SQL trigger relies on [SQL change tracking](#set-up-change-tracking-required) to detect changes and uses internal state tables in an `az_func` schema. To function correctly, the following permissions are required:
+
+1. Grant the identity permissions to create the schema and tables used internally by the trigger:
+
+    ```sql
+    GRANT CREATE TABLE TO [<UserOrManagedIdentity>];
+    GRANT CREATE SCHEMA TO [<UserOrManagedIdentity>];
+    ```
+
+1. Grant read access and change tracking on the monitored table:
+
+    ```sql
+    GRANT SELECT ON [<TableName>] TO [<UserOrManagedIdentity>];
+    GRANT VIEW CHANGE TRACKING ON [<TableName>] TO [<UserOrManagedIdentity>];
+    ```
+
+1. Create the `az_func` schema used internally by the trigger and grant permissions on it:
+
+    ```sql
+    CREATE SCHEMA az_func;
+    GO
+    GRANT ALTER ON SCHEMA::az_func TO [<UserOrManagedIdentity>];
+    GRANT SELECT, INSERT, UPDATE, DELETE ON SCHEMA::az_func TO [<UserOrManagedIdentity>];
+    ```
+
 ## Enable runtime-driven scaling
 
 Optionally, your functions can scale automatically based on the number of changes that are pending to be processed in the user table. To allow your functions to scale properly on the Premium plan when using SQL triggers, you need to enable runtime scale monitoring.
@@ -663,6 +685,8 @@ Note that these retries are outside the built-in idle connection retry logic tha
 If an exception occurs in the user function when processing changes then the batch of rows currently being processed are retried again in 60 seconds. Other changes are processed as normal during this time, but the rows in the batch that caused the exception are ignored until the timeout period has elapsed.
 
 If the function execution fails five times in a row for a given row then that row is completely ignored for all future changes. Because the rows in a batch aren't deterministic, rows in a failed batch might end up in different batches in subsequent invocations. This means that not all rows in the failed batch will necessarily be ignored. If other rows in the batch were the ones causing the exception, the "good" rows might end up in a different batch that doesn't fail in future invocations.
+
+[!INCLUDE [functions-sql-connections](../../includes/functions-sql-connections.md)]
 
 ## Next steps
 

@@ -12,6 +12,8 @@ ms.custom: azure-synapse
 
 # Troubleshoot dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article lists common troubleshooting issues in dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 
 ## Connect
@@ -74,7 +76,7 @@ This article lists common troubleshooting issues in dedicated SQL pool (formerly
 
 For more help in finding solution to your issue, here are some other resources you can try.
 
- - [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+ - [Blogs](https://community.fabric.microsoft.com/t5/Data-Warehouse-Community-Blog/bg-p/dw_comm_blogs)
  - [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
  - [Create support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
  - [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html)

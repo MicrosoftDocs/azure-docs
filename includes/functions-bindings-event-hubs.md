@@ -1,7 +1,7 @@
 ---
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/21/2020
+ms.date: 09/04/2026
 author: v1212
 ms.author: wujia
 ms.custom:
@@ -67,7 +67,7 @@ Version 1.x of the Functions runtime doesn't require an extension.
 
 [!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
-This version supports configuration of triggers and bindings through [.NET Aspire integration](../articles/azure-functions/dotnet-aspire-integration.md#connection-configuration-with-aspire).
+This version supports configuration of triggers and bindings through [Aspire integration](../articles/azure-functions/aspire-integration.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs), version 6.x.
 
@@ -75,7 +75,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 [!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
-This version supports configuration of triggers and bindings through [.NET Aspire integration](../articles/azure-functions/dotnet-aspire-integration.md#connection-configuration-with-aspire).
+This version supports configuration of triggers and bindings through [Aspire integration](../articles/azure-functions/aspire-integration.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs), version 5.x.
 
@@ -91,7 +91,7 @@ Version 1.x of the Functions runtime doesn't support running in an isolated work
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-go,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"
 [!INCLUDE [functions-install-extension-bundle](functions-install-extension-bundle.md)]
 ::: zone-end
 
@@ -173,6 +173,10 @@ Functions version 1.x doesn't support the isolated worker process. To use the is
 
 [upgrade your application to Functions 4.x]: ../articles/azure-functions/migrate-version-1-version-4.md
 
+::: zone-end
+
+::: zone pivot="programming-language-go"
+For Go, Event Hubs trigger handlers receive `bindings.EventHubMessage`. Register Event Hubs triggers in code by using `app.EventHub()`. Event Hubs output bindings aren't currently supported by the Go worker; use the Azure SDK for Go directly when you need to send events.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

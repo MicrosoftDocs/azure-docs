@@ -3,8 +3,8 @@ title: 'Tutorial: Connect to a storage account using an Azure Private Endpoint'
 titleSuffix: Azure Private Link
 description: Get started with this tutorial using Azure Private endpoint to connect to a storage account privately.
 #customer intent: This tutorial is intended for users who want to securely connect to a storage account using an Azure Private Endpoint, ensuring private and secure communication within Azure resources.
-author: abell
-ms.author: abell
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 ms.topic: tutorial
 ms.date: 02/23/2026
@@ -168,6 +168,9 @@ Before you create the private endpoint, it's recommended to disable public acces
     | Resource type | Select **Microsoft.Storage/storageAccounts**. |
     | Resource | Select **storage-1** or your storage account. |
     | Target subresource | Select **blob**. |
+
+    > [!NOTE]
+    > If you later choose to enable a hierarchical namespace on this account, you need to create a private endpoint for both the **blob** and **dfs** sub-resources. Operations that target the Data Lake Storage (dfs) endpoint can be redirected to the Blob endpoint, and some operations - such as managing ACLs, creating directories, and deleting directories - require a DFS private endpoint. Creating private endpoints for both sub-resources ensures that all operations complete successfully. For more information, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md).
 
 1. Select **Next: Virtual Network**. 
 

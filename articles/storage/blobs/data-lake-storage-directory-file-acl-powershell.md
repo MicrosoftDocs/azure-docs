@@ -1,12 +1,12 @@
 ---
-title: 'Use PowerShell to manage data: Azure Data Lake Storage'
+title: 'Manage Files and Directories With PowerShell in Data Lake'
 titleSuffix: Azure Storage
 description: Use PowerShell cmdlets to manage directories and files in storage accounts that have a hierarchical namespace enabled.
 author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 11/26/2024
+ms.date: 07/24/2026
 ms.author: normesta
 ms.reviewer: prishet
 ms.devlang: powershell
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 # Customer intent: As a cloud administrator, I want to use PowerShell to manage directories and files in Azure Data Lake Storage, so that I can efficiently organize and control access to data stored in a hierarchical namespace.
 ---
 
-# Use PowerShell to manage directories and files in Azure Data Lake Storage
+# Manage directories and files in Azure Data Lake Storage with PowerShell
 
 This article shows you how to use PowerShell to create and manage directories and files in storage accounts that have a hierarchical namespace.
 
@@ -34,25 +34,25 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 ## Install the PowerShell module
 
-1. Verify that the version of PowerShell that 's installed is `5.1` or higher by using the following command.
+1. Verify that the version of PowerShell that you installed is `5.1` or higher by using the following command.
 
    ```powershell
    echo $PSVersionTable.PSVersion.ToString()
    ```
 
-   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
+   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
 
-2. Install **Az.Storage** module.
+1. Install the **Az.Storage** module.
 
    ```powershell
    Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
-   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell)
+   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Connect to the account
 
-1. Open a Windows PowerShell command window, and then sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions.
+1. Open a Windows PowerShell command window, and then sign in to your Azure subscription by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command. Follow the on-screen directions.
 
    ```powershell
    Connect-AzAccount

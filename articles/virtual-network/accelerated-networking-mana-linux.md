@@ -18,14 +18,9 @@ For Windows support, see [Windows VMs with the Microsoft Azure Network Adapter](
 
 For more info about MANA, see [Microsoft Azure Network Adapter overview](./accelerated-networking-mana-overview.md).
 
-## Supported Azure Marketplace images
+## Linux support for MANA
 
-Several Linux images from [Azure Marketplace](/marketplace/azure-marketplace-overview) have built-in support for the Ethernet driver in MANA:
-
-Operating system support details are listed at [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
-
-> [!NOTE]
-> Newer MANA features are under active development and Linux distribution vendors partner with Microsoft to update their kernels with upstream changes. Cadence of updates varies by distribution vendor. The newer your distribution and kernel is, the more likely it is to have the latest updates. 
+For a list of all the [Endorsed Linux distributions](/azure/virtual-machines/linux/endorsed-distros) and minimum recommended kernel versions for MANA, see [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
 
 ## Check the status of MANA support
 
@@ -61,7 +56,7 @@ kernel/drivers/net/ethernet/microsoft/mana/mana.ko
 
 ## Update the kernel
 
-Ethernet drivers for MANA are included in kernel version 5.15 and later. Kernel version 6.2 includes Linux support for features such as InfiniBand/RDMA and DPDK. Earlier or forked kernel versions (5.15 and 6.1) require backported support. Operating system support details are listed at [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
+Ethernet drivers for MANA were first introduced upstream in kernel version 5.15 and later. Kernel version 6.2 includes Linux support for features such as InfiniBand/RDMA and DPDK. Earlier or forked kernel versions (5.15 and 6.1) require backported support. Operating system support details are listed at [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
 
 To update your VM's Linux kernel, check the documentation for your specific distribution.
 

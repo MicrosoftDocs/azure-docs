@@ -1,26 +1,24 @@
 ---
 title: Configure data flow endpoints in Azure IoT Operations
 description: Configure data flow endpoints to create connection points for data sources.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 09/03/2026
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a data flow.
 ---
 
 # Configure data flow endpoints
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 To get started with data flows, first create data flow endpoints. A data flow endpoint is the connection point for the data flow. You can use an endpoint as a source, a destination, or both. Some endpoint types can be used as both sources and destinations, while others are for destinations only.
 
 Use the following table to choose the endpoint type to configure:
 
 | Endpoint type | Description | Can be used as a source | Can be used as a destination | Data flow graphs support |
-|---------------|-------------|-------------------------|------------------------------|---------------------------|
+| --- | --- | --- | --- | --- |
 | [MQTT](howto-configure-mqtt-endpoint.md) | For bi-directional messaging with MQTT brokers, including the one built-in to Azure IoT Operations and Event Grid. | Yes | Yes | Source and destination |
 | [Kafka](howto-configure-kafka-endpoint.md) | For bi-directional messaging with Kafka brokers, including Azure Event Hubs. | Yes | Yes | Source and destination |
 | [OpenTelemetry](open-telemetry.md) | For sending metrics and logs to OpenTelemetry collectors and observability platforms like Grafana and Azure Monitor. | No | Yes | Destination only |
@@ -30,12 +28,18 @@ Use the following table to choose the endpoint type to configure:
 | [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, optionally configurable with Azure Container Storage enabled by Azure Arc. | No | Yes | Not supported |
 
 > [!IMPORTANT]
-> **Data flow graphs limitation**: [Data flow graphs (WASM)](howto-dataflow-graph-wasm.md) currently only support MQTT, Kafka, and OpenTelemetry endpoints. OpenTelemetry endpoints can only be used as destinations in data flow graphs. Other endpoint types are not supported for data flow graphs. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+> **Data flow graphs limitation**: [Data flow graphs (WASM)](howto-dataflow-graph-wasm.md) currently only support MQTT, Kafka, and OpenTelemetry endpoints. OpenTelemetry endpoints can only be used as destinations in data flow graphs. Other endpoint types aren't supported for data flow graphs.
 
 > [!IMPORTANT]
 > Storage endpoints require a [schema for serialization](./concept-schema-registry.md). To use data flow with Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage, you must [specify a schema reference](./howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
 > 
-> To generate the schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
+> To generate the schema from a sample data file, use the [Schema Gen Helper](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/schema-gen-helper).
+
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for resource names that you choose: `DATAFLOW` (the name of the data flow), `PROFILE` (the name of the data flow profile). Set each one to a value that you want before you run the related commands.
 
 ## Data flows must use local MQTT broker endpoint
 
@@ -48,12 +52,14 @@ Each data flow must have either the source or destination configured with an MQT
 The following table shows the supported scenarios:
 
 | Scenario | Supported |
-|----------|-----------|
+| --- | --- |
 | Default endpoint as source | Yes |
 | Default endpoint as destination | Yes |
 | Custom endpoint as source | Yes, if destination is default endpoint or an MQTT endpoint with host `aio-broker` |
 | Custom endpoint as destination | Yes, if source is default endpoint or an MQTT endpoint with host `aio-broker` |
 | Custom endpoint as source and destination | No, unless one of them is an MQTT endpoint with host `aio-broker` |
+
+For information about how the local MQTT broker buffers data when a destination endpoint is unavailable, see [Configure data buffering and disk persistence for data flows](howto-configure-disk-persistence.md).
 
 ## Reuse endpoints
 
@@ -73,7 +79,7 @@ For example, you can use the default MQTT broker data flow endpoint. You can use
 Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
 
 ```azurecli
-az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --profile $PROFILE --name $DATAFLOW --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -106,7 +112,7 @@ In this example, assume a configuration file named `data-flow.json` with the fol
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
   parent: <DEFAULT_PROFILE_RESOURCE>
   name: 'broker-to-broker'
   extendedLocation: {
@@ -137,7 +143,9 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -172,12 +180,12 @@ Similarly, you can create multiple data flows that use the same MQTT endpoint fo
 Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
 
 ```azurecli
-az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --profile $PROFILE --name $DATAFLOW --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
 
-In this example, assume a configuration file named `data-flow.json` with the following content stored in the user's home directory:
+In this example, assume a configuration file named `data-flow.json` with the following content stored in the user's home directory. The destination endpoint must exist before you reference it in the data flow configuration.
 
 ```json
 {
@@ -195,7 +203,6 @@ In this example, assume a configuration file named `data-flow.json` with the fol
     {
       "operationType": "Destination",
       "destinationSettings": {
-        // The endpoint needs to be created before you can reference it here
         "endpointRef": "example-event-hub-endpoint",
         "dataDestination": "example/topic/4"
       }
@@ -207,7 +214,7 @@ In this example, assume a configuration file named `data-flow.json` with the fol
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
   parent: <DEFAULT_PROFILE_RESOURCE>
   name: 'broker-to-eh'
   extendedLocation: {
@@ -239,7 +246,9 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -267,6 +276,9 @@ spec:
 Similar to the MQTT example, you can create multiple data flows that use the same Kafka endpoint for different topics, or the same Data Lake endpoint for different tables.
 
 ## Next steps
+
+> [!TIP]
+> To route dataflow traffic to cloud destinations through Private Link instead of public endpoints, see [Configure dataflow destinations with private endpoints](../manage-layered-network/howto-private-connectivity.md#configure-data-flow-destinations-with-private-endpoints).
 
 Create a data flow endpoint: 
 

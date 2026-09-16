@@ -5,13 +5,15 @@ ms.subservice: integration-services
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 01/05/2024
-author: chugugrace
-ms.author: chugu 
+author: kromerm
+ms.author: makromer
 ---
 
 # Use an Azure Resource Manager template to create an integration runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In this section, you use an Azure Resource Manager template to create the Azure-SSIS integration runtime in Azure Data Factory. 
 

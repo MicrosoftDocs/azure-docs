@@ -6,7 +6,7 @@ ms.topic: product-comparison
 ms.service: azure-container-apps
 ms.collection: ce-skilling-ai-copilot
 ms.custom: cross-service
-ms.date: 03/26/2026
+ms.date: 05/08/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
@@ -33,7 +33,10 @@ Use platform-managed session pools with built-in MCP tooling for sandboxed code 
 
 ### Azure App Service
 
-Add an MCP endpoint to an existing or new web app. App Service supports code-based deployment without a Dockerfile and integrates with Microsoft Entra ID for authentication.
+Host an MCP server on App Service in one of two ways:
+
+- **Build your own MCP server.** Add the MCP SDK to a new or existing web app and mount the MCP endpoint alongside your existing routes. App Service supports code-based deployment without a Dockerfile and integrates with Microsoft Entra ID for authentication.
+- **App Service built-in MCP (Preview).** If your app already exposes a REST API with an OpenAPI 3.x specification, App Service can host an MCP server for you with no MCP code. The platform reads your spec, turns each operation into an MCP tool, and serves the MCP endpoint over streamable HTTP. Use this when you want to expose an existing API to MCP clients quickly without taking a code dependency on an MCP SDK.
 
 ### Azure Functions
 
@@ -52,15 +55,15 @@ The following table summarizes the key differences between hosting options.
 
 | Consideration | Container Apps (standalone) | Container Apps (sessions) | App Service | Azure Functions | AKS |
 |---|---|---|---|---|---|
-| **Custom tools** | Yes | No (platform-defined only) | Yes | Yes | Yes |
-| **Language support** | Any (containerized) | Python and shell only | .NET, Python, Node.js, Java | .NET, Python, Node.js, Java | Any (containerized) |
+| **Custom tools** | Yes | No (platform-defined only) | Yes (build your own; or every OpenAPI operation becomes a tool with built-in MCP) | Yes | Yes |
+| **Language support** | Any (containerized) | Python and shell only | .NET, Python, Node.js, Java (built-in MCP: any language, since the platform forwards to your existing HTTP routes) | .NET, Python, Node.js, Java | Any (containerized) |
 | **MCP transport** | Streamable HTTP | JSON-RPC over HTTP | Streamable HTTP | MCP extension or self-hosted | Streamable HTTP |
-| **Authentication** | Built-in auth (Microsoft Entra ID) or custom | API key (`x-ms-apikey`) | App Service auth (Microsoft Entra ID) | Function keys or Microsoft Entra ID | Microsoft Entra Workload Identity or custom |
+| **Authentication** | Built-in auth (Microsoft Entra ID) or custom | API key (`x-ms-apikey`) | App Service auth (Microsoft Entra ID); built-in MCP also publishes [PRM](https://datatracker.ietf.org/doc/html/rfc9728) | Function keys or Microsoft Entra ID | Microsoft Entra Workload Identity or custom |
 | **Isolation** | Container-level | Hyper-V per session | App-level | Function-level | Pod and namespace-level |
 | **Scaling** | Revision autoscale, scale-to-zero | Per-session, pool-managed | App Service Plan | Consumption or Premium plan | HPA, KEDA, Cluster Autoscaler |
 | **Cold start** | Yes (mitigate with min replicas) | Subsecond (prewarmed pool) | Depends on plan | Yes (Consumption plan) | No (pods always running), or Yes with KEDA scale-to-zero |
 | **Microservices** | Native (environments, Dapr) | No | Limited | Limited | Native (Kubernetes service discovery, service mesh) |
-| **Operational overhead** | Medium (Dockerfile, registry) | Low (platform-managed) | Low (code deployment) | Low (function deployment) | High (cluster management, upgrades, networking) |
+| **Operational overhead** | Medium (Dockerfile, registry) | Low (platform-managed) | Low (code deployment; built-in MCP is lowest — ARM property + OpenAPI spec, no MCP code) | Low (function deployment) | High (cluster management, upgrades, networking) |
 | **Pricing model** | Per vCPU-second, per GiB-second | Per session (consumption) | App Service Plan | Per execution | Per node (VM cost) + managed cluster fee |
 
 ## Choose by scenario
@@ -111,6 +114,16 @@ If your app already runs on App Service, add the MCP SDK to your existing codeba
 
 If your existing app runs on Container Apps, follow the [standalone tutorials](#build-a-custom-mcp-server-with-azure).
 
+### Expose an existing REST API as an MCP server with no code changes
+
+**Recommended: Azure App Service built-in MCP (Preview)**
+
+If your App Service app already exposes a REST API with an OpenAPI 3.x specification, the platform can host an MCP server for you. You publish the spec with your app, set the `aiIntegration` property on the site resource, and the platform serves a streamable HTTP MCP endpoint that maps each OpenAPI operation to an MCP tool. App Service Authentication enforces identity, and the platform publishes [protected resource metadata](https://datatracker.ietf.org/doc/html/rfc9728) so MCP clients can complete OAuth automatically.
+
+Use built-in MCP when you don't want to take a code dependency on an MCP SDK, or when you want the platform to keep up with MCP protocol updates.
+
+- [Configure App Service built-in MCP (Preview)](/azure/app-service/configure-mcp-built-in)
+
 ### Create lightweight, event-driven tool endpoints
 
 **Recommended: Azure Functions**
@@ -149,7 +162,7 @@ For a hybrid scenario where you want the Container Apps managed experience on yo
 Use these questions to narrow your choice:
 
 1. **Do you need sandboxed code execution for untrusted or LLM-generated code?** Use Azure Container Apps dynamic sessions.
-1. **Do you already have a web app running on App Service?** Add MCP to your existing Azure App Service app.
+1. **Do you already have a web app running on App Service?** Add the MCP SDK to your existing App Service app, or use [App Service built-in MCP (Preview)](/azure/app-service/configure-mcp-built-in) if your app already exposes a REST API with an OpenAPI spec.
 1. **Do you need event-driven, per-invocation tool execution?** Use Azure Functions.
 1. **Do you need full container control, custom languages, or a microservices architecture?** Use Azure Container Apps (standalone).
 1. **Do you already run workloads on AKS and need full Kubernetes API access?** Use Azure Kubernetes Service (AKS).
@@ -161,6 +174,7 @@ Use these questions to narrow your choice:
 - [Azure Container Apps overview](overview.md)
 - [Dynamic sessions in Azure Container Apps](sessions.md)
 - [Azure App Service overview](/azure/app-service/overview)
+- [Configure App Service built-in MCP (Preview)](/azure/app-service/configure-mcp-built-in)
 - [Azure Functions overview](/azure/azure-functions/functions-overview)
 - [Connect an MCP server on Azure Functions to a Foundry Agent Service agent](/azure/azure-functions/functions-mcp-foundry-tools)
 - [Azure Kubernetes Service (AKS) overview](/azure/aks/intro-kubernetes)

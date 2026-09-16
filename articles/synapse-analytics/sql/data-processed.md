@@ -12,6 +12,8 @@ ms.author: fipopovi
 
 # Cost management for serverless SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article explains how you can estimate and manage costs for serverless SQL pool in Azure Synapse Analytics:
 - Estimate amount of data processed before issuing a query
 - Use cost control feature to set the budget

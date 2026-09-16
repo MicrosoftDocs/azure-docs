@@ -15,7 +15,7 @@ ms.custom:
 
 # Tutorial: Configure outbound connectivity with a gateway load balancer
 
-Azure Load Balancer consists of Standard, Basic, and Gateway SKUs. Gateway Load Balancer (GWLB) is used for transparent insertion of Network Virtual Appliances (NVA). Use Gateway Load Balancer for scenarios that require high performance and high scalability of NVAs. 
+Azure Load Balancer consists of Standard and Gateway SKUs. Use Gateway Load Balancer (GWLB) for transparent insertion of Network Virtual Appliances (NVA). Use Gateway Load Balancer for scenarios that require high performance and high scalability of NVAs. 
 
 In this tutorial, you learn how to: 
 > [!div class="checklist"]

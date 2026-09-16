@@ -5,7 +5,7 @@ description: Learn how to prepopulate the sign-in name or redirect straight to a
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 01/11/2024

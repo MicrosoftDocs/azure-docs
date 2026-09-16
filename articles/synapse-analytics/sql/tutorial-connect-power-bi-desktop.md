@@ -14,6 +14,8 @@ ms.custom: sfi-image-nochange
 
 # Tutorial: Use serverless SQL pool with Power BI Desktop & create a report
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]

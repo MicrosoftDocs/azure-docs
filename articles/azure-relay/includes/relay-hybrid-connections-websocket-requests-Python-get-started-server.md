@@ -82,11 +82,11 @@ a Hybrid Connections URL with SAS Tokens utilizing WebSockets.
         except KeyboardInterrupt:
             logging.info("Exiting listener.")
 
-        if __name__ == "__main__":
-            # Load configuration from JSON file
-            with open("config.json") as config_file:
+    if __name__ == "__main__":
+        # Load configuration from JSON file
+        with open("config.json") as config_file:
             config = json.load(config_file)
 
-        asyncio.run(run_application(config))
+    asyncio.run(run_application(config))
     ```
 

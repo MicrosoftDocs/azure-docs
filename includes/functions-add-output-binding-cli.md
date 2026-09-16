@@ -55,10 +55,10 @@ To write to an Azure Storage queue from this function, add the `queue_output` de
 
 In the decorator, `arg_name` identifies the binding parameter referenced in your code, `queue_name` is name of the queue that the binding writes to, and `connection` is the name of an application setting that contains the connection string for the Storage account. In quickstarts you use the same storage account as the function app, which is in the `AzureWebJobsStorage` setting (from *local.settings.json* file). When the `queue_name` doesn't exist, the binding creates it on first use.
 ::: zone-end  
- 
+ <!--
 ::: zone pivot="programming-language-powershell"  
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-PowerShell/function.json" range="2-18":::
-::: zone-end  
+::: zone-end  -->
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 
 To write to an Azure Storage queue:

@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Learn how to embed Azure Active Directory B2C user interface into your app with a custom policy
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus

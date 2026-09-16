@@ -34,9 +34,9 @@ To use Azure Login with OpenID Connect, you will need to:
 
 To start using this GitHub Action, go to your repository and select the **Actions** tab. Select **New workflow**, then **Set up a workflow yourself**. Finally, search the marketplace for “Azure Login”. Once you find it, click on the action and copy the provided snippet into your workflow file.
 > [!div class="mx-imgBorder"]
-> ![Select the Action tab](media/find-github-action.png)
+> ![Select the Action tab](media/push-kv-github-action/find-github-action.png)
 > [!div class="mx-imgBorder"]
-> ![Select the Azure Login Action](media/azure-login-github-action.png)
+> ![Select the Azure Login Action](media/push-kv-github-action/azure-login-github-action.png)
 
 #### Example using Microsoft Entra ID
 
@@ -87,7 +87,7 @@ jobs:
 
 You use the [Azure CLI](https://github.com/Azure/cli) GitHub Action to import a configuration file to your App Configuration store. To start using this GitHub Action, go to your repository and select the **Actions** tab. Select **New workflow**, then **Set up a workflow yourself**. Finally, search the marketplace for “Azure CLI Action.” Once you find it, click on the action and copy the provided snippet into your workflow file.
 > [!div class="mx-imgBorder"]
-> ![Select the Azure CLI Action](media/azure-cli-github-action.png)
+> ![Select the Azure CLI Action](media/push-kv-github-action/azure-cli-github-action.png)
 
 In the following example, you use the Azure CLI action to import configuration files into an Azure App Configuration store when a change is pushed to `appsettings.json`. When a developer pushes a change to `appsettings.json`, the script passed to the Azure CLI action updates the App Configuration store with the new values.
 
@@ -123,7 +123,7 @@ jobs:
         with: 
           azcliversion: latest
           inlineScript: |
-            az appconfig kv import --endpoint <your-app-configuration-store-endpoint> --auth-mode login -s file --path appsettings.json --format json --yes
+            az appconfig kv import --endpoint <AppConfigurationEndpoint> --auth-mode login -s file --path appsettings.json --format json --yes
 ```
 
 For more information about Azure App Configuration CLI import commands, see the [Azure AppConfiguration CLI documentation.](/cli/azure/appconfig/kv#az-appconfig-kv-import)
@@ -151,7 +151,7 @@ In the following example, all key-values imported will have a unique label based
         with: 
           azcliversion: latest
           inlineScript: |
-            az appconfig kv import --endpoint <your-app-configuration-store-endpoint> --auth-mode login -s file --path appsettings.json --format json --label ${{ steps.determine_label.outputs.LABEL }} --yes
+            az appconfig kv import --endpoint <AppConfigurationEndpoint> --auth-mode login -s file --path appsettings.json --format json --label ${{ steps.determine_label.outputs.LABEL }} --yes
 ```
 ## Next steps
 

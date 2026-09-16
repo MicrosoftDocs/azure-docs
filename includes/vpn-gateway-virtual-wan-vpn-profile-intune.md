@@ -1,9 +1,9 @@
 ---
  ms.topic: include
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.date: 02/28/2023
- ms.author: cherylmc
+ ms.author: duau
 
 # This include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
 ---
@@ -18,7 +18,11 @@ You can deploy profiles for Azure VPN clients (Windows 10 or later) by using Mic
 
 * Devices are already enrolled with Intune MDM.
 * The Azure VPN Client for Windows 10 or later is already deployed on the client machine.
-* Only Windows version 19H2 or higher is supported.
+* If you're using Windows 10, use Windows version 19H2 or higher.
+
+
+> [!NOTE]
+>Microsoft recommends using Windows 11 with Point-to-Site VPN connections. Windows 10 reached end of support in October 2025. For more information, see [Supported Windows versions for Azure VPN Client](../articles/vpn-gateway/azure-vpn-client-versions.md#supported-windows-versions).
 
 ## <a name="xml"></a>Modify XML
 

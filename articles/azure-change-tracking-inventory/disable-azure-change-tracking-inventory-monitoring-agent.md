@@ -2,7 +2,6 @@
 title: Disable Azure Change Tracking and Inventory by Using the Azure Monitor Agent
 description: Learn how to disable Azure Change Tracking and Inventory by using the Azure Monitor Agent from your Azure virtual machines.
 #customer intent: As a customer, I want to disassociate a data collection rule (DCR) from a virtual machine so that I can disable its association with Azure Change Tracking and Inventory.
-services: automation
 ms.custom: linux-related-content
 ms.date: 12/03/2025
 ms.topic: how-to

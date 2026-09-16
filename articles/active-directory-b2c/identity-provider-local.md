@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Define the identity types uses can use to sign-up or sign-in (email, username, phone number) in your Azure Active Directory B2C tenant.
 author: garrodonnell
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 01/24/2024
 ms.author: godonnell

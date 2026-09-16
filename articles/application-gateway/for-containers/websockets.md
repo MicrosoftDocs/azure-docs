@@ -3,7 +3,7 @@ title: WebSocket protocol and Application Gateway for Containers
 description: Learn how the WebSocket protocol is used with Application Gateway for Containers.
 services: application gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: concept-article
 ms.date: 01/13/2025
 ms.author: mbender

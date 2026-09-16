@@ -28,7 +28,7 @@ For example, if a function starts a background task and returns a successful res
 
 ## Cross function communication
 
-[Durable Functions](durable/what-is-durable-task.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md) are built to manage state transitions and communication between multiple functions.
+[Durable Functions](../durable-task/common/what-is-durable-task.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md) are built to manage state transitions and communication between multiple functions.
 
 If not using Durable Functions or Logic Apps to integrate with multiple functions, it's best to use storage queues for cross-function communication. The main reason is that storage queues are cheaper and much easier to provision than other storage options.
 

@@ -41,14 +41,14 @@ def hmac_sha256(key, msg):
 
 # Function to create a WebSocket URL for listening for a server application
 def createListenUrl(serviceNamespace, entityPath, token = None):
-    url = 'wss://' + serviceNamespace + '/$hc/' + entityPath + '?sb-hc-action=listen&sb-hc-id=123456'
+    url = 'wss://' + serviceNamespace + '/$hc/' + entityPath + '?sb-hc-action=listen'
     if token is not None:
         url = url + '&sb-hc-token=' + urllib.parse.quote(token)
     return url
 
 # Function which creates the url for the client application
 def createSendUrl(serviceNamespace, entityPath, token = None):
-    url = 'wss://' + serviceNamespace + '/$hc/' + entityPath + '?sb-hc-action=connect&sb-hc-id=123456'
+    url = 'wss://' + serviceNamespace + '/$hc/' + entityPath + '?sb-hc-action=connect'
     if token is not None:
         url = url + '&sb-hc-token=' + urllib.parse.quote(token)
     return url

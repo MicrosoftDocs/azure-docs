@@ -6,7 +6,7 @@ author: AliciaLiMicrosoft
 ms.author: ali
 ms.service: azure-stream-analytics
 ms.topic: concept-article
-ms.date: 03/05/2026
+ms.date: 07/15/2026
 ms.custom:
   - build-2025
 ---
@@ -83,6 +83,17 @@ FROM Input
 > [!NOTE]
 > When you use Event Hubs as an endpoint for IoT Hub Routes, you can access the IoT Hub metadata by using the [GetMetadataPropertyValue function](/stream-analytics-query/getmetadatapropertyvalue).
 > 
+
+### Important notes
+
+When Stream Analytics reads events from Event Hubs, it treats event application property names as case insensitive. If an event contains multiple properties whose names differ only in casing (for example, `key1` and `KEY1`), Stream Analytics uses a first-win strategy: it keeps the value of the property that appears first and ignores any later properties with the same name.
+
+For example, if an Event Hubs event has these application properties:
+
+- `key1 = "valueA"` (appears first)
+- `KEY1 = "valueB"` (appears second)
+
+Stream Analytics surfaces `key1 = "valueA"` and ignores `KEY1`.
 
 ## Stream data from IoT Hub
 

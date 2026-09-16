@@ -3,7 +3,7 @@ title: Device Guard Signing Service migration to Artifact Signing
 description: Learn how to migrate from Device Guard Signing Service (DGSSv2) to Artifact Signing for code integrity policy 
 author: meha 
 ms.author: mesharm 
-ms.service: trusted-signing
+ms.service: azure-artifact-signing
 ms.topic: how-to 
 ms.date: 12/28/2025
 ms.custom:

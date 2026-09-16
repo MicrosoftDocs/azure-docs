@@ -11,6 +11,8 @@ ms.custom: sfi-image-nochange
 ---
 # Use Microsoft Entra authentication for authentication with Synapse SQL
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Microsoft Entra authentication is a mechanism that connects to [Azure Synapse Analytics](../overview-faq.yml) by using identities in Microsoft Entra ID.
 
 With Microsoft Entra authentication, you can centrally manage user identities that have access to Azure Synapse to simplify permission management. Benefits include the following:

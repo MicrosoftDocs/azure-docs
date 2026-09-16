@@ -48,7 +48,7 @@ To access Kudu in the browser by using Microsoft Entra authentication, you need 
 
 | Role type | Example built-in roles | 
 |-|-|
-| Job function roles | [Website Contributor](../role-based-access-control//built-in-roles/web-and-mobile.md#website-contributor)<br/>[Logic Apps Standard Developer (Preview)](../role-based-access-control//built-in-roles/integration.md#logic-apps-standard-developer-preview)  |
+| Job function roles | [Website Contributor](../role-based-access-control//built-in-roles/web-and-mobile.md#website-contributor)<br/>[Logic Apps Standard Developer](../role-based-access-control//built-in-roles/integration.md#logic-apps-standard-developer)  |
 | Privileged administrator roles<sup>1</sup> | [Owner](../role-based-access-control//built-in-roles/privileged.md#owner)<br/>[Contributor](../role-based-access-control//built-in-roles/privileged.md#contributor) |
 
 <sup>1</sup> Privileged administrator roles grant much more permission than is needed to access Kudu. If need to create a new role assignment, consider if a job function role with less access can be used instead.

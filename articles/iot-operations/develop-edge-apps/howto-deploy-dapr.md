@@ -6,7 +6,7 @@ ms.author: dobett
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
-ms.date: 10/22/2024
+ms.date: 07/08/2026
 ms.service: azure-iot-operations
 ---
 
@@ -23,15 +23,12 @@ To use the Dapr pluggable components, define the component spec for each of the 
 
 ## Install Dapr runtime
 
-To install the Dapr runtime, use the following Helm command:
-
-> [!NOTE]
-> If you completed the provided Azure IoT Operations [quickstart](../get-started-end-to-end-sample/quickstart-deploy.md), you already installed the Dapr runtime and the following steps are not required.
+To install the Dapr runtime, run the following Helm commands:
 
 ```bash
 helm repo add dapr https://dapr.github.io/helm-charts/
 helm repo update
-helm upgrade --install dapr dapr/dapr --version=1.14 --namespace dapr-system --create-namespace --wait
+helm upgrade --install dapr dapr/dapr --version=1.18 --namespace dapr-system --create-namespace --wait
 ```
 
 ## Register MQTT broker pluggable components

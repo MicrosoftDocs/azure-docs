@@ -1,11 +1,9 @@
 ---
 title: "Quickstart: Create Azure API Management Instance using the Portal"
 description: Use this quickstart to create a new Azure API Management instance by using the Azure portal.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: quickstart
 ms.date: 03/27/2026
-ms.author: danlep
 ms.custom:
   - mvc
   - mode-portal

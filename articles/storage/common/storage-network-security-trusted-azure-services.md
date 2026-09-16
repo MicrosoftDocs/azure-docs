@@ -52,10 +52,11 @@ The following table lists services that can access your storage account data if 
 | Azure FarmBeats                 | `Microsoft.AgFoodPlatform/farmBeats`    | Enables access to storage accounts. |
 | Azure API Management            | `Microsoft.ApiManagement/service`       | Enables access to storage accounts behind firewalls via policies. [Learn more](../../api-management/authentication-managed-identity-policy.md#use-managed-identity-in-send-request-policy). |
 | Microsoft Autonomous Systems    | `Microsoft.AutonomousSystems/workspaces` | Enables access to storage accounts. |
-| Azure Managed Redis | `Microsoft.Cache/Redis` | Enables access to storage accounts. [Learn more](../../redis/entra-for-authentication.md).| 
+| Azure Managed Redis | `Microsoft.Cache/Redis` | Enables access to storage accounts. [Learn more](/azure/redis/entra-for-authentication).| 
 | Azure AI Search          | `Microsoft.Search/searchServices`       | Enables access to storage accounts for indexing, processing, and querying. |
 | Foundry Tools        | `Microsoft.CognitiveService/accounts`   | Enables access to storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Microsoft Cost Management | `Microsoft.CostManagementExports` | Enables export to storage accounts behind a firewall. [Learn more](../../cost-management-billing/costs/tutorial-improved-exports.md).|
+| Azure Container Registry        | `Microsoft.ContainerRegistry/registries` | Enables access to storage accounts. |
 | Azure Databricks                | `Microsoft.Databricks/accessConnectors` | Enables access to storage accounts. Serverless SQL warehouses require extra configuration. [Learn more](/azure/databricks/admin/sql/serverless).|
 | Azure Data Factory              | `Microsoft.DataFactory/factories`       | Enables access to storage accounts through the Data Factory runtime. |
 | Azure Data Explorer      | `Microsoft.Kusto/Clusters`          | Read data for ingestion and external tables, and write data to external tables. [Learn more](/azure/data-explorer/data-explorer-overview). |

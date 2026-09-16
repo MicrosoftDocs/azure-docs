@@ -6,7 +6,7 @@ description: Follow this guide to learn how to register a single-page applicatio
 author: kengaderdus
 manager: mwongerapk
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 10/11/2024

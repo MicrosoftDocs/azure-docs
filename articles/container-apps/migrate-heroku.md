@@ -30,7 +30,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- **Azure account** with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- **Azure account** with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - **Azure CLI** (version 2.53.0 or later) with the Container Apps extension installed.
 
   ```bash

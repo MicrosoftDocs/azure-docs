@@ -3,13 +3,12 @@ title: Create an account that supports customer-managed keys for tables and queu
 titleSuffix: Azure Storage
 description: Learn how to create a storage account that supports configuring customer-managed keys for tables and queues. Use the Azure CLI or an Azure Resource Manager template to create a storage account that relies on the account encryption key for Azure Storage encryption. You can then configure customer-managed keys for the account.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 06/09/2021
-ms.author: akashdubey
-ms.reviewer: ozgun
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
 # Customer intent: "As a cloud administrator, I want to create a storage account that supports customer-managed keys for tables and queues, so that I can ensure data encryption meets our organization's security and compliance requirements."
@@ -36,7 +35,7 @@ To learn more about creating a storage account, see [Create a storage account](s
 
 To create a storage account that relies on the account encryption key with the Azure portal, follow these steps:
 
-1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts.
+1. In the search box at the top of the Azure portal, search for and select **Storage accounts**.
 1. On the **Storage accounts** page, select **New**.
 1. Fill in the fields on the **Basics** tab.
 1. On the Advanced tab, locate the **Tables and Queues** section, and select **Enable support for customer-managed keys**.

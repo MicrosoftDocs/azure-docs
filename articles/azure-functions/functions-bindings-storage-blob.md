@@ -1,7 +1,6 @@
 ---
 title: Azure Blob storage trigger and bindings for Azure Functions
 description: Learn to use the Azure Blob storage trigger and bindings in Azure Functions.
-
 ms.topic: reference
 ms.custom:
   - devx-track-extended-java
@@ -9,7 +8,7 @@ ms.custom:
   - devx-track-python
   - devx-track-ts
   - build-2025
-ms.date: 11/11/2022
+ms.date: 09/04/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -22,6 +21,9 @@ Azure Functions integrates with [Azure Storage](../storage/index.yml) via [trigg
 | Run a function as blob storage data changes | [Trigger](./functions-bindings-storage-blob-trigger.md) |
 | Read blob storage data in a function | [Input binding](./functions-bindings-storage-blob-input.md) |
 | Allow a function to write blob storage data |[Output binding](./functions-bindings-storage-blob-output.md) |
+
+>[!IMPORTANT]  
+>Blob Storage bindings don't support [Premium Blob storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts). You should instead use a Standard general-purpose v2 account. 
 
 ::: zone pivot="programming-language-csharp"
 
@@ -83,7 +85,7 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 This version allows you to bind to types from [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs). Learn more about how these new types are different from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` and how to migrate to them from the [Azure.Storage.Blobs Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
 
-This version supports configuration of triggers and bindings through [.NET Aspire integration](./dotnet-aspire-integration.md#connection-configuration-with-aspire).
+This version supports configuration of triggers and bindings through [Aspire integration](./aspire-integration.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs NuGet package], version 5.x or later.
 
@@ -116,10 +118,14 @@ Functions version 1.x doesn't support isolated worker process.
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-go,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"
 
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
+::: zone-end
+
+::: zone pivot="programming-language-go"
+For Go, register Blob Storage triggers in code by using `app.Blob()` and add a blank import for `github.com/azure/azure-functions-golang-worker/triggers/blob`. Blob input and output bindings aren't currently supported by the Go worker; use the Azure SDK for Go directly when you need additional blob operations.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

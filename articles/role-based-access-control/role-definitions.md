@@ -327,7 +327,7 @@ The `NotActions` permission specifies the control plane actions that are subtrac
 
 `Actions - NotActions = Effective control plane permissions`
 
-The following table shows two examples of the effective control plane permissions for a [Microsoft.CostManagement](resource-provider-operations.md#microsoftcostmanagement) wildcard action:
+The following table shows two examples of the effective control plane permissions for a [Microsoft.CostManagement](permissions/management-and-governance.md#microsoftcostmanagement) wildcard action:
 
 > [!div class="mx-tableFixed"]
 > | Actions | NotActions | Effective control plane permissions |
@@ -363,7 +363,7 @@ The `NotDataActions` permission specifies the data plane actions that are subtra
 
 `DataActions - NotDataActions = Effective data plane permissions`
 
-The following table shows two examples of the effective date plane permissions for a [Microsoft.Storage](resource-provider-operations.md#microsoftstorage) wildcard action:
+The following table shows two examples of the effective date plane permissions for a [Microsoft.Storage](permissions/storage.md#microsoftstorage) wildcard action:
 
 > [!div class="mx-tableFixed"]
 > | DataActions | NotDataActions | Effective data plane permissions |

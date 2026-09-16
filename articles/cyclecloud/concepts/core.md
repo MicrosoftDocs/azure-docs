@@ -1,8 +1,9 @@
 ---
 title: CycleCloud Architecture Concepts
-description: Azure CycleCloud Core Concepts
+description: Learn the core concepts of Azure CycleCloud, including clusters, nodes, schedulers, and how HPC resources fit together.
 author: jermth
-ms.date: 02/20/2020
+ms.date: 06/19/2026
+ms.topic: concept-article
 ms.update-cycle: 1095-days
 ms.author: jechia
 ---

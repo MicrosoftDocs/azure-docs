@@ -19,9 +19,6 @@ Object replication (OR) currently copies all operations from a source storage ac
 
 When a replication's source and destination account are within the same continent, OR priority replication also replicates 99.0% of objects within 15 minutes for supported workloads. For more information, see [SLA terms](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1&msockid=0d36bfb9b86d68ee3afdae84b944695f) for a comprehensive list of eligibility requirements.
 
-[!INCLUDE [object-replication-alert](includes/object-replication-alert.md)]
-
-
 ## Benefits of priority replication
 
 Object Replication (OR) priority replication significantly improves the replication performance and observability for Azure Object Replication. Moreover, priority replication comes with a Service Level Agreement (SLA) that provides users with a performance guarantee provided the source and destination storage accounts are located within the same continent. For supported workloads OR priority replication also replicates 99.0% of objects within 15 minutes. This level of assurance is especially valuable for scenarios involving disaster recovery, business continuity, and high-availability architectures.
@@ -79,8 +76,6 @@ Users can enable OR priority replication on both new and existing OR policies us
 To enable OR Priority Replication when creating a new OR policy, complete the following steps:
 
 # [Azure portal](#tab/portal)
-
-[!INCLUDE [object-replication-alert](includes/object-replication-alert.md)]
 
 1. Navigate to the Azure portal and create a new storage account.
 1. Select the **Create replication rules** tab to open the **Create replication rules** pane as shown in the following screenshot.

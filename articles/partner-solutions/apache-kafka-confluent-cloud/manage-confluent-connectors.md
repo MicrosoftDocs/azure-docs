@@ -3,8 +3,8 @@ title: Manage Azure Confluent Connectors (Preview)
 description: Learn how to manage Confluent Connectors in Azure (preview).
 ms.topic: how-to
 ms.date: 10/30/2025
-ms.author: malev
-author: maud-lv
+ms.author: praveenrajap
+author: praveenrajap
 
 #customer intent: As a developer, I want to learn how to manage a Confluent Connector.
 ---

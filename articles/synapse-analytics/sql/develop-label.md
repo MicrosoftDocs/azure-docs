@@ -11,6 +11,8 @@ ms.topic: how-to
 
 # Use query labels in Synapse SQL
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Included in this article are essential tips for using query labels in Synapse SQL.
 
 > [!NOTE]

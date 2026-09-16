@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.topic: how-to
 ms.service: azure-virtual-network-manager
-ms.date: 02/04/2025
+ms.date: 07/29/2026
 ---
 
 # Query your Azure Virtual Network Manager using Azure Resource Graph (ARG)
@@ -52,14 +52,14 @@ The following are sample queries you can run on your virtual network manager dat
 
 #### List all virtual network managers impacting a given virtual network
 
-Input: Enter the **vnetId** of the virtual network. It uses the following syntax: *00000000-0000-0000-0000-000000000000*
+Input: Enter the **vnetId** of the virtual network. This value is the full Azure Resource Manager resource ID of the virtual network, not the virtual network GUID, because the query concatenates it with a provider path to match the resource ID of the effective security admin rules. It uses the following syntax: */subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork*
 Output: List of virtual network manager IDs.
 
 ```kusto
 
 networkresources
 | where type == "microsoft.network/effectivesecurityadminrules"
-| extend vnetId = "00000000-0000-0000-0000-000000000000"
+| extend vnetId = "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork"
 | where id == strcat(vnetId,"/providers/Microsoft.Network/effectiveSecurityAdminRules/default")
 | mv-expand properties.EffectiveSecurityAdminConfigurations
 | mv-expand properties.effectiveSecurityAdminConfigurations

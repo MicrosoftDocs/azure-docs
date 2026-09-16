@@ -63,14 +63,14 @@ This image shows an example of Microsoft Security Copilot analyzing an incident 
 
 ## Microsoft Sentinel Solution for SAP with SAP RISE
 
-The [SAP RISE certified](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=sentinel&id=s:33db1376-91ae-4f36-a435-aafa892a88d8) [Microsoft Sentinel Solution for SAP](../../sentinel/sap/deployment-overview.md?tabs=agentless) applications allows you to monitor, detect, respond, and correlate suspicious activities in SAP with your other enterprise-wide signals. Microsoft Sentinel guards your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. [Microsoft Sentinel Solution for SAP BTP](../../sentinel/sap/sap-btp-solution-overview.md) expands that coverage to SAP Business Technology Platform (BTP).
+The [Microsoft Sentinel Solution for SAP](/azure/sentinel/sap/deployment-overview?tabs=agentless) applications allows you to monitor, detect, respond, and correlate suspicious activities in SAP with your other enterprise-wide signals. Microsoft Sentinel guards your critical data against sophisticated cyberattacks for SAP systems hosted on Azure, other clouds, or on-premises infrastructure. [Microsoft Sentinel Solution for SAP BTP](/azure/sentinel/sap/sap-btp-solution-overview) expands that coverage to SAP Business Technology Platform (BTP).
 
 The solution allows you to gain visibility to user activities on **SAP S/4HANA Cloud private edition** (RISE/ECS) and the SAP business logic layers and apply Microsoft Sentinel’s built-in content.
 -	Use a single console to monitor all your enterprise estate including SAP instances in SAP RISE/ECS on Azure and other clouds, SAP Azure native, and on-premises estate
 -	Detect and automatically respond to threats: detect suspicious activity including privilege escalation, unauthorized changes, sensitive transactions, data exfiltration and more with out-of-the-box detection capabilities
 -	Correlate SAP activity with other signals: more accurately detect SAP threats by cross-correlating across endpoints, Microsoft Entra data and more
 -	Customize based on your needs - monitor sensitive transactions and other business risks by building your own detections
--	Visualize the data with [built-in workbooks](../../sentinel/sap/sap-audit-log-workbook.md)
+-	Visualize the data with [built-in workbooks](/azure/sentinel/sap/sap-audit-log-workbook)
 
 :::image type="complex" source="./media/sap-rise-integration/sap-rise-sentinel.png" alt-text="A diagram that shows how to connect Microsoft Sentinel with SAP RISE/ECS." lightbox="./media/sap-rise-integration/sap-rise-sentinel.png":::
 This diagram shows an example of Microsoft Sentinel connected through an intermediary VM or container to SAP managed SAP system. The intermediary VM or container runs in customer's own subscription with configured SAP data connector agent. Connection to SAP Business Technology Platform (BTP) uses SAP's public APIs for the Audit Log Management Service.
@@ -91,7 +91,7 @@ To learn more about Microsoft Sentinel and SOAR for SAP, see the blog [From zero
 This image shows an SAP incident detected by Microsoft Sentinel offering the option to block the suspicious user on the SAP ERP, SAP Business Technology Platform, or Microsoft Entra ID.
 :::image-end:::
 
-For more information on Microsoft Sentinel and SAP, including a deployment guide, see [Microsoft Sentinel product documentation](../../sentinel/sap/deployment-overview.md).
+For more information on Microsoft Sentinel and SAP, including a deployment guide, see [Microsoft Sentinel product documentation](/azure/sentinel/sap/deployment-overview).
 
 ## Azure Monitoring for SAP with SAP RISE
 
@@ -110,5 +110,5 @@ Check out the documentation:
 - [Integrating Azure with SAP RISE overview](./rise-integration.md)
 - [Network connectivity options in Azure with SAP RISE](./rise-integration-network.md)
 - [Integrating Azure services with SAP RISE](./rise-integration-services.md)
-- [Deploy Microsoft Sentinel Solution for SAP® applications](../../sentinel/sap/deployment-overview.md)
-- [Deploy Microsoft Sentinel Solution for SAP® BTP](../../sentinel/sap/deploy-sap-btp-solution.md)
+- [Deploy Microsoft Sentinel Solution for SAP® applications](/azure/sentinel/sap/deployment-overview)
+- [Deploy Microsoft Sentinel Solution for SAP® BTP](/azure/sentinel/sap/deploy-sap-btp-solution)

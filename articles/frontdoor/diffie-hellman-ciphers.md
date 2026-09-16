@@ -64,7 +64,7 @@ For best compatibility and security on Azure Front Door / Azure CDN endpoints an
 
 - Should I make any changes to my Front Door or CDN profiles?
     
-    As an optional measure, for Front Door Standard/Premium profiles, you can also use the [Configure Azure Front Door TLS policy](/azure/frontdoor/standard-premium/tls-policy) feature to disable the DHE ciphers in advance before 1 April 2026. This option isn't available for other tiers.
+    As an optional measure, for Front Door Standard and Premium profiles, you can also use the [Configure Azure Front Door TLS policy](/azure/frontdoor/tls-policy) feature to disable the DHE ciphers in advance before 1 April 2026. This option isn't available for other tiers.
 
     For all Front Door (Standard, Premium, classic) and Azure CDN from Microsoft (classic) profiles, Microsoft team will disable the DHE ciphers after 1 April 2026.
 

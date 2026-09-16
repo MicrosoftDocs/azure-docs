@@ -1,6 +1,8 @@
 ---
 title: Create an NGINXaaS resource
 description: In this quickstart, learn how to use the Azure portal to create an instance of NGINXaaS from Azure Marketplace.
+author: BNandiniMSFT
+ms.author: bnandini
 ms.topic: quickstart
 ms.date: 05/09/2025
 ms.custom: references_regions

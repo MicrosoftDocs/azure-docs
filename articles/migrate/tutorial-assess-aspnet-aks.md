@@ -2,7 +2,7 @@
 title: Assess ASP.NET/Java web apps for migration to Azure Kubernetes Service
 description: Assessments of ASP.NET web apps to Azure Kubernetes Service using Azure Migrate
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.topic: tutorial
 ms.date: 02/05/2025
 zone_pivot_groups: web-apps-assessment-aks
@@ -87,7 +87,7 @@ In this tutorial, you learn how to:
     | Currency | All common currencies such as USD, INR, GBP, Euro | We generate the cost in the currency selected here. |
     | Discount Percentage | Numeric decimal value | Use this to factor in any custom discount agreements with Microsoft. This is disabled if Savings options are selected. |
     | EA subscription | Subscription ID | Select the subscription ID for which you have an Enterprise Agreement. |
-    | Savings options | 1 year reserved <br> 3 years reserved <br> 1 year savings plan <br> 3 years savings plan <br> None | Select a savings option if you've opted for [Reserved Instances](../cost-management-billing/reservations/save-compute-costs-reservations.md) or [Savings Plan](https://azure.microsoft.com/pricing/offers/savings-plan-compute/). |
+    | Savings options | 1 year reserved <br> 3 years reserved <br> 1 year savings plan <br> 3 years savings plan <br> None | Select a savings option if you've opted for [Reserved Instances](../cost-management-billing/reservations/save-compute-costs-reservations.md) or [Savings Plan](https://azure.microsoft.com/pricing/offers/savings-plans?cid=msft_learn). |
     | Category | All <br> Compute optimized <br> General purpose <br> GPU <br> High performance compute <br> Isolated <br> Memory optimized <br> Storage optimized | Selecting a particular SKU category ensures we recommend the best AKS Node SKUs from that category. |
     | AKS pricing tier | Standard | Pricing tier for AKS |
 

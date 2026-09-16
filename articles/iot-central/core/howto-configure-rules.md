@@ -76,6 +76,12 @@ In this example, you connect to *RequestBin* to test the notification:
 
 Now when the rule triggers, you see a new request appear in RequestBin.
 
+### HTTPS endpoint and TLS requirements
+
+When the callback URL uses HTTPS, IoT Central validates the server certificate that your endpoint presents. The endpoint must be publicly reachable, and the server certificate must be signed by a publicly trusted CA. Self-signed certificates and certificates issued by a private CA aren't supported, and there's no option to register a custom CA with your IoT Central application.
+
+If the certificate isn't trusted or the endpoint isn't reachable, the rule action fails to deliver the webhook payload. For testing, host the endpoint on a service that provisions a publicly trusted certificate for you (for example, Azure App Service, or Azure Functions), or issue a certificate for a domain you own from a public CA.
+
 ### Payload
 
 When a rule triggers, it makes an HTTP POST request to the callback URL. The request contains a JSON payload with the telemetry, device, rule, and application details. The payload looks like the following JSON snippet:

@@ -2,7 +2,7 @@
 title: Azure Elastic SAN networking concepts
 description: Learn about available Azure Elastic SAN networking options, including storage service endpoints, private endpoints, and iSCSI.
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 01/08/2026
 ms.author: rogarana
@@ -54,6 +54,10 @@ When you create a SAN, you can enable or disable public internet access to your 
 >
 > Cross-region service endpoints and local ones can't coexist on the same subnet. To use cross-region service endpoints, delete existing **Microsoft.Storage** endpoints and recreate them as **Microsoft.Storage.Global**.
 
+### Storage service endpoint limitations with Elastic SAN
+
+Storage service endpoint policies aren't supported with Azure Elastic SAN. Elastic SAN blocks all iSCSI connections from subnets using a storage service endpoint policy, even if the `Microsoft.Storage.Global` service endpoint and network rules are configured correctly. Use a dedicated subnet without a storage service endpoint policy to connect to an Elastic SAN. The `Microsoft.Storage.Global` service endpoint is required on the subnet.
+
 ## Control network traffic
 
 ### Private endpoints
@@ -86,3 +90,4 @@ iSCSI sessions can periodically disconnect and reconnect over the course of the 
 
 - [Configure private endpoints for Azure Elastic SAN](elastic-san-configure-private-endpoints.md)
 - [Configure service endpoints for Azure Elastic SAN](elastic-san-configure-service-endpoints.md)
+

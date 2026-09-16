@@ -181,11 +181,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-cache-for-redis/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/azure-cache-for-redis-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/databox/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/databox-security-baseline",
       "redirect_document_id": false
@@ -203,11 +198,6 @@
     {
       "source_path_from_root": "/articles/security/fundamentals/ddos-protection-security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/ddos-protection-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/defender-for-iot/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/defender-for-iot-security-baseline",
       "redirect_document_id": false
     },
     {
@@ -283,11 +273,6 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/management/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/resource-manager-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sentinel/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/sentinel-security-baseline",
       "redirect_document_id": false
     },
     {

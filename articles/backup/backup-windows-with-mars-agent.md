@@ -2,7 +2,7 @@
 title: Back up Windows machines by using the MARS agent
 description: Use the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.date: 04/23/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy23
@@ -112,6 +112,8 @@ You can control how the MARS agent uses network bandwidth by enabling network th
 Network throttling in Azure Backup uses [Quality of Service (QoS)](/windows-server/networking/technologies/qos/qos-policy-top) on the local operating system.
 
 Network throttling for backups is available on Windows Server 2012 and later, and on Windows 8 and later. Operating systems should be running the latest service packs.
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
 To enable network throttling:
 

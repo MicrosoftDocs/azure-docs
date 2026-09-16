@@ -12,6 +12,8 @@ ms.reviewer: omafnan
 
 # Synapse Studio SQL scripts in Azure Synapse Analytics 
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Synapse Studio provides a web interface for SQL scripts where you can author SQL queries.
 
 ## Begin authoring in a SQL script

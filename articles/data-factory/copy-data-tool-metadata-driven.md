@@ -1,15 +1,17 @@
 ---
 title: Build large-scale data copy pipelines with metadata-driven approach in copy data tool 
 description: 'Provides information about the metadata-driven approach in ADF copy data tool'
-author: dearandyxu
+author: kromerm
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 02/13/2025
-ms.author: yexu
+ms.author: makromer
 ms.custom: sfi-image-nochange
 ---
 # Build large-scale data copy pipelines with metadata-driven approach in copy data tool
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 When you want to copy huge amounts of objects (for example, thousands of tables) or load data from large variety of sources, the appropriate approach is to input the name list of the objects with required copy behaviors in a control table, and then use parameterized pipelines to read the same from the control table and apply them to the jobs accordingly.  By doing so, you can maintain (for example, add/remove) the objects list to be copied easily by just updating the object names in control table instead of redeploying the pipelines. What’s more, you will have single place to easily check which objects copied by which pipelines/triggers with defined copy behaviors. 
 

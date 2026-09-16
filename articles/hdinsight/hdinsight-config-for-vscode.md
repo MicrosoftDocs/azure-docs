@@ -3,8 +3,8 @@ title: Azure HDInsight configuration settings reference
 description: Introduce the configuration of Azure HDInsight extension.
 ms.service: azure-hdinsight
 ms.topic: how-to
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: hgowrisankar
 ms.date: 10/17/2024
 ---

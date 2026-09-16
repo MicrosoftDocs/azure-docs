@@ -1,17 +1,17 @@
 ---
-title: Upgrade your Azure Data Factory pipelines to Fabric
+title: Upgrade your Azure Data Factory pipelines to Fabric Data Factory
 description: Learn how to assess and upgrade your Azure Data Factory pipelines to Fabric Data Factory.
 author: ssindhub
 ms.author: ssrinivasara
 ms.topic: how-to
-ms.date: 03/04/2026
+ms.date: 06/11/2026
 ms.custom: pipelines
 ai-usage: ai-assisted
 ---
 
-# Upgrade your Azure Data Factory pipelines to Fabric
+# Upgrade your Azure Data Factory pipelines to Fabric Data Factory
 
-Your Azure Data Factory pipelines already power critical workflows. In this article, you learn how to bring them into Fabric to unlock a more integrated, analytics-ready experience. This built-in migration experience helps you modernize your existing Azure Data Factory workloads in a few simple clicks.
+Your Azure Data Factory pipelines already power critical workflows. This article walks you through migrating Azure Data Factory (ADF) pipelines to Fabric Data Factory using the built-in migration experience. You can start from either Azure Data Factory or a Fabric workspace.
 
 The migration experience helps you:
 
@@ -20,7 +20,18 @@ The migration experience helps you:
 - Migrate supported pipelines to a Fabric workspace.
 - Plan next steps for items that need updates or that are coming soon.
 
-This assessment-first approach helps ensure migrations are intentional, transparent, and incremental. You can upgrade pipelines at your own pace and validate results before switching production workloads.
+This assessment-first approach lets you upgrade pipelines at your own pace and validate results before switching production workloads.
+
+## How to start migration
+
+You can start migrating your Azure Data Factory pipelines from either of two entry points:
+
+| Entry point | Best for | Starting step |
+|---|---|---|
+| **From Azure Data Factory** | Running a full assessment of pipeline readiness before migrating | [Option A: Start from Azure Data Factory](#option-a-start-from-azure-data-factory) |
+| **From a Fabric workspace** | Directly mounting and migrating when you already know which factory to bring over | [Option B: Start from Fabric](#option-b-start-from-fabric) |
+
+Both paths converge at [Step 4: Migrate pipelines](#step-4-migrate-pipelines).
 
 
 ## Prerequisites
@@ -30,32 +41,30 @@ Before you start, make sure you have:
 - An existing Azure Data Factory instance with pipelines.
 - Access to a Microsoft Fabric tenant.
 - A Fabric workspace in the same Microsoft Entra ID tenant as the Azure Data Factory instance.
+- **If starting from Fabric**: A Fabric workspace where you have at least Contributor permissions.
 
+## Option A: Start from Azure Data Factory
 
-## Step 1: Assess your pipelines for migration
+### Step 1: Assess your pipelines for migration
 
 To run the migration assessment, in your [Azure Data Factory](https://adf.azure.com) authoring canvas, select **Migrate to Fabric (Preview)** > **Get started (preview)** to evaluate pipelines and activities for migration readiness.
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migrate-to-fabric-get-started.png" alt-text="Screenshot showing how to run the Azure Data Factory migration assessment." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migrate-to-fabric-get-started.png":::
 
-## Step 2: Review and understand assessment results
+### Step 2: Review and understand assessment results
 
-Both the factory and individual pipelines are categorized with a readiness status: **Ready**, **Needs review**, **Coming soon**, or **Unsupported**.
+Both the factory and individual pipelines are categorized with a readiness status:
+
+[!INCLUDE [migration-assessment-statuses](includes/migration-assessment-statuses.md)]
+
+For details on how to drill into activity-level details, see [What the assessment statuses mean](how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md#what-the-assessment-statuses-mean).
+
 You can also export your assessment results to a CSV file to support offline review and remediation planning.
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/assessment-results.png" alt-text="Screenshot showing the Azure Data Factory migration assessment results." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/assessment-results.png":::
 
-Each pipeline and activity is assigned one of the following statuses. Use these results to plan your migration.
 
-| Status            | Meaning                                                            |
-|-------------------|--------------------------------------------------------------------|
-| **Ready**         | Fully supported and safe to migrate.                               |
-| **Needs review**  | Requires minor updates, such as parameter or configuration changes.|
-| **Coming soon**   | Support is planned; migrate later.                                 |
-| **Not compatible**| No Fabric equivalent; redesign required.                           |
-
-
-## Step 3: Select a Fabric workspace and mount your Azure Data Factory
+### Step 3: Select a Fabric workspace and mount your Azure Data Factory
 
 After you review the assessment, select **Next** to mount your Azure Data Factory to a Fabric workspace and continue the migration flow in Fabric. Mounting lets you reference your Azure Data Factory (ADF) instance inside a Fabric workspace without migrating, copying, or altering the Azure Data Factory environment.
 
@@ -65,7 +74,25 @@ After mounting completes, select **Continue in Fabric** to proceed with migratio
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/successfully-mounted-factory.png" alt-text="Screenshot showing the Continue in Fabric option after successful mounting." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/successfully-mounted-factory.png":::
 
-## Step 4: Migrate pipelines
+Continue to [Step 4: Migrate pipelines](#step-4-migrate-pipelines).
+
+## Option B: Start from Fabric
+1. Open your Fabric workspace.
+2. In the workspace toolbar, select **Migrate**.
+3. In the **Migrate to Fabric** panel, under **Migrate to notebooks, Spark pools, and more**, select **Data Factory**.
+
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migrate-from-fabric-workspace.png" alt-text="Screenshot showing the Migrate to Fabric panel in a Fabric workspace with the Data Factory option highlighted.":::
+
+4. Select the Azure Data Factory instance you want to mount to this workspace.
+   
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/mount-from-fabric-migrate-end-point.png" alt-text="Screenshot showing the mounting experience from Migrate endpoint in Fabric.":::
+
+5. After mounting completes, continue with [Step 4: Migrate pipelines](#step-4-migrate-pipelines).
+
+> [!NOTE]
+> Starting from Fabric skips the in-ADF assessment (Steps 1-2). To review pipeline readiness before migrating, start from [Step 1: Assess your pipelines for migration](#step-1-assess-your-pipelines-for-migration) in Azure Data Factory instead.
+
+### Step 4: Migrate pipelines
 
 Continue migration from the Fabric experience by selecting **Migrate to Fabric (Preview)**.
 
@@ -76,11 +103,11 @@ Select the pipelines you want to migrate.
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/pick-pipelines-for-migration.png" alt-text="Screenshot showing the option to select pipelines for migration." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/pick-pipelines-for-migration.png":::
 
 
-## Step 5: Map linked services to Fabric connections and complete migration
+### Step 5: Map linked services to Fabric connections and complete migration
 
 Select **Review connections** to map Azure Data Factory linked services to Fabric connections and then select **Confirm**.
 
-The migration experience attempts to automatically create connections for authentication methods that can be safely and reliably mapped from Azure Data Factory to Fabric’s managed identity and security model without requiring customer‑managed infrastructure or network configuration.
+The migration experience tries to automatically create connections for authentication methods that it can safely and reliably map from Azure Data Factory to Fabric’s managed identity and security model without requiring customer-managed infrastructure or network configuration.
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/linked-services-to-connection-mapping.png" alt-text="Screenshot showing the mapping of linked services to Fabric connections." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/linked-services-to-connection-mapping.png":::
 
@@ -103,7 +130,7 @@ The migration experience attempts to automatically create connections for authen
 
 For other connections, either select an existing Fabric connection or create new connections by using the modern Get Data experience or from workspace settings. Then select **Confirm**.
 
-This action starts the migration of the selected pipelines to the root folder in the Fabric workspace. A confirmation message appears when the migration completes successfully.
+Selected pipelines migrate into a folder prefixed with the source factory name_Migration for easy identification and to avoid name collisions. A confirmation message appears when the migration completes successfully.
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migration-successfully-completed.png" alt-text="Screenshot showing successful completion of migration from Azure Data Factory to Fabric." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migration-successfully-completed.png":::
 
@@ -143,26 +170,26 @@ The following items aren't supported in the UX-based migration experience today.
 | Category | Out-of-scope item | Details |
 |--------|------------------|---------|
 | **Integration runtimes** | Self-hosted integration runtime (SHIR) | Self-hosted integration runtimes can't be migrated. Replace with the Fabric on-premises data gateway (OPDG). |
-| | Managed virtual network integration runtime (Managed virtual network IR) / Virtual network–injected integration runtime (VNet – Virtual network) | Fabric doesn't support migrating managed virtual network integration runtimes. The Fabric virtual network gateway uses a different model and requires reconfiguration. |
+| | Managed virtual network integration runtime (Managed virtual network IR) / Virtual network-injected integration runtime (VNet - Virtual network) | Fabric doesn't support migrating managed virtual network integration runtimes. The Fabric virtual network gateway uses a different model and requires reconfiguration. |
 | | SQL Server Integration Services integration runtime (SSIS IR) | Infrastructure migration, including SQL Server Integration Services integration runtimes, isn't supported. |
 | **Workload types** | Azure Data Factory change data capture (CDC) | Change data capture workloads are out of scope and don't migrate. |
-| | Apache Airflow assets | Directed acyclic graph (DAG)–based orchestration from Apache Airflow can't be migrated to Fabric. |
-| | Unified Structured Query Language (U‑SQL) / Azure Data Lake Analytics | Deprecated services and not supported in Fabric. |
-| | Cross‑cloud or Azure Machine Learning refresh workloads | Workspace identity support is in progress. These workloads don't migrate. |
-| **Connectors** | Long‑tail connectors (for example, SAP ERP Central Component (ECC), SAP Business Warehouse (BW), Multidimensional Expressions (MDX), SAP Core Data Services (CDS)) | Fabric has no equivalent connectors. Redesign is required. |
-| | Marketing and finance software‑as‑a‑service connectors (HubSpot, Google Ads, QuickBooks, Shopify, Xero) | Not supported today. |
+| | Apache Airflow assets | Directed acyclic graph (DAG)-based orchestration from Apache Airflow can't be migrated to Fabric. |
+| | Unified Structured Query Language (U-SQL) / Azure Data Lake Analytics | Deprecated services and not supported in Fabric. |
+| | Cross-cloud or Azure Machine Learning refresh workloads | Workspace identity support is in progress. These workloads don't migrate. |
+| **Connectors** | Long-tail connectors (for example, SAP ERP Central Component (ECC), SAP Business Warehouse (BW), Multidimensional Expressions (MDX), SAP Core Data Services (CDS)) | Fabric has no equivalent connectors. Redesign is required. |
+| | Marketing and finance software-as-a-service connectors (HubSpot, Google Ads, QuickBooks, Shopify, Xero) | Not supported today. |
 | **Triggers and orchestration** | Custom event triggers | Custom event triggers can't be migrated. |
 | | Storage event triggers | Support is coming soon. |
-| | Tumbling window triggers | Known as Interval‑based scheduling in Fabric. Watermark and backfill workloads must be redesigned. |
+| | Tumbling window triggers | Known as Interval-based scheduling in Fabric. Watermark and backfill workloads must be redesigned. |
 | | Chaining or dependency triggers | Chaining and dependency trigger semantics aren't supported yet. |
-| **Security and authentication** | Advanced configurations (customer‑managed keys (CMK), dual tokens, federated identity credential (FIC) flows) | Unsupported workspace identity or service principal authentication models don't migrate. |
-| | Certificate‑based authentication (Web activity) | Unsupported and requires redesign. |
-| | User‑assigned managed identity (UAMI) support | Use workspace identity (WI) as a workaround. |
+| **Security and authentication** | Advanced configurations (customer-managed keys (CMK), dual tokens, federated identity credential (FIC) flows) | Unsupported workspace identity or service principal authentication models don't migrate. |
+| | Certificate-based authentication (Web activity) | Unsupported and requires redesign. |
+| | User-assigned managed identity (UAMI) support | Use workspace identity (WI) as a workaround. |
 | **Parameterization and metadata** | Global parameters | Support is coming soon. Recreate by using Fabric variable libraries. |
 | | Dynamic linked services (parameterized connections) | Not supported. Each permutation must be a separate connection and can't migrate. |
-| | Metadata‑driven pipelines | Highly dynamic linked service or dataset‑driven patterns can't migrate. |
+| | Metadata-driven pipelines | Highly dynamic linked service or dataset-driven patterns can't migrate. |
 | **Activities and compute** | Azure Synapse Spark job definition (SJD) or notebook | Partially supported. Requires redesign into Fabric notebooks or Spark jobs. |
-| | Mapping data flows (MDF) | Support is coming soon. |
+| | Mapping data flows (MDF) | Supported (preview). Mapping data flows are converted to MDF transforms in Dataflow Gen2. See [Upgrade Azure Data Factory Mapping Data Flows pipelines to Fabric](/fabric/data-factory/dataflow-gen2-mapping-data-flows-transforms-upgrade). |
 | | Web, webhook, or HTTP activities with custom authentication or headers | Complex authentication scenarios must be rebuilt manually. |
 | | Notebook pool environment settings | Not supported. Migration is blocked. |
 | | Batch or custom activity workspace identity support | Missing workspace identity support blocks migration for these activities. |
@@ -200,13 +227,16 @@ Yes. Pipelines still migrate, but activities that depend on unmapped connections
 
 Yes. Microsoft recommends validating migrations in a nonproduction environment, confirming connections, triggers, and end-to-end execution before migrating production pipelines.
 
+**Why certain system variables behave differently in Fabric compared to Azure Data Factory?**
+
+These differences are expected as the platforms evolve independently. You can typically address them with a small adjustment during migration. For example, `pipeline().TriggerName` is available in Azure Data Factory but isn't currently supported in Fabric Data Factory. If your pipeline logic depends on the trigger name, use supported trigger event metadata or pass the trigger name explicitly as a pipeline parameter instead.
+
 ## Related content
 
 - [Compare Azure Data Factory and Fabric Data Factory](/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory)
 - [Plan your migration from Azure Data Factory to Fabric Data Factory](/fabric/data-factory/migrate-planning-azure-data-factory)
 - [Assess your pipelines for migration to Fabric Data Factory](how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md)
+- [Upgrade Azure Data Factory Mapping Data Flows pipelines to Fabric (preview)](/fabric/data-factory/dataflow-gen2-mapping-data-flows-transforms-upgrade)
 - [Migration best practices](/fabric/data-factory/migration-best-practices)
 - [Connector parity](/fabric/data-factory/connector-parity)
 - [Convert global parameters to variable libraries](/fabric/data-factory/convert-global-parameters-to-variable-libraries)
-
-

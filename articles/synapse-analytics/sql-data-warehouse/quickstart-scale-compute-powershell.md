@@ -16,6 +16,8 @@ ms.custom:
 
 # Quickstart: Scale compute for dedicated SQL pool (formerly SQL DW) with Azure PowerShell
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 You can scale compute for Azure Synapse Analytics [dedicated SQL pools](sql-data-warehouse-overview-what-is.md) in an Azure Synapse Workspace using Azure PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.

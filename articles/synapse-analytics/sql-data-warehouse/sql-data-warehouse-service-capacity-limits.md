@@ -13,6 +13,8 @@ ms.custom:
 
 # Capacity limits for dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Maximum values allowed for various components of dedicated SQL pool in Azure Synapse Analytics.
 
 ## Workload management

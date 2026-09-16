@@ -1,143 +1,192 @@
 ---
-title: Add certificates to secure B2B messages in workflows
-description: Add certificates to your integration account for securing B2B messages in workflows with Azure Logic Apps and the Enterprise Integration Pack.
-services: logic-apps
+title: Add Certificates to Secure B2B Messages in Workflows
+description: Add certificates to secure business-to-business (B2B) messages in workflows for Azure Logic Apps.
+services: azure-logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 08/27/2024
-ms.custom: sfi-image-nochange
+ai-usage: ai-assisted
+ms.update-cycle: 365-days
+ms.date: 04/10/2026
+ms.custom: sfi-im6ge-nochange
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to improve security for B2B messages by adding certificates to use in my workflows.
 ---
 
-# Add certificates to integration accounts for securing messages in workflows with Azure Logic Apps
+# Add certificates to secure B2B messages in workflows for Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-When you need to exchange confidential messages in a logic app business-to-business (B2B) workflow, you can increase the security around this communication by using certificates. A certificate is a digital document that helps secure communication in the following ways:
+Business-to-business (B2B) integrations often exchange messages with sensitive data such as purchase orders, invoices, and trading partner agreements. Without proper encryption and signing, these messages are vulnerable to tampering and impersonation. To address this risk, you can add security *certificates* for B2B actions to use in your workflows. Certificates are digital documents that perform the following tasks:
 
-* Checks the participants' identities in electronic communications.
+- Validate the partner identities in message exchanges.
+- Encrypt or decrypt messages so only the intended partner can read them.
+- Digitally sign messages so the receiver can verify the sender.
 
-* Encrypts message content.
+This guide shows how to add certificates and set up agreements to specify the certificates for B2B actions to use. For AS2 messages, the agreement settings control the certificates that AS2 actions automatically use. Your workflow actions don't have to do anything else to use certificates.
 
-* Digitally signs messages.
-
-You can use the following certificate types in your workflows:
-
-* [Public certificates](https://en.wikipedia.org/wiki/Public_key_certificate), which you must purchase from a public internet [certificate authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority). These certificates don't require any keys.
-
-* Private certificates or [*self-signed certificates*](https://en.wikipedia.org/wiki/Self-signed_certificate), which you create and issue yourself. However, these certificates require [private keys in an Azure key vault](#prerequisites).
-
-If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
+> [!NOTE]
+>
+> The AS2 pipeline handles security, certificates, and nonrepudiation, and the AS2 protocol requires encryption and digital signatures. For AS2 messages, you set up certificates at the agreement level. AS2 agreements have **Send Settings** and **Receive Settings** that expose certificate settings for this purpose. For more information, see [Reference for AS2 message settings in Azure Logic Apps](logic-apps-enterprise-integration-as2-message-settings.md).
+>
+> Other pipelines and protocols such as X12, EDIFACT, and RosettaNet handle security at other levels, for example, at the transport or adapter level. These agreements have **Send Settings** and **Receive Settings** that expose settings to define the message format, structure, and processing rules. EDI pipelines such as X12 and EDIFACT handle parsing, validation, and acknowledgments. For more information, see:
+>
+> - [Reference for EDIFACT message settings in Azure Logic Apps](logic-apps-enterprise-integration-edifact-message-settings.md)
+> - [Reference for X12 message settings in Azure Logic Apps](logic-apps-enterprise-integration-x12-message-settings.md)
+> - [Exchange RosettaNET messages in workflows with Azure Logic Apps](logic-apps-enterprise-integration-rosettanet.md)
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
+- An [integration account resource](enterprise-integration/create-integration-account.md).
 
-  * Is associated with the same Azure subscription as your logic app resource.
+  You use this resource to define and store B2B artifacts for enterprise integration and B2B workflows.
 
-  * Exists in the same location or Azure region as your logic app resource.
+  - Both your integration account and logic app resource must exist in the same Azure subscription and Azure region.
 
-  * If you have a [Consumption logic app resource](logic-apps-overview.md#resource-environment-differences), you have to [link your integration account to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use your artifacts in your workflow.
+  - Your integration account needs to have the following B2B artifacts:
 
-    To create and add certificates for use in **Logic App (Consumption)** workflows, you don't need a logic app resource yet. However, when you're ready to use those certificates in your workflows, your logic app resource requires a linked integration account that stores those certificates.
+    - Two or more [trading partners](logic-apps-enterprise-integration-partners.md), usually your organization and at least one other organization.
 
-  * If you have a [Standard logic app resource](logic-apps-overview.md#resource-environment-differences), your integration account doesn't need a link to your logic app resource but is still required to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+    - An [agreement between these partners](logic-apps-enterprise-integration-agreements.md).
 
-* For private certificates, you must meet the following prerequisites:
+      - Each agreement requires a host partner and a guest partner. Usually, your organization is the host partner, while another organization is the guest partner.
 
-  * Add a private key in [Azure Key Vault](/azure/key-vault/general/overview) and have the **Key Name**. For more information, review [Add your private key to Azure Key Vault](/azure/key-vault/certificates/certificate-scenarios#import-a-certificate).
+      - Both partners must use the same or compatible *business identity* qualifier that's appropriate for the agreement type, for example, AS2.
 
-  * Authorize the Azure Logic Apps service to perform operations on your key vault. To grant access to the Azure Logic Apps service principal, use Azure role-based access control to manage access to your key vault. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide).
+- The certificates from your guest partner organizations and for your host partner organization. You can use the following certificates:
 
-    > [!NOTE]
-    >
-    > If you're using access policies with your key vault, considering
-    > [migrating to the Azure role-based access control permission model](/azure/key-vault/general/rbac-migration).
-    >
-    > If you receive the error **"Please authorize logic apps to perform operations on key vault by granting access for the logic apps 
-    > service principal '7cd684f4-8a78-49b0-91ec-6a35d38739ba' for 'list', 'get', 'decrypt' and 'sign' operations."**, your 
-    > certificate might not have the **Key Usage** property set to **Data Encipherment**. If not, you might have to recreate the certificate 
-    > with the **Key Usage** property set to **Data Encipherment**. To check your certificate, open the certificate, select the 
-    > **Details** tab, and review the **Key Usage** property.
+  | Type | Description |
+  |------|-------------|
+  | [Private or *self-signed* certificate](https://en.wikipedia.org/wiki/Self-signed_certificate) | A certificate (.pfx) file that you create to handle the following tasks for your organization: <br><br>- Decrypt the messages that your partner sends you. <br>- Digitally sign the messages that you send to your partner. <br><br>This certificate requires that you add a corresponding private key to a key vault in Azure for decrypting and signing your messages. For more information, continue reading for the relevant prerequisites. |
+  | [Public certificate](https://en.wikipedia.org/wiki/Public_key_certificate) | A certificate (.cer) file to handle the following tasks for your guest partner: <br><br>- Encrypt the messages that you send to your partner. <br>- Validate the digital signature on the messages your partner sends to you. <br><br>You can purchase these certificates from a public internet [certificate authority (CA)](https://en.wikipedia.org/wiki/Certificate_authority). Partner certificates don't require private keys, so you can use public-only certificates for this purpose. |
 
-  * [Add the corresponding public certificate](#add-public-certificate) to your key vault. This certificate appears in your [agreement's **Send** and **Receive** settings for signing and encrypting messages](logic-apps-enterprise-integration-agreements.md). For example, review [Reference for AS2 messages settings in Azure Logic Apps](logic-apps-enterprise-integration-as2-message-settings.md).
+  For private certificates, complete the following requirements:
 
-* At least two [trading partners](logic-apps-enterprise-integration-partners.md) and an [agreement between those partners](logic-apps-enterprise-integration-agreements.md) in your integration account. An agreement requires a host partner and a guest partner. Also, an agreement requires that both partners use the same or compatible *business identity* qualifier that's appropriate for an AS2, X12, EDIFACT, or RosettaNet agreement.
+  1. In [Azure Key Vault](/azure/key-vault/general/overview), create a key vault resource, [add a private key](/azure/key-vault/certificates/certificate-scenarios#import-a-certificate), and get the key name.
 
-* Optionally, the logic app resource and workflow where you want to use the certificate. The workflow requires any trigger that starts your logic app's workflow. If you haven't created a logic app workflow before, review [Quickstart: Create an example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md).
+  1. Authorize Azure Logic Apps to perform operations on your key vault.
 
-<a name="add-public-certificate"></a>
+     To grant access to the Azure Logic Apps service principal, use Azure role-based access control to manage access to your key vault. For more information, see [Provide access to Key Vault keys, certificates, and secrets with Azure role-based access control](/azure/key-vault/general/rbac-guide).
 
-## Use a public certificate
+     > [!NOTE]
+     >
+     > If you use access policies with your key vault, consider [migrating to the Azure role-based access control permission model](/azure/key-vault/general/rbac-migration).
+     >
+     > If you receive the error **"Please authorize logic apps to perform operations on key vault by granting access for the logic apps service principal '7cd684f4-8a78-49b0-91ec-6a35d38739ba' for 'list', 'get', 'decrypt' and 'sign' operations."**, your certificate might not have the **Key Usage** property set to **Data Encipherment**. If so, you might need to recreate the certificate and set the **Key Usage** property to **Data Encipherment**.
+     >
+     > To check your certificate, open the certificate, select the **Details** tab, and review the **Key Usage** property.
 
-To use a *public certificate* in your workflow, you have to first add the certificate to your integration account.
+  1. In your integration account, [add a public certificate](#add-public-certificate) that's associated with the private key in your key vault.
 
-1. In the [Azure portal](https://portal.azure.com) search box, enter `integration accounts`, and select **Integration accounts**.
+- The logic app resource and workflow where you want to use the certificate.
 
-1. Under **Integration accounts**, select the integration account where you want to add your certificate.
+  - The workflow can start with any trigger that works best for your scenario.
 
-1. On the integration account menu, under **Settings**, select **Certificates**.
+  - [Link your integration account](enterprise-integration/create-integration-account.md#link-account) to your logic app resource.
 
-1. On the **Certificates** pane, select **Add**.
+    This link is required for Consumption logic apps, but optional for Standard logic apps. However, linking lets you share the same integration account and B2B artifacts across multiple Consumption and Standard logic apps.
 
-1. On the **Add Certificate** pane, provide the following information about the certificate:
+  For more information, see:
 
-   | Property | Required | Value | Description |
-   |----------|----------|-------|-------------|
-   | **Name** | Yes | <*certificate-name*> | Your certificate's name, which is `publicCert` in this example |
-   | **Certificate Type** | Yes | **Public** | Your certificate's type |
-   | **Certificate** | Yes | <*certificate-file-name*> | To browse for the certificate file that you want to add, select the folder icon next to the **Certificate** box. Select the certificate that you want to use. |
-   |||||
-
-   ![Screenshot showing the Azure portal and integration account with "Add" selected and the "Add Certificate" pane with public certificate details.](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
-
-1. When you're done, select **OK**.
-
-   After Azure validates your selection, Azure uploads your certificate.
-
-   ![Screenshot showing the Azure portal and integration account with the public certificate in the "Certificates" list.](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png)
+  - [Create Consumption logic app workflows in the Azure portal](quickstart-create-example-consumption-workflow.md)
+  - [Create Standard logic app workflows in the Azure portal](create-single-tenant-workflows-azure-portal.md)
 
 <a name="add-private-certificate"></a>
 
-## Use a private certificate
+## Add your private certificate
 
-To use a *private certificate* in your workflow, you have to first meet the [prerequisites for private keys](#prerequisites), and add a public certificate to your integration account.
+To add your organization's certificate to your integration account, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com) search box, enter `integration accounts`, and select **Integration accounts**.
+1. Confirm that you met the [prerequisites for private keys](#prerequisites), including adding the corresponding public certificate to your key vault.
 
-1. Under **Integration accounts**, select the integration account where you want to add your certificate.
+1. In the [Azure portal](https://portal.azure.com) search box, enter `integration accounts`, and then select **Integration accounts**.
 
-1. On the integration account menu, under **Settings**, select **Certificates**.
+1. From the **Integration accounts** page, select the integration account where you want to add your certificate.
 
-1. On the **Certificates** pane, select **Add**.
+1. On the integration account sidebar, under **Settings**, select **Certificates**.
 
-1. On the **Add Certificate** pane, provide the following information about the certificate:
+1. On the **Certificates** page toolbar, select **Add**.
+
+1. On the **Add Certificate** pane, provide the following information:
 
    | Property | Required | Value | Description |
-   |----------|----------|-------|-------------|
-   | **Name** | Yes | <*certificate-name*> | Your certificate's name, which is `privateCert` in this example |
-   | **Certificate Type** | Yes | **Private** | Your certificate's type |
-   | **Certificate** | Yes | <*certificate-file-name*> | To browse for the certificate file that you want to add, select the folder icon next to the **Certificate** box. Select the public certificate that corresponds to the private key that's stored in your key vault. |
-   | **Resource Group** | Yes | <*integration-account-resource-group*> | Your integration account's resource group, which is `Integration-Account-RG` in this example |
-   | **Key Vault** | Yes | <*key-vault-name*> | Your key vault name |
-   | **Key name** | Yes | <*key-name*> | Your key name |
-   |||||
+   | -------- | -------- | ----- | ----------- |
+   | **Name** | Yes | <*certificate-name*> | The certificate name. |
+   | **Certificate Type** | Yes | **Private** | The certificate type. |
+   | **Certificate** | Yes | <*certificate-file-name*> | 1. Next to the **Certificate** box, select the folder icon. <br>2. Find and select the certificate (.pfx) file that's associated with the private key in your key vault, and then select **Open**. |
+   | **Resource Group** | Yes | <*integration-account-resource-group*> | The integration account resource group. |
+   | **Key Vault** | Yes | <*key-vault-name*> | The key vault name. |
+   | **Key name** | Yes | <*key-name*> | The private key name. |
 
-   ![Screenshot showing the Azure portal and integration account with "Add" selected and the "Add Certificate" pane with private certificate details.](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)
+   The following example shows sample private certificate information:
 
-1. When you're done, select **OK**.
+   :::image type="content" source="media/logic-apps-enterprise-integration-certificates/private-certificate-details.png" alt-text="Screenshot shows the Azure portal, integration account, Certificates page toolbar with Add selected, and the Add Certificate pane with private certificate details.":::
 
-   After Azure validates your selection, Azure uploads your certificate.
+1. When you finish, select **OK**.
 
-   ![Screenshot showing the Azure portal and integration account with the private certificate in the "Certificates" list.](media/logic-apps-enterprise-integration-certificates/new-private-certificate.png)
+   After Azure validates your selection, your certificate appears on the **Certificates** page, for example:
 
-## Next steps
+   :::image type="content" source="media/logic-apps-enterprise-integration-certificates/new-private-certificate.png" alt-text="Screenshot that shows the integration account and Certificates page with the private certificate.":::
 
-* [Exchange AS2 messages](logic-apps-enterprise-integration-as2.md)
-* [Exchange EDIFACT messages](logic-apps-enterprise-integration-edifact.md)
-* [Exchange X12 messages](logic-apps-enterprise-integration-x12.md)
-* [Exchange RosettaNet messages](logic-apps-enterprise-integration-rosettanet.md)
+<a name="add-public-certificate"></a>
+
+## Add partner public certificate
+
+To add your partner's public certificate to your integration account, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com) search box, enter `integration accounts`, and then select **Integration accounts**.
+
+1. From the **Integration accounts** page, select the integration account where you want to add your certificate.
+
+1. On the integration account sidebar, under **Settings**, select **Certificates**.
+
+1. On the **Certificates** page toolbar, select **Add**.
+
+1. On the **Add Certificate** pane, provide the following information:
+
+   | Property | Required | Value | Description |
+   | -------- | -------- | ----- | ----------- |
+   | **Name** | Yes | <*certificate-name*> | The certificate name. |
+   | **Certificate Type** | Yes | **Public** | The certificate type. |
+   | **Certificate** | Yes | <*certificate-file-name*> | 1. Next to the **Certificate** box, select the folder icon. <br>2. Find and select your partner's certificate (.cer) file, and then select **Open**. |
+
+   The following example shows sample public certificate information:
+
+   :::image type="content" source="media/logic-apps-enterprise-integration-certificates/public-certificate-details.png" alt-text="Screenshot shows the Azure portal, integration account, Certificates page toolbar with Add selected, and the Add Certificate pane with public certificate details.":::
+
+1. When you finish, select **OK**.
+
+   After Azure validates your selection, your certificate appears on the **Certificates** page, for example:
+
+   :::image type="content" source="media/logic-apps-enterprise-integration-certificates/new-public-certificate.png" alt-text="Screenshot shows the integration account and the Certificates page with the public certificate.":::
+
+## Set up certificates for AS2 agreements
+
+After you add the certificates you want, AS2 agreements require that you manually specify the certificates to use in the agreement's [**Receive Settings** and **Send Settings** for signing and encrypting messages](logic-apps-enterprise-integration-as2-message-settings.md).
+
+To complete this task, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), open your integration account.
+
+1. On the integration account sidebar, under **Settings**, select **Agreements**.
+
+1. On the **Agreements** page, select the AS2 agreement. On the **Agreements** page toolbar, select **Edit**.
+
+1. On the **Edit** pane, select the following options and provide the required information, based on the capability you want to enable:
+
+   | Settings pane | Description |
+   |---------------|-------------|
+   | **Receive Settings** | - **Message should be signed**: Select this option, and then select the certificate to validate your partner's signature on received messages. <br><br>- **Message should be encrypted**: Select this option, and then select the certificate for decrypting messages from your partner. |
+   | **Send Settings** | - **Enable message signing**: Select this option, and then select the algorithm and certificate to sign the messages that you send. <br><br>- **Enable message encryption**: Select this option, and then select the algorithm and certificate for encrypting messages that you send. |
+
+   For more information, see [Reference for AS2 message settings in Azure Logic Apps](logic-apps-enterprise-integration-as2-message-settings.md).
+
+## Related content
+
+- [Exchange AS2 messages in B2B workflows using Azure Logic Apps](logic-apps-enterprise-integration-as2.md)
+- [Exchange EDIFACT messages in B2B workflows using Azure Logic Apps](logic-apps-enterprise-integration-edifact.md)
+- [Exchange X12 messages in B2B workflows using Azure Logic Apps](logic-apps-enterprise-integration-x12.md)
+- [Exchange RosettaNet messages in B2B workflows using Azure Logic Apps](logic-apps-enterprise-integration-rosettanet.md)

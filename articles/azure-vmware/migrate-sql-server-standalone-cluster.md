@@ -5,7 +5,7 @@ ms.author: jacobjaygbay
 description: Learn how to migrate Microsoft SQL Server Standalone to Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 01/08/2025
+ms.date: 05/28/2026
 ms.custom: engagement-fy23
 # Customer intent: As a database administrator, I want to migrate a Microsoft SQL Server standalone instance to Azure VMware Solution, so that I can ensure high availability and minimize downtime during the migration process.
 ---
@@ -16,8 +16,8 @@ In this article, learn how to migrate a SQL Server standalone instance to Azure 
 
 VMware HCX offers two migration profiles when migrating a SQL Server standalone instance to Azure VMware Solution:
 
-- HCX vMotion
-- HCX Cold Migration
+- VMware HCX vMotion
+- VMware HCX Cold Migration
 
 In both cases, consider the size and criticality of the database being migrated. 
 For this how-to procedure, we validated VMware HCX vMotion.
@@ -69,13 +69,13 @@ Further downtime considerations are discussed in the next section.
 ## Downtime considerations
 
 Downtime during a migration depends on the size of the database to be migrated and the speed of the private network connection to Azure cloud.
-Migration of a  SQL Server standalone instance using the VMware HCX vMotion mechanism is intended to minimize the solution downtime, however we still recommend the migration take place during off-peak hours within a preapproved change window.
+Migration of a  SQL Server standalone instance using the VMware HCX vMotion mechanism is intended to minimize the solution downtime. However we recommend the migration take place during off-peak hours within a preapproved change window.
 
 The following table indicates the estimated downtime for migration of each SQL Server topology.
 
 | **Scenario** | **Downtime expected** | **Notes** |
 |:---|:-----|:-----|
-| **SQL Server standalone instance** | Low | Migration is done using VMware vMotion, the database is available during migration time, but it isn't recommended to commit any critical data during it. |
+| **SQL Server standalone instance** | Low | Migration is done using VMware vMotion. The database is available during migration time, but the recommendation is to not commit any critical data during it. |
 | **SQL Server Always On Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
 | **SQL Server Always On Failover Cluster Instance** | High | All nodes of the cluster are shut down and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
 

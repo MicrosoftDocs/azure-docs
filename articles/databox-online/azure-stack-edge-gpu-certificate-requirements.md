@@ -2,12 +2,12 @@
 title: Certificates requirements and troubleshooting with Azure Stack Edge Pro | Microsoft Docs
 description: Describes certificates requirements and troubleshooting certificate errors with Azure Stack Edge Pro device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Certificate requirements

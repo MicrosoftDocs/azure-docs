@@ -6,8 +6,6 @@ ms.custom:
   - horz-monitor
   - build-2025
 ms.topic: reference
-author: dlepow
-ms.author: danlep
 ms.service: azure-api-management
 ---
 

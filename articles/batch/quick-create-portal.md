@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use the Azure portal to create a Batch account and run a job'
 description: Follow this quickstart to use the Azure portal to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
-ms.date: 03/14/2025
+ms.date: 06/16/2026
 ms.service: azure-batch
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
@@ -104,7 +104,7 @@ The following procedure creates and runs two identical tasks in your job. Each t
 
 1. Repeat the preceding steps to create a second task, but enter *myTask2* for **Task ID**.
 
-After you create each task, Batch queues it to run on the pool. Once a node is available, the task runs on the node. In the quickstart example, if the first task is still running on one node, Batch starts the second task on the other node in the pool.
+After you create each task, Batch queues it to run on the pool. When a node is available, the task runs on the node. In the quickstart example, if the first task is still running on one node, Batch starts the second task on the other node in the pool.
 
 ## View task output
 

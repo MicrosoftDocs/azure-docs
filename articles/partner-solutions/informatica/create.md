@@ -1,6 +1,8 @@
 ---
 title: "Quickstart: Create an Informatica Intelligent Data Management Cloud deployment"
 description: This article describes how to use the Azure portal to create an Informatica Intelligent Data Management Cloud organization.
+author: pavanatgit
+ms.author: plekkala
 ms.topic: quickstart
 ms.date: 12/10/2025
 #Customer intent: As an information professional, I want to set up my Informatica Intelligent Data Management Cloud as an Azure Native Service.

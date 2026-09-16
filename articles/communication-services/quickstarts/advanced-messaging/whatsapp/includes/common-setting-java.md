@@ -125,7 +125,7 @@ String channelRegistrationId = "<your channel registration id GUID>";
 
 ### Set recipient list
 
-You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the text and media messages sent in this article.
+You need to supply a real phone number that has a WhatsApp account associated with it, or a business-scoped user ID (BSUID). This WhatsApp account receives the text and media messages sent in this article.
 For this article, this phone number can be your personal phone number.   
 
 The recipient phone number can't be the business phone number (Sender ID) associated with the WhatsApp channel registration. The Sender ID appears as the sender of the text and media messages sent to the recipient.
@@ -133,17 +133,29 @@ The recipient phone number can't be the business phone number (Sender ID) associ
 The phone number should include the country code. For more information on phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
 
 > [!NOTE]
-> Only one phone number is currently supported in the recipient list.
+> Only one phone number or BSUID is currently supported in the recipient list.
 
 Create the recipient list like this:
 ```java
 List<String> recipientList = new ArrayList<>();
-recipientList.add("<to WhatsApp phone number>");
+recipientList.add("<to WhatsApp phone number or BSUID>");
 ```
 
-Example:
+Example using a phone number:
 ```java
 // Example only
 List<String> recipientList = new ArrayList<>();
 recipientList.add("+14255550199");
 ```
+
+Example using a BSUID:
+```java
+// Example only
+List<String> recipientList = new ArrayList<>();
+recipientList.add("US.13491208655302741918");
+```
+
+> [!NOTE]
+> Sending messages to BSUIDs will be available starting in June 2026. Until then, use phone numbers as recipients.
+
+For more information about BSUIDs, see [WhatsApp usernames and BSUIDs](../../../../concepts/advanced-messaging/whatsapp/whatsapp-username-support-overview.md).

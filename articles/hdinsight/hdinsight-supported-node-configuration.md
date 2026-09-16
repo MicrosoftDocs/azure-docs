@@ -5,8 +5,8 @@ keywords: vm sizes, cluster sizes, cluster configuration
 ms.service: azure-hdinsight
 ms.topic: reference
 ms.custom: hdinsightactive
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 07/12/2024
 ---

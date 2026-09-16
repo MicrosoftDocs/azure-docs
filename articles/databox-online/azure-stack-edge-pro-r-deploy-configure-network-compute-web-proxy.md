@@ -2,12 +2,12 @@
 title: Tutorial to configure network settings for Azure Stack Edge Pro R device in Azure portal | Microsoft Docs
 description: Tutorial to deploy Azure Stack Edge Pro R instructs you to configure network, compute network, and web proxy settings for your physical device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 04/18/2024
-ms.author: alkohli
+ms.author: sipastak
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---

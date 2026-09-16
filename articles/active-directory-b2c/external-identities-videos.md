@@ -5,7 +5,7 @@ description: Learn about external identities in Azure AD B2C in the Microsoft id
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh

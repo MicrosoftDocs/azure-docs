@@ -6,7 +6,7 @@ description: Learn how to add single-page sign-in using the OAuth 2.0 implicit f
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: concept-article
 ms.date: 10/11/2024
@@ -267,4 +267,4 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 ## Next steps
 
-See the code sample: [Sign-in with Azure AD B2C in a JavaScript SPA](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-browser-samples/VanillaJSTestApp2.0/app/b2c).
+See the code sample: [Sign-in with Azure AD B2C in a JavaScript SPA](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples).

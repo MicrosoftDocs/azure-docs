@@ -226,7 +226,7 @@ These limits would apply to the target subscription used for Azure Operator Serv
 
 |Resource	|Limit|
 |---------|-----|
-|Number of Azure role assignments per Azure subscription|	4,000|
+|Number of Azure role assignments per Azure subscription|	5,000|
 |Number of Azure role assignments per management group| 500|
 |Size of description for Azure role assignments	Recommended maximum| 512 chars|
 |Size of condition for Azure role assignments|	8 KB|
@@ -239,6 +239,21 @@ These limits would apply to the target subscription used for Azure Operator Serv
 |Number of system-managed deny assignments per Azure subscription|	2,000|
 
 Generally, AOSM requires 8x the number of concurrent SNS operations against a target subscription.
+
+### Azure Container Registry limits
+These limits apply to the artifact-store resource used for Azure Operator Service Manager deployment.
+
+|Resource	|Limit|
+|---------|-----|
+|Included storage1 (GiB)	|	500 |
+|Storage limit (TiB)	| 100 |
+|Maximum image layer size (GiB)	|	200 |
+|Maximum manifest size (MiB)	| 4 |
+|Actions per non-Microsoft Entra token scope map	|	500 |
+|Repositories per non-Microsoft Entra token scope map2	|	500 |
+|Private endpoints |	200 |
+|Geo-replication | Supported |
+|Availability zones | Supported |
 
 ### Other limits
 These limits have been observed in certain real-world use-cases.

@@ -140,7 +140,7 @@ For more information about using the JavaScript Management SDK, see [Azure Commu
 
 # [Python](#tab/python)
 
-For Python apps and functions, Code Samples on how to create or update your Azure Communication Services resource  with a managed identity can be found in the [Azure Communication Management Developer Samples for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-mgmt-communication/generated_samples/communication_services/create_or_update_with_system_assigned_identity.py).
+For Python apps and functions, Code Samples on how to create or update your Azure Communication Services resource  with a managed identity can be found in the [Azure Communication Management Developer Samples for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-mgmt-communication/generated_samples/create_or_update_with_system_assigned_identity.py).
 
 For more information about using the python Management SDK, see [Azure Communication Management SDK for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-mgmt-communication/README.md).
 

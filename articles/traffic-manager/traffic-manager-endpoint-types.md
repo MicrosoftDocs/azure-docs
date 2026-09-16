@@ -5,7 +5,7 @@ services: traffic-manager
 author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: concept-article
-ms.date: 06/27/2024
+ms.date: 06/01/2026
 ms.author: allensu
 # Customer intent: "As a network administrator, I want to understand the different types of endpoints supported by traffic management solutions, so that I can effectively configure and optimize traffic distribution for my applications across various environments."
 ---
@@ -53,6 +53,19 @@ In some cases, it's useful to use External endpoints to reference Azure services
 Nested endpoints combine multiple Traffic Manager profiles to create flexible traffic-routing schemes to support the needs of larger and complex deployments. With Nested endpoints, a ***child*** profile is added as an endpoint to a ***parent*** profile. Both the child and parent profiles can contain other endpoints of any type, including other nested profiles. 
 
 For more information, see [Nested Traffic Manager profiles](traffic-manager-nested-profiles.md).
+
+## Strictly Typed Profiles and DNS integration
+
+> [!IMPORTANT]
+> Strictly Typed Profiles and Traffic Manager Linked Records are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Traffic Manager profile types can be configured when creating or configuring a Traffic Manager profile. When a profile type is set, **Strictly Typed Profiles (STP)** enforcement locks the profile to the IP address type (IPv4 or IPv6) that matches the DNS record type—preventing endpoint type mismatches that can result in broken DNS resolution.
+
+- Profiles linked via an **A** Traffic Manager Linked Record only accept IPv4 endpoints.
+- Profiles linked via an **AAAA** Traffic Manager Linked Record only accept IPv6 endpoints.
+- Profiles linked via a **CNAME** Traffic Manager Linked Record have no IP type restriction.
+
+For more information, see [Strictly Typed Profiles for Azure Traffic Manager](traffic-manager-strictly-typed-profiles.md).
 
 ## Web Apps as endpoints
 

@@ -1,11 +1,11 @@
 ---
 title: Tutorial - Web app accesses Microsoft Graph as the user | Azure
-description: In this tutorial, you learn how to access data in Microsoft Graph for a signed-in user.
+description: In this tutorial, you learn how to access data in Microsoft Graph for a signed-in user accessing an Azure App Service app.
 author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: tutorial
-ms.date: 03/08/2022
+ms.date: 04/02/2026
 ms.devlang: csharp
 ms.custom: azureday1, devx-track-js, AppServiceConnectivity
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
@@ -17,7 +17,7 @@ ms.custom: azureday1, devx-track-js, AppServiceConnectivity
 
 ## Call Microsoft Graph from Node.js
 
-Your web app now has the required permissions and also adds Microsoft Graph's client ID to the login parameters.
+Your web app now has the required permissions. It also adds Microsoft Graph's client ID to the login parameters.
 
 ### Install client library packages
 
@@ -103,6 +103,5 @@ getAuthenticatedClient = (accessToken) => {
     return client;
 }
 ```
-
 
 [!INCLUDE [second-part](./includes/tutorial-connect-app-access-microsoft-graph-as-user/end.md)]

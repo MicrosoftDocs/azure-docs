@@ -14,6 +14,8 @@ ms.custom:
 
 # T-SQL language elements for dedicated SQL pool in Azure Synapse Analytics 
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Links to the documentation for T-SQL language elements supported in dedicated SQL pool.
 
 ## Core elements

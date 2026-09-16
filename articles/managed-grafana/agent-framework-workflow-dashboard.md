@@ -40,8 +40,8 @@ Before you begin, ensure you have:
 - An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md).
 - An Azure Application Insights resource collecting telemetry from your Agent Framework application.
 - Your Agent Framework workflow application instrumented to send telemetry to Application Insights using OpenTelemetry. For instrumentation details, see:
-  - [Python instrumentation guide](https://github.com/microsoft/agent-framework/blob/main/python/samples/getting_started/observability/README.md)
-  - [.NET instrumentation guide](https://github.com/microsoft/agent-framework/tree/main/dotnet/samples/GettingStarted/AgentOpenTelemetry)
+  - [Get Started with Agent Framework for Python](https://github.com/microsoft/agent-framework/blob/main/python/samples/01-get-started/README.md)
+  - [OpenTelemetry Aspire Demo with Azure OpenAI](https://github.com/microsoft/agent-framework/blob/main/dotnet/samples/02-agents/AgentOpenTelemetry/README.md)
 - The Monitoring Reader role or equivalent permissions for the Application Insights resource you want to monitor.
 
 > [!TIP]
@@ -183,8 +183,8 @@ Agent Framework Workflows provide structured orchestration of complex, multi-ste
 - **Debugging**: Investigate what happened in failed workflow runs
 
 For detailed instrumentation instructions, see:
-- [Python: Agent Framework observability setup](https://github.com/microsoft/agent-framework/blob/main/python/samples/getting_started/observability/README.md)
-- [.NET: Agent Framework OpenTelemetry sample](https://github.com/microsoft/agent-framework/tree/main/dotnet/samples/GettingStarted/AgentOpenTelemetry)
+- [Get Started with Agent Framework for Python](https://github.com/microsoft/agent-framework/blob/main/python/samples/01-get-started/README.md)
+- [OpenTelemetry Aspire Demo with Azure OpenAI](https://github.com/microsoft/agent-framework/blob/main/dotnet/samples/02-agents/AgentOpenTelemetry/README.md)
 
 ## Related content
 

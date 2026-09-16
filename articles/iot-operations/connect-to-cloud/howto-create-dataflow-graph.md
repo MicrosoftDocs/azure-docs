@@ -1,33 +1,42 @@
 ---
-title: Create a data flow graph in Azure IoT Operations
-description: Learn how to create a data flow graph to process data with composable transforms in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+title: Create data flow graphs in Azure IoT Operations
+description: Learn how to create a data flow graph in Azure IoT Operations to transform data with map, filter, branch, window, and other composable transforms.
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 07/24/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to create a data flow graph to process data with transforms like map, filter, and window.
 ---
 
-# Process data with data flow graphs
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+# Create a data flow graph in Azure IoT Operations
 
 A data flow graph is a composable processing pipeline that transforms data as it moves between sources and destinations. A standard [data flow](howto-create-dataflow.md) follows a fixed enrich, filter, map sequence. A data flow graph lets you chain transforms in any order, branch into parallel paths, and aggregate data over time windows.
 
 This article walks through creating a data flow graph step by step. For an overview of data flow graphs and the available transforms, see [Data flow graphs overview](concept-dataflow-graphs.md).
 
-> [!IMPORTANT]
-> Data flow graphs currently support only MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+Data flow graphs currently support only MQTT, Kafka, and OpenTelemetry endpoints. They don't support other endpoint types such as Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage.
+
+[!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md), version 1.2 or later.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
+- Azure IoT Operations version 1.2 or later.
+
 - A [data flow profile](howto-configure-dataflow-profile.md). You can use the default profile.
+
 - A [data flow endpoint](howto-configure-dataflow-endpoint.md) for your source and destination. The default MQTT broker endpoint works for getting started.
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the `GRAPH_NAME` and `PROFILE` environment variables for the data flow graph and profile names. Set each one before you run the related commands.
 
 ## Create a data flow graph
 
@@ -35,7 +44,7 @@ A data flow graph contains three types of elements: **sources** that bring data 
 
 # [Operations experience](#tab/portal)
 
-1. In the [Operations experience](https://iotoperations.azure.com/), go to your Azure IoT Operations instance.
+1. In the [operations experience](https://iotoperations.azure.com/), go to your Azure IoT Operations instance.
 
 1. Select **Data flow graph** > **Create data flow graph**.
 
@@ -51,21 +60,97 @@ A data flow graph contains three types of elements: **sources** that bring data 
 
        :::image type="content" source="media/howto-create-dataflow-graph/source-configuration.png" alt-text="Screenshot of the operations experience source configuration panel showing endpoint dropdown and topic input." lightbox="media/howto-create-dataflow-graph/source-configuration.png":::
 
-       1. **Add transforms**: Select one or more transforms to process the data. Available transforms include map, filter, branch, concat, and window. For details on each transform type, see [Data flow graphs overview](concept-dataflow-graphs.md#available-transforms).
+    1. **Add transforms**: Select one or more transforms to process the data. Available transforms include map, filter, branch, concatenate, window, and throttle. For details on each transform type, see [Data flow graphs overview](concept-dataflow-graphs.md#available-transforms).
 
        :::image type="content" source="media/howto-create-dataflow-graph/transform-selection.png" alt-text="Screenshot of the operations experience transform selection menu showing available transform types." lightbox="media/howto-create-dataflow-graph/transform-selection.png":::
 
-       :::image type="content" source="media/howto-create-dataflow-graph/branch-transform-example.png" alt-text="Screenshot of the operations experience showing a branch transform configuration example.Screenshot of the operations experience showing a branch transform configuration example." lightbox="media/howto-create-dataflow-graph/branch-transform-example.png":::
+       :::image type="content" source="media/howto-create-dataflow-graph/branch-transform-example.png" alt-text="Screenshot of the operations experience showing a branch transform configuration example." lightbox="media/howto-create-dataflow-graph/branch-transform-example.png":::
 
     1. **Add a destination**: Select the destination endpoint and configure the topic or path to send processed data to.
 
-        :::image type="content" source="media/howto-create-dataflow-graph/destination-configuration.png" alt-text="Screenshot of the operations experience showing a destination example." lightbox="media/howto-create-dataflow-graph/destination-configuration.png":::
+       :::image type="content" source="media/howto-create-dataflow-graph/destination-configuration.png" alt-text="Screenshot of the operations experience showing a destination example." lightbox="media/howto-create-dataflow-graph/destination-configuration.png":::
 
 1. Connect the elements in the order you want data to flow.
 
     :::image type="content" source="media/howto-create-dataflow-graph/connected-pipeline.png" alt-text="Screenshot of the operations experience canvas showing a connected source, transform, and destination pipeline." lightbox="media/howto-create-dataflow-graph/connected-pipeline.png":::
 
 1. Select **Save** to deploy the data flow graph.
+
+# [Azure CLI](#tab/cli)
+
+The Azure CLI uses a data flow graph from a single JSON config file that contains all nodes and connections. Use [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply) to create or replace the graph. The following example reads temperature data, converts it to Fahrenheit, and sends it to a destination topic.
+
+Create a `graph.json` file with the data flow graph properties. In the `graph.json` file, store each transform's rules in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
+
+```json
+{
+  "mode": "Enabled",
+  "nodes": [
+    {
+      "nodeType": "Source",
+      "name": "sensors",
+      "sourceSettings": {
+        "endpointRef": "default",
+        "dataSources": [
+          "telemetry/temperature"
+        ]
+      }
+    },
+    {
+      "nodeType": "Graph",
+      "name": "convert",
+      "graphSettings": {
+        "registryEndpointRef": "default",
+        "artifact": "azureiotoperations/graph-dataflow-map:1.0.0",
+        "configuration": [
+          {
+            "key": "rules",
+            "value": "{\"map\":[{\"inputs\":[\"*\"],\"output\":\"*\"},{\"inputs\":[\"temperature\"],\"output\":\"temperature_f\",\"expression\":\"cToF($1)\"}]}"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "Destination",
+      "name": "output",
+      "destinationSettings": {
+        "endpointRef": "default",
+        "dataDestination": "telemetry/converted"
+      }
+    }
+  ],
+  "nodeConnections": [
+    {
+      "from": {
+        "name": "sensors"
+      },
+      "to": {
+        "name": "convert"
+      }
+    },
+    {
+      "from": {
+        "name": "convert"
+      },
+      "to": {
+        "name": "output"
+      }
+    }
+  ]
+}
+```
+
+Apply the config file.
+
+```azurecli
+az iot ops dataflowgraph apply \
+  --name temperature-processing \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --config-file graph.json
+```
+
+The graph uses the `default` data flow profile. To use a different profile, add `--profile <PROFILE_NAME>`.
 
 # [Bicep](#tab/bicep)
 
@@ -75,7 +160,7 @@ Create a Bicep `.bicep` file with the following structure. This example creates 
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2025-10-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -83,12 +168,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-10-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   parent: defaultDataflowProfile
   name: 'temperature-processing'
   extendedLocation: {
@@ -149,10 +234,12 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 Deploy the Bicep file:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a Kubernetes manifest `.yaml` file with the following structure. This example creates a data flow graph that reads temperature data, converts it to Fahrenheit, and sends it to a destination topic.
 
@@ -214,7 +301,7 @@ spec:
 Apply the manifest:
 
 ```bash
-kubectl apply -f <FILE>.yaml
+kubectl apply -f main.yaml
 ```
 
 ---
@@ -232,6 +319,24 @@ In the data flow graph editor, select the source element and configure:
 | **Endpoint** | The data flow endpoint to use. Select *default* for the local MQTT broker. |
 | **Topics** | One or more topics to subscribe to for incoming messages. |
 
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph at once, so configure the source as a `Source` node in your `graph.json` config file, then run [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "nodeType": "Source",
+  "name": "sensors",
+  "sourceSettings": {
+    "endpointRef": "default",
+    "dataSources": [
+      "telemetry/temperature",
+      "telemetry/humidity"
+    ]
+  }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -248,7 +353,9 @@ In the data flow graph editor, select the source element and configure:
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - nodeType: Source
@@ -264,28 +371,54 @@ In the data flow graph editor, select the source element and configure:
 
 ## Add transforms
 
-Transforms process data between the source and destination. Each transform references a built-in artifact and is configured with rules.
+Transforms process data between the source and destination. Each transform references a built-in artifact and has configuration rules.
 
 The available built-in transforms are:
 
-| Transform | Artifact | Description |
-|-----------|----------|-------------|
-| Map | `azureiotoperations/graph-dataflow-map:1.0.0` | Rename, restructure, compute, and copy fields |
-| Filter | `azureiotoperations/graph-dataflow-filter:1.0.0` | Drop messages that match a condition |
-| Branch | `azureiotoperations/graph-dataflow-branch:1.0.0` | Route messages to a `true` or `false` path |
-| Concat | `azureiotoperations/graph-dataflow-concatenate:1.0.0` | Merge branched paths back together |
-| Window | `azureiotoperations/graph-dataflow-window:1.0.0` | Aggregate data over a time interval |
+[!INCLUDE [dataflow-graphs-built-in-transforms](../includes/dataflow-graphs-built-in-transforms.md)]
 
-For detailed configuration of each transform type, see:
-
-- [Transform data with map](howto-dataflow-graphs-map.md)
-- [Filter and route data](howto-dataflow-graphs-filter-route.md)
-- [Aggregate data over time](howto-dataflow-graphs-window.md)
-- [Enrich with external data](howto-dataflow-graphs-enrich.md)
+For more information on enriching messages with external data, see [Enrich with external data](howto-dataflow-graphs-enrich.md).
 
 # [Operations experience](#tab/portal)
 
 In the data flow graph editor, select **Add transform** and choose the transform type. Configure the rules in the visual editor.
+
+# [Azure CLI](#tab/cli)
+
+Each transform is a node with `nodeType` set to `Graph` in your `graph.json` config file. The transform's rules are a JSON object, like this map that converts temperature to Fahrenheit:
+
+```json
+{
+  "map": [
+    {
+      "inputs": ["temperature"],
+      "output": "temperature_f",
+      "expression": "cToF($1)"
+    }
+  ]
+}
+```
+
+The `configuration` property takes these rules as a string, so escape the rules JSON and place it in the `value` field. Apply the full graph with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "nodeType": "Graph",
+  "name": "convert",
+  "graphSettings": {
+    "registryEndpointRef": "default",
+    "artifact": "azureiotoperations/graph-dataflow-map:1.0.0",
+    "configuration": [
+      {
+        "key": "rules",
+        "value": "{\"map\":[{\"inputs\":[\"temperature\"],\"output\":\"temperature_f\",\"expression\":\"cToF($1)\"}]}"
+      }
+    ]
+  }
+}
+```
+
+[!INCLUDE [dataflow-jq-tip](../includes/dataflow-jq-tip.md)]
 
 # [Bicep](#tab/bicep)
 
@@ -308,7 +441,9 @@ Each transform is a node with `nodeType: 'Graph'`. The `configuration` property 
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Each transform is a node with `nodeType: Graph`. The `configuration` property passes rules as a JSON string:
 
@@ -336,11 +471,44 @@ Each transform is a node with `nodeType: Graph`. The `configuration` property pa
 
 ### Chain multiple transforms
 
-You can chain any number of transforms. Connect them in the `nodeConnections` section in the order you want data to flow:
+Chain any number of transforms. Connect them in the `nodeConnections` section in the order you want data to flow:
 
 # [Operations experience](#tab/portal)
 
 Drag connections between transforms on the canvas to define the processing order.
+
+# [Azure CLI](#tab/cli)
+
+Define the processing order in the `nodeConnections` section of your `graph.json` config file:
+
+```json
+"nodeConnections": [
+  {
+    "from": {
+      "name": "sensors"
+    },
+    "to": {
+      "name": "remove-bad-data"
+    }
+  },
+  {
+    "from": {
+      "name": "remove-bad-data"
+    },
+    "to": {
+      "name": "convert"
+    }
+  },
+  {
+    "from": {
+      "name": "convert"
+    },
+    "to": {
+      "name": "output"
+    }
+  }
+]
+```
 
 # [Bicep](#tab/bicep)
 
@@ -352,7 +520,9 @@ nodeConnections: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 nodeConnections:
@@ -368,7 +538,7 @@ nodeConnections:
 
 ## Configure the destination
 
-The destination defines where processed data is sent. Specify an endpoint reference and a topic or path.
+The destination defines where processed data goes. Specify an endpoint reference and a topic or path.
 
 # [Operations experience](#tab/portal)
 
@@ -378,6 +548,21 @@ Select the destination element and configure:
 |---------|-------------|
 | **Endpoint** | The data flow endpoint to send data to. |
 | **Topic** | The topic or path to publish processed data to. |
+
+# [Azure CLI](#tab/cli)
+
+Configure the destination as a `Destination` node in your `graph.json` config file, then apply the full graph with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "nodeType": "Destination",
+  "name": "output",
+  "destinationSettings": {
+    "endpointRef": "default",
+    "dataDestination": "telemetry/processed"
+  }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -392,7 +577,9 @@ Select the destination element and configure:
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - nodeType: Destination
@@ -412,17 +599,38 @@ After you deploy a data flow graph, verify it's running:
 
 # [Operations experience](#tab/portal)
 
-In the Operations experience, select your data flow graph to view its status. A healthy graph shows a **Running** state.
+In the operations experience, select your data flow graph to view its status. A healthy graph shows a **Running** state.
+
+# [Azure CLI](#tab/cli)
+
+Use [`az iot ops dataflowgraph show`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-show) to view a graph's details:
+
+```azurecli
+az iot ops dataflowgraph show \
+  --name temperature-processing \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP
+```
+
+To list all data flow graphs associated with a profile, use [`az iot ops dataflowgraph list`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-list):
+
+```azurecli
+az iot ops dataflowgraph list \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP
+```
 
 # [Bicep](#tab/bicep)
 
 Check the status of the `DataflowGraph` resource:
 
 ```azurecli
-az resource show --resource-group <RESOURCE_GROUP> --resource-type Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs --name <GRAPH_NAME> --parent instances/<INSTANCE_NAME>/dataflowProfiles/<PROFILE_NAME>
+az resource show --resource-group $RESOURCE_GROUP --resource-type Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs --name $GRAPH_NAME --parent instances/$AIO_INSTANCE_NAME/dataflowProfiles/$PROFILE
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```bash
 kubectl get dataflowgraph temperature-processing -n azure-iot-operations
@@ -436,7 +644,7 @@ kubectl logs -l app=dataflow -n azure-iot-operations --tail=50
 
 ---
 
-## Next steps
+## Related content
 
 - [Data flow graphs overview](concept-dataflow-graphs.md)
 - [Configure a source](howto-configure-dataflow-source.md)
@@ -445,4 +653,5 @@ kubectl logs -l app=dataflow -n azure-iot-operations --tail=50
 - [Filter and route data](howto-dataflow-graphs-filter-route.md)
 - [Aggregate data over time](howto-dataflow-graphs-window.md)
 - [Enrich with external data](howto-dataflow-graphs-enrich.md)
+- [Throttle data](howto-dataflow-graphs-throttle.md)
 - [Expressions reference](concept-dataflow-graphs-expressions.md)

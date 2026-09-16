@@ -1,11 +1,11 @@
 ---
 title: Migrate servers to Azure using Private Link through agent-based replications
 description: Use Azure Migrate to migrate servers over a private network using Azure Private Link for agent-based replications.
-author: vijain
-ms.author: vijain
+author: jyothisuri
+ms.author: jsuri
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 12/14/2022
 ms.custom: engagement-fy23
 # Customer intent: "As an IT administrator, I want to migrate servers over a private network using agent-based replication, so that I can ensure secure and efficient data transfer to Azure."
@@ -50,7 +50,7 @@ Now, select machines for replication and migration.
 1. In **Replicate** > **Basics** > **Are your machines virtualized?**, select **Not virtualized/Other**. 
 1. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up. 
 1. In **Process Server**, select the name of the replication appliance. 
-1. In **Guest credentials**, select the dummy account created previously during the [replication installer setup](tutorial-migrate-physical-virtual-machines.md#download-the-replication-appliance-installer) to install the Mobility service manually (push install isn't supported). Then select **Next: Virtual machines.**
+1. In **Guest credentials**, select the dummy account created previously during the [replication installer setup](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) to install the Mobility service manually (push install isn't supported). Then select **Next: Virtual machines.**
 1. In **Virtual machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
 1. Select each VM you want to migrate. Then select **Next:Target settings**. 
 1. In **Target settings**, select the subscription, the target region to which you'll migrate, and the resource group in which the Azure VMs will reside after migration.  
@@ -77,7 +77,7 @@ Now, select machines for replication and migration.
     - Encryption-at-rest with customer-managed key 
     - Double encryption with platform-managed and customer-managed keys 
     > [!Note]
-    > To replicate VMs with CMK, you'll need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
+    > To replicate VMs with CMK, you'll need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target Resource Group. A disk encryption set object maps managed disks to a Key Vault that contains the CMK to use for SSE. 
 1. In **Azure Hybrid Benefit**: 
     - Select **No** if you don't want to apply Azure Hybrid Benefit and select **Next**. 
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then select **Next**.    

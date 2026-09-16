@@ -2,7 +2,7 @@
 description: Learn how to rotate Azure Fluid Relay access keys.
 title: Rotate Azure Fluid Relay access keys
 ms.date: 08/13/2024
-ms.service: azure-fluid
+ms.service: fluid-framework
 ms.topic: reference
 ---
 

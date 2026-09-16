@@ -16,6 +16,8 @@
       href: network-security-groups-overview.md
     - name: Service endpoints
       href: virtual-network-service-endpoints-overview.md
+    - name: Standard service endpoint
+      href: /azure/private-link/service-endpoint-standard-overview?toc=/azure/virtual-network/toc.json
     - name: Service tags
       href: service-tags-overview.md
     - name: Architecture best practices for Azure Virtual Network
@@ -96,6 +98,8 @@
       href: subnet-delegation-overview.md
     - name: Subnet extension
       href: subnet-extension.md
+    - name: Advertised gateway prefixes
+      href: advertised-gateway-prefixes-overview.md
     - name: Virtual network peering
       href: virtual-network-peering-overview.md
     - name: What is IP address 168.63.129.16?
@@ -118,6 +122,8 @@
       href: network-overview.md
 - name: Deploy virtual network
   items:
+    - name: Configure advertised gateway prefixes
+      href: how-to-advertised-gateway-prefixes.md
     - name: Connect a virtual network to ExpressRoute circuits
       href: /azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
     - name: Connect an on-premises network to Azure by using ExpressRoute

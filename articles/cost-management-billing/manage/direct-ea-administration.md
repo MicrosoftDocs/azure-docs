@@ -3,10 +3,10 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: prashantsaini4
 ms.author: prsaini
-ms.date: 09/23/2025
+ms.date: 04/21/2026
 ms.topic: how-to
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: enterprise-agreement
 ms.reviewer: prsaini
 ms.custom:
 - sfi-image-nochange
@@ -14,6 +14,10 @@ ms.custom:
 ---
 
 # EA Billing administration on the Azure portal
+
+>[!NOTE]
+> Starting October 1, 2026, all new Enterprise Agreement billing role assignments must use Work or School accounts (WSA) managed through Microsoft Entra ID. You can't add Personal Microsoft accounts (MSAs) to new role assignments.
+> Users with existing MSA role assignments aren't impacted at this time. However, these users need to transition to a Work or School account (WSA) in a future phase. Microsoft will provide advance notice and guidance before this change takes effect.
 
 This article explains the common tasks that an Enterprise Agreement (EA) administrator accomplishes in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). A direct enterprise agreement is signed between Microsoft and an enterprise agreement customer. Conversely, an indirect EA is one where a customer signs an agreement with a Microsoft partner. This article is applicable for both direct and indirect EA customers.
 
@@ -28,8 +32,6 @@ If you have more than one billing account, select a billing account from billing
 Check out the [EA admin manage enrollment](https://www.youtube.com/watch?v=NUlRrJFF1_U) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/NUlRrJFF1_U]
-
-Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/AzureADNewName).
 
 ## Select a billing scope
 
@@ -153,8 +155,6 @@ Check out the [Manage departments in the Azure portal](https://www.youtube.com/w
 
 >[!VIDEO https://www.youtube.com/embed/vs3wIeRDK4Q]
 
-Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/AzureADNewName).
-
 ### To create a department
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes).
@@ -214,8 +214,6 @@ After a new account is added to the enrollment, the account owner is sent an acc
 Check out the [EA admin manage accounts](https://www.youtube.com/watch?v=VKWAEx6qfPc) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/VKWAEx6qfPc]
-
-Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/AzureADNewName).
 
 ### To add an account and account owner
 
@@ -358,7 +356,7 @@ The setting applies to all account owners in the enrollment. It allows them to m
 
 ## Visual Studio subscription transfer
 
-When you transfer a Visual Studio subscription to an enrollment, it gets converted to an [Enterprise Dev/Test subscription](https://azure.microsoft.com/pricing/offers/ms-azr-0148p/). After conversion, the subscription loses any existing monetary credit. So, we recommended that you use all your credit before you transfer it to your Enterprise Agreement.
+When you transfer a Visual Studio subscription to an enrollment, it gets converted to an [Enterprise Dev/Test subscription](https://azure.microsoft.com/pricing/offers/ms-azr-0148p?cid=msft_learn). After conversion, the subscription loses any existing monetary credit. So, we recommended that you use all your credit before you transfer it to your Enterprise Agreement.
 
 ## Azure in Open subscription transfer
 
@@ -405,7 +403,7 @@ As an EA admin, you can allow account owners in your organization to create subs
 
 :::image type="content" source="./media/direct-ea-administration/dev-test-option.png" alt-text="Screenshot showing navigation to the Dev/Test option." lightbox="./media/direct-ea-administration/dev-test-option.png" :::
 
-When a user is added as an account owner, any Azure subscriptions associated with the user that is based on either the pay-as-you-go Dev/Test offer or the monthly credit offers for Visual Studio subscribers get converted to the [Enterprise Dev/Test](https://azure.microsoft.com/pricing/offers/ms-azr-0148p/) offer. Subscriptions based on other offer types, such as pay-as-you-go, associated with the account owner get converted to Microsoft Azure Enterprise offers.
+When a user is added as an account owner, any Azure subscriptions associated with the user that is based on either the pay-as-you-go Dev/Test offer or the monthly credit offers for Visual Studio subscribers get converted to the [Enterprise Dev/Test](https://azure.microsoft.com/pricing/offers/ms-azr-0148p?cid=msft_learn) offer. Subscriptions based on other offer types, such as pay-as-you-go, associated with the account owner get converted to Microsoft Azure Enterprise offers.
 
 ## Create a subscription
 
@@ -421,8 +419,6 @@ When you create different subscriptions for each application environment, you he
 Check out the [EA admin manage subscriptions](https://www.youtube.com/watch?v=KFfcg2eqPo8) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/KFfcg2eqPo8]
-
-Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/AzureADNewName).
 
 > [!WARNING]
 > You will not be able to create new subscriptions or transfer existing subscriptions from an enrollment account if the UPN is deleted from Entra ID. 
@@ -546,7 +542,7 @@ By default, notification contacts are subscribed for the coverage period end dat
 The Azure sponsorship offer is a limited sponsored Microsoft Azure account. It's available by e-mail invitation only to limited customers selected by Microsoft. If you're entitled to the Microsoft Azure sponsorship offer, you receive an e-mail invitation to your account ID.
 
 >[!NOTE]
-> - As explained at [Microsoft Azure EA Sponsorship](https://azure.microsoft.com/pricing/offers/ms-azr-0136p), when your Azure EA Sponsorship (Offer MS-AZR-0136p) terminates, your subscription under the offer is converted automatically to your original Enterprise Agreement (MS-AZR-0017P). 
+> - As explained at [Microsoft Azure EA Sponsorship](https://azure.microsoft.com/pricing/offers/ms-azr-0136p?cid=msft_learn), when your Azure EA Sponsorship (Offer MS-AZR-0136p) terminates, your subscription under the offer is converted automatically to your original Enterprise Agreement (MS-AZR-0017P). 
 > - Only offer MS-AZR-0017P subscriptions appear at https://www.microsoftazuresponsorships.com when the account is sponsored. 
 > - The Enterprise Dev/Test (offer MS-AZR-0148P) isn't suitable for the Azure sponsorship offer. If you have an Enterprise Dev/Test (offer MS-AZR-0148P), you must convert it to MS-AZR-0017P for it to appear at https://www.microsoftazuresponsorships.com.
 

@@ -347,9 +347,9 @@ For Security services availability in Azure Government, see [Products available 
 
 - Configure encryption at rest of content in Azure Information Protection [using customer-managed keys in Azure Key Vault](/azure/information-protection/byok-price-restrictions).
 
-### [Microsoft Sentinel](../sentinel/index.yml) (formerly Azure Sentinel)
+### [Microsoft Sentinel](/azure/sentinel/) (formerly Azure Sentinel)
 
-- Configure encryption at rest of content in Microsoft Sentinel by [using customer-managed keys in Azure Key Vault](../sentinel/customer-managed-keys.md).
+- Configure encryption at rest of content in Microsoft Sentinel by [using customer-managed keys in Azure Key Vault](/azure/sentinel/customer-managed-keys).
 
 ### [Microsoft Defender for Cloud Apps](/defender-cloud-apps/) (formerly Microsoft Cloud App Security)
 

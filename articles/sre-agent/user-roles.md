@@ -3,7 +3,7 @@ title: User Roles and Permissions in Azure SRE Agent
 description: Learn how to control who can view, interact with, and administer your agent by using Azure RBAC roles and layered access control.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 08/21/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -12,116 +12,112 @@ ms.custom: rbac, roles, permissions, access control, user access, admin, reader,
 ---
 
 # User roles and permissions in Azure SRE Agent
-<!-- Video: SRE_Agent__User_Roles.mp4 — Replace with the hosted video URL using > [!VIDEO https://...] syntax -->
 
-Your agent can investigate problems, take actions on production infrastructure, and access sensitive data across your environment. Access control determines who can request actions, who can approve them, and who can modify the agent's configuration.
+Your agent can investigate issues, take actions on production infrastructure, and access sensitive data across your environment. Access control determines who can request actions, who can approve them, and who can modify the agent's configuration.
 
 ## Access control overview
 
-Access control works across three layers.
-
-:::image type="content" source="media/user-roles/access-control-hierarchy.svg" alt-text="Diagram of access control hierarchy showing user roles, run modes, and agent permissions." lightbox="media/user-roles/access-control-hierarchy.svg":::
+Access control works across three layers:
 
 | Layer | Controls | Configured at |
-|---|---|---|
-| **User roles** (this article) | What *users* can do with the agent | Azure IAM on the agent resource |
+| --- | --- | --- |
+| **User roles** (this page) | What *users* can do with the agent | Azure IAM on the agent resource |
 | **[Run modes](run-modes.md)** | Whether the agent asks before acting | Per response plan and per scheduled task |
-| **[Agent permissions](permissions.md)** | What *the agent* can access on Azure, which includes managed identity RBAC roles and on-behalf-of fallback | RBAC roles on resource groups |
+| **[Agent permissions](permissions.md)** | What *the agent* can access on Azure, with on-behalf-of (OBO) authorization as a fallback | RBAC roles on resource groups |
 
-## Layer 1: User roles
-
-Your agent includes three built-in Azure RBAC roles.
+## Four built-in roles
 
 | Role | Can do | Can't do |
-|---|---|---|
+| --- | --- | --- |
 | **SRE Agent Reader** | View threads, logs, incidents | Chat, request actions, modify anything |
-| **SRE Agent Standard User** | Chat, run diagnostics, request actions | Approve actions, delete resources, modify connectors |
-| **SRE Agent Administrator** | Approve actions, manage connectors, delete resources | (Full access) |
+| **SRE Agent Standard User** | Chat, run diagnostics, request actions, manage scheduled tasks, upload knowledge documents, add code repository connectors | Approve actions, create custom agents, delete resources |
+| **SRE Agent Author** | Create custom agents, author response plans, configure incident management | Chat, approve actions, upload knowledge documents, add code repository connectors, create scheduled tasks, delete resources |
+| **SRE Agent Administrator** | Approve actions, manage connectors, delete resources | — |
 
-The user who creates the agent automatically gets the **SRE Agent Administrator** role.
+The user who creates the agent automatically receives the **SRE Agent Administrator** role.
 
-:::image type="content" source="media/user-roles/portal-sre-agent-roles-identity-access.png" alt-text="Screenshot of SRE Agent roles in Azure portal IAM showing Administrator, Reader, and Standard User." lightbox="media/user-roles/portal-sre-agent-roles-identity-access.png":::
+> [!CAUTION]
+> The SRE Agent Author role alone can't add repositories or upload knowledge in the portal. These operations require the `Microsoft.App/agents/memory/write` data action, which the Author role doesn't include. The Author role also doesn't include `threads/write`, so an Author can't chat.
+>
+> To customize the agent and connect repositories or upload knowledge, assign both **SRE Agent Standard User** and **SRE Agent Author**, or assign **SRE Agent Administrator**. Azure Owner and Contributor roles don't replace these roles because they grant control-plane actions, not SRE Agent data actions.
 
-## Who should have which role
+> [!NOTE]
+> You can also manage repository and GitHub credential resources through the Azure Resource Manager (ARM) extension paths under `Microsoft.App/agents/{agent}/repositories` and `Microsoft.App/agents/{agent}/githubAuths`. These paths use `extendedAgents` permissions, which the Author role includes. As a result, an operation can succeed through ARM but fail in the portal for an Author. Assign **SRE Agent Standard User** when the user needs the supported portal workflow.
 
-Use the following guidance to assign roles based on team responsibilities.
+## Who should have which role?
 
 | Role | Give to |
-|---|---|
+| --- | --- |
 | **SRE Agent Reader** | Auditors, compliance teams, stakeholders who need visibility |
-| **SRE Agent Standard User** | L1/L2 engineers, first responders, anyone who diagnoses problems |
+| **SRE Agent Standard User** | L1/L2 engineers, first responders, anyone who diagnoses issues |
+| **SRE Agent Author** | SRE engineers who create custom agents, response plan authors, team members who customize agent behavior |
 | **SRE Agent Administrator** | SRE managers, cloud admins, incident commanders |
 
 ## How the portal enforces permissions
 
-The portal checks your Azure role assignments when you access the agent. The portal enforces access at two levels.
+The portal checks your Azure role assignments when you access the agent. Access is enforced at two levels.
 
-### Level 1: No agent access
+### No agent access
 
-When you don't have the SRE Agent role assignment, the portal shows an **Access Required** screen with a shield icon and a **Go to Access Control** button that opens the Azure IAM window. If you have Azure Owner or Contributor on the resource, you also see a banner offering to autoassign the Administrator role.
+When you have no SRE Agent role assignment, the portal shows an **Access Required** screen with a shield icon and a **Go to Access Control** button that opens the Azure IAM blade. If you have Azure Owner or Contributor on the resource, you also see a banner offering to auto-assign the Administrator role.
 
-### Level 2: Backend enforcement
+### Backend enforcement
 
-When you have an SRE Agent role but attempt an action beyond your permissions, the backend blocks the action with a 403 error. The portal might let you navigate to a page or select a button, but the operation fails with a permission error when it reaches the server.
+When you have an SRE Agent role but attempt an action beyond your permissions, the **backend blocks the action with a 403 error**. For example, a Reader can't send a message, a Standard User can't create a custom agent, and an Author can't approve an action or add a repository connector in the portal. The portal might let you navigate to a page or select a button, but the operation fails when it reaches the server. The 403 response might have an empty body, so verify the user's SRE Agent role before troubleshooting Key Vault, ARM, or networking.
 
 > [!NOTE]
-> Some portal features proactively disable buttons when you lack write permissions (for example, connector management shows disabled buttons with tooltips). However, this behavior isn't yet consistent across all features. The backend always enforces the correct permissions regardless of what the UI shows.
+> Some portal features proactively disable buttons when you lack write permissions. However, this isn't yet consistent across all features—the backend always enforces the correct permissions regardless of what the UI shows.
 
 ## What each role can access
 
-The following table summarizes the access level for each role across different areas of the portal.
-
-| Area | Reader | Standard User | Administrator |
-|---|---|---|---|
-| **Chat** | View threads (read-only) | Send messages, start threads | Full access, approve actions, delete threads |
-| **Agent Canvas** | View custom agents | View custom agents | Create, edit, delete custom agents |
-| **Knowledge base** | Browse documents | Upload documents | Upload and delete documents |
-| **Connectors** | View connectors | View connectors | Add, edit, delete connectors |
-| **Response plans** | View plans | View plans | Create, edit, delete plans |
-| **Managed resources** | View resources | View resources | Add, remove resources |
-| **Settings** | View settings | View settings | Modify settings, stop/delete agent |
+| Area | Reader | Standard User | Author | Administrator |
+| --- | --- | --- | --- | --- |
+| **Chat** | View threads (read-only) | Send messages, start threads | View threads (read-only) | Full access, approve actions, delete threads |
+| **Agent Canvas** | View custom agents | View custom agents | Create, edit, delete custom agents | Create, edit, delete custom agents |
+| **Knowledge base** | Browse documents | Browse + upload documents | Browse documents | Upload + delete documents |
+| **Code repository connectors** | View connectors | View + add, edit connectors | View connectors | Add, edit, delete connectors |
+| **Response plans** | View plans | View plans | Create, edit, delete plans | Create, edit, delete plans |
+| **Managed resources** | View resources | View resources | View resources | Add, remove resources |
+| **Scheduled tasks** | — | Create, edit, delete tasks | — | Create, edit, delete tasks |
+| **Settings** | View settings | View settings | View settings | Modify settings, stop or delete agent |
 
 ## Assign roles
 
-Assign roles through the Azure portal (**Access control (IAM)** > **Add role assignment**) or by using the Azure CLI.
+Assign roles through the Azure portal (**Access control (IAM)** > **Add role assignment**) or Azure CLI:
 
 ```azurecli
 az role assignment create \
   --assignee user@company.com \
   --role "SRE Agent Administrator" \
-  --scope <AGENT_RESOURCE_ID>
+  --scope <agent-resource-id>
 ```
 
-Replace the role name with `SRE Agent Standard User` or `SRE Agent Reader` as needed.
+Replace the role name with `SRE Agent Author`, `SRE Agent Standard User`, or `SRE Agent Reader` as needed.
 
-To find your agent's resource ID, run the following command:
+To find the agent resource ID, run:
 
 ```azurecli
 az resource show \
-  --resource-group <RESOURCE_GROUP> \
+  --resource-group <RESOURCE_GROUP_NAME> \
   --name <AGENT_NAME> \
-  --resource-type Microsoft.SREAgent/agents \
+  --resource-type Microsoft.App/agents \
   --query id -o tsv
 ```
 
 ## How roles work together
 
-The following example shows how roles interact during an action approval workflow. An engineer requests an action, but only administrators can approve it.
-
 | Step | Who | Action |
-|---|---|---|
+| --- | --- | --- |
 | 1 | Engineer (Standard User) | "Fix the config issue" |
-| 2 | Agent | Drafts remediation plan |
-| 3 | Agent | Can't execute (needs Administrator approval) |
-| 4 | Manager (Administrator) | Reviews and approves |
-| 5 | Agent | Executes fix using managed identity or [on-behalf-of](permissions.md#on-behalf-of-obo) authorization |
+| 2 | Author | Builds a custom agent with a response plan for configuration fixes |
+| 3 | Agent | Drafts a remediation plan |
+| 4 | Agent | Can't execute because the action requires Administrator approval |
+| 5 | Manager (Administrator) | Reviews and approves |
+| 6 | Agent | Executes the fix by using its managed identity or OBO authorization |
 
-## Learn how the access control layers interact
+## Related content
 
-This article covers **user roles** which includes who can do what with the agent. To understand the full access control picture, see:
-
-| Article | Page | What you'll learn |
-|-------|------|-------------------|
-| **Run modes** | [Run modes](run-modes.md) | How Review and Autonomous modes control whether the agent asks before acting. Only Administrators can approve in Review mode |
-| **Agent permissions** | [Agent permissions](permissions.md) | How the agent gets access to Azure resources. This includes *Reader* vs *Privileged* permission levels, RBAC roles, and OBO fallback |
-| **Audit** | [Audit agent actions](audit-agent-actions.md) | Review what your agent did, who approved it, and which identity was used |
+- [Run modes](run-modes.md)
+- [Agent permissions](permissions.md)
+- [Agent identity](agent-identity.md)
+- [Audit agent actions](audit-agent-actions.md)

@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 02/17/2026
-ms.author: danlep
+ms.author: patricka
 ---
 ### Confirm that the gateway is running
 

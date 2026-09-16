@@ -109,7 +109,7 @@ The following procedures show how to prepare the external load balancer for the 
     
 12. You can also change other parameters in the template if you want to or need to, depending on your requirements:
 
-    * **SKU**. You can change the SKU of the public IP in the configuration from standard to basic or from basic to standard by changing the **name** property under **sku** in the template.json file:
+    * **SKU**. Set the SKU of the public IP to **Standard** by using the **name** property under **sku** in the template.json file. The Basic SKU was retired on September 30, 2025:
 
         ```json
           "resources": [
@@ -123,7 +123,7 @@ The following procedures show how to prepare the external load balancer for the 
                 "tier": "Regional"
             },
         ```
-     * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP is created as no-zone. You can specify a single zone to create a zonal public IP or all three zones for a zone-redundant public IP.
+     * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP is created as zone-redundant.
 
          ```json
           "resources": [
@@ -279,7 +279,7 @@ The following procedures show how to prepare the external load balancer for the 
 
 11. You can also change other parameters in the template if you want to or need to, depending on your requirements:
 
-    * **SKU**. You can change the SKU of the external load balancer in the configuration from Standard to Basic or from Basic to Standard by changing the **name** property under **sku** in the template.json file:
+    * **SKU**. Set the SKU of the external load balancer to **Standard** by using the **name** property under **sku** in the template.json file. The Basic SKU was retired on September 30, 2025:
 
         ```json
         "resources": [
@@ -551,7 +551,7 @@ The following steps show how to prepare the external load balancer for the move 
     ```
 8. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
-    * **Sku** - You can change the sku of the public IP in the configuration from Standard to Basic or Basic to Standard by altering the **sku** > **name** property in the **\<resource-group-name>.json** file:
+    * **Sku** - Set the SKU of the public IP to **Standard** by altering the **sku** > **name** property in the **\<resource-group-name>.json** file. The Basic SKU was retired on September 30, 2025:
 
          ```json
             "resources": [
@@ -568,7 +568,7 @@ The following steps show how to prepare the external load balancer for the move 
 
          For more information on the differences between basic and standard sku public ips, see [Create, change, or delete a public IP address](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 
-    * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP is created as no-zone. You can specify a single zone to create a zonal public IP or all three zones for a zone-redundant public IP.
+    * **Availability zone**. You can change the zone(s) of the public IP by changing the **zone** property. If the zone property isn't specified, the public IP is created as zone-redundant.
          ```json
           "resources": [
          {
@@ -760,7 +760,7 @@ The following steps show how to prepare the external load balancer for the move 
     ```
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
     
-    * **Sku** - You can change the sku of the external load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **\<resource-group-name>.json** file:
+    * **Sku** - Set the SKU of the external load balancer to **Standard** by altering the **sku** > **name** property in the **\<resource-group-name>.json** file. The Basic SKU was retired on September 30, 2025:
 
         ```json
         "resources": [
@@ -1211,7 +1211,7 @@ The following steps show how to prepare the internal load balancer for the move 
 
 10. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
-    * **Sku** - You can change the sku of the internal load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
+    * **Sku** - Set the SKU of the internal load balancer to **Standard** by altering the **sku** > **name** property in the **template.json** file. The Basic SKU was retired on September 30, 2025:
 
         ```json
         "resources": [
@@ -1227,7 +1227,7 @@ The following steps show how to prepare the internal load balancer for the move 
         ```
       For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](./load-balancer-overview.md)
 
-    * **Availability zone** - You can change the zones of the load balancer's frontend by changing the **zone** property. If the zone property isn't specified, the frontend is created as no-zone. You can specify a single zone to create a zonal frontend or all three zones for a zone-redundant frontend.
+    * **Availability zone** - You can change the zones of the load balancer's frontend by changing the **zone** property. If the zone property isn't specified, the frontend is created as zone-redundant.
 
         ```json
         "frontendIPConfigurations": [
@@ -1702,7 +1702,7 @@ The following steps show how to prepare the internal load balancer for the move 
         ```
       For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](./load-balancer-overview.md)
       
-    * **Availability zone**. You can change the zone(s) of the load balancer's frontend by changing the zone property. If the zone property isn't specified, the frontend is created as no-zone. You can specify a single zone to create a zonal frontend or all three zones for a zone-redundant frontend.
+    * **Availability zone**. You can change the zone(s) of the load balancer's frontend by changing the zone property. If the zone property isn't specified, the frontend is created as zone-redundant.
          ```json
           "frontendIPConfigurations": [
                    {

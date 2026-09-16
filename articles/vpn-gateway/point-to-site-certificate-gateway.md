@@ -2,11 +2,11 @@
 title: 'Configure VPN gateway for P2S certificate authentication: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN Gateway server settings for point-to-site configurations - certificate authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/10/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network administrator, I want to configure a point-to-site VPN gateway with certificate authentication, so that I can securely connect remote clients to our Azure virtual network."
 ---
@@ -72,6 +72,14 @@ The tunnel type and the authentication type must correspond to the VPN client so
 ## <a name="publicip3"></a>Add another public IP address
 
 [!INCLUDE [Add public IP address](../../includes/vpn-gateway-third-public-ip.md)]
+
+## Important
+
+For non‑AZ gateway SKUs, the third Public IP used for P2S is Microsoft‑managed and not billed to the customer. <br>
+
+When migrating to an AZ‑supported SKU using the migration tool, the platform requires the third Public IP to be created within the customer’s subscription. This Public IP becomes customer‑managed and billable, as it is no longer provided automatically by the service. <br>
+
+This behavior is expected by design and ensures proper load balancing and redundancy for P2S connections on AZ‑redundant gateways.
 
 ## <a name="uploadfile"></a>Upload root certificate public key information
 

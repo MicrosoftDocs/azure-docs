@@ -23,7 +23,7 @@ Metrics for your App Configuration store are collected automatically, no manual 
 ### Metrics overview
 In the Azure portal, navigate to your App Configuration store. The **Overview** blade displays key usage metrics, including the total number of requests over the time and the average request duration.
 
-:::image type="content" source="./media/monitoring-overview-page.png" alt-text="Screenshot showing the monitoring metrics on the Overview page." lightbox="./media/monitoring-overview-page.png":::
+:::image type="content" source="./media/monitor-app-configuration/monitoring-overview-page.png" alt-text="Screenshot showing the monitoring metrics on the Overview page." lightbox="./media/monitor-app-configuration/monitoring-overview-page.png":::
 
 ### Metrics analysis
 
@@ -61,6 +61,9 @@ Metrics and the activity log are collected and stored automatically, and can be 
 
 Resource Logs (including audit logs and HTTP request logs) aren't collected and stored until you create a diagnostic setting and route them to one or more locations, such as a Log Analytics workspace. If you don't already have one, create a [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) and follow these steps to create and enable a diagnostic setting.
 
+> [!NOTE]
+> If network access from your App Configuration store is governed by a network security perimeter, log destinations must be in the same perimeter as the store. For more information, see [Considerations for monitoring](./concept-network-security-perimeter.md#considerations-for-monitoring).
+
  #### [Portal](#tab/portal)
 
 1. Sign in to the Azure portal.
@@ -68,11 +71,11 @@ Resource Logs (including audit logs and HTTP request logs) aren't collected and 
 1. Navigate to your App Configuration store.
 
 1. In the **Monitoring** section, select **Diagnostic settings**, then select **+Add diagnostic setting**. 
-    :::image type="content" source="./media/diagnostic-settings-add.png" alt-text="Screenshot showing how to add a diagnostic setting." lightbox="./media/diagnostic-settings-add.png":::
+    :::image type="content" source="./media/monitor-app-configuration/diagnostic-settings-add.png" alt-text="Screenshot showing how to add a diagnostic setting." lightbox="./media/monitor-app-configuration/diagnostic-settings-add.png":::
 
 1. In the **Diagnostic setting** page, enter a name for your setting, then select the log categories you want to collect (such as **HTTP Requests** or **Audit**) and choose the destination to send your logs to. Available destinations include Log Analytics workspace, storage account, and event hub. We recommend using Log Analytics workspace. To send them to a Log Analytics workspace, choose **Send to Log Analytics workspace**.
 
-    :::image type="content" source="./media/monitoring-diagnostic-settings-details.png" alt-text="Screenshot showing the details of the diagnostic settings page." lightbox="./media/monitoring-diagnostic-settings-details.png":::
+    :::image type="content" source="./media/monitor-app-configuration/monitoring-diagnostic-settings-details.png" alt-text="Screenshot showing the details of the diagnostic settings page." lightbox="./media/monitor-app-configuration/monitoring-diagnostic-settings-details.png":::
 
 1. Enter the name of your **Subscription** and **Log Analytics workspace**. 
 1. Select **Save** and verify that the Diagnostic settings page now lists your new diagnostic setting. 
@@ -85,13 +88,13 @@ Resource Logs (including audit logs and HTTP request logs) aren't collected and 
 1. If your identity is associated with more than one subscription, then set your active subscription to the subscription of the App Configuration store that you want to enable logs for.
 
     ```Azure CLI
-    az account set --subscription <your-subscription-id>
+    az account set --subscription <SubscriptionId>
     ```
 
 1. Enable logs by using the az monitor [diagnostic-settings create command](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
     ```Azure CLI
-    az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <app-configuration-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+    az monitor diagnostic-settings create --name <DiagnosticSettingName> --workspace <LogAnalyticsWorkspaceResourceId> --resource <AppConfigurationResourceId> --logs '[{"category": "<CategoryName>", "enabled": true, "retentionPolicy": {"days": <RetentionDays>, "enabled": <RetentionEnabled>}}]'
     ```
 
  ### [PowerShell](#tab/PowerShell)
@@ -105,18 +108,18 @@ Resource Logs (including audit logs and HTTP request logs) aren't collected and 
 1. Set your active subscription to the subscription of the App Configuration account that you want to enable logging for.
 
     ```PowerShell
-    Set-AzContext -SubscriptionId <subscription-id>
+    Set-AzContext -SubscriptionId <SubscriptionId>
     ```
     
 1. To enable logs for a Log Analytics Workspace, use the [Set-AzDiagnosticSetting PowerShell](/previous-versions/azure/mt631625(v=azure.100)?redirectedfrom=MSDN) cmdlet. 
 
     ```PowerShell
-    Set-AzDiagnosticSetting -ResourceId <app-configuration-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true
+    Set-AzDiagnosticSetting -ResourceId <AppConfigurationResourceId> -WorkspaceId <LogAnalyticsWorkspaceResourceId> -Enabled $true
     ```
 1. Verify that your diagnostic setting is correctly set and log categories are enabled. 
 
     ```PowerShell
-    Get-AzureRmDiagnosticSetting -ResourceId <app-configuration-resource-id> 
+    Get-AzureRmDiagnosticSetting -ResourceId <AppConfigurationResourceId> 
     ```
 ---
 For more information on creating a diagnostic setting using the Azure portal, CLI, or PowerShell, see [create a diagnostic setting to collect logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings).

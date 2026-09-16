@@ -1,8 +1,8 @@
 ---
 title: Copy files from multiple containers
 description: Learn how to use a solution template to copy files from multiple containers by using Azure Data Factory.
-author: dearandyxu
-ms.author: yexu
+author: kromerm
+ms.author: makromer
 ms.topic: how-to
 ms.date: 10/03/2024
 ms.subservice: data-movement
@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 # Copy multiple folders with Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article describes a solution template that you can use multiple copy activities to copy containers or folders between file-based stores, where each copy activity is supposed to copy single container or folder. 
 

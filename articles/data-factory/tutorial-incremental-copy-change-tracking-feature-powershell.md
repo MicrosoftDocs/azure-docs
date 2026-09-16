@@ -1,8 +1,8 @@
 ---
 title: Incrementally copy data using Change Tracking using PowerShell
 description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in a SQL Server database to Azure SQL Database.
-ms.author: yexu
-author: dearandyxu
+ms.author: makromer
+author: kromerm
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
@@ -14,6 +14,8 @@ ms.custom:
 # Incrementally load data from Azure SQL Database to Azure Blob Storage using change tracking information using PowerShell
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data based on **change tracking** information in the source database in Azure SQL Database to an Azure blob storage.  
 

@@ -155,7 +155,7 @@ Configure the query string behavior on the Front Door route.
 
 ::: zone pivot="front-door-standard-premium"
 
-See [Cache purging in Azure Front Door](standard-premium/how-to-cache-purge.md) to learn how to configure cache purge.
+To learn how to configure cache purge, see [Purge cache in Azure Front Door](cache-purge.md).
 
 ::: zone-end
 
@@ -198,6 +198,18 @@ If the `Cache-Control` header isn't present on the response from the origin, by 
 > Cache expiration can't be greater than **366 days**.
 
 You may see `REVALIDATED_HIT` in the `Cache-Control` response header. This indicates that the cached content in Azure Front Door was revalidated with the origin server before being served to the client. This can happen when the cached content has expired, but the origin server indicates that the content hasn't changed. In this case, the cached content is served to the client, and the cache expiration is reset.
+
+## Validators
+When the cache is stale, Azure Front Door uses HTTP cache validators to compare the cached version of a file with the version on the origin server. Azure Front Door supports only `Last-Modified`.
+
+> [!NOTE]
+> Azure Front Door doesn't support `etag`.
+
+Last-Modified:
+
+- Specifies the date and time that the origin server determined the resource was last modified. For example, `Last-Modified: Thu, 19 Oct 2025 09:28:00 GMT`.
+- For content larger than 8 MB, origin backend servers should maintain consistent `Last-Modified` timestamps per asset. Returning inconsistent `Last-Modified` times from backend servers causes validator mismatch errors and results in partial file downloads or HTTP 5XX failures. Azure Storage might not support consistent `Last-Modified` timestamps across replicas, which can cause similar validator mismatch errors.
+- A cache validates a file by using `Last-Modified`. It sends an `If-Modified-Since` header with a date and time in the request. The origin server compares that date with the `Last-Modified` header of the latest resource. If the resource isn't modified since the specified time, the server returns status code 304 (Not Modified) in its response. If the resource is modified, the server returns status code 200 (OK) and the updated resource.
 
 ## Request headers
 
@@ -256,7 +268,8 @@ Cache behavior and duration can be configured in Rules Engine. Rules Engine cach
    * **Override if origin missing**: If the origin doesn’t return caching TTL values, Azure Front Door uses the specified cache duration. This behavior only applies if the response is cacheable. 
 
 > [!NOTE]
-> * Azure Front Door makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content isn't frequently used. Front Door might be able to serve data from the cache even if the cached data has expired. This behavior can help your site to remain partially available when your origins are offline.
+> * Azure Front Door makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content isn't frequently used.
+> * Front Door might be able to serve data from the cache even if the cached data has expired or if the origin is returning error responses. This behavior can help your site to remain partially available when your origins are offline.
 > * Origins may specify not to cache specific responses using the Cache-Control header with a value of no-cache, private, or no-store. When used in an HTTP response from the origin server to the Azure Front Door POPs, Azure Front Door supports Cache-control directives and honors caching behaviors for Cache-Control directives in [RFC 7234 - Hypertext Transfer Protocol (HTTP/1.1): Caching (ietf.org)](https://www.rfc-editor.org/rfc/rfc7234#section-5.2.2.8). 
 
 ::: zone-end
@@ -272,7 +285,8 @@ Cache behavior and duration can be configured in both the Front Door designer ro
     * When *Use cache default duration* is set to **No**, Azure Front Door (classic) always override with the *cache duration* (required fields), meaning that it caches the contents for the cache duration ignoring the values from origin response directives. 
 
 > [!NOTE]
-> * Azure Front Door (classic) makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content isn't frequently used. Azure Front Door (classic) might be able to serve data from the cache even if the cached data has expired. This behavior can help your site to remain partially available when your origins are offline.
+> * Azure Front Door (classic) makes no guarantees about the amount of time that the content is stored in the cache. Cached content may be removed from the edge cache before the content expiration if the content isn't frequently used.
+> * Azure Front Door (classic) might be able to serve data from the cache even if the cached data has expired or the backend is returning error responses. This behavior can help your site to remain partially available when your backends are offline.
 > * The *cache duration* set in the Front Door designer routing rule is the **minimum cache duration**. This override doesn't work if the cache control header from the origin has a greater TTL than the override value.
 
 ::: zone-end

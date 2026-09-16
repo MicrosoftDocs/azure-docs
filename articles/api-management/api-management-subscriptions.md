@@ -2,12 +2,10 @@
 title: Subscriptions in Azure API Management | Microsoft Docs
 description: Learn about the concept of subscriptions in Azure API Management. Consumers commonly get access to APIs by using subscriptions in Azure API Management.
 services: api-management
-author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 12/09/2025
-ms.author: danlep
 ms.custom: engagement-fy23
 ---
 

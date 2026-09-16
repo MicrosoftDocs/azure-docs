@@ -34,7 +34,7 @@ Key features of Azure Communication Services SMS SDKs include:
 - **Analytics** to track your SMS usage patterns. See [SMS insights](../../concepts/analytics/insights/sms-insights.md) for details.
 - **Opt-Out** handling support to automatically detect and respect opt-outs for toll-free numbers and short codes. US carriers mandate and enforce opt-outs for US toll-free numbers. See [opt-out handling FAQ](./sms-faq.md#opt-out-handling) for details.
 
-:::image type="content" source="./media/sms-concept.png" alt-text="Diagram showing sms dekkivery flow concept." lightbox="./media/sms-concept.png":::
+:::image type="content" source="./media/sms-concept.png" alt-text="Diagram showing sms delivery flow concept." lightbox="./media/sms-concept.png":::
 
 ## Sender types supported
 
@@ -65,10 +65,12 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 \* For detailed formatting requirements, see [Alphanumeric sender ID FAQ](./sms-faq.md#alphanumeric-sender-id) .
 
 ## Sender Type Availability by Country/Region
+> [!IMPORTANT]
+> Effective July 1, 2026, Microsoft will no longer provide alphanumeric sender IDs for SMS to Australian phone numbers. To keep sending to Australian numbers, provision a compatible number type (such as a dedicated long code, short code, or toll-free number) by following the instructions found [here](../../quickstarts/telephony/get-phone-number.md)
 
 > [!IMPORTANT]
 > **Sender geographic scope**
->
+> 
 > SMS senders are **country/region-scoped**. A sender can deliver messages only within the country/region (or countries/regions) for which it was provisioned, enabled, or approved.
 >
 > - **Short Codes:**  
@@ -88,11 +90,11 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 | Puerto Rico      | ✅        | –          | –     | –              | –              | –              |
 | United Kingdom   | –         | ✅         | –     | ✅             | –             | ✅             |
 | Australia        | –         | –          | –     | ✅             | –              | -             |
-| Austria          | –         | –          | –     | –              | ✅              |–              |
+| Austria          | –         | –          | –     | –              | -              |–              |
 | Germany          | –         | –          | –     | –              | ✅             | –              |
 | France           | –         | –          | –     | –              | ✅             | –              |
 | Italy            | –         | –          | –     | –              | –              | ✅             |
-| Ireland          | –         | –          | –     | ✅             | ✅             | –              |
+| Ireland          | –         | –          | –     | ✅             | –             | ✅              |
 | Finland          | –         | –          | –     | ✅             | –              | ✅             |
 | Denmark          | –         | –          | –     | ✅             | ✅             | –              |
 | Netherlands      | –         | –          | –     | ✅             | ✅             | –              |
@@ -103,7 +105,7 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 | Estonia          | –         | –          | –     | –              | ✅             | –              |
 | Lithuania        | –         | –          | –     | –              | ✅             | –              |
 | Portugal         | –         | –          | –     | –              | ✅             | –              |
-| Spain            | –         | –          | –     | –              | ✅             | –              |
+| Spain            | –         | –          | –     | –              | –             | –              |
 | Switzerland      | –         | –          | –     | –              | ✅             | –              |
 | Czech Republic   | –         | –          | –     | –              | –              | ✅             |
 | Norway           | –         | –          | –     | –              | –              | ✅             |

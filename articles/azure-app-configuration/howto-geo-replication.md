@@ -37,25 +37,25 @@ To create a replica of your configuration store in the portal, follow the steps 
 1. In your App Configuration store, under **Settings**, select **Geo-replication**.
 1. Under **Replica(s)**, select **Create**. Choose the location of your new replica in the dropdown, then assign the replica a name. This replica name must be unique.
 
-    :::image type="content" source="./media/how-to-geo-replication-create-flow.png" alt-text="Screenshot of the Geo Replication button being highlighted as well as the create button for a replica.":::
+    :::image type="content" source="./media/howto-geo-replication/how-to-geo-replication-create-flow.png" alt-text="Screenshot of the Geo Replication button being highlighted as well as the create button for a replica.":::
 
 1. Select **Create**.
 1. You should now see your new replica listed under Replica(s). Check that the status of the replica is "Succeeded", which indicates that it was created successfully.
 
-    :::image type="content" source="media/how-to-geo-replication-created-replica-successfully.png" alt-text="Screenshot of the list of replicas that have been created for the configuration store.":::
+    :::image type="content" source="media/howto-geo-replication/how-to-geo-replication-created-replica-successfully.png" alt-text="Screenshot of the list of replicas that have been created for the configuration store.":::
 
 <!-- ### [Azure CLI](#tab/azure-cli)
 
-1. In the CLI, run the following code to create a replica of your configuration store. 
+1. In the CLI, run the following code to create a replica of your configuration store. Replace the placeholder text _`<AppConfigurationStoreName>`_, _`<ReplicaName>`_, and _`<Location>`_ with the name of your App Configuration store, a name for the replica, and the replica's location. 
 
     ```azurecli-interactive
-    az appconfig replica create --store-name MyConfigStoreName --name MyNewReplicaName --location MyNewReplicaLocation
+    az appconfig replica create --store-name <AppConfigurationStoreName> --name <ReplicaName> --location <Location>
     ```
 
-1. Verify that the replica was created successfully by listing all replicas of your configuration store. 
+1. Verify that the replica was created successfully by listing all replicas of your configuration store. Replace the placeholder text _`<AppConfigurationStoreName>`_ with the name of your App Configuration store. 
 
     ```azurecli-interactive
-      az appconfig replica list --store-name MyConfigStoreName 
+      az appconfig replica list --store-name <AppConfigurationStoreName> 
     ```
 --- -->
 
@@ -68,22 +68,22 @@ To delete a replica in the portal, follow the steps below.
 1. In your App Configuration store, under **Settings**, select **Geo-replication**.
 1. Under **Replica(s)**, select the **...** to the right of the replica you want to delete. Select **Delete** from the dropdown.
 
-    :::image type="content" source="./media/how-to-geo-replication-delete-flow.png" alt-text=" Screenshot showing the three dots on the right of the replica being selected, showing you the delete option.":::
+    :::image type="content" source="./media/howto-geo-replication/how-to-geo-replication-delete-flow.png" alt-text=" Screenshot showing the three dots on the right of the replica being selected, showing you the delete option.":::
 
 1. Verify the name of the replica to be deleted and select **OK** to confirm.
 1. Once the process is complete, check the list of replicas that the correct replica has been deleted.
 
 <!-- ### [Azure CLI](#tab/azure-cli)
 
-1. In the CLI, run the following code. 
+1. In the CLI, run the following code. Replace the placeholder text _`<AppConfigurationStoreName>`_ and _`<ReplicaName>`_ with the name of your App Configuration store and the name of the replica to delete. 
 
     ```azurecli-interactive
-    az appconfig replica delete --store-name MyConfigStoreName --name MyNewReplicaName 
+    az appconfig replica delete --store-name <AppConfigurationStoreName> --name <ReplicaName> 
     ```
-1. Verify that the replica was deleted successfully by listing all replicas of your configuration store. 
+1. Verify that the replica was deleted successfully by listing all replicas of your configuration store. Replace the placeholder text _`<AppConfigurationStoreName>`_ with the name of your App Configuration store. 
 
     ```azurecli-interactive
-    az appconfig replica list --store-name MyConfigStoreName 
+    az appconfig replica list --store-name <AppConfigurationStoreName> 
     ```
 
 --- -->
@@ -138,7 +138,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   replicaDiscoveryEnabled: false
   target:
     configMapName: configmap-created-by-appconfig-provider
@@ -211,8 +211,8 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 {
     // Provide an ordered list of replica endpoints
     var endpoints = new Uri[] {
-        new Uri("<first-replica-endpoint>"),
-        new Uri("<second-replica-endpoint>") };
+        new Uri("<FirstReplicaEndpoint>"),
+        new Uri("<SecondReplicaEndpoint>") };
     
     // Connect to replica endpoints using Microsoft Entra authentication
     options.Connect(endpoints, new DefaultAzureCredential());
@@ -251,8 +251,8 @@ Edit the `endpoints` or `connection-strings` properties in the `application.prop
 **Connect with Microsoft Entra ID**
 
 ```properties
-spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="<first-replica-endpoint>"
-spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="<second-replica-endpoint>"
+spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="<FirstReplicaEndpoint>"
+spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="<SecondReplicaEndpoint>"
 ```
 
 **Connect with Connection String**
@@ -340,7 +340,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   loadBalancingEnabled: true
   target:
     configMapName: configmap-created-by-appconfig-provider

@@ -14,6 +14,8 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 The following sample demonstrates how to use a pre- and post-deployment script with continuous integration and delivery in Azure Data Factory.
 
 ## Install Azure PowerShell

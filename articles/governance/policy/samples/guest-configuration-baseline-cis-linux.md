@@ -1,13 +1,13 @@
 ---
 title: Reference - Built-in CIS Security Benchmarks for Linux Workloads via Machine Configuration
 description: Reference - Built-in CIS Security Benchmarks for Linux Workloads via Machine Configuration
-ms.date: 11/05/2025
+ms.date: 06/18/2026
 author: pallakatos
 ms.author: pallakatos
 ms.topic: reference
 ms.custom: generated
 ---
-# CIS Security Benchmarks for Linux Workloads (Preview)
+# CIS Security Benchmarks for Linux Workloads
 
 ## Introduction
 
@@ -42,18 +42,28 @@ The following Linux distributions and CIS benchmark versions are currently suppo
 
 | Distribution | CIS Benchmark Version | Profiles | CIS Certified | Audit | Auto-Remediation |
 |--------------|----------------------|----------|---------------|-------|------------------|
+| [Ubuntu 20.04 LTS + Pro](cis-linux/ubuntu-ado.md) | v3.0.0 | L1 + L2 Server | ✓ | ✓ | X |
 | [Ubuntu 22.04 LTS + Pro](cis-linux/ubuntu-ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [Ubuntu 22.04 LTS + Pro](cis-linux/ubuntu-ado.md) | v3.0.0 | L1 + L2 Server | ✓ | ✓ | X |
 | [Ubuntu 24.04 LTS + Pro](cis-linux/ubuntu-ado.md) | v1.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [RedHat Enterprise Linux 10](cis-linux/rhel-ado.md) | v1.0.1 | L1 + L2 Server | ✓ | ✓ | X |
 | [RedHat Enterprise Linux 8](cis-linux/rhel-ado.md) | v3.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [RedHat Enterprise Linux 8](cis-linux/rhel-ado.md) | v4.0.0 | L1 + L2 Server | ✓ | ✓ | X |
 | [RedHat Enterprise Linux 9](cis-linux/rhel-ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
 | [Alma Linux 8](cis-linux/alma-ado.md) | v3.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [Alma Linux 8](cis-linux/alma-ado.md) | v4.0.0 | L1 + L2 Server | ✓ | ✓ | X |
 | [Alma Linux 9](cis-linux/alma-ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
 | [Rocky Linux 8](cis-linux/rocky-ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [Rocky Linux 8](cis-linux/rocky-ado.md) | v3.0.0 | L1 + L2 Server | ✓ | ✓ | X |
 | [Rocky Linux 9](cis-linux/rocky-ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
 | [Oracle Linux 8](cis-linux/oracle-ado.md) | v3.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [Oracle Linux 8](cis-linux/oracle-ado.md) | v4.0.0 | L1 + L2 Server | ✓ | ✓ | X |
 | [Oracle Linux 9](cis-linux/oracle-ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [Debian Linux 11](cis-linux/debian-ado.md) | v2.0.0 | L1 + L2 Server | ✓ | ✓ | X |
 | [Debian Linux 12](cis-linux/debian-ado.md) | v1.1.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [SUSE Linux Enterprise 12](cis-linux/suse-ado.md) | v3.2.1 | L1 + L2 Server | ✓ | ✓ | X |
 | [SUSE Linux Enterprise 15](cis-linux/suse-ado.md) | v2.0.1 | L1 + L2 Server | ✓ | ✓ | X |
+| [AKS Optimized Azure Linux 3](cis-linux/azure-linux-ado.md) | v1.0.0 | L1 + L2 Server | ✓ | ✓ | X |
 
 Auto-remediation capabilities are planned for future releases and will be marked with ✓ when available.
 	
@@ -114,6 +124,16 @@ Follow this same method to apply changes to file permissions, groups, owners, et
 ## Release Notes
 
 ### Current Release
+- **Version**: 1.21.0.0
+- **Release Date**: June 2026
+- **Features**:
+  - Added support for new CIS benchmark releases across Ubuntu, RHEL, Rocky Linux, AlmaLinux, and Oracle Linux, and introduced support for CIS AKS Optimized Azure Linux 3.
+  - Expanded customer-configurable parameters across more rules, including password policy, file permissions, mount options, service state, SSHD, systemd, DNS, and FTP-related settings.
+  - Enhanced policy parameter experiences in Guest Configuration Settings Catalog with richer input metadata, including display names, validation rules, and mandatory-field support for structured JSON parameters.
+  - Improved compliance accuracy and benchmark alignment with newer CIS-CAT Assessor content, reducing false failures and improving rule handling for newer benchmark versions.
+  - Added native support for `login.defs` password policy auditing and improved handling of structured JSON parameter overrides for compliance assignments.
+
+### Release 1.0.0
 - **Version**: 1.0.0
 - **Release Date**: November 2025
 - **Features**:
@@ -131,6 +151,3 @@ For questions or support regarding CIS Benchmarks for Linux in Azure Machine Con
 
 For questions, suggestions or any feedback on the rules, evaluations, distro coverage, feature requests - you can also use the Azure Support - or open a [GitHub issue under azure-osconfig repository](https://github.com/Azure/azure-osconfig/issues).
 
-> [!IMPORTANT]
-> CIS Security Benchmarks for Linux Workloads is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

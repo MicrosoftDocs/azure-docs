@@ -1,8 +1,9 @@
 ---
 title: HTCondor Scheduler Integration
-description: HT Condor Scheduler configurations in Azure CycleCloud
+description: Learn how to configure and integrate the HTCondor scheduler with Azure CycleCloud to schedule HPC workloads.
 author: KimliW
-ms.date: 06/10/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 

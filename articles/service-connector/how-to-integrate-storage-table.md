@@ -5,20 +5,19 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 08/18/2025
+ms.date: 06/17/2026
 #customer intent: As a cloud developer, I want to connect my compute services to Azure Table Storage using Service Connector.
 ---
 
 # Integrate Azure Table Storage with Service Connector
 
-This page shows supported authentication methods and clients. It provides sample code you can use to connect compute services to Azure Table Storage using Service Connector. You might be able to connect to Azure Table Storage in other programming languages without using Service Connector. This page also shows default environment variable names and values you get when you create the service connection.
+This article describes supported authentication methods and clients. It also provides sample code to connect compute services to Azure Table Storage by using Service Connector. You can still connect to Azure Table Storage in other programming languages without using Service Connector. This article also lists default environment variable names and values that you receive when you create the service connection.
 
 ## Supported compute services
 
 Service Connector can be used to connect the following compute services to Azure Table Storage:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps
@@ -32,7 +31,7 @@ This table shows which combinations of authentication methods and clients are su
 | Node.js     | Yes                              | Yes                            | Yes                        | Yes               |
 | Python      | Yes                              | Yes                            | Yes                        | Yes               |
 
-This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure Table Storage using Service Connector.
+This table shows that all listed combinations of client types and authentication methods are supported.
 
 ## Default environment variable names or application properties and sample code
 
@@ -46,7 +45,7 @@ To connect compute services to Azure Table Storage, use the following connection
 
 #### Sample code
 
-To connect to Azure Table Storage using a system-assigned managed identity, refer to the following steps and code.
+To connect to Azure Table Storage using a system-assigned managed identity:
 [!INCLUDE [code sample for table](./includes/code-table-me-id.md)]
 
 ### User-assigned managed identity
@@ -58,7 +57,7 @@ To connect to Azure Table Storage using a system-assigned managed identity, refe
 
 #### Sample code
 
-To connect to Azure Table Storage using a user-assigned managed identity, refer to the following steps and code.
+To connect to Azure Table Storage using a user-assigned managed identity:
 [!INCLUDE [code sample for table](./includes/code-table-me-id.md)]
 
 ### Connection string
@@ -72,7 +71,7 @@ To connect to Azure Table Storage using a user-assigned managed identity, refer 
 
 #### Sample code
 
-To connect to Azure Table Storage using a connection string, refer to the following steps and code.
+To connect to Azure Table Storage using a connection string:
 [!INCLUDE [code sample for table](./includes/code-table-secret.md)]
 
 ### Service principal
@@ -86,7 +85,7 @@ To connect to Azure Table Storage using a connection string, refer to the follow
 
 #### Sample code
 
-To connect to Azure Table Storage using a service principal, refer to the following steps and code.
+To connect to Azure Table Storage using a service principal:
 [!INCLUDE [code sample for table](./includes/code-table-me-id.md)]
 
 ## Next step

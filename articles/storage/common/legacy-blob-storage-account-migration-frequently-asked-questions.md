@@ -6,7 +6,7 @@ Services: storage
 author: gtrossell-eng
 ms.service: azure-storage
 ms.topic: faq
-ms.date: 12/15/2025
+ms.date: 7/1/2026
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -28,7 +28,7 @@ A legacy blob storage account is a legacy Azure storage account type designed fo
 
 ### Can I still create a new legacy blob storage account?
 
-No. Starting **March 3 2026**, creation of new legacy blob storage accounts will be disabled.
+No. Starting **September 2026**, creation of new legacy blob storage accounts will be disabled.
 
 > [!IMPORTANT]
 > Plan migrations ahead of this date to ensure policy compliance and avoid deployment blocks for new storage needs.
@@ -43,6 +43,14 @@ General-purpose v2 supports:
 - Read-access geo-redundant storage (**RA-GRS**).
 - Geo-zone-redundant storage (**GZRS**).
 - Read-access geo-zone-redundant storage (**RA-GZRS**).
+
+### How can I upgrade my accounts?
+You can upgrade your accounts in the Azure portal or use tools like Azure Policy. 
+
+> [!TIP]
+> To upgrade general-purpose v1 accounts to general-purpose v2, use the `deployIfNotExists` Azure Policy. This policy detects and identifies legacy blob storage accounts and helps you perform a non-disruptive in-place upgrade of those accounts.  
+>
+> A sample policy is available here: [Legacy blob storage Azure policy](https://aka.ms/legacy_blob_storage_azure_policy) 
 
 ### Does legacy blob storage support lifecycle management policies?
 
@@ -68,7 +76,8 @@ Features like **lifecycle management**, **per-blob tiering**, **point-in-time re
 
 Your bill reflects **general-purpose v2** pricing, which includes charges for **read/write operations**, **tier-based storage pricing**, and **redundancy options**. Use the **Azure pricing calculator** and your current invoice data to estimate new costs.
 
-- Azure pricing calculator: https://azure.microsoft.com/pricing/calculator/
+> [!TIP]
+> Estimate new costs with the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ### Is the migration permanent?
 

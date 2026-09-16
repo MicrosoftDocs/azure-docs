@@ -220,5 +220,5 @@ Based on the current health probe state of your backend instances, you receive d
 
 ## Next steps
 
-- To troubleshoot load balancer issues, see [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md).
+- To troubleshoot load balancer issues, see [Support and troubleshooting for Azure Load Balancer](load-balancer-support-help.md).
 - Learn how to [Manage rules for Azure Load Balancer using the Azure portal](manage-rules-how-to.md).

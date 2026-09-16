@@ -1,11 +1,12 @@
 ---
 title: Patching Guidance Overview for Microsoft Configuration Manager to Azure
 description: Patching guidance overview for Microsoft Configuration Manager to Azure. View on how to get started with Azure Update Manager, mapping capabilities of MCM software and FAQs.
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-update-manager
 ms.topic: overview
 ms.date: 08/21/2025
+ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator overseeing server management, I want to migrate from Microsoft Configuration Manager to Azure Update Manager, so that I can streamline software update processes and benefit from a cloud-native patch management solution.
 ---
 

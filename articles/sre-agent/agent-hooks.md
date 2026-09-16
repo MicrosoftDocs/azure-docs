@@ -1,11 +1,12 @@
 ---
 title: Agent Hooks in Azure SRE Agent
-description: Intercept and control agent behavior with custom scripts or LLM-based validation that runs before or after specific agent actions.
+description: Learn how to use agent hooks in Azure SRE Agent to enforce quality gates, audit tool usage, and block dangerous operations with custom scripts or LLM-based validation.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 06/02/2026
 author: craigshoemaker
 ms.author: cshoe
+ms.reviewer: cshoe
 ms.ai-usage: ai-assisted
 ms.custom: hooks, agent hooks, stop hook, post tool use, validation, audit, policy enforcement, scripts
 #customer intent: As an SRE, I want to add custom hooks to my agent so that I can enforce quality gates, audit tool usage, and block dangerous operations automatically.
@@ -19,9 +20,9 @@ Hooks are custom checkpoints that intercept and control agent behavior at key mo
 >
 > Replace `https://www.youtube.com/embed/VIDEO_ID` with the hosted URL for the Agent Hooks and Guardrails video. -->
 
-## The problem
+## The problem agent hooks solve
 
-Your agent executes tasks autonomously - investigating incidents, running tools, and generating responses. But autonomy without oversight creates risk:
+Your agent runs tasks autonomously by investigating incidents, running tools, and generating responses. But autonomy without oversight creates risk:
 
 - **Incomplete responses**: The agent says "done" before addressing everything you asked for.
 - **Unaudited tool usage**: You have no visibility into which tools the agent calls or what results it gets.
@@ -70,7 +71,7 @@ You can implement hooks by using either an LLM or a shell script:
 
 **Command hooks** are better for deterministic checks, such as validating that a response contains required markers, blocking dangerous commands, or logging tool usage to an external system.
 
-## What makes this approach different
+## Agent behavior with and without hooks
 
 The following table compares agent behavior with and without hooks.
 
@@ -81,23 +82,25 @@ The following table compares agent behavior with and without hooks.
 | Dangerous commands proceed silently | Policy enforcement blocks them automatically |
 | Quality depends on prompt engineering alone | Automated quality gates catch gaps |
 
-Hooks don't replace run mode safety controls - they complement them. Run modes control *what* the agent can do. Hooks control *how well* it does and *what happens* with the results.
+Hooks don't replace run mode safety controls. Instead, they complement them. Run modes control *what* the agent can do. Hooks control *how well* it does and *what happens* with the results.
 
-## Before and after
+## Before and after adding agent hooks
 
 | Scenario | Before | After |
 |---|---|---|
 | **Response quality** | Agent stops when it thinks it's done | Your Stop hook validates completeness before the response reaches users |
 | **Tool visibility** | No audit trail of tool execution | PostToolUse hooks log and verify every tool call |
-| **Policy enforcement** | Dangerous commands execute unchecked | Scripts block `rm -rf`, `sudo`, and other risky patterns automatically |
+| **Policy enforcement** | Dangerous commands run unchecked | Scripts block `rm -rf`, `sudo`, and other risky patterns automatically |
 | **Quality assurance** | Prompt engineering is your only lever | LLM-based hooks evaluate nuance; scripts enforce deterministic rules |
 
-## Configure hooks
+## Configure agent hooks
 
-The easiest way to create hooks is through the portal UI:
+Create hooks through the portal UI:
 
 1. **Agent-level hooks:** Go to **Builder** → **Hooks** → select **Create hook**.
-2. **Custom-agent-level hooks:** Go to **Agent Canvas** → select a custom agent → **Manage Hooks**.
+1. **Custom-agent-level hooks:** Go to **Agent Canvas** → select a custom agent → **Manage Hooks**.
+
+For step-by-step instructions, see [Create and manage hooks in the portal](create-manage-hooks-ui.md).
 
 > [!TIP]
 > You can also configure hooks through **REST API v2** by using `PUT /api/v2/extendedAgent/agents/{agentName}`. The YAML format in the following section shows the full configuration schema. To learn more, see the [API tutorial](tutorial-agent-hooks.md).
@@ -150,7 +153,7 @@ spec:
 
 ## Hook response format
 
-Hooks must output JSON. Two formats are supported.
+Hooks must output JSON. Two formats are supported:
 
 **Simple format** (recommended for prompt hooks):
 
@@ -189,14 +192,14 @@ The following table describes all available hook configuration options.
 | Option | Type | Default | Description |
 |---|---|---|---|
 | `type` | string | `prompt` | `prompt` or `command` |
-| `prompt` | string | — | LLM prompt text (required for prompt hooks). Use `$ARGUMENTS` for context injection. |
-| `command` | string | — | Inline shell command (for command hooks, mutually exclusive with `script`). |
-| `script` | string | — | Multi-line script (for command hooks, mutually exclusive with `command`). |
-| `matcher` | string | — | Regex pattern for tool names (required for PostToolUse hooks). `*` matches all tools. Patterns are anchored as `^(pattern)$` and matched case-sensitively. Empty or null matches nothing. |
+| `prompt` | string | (none) | LLM prompt text (required for prompt hooks). Use `$ARGUMENTS` for context injection. |
+| `command` | string | (none) | Inline shell command (for command hooks, mutually exclusive with `script`). |
+| `script` | string | (none) | Multi-line script (for command hooks, mutually exclusive with `command`). |
+| `matcher` | string | (none) | Regex pattern for tool names (required for PostToolUse hooks). `*` matches all tools. Patterns are anchored as `^(pattern)$` and matched case-sensitively. Empty or null matches nothing. |
 | `timeout` | int | `30` | Execution timeout in seconds (must be positive; values above 300 are flagged during CLI validation). |
 | `failMode` | string | `allow` | How to handle hook errors: `allow` or `block`. |
 | `model` | string | `ReasoningFast` | Model for prompt hooks (scenario name or deployment name). |
-| `maxRejections` | int | `3` (agent default) | Maximum rejections before forcing stop. Range: 1–25. Applies to prompt-type Stop hooks only. Command-type Stop hooks have no implicit limit. When multiple prompt hooks specify different values, the maximum is used. |
+| `maxRejections` | int | `3` (agent default) | Maximum rejections before forcing stop. Range: 1 to 25. Applies to prompt-type Stop hooks only. Command-type Stop hooks have no implicit limit. When multiple prompt hooks specify different values, the maximum is used. |
 
 ## Hook context schema
 
@@ -243,6 +246,21 @@ PostToolUse hooks receive extra fields about the tool execution.
 }
 ```
 
+## Model tiers
+
+Prompt hooks use an AI model to evaluate agent behavior. You can select which model tier the hook uses, balancing evaluation quality against cost and latency.
+
+| Tier | Best for | Trade-off |
+|---|---|---|
+| **Reasoning** | Complex policy enforcement, multistep validation, nuanced compliance checks | Highest quality, higher cost and latency |
+| **Fast Reasoning** (default) | Most hooks, response validation, audit checks, safety enforcement | Good reasoning with low latency |
+| **General Purpose** | Simple format checks, basic compliance validation | Balanced accuracy, cost, and speed |
+| **Fast** | Lightweight checks, presence validation, format verification | Lowest cost, fastest response |
+| **Long Context** | Hooks that process large outputs, full document analysis, extensive tool results | Handles larger input, higher cost |
+
+> [!TIP]
+> Hooks default to **Fast Reasoning** because they run on every agent response or tool call, so low latency matters. Use **Reasoning** only for hooks that enforce complex policies where accuracy is critical.
+
 ## Limits
 
 The following limits apply to agent hooks.
@@ -250,8 +268,8 @@ The following limits apply to agent hooks.
 | Limit | Value |
 |---|---|
 | Script size | 64 KB maximum |
-| Timeout | 1–300 seconds |
-| Max rejections (prompt Stop hooks) | 1–25 (default: 3) |
+| Timeout | 1 to 300 seconds |
+| Max rejections (prompt Stop hooks) | 1 to 25 (default: 3) |
 | Supported script shebangs | `#!/bin/bash`, `#!/usr/bin/env python3` |
 | Script execution environment | Sandboxed code interpreter |
 
@@ -311,7 +329,7 @@ hooks:
 
 ## Best practices
 
-Follow these guidelines when you configure agent hooks:
+When you configure agent hooks:
 
 1. **Always provide a reason when rejecting**.  Treat rejections without reasons as approvals.
 1. **Use appropriate timeouts**: Long-running hooks slow down agent execution.
@@ -320,17 +338,18 @@ Follow these guidelines when you configure agent hooks:
 1. **Test hooks thoroughly**: Hooks that always reject can cause loops (mitigated by `maxRejections`).
 1. **Log to stderr**: Use stderr for debugging output. The system parses stdout as the hook result.
 
-## Try it yourself
+## Try agent hooks yourself
 
 The following screenshot shows a Stop hook in action. The agent initially responds with just "4", but the hook rejects the response because the completion marker is missing. The agent then continues and adds the marker.
 
-:::image type="content" source="media/agent-hooks/hooks-stop-hook-working.png" alt-text="Screenshot showing a Stop hook in action where the agent response is decorated with a completion marker after hook rejection." lightbox="media/agent-hooks/hooks-stop-hook-working.png":::
+:::image type="content" source="media/agent-hooks/hooks-stop-hook-working.png" alt-text="Screenshot showing a Stop hook rejecting an agent response missing a completion marker, then the agent retrying with the marker added." lightbox="media/agent-hooks/hooks-stop-hook-working.png":::
 
 ## Get started
 
-| Resource | What you'll learn |
+| Resource | What you learn |
 |----------|-------------------|
-| [Configure agent hooks (API)](tutorial-agent-hooks.md) | Set up hooks by using REST API v2 and YAML |
+| [Create and manage hooks (portal)](create-manage-hooks-ui.md) | Create hooks visually in the portal UI, no API calls needed. |
+| [Configure agent hooks (API)](tutorial-agent-hooks.md) | Set up hooks by using REST API v2 and YAML. |
 
 ## Related content
 

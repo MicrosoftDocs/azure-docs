@@ -4,7 +4,7 @@ description: Learn how to deploy software to students and labs.
 author: rymend
 ms.author: rymend
 ms.topic: how-to
-ms.service: azure-education
+ms.service: azure-education-hub
 ms.date: 06/30/2020
 ms.custom: mode-other
 ---

@@ -4,7 +4,7 @@ description: Learn how to view and manage a Virtual Instance for SAP solutions (
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 03/18/2026
+ms.date: 04/22/2026
 author: sagarkeswani
 ms.author: sagarkeswani
 ms.custom: sfi-image-nochange
@@ -46,7 +46,7 @@ To see infrastructure-based metrics for the VIS:
 
 You can see the following metrics:
 
-- Virtual machine (VM) utilization by Advanced Business Application Programming Central Services (ASCS) and Application Server instances. The graph shows CPU usage percentage for all VMs that support the ASCS and Application Server instances.
+- Virtual machine (VM) utilization by Advanced Business Application Programming SAP Central Services (ASCS) and Application Server instances. The graph shows CPU usage percentage for all VMs that support the ASCS and Application Server instances.
 - VM utilization by the database instance. The graph shows CPU usage percentage for all VMs that support the database instance.
 - IOPS consumed by the database instance's data disk. The graph shows the percentage of disk utilization by all VMs that support the database instance.
 

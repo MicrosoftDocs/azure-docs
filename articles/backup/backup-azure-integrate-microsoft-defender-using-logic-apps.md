@@ -20,7 +20,7 @@ Azure Backup provides several security capabilities to help you protect your bac
 Microsoft Defender for Cloud (MDC) is a Cloud Security Posture Management (CSPM) and Cloud Workload Protection Platform (CWPP) for all of your Azure, on-premises, and multicloud (Amazon AWS and Google GCP) resources. Defender for Cloud generates security alerts when threats are identified in your cloud, hybrid, or on-premises environment. It's available when you enable enhanced security features. Each alert provides details of affected resources along with the information you need to quickly investigate the issue and steps to take to remediate an attack. If a malware or a ransomware attacks on an Azure Virtual Machine, Microsoft Defender for Cloud detects suspicious activity and indicators associated with ransomware on an Azure VM and generates a Security Alert. Examples of the Defender for Cloud Alerts that trigger on a Ransomware detection: *Ransomware indicators detected*, *Behavior similar to ransomware detected*, and so on.
 
 >[!Note]
-> This solution is scoped to Azure Virtual Machines. You can deployed the logic app only at a subscription level, which means all Azure VMs under the subscription can use the logic app to pause expiry of recovery points in the event of a security alert.
+> This solution is scoped to Azure Virtual Machines. You can deploy the logic app only at a subscription level, which means all Azure VMs under the subscription can use the logic app to pause expiry of recovery points in the event of a security alert.
 
 ## Solution workflow
 

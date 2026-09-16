@@ -4,7 +4,7 @@ description: Use VMware HCX to migrate workloads between Azure VMware Solution p
 ms.topic: how-to
 ms.service: azure-vmware
 ms.custom: engagement-fy26
-ms.date: 07/07/2025
+ms.date: 04/27/2026
 ---
 
 # Migrate workloads between Azure VMware Solution private clouds
@@ -36,7 +36,7 @@ If not yet installed, follow [Install VMware HCX in Azure VMware Solution](insta
 
 To enable migration, pair the source and destination Azure VMware Solution HCX instances.
 
-The process to pair two Azure VMware Solution private clouds is **the same as pairing an on-premises private cloud with Azure VMware Solution**. You will use the source Azure VMware Solution HCX Manager to initiate the pairing using the destination Azure VMware Solution HCX Manager FQDN or IP address, validate connectivity, and accept the SSL thumbprint to complete the pairing.
+The process to pair two Azure VMware Solution private clouds is **the same as pairing an on-premises private cloud with Azure VMware Solution**. Use the source Azure VMware Solution HCX Manager to initiate the pairing using the destination Azure VMware Solution HCX Manager FQDN or IP address, validate connectivity, and accept the SSL thumbprint to complete the pairing.
 
 For detailed, step-by-step instructions, see [Add a site pairing](configure-vmware-hcx.md#add-a-site-pairing).
 
@@ -44,10 +44,10 @@ For detailed, step-by-step instructions, see [Add a site pairing](configure-vmwa
 
 If you need to retain IP addresses across the private clouds during migration, use **HCX Network Extension** to extend VLAN-backed networks to the destination Azure VMware Solution environment.
 
-The process for extending networks between two Azure VMware Solution environments is **the same as extending networks from on-premises to Azure VMware Solution**. This includes selecting the required networks, extending them using HCX, and validating connectivity and routing.
+The process for extending networks between two Azure VMware Solution environments is **the same as extending networks from on-premises to Azure VMware Solution**. The process includes, selecting the required networks, extending them using HCX, and validating connectivity and routing.
 
 For detailed instructions, see [Extend networks using VMware HCX in Azure VMware Solution](configure-hcx-network-extension.md).
 
 ## Considerations when migrating to an Azure VMware Solution Generation 2 private cloud
 
-Azure VMware Solution Generation 2 private clouds currently have functionality, networking, and integration limitations that may affect your migration plans. Review these limitations to ensure your deployment aligns with current capabilities. For details, see [Design considerations for Azure VMware Solution Generation 2 Private Clouds](native-network-design-consideration.md).
+Azure VMware Solution Generation 2 private clouds currently have functionality, networking, and integration limitations that can affect your migration plans. Review these limitations to ensure your deployment aligns with current capabilities. For details, see [Design considerations for Azure VMware Solution Generation 2 Private Clouds](native-network-design-consideration.md).

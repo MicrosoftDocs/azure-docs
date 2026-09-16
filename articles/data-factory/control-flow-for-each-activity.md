@@ -14,6 +14,9 @@ ms.date: 03/20/2025
 # ForEach activity in Azure Data Factory and Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [ForEach activity](/fabric/data-factory/foreach-activity).
+
 The ForEach Activity defines a repeating control flow in an Azure Data Factory or Synapse pipeline. This activity is used to iterate over a collection and executes specified activities in a loop. The loop implementation of this activity is similar to Foreach looping structure in programming languages.
 
 ## Create a ForEach activity with UI

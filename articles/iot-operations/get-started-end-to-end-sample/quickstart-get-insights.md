@@ -1,10 +1,11 @@
 ---
 title: "Quickstart: Get insights from your processed data"
 description: "Quickstart: Use a real-time dashboard to capture insights from the OPC UA data you sent to Event Hubs."
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: quickstart
-ms.date: 01/28/2025
+ms.date: 06/19/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -14,21 +15,17 @@ ms.custom:
 
 # Quickstart: Get insights from your processed data
 
-In this quickstart, you populate a [real-time dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from the OPC UA data that you sent to Event Hubs in the previous quickstart. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and map it into a KQL database that can be a source for real-time dashboards. Then, you build a dashboard to display that data in visual tiles that capture insights and show the values over time.
-
-These operations are the last steps in the sample end-to-end quickstart experience, which goes from deploying Azure IoT Operations at the edge through getting insights from that device data in the cloud.
+[!INCLUDE [get-insights-intro](../includes/get-insights-intro.md)]
 
 ## Prerequisites
 
 Before you begin this quickstart, complete the previous Azure IoT Operations quickstarts.
 
-You also need to have the following Fabric resources:
-* A Microsoft Fabric subscription. In your subscription, you need access to a workspace with **Contributor** or above permissions.
-* A Fabric tenant that allows the creation of real-time dashboards. Your tenant administrator can enable this setting. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
+[!INCLUDE [get-insights-fabric-prerequisites](../includes/get-insights-fabric-prerequisites.md)]
 
 ## What problem will we solve?
 
-When your OPC UA data arrives in the cloud, there's a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this quickstart illustrate how to connect that data to Real-Time Intelligence and create a real-time dashboard.
+[!INCLUDE [get-insights-problem](../includes/get-insights-problem.md)]
 
 ## Ingest data into Real-Time Intelligence
 
@@ -38,14 +35,15 @@ In this section, you set up a Microsoft Fabric *eventstream* to connect your eve
 
 In this section, you create an eventstream to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
 
-Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.powerbi.com/workloads/oneriver/hub?experience=fabric-developer). 
+Before proceeding, make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's **Overview** page in the Azure portal.
 
-Add your event hub as a data source for a new eventstream. For detailed instructions, see [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs#microsoft-sources-page). As you add the data source, keep the following notes in mind:
+Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.fabric.microsoft.com/workloads/oneriver/hub?experience=fabric-developer).
 
+Add your event hub as a data source for a new eventstream. For detailed instructions, see [Get events from Azure Event Hubs into Real-Time hub](/fabric/real-time-hub/add-source-azure-event-hubs). When you add the data source, follow the instructions under [Use the Azure tab to connect to an event hub (recommended)](/fabric/real-time-hub/add-source-azure-event-hubs#use-the-azure-tab-to-connect-to-an-event-hub-recommended) to select your Event Hubs namespace. Then keep the following notes in mind when you configure the connection settings:
+
+* Select *destinationeh* from the drop-down for your event hub resource.
+* Select *RootManageSharedAccessKey* from the drop-down for the event hub key.
 * Edit the **Eventstream name** to something friendly in the **Stream details** pane.
-* For **Azure Event Hub Key**, use the default selection (*RootManageSharedAccessKey*).
-* For **Connection**, create a new connection with Shared Access Key authentication. The connection credential details fill automatically.
-    * Make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's Overview page in the Azure portal.
 * For **Consumer group**, use the default selection (*$Default*).
 * For **Data format**, use the default selection (*Json*).
 
@@ -57,7 +55,7 @@ After connecting the eventstream, use the **Open Eventstream** button to see it 
 
 Follow these steps to check your work so far, and make sure data is flowing into the eventstream.
 
-1. Start your cluster where you deployed Azure IoT Operations in earlier quickstarts. The OPC PLC simulator you deployed with your Azure IoT Operations instance should begin running and sending data. You can confirm this step by [verifying that your event hub is receiving messages](quickstart-configure.md#verify-data-is-flowing-to-event-hubs) in the Azure portal. 
+1. Start your cluster where you deployed Azure IoT Operations in earlier quickstarts. The OPC PLC simulator you deployed with your Azure IoT Operations instance should begin running and sending data. You can confirm this step by [verifying that your event hub is receiving messages](quickstart-configure.md#verify-data-is-flowing-to-event-hubs) in the Azure portal.
 
 1. Wait a few minutes for data to propagate. Then, in the eventstream live view, select the eventstream source and refresh the **Data preview**. You should see JSON data from the simulator begin to appear in the table.
 
@@ -90,7 +88,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 1. Clear the sample query, and run the following KQL query that creates a data mapping for your table. The data mapping is called *opcua_mapping*.
 
     ```kql
-    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Spike", "Properties":{"Path":"$.Spike"}},{"column":"Temperature", "Properties":{"Path":"$.TemperatureF"}},{"column":"FillWeight", "Properties":{"Path":"$.FillWeight"}},{"column":"EnergyUse", "Properties":{"Path":"$.EnergyUse.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
+    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"Properties":{"Path":"$[\'AssetId\']"},"column":"AssetId","datatype":""},{"Properties":{"Path":"$.Spike"},"column":"Spike","datatype":""},{"Properties":{"Path":"$.TemperatureF"},"column":"Temperature","datatype":""},{"Properties":{"Path":"$.FillWeight"},"column":"FillWeight","datatype":""},{"Properties":{"Path":"$.EnergyUse.Value"},"column":"EnergyUse","datatype":""},{"Properties":{"Path":"$.Temperature.SourceTimestamp"},"column":"Timestamp","datatype":""}]'
     ```
 
 ### Add eventstream data to KQL database
@@ -131,9 +129,10 @@ Then, follow these steps to upload the dashboard template and connect it to your
 1. Select the template file that you downloaded to your machine.
 1. The template file populates the dashboard with multiple tiles, although the tiles can't get data because you haven't connected a data source yet.
 :::image type="content" source="media/quickstart-get-insights/dashboard-upload-errors.png" alt-text="Screenshot of the dashboard with errors in the visuals.":::
-1. From the **Manage** tab, select **Data sources**. This action opens the **Data sources** pane with a sample source for your AIO data. Select the pencil icon to edit the *AIOdata* data source.
-    :::image type="content" source="media/quickstart-get-insights/dashboard-data-sources.png" alt-text="Screenshot of the buttons to connect a data source.":::
-1. Choose your database (it's under **Eventhouse/KQL Database**). When you're finished connecting your data source, select **Apply** and close the **Data sources** pane.
+1. From the **Manage** tab, select the **Data sources** toggle from the right side of the screen. This action opens the **Data sources** pane with a sample source for your AIO data. Select the settings icon to edit the *AIOdata* data source.
+    :::image type="content" source="media/quickstart-get-insights/dashboard-data-sources.png" alt-text="Screenshot of the buttons to open the data source settings.":::
+1. In the **Data source settings** pane, select the **Database** dropdown and then select **KQL database** to connect your KQL database as the data source for the dashboard.  :::image type="content" source="media/quickstart-get-insights/dashboard-data-source-settings.png" alt-text="Screenshot of the buttons to connect a data source.":::
+1. Choose your database on the **Select a KQL Database from the catalog** pane and then select **Connect**. When you're finished connecting your data source, select **Apply** and close the **Data source settings** pane. Finally, you can toggle the **Data sources** pane out of the way and return to the dashboard canvas.
 
 The visuals populate with the data from your KQL database.
 
@@ -160,7 +159,7 @@ This step completes the quickstart flow for using Azure IoT Operations to manage
 
 Now that you're finished with the quickstart experience, this section contains instructions to delete your sample resources.
 
-[!INCLUDE [tidy-resources](../includes/tidy-resources.md)]
+[!INCLUDE [tidy-quickstart-resources](../includes/tidy-quickstart-resources.md)]
 
 > [!NOTE]
 > The resource group contains the Event Hubs namespace you created in this quickstart.

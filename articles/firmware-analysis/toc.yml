@@ -35,6 +35,8 @@
     href: understand-weaknesses-data.md
   - name: UEFI firmware analysis capabilities
     href: unified-extensible-firmware-interface-firmware-analysis.md
+  - name: Firmware analysis integration with Azure Device Registry
+    href: firmware-analysis-integration-with-azure-device-registry.md
 - name: How-to guides
   items:
   - name: Automate firmware analysis using service principals

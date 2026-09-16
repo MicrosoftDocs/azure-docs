@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Add a multitenant Microsoft Entra identity provider using custom policies in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 11/16/2024
 ms.custom: project-no-code

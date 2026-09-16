@@ -2,14 +2,14 @@
 title: Use ephemeral OS disk nodes for Azure Batch pools
 description: Learn how and why to create a Batch pool that uses ephemeral OS disk nodes.
 ms.topic: how-to
-ms.date: 03/06/2026
+ms.date: 05/19/2026
 ms.devlang: csharp
 # Customer intent: "As a cloud architect, I want to configure Azure Batch pools with ephemeral OS disks, so that I can reduce costs and improve application performance for stateless workloads."
 ---
 
 # Use ephemeral OS disk nodes for Azure Batch pools
 
-Some Azure virtual machine (VM) series support the use of [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks), which create the OS disk on the node virtual machine local storage. The default Batch pool configuration uses [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) for the node OS disk, where the managed disk is like a physical disk, but virtualized and persisted in remote Azure Storage.
+Some Azure virtual machine (VM) series support the use of [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks), which create the OS disk on the node virtual machine local storage. The default Batch pool configuration uses [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for the node OS disk, where the managed disk is like a physical disk, but virtualized and persisted in remote Azure Storage.
 
 For Batch workloads, the main benefits of using ephemeral OS disks are reduced costs associated with pools, the potential for faster node start time, and improved application performance due to better OS disk performance. When choosing whether ephemeral OS disks should be used for your workload, consider the following impacts:
 
@@ -42,17 +42,15 @@ The following example shows how to create a Batch pool where the nodes use ephem
 
 This code snippet shows how to create a pool with ephemeral OS disks using the azure-mgmt-batch Python SDK with the ephemeral OS disk using the temporary disk (cache).
 
-```python
-from azure.identity import DefaultAzureCredential
-from azure.mgmt.batch import BatchManagementClient
-from azure.mgmt.batch.models import (
-    BatchAccountPoolData,
-    DeploymentConfiguration,
-    VirtualMachineConfiguration,
-    ImageReference,
-    OSDisk,
-    DiffDiskSettings,
-    DiffDiskPlacement,
+```python Snippet:ephemeral_os_disk_vm_config
+virtual_machine_configuration = models.VirtualMachineConfiguration(
+    image_reference=image_ref_to_use,
+    node_agent_sku_id=node_sku_id,
+    os_disk=models.BatchOsDisk(
+        ephemeral_os_disk_settings=models.BatchDiffDiskSettings(
+            placement=models.DiffDiskPlacement.CACHE_DISK
+        )
+    )
 )
 
 

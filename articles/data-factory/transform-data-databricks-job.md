@@ -15,6 +15,9 @@ ms.subservice: orchestration
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Azure Databricks activity](/fabric/data-factory/azure-databricks-activity).
+
 The Azure Databricks Job Activity in a [pipeline](concepts-pipelines-activities.md) runs Databricks jobs in your Azure Databricks workspace, including serverless jobs. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 
 You can create a Databricks job directly through the Azure Data Factory Studio user interface.
@@ -72,7 +75,7 @@ definition:
 |type|For Databricks Job Activity, the activity type is DatabricksJob.|Yes|
 |linkedServiceName|Name of the Databricks Linked Service on which the Databricks job runs. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article.|Yes|
 |jobId|The ID of the job to be run in the Databricks Workspace.|Yes|
-|jobParameters|An array of Key-Value pairs. Job parameters can be used for each activity run. If the job takes a parameter that isn't specified, the default value from the job will be used. Find more on parameters in [Databricks Jobs](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|No|
+|jobParameters|An array of Key-Value pairs. Job parameters can be used for each activity run. If the job takes a parameter that isn't specified, the job uses the default value. For more information about parameters, see, [Databricks Jobs](/azure/databricks/jobs/job-parameters).|No|
 
 
 ## Passing parameters between jobs and pipelines

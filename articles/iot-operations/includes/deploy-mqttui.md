@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 10/22/2024
 ms.author: dobett
+ms.service: azure-iot-operations
 ---
 
 Verify data is flowing to the MQTT broker by using the **mosquitto_sub** tool. In this example, you run the **mosquitto_sub** tool inside your Kubernetes cluster:

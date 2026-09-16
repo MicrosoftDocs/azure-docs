@@ -24,7 +24,7 @@ This tutorial covers deployment of a confidential VM with a custom configuration
 
 ## Prerequisites
 
-- An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
+- An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - If you want to deploy from the Azure CLI, [install PowerShell](/powershell/azure/install-azure-powershell) and [install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Deploy confidential VM template with Azure CLI
@@ -228,6 +228,22 @@ Use this example to create a custom parameter file for a Linux-based confidentia
       $KeySize = 3072
       az keyvault key create --vault-name $KeyVault --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --default-cvm-policy
       ```
+
+      > [!NOTE]
+      > In regions with new buildouts, MAA (Microsoft Azure Attestation) endpoints might not be available when using the `--default-cvm-policy` flag. As a workaround, you can use the following PowerShell script to retrieve the regional MAA endpoint URL:
+      >
+      > ```powershell
+      > $sub = "<subscription-id>"
+      > az account set --subscription $sub
+      > $token = Get-AzAccessToken
+      > $region = "<region-name>"
+      > $url = "https://management.azure.com/subscriptions/$sub/providers/Microsoft.Attestation/Locations/$region/defaultProvider?api-version=2021-06-01"
+      > $r = Invoke-WebRequest -Uri $url -Method Get -Headers @{'Authorization' = 'Bearer ' + $token.Token}
+      > $d = $r.content | ConvertFrom-Json
+      > $d.properties.attestUri
+      > ```
+      >
+      > Replace `<subscription-id>` with your Azure subscription ID and `<region-name>` with the target deployment region.
 
     1. Get information about the key that you created.
 

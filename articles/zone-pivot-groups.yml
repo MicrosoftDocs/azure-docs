@@ -1,6 +1,73 @@
 ### YamlMime:ZonePivotGroups
 groups:
 # Owner: v-mallicka
+- id: backup-client-portal-cli
+  title: Clients
+  prompt: Choose a client
+  pivots:
+  - id: client-portal
+    title: Azure portal
+  - id: client-cli
+    title: Azure CLI
+# Owner: duau
+- id: vpn-dual-stack-deployment-method
+  title: Deployment method
+  prompt: "Select the deployment method:"
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: powershell
+    title: Azure PowerShell
+  - id: cli
+    title: Azure CLI
+# Owner: duau
+- id: vpn-bgp-deployment-method
+  title: Deployment method
+  prompt: "Select the deployment method:"
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-powershell
+    title: Azure PowerShell
+  - id: azure-cli
+    title: Azure CLI
+# Owner: lilyjma
+- id: connector-namespace-hosted-servers
+  title: Hosted server
+  prompt: Choose server you want to host
+  pivots:
+  - id: playwright
+    title: Playwright
+  - id: sql
+    title: Azure SQL
+# Owner: liliankasem
+- id: func-cli-versions
+  title: Choose a command-line tool
+  prompt: Choose your local development tool
+  pivots:
+  - id: func-cli-v4
+    title: Azure Functions Core Tools
+  - id: func-cli-v5
+    title: Azure Functions CLI
+# Owner: estfan
+- id: azure-logic-apps
+  title: Experience
+  prompt: Choose an experience
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: python
+    title: Python
+# Owner: patricka
+- id: api-management-credential-auth-scenario
+  title: Authentication scenario
+  prompt: Choose authorization credential
+  pivots:
+  - id: apim-client-secret
+    title: Client secret
+  - id: apim-federated-identity
+    title: Federated identity credentials
+# Owner: v-mallicka
 - id: backup-client-template-arm-bicep
   title: Clients
   prompt: Choose a client
@@ -17,7 +84,7 @@ groups:
   - id: client-portal
     title: Azure portal
   - id: client-powershell
-    title: PowerShell
+    title: Azure PowerShell
   - id: client-cli
     title: Azure CLI
 #Owner: kraigb
@@ -131,6 +198,32 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+  - id: programming-language-go
+    title: Go
+- id: programming-languages-set-functions-no-go
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+- id: durable-functions-storage-providers-options
+  title: Storage provider
+  prompt: Choose a storage provider
+  pivots:
+  - id: durable-task-scheduler
+    title: Durable Task Scheduler
+  - id: azure-storage
+    title: Azure Storage
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
@@ -147,6 +240,8 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-go
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
@@ -158,7 +253,25 @@ groups:
   - id: programming-language-typescript
     title: TypeScript
   - id: programming-language-other
-    title: Other (Go/Rust)
+    title: Other (Rust)
+- id: programming-languages-set-functions-full-no-go
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-other
+    title: Other (Rust)
 - id: programming-languages-set-functions-nodejs
   title: Programming languages
   prompt: Choose a programming language
@@ -195,6 +308,14 @@ groups:
     title: Durable Functions
   - id: durable-task-sdks
     title: Durable Task SDKs
+- id: agent-framework-approach
+  title: Agent Framework approach
+  prompt: Choose your hosting option.
+  pivots:
+  - id: azure-functions
+    title: Azure Functions
+  - id: other-compute
+    title: Bring your own compute
 - id: functions-nodejs-model
   title: Node.js Programming model
   prompt: Choose a programming model
@@ -233,24 +354,16 @@ groups:
     title: Isolated worker model
   - id: in-proc
     title: In-process model
-- id: reliability-functions-hosting-plan
-  title: Function app hosting options for Availability Zones support
-  prompt: Choose a hosting option for your function app
+- id: functions-auth-method
+  title: Authentication method
+  prompt: Choose an authentication method
   pivots:
-  - id: flex-consumption-plan
-    title: Flex Consumption plan
-  - id: premium-plan
-    title: Premium plan
-- id: functions-hosting-plan-dynamic
-  title: Function app hosting options
-  prompt: Choose a hosting option for your function app
-  pivots:
-  - id: flex-consumption-plan
-    title: Flex Consumption plan
-  - id: premium-plan
-    title: Premium plan
-  - id: consumption-plan
-    title: Consumption plan
+  - id: functions-auth-identity
+    title: Managed identity
+  - id: functions-auth-keyvault
+    title: Key Vault
+  - id: functions-auth-secret
+    title: Shared secret
 - id: functions-hosting-plan
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
@@ -1033,15 +1146,6 @@ groups:
   - id: programming-language-java
     title: Java
 # Owner: alkohli
-- id: azure-stack-edge-device-deployment
-  title: Azure Stack Edge device deployment
-  prompt: Choose deployment type
-  pivots:
-  - id: single-node
-    title: Single node device
-  - id: two-node
-    title: Two node cluster
-# Owner: alkohli
 - id: data-box-shipping
   title: Data Box shipping
   prompt: Choose shipping location
@@ -1183,6 +1287,17 @@ groups:
   - id: portal
     title: Azure portal
 # Owner: cshoe
+- id: azure-aspire-cli-portal
+  title: Interface
+  prompt: Choose your interface
+  pivots:
+  - id: aspirecli
+    title: Aspire CLI
+  - id: azurecli
+    title: Azure CLI
+  - id: portal
+    title: Azure portal
+# Owner: cshoe
 - id: container-apps-java-artifacts
   title: Artifact type
   prompt: Select an artifact type
@@ -1281,6 +1396,41 @@ groups:
   - id: azure-resource-manager
     title: ARM template
 # Owner: duau
+- id: vpn-client-os
+  title: Client operating system
+  prompt: "Select the client operating system:"
+  pivots:
+  - id: windows
+    title: Windows
+  - id: macos
+    title: macOS
+  - id: linux
+    title: Linux
+  - id: ios
+    title: iOS
+# Owner: duau
+- id: vpn-client-os-desktop
+  title: Client operating system
+  prompt: "Select the client operating system:"
+  pivots:
+  - id: windows
+    title: Windows
+  - id: macos
+    title: macOS
+  - id: linux
+    title: Linux
+# Owner: duau
+- id: vpn-client-radius-auth
+  title: Authentication method
+  prompt: "Select the authentication method:"
+  pivots:
+  - id: certificate
+    title: Certificate
+  - id: password
+    title: Password
+  - id: other
+    title: Other methods and protocols
+# Owner: duau
 - id: expressroute-experience
   title: ExpressRoute experience
   prompt: "Select your ExpressRoute create experience:"
@@ -1289,6 +1439,7 @@ groups:
     title: Current
   - id: expressroute-preview
     title: Preview
+# Owner: duau
 # Owner: halkazwini
 - id: front-door-tiers
   title: Front Door tiers
@@ -1314,6 +1465,14 @@ groups:
     title: Application Gateway
   - id: front-door
     title: Front Door
+- id: network-watcher-agent-os
+  title: Operating system
+  prompt: "Choose your operating system:"
+  pivots:
+  - id: linux
+    title: Linux
+  - id: windows
+    title: Windows
 # Owner: hmb
 - id: front-door-dev-exp-portal-ps-cli
   title: Front Door deployment method
@@ -1456,12 +1615,18 @@ groups:
   title: API version pivots
   prompt: Choose an API version
   pivots:
-  - id: v1
-    title: "1.0"
-  - id: v23-10
-    title: "2023-10-01"
+  - id: v26-05-preview
+    title: "2026-05-01-preview"
+  - id: v26-04
+    title: "2026-04-01"
+  - id: v24-09
+    title: "2024-09-01"
   - id: v23-11
     title: "2023-11-01"
+  - id: v23-10
+    title: "2023-10-01"
+  - id: v1
+    title: "1.0"
 # Owner: v-yilinhu
 - id: programming-languages-batch-linux-nodes
   title: Programming languages
@@ -1604,13 +1769,11 @@ groups:
   prompt: Choose how to create the workflow configuration
   pivots:
   - id: method-manual
-    title: Manual
+    title: Workflow template
   - id: method-portal
     title: Azure portal
-  - id: method-cli
-    title: Azure CLI
   - id: method-template
-    title: GitHub Actions template
+    title: GitHub marketplace
 - id: azure-virtual-network-manager-quickstart-options
   title: Azure Virtual Network Manager Quickstart Scope Options
   prompt: Choose a scope option
@@ -1954,6 +2117,18 @@ groups:
     title: Data Box Next Gen
   - id: dbx
     title: Data Box
+- id: storage-mover-multicloud
+  title: Storage Mover migration sources
+  prompt: Select your migration source.
+  pivots:
+  - id: aws
+    title: Amazon Web Services
+  - id: gcs
+    title: Google Cloud
+  - id: oracle
+    title: Oracle Cloud
+  - id: on-premises
+    title: On-premises S3
 #owner: mbender
 - id: load-balancer-multiple-ip-pv
   title: Load Balancer Multiple IPs
@@ -2057,3 +2232,43 @@ groups:
     title: Windows
   - id: linux
     title: Linux
+# Owner: kendownie
+- id: azure-files-resource-provider-options
+  title: Resource provider
+  prompt: Choose a resource provider
+  pivots:
+  - id: microsoft-storage
+    title: '<img src="media/storage-files-planning/icon-service-file-share.svg" width="18" height="18" alt="" aria-hidden="true"> Microsoft.Storage'
+  - id: microsoft-fileshares
+    title: '<img src="media/storage-files-planning/icon-service-managed-file-shares.svg" width="18" height="18" alt="" aria-hidden="true"> Microsoft.FileShares'
+# Owner: zamasiel
+- id: sap-ha-nfs-solution
+  title: Azure NFS Hosting Option
+  prompt: Choose your Azure NFS Hosting Solution
+  pivots:
+  - id: azurefiles
+    title: NFS on Azure Files
+  - id: anf
+    title: Azure NetApp Files
+# Owner: zamasiel
+- id: sap-pacemaker-fencing-solution
+  title: Azure Linux Fencing Solutions
+  prompt: Choose your Pacemaker Fencing Solution
+  pivots:
+  - id: sbd-shared-disk
+    title: SBD with Azure Shared Disk
+  - id: sbd-iscsi
+    title: SBD with iSCSI Target Servers
+  - id: azure-fence-agent
+    title: Azure Fence Agent
+# Owner: duongau
+- id: networking-scenario
+  title: Choose your scenario
+  prompt: Select the migration scenario that matches your project
+  pivots:
+  - id: lift-shift
+    title: Lift and shift
+  - id: modernize
+    title: Migrate and modernize
+  - id: cross-cloud
+    title: Cross-cloud

@@ -124,7 +124,7 @@ If a snapshot reference is added that points to the aforementioned snapshot, the
 | Java                | Work in progress         |
 | JavaScript          | 2.3.0+                   |
 | Python              | 2.4.0+                   |
-| Go                  | Work in progress         |
+| Go                  | 1.6.0+                   |
 | Kubernetes          | 2.6.0+                   |
 
 ## Next steps

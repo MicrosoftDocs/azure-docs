@@ -2,7 +2,7 @@
 title: Use the Azure Compute Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: concept-article
-ms.date: 07/01/2025
+ms.date: 05/19/2026
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-azurecli
@@ -121,101 +121,88 @@ az batch pool create \
 
 ## Create a pool from a Shared Image using C#
 
-Alternatively, you can create a pool from a Shared Image using the C# SDK.
+Alternatively, you can create a pool from a Shared Image using the [Azure.ResourceManager.Batch](https://www.nuget.org/packages/Azure.ResourceManager.Batch/) SDK.
 
-```csharp
-private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
+```C# Snippet:sig_images_pool_create
+BatchImageReference imageReference = new BatchImageReference()
 {
-    return new VirtualMachineConfiguration(
-        imageReference: imageReference,
-        nodeAgentSkuId: {});
-}
+    Id = new ResourceIdentifier(
+        "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}")
+};
 
-private static ImageReference CreateImageReference()
+BatchAccountPoolData poolData = new BatchAccountPoolData()
 {
-    return new ImageReference(
-        virtualMachineImageId: "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}");
-}
-
-private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
-{
-    try
+    VmSize = PoolVMSize,
+    DeploymentConfiguration = new BatchDeploymentConfiguration()
     {
-        CloudPool pool = batchClient.PoolOperations.CreatePool(
-            poolId: PoolId,
-            targetDedicatedComputeNodes: PoolNodeCount,
-            virtualMachineSize: PoolVMSize,
-            virtualMachineConfiguration: vmConfiguration);
-
-        pool.Commit();
+        VmConfiguration = new BatchVmConfiguration(
+            imageReference: imageReference,
+            nodeAgentSkuId: "batch.node.ubuntu 22.04")
+    },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        FixedScale = new BatchAccountFixedScaleSettings() { TargetDedicatedNodes = PoolNodeCount }
     }
-    ...
-}
+};
+
+ArmOperation<BatchAccountPoolResource> pool = await batchAccount.GetBatchAccountPools()
+    .CreateOrUpdateAsync(WaitUntil.Completed, PoolId, poolData);
 ```
 
 ## Create a pool from a Shared Image using Python
 
 You also can create a pool from a Shared Image by using the Python SDK:
 
-```python
+```python Snippet:sig_create_pool_python
 # Import the required modules from the
 # Azure Batch Client Library for Python
-import azure.batch as batch
-import azure.batch.models as batchmodels
-from azure.common.credentials import ServicePrincipalCredentials
+from azure.batch import BatchClient, models
+from azure.identity import DefaultAzureCredential
 
-# Specify Batch account and service principal account credentials
-account = "{batch-account-name}"
-batch_url = "{batch-account-url}"
-ad_client_id = "{sp-client-id}"
-ad_tenant = "{tenant-id}"
-ad_secret = "{sp-secret}"
+# Specify Batch account credentials
+account_endpoint = "https://{batch-account-name}.{region}.batch.azure.com"
 
 # Pool settings
 pool_id = "LinuxNodesSamplePoolPython"
 vm_size = "STANDARD_D2_V3"
 node_count = 1
 
-# Initialize the Batch client with Azure AD authentication
-creds = ServicePrincipalCredentials(
-    client_id=ad_client_id,
-    secret=ad_secret,
-    tenant=ad_tenant,
-    resource="https://batch.core.windows.net/"
-)
-client = batch.BatchServiceClient(creds, batch_url)
+# Initialize the Batch client with Microsoft Entra ID authentication
+client = BatchClient(endpoint=account_endpoint, credential=DefaultAzureCredential())
 
 # Configure the start task for the pool
-start_task = batchmodels.StartTask(
-    command_line="printenv AZ_BATCH_NODE_STARTUP_DIR"
+start_task = models.BatchStartTask(
+    command_line="printenv AZ_BATCH_NODE_STARTUP_DIR",
+    user_identity=models.UserIdentity(
+        auto_user=models.AutoUserSpecification(
+            elevation_level=models.ElevationLevel.ADMIN,
+            scope=models.AutoUserScope.POOL,
+        )
+    ),
 )
-start_task.run_elevated = True
 
-# Create an ImageReference which specifies the image from
-# Azure Compute Gallery to install on the nodes.
-ir = batchmodels.ImageReference(
+# Create an image reference that points to an Azure Compute Gallery image.
+ir = models.BatchVmImageReference(
     virtual_machine_image_id="/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/galleries/{gallery name}/images/{image definition name}/versions/{version id}"
 )
 
-# Create the VirtualMachineConfiguration, specifying
-# the VM image reference and the Batch node agent to
-# be installed on the node.
-vmc = batchmodels.VirtualMachineConfiguration(
+# Create the VirtualMachineConfiguration
+vmc = models.VirtualMachineConfiguration(
     image_reference=ir,
-    {node_agent_sku_id}
+    node_agent_sku_id="batch.node.ubuntu 22.04",
 )
 
 # Create the unbound pool
-new_pool = batchmodels.PoolAddParameter(
+new_pool = models.BatchPoolCreateOptions(
     id=pool_id,
     vm_size=vm_size,
     target_dedicated_nodes=node_count,
     virtual_machine_configuration=vmc,
-    start_task=start_task
+    start_task=start_task,
 )
 
 # Create pool in the Batch service
-client.pool.add(new_pool)
+client.create_pool(pool=new_pool)
 ```
 
 ## Create a pool from a Shared Image or Custom Image using the Azure portal

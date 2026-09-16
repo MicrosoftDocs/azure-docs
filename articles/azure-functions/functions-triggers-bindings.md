@@ -80,11 +80,11 @@ The way that you define triggers and bindings for Node.js functions depends on t
 
 ### [v4](#tab/node-v4)
 
-In Node.js for Azure Functions version 4, you configure triggers and bindings by using objects exported from the `@azure/functions` module. For more information, see the [Node.js developer guide](functions-reference-node.md?pivots=nodejs-model-v4#inputs-and-outputs).
+In Node.js for Azure Functions version 4, you configure triggers and bindings by using objects exported from the `@azure/functions` module. For more information, see the [Node.js developer guide](functions-reference-node.md?pivots=nodejs-model-v4#extra-inputs-and-outputs).
 
 ### [v3](#tab/node-v3)
 
-In Node.js for Azure Functions version 3, you configure triggers and bindings in a function-specific `function.json` file in the same folder as your code. For more information, see the [Node.js developer guide](functions-reference-node.md?pivots=nodejs-model-v3#inputs-and-outputs).
+In Node.js for Azure Functions version 3, you configure triggers and bindings in a function-specific `function.json` file in the same folder as your code. For more information, see the [Node.js developer guide](functions-reference-node.md?pivots=nodejs-model-v3#extra-inputs-and-outputs).
 
 ---
 
@@ -242,7 +242,7 @@ SDK types are supported only when using the Python v2 programming model. For mor
 | [Azure Blob Storage](functions-bindings-storage-blob.md) | `BlobClient`<br/>`ContainerClient`<br/>`ReadableStream` | Preview |
 | [Azure Service Bus](functions-bindings-service-bus.md) | `ServiceBusClient`<br/>`ServiceBusReceiver`<br/>`ServiceBusSender`<br/>`ServiceBusMessage` | Preview |
 
-SDK types are supported only when using the Node v4 programming model. For more information, see [SDK types](./functions-reference-node.md#sdk-types) in the Node.js developer guide.
+SDK types are supported only when using the Node v4 programming model. For more information, see [SDK types](#sdk-types) in the Node.js developer guide.
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
@@ -255,6 +255,16 @@ For more information, see [SDK types](./functions-reference-java.md#sdk-types) i
 ::: zone pivot="programming-language-powershell"  
 >[!IMPORTANT]  
 >SDK types aren't currently supported for PowerShell apps.
+::: zone-end
+
+::: zone pivot="programming-language-go"
+Go supports SDK client injection for triggers that provide Azure SDK clients. During the public preview, Blob Storage triggers can receive an authenticated Azure SDK `*blob.Client` directly in the handler.
+
+| Extension | Types | Support level |
+| ----- | ----- | ----- |
+| [Azure Blob Storage](functions-bindings-storage-blob.md) | `*blob.Client` | Preview |
+
+For more information, see [Extension triggers](functions-reference-go.md#extension-triggers) in the Go developer reference.
 ::: zone-end
 ## Code examples for bindings
 

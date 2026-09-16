@@ -2,12 +2,10 @@
 title: Authenticate and Authorize to LLM APIs - Azure API Management
 titleSuffix: Azure API Management
 description: Options to authenticate and authorize to LLM APIs using Azure API Management. Includes API key, managed identity, and OAuth 2.0 authorization.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 12/19/2025
 ms.update-cycle: 180-days
-ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ---
 

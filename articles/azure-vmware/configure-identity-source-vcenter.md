@@ -133,8 +133,8 @@ To add Windows Server Active Directory over LDAP with SSL as an external identit
 
    | Name | Description |
    | --- | --- |
-   | **GroupName** | The group in the external identity source that grants CloudAdmin access. For example, **avs-admins**.  |
-   | **SSLCertificatesSasUrl** | The path to SAS strings that contain the certificates for authentication to the Windows Server Active Directory source. Separate multiple certificates with a comma. For example, **pathtocert1,pathtocert2**.  |
+   | **GroupName** | Optional. The group in the external identity source that will be granted CloudAdmins membership once the source is added. For example, **avs-admins**. This can be done separately later via `Add-GroupToCloudAdmins`. |
+   | **SSLCertificatesSasUrl** | Optional. The path to SAS strings that contain the certificates for authentication to the Windows Server Active Directory source. Separate multiple certificates with a comma. For example, **pathtocert1,pathtocert2**.  |
    | **Credential** | The domain username and password for authentication with the Windows Server Active Directory source (not CloudAdmin). Use the `<username@avslab.local>` format. |
    | **BaseDNGroups** | The location to search for groups. For example, **CN=group1, DC=avsldap,DC=local**. Base DN is required for LDAP authentication.  |
    | **BaseDNUsers** |  The location to search for valid users. For example, **CN=users,DC=avsldap,DC=local**. Base DN is required for LDAP authentication.  |
@@ -173,7 +173,7 @@ To add Windows Server Active Directory over LDAP as an external identity source 
    | **BaseDNUsers**  |  The location to search for valid users. For example, **CN=users,DC=avslab,DC=local**. Base DN is required for LDAP authentication.  |
    | **BaseDNGroups**  | The location to search for groups. For example, **CN=group1, DC=avslab,DC=local**. Base DN is required for LDAP authentication.  |
    | **Credential**  | The domain username and password for authentication with the Windows Server Active Directory source (not CloudAdmin). The user must be in the `<username@avslab.local>` format.  |
-   | **GroupName**  | The group in your external identity source that grants CloudAdmin access. For example, **avs-admins**.  |
+   | **GroupName**  | Optional. The group in your external identity that will be granted CloudAdmin membership upon addition of the source. For example, **avs-admins**. Can be done separately later. |
    | **Retain up to**  | The retention period for the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution**  | An alphanumeric name. For example, **addExternalIdentity**.  |
    | **Timeout**  |  The period after which a cmdlet exits if it isn't finished running.  |
@@ -299,7 +299,7 @@ To remove all existing external identity sources at once, run the Remove-Externa
 1. To see the progress, check **Notifications** or the **Run Execution Status** pane.
 
 > [!WARNING]
-> If you don't provide a value for **DomainName**, all external identity sources are removed. Run the cmdlet Update-IdentitySourceCredential only after the password is rotated in the domain controller.
+> Run the cmdlet Update-IdentitySourceCredential only after the password is rotated in the domain controller.
 
 ## Renew existing certificates for LDAPS identity source
 

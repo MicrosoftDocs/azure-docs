@@ -1,14 +1,14 @@
 ---
 title: Multi-Region Compute Fleet (Preview)
 description: Learn about Azure Compute Fleet and how to accelerate your access to Azure's capacity through multi-region deployment.
-author: shandilvarun
-ms.author: vashan
+author: fitzgeraldsteele
+ms.author: fisteele
 ms.topic: concept-article
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 11/13/2024
-ms.reviewer: cynthn
+ms.date: 07/16/2026
+ms.reviewer: wwilliams
 # Customer intent: "As a cloud architect, I want to distribute workloads across multiple regions using a compute fleet, so that I can enhance scalability, optimize performance, and ensure fault tolerance for my applications."
 ---
 
@@ -24,8 +24,10 @@ Multi-Region Compute Fleet is a cloud deployment capability that allows you to d
 This feature eliminates the constraints of regional dependencies, letting your applications thrive wherever the demand takes them.  You can use this capability through a number of ways: running a stateless web service, large batch jobs, a big data cluster, or a continuous integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of thousands of concurrent cores or instances.
 
 ## Prerequisites
- 
+  
 To use Multi-Region Compute Fleet, you must [sign-up for Azure Compute Fleet preview features](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRyYHv8J_khRKqQeYhVEgwSVUMFU1V0M0WU9ZNlA3UFA1SzdIUVY0TEVYSS4u&origin=lprLink&route=shorturl). After you complete the sign-up form and are approved, you will be contacted with next steps and onboarding details. 
+
+Cross-region support requires a minimum API version of `2024-11-01`.
 
 ## Benefits
 
@@ -37,7 +39,7 @@ To use Multi-Region Compute Fleet, you must [sign-up for Azure Compute Fleet pre
   
 ## Region availability
 
-Multi-Region Compute Fleet is available in all Azure Public Regions, except those located in China. 
+Multi-Region Compute Fleet is available in all Azure public cloud regions. 
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.devlang: azurecli
 
 # Enable partitioning in Azure Service Bus basic or standard
 
-Service Bus partitions enable queues and topics, or messaging entities, to be partitioned across multiple message brokers. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker. In addition, a temporary outage of a message broker, for example during an upgrade, doesn't render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions. For more information, see [Partitioned queues and topics](service-bus-partitioning.md). This article shows you different ways to enable duplicate message detection for a Service Bus queue or a topic. 
+Service Bus partitions enable queues and topics, or messaging entities, to be partitioned across multiple message brokers. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker. In addition, a temporary outage of a message broker, for example during an upgrade, doesn't render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions. For more information, see [Partitioned queues and topics](service-bus-partitioning.md). This article shows you different ways to enable partitioning for a Service Bus queue or a topic. 
 
 > [!IMPORTANT]
 > - Partitioning is available at entity creation for all queues and topics in **Basic** or **Standard** SKUs.

@@ -155,12 +155,20 @@ You can change the customer-managed key used to encrypt data from the **Encrypti
 Azure Key Vaults policies for automatic, periodic rotation of keys, or actions on the keys can result in the creation of new key versions. You can choose to re-encrypt all the data in the workspace with the latest version of the active key. To-re-encrypt, change the key in the Azure portal to a temporary key and then switch back to the key you wish to use for encryption. As an example, to update data encryption using the latest version of active key Key1, change the workspace customer-managed key to temporary key, Key2. Wait for encryption with Key2 to finish. Then switch the workspace customer-managed key back to Key1-data in the workspace will be re-encrypted with the latest version of Key1.
 
 > [!NOTE]
-> **Key rotation is a three-step process:**
-> 1. Change the workspace customer-managed key from your **main key** to a **temporary key**.
-> 2. **Wait 15–30 minutes** for the re-encryption process to complete.
-> 3. Change the workspace customer-managed key back to your **main key** (now using the new version).
+> Before rotating the key for an Azure Synapse Analytics workspace, ensure the following:
 >
-> This process ensures all workspace data is securely re-encrypted with the latest key version.
+> - If Azure Key Vault automatic key rotation is enabled, verify that the previous key version is still enabled.
+> - Confirm that the expiration date of the previous key version is set to a future date.
+>   - Note: Updating the expiration date may require manual action in Azure Key Vault.
+>
+> During the re-encryption process, Azure Synapse Analytics may need to access data encrypted with the previous key version. If that key version is disabled or expired, the workspace can enter a FAILED state.
+>
+> **Key rotation is a four-step process:**
+>
+> 1. Verify that the previous key version is enabled and not expired.
+> 2. Change the workspace customer-managed key from your main key to a temporary key.
+> 3. Wait 15-30 minutes for the re-encryption process to complete.
+> 4. Change the workspace customer-managed key back to your main key (now using the latest key version).
 
 > [!NOTE]
 > Azure Synapse Analytics does not automatically re-encrypt data when new key versions are created. To ensure consistency in your workspace, force the re-encryption of data using the process detailed above.

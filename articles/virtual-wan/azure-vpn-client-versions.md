@@ -2,12 +2,12 @@
 title: 'Azure VPN Client versions for point-to-site User VPN'
 description: This article shows the Azure VPN Client versions and features.
 titleSuffix: Azure Virtual WAN
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 02/11/2025
-ms.author: cherylmc
+ms.author: duau
 ---
 # Azure VPN Client - versions
 
@@ -19,7 +19,7 @@ This article helps you view each of the versions of the Azure VPN Client. As new
 
 ## Azure VPN Client - Linux
 
-[!INCLUDE [Linux client versions](../../includes/vpn-gateway-azure-vpn-client-linux-table.md)]
+[!INCLUDE [Linux retirement](../../includes/vpn-gateway-azure-vpn-client-linux-retirement.md)]
 
 ## Azure VPN Client - macOS
 

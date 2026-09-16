@@ -12,6 +12,8 @@ ms.author: fipopovi
 
 # CETAS with Synapse SQL
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 You can use CREATE EXTERNAL TABLE AS SELECT (CETAS) in dedicated SQL pool or serverless SQL pool to complete the following tasks:  
 
 - Create an external table

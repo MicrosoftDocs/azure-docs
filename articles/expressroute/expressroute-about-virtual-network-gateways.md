@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 11/10/2025
+ms.date: 09/05/2026
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -26,7 +26,9 @@ You can upgrade your gateway to a higher-capacity SKU within the same SKU family
 - Upgrade from one non-availability zone SKU to another non-availability zone SKU
 - Upgrade from one availability zone-enabled SKU to another availability zone-enabled SKU
 
-For all other scenarios, including downgrades or switching between availability zone types, you must delete and recreate the gateway. This process incurs downtime.
+To move an eligible Standard, HighPerformance, or UltraPerformance gateway to an availability zone-enabled SKU, use the [ExpressRoute gateway migration experience](gateway-migration.md). Azure creates a second gateway and transfers its configuration to minimize disruption.
+
+If neither a same-family upgrade nor the gateway migration experience supports your requested SKU change, you must delete and recreate the gateway. This process incurs downtime.
 
 ## Gateway subnet
 
@@ -75,6 +77,14 @@ The following table shows the features that each gateway SKU supports and the ma
 > [!NOTE]
 > The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network is 4 for all gateways.
 
+### Advertised prefix scale
+
+ExpressRoute private peering has limits on how many IPv4 prefixes can be advertised from a virtual network to on-premises (for example, 1,000 IPv4 prefixes and 100 IPv6 prefixes).
+
+If you need to reduce the number of prefixes advertised from Azure to on-premises in hub-and-spoke environments, configure advertised gateway prefixes on the gateway virtual network using the `summarizedGatewayPrefixes` property. With this property set, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes and suppress advertisement of spoke address spaces that are covered by the summarized space.
+
+For more information, see [Advertised gateway prefixes overview](/azure/virtual-network/advertised-gateway-prefixes-overview).
+
 <a name="aggthroughput"></a>
 ### Estimated performance by gateway SKU
 
@@ -87,7 +97,7 @@ The auto-assigned public IP feature simplifies ExpressRoute gateway deployment b
 
 :::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-ip.png" alt-text="Screenshot of the create for virtual network gateway for ExpressRoute.":::
 
-When auto-assigned public IP is enabled, the ExpressRoute gateway's Overview page no longer shows a Public IP address field — this means the gateway's public IP is automatically provisioned and managed by Microsoft.
+When you enable auto-assigned public IP, the ExpressRoute gateway's Overview page no longer shows a Public IP address field. This change means Microsoft automatically provisions and manages the gateway's public IP.
 
 :::image type="content" source="media/expressroute-about-virtual-network-gateways/hobo-overview.png" alt-text="Screenshot of the overview for virtual network gateway for ExpressRoute.":::
 
@@ -103,11 +113,16 @@ When you create an ExpressRoute gateway, Microsoft automatically provisions and 
 
 **Availability:**  
 
-Auto-assigned public IP isn't available for Virtual WAN (vWAN) or Extended Zone deployments.
+Auto-assigned public IP isn't available for Virtual WAN (vWAN).
  
 ## Connectivity from virtual network to virtual network and from virtual network to virtual WAN
 
+> [!NOTE]
+> If your Virtual WAN hub has undergone the software upgrade associated with [enabling route maps](../virtual-wan/route-maps-how-to.md), a known issue prevents the virtual network gateway from properly identifying Virtual WAN routes. As a result, the **Allow traffic from remote Virtual WAN network** setting on Virtual Network Gateway isn't applied correctly, and Virtual WAN address prefixes from that Virtual WAN hub are always learned by the Virtual Network Gateway regardless of the configured setting.
+
 By default, virtual network-to-virtual network and virtual network-to-virtual WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enable this traffic, see [Enable virtual network-to-virtual network or virtual network-to-virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
+
+
 
 ## FastPath
 
@@ -124,7 +139,7 @@ The ExpressRoute virtual network gateway facilitates connectivity to private end
 > * During a maintenance period, you might experience intermittent connectivity problems to private endpoint resources.
 > * During Gateway SKU upgrade, you might experience intermittent connectivity problems to private endpoint resources.
 > * You need to ensure that on-premises configuration, including router and firewall settings, are correctly set up to ensure that packets for the IP 5-tuple transits use a single next hop (Microsoft Enterprise Edge router) unless there's a maintenance event. If your on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, you experience connectivity problems.
-> * Ensure that [network policies](../private-link/disable-private-endpoint-network-policy.md) (at a minimum, for UDR support) are enabled on the subnet(s) where private endpoints are deployed
+> * Ensure that [network policies](../private-link/disable-private-endpoint-network-policy.md) (at a minimum, for UDR support) are enabled on the subnet(s) where private endpoints are deployed.
 
 ### Private endpoint connectivity and planned maintenance events
 
@@ -143,7 +158,9 @@ For technical resources and specific syntax requirements when using REST APIs an
 
 ## Virtual network-to-virtual network connectivity
 
-By default, connectivity between virtual networks is enabled when you link multiple virtual networks to the same ExpressRoute circuit. We don't recommend using your ExpressRoute circuit for communication between virtual networks. Instead, we recommend that you use [virtual network peering](../virtual-network/virtual-network-peering-overview.md). For more information about why virtual network-to-virtual network connectivity isn't recommended over ExpressRoute, see [Connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
+Virtual network-to-virtual network connectivity over an ExpressRoute circuit is disabled by default. You must enable it on the ExpressRoute virtual network gateway, even when multiple virtual networks are linked to the same circuit. We don't recommend using your ExpressRoute circuit for communication between virtual networks. Instead, we recommend that you use [virtual network peering](../virtual-network/virtual-network-peering-overview.md). For more information about why virtual network-to-virtual network connectivity isn't recommended over ExpressRoute, see [Connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
+
+To use an ExpressRoute gateway that's in a different Azure region from your workload virtual networks, see [Use a VPN or ExpressRoute gateway in a different region](../vpn-gateway/vpn-gateway-different-region.md).
 
 ### Virtual network peering limits
 

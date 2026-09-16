@@ -2,12 +2,12 @@
 title: Jobs and tasks in Azure Batch
 description: Learn about jobs and tasks and how they're used in an Azure Batch workflow from a development standpoint.
 ms.topic: concept-article
-ms.date: 03/21/2025
+ms.date: 06/16/2026
 # Customer intent: "As a developer working with cloud-based batch processing, I want to understand how jobs and tasks are structured in a batch workflow, so that I can efficiently manage computational workloads and optimize task execution."
 ---
 # Jobs and tasks in Azure Batch
 
-In Azure Batch, a *task* represents a unit of computation. A *job* is a collection of these tasks. More about jobs and tasks, and how they're used in an Azure Batch workflow, is described below.
+In Azure Batch, a *task* represents a unit of computation. A *job* is a collection of these tasks. This article describes jobs and tasks, and how they're used in an Azure Batch workflow.
 
 ## Jobs
 
@@ -19,7 +19,7 @@ A job specifies the [pool](nodes-and-pools.md#pools) in which the work is to be 
 
 You can assign an optional job priority to jobs that you create. The Batch service uses the priority value of the job to determine the order of scheduling (for all tasks within the job) within each pool.
 
-To update the priority of a job, call the [Update the properties of a job](/rest/api/batchservice/jobs/update-job) operation (Batch REST), or modify the [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob.priority) (Batch .NET). Priority values range from -1000 (lowest priority) to +1000 (highest priority).
+To update the priority of a job, call the [Update the properties of a job](/rest/api/batchservice/jobs/update-job) operation (Batch REST), or modify the [BatchJob.Priority](/dotnet/api/azure.compute.batch.batchjob.priority) (Azure.Compute.Batch). Priority values range from -1000 (lowest priority) to +1000 (highest priority).
 
 Within the same pool, higher-priority jobs have scheduling precedence over lower-priority jobs. Tasks in lower-priority jobs that are already running won't be preempted by tasks in a higher-priority job. Jobs with the same priority level have an equal chance of being scheduled, and ordering of task execution isn't defined.
 
@@ -34,11 +34,11 @@ You can use job constraints to specify certain limits for your jobs:
 
 ### Job manager tasks and automatic termination
 
-Your client application can add tasks to a job, or you can specify a [job manager task](#job-manager-task). A job manager task contains the information that is necessary to create the required tasks for a job, with the job manager task being run on one of the compute nodes in the pool. The job manager task is handled specifically by Batch; it is queued as soon as the job is created and is restarted if it fails. A job manager task is required for jobs that are created by a [job schedule](#scheduled-jobs), because it is the only way to define the tasks before the job is instantiated.
+Your client application can add tasks to a job, or you can specify a [job manager task](#job-manager-task). A job manager task contains the information that is necessary to create the required tasks for a job, with the job manager task being run on one of the compute nodes in the pool. The job manager task is handled specifically by Batch; it's queued as soon as the job is created and is restarted if it fails. A job manager task is required for jobs that are created by a [job schedule](#scheduled-jobs), because it is the only way to define the tasks before the job is instantiated.
 
-By default, jobs remain in the active state when all tasks within the job are complete. You can change this behavior so that the job is automatically terminated when all tasks in the job are complete. Set the job's **onAllTasksComplete** property ([OnAllTasksComplete](/dotnet/api/microsoft.azure.batch.cloudjob) in Batch .NET) to `terminatejob`*` to automatically terminate the job when all of its tasks are in the completed state.
+By default, jobs remain in the active state when all tasks within the job are complete. You can change this behavior so that the job is automatically terminated when all tasks in the job are complete. Set the job's **onAllTasksComplete** property ([OnAllTasksComplete](/dotnet/api/azure.compute.batch.batchjob) in Azure.Compute.Batch) to `terminatejob` to automatically terminate the job when all of its tasks are in the completed state.
 
-The Batch service considers a job with *no* tasks to have all of its tasks completed. Therefore, this option is most commonly used with a [job manager task](#job-manager-task). If you want to use automatic job termination without a job manager, you should initially set a new job's **onAllTasksComplete** property to `noaction`, then set it to `terminatejob`*` only after you've finished adding tasks to the job.
+The Batch service considers a job with *no* tasks to have all of its tasks completed. Therefore, this option is most commonly used with a [job manager task](#job-manager-task). If you want to use automatic job termination without a job manager, you should initially set a new job's **onAllTasksComplete** property to `noaction`, then set it to `terminatejob` only after you've finished adding tasks to the job.
 
 ### Scheduled jobs
 
@@ -151,9 +151,9 @@ For more information, see [Task dependencies in Azure Batch](batch-task-dependen
 
 Each task executed by the Batch service has access to environment variables that it sets on compute nodes. This includes [environment variables defined by the Batch service](./batch-compute-node-environment-variables.md) and custom environment variables that you can define for your tasks. Applications and scripts that your tasks execute have access to these environment variables during execution.
 
-You can set custom environment variables at the task or job level by populating the *environment settings* property for these entities. For more information, see the [Add a task to a job](/rest/api/batchservice/tasks/create-task) operation (Batch REST), or the [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) and [CloudJob.CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob.commonenvironmentsettings) properties in Batch .NET.
+You can set custom environment variables at the task or job level by populating the *environment settings* property for these entities. For more information, see the [Add a task to a job](/rest/api/batchservice/tasks/create-task) operation (Batch REST), or the [BatchTask.EnvironmentSettings](/dotnet/api/azure.compute.batch.batchtask.environmentsettings) and [BatchJob.CommonEnvironmentSettings](/dotnet/api/azure.compute.batch.batchjob.commonenvironmentsettings) properties in Azure.Compute.Batch.
 
-Your client application or service can obtain a task's environment variables, both service-defined and custom, by using the [Get information about a task](/rest/api/batchservice/tasks/get-task) operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) property (Batch .NET). Processes executing on a compute node can access these and other environment variables on the node, for example, by using the familiar `%VARIABLE_NAME%` (Windows) or `$VARIABLE_NAME` (Linux) syntax.
+Your client application or service can obtain a task's environment variables, both service-defined and custom, by using the [Get information about a task](/rest/api/batchservice/tasks/get-task) operation (Batch REST) or by accessing the [BatchTask.EnvironmentSettings](/dotnet/api/azure.compute.batch.batchtask.environmentsettings) property (Azure.Compute.Batch). Processes executing on a compute node can access these and other environment variables on the node, for example, by using the familiar `%VARIABLE_NAME%` (Windows) or `$VARIABLE_NAME` (Linux) syntax.
 
 You can find a list of all service-defined environment variables in [Compute node environment variables](batch-compute-node-environment-variables.md).
 

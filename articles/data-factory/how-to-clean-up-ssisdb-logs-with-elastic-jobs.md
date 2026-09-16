@@ -4,8 +4,8 @@ description: This article describes how to clean up SSIS project deployment and 
 ms.subservice: integration-services
 ms.topic: how-to
 ms.date: 05/15/2024
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange
@@ -14,6 +14,8 @@ ms.custom:
 # How to clean up SSISDB logs automatically
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 Once you provision an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines, you can use it to run SSIS packages deployed into:
 

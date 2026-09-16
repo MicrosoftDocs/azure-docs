@@ -27,9 +27,11 @@ Using `any` makes Bicep less predictable and can lead to runtime errors. When po
 
 ## Arrays
 
-A **array** in Bicep is an ordered collection of values—such as strings, integers, objects, or even other arrays—commonly used to group related items like resource names, configuration settings, or parameters. Arrays are helpful for organizing deployment data, passing lists to resources, and iterating over multiple values.
+A **array** in Bicep is an ordered collection of values, such as strings, integers, objects, or even other arrays, commonly used to group related items like resource names, configuration settings, or parameters. Arrays are helpful for organizing deployment data, passing lists to resources, and iterating over multiple values.
 
 Arrays in Bicep are immutable. Once declared, their contents can't be changed. To "modify" an array, create a new array using functions like [`concat`](./bicep-functions-array.md#concat), [`map`](./bicep-functions-lambda.md#map), or [`filter`](./bicep-functions-lambda.md#filter).
+
+The [use-user-defined-types](./linter-rule-use-user-defined-types.md) linter rule encourages the use of [user-defined data types](./user-defined-data-types.md) instead of the generic [`object`](./data-types.md#objects) or [`array`](./data-types.md#arrays) types.
 
 ```bicep
 param usLocations array = [
@@ -199,7 +201,9 @@ See [Numeric functions](./bicep-functions-numeric.md).
 
 ## Objects
 
-Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, you can declare an object in a single line or in multiple lines. Each property in an object consists of a key and a value. The key and value are separated by a colon (`:`). An object allows any property of any type. Commas (`,`) are used between properties for single-line declarations, but they aren't used between properties for multiple-line declarations. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.7.X or later.
+Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, you can declare an object in a single line or in multiple lines. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.7.X or later. Each property in an object consists of a key and a value. The key and value are separated by a colon (`:`). An object allows any property of any type. Commas (`,`) are used between properties for single-line declarations, but they aren't used between properties for multiple-line declarations.
+
+The [use-user-defined-types](./linter-rule-use-user-defined-types.md) linter rule encourages the use of [user-defined data types](./user-defined-data-types.md) instead of the generic [`object`](./data-types.md#objects) or [`array`](./data-types.md#arrays) types.
 
 ```bicep
 param singleLineObject object = {name: 'test name', id: '123-abc', isCurrent: true, tier: 1}

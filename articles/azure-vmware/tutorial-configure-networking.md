@@ -3,7 +3,7 @@ title: "Tutorial: Configure networking for your VMware private cloud in Azure"
 description: Learn to create and configure the necessary network resources for deploying your private cloud in Azure.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 6/12/2024
+ms.date: 4/06/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -29,13 +29,13 @@ This tutorial assumes that you completed the [previous tutorial about creating a
 > [!NOTE]
 > Before you create a virtual network, evaluate whether you want to connect to Azure VMware Solution by using an existing virtual network or by creating a new one:
 >
-> * To use an existing virtual network in the same Azure subscription as Azure VMware Solution, use the [Azure VNet connect](#select-an-existing-virtual-network) tab on the **Connectivity** pane.
+> * To use an existing virtual network in the same Azure subscription as Azure VMware Solution, use the [Azure virtual network connect](#select-an-existing-virtual-network) tab on the **Connectivity** pane.
 > * To use an existing virtual network in a different Azure subscription from Azure VMware Solution, use the guidance for [connecting to the private cloud manually](#connect-to-the-private-cloud-manually).
-> * To create a new virtual network in the same Azure subscription as Azure VMware Solution, use the [Azure VNet connect](#create-a-new-virtual-network) tab or create one [manually](#create-a-virtual-network-manually).
+> * To create a new virtual network in the same Azure subscription as Azure VMware Solution, use the [Azure virtual network connect](#create-a-new-virtual-network) tab or create one [manually](#create-a-virtual-network-manually).
 
 ## Prerequisites
 
-* Make sure that the virtual network that you use for this tutorial:
+* Verify the virtual network you use for this tutorial meets the following requirements:
 
   * Contains a gateway subnet.
   * Is in the same region as the Azure VMware Solution private cloud.
@@ -54,7 +54,7 @@ You can take advantage of the **Azure VNet connect** feature if you want to conn
 
 When you select an existing virtual network, the Azure Resource Manager (ARM) template that creates the virtual network and other resources is redeployed. The resources, in this case, are the public IP address, gateway, gateway connection, and ExpressRoute authorization key.
 
-If everything is set up, the deployment doesn't change anything. However, if anything is missing, it's created automatically. For example, if the gateway subnet is missing, it's added during the deployment.
+If everything is set up, the deployment doesn't change anything. However, if anything is missing, it gets created automatically. For example, if the gateway subnet is missing, it gets added during the deployment.
 
 1. In the Azure portal, go to the Azure VMware Solution private cloud.
 
@@ -121,7 +121,7 @@ After the deployment is complete, your virtual network appears in the resource g
 
 ### Create a virtual network gateway
 
-Now that you've created a virtual network, create a virtual network gateway:
+Now that you created a virtual network, create a virtual network gateway:
 
 1. In your resource group, select **+ Add** to add a new resource.
 
@@ -151,7 +151,7 @@ After the deployment finishes, move to the next section to connect ExpressRoute 
 
 ### Connect ExpressRoute to the virtual network gateway
 
-Now that you've deployed a virtual network gateway, add a connection between it and your Azure VMware Solution private cloud:
+Now that you deployed a virtual network gateway, add a connection between it and your Azure VMware Solution private cloud:
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 

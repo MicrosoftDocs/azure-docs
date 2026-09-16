@@ -47,16 +47,30 @@
     href: anycast.md
   - name: Roles and permissions
     href: roles-permissions.md
+  - name: About route maps
+    href: route-maps-about.md
 - name: How-to guides
   items:
   - name: Configure and manage Route Server
     href: configure-route-server.md
+  - name: Configure route maps
+    href: route-maps-how-to.md
+  - name: Route maps scenarios
+    items:
+    - name: Prepend routes
+      href: route-maps-scenario-prepend-routes.md
+    - name: Tag routes with BGP communities
+      href: route-maps-scenario-tag-bgp-communities.md
+    - name: Drop inbound routes
+      href: route-maps-scenario-drop-inbound-routes.md
   - name: Troubleshoot Route Server issues
     href: troubleshoot-route-server.md
   - name: Monitor Route Server
     href: monitor-route-server.md
 - name: Security
   items:
+  - name: Secure Route Server deployment
+    href: secure-route-server.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/azure-route-server-security-baseline?toc=/azure/route-server/toc.json
   - name: Azure Network Security Blog

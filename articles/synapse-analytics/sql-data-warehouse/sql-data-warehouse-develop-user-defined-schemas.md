@@ -12,6 +12,9 @@ ms.custom:
 ---
 
 # User-defined schemas for dedicated SQL pools in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article focuses on providing several tips for using T-SQL user-defined schemas to develop solutions in dedicated SQL pool.
 
 ## Schemas for application boundaries

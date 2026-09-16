@@ -141,7 +141,7 @@ To connect with Azure Service Bus using JMS clients, you need the **connection s
     ```
 
     >[!IMPORTANT]
-    > Although similarly named, a JMS 'Session' and Service Bus 'Session' is completely independent of each other.
+    > Although similarly named, a JMS 'Session' and Service Bus 'Session' are completely independent of each other.
     >
     > In JMS 1.1, Session is an essential building block of the API that allows creation of the `MessageProducer`, `MessageConsumer`, and the `Message` itself. For more details, review the [JMS API programming model](https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html)
     >
@@ -204,6 +204,7 @@ You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, P
 
 ## Related content
 
+- [Choose between JMS and the native SDK for Azure Service Bus](service-bus-jms-versus-native-sdk.md)
 - [Use JMS in Spring to access Azure Service Bus](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus)
 - [Use Azure Service Bus with JMS](/azure/developer/java/spring-framework/spring-jms-support)
 

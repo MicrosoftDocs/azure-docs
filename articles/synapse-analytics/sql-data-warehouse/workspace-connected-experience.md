@@ -13,6 +13,8 @@ ms.custom: sfi-image-nochange
 
 # Enabling Synapse workspace features on an existing dedicated SQL pool (formerly SQL DW)
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 All SQL data warehouse customers can now access and use an existing dedicated SQL pool (formerly SQL DW) instance via the Synapse Studio and Workspace, without impacting automation, connections, or tooling. This article explains how an existing Azure Synapse Analytics customer can build on and expand their existing Analytics solution by taking advantage of the new feature-rich capabilities now available via the Synapse workspace and Studio.   
 
 ## Experience

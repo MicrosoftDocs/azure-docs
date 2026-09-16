@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 01/21/2025
+ms.date: 04/30/2026
 ms.custom: horz-monitor
 zone_pivot_groups: front-door-tiers
 
@@ -16,7 +16,7 @@ zone_pivot_groups: front-door-tiers
 
 [!INCLUDE [azmon-horz-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-intro.md)]
 
-[Reports](standard-premium/how-to-reports.md) provide insight into how your traffic is flowing through Azure Front Door, the web application firewall (WAF), and to your application.
+[Reports](standard-premium/how-to-reports.md) provide insight into how your traffic flows through Azure Front Door, the web application firewall (WAF), and to your application.
 
 ::: zone pivot="front-door-classic"
 
@@ -30,7 +30,7 @@ This table describes how you can collect data to monitor your service, and what 
 
 |Data to collect|Description|How to collect and route the data|Where to view the data|Supported data|
 |---------|---------|---------|---------|---------|
-|Metric data|Metrics are numerical values that describe an aspect of a system at a particular point in time. Metrics can be aggregated using algorithms, compared to other metrics, and analyzed for trends over time.|- Collected automatically at regular intervals.</br>- You can route some platform metrics to a Log Analytics workspace to query with other data. Check the **DS export** setting for each metric to see if you can use a diagnostic setting to route the metric data.|[Metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started)| [Azure Front Door metrics supported by Azure Monitor](monitor-front-door-reference.md#metrics)|
+|Metric data|Metrics are numerical values that describe an aspect of a system at a particular point in time. You can aggregate metrics by using algorithms, compare them to other metrics, and analyze them for trends over time.|- Collected automatically at regular intervals.</br>- You can route some platform metrics to a Log Analytics workspace to query with other data. Check the **DS export** setting for each metric to see if you can use a diagnostic setting to route the metric data.|[Metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started)| [Azure Front Door metrics supported by Azure Monitor](monitor-front-door-reference.md#metrics)|
 |Resource log data|Logs are recorded system events with a timestamp. Logs can contain different types of data, and be structured or free-form text. You can route resource log data to Log Analytics workspaces for querying and analysis.|[Create a diagnostic setting](/azure/azure-monitor/essentials/create-diagnostic-settings) to collect and route resource log data.| [Log Analytics](/azure/azure-monitor/learn/quick-create-workspace)|[Azure Front Door resource log data supported by Azure Monitor](monitor-front-door-reference.md#resource-logs)  |
 |Activity log data|The Azure Monitor activity log provides insight into subscription-level events. The activity log includes information like when a resource is modified or a virtual machine is started.|- Collected automatically.</br>- [Create a diagnostic setting](/azure/azure-monitor/essentials/create-diagnostic-settings) to a Log Analytics workspace at no charge.|[Activity log](/azure/azure-monitor/essentials/activity-log)|  |
 
@@ -40,7 +40,7 @@ This table describes how you can collect data to monitor your service, and what 
 
 ::: zone pivot="front-door-standard-premium"
 
-Logs track all requests that pass through Azure Front Door. It can take a few minutes for logs to be processed and stored.
+Logs track all requests that pass through Azure Front Door. It can take a few minutes for the system to process and store logs.
 
 There are multiple Front Door logs, which you can use for different purposes:
 
@@ -55,11 +55,11 @@ Access logs, health probe logs, and WAF logs aren't enabled by default. To enabl
 
 ### <a name="access-log"></a>Access log
 
-Information about every request is logged into the access log. Each access log entry contains the information listed in the following table.
+The access log records information about every request. Each access log entry contains the information listed in the following table.
 
 | Property | Description |
 |----------|-------------| 
-| TrackingReference | The unique reference string that identifies a request served by Azure Front Door. The tracking reference is sent to the client and to the origin by using the `X-Azure-Ref` headers. Use the tracking reference when searching for a specific request in the access or WAF logs. |
+| TrackingReference | The unique reference string that identifies a request served by Azure Front Door. The `X-Azure-Ref` headers send the tracking reference to the client and to the origin. Use the tracking reference when searching for a specific request in the access or WAF logs. |
 | Time | The date and time when the Azure Front Door edge delivered requested contents to client (in UTC). For WebSocket connections, the time represents when the connection gets closed. |
 | HttpMethod | HTTP method used by the request: DELETE, GET, HEAD, OPTIONS, PATCH, POST, or PUT. |
 | HttpVersion | The HTTP version that the client specified in the request. |
@@ -68,7 +68,7 @@ Information about every request is logged into the access log. Each access log e
 | RequestBytes | The size of the HTTP request message in bytes, including the request headers and the request body. For WebSocket connections, this value is the total number of bytes sent from the client to the server through the connection.|
 | ResponseBytes | The size of the HTTP response message in bytes. For WebSocket connections, this value is the total number of bytes sent from the server to the client through the connection.|
 | UserAgent | The user agent that the client used. Typically, the user agent identifies the browser type. |
-| ClientIp | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is taken from the header. |
+| ClientIp | The IP address of the client that made the original request. If the request includes an `X-Forwarded-For` header, the client IP address comes from the header. |
 | SocketIp | The IP address of the direct connection to the Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of SocketIp is the IP address of the proxy or load balancer. |
 | TimeTaken | The duration from when the Azure Front Door edge received the client's request to when the last byte of the response was sent to the client, measured in seconds. This metric excludes network latency and TCP buffering. For WebSocket connections, it represents the connection duration from establishment to closure. |
 | RequestProtocol | The protocol specified by the client in the request. Possible values include: **HTTP**, **HTTPS**. For WebSocket, the protocols are **WS**, **WSS**. Only requests that successfully upgrade to WebSocket have WS/WSS. |
@@ -88,17 +88,17 @@ Information about every request is logged into the access log. Each access log e
 | OriginURL | The full URL of the origin where the request was sent. The URL is composed of the scheme, host header, port, path, and query string. <br> **URL rewrite**: If the Rules Engine rewrites the request URL, the path refers to the rewritten path. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](./front-door-caching.md#delivery-of-large-files). |
 | OriginIP | The IP address of the origin that served the request. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](./front-door-caching.md#delivery-of-large-files). |
 | OriginName| The full hostname (DNS name) of the origin. <br> **Cache on edge PoP**: If the request was served from the Azure Front Door cache, the origin is **N/A**. <br> **Large request**: If the requested content is large and there are multiple chunked requests going back to the origin, this field corresponds to the first request to the origin. For more information, see [Object Chunking](./front-door-caching.md#delivery-of-large-files). |
-| Result | `SSLMismatchedSNI` is a status code that signifies a successful request with a mismatch warning between the SNI and the host header. This status code implies domain fronting, a technique that violates Azure Front Door’s terms of service. Requests with `SSLMismatchedSNI` will be rejected after January 22, 2024.|
+| Result | `SSLMismatchedSNI` is a status code that signifies a successful request with a mismatch warning between the SNI and the host header. This status code implies domain fronting, a technique that violates Azure Front Door’s terms of service. Requests with `SSLMismatchedSNI` are rejected after January 22, 2024.|
 | Sni | This field specifies the Server Name Indication (SNI) that is sent during the TLS/SSL handshake. It can be used to identify the exact SNI value if there was a `SSLMismatchedSNI` status code. Additionally, it can be compared with the host value in the `requestUri` field to detect and resolve the mismatch issue. | 
 
 ### Health probe log
 
-Azure Front Door logs every failed health probe request. These logs can help you to diagnose problems with an origin. The logs provide you with information that you can use to investigate the failure reason and then bring the origin back to a healthy status.
+Azure Front Door logs every failed health probe request. These logs can help you diagnose problems with an origin. Use the logs to investigate the failure reason and then bring the origin back to a healthy status.
 
-Some scenarios this log can be useful for are:
+Some scenarios where this log can be useful include:
 
-- You noticed Azure Front Door traffic was sent to a subset of the origins. For example, you might notice that only three out of four origins receive traffic. You want to know if the origins are receiving and responding to health probes so you know whether the origins are healthy.
-- You noticed the origin health percentage metric is lower than you expected. You want to know which origins are recorded as unhealthy and the reason for the health probe failures.
+- You notice Azure Front Door traffic is sent to a subset of the origins. For example, you might notice that only three out of four origins receive traffic. You want to know if the origins are receiving and responding to health probes so you know whether the origins are healthy.
+- You notice the origin health percentage metric is lower than you expected. You want to know which origins are recorded as unhealthy and the reason for the health probe failures.
 
 Each health probe log entry has the following schema:
 
@@ -110,7 +110,7 @@ Each health probe log entry has the following schema:
 | Result | The status of health probe. The value is either **success** or a description of the error the probe received. |
 | HttpStatusCode  | The HTTP status code returned by the origin. |
 | ProbeURL | The full target URL to where the probe request was sent. The URL is composed of the scheme, host header, path, and query string. |
-| OriginName  | The name of the origin that the health probe was sent to. This field helps you to locate origins of interest if origin is configured to use an FQDN. |
+| OriginName  | The name of the origin that the health probe was sent to. This field helps you locate origins of interest if origin is configured to use an FQDN. |
 | POP | The edge PoP that sent the probe request. |
 | Origin IP | The IP address of the origin that the health probe was sent to. |
 | TotalLatency | The time from when the Azure Front Door edge sent the health probe request to the origin to when the origin sent the last response to Azure Front Door. |
@@ -196,7 +196,7 @@ Front Door currently provides diagnostic logs. Diagnostic logs provide individua
 | TrackingReference | The unique reference string that identifies a request served by Front Door, also sent as X-Azure-Ref header to the client. Required for searching details in the access logs for a specific request. |
 | UserAgent | The browser type that the client used. |
 | ErrorInfo | This field contains the specific type of error for further troubleshooting. </br>Possible values include: </br>**NoError**: Indicates no error was found. </br>**CertificateError**: Generic SSL certificate error. </br>**CertificateNameCheckFailed**: The host name in the SSL certificate is invalid or doesn't match. </br>**ClientDisconnected**: Request failure because of client network connection. </br>**UnspecifiedClientError**: Generic client error. </br>**InvalidRequest**: Invalid request. It might occur because of malformed header, body, and URL. </br>**DNSFailure**: DNS Failure. </br>**DNSNameNotResolved**: The server name or address couldn't be resolved. </br>**OriginConnectionAborted**: The connection with the origin was stopped abruptly. </br>**OriginConnectionError**: Generic origin connection error. </br>**OriginConnectionRefused**: The connection with the origin wasn't able to established. </br>**OriginError**: Generic origin error. </br>**OriginInvalidResponse**: Origin returned an invalid or unrecognized response. </br>**OriginTimeout**: The time-out period for origin request expired. </br>**ResponseHeaderTooBig**: The origin returned too large of a response header. </br>**RestrictedIP**: The request was blocked because of restricted IP. </br>**SSLHandshakeError**: Unable to establish connection with origin because of SSL hand shake failure. </br>**UnspecifiedError**: An error occurred that didn’t fit in any of the errors in the table. </br>**SSLMismatchedSNI**: The request was invalid because the HTTP message header didn't match the value presented in the TLS SNI extension during SSL/TLS connection setup.|
-| Result | `SSLMismatchedSNI` is a status code that signifies a successful request with a mismatch warning between the SNI and the host header. This status code implies domain fronting, a technique that violates Azure Front Door’s terms of service. Requests with `SSLMismatchedSNI` will be rejected after January 22, 2024.|
+| Result | `SSLMismatchedSNI` is a status code that signifies a successful request with a mismatch warning between the SNI and the host header. This status code implies domain fronting, a technique that violates Azure Front Door’s terms of service. Requests with `SSLMismatchedSNI` are rejected after January 22, 2024.|
 | Sni | This field specifies the Server Name Indication (SNI) that is sent during the TLS/SSL handshake. It can be used to identify the exact SNI value if there was a `SSLMismatchedSNI` status code. Additionally, it can be compared with the host value in the `requestUri` field to detect and resolve the mismatch issue. |
 
 #### Sent to origin shield deprecation
@@ -220,22 +220,22 @@ If the value is false, then it means the request is responded from origin shield
 | where Category == "FrontdoorAccessLog" and isReceivedFromClient_b == true`
 
 > [!NOTE]
-> For various routing configurations and traffic behaviors, some of the fields like backendHostname, cacheStatus, isReceivedFromClient, and POP field might respond with different values. The following table explains the different values these fields have for various scenarios:
+> For various routing configurations and traffic behaviors, some fields like `backendHostname`, `cacheStatus`, `isReceivedFromClient`, and `POP` might return different values. The following table explains the different values these fields have for various scenarios:
 
 | Scenarios | Count of log entries | POP | BackendHostname | isReceivedFromClient | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
 | Routing rule without caching enabled | 1 | Edge POP code | Backend where request was forwarded | True | CONFIG_NOCACHE |
 | Routing rule with caching enabled. Cache hit at the edge POP | 1 | Edge POP code | Empty | True | HIT |
 | Routing rule with caching enabled. Cache misses at edge POP but cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Parent cache POP hostname</br>2. Empty | 1. True</br>2. False | 1. MISS</br>2. HIT |
-| Routing rule with caching enabled. Caches miss at edge POP but PARTIAL cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Parent cache POP hostname</br>2. Backend that helps populate cache | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
+| Routing rule with caching enabled. Cache misses at edge POP but PARTIAL cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Parent cache POP hostname</br>2. Backend that helps populate cache | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
 | Routing rule with caching enabled. Cache PARTIAL_HIT at edge POP but cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Edge POP code</br>2. Parent cache POP code | 1. True</br>2. False | 1. PARTIAL_HIT</br>2. HIT |
 | Routing rule with caching enabled. Cache misses at both edge and parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Edge POP code</br>2. Parent cache POP code | 1. True</br>2. False | 1. MISS</br>2. MISS |
 | Error processing the request |  |  |  |  | N/A |
 
 > [!NOTE]
-> For caching scenarios, the value for Cache Status is a PARTIAL_HIT when some of the bytes for a request get served from the Azure Front Door edge or origin shield cache while some of the bytes get served from the origin for large objects.
+> For caching scenarios, the value for `CacheStatus` is a `PARTIAL_HIT` when some of the bytes for a request come from the Azure Front Door edge or origin shield cache while some of the bytes come from the origin for large objects.
 
-Azure Front Door uses a technique called object chunking. When a large file is requested, the Azure Front Door retrieves smaller pieces of the file from the origin. After the Azure Front Door POP server receives a full or byte-ranges of the file requested, the Azure Front Door edge server requests the file from the origin in chunks of 8 MB.
+Azure Front Door uses a technique called object chunking. When a large file is requested, Azure Front Door retrieves smaller pieces of the file from the origin. After the Azure Front Door POP server receives a full or byte-ranges of the file requested, the Azure Front Door edge server requests the file from the origin in chunks of 8 MB.
 
 After the chunk arrives at the Azure Front Door edge, it's cached and immediately served to the user. The Azure Front Door then prefetches the next chunk in parallel. This prefetch ensures the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested), all byte ranges are available (if requested), or the client closes the connection. For more information on the byte-range request, see RFC 7233. The Azure Front Door caches any chunks as they're received. The entire file doesn't need to be cached on the Front Door cache. Ensuing requests for the file or byte ranges are served from the Azure Front Door cache. If not all the chunks are cached on the Azure Front Door, prefetch is used to request chunks from the origin. This optimization relies on the ability of the origin server to support byte-range requests. If the origin server doesn't support byte-range requests, this optimization isn't effective.
 

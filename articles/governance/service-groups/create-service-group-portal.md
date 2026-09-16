@@ -13,7 +13,7 @@ ms.custom:
 
 # Quickstart: Create a service group (preview) in the portal
  
-Azure Service Groups offer a flexible way to organize and manage resources across subscriptions and resource groups, parallel to any existing Azure resource hierarchy. They're ideal for scenarios requiring cross-boundary grouping, minimal permissions, and aggregations of data across resources. These features empower teams to create tailored resource collections that align with operational, organizational, or persona-based needs. This article helps give you an overview of what service groups are, the scenarios to use them for, and provide guidance on how to get started. For more information on service groups, see [Getting started with Service Groups](overview.md).
+Azure Service Groups let you create flexible, custom groupings of your Azure resources across subscriptions and resource groups, without changing your existing resource hierarchy. For a full overview of capabilities and scenarios, see [What are Azure Service Groups?](overview.md).
 
 > [!IMPORTANT]
 > Azure Service Groups is currently in public preview. 
@@ -23,53 +23,56 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
   account before you begin.
+- You need **Service Group Contributor** or **Service Group Administrator** role on the parent service group where you want to create the new group. If creating under the root service group, see [Root Service Group access](./overview.md#the-root-service-group).
 
 ## Create in Azure portal
 
 1. Log into the [Azure portal](https://portal.azure.com/).
-3. Search **Service Groups**.
-4. Select **+ Create Service Group**.
+
+2. In the top search bar, search for **Service Groups** and select **Service Groups** from the results.
+
+3. Select **+ Create Service Group**.
     
-:::image type="content" source="./media/create-service-group.png" alt-text="Screenshot of new Service Group screen." Lightbox = "./media/create-service-group.png" :::
-5. Fill in the service group ID field
+   :::image type="content" source="./media/create-service-group.png" alt-text="Screenshot of new Service Group screen." Lightbox = "./media/create-service-group.png" :::
 
-   * The **Service Group ID** is the directory unique identifier that is used to submit commands
-         on this service group. This identifier isn't editable after creation as it's used throughout
-         the Azure system to identify this group. The
-         [root service group](./overview.md#the-root-service-group) is
-         automatically created with an ID that is the Microsoft Entra ID. For all other
-         service groups, assign a unique ID.
-   * The display name field is the name that is displayed within the Azure portal. A separate
-         display name is an optional field when creating the service group and can be changed at any time.
-6. Select the **Parent Service Group**. 
+4. Fill in the **Service Group ID** field.
+
+   * The **Service Group ID** is a unique identifier used to reference this service group in API calls, scripts, and policies. This ID **can't be changed** after creation, so choose a meaningful and descriptive name (for example, `platform-networking` or `project-contoso-prod`).
+   * The ID must be globally unique across all Microsoft Entra tenants. Two tenants can't have a Service Group with the same ID.
+   * The **Display name** field is optional and can be changed at any time. It controls how the service group appears in the Azure portal.
+
+5. Select the **Parent Service Group**. 
     
-   * If you don't have a parent service group, or don't know what to pick, select the Root Service Group which has same ID as the tenant's ID. _"Microsoft.Management/serviceGroups[tenantId]"_
+   * If you don't have a parent service group, or don't know what to pick, select the Root Service Group which has the same ID as your tenant's ID: `Microsoft.Management/serviceGroups/[tenantId]`
 
-7. Select "Next" 
-8. The review page shows
+6. Select **Next** to proceed.
 
-:::image type="content" source="./media/create-review-service-group.png" alt-text="Screenshot of the review page for creating a new service group" Lightbox="./media/create-review-service-group.png":::
+7. The review page shows a summary of your choices.
 
-9. If all information is correct, select **Create**
+   :::image type="content" source="./media/create-review-service-group.png" alt-text="Screenshot of the review page for creating a new service group" Lightbox="./media/create-review-service-group.png":::
+
+8. If all information is correct, select **Create**.
+
+> [!TIP]
+> After creating your service group, the next step is to add members. See [Add members to a service group in the portal](create-service-group-member-portal.md) or [Add members using REST API](create-service-group-member-rest-api.md).
 
 ## Clean up resources
 
-1. Search **Service Groups**.
+1. In the top search bar, search for **Service Groups** and select **Service Groups** from the results.
 
-1. Find the service group created that you want to delete, select it, then select the box. 
+1. Find the service group you want to delete, select the checkbox next to it.
 
-1. Select the **delete** button at the top of the page.  
+1. Select the **Delete** button at the top of the page.  
 
 ## Next steps
 
-In this quickstart, you created a service group. The service group can hold subscriptions, resource groups, or resources.
-
-To learn more about service groups and how to manage your hierarchy, continue to:
+In this quickstart, you created a service group. The next step is to add resources, resource groups, or subscriptions as members.
 
 > [!div class="nextstepaction"]
-> [How to: Manage Service Groups](manage-service-groups.md)
+> [Add members to a service group in the portal](create-service-group-member-portal.md)
 
 ## Related content
 * [What are Azure Service Groups?](overview.md)
 * [How to: Manage Service Groups](manage-service-groups.md)
-* [Connect service group members with REST API](create-service-group-member-rest-api.md)
+* [Add members using REST API](create-service-group-member-rest-api.md)
+* [Manage membership at scale](manage-membership.md)

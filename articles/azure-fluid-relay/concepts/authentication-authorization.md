@@ -3,7 +3,7 @@ title: Authentication and authorization in your app
 description: Overview of how to use authentication and authorization with an Azure Fluid Relay service. 
 ms.date: 10/05/2021
 ms.topic: article
-ms.service: azure-fluid
+ms.service: fluid-framework
 fluid.url: https://fluidframework.com/docs/build/auth/
 ---
 

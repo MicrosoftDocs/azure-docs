@@ -2,12 +2,12 @@
 title: Azure Stack Edge Pro GPU share management | Microsoft Docs 
 description: Describes how to use the Azure portal to manage shares on your Azure Stack Edge Pro GPU.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/29/2022
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Use Azure portal to manage shares on your Azure Stack Edge Pro
 

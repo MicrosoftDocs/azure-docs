@@ -4,12 +4,23 @@ description: Learn how to plan an Azure Virtual Network deployment to connect HD
 ms.service: azure-hdinsight
 ms.topic: concept-article
 ms.custom: hdinsightactive
-ms.date: 07/19/2025
+ms.date: 05/08/2026
 ---
 
 # Plan a virtual network for Azure HDInsight
 
 This article provides background information on using [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) (VNets) with Azure HDInsight. It also discusses design and implementation decisions that must be made before you can implement a virtual network for your HDInsight cluster. Once the planning phase is finished, you can proceed to [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md). For more information on HDInsight management IP addresses that are needed to properly configure network security groups (NSGs) and user-defined routes, see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
+
+> [!IMPORTANT]
+> The TLS certificate issuer for HDInsight cluster domains (*.azurehdinsight.net) is periodically updated by the Security team. Customers with restricted outbound VNET/firewall settings may experience gateway request failures or cluster creation failures if the client cannot validate the new certificate chain.
+> 
+> You are affected if all three conditions are true:
+> 
+> 1. Your client performs full chain validation of the cluster TLS certificate
+> 1. The new intermediate certificate is not already in the client's trusted store
+> 1. Your firewall blocks outbound access to download the certificate
+> 
+> Mitigation: Allow outbound access (HTTP/port 80) to the domains listed in [Azure Certificate Authority details — Certificate downloads and revocation lists](/azure/security/fundamentals/azure-certificate-authority-details?tabs=root-and-subordinate-cas-list#certificate-downloads-and-revocation-lists). Failure to do so will cause gateway request failures on existing clusters and cluster creation failures for new clusters.
 
 Using an Azure Virtual Network enables the following scenarios:
 

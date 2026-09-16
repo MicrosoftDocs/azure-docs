@@ -4,8 +4,8 @@ description: Learn how to use Apache Zeppelin to run Apache Base queries with Ph
 ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date:  02/03/2025
 ---

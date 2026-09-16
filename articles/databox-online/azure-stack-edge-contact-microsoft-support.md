@@ -2,11 +2,11 @@
 title: Log support ticket for Azure Stack Edge, Azure Data Box Gateway | Microsoft Docs
 description: Learn how to log support request for issues related to your Azure Stack Edge or Data Box Gateway orders.
 services: databox
-author: alkohli
+author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/20/2025
-ms.author: alkohli
+ms.author: sipastak
 ms.custom: sfi-image-nochange
 ---
 

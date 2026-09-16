@@ -14,6 +14,8 @@ ms.custom:
 
 # Troubleshoot a misclassified workload in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article covers guidance on how to troubleshoot a misclassified workload, and how to identify the reason behind the classification, for workloads in a dedicated SQL pool.
 
 Azure Synapse Analytics provides workload management capabilities like [classifying workloads to appropriate workload groups](sql-data-warehouse-workload-classification.md), [assigning importance](sql-data-warehouse-workload-importance.md), and [isolating resources](sql-data-warehouse-workload-isolation.md) to meet SLAs. 

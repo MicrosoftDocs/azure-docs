@@ -4,7 +4,7 @@
  author: robece
  ms.service: azure-event-grid
  ms.topic: include
- ms.date: 04/30/2025
+ ms.date: 05/07/2026
  ms.author: robece
 ms.custom:
   - include file
@@ -13,7 +13,7 @@ ms.custom:
 ---
 
 > [!NOTE]
-> The following limits listed in this article are per region.
+> The following limits are per region.
 
 ## Event Grid throttle limits
 
@@ -81,6 +81,12 @@ Throughput units define the ingress and egress event rate capacity in namespaces
 | Subscriptions per MQTT session            | 50                                                                                |
 | Subscriptions per Event Grid namespace                  | 1 million                                                                         |
 | Subscriptions per MQTT topic                 | Unlimited, if they don't exceed the limit for subscriptions per Event Grid namespace or session|
+| Maximum number of shared subscription groups per Namespace | 100 |
+| Maximum number of subscriptions in a shared subscription group | 100 |
+| Maximum number of shared subscriptions per session | 10 (included within total 50 subscriptions per session) |
+| Maximum outgoing message rate per shared subscription | 100 × number of shared subscribers |
+| Maximum sessions per shared subscription | 100 |
+| Maximum shared subscriptions per broker | 100 |
 | Registered client resources                  | 10,000 clients per TU                                                             |
 | Certificate Authority certificates                              | 10                                                                                 |
 | Client groups                                | 10                                                                                |
@@ -115,7 +121,7 @@ The following limits apply to Event Grid custom topic, system topic, and partner
 | Limit description                                      | Limit                                                                                                                               |
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Custom topics per Azure subscription                   | 100<br/>When the limit is reached, you can consider a different region or consider using domains, which can support 100,000 topics. |
-| Event subscriptions per topic                          | 500<br/>This limit can't be increased.                                                                                              |
+| Event subscriptions per topic                          | 500. For Event Subscriptions on Azure Subscriptions the limit is 100. <br/>This limit can't be increased.                                                                                              |
 | Publish rate for a custom or a partner topic (ingress) | 5,000 events or 5 MB per second (whichever comes first)<br/>An event is counted for limits and pricing purposes as a 64-KB data chunk. So, if the event is 128 KB, it counts as two events. |
 | Event size                                             | 1 MB<br/>This limit can't be increased.                                                                                             |
 | Maximum event retention on topics              | 1 day<br/>This limit can't be increased. |

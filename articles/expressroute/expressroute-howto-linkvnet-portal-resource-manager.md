@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 06/23/2026
 ms.author: duau
 ms.custom: sfi-image-nochange
 ---
@@ -43,7 +43,7 @@ This article helps you create a connection to link a virtual network to Azure Ex
 ## Connect a virtual network to a circuit - same subscription
 
 > [!NOTE]
-> BGP configuration information will not appear if the layer 3 provider configured your peerings. If your circuit is in a provisioned state, you should be able to create connections.
+> BGP configuration information doesn't appear if the layer 3 provider configured your peerings. If your circuit is in a provisioned state, you can create connections.
 
 ### To create a connection
 
@@ -95,7 +95,7 @@ This article helps you create a connection to link a virtual network to Azure Ex
     Complete the same information for the second ExpressRoute connection. When selecting an ExpressRoute circuit for the second connection, you are provided with the distance from the first ExpressRoute circuit. This information appears in the diagram and can help you select the second ExpressRoute location.
 
     > [!NOTE]
-    > To have maximum resiliency, you should select two circuits in different peering location. You'll be given the following warning if you select two circuits in the same peering location.
+    > To have maximum resiliency, select two circuits in different peering locations. You see the following warning if you select two circuits in the same peering location.
     >
     > :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/same-location-warning.png" alt-text="Screenshot of warning in the Azure portal when selecting two ExpressRoute circuits in the same peering location.":::
 
@@ -185,7 +185,7 @@ The circuit user needs the resource ID and an authorization key from the circuit
 
 ## Configure ExpressRoute FastPath
 
-[FastPath](expressroute-about-virtual-network-gateways.md) improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network. You can enable FastPath if your virtual network gateway is Ultra Performance or ErGw3AZ.
+[FastPath](expressroute-about-virtual-network-gateways.md) improves data path performance, such as packets per second and connections per second, between your on-premises network and your virtual network. You can enable FastPath if your virtual network gateway is Ultra Performance, ErGw3AZ, or ErGwScale with a minimum of 10 scale units.
 
 > [!NOTE]
 > When you enable FastPath on new or existing connections, the Gateway bypass is enabled after the ExpressRoute Gateway and Circuit connection is established. This will briefly route the on-premises traffic through the gateway.
@@ -212,11 +212,11 @@ When adding a new connection for your ExpressRoute gateway, select the checkbox 
 
 You can delete a connection and unlink your virtual network to an ExpressRoute circuit by selecting the **Delete** icon on the page for your connection.
 
-## Next step
+## Related content
 
-In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
+In this article, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
 
-To learn how to configure route filters for Microsoft peering using the Azure portal, advance to the next tutorial.
+* [Configure route filters for Microsoft peering](how-to-routefilter-portal.md)
 
 > [!div class="nextstepaction"]
 > [Configure route filters for Microsoft peering](how-to-routefilter-portal.md)

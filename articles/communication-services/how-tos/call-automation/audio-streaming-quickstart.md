@@ -2,11 +2,11 @@
 title: Audio streaming quickstart
 titleSuffix: An Azure Communication Services quickstart document
 description: Provides a quick start for developers to get audio streams through audio streaming APIs from Azure Communication Services calls.
-author: alvin
+author: henikaraa
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 7/15/2024
-ms.author: alvinhan
+ms.author: henikaraa
 ms.custom: 
 services: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python

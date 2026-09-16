@@ -1,7 +1,7 @@
 ---
 title: About Azure confidential VMs
 description: Learn about Azure confidential virtual machines. These series are for tenants with high security and confidentiality requirements.
-author: cynthn
+author: iamwilliew
 ms.author: mmcrey
 ms.reviewer: mattmcinnes
 ms.service: azure-confidential-computing
@@ -126,9 +126,10 @@ Pricing depends on your confidential VM size. For more information, see the [Pri
 
 ### Feature support
 
+- [Azure Backup](/azure/backup/backup-overview) support for Confidential VMs is currently in public preview [Documentation](/azure/backup/confidential-vm-backup)
+
 Confidential VMs *don't support*:
 
-- [Azure Backup](/azure/backup/backup-overview)
 - [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery/)
 - Limited [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) support
 - [Accelerated Networking](/azure/virtual-network/accelerated-networking-overview)

@@ -2,8 +2,8 @@
 title: Azure Route Server Capacity
 titleSuffix: Azure Route Server
 description: Learn how to configure capacity for your Azure Route Server based on the number of virtual machines deployed
-author: siddomala
-ms.author: siddomala
+author: duongau
+ms.author: duau
 ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 10/31/2025

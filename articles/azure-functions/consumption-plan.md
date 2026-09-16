@@ -1,7 +1,7 @@
 ---
 title: Azure Functions Consumption plan hosting (legacy)
 description: Learn about Azure Functions Consumption plan hosting, a legacy serverless hosting option. We recommend the Flex Consumption plan for new serverless function apps.
-ms.date: 03/13/2026
+ms.date: 04/09/2026
 ms.topic: concept-article
 ms.custom:
   - build-2024
@@ -10,11 +10,9 @@ ms.custom:
 
 # Azure Functions Consumption plan hosting (legacy)
 
-[!INCLUDE [functions-consumption-legacy-banner](../../includes/functions-consumption-legacy-banner.md)]
+[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
 When you use the Consumption plan, the Azure Functions host dynamically adds and removes instances based on the number of incoming events. 
-
-[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
 The Consumption plan automatically scales, even during periods of high load. When you run functions in a Consumption plan, you pay for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time. The Consumption plan is currently the only serverless hosting option that supports Windows.
 

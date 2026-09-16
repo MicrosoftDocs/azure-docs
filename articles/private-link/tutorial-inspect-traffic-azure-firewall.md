@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Inspect private endpoint traffic with Azure Firewall'
 description: Learn how to inspect private endpoint traffic with Azure Firewall.
-author: abell
-ms.author: abell
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 ms.topic: tutorial
 ms.custom: mvc, linux-related-content

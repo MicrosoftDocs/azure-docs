@@ -2,11 +2,12 @@
 title: Create Alerts in Azure Update Manager
 description: This article describes on how to enable alerts (preview) with Azure Update Manager to address events as captured in updates data. 
 ms.service: azure-update-manager
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.date: 08/21/2025
 ms.topic: how-to
 ms.custom: sfi-image-nochange
+ms.update-cycle: 1095-days
 # Customer intent: "As a system administrator managing virtual machines, I want to enable alerts using Update Manager, so that I can efficiently monitor and respond to update-related events across my hybrid cloud environment."
 ---
 
@@ -81,7 +82,7 @@ To view the alerts, follow these steps:
 
    :::image type="content" source="./media/manage-alerts/view-alerts-inline.png" alt-text="Screenshot that shows how to view alerts." lightbox="./media/manage-alerts/view-alerts-expanded.png":::
     
-1. In the **Monitor | Alerts** page, you can view all the alerts.
+1. In the **Monitor | Alerts** page, you can view all the alerts. For more information, see [Configure alert rule conditions](/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-alert-rule-conditions).
 
    :::image type="content" source="./media/manage-alerts/display-view-alerts-inline.png" alt-text="Screenshot that displays the list of alerts." lightbox="./media/manage-alerts/display-view-alerts-expanded.png":::
 

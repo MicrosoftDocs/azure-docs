@@ -2,8 +2,8 @@
 title: Load data into Azure Synapse Analytics
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Use Azure Data Factory or an Azure Synapse pipeline to copy data into Azure Synapse Analytics.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 05/15/2024
@@ -15,6 +15,8 @@ ms.custom:
 # Load data into Azure Synapse Analytics using Azure Data Factory or a Synapse pipeline
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) is a cloud-based, scale-out database that's capable of processing massive volumes of data, both relational and non-relational. Azure Synapse Analytics is built on the massively parallel processing (MPP) architecture that's optimized for enterprise data warehouse workloads. It offers cloud elasticity with the flexibility to scale storage and compute independently.
 

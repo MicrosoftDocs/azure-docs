@@ -1,6 +1,6 @@
 ---
-title: Data security and encryption best practices - Microsoft Azure
-description: This article provides a set of best practices for data security and encryption using built in Azure capabilities.
+title: Azure data security and encryption best practices
+description: Learn best practices for Azure data security and encryption, including data at rest, data in transit, key management, and data classification.
 services: security
 author: msmbaldwin
 
@@ -8,112 +8,124 @@ ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/08/2026
+ms.date: 05/05/2026
 ms.author: mbaldwin
+ai-usage: ai-assisted
 
 ---
 # Azure data security and encryption best practices
+
 This article describes best practices for data security and encryption.
 
-The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Opinions and technologies change over time and this article is updated on a regular basis to reflect those changes.
+The best practices are based on consensus, and they work with current Azure platform capabilities and feature sets. Opinions and technologies change over time. Microsoft updates this article regularly to reflect those changes.
 
 This article aligns with Microsoft's [Zero Trust](/security/zero-trust/zero-trust-overview) security model, which treats data as one of the critical pillars requiring protection at all stages. For prescriptive security controls with Azure Policy enforcement, see [Microsoft Cloud Security Benchmark v2 - Data Protection](/security/benchmark/azure/mcsb-v2-data-protection).
 
 ## Protect data
-To help protect data in the cloud, you need to account for the possible states in which your data can occur, and what controls are available for that state. Best practices for Azure data security and encryption relate to the following data states:
+
+To help protect data in the cloud, account for the possible states in which your data can occur and what controls are available for that state. Best practices for Azure data security and encryption relate to the following data states:
 
 - At rest: This includes all information storage objects, containers, and types that exist statically on physical media, whether magnetic or optical disk.
-- In transit: When data is being transferred between components, locations, or programs, it's in transit. Examples are transfer over the network, across a service bus (from on-premises to cloud and vice-versa, including hybrid connections such as ExpressRoute), or during an input/output process.
-- In Use: When data is being processed, the specialized AMD & Intel chipset based Confidential compute VMs keep the data encrypted in memory using hardware managed keys.
+- In transit: When data is being transferred between components, locations, or programs, it's in transit. Examples are transfer over the network, across a service bus (from on-premises to cloud and vice versa, including hybrid connections such as ExpressRoute), or during an input/output process.
+- In use: When data is being processed, specialized AMD and Intel chipset-based confidential computing VMs use hardware-managed keys to keep the data encrypted in memory.
 
 ## Choose a key management solution
 
 Protecting your keys is essential to protecting your data in the cloud.
 
-Azure offers several different services to protect your cryptographic keys using HSMs. These offerings provide cloud scalability and availability while giving you complete control over your keys. For more information and guidance on choosing among these key management offerings, see [How to choose the right Azure key management solution](key-management-choose.md). [Azure Key Vault Premium](/azure/key-vault/general/overview) or [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) are recommended for managing your encryption at rest keys.
+Azure offers several services to protect your cryptographic keys by using HSMs. These offerings provide cloud scalability and availability while giving you complete control over your keys. For more information and guidance on choosing among these key management offerings, see [How to choose the right Azure key management solution](key-management-choose.md). Use [Azure Key Vault Premium](/azure/key-vault/general/overview) or [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) to manage your encryption-at-rest keys.
 
 ## Manage with secure workstations
 
 > [!NOTE]
-> The subscription administrator or owner should use a secure access workstation or a privileged access workstation.
+> Use a secure access workstation or privileged access workstation for the subscription administrator or owner.
 
 Because the vast majority of attacks target the end user, the endpoint becomes one of the primary points of attack. An attacker who compromises the endpoint can use the user's credentials to gain access to the organization's data. Most endpoint attacks take advantage of the fact that users are administrators in their local workstations.
 
 - **Use a secure management workstation to protect sensitive accounts, tasks, and data**: Use a [privileged access workstation](/security/privileged-access-workstations/overview) to reduce the attack surface in workstations. These secure management workstations can help you mitigate some of these attacks and ensure that your data is safer.
 
-- **Ensure endpoint protection**: Enforce security policies across all devices that are used to consume data, regardless of the data location (cloud or on-premises).
+- **Ensure endpoint protection**: Enforce security policies across all devices that consume data, regardless of the data location (cloud or on-premises).
 
 ## Protect data at rest
 
 [Data encryption at rest](encryption-atrest.md) is a mandatory step toward data privacy, compliance, and data sovereignty.
 
-- **Apply encryption at host to help safeguard your data**: Use [Encryption at host - End-to-end encryption for your VM](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data). Encryption at host is a Virtual Machine option that enhances Azure Disk Storage Server-Side Encryption to ensure that all temp disks and disk caches are encrypted at rest and flow encrypted to the Storage clusters.
+- **Apply encryption at host to help safeguard your data**: Use [Encryption at host - End-to-end encryption for your VM](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data). Encryption at host is a virtual machine option that enhances Azure Disk Storage server-side encryption to ensure that all temp disks and disk caches are encrypted at rest and flow encrypted to the storage clusters.
 
-Most Azure services, such as Azure Storage and Azure SQL Database, encrypt data at rest by default. You can use Azure Key Vault to maintain control of keys that access and encrypt your data. See [Azure resource providers encryption model support to learn more](encryption-atrest.md#azure-resource-providers-encryption-model-support).
+Most Azure services, such as Azure Storage and Azure SQL Database, encrypt data at rest by default. Use Azure Key Vault to maintain control of keys that access and encrypt your data. For more information, see [Azure resource providers encryption model support](encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
 - **Use encryption to help mitigate risks related to unauthorized data access**: Encrypt your services before you write sensitive data to them.
 
-Organizations that don't enforce data encryption are more exposed to data-confidentiality issues. Companies also must prove that they are diligent and using correct security controls to enhance their data security in order to comply with industry regulations.
+- **Understand key rotation behavior**: When you rotate a key encryption key (KEK), the service re-wraps the data encryption keys (DEKs) with the new key version. The underlying data itself isn't re-encrypted. Both old and new key versions must remain enabled until re-wrapping is complete. For more information, see [Configure key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation).
+
+- **Respond to suspected key compromise by rotating first**: If you suspect a customer-managed key is compromised, rotate to a new key and reconfigure dependent services before disabling or deleting the old key. Disabling or deleting a key immediately takes dependent services offline but doesn't re-encrypt any data encryption keys. The keys remain at risk of decryption by the compromised key encryption key. For the full incident response procedure, see [Backup security considerations](/azure/key-vault/general/backup#security-considerations).
+
+- **Use RSA-OAEP-256 for key wrapping**: Microsoft recommends RSA-OAEP-256 as the wrapping algorithm for customer-managed keys. RSA-OAEP without the `-256` suffix uses SHA-1 and is legacy.
+
+Organizations that don't enforce data encryption are more exposed to data-confidentiality problems. Companies also must prove that they are diligent and using correct security controls to enhance their data security to comply with industry regulations.
 
 ## Protect data in transit
 
-Protecting data in transit should be an essential part of your data protection strategy. Because data is moving back and forth from many locations, we generally recommend that you always use SSL/TLS protocols to exchange data across different locations. In some circumstances, you might want to isolate the entire communication channel between your on-premises and cloud infrastructures by using a VPN.
+Make protecting data in transit an essential part of your data protection strategy. Because data moves back and forth from many locations, use SSL/TLS protocols to exchange data across different locations. In some circumstances, you might want to isolate the entire communication channel between your on-premises and cloud infrastructures by using a VPN.
 
 For data moving between your on-premises infrastructure and Azure, consider appropriate safeguards such as HTTPS or VPN. When sending encrypted traffic between an Azure virtual network and an on-premises location over the public internet, use [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-Following are best practices specific to using Azure VPN Gateway, SSL/TLS, and HTTPS.
+The following best practices apply to Azure VPN Gateway, SSL/TLS, and HTTPS.
 
 - **Secure access from multiple workstations located on-premises to an Azure virtual network**: Use [site-to-site VPN](../../vpn-gateway/tutorial-site-to-site-portal.md).
 
 - **Secure access from an individual workstation located on-premises to an Azure virtual network**: Use [point-to-site VPN](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
-- **Move larger data sets over a dedicated high-speed WAN link**: Use [ExpressRoute](../../expressroute/expressroute-introduction.md). If you choose to use ExpressRoute, you can also encrypt the data at the application level by using SSL/TLS or other protocols for added protection.
+- **Move larger data sets over a dedicated high-speed WAN link**: Use [ExpressRoute](../../expressroute/expressroute-introduction.md). If you use ExpressRoute, you can also encrypt the data at the application level by using SSL/TLS or other protocols for extra protection.
 
-- **Interact with Azure Storage through the Azure portal**: All transactions occur via HTTPS. You can also use [Storage REST API](/rest/api/storageservices/) over HTTPS to interact with [Azure Storage](../../storage/common/storage-introduction.md).
+- **Interact with Azure Storage through the Azure portal**: All transactions use HTTPS. You can also use [Storage REST API](/rest/api/storageservices/) over HTTPS to interact with [Azure Storage](../../storage/common/storage-introduction.md).
 
-Organizations that fail to protect data in transit are more susceptible to [man-in-the-middle attacks](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), [eavesdropping](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14)), and session hijacking. These attacks can be the first step in gaining access to confidential data.
+Organizations that fail to protect data in transit are more susceptible to [person-in-the-middle attacks](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), [eavesdropping](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14)), and session hijacking. These attacks can be the first step in gaining access to confidential data.
 
 ## Protect data in use
 
-**Lessen the need for trust**
-Running workloads on the cloud requires trust. You give this trust to various providers enabling different components of your application.
-- App software vendors: Trust software by deploying on-premises, using open-source, or by building in-house application software.
+**Reduce the need for trust**
+
+Running workloads on the cloud requires trust. You give this trust to various providers that support different components of your application.
+
+- App software vendors: Trust software by deploying on-premises, using open-source software, or building in-house application software.
 - Hardware vendors: Trust hardware by using on-premises hardware or in-house hardware.
 - Infrastructure providers: Trust cloud providers or manage your own on-premises data centers.
 
-**Reducing the attack surface**
-The Trusted Computing Base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered "critical." If one component inside the TCB is compromised, the entire system's security may be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people.
+**Reduce the attack surface**
+
+The trusted computing base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are "critical." If one component inside the TCB is compromised, the compromise can jeopardize the entire system's security. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people.
 
 Azure confidential computing can help you:
 
-- Prevent unauthorized access: Run sensitive data in the cloud. Trust that Azure provides the best data protection possible, with little to no change from what gets done today.
-- Meet regulatory compliance: Migrate to the cloud and keep full control of data to satisfy government regulations for protecting personal information and secure organizational IP.
-- Ensure secure and untrusted collaboration: Tackle industry-wide work-scale problems by combing data across organizations, even competitors, to unlock broad data analytics and deeper insights.
-- Isolate processing: Offer a new wave of products that remove liability on private data with blind processing. User data can't even be retrieved by the service provider.
+- Prevent unauthorized access: Run sensitive data in the cloud. Trust that Azure provides the best data protection possible, with little to no change from current processes.
+- Meet regulatory compliance: Migrate to the cloud and keep full control of data to satisfy government regulations for protecting personal information and secure organizational intellectual property.
+- Ensure secure and untrusted collaboration: Tackle industry-wide collaboration problems by combining data across organizations, even competitors, to unlock broad data analytics and deeper insights.
+- Isolate processing: Offer a new wave of products that remove liability on private data with blind processing. The service provider can't retrieve user data.
 
-Learn more about [Confidential computing](/azure/confidential-computing/).
+For more information, see [Confidential computing](../../confidential-computing/index.yml).
 
 ## Secure email, documents, and sensitive data
 
-You want to control and secure email, documents, and sensitive data that you share outside your company. [Azure Information Protection](/azure/information-protection/what-is-information-protection) is a cloud-based solution that helps an organization to classify, label, and protect its documents and emails. This can be done automatically by administrators who define rules and conditions, manually by users, or a combination where users get recommendations.
+You want to control and secure email, documents, and sensitive data that you share outside your company. [Azure Information Protection](/azure/information-protection/what-is-information-protection) is a cloud-based solution that helps an organization to classify, label, and protect its documents and emails. Administrators can define rules and conditions to classify data automatically, users can classify data manually, or users can get recommendations.
 
-Classification is identifiable at all times, regardless of where the data is stored or with whom it's shared. The labels include visual markings such as a header, footer, or watermark. Metadata is added to files and email headers in clear text. The clear text ensures that other services, such as solutions to prevent data loss, can identify the classification and take appropriate action.
+The classification remains identifiable at all times, regardless of where the data is stored or with whom it's shared. The labels include visual markings such as a header, footer, or watermark. Metadata is added to files and email headers in clear text. The clear text ensures that other services, such as solutions to prevent data loss, can identify the classification and take appropriate action.
 
-The protection technology uses Azure Rights Management (Azure RMS). This technology is integrated with other Microsoft cloud services and applications, such as Microsoft 365 and Microsoft Entra ID. This protection technology uses encryption, identity, and authorization policies. Protection that is applied through Azure RMS stays with the documents and emails, independently of the location-inside or outside your organization, networks, file servers, and applications.
+The protection technology uses Azure Rights Management (Azure RMS). This technology integrates with other Microsoft cloud services and applications, such as Microsoft 365 and Microsoft Entra ID. This protection technology uses encryption, identity, and authorization policies. Protection applied through Azure RMS stays with the documents and emails, independently of the location - inside or outside your organization, networks, file servers, and applications.
 
 This information protection solution keeps you in control of your data, even when it's shared with other people. You can also use Azure RMS with your own line-of-business applications and information protection solutions from software vendors, whether these applications and solutions are on-premises or in the cloud.
 
-We recommend that you:
+Take these steps:
 
 - [Deploy Azure Information Protection](/azure/information-protection/deployment-roadmap) for your organization.
-- Apply labels that reflect your business requirements. For example: Apply a label named "highly confidential" to all documents and emails that contain top-secret data, to classify and protect this data. Then, only authorized users can access this data, with any restrictions that you specify.
+- Apply labels that reflect your business requirements. For example, apply a label named `highly confidential` to all documents and emails that contain top-secret data to classify and protect this data. Only authorized users can access this data, with any restrictions that you specify.
 - Configure [usage logging for Azure RMS](/azure/information-protection/log-analyze-usage) so that you can monitor how your organization is using the protection service.
 
-Organizations that are weak on [data classification](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) and file protection might be more susceptible to data leakage or data misuse. With proper file protection, you can analyze data flows to gain insight into your business, detect risky behaviors and take corrective measures, track access to documents, and so on.
+Organizations that are weak on [data classification](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) and file protection might be more susceptible to data leakage or data misuse. With proper file protection, you can analyze data flows to gain insight into your business, detect risky behaviors, and take corrective measures, track access to documents, and so on.
 
 ## Next steps
 
 - See [Azure security best practices and patterns](best-practices-and-patterns.md) for more security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure.
 - Review the [Microsoft Cloud Security Benchmark v2 - Data Protection](/security/benchmark/azure/mcsb-v2-data-protection) controls for comprehensive data security guidance with Azure Policy mappings.
-- Learn about the [Microsoft Secure Future Initiative (SFI)](/security/zero-trust/sfi/secure-future-initiative-overview), Microsoft's internal security best practices for protecting data that we also recommend to customers.
+- Learn about the [Microsoft Secure Future Initiative (SFI)](/security/zero-trust/sfi/secure-future-initiative-overview), Microsoft's internal security best practices for protecting data that also apply to customer environments.
 - Explore [Zero Trust deployment for data](/security/zero-trust/deploy/data) for guidance on implementing Zero Trust principles for data protection.

@@ -23,7 +23,7 @@ Azure Automanage allows users to seamlessly apply Azure best practices to their 
 ## Prerequisites 
 
 - [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/downloads/#java8) version 8+
-- An active [Azure Subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
+- An active [Azure Subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An existing [Virtual Machine](/azure/virtual-machines/windows/quick-create-portal)
 
 > [!NOTE]

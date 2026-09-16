@@ -4,6 +4,11 @@
             "redirect_url": "/azure/bastion/configure-host-scaling",
             "source_path_from_root": "/articles/bastion/configure-host-scaling-powershell.md",
             "redirect_document_id": true
+        },
+        {
+            "redirect_url": "/troubleshoot/azure/bastion/welcome-azure-bastion",
+            "source_path_from_root": "/articles/bastion/troubleshoot.md",
+            "redirect_document_id": false
         }
     ]
 }

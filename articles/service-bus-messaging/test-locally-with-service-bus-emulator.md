@@ -2,7 +2,6 @@
 title: Test locally by using the Azure Service Bus emulator
 description: This article describes how to develop and test locally by using the Azure Service Bus emulator.
 ms.topic: how-to
-ms.author: Saglodha
 ms.date: 10/27/2025
 ---
 
@@ -305,6 +304,17 @@ Regardless of which setup method you chose, the result is the same: the Service 
 - **SQL Server Linux container**: A dependency that provides the backend storage for the emulator
 
 You can verify the containers are running by checking Docker Desktop or using the command `docker ps` in a terminal.
+
+### Programmatic health check
+
+For automated scenarios (for example, when using Docker Compose), you can verify that the emulator is ready by calling the health endpoint exposed by the emulator:
+```http
+http://localhost:<EMULATOR_HTTP_PORT>/health
+```
+
+By default, the `EMULATOR_HTTP_PORT` is `5300`.
+
+This endpoint can be used in scripts or Docker health checks to ensure the emulator is fully initialized before dependent services start.
 
 ## Interact with the emulator
 

@@ -20,8 +20,14 @@ For information on setup and configuration details, see the [overview](./functio
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
 ::: zone-end
 
+For a complete end-to-end example of using the Azure SQL output binding, see [Respond to Azure SQL Database changes using Azure Functions](scenario-database-changes-azure-sqldb.md).
+
 ## Examples
 <a id="example"></a>
+
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -534,9 +540,9 @@ The following example shows a SQL output binding that adds records to a table, u
 ::: zone pivot="programming-language-typescript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/sqlOutput1.ts" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 TypeScript samples aren't documented for model v3.
@@ -547,9 +553,9 @@ TypeScript samples aren't documented for model v3.
 ::: zone pivot="programming-language-javascript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlOutput1.js" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 The following is binding data in the function.json file:
@@ -616,9 +622,9 @@ CREATE TABLE dbo.RequestLog (
 ::: zone pivot="programming-language-typescript"
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/sqlOutput2.ts" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 TypeScript samples aren't documented for model v3.
@@ -629,9 +635,9 @@ TypeScript samples aren't documented for model v3.
 ::: zone pivot="programming-language-javascript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlOutput2.js" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 The following is binding data in the function.json file:
@@ -1126,7 +1132,7 @@ The following table explains the properties that you can set on the `options` ob
 | Property | Description |
 |---------|----------------------|
 | **commandText** | Required. The name of the table being written to by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This value isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This value isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#connections). |
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -1138,7 +1144,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Required. Must be set to `out`. |
 |**name** | Required. The name of the variable that represents the entity in function code. | 
 | **commandText** | Required. The name of the table being written to by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This value isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This value isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#connections). |
 
 ---
 
@@ -1154,7 +1160,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Required. Must be set to `out`. |
 |**name** | Required. The name of the variable that represents the entity in function code. | 
 | **commandText** | Required. The name of the table being written to by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This value isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This value isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#connections). |
 
 ::: zone-end  
 
@@ -1162,13 +1168,13 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-The `CommandText` property is the name of the table where the data is to be stored. The connection string setting name corresponds to the application setting that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
-
-[!INCLUDE [functions-sql-database-authentication-note](../../includes/functions-sql-database-authentication-note.md)]
+The `CommandText` property is the name of the table where the data is to be stored. 
 
 The output bindings use the T-SQL [MERGE](/sql/t-sql/statements/merge-transact-sql) statement which requires [SELECT](/sql/t-sql/statements/merge-transact-sql#permissions) permissions on the target database.
 
 If an exception occurs when a SQL output binding is executed, then the function code stops executing. This behavior may result in an error code being returned, such as an HTTP trigger returning a 500 error code. If the `IAsyncCollector` is used in a .NET function, then the function code can handle exceptions throw by the call to `FlushAsync()`.
+
+[!INCLUDE [functions-sql-connections](../../includes/functions-sql-connections.md)]
 
 ## Next steps
 

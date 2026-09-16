@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-mallicka
-  ms.date: 11/01/2025
+  ms.date: 05/25/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -54,14 +54,16 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Snapshot backup for SQL Instances in Azure VM (preview)
+            url: backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview
+          - text: Azure Cosmos DB vaulted backup (preview)
+            url: backup-azure-cosmos-db-overview.md
           - text: Confidential VM backup (preview)
             url: confidential-vm-backup.md
           - text: Threat Detection with Microsoft Defender for Cloud integration (preview)
             url: threat-detection-overview.md
           - text: Azure Files (Premium) vaulted backup
             url: azure-file-share-backup-overview.md
-          - text: Azure Data Lake Storage vaulted backup support
-            url: azure-data-lake-storage-backup-overview.md
 
   # Card
   - title: Back up Azure Virtual Machines
@@ -94,6 +96,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Azure Cosmos DB vaulted backup (preview)
+            url: backup-azure-cosmos-db-overview.md
           - text: Azure Database for PostgreSQL Flexible Server backup
             url: backup-azure-database-postgresql-flex-overview.md
           - text: Azure Database for MySQL Flexible Server backup (preview)

@@ -4,13 +4,15 @@ description: Learn how to provision the Azure-SSIS integration runtime in Azure 
 ms.subservice: integration-services
 ms.topic: tutorial
 ms.date: 02/13/2025
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ---
 
 # Provision the Azure-SSIS integration runtime in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This tutorial provides steps for using the Azure portal to provision an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF). An Azure-SSIS IR supports:
 

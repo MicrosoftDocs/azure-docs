@@ -2,12 +2,12 @@
 title: Azure Stack Edge Mini R limits | Microsoft Docs
 description: Describes system limits and recommended sizes for the Azure Stack Edge Mini R.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: limits-and-quotas
 ms.date: 10/13/2020
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge Mini R limits

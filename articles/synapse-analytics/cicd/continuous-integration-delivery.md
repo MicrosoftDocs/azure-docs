@@ -1,12 +1,12 @@
 ---
 title: Continuous integration & delivery in Azure Synapse Analytics  
 description: Learn how to use continuous integration and continuous delivery (CI/CD) to deploy changes between environments in an Azure Synapse Analytics workspace.
-author: liudan66
+author: juluczni
 ms.service: azure-synapse-analytics
 ms.subservice: ci-cd
 ms.topic: how-to
 ms.date: 11/06/2024
-ms.author: liud 
+ms.author: juluczni
 ms.reviewer: pimorano
 ms.custom:
   - sfi-image-nochange
@@ -255,7 +255,7 @@ You can choose the operation types based on the use case. Following part is an e
 > Currently, the DevOps Service Connection with **Workload Identity Federation (WIF)** is not supported in Synapse Workspace deployment extension. Switch to secret mode to make the connection successful.
 > 
 > For secure, secretless alternatives that fully support Workload Identity Federation (WIF), use the [AzureCLI@2](/azure/devops/pipelines/tasks/reference/azure-cli-v2) or [PowerShell](/azure/devops/pipelines/tasks/reference/powershell-v2)
-> pipeline tasks with a federated service connection, as described in [Connect to Azure using Workload Identity Federation](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops).
+> pipeline tasks with a federated service connection, as described in [Connect to Azure using Workload Identity Federation](/azure/devops/pipelines/library/connect-to-azure).
 >
 > These tasks support secretless authentication and can execute Synapse deployment commands (`az synapse pipeline create`, `az synapse artifact publish`) while maintaining the same deployment flow.
 

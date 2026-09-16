@@ -82,9 +82,11 @@ To learn more about tuning data transfer options, see [Performance tuning for up
 
 ### Specify transfer validation options on download
 
-You can specify transfer validation options to help ensure that data is downloaded properly and hasn't been tampered with during transit. Transfer validation options can be defined at the client level using [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions), which applies validation options to all methods called from a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) instance. 
+[!INCLUDE [storage-dev-guide-transfer-validation](../../../includes/storage-dev-guides/storage-dev-guide-transfer-validation.md)]
 
-You can also override transfer validation options at the method level using [BlobDownloadToOptions](/dotnet/api/azure.storage.blobs.models.blobdownloadtooptions). The following code example shows how to create a `BlobDownloadToOptions` object and specify an algorithm for generating a checksum. The checksum is then used by the service to verify data integrity of the downloaded content.
+Transfer validation with MD5 is available to verify that the data sent by your application matches the data received and returned by the service on each request. When enabled, the Blob SDK computes and validates MD5 hashes during upload and download operations, while the service independently computes and validates MD5 hashes for the data it processes. Validation is performed at the HTTP request and response level, helping detect corruption for each transferred segment of data, such as individual blocks during uploads or ranges during reads.
+
+Transfer validation options can be defined at the client level using [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions), which applies validation options to all methods called from a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) instance. Alternatively, you can override transfer validation options at the method level using [BlobDownloadToOptions](/dotnet/api/azure.storage.blobs.models.blobdownloadtooptions). The following code example shows how to create a `BlobDownloadToOptions` object and specify an algorithm for generating a checksum.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/DownloadBlob.cs" id="Snippet_DownloadBlobWithChecksum":::
 
@@ -92,10 +94,10 @@ The following table shows the available options for the checksum algorithm, as d
 
 | Name | Value | Description |
 | --- | --- | --- |
-| Auto | 0 | Recommended. Allows the library to choose an algorithm. Different library versions may choose different algorithms. |
+| Auto | 0 | Recommended. Allows the library to choose an algorithm. Different library versions may choose different algorithms. Auto chooses StorageCrc64 in [client library](/dotnet/api/azure.storage.blobs) versions 12.28.0+ |
 | None | 1 | No selected algorithm. Don't calculate or request checksums.
 | MD5 | 2 | Standard MD5 hash algorithm. |
-| StorageCrc64 | 3 | Azure Storage custom 64-bit CRC. |
+| StorageCrc64 | 3 | Azure Storage custom CRC64-NVME. |
 
 ## Resources
 

@@ -1,7 +1,7 @@
 ---
 title: ADE CLI variables reference
 titleSuffix: Azure Deployment Environments
-description: Learn about the variables available for building custom images using the Azure Deployment Environment (ADE) CLI.
+description: Learn about the variables available for building custom images using the Azure Deployment Environments (ADE) CLI.
 ms.service: azure-deployment-environments
 author: RoseHJM
 ms.author: rosemalcolm
@@ -11,7 +11,7 @@ ms.topic: reference
 # Customer intent: As a developer, I want to learn about the variables available for use with the ADE CLI.
 ---
 
-# Azure Deployment Environment CLI variables reference
+# Azure Deployment Environments CLI variables reference
 
 Azure Deployment Environments (ADE) sets many variables related to your environment you can reference while authoring custom images. You can use the below variables within the operation scripts (deploy.sh or delete.sh) in order to make your images flexible to the environment they're interacting with.
 
@@ -38,7 +38,7 @@ echo "$deploymentOutput" > $ADE_OUTPUTS
 Refers to the directory located at `/ade/storage`. During the core image's entrypoint, ADE pulls down a specially named `storage.zip` file from the environment's storage container and populate this directory, and then at completion of the operation, reuploads the directory as a zip file back to the storage container. If you have files you would like to reference within your custom image on subsequent redeployments, such as state files, place them within this directory.
 
 ## ADE_CLIENT_ID
-Refers to the object ID of the Managed Service Identity (MSI) of the environment's project environment type. This variable can be used to validate to the Azure CLI for permissions to utilize within the container, such as deployment of infrastructure.
+Refers to the client ID of the managed identity associated with the environment's project environment type. This variable can be used to authenticate to the Azure CLI for permissions to utilize within the container, such as deployment of infrastructure.
 
 ## ADE_TENANT_ID
 Refers to the tenant GUID of the environment. 

@@ -2,12 +2,12 @@
 title: Microsoft Azure Stack Edge Blob storage requirements| Microsoft Docs
 description: Learn about the supported versions for APIs, SDKs, and client libraries for Azure Stack Edge Blob storage
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: reference
 ms.date: 10/21/2020
-ms.author: alkohli
+ms.author: sipastak
 ms.custom: sfi-ropc-nochange
 ---
 # Azure Stack Edge Blob storage requirements

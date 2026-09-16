@@ -13,6 +13,8 @@ ms.custom:
 
 # System views for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Links to the documentation for T-SQL statements supported in dedicated SQL pool (formerly SQL DW).
 
 ## Dedicated SQL pool (formerly SQL DW) catalog views

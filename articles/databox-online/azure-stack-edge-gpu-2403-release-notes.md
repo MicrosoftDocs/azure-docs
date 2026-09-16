@@ -2,12 +2,12 @@
 title: Azure Stack Edge 2403 release notes
 description: Describes critical open issues and resolutions for the Azure Stack Edge running 2403 release.
 services: databox
-author: alkohli
+author: sipastak
  
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 04/17/2024
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge 2403 release notes

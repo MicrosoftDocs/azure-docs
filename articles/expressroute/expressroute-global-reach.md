@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 04/09/2025
+ms.date: 06/23/2026
 ms.author: duau
 ms.custom:
   - references_regions
@@ -26,7 +26,7 @@ With **ExpressRoute Global Reach**, you can link ExpressRoute circuits to create
 
 ExpressRoute Global Reach complements your service provider’s WAN implementation by connecting your branch offices worldwide. For example, if your service provider operates primarily in the United States and connects all your U.S. branches, but doesn't operate in Japan and Hong Kong SAR, you can use ExpressRoute Global Reach to work with a local service provider and Microsoft to connect your branches in Japan and Hong Kong SAR to branches in the U.S. using ExpressRoute and Microsoft's global network.
 
-:::image type="content" source="./media/expressroute-global-reach/global-reach-infrastructure.png" alt-text="Diagram that shows a use case for Express Route Global Reach.":::
+:::image type="content" source="./media/expressroute-global-reach/global-reach-infrastructure.png" alt-text="Diagram that shows a use case for ExpressRoute Global Reach.":::
 
 ## Availability
 
@@ -61,7 +61,7 @@ ExpressRoute Global Reach is available in the following locations:
 - United Kingdom
 - United States
 
-## Next steps
+## Related content
 
 - View the [Global Reach FAQ](expressroute-faqs.md#globalreach).
 - Learn how to [enable Global Reach](expressroute-howto-set-global-reach.md).

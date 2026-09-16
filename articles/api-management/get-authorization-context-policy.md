@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - get-authorization-context | Microsoft Docs
 description: Reference for the get-authorization-context policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 07/23/2024
-ms.author: danlep
+ms.date: 08/18/2026
 ---
 
 # Get authorization context
@@ -44,6 +42,9 @@ The policy fetches and stores authorization and refresh tokens from the configur
 | identity-type | Type of identity to check against the connection's access policy. <br> - `managed`: system-assigned managed identity of the API Management instance. <br> - `jwt`: JWT bearer token specified in the `identity` attribute.<br/><br/>Policy expressions are allowed.  | No | `managed` |
 | identity | A Microsoft Entra JWT bearer token to check against the connection permissions. Ignored for `identity-type` other than `jwt`. <br><br>Expected claims: <br> - audience: `https://azure-api.net/authorization-manager` <br> - `oid`: Permission object ID <br> - `tid`: Permission tenant ID<br/><br/>Policy expressions are allowed.  | No |  N/A |
 | ignore-error | Boolean. If acquiring the authorization context results in an error (for example, the connection resource isn't found or is in an error state): <br> - `true`: the context variable is assigned a value of null. <br> - `false`: return `500`<br/><br/>If you set the value to `false`, and the policy configuration includes an `on-error` section, the error is available in the `context.LastError` property.<br/><br/>Policy expressions are allowed.   | No | `false` |
+
+> [!IMPORTANT]
+> Linked access isn't checked when a credential provider or connection is referenced by using `provider-id` or `authorization-id`. A user who has permission to write a policy can reference any available credential provider or connection, even if the user doesn't have read access to those resources. If the identity selected by the policy satisfies the connection's access policy, the user can cause API Management to obtain the connection's bearer access token and claims, which the policy can forward to a backend or expose in a response. Referencing the resources doesn't bypass the connection's access policy or grant access to view their configuration or retrieve refresh tokens.
 
 ### Authorization object
 

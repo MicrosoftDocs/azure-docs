@@ -19,6 +19,7 @@ Some useful governance actions you can enforce with Azure Policy include:
 - Ensure your team deploys Azure resources only to allowed regions.
 - Enforce the consistent application of taxonomic tags.
 - Require resources to send diagnostic logs to a Log Analytics workspace.
+- Block resource actions based on the identity making the request, such as requiring multifactor authentication (MFA) or preventing users from deleting critical resources.
 
 It's important to recognize that with the introduction of [Azure Arc](/azure/azure-arc/overview), you can extend your policy-based governance across different cloud providers and even to your local datacenters.
 
@@ -56,6 +57,19 @@ Business rules for handling non-compliant resources vary widely between organiza
 
 Azure Policy makes each of these business responses possible through the application of [effects](./concepts/effect-basics.md). Effects are set in the **policy rule** portion of the [policy definition](./concepts/definition-structure-basics.md).
 
+### Manage identity-based actions and usage
+
+Azure Policy evaluates both resource properties and the actions taken against resources. You can base its enforcement on _who_ makes the request. This capability helps you manage how identities, such as users, groups, or service principals, interact with your resources at scale, blocking specific actions when a request doesn't meet your organizational standards.
+Because a policy condition can inspect the context of a request, you can enforce identity-aware rules. A key to this capability is the `requestContext().identity` property in policy rules, which provides access to identity information about who is making the request. For example:
+- Block users from manually deleting critical resources by adding a condition that checks whether the request was initiated by a user from any client.
+- Require that all users have multifactor authentication (MFA) enabled, blocking resource create, update, and delete requests when the request is initiated by a user who doesn't have MFA enabled.
+
+By combining resource evaluation with the identity context of a request, Azure Policy helps you govern both _what_ your resources look like and _who_ is allowed to change them. Azure Policy enforces this governance consistently across the scopes where you assign your policies.
+For more information about identity-based policy definitions and how to implement them, see [Policy definition rules structure basics](concepts/definition-structure-policy-rule.md), [Using the request Context Identity](./how-to/using-request-context-identity.md), and [Identity-based policy exemptions](./concepts/exemption-structure.md).
+
+
+
+
 ### Remediate non-compliant resources
 
 While these effects primarily affect a resource when the resource is created or updated, Azure Policy also supports dealing with existing non-compliant resources without needing to alter that resource. For more information about making existing resources compliant, see [Remediate non-compliant resources with Azure Policy](./how-to/remediate-resources.md).
@@ -74,8 +88,8 @@ The combination of Azure RBAC and Azure Policy provides full scope control in Az
 
 Azure Policy has several permissions, known as operations, in two Resource Providers:
 
-- [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.Authorization](../../role-based-access-control/permissions/management-and-governance.md#microsoftauthorization)
+- [Microsoft.PolicyInsights](../../role-based-access-control/permissions/management-and-governance.md#microsoftpolicyinsights)
 
 Many built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor** role includes most Azure Policy operations. **Owner** has full rights. Both **Contributor** and **Reader** have access to all _read_ Azure Policy operations.
 
@@ -184,7 +198,7 @@ When you define the initiative parameters for **initiativeC**, you have three op
 
 - Use the parameters of the policy definitions within this initiative: In this example, `allowedLocations` and `allowedSingleLocation` become initiative parameters for **initiativeC**.
 - Provide values to the parameters of the policy definitions within this initiative definition. In this example, you can provide a list of locations to the **policyA** parameter `allowedLocations` and the **policyB** `allowedSingleLocation`. You can also provide values when you assign this initiative.
-- Provide a list of _value_ options that can be used when assigning this initiative. When you assign this initiative, the inherited parameters from the policy definitions within the initiative, can only have values from this provided list.
+- Provide a list of _value_ options that can be used when assigning this initiative. When you assign this initiative, the inherited parameters from the policy definitions within the initiative can only have values from this provided list.
 
 When you create value options in an initiative definition, you're unable to input a different value during the initiative assignment because it's not part of the list.
 

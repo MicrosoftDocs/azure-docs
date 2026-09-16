@@ -2,12 +2,12 @@
 title: Tutorial to install Azure Stack Edge Pro R physical device | Microsoft Docs
 description: The second tutorial about installing Azure Stack Edge Pro R involves how to cable the physical device for power and network.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 5/17/2022
-ms.author: alkohli
+ms.author: sipastak
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro R in datacenter so I can use it to transfer data to Azure.  
 ---
 # Tutorial: Install Azure Stack Edge Pro R

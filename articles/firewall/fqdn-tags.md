@@ -39,6 +39,24 @@ The following table shows the current FQDN tags you can use. Microsoft maintains
 > [!NOTE]
 > When you select **FQDN Tag** in an application rule, set the protocol:port field to **https**.
 
+## FQDN tag port behavior
+
+When using an FQDN tag in an Azure Firewall application rule, traffic may be allowed over both HTTPS (port 443) and HTTP (port 80), even if the rule specifies only **https:443**. This is expected because FQDN tags map to Microsoft-managed service endpoints, some of which require HTTP for normal operation. Azure Firewall automatically permits these required ports.
+
+- The portal requires HTTPS when configuring FQDN tags.
+- Even with **https:443** configured, HTTP (port 80) traffic may be allowed.
+- This behavior applies only to FQDN tag rules. Custom FQDN rules enforce the specified protocol and port.
+
+**Example:**
+
+| FQDN tag | Protocol configured | May also allow |
+|----------|---------------------|----------------|
+| WindowsUpdate | HTTPS:443 | HTTP:80 — this is expected behavior, not a misconfiguration. |
+
+The following FQDN tags may include HTTP endpoints:
+
+`AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `Windows365`, `WindowsDiagnostics`, `WindowsUpdate`, `WindowsVirtualDesktop`, `Office365`
+
 ## Next steps
 
 To learn how to deploy an Azure Firewall, see [Tutorial: Deploy and configure Azure Firewall by using the Azure portal](tutorial-firewall-deploy-portal.md).

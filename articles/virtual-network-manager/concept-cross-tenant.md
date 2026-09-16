@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 07/11/2025
+ms.date: 07/29/2026
 ---
 
 
@@ -24,6 +24,8 @@ Cross-tenant support assists organizations that fit the following scenarios:
 - **Managed service provider**: In managed service provider scenarios, an organization can manage the resources of other organizations. Cross-tenant support allows central management of virtual networks by a central service provider for multiple clients.
 
 ## Establish cross-tenant connection 
+
+Before you begin, the administrator of the central management tenant needs a guest account in the target managed tenant, with the *Network Contributor* role assigned at the management group, subscription, or virtual network scope. For details, see [Required permissions](#required-permissions).
 
 Establishing cross-tenant support begins with creating a cross-tenant connection between two tenants. Cross-tenant support requires two-way consent -- one from the network manager and the other from the target tenant's virtual network manager hub. The connections are:
 

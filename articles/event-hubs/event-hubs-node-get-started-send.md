@@ -85,9 +85,17 @@ In this section, you create a JavaScript application that sends events to an eve
     
       // Prepare a batch of three events.
       const batch = await producer.createBatch();
-      batch.tryAdd({ body: "passwordless First event" });
-      batch.tryAdd({ body: "passwordless Second event" });
-      batch.tryAdd({ body: "passwordless Third event" });    
+      const events = [
+        { body: "passwordless First event" },
+        { body: "passwordless Second event" },
+        { body: "passwordless Third event" },
+      ];
+      
+      for (const event of events) {
+        if (!batch.tryAdd(event)) {
+          throw new Error("Event is too large for the batch.");
+        }
+      }
     
       // Send the batch to the event hub.
       await producer.sendBatch(batch);
@@ -123,9 +131,17 @@ In this section, you create a JavaScript application that sends events to an eve
 
       // Prepare a batch of three events.
       const batch = await producer.createBatch();
-      batch.tryAdd({ body: "First event" });
-      batch.tryAdd({ body: "Second event" });
-      batch.tryAdd({ body: "Third event" });    
+      const events = [
+        { body: "First event" },
+        { body: "Second event" },
+        { body: "Third event" },
+      ];
+      
+      for (const event of events) {
+        if (!batch.tryAdd(event)) {
+          throw new Error("Event is too large for the batch.");
+        }
+      }
 
       // Send the batch to the event hub.
       await producer.sendBatch(batch);

@@ -5,7 +5,7 @@ services: storage
 author: roygara
 
 ms.author: rogarana
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 01/09/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, references_regions

@@ -17,7 +17,9 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 ## Shared requirements for cross-zone and cross-region replication 
 
-* Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant. To enable replication across subscriptions, you must [register the feature](enable-cross-subscription-replication.md).
+* Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant. 
+
+* Azure NetApp Files replication uses the Azure backend infrastructure for the replication traffic. There's no need to set up VNet peering for enabling replication.
 
 * Cross-zone and cross-region replication are supported with both Network File System (NFS) and Server Message Block (SMB) volumes.
 
@@ -33,7 +35,7 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 * [Large volumes](large-volumes-requirements-considerations.md) are supported with cross-zone replication only with an hourly or daily replication schedule.
 
-* After you establish replication, the replication process creates *SnapMirror snapshots* to provide references between the source volume and the destination volume. SnapMirror snapshots are cycled automatically when a new one is created for every incremental transfer. You can't delete SnapMirror snapshots until you delete the replication relationship and volume.
+* After you establish replication, the replication process creates *SnapMirror® snapshots* to provide references between the source volume and the destination volume. SnapMirror snapshots cycle automatically when a new one is created for every incremental transfer. You can't delete SnapMirror snapshots until you delete the replication relationship and volume.
 
 * The interface might take up to five minutes to reflect a newly added snapshot on the source volume.
 
@@ -53,6 +55,8 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
     > Failover is a manual process. When you need to activate the destination volume (like when you want to fail over to the destination region), you first need to break replication peering and then mount the destination volume. For more information, see [Fail over to the destination volume](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
 * When you revert a source volume that has an active volume replication relationship, only snapshots dated more recently than the SnapMirror snapshot can be used in the revert operation. For more information, see [Revert a volume by using snapshot revert with Azure NetApp Files](snapshots-revert-volume.md).
+
+* If the source volume's size exceeds 95% utilization, there's a risk that replication to the destination volume can fail. To prevent overfilling the destination volume, add 20% extra capacity when creating the data protection volume. To prevent overprovisioning, you can reduce the volume size after the initial replication completes.
 
 ## Cross-region replication requirements and considerations
 
@@ -74,7 +78,7 @@ If you use [cross-zone-region replication](replication.md#cross-zone-region-repl
 
 * If you use the cool access feature, understand the considerations in [Manage Azure NetApp Files storage with cool access](manage-cool-access.md#considerations).
 
-* If the volume's size exceeds 95% utilization, there's a risk that replication to the destination volume can fail, depending on the rate of data changes. 
+* If the source volume's size exceeds 95% utilization, there's a risk that replication to the destination volume can fail. To prevent overfilling the destination volume, add 20% extra capacity when creating the data protection volume. To prevent overprovisioning, you can reduce the volume size after the initial replication completes.
 
 ### <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 

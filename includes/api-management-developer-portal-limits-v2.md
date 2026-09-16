@@ -2,12 +2,12 @@
 title: API Management developer portal limits - v2 tiers
 description: Include file
 services: api-management
-author: dlepow
+author: PatAltimore
 
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 10/21/2024
-ms.author: danlep
+ms.author: patricka
 ms.custom: Include file
 ---
 

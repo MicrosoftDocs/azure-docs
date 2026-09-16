@@ -6,7 +6,8 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
+ms.update-cycle: 1095-days
 ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy25
 # Customer intent: As a cloud migration specialist, I want to assess and migrate VMware vSphere VMs to Azure, so that I can leverage cloud capabilities and optimize resource management for our workloads.
@@ -21,12 +22,8 @@ This article summarizes support settings and limitations for migrating VMware vS
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 
-> [!CAUTION]
-> This article references Windows Server versions that have reached End of Support (EOS).Microsoft has officially ended support for the following operating systems:
-> - Windows Server 2003
-> - Windows Server 2008 (including SP2 and R2 SP1)
-> - Windows Server 2012
-> - Windows Server 2012 R2
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+
 As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
 
 ## Migration options
@@ -47,9 +44,11 @@ This section summarizes requirements for agentless VMware vSphere VM migration t
 
 ### VMware vSphere requirements (agentless)
 
+[!INCLUDE [vmware-supported-versions-note](includes/vmware-supported-versions-note.md)]
+
 The VMware vSphere hypervisor requirements are:
-- **VMware vCenter Server** - Version 8.0 & subsequent updates in this version, Version 7.0, 6.7 or 6.5.
-- **VMware vSphere ESXi host** - Version 8.0 & subsequent updates in this version, Version 7.0, 6.7 or 6.5.
+- **VMware vCenter Server** - [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
+- **VMware vSphere ESXi host** - [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
 - **Multiple vCenter Servers** - A single appliance can connect to up to 10 vCenter Servers. Once a vCenter is added to Azure Migrate appliance using IP or FQDN, it cannot be edited/deleted.
 - **vCenter Server permissions** - The VMware account used to access the vCenter server from the Azure Migrate appliance must have the following permissions assigned at all required levels - datacenter, cluster, host, VM, and datastore. Ensure permissions are applied at each level to avoid replication errors.
 
@@ -79,7 +78,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 --- | ---
 **Supported operating systems** | Windows Server 2003 and later versions. [Learn more](/troubleshoot/azure/virtual-machines/server-software-support). <br/><br/> You can migrate all the Linux operating systems supported by Azure listed [here](/troubleshoot/azure/cloud-services/support-linux-open-source-technology).
 **Windows VMs in Azure** | You might need to [make some changes](prepare-for-migration.md#verify-required-changes-before-migrating) on VMs before migration.
-**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br> - CentOS  Stream</br> - SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3 <br>- Ubuntu 24.04, 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br> - Debian 11, 10, 9, 8, 7<br> - Oracle Linux 9, 8, 7.7-CI, 7.7, 6<br> - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022) <br> - Alma Linux 8.x, 9.x <br> - Rocky Linux 8.x, 9.x <br> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.<br/> The `SELinux Enforced` setting is currently not fully supported. It causes Dynamic IP setup and Microsoft Azure Linux Guest agent (waagent/WALinuxAgent) installation to fail. You can still migrate and use the VM. The `SELinux Permissive` setting is supported.
+**Linux VMs in Azure** | Some VMs might require changes so that they can run in Azure.<br/><br/> For Linux, Azure Migrate makes the changes automatically for these operating systems:<br/> - Red Hat Enterprise Linux 10.x, 9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br> - CentOS  Stream</br> - SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3 <br>- Ubuntu 24.04, 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br> - Debian 13, 12, 11, 10, 9, 8, 7 <br> - Oracle Linux 10, 9, 8, 7.7-CI, 7.7, 6<br> - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022) <br> - Alma Linux 10.X, 8.x, 9.x <br> - Rocky Linux 10.x, 8.x, 9.x <br> For other operating systems, you make the [required changes](prepare-for-migration.md#verify-required-changes-before-migrating) manually.<br/> The `SELinux Enforced` setting is currently not fully supported. It causes Dynamic IP setup and Microsoft Azure Linux Guest agent (waagent/WALinuxAgent) installation to fail. You can still migrate and use the VM. The `SELinux Permissive` setting is supported.
 **Boot requirements** | **Windows VMs:**<br/>OS Drive (C:\\) and System Reserved Partition (EFI System Partition for UEFI VMs) should reside on the same disk.<br/>If `/boot` is on a dedicated partition, it should reside on the OS disk and not be spread across multiple disks. <br/> If `/boot` is part of the root (/) partition, then the '/' partition should be on the OS disk and not span other disks. <br/><br/> **Linux VMs:**<br/> If `/boot` is on a dedicated partition, it should reside on the OS disk and not be spread across multiple disks.<br/> If `/boot` is part of the root (/) partition, then the '/' partition should be on the OS disk and not span other disks.
 **UEFI boot** | UEFI-based virtual machines are migrated to Azure's Generation 2 VMs. However, it's important to note that Azure Generation 2 VMs lack the Secure Boot feature. For VMs that utilized Secure Boot in their original configuration, a conversion to Trusted Launch VMs is recommended after migration. This step ensures that Secure Boot, along with other enhanced security functionalities, is re-enabled.
 **Disk size** | Up to 2TB OS disk for Gen1 VM and up to 4TB OS disk for Gen2 VM; 32 TB for data disks. Changing the size of the source disk after initiating replication is supported and won't impact ongoing replication cycle.
@@ -100,7 +99,7 @@ The table summarizes agentless migration requirements for VMware vSphere VMs.
 **NVMe disks** | Not supported.
 **Target disk** | VMs can be migrated only to managed disks (Standard HDD, Standard SSD, Premium SSD v2 (preview) for data disks) in Azure.
 **Simultaneous replication** | Up to 300 simultaneously replicating VMs per vCenter Server with one appliance. Up to 500 simultaneously replicating VMs per vCenter Server when an additional [scale-out appliance](how-to-scale-out-for-migration.md) is deployed.
-**Automatic installation of Azure VM agent (Windows and Linux Agent)** | Windows: <br/>Supported for Windows Server 2008 R2 onwards. <br/><br/>Linux: <br/>- Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br/>- CentOS Stream<br/>- SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3<br/>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br/>- Debian 11, 10, 9, 8, 7<br/>- Oracle Linux 9, 8, 7.7-CI, 7.7, 6<br/>- Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)<br/>
+**Automatic installation of Azure VM agent (Windows and Linux Agent)** | Windows: <br/>Supported for Windows Server 2008 R2 onwards. <br/><br/>Linux: <br/>- Red Hat Enterprise Linux 10.X, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x<br/>- CentOS Stream<br/>- SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3<br/>- Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS<br/>- Debian 13, 12, 11, 10, 9, 8, 7<br/>- Oracle Linux 10, 9, 8, 7.7-CI, 7.7, 6<br/>- Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)<br/>
 
 > [!NOTE]
 > Ensure that the following special characters are not passed in any credentials as they are not supported for SSO passwords:
@@ -154,10 +153,12 @@ This section summarizes requirements for agent-based migration.
 
 This table summarizes assessment support and limitations for VMware vSphere virtualization servers.
 
+[!INCLUDE [vmware-supported-versions-note](includes/vmware-supported-versions-note.md)]
+
 **VMware vSphere requirements** | **Details**
 --- | ---
-**VMware vCenter Server** | Version 8.0 & subsequent updates in this version, Version 7.0, 6.7 or 6.5..
-**VMware vSphere ESXi host** | Version 8.0 & subsequent updates in this version, Version 7.0, 6.7 or 6.5..
+**VMware vCenter Server** | [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
+**VMware vSphere ESXi host** | [!INCLUDE [vmware-agentless-migration-supported-versions](includes/vmware-agentless-migration-supported-versions.md)]
 **vCenter Server permissions** | **VM discovery**: At least a read-only user<br/><br/> Data Center object –> Propagate to Child Object, role=Read-only.<br/><br/> **Replication**: Create a role (Azure Site Recovery) with the required permissions, and then assign the role to a VMware vSphere user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure Site Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots.<br/><br/><br/>**Note**:<br/>User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
 
 ### VM requirements (agent-based)
@@ -198,9 +199,9 @@ The table summarizes VMware vSphere VM support for VMware vSphere VMs you want t
 ### Appliance requirements (agent-based)
 The Azure Site Recovery Replication appliance is used to replicate machines to Azure in agent-based migration. [Learn more](../site-recovery/physical-server-azure-architecture-modernized.md).
 
-Set up the replication appliance using the OVA template for VMware agent-based migration. We recommend using this approach as it ensures all prerequisite configurations are handled by the template. The OVA template creates a machine with the required specifications. If your organization has restrictions, you can manually set up the replication appliance using PowerShell.
- 
-Ensure you meet all the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software](../site-recovery/replication-appliance-support-matrix.md#software-requirements) requirements, and any other prerequisites. [Learn more](../migrate/tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance-using-the-ova-template-for-vmware-agent-based-migration) on how to set up the appliance.
+Set up the replication appliance using the OVA template for VMware agent-based migration. We recommend using this approach as it ensures all prerequisite configurations are handled by the template. The OVA template creates a machine with the required specifications. 
+
+If your organization has restrictions, you can manually set up the replication appliance using PowerShell. Ensure you meet all the [hardware](../site-recovery/replication-appliance-support-matrix.md#hardware-requirements) and [software](../site-recovery/replication-appliance-support-matrix.md#software-requirements) requirements, and any other prerequisites. [Learn more](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) on how to set up the appliance.
 
 > [!NOTE]
 > The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before.

@@ -7,12 +7,15 @@ author: n0elleli
 ms.subservice: data-movement
 ms.topic: how-to
 ms.custom:
-ms.date: 01/05/2024
+ms.date: 06/22/2026
+ms.update-cycle: 1095-days
 ---
 
 # Copy and transform data in Azure Cosmos DB analytical store by using Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article outlines how to use Data Flow to transform data in Azure Cosmos DB analytical store. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
@@ -76,7 +79,7 @@ Settings specific to Azure Cosmos DB are available in the **Settings** tab of th
 
 **Write throughput budget:** An integer that represents the RUs you want to allocate for this Data Flow write operation, out of the total throughput allocated to the collection.
 
-## Azure Cosmos DB change feed 
+## Azure Cosmos DB change feed
 
 Azure Data Factory can get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) by enabling it in the mapping data flow source transformation. With this connector option, you can read change feeds and apply transformations before loading transformed data into destination datasets of your choice. You don't have to use Azure functions to read the change feed and then write custom transformations. You can use this option to move data from one container to another, prepare change feed driven material views for fit purpose or automate container backup or recovery based on change feed, and enable many more such use cases using visual drag and drop capability of Azure Data Factory.
 

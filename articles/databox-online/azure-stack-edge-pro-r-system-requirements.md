@@ -2,12 +2,12 @@
 title: Microsoft Azure Stack Edge Pro R system requirements| Microsoft Docs
 description: Learn about the software and networking requirements for your Azure Stack Edge Pro R
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: reference
 ms.date: 06/26/2024
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Azure Stack Edge Pro R system requirements
 
@@ -40,7 +40,7 @@ When managed from Azure Stack, the following tiered storage accounts are support
 |    |  Blob storage: Block Blob       | Supported only for NAS     |
 
 *Page blobs and Azure Files are currently not supported in Azure Stack.
-**Hot and cold tier do not exist in Azure Stack. Use the Azure PowerShell to move the data to the archive tier once the data is uploaded. For step-by-step instructions, go to [Use Azure PowerShell to set the blob tier]()
+**Hot and cold tier do not exist in Azure Stack. Use the Azure PowerShell to move the data to the archive tier once the data is uploaded. For step-by-step instructions, go to [Use Azure PowerShell to set the blob tier](/azure/storage/blobs/access-tiers-online-manage)
 
 ## Supported storage types
 

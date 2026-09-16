@@ -150,7 +150,7 @@ When you enabled the App Service authentication/authorization module in the prev
 1. To check the settings, sign in to the [Microsoft Entra admin center](https://entra.microsoft.com) as at least an [Application Developer](/entra/identity/role-based-access-control/permissions-reference#application-developer).
 1. If you chose external configuration, use the **Settings** icon in the top menu to switch to the external tenant with your web app from the **Directories** + **subscriptions** menu. 
 
-1. Browse to **Identity** > **Applications** > **App registrations** and select **Applications** > **App registrations** from the menu. 
+1. Browse to **Entra ID** > **App registrations**, and select **App registrations** from the menu. 
 1. Select the app registration that was created. 
 1. In the overview, verify that **Supported account types** is set to **My organization only**.
     

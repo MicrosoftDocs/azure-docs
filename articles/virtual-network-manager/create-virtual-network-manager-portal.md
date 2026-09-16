@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 03/23/2026
+ms.date: 07/29/2026
 ms.custom:
   - template-quickstart
   - mode-ui
@@ -51,7 +51,7 @@ This quickstart uses the following sample values for creating resources. Use the
 
 ## Create virtual networks
 
-Create three virtual networks by using the portal. Each virtual network has a `networkType` tag that's used in Azure Policy for network group membership. If you have existing virtual networks for your mesh configuration, add the tags listed in the table to your virtual networks and skip to the next section.
+Create three virtual networks by using the portal. Each virtual network has a `NetworkType` tag that's used in Azure Policy for network group membership. If you have existing virtual networks for your mesh configuration, add the tags listed in the following table to your virtual networks and skip to the next section.
 
 1. From the **Home** screen, select **+ Create a resource** and search for **Virtual networks**. Then select **Create** to begin configuring a virtual network.
 
@@ -110,19 +110,19 @@ After you create your network group, you add virtual networks as members. Choose
 
 ### Add a virtual network manually
 
-In this task, you manually add two virtual networks to your network group for your mesh connectivity configuration:
+In this task, you manually add three virtual networks to your network group for your mesh connectivity configuration:
 
 1. From the list of network groups, select **network-group**. On the **network-group** pane, under **Manually add members**, select **Add virtual networks**.
 
-1. On the **Manually add members** pane, select **vnet-00** and **vnet-01**, and then select **Add**.
+1. On the **Manually add members** pane, select **vnet-00**, **vnet-01**, and **vnet-02**, and then select **Add**.
 
-1. On the **Network Group** pane, select **View group members**. Confirm **vnet-00** and **vnet-01** are listed with a **Source** of *Manually added*. If no virtual networks are listed, select **Refresh**.
+1. On the **Network Group** pane, select **View group members**. Confirm **vnet-00**, **vnet-01**, and **vnet-02** are listed with a **Source** of *Manually added*. If no virtual networks are listed, select **Refresh**.
 
 # [Azure Policy](#tab/azurepolicy)
 
 ### Add a virtual network conditionally with a policy definition
 
-By using [Azure Policy](concept-azure-policy-integration.md), you define a condition to automatically add two virtual networks to your network group when the virtual network has a tag with the name `NetworkType` and the value `Production`.
+By using [Azure Policy](concept-azure-policy-integration.md), you can define a condition to automatically add three virtual networks to your network group when the virtual network has a tag with the name `NetworkType` and the value `Production`.
 
 1. From the list of network groups, select **network-group**. Under **Create policy to dynamically add members**, select **Create Azure policy**.
 
@@ -209,7 +209,7 @@ Use the **Network Manager** section for each virtual network to verify that you 
 
     :::image type="content" source="./media/create-virtual-network-manager-portal/vnet-configuration-association.png" alt-text="Screenshot of a connectivity configuration listed for a virtual network." lightbox="./media/create-virtual-network-manager-portal/vnet-configuration-association.png":::
 
-1. Repeat the previous steps on **vnet-01**.
+1. Repeat the previous steps on **vnet-01** and **vnet-02**.
 
 ## Clean up resources
 

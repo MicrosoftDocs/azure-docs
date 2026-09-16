@@ -2,12 +2,12 @@
 title: Azure Stack Edge 2510 release notes
 description: Describes critical open issues and resolutions for the Azure Stack Edge running 2510 release.
 services: databox
-author: alkohli
+author: sipastak
  
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 11/21/2025
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge 2510 release notes

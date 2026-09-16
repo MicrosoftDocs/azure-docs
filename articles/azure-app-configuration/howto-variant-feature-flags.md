@@ -3,8 +3,8 @@ title: 'Use variant feature flags'
 titleSuffix: Azure App configuration
 description: In this tutorial, you learn how to set up and use variant feature flags in an App Configuration
 #customerintent: As a user of Azure App Configuration, I want to learn how I can use variants and variant feature flags in my application.
-author: rossgrambo
-ms.author: rossgrambo
+author: jimmyca15
+ms.author: jimmyca
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial

@@ -3,7 +3,7 @@ title: Azure Web Application Firewall on Application Gateway for Containers - Ga
 description: This article provides an example scenario for testing Azure Web Application Firewall on Application Gateway for Containers.
 services: application-gateway
 author: jackstromberg
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: how-to
 ms.date: 07/21/2025
 ms.author: jstrom
@@ -13,8 +13,8 @@ ms.author: jstrom
 
 This article helps you set up an example application that uses resources from the Gateway API. The article provides steps to:
 
-- Create a [`Gateway`](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
-- Create an [`HTTPRoute`](https://gateway-api.sigs.k8s.io/api-types/httproute) resource that references a back-end service.
+- Create a [`Gateway`](https://gateway-api.sigs.k8s.io/docs/concepts/api-overview/#gateway) resource with one HTTPS listener.
+- Create an [`HTTPRoute`](https://gateway-api.sigs.k8s.io/reference/api-types/httproute/) resource that references a back-end service.
 - Create a `WebApplicationFirewallPolicy` resource that references an `HTTPRoute` resource.
 
 ## Background

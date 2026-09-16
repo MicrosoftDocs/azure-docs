@@ -2,7 +2,7 @@
 title: Data storage in Azure Fluid Relay
 description: Better understand the data storage in Fluid Relay Server
 ms.date: 5/18/2022
-ms.service: azure-fluid
+ms.service: fluid-framework
 ms.topic: reference
 ---
 

@@ -107,16 +107,16 @@ Contact Azure Support Center to report the detailed reason in logs.
 * Workaround:   
 None.
 
-***The file path name can contain letters, numbers, and hyphens (""-"") only.***
+***The file path name can contain letters, numbers, underscores ("_"), and hyphens (""-"") only.***
 
-This error occurs when the file path contains unsupported characters, for example, a period ("."), comma (","), underscore ("_"), or dollar sign ("$").
+This error occurs when the file path contains unsupported characters, for example, a period ("."), comma (","), or dollar sign ("$").
 
 * Cause:   
-The file path contains unsupported characters, for example, a period ("."), comma (","), underscore ("_"), or dollar sign ("$").
+The file path contains unsupported characters, for example, a period ("."), comma (","), or dollar sign ("$").
 * Solution:   
-Remove all characters other than alphabetical letters, numbers, or hyphens ("-") from the file path you entered.
+Remove all characters other than alphabetical letters, numbers, underscores ("_"), or hyphens ("-") from the file path you entered.
 * Workaround:   
-You can replace an underscore with a hyphen or use capitalization instead of spaces to indicate the beginning of new words.  For example, use "NewVolume" instead of "new volume".
+Use capitalization instead of spaces to indicate the beginning of new words.  For example, use "NewVolume" instead of "new volume".
 
 ***FileSystemId cannot be changed.***
 

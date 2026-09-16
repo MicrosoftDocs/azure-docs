@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/22/2025
+ms.date: 08/21/2026
 ms.author: shaas
 ms.reviewer: dineshm
 # Customer intent: As a web developer, I want to map a custom domain to an Azure Blob Storage endpoint so that I can serve my content from a user-friendly URL while ensuring compatibility with both HTTP and HTTPS access.
@@ -16,14 +16,16 @@ ms.reviewer: dineshm
 
 You can map a custom domain to a blob service endpoint or a [static website](storage-blob-static-website.md) endpoint.
 
+This article assumes that you have an existing Azure storage account, access to your domain registrar's DNS management page, and a custom subdomain to map. Root domains aren't supported.
+
 > [!NOTE]
-> This mapping works only for subdomains (for example: `www.contoso.com`). If you want your web endpoint to be available on the root domain (for example: `contoso.com`), then you'll have to use Azure CDN. For guidance, see the [Map a custom domain with HTTPS enabled](#enable-https) section of this article. Because you're going to that section of this article to enable the root domain of your custom domain, the step within that section for enabling HTTPS is optional.
+> This mapping works only for subdomains (for example: `www.contoso.com`). If you want your web endpoint to be available on the root domain (for example: `contoso.com`), then you need to use Azure CDN. For guidance, see the [Map a custom domain with HTTPS enabled](#enable-https) section of this article. Because you're going to that section of this article to enable the root domain of your custom domain, the step within that section for enabling HTTPS is optional.
 
 <a id="enable-http"></a>
 
 ## Map a custom domain with only HTTP enabled
 
-This approach is easier, but enables only HTTP access. If the storage account is configured to [require secure transfer](../common/storage-require-secure-transfer.md) over HTTPS, then you must enable HTTPS access for your custom domain.
+This approach is easier, but it only enables HTTP access. If the storage account is configured to [require secure transfer](../common/storage-require-secure-transfer.md) over HTTPS, then you must enable HTTPS access for your custom domain.
 
 To enable HTTPS access, see the [Map a custom domain with HTTPS enabled](#enable-https) section of this article.
 
@@ -32,17 +34,14 @@ To enable HTTPS access, see the [Map a custom domain with HTTPS enabled](#enable
 ### Map a custom domain
 
 > [!IMPORTANT]
-> Your custom domain will be briefly unavailable to users while you complete the configuration. If your domain currently supports an application with a service-level agreement (SLA) that requires zero downtime, then follow the steps in the [Map a custom domain with zero downtime](#zero-down-time) section of this article to ensure that users can access your domain while the DNS mapping takes place.
+> Your custom domain is briefly unavailable to users while you complete the configuration. If your domain currently supports an application with a service-level agreement (SLA) that requires zero downtime, follow the steps in the [Map a custom domain with zero downtime](#zero-down-time) section of this article to ensure that users can access your domain while the DNS mapping takes place.
 
-If you are unconcerned that the domain is briefly unavailable to your users, follow these steps.
+If a brief interruption is acceptable, follow these steps.
 
-:heavy_check_mark: Step 1: Get the host name of your storage endpoint.
-
-:heavy_check_mark: Step 2: Create a canonical name (CNAME) record with your domain provider.
-
-:heavy_check_mark: Step 3: Register the custom domain with Azure.
-
-:heavy_check_mark: Step 4: Test your custom domain.
+**Step 1**: Get the host name of your storage endpoint.
+**Step 2**: Create a canonical name (CNAME) record with your domain provider.
+**Step 3**: Register the custom domain with Azure.
+**Step 4**: Test your custom domain.
 
 <a id="endpoint"></a>
 
@@ -57,9 +56,9 @@ The host name is the storage endpoint URL without the protocol identifier and th
 3. Copy the value of the **Blob service** endpoint or the **Static website** endpoint to a text file.
 
    > [!NOTE]
-   > The Data Lake storage endpoint is not supported (For example: `https://mystorageaccount.dfs.core.windows.net/`).
+   > The Data Lake storage endpoint isn't supported (for example, `https://mystorageaccount.dfs.core.windows.net/`).
 
-4. Remove the protocol identifier (For example: `HTTPS`) and the trailing slash from that string. The following table contains examples.
+4. Remove the protocol identifier (for example, `HTTPS`) and the trailing slash from that string. The following table contains examples.
 
    | Type of endpoint |  endpoint | host name |
    |------------|-----------------|-------------------|
@@ -75,9 +74,9 @@ The host name is the storage endpoint URL without the protocol identifier and th
 Create a CNAME record to point to your host name. A CNAME record is a type of Domain Name System (DNS) record that maps a source domain name to a destination domain name.
 
 > [!NOTE]
-> CNAME records must be accessible to public networks. If CNAME records are private, registration with Azure will not succeed. 
+> CNAME records must be accessible to public networks. If CNAME records are private, registration with Azure fails. 
 
-1. Sign in to your domain registrar's website, and then go to the page for managing DNS setting.
+1. Sign in to your domain registrar's website, and then go to the page for managing DNS settings.
 
    You might find the page in a section named **Domain Name**, **DNS**, or **Name Server Management**.
 
@@ -87,7 +86,7 @@ Create a CNAME record to point to your host name. A CNAME record is a type of Do
 
 3. Create a CNAME record. As part of that record, provide the following items:
 
-   - The subdomain alias such as `www` or `photos`. The subdomain is required, root domains are not supported.
+   - The subdomain alias such as `www` or `photos`. You must provide a subdomain. Root domains aren't supported.
 
    - The host name that you obtained in the [Get the host name of your storage endpoint](#endpoint) section earlier in this article.
 
@@ -104,7 +103,7 @@ Create a CNAME record to point to your host name. A CNAME record is a type of Do
 3. In the **Networking** page, choose the **Custom domain** tab.
 
    > [!NOTE]
-   > This option does not appear in accounts that have the hierarchical namespace feature enabled. For those accounts, use either PowerShell or the Azure CLI to complete this step.
+   > This option doesn't appear in accounts that have the hierarchical namespace feature enabled. For those accounts, use either PowerShell or the Azure CLI to complete this step.
 
 3. In the **Domain name** text box, enter the name of your custom domain, including the subdomain.
 
@@ -112,11 +111,11 @@ Create a CNAME record to point to your host name. A CNAME record is a type of Do
 
 4. To register the custom domain, choose the **Save** button.
 
-   After the CNAME record has propagated through the Domain Name Servers (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
+   After the CNAME record propagates through the Domain Name System (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
 
 ##### [PowerShell](#tab/azure-powershell)
 
-Run the following PowerShell command
+Run the following PowerShell command:
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> -CustomDomainName <custom-domain-name> -UseSubDomain $false
@@ -130,19 +129,19 @@ Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-acc
 
   For example, if your domain is *contoso.com* and your subdomain alias is *www*, enter `www.contoso.com`. If your subdomain is *photos*, enter `photos.contoso.com`.
 
-After the CNAME record has propagated through the Domain Name Servers (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
+After the CNAME record propagates through the Domain Name System (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
 
 ##### [Azure CLI](#tab/azure-cli)
 
-Run the following PowerShell command
+Run the following Azure CLI command:
 
 ```azurecli
 az storage account update \
-   --resource-group <resource-group-name> \ 
+   --resource-group <resource-group-name> \
    --name <storage-account-name> \
    --custom-domain <custom-domain-name> \
    --use-subdomain false
-  ```
+```
 
 - Replace the `<resource-group-name>` placeholder with the name of the resource group.
 
@@ -152,7 +151,7 @@ az storage account update \
 
   For example, if your domain is *contoso.com* and your subdomain alias is *www*, enter `www.contoso.com`. If your subdomain is *photos*, enter `photos.contoso.com`.
 
-After the CNAME record has propagated through the Domain Name Servers (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
+After the CNAME record propagates through the Domain Name System (DNS), and if your users have the appropriate permissions, they can view blob data by using the custom domain.
 
 ---
 
@@ -167,19 +166,15 @@ For example, to access a web form in the `myforms` container in the *photos.cont
 ### Map a custom domain with zero downtime
 
 > [!NOTE]
-> If you are unconcerned that the domain is briefly unavailable to your users, then consider using the steps in the [Map a custom domain](#map-a-domain) section of this article. It's a simpler approach with fewer steps.
+> If a brief interruption is acceptable, consider the steps in the [Map a custom domain](#map-a-domain) section of this article. It's a simpler approach with fewer steps.
 
-If your domain currently supports an application with a service-level agreement (SLA) that requires zero downtime, then follow these steps to ensure that users can access your domain while the DNS mapping takes place.
+If your domain currently supports an application with a service-level agreement (SLA) that requires zero downtime, follow these steps to ensure that users can access your domain while the DNS mapping takes place.
 
-:heavy_check_mark: Step 1: Get the host name of your storage endpoint.
-
-:heavy_check_mark: Step 2: Create an intermediary canonical name (CNAME) record with your domain provider.
-
-:heavy_check_mark: Step 3: Pre-register the custom domain with Azure.
-
-:heavy_check_mark: Step 4: Create a CNAME record with your domain provider.
-
-:heavy_check_mark: Step 5: Test your custom domain.
+**Step 1**: Get the host name of your storage endpoint.
+**Step 2**: Create an intermediary canonical name (CNAME) record with your domain provider.
+**Step 3**: Pre-register the custom domain with Azure.
+**Step 4**: Create a CNAME record with your domain provider.
+**Step 5**: Test your custom domain.
 
 <a id="endpoint-2"></a>
 
@@ -193,7 +188,7 @@ The host name is the storage endpoint URL without the protocol identifier and th
 
 3. Copy the value of the **Blob service** endpoint or the **Static website** endpoint to a text file.
 
-4. Remove the protocol identifier (For example: `HTTPS`) and the trailing slash from that string. The following table contains examples.
+4. Remove the protocol identifier (for example, `HTTPS`) and the trailing slash from that string. The following table contains examples.
 
    | Type of endpoint |  endpoint | host name |
    |------------|-----------------|-------------------|
@@ -207,9 +202,9 @@ The host name is the storage endpoint URL without the protocol identifier and th
 Create a temporary CNAME record to point to your host name. A CNAME record is a type of DNS record that maps a source domain name to a destination domain name.
 
 > [!NOTE]
-> CNAME records must be accessible to public networks. If CNAME records are private, registration with Azure will not succeed.
+> CNAME records must be accessible to public networks. If CNAME records are private, registration with Azure fails.
 
-1. Sign in to your domain registrar's website, and then go to the page for managing DNS setting.
+1. Sign in to your domain registrar's website, and then go to the page for managing DNS settings.
 
    You might find the page in a section named **Domain Name**, **DNS**, or **Name Server Management**.
 
@@ -219,7 +214,7 @@ Create a temporary CNAME record to point to your host name. A CNAME record is a 
 
 3. Create a CNAME record. As part of that record, provide the following items:
 
-   - The subdomain alias such as `www` or `photos`. The subdomain is required, root domains are not supported.
+   - The subdomain alias such as `www` or `photos`. The subdomain is required. Root domains aren't supported.
 
      Add the `asverify` subdomain to the alias. For example: `asverify.www` or `asverify.photos`.
 
@@ -229,7 +224,7 @@ Create a temporary CNAME record to point to your host name. A CNAME record is a 
 
 #### Step 3: Pre-register your custom domain with Azure
 
-When you pre-register your custom domain with Azure, you permit Azure to recognize your custom domain without having to modify the DNS record for the domain. That way, when you do modify the DNS record for the domain, it will be mapped to the blob endpoint with no downtime.
+When you preregister your custom domain with Azure, you permit Azure to recognize your custom domain without having to modify the DNS record for the domain. That way, when you do modify the DNS record for the domain, it is mapped to the blob endpoint with no downtime.
 
 ##### [Portal](#tab/azure-portal)
 
@@ -240,7 +235,7 @@ When you pre-register your custom domain with Azure, you permit Azure to recogni
 3. In the **Networking** page, choose the **Custom domain** tab.
 
    > [!NOTE]
-   > This option does not appear in accounts that have the hierarchical namespace feature enabled. For those accounts, use either PowerShell or the Azure CLI to complete this step.
+   > This option doesn't appear in accounts that have the hierarchical namespace feature enabled. For those accounts, use either PowerShell or the Azure CLI to complete this step.
 
 3. In the **Domain name** text box, enter the name of your custom domain, including the subdomain.
 
@@ -250,11 +245,11 @@ When you pre-register your custom domain with Azure, you permit Azure to recogni
 
 5. To register the custom domain, choose the **Save** button.
 
-   If the registration is successful, the portal notifies you that your storage account was successfully updated. Your custom domain has been verified by Azure, but traffic to your domain is not yet being routed to your storage account until you create a CNAME record with your domain provider. You'll do that in the next section.
+   If the registration is successful, the portal notifies you that your storage account was successfully updated. Azure verified your custom domain, but traffic to your domain isn't yet being routed to your storage account until you create a CNAME record with your domain provider. You'll do that in the next section.
 
 ##### [PowerShell](#tab/azure-powershell)
 
-Run the following PowerShell command
+Run the following PowerShell command:
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-account-name> -CustomDomainName <custom-domain-name> -UseSubDomain $true
@@ -268,19 +263,19 @@ Set-AzStorageAccount -ResourceGroupName <resource-group-name> -Name <storage-acc
 
   For example, if your domain is *contoso.com* and your subdomain alias is *www*, enter `www.contoso.com`. If your subdomain is *photos*, enter `photos.contoso.com`.
 
-Traffic to your domain is not yet being routed to your storage account until you create a CNAME record with your domain provider. You'll do that in the next section.
+Traffic to your domain isn't yet being routed to your storage account until you create a CNAME record with your domain provider. You'll do that in the next section.
 
 ##### [Azure CLI](#tab/azure-cli)
 
-Run the following PowerShell command
+Run the following Azure CLI command:
 
 ```azurecli
 az storage account update \
-   --resource-group <resource-group-name> \ 
+   --resource-group <resource-group-name> \
    --name <storage-account-name> \
    --custom-domain <custom-domain-name> \
    --use-subdomain true
-  ```
+```
 
 - Replace the `<resource-group-name>` placeholder with the name of the resource group.
 
@@ -290,7 +285,7 @@ az storage account update \
 
   For example, if your domain is *contoso.com* and your subdomain alias is *www*, enter `www.contoso.com`. If your subdomain is *photos*, enter `photos.contoso.com`.
 
-Traffic to your domain is not yet being routed to your storage account until you create a CNAME record with your domain provider. You'll do that in the next section.
+Traffic to your domain isn't yet being routed to your storage account until you create a CNAME record with your domain provider. You'll do that in the next section.
 
 ---
 
@@ -298,7 +293,7 @@ Traffic to your domain is not yet being routed to your storage account until you
 
 Create a temporary CNAME record to point to your host name.
 
-1. Sign in to your domain registrar's website, and then go to the page for managing DNS setting.
+1. Sign in to your domain registrar's website, and then go to the page for managing DNS settings.
 
    You might find the page in a section named **Domain Name**, **DNS**, or **Name Server Management**.
 
@@ -308,7 +303,7 @@ Create a temporary CNAME record to point to your host name.
 
 3. Create a CNAME record. As part of that record, provide the following items:
 
-   - The subdomain alias such as `www` or `photos`. The subdomain is required, root domains are not supported.
+   - The subdomain alias such as `www` or `photos`. The subdomain is required. Root domains aren't supported.
 
    - The host name that you obtained in the [Get the host name of your storage endpoint](#endpoint-2) section earlier in this article.
 
@@ -334,7 +329,7 @@ To remove a custom domain mapping, deregister the custom domain. Use one of the 
 
 5. Select the **Save** button.
 
-After the custom domain has been removed successfully, you will see a portal notification that your storage account was successfully updated.
+After the custom domain is removed, the portal notifies you that your storage account was successfully updated.
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -390,12 +385,12 @@ To remove a custom domain registration, use the [az storage account update](/cli
 
 This approach involves more steps, but it enables HTTPS access.
 If you don't need users to access your blob or web content by using HTTPS, then see the [Map a custom domain with only HTTP enabled](#enable-http) section of this article.
-The approach involves using [Azure Front Door (preferred)](../../frontdoor/front-door-overview.md) or [Azure CDN](../../cdn/cdn-overview.md) which are Content Delivery Network services offered by Azure.
+This approach uses [Azure Front Door (preferred)](../../frontdoor/front-door-overview.md) or [Azure CDN](../../cdn/cdn-overview.md) which are Content Delivery Network services offered by Azure.
 
 > [!NOTE]
-> Custom domain mapping requires the use of CNAME records. CNAME records must be accessible to public networks. If CNAME records are private, registration with Azure will not succeed.
+> Custom domain mapping requires the use of CNAME records. Public networks must be able to access CNAME records. If CNAME records are private, registration with Azure fails.
 
-### Using Azure Front Door
+### Use Azure Front Door
 1. Enable [Azure Front Door](../../frontdoor/front-door-overview.md) on your blob or website endpoint.
 
    For steps, see [Integrate an Azure storage account with Azure Front Door](../../frontdoor/integrate-storage-account.md).
@@ -415,7 +410,7 @@ The approach involves using [Azure Front Door (preferred)](../../frontdoor/front
    - [HTTP-to-HTTPS redirection with AFD](../../frontdoor/front-door-how-to-redirect-https.md).
    - [Front Door Billing](../../frontdoor/billing.md).
 
-### Using Azure CDN
+### Use Azure CDN
 
 1. Enable [Azure CDN](../../cdn/cdn-overview.md) on your blob or web endpoint. For step-by-step guidance, see [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
@@ -424,7 +419,7 @@ The approach involves using [Azure Front Door (preferred)](../../frontdoor/front
 3. [Enable HTTPS on an Azure CDN custom domain](../../cdn/cdn-custom-ssl.md).
 
    > [!NOTE]
-   > When you update your static website, be sure to clear cached content on the CDN edge servers by purging the CDN endpoint. For more information, see [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md).
+   > When you update your static website, clear cached content on the CDN edge servers by purging the CDN endpoint. For more information, see [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md).
 
 4. (Optional) Review the following guidance:
 

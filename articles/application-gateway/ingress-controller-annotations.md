@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/23/2025
+ms.date: 05/12/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes administrator, I want to configure annotations for the Application Gateway Ingress Controller, so that I can customize features like backend protocols and health probes to optimize traffic management and ensure high availability of my containerized applications.
 ---
@@ -209,7 +209,9 @@ spec:
               number: 80
 ```
 
-## Connection Draining
+## Connection draining
+
+Use connection draining annotations to reduce intermittent 502 errors and connection loss during pod removal, rolling deployments, or scale-in events. Application Gateway Ingress Controller (AGIC) applies these annotations to the Application Gateway backend HTTP settings that it creates from the Kubernetes ingress resource.
 
 Use the following annotations if you want to use connection draining:
 

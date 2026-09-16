@@ -9,7 +9,7 @@ ms.author: hcampos
 ms.reviewers: estfan, azla
 ms.topic: concept-article
 ms.date: 03/10/2026
-ms.date-cycle: 1095-days
+ms.update-cycle: 1095-days
 ms.custom:
   - build-2025
 #Customer intent: As an integration developer who works with Azure Logic Apps, I want to understand how the Azure Logic Apps Rules Engine works and ways to optimize operations.

@@ -35,5 +35,5 @@ This table shows the bindings that are supported in the major versions of the Az
 
 1. Register all bindings except HTTP and timer. See [Register Azure Functions binding extensions](../articles/azure-functions/functions-bindings-register.md). This step isn't required when using version 1.x of the Functions runtime.
 1. [Support ends for version 1.x of the Azure Functions runtime on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). [Migrate your apps to version 4.x](../articles/azure-functions/migrate-version-1-version-4.md) for full support.
-1. Triggers aren't supported in the Consumption plan. This binding type requires [runtime-driven triggers](../articles/azure-functions/functions-networking-options.md#elastic-premium-plan-with-virtual-network-triggers).
+1. Triggers aren't supported in the Consumption plan. This binding type requires [runtime-driven triggers](../articles/azure-functions/functions-target-based-scaling.md#premium-plan-with-runtime-scale-monitoring-enabled).
 1. This binding type is supported in Kubernetes, Azure IoT Edge, and other self-hosted modes only.

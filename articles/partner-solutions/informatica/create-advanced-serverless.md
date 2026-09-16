@@ -1,6 +1,8 @@
 ---
 title: "Quickstart: Create an advanced serverless deployment using Informatica Intelligent Data Management Cloud"
 description: This article describes how to set up a serverless runtime environment using the Azure portal and an Informatica IDMC organization.
+author: pavanatgit
+ms.author: plekkala
 ms.topic: quickstart  
 ms.date: 03/31/2026
 #customer intent: As a developer, I want an instance of the Informatica data management cloud so that I can use it with other Azure resources.

@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 
 # Connect to Synapse SQL with SQL Server Management Studio
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 > [!div class="op_single_selector"]
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql/get-started-visual-studio.md)

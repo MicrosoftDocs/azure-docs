@@ -17,7 +17,7 @@ Azure resources can use a [managed identity](/entra/identity/managed-identities-
 
 ## Prerequisites
 
-- An active Azure subscription. [Create a subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An active Azure subscription. [Create a subscription for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Data Manager for Energy resource. [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 
 ## Create or configure a Key Vault

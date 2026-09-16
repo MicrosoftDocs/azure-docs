@@ -1,26 +1,26 @@
 ---
-title: Create MCP Servers Based on Workflows
-description: Learn to create and register a Model Context Protocol (MCP) server driven by Azure Logic Apps using API Center. Build tools powered by connector actions for agents and models to use.
-services: logic-apps, azure-api-center
+title: Create MCP Servers Driven by Workflows
+description: Create Model Context Protocol (MCP) servers in API Center driven by Azure Logic Apps workflows. Build MCP tools powered by connector actions for agents and models to use.
+services: azure-logic-apps, azure-api-center
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 11/18/2025
+ms.date: 05/11/2026
 ms.update-cycle: 180-days
 #Customer intent: As an AI developer working in Azure API Center, I want to create and register an MCP server that provides tools. I can build these tools from connector actions in Azure Logic Apps. AI agents and models can use these tools to complete tasks.
 ---
 
-# Create and register MCP servers in API Center based on Azure Logic Apps (preview)
+# Create MCP servers in API Center driven by Azure Logic Apps (preview)
 
 > [!NOTE]
 >
-> The following capability is in preview and is subject to the 
+> This preview feature is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To make an agent or large language model (LLM) fulfill requests by running actions on external services, systems, apps, or data, create a *Model Context Protocol (MCP)* server that provides *tools* for your agent or model to complete tasks. For example, these tools can read, update, or delete files, query databases, send emails, interact with APIs, perform computations, or even trigger workflows.
+AI agents and large language models (LLMs) can reason about user requests, but they can't act on external services, databases, or business systems without tools that bridge the gap. If you manually build and expose these tools to handle discovery, authentication, input schemas, and versioning, you add significant development overhead.
 
-Through Azure API Center, you can create and register an MCP server with tools driven by prebuilt connector actions in Azure Logic Apps. You typically use connector actions and triggers in Azure Logic Apps to create workflows for automation and integration solutions. With access to over 1,400 connectors that work with a vast range of cloud services, on-premises systems, apps, and data, you can build diverse toolsets that interact with your enterprise resources and assets.
+With Azure API Center and Azure Logic Apps, you can create a *Model Context Protocol (MCP)* server that gives your agents and models a discoverable, secure toolset backed by prebuilt connector actions. For example, these tools can read, update, or delete files, query databases, send emails, interact with APIs, perform computations, or even trigger workflows. MCP is an open standard that defines how AI components discover and call tools. Azure Logic Apps offers over 1,400 connectors to cloud services, on-premises systems, and data sources, so you can assemble a rich toolset without writing custom integration code.
 
 This guide shows how to complete the following tasks:
 
@@ -28,7 +28,7 @@ This guide shows how to complete the following tasks:
 - Build tools that the server makes available for agents and models to call.
 - Register the MCP server through an API Center resource.
 
-For more information, see the following articles:
+For more information, see:
 
 - [MCP server concepts](https://modelcontextprotocol.io/docs/learn/server-concepts)
 - [What is Azure API Center?](../api-center/overview.md)
@@ -38,7 +38,7 @@ For more information, see the following articles:
 
 ## Learn about MCP and API Center
 
-The following diagram shows relationships between the different components at work in this scenario:
+The following diagram shows relationships between the different components in this scenario:
 
 - The MCP server and tools that you create and register through API Center
 - The connector actions in Azure Logic Apps that you use to build the tools that your MCP server provides
@@ -49,7 +49,7 @@ The following diagram shows relationships between the different components at wo
 
 :::image type="content" source="media/create-mcp-server-api-center/mcp-server-api-center-portal-architecture.png" alt-text="Diagram shows relationship between MCP server and tools in Azure API Center portal, agent, MCP client, and Azure Logic Apps." lightbox="media/create-mcp-server-api-center/mcp-server-api-center-portal-architecture.png":::
 
-MCP is an open standard that lets AI components such as LLMs, agents, and MCP clients use tools to work with external services and systems in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so that AI components can interact with real-world services, systems, databases, APIs, and business workflows. An MCP server acts like a bridge between AI components and the tools that they can use.
+MCP is an open standard that AI components such as LLMs, agents, and MCP clients use to work with tools for external services and systems in a secure, discoverable, and structured way. This standard defines how to describe, run, and authenticate access to tools so that AI components can interact with real-world services, systems, databases, APIs, and business workflows. An MCP server acts like a bridge between AI components and the tools that they can use.
 
 API Center provides centralized API discovery and design-time API governance so you can track all your APIs in a consolidated location. You can develop and maintain an organized structured inventory for your organization's APIs with information such as version details, API definition files, and common metadata, regardless of API type, lifecycle stage, or deployment location. Stakeholders across your organization, such as API program managers, IT administrators, app developers, and API developers, can design, discover, reuse, and govern these APIs.
 
@@ -72,13 +72,13 @@ For this release, the following list describes restrictions or issues that apply
 
 - You can select only one connector for your MCP server.
 
-- [Built-in service provider-based connectors](/azure/logic-apps/connectors/built-in/reference) and custom connectors currently aren't supported.
+- [Built-in service provider-based connectors](/azure/logic-apps/connectors/built-in/reference) and custom connectors aren't supported.
 
 - Each tool can have only one action.
 
 ## Create an MCP server and tools
 
-For example, suppose you want to create an MCP server with tools that manage contacts and sends emails.
+For example, suppose you want to create an MCP server with tools that manage contacts and send emails.
 
 1. In the [Azure portal](https://portal.azure.com), open your API center resource.
 
@@ -176,9 +176,9 @@ For this task, make sure you completed the [requirement to set up the API Center
 
    :::image type="content" source="media/create-mcp-server-api-center/visual-studio-code-mcp-add-server.png" alt-text="Screenshot shows Visual Studio Code, Command Palette, and command to add MCP server." lightbox="media/create-mcp-server-api-center/visual-studio-code-mcp-add-server.png":::
 
-1. Select **HTTP (HTTP or Server-Sent Events)**. For **Enter Server URL**, provide the URL for your MCP server.
+1. Select **HTTP (HTTP or Server-Sent Events)**. For **Enter Server URL**, enter the URL for your MCP server.
 
-1. For **Enter Server ID**, provide a meaningful name for your MCP server.
+1. For **Enter Server ID**, enter a meaningful name for your MCP server.
 
    When you add an MCP server for the first time, you must choose where to store your MCP configuration. You get the following options, so choose the best option for your scenario:
 
@@ -205,7 +205,7 @@ For this task, make sure you completed the [requirement to set up the API Center
 
    1. On the Visual Studio Code title bar, open the **Copilot** list, and select **Open Chat**.
 
-   1. Under the chat input box, from the **Built-in** modes list, and select **Agent**.
+   1. Under the chat input box, from the **Built-in** modes list, select **Agent**.
 
    1. From the LLM list, select the LLM to use.
 

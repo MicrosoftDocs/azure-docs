@@ -3,9 +3,10 @@ title: Support for disaster recovery of Hyper-V VMs to Azure with Azure Site Rec
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 02/27/2026
+ms.date: 08/11/2026
 author: Jeronika-MS
 ms.author: v-gajeronika
+ms.custom: references_regions
 # Customer intent: As a IT admin managing on-premises Hyper-V VMs, I want to implement disaster recovery to Azure, so that I can ensure business continuity and data protection in case of on-premises failures.
 ---
 
@@ -32,14 +33,14 @@ Hyper-V without Virtual Machine Manager | You can perform disaster recovery to A
 **Server** | **Requirements** | **Details**
 --- | --- | ---
 Hyper-V (running without Virtual Machine Manager) | Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 with latest updates <br/><br/> **Note:** Server core installations of these operating systems are also supported. | If you have already configured Windows Server 2012 R2 with/or SCVMM 2012 R2 with Azure Site Recovery and plan to upgrade the OS, please follow the guidance [documentation.](upgrade-2012R2-to-2016.md)
-Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2022  (Server core not supported), Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Note:** Server core installations of these operating systems are also supported.  | If Virtual Machine Manager is used, Windows Server 2019 hosts should be managed in Virtual Machine Manager 2019. Similarly, Windows Server 2016 hosts should be managed in Virtual Machine Manager 2016.
+Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2025, Virtual Machine Manager 2022  (Server core not supported), Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Note:** Server core installations of these operating systems are also supported.  | If Virtual Machine Manager is used, Windows Server 2019 hosts should be managed in Virtual Machine Manager 2019. Similarly, Windows Server 2016 hosts should be managed in Virtual Machine Manager 2016.
 
 > [!NOTE]
 > Ensure that .NET Framework 4.6.2 or higher is present on the on-premises server.
 
 ## Replicated VMs
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 The following table summarizes VM support. Site Recovery supports any workloads running on a supported operating system.
 
@@ -128,6 +129,8 @@ Exclude disk | Yes | Yes
 Multi-path (MPIO) | Yes | Yes
 
 ## Azure Storage
+
+[!INCLUDE [hyper-v-to-azure-region-limitations.md](./includes/hyper-v-to-azure-region-limitations.md)]
 
 **Component** | **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
 --- | --- | ---

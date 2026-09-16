@@ -3,10 +3,11 @@ title: Troubleshoot Azure IoT Operations
 description: Troubleshoot your Azure IoT Operations deployment and configuration
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023
-ms.date: 05/07/2025
+ms.date: 08/26/2026
 ---
 
 # Troubleshoot Azure IoT Operations
@@ -20,11 +21,26 @@ The troubleshooting guidance helps you diagnose and resolve issues you might enc
 
 For information about known issues and temporary workarounds, see [Known issues: Azure IoT Operations](known-issues.md).
 
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the `K8_BRIDGE_SP_OID` and `KEY_VAULT_NAME` environment variables. Set each one before you run the related commands.
+
+## Use health status for troubleshooting
+
+Azure IoT Operations provides [built-in health status reporting](../deploy-iot-ops/health-status-reporting.md) to help you understand the health of your edge workloads from the cloud. When a component reports **Degraded** or **Unavailable** health status, use the following approach to investigate and troubleshoot the issue:
+
+1. **Check the reason code**: Each unhealthy resource includes a reason code (for example, `DataflowMqttSourceConnectionFailed`, `BrokerReplicaFailed`, `OpcUaConnectorInboundEndpointDisconnected`) and a human-readable message explaining the problem.
+1. **Look up the recommended action**: Check the [health status reason codes](../reference/health-status-reason-codes.md) for detailed descriptions and recommended actions for every reason code.
+1. **Check timestamps**: The `lastTransitionTime` shows when the issue started; `lastUpdateTime` shows the most recent status update.
+1. **Investigate further**: Use `az iot ops check`, pod logs, and the Grafana dashboard metrics to correlate the health status with runtime behavior.
+
 ## Troubleshoot Azure IoT Operations deployment
 
-For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations `check` and `support` commands.
+For general deployment and configuration troubleshooting, use the Azure CLI IoT Operations `check` and `support` commands:
 
-[Azure CLI version 2.53.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 - To evaluate Azure IoT Operations service deployment for health, configuration, and usability, use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check). The `check` command can help you find problems in your deployment and configuration.
 
@@ -48,24 +64,24 @@ This error message indicates that the custom location resource associated with t
 Message: The resource {resource Id} extended location {custom location resource Id} does not support the resource type {IoT Operations resource type} or api version {IoT Operations ARM API}. Please check with the owner of the extended location to ensure the host has the CRD {custom resource name} with group {api group name}.iotoperations.azure.com, plural {custom resource plural name}, and versions [{api group version}] installed.
 ```
 
-To resolve, delete any provisioned resources associated with prior deployments including custom locations. You can use `az iot ops delete` or alternative mechanism. Due to a potential caching issue, waiting a few minutes after deletion before redeploying AIO or choosing a custom location name via `az iot ops create --custom-location` is recommended. The custom location name has a maximum length of 63 characters.
+To resolve, delete any provisioned resources associated with prior deployments including custom locations. You can use `az iot ops delete` or alternative mechanism. Due to a potential caching issue, waiting a few minutes after deletion before redeploying Azure IoT Operations or choosing a custom location name via `az iot ops create --custom-location` is recommended. The custom location name has a maximum length of 63 characters.
 
 ### You see a LinkedAuthorizationFailed error message
 
 If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, the message indicates that you don't have the required permissions on the resource group containing the cluster.
 
-The following message indicates that the logged-in principal doesn't have the required permissions to deploy resources to the resource group specified in the resource sync resource ID.
+The following message indicates that the signed-in principal doesn't have the required permissions to deploy resources to the resource group specified in the resource sync resource ID.
 
 ```output
 Message: The client {principal Id} with object id {principal object Id} has permission to perform action Microsoft.ExtendedLocation/customLocations/resourceSyncRules/write on scope {resource sync resource Id}; however, it does not have permission to perform action(s) Microsoft.Authorization/roleAssignments/write on the linked scope(s) {resource sync resource group} (respectively) or the linked scope(s) are invalid.
 ```
 
-To enable resource sync, the logged-in principal must have the `Microsoft.Authorization/roleAssignments/write` permission against the resource group that resources are being deployed to. This security constraint is necessary because edge to cloud resource hydration creates new resources in the target resource group.
+To enable resource sync, the signed-in principal must have the `Microsoft.Authorization/roleAssignments/write` permission against the resource group that resources are being deployed to. This security constraint is necessary because edge to cloud resource hydration creates new resources in the target resource group.
 
 To resolve the issue elevate principal permissions.
 
 > [!NOTE]
-> Legacy AIO CLIs had an opt-out mechanism by using the `--disable-rsync-rules`.
+> Legacy Azure IoT Operations CLIs had an opt-out mechanism by using the `--disable-rsync-rules`.
 
 ### Deployment of MQTT broker fails
 
@@ -77,7 +93,7 @@ A deployment might fail if the cluster doesn't have sufficient resources for the
 > [!TIP]
 > If you set lower values for sharding, workers, or memory profile, the broker's capacity to handle message load is reduced. Before you deploy to production, test your scenario with the MQTT broker configuration, to ensure the broker can handle the maximum expected load.
 
-To learn more about how to choose suitable values for these parameters, see [Configure broker settings for high availability, scaling, and memory usage](../manage-mqtt-broker/howto-configure-availability-scale.md).
+To learn more about how to choose suitable values for these parameters, see [Deployment planning](../deployment-plan/deployment-planning.md).
 
 ## Troubleshoot Azure IoT Operations uninstall
 
@@ -123,6 +139,48 @@ When you use the operations experience to add secrets or certificates, it adds t
 
 For more information about assigning the required permissions, see [Configure Azure Key Vault permissions](../secure-iot-ops/howto-manage-secrets.md#configure-azure-key-vault-permissions).
 
+## Troubleshoot device and asset lifecycle operations
+
+Create, update, and delete operations for devices and assets require a connected Azure Arc-enabled Kubernetes cluster. Azure Device Registry represents each device and asset as an Azure Resource Manager resource and synchronizes its configuration to the associated cluster. If Azure can't connect to the cluster when you run a lifecycle operation, the operation can fail with the error code `ClusterNetworkUnavailable` and reach the terminal provisioning state `Failed`.
+
+When a device or asset create, update, or delete operation fails because the cluster is disconnected, you see an error similar to the following example:
+
+```output
+(ClusterNetworkUnavailable) Failed to establish a network connection with the kubernetes cluster '<connected-cluster-resource-id>'. Please make sure the underlying cluster is running and has network connectivity before retrying the operation.
+Code: ClusterNetworkUnavailable
+Message: Failed to establish a network connection with the kubernetes cluster '<connected-cluster-resource-id>'. Please make sure the underlying cluster is running and has network connectivity before retrying the operation.
+```
+
+The nested error indicates that Azure can't connect because no agent is connected in the target Azure Arc resource: `Cannot connect to the hybrid connection because no agent is connected in the target arc resource.`
+
+To troubleshoot and recover a failed lifecycle operation, follow these steps:
+
+1. Verify that the Azure Arc-enabled Kubernetes cluster exists and is connected. Run the following command and check the connectivity status in the output:
+
+  ```azurecli
+  az connectedk8s show -g <RESOURCE_GROUP> -n <CLUSTER_NAME>
+  ```
+
+1. Show the affected device or asset and inspect `properties.provisioningState` and `properties.lastTransitionTime`. A failed resource remains available to view with `provisioningState` set to `Failed` and a populated `lastTransitionTime`.
+
+  To show a device:
+
+  ```azurecli
+  az iot ops ns device show --name <DEVICE_NAME> --instance <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
+  ```
+
+  To show an asset:
+
+  ```azurecli
+  az iot ops ns asset show --name <ASSET_NAME> --instance <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
+  ```
+
+1. Restore connectivity to the cluster and confirm that its Azure Arc agent is connected.
+
+1. Rerun the same create, update, or delete operation. In the observed create case, the operation succeeded after the cluster reconnected, and the failed resource didn't need to be deleted before the create operation was retried. This cleanup detail applies only to the observed create case. Don't assume the same behavior for update or delete operations.
+
+For more information about how lifecycle operations depend on cluster connectivity, see [Lifecycle operations and cluster connectivity](../discover-manage-assets/concept-assets-devices.md#lifecycle-operations-and-cluster-connectivity).
+
 ## Troubleshoot device and asset discovery
 
 Akri discovery requires that resource sync rules are enabled on your cluster. To enable resource sync rules, follow these steps:
@@ -130,13 +188,13 @@ Akri discovery requires that resource sync rules are enabled on your cluster. To
 Run `enable-rsync` to enable resource sync rules on your Azure IoT Operations instance. This command also sets the required permissions on the custom location:
 
 ```bash
-az iot ops enable-rsync - n <my instance> -g <my resource group>
+az iot ops enable-rsync -n $AIO_INSTANCE_NAME -g $RESOURCE_GROUP
 ```
 
 If the signed-in CLI user doesn't have permission to look up the object ID (OID) of the K8 Bridge service principal, you can provide it explicitly using the `--k8-bridge-sp-oid` parameter:
 
 ```bash
-az iot ops enable-rsync --k8-bridge-sp-oid <k8 bridge service principal object ID>
+az iot ops enable-rsync --k8-bridge-sp-oid $K8_BRIDGE_SP_OID
 ```
 
 > [!NOTE]
@@ -176,7 +234,7 @@ To work around this issue, update the device inbound endpoint in the operations 
 You can use the `az iot ops ns device endpoint inbound add opcua` to add endpoints to the device that automatically accept untrusted server certificates.
 
 > [!CAUTION]
-> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDoS attacks.
 
 ## Troubleshoot access to the operations experience web UI
 

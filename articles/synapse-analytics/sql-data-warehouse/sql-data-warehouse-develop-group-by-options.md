@@ -14,6 +14,8 @@ ms.custom:
 
 # Group by options for dedicated SQL pools in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll find tips for implementing group by options in dedicated SQL pools.
 
 ## What does GROUP BY do?

@@ -2,12 +2,12 @@
 title: Microsoft Azure Stack Edge system requirements| Microsoft Docs
 description: Learn about the system requirements for your Microsoft Azure Stack Edge solution and for the clients connecting to Azure Stack Edge.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: reference
 ms.date: 06/26/2024
-ms.author: alkohli
+ms.author: sipastak
 ms.custom: devx-track-arm-template
 ---
 # System requirements for Azure Stack Edge Pro with GPU 

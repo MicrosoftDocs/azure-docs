@@ -1,49 +1,77 @@
 ---
-title: What is Azure network security?
-description: Overview of Azure network security
+title: 'Azure Network Security: Firewall, DDoS, WAF'
+description: Compare Azure Firewall, Azure DDoS Protection, and Azure Web Application Firewall to choose the right network security service for your workload.
 author: duongau
 ms.author: duau
 ms.service: azure-firewall
-ms.topic: overview
-ms.date: 06/24/2025
+ms.topic: concept-article
+ms.date: 08/18/2026
+ai-usage: ai-assisted
 ms.custom: 
-    - ai-usage
     - portfolio-consolidation-2025
+
+#customer intent: As a cloud architect, I want to compare the Azure network security services so that I can choose the right one for my workload.
 ---
 
 # What is Azure network security?
 
-Network security is a critical aspect of cloud computing, as it protects the data and applications that run on the cloud from various threats and attacks. Azure provides a comprehensive set of network security solutions that enable you to design, deploy, and manage secure and resilient networks in the cloud.
+Azure network security is a set of cloud-native services that protect the data and applications you run in Azure from a broad range of threats and attacks. As you move workloads to the cloud, you need to control which traffic reaches your resources, defend public endpoints from attack, and shield web applications from exploitation—all without deploying and managing your own security appliances.
+
+Azure network security centers on three core services: **Azure Firewall** delivers centralized traffic inspection and filtering across Layers 3 through 7, **Azure DDoS Protection** defends your public IP addresses against distributed denial-of-service attacks, and **Azure Web Application Firewall** protects your web applications from HTTP-layer exploits such as SQL injection and cross-site scripting.
+
+This article introduces each service, compares what they protect and where they sit in the traffic path, and helps you decide which one—or which combination—fits your workload.
 
 :::image type="content" source="./media/network-security/security-services.png" alt-text="Screenshot showing the icons for Azure Firewall, Azure DDoS Protection, and Azure Web Application Firewall.":::
 
-One of the guiding principles of Azure network security is the [Zero Trust model](/security/zero-trust/zero-trust-overview), which assumes that no network or device is inherently secure or trustworthy. Instead, every request and connection should be verified and validated based on data, identity, and context. The Zero Trust model helps you to prevent unauthorized access, limit lateral movement, and reduce the attack surface of your networks.
+## Which network security service do you need?
 
-## Choosing a solution
+Use the following table to map your scenario to the Azure network security service that addresses it. Each service targets a distinct layer of the network stack, and you can combine them for defense in depth.
 
-Choosing the right network security solution for your Azure workloads depends on your specific needs and requirements. Azure provides a variety of network security services that can be used individually or in combination to protect your workloads. Here are some key factors to consider when choosing a network security solution:
+| Scenario | Service |
+|---|---|
+| You need to restrict which external FQDNs and URLs your workloads can reach, or inspect east-west traffic between spoke virtual networks. | [Azure Firewall](../design-guide/azure-firewall.md) |
+| You need centralized Layers 3-7 traffic inspection with threat intelligence, intrusion detection and prevention (IDPS), or TLS inspection. | [Azure Firewall](../design-guide/azure-firewall.md) |
+| You deploy resources with public IP addresses that need SLA-backed protection from volumetric attacks. | [Azure DDoS Protection](../design-guide/ddos.md) |
+| You need attack telemetry, rapid response support, or cost protection during DDoS events. | [Azure DDoS Protection](../design-guide/ddos.md) |
+| You expose a public-facing web application and need protection from OWASP Top 10 attacks such as SQL injection and cross-site scripting. | [Azure Web Application Firewall](../design-guide/web-application-firewall.md) |
+| A compliance framework such as PCI DSS mandates a web application firewall, or you need bot mitigation for your web apps. | [Azure Web Application Firewall](../design-guide/web-application-firewall.md) |
 
-- **Workload type**: Different workloads have different security requirements. For example, web applications may require protection against web attacks, while virtual machines may require protection against network-based attacks.
+The three services protect different parts of the network stack. The following table compares them on the axes that drive the decision.
+
+| Decision factor | Azure Firewall | Azure DDoS Protection | Azure Web Application Firewall |
+|---|---|---|---|
+| What it protects | All Azure workloads, at both the network and application level | Public IP addresses and internet-facing endpoints | Public-facing web applications (HTTP/HTTPS) |
+| Where it sits in the traffic path | Standalone in a hub subnet, with user-defined routes directing traffic through it (Layers 3-7) | At the Azure network edge, before traffic reaches your resources | At Layer 7, integrated with Application Gateway (regional) or Azure Front Door (global edge) |
+| Threat it addresses | Malicious IPs and FQDNs, command-and-control callbacks, DNS exfiltration, and port scanning | Volumetric, protocol, and application-layer DDoS attacks | OWASP Top 10 web exploits: SQL injection, cross-site scripting, and path traversal |
+
+> [!TIP]
+> For deeper planning guidance on each service - including SKU selection, placement in your topology, and rule configuration - see the networking design guide companions: [Azure Firewall and traffic inspection](../design-guide/azure-firewall.md), [DDoS protection for Azure networks](../design-guide/ddos.md), and [Web Application Firewall for Azure networks](../design-guide/web-application-firewall.md).
+
+## Factors for choosing a network security service
+
+Choosing the right network security solution for your Azure workloads depends on your specific needs and requirements. Azure provides a variety of network security services that you can use individually or in combination to protect your workloads. Here are some key factors to consider when choosing a network security solution:
+
+- **Workload type**: Different workloads have different security requirements. For example, web applications might require protection against web attacks, while virtual machines might require protection against network-based attacks.
 - **Deployment model**: Azure provides different deployment models for network security services, such as virtual appliances, managed services, and integrated solutions. Choose the model that best fits your needs and requirements.
-- **Integration with other Azure services**: Many Azure network security services integrate with other Azure services, such as Azure Monitor, Azure Security Center, and Microsoft Sentinel. Choose a solution that can easily integrate with your existing Azure services for enhanced security and monitoring.
+- **Integration with other Azure services**: Many Azure network security services integrate with other Azure services, such as Azure Monitor, Microsoft Defender for Cloud, and Microsoft Sentinel. Choose a solution that can integrate with your existing Azure services for enhanced security and monitoring.
 - **Cost**: Different network security services have different pricing models. Choose a solution that fits your budget and provides the level of protection you need.
-- **Compliance requirements**: Depending on your industry and location, you may have specific compliance requirements that your network security solution must meet. Choose a solution that can help you meet these requirements.
-- **Scalability**: As your workloads grow, your network security solution should be able to scale with them. Choose a solution that can handle increased traffic and workloads without compromising security.
-- **Management and monitoring**: Choose a solution that provides easy management and monitoring capabilities, such as dashboards, alerts, and reporting. This will help you to quickly identify and respond to security incidents.
+- **Compliance requirements**: Depending on your industry and location, you might have specific compliance requirements that your network security solution must meet. Choose a solution that can help you meet these requirements.
+- **Scalability**: As your workloads grow, your network security solution should scale with them. Choose a solution that can handle increased traffic and workloads without compromising security.
+- **Management and monitoring**: Choose a solution that provides easy management and monitoring capabilities, such as dashboards, alerts, and reporting. This capability helps you identify and respond to security incidents.
 
 ## Azure Firewall
 
-[Azure Firewall](../../firewall/overview.md) is a cloud-native, intelligent network firewall service that offers full stateful protection with built-in high availability and unlimited cloud scalability. It provides both network and application-level security for your Azure workloads. As a managed service, Azure Firewall can be deployed in a virtual network and integrates seamlessly with other Azure services like Azure Monitor, Azure Security Center, and Microsoft Sentinel for enhanced security and monitoring.
+[Azure Firewall](../../firewall/overview.md) is a cloud-native, intelligent network firewall service that offers full stateful protection with built-in high availability and unlimited cloud scalability. It provides both network and application-level security for your Azure workloads. As a managed service, you can deploy Azure Firewall in a virtual network, where it integrates with other Azure services like Azure Monitor, Microsoft Defender for Cloud, and Microsoft Sentinel for enhanced security and monitoring.
 
 :::image type="content" source="./media/network-security/firewall.png" alt-text="Diagram showing how Azure Firewall inspects traffic to and from the internet before routing it to its destination.":::
 
-Depending on your needs, you can select from three Azure Firewall SKUs:
+Depending on your needs, select from three Azure Firewall SKUs:
 
 - [**Basic**](../../firewall/basic-features.md): Basic SKU is a cost-effective option for simple firewall solutions in Azure workloads. It provides essential features such as network and application filtering, network address translation, and logging.
 - [**Standard**](../../firewall/features.md): Standard SKU is a more advanced option that includes extra features such as DNS proxy and web categories. It's designed for more comprehensive firewall solutions in Azure workloads.
 - [**Premium**](../../firewall/premium-features.md): Premium SKU is the most advanced option that includes all the features of the Standard SKU, plus extra features such as TLS inspection, intrusion detection and prevention, and URL filtering. It's designed for the highest level of security and control in Azure workloads.
 
-### Use cases
+### Azure Firewall use cases
 
 - **Network security**: Protect your Azure workloads from network-based attacks and unauthorized access.
 - **Application security**: Protect your Azure workloads from application-based attacks and vulnerabilities.
@@ -53,38 +81,45 @@ Depending on your needs, you can select from three Azure Firewall SKUs:
 
 For more information, see [Azure Firewall overview](../../firewall/overview.md).
 
+> [!div class="nextstepaction"]
+> [Get started: Deploy and configure Azure Firewall](../../firewall/tutorial-firewall-deploy-portal.md)
+
 ## Azure DDoS Protection
 
-[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) is a service that provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network or public IP address resources, and it requires no application or resource changes. 
+[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) provides enhanced DDoS mitigation features to defend against DDoS attacks. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network or public IP address resources, and it requires no application or resource changes. 
 
-- **IP protection**: Azure DDoS IP Protection provides protection for your Azure resources that are assigned a public IP address. It protects against volumetric, protocol, and application layer attacks.
+- **IP protection**: Azure DDoS IP Protection protects your Azure resources that have a public IP address. It protects against volumetric, protocol, and application layer attacks.
 
-    :::image type="content" source="./media/network-security/ip-protection.png" alt-text="Diagram illustrating Azure DDoS Protection applied to a resource with a public IP address.":::
+    :::image type="content" source="./media/network-security/ip-protection.png" alt-text="Diagram showing Azure DDoS IP Protection attached directly to a resource's public IP address, guarding it against volumetric attacks.":::
 
-- **Network protection**: Azure DDoS Network Protection provides protection for your Azure resources in a virtual network that are assigned a public IP address. It has extra features such as DDoS Rapid Response support, cost protection, and WAF discounts. 
+- **Network protection**: Azure DDoS Network Protection protects your Azure resources in a virtual network that have a public IP address. It has extra features such as DDoS Rapid Response support, cost protection, and WAF discounts. 
 
     :::image type="content" source="./media/network-security/network-protection.png" alt-text="Diagram illustrating Azure DDoS Protection enabled at the virtual network level for a hub-and-spoke topology.":::
 
-### Use cases
+### Azure DDoS Protection use cases
 
 - **Protection against DDoS attacks**: Protect your Azure resources from DDoS attacks, including volumetric, protocol, and application layer attacks.
 - **Cost protection**: Protect your Azure resources from unexpected costs due to DDoS attacks.
-- **Rapid response**: Get rapid response support from Azure DDoS experts in the event of a DDoS attack.
+- **Rapid response**: Get rapid response support from Azure DDoS experts during a DDoS attack.
 
 For more information, see [Azure DDoS Protection overview](../../ddos-protection/ddos-protection-overview.md).
+
+> [!div class="nextstepaction"]
+> [Get started: Configure Azure DDoS Protection](../../ddos-protection/manage-ddos-protection.md)
 
 ## Azure Web Application Firewall
 
 [Azure Web Application Firewall](../../web-application-firewall/overview.md) (WAF) is a web application firewall that provides centralized protection to your web applications from common exploits and vulnerabilities. WAF uses rules to monitor HTTP requests and responses, and it can block or allow traffic based on the rules you define. 
 
-:::image type="content" source="./media/network-security/web-application-firewall.png" alt-text="Diagram illustrating Azure Web Application Firewall applied to both Azure Application Gateway and Azure Front Door, allowing valid requests and blocking web attacks.":::
+:::image type="content" source="./media/network-security/web-application-firewall.png" alt-text="Diagram showing WAF on Application Gateway and Front Door allowing valid client requests through and blocking malicious web attacks.":::
 
 WAF is available in two deployment options:
 
-- [**Azure Application Gateway WAF**](../../web-application-firewall/ag/ag-overview.md): Azure Application Gateway is a web traffic (OSI layer 7) load balancer that enables you to manage traffic to your web applications.
+- [**Azure Application Gateway WAF**](../../web-application-firewall/ag/ag-overview.md): Azure Application Gateway is a web traffic (OSI Layer 7) load balancer that manages traffic to your web applications.
 - [**Azure Front Door WAF**](../../web-application-firewall/afds/afds-overview.md): Azure Front Door is a scalable and secure entry point for fast delivery of your global applications. It offers SSL offload, application acceleration, and global load balancing with instant failover.
 
-### Use cases
+### Azure Web Application Firewall use cases
+
 - **Protection against web attacks**: Protect your web applications from common exploits and vulnerabilities, such as SQL injection and cross-site scripting (XSS).
 - **Centralized management**: Manage your web application firewall rules and policies from a single location.
 - **Integration with Azure services**: Integrate WAF with other Azure services, such as Azure Application Gateway and Azure Front Door, for enhanced security and performance.
@@ -93,27 +128,33 @@ WAF is available in two deployment options:
 
 For more information, see [Azure Web Application Firewall overview](../../web-application-firewall/overview.md).
 
-## Azure portal experience
+> [!div class="nextstepaction"]
+> [Get started with Web Application Firewall on Application Gateway](../../web-application-firewall/ag/ag-overview.md)
 
-The Azure portal provides a unified experience for [managing your network security services](https://ms.portal.azure.com/?Microsoft_Azure_HybridNetworking_clientoptimizations=false&feature.customportal=false&exp.azureportal_assettypevariant-microsoft_azure_hybridnetworking-firewallmanager=netsechubexpon&feature.unifiedCopilot=true&exp.azureportal_assettypevariant-microsoft_azure_hybridnetworking-firewallpolicy=netsechubexpon&exp.azureportal_assettypevariant-microsoft_azure_hybridnetworking-networksecurity=netsechubexpon&exp.AzurePortal_netsechubexpon=true&exp.AzurePortal_isRecMenuItemVisible=true&exp.AzurePortal_reactOverviewFwmExp=true&exp.AzurePortal_ddosInlineCtaVisible=true&Microsoft_Azure_HybridNetworking=flight12#view/Microsoft_Azure_HybridNetworking/FirewallManagerMenuBlade/~/overviewReact). You can easily create and manage your network security services from a single location, and you can also view the status and health of your services.
+## Manage network security in the Azure portal
 
-:::image type="content" source="media/network-security/portal-hub.png" alt-text="Screenshot of the network security selection experience in the Azure portal.":::
+The Azure portal provides a unified experience for [managing your network security services](https://portal.azure.com/#view/Microsoft_Azure_HybridNetworking/FirewallManagerMenuBlade/~/overviewReact).
+
+:::image type="content" source="media/network-security/portal-hub.png" alt-text="Screenshot of the Azure portal Network security selection page listing Azure Firewall, DDoS Protection, and Web Application Firewall.":::
 
 ### Common network security scenarios
 
 The Network Security hub currently supports the following deployment options:
 
-- **Secured hub-and-spoke virtual network**: Deploy an Azure Firewall in a virtual network designated as a hub. This hub virtual network can connect to multiple spoke virtual networks using virtual network peering. The Azure Firewall is associated with an Azure Firewall policy that defines the rules and configurations for the firewall. This deployment model is ideal for organizations seeking to centralize network security and management in one location.
+- **Secured hub-and-spoke virtual network**: Deploy an Azure Firewall in a virtual network designated as a hub. Connect this hub virtual network to multiple spoke virtual networks by using virtual network peering. Use an Azure Firewall policy to define the rules and configurations for the Azure Firewall. This deployment model is ideal for organizations seeking to centralize network security and management in one location.
 
-- **Protect Virtual WANs at scale**: Deploy an Azure Firewall in an Azure Virtual WAN secured hub. The Azure Firewall is associated with an Azure Firewall policy, and the secured hub is connected to multiple branch offices and remote users. This deployment model is ideal for organizations using Azure Virtual WAN to connect multiple branch offices and remote users to Azure resources.
+- **Protect Virtual WANs at scale**: Deploy an Azure Firewall in an Azure Virtual WAN secured hub. Use an Azure Firewall policy with the Azure Firewall, and connect the secured hub to multiple branch offices and remote users. This deployment model is ideal for organizations that use Azure Virtual WAN to connect multiple branch offices and remote users to Azure resources.
 
-- **Zero Trust for web applications**: Use Azure Application Gateway with an Azure Web Application Firewall (WAF) policy to safeguard regional web applications against common exploits and vulnerabilities. Customize the WAF policy to address the specific security needs of your web applications effectively.
+- **Zero Trust for web applications**: Use Azure Application Gateway with an Azure Web Application Firewall (WAF) policy to safeguard regional web applications against common exploits and vulnerabilities. Customize the WAF policy to address the specific security needs of your web applications.
 
 - **Deliver cloud content securely**: Use Azure Front Door with an Azure Web Application Firewall (WAF) policy to protect and optimize the delivery of your global web applications. This deployment model ensures secure and efficient application performance while allowing you to customize the WAF policy to address specific security needs.
 
-## Next steps
+## Related content
 
-Learn more about the different features and capabilities of each Azure network security service:
-
-> [!div class="nextstepaction"]
-> [Azure network security documentation](index.yml)
+- [Azure Firewall and traffic inspection](../design-guide/azure-firewall.md): Plan SKU selection, hub placement, and rule configuration for centralized traffic inspection.
+- [DDoS protection for Azure networks](../design-guide/ddos.md): Compare DDoS protection tiers and choose the right level for your workloads.
+- [Web Application Firewall for Azure networks](../design-guide/web-application-firewall.md): Compare WAF on Application Gateway and Azure Front Door for HTTP-layer protection.
+- [Azure Firewall documentation](../../firewall/overview.md)
+- [Azure DDoS Protection documentation](../../ddos-protection/ddos-protection-overview.md)
+- [Azure Web Application Firewall documentation](../../web-application-firewall/overview.md)
+- [Zero Trust model](/security/zero-trust/zero-trust-overview)

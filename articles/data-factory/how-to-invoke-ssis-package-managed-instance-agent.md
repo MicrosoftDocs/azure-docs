@@ -3,8 +3,8 @@ title: Run SSIS packages using Azure SQL Managed Instance Agent
 description: Learn how to run SSIS packages by using Azure SQL Managed Instance Agent. 
 ms.subservice: integration-runtime
 ms.topic: how-to
-ms.author: lle
-author: lrtoyou1223
+ms.author: makromer
+author: kromerm
 ms.date: 05/15/2024
 ms.custom: sfi-image-nochange
 ---
@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 # Run SSIS packages by using Azure SQL Managed Instance Agent
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article describes how to run a SQL Server Integration Services (SSIS) package by using Azure SQL Managed Instance Agent. This feature provides behaviors that are similar to when you schedule SSIS packages by using SQL Server Agent in your on-premises environment.
 

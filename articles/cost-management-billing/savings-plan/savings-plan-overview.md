@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: overview
-ms.date: 03/14/2026
+ms.date: 09/14/2026
 ms.author: onwokolo
 ---
 
@@ -26,8 +26,7 @@ Savings plans are based on a dollar‑per‑hour spend commitment and automatica
 
 ## What savings plans are available
 
-There are two savings plans - Savings plan for compute and Savings plan for databases.
-The compute savings plan is available as a 1-year or 3-year commitment, while the database savings plan is available as a 1-year commitment.
+There are two savings plans - Savings plan for compute and Savings plan for databases. Both savings plans are available as 1-year or 3-year commitments.
 
 Savings plan for compute applies to infrastructure costs from a broad set of Azure compute services, including:
 - Azure Virtual Machines
@@ -76,7 +75,7 @@ Azure provides commitment recommendations based on your savings plan eligible on
 To learn more, visit [Savings plan recommendations](purchase-recommendations.md).
 
 ## How savings plan benefits are applied
-With savings plan, hourly usage charges incurred from [savings plan-eligible resources](https://azure.microsoft.com/pricing/offers/savings-plans/#How-it-works), which are within the benefit scope of the savings plan, are discounted and applied to your hourly commitment until the hourly commitment is reached. The savings apply to *all eligible resources*. Usage charges above the commitment are billed at your on-demand rate.
+With savings plan, hourly usage charges incurred from [savings plan-eligible resources](https://azure.microsoft.com/pricing/offers/savings-plans?cid=msft_learn), which are within the benefit scope of the savings plan, are discounted and applied to your hourly commitment until the hourly commitment is reached. The savings apply to *all eligible resources*. Usage charges above the commitment are billed at your on-demand rate.
 
 ## How to find products covered under a savings plan
 To learn about included products, visit [included products](download-savings-plan-price-sheet.md).

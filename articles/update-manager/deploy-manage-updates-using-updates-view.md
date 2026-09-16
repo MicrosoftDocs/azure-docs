@@ -2,11 +2,12 @@
 title: Deploy and manage updates using Updates view
 description: This article describes how to view the updates pending for your environment and then deploy and manage them using the Updates option in Azure Update Manager
 ms.service: azure-update-manager
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.date: 06/21/2024
 ms.topic: how-to
 ms.custom: sfi-image-nochange
+ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator, I want to view and manage pending updates for my environment, so that I can ensure all machines are up-to-date and secure from vulnerabilities."
 ---
 

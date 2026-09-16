@@ -3,8 +3,9 @@ title: Asset and Device Management
 description: Understand concepts and options for managing the devices and assets that are part of your Azure IoT Operations solution.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: overview
-ms.date: 02/16/2026
+ms.date: 07/27/2026
 ai-usage: ai-assisted
 ms.custom: sfi-image-nochange
 
@@ -107,6 +108,8 @@ Device Registry uses namespaces to organize assets and devices. Each Azure IoT O
 
 Manage devices and assets through the operations experience or through Azure APIs and tools like Azure Resource Graph. Changes made in the cloud sync to the edge and appear as custom resources in the Kubernetes cluster.
 
+[!INCLUDE [cloud-source-of-truth](../includes/cloud-source-of-truth.md)]
+
 ### Akri services
 
 Akri services in Azure IoT Operations:
@@ -136,12 +139,7 @@ Connectors include:
 
 - **Custom connectors**. Services that you create to connect to other data sources and publish data to the MQTT broker. Use the Azure IoT Operations SDKs to create custom connectors that meet your specific requirements.
 
-Each connector organizes asset data using one or more of the following types:
-
-- **Datasets**: A logical grouping of telemetry data points that defines what data is collected and routes it to a destination MQTT topic.
-- **Event groups**: A logical container for related discrete events from an asset, such as state changes or alerts, routed to a destination MQTT topic.
-- **Management groups**: A logical grouping of read, write, or call actions that can be invoked against an asset.
-- **Streams**: A continuous flow of media data, such as video or audio, from an asset such as a camera.
+Each connector organizes asset data into datasets, event groups, management groups, and streams. For detailed descriptions of each data type, see [Assets and devices](concept-assets-devices.md#assets).
 
 The following table summarizes which data types each connector supports.
 

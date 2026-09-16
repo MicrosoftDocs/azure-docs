@@ -27,6 +27,10 @@ For information on setup and configuration details, see the [overview](./functio
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 The usage of the binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:
@@ -310,7 +314,7 @@ The following `MyTableData` class represents a row of data in the table:
 
 The following function, which is started by a Queue Storage trigger, reads a row key from the queue, which is used to get the row from the input table. The expression `{queueTrigger}` binds the row key to the message metadata, which is the message string.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="12-29" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="12-29" :::
 
 The following Queue-triggered function returns the first 5 entities as an `IEnumerable<T>`, with the partition key value set as the queue message.  
 
@@ -730,7 +734,7 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end  
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-[!INCLUDE [functions-table-connections](../../includes/functions-table-connections.md)]
+[!INCLUDE [functions-storage-connections](../../includes/functions-storage-connections.md)]
 
 ## Usage
 

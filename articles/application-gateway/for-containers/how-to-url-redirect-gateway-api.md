@@ -3,7 +3,7 @@ title: URL Redirect for Azure Application Gateway for Containers - Gateway API
 description: Learn how to redirect URLs in Gateway API for Application Gateway for Containers.
 services: application gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: how-to
 ms.date: 11/05/2024
 ms.author: mbender
@@ -16,7 +16,7 @@ Application Gateway for Containers allows you to return a redirect response to t
 
 ## Usage details
 
-URL redirects take advantage of the [RequestRedirect rule filter](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.HTTPRequestRedirectFilter) as defined by Kubernetes Gateway API.
+URL redirects take advantage of the [RequestRedirect rule filter](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#httprequestredirectfilter) as defined by Kubernetes Gateway API.
 
 ## Redirection
 

@@ -1,13 +1,14 @@
 ---
-title: Connect and control industrial assets using the connector for OPC UA
-description: Use the connector for OPC UA to connect to OPC UA servers and exchange messages and data with the MQTT broker in a Kubernetes cluster.
+title: What is the connector for OPC UA?
+description: Learn how the connector for OPC UA connects industrial assets, manages OPC UA sessions, and exchanges data with the MQTT broker.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.subservice: azure-opcua-connector
 ms.topic: overview
-ms.date: 11/04/2025
+ms.date: 08/10/2026
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to to understand what the connector for OPC UA is and how it works with OPC UA industrial assets to enable me to add them as resources to my Kubernetes cluster. I want to understand how to read data from OPC UA servers and write data to implement process control.
+# CustomerIntent: As an industrial edge IT or operations user, I want to understand what the connector for OPC UA is and how it works with OPC UA industrial assets to enable me to add them as resources to my Kubernetes cluster. I want to understand how to read data from OPC UA servers and write data to implement process control.
 
 ---
 
@@ -19,10 +20,15 @@ By using the *OPC UA write capability*, industrial developers and operations eng
 
 The write capability is useful in scenarios where latency, autonomy, or local decision making is critical such as in manufacturing lines, predictive maintenance, or in AI-driven control loops.
 
-The connector for OPC UA is an optional part of Azure IoT Operations. The connector for OPC UA connects to OPC UA servers to retrieve data that it publishes to topics in the MQTT broker and write data based in values from an MQTT broker topic subscription. The connector for OPC UA enables your industrial OPC UA environment to ingress data into your local workloads running on a Kubernetes cluster, and into your cloud workloads.
+The connector for OPC UA is an optional part of Azure IoT Operations that:
+
+- Connects to OPC UA servers to retrieve data that it publishes to topics in the MQTT broker.
+- Writes data based on values from an MQTT broker topic subscription.
+
+The connector for OPC UA enables your industrial OPC UA environment to ingress data into your local workloads running on a Kubernetes cluster, and into your cloud workloads.
 
 > [!TIP]
-> If you didn't include the connector for OPC UA when you deployed Azure IoT Operations, you can add it to your existing instance from the Azure portal. For instructions, see [Manage components using the Azure portal](../deploy-iot-ops/howto-manage-update-uninstall.md#manage-instance-components).
+> If you didn't include the connector for OPC UA when you deployed Azure IoT Operations, you can add it to your existing instance from the Azure portal. For instructions, see [Manage components using the Azure portal](../manage-iot-ops/howto-manage-update-uninstall.md#manage-instance-components).
 
 The connector for OPC UA is a client application that runs as a middleware service in Azure IoT Operations. The connector for OPC UA connects to OPC UA servers, lets you browse the server address space, monitor data changes and events in connected assets, and write data to nodes in the server address space. Operations teams and developers use the connector for OPC UA to streamline the task of connecting OPC UA assets to their industrial solution at the edge.
 
@@ -31,6 +37,7 @@ The connector for OPC UA is a client application that runs as a middleware servi
 As part of Azure IoT Operations, the connector for OPC UA is a native Kubernetes application that:
 
 - Connects existing OPC UA servers and assets to a native Kubernetes cluster at the edge.
+- Can automatically [discover assets](./howto-detect-opc-ua-assets.md) connected to an OPC UA server and add the asset configurations into Azure Device Registry.
 - Publishes JSON-encoded messages from OPC UA servers in OPC UA PubSub format, using a JSON payload. By using this standard format for data exchange, you can reduce the risk of future compatibility issues.
 - Can synchronize OPC UA node properties to the [distributed state store](../develop-edge-apps/overview-edge-apps.md#state-store).
 - Writes values directly to nodes in a connected OPC UA server based on MQTT subscriptions.
@@ -43,19 +50,23 @@ The connector for OPC UA supports the following features as part of Azure IoT Op
 | Feature | Supported | Notes |
 |---------|:---------:|-------|
 | Username/password authentication | Yes | |
-| X.509 client certificates | Yes | |
+| X.509 user certificates | Yes | |
 | Anonymous access | Yes | For testing purposes |
-| Certificate trust list | Yes | For secure, encrypted OPC UA connections |
+| Southbound certificate trust list | Yes | For secure, encrypted OPC UA connections |
 | OpenTelemetry integration | Yes | |
 | Automatic reconnection | Yes | Reconnects to OPC UA servers after failures |
-| Multiple server connections | Yes | Configured using Kubernetes `device` CRs |
+| Multiple server connections | Yes | Configured using `device` resources |
 | OPC UA PubSub format | Yes | JSON-encoded data value changes |
 | CloudEvents headers | Yes | Message headers as MQTT user properties |
 | OPC UA events | Yes | Predefined event fields |
 | Payload compression | Yes | Supports `gzip` and `brotli` |
-| [Dynamic node resolution](#resolve-nodes-dynamically-by-using-browse-paths) | Yes | Using `TranslateBrowsePathToNodeId` service |
+| [Dynamic node resolution](#dynamic-node-resolution-with-browse-paths) | Yes | Uses the `TranslateBrowsePathToNodeId` service |
 | State store synchronization | Yes | Sync OPC UA node properties to distributed state store |
-| [Key frame generation](#understand-key-frames-for-opc-ua-data-points) | Yes | Enables downstream services to recover state more quickly |
+| [Shared endpoint mode](#shared-endpoint-mode) | Yes | Multiple assets share a single OPC UA session |
+| [High availability](#high-availability-for-opc-ua-connections) | Yes | Uses active and passive connector instances to reduce interruptions |
+| [Key frame generation](#key-frames-for-opc-ua-data-points) | Yes | Enables downstream services to recover state more quickly |
+| [Dataset triggering](#control-dataset-publishing-with-a-triggering-item) | Yes | Publishes sampled data points when a selected data point changes |
+| [Server heartbeat monitoring](concept-opc-ua-server-heartbeat-monitoring.md) | Yes | Detects OPC UA server liveness and reports inbound endpoint health |
 
 ## How it works
 
@@ -75,7 +86,7 @@ To write values to a node in a connected OPC UA server, the connector for OPC UA
 
 1. Reads the asset configuration to determine which nodes to write to on the OPC UA server.
 
-1. Subscribes to an MQTT topic that contains write requests for the asset. The topic name is in the format `{Namespace}/asset-operations/{AssetId}/builtin/{DatasetName}/`, where `{Namespace}` is the namespace for Azure IoT Operations instance, `{AssetId}` is the unique identifier for the asset, and `{DatasetName}` is the name of the dataset that contains the nodes to write to.
+1. Subscribes to an MQTT topic that contains write requests for the asset. The topic name is in the format `<namespace>/asset-operations/<asset-name>/builtin/<dataset-name>/`, where `<namespace>` is the namespace for the Azure IoT Operations instance, `<asset-name>` is the name of the asset, and `<dataset-name>` is the name of the dataset that contains the nodes to write to.
 
 1. Creates a temporary session with the OPC UA server using the device configuration.
 
@@ -88,14 +99,38 @@ To generate a write request, publish a JSON message to the MQTT topic using MQTT
 To synchronize OPC UA node properties to the distributed state store, the connector for OPC UA:
 
 1. Follows the `HasProperty` reference of all variable nodes that are referenced as data points within any dataset of all assets using the same OPC UA inbound endpoint.
-1. Adds the properties to the distributed state store under the ID: `{AioNamespace}.{AssetName}.{DatasetName}.{DataPointName}.{PropertyName}`.
+1. Adds the properties to the distributed state store under the ID: `<aio-namespace>.<asset-name>.<dataset-name>.<data-point-name>.<property-name>`.
 1. Automatically subscribes the `ModelChange` event of the OPC UA server and repopulates all properties after a `ModelChange` event occurs.
 
 To configure this behavior, select **Sync properties into state store** when you configure an inbound OPC UA endpoint in the operations experience web UI:
 
 :::image type="content" source="media/overview-opc-ua-connector/sync-properties.png" alt-text="Screenshot that shows the location of the sync properties to state store option." lightbox="media/overview-opc-ua-connector/sync-properties.png":::
 
-You can also force a synchronization of all properties by making an MQTT RPC call to the `azure-iot-operation/asset-operations/{AssetName}/builtin/syncProperties` topic. A payload `{}` forces a synchronization without observing `ModelChange` events. A payload `{"observeModelChanges": true}` forces a synchronization that observes `ModelChange` events.
+You can also force a synchronization of all properties by making an MQTT RPC call to the `azure-iot-operations/asset-operations/<asset-name>/builtin/syncProperties` topic. A payload `{}` forces a synchronization without observing `ModelChange` events. A payload `{"observeModelChanges": true}` forces a synchronization that observes `ModelChange` events.
+
+## Shared endpoint mode
+
+By default, each asset that connects to an OPC UA server opens its own independent OPC UA session. This default behavior is called *dedicated* mode.
+
+When you set the `shared` flag to `true` on a device's inbound endpoint, the connector establishes a single OPC UA session for the endpoint and reuses it across all assets that reference that endpoint. This behavior is called *shared* mode.
+
+Shared mode reduces the number of sessions and connections on the OPC UA server, but it also increases the effect of a session interruption because every asset on the endpoint uses the same session. You can use shared and dedicated endpoints on the same device to balance server capacity and asset isolation.
+
+To compare session modes and configure a shared endpoint, see [Configure OPC UA sessions and high availability](howto-configure-opc-ua-sessions-high-availability.md).
+
+## High availability for OPC UA connections
+
+High availability uses active and passive connector instances for an OPC UA inbound endpoint. The active instance owns the server session and subscriptions. If the active instance becomes unavailable, a passive instance takes over the endpoint and attempts to restore data collection.
+
+You can combine high availability with dedicated or shared session mode. High availability reduces interruptions caused by connector failures, but it doesn't make the OPC UA server itself highly available and it doesn't guarantee that no data is lost during failover.
+
+To plan capacity, configure redundant connectors, and verify failover, see [Configure OPC UA sessions and high availability](howto-configure-opc-ua-sessions-high-availability.md).
+
+## Server heartbeat monitoring
+
+The connector for OPC UA can monitor whether an OPC UA server is alive, independently of your asset data collection. A dedicated monitoring session watches the server's current time and reports server liveness as inbound endpoint health, so you can tell a server outage apart from a data configuration problem.
+
+Server heartbeat monitoring is separate from dataset publishing behavior, session sharing, and connector high availability. To learn how it works, how to configure it per endpoint, and how to monitor the heartbeat state, see [Monitor OPC UA server availability with heartbeat monitoring](concept-opc-ua-server-heartbeat-monitoring.md).
 
 ## Connector for OPC UA message format
 
@@ -156,80 +191,45 @@ The subject field contains the name of the asset that the message relates to. Th
 > [!NOTE]
 > For assets you create in the operations experience web UI, the subject property for any messages the asset sends is set to the `externalAssetId` value. In this case, the `subject` property contains a GUID rather than a friendly asset name.
 
-## Resolve nodes dynamically by using browse paths
+## Dynamic node resolution with browse paths
 
-When you configure OPC UA data points or events in an asset, you typically add an OPC UA server node ID in the **Data source** field. This approach assumes that node IDs are stable across server restarts and deployments. However, some OPC UA servers create node IDs dynamically at runtime or on demand. You can't persist these dynamic node IDs in an asset configuration because they might change over time.
+Some OPC UA servers create node IDs dynamically, so the identifiers can change after a server restart or deployment. For these servers, the connector can use the OPC UA `TranslateBrowsePathToNodeId` service to resolve a target node from a stable starting node and a relative browse path at runtime.
 
-To address this scenario, the connector can resolve dynamic nodes at runtime by using the OPC UA `TranslateBrowsePathToNodeId` service. This service resolves a target node ID from a starting object and a relative browse path. When you configure a **Start instance** value in a dataset or event configuration, each data point or event requires a valid relative browse path in its **Data source** property. The connector translates the relative browse path to a concrete node ID at runtime.
+To configure start instances and relative browse paths, see [Configure advanced OPC UA data collection](howto-configure-opc-ua-advanced-data-collection.md#resolve-dynamic-nodes-by-using-browse-paths).
 
-> [!NOTE]
-> If you don't provide a **Start instance** value, the connector uses the **Data source** property as a fixed node ID.
+## Control dataset publishing with a triggering item
 
-Example **Start instance** values:
+Dataset triggering lets one data point control when the connector publishes the other sampled data points in the same dataset. Use dataset triggering when you want the dataset output cadence to follow a specific signal instead of publishing whenever any data point changes.
 
-* `i=2555`
-* `nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1`
-* `nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=5`
-* `ns=10;s=System.Pump1`
-* `ns=1;b=M/RbKBsRVkePCePcx24oRA==`
+For each dataset, the `triggeringItem` setting identifies the data point that acts as the trigger. The value must exactly match the name of one data point in that dataset. Empty or whitespace values are treated as unset. When the trigger changes, the connector publishes the sampled values for the other data points together.
 
-Example relative browse paths to use in the **Data source** field:
+The `triggeringItemReportingMode` setting controls how the connector monitors the trigger data point:
 
-* `/1:SYSTEM/1:PUMP/1:P1`
-* `/2:Block&.Output`
-* `/3:Truck.0:NodeVersion`
-* `<!HasChild>Truck`
-* `<1:ConnectedTo>1:Boiler/`
+| Mode | Behavior |
+| --- | --- |
+| `Sampling` | The trigger data point controls dataset publishing but doesn't report its own value. This mode is the default. |
+| `Reporting` | The trigger data point controls dataset publishing and reports its own value. |
+| `Disabled` | The trigger data point is disabled. |
 
-For more information about the relative browse path syntax, see [OPC Foundation Part 4 A.2](https://reference.opcfoundation.org/Core/Part4/v105/docs/A.2).
+Dataset triggering has the following requirements and fallback behavior:
 
-The relative browse paths must use numeric OPC UA namespace indexes. There's currently no support for namespace names in string format.
+- Triggering applies to a single dataset. Configure each dataset with its own triggering item.
+- All data points in the dataset must fit in a single OPC UA subscription. If the dataset exceeds `subscription.maxItems`, the connector disables triggering, returns the data points to normal reporting, and publishes an asset status error.
+- The asset must reference a namespaced device endpoint. For a classic asset that doesn't use a namespace, the connector ignores the triggering settings.
+- If `triggeringItem` doesn't match exactly one data point name, the connector disables triggering for the dataset and publishes an asset status error.
+- If the connector can't link the trigger to the target data points at runtime, it leaves the target data points in reporting mode to avoid silent data loss.
 
-> [!IMPORTANT]
-> Namespace indexes can change within the server. If namespace indexes change, you must reconfigure them in the asset definition.
+To configure a triggering item for a dataset, see [Configure the connector for OPC UA](howto-configure-opc-ua.md#configure-dataset-triggering).
 
-## Understand key frames for OPC UA data points
+## Key frames for OPC UA data points
 
-Use the *key frame count* setting to control how often the connector for OPC UA sends a key frame. By default, when the connector sends a message, it only includes data points whose value changed since the last message. A key frame is a message that contains values for all the data points in the dataset, regardless of whether they changed since the last message.
+Normally, the connector includes only changed data-point values in a message. A key frame includes every data-point value in the dataset, which helps consumers recover the current state after missed messages, restarts, or reconnections. More frequent key frames improve recovery time but increase message size and bandwidth use.
 
-If a consumer misses messages (due to restarts, reconnects, or network problems), it can't reliably reconstruct the current state until it receives a key frame with all the data point values. Key frames enable consumers to recover state faster, but they make message sizes larger.
-
-For more information about key frames, see [OPC UA Part 14 – PubSub](https://reference.opcfoundation.org/Core/Part14/v105/docs/).
-
-### Key frame count behavior
-
-| Value | Behavior |
-|-------|----------|
-| `-1` | Default (not set) |
-| `0` | Disable key frames |
-| `1` | Every frame is a key frame |
-| `>1` | Emit a key frame every *n* frames |
-
-The key frame interval is approximately: `KeyFrameCount * PublishingIntervalMs`
-
-For example:
-
-| KeyFrameCount | PublishingIntervalMs | Result |
-|---------------|----------------------|--------|
-| `-1` | 1000 | Connector default behavior |
-| `0` | 1000 | No key frames |
-| `1` | 1000 | Key frame every one second |
-| `10` | 500 | Key frame every five seconds |
-
-For the key frame count setting, choose:
-
-- Larger values (30–60): Lower bandwidth, slower recovery
-- Smaller values (5–10): Faster recovery for frequently reconnecting consumers
-- Zero: Only if consumers don't require snapshots
-
-To learn more about configuring key frames, see [Add a dataset to an asset](howto-configure-opc-ua.md#add-a-dataset-to-an-asset).
-
-> [!NOTE]
-> Changing the publishing interval affects the effective key frame interval. Configuration updates can require reconciliation or a pod restart.
+To choose and configure a key-frame interval, see [Configure advanced OPC UA data collection](howto-configure-opc-ua-advanced-data-collection.md#configure-key-frames-for-state-recovery).
 
 ## How does it relate to Azure IoT Operations?
 
-The connector for ONVIF is part of Azure IoT Operations. You deploy the connector to an Arc-enabled Kubernetes cluster on the edge as part of an Azure IoT Operations deployment. The connector interacts with other Azure IoT Operations elements, such as:
+The connector for OPC UA is part of Azure IoT Operations. You deploy the connector to an Arc-enabled Kubernetes cluster on the edge as part of an Azure IoT Operations deployment. The connector interacts with other Azure IoT Operations elements, such as:
 
 - [Assets and devices](./concept-assets-devices.md)
 - [The MQTT broker](../connect-to-cloud/overview-dataflow.md)

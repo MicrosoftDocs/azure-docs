@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -71,6 +71,121 @@ Azure service: [Azure Sphere](/azure-sphere/product-overview/what-is-azure-spher
 > | `Microsoft.AzureSphere/locations/operationStatuses/read` | read operationStatuses |
 > | `Microsoft.AzureSphere/locations/operationStatuses/write` | write operationStatuses |
 > | `Microsoft.AzureSphere/operations/read` | read operations |
+
+## Microsoft.DeviceRegistry
+
+Azure service: Microsoft.DeviceRegistry
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | `Microsoft.DeviceRegistry/register/action` | Register the subscription for Microsoft.DeviceRegistry |
+> | `Microsoft.DeviceRegistry/unregister/action` | Unregister the subscription for Microsoft.DeviceRegistry |
+> | `Microsoft.DeviceRegistry/assetEndpointProfiles/read` | List AssetEndpointProfile resources by subscription ID |
+> | `Microsoft.DeviceRegistry/assetEndpointProfiles/read` | List AssetEndpointProfile resources by resource group |
+> | `Microsoft.DeviceRegistry/assetEndpointProfiles/read` | Get a AssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/assetEndpointProfiles/write` | Create a AssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/assetEndpointProfiles/delete` | Delete a AssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/assetEndpointProfiles/write` | Update a AssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/assets/read` | List Asset resources by subscription ID |
+> | `Microsoft.DeviceRegistry/assets/read` | List Asset resources by resource group |
+> | `Microsoft.DeviceRegistry/assets/read` | Get a Asset |
+> | `Microsoft.DeviceRegistry/assets/write` | Create a Asset |
+> | `Microsoft.DeviceRegistry/assets/delete` | Delete a Asset |
+> | `Microsoft.DeviceRegistry/assets/write` | Update a Asset |
+> | `Microsoft.DeviceRegistry/billingContainers/read` | List BillingContainer resources by subscription ID |
+> | `Microsoft.DeviceRegistry/billingContainers/read` | Get a BillingContainer |
+> | `Microsoft.DeviceRegistry/devices/read` | List Device resources by subscription ID |
+> | `Microsoft.DeviceRegistry/devices/read` | List Device resources by resource group |
+> | `Microsoft.DeviceRegistry/devices/read` | Get a Device |
+> | `Microsoft.DeviceRegistry/devices/write` | Create a Device |
+> | `Microsoft.DeviceRegistry/devices/delete` | Delete a Device |
+> | `Microsoft.DeviceRegistry/devices/write` | Update a Device |
+> | `Microsoft.DeviceRegistry/discoveredAssetEndpointProfiles/read` | List DiscoveredAssetEndpointProfile resources by subscription ID |
+> | `Microsoft.DeviceRegistry/discoveredAssetEndpointProfiles/read` | List DiscoveredAssetEndpointProfile resources by resource group |
+> | `Microsoft.DeviceRegistry/discoveredAssetEndpointProfiles/read` | Get a DiscoveredAssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/discoveredAssetEndpointProfiles/write` | Create a DiscoveredAssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/discoveredAssetEndpointProfiles/delete` | Delete a DiscoveredAssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/discoveredAssetEndpointProfiles/write` | Update a DiscoveredAssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/discoveredAssets/read` | List DiscoveredAsset resources by subscription ID |
+> | `Microsoft.DeviceRegistry/discoveredAssets/read` | List DiscoveredAsset resources by resource group |
+> | `Microsoft.DeviceRegistry/discoveredAssets/read` | Get a DiscoveredAsset |
+> | `Microsoft.DeviceRegistry/discoveredAssets/write` | Create a DiscoveredAsset |
+> | `Microsoft.DeviceRegistry/discoveredAssets/delete` | Delete a DiscoveredAsset |
+> | `Microsoft.DeviceRegistry/discoveredAssets/write` | Update a DiscoveredAsset |
+> | `Microsoft.DeviceRegistry/locations/operationStatuses/read` | read operationStatuses |
+> | `Microsoft.DeviceRegistry/locations/operationStatuses/write` | write operationStatuses |
+> | `Microsoft.DeviceRegistry/namespaces/read` | List Namespace resources by subscription ID |
+> | `Microsoft.DeviceRegistry/namespaces/read` | List Namespace resources by resource group |
+> | `Microsoft.DeviceRegistry/namespaces/read` | Get a Namespace |
+> | `Microsoft.DeviceRegistry/namespaces/write` | Create a Namespace |
+> | `Microsoft.DeviceRegistry/namespaces/delete` | Delete a Namespace |
+> | `Microsoft.DeviceRegistry/namespaces/write` | Update a Namespace |
+> | `Microsoft.DeviceRegistry/namespaces/migrate/action` | Migrate the resources into Namespace |
+> | `Microsoft.DeviceRegistry/namespaces/assetEndpointProfiles/read` | List NamespaceAssetEndpointProfile resources by subscription ID |
+> | `Microsoft.DeviceRegistry/namespaces/assetEndpointProfiles/read` | List NamespaceAssetEndpointProfile resources by Namespace |
+> | `Microsoft.DeviceRegistry/namespaces/assetEndpointProfiles/read` | Get a NamespaceAssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/namespaces/assetEndpointProfiles/write` | Create a NamespaceAssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/namespaces/assetEndpointProfiles/delete` | Delete a NamespaceAssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/namespaces/assetEndpointProfiles/write` | Update a NamespaceAssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/namespaces/assets/read` | List NamespaceAsset resources by Namespace |
+> | `Microsoft.DeviceRegistry/namespaces/assets/read` | Get a NamespaceAsset |
+> | `Microsoft.DeviceRegistry/namespaces/assets/write` | Create a NamespaceAsset |
+> | `Microsoft.DeviceRegistry/namespaces/assets/delete` | Delete a NamespaceAsset |
+> | `Microsoft.DeviceRegistry/namespaces/assets/write` | Update a NamespaceAsset |
+> | `Microsoft.DeviceRegistry/namespaces/credentials/read` | List Credential resources by Namespace |
+> | `Microsoft.DeviceRegistry/namespaces/credentials/read` | Get a Credential |
+> | `Microsoft.DeviceRegistry/namespaces/credentials/write` | Create a Credential |
+> | `Microsoft.DeviceRegistry/namespaces/credentials/delete` | Delete a Credential |
+> | `Microsoft.DeviceRegistry/namespaces/credentials/write` | Update a Credential |
+> | `Microsoft.DeviceRegistry/namespaces/credentials/synchronize/action` | A long-running resource action. |
+> | `Microsoft.DeviceRegistry/namespaces/credentials/policies/write` | Update a Policy |
+> | `Microsoft.DeviceRegistry/namespaces/credentials/policies/delete` | Delete a Policy |
+> | `Microsoft.DeviceRegistry/namespaces/credentials/policies/write` | Create a Policy |
+> | `Microsoft.DeviceRegistry/namespaces/credentials/policies/read` | Get a Policy |
+> | `Microsoft.DeviceRegistry/namespaces/credentials/policies/read` | List Policy resources by Credential |
+> | `Microsoft.DeviceRegistry/namespaces/credentials/policies/revokeIssuer/action` | Allows certificate revocation using certificate based policies. |
+> | `Microsoft.DeviceRegistry/namespaces/devices/read` | List NamespaceDevice resources by Namespace |
+> | `Microsoft.DeviceRegistry/namespaces/devices/read` | Get a NamespaceDevice |
+> | `Microsoft.DeviceRegistry/namespaces/devices/write` | Create a NamespaceDevice |
+> | `Microsoft.DeviceRegistry/namespaces/devices/delete` | Delete a NamespaceDevice |
+> | `Microsoft.DeviceRegistry/namespaces/devices/write` | Update a NamespaceDevice |
+> | `Microsoft.DeviceRegistry/namespaces/devices/revoke/action` | Allows device revocation using device based policies. |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredAssetEndpointProfiles/read` | List NamespaceDiscoveredAssetEndpointProfile resources by subscription ID |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredAssetEndpointProfiles/read` | List NamespaceDiscoveredAssetEndpointProfile resources by Namespace |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredAssetEndpointProfiles/read` | Get a NamespaceDiscoveredAssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredAssetEndpointProfiles/write` | Create a NamespaceDiscoveredAssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredAssetEndpointProfiles/delete` | Delete a NamespaceDiscoveredAssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredAssetEndpointProfiles/write` | Update a NamespaceDiscoveredAssetEndpointProfile |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredAssets/read` | List NamespaceDiscoveredAsset resources by Namespace |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredAssets/read` | Get a NamespaceDiscoveredAsset |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredAssets/write` | Create a NamespaceDiscoveredAsset |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredAssets/delete` | Delete a NamespaceDiscoveredAsset |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredAssets/write` | Update a NamespaceDiscoveredAsset |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredDevices/read` | List NamespaceDiscoveredDevice resources by Namespace |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredDevices/read` | Get a NamespaceDiscoveredDevice |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredDevices/write` | Create a NamespaceDiscoveredDevice |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredDevices/delete` | Delete a NamespaceDiscoveredDevice |
+> | `Microsoft.DeviceRegistry/namespaces/discoveredDevices/write` | Update a NamespaceDiscoveredDevice |
+> | `Microsoft.DeviceRegistry/operations/read` | read operations |
+> | `Microsoft.DeviceRegistry/operationStatuses/read` | read operationStatuses |
+> | `Microsoft.DeviceRegistry/operationStatuses/write` | write operationStatuses |
+> | `Microsoft.DeviceRegistry/schemaRegistries/read` | List SchemaRegistry resources by subscription ID |
+> | `Microsoft.DeviceRegistry/schemaRegistries/read` | List SchemaRegistry resources by resource group |
+> | `Microsoft.DeviceRegistry/schemaRegistries/read` | Get a SchemaRegistry |
+> | `Microsoft.DeviceRegistry/schemaRegistries/write` | Create a SchemaRegistry |
+> | `Microsoft.DeviceRegistry/schemaRegistries/delete` | Delete a SchemaRegistry |
+> | `Microsoft.DeviceRegistry/schemaRegistries/write` | Update a SchemaRegistry |
+> | `Microsoft.DeviceRegistry/schemaRegistries/schemas/read` | List Schema resources by SchemaRegistry |
+> | `Microsoft.DeviceRegistry/schemaRegistries/schemas/read` | Get a Schema |
+> | `Microsoft.DeviceRegistry/schemaRegistries/schemas/write` | Create a Schema |
+> | `Microsoft.DeviceRegistry/schemaRegistries/schemas/delete` | Delete a Schema |
+> | `Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions/read` | List SchemaVersion resources by Schema |
+> | `Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions/read` | Get a SchemaVersion |
+> | `Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions/write` | Create a SchemaVersion |
+> | `Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions/delete` | Delete a SchemaVersion |
+> | **DataAction** | **Description** |
+> | `Microsoft.DeviceRegistry/namespaces/credentials/policies/issueCertificate/action` | Allows certificate issuance using certificate based policies. |
 
 ## Microsoft.Devices
 
@@ -221,6 +336,13 @@ Azure service: [Device Update for IoT Hub](/azure/iot-hub-device-update/)
 > | `Microsoft.DeviceUpdate/accounts/privateEndpointConnections/write` | Creates or updates a Device Update Private Endpoint Connection |
 > | `Microsoft.DeviceUpdate/accounts/privateEndpointConnections/delete` | Deletes a Device Update Private Endpoint Connection |
 > | `Microsoft.DeviceUpdate/accounts/privateLinkResources/read` | Returns the list of Device Update Private Link Resources |
+> | `Microsoft.DeviceUpdate/linkedAccounts/read` | Returns the list of Linked Accounts |
+> | `Microsoft.DeviceUpdate/linkedAccounts/write` | Creates or updates a Linked Account |
+> | `Microsoft.DeviceUpdate/linkedAccounts/delete` | Deletes a Linked Account |
+> | `Microsoft.DeviceUpdate/linkedAccounts/linkInitiate/action` | Initiate account linking. Validates and persists binding, sets linkingState to InProgress |
+> | `Microsoft.DeviceUpdate/linkedAccounts/linkNotify/action` | Notify linking state change (commit, fail, or namespaceDeleted) |
+> | `Microsoft.DeviceUpdate/linkedAccounts/linkPreflight/action` | Preflight check for account linking readiness. No state change |
+> | `Microsoft.DeviceUpdate/linkedAccounts/linkUpdate/action` | Update linking properties (e.g., identity rotation) |
 > | `Microsoft.DeviceUpdate/locations/operationStatuses/read` | Gets an Operation Status |
 > | `Microsoft.DeviceUpdate/locations/operationStatuses/write` | Updates an Operation Status |
 > | `Microsoft.DeviceUpdate/operations/read` | Lists Device Update Operations |
@@ -306,12 +428,6 @@ Azure service: Microsoft.Edge
 > | --- | --- |
 > | `Microsoft.Edge/register/action` | Register the subscription for Microsoft.Edge |
 > | `Microsoft.Edge/unregister/action` | Unregister the subscription for Microsoft.Edge |
-> | `Microsoft.Edge/capabilityLists/read` | List by subscription |
-> | `Microsoft.Edge/capabilityLists/read` | List by specified resource group |
-> | `Microsoft.Edge/capabilityLists/read` | Get a Capability List Resource |
-> | `Microsoft.Edge/capabilityLists/write` | Create or update a Capability List Resource |
-> | `Microsoft.Edge/capabilityLists/delete` | Delete a Capability List Resource |
-> | `Microsoft.Edge/capabilityLists/write` | update a Capability List Resource |
 > | `Microsoft.Edge/configTemplates/createVersion/action` | Create or update a Config Template Version Resource with the specified UpdateType |
 > | `Microsoft.Edge/configTemplates/removeVersion/action` | Remove Config Template Version Resource |
 > | `Microsoft.Edge/configTemplates/write` | update a Config Template Resource |
@@ -322,10 +438,16 @@ Azure service: Microsoft.Edge
 > | `Microsoft.Edge/configTemplates/read` | List by subscription |
 > | `Microsoft.Edge/configTemplates/linkToHierarchies/action` | Apply a Config Template to a particular hierarchy node |
 > | `Microsoft.Edge/configTemplates/unLinkFromHierarchies/action` | Remove a Config Template from a particular hierarchy node |
-> | `Microsoft.Edge/configTemplates/configTemplateMetadatas/read` | List by ConfigTemplate |
+> | `Microsoft.Edge/configTemplates/configTemplateMetadatas/write` | Update a ConfigTemplateMetadata Resource |
+> | `Microsoft.Edge/configTemplates/configTemplateMetadatas/delete` | Delete a ConfigTemplateMetadata Resource |
+> | `Microsoft.Edge/configTemplates/configTemplateMetadatas/write` | Create or update a ConfigTemplateMetadata Resource |
 > | `Microsoft.Edge/configTemplates/configTemplateMetadatas/read` | Get a ConfigTemplateMetadata Resource |
-> | `Microsoft.Edge/configTemplates/versions/read` | List Config Template Version Resources |
+> | `Microsoft.Edge/configTemplates/configTemplateMetadatas/read` | List by ConfigTemplate |
 > | `Microsoft.Edge/configTemplates/versions/read` | Get a Config Template Version Resource |
+> | `Microsoft.Edge/configTemplates/versions/read` | List Config Template Version Resources |
+> | `Microsoft.Edge/configTemplates/versions/write` | Create or update a Config Template Version Resource |
+> | `Microsoft.Edge/configTemplates/versions/delete` | Delete a Config Template Version Resource |
+> | `Microsoft.Edge/configTemplates/versions/write` | Update a Config Template Version Resource |
 > | `Microsoft.Edge/configTemplates/versions/configTemplateSchemas/read` | List by ConfigTemplateVersion |
 > | `Microsoft.Edge/configTemplates/versions/configTemplateSchemas/read` | Get a ConfigTemplateSchema Resource |
 > | `Microsoft.Edge/configurationReferences/read` | List ConfigurationReference resources by parent |
@@ -429,12 +551,6 @@ Azure service: Microsoft.Edge
 > | `Microsoft.Edge/contexts/workflows/versions/executions/write` | Create or update Execution Resource |
 > | `Microsoft.Edge/contexts/workflows/versions/executions/delete` | Delete Execution Resource |
 > | `Microsoft.Edge/contexts/workflows/versions/executions/write` | update an Execution Resource |
-> | `Microsoft.Edge/deploymentTargets/read` | List by subscription |
-> | `Microsoft.Edge/deploymentTargets/read` | List by specified resource group |
-> | `Microsoft.Edge/deploymentTargets/read` | Get a Deployment Target Resource |
-> | `Microsoft.Edge/deploymentTargets/write` | Create or update a Deployment Target Resource |
-> | `Microsoft.Edge/deploymentTargets/delete` | Delete a Deployment Target Resource |
-> | `Microsoft.Edge/deploymentTargets/write` | update a Deployment Target Resource |
 > | `Microsoft.Edge/diagnostics/read` | Lists Diagnostics resources within an Azure subscription. |
 > | `Microsoft.Edge/diagnostics/read` | Returns a collection of Diagnostic resources within the resource group. |
 > | `Microsoft.Edge/diagnostics/read` | Returns details of specified Diagnostic resource. |
@@ -453,17 +569,11 @@ Azure service: Microsoft.Edge
 > | `Microsoft.Edge/disconnectedOperations/hardwareSettings/write` | Create or update hardware settings |
 > | `Microsoft.Edge/disconnectedOperations/hardwareSettings/delete` | Delete hardware settings |
 > | `Microsoft.Edge/disconnectedOperations/images/listDownloadUri/action` | get deployment manifest. |
-> | `Microsoft.Edge/disconnectedOperations/images/read` | List by parent |
 > | `Microsoft.Edge/disconnectedOperations/images/read` | Get the resource |
+> | `Microsoft.Edge/disconnectedOperations/images/read` | List by parent |
 > | `Microsoft.Edge/disconnectedOperations/images/artifacts/read` | List by parent |
 > | `Microsoft.Edge/disconnectedOperations/images/artifacts/read` | Get the resource |
 > | `Microsoft.Edge/disconnectedOperations/images/artifacts/listDownloadUri/action` | get artifact download link. |
-> | `Microsoft.Edge/hierarchyLists/read` | List by subscription |
-> | `Microsoft.Edge/hierarchyLists/read` | List by specified resource group |
-> | `Microsoft.Edge/hierarchyLists/read` | Get a Hierarchy List Resource |
-> | `Microsoft.Edge/hierarchyLists/write` | Create or update a Hierarchy List Resource |
-> | `Microsoft.Edge/hierarchyLists/delete` | Delete a Hierarchy List Resource |
-> | `Microsoft.Edge/hierarchyLists/write` | update a Hierarchy List Resource |
 > | `Microsoft.Edge/jobs/read` | List Jobs by parent resource |
 > | `Microsoft.Edge/jobs/read` | Get a Job resource |
 > | `Microsoft.Edge/locations/operationStatuses/read` | read operationStatuses |
@@ -502,6 +612,21 @@ Azure service: Microsoft.Edge
 > | `Microsoft.Edge/schemas/versions/write` | update a Schema Version Resource |
 > | `Microsoft.Edge/siteAwareResourceTypes/read` | List Singleton SiteAwareResourceTypes Object. |
 > | `Microsoft.Edge/siteAwareResourceTypes/read` | Get Site Aware Resource Types |
+> | `Microsoft.Edge/siteKeys/read` | List SiteKey resources by scope |
+> | `Microsoft.Edge/siteKeys/read` | Get a SiteKey |
+> | `Microsoft.Edge/siteKeys/write` | Create a SiteKey |
+> | `Microsoft.Edge/siteKeys/delete` | Delete a SiteKey |
+> | `Microsoft.Edge/siteKeys/download/action` | Download SiteKey |
+> | `Microsoft.Edge/siteKeys/read` | List SiteKey resources by scope |
+> | `Microsoft.Edge/siteKeys/read` | Get a SiteKey |
+> | `Microsoft.Edge/siteKeys/write` | Create a SiteKey |
+> | `Microsoft.Edge/siteKeys/delete` | Delete a SiteKey |
+> | `Microsoft.Edge/siteKeys/download/action` | Download SiteKey |
+> | `Microsoft.Edge/siteKeys/read` | List SiteKey resources by scope |
+> | `Microsoft.Edge/siteKeys/read` | Get a SiteKey |
+> | `Microsoft.Edge/siteKeys/write` | Create a SiteKey |
+> | `Microsoft.Edge/siteKeys/delete` | Delete a SiteKey |
+> | `Microsoft.Edge/siteKeys/download/action` | Download SiteKey |
 > | `Microsoft.Edge/sites/write` | Update a Site |
 > | `Microsoft.Edge/sites/delete` | Delete a Site |
 > | `Microsoft.Edge/sites/write` | Create a Site |
@@ -520,32 +645,12 @@ Azure service: Microsoft.Edge
 > | `Microsoft.Edge/solutionBindings/deploy/action` | Post request to deploy |
 > | `Microsoft.Edge/solutionBindings/publish/action` | Post request to publish |
 > | `Microsoft.Edge/solutionBindings/resolveConfiguration/action` | Post request to resolve configuration |
-> | `Microsoft.Edge/solutionBindings/read` | List by subscription |
-> | `Microsoft.Edge/solutionBindings/read` | List by specified resource group |
-> | `Microsoft.Edge/solutionBindings/read` | Get a Solution Binding Resource |
-> | `Microsoft.Edge/solutionBindings/write` | Create or update a Solution Binding Resource |
-> | `Microsoft.Edge/solutionBindings/delete` | Delete a Solution Binding Resource |
-> | `Microsoft.Edge/solutionBindings/write` | update a Solution Binding Resource |
-> | `Microsoft.Edge/solutionBindings/solutionBindingConfigurations/read` | List Solution Binding Configuration resource |
-> | `Microsoft.Edge/solutionBindings/solutionBindingConfigurations/read` | Get a Solution Binding Configuration Resource |
-> | `Microsoft.Edge/solutionBindings/solutionBindingConfigurations/write` | Create or update a Solution Binding Configuration Resource |
-> | `Microsoft.Edge/solutionBindings/solutionBindingConfigurations/delete` | Delete a Solution Binding Configuration Resource |
-> | `Microsoft.Edge/solutionBindings/solutionBindingConfigurations/write` | update a Solution Binding Configuration Resource |
-> | `Microsoft.Edge/solutionBindings/solutionInstances/read` | List Solution Instance Resources |
-> | `Microsoft.Edge/solutionBindings/solutionInstances/read` | Get a Solution Instance Resource |
-> | `Microsoft.Edge/solutionBindings/solutionInstances/write` | Create or update a Solution Instance Resource |
-> | `Microsoft.Edge/solutionBindings/solutionInstances/delete` | Delete a Solution Instance Resource |
-> | `Microsoft.Edge/solutionBindings/solutionInstances/write` | update a Solution Instance Resource |
-> | `Microsoft.Edge/solutions/read` | List by subscription |
-> | `Microsoft.Edge/solutions/read` | List by specified resource group |
-> | `Microsoft.Edge/solutions/read` | Get a Solution resource |
-> | `Microsoft.Edge/solutions/write` | Create or update a Solution resource |
-> | `Microsoft.Edge/solutions/delete` | Delete a Solution resource |
-> | `Microsoft.Edge/solutions/write` | update a Solution resource |
-> | `Microsoft.Edge/solutions/versions/read` | List Solution Version Resources |
-> | `Microsoft.Edge/solutions/versions/read` | Get a Solution Version Resource |
-> | `Microsoft.Edge/solutions/versions/write` | Create or update a Solution Version Resource |
-> | `Microsoft.Edge/solutions/versions/delete` | Delete a Solution Version Resource |
+> | `Microsoft.Edge/solutionDeployments/write` | update a SolutionDeployment Resource |
+> | `Microsoft.Edge/solutionDeployments/delete` | Delete a SolutionDeployment Resource |
+> | `Microsoft.Edge/solutionDeployments/write` | Create or update a SolutionDeployment Resource |
+> | `Microsoft.Edge/solutionDeployments/read` | Get a SolutionDeployment Resource |
+> | `Microsoft.Edge/solutionDeployments/read` | List by specified resource group |
+> | `Microsoft.Edge/solutionDeployments/read` | List by subscription |
 > | `Microsoft.Edge/solutionTemplates/createVersion/action` | Create a Solution Template Version Resource |
 > | `Microsoft.Edge/solutionTemplates/deprecate/action` | Deprecate resource |
 > | `Microsoft.Edge/solutionTemplates/removeVersion/action` | Remove Solution Template Version Resource |
@@ -558,9 +663,12 @@ Azure service: Microsoft.Edge
 > | `Microsoft.Edge/solutionTemplates/versions/deprecate/action` | Deprecate resource |
 > | `Microsoft.Edge/solutionTemplates/versions/bulkDeploySolution/action` | Post request for bulk deploy |
 > | `Microsoft.Edge/solutionTemplates/versions/bulkPublishSolution/action` | Post request for bulk publish |
-> | `Microsoft.Edge/solutionTemplates/versions/read` | List Solution Template Version Resources |
-> | `Microsoft.Edge/solutionTemplates/versions/read` | Get a Solution Template Version Resource |
 > | `Microsoft.Edge/solutionTemplates/versions/bulkReviewSolution/action` | Post request for bulk review |
+> | `Microsoft.Edge/solutionTemplates/versions/read` | Get a Solution Template Version Resource |
+> | `Microsoft.Edge/solutionTemplates/versions/read` | List Solution Template Version Resources |
+> | `Microsoft.Edge/solutionTemplates/versions/write` | Create or update a Solution Template Version Resource |
+> | `Microsoft.Edge/solutionTemplates/versions/delete` | Delete a Solution Template Version Resource |
+> | `Microsoft.Edge/solutionTemplates/versions/write` | Update a Solution Template Version Resource |
 > | `Microsoft.Edge/solutionTemplates/versions/solutionSchemas/read` | List by SolutionTemplateVersion |
 > | `Microsoft.Edge/solutionTemplates/versions/solutionSchemas/read` | Get a SolutionSchema Resource |
 > | `Microsoft.Edge/targets/deploy/action` | Post request to deploy |
@@ -666,9 +774,9 @@ Azure service: Microsoft.EdgeMarketplace
 > | `Microsoft.EdgeMarketplace/offers/read` | Get a Offer |
 > | `Microsoft.EdgeMarketplace/offers/read` | List Offer resources by parent |
 > | `Microsoft.EdgeMarketplace/operations/read` | read operations |
-> | `Microsoft.EdgeMarketplace/publishers/read` | List Publisher resources by parent |
-> | `Microsoft.EdgeMarketplace/publishers/read` | List Publisher resources in subscription |
+> | `Microsoft.EdgeMarketplace/publishers/read` | List Publisher resources by subscription ID |
 > | `Microsoft.EdgeMarketplace/publishers/read` | Get a Publisher |
+> | `Microsoft.EdgeMarketplace/publishers/read` | List Publisher resources by parent |
 
 ## Microsoft.IoTCentral
 

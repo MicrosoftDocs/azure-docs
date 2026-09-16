@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.topic: tutorial
-ms.date: 03/06/2025
+ms.date: 08/28/2026
 ms.author: malev
 #Customer intent: I want to dynamically update my .NET Framework app to use the latest configuration data in App Configuration.
 ---
@@ -184,19 +184,19 @@ Add the following key-value to the App Configuration store and leave **Label** a
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx Endpoint "<endpoint-of-your-app-configuration-store>"
+    setx Endpoint "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:Endpoint = "<endpoint-of-your-app-configuration-store>"
+    $Env:Endpoint = "<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export Endpoint='<endpoint-of-your-app-configuration-store>'
+    export Endpoint='<AppConfigurationEndpoint>'
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -205,18 +205,18 @@ Add the following key-value to the App Configuration store and leave **Label** a
 
     If you use the Windows command prompt, run the following command:
     ```console
-    setx ConnectionString "<connection-string-of-your-app-configuration-store>"
+    setx ConnectionString "<AppConfigurationConnectionString>"
     ```
 
     If you use Windows PowerShell, run the following command:
     ```powershell
-    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
+    $Env:ConnectionString = "<AppConfigurationConnectionString>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export ConnectionString='<connection-string-of-your-app-configuration-store>'
+    export ConnectionString='<AppConfigurationConnectionString>'
     ```
     ---
 
@@ -224,7 +224,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
 
 1. Press Ctrl + F5 to build and run the console app.
 
-    ![App launch local](./media/dotnet-app-run.png)
+    ![App launch local](./media/enable-dynamic-configuration-dotnet/dotnet-app-run.png)
 
 1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following key.
 
@@ -234,7 +234,7 @@ Add the following key-value to the App Configuration store and leave **Label** a
 
 1. Back in the running application, press the Enter key to trigger a refresh and print the updated value in the Command Prompt or PowerShell window.
 
-    ![App refresh local](./media/dotnet-app-run-refresh.png)
+    ![App refresh local](./media/enable-dynamic-configuration-dotnet/dotnet-app-run-refresh.png)
     
     > [!NOTE]
     > Since the refresh interval was set to 10 seconds using the `SetRefreshInterval` method while specifying the configuration for the refresh operation, the value for the configuration setting will only be updated if at least 10 seconds have elapsed since the last refresh for that setting.

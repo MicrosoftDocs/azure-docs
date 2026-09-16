@@ -3,7 +3,7 @@ title: 'Quickstart: Create and run load tests from Visual Studio Code'
 titleSuffix: Azure Load Testing
 description: Create and run load tests using the Visual Studio Code extension and GitHub Copilot with Azure App Testing.
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.topic: quickstart
 author: nagarjuna-vipparthi
 ms.author: vevippar

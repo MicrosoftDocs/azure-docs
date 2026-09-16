@@ -7,7 +7,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.date: 02/23/2026
+ms.date: 04/16/2026
 ms.author: radeltch
 ms.custom:
   - linux-related-content
@@ -445,7 +445,6 @@ This article assumes that:
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
 
     sudo pcs resource group add g-NW2_AERS rsc_sap_NW2_ERS12
-    sudo pcs resource meta rsc_sap_NW2_ERS12 resource-stickiness=3000
 
     sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS kind=Optional symmetrical=false
     sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS score=-5000
@@ -466,7 +465,6 @@ This article assumes that:
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
 
     sudo pcs resource group add g-NW3_AERS rsc_sap_NW3_ERS22
-    sudo pcs resource meta rsc_sap_NW3_ERS22 resource-stickiness=3000
 
     sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS kind=Optional symmetrical=false
     sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS score=-5000
@@ -540,6 +538,12 @@ This article assumes that:
    sudo firewall-cmd --zone=public --add-port={62122,3222,3322,52213,52214,52216}/tcp --permanent
    sudo firewall-cmd --zone=public --add-port={62122,3222,3322,52213,52214,52216}/tcp
    ```
+
+> [!Note]
+> SAP ASCS/ERS cluster can be extended from 2-node to 3-node cluster with 3rd node as a spare node for failover of ASCS or ERS services.
+> - 3-node setup can only be used for SAP systems using SAP Enqueue Replication Server 2 (ENSA2).
+> - The cluster property `priority-fencing-delay` should not be used in a 3-node cluster.
+
 
 ### Proceed with the SAP installation
 

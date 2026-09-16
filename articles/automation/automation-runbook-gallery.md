@@ -3,7 +3,7 @@ title: Use Azure Automation runbooks and modules in PowerShell Gallery
 description: This article tells how to use runbooks and modules from Microsoft GitHub repos and the PowerShell Gallery.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/17/2025
+ms.date: 04/15/2026
 ms.topic: how-to
 ms.service: azure-automation
 ms.author: v-rochak2
@@ -61,9 +61,9 @@ Rather than creating your own runbooks and modules in Azure Automation, you can 
 The [PowerShell Gallery](https://www.powershellgallery.com/packages) provides various runbooks from Microsoft and the community that you can import into Azure Automation. To use one, download a runbook from the gallery, or you can directly import runbooks from the gallery, or from your Automation account in the Azure portal.
 
 > [!NOTE]
-> Graphical runbooks are not supported in PowerShell Gallery.
+> Graphical runbooks aren't supported in PowerShell Gallery.
 
-You can only import directly from the PowerShell Gallery using the Azure portal. You cannot perform this function using PowerShell. The procedure is the same as shown in [Import runbooks from GitHub with the Azure portal](#import-runbooks-from-github-with-the-azure-portal), except that the **Source** will be **PowerShell Gallery**.
+You can only import directly from the PowerShell Gallery using the Azure portal. You can't perform this function using PowerShell. The procedure is the same as shown in [Import runbooks from GitHub with the Azure portal](#import-runbooks-from-github-with-the-azure-portal), except that the **Source** will be **PowerShell Gallery**.
 
 :::image type="content" source="./media/automation-runbook-gallery/source-runbook-gallery-small.png" alt-text="Showing runbook gallery source selection." lightbox="./media/automation-runbook-gallery/source-runbook-gallery-large.png":::
 
@@ -74,7 +74,7 @@ PowerShell modules contain cmdlets that you can use in your runbooks. Existing m
 You can also find modules to import in the Azure portal. They're listed for your Automation Account in the **Modules** under **Shared resources**.
 
 > [!IMPORTANT]
-> Do not include the keyword "AzureRm" in any script designed to be executed with the Az module. Inclusion of the keyword, even in a comment, may cause the AzureRm to load and then conflict with the Az module.
+> Don't include the keyword "AzureRm" in any script designed to be executed with the Az module. Inclusion of the keyword, even in a comment, may cause the AzureRm to load and then conflict with the Az module.
 
 ## Common scenarios available in the PowerShell Gallery
 
@@ -151,3 +151,5 @@ You can send requests to [User Voice](https://feedback.azure.com/d365community/f
 * To work with runbooks, see [Manage runbooks in Azure Automation](manage-runbooks.md).
 * For more info on PowerShell scripting, see [PowerShell Docs](/powershell/scripting/overview).
 * For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
+* For troubleshooting issues when using runbooks and shared resources from the Runbook Gallery or PowerShell Gallery in Azure Automation, see [Troubleshoot Azure Automation shared resource issues](troubleshoot/shared-resources.md).
+* For troubleshooting issues related to using existing runbooks in Azure Automation, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).

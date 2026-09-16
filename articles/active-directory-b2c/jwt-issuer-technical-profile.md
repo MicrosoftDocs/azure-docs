@@ -6,7 +6,7 @@ description: Define a technical profile for a JSON web token (JWT) issuer in a c
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 02/19/2025

@@ -1,19 +1,18 @@
 ---
-title: Integrate Azure App Configuration with Kubernetes Deployment using Helm
-description: Learn how to use dynamic configurations in Kubernetes deployment with Helm.
-services: azure-app-configuration
+title: Integrate Azure App Configuration with Kubernetes deployment using Helm
+description: Learn how to use dynamic configuration in a Kubernetes deployment with Helm.
 author: maud-lv
-
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 03/27/2023
+ms.date: 9/1/2026
 ms.author: malev
+ai-usage: ai-assisted
 
-#Customer intent: I want to use Azure App Configuration data in Kubernetes deployment with Helm.
+# Customer intent: I want to use Azure App Configuration data in a Kubernetes deployment with Helm.
 ---
-# Integrate with Kubernetes Deployment using Helm
+# Integrate with Kubernetes deployment using Helm
 
-Applications hosted in Kubernetes can access data in App Configuration [using the App Configuration provider library](./enable-dynamic-configuration-aspnet-core.md). The App Configuration provider has built-in caching and refreshing capabilities so applications can have dynamic configuration without redeployment. If you prefer not to update your application, this tutorial shows how to bring data from App Configuration to your Kubernetes using Helm via deployment. This way, your application can continue accessing configuration from Kubernetes variables and secrets. You run Helm upgrade when you want your application to pick up new configuration changes.
+Applications hosted in Kubernetes can access data in App Configuration [by using the App Configuration provider library](./enable-dynamic-configuration-aspnet-core.md). The App Configuration provider has built-in caching and refresh capabilities, so applications can use dynamic configuration without redeployment. If you prefer not to update your application, this tutorial shows how to bring data from App Configuration to Kubernetes by using Helm during deployment. This way, your application can continue to access configuration from Kubernetes variables and secrets. Run a Helm upgrade when you want your application to pick up configuration changes.
 
 > [!TIP]
 > See [options](./howto-best-practices.md#azure-kubernetes-service-access-to-app-configuration) for workloads hosted in Kubernetes to access Azure App Configuration.
@@ -34,8 +33,8 @@ This tutorial assumes basic understanding of managing Kubernetes with Helm. Lear
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- Install [Azure CLI](/cli/azure/install-azure-cli) (version 2.4.0 or later)
-- Install [Helm](https://helm.sh/docs/intro/install/) (version 2.14.0 or later)
+- Install [Azure CLI](/cli/azure/install-azure-cli) version 2.4.0 or later.
+- Install [Helm](https://helm.sh/docs/intro/install/) version 2.14.0 or later.
 - An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - A Kubernetes cluster.
 
@@ -186,11 +185,13 @@ settings:
 
 First, download the configuration from App Configuration to a *myConfig.yaml* file. Use a key filter to only download those keys that start with **settings.**. If in your case the key filter is not sufficient to exclude keys of Key Vault references, you may use the argument **--skip-keyvault** to exclude them.
 
+In the following examples, replace the placeholder text _`<AppConfigurationStoreName>`_ with the name of your App Configuration store.
+
 > [!TIP]
 > Learn more about the [export command](/cli/azure/appconfig/kv#az-appconfig-kv-export).
 
 ```azurecli-interactive
-az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
+az appconfig kv export -n <AppConfigurationStoreName> -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
 ```
 
 Next, download secrets to a file called *mySecrets.yaml*. The command-line argument **--resolve-keyvault** resolves the Key Vault references by retrieving the actual values in Key Vault. You'll need to run this command with credentials that have access permissions to the corresponding Key Vault.
@@ -199,7 +200,7 @@ Next, download secrets to a file called *mySecrets.yaml*. The command-line argum
 > As this file contains sensitive information, keep the file with care and clean up when it's not needed anymore.
 
 ```azurecli-interactive
-az appconfig kv export -n myAppConfiguration -d file --path mySecrets.yaml --key "secrets.*" --separator "." --resolve-keyvault --format yaml
+az appconfig kv export -n <AppConfigurationStoreName> -d file --path mySecrets.yaml --key "secrets.*" --separator "." --resolve-keyvault --format yaml
 ```
 
 Use helm upgrade's **-f** argument to pass in the two configuration files you've created. They'll override the configuration values defined in *values.yaml* with the values exported from App Configuration.
@@ -211,7 +212,7 @@ helm upgrade --install -f myConfig.yaml -f mySecrets.yaml "example" ./mychart
 You can also use the **--set** argument for helm upgrade to pass literal key-values. Using the **--set** argument is a good way to avoid persisting sensitive data to disk.
 
 ```powershell
-$secrets = az appconfig kv list -n myAppConfiguration --key "secrets.*" --resolve-keyvault --query "[*].{name:key, value:value}" | ConvertFrom-Json
+$secrets = az appconfig kv list -n <AppConfigurationStoreName> --key "secrets.*" --resolve-keyvault --query "[*].{name:key, value:value}" | ConvertFrom-Json
 
 foreach ($secret in $secrets) {
   $keyvalues += $secret.name + "=" + $secret.value + ","
@@ -229,11 +230,11 @@ else{
 
 Verify that configurations and secrets were set successfully by accessing the [Kubernetes Dashboard](/azure/aks/kubernetes-dashboard). You'll see that the **color** and **message** values from App Configuration were populated into the container's environment variables.
 
-![Quickstart app launch local](./media/kubernetes-dashboard-env-variables.png)
+![Quickstart app launch local](./media/integrate-kubernetes-deployment-helm/kubernetes-dashboard-env-variables.png)
 
 One secret, **password**, stores as Key Vault reference in App Configuration was also added into Kubernetes Secrets.
 
-![Screenshot that highlights the password in the Data section.](./media/kubernetes-dashboard-secrets.png)
+![Screenshot that highlights the password in the Data section.](./media/integrate-kubernetes-deployment-helm/kubernetes-dashboard-secrets.png)
 
 ## Clean up resources
 

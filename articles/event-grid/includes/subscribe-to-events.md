@@ -10,15 +10,15 @@
 ---
 
 ## Subscribe to events
-First, create an event handler that handles events from the partner. For example, create an event hub, Service Bus queue or topic, or an Azure function. Then, create an event subscription for the partner topic using the event handler you created. 
+First, create an event handler that handles events from the partner. For example, create an event hub, Service Bus queue or topic, or an Azure function. Then, create an event subscription for the partner topic by using the event handler you created. 
 
 ### Create an event handler
-To test your partner topic, you'll need an event handler. Go to your Azure subscription and spin up a service that's supported as an [event handler](../event-handlers.md) such as an [Azure Function](../custom-event-to-function.md). For an example, see [Event Grid Viewer sample](../custom-event-quickstart-portal.md#create-a-message-endpoint) that you can use as an event handler via webhooks. 
+To test your partner topic, you need an event handler. Go to your Azure subscription and create a service that's supported as an [event handler](../event-handlers.md) such as an [Azure Function](../custom-event-to-function.md). For an example, see the [Event Grid Viewer sample](../custom-event-quickstart-portal.md#create-a-message-endpoint) that you can use as an event handler through webhooks. 
 
 ### Subscribe to the partner topic
 Subscribing to the partner topic tells Event Grid where you want your partner events to be delivered.
 
-1. In the Azure portal, type **Event Grid Partner Topics** in the search box, and select **Event Grid Partner Topics**. 
+1. In the Azure portal, in the search box, enter **Event Grid Partner Topics**, and then select **Event Grid Partner Topics**. 
 1. On the **Event Grid Partner Topics** page, select the partner topic in the list. 
 
     :::image type="content" source="./media/subscribe-to-partner-events/select-partner-topic.png" lightbox="./media/subscribe-to-partner-events/select-partner-topic.png" alt-text="Screenshot showing the selection of a partner topic on the Event Grid Partner Topics page.":::
@@ -28,8 +28,8 @@ Subscribing to the partner topic tells Event Grid where you want your partner ev
 1. On the **Create Event Subscription** page, do the following steps:
     1. Enter a **name** for the event subscription.
     1. For **Filter to Event Types**, select types of events that your subscription receives.
-    1. For **Endpoint Type**, select an Azure service (Azure Function, Storage Queues, Event Hubs, Service Bus Queue, Service Bus Topic, Hybrid Connections. etc.), or webhook.
-    1. Select the **Configure an endpoint** link. In this example, let's use Azure Event Hubs destination or endpoint. 
+    1. For **Endpoint Type**, select an Azure service (Azure Function, Storage Queues, Event Hubs, Service Bus Queue, Service Bus Topic, or Hybrid Connections), or select webhook.
+    1. Select the **Configure an endpoint** link. This example uses an Azure Event Hubs destination. 
     
         :::image type="content" source="./media/subscribe-to-partner-events/select-endpoint.png" lightbox="./media/subscribe-to-partner-events/select-endpoint.png" alt-text="Screenshot showing the configuration of an endpoint for an event subscription.":::            
     1. On the **Select Event Hub** page, select configurations for the endpoint, and then select **Confirm Selection**. 

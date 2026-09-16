@@ -21,7 +21,7 @@ ms.custom:
 
 In this quickstart, you learn to use an Azure Resource Manager template (ARM template) to create an internal Azure load balancer. The internal load balancer distributes traffic to virtual machines in a virtual network located in the load balancer's backend pool. Along with the internal load balancer, this template creates a virtual network, network interfaces, a NAT Gateway, and an Azure Bastion instance.
 
-:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer." lightbox="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png":::
+:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard internal load balancer." lightbox="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png":::
 
 Using an ARM template takes fewer steps comparing to other deployment methods.
 
@@ -78,8 +78,8 @@ In this step, you deploy the template using Azure PowerShell with the [New-AzRes
     az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --name $projectName --parameters location=$location
     
     read -p "Press [ENTER] to continue."
-   ```
-
+    ```
+   
    # [PowerShell](#tab/PowerShell)
 
    ```azurepowershell

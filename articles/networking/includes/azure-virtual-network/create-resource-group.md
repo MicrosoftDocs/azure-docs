@@ -5,10 +5,12 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: include
-ms.date: 03/26/2026
+ms.date: 08/05/2026
 ms.author: allensu
 ms.custom: include file
 ---
+
+<!-- This file is the canonical portal procedure for creating a resource group in the networking include set. articles/networking/includes/azure-virtual-network-manager/create-resource-group.md mirrors these steps. Update this file first, then mirror the change there. -->
 
 ## Create a resource group
 
@@ -18,7 +20,7 @@ ms.custom: include file
 
 1. Select **+ Create**.
 
-1. In the **Basics** tab of **Create a resource group**, enter, or select the following information:
+1. In the **Basics** tab of **Create a resource group**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |

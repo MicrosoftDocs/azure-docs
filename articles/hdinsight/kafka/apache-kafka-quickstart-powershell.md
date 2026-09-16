@@ -60,7 +60,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ## Create a storage account
 
-While Kafka on HDInsight uses Azure Managed Disks to store Kafka data, the cluster also uses Azure Storage to store information such as logs. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a new storage account.
+While Kafka on HDInsight uses Azure managed disks to store Kafka data, the cluster also uses Azure Storage to store information such as logs. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a new storage account.
 
 > [!IMPORTANT]  
 > Storage account kind `BlobStorage` can only be used as secondary storage for HDInsight clusters.
@@ -129,7 +129,7 @@ New-AzHDInsightCluster `
 
 It can take up to 20 minutes to create the HDInsight cluster.
 
-The `-DisksPerWorkerNode` parameter configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Kafka is I/O heavy, so [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) are used to provide high throughput and more storage per node.
+The `-DisksPerWorkerNode` parameter configures the scalability of Kafka on HDInsight. Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Kafka is I/O heavy, so [Azure managed disks](/azure/virtual-machines/managed-disks-overview) are used to provide high throughput and more storage per node.
 
 The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard. You can set the VM type by using the `-WorkerNodeSize` parameter. For more information on parameters, see the [New-AzHDInsightCluster](/powershell/module/az.HDInsight/New-azHDInsightCluster) documentation.
 

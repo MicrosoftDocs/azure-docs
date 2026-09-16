@@ -4,7 +4,7 @@ description: Learn how Accelerated Connections improves networking performance f
 author: steveesp
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 02/01/2023
+ms.date: 08/05/2026
 ms.author: steveesp
 
 # Customer intent: As a network administrator, I want to enable Accelerated Connections on virtual network interfaces for NVAs and VMs, so that I can optimize networking performance and improve the efficiency of handling high numbers of simultaneous connections without upgrading to larger VM sizes.
@@ -69,7 +69,7 @@ This list will be updated as more regions become available. The following region
 * West US
 * East US 2
 * Central US
-* South UK
+* UK South
 * West Europe
 * Central India
 * West US 2

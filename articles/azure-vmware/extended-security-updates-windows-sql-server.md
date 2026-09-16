@@ -1,8 +1,8 @@
 ---
 title: Extended Security Updates for SQL Server and Windows Server
 description: Learn how to configure VMs that run older versions of SQL Server and Windows Server for free Extended Security Updates (ESUs) in Azure VMware Solution.
-author: MikeWeiner-Microsoft
-ms.author: michwe
+author: jjaygbay1
+ms.author: jacobjaygbay
 ms.service: azure-vmware
 ms.topic: how-to  
 ms.date: 03/11/2026

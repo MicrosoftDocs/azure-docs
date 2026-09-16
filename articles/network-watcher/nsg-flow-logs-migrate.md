@@ -35,9 +35,9 @@ In this article, you learn how to migrate your existing network security group f
 
 - PowerShell 7 installed on your machine. For more information, see [Install PowerShell on Windows, Linux, and macOS](/powershell/scripting/install/installing-powershell). This article requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-Module -ListAvailable Az`. 
 
-- Necessary RBAC permissions for the subscriptions of the flow logs and Log Analytics workspaces (if traffic analytics is enabled for any of the network security group flow logs). For more information, see [Network Watcher permissions](required-rbac-permissions.md).
+- Necessary RBAC permissions for the subscriptions of the flow logs and Log Analytics workspaces (if traffic analytics is enabled for any of the network security group flow logs). For more information, see [Network Watcher permissions](rbac-permissions.md).
 
-- Network security group flow logs in a region or more. For more information, see [Create network security group flow logs](nsg-flow-logs-manage.md#create-a-flow-log).
+- Network security group flow logs in one or more regions.
 
 ## Generate migration script
 
@@ -55,11 +55,11 @@ In this section, you learn how to generate and download the migration files for 
 
 1. For each subscription, select the regions that contain the flow logs that you want to migrate. **Total NSG flow logs** shows the total number of flow logs that are in the selected subscriptions. **Selected NSG flow logs** shows the number of flow logs in the selected regions.
 
-1. After you chose the subscriptions and regions, select **Download script and JSON file** to download the migration files as a zip file.
+1. After you choose the subscriptions and regions, select **Download script and JSON file** to download the migration files as a zip file.
 
     :::image type="content" source="./media/nsg-flow-logs-migrate/download-migration-files.png" alt-text="Screenshot that shows how to generate a migration script in the Azure portal." lightbox="./media/nsg-flow-logs-migrate/download-migration-files.png":::
 
-1. Extract `MigrateFlowLogs.zip` file on your local machine. The zip file contains these two files:
+1. Extract the `MigrateFlowLogs.zip` file on your local machine. The zip file contains these two files:
     - a script file: `MigrationFromNsgToAzureFlowLogging.ps1`
     - a JSON file: `RegionSubscriptionConfig.json`.
 
@@ -98,7 +98,7 @@ In this section, you learn how to use the script file that you downloaded in the
     After the analysis is complete, you'll see the analysis report on screen and in an html file in the same directory of the migration files. The report lists the number of network security group flow logs that will be disabled and the number of virtual network flow logs that are created to replace them. The number of virtual network flow logs that are created depends on the type of migration that you choose. For example, if the network security group that you're migrating its flow log is associated with three network interfaces in the same virtual network, then you can choose *migration with aggregation* to have a single virtual network flow log resource applied to the virtual network. You can also choose *migration without aggregation* to have three virtual network flow logs (one virtual network flow log resource per network interface).
 
     > [!NOTE]
-    > See `AnalysisReport-<subscriptionId>-<region>-<time>.html` file for a full report of the analysis that you performed. The file is available in the same directory of the script.
+    > See `AnalysisReport-<subscriptionId>-<region>-<time>.html` file for a full report of the analysis that you performed. The file is available in the same directory as the script.
 
 1. Enter **2** or **3** to choose the type of migration that you want to perform.
 
@@ -127,7 +127,7 @@ In this section, you learn how to use the script file that you downloaded in the
 
     :::image type="content" source="./media/nsg-flow-logs-migrate/filter-flow-logs.png" alt-text="Screenshot that shows how to use a filter to only list network security group flow logs." lightbox="./media/nsg-flow-logs-migrate/filter-flow-logs.png":::
 
-1. Select the flow logs that you want to delete, and then select **Delete**
+1. Select the flow logs that you want to delete, and then select **Delete**.
 
     :::image type="content" source="./media/nsg-flow-logs-migrate/select-flow-logs.png" alt-text="Screenshot that shows how to select and delete the migrated network security group flow logs." lightbox="./media/nsg-flow-logs-migrate/select-flow-logs.png":::
 

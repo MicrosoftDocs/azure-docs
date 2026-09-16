@@ -2,8 +2,8 @@
 title: 'Configure Vender-specific Attributes for Point-to-Site - RADIUS'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure RADIUS/NPS for P2S user groups to assign IP addresses from specific address pools based on identity or authentication credentials.
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 08/27/2025

@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 02/27/2026
+ms.date: 04/15/2026
 ---
 
 # Configure on-premise disks for Azure through Hydration
@@ -95,21 +95,21 @@ The preparation script executes the following changes based on the OS type of th
    Make “VMware Tools” service start-type to disabled if it exists as they aren't required for the VM in Azure.
 
    >[!NOTE]
-   >To connect to Windows Server 2003 VMs, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default. See this [article](/azure/migrate/prepare-windows-server-2003-migration?view=migrate-classic) to install and prepare for failover.
+   >To connect to Windows Server 2003 VMs, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default. See this [article](/azure/migrate/prepare-windows-server-2003-migration?view=migrate-classic&preserve-view=true) to install and prepare for failover.
 
 1. **Install the Windows Azure Guest Agent**.
 
-    [!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
-    Azure Site Recovery will attempt to install the Microsoft Azure Virtual Machine Agent (VM Agent), a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. Azure Site Recovery automatically installs the Windows VM agent on Windows Server 2008 R2 and higher versions.
+   Azure Site Recovery will attempt to install the Microsoft Azure Virtual Machine Agent (VM Agent), a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. Azure Site Recovery automatically installs the Windows VM agent on Windows Server 2008 R2 and higher versions.
 
-    The Windows VM agent can be manually installed with a Windows installer package. To manually install the Windows VM Agent, [download the VM Agent installer](https://go.microsoft.com/fwlink/?LinkID=394789). You can also search for a specific version in the [GitHub Windows IaaS VM Agent releases](https://github.com/Azure/WindowsVMAgent/releases). The VM Agent is supported on Windows Server 2008 (64 bit) and later.
+   The Windows VM agent can be manually installed with a Windows installer package. To manually install the Windows VM Agent, [download the VM Agent installer](https://go.microsoft.com/fwlink/?LinkID=394789). You can also search for a specific version in the [GitHub Windows IaaS VM Agent releases](https://github.com/Azure/WindowsVMAgent/releases). The VM Agent is supported on Windows Server 2008 (64 bit) and later.
 
-    To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell)
+   To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell)
 
-    ![Screenshot showing successful Installation of Azure VM Agent.](./media/hydration-process/installation-azure-vm-agent.png)
+   ![Screenshot showing successful Installation of Azure VM Agent.](./media/hydration-process/installation-azure-vm-agent.png)
 
-    After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for failover.
+   After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for failover.
     [Learn more about the changes for Windows servers.](/azure/virtual-machines/windows/prepare-for-upload-vhd-image)
 
 # [Linux servers](#tab/linux)

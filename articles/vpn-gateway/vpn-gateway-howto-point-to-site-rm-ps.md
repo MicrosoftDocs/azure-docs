@@ -2,11 +2,11 @@
 title: 'Configure P2S server configuration - certificate authentication: PowerShell'
 description: Learn how to connect Windows and macOS clients securely to Azure virtual network using P2S and self-signed or CA issued certificates.
 titleSuffix: Azure VPN Gateway
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/15/2024
-ms.author: cherylmc 
+ms.date: 06/10/2026
+ms.author: duau
 ms.custom: devx-track-azurepowershell
 
 # Customer intent: "As a network administrator, I want to configure a point-to-site VPN using certificate authentication, so that I can securely connect remote clients to our Azure virtual network."
@@ -108,12 +108,12 @@ In this step, you configure and create the virtual network gateway for your VNet
 
 1. Create the virtual network gateway with the gateway type "Vpn" using [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway).
 
-   In this example, we use the VpnGw2, Generation 2 SKU. If you see ValidateSet errors regarding the GatewaySKU value and are running these commands locally, verify that you have installed the [latest version of the PowerShell cmdlets](/powershell/azure/). The latest version contains the new validated values for the latest Gateway SKUs.
+   In this example, we use the VpnGw2AZ, Generation 2 SKU. If you see ValidateSet errors regarding the GatewaySKU value and are running these commands locally, verify that you have installed the [latest version of the PowerShell cmdlets](/powershell/azure/). The latest version contains the new validated values for the latest Gateway SKUs.
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name "VNet1GW" -ResourceGroupName "TestRG1" `
    -Location "EastUS" -IpConfigurations $gwipconfig -GatewayType Vpn `
-   -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw2 -VpnGatewayGeneration "Generation2" -VpnClientProtocol IkeV2,OpenVPN
+   -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw2AZ -VpnGatewayGeneration "Generation2" -VpnClientProtocol IkeV2,OpenVPN
    ```
 
 1. Once your gateway is created, you can view it using the following example.

@@ -4,8 +4,8 @@ description: This article describes how to enable Microsoft Entra authentication
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: how-to
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ms.custom: no-azure-ad-ps-ref
 ms.date: 02/17/2025
 ---
@@ -13,6 +13,8 @@ ms.date: 02/17/2025
 # Enable Microsoft Entra authentication for Azure-SSIS integration runtime
 
 [!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article shows you how to enable Microsoft Entra authentication with the specified system/user-assigned managed identity for your Azure Data Factory (ADF) or Azure Synapse and use it instead of conventional authentication methods (like SQL authentication) to:
 

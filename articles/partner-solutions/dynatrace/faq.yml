@@ -2,6 +2,8 @@
 metadata:
   title: Azure Native Dynatrace Service FAQ
   description: Answers to common questions about using Azure Native Dynatrace Service in Azure, including prerequisites, setup, and management.
+  author: praveenrajap
+  ms.author: praveenrajap
   ms.service: partner-services
   ms.subservice: dynatrace
   ai-usage: ai-generated

@@ -14,6 +14,9 @@ ms.reviewer: whhender
 # Set Variable Activity in Azure Data Factory and Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Set Variable activity](/fabric/data-factory/set-variable-activity).
+
 Use the Set Variable activity to set the value of an existing variable of type String, Bool, or Array defined in a Data Factory or Synapse pipeline or use the Set Variable activity to set a pipeline return value (preview).
 
 ## Create a Set Variable activity with UI

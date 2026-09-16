@@ -12,6 +12,8 @@ ms.topic: how-to
 
 # GROUP BY options in Synapse SQL
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Synapse SQL allows for developing solutions by implementing different GROUP BY options. 
 
 ## What GROUP BY does

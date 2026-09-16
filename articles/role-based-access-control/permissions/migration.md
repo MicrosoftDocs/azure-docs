@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -358,6 +358,30 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | `Microsoft.Migrate/assessmentProjects/mysqlcollectors/read` | Gets the properties of the mysql Collector |
 > | `Microsoft.Migrate/assessmentProjects/mysqlcollectors/write` | Creates a mysql Collector or updates an existing mysql Collector |
 > | `Microsoft.Migrate/assessmentProjects/mysqlcollectors/delete` | Deletes the mysql Collector which are available in the given location |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/read` | Gets the properties of the network Assessment |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/write` | Creates a network Assessment or updates an existing network Assessment |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/delete` | Deletes the network Assessment which are available in the given location |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedApplicationGateways/read` | Gets the properties of the assessedApplicationGateways  |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedApplicationGateways/write` | Patch assessed entities |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedApplicationGateways/assessedAppGwRoutingRules/read` | Gets the properties of the assessedAppGwRoutingRules  |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedApplicationGateways/assessedAppGwRoutingRules/write` | Patch assessed entities |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedLoadBalancers/read` | Gets the properties of the assessedLoadBalancers  |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedLoadBalancers/write` | Patch assessed entities |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedLoadBalancers/assessedInboundNatRules/read` | Gets the properties of the assessedInboundNatRules  |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedLoadBalancers/assessedInboundNatRules/write` | Patch assessed entities |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedLoadBalancers/assessedLbRules/read` | Gets the properties of the assessedLbRules  |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedLoadBalancers/assessedLbRules/write` | Patch assessed entities |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedNetworkSecurityGroups/read` | Gets the properties of the assessedNetworkSecurityGroups  |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedNetworkSecurityGroups/write` | Patch assessed entities |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedNetworkSecurityGroups/assessedNsgRules/read` | Gets the properties of the assessedNsgRules  |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedNetworkSecurityGroups/assessedNsgRules/write` | Patch assessed entities |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedNetworkTopologies/read` | Gets the properties of the assessedNetworkTopologies  |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedNetworkTopologies/write` | Patch assessed entities |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedVirtualNetworks/read` | Gets the properties of the assessedVirtualNetworks  |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedVirtualNetworks/write` | Patch assessed entities |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedVirtualNetworks/assessedSubnets/read` | Gets the properties of the assessedSubnets  |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/assessedVirtualNetworks/assessedSubnets/write` | Patch assessed entities |
+> | `Microsoft.Migrate/assessmentProjects/networkAssessments/summaries/read` | Gets the properties of the network AssessmentSummary |
 > | `Microsoft.Migrate/assessmentProjects/oracleAssessmentOptions/read` | Gets the properties of the oracle AssessmentOptions |
 > | `Microsoft.Migrate/assessmentProjects/oracleAssessments/read` | Gets the properties of the oracle Assessment |
 > | `Microsoft.Migrate/assessmentProjects/oracleAssessments/write` | Creates a oracle Assessment or updates an existing oracle Assessment |
@@ -467,7 +491,7 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | `Microsoft.Migrate/castScanReports/codeScanIssues/read` | Get the cast scan issues |
 > | `Microsoft.Migrate/locations/operationResults/read` | Locations Operation Results |
 > | `Microsoft.Migrate/locations/operationStatuses/read` | Get Operation Status |
-> | `Microsoft.Migrate/locations/operationStatuses/read` | Update Operation Status |
+> | `Microsoft.Migrate/locations/operationStatuses/write` | Update Operation Status |
 > | `Microsoft.Migrate/locations/rmsOperationResults/read` | Gets the status of the subscription wide location based operation |
 > | `Microsoft.Migrate/migrateProjects/read` | Gets the properties of migrate project |
 > | `Microsoft.Migrate/migrateProjects/write` | Creates a new migrate project or updates an existing migrate project |
@@ -475,6 +499,12 @@ Azure service: [Azure Migrate](/azure/migrate/migrate-services-overview)
 > | `Microsoft.Migrate/migrateProjects/registerTool/action` | Registers tool to a migrate project |
 > | `Microsoft.Migrate/migrateProjects/RefreshSummary/action` | Refreshes the migrate project summary |
 > | `Microsoft.Migrate/migrateProjects/registrationDetails/action` | Provides the tool registration details |
+> | `Microsoft.Migrate/migrateProjects/generatewaveplan/action` | Generate the Wave Plan |
+> | `Microsoft.Migrate/migrateProjects/refreshentities/action` | Refresh Entities |
+> | `Microsoft.Migrate/migrateProjects/createwavesfromplan/action` | Create Waves From the latest active Wave Plan |
+> | `Microsoft.Migrate/migrateProjects/fetchsasuri/action` | Fetch a short-lived write-targeted SAS URI for the wave-plan CSV staging container |
+> | `Microsoft.Migrate/migrateProjects/getwaveplans/action` | List Wave Plans for an assessment |
+> | `Microsoft.Migrate/migrateProjects/importwaveplan/action` | Import a customer-authored Wave Plan from a CSV upload |
 > | `Microsoft.Migrate/migrateProjects/tasksummary/action` | Update the Task details |
 > | `Microsoft.Migrate/migrateProjects/DatabaseInstances/read` | Gets the properties of a database instance |
 > | `Microsoft.Migrate/migrateProjects/Databases/read` | Gets the properties of a database |

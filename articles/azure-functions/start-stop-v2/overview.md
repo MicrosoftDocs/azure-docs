@@ -103,7 +103,7 @@ Specifying a list of VMs can be used when you need to perform the start and stop
 
 ## Prerequisites
 
-- You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - To deploy the solution, your account must be granted the [Owner](../../role-based-access-control/built-in-roles.md#owner) permission in the subscription.
 

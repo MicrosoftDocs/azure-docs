@@ -4,7 +4,7 @@ description: In this tutorial, learn how to return Azure Data Box, including shi
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: tutorial
 ms.custom: references_regions
 ms.date: 07/16/2024

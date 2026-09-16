@@ -23,13 +23,13 @@ This article describes the cost-saving options and capabilities that Azure Sprin
 
 For the Enterprise plan, we now offer further discounts for longer commitments on both the Microsoft and VMware (by Broadcom) parts of the pricing. For more information, see [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/).
 
-For the Microsoft part of the pricing, the Enterprise plan currently has yearly discounted pricing options available. For more information, see [Maximizing Value: Streamlined Cloud Solutions with Prime Cost Savings for Spring Apps](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/maximizing-value-streamlined-cloud-solutions-with-prime-cost/ba-p/3904599).
+For the Microsoft part of the pricing, the Enterprise plan currently has yearly discounted pricing options available. For more information, see [Maximizing Value: Streamlined Cloud Solutions with Prime Cost Savings for Spring Apps](https://techcommunity.microsoft.com/blog/appsonazureblog/maximizing-value-streamlined-cloud-solutions-with-prime-cost-savings-for-spring-/3904599).
 
 For the VMware (by Broadcom) part of the pricing, the negotiable discount varies based on the number of years you sign up for. For more information, reach out to your sales representative.
 
 ## Monthly free grants
 
-The first 50 vCPU hours and 100-GB hours of memory are free each month per subscription. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
+The first 50 vCPU hours and 100-GB hours of memory are free each month per subscription. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/blog/appsonazureblog/price-reduction---azure-spring-apps-does-more-costs-less/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/category/azure/blog/appsonazureblog).
 
 ## Start and stop instances
 

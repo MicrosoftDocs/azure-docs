@@ -13,6 +13,8 @@ ms.custom: engagement-fy23
 
 # What is Azure Synapse SQL architecture?
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article describes the architecture components of Synapse SQL. It also explains how Azure Synapse SQL combines distributed query processing capabilities with Azure Storage to achieve high performance and scalability.
 
 ## Synapse SQL architecture components

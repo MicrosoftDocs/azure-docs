@@ -3,7 +3,7 @@ title: Traffic Splitting with Application Gateway for Containers - Gateway API
 description: Learn how to configure traffic splitting / weighted round robin with Application Gateway for Containers.
 services: application-gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: how-to
 ms.date: 11/05/2024
 ms.author: mbender
@@ -13,8 +13,8 @@ ms.author: mbender
 # Traffic splitting with Application Gateway for Containers - Gateway API
 
 This document helps set up an example application that uses the following resources from Gateway API:
-- [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one http listener
-- [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute/) - creating an HTTP route that references two backend services having different weights
+- [Gateway](https://gateway-api.sigs.k8s.io/docs/concepts/api-overview/#gateway) - creating a gateway with one http listener
+- [HTTPRoute](https://gateway-api.sigs.k8s.io/reference/api-types/httproute//) - creating an HTTP route that references two backend services having different weights
 
 ## Background
 

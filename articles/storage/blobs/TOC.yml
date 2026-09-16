@@ -78,13 +78,8 @@ items:
                 href: ../common/storage-account-get-info.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
               - name: Relocate a storage account to another region
                 href: ../../azure-resource-manager/management/relocation/relocation-storage-account.md?toc=/azure/storage/blobs/toc.json
-          - name: Classic storage account retirement
-            href: ../common/classic-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            items:
-              - name: Understand the migration process for classic accounts
-                href: ../common/classic-account-migration-process.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Migrate a classic storage account to Resource Manager
-                href: ../common/classic-account-migrate.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: AzureDnsZone endpoints requirement FAQ
+            href: ../common/azurednszone-endpoints-retirement-faq.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Data Lake Storage
             items:
               - name: Plan to upgrade an account
@@ -129,6 +124,8 @@ items:
                 href: ../common/storage-migration-execution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Tape migration overview
             href: ../common/tape-migration-guide.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Azure Storage Mover
+            href: ../../storage-mover/index.yml
           - name: AzCopy
             items:
               - name: Get started
@@ -228,11 +225,13 @@ items:
             items:
               - name: Overview
                 href: secure-file-transfer-protocol-support.md
+              - name: Blob SFTP versus a self-hosted server
+                href: secure-file-transfer-protocol-choose-solution.md
               - name: Enable or disable SFTP
                 href: secure-file-transfer-protocol-support-how-to.md
               - name: Authorize access
                 href: secure-file-transfer-protocol-support-authorize-access.md
-              - name: Authorize access with Microsoft Entra ID (preview)
+              - name: Authorize access with Microsoft Entra ID
                 href: secure-file-transfer-protocol-support-entra-id-based-access.md
               - name: Connect from an SFTP client
                 href: secure-file-transfer-protocol-support-connect.md
@@ -273,6 +272,8 @@ items:
                 href: storage-blob-inventory-report-analytics.md
               - name: "Tutorial: Calculate container statistics"
                 href: storage-blob-calculate-container-statistics-databricks.md
+              - name: FAQ
+                href: blob-inventory-faq.md
           - name: Blob index tags
             href: storage-manage-find-blobs.md
             items:
@@ -294,6 +295,10 @@ items:
                 href: lifecycle-management-policy-monitor.md
               - name: Performance characteristics
                 href: lifecycle-management-performance-characteristics.md
+              - name: FAQ
+                href: lifecycle-management-policy-faq.md
+          - name: Azure Storage Actions
+            href: ../../storage-actions/storage-tasks/index.yml
           - name: Full text search
             href: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Static websites
@@ -308,14 +313,18 @@ items:
                 href: storage-blobs-static-site-github-actions.md
               - name: "Tutorial: Host a static website"
                 href: storage-blob-static-website-host.md
+              - name: FAQ
+                href: static-website-hosting-faq.md
           - name: Create a Managed Application to Store Blob Digests
             href: /azure/confidential-ledger/create-blob-managed-app?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Security and networking
         items:
+          - name: Secure your Azure Blob storage
+            href: secure-blobs.md
+          - name: Secure your Azure Storage account
+            href: ../common/secure-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Security recommendations
             href: security-recommendations.md
-          - name: Security baseline
-            href: /security/benchmark/azure/baselines/storage-security-baseline?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Encryption
             items:
               - name: Encryption at rest
@@ -349,6 +358,8 @@ items:
                             href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
                           - name: Configure customer-managed keys for an existing account
                             href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                      - name: Encryption account changes involving CMK
+                        href: ../common/encryption-account-changes-with-cmk.md
                   - name: Configure customer-managed keys in a managed HSM
                     href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
               - name: Customer-provided keys
@@ -571,6 +582,8 @@ items:
             href: storage-performance-checklist.md
           - name: Optimize data partitions
             href: storage-performance-blob-partitions.md
+          - name: Mitigate hot partitions
+            href: storage-performance-mitigate-hot-partitions.md
           - name: Latency in Blob storage
             href: storage-blobs-latency.md
           - name: Performance and scale targets
@@ -632,6 +645,8 @@ items:
                 items:
                   - name: Best practices
                     href: access-tiers-best-practices.md
+                  - name: Cost optimization comparison
+                    href: blob-cost-optimization-services.md
                   - name: Smart tiering
                     href: access-tiers-smart.md
                   - name: Change a blob's access tier
@@ -654,10 +669,14 @@ items:
             href: monitor-blob-storage.md
           - name: Best practices for monitoring
             href: blob-storage-monitoring-scenarios.md
+          - name: Advanced platform metrics
+            href: blob-storage-advanced-platform-metrics.md
           - name: Use Storage insights
             href: ../common/storage-insights-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Transition from classic metrics
             href: ../common/storage-metrics-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: FAQ
+            href: monitor-blob-storage-faq.md
           - name: Monitoring (classic)
             items:
               - name: Storage Analytics
@@ -1220,8 +1239,6 @@ items:
             displayName: samples, policies, definitions
       - name: Resources
         items:
-          - name: FAQ
-            href: storage-blob-faq.yml
           - name: Azure updates
             href: https://azure.microsoft.com/updates/?product=storage
           - name: Azure Storage Explorer
@@ -1393,25 +1410,10 @@ items:
                 href: data-lake-storage-acl-python.md
               - name: JavaScript
                 href: data-lake-storage-acl-javascript.md
-      - name: Migration
+      - name: Data transfer and migration
         items:
-          - name: Migrate an HDFS store offline
-            href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
-          - name: Migrate an HDFS store online
-            href: migrate-gen2-wandisco-live-data-platform.md
-      - name: Data transfer
-        items:
-          - name: Compare data transfer solutions
-            href: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            items:
-              - name: Large dataset, low network bandwidth
-                href: ../common/storage-solution-large-dataset-low-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Large dataset, moderate to high network bandwidth
-                href: ../common/storage-solution-large-dataset-moderate-high-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Small dataset, low to moderate network bandwidth
-                href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Periodic data transfer
-                href: ../common/storage-solution-periodic-data-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Azure Storage Mover
+            href: ../../storage-mover/index.yml
           - name: AzCopy
             items:
               - name: Get started
@@ -1456,8 +1458,78 @@ items:
                     href: /troubleshoot/azure/azure-storage/storage-use-azcopy-troubleshoot
           - name: Azure Data Factory
             href: ../../data-factory/connector-azure-data-lake-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Transfer data with the DistCp tool
+          - name: BlobFuse
+            items:
+              - name: Get started
+                items:
+                  - name: What is BlobFuse?
+                    href: blobfuse2-what-is.md
+                  - name: Install BlobFuse
+                    href: blobfuse2-install.md
+                  - name: Mount a container
+                    href: blobfuse2-mount-container.md
+                  - name: BlobFuse and Linux file system compared
+                    href: blobfuse2-compare-linux-file-system.md
+              - name: Configure BlobFuse
+                items:
+                  - name: Create a configuration file
+                    href: blobfuse2-configure.md
+                  - name: Streaming versus caching mode
+                    href: blobfuse2-streaming-versus-caching.md
+                  - name: Configure streaming mode
+                    href: blobfuse2-configure-streaming.md
+                  - name: Configure caching mode
+                    href: blobfuse2-configure-caching.md
+              - name: Metrics and logs
+                items:
+                  - name: Health monitor
+                    href: blobfuse2-health-monitor.md
+                  - name: Diagnostic logs
+                    href: blobfuse2-enable-logs.md
+              - name: Support
+                items:
+                  - name: Limitations and known issues
+                    href: blobfuse2-known-issues.md
+                  - name: Troubleshooting
+                    href: blobfuse2-troubleshooting.md
+                  - name: FAQ
+                    href: blobfuse2-faq.yml
+          - name: NFS 3.0
+            items:
+              - name: Overview
+                href: network-file-system-protocol-support.md
+              - name: Performance considerations
+                href: network-file-system-protocol-support-performance.md
+              - name: Performance benchmark
+                href: network-file-system-protocol-performance-benchmark.md
+              - name: Mount storage by using NFS
+                href: network-file-system-protocol-support-how-to.md
+              - name: Limitations and known issues
+                href: network-file-system-protocol-known-issues.md
+          - name: SFTP
+            items:
+              - name: Overview
+                href: secure-file-transfer-protocol-support.md
+              - name: Enable or disable SFTP
+                href: secure-file-transfer-protocol-support-how-to.md
+              - name: Authorize access
+                href: secure-file-transfer-protocol-support-authorize-access.md
+              - name: Authorize access with Microsoft Entra ID
+                href: secure-file-transfer-protocol-support-entra-id-based-access.md
+              - name: Connect from an SFTP client
+                href: secure-file-transfer-protocol-support-connect.md
+              - name: Performance considerations
+                href: secure-file-transfer-protocol-performance.md
+              - name: Limitations and known issues
+                href: secure-file-transfer-protocol-known-issues.md
+          - name: DistCp
             href: data-lake-storage-use-distcp.md
+          - name: Migrate an HDFS store offline
+            href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
+          - name: Migrate an HDFS store online
+            href: migrate-gen2-wandisco-live-data-platform.md
+          - name: Migrate to another region
+            href: data-lake-storage-migrate-data.md
       - name: Directory & file operations
         items:
           - name: Storage Explorer
@@ -1608,8 +1680,6 @@ items:
             displayName: samples, policies, definitions
       - name: Resources
         items:
-          - name: FAQ
-            href: storage-blob-faq.yml
           - name: Azure updates
             href: https://azure.microsoft.com/updates/?product=storage
           - name: Azure Storage Explorer

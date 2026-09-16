@@ -5,7 +5,7 @@ description: Learn how to use the Azure portal to create and delete consumer use
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 05/26/2023

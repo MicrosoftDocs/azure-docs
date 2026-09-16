@@ -193,7 +193,7 @@ When you assign the policy, choose an effect that matches your enforcement needs
 
 After assignment, namespaces that don't comply appear in **Policy** > **Compliance**. You can create a remediation task for namespaces that need updating.
 
-:::image type="content" source="./media/disable-local-authentication/azure-policy.png" alt-text="Screenshot of Azure policy to disable location authentication." lightbox="./media/disable-local-authentication/azure-policy.png":::
+:::image type="content" source="./media/disable-local-authentication/azure-policy.png" alt-text="Screenshot of Azure policy to disable local authentication." lightbox="./media/disable-local-authentication/azure-policy.png":::
 
 ## Migrate from SAS to Microsoft Entra ID
 

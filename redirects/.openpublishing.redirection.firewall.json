@@ -9,6 +9,11 @@
       "source_path_from_root": "/articles/firewall/central-management.md",
       "redirect_url": "/azure/firewall-manager/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/firewall-known-issues.md",
+      "redirect_url": "/troubleshoot/azure/firewall/firewall-known-issues",
+      "redirect_document_id": false
     }
   ]
 }

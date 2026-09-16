@@ -3,8 +3,8 @@ title: Migrate apps from Azure Functions version 1.x to 4.x
 description: This article shows you how to migrate your existing function apps running on version 1.x of the Azure Functions runtime to be able to run on version 4.x of the runtime.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 07/31/2023
-zone_pivot_groups: programming-languages-set-functions
+ms.date: 09/09/2026
+zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom:
   - template-how-to-pattern
   - devx-track-extended-java
@@ -96,11 +96,11 @@ On version 1.x of the Functions runtime, your C# function app targets .NET Frame
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 
 > [!TIP]
-> **Unless your app depends on a library or API only available to .NET Framework, we recommend updating to .NET 8 on the isolated worker model.** Many apps on version 1.x target .NET Framework only because that is what was available when they were created. Additional capabilities are available to more recent versions of .NET, and if your app is not forced to stay on .NET Framework due to a dependency, you should target a more recent version. .NET 8 is the fully released version with the longest support window from .NET. 
+> **Unless your app depends on a library or API only available to .NET Framework, update to .NET 10 on the isolated worker model.** Many apps on version 1.x target .NET Framework only because that choice was available when they were created. If your app doesn't need to stay on .NET Framework because of a dependency, target .NET 10, the current long-term support (LTS) release.
 >
-> Although you can choose to instead use the in-process model, this is not recommended if it can be avoided. [Support will end for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model), so you'll need to move to the isolated worker model before then. Doing so while migrating to version 4.x will decrease the total effort required, and the isolated worker model will give your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to more easily target future versions of .NET. If you are moving to the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
+> Although you can choose to use the in-process model instead, this approach isn't recommended if you can avoid it. [Support ends for the in-process model on November 10, 2026](https://aka.ms/azure-functions-retirements/in-process-model), so you need to move to the isolated worker model before then. Migrating models while you migrate to version 4.x decreases the total effort required, and the isolated worker model gives your app [additional benefits](./dotnet-isolated-in-process-differences.md), including the ability to target future versions of .NET more easily. If you're moving to the isolated worker model, the [.NET Upgrade Assistant] can also handle many of the necessary code changes for you.
 
-This guide doesn't present specific examples for .NET 10 (preview) or .NET 9. If you need to target one of those versions, you can adapt the .NET 8 examples.
+The isolated worker model examples in this guide target .NET 10. The .NET 8 examples apply only to the in-process model.
 
 ::: zone-end
 
@@ -173,9 +173,9 @@ The following example is a `.csproj` project file that runs on version 1.x:
 
 Use one of the following procedures to update this XML file to run in Functions version 4.x:
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
-[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net8](../../includes/functions-dotnet-migrate-project-v4-isolated-net8.md)]
+[!INCLUDE [functions-dotnet-migrate-project-v4-isolated-net10](../../includes/functions-dotnet-migrate-project-v4-isolated-net10.md)]
 
 # [.NET Framework 4.8](#tab/netframework48)
 
@@ -191,7 +191,7 @@ Use one of the following procedures to update this XML file to run in Functions 
 
 Based on the model you are migrating to, you might need to update or change the packages your application references. When you adopt the target packages, you then need to update the namespace of using statements and some types you reference. You can see the effect of these namespace changes on `using` statements in the [HTTP trigger template examples](#http-trigger-template) later in this article.
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
 [!INCLUDE [functions-dotnet-migrate-packages-v4-isolated](../../includes/functions-dotnet-migrate-packages-v4-isolated.md)]
 
@@ -211,7 +211,7 @@ The [Notification Hubs](./functions-bindings-notification-hubs.md) and [Mobile A
 
 In most cases, migrating requires you to add the following program.cs file to your project:
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -274,7 +274,7 @@ Settings in the host.json file apply at the function app level, both locally and
 
 To run on version 4.x, you must add `"version": "2.0"` to the host.json file. You should also consider adding `logging` to your configuration, as in the following examples: 
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
 :::code language="json" source="~/functions-quickstart-templates//Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/host.json":::
 
@@ -300,7 +300,7 @@ The local.settings.json file is only used when running locally. For information,
 
 When you migrate to version 4.x, make sure that your local.settings.json file has at least the following elements:
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
@@ -336,14 +336,14 @@ When you migrate to version 4.x, make sure that your local.settings.json file ha
 
 Some key classes changed names between version 1.x and version 4.x. These changes are a result either of changes in .NET APIs or in differences between in-process and isolated worker process. The following table indicates key .NET classes used by Functions that could change when migrating:
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
-| Version 1.x |  .NET 8 | 
+| Version 1.x | .NET 10 |
 | --- | --- | 
 | `FunctionName` (attribute) | `Function` (attribute) | 
 | `TraceWriter` | `ILogger<T>`, `ILogger`  |
-| `HttpRequestMessage` | `HttpRequestData`, `HttpRequest` (using [ASP.NET Core integration])|
-| `HttpResponseMessage` | `HttpResponseData`, `IActionResult` (using [ASP.NET Core integration])|
+| `HttpRequestMessage` | `HttpRequestData`, `HttpRequest` (with [ASP.NET Core integration]) |
+| `HttpResponseMessage` | `HttpResponseData`, `IActionResult` (with [ASP.NET Core integration]) |
 
 
 # [.NET Framework 4.8](#tab/netframework48)
@@ -372,7 +372,13 @@ There might also be class name differences in bindings. For more information, se
 
 ### Other code changes
 
-# [.NET 8 (isolated)](#tab/net8)
+# [.NET 10](#tab/net10)
+
+This section highlights other code changes to consider as you work through the migration. These changes are not needed by all applications, but you should evaluate if any are relevant to your scenarios. Make sure to check [Behavior changes after version 1.x](#behavior-changes-after-version-1x) for additional changes you might need to make to your project.
+
+[!INCLUDE [functions-dotnet-migrate-isolated-other-code-changes](../../includes/functions-dotnet-migrate-isolated-other-code-changes.md)]
+
+# [.NET Framework 4.8](#tab/netframework48)
 
 This section highlights other code changes to consider as you work through the migration. These changes are not needed by all applications, but you should evaluate if any are relevant to your scenarios. Make sure to check [Behavior changes after version 1.x](#behavior-changes-after-version-1x) for additional changes you might need to make to your project.
 
@@ -380,13 +386,7 @@ This section highlights other code changes to consider as you work through the m
 
 # [.NET 8 (in-process model)](#tab/net8-in-proc)
 
-Make sure to check [Behavior changes after version 1.x](#behavior-changes-after-version-1x) for additional changes you might need to make to your project.
-
-# [.NET Framework 4.8](#tab/netframework48)
-
-This section highlights other code changes to consider as you work through the migration. These changes are not needed by all applications, but you should evaluate if any are relevant to your scenarios. Make sure to check [Behavior changes after version 1.x](#behavior-changes-after-version-1x) for additional changes you might need to make to your project.
-
-[!INCLUDE [functions-dotnet-migrate-isolated-other-code-changes](../../includes/functions-dotnet-migrate-isolated-other-code-changes.md)]
+Check [Behavior changes after version 1.x](#behavior-changes-after-version-1x) for more changes you might need to make to your project.
 
 ---
 
@@ -437,7 +437,7 @@ namespace Company.Function
 
 In version 4.x, the HTTP trigger template looks like the following example:
 
-# [.NET 8](#tab/net8)
+# [.NET 10](#tab/net10)
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -546,6 +546,7 @@ To update your project to Azure Functions 4.x:
 
 ::: zone-end
 
+
 ## Behavior changes after version 1.x
 
 This section details changes made after version 1.x in both trigger and binding behaviors as well as in core Functions features and behaviors.
@@ -554,7 +555,7 @@ This section details changes made after version 1.x in both trigger and binding 
 
 Starting with version 2.x, you must install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](functions-bindings-register.md).
 
-There are also a few changes in the *function.json* or attributes of the function between versions. For example, the Event Hubs `path` property is now `eventHubName`. See the [existing binding table](functions-versions.md#bindings) for links to documentation for each binding.
+There are also a few changes in the *function.json* or attributes of the function between versions. For example, the Event Hubs `path` property is now `eventHubName`. See the [existing binding table](functions-triggers-bindings.md#supported-bindings) for links to documentation for each binding.
 
 ### Changes in features and functionality
 

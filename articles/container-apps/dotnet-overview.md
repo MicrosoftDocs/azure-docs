@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: concept-article
-ms.date: 11/07/2025
+ms.date: 09/04/2026
 ms.author: cshoe
 ---
 
@@ -134,5 +134,5 @@ ASP.NET Core Blazor Server apps store state on the server, which means that each
 
 ## Related information
 
-* [Deploy an Aspire app](/dotnet/aspire/deployment/azure/aca-deployment)
+* [Deploy an Aspire app](https://aspire.dev/deployment/azure/container-apps/)
 * [Deploy and scale an ASP.NET Core app](/aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps)

@@ -2,11 +2,11 @@
 title: 'About virtual hub settings'
 titleSuffix: Azure Virtual WAN
 description: This article answers common questions about virtual hub settings and routing infrastructure units.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 08/24/2023
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 ---
 

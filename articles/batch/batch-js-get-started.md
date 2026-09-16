@@ -2,7 +2,7 @@
 title: Use the Azure Batch client library for JavaScript
 description: Learn the basic concepts of Azure Batch and build a simple solution using JavaScript.
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 05/15/2026
 ms.devlang: javascript
 ms.custom: devx-track-js, linux-related-content
 # Customer intent: "As a JavaScript developer, I want to use the Azure Batch client library to create and manage a batch processing solution, so that I can efficiently run parallel tasks for data processing from Azure Blob storage."
@@ -45,11 +45,11 @@ Now, let us follow the process step by step into building the JavaScript client:
 
 ### Step 1: Install Azure Batch SDK
 
-You can install Azure Batch SDK for JavaScript using the npm install command.
+You can install Azure Batch SDK for JavaScript using the npm install command. You also need the `@azure/identity` package to authenticate with Microsoft Entra ID.
 
-`npm install @azure/batch`
+`npm install @azure/batch @azure/identity`
 
-This command installs the latest version of azure-batch JavaScript SDK.
+This command installs the latest version of the Azure Batch JavaScript SDK along with the Azure Identity library.
 
 >[!Tip]
 > In an Azure Function app, you can go to "Kudu Console" in the Azure function's Settings tab to run the npm install commands. In this case to install Azure Batch SDK for JavaScript.
@@ -68,28 +68,25 @@ Next, create an Azure Batch account.
 
 `az batch account create -l "<location>"  -g "<resource-group-name>" -n "<batch-account-name>"`
 
-Each Batch account has its corresponding access keys. These keys are needed to create further resources in Azure batch account. A good practice for production environment is to use Azure Key Vault to store these keys. You can then create a Service principal for the application. Using this service principal the application can create an OAuth token to access keys from the key vault.
+Instead of using account access keys, this sample authenticates with Microsoft Entra ID using `DefaultAzureCredential`. Make sure the identity running the code (your developer sign-in, a managed identity, or a service principal) has been assigned an appropriate Azure RBAC role on the Batch account, such as **Azure Batch Data Contributor** or **Azure Batch Data Reader**. For more information, see [Authenticate Batch service solutions with Microsoft Entra ID](batch-aad-auth.md).
 
-`az batch account keys list -g "<resource-group-name>" -n "<batch-account-name>"`
-
-Copy and store the key to be used in the subsequent steps.
+When running locally, `DefaultAzureCredential` can pick up credentials from the Azure CLI (`az login`), Azure PowerShell, Visual Studio Code, or environment variables. In Azure-hosted environments such as Azure Functions or Azure VMs, it can use a managed identity.
 
 ### Step 3: Create an Azure Batch service client
 
-Following code snippet first imports the azure-batch JavaScript module and then creates a Batch Service client. You need to first create a SharedKeyCredentials object with the Batch account key copied from the previous step.
+The following code snippet imports the `@azure/batch` and `@azure/identity` modules and then creates a `BatchClient` using `DefaultAzureCredential`.
 
-```javascript
+```javascript js_get_started_client
 // Initializing Azure Batch variables
 
-import { BatchServiceClient, BatchSharedKeyCredentials } from "@azure/batch";
+import { DefaultAzureCredential } from "@azure/identity";
+import { BatchClient } from "@azure/batch";
 
-// Replace values below with Batch Account details
-const batchAccountName = '<batch-account-name>';
-const batchAccountKey = '<batch-account-key>';
+// Replace value below with your Batch account URL
 const batchEndpoint = '<batch-account-url>';
 
-const credentials = new BatchSharedKeyCredentials(batchAccountName, batchAccountKey);
-const batchClient = new BatchServiceClient(credentials, batchEndpoint);
+const credentials = new DefaultAzureCredential();
+const batchClient = new BatchClient(batchEndpoint, credentials);
 
 ```
 
@@ -114,7 +111,7 @@ An Azure Batch pool consists of multiple VMs (also known as Batch Nodes). Azure 
 
 The following code snippet creates the configuration parameter objects.
 
-```javascript
+```javascript js_get_started_vm_config
 // Creating Image reference configuration for Ubuntu Linux VM
 const imgRef = {
     publisher: "Canonical",
@@ -125,7 +122,7 @@ const imgRef = {
 // Creating the VM configuration object with the SKUID
 const vmConfig = {
     imageReference: imgRef,
-    nodeAgentSKUId: "batch.node.ubuntu 20.04"
+    nodeAgentSkuId: "batch.node.ubuntu 20.04"
 };
 // Number of VMs to create in a pool
 const numVms = 4;
@@ -141,7 +138,7 @@ Once the pool configuration is defined, you can create the Azure Batch pool. The
 
 The following code snippet creates an Azure Batch pool.
 
-```javascript
+```javascript js_get_started_create_pool
 // Create a unique Azure Batch pool ID
 const now = new Date();
 const poolId = `processcsv_${now.getFullYear()}${now.getMonth()}${now.getDay()}${now.getHours()}${now.getSeconds()}`;
@@ -156,36 +153,28 @@ const poolConfig = {
 };
 
 // Creating the Pool
-var pool = batchClient.pool.add(poolConfig, function (error, result){
-    if(error!=null){console.log(error.response)};
-});
+try {
+    await batchClient.createPool(poolConfig);
+} catch (error) {
+    console.log(error);
+}
 ```
 
 You can check the status of the pool created and ensure that the state is in "active" before going ahead with submission of a Job to that pool.
 
-```javascript
-var cloudPool = batchClient.pool.get(poolId,function(error,result,request,response){
-        if(error == null)
-        {
-
-            if(result.state == "active")
-            {
-                console.log("Pool is active");
-            }
-        }
-        else
-        {
-            if(error.statusCode==404)
-            {
-                console.log("Pool not found yet returned 404...");
-
-            }
-            else
-            {
-                console.log("Error occurred while retrieving pool data");
-            }
-        }
-        });
+```javascript js_get_started_get_pool
+try {
+    const cloudPool = await batchClient.getPool(poolId);
+    if (cloudPool.state === "active") {
+        console.log("Pool is active");
+    }
+} catch (error) {
+    if (error.statusCode === 404) {
+        console.log("Pool not found yet returned 404...");
+    } else {
+        console.log("Error occurred while retrieving pool data");
+    }
+}
 ```
 
 Following is a sample result object returned by the pool.get function.
@@ -257,13 +246,19 @@ A preparation task is specified during the submission of Azure Batch job. Follow
 
 Following code snippet shows the preparation task script configuration sample:
 
-```javascript
-var jobPrepTaskConfig = {id:"installprereq",commandLine:"sudo sh startup_prereq.sh > startup.log",resourceFiles: [{ 'httpUrl': 'Blob sh url', 'filePath': 'startup_prereq.sh' }],waitForSuccess:true,runElevated:true, userIdentity: {autoUser: {elevationLevel: "admin", scope: "pool"}}}
+```javascript js_get_started_job_prep_task
+const jobPrepTaskConfig = {
+    id: "installprereq",
+    commandLine: "sudo sh startup_prereq.sh > startup.log",
+    resourceFiles: [{ httpUrl: 'Blob sh url', filePath: 'startup_prereq.sh' }],
+    waitForSuccess: true,
+    userIdentity: { autoUser: { elevationLevel: "admin", scope: "pool" } }
+};
 ```
 
 If there are no prerequisites to be installed for your tasks to run, you can skip the preparation tasks. Following code creates a job with display name "process csv files."
 
-```javascript
+```javascript js_get_started_create_job
 // Setting Batch Pool ID
 const poolInfo = { poolId: poolId };
 // Batch job configuration object
@@ -275,13 +270,12 @@ const jobConfig = {
     poolInfo: poolInfo
 };
 // Adding Azure batch job to the pool
-const job = batchClient.job.add(jobConfig, function (error, result) {
-        if (error !== null) {
-            console.log("An error occurred while creating the job...");
-            console.log(error.response);
-        }
-    }
-);
+try {
+    await batchClient.createJob(jobConfig);
+} catch (error) {
+    console.log("An error occurred while creating the job...");
+    console.log(error);
+}
 ```
 
 ### Step 5: Submit Azure Batch tasks for a job
@@ -295,10 +289,10 @@ If we look at the [Python script](https://github.com/Azure-Samples/azure-batch-s
 
 Assuming we have four containers "con1", "con2", "con3","con4" following code shows submitting four tasks to the Azure batch job "process csv" we created earlier.
 
-```javascript
+```javascript js_get_started_add_tasks
 // storing container names in an array
 const containerList = ["con1", "con2", "con3", "con4"];      //Replace with list of blob containers within storage account
-containerList.forEach(function (val, index) {
+for (const val of containerList) {
     console.log("Submitting task for container : " + val);
     const containerName = val;
     const taskID = containerName + "_process";
@@ -307,23 +301,21 @@ containerList.forEach(function (val, index) {
         id: taskID,
         displayName: 'process csv in ' + containerName,
         commandLine: 'python processcsv.py --container ' + containerName,
-        resourceFiles: [{ 'httpUrl': 'Blob script url', 'filePath': 'processcsv.py' }]
+        resourceFiles: [{ httpUrl: 'Blob script url', filePath: 'processcsv.py' }]
     };
 
-    const task = batchClient.task.add(jobId, taskConfig, function (error, result) {
-        if (error !== null) {
-            console.log("Error occurred while creating task for container " + containerName + ". Details : " + error.response);
-        }
-        else {
-            console.log("Task for container : " + containerName + " submitted successfully");
-        }
-    });
-});
+    try {
+        await batchClient.createTask(jobId, taskConfig);
+        console.log("Task for container : " + containerName + " submitted successfully");
+    } catch (error) {
+        console.log("Error occurred while creating task for container " + containerName + ". Details : " + error);
+    }
+}
 ```
 
 The code adds multiple tasks to the pool. And each of the tasks is executed on a node in the pool of VMs created. If the number of tasks exceeds the number of VMs in a pool or the taskSlotsPerNode property, the tasks wait until a node is made available. This orchestration is handled by Azure Batch automatically.
 
-The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure JavaScript SDK. Details are provided in the documentation [link](/javascript/api/@azure/batch/batchserviceclient).
+The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure JavaScript SDK. Details are provided in the documentation [link](/javascript/api/@azure/batch/batchclient).
 
 ## Next steps
 

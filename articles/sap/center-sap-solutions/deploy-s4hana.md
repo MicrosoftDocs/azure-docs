@@ -4,7 +4,7 @@ description: Learn how to deploy S/4HANA infrastructure with Azure Center for SA
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
-ms.date: 03/10/2026
+ms.date: 04/22/2026
 ms.author: sagarkeswani
 author: sagarkeswani
 #Customer intent: As a developer, I want to deploy S/4HANA infrastructure using Azure Center for SAP solutions so that I can manage SAP workloads in the Azure portal.
@@ -41,7 +41,7 @@ This article describes how to deploy S/4HANA infrastructure in *Azure Center for
 
 - Note the SAP Application Performance Standard (SAPS) and database memory size that you need to allow Azure Center for SAP solutions to size your SAP system. If you're not sure, you can also select the virtual machines (VMs). There are:
 
-  - A single or cluster of Advanced Business Application Programming Central Services (ASCS) VMs, which make up a single ASCS instance in the VIS.
+  - A single or cluster of Advanced Business Application Programming SAP Central Services (ASCS) VMs, which make up a single ASCS instance in the VIS.
   - A single or cluster of Database VMs, which make up a single Database instance in the VIS.
   - A single Application Server VM, which makes up a single Application instance in the VIS. Depending on the number of Application Servers being deployed or registered, there can be multiple application instances.
 
@@ -155,9 +155,9 @@ The following operating system (OS) software versions are compatible with these 
 
 1. Under **SAP Transport Directory**, enter how you want to set up the transport directory on this SID (applicable for Distributed with HA and Distributed deployments only).
 
-   1. For **SAP Transport Options**, you can choose to **Create a new SAP transport Directory** or **Use an existing SAP transport Directory** or completely skip the creation of transport directory by choosing **Don't include SAP transport directory** option. Currently, only NFS on AFS storage account fileshares is supported.
+   1. For **SAP Transport Options**, choose **Create a new SAP transport Directory** or **Use an existing SAP transport Directory**. To skip the creation of a transport directory, select **Don't include SAP transport directory**. Currently, only NFS on classic file shares (file shares inside of a storage account) is supported.
 
-   1. If you choose to **Create a new SAP transport Directory**, this option creates and mounts a new transport fileshare on the SID. By default, this option creates an NFS on AFS storage account and a transport fileshare in the resource group where an SAP system is deployed. However, you can choose to create this storage account in a different resource group by providing the resource group name in **Transport Resource Group**.
+   1. If you choose **Create a new SAP transport Directory**, this option creates and mounts a new transport file share on the SID. By default, this option creates a storage account and an NFS transport file share in the resource group where an SAP system is deployed. However, you can choose to create this storage account in a different resource group by providing the resource group name in **Transport Resource Group**.
 
       You can also provide a custom name for the storage account to be created under **Storage account name** section. Leaving the **Storage account name** creates the storage account with the service default name `<SID><NFS><alphanumeric text>` in the chosen transport resource group. Creating a new transport directory creates a ZRS based replication for zonal deployments and LRS based replication for nonzonal deployments.
 

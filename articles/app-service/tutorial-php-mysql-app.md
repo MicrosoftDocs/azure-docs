@@ -6,7 +6,7 @@ ms.author: msangapu
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 11/19/2025
+ms.date: 07/18/2026
 ms.update-cycle: 180-days
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
@@ -23,7 +23,7 @@ ms.custom:
 
 # Tutorial: Deploy a PHP, MySQL, and Redis app to Azure App Service
 
-This tutorial shows how to create a secure PHP app in Azure App Service connects to a MySQL database using Azure Database for MySQL Flexible Server. You also deploy an Azure Cache for Redis to enable the caching code in your application. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you have a Laravel app running on Azure App Service on Linux.
+This tutorial shows how to create a secure PHP app in Azure App Service that connects to a MySQL database using Azure Database for MySQL Flexible Server. To use Azure Managed Redis, follow the [Azure Developer CLI](./tutorial-php-mysql-app.md?pivots=azure-developer-cli) steps. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you finish, you have a Laravel app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of the Azure app example titled Task List showing new tasks added.":::
 
@@ -82,9 +82,9 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ::: zone pivot="azure-portal"  
 
-## Create App Service, database, and cache
+## Create App Service and database
 
-In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure Database for MySQL, and Azure Cache for Redis. For the creation process, you specify:
+In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for MySQL. For the creation process, specify:
 
 - The **Name** for the web app. It's used as part of the DNS name for your app.
 - The **Region** to run the app physically in the world. It's also part of the DNS name for your app.
@@ -110,7 +110,7 @@ Sign in to the [Azure portal](https://portal.azure.com/). Follow these steps to 
     :::column span="2":::
         **Step 2:** In the **Create Web App** page, fill out the form as follows.
         1. *Name*: **msdocs-laravel-mysql**. The Azure portal creates a resource group named **msdocs-laravel-mysql_group**.
-        1. *Runtime stack*: **PHP 8.4**.
+        1. *Runtime stack*: **PHP 8.3**.
         1. *Operating system*: **Linux**.
         1. *Region*: Any Azure region near you.
         1. *Linux Plan*: **Create new** and use the name **msdocs-laravel-mysql**.
@@ -126,9 +126,8 @@ Sign in to the [Azure portal](https://portal.azure.com/). Follow these steps to 
         1. Select **Next** to proceed to the **Database** tab.
         1. Select **Create a Database**.
         1. In **Engine**, select **MySQL - Flexible Server**.
-        1. Select **Create an Azure Cache for Redis**.
-        1. In **Name** (under Cache), enter a name for the cache.
-        1. In **SKU**, select **Basic**.
+        1. Don't select **Create an Azure Cache for Redis**.
+
      :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="Screenshot showing the database configuration in the Web App wizard." lightbox="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-3.png":::
@@ -157,11 +156,10 @@ Sign in to the [Azure portal](https://portal.azure.com/). Follow these steps to 
         - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
         - **App Service**: Represents your app and runs in the App Service plan.
         - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-        - **Private endpoints**: Access endpoints for the database server and the Redis cache in the virtual network.
+        - **Private endpoints**: Access endpoints for the database server in the virtual network.
         - **Network interfaces**: Represents private IP addresses, one for each of the private endpoints.
         - **Azure Database for MySQL Flexible Server**: Accessible only from behind its private endpoint. A database and a user are created for you on the server.
-        - **Azure Cache for Redis**: Accessible only from behind its private endpoint.
-        - **Private DNS zones**: Enable DNS resolution of the database server and the Redis cache in the virtual network.
+        - **Private DNS zones**: Enable DNS resolution of the database server in the virtual network.
     :::column-end:::    
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-5.png" alt-text="Screenshot showing the deployment process completed." lightbox="./media/tutorial-php-mysql-app/azure-portal-create-app-mysql-5.png":::
@@ -267,25 +265,9 @@ Deployment generated the connectivity variables for you already as [app settings
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 8:** Configure the Redis connector to use Key Vault secrets.
-        1. In the Service Connectors page, select the checkbox next to the Cache for Redis connector, then select **Edit**.
-        1. Select the **Authentication** tab.
-        1. Select **Store Secret in Key Vault**.
-        1. Under **Key Vault Connection**, select the key vault you created. 
-        1. Select **Next: Networking**.
-        1. Select **Configure firewall rules to enable access to target service**. The app creation wizard already secured the SQL database with a private endpoint.
-        1. Select **Save**. Wait until the **Update succeeded** notification appears.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-7.png" alt-text="Screenshot showing how to edit the Cache for Redis service connector with a key vault connection." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-7.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 9:** Verify the Key Vault integration.
+        **Step 8:** Verify the Key Vault integration.
         1. From the left menu, select **Settings** > **Environment variables** again.
         1. Next to **AZURE_MYSQL_PASSWORD**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
-        1. To verify the Redis connection string, select **Show value** next to **AZURE_REDIS_CONNECTIONSTRING**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-8.png" alt-text="A screenshot showing how to see the value of MySQL password in Azure." lightbox="./media/tutorial-php-mysql-app/azure-portal-secure-connection-secrets-8.png":::
@@ -307,21 +289,10 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 :::row:::
     :::column span="2":::
-        **Step 1:** Create `CACHE_DRIVER` as an app setting.
+        **Step 1:** Create the following app settings. After you finish, select **Apply** to update your **App settings**.
         1. In your web app, select **Settings** > **Environment variables**.
         1. In the **App settings** tab, select **Add**.
-        1. For **Name**, enter *CACHE_DRIVER*.
-        1. For **Value**, enter *redis*.
-        1. Select **Apply**, then **Apply** again, then **Confirm**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-configure-laravel-variables-1.png" alt-text="Screenshot showing the Add/Edit application setting dialog for the CACHE_DRIVER setting." lightbox="./media/tutorial-php-mysql-app/azure-portal-configure-laravel-variables-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2:** Using the same steps in **Step 1**, create the following app settings. After you finish, select **Apply** to update your **App settings**.
-        - **MYSQL_ATTR_SSL_CA**: Use */home/site/wwwroot/ssl/DigiCertGlobalRootCA.crt.pem* as the value. This app setting points to the path of the [TLS/SSL certificate you need to access the MySQL server](/azure/mysql/flexible-server/how-to-connect-tls-ssl#download-the-public-ssl-certificate). It's included in the sample repository.
+        - **MYSQL_ATTR_SSL_CA**: Use */etc/ssl/certs/ca-certificates.crt* as the value. This app setting points to the path of the [TLS/SSL certificate you need to access the MySQL server](/azure/mysql/flexible-server/how-to-connect-tls-ssl#download-the-public-ssl-certificate). It's included on the App Service platform.
         - **LOG_CHANNEL**: Use *stderr* as the value. This setting tells Laravel to pipe logs to stderr, which makes it available to the App Service logs.
         - **APP_DEBUG**: Use *true* as the value. It's a [Laravel debugging variable](https://laravel.com/docs/10.x/errors#configuration) that enables debug mode pages.
         - **APP_KEY**: Use *base64:Dsz40HWwbCqnq0oxMsjq7fItmKIeBfCBGORfspaI1Kw=* as the value. It's a [Laravel encryption variable](https://laravel.com/docs/10.x/encryption#configuration).
@@ -354,11 +325,9 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 2 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
-        1. Ask, "*@workspace How does the app connect to the database and redis?*" Copilot might give you some explanation about how the settings are configured in *config/database.php*. 
+        1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about how the settings are configured in *config/database.php*. 
         1. Ask, "*@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a MySQL flexible server. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps and even tell you to make the change in the *config/database.php* file. 
         1. Open *config/database.php* in the explorer and add the code suggestion.
-        1. Ask, "*@workspace My App Service app also uses Azure Service Connector to connect to a Cache for Redis using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps and even tell you to make the change in the *config/database.php* file. If prompted, sign into GitHub Copilot for Azure to get more accurate answers.
-        1. Add the code suggestion.
         
         GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -375,12 +344,6 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
             1. Replace `DB_USERNAME` (line 52) with `AZURE_MYSQL_USERNAME`.
             1. Replace `DB_PASSWORD` (line 53) with `AZURE_MYSQL_PASSWORD`.
             1. Replace `DB_PORT` (line 50) with `AZURE_MYSQL_PORT`.
-        1. Scroll to the Redis `cache` section and make the following changes:
-            1. Replace `REDIS_HOST` (line 142) with `AZURE_REDIS_HOST`.
-            1. Replace `REDIS_PASSWORD` (line 144) with `AZURE_REDIS_PASSWORD`.
-            1. Replace `REDIS_PORT` (line 145) with `AZURE_REDIS_PORT`.
-            1. Replace `REDIS_CACHE_DB` (line 146) with `AZURE_REDIS_DATABASE`.
-            1. In the same section, add a line with `'scheme' => 'tls',`. This configuration tells Laravel to use encryption to connect to Redis.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2.png" alt-text="Screenshot showing a GitHub codespace and config/database.php opened." lightbox="./media/tutorial-php-mysql-app/azure-portal-deploy-sample-code-2.png":::
@@ -390,7 +353,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 3:**
         1. Select the **Source Control** extension.
-        1. In the textbox, type a commit message like *Configure Azure database and cache connections*. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
+        1. In the text box, type a commit message like *Configure Azure database connections*. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
@@ -496,9 +459,6 @@ The creation wizard puts the MySQL database server behind a private endpoint, so
     :::column-end:::
 :::row-end:::
 
-> [!TIP]
-> The sample application implements the [cache-aside](/azure/architecture/patterns/cache-aside) pattern. When you reload the page after making data changes, **Response time** in the webpage shows a much faster time because it's loading the data from the cache instead of the database.
-
 ## Stream diagnostic logs
 
 Azure App Service captures all messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability. By default, Laravel's logging functionality, for example, `Log::info()`, outputs to a local file. Your `LOG_CHANNEL` app setting from earlier makes log entries accessible from the App Service log stream.
@@ -593,7 +553,7 @@ The GitHub codespace already has the [Azure Developer CLI](/azure/developer/azur
     | Enter a value for the 'appKey' infrastructure secured parameter | Use the output of `php artisan key:generate --show` here. The AZD template creates a Key Vault secret for it that you can use in your app. |
     | Enter a value for the 'databasePassword' infrastructure secured parameter | Database password for MySQL. It must be at least 8 characters long and contain uppercase letters, lowercase letters, numbers, and special characters.|
 
-    The `azd up` command takes about 15 minutes to complete. The Redis cache takes the most time. The command also compiles and deploys your application code, but you modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about 15 minutes to complete. The command also compiles and deploys your application code, but you modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -602,7 +562,7 @@ The GitHub codespace already has the [Azure Developer CLI](/azure/developer/azur
     - **App Service**: Represents your app and runs in the App Service plan.
     - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
     - **Azure Database for MySQL Flexible Server**: Accessible only from the virtual network through the DNS zone integration. A database is created for you on the server.
-    - **Azure Cache for Redis**: Accessible only from within the virtual network.
+    - **Azure Managed Redis**: Accessible only from within the virtual network.
     - **Private endpoints**: Access endpoints for the key vault and the Redis cache in the virtual network.
     - **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Redis cache in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
@@ -633,7 +593,7 @@ The AZD template you use generated the connectivity variables for you already as
             - AZURE_REDIS_SSL
     ```
 
-    Settings beginning with `AZURE_MYSQL_` are connection variables for the MySQL database. Settings beginning with `AZURE_REDIS_` are for the Redis cache. You need to use them in your code later. The AZD template shows you the direct link to the app's app settings page in the Azure portal.
+    Settings beginning with `AZURE_MYSQL_` are connection variables for the MySQL database. Settings beginning with `AZURE_REDIS_` are for Azure Managed Redis. You need to use them in your code later. The AZD template shows you the direct link to the app's app settings page in the Azure portal.
 
 1. From the explorer, open *config/database.php*. This file is the configuration file for database and Redis cache connections.
 
@@ -663,7 +623,7 @@ The AZD template you use generated the connectivity variables for you already as
 
     For more information on database configuration in Laravel, see [Laravel documentation](https://laravel.com/docs/10.x/database).
 
-1. Find the part that defines the Redis cache connection (lines 140-147) and replace `REDIS_HOST`, `REDIS_PASSWORD`, `REDIS_PORT`, and `REDIS_CACHE_DB` with the `Azure_REDIS_` app settings from the AZD output. Also, add `'scheme' => 'tls',` to the connection. Your cache connection should look like the following code:
+1. Find the part that defines the Azure Managed Redis connection (lines 140-147) and replace `REDIS_HOST`, `REDIS_PASSWORD`, `REDIS_PORT`, and `REDIS_CACHE_DB` with the `Azure_REDIS_` app settings from the AZD output. Also, add `'scheme' => 'tls',` to the connection. Your cache connection should look like the following code:
 
     ```php
     'cache' => [
@@ -672,8 +632,8 @@ The AZD template you use generated the connectivity variables for you already as
         'host' => env('AZURE_REDIS_HOST', '127.0.0.1'),
         'username' => env('REDIS_USERNAME'),
         'password' => env('AZURE_REDIS_PASSWORD'),
-        'port' => env('AZURE_REDIS_PORT', '6379'),
-        'database' => env('AZURE_REDIS_DATABASE', '1'),
+        'port' => env('AZURE_REDIS_PORT', '10000'),
+        'database' => env('AZURE_REDIS_DATABASE', '0'),
     ],
     ```
     
@@ -686,7 +646,17 @@ The AZD template you use generated the connectivity variables for you already as
 
 1. From the explorer, open *infra/resources.bicep*. This file is the Bicep file that defines the created Azure resources.
 
-1. Find the part that defines the app settings (lines 510-514) and uncomment them. These app settings are:
+1. Find the resource definition for the App Service app and uncomment line 319: 
+
+    ```bicep
+    appCommandLine: 'cp /home/site/wwwroot/default /etc/nginx/sites-available/default && service nginx reload'
+    ```
+
+    [Laravel application lifecycle](https://laravel.com/docs/10.x/lifecycle#lifecycle-overview) begins in the */public* directory instead of the application root. The default PHP container for App Service uses Nginx, which starts in the application root. To change the site root, you need to change the Nginx configuration file in the PHP container (*/etc/nginx/sites-available/default*).
+
+    The sample repository contains a replacement configuration file called *default*, which tells Nginx to look in the */public* directory. This custom command in `appCommandLine` runs every time the app starts to apply the file replacement each time the Linux container is reloaded from a clean state.
+
+1. Find the part that defines the app settings (lines 514-518) and uncomment them. These app settings are:
     
     |Setting  |Description  |
     |---------|---------|
@@ -696,15 +666,7 @@ The AZD template you use generated the connectivity variables for you already as
     |`APP_DEBUG`     | Enable debug mode pages in Laravel (see [Laravel documentation](https://laravel.com/docs/10.x/configuration#debug-mode)).      |
     |`APP_KEY`     | [Laravel encryption variable](https://laravel.com/docs/10.x/encryption#configuration). The AZD template already created a Key Vault secret (lines 212-217), so you access it with a [Key Vault reference](app-service-key-vault-references.md).       |
 
-1. In *infra/resources.bicep*, find the resource definition for the App Service app and uncomment line 315: 
 
-    ```bicep
-    appCommandLine: 'cp /home/site/wwwroot/default /etc/nginx/sites-available/default && service nginx reload'
-    ```
-
-    [Laravel application lifecycle](https://laravel.com/docs/10.x/lifecycle#lifecycle-overview) begins in the */public* directory instead of the application root. The default PHP container for App Service uses Nginx, which starts in the application root. To change the site root, you need to change the Nginx configuration file in the PHP container (*/etc/nginx/sites-available/default*).
-
-    The sample repository contains a replacement configuration file called *default*, which tells Nginx to look in the */public* directory. This custom command in `appCommandLine` runs every time the app starts to apply the file replacement each time the Linux container is reloaded from a clean state.
 
 1. Back in the codespace terminal, run `azd up` again.
  
@@ -844,7 +806,7 @@ Pricing for the created resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 - The MySQL flexible server is created in **B1ms** tier and can be scaled up or down. With an Azure free account, **B1ms** tier is free for 12 months, up to the monthly limits. See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
-- The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
+- The Azure Managed Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Managed Redis](https://azure.microsoft.com/pricing/details/managed-redis/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 

@@ -12,6 +12,8 @@ ms.author: stefanazaric
 
 # Connect to Synapse SQL with Visual Studio and SSDT
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 > [!div class="op_single_selector"]
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](get-started-visual-studio.md)

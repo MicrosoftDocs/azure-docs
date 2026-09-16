@@ -4,8 +4,8 @@ description: Learn how to migrate an Apache HBase cluster in Azure HDInsight to 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date:  06/14/2024
 ---
@@ -153,7 +153,7 @@ Run the following commands, depending on your source HDInsight version and wheth
 
 - [The source cluster is HDInsight 4.0 with Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdinsight-40-without-accelerated-writes-and-the-destination-cluster-has-accelerated-writes).
 - [The source cluster is HDInsight 4.0 without Accelerated Writes, and the destination cluster has Accelerated Writes](#the-source-cluster-is-hdinsight-40-without-accelerated-writes-and-the-destination-cluster-doesnt-have-accelerated-writes).
-- [The source cluster is HDInsight 4.0 without Accelerated Writes, and the destination cluster doesn't have Accelerated Writes]().
+- [The source cluster is HDInsight 4.0 without Accelerated Writes, and the destination cluster doesn't have Accelerated Writes](#the-source-cluster-is-hdinsight-40-without-accelerated-writes-and-the-destination-cluster-doesnt-have-accelerated-writes).
 
 The `<container-endpoint-url>` for the storage account is `https://<storageaccount>.blob.core.windows.net/<container-name>`. Pass the SAS token for the storage account at the very end of the URL.
 

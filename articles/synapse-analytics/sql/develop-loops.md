@@ -11,6 +11,8 @@ ms.topic: how-to
 
 # Use T-SQL loops with Synapse SQL in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article provides you with essential tips for using T-SQL loops, replacing cursors, and developing related solutions with Synapse SQL.
 
 ## Purpose of WHILE loops

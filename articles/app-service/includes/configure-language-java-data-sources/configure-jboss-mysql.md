@@ -3,13 +3,13 @@ author: cephalin
 ms.service: azure-app-service
 ms.devlang: java
 ms.topic: include
-ms.date: 11/05/2024
+ms.date: 04/02/2026
 ms.author: cephalin
 ms.custom: sfi-ropc-nochange
 ---
 
 > [!NOTE]
-> JBoss EAP on App Service now supports "Bring Your Own License" (BYOL) billing, this allows customers with existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. [Learn more](https://aka.ms/byol-eap-jboss).
+> JBoss EAP on App Service supports Bring Your Own License (BYOL) billing. BYOL enables customers who have existing Red Hat subscriptions to apply those licenses directly to their JBoss EAP deployments on Azure App Service. For more information, see [BYOL Support for JBoss EAP on Azure App Service](https://aka.ms/byol-eap-jboss).
 
 1. Put your JBoss CLI commands into a file named *jboss-cli-commands.cli*. The JBoss commands must add the module and register it as a data source. The following example shows the JBoss CLI commands for creating a MySQL data source with the JNDI name `java:jboss/datasources/mysqlDS`.
 
@@ -21,13 +21,13 @@ ms.custom: sfi-ropc-nochange
 
     Note that the `module add` command uses three environment variables (`DB_HOST`, `DB_USERNAME`, and `DB_PASSWORD`), which you must add in App Service as app settings. The script adds them without the `--resolve-parameter-values` flag so that JBoss doesn't save their values in plaintext.
 
-1. Create a startup script, *startup.sh*, that calls the JBoss CLI commands. The following example shows how to call your `jboss-cli-commands.cli`. Later, you'll configure App Service to run this script when the container starts.
+1. Create a startup script, *startup.sh*, that calls the JBoss CLI commands. The following example shows how to call your **jboss-cli-commands.cli** file. Later, you configure App Service to run this script when the container starts.
 
     ```bash
-    $JBOSS_HOME/bin/jboss-cli.sh --connect --file=/home/site/scripts/jboss_cli_commands.cli
+    $JBOSS_HOME/bin/jboss-cli.sh --connect --file=/home/site/scripts/jboss-cli-commands.cli
     ```
 
-1. Using a deployment option of your choice, upload your JDBC driver, *jboss-cli-commands.cli*, and *startup.sh* to the paths specified in the respective scripts. Especially, upload *startup.sh* as a startup file. For example:
+1. Using a deployment option of your choice, upload your JDBC driver, *jboss-cli-commands.cli*, and *startup.sh* to the paths specified in the respective scripts. Upload *startup.sh* as a startup file. For example:
 
     # [Azure CLI](#tab/cli)
 
@@ -37,7 +37,7 @@ ms.custom: sfi-ropc-nochange
 
     # The lib type uploads to /home/site/libs by default.
     az webapp deploy --resource-group $RESOURCE_GROUP_NAME --name $APP_NAME --src-path mysql-connector-j-9.1.0.jar --target-path mysql-connector-j-9.1.0.jar --type lib
-    az webapp deploy --resource-group $RESOURCE_GROUP_NAME --name $APP_NAME --src-path jboss_cli_commands.cli --target-path /home/site/scripts/jboss_cli_commands.cli --type static
+    az webapp deploy --resource-group $RESOURCE_GROUP_NAME --name $APP_NAME --src-path jboss-cli-commands.cli --target-path /home/site/scripts/jboss-cli-commands.cli --type static
     # The startup type uploads to /home/site/scripts/startup.sh by default.
     az webapp deploy --resource-group $RESOURCE_GROUP_NAME --name $APP_NAME --src-path startup.sh --type startup
     ```
@@ -62,7 +62,7 @@ ms.custom: sfi-ropc-nochange
                 <type>script</type>
                 <directory>${project.scriptSourceDirectory}</directory> <!-- Assume script is in src/main/scripts. -->
                 <includes>
-                    <include>jboss_cli_commands.cli</include>
+                    <include>jboss-cli-commands.cli</include>
                 </includes>
             </resource>
             <resource>
@@ -99,13 +99,13 @@ ms.custom: sfi-ropc-nochange
         inlineScript: |
           # The lib type uploads to /home/site/libs by default.
           az webapp deploy --resource-group $(RESOURCE_GROUP_NAME) --name $(APP_NAME) --src-path mysql-connector-j-9.1.0.jar --target-path mysql-connector-j-9.1.0.jar --type lib
-          az webapp deploy --resource-group $(RESOURCE_GROUP_NAME) --name $(APP_NAME) --src-path jboss_cli_commands.cli --target-path /home/site/scripts/jboss_cli_commands.cli --type static
+          az webapp deploy --resource-group $(RESOURCE_GROUP_NAME) --name $(APP_NAME) --src-path jboss-cli-commands.cli --target-path /home/site/scripts/jboss-cli-commands.cli --type static
           # The startup type uploads to /home/site/scripts/startup.sh by default.
           az webapp deploy --resource-group $(RESOURCE_GROUP_NAME) --name $(APP_NAME) --src-path startup.sh --type startup
     ```
 
     ---
 
-To confirm that the data source was added to the JBoss server, SSH into your webapp and run `$JBOSS_HOME/bin/jboss-cli.sh --connect`. Once you're connected to JBoss, run the `/subsystem=datasources:read-resource` to print a list of the data sources.
+To confirm that the data source is added to the JBoss server, SSH into your web app and run `$JBOSS_HOME/bin/jboss-cli.sh --connect`. After you're connected to JBoss, run `/subsystem=datasources:read-resource` to print a list of the data sources.
 
-As defined by *jboss-cli-commands.cli* previously, you can access the MySQL connection using the JNDI name `java:jboss/datasources/mysqlDS`.
+Per the definition in *jboss-cli-commands.cli*, you can access the MySQL connection using the JNDI name `java:jboss/datasources/mysqlDS`.

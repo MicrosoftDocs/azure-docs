@@ -6,7 +6,7 @@ ms.author: mbender
 ms.reviewer: mbender
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 03/24/2026
+ms.date: 08/05/2026
 
 #CustomerIntent: As a network engineer or architect at a small or midsize organization, I want to understand secure network design patterns for regional web applications using a hub-spoke topology so that I can build a secure-by-default network foundation in Azure that scales as my organization grows.
 ---
@@ -41,7 +41,10 @@ When the backend includes VMs, internet traffic flows through Application Gatewa
 
 ### PaaS backend (App Service)
 
-When the backend is PaaS, internet traffic flows through Application Gateway with WAF in the spoke to App Service in the workload subnet. You don't need Bastion because there's no OS-level access to manage. The hub exists for optional shared services (Azure Firewall) and future growth. VNet peering is always provisioned; it carries active traffic only when Azure Firewall handles centralized egress.
+When the backend is PaaS, internet traffic flows through Application Gateway with WAF in the spoke to App Service in the workload subnet. You don't need Bastion because there's no OS-level access to manage. The hub exists for optional shared services (Azure Firewall) and future growth. VNet peering is always provisioned; in this baseline it carries active traffic only when Azure Firewall handles centralized egress.
+
+> [!NOTE]
+> Azure Firewall is optional in this baseline and is positioned for centralized egress control. Stricter Zero Trust designs place Azure Firewall inline between Application Gateway and App Service so that all application traffic is packet inspected. For that pattern, see [Deploy a zero trust network for web applications](../create-zero-trust-network-web-apps.md).
 
 The architecture uses two virtual networks connected by VNet peering:
 
@@ -65,7 +68,7 @@ Each component in this pattern has a clear role:
 | Azure DDoS Protection | Both | Layer 3/4 volumetric attack mitigation | When public IPs face the internet |
 | Azure Bastion | Hub | Secure RDP/SSH without public IPs on VMs | When backend is IaaS |
 | NAT Gateway | Spoke | Explicit outbound connectivity for private subnets | When workload subnets need internet egress without Azure Firewall |
-| Azure Firewall Basic | Hub | Centralized egress filtering and logging | Optional — add when you need FQDN-based outbound control |
+| Azure Firewall Basic | Hub | Centralized egress filtering and logging | Optional in this baseline — add when you need FQDN-based outbound control. Zero Trust designs place it inline for packet inspection instead. |
 
 ### Why use hub-spoke instead of a single virtual network?
 
@@ -89,7 +92,7 @@ This foundation is built in layers. Each layer depends on the one before it, so 
 | 4 | **VNet peering** | Bidirectional peering between hub and spoke | Peering connects the two VNets so that Bastion in the hub can reach VMs in the spoke and traffic can flow between shared services and workloads. Create peering before deploying resources that depend on cross-VNet connectivity. | [Tutorial: Connect virtual networks with peering](/azure/virtual-network/tutorial-connect-virtual-networks) |
 | 5 | **Access control** | NSGs with default-deny rules on every subnet in both VNets | NSGs are the first security boundary. Associating them immediately after peering ensures no resource ever operates in an uncontrolled subnet - even briefly during deployment. Add the Application Gateway, Bastion, and workload NSG rules at this step so subnets are ready to receive services. | [Tutorial: Filter network traffic with a network security group](/azure/virtual-network/tutorial-filter-network-traffic) |
 | 6 | **DDoS protection** (conditional) | DDoS Protection plan linked to both VNets | DDoS Protection enables at the VNet level and covers every public IP in that VNet. Enabling the plan before you create public IPs for Application Gateway or Bastion means those IPs are protected from the moment they come online. Skip this step if the architecture has no public IPs. | [Quickstart: Create and configure Azure DDoS Network Protection](/azure/ddos-protection/manage-ddos-protection) |
-| 7 | **Ingress security** | Application Gateway WAF_v2 with public IP, WAF policy, and Key Vault TLS certificates (in spoke) | With the network foundation, peering, NSG rules, and DDoS protection in place, the Application Gateway can deploy into a spoke subnet that's already locked down. The WAF policy inspects traffic before it reaches any backend. | [Quickstart: Direct web traffic with Azure Application Gateway](/azure/application-gateway/quick-create-portal) and [Create WAF policies for Application Gateway](/azure/web-application-firewall/ag/create-waf-policy-ag) |
+| 7a | **Ingress security** | Application Gateway WAF_v2 with public IP, WAF policy, and Key Vault TLS certificates (in spoke) | With the network foundation, peering, NSG rules, and DDoS protection in place, the Application Gateway can deploy into a spoke subnet that's already locked down. The WAF policy inspects traffic before it reaches any backend. | [Quickstart: Direct web traffic with Azure Application Gateway](/azure/application-gateway/quick-create-portal) and [Create WAF policies for Application Gateway](/azure/web-application-firewall/ag/create-waf-policy-ag) |
 | 7b | **Outbound connectivity** | NAT Gateway on workload subnet (or Azure Firewall UDR if step 10 is used) | Private subnets have no implicit outbound IP. Attach a NAT Gateway before deploying VMs so they have outbound connectivity (Windows Activation, updates, dependencies) from the start. Skip if Azure Firewall handles egress. | [Quickstart: Create a NAT gateway](/azure/nat-gateway/quickstart-create-nat-gateway) |
 | 8 | **Backend compute** | App Service, VMs, or Virtual Machine Scale Sets in the spoke workload subnet | Backend resources inherit the NSG rules that allow traffic only from the Application Gateway subnet. Workloads start in a secure state from the first request. | [Quickstart: Deploy an ASP.NET web app](/azure/app-service/quickstart-dotnetcore) or [Quickstart: Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal) |
 | 9 | **Management access** (IaaS only) | Azure Bastion in the hub `AzureBastionSubnet` | Deploy Bastion in the hub after VMs exist in the spoke so operators have targets to manage. Bastion reaches spoke VMs through the peering connection. The Basic SKU or higher supports VNet peering. Skip this step for PaaS-only backends. | [Quickstart: Deploy Azure Bastion from the Azure portal](/azure/bastion/quickstart-host-portal) |

@@ -3,8 +3,8 @@ title: What's new in firmware analysis
 author: karengu0
 ms.author: karenguo
 description: Learn about the latest updates for firmware analysis.
-ms.topic: conceptual
-ms.date: 03/05/2026
+ms.topic: concept-article
+ms.date: 08/04/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -12,17 +12,73 @@ ms.subservice: azure-firmware-analysis
 # What's new in firmware analysis
 
 This article lists new features and feature enhancements in the firmware analysis service.
-Get notified about when to revisit this page for updates by copying and pasting this URL:
+Get notified about when to revisit this page for updates by copying and pasting this URL into your RSS feed reader:
 
 > `https://learn.microsoft.com/api/search/rss?search=%22What%27s+new+in+firmware+analysis%22&locale=en-us`
 
-into your RSS feed reader.
+
+## July 28, 2026
+
+- **SBOM component expansion**: Firmware analysis now supports detection of 20 more SBOM components: bridge-utils, conntrack-tools, ebtables, eeprog, ethtool, exfat, hdparm, i2c-tools, ipset, libcap, lspci, mtd-utils, procps, rngd, rngtest, setserial, strace, zip, zipcloak, and zipnote. This expansion further improves SBOM coverage across firmware images and enhances visibility into potential vulnerabilities.
+
+- **Updated CVE database**: Firmware analysis's CVE database was refreshed on July 17, 2026 to incorporate newer CVE data, including added coverage for nano and protobuf-c.
+
+- **Fixed strace version detection**: Corrected the strace version detection regex, ensuring vulnerabilities are accurately identified and reported.
+
+
+
+## July 7, 2026
+
+- **SBOM component expansion**: Firmware analysis now supports detection of four additional SBOM components: nano, libarchive, protobuf-c, and jansson. This expansion improves SBOM coverage across firmware images and enhances visibility into potential vulnerabilities.
+
+- **Fixed extraction crash on large tarball entries**: Resolved a crash (ValueError overflow) during firmware extraction when device files exceed USTAR field limits. This fix improves the reliability of analysis results.
+
+- **Fixed UBIFS extraction for multi-image files**: Resolved an issue extracting images that contain multiple UBIFS images embedded in a single file separated by padding.
+
+- **Updated CVE database**: Firmware analysis's CVE database was refreshed on June 17, 2026 to incorporate newer CVE data.
+
+
+## May 2026
+
+- **SBOM component expansion**: Firmware analysis now supports detection of five additional SBOM components: iperf3, libxml2, json-c, chrony, and iproute2. This expands SBOM coverage across firmware images and improves visibility into potential vulnerabilities.
+
+
+## April 2026
+
+- **Azure Device Registry integration (Preview)**
+
+    Firmware analysis now integrates with Azure Device Registry to associate firmware analysis results with Azure Device Registry-managed Devices and Assets using shared metadata.
+
+    This integration enables you to identify Azure Device Registry-managed Devices and Assets affected by critical firmware vulnerabilities and prioritize remediation across your fleet. To learn more, visit [Firmware analysis integration with Azure Device Registry](firmware-analysis-integration-with-azure-device-registry.md).
+
+    This association is based on matching the following metadata fields between uploaded firmware images and Azure Device Registry resources within the same subscription:
+
+    | Firmware analysis metadata | Corresponding ADR resource metadata |
+    |----------------------------|-------------------------------------|
+    | Vendor                     | Manufacturer                        |
+    | Model                      | Model                               |
+    | Version                    | Operating system version (Devices) or Software revision (Assets)  |
+
+
+    When metadata values match, firmware analysis associates Azure Device Registry Devices and Assets with the firmware image.
+
+    Associated ADR device and asset information is surfaced in the firmware image list view, firmware overview panel, and analysis results experience.
+
+    **Current limitations (Preview)**:
+
+    - Displays Azure Device Registry device and asset counts associated with firmware images  
+    - Metadata updates for Azure Device Registry resources might take several minutes to appear in firmware analysis  
+    - Navigation is provided to individual ADR resources
 
 ## March 2026
 
 - **Expanded Weakness (CVE) fields (Preview)**
 
     Firmware analysis now enriches CVE results with more properties to help prioritize remediation and triage vulnerabilities more effectively. These new properties are currently provided in **Preview**.
+
+    > [!NOTE]
+    > The following new CVE fields are only shown for newly uploaded images.
+    >
 
     New CVE enrichment fields include:
 

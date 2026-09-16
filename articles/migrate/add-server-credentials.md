@@ -6,9 +6,10 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 09/19/2025
-ms.reviewer: v-uhabiba
+ms.date: 07/10/2026
+ms.reviewer: jsuri
 ms.custom: engagement-fy25
+ms.update-cycle: 1095-days
 # Customer intent: As a cloud migration consultant, I want to provide server credentials in the configuration manager, so that I can accurately discover software inventory, web apps, and SQL Server instances to facilitate a smooth migration process.
 ---
 
@@ -51,8 +52,12 @@ Feature | Windows credentials | Linux credentials
 **Software inventory** | Guest user account | Regular/normal user account (nonsudo access permissions)
 **Discovery of SQL Server instances and databases** | To discover SQL Server instances and databases, the Windows/ Domain account, or SQL Server account [requires these low privilege read permissions](migrate-support-matrix-vmware.md) for each SQL Server instance. You can use the [low-privilege account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.| _Not supported currently_
 **Discovery of ASP.NET web apps** | Domain or nondomain (local) account with administrative permissions | _Not supported currently_
-**Agentless dependency analysis** | Domain or nondomain (local) account with administrative permissions | Sudo user account with permissions to execute ls and netstat commands. When providing a sudo user account, ensure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time the sudo command is invoked. <br /><br /> Alternatively, you can create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files, set using the following commands:<br /><code>sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br /> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat</code>
+**Agentless dependency analysis (quick discovery)** | Guest user account | Regular/normal user account (nonsudo access permissions)
+**Agentless dependency analysis (in-depth discovery)** | Domain or nondomain (local) account with administrative permissions | The following Sudo permissions are required to identify server dependencies: `/usr/bin/netstat` and `/usr/bin/ls`. <br /><br /> If `netstat` is not available, Sudo permissions on `ss` are required. <br /><br /> When providing a sudo user account, ensure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time the sudo command is invoked.
 **Discovery of PostgreSQL instances and databases** |Use a PostgreSQL user account with either superuser privileges or the following [minimum user privilege](postgresql-least-privilege-configuration.md) on each PostgreSQL instance: CONNECT on the database, `pg_read_all_settings`, and USAGE on relevant schemas.| Use a PostgreSQL user account with either superuser privileges or the following [minimum user privileges](postgresql-least-privilege-configuration.md) on each PostgreSQL instance: CONNECT on the database, `pg_read_all_settings`, USAGE on relevant schemas.
+
+> [!NOTE]
+> You can use a Windows guest or a Linux non-Sudo user account to get dependency data. But with least privileged accounts, you might not collect process information (like process name or app name) for some processes that run with higher privileges. These processes appear as **Unknown** under the machine in the single-server view.
 
 ### Recommended practices to provide credentials
 
@@ -69,6 +74,13 @@ Feature | Windows credentials | Linux credentials
 - The appliance uses the credentials automatically mapped on a server for all the subsequent discovery cycles until the credentials are able to fetch the required discovery data. If the credentials stop working, appliance again attempts to map from the list of added credentials and continues the ongoing discovery on the server.
 - The domain credentials added will be automatically validated for authenticity against the Active Directory of the domain. This is to prevent any account lockouts when the appliance attempts to map the domain credentials against discovered servers. The appliance won't attempt to map the domain credentials that have failed validation.
 - If the appliance can't map any domain or nondomain credentials against a server, you'll see "Credentials not available" status against the server in your project.
+
+## Credentials for VMware networking discovery
+
+To discover networking resources from VMware environments, provide vCenter Server credentials in the appliance configuration manager. 
+
+The appliance uses NSX credentials to discover networking inventory and configuration metadata from the VMware NSX environment. These credentials are different from guest credentials, which you use to access individual Windows or Linux servers for features such as software inventory and agentless dependency analysis. Provide NSX credentials at the environment level. Use these credentials to discover networking resources and relationships. 
+
 
 ## Next steps
 

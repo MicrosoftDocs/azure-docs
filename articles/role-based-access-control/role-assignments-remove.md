@@ -4,7 +4,7 @@ description: Learn how to remove access to Azure resources for users, groups, se
 author: rolyon
 ms.author: rolyon
 manager: pmwongera
-ms.date: 12/11/2025
+ms.date: 05/06/2026
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom:
@@ -41,7 +41,7 @@ For more information, see [API versions of Azure RBAC REST APIs](/rest/api/autho
 
    [![Screenshot of role assignment selected to be removed.](./media/role-assignments-remove/rg-role-assignments-select.png)](./media/role-assignments-remove/rg-role-assignments-select.png#lightbox)
 
-   If you want to remove an [Owner](./built-in-roles/privileged.md#owner) role assignment and that role assignment has the following description, you should also check whether the user also has a classic administrator role assignment on the **Classic Administrators** tab. If the user has a classic administrator role assignment, you should also remove that role assignment. For more information, see [Automatic assignment to Owner role](classic-administrators.md#automatic-assignment-to-owner-role).
+   If you want to remove an [Owner](./built-in-roles/privileged.md#owner) role assignment that was automatically assigned as part of the classic administrator retirement, the role assignment has the following description. For more information, see [Automatic assignment to Owner role](classic-administrators.md#automatic-assignment-to-owner-role).
 
    - description: `The Classic Admin role was converted to an Azure Owner role on behalf of the user due to Classic Admin retirement`
 

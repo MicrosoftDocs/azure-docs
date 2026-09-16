@@ -2,10 +2,11 @@
 title: Manage a Dynamic Scope
 description: This article describes how to manage various operations of dynamic scoping.
 ms.service: azure-update-manager
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.date: 01/09/2025
 ms.topic: how-to
+ms.update-cycle: 1095-days
 # Customer intent: As a system administrator, I want to manage dynamic scopes in Azure Update Manager so that I can efficiently control patch orchestration settings across various virtual machines and maintain compliance with update schedules.
 ---
 

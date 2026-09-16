@@ -2,12 +2,12 @@
 title: Use the Azure portal to troubleshoot activation errors related to Azure Stack Edge Pro with GPU| Microsoft Docs 
 description: Describes how to troubleshoot Azure Stack Edge Pro GPU activation and key vault-related issues.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 09/08/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Troubleshoot activation or secret deletion issues on Azure Key Vault for your Azure Stack Edge Pro GPU device 
 

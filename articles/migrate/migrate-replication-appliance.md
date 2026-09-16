@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 09/26/2024
 ms.custom: engagement-fy25
 # Customer intent: As a system administrator, I want to deploy the Azure Migrate replication appliance for agent-based migration of VMware VMs and physical servers, so that I can efficiently manage data replication to Azure and facilitate a seamless migration process.
@@ -152,7 +152,7 @@ Process server | The process server receives replication data, optimizes, and en
     - The replication appliance orchestrates replication with Azure over port HTTPS 443 outbound.
     - VMs send replication data to the process server (running on the replication appliance) on port HTTPS 9443 inbound. This port can be modified.
     - The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
-5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure Managed Disk.
+5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure managed disk.
 
 ![Diagram shows the architecture of the replication process.](./media/migrate-replication-appliance/architecture.png)
 

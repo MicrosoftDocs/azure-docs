@@ -3,8 +3,8 @@ title: Create a Confluent Connector for Azure Blob Storage (Preview)
 description: Learn how to use Confluent Connectors in Azure (preview) to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure Blob Storage.
 ms.topic: how-to
 ms.date: 10/30/2025
-ms.author: malev
-author: maud-lv
+ms.author: praveenrajap
+author: praveenrajap
 
 #customer intent: As a developer, I want to learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure Blob Storage so that I can use Confluent Connectors in Azure.
 ---

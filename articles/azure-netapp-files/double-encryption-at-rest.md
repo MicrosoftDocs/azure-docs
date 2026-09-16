@@ -50,6 +50,7 @@ Azure NetApp Files double encryption at rest is supported for the following regi
 * Japan East  
 * Korea Central 
 * Korea South 
+* Malaysia West 
 * New Zealand North
 * North Central US
 * North Europe 

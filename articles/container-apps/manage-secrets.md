@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 02/28/2025
+ms.date: 09/04/2026
 ms.author: cshoe
 ms.custom:
   - devx-track-azurecli
@@ -21,7 +21,7 @@ Azure Container Apps allows your application to securely store sensitive configu
 - Secrets are scoped to an application, outside of any specific revision of an application.
 - New revisions don't get generated through adding, removing, or changing secrets.
 - Each application revision can reference one or more secrets.
-- Multiple revisions can reference the same secret(s).
+- Multiple revisions can reference the same secrets.
 
 An updated or deleted secret doesn't automatically affect existing revisions in your app. When a secret is updated or deleted, you can respond to changes in one of two ways:
 
@@ -29,6 +29,66 @@ An updated or deleted secret doesn't automatically affect existing revisions in 
 2. Restart an existing revision.
 
 Before you delete a secret, deploy a new revision that no longer references the old secret. Then deactivate all revisions that reference the secret.
+
+## Permissions for managing secrets
+
+Azure Container Apps exposes separate `listSecrets` operations for container apps, jobs, and Dapr components. These operations return secret values in plain text. Grant these permissions only to identities that need to read secret values.
+
+Several Azure built-in roles for Container Apps define permissions using wildcard patterns as a convenience. The following examples grant the ability to read secret values through a wildcard or explicit `listSecrets` permission, even when the role name or description suggests narrower access. This list isn't exhaustive; review the current [Azure built-in roles for containers](/azure/role-based-access-control/built-in-roles/containers) before assigning a role.
+
+The following roles grant access to container app or job secret values:
+
+| Built-in role | Relevant permissions in the role definition | Matching secrets operation |
+| --- | --- | --- |
+| Container Apps Contributor | `Microsoft.App/containerApps/*/action` | `Microsoft.App/containerApps/listSecrets/action` |
+| Container Apps Operator | `Microsoft.App/containerApps/*/action` | `Microsoft.App/containerApps/listSecrets/action` |
+| Container Apps Jobs Contributor | `Microsoft.App/jobs/*/action` | `Microsoft.App/jobs/listSecrets/action` |
+| Container Apps Jobs Operator | `Microsoft.App/jobs/*/action` | `Microsoft.App/jobs/listSecrets/action` |
+
+The following roles grant access to secret values configured for Dapr components:
+
+| Built-in role | Relevant permissions in the role definition | Matching secrets operation |
+| --- | --- | --- |
+| Container Apps ManagedEnvironments Contributor | `Microsoft.App/managedEnvironments/*/action` | `Microsoft.App/managedEnvironments/daprComponents/listSecrets/action` |
+| Container Apps ConnectedEnvironments Contributor | `Microsoft.App/connectedEnvironments/*`, `Microsoft.App/connectedEnvironments/daprComponents/listSecrets/action` | `Microsoft.App/connectedEnvironments/daprComponents/listSecrets/action` |
+
+The effective access depends on the role assignment scope. For example, an assignment at the resource group scope grants the matching permission for every applicable resource in that resource group.
+
+> [!IMPORTANT]
+> The descriptions of the **Container Apps Operator** and **Container Apps Jobs Operator** roles emphasize operational tasks. However, their wildcard actions also grant permission to list secrets. Review the full permission list of a role before you assign it.
+
+### Create a custom role with narrower permissions
+
+Built-in roles are a convenience, not a limitation. If no built-in role matches the level of access you want to grant, define an [Azure custom role](/azure/role-based-access-control/custom-roles) that lists only the operations you need and omits the `listSecrets` action.
+
+For example, the following custom role allows a user to view jobs and executions and stop running executions, without granting the `listSecrets` action:
+
+```json
+{
+  "Name": "Container Apps Jobs Execution Stopper",
+  "IsCustom": true,
+  "Description": "View Container Apps jobs and stop running executions.",
+  "Actions": [
+    "Microsoft.App/jobs/read",
+    "Microsoft.App/jobs/executions/read",
+    "Microsoft.App/jobs/execution/read",
+    "Microsoft.App/jobs/stop/action",
+    "Microsoft.App/jobs/stop/execution/action",
+    "Microsoft.App/managedEnvironments/read"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<SUBSCRIPTION_ID>"
+  ]
+}
+```
+
+Avoid wildcard patterns such as `Microsoft.App/jobs/*/action` in a custom role definition. This wildcard grants every current and future operation that matches the pattern, including `listSecrets`.
+
+> [!WARNING]
+> For Container Apps jobs, omitting the `listSecrets` action from a custom role isn't enough to protect secret values if the role also grants `Microsoft.App/jobs/start/action`. The [Jobs - Start REST API](/rest/api/resource-manager/containerapps/jobs/start) accepts an optional execution template that can override the main and init container images, commands, and environment variables. A user who can start a job and knows a secret's name can reference that secret from a container of their choosing and read its value inside the container. The container can also use any managed identity [configured to be available to it](managed-identity.md#control-managed-identity-availability). Treat permission to start a job as permission to use the job's secrets and available managed identities.
+
+For more information, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
 ## Defining secrets
 
@@ -39,13 +99,13 @@ Secrets are defined as a set of name/value pairs. The value of each secret is sp
 
 ### Store secret value in Container Apps
 
-When you define secrets through the portal, or via different command line options.
+The following is used when you define secrets through the portal, or via different command line options.
 
 # [Azure portal](#tab/azure-portal)
 
 1. Go to your container app in the [Azure portal](https://portal.azure.com).
 
-1. Under the *Settings* section, select **Secrets**.
+1. Under the *Security* section, select **Secrets**.
 
 1. Select **Add**.
 
@@ -122,7 +182,7 @@ Here, a connection string to a queue storage account is declared. The value for 
 
 ---
 
-### <a name="reference-secret-from-key-vault"></a>Reference secret from Key Vault
+## <a name="reference-secret-from-key-vault"></a>Reference secret from Key Vault
 
 When you define a secret, you create a reference to a secret stored in Azure Key Vault. Container Apps automatically retrieves the secret value from Key Vault and makes it available as a secret in your container app.
 
@@ -136,7 +196,7 @@ To grant access to Key Vault secrets, grant the Azure RBAC role [Key Vault Secre
 
 1. Go to your container app in the [Azure portal](https://portal.azure.com).
 
-1. Under the *Settings* section, select **Identity**.
+1. Under the *Security* section, select **Identity**.
 
 1. In the *System assigned* tab, set the *Status* to **On**.
 
@@ -147,7 +207,7 @@ To grant access to Key Vault secrets, grant the Azure RBAC role [Key Vault Secre
 
 1. A popup appears to confirm that you want to enable system assigned managed identity and register your container app with Microsoft Entra ID. Select **Yes**.
 
-1. Under the *Settings* section, select **Secrets**.
+1. Under the *Security* section, select **Secrets**.
 
 1. Select **Add**.
 
@@ -216,14 +276,14 @@ Secrets Key Vault references aren't supported in PowerShell.
 ---
 
 > [!NOTE]
-> If you're using [UDR With Azure Firewall](user-defined-routes.md), you will need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall. Refer to [configuring UDR with Azure Firewall](use-azure-firewall.md) to decide which additional service tags you need.
+> If you're using [UDR With Azure Firewall](user-defined-routes.md), you'll need to add the `AzureKeyVault` service tag and the *login.microsoft.com* FQDN to the allow list for your firewall. Refer to [configuring UDR with Azure Firewall](use-azure-firewall.md) to decide which additional service tags you need.
 
 #### Key Vault secret URI and secret rotation
 
 The Key Vault secret URI must be in one of the following formats:
 
-* `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`: Reference a specific version of a secret.
-* `https://myvault.vault.azure.net/secrets/mysecret`: Reference the latest version of a secret.
+- `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`: Reference a specific version of a secret.
+- `https://myvault.vault.azure.net/secrets/mysecret`: Reference the latest version of a secret.
 
 If a version isn't specified in the URI, then the app uses the latest version that exists in the key vault. When newer versions become available, the app automatically retrieves the latest version within 30 minutes. Any active revisions that reference the secret in an environment variable is automatically restarted to pick up the new value.
 
@@ -586,6 +646,18 @@ To load specific secrets and specify their paths within the mounted volume, defi
 Mounting secrets as a volume isn't supported in PowerShell.
 
 ---
+
+## Troubleshoot Key Vault references
+
+When you reference secrets from Azure Key Vault, you might encounter issues during secret retrieval or synchronization. Here are common errors and resolutions:
+
+| Error | Cause | Resolution |
+|-------|-------|-----------|
+| Managed identity not enabled | The container app doesn't have a managed identity assigned. | Enable system-assigned or user-assigned managed identity on your container app. See [Managed identities](managed-identity.md). |
+| Identity not found | The specified managed identity doesn't exist or isn't assigned to the container app. | Verify the identity is created and assigned to the container app in the **Identity** section. |
+| Secret disabled in Key Vault | The secret is disabled in the Key Vault resource. | Go to your Key Vault in the Azure portal and enable the secret. |
+| Authentication failed | The managed identity lacks the required permissions to read the secret. | Grant the **Key Vault Secrets User** role to the managed identity on your Key Vault. See [Key Vault Secrets User](/azure/role-based-access-control/built-in-roles/security#key-vault-secrets-user). |
+| RBAC permission denied | The managed identity has insufficient permissions to access the Key Vault. | Verify the RBAC role assignment on the Key Vault and ensure it includes read permissions for secrets. |
 
 ## Next steps
 

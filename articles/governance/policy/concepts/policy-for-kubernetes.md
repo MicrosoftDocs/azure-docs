@@ -20,8 +20,6 @@ Azure Policy for Kubernetes supports the following cluster environments:
 - [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), through **Azure Policy's **Add-on** for AKS**
 - [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview), through **Azure Policy's **Extension** for Arc**
 
-> [!IMPORTANT]
-> The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Follow the instructions to [remove the add-ons](#remove-the-add-on).
 
 > [!IMPORTANT]
 > Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
@@ -83,14 +81,14 @@ The Azure Policy Add-on for AKS is part of Kubernetes version 1.27 with long ter
    az aks list
    ```
 
-1. Open ports for the Azure Policy extension. The Azure Policy extension uses these domains and ports to fetch policy
+1. Open ports for the Azure Policy add-on. The Azure Policy add-on uses these domains and ports to fetch policy
    definitions and assignments and report compliance of the cluster back to Azure Policy.
 
    |Domain |Port |
    |---|---|
    |`data.policy.core.windows.net` |`443` |
    |`store.policy.core.windows.net` |`443` |
-   |`login.windows.net` |`443` |
+   |`login.microsoftonline.com` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
 After the prerequisites are completed, install the Azure Policy Add-on in the AKS cluster
@@ -610,17 +608,83 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
-#### 1.16.0
-Introducing Validating Admission Policy (VAP) generation. [Validating Admission Policies](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/) are Kubernetes-native validating policy resources that are evaluated in-process, allowing for reduced latency and fail-close evaluation. Azure Policies that contain Common Expression Language (CEL) will automatically generate VAPs. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
-Patch CVE-2026-25679, CVE-2026-27142, and CVE-2026-27139.
-Security improvements.
-- Released: Apr 2026
-- Kubernetes: 1.29+
-- Gatekeeper: 3.22.0
+#### 1.17.0
+Introducing Scoped Enforcement Action. Before this feature, the selected enforcement action applied to all enforcement points. Now, you can select which enforcement action happens in which enforcement points (`audit.gatekeeper.sh`, `validation.gatekeeper.sh`, `vap.k8s.io`).
 
-##### Gatekeeper 3.22.0
-Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.0
-Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.20.1...v3.22.0
+What each enforcement point represents:
+- `validation.gatekeeper.sh`: Gatekeeper Admission Webhook
+- `audit.gatekeeper.sh`: Gatekeeper Audit Controller (Compliance Result)
+- `vap.k8s.io`: Validating Admission Policy (VAP)
+
+Example 1: If you select `Enforcement Action: Deny` and `Enforcement Points: ["validation.gatekeeper.sh", "audit.gatekeeper.sh"]`, the Gatekeeper validating webhook enforces the violating resource and shows it in compliance. The resource isn't enforced by VAP because it's not one of the enforcement points.
+
+Example 2: If you select `Enforcement Action: Audit` and `Enforcement Points: ["vap.k8s.io"]`, VAP audits the violating resource but doesn't deny it because the enforcement action is `Audit`. Also, it doesn't show in compliance due to the absence of `audit.gatekeeper.sh` enforcement point.
+
+Introducing delete operation protection feature. This feature allows Gatekeeper to receive DELETE admission requests while preventing existing policies from automatically enforcing on deletions unless explicitly configured. Policies must opt in to DELETE enforcement by specifying `operations` in their constraint templates. The `operations` list can contain any combination of CREATE, UPDATE, DELETE, CONNECT, or *.
+
+Example:
+
+```yaml
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8se2edeletedeny
+spec:`
+  crd:
+    spec:
+      names:
+        kind: K8sE2EDeleteDeny
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      operations:
+        - DELETE
+      rego: |
+        package k8se2edeletedeny
+
+        violation[{"msg": msg}] {
+          input.review.object.metadata.labels["e2e-delete-deny"] == "true"
+          msg := sprintf("Deletion of %v is denied by the delete-protection e2e policy", [input.review.object.metadata.name])
+        }
+
+        violation[{"msg": msg}] {
+          input.review.oldObject.metadata.labels["e2e-delete-deny"] == "true"
+          msg := sprintf("Deletion of %v is denied by the delete-protection e2e policy", [input.review.oldObject.metadata.name])
+        }
+```
+
+Security improvements.
+- Released: Aug 2026
+- Kubernetes: 1.30+
+- Gatekeeper: 3.23.0
+
+##### Gatekeeper 3.23.0
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.23.0
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.22.1...v3.23.0
+
+##### Gatekeeper 3.23.1
+Gatekeeper Release & Changelog: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.23.1
+
+#### 1.15.5-1
+Introducing Validating Admission Policy (VAP) generation. [Validating Admission Policies](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/) are Kubernetes-native validating policy resources that are evaluated in-process, allowing for reduced latency and fail-close evaluation. Azure Policies that contain Common Expression Language (CEL) will automatically generate VAPs. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
+
+The addon is now fully FIPS-compliant.
+
+Patch CVE-2026-25679, CVE-2026-27142, CVE-2026-27139, CVE-2026-32280, CVE-2025-68121, CVE-2025-61726, CVE-2025-61728, CVE-2026-32281, CVE-2026-32283.
+
+Security improvements.
+- Released: Jun 2026
+- Kubernetes: 1.30+
+- Gatekeeper: 3.22.1
+
+##### Gatekeeper 3.22.1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.20.1...v3.22.1
+
+#### 1.15.5
+Security improvements.
+- Released: Feb 2026
+- Kubernetes: 1.27+
+- Gatekeeper: 3.20.1
 
 #### 1.15.4
 Patch CVE-2025-61727.
@@ -860,6 +924,8 @@ aligns with how the add-on was installed:
   helm uninstall azure-policy-addon
   ```
 ## Limitations
+> [!IMPORTANT]
+> Permissions to edit or delete validating webhook configurations, mutating webhook configurations, validating admission policies and bindings, and mutating admission policies and bindings should be treated as highly privileged. Kubernetes's design does not allow policies to protect these resource types, in order to avoid circular dependencies.
 
   - For general Azure Policy definitions and assignment limits, review [Azure Policy's documented limits](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-policy-limits)
   - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.

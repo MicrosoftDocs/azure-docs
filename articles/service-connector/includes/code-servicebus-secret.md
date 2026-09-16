@@ -1,9 +1,8 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/30/2023
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
@@ -50,7 +49,7 @@ ms.author: wchi
             .buildClient();
     ```
 
-### [SpringBoot](#tab/springBoot)
+### [Spring Boot](#tab/springBoot)
 
 1. Add the following dependencies to your pom.xml file:
 

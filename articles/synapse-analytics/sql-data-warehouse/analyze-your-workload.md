@@ -12,6 +12,8 @@ ms.custom: azure-synapse
 
 # Analyze your workload for dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Techniques for analyzing your dedicated SQL pool workload in Azure Synapse Analytics. 
 
 ## Resource Classes

@@ -42,20 +42,12 @@
           href: how-to-configure-cross-tenant-cli.md
     - name: Create a network topology
       items:
-        - name: Hub-and-spoke
-          items:
-            - name: Azure portal
-              href: how-to-create-hub-and-spoke.md
-            - name: Azure PowerShell
-              href: how-to-create-hub-and-spoke-powershell.md
-            - name: Deploy hub and spoke topology with Azure Firewall
-              href: how-to-deploy-hub-spoke-topology-with-azure-firewall.md
-        - name: Mesh
-          items:
-            - name: Azure portal
-              href: how-to-create-mesh-network.md
-            - name: Azure PowerShell
-              href: how-to-create-mesh-network-powershell.md
+        - name: Create mesh or hub-and-spoke topology
+          href: how-to-create-network-manager-topologies.md
+        - name: Deploy hub and spoke topology with Azure Firewall
+          href: how-to-deploy-hub-spoke-topology-with-azure-firewall.md
+        - name: Configure Virtual WAN hub in Hub and Spoke Topology
+          href: configure-virtual-wan-hub-for-network-manager.md
 - name: Configure
   items:
     - name: Scope overview
@@ -80,6 +72,8 @@
               href: concept-enforcement.md
             - name: Network groups as source and destination
               href: concept-security-admin-rules-network-group.md
+            - name: Simulate security admin rule impact
+              href: how-to-simulate-security-admin-rules.md
         - name: User-defined routes (UDRs) management
           items:
             - name: User-defined routes (UDRs) management overview
@@ -96,6 +90,8 @@
   items:
     - name: Secure network traffic with security admin rules
       items:
+        - name: Simulate security admin rule impact
+          href: how-to-simulate-security-admin-rules.md
         - name: Using network groups as source and destination
           href: how-to-create-security-admin-rule-network-group.md
         - name: Block network traffic - Portal
@@ -157,3 +153,6 @@
       href: /azure/templates/microsoft.network/networkmanagers
       displayName: ARM
 - name: Resources
+  items:
+    - name: Reliability in Azure Virtual Network Manager
+      href: /azure/reliability/reliability-virtual-network-manager

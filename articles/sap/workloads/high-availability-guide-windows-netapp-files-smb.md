@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 10/24/2025
+ms.date: 07/16/2026
 ms.author: radeltch
 # Customer intent: As an SAP administrator, I want to deploy a highly available SAP NetWeaver system on Azure using Azure NetApp Files for shared storage, so that I can ensure optimal performance and reliability for SAP applications.
 ---
@@ -213,9 +213,6 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 >
 ### <a name="01541cf2-0a03-48e3-971e-e03575fa7b4f"></a> SAP ASCS/SCS on SQL Server Always On nodes using Azure NetApp Files SMB
 
-> [!IMPORTANT]
-> Using Azure NetApp Files SMB for any SQL Server volume isn't supported.
->
 
 ![Figure : SAP ASCS/SCS on SQL Server Always On nodes using Azure NetApp Files SMB][sap-ha-guide-figure-8007B]
 

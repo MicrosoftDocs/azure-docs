@@ -9,10 +9,10 @@
   - name: AI-enabled functions
     displayName: OpenAI, AI, MCP server, agent, agentic, Foundry
     href: functions-create-ai-enabled-apps.md
-  - name: Getting started
+  - name: Get started
     href: functions-get-started.md
   - name: Durable Functions
-    href: durable/durable-functions-overview.md
+    href: ../durable-task/durable-functions/durable-functions-overview.md
   - name: Serverless comparison
     href: functions-compare-logic-apps-ms-flow-webjobs.md
   - name: Hosting plan options
@@ -28,11 +28,14 @@
     - name: Scalable web API
       displayName: Flex Consumption plan
       href: create-first-function-azure-developer-cli.md
-    - name: Respond to blob storage events
-      displayName: storage, blob, Event Grid, file uploads
-      href: scenario-blob-storage-events.md
+    - name: Process file uploads
+      displayName: storage, blob, Event Grid
+      href: scenario-blob-storage-events.md  
     - name: AI tools and MCP
       items:
+      - name: Event-driven AI-enabled app
+        displayName: AI, agent, agentic, hosted skills, timer, email, connector, MCP, Foundry
+        href: scenario-hosted-skills.md
       - name: Custom remote MCP server
         displayName: AI, agent, agentic, tools, trigger
         href: scenario-custom-remote-mcp-server.md
@@ -50,22 +53,27 @@
       - name: Azure SQL
         displayName: data validation, database
         href: scenario-database-changes-azure-sqldb.md
-    - name: Build a serverless workflow
-      displayName: workflow, Durable Functions
-      href: ./durable/scenario-build-serverless-workflow.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Run scheduled tasks
       displayName: timer trigger, schedule
       href: scenario-scheduled-tasks.md
+    - name: Process real-time events
+      displayName: Event Hubs, streaming, events
+      href: scenario-real-time-events-processing.md
+    - name: Build a serverless workflow
+      displayName: Durable Functions, orchestration, fan-out, fan-in
+      href: scenario-build-serverless-workflow.md
+    - name: Migrate Linux apps to Flex Consumption using Copilot
+      href: migration/scenario-migrate-linux-consumption-to-flex.md
   - name: Developer tools
     items:
     - name: Azure Developer CLI
       displayName: azd
       href: create-first-function-azure-developer-cli.md
-    - name: Command line (Core Tools)
-      displayName: quickstart, get started, go, rust
+    - name: Command line tools
+      displayName: quickstart, get started, go, rust, golang
       href: how-to-create-function-azure-cli.md
     - name: Visual Studio Code
-      displayName: quickstart, get started, go, rust
+      displayName: quickstart, get started, rust
       href: how-to-create-function-vs-code.md
     - name: Visual Studio
       href: functions-create-your-first-function-visual-studio.md
@@ -117,7 +125,9 @@
     href: functions-twitter-email.md
   - name: Host MCP servers for AI-enabled functions
     displayName: agent, agentic, Foundry
-    href: functions-mcp-tutorial.md
+    href: functions-mcp-tutorial.md 
+  - name: Develop Python functions with VS Code
+    href: ./create-first-function-vs-code-python.md
   - name: Create serverless APIs using Visual Studio
     displayName: OpenAPI, Swagger
     href: openapi-apim-integrate-visual-studio.md
@@ -132,21 +142,15 @@
       href: functions-create-private-site-access.md
     - name: Use an outbound NAT gateway
       href: functions-how-to-use-nat-gateway.md
-  - name: Identity-based connections
-    items:
-    - name: Use identity for host connections
-      href: functions-identity-based-connections-tutorial.md
-    - name: Use identity for triggers and bindings
-      href: functions-identity-based-connections-tutorial-2.md
-    - name: Access Azure SQL with managed identity
-      href: functions-identity-access-azure-sql-with-managed-identity.md
+  - name: Access Azure SQL with managed identity
+    href: functions-identity-access-azure-sql-with-managed-identity.md
   - name: Low-latency Blob trigger using Event Grid
     displayName: storage, ngrok, local
     href: functions-event-grid-blob-trigger.md
   - name: Image resize with Event Grid
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
-  - name: Real-time serverless app with SignalR
-    href: /azure/azure-signalr/signalr-tutorial-authenticate-azure-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+  - name: Create a serverless web app
+    href: /training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
   - name: Data + AI
     items:
     - name: Azure OpenAI for text completion
@@ -164,7 +168,7 @@
       href: tutorial-ffmpeg-processing-azure-files.md
     - name: Durable text analysis on a mounted share
       displayName: Azure Files, storage mount, Durable Functions, Flex Consumption
-      href: durable/tutorial-durable-text-analysis-azure-files.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+      href: ../durable-task/durable-functions/tutorial-durable-text-analysis-azure-files.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Java with Azure Cosmos DB and Event Hubs
     href: functions-event-hub-cosmos-db.md
 - name: Samples
@@ -204,9 +208,6 @@
     - name: Storage considerations
       displayName: encryption, keys, mount, files
       href: storage-considerations.md
-    - name: Choose a file access strategy
-      displayName: Azure Files, storage mount, bindings, file mounts, file access, shared files
-      href: concept-file-access-options.md
     - name: Error handling and function retries
       displayName: best practices, retry policies
       href: functions-bindings-error-pages.md
@@ -266,10 +267,9 @@
       href: functions-bindings-expressions-patterns.md
     - name: Handle binding errors
       href: functions-bindings-errors.md
-  - name: Frameworks
-    items:
-    - name: Express.js
-      href: shift-expressjs.md
+  - name: Managed connectors
+    displayName: managed connectors, connector trigger, connector SDK, connector namespace, Office 365, Teams, SharePoint, SaaS integration
+    href: functions-connectors-overview.md
   - name: Security
     items:
     - name: Security overview
@@ -279,7 +279,7 @@
       href: /security/benchmark/azure/baselines/functions-security-baseline?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Reliability
     items:
-    - name: Reliability in Azure Functions
+    - name: Availability zones and disaster recovery
       displayName: availability zones, high-availability, zone redundancy, disaster recovery
       href: /azure/reliability/reliability-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Zone redundancy
@@ -307,7 +307,7 @@
       displayName: .NET isolated
       href: dotnet-isolated-process-guide.md
     - name: Aspire integration
-      href: dotnet-aspire-integration.md
+      href: aspire-integration.md
     - name: Legacy models
       items:
       - name: Execution mode comparison
@@ -316,10 +316,28 @@
         href: functions-dotnet-class-library.md
       - name: Script (.csx)
         href: functions-reference-csharp.md
-  - name: JavaScript
-    href: functions-reference-node.md?tabs=javascript
-  - name: TypeScript
-    href: functions-reference-node.md?tabs=typescript
+  - name: TypeScript/JavaScript
+    items:
+      - name: Developer reference guide
+        displayName: typescript, javascript
+        href: functions-reference-node.md
+      - name: Triggers and bindings
+        displayName: typescript, javascript
+        href: functions-triggers-bindings.md
+      - name: Build options
+        displayName: typescript, javascript
+        href: typescript-build-options.md
+      - name: Scale and performance recommendations
+        displayName: typescript, javascript
+        href: node-scale-performance.md
+      - name: Troubleshooting
+        displayName: typescript, javascript
+        href: functions-node-troubleshoot.md 
+      - name: Samples
+        displayName: typescript, javascript
+        href: /samples/browse/?products=azure-functions&languages=typescript,nodejs,javascript
+      - name: TypeScript/JavaScript SDK API reference
+        href: /javascript/api/%40azure/functions/
   - name: Java
     href: functions-reference-java.md
   - name: PowerShell
@@ -350,6 +368,9 @@
             href: python-memory-profiler-reference.md
       - name: Python SDK API reference
         href: /python/api/azure-functions/azure.functions
+  - name: Go (Preview)
+    displayName: golang
+    href: functions-reference-go.md
 - name: How-to guides
   items:
   - name: Develop
@@ -367,9 +388,12 @@
       - name: Visual Studio development
         displayName: VS
         href: functions-develop-vs.md
-      - name: Core Tools development
+      - name: Azure Functions Core Tools (v4)
         displayName: local, runtime
         href: functions-run-local.md
+      - name: Azure Functions CLI (v5)
+        displayName: local, runtime, Flex Consumption
+        href: functions-cli-develop-local.md
     - name: Create a function app
       items:
       - name: Infrastructure as code
@@ -387,6 +411,9 @@
         items:
         - name: Azure portal
           href: functions-create-http-endpoint.md
+        - name: HTTP streams (TypeScript/JavaScript)
+          displayName: http streams, typescript, javascript
+          href: node-http-stream.md
         - name: Kotlin using IntelliJ
           href: functions-create-maven-kotlin-intellij.md
         - name: Linux container (Premium)
@@ -442,6 +469,8 @@
       href: functions-continuous-deployment.md
     - name: Deployment slots
       href: functions-deployment-slots.md
+    - name: Recover a Flex Consumption deployment
+      href: functions-rollback-deployments.md
     - name: Containers
       items:
       - name: Work with containers
@@ -461,6 +490,12 @@
       href: deployment-zip-push.md
     - name: Run from package
       href: run-functions-from-deployment-package.md
+    - name: Package management
+      displayName: node, typescript, javascript, npm
+      href: functions-reference-node.md#package-management
+    - name: Managing dependencies
+      displayName: node, typescript, javascript, npm
+      href: functions-reference-node.md#managing-dependencies
     - name: Deploy using the Jenkins plugin
       href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Configure
@@ -630,6 +665,20 @@
       href: functions-mcp-foundry-tools.md
     - name: Register an MCP server in API Center
       href: register-mcp-server-api-center.md
+  - name: Hosted skills
+    items:
+    - name: Overview
+      displayName: AI, agent, agentic, hosted skills, event-driven AI, Foundry, MCP, connectors
+      href: functions-hosted-skills.md
+    - name: Dynamic workflows
+      displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows
+      href: functions-hosted-skills-dynamic-workflows.md
+    - name: Create and run dynamic workflows
+      displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows, how-to
+      href: functions-hosted-skills-dynamic-workflows-how-to.md
+    - name: Reference
+      displayName: AI, agent, agentic, hosted skills, configuration, mcp.json, agents.config.yaml, tools, skills
+      href: functions-hosted-skills-reference.md
   - name: Azure MCP server for Azure Functions
     href: /azure/developer/azure-mcp-server/services/azure-mcp-server-for-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: GitHub Copilot for Azure
@@ -656,6 +705,8 @@
       href: functions-node-upgrade-v4.md
   - name: Migrate .NET apps to the isolated model
     href: migrate-dotnet-to-isolated-model.md
+  - name: Migrate from Express.js
+    href: shift-expressjs.md
   - name: Move resources
     items:
     - name: Move between subscriptions
@@ -670,7 +721,8 @@
       href: /azure/templates/microsoft.web/2022-03-01/sites/functions
     - name: Azure CLI
       href: /cli/azure/functionapp
-    - name: Azure Functions Core Tools
+    - name: Local runtime/tools (func.exe)
+      displayName: Azure Functions Core Tools, Azure Functions CLI
       href: functions-core-tools-reference.md
     - name: Azure PowerShell
       href: /powershell/module/az.functions/
@@ -678,6 +730,9 @@
       href: /java/api/overview/azure/functions/runtime
     - name: Python
       href: /python/api/azure-functions/azure.functions
+  - name: Azure Functions hosted skills
+    displayName: AI, agent, agentic, hosted skills, configuration, mcp.json, agents.config.yaml, tools, skills
+    href: functions-hosted-skills-reference.md
   - name: App settings reference
     href: functions-app-settings.md
   - name: Triggers and bindings
@@ -925,6 +980,9 @@
       - name: Resource trigger
         displayName: MCP resource
         href: functions-bindings-mcp-resource-trigger.md
+      - name: Prompt trigger
+        displayName: MCP prompt
+        href: functions-bindings-mcp-prompt-trigger.md
     - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
     - name: Notification Hubs
@@ -1024,6 +1082,32 @@
         href: errors-diagnostics/sdk-rules/azf0001.md
       - name: AZF0002
         href: errors-diagnostics/sdk-rules/azf0002.md
+    - name: MSBuild SDK rules
+      items:
+      - name: AZFW0100
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0100.md
+      - name: AZFW0101
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0101.md
+      - name: AZFW0102
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0102.md
+      - name: AZFW0103
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0103.md
+      - name: AZFW0104
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0104.md
+      - name: AZFW0105
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0105.md
+      - name: AZFW0106
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0106.md
+      - name: AZFW0107
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0107.md
+      - name: AZFW0108
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0108.md
+      - name: AZFW0109
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0109.md
+      - name: AZFW0110
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0110.md
+      - name: AZFW0111
+        href: errors-diagnostics/msbuild-sdk-rules/azfw0111.md
     - name: Diagnostic events
       items:
       - name: AZFD0001

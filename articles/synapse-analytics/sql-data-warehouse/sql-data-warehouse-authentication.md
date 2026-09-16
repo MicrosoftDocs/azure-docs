@@ -12,6 +12,8 @@ tag: azure-synapse
 
 # Authenticate to dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Learn how to authenticate to dedicated SQL pool (formerly SQL DW) in Azure Synapse by using Microsoft Entra ID or SQL Server authentication.
 
 To connect to a dedicated SQL pool (formerly SQL DW), you must pass in security credentials for authentication purposes. Upon establishing a connection, certain connection settings are configured as part of establishing your query session.  

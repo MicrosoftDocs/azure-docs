@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 05/19/2025
+ms.date: 03/31/2026
 ms.author: cshoe
 ms.custom: references_regions, ignite-2024
 ---
@@ -77,9 +77,37 @@ The session identifier is a string you define that is unique within the session 
 
 The identifier must be a string that is 4 to 128 characters long and can contain only alphanumeric characters and special characters from this list: `|`, `-`, `&`, `^`, `%`, `$`, `#`, `(`, `)`, `{`, `}`, `[`, `]`, `;`, `<`, and `>`.
 
+## Error responses
+
+When an error occurs, the API returns a structured error response with details to help you diagnose the issue.
+
+```json
+{
+  "error": {
+    "code": "ErrorCode",
+    "message": "Human-readable error description",
+    "details": "Optional additional context",
+    "target": "Field or parameter that caused the error",
+    "traceId": "Request trace ID for debugging"
+  }
+}
+```
+
+### Common error codes
+
+| Error Code | HTTP status | Description | Resolution |
+|------------|-------------|-------------|-----------|
+| `SessionWithIdentifierNotFound` | 400 | The session identifier doesn't exist in this session pool | Verify the session identifier is correct and the session hasn't expired |
+| `SessionRequestValidationFailed` | 400 | The request is missing required fields or has invalid parameters | Check the query parameters (identifier, skip, api-version) are properly formatted |
+| `SessionRequestNotSupported` | 400 | The request type isn't recognized by the API | Verify you're using a supported endpoint and method |
+| `InternalServerError` | 500 | An unexpected server-side error occurred | Retry the request; if the error persists, check the traceId in logs |
+
 ## Session lifecycle in practice
 
 As you continue to make calls to the same session, the session remains [allocated](sessions.md#key-concepts) in the pool. Once there are no requests to the session after the cooldown period has elapsed, the session is automatically destroyed.
+
+> [!NOTE]
+> In rare cases, when a session's background TTL-extension request fails (for example, if the container exits unexpectedly), the session is automatically removed from the pool. You'll see a "session not found" error on your next request to that session. This cleanup is automatic and requires no action on your part.
 
 ## Security
 

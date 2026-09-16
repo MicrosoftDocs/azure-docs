@@ -5,7 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
 ms.topic: concept-article
-ms.date: 01/05/2024
+ms.date: 04/27/2026
 ---
 
 # External call transformation in mapping data flows
@@ -14,7 +14,10 @@ ms.date: 01/05/2024
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-The external call transformation enables data engineers to call out to external REST end points row-by-row in order to add custom or third party results into your data flow streams.
+> [!TIP]
+>  For the equivalent transformation (**Custom column**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
+
+The external call transformation enables data engineers to call out to external REST end points row-by-row in order to add custom results into your data flow streams.
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=1496fa22-7187-4339-895a-f1daaa3f89f7]
 
@@ -26,7 +29,7 @@ In the external call transformation configuration panel, you'll first pick the t
 
 ### Settings
 
-Choose the inline dataset type and associated linked service. Today, only REST is supported. However, SQL stored procedures and other linked service types will become available as well. See the [REST source configuration](connector-rest.md) for explanations of the settings properties.
+Choose the inline dataset type and associated linked service. Today, only REST is supported. However, SQL stored procedures and other linked service types become available as well. See the [REST source configuration](connector-rest.md) for explanations of the settings properties.
 
 ### Mapping
 
@@ -34,11 +37,11 @@ You can choose auto-mapping to pass all input columns to the endpoint. Optionall
 
 ### Output
 
-This is where you'll define the data structure for the output of the external call. You can define the structure for the body as well as choose how to store the headers and the status returned from the external call.
+This is where you'll define the data structure for the output of the external call. You can define the structure for the body and choose how to store the headers and the status returned from the external call.
 
 If you choose to store the body, headers, and status, first choose a column name for each so that they can be consumed by downstream data transformations.
 
-You can define the body data structure manually using ADF data flow syntax. To define the column names and data types for the body, click on "import projection" and allow ADF to detect the schema output from the external call. Here is an example schema definition structure as output from a weather REST API GET call:
+You can define the body data structure manually using ADF data flow syntax. To define the column names and data types for the body, select "import projection" and allow ADF to detect the schema output from the external call. Here's an example schema definition structure as output from a weather REST API GET call:
 
 ```
 ({@context} as string[],
@@ -114,4 +117,4 @@ ExternalCall1 sink(allowSchemaDrift: true,
 
 * Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
 * Use the [Derived column transformation](data-flow-derived-column.md) to transform rows.
-* See the [REST source](connector-rest.md) for more information on REST settings.
+* For more information on REST settings, see the [REST source](connector-rest.md) 

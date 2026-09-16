@@ -6,7 +6,7 @@ ms.author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.customs: references_regions
-ms.date: 11/04/2025
+ms.date: 05/15/2026
 # Customer intent: "As a network architect, I want to design virtual networks using a NAT gateway so that I can ensure efficient outbound connectivity and manage SNAT port inventory for scalable production workloads."
 ---
 
@@ -114,18 +114,7 @@ Service tagged public IP addresses can be used with NAT gateway for providing ou
 > [!NOTE]
 > NAT gateway doesn't support Public IP addresses with [routing preference "Internet"](/azure/virtual-network/ip-services/routing-preference-overview#routing-over-public-internet-isp-network). NAT gateway only supports public IPs that route over the Microsoft global network.
 
-## Monitor outbound network traffic with VNet flow logs
-
-  To gather traffic insights for your Standard SKU NAT Gateway, it's recommended to use Virtual network flow logs. [Virtual network (VNet) flow logs](../network-watcher/vnet-flow-logs-overview.md) are a feature of Azure Network Watcher that logs information about IP traffic flowing through a virtual network. To monitor outbound traffic flowing from the virtual machine behind your NAT gateway, enable VNet flow logs.
-
-For guides on how to enable VNet flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md).
-
-It's recommended to access the log data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
-
-For more information on the VNet flow log schema, see [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md).
-
-> [!NOTE]
-> Virtual network flow logs only show the private IPs of your VM instances connecting outbound to the internet. VNet flow logs don't show you which NAT gateway public IP address the VM’s private IP has SNATed to for connecting outbound.
+## Monitor outbound network traffic with StandardV2 NAT Gateway flow logs
 
 StandardV2 NAT Gateway supports NAT gateway flow logs through Azure Monitor. NAT gateway flow logs provide IP level traffic information for traffic flowing through the StandardV2 NAT Gateway. For more information, see [Analyze NAT Gateway traffic with flow logs](./nat-gateway-flow-logs.md). 
 
@@ -166,17 +155,17 @@ Certain services don’t function on a virtual machine in a private subnet witho
 
 * StandardV2 NAT Gateway doesn’t support custom IP prefixes (BYOIP) 
 
-* StandardV2 NAT Gateway can’t be deployed as a managed NAT Gateway for AKS workloads. It's only supported when configured as a user-assigned NAT Gateway. For more information, see [Create NAT Gateway for your AKS cluster](Create a managed or user-assigned NAT gateway for your Azure Kubernetes Service (AKS) cluster - Azure Kubernetes Service | Microsoft Learn 
+* Managed NAT Gateway V2 for AKS workloads is now in preview. For more information, see [Create NAT Gateway for your AKS cluster](Create a managed or user-assigned NAT gateway for your Azure Kubernetes Service (AKS) cluster - Azure Kubernetes Service | Microsoft Learn 
 
 * StandardV2 NAT Gateway is available in select Azure regions. It’s not available in the following regions:  
     * Canada East   
-    * Central India   
     * Chile Central   
     * Indonesia Central   
     * Israel Northwest   
     * Malaysia West   
     * Qatar Central   
-    * UAE Central  
+    * West India
+    * Sweden South 
 
 ## Related content
 

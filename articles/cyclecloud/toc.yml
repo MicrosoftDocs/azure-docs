@@ -23,6 +23,8 @@ items:
     href: ./concepts/core.md
   - name: Clusters & Nodes
     href: ./concepts/clusters.md
+  - name: Plan and size HPC clusters
+    href: ./concepts/plan-and-size-hpc-clusters.md
   - name: Scheduling
     href: ./concepts/scheduling.md
   - name: Multi-region Cluster Deployment
@@ -79,6 +81,8 @@ items:
         href: ./how-to/ssl-configuration.md
     - name: Upgrade and Migrate
       href: ./how-to/upgrade-and-migrate.md
+    - name: Migrate a Slurm cluster to a newer template
+      href: ./how-to/migrate-slurm-cluster.md
     - name: Plan CycleCloud 7 retirement
       href: ./how-to/cyclecloud7-retirement-guide.md
     - name: Backup and Restore
@@ -95,8 +99,12 @@ items:
     items:
     - name: Plan your CycleCloud Workspace for Slurm Deployment
       href: ./how-to/ccws/plan-your-deployment.md
+    - name: Plan an enterprise-secured CycleCloud deployment
+      href: ./how-to/plan-enterprise-secured-deployment.md
     - name: Configure Open OnDemand with CycleCloud
       href: ./how-to/ccws/configure-open-ondemand.md
+    - name: Configure ThinLinc with Open OnDemand
+      href: ./how-to/ccws/configure-thinlinc.md
     - name: How to deploy using the CLI
       href: ./how-to/ccws/deploy-with-cli.md
     - name: How to connect to a Login Node through Bastion
@@ -139,6 +147,8 @@ items:
       href: ./how-to/create-fileserver.md
     - name: Mount a Network Fileserver
       href: ./how-to/mount-fileserver.md
+    - name: Mount Azure Blob Storage on cluster nodes
+      href: ./how-to/mount-blob-storage.md
     - name: Enable Return Proxy
       href: ./how-to/return-proxy.md
     - name: Configure Network Security
@@ -181,6 +191,8 @@ items:
       href: /azure/cyclecloud/how-to/monitor-cyclecloud-cluster-using-prometheus-grafana
   - name: Troubleshoot
     items:
+    - name: Troubleshoot first-time setup issues
+      href: ./how-to/troubleshoot-first-time-setup.md
     - name: Report an Issue
       href: ./how-to/report-issues.md
 - name: Reference
@@ -233,6 +245,10 @@ items:
       href: slurm.md
     - name: Slurm 3.0 Scheduler Integration
       href: slurm-3.md
+    - name: Configure and Manage Slurm 4.0
+      href: slurm-4.md
+    - name: Operate and Troubleshoot Slurm 4.0
+      href: slurm-4-operations.md
     - name: HT Condor
       href: htcondor.md
     - name: IBM Spectrum LSF
@@ -267,20 +283,22 @@ items:
         href: /previous-versions/azure/cyclecloud/release-notes-previous
       - name: Older Releases
         href: /previous-versions/azure/cyclecloud/release-notes-archive
+      - name: 8.9.3 Release Notes
+        href: ./release-notes/8-9-3.md
+      - name: 8.9.2 Release Notes
+        href: ./release-notes/8-9-2.md
+      - name: 8.9.1 Release Notes
+        href: ./release-notes/8-9-1.md
+      - name: 8.9.0 Release Notes
+        href: ./release-notes/8-9-0.md
       - name: 8.8.3 Release Notes
         href: ./release-notes/8-8-3.md
-      - name: 8.8.2 Release Notes
-        href: ./release-notes/8-8-2.md
-      - name: 8.8.1 Release Notes
-        href: ./release-notes/8-8-1.md
-      - name: 8.8.0 Release Notes
-        href: ./release-notes/8-8-0.md
   - name: Release Notes - CycleCloud Workspace for Slurm
     items:
-      - name: Current Release - 2026.03.10
-        href: ./release-notes/ccws/2026-03-10.md
-      - name: Previous Release - 2026.02.01
-        href: ./release-notes/ccws/2026-02-01.md
+      - name: Current Release - 2026.09.02
+        href: ./release-notes/ccws/2026-09-02.md
+      - name: Previous Release - 2026.08.07
+        href: ./release-notes/ccws/2026-08-07.md
       - name: All Releases
         href: ./release-notes/ccws/release-notes.md
   - name: Service Policy

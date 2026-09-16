@@ -4,9 +4,9 @@ title: Application Gateway for Containers API Specification for Kubernetes
 description: This article provides documentation for Application Gateway for Containers' API specification for Kubernetes.
 services: application-gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: concept-article
-ms.date: 11/03/2025
+ms.date: 9/11/2026
 ms.author: mbender
 # Customer intent: "As a Kubernetes developer, I want to understand the API specifications for the Application Gateway for Containers, so that I can effectively configure and manage load balancing and traffic routing for my containerized applications."
 ---
@@ -21,7 +21,7 @@ Package v1 is the v1 version of the API.
 
 This document defines each of the resource types for `alb.networking.azure.io/v1`.
 
-### Resource Types:
+### Resource types
 
 <h3 id="alb.networking.azure.io/v1.AffinityType">AffinityType
 (<code>string</code> alias)</h3>
@@ -280,8 +280,8 @@ BackendLoadBalancingPolicySpec
 <td>
 <code>targetRefs</code><br/>
 <em>
-<a href="#alb.networking.azure.io/v1.TargetRefSpec">
-[]TargetRefSpec
+<a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetRef">
+[]BackendLoadBalancingPolicyTargetRef
 </a>
 </em>
 </td>
@@ -393,7 +393,7 @@ field.</p>
 <h3 id="alb.networking.azure.io/v1.BackendLoadBalancingPolicyPort">BackendLoadBalancingPolicyPort
 </h3>
 <p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.TargetRefSpec">TargetRefSpec</a>)
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetRef">BackendLoadBalancingPolicyTargetRef</a>)
 </p>
 <div>
 <p>BackendLoadBalancingPolicyPort defines the port configuration for the backend load balancing policy.</p>
@@ -439,8 +439,8 @@ int32
 <td>
 <code>targetRefs</code><br/>
 <em>
-<a href="#alb.networking.azure.io/v1.TargetRefSpec">
-[]TargetRefSpec
+<a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetRef">
+[]BackendLoadBalancingPolicyTargetRef
 </a>
 </em>
 </td>
@@ -490,6 +490,51 @@ LoadBalancingConfig
 </em>
 </td>
 <td>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetRef">BackendLoadBalancingPolicyTargetRef
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicySpec">BackendLoadBalancingPolicySpec</a>)
+</p>
+<div>
+<p>BackendLoadBalancingPolicyTargetRef defines the target reference and ports for the backend load balancing policy.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>targetRef</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.CustomTargetRef">
+CustomTargetRef
+</a>
+</em>
+</td>
+<td>
+<p>TargetRef identifies an API object to apply policy to.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>ports</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyPort">
+[]BackendLoadBalancingPolicyPort
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Ports specifies the list of ports on the target where the policy is applied.</p>
 </td>
 </tr>
 </tbody>
@@ -926,7 +971,7 @@ certificate.</p>
 <h3 id="alb.networking.azure.io/v1.CustomTargetRef">CustomTargetRef
 </h3>
 <p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetStatus">BackendLoadBalancingPolicyTargetStatus</a>, <a href="#alb.networking.azure.io/v1.BackendTLSPolicySpec">BackendTLSPolicySpec</a>, <a href="#alb.networking.azure.io/v1.FrontendTLSPolicySpec">FrontendTLSPolicySpec</a>, <a href="#alb.networking.azure.io/v1.HealthCheckPolicySpec">HealthCheckPolicySpec</a>, <a href="#alb.networking.azure.io/v1.PolicyRefStatus">PolicyRefStatus</a>, <a href="#alb.networking.azure.io/v1.RoutePolicySpec">RoutePolicySpec</a>, <a href="#alb.networking.azure.io/v1.TargetRefSpec">TargetRefSpec</a>, <a href="#alb.networking.azure.io/v1.WebApplicationFirewallPolicySpec">WebApplicationFirewallPolicySpec</a>)
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetRef">BackendLoadBalancingPolicyTargetRef</a>, <a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyTargetStatus">BackendLoadBalancingPolicyTargetStatus</a>, <a href="#alb.networking.azure.io/v1.BackendTLSPolicySpec">BackendTLSPolicySpec</a>, <a href="#alb.networking.azure.io/v1.FrontendTLSPolicySpec">FrontendTLSPolicySpec</a>, <a href="#alb.networking.azure.io/v1.HealthCheckPolicySpec">HealthCheckPolicySpec</a>, <a href="#alb.networking.azure.io/v1.PolicyRefStatus">PolicyRefStatus</a>, <a href="#alb.networking.azure.io/v1.RoutePolicySpec">RoutePolicySpec</a>, <a href="#alb.networking.azure.io/v1.WebApplicationFirewallPolicySpec">WebApplicationFirewallPolicySpec</a>)
 </p>
 <div>
 <p>CustomTargetRef is a reference to a custom resource that isn&rsquo;t part of the
@@ -944,8 +989,8 @@ Kubernetes core API.</p>
 <td>
 <code>NamespacedPolicyTargetReference</code><br/>
 <em>
-<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.NamespacedPolicyTargetReference">
-Gateway API alpha2.NamespacedPolicyTargetReference
+<a href="https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.NamespacedPolicyTargetReference">
+Gateway API .NamespacedPolicyTargetReference
 </a>
 </em>
 </td>
@@ -2865,6 +2910,84 @@ Kubernetes meta/v1.Duration
 </tr>
 </tbody>
 </table>
+<h3 id="alb.networking.azure.io/v1.LoadAwareConfig">LoadAwareConfig
+</h3>
+<p>
+(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.LoadBalancingConfig">LoadBalancingConfig</a>)
+</p>
+<div>
+<p>LoadAwareConfig defines the configuration for load aware routing.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>blackoutPeriod</code><br/>
+<em>
+<a href="https://pkg.go.dev/k8s.io/apimachinery/pkg/apis/meta/v1#Duration">
+Kubernetes meta/v1.Duration
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>An endpoint must report load metrics continuously for at least this long before the endpoint
+metrics will be used to influence load balancing decisions. Takes effect both immediately after
+we establish a connection to an endpoint and after <code>metricExpirationPeriod</code> has elapsed.
+Default is 10 seconds.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>metricExpirationPeriod</code><br/>
+<em>
+<a href="https://pkg.go.dev/k8s.io/apimachinery/pkg/apis/meta/v1#Duration">
+Kubernetes meta/v1.Duration
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>If the endpoint does not report load metrics for this duration, metrics will stop
+being used to influence load balancing decisions. Default is 3 minutes.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>errorUtilizationPenalty</code><br/>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>The multiplier used to adjust endpoint weights with the error rated calculated based
+on the reported <code>rps_fractional</code> and <code>eps</code> load metrics. Must not be a negative value.
+Default is 1.0.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>namedMetrics</code><br/>
+<em>
+[]string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>A list of custom metrics reported by endpoints to be used for reporting utilization
+and influencing load balancing decisions. Utilization will be computed by taking the
+max of the values of metrics specified in this list.</p>
+</td>
+</tr>
+</tbody>
+</table>
 <h3 id="alb.networking.azure.io/v1.LoadBalancingConfig">LoadBalancingConfig
 </h3>
 <p>
@@ -2910,6 +3033,20 @@ SlowStartConfig
 <p>SlowStart defines the schema for Slow Start specification</p>
 </td>
 </tr>
+<tr>
+<td>
+<code>loadAware</code><br/>
+<em>
+<a href="#alb.networking.azure.io/v1.LoadAwareConfig">
+LoadAwareConfig
+</a>
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>LoadAware defines the schema for Load Aware Routing specification</p>
+</td>
+</tr>
 </tbody>
 </table>
 <h3 id="alb.networking.azure.io/v1.LoadBalancingStrategy">LoadBalancingStrategy
@@ -2929,6 +3066,9 @@ SlowStartConfig
 </thead>
 <tbody><tr><td><p>&#34;least-request&#34;</p></td>
 <td><p>LoadBalancingLeastRequest is used to set the LoadBalancingStrategy to least-request</p>
+</td>
+</tr><tr><td><p>&#34;load-aware&#34;</p></td>
+<td><p>LoadBalancingLoadAware is used to set the LoadBalancingStrategy to load-aware</p>
 </td>
 </tr><tr><td><p>&#34;ring-hash&#34;</p></td>
 <td><p>LoadBalancingRingHash is used to set the LoadBalancingStrategy to ring-hash</p>
@@ -3097,7 +3237,7 @@ CustomTargetRef
 </td>
 <td>
 <em>(Optional)</em>
-<p>Conditions describe the current conditions of the Application Gateway for Containers IP Access Rules as they relate
+<p>Conditions describe the current conditions of the policy as they relate
 to a particular targetRef.</p>
 </td>
 </tr>
@@ -3854,51 +3994,6 @@ int32
 <em>(Optional)</em>
 <p>End defines the end of the range of status codes to use for HealthCheck checks.
 This is inclusive.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="alb.networking.azure.io/v1.TargetRefSpec">TargetRefSpec
-</h3>
-<p>
-(<em>Appears on:</em><a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicySpec">BackendLoadBalancingPolicySpec</a>)
-</p>
-<div>
-<p>TargetRefSpec defines the target reference and ports for the backend load balancing policy.</p>
-</div>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<code>targetRef</code><br/>
-<em>
-<a href="#alb.networking.azure.io/v1.CustomTargetRef">
-CustomTargetRef
-</a>
-</em>
-</td>
-<td>
-<p>TargetRef identifies an API object to apply policy to.</p>
-</td>
-</tr>
-<tr>
-<td>
-<code>ports</code><br/>
-<em>
-<a href="#alb.networking.azure.io/v1.BackendLoadBalancingPolicyPort">
-[]BackendLoadBalancingPolicyPort
-</a>
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Ports specifies the list of ports on the target where the policy is applied.</p>
 </td>
 </tr>
 </tbody>

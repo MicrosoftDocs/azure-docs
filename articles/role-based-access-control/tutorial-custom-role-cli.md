@@ -39,7 +39,7 @@ Sign in to [Azure CLI](/cli/azure/authenticate-azure-cli).
 
 The easiest way to create a custom role is to start with a JSON template, add your changes, and then create a new role.
 
-1. Review the list of actions for the [Microsoft.Support resource provider](resource-provider-operations.md#microsoftsupport). It's helpful to know the actions that are available to create your permissions.
+1. Review the list of actions for the [Microsoft.Support resource provider](permissions/general.md#microsoftsupport). It's helpful to know the actions that are available to create your permissions.
 
     | Action | Description |
     | --- | --- |

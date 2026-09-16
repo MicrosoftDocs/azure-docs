@@ -6,6 +6,8 @@ summary: Azure Native Qumulo Scalable File Service enables you to create and man
 metadata:
   title: Azure Native Qumulo Scalable File Service documentation
   description: Azure Native Qumulo Scalable File Service offers a scalable, performant, and simple-to-use cloud-native file system on Azure.
+  author: Reshmi-Sriram
+  ms.author: reshmisriram
   ms.topic: landing-page
   ms.custom:
     - ignite-2023

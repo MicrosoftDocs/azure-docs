@@ -233,7 +233,7 @@ This approach lets your code run securely and seamlessly in both local and cloud
 
 ## More resources
 
-- [Tutorial: Build a Retrieval Augmented Generation with Azure OpenAI and Azure AI Search (.NET)](tutorial-ai-openai-search-dotnet.md)
+- [Build grounded agent applications with Foundry Agent Service and Foundry IQ](scenario-ai-chatbot-retrieval-augmented-generation.md)
 - [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (ASP.NET Core)](tutorial-ai-slm-dotnet.md)
 - [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource)
 - [Learn more about managed identity in App Service](overview-managed-identity.md)

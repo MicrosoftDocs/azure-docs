@@ -5,13 +5,14 @@ author: Jeronika-MS
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 05/11/2025
+ms.date: 04/21/2026
 ms.custom:
   - subject-rbac-steps
   - engagement-fy23
   - sfi-image-nochange
 # Customer intent: As a system administrator, I want to configure private endpoints for on-premises machine replication to Azure, so that I can enhance security and control data traffic during disaster recovery operations.
 ---
+
 # Replicate on-premises machines by using private endpoints
 
 Azure Site Recovery allows you to use [Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints to replicate
@@ -45,23 +46,7 @@ then create private endpoints in the bypass network. You can choose any form of 
 
 ### URLs to be allowed
 
-When using the private link with modernized experience for VMware VMs, public access is needed for a few resources. Below are all URLs to be included in the allowlist. If proxy-based configuration is used, make sure that the proxy resolves any CNAME records received while looking up the URLs.
-
-  |  **URL**                  |     **Details**                            |
-  | ------------------------- | -------------------------------------------|
-  | portal.azure.com          | Navigate to the Azure portal.              |
-  | `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
-  |`*.microsoftonline.com `<br>`*.microsoftonline-p.com `| Create Microsoft Entra applications for the appliance to communicate with Azure Site Recovery. |
-  | `management.azure.com` | Used for Azure Resource Manager deployments and operations. |
-  | `*.siterecovery.windowsazure.com` | Used to connect to Site Recovery services. | 
-
-Ensure the following URLs are allowed and reachable from the Azure Site Recovery replication appliance for continuous connectivity, when enabling replication to a government cloud:
-
-  |                  **URL for Fairfax**                   |                 **URL for Mooncake**                     |           **Details**                   |
-  | ------------------------------------------------------ | ---------------------------------------------------------| ----------------------------------------|
-  | `login.microsoftonline.us/*` <br> `graph.windows.net ` | `login.microsoftonline.cn` <br> `graph.chinacloudapi.cn` | To sign-in to your Azure subscription.  |
-  | `*.portal.azure.us`          |    `*.portal.azure.cn`           | Navigate to the Azure portal. | 
-  | `management.usgovcloudapi.net` | `management.chinacloudapi.cn` | Create Microsoft Entra applications for the appliance to communicate with the Azure Site Recovery service. |
+The appliance needs access to the URLs (directly or via proxy) over and above private link access. For information about allowed URLs, see [Allow URLs](./replication-appliance-support-matrix.md#allow-urls).
 
 ## Create and use private endpoints for site recovery
 

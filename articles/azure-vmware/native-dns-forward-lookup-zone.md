@@ -3,7 +3,7 @@ title: Configure private and public DNS forward lookup zones
 description: Learn about private and public DNS forward lookup zone configuration.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 4/21/2025
+ms.date: 4/10/2026
 ms.custom: engagement-fy25
 # customer intent: As a cloud administrator, I want to configure DNS forward lookup zone for Azure VMware Solution Generation 2 private clouds so that I can manage domain name resolution for private cloud appliances.
 ---
@@ -41,7 +41,7 @@ Public DNS records resolve successfully from any location with internet access, 
 - On-premises networks
 - External networks
 
-If you are testing name resolution from a workload segment inside Azure VMware Solution, ensure that internet access is enabled for the Private Cloud for workload networking, specifically using the "nsx-gw" and "nsx-gw-1 subnets. Without outbound internet access, DNS resolution to public DNS servers will not succeed.
+If you're testing name resolution from a workload segment inside Azure VMware Solution, ensure internet access is enabled for the Private Cloud for workload networking, specifically using the "nsx-gw" and "nsx-gw-1 subnets. Without outbound internet access, DNS resolutions to public DNS servers don't succeed.
 
 ### Verifying DNS Resolution
 
@@ -49,11 +49,11 @@ To verify that public DNS resolution is working:
 1. Open a terminal or command prompt from any machine with internet access.
 2. Run the following command:"nslookup vc123.eastus.avs.azure.com".
 
-If DNS resolution is successful, the command returns a private IP address. If the command does not return an IP address, then either the DNS zone is private or the DNS server being used cannot reach the internet.
+If DNS resolution is successful, the command returns a private IP address. If the command doesn't return an IP address, then either the DNS zone is private or the DNS server being used can't reach the internet.
 
 ## Configure private DNS for your Azure VMware Solution Generation 2 private cloud  
  
-If you select the Private DNS option, the private cloud will be resolvable from the Virtual Network where the private cloud is provisioned. This is done by linking the private DNS zone to your Virtual Network. If you need to enable this zone to be resolvable outside of this Virtual Network, such as in your on-premises environment, you need to configure an Azure DNS Private Resolver, or deploy your own DNS server in your Virtual Network. Private DNS will use the Azure DNS Service (168.63.129.16) to resolve your private cloud FQDNs. This section explains configuring an Azure DNS Private Resolver. 
+If you select the Private DNS option, the private cloud is resolvable from the Virtual Network where the private cloud is provisioned. Link the private DNS zone to your Virtual Network. If you need to enable the zone to be resolvable outside of your Virtual Network, like in your on-premises environment, you need to configure an Azure DNS Private Resolver, or deploy your own DNS server in your Virtual Network. Private DNS uses the Azure DNS Service (168.63.129.16) to resolve your private cloud FQDNs. This section explains configuring an Azure DNS Private Resolver. 
  
  ### Prerequisite
 
@@ -63,34 +63,34 @@ If you select the Private DNS option, the private cloud will be resolvable from 
  
  In the Resource Group, deploy the Private DNS Resolver. 
  
-1. Select Create. 
- 2. In the Search the Marketplace field, type Private DNS Resolver and select enter. 
- 3. Select Create for the Private DNS Resolver. 
-1. Ensure the Subscription, Resource group, and Region fields are correct. Enter a name and choose your Virtual Network. This virtual network must be the same as where you deployed your private cloud.
+1. Select **Create**. 
+ 2. In the Search the Marketplace field, type Private DNS Resolver and select **enter**. 
+ 3. Select **Create** for the Private DNS Resolver. 
+1. Verify that the **Subscription**, **Resource group**, and **Region fields** are correct. Enter a name and choose your Virtual Network. This virtual network must be the same as where you deployed your private cloud.
 
-1. Select Next: Inbound Endpoints. 
+1. Select Next: **Inbound Endpoints**. 
 
- 5. Select Add an Endpoint, enter a name for the Inbound endpoint, such as dns-in and select the subnet for the DNS inbound endpoint and select Save.
- 6. Select Next: Outbound Endpoints. 
- 7. Select Add an Endpoint, enter a name for the Outbound endpoint, such as dns-out and select the subnet for the DNS outbound endpoint and select Save.
- 8. Select Next: Ruleset. 
- 9. Select Next: Tags. 
- 10. Select Next: Review + Create. 
- 11. When the Validation passes, select Create. 
+ 5. Select **Add an Endpoint**, enter a name for the **Inbound endpoint**, like dns-in. Select the subnet for the DNS inbound endpoint then select **Save**.
+ 6. Select Next: **Outbound Endpoints**. 
+ 7. Select **Add an Endpoint**, enter a name for the **Outbound endpoint**, like dns-out. Select the subnet for the DNS outbound endpoint then select **Save**.
+ 8. Select Next: **Ruleset**. 
+ 9. Select Next: **Tags**. 
+ 10. Select Next: **Review + Create**. 
+ 11. When the Validation passes, select **Create**. 
  
 For more information on deploying Azure DNS Private Resolver, see this [page](/azure/dns/dns-private-resolver-overview). 
 
 You can now resolve private cloud DNS records from any workload using the Inbound endpoint of the Azure DNS Private Resolver as it’s DNS server. You should now create a conditional forwarder in your on-premises DNS server and point it to the Inbound Endpoint of the Azure DNS Private Resolver to allow DNS resolution of the private cloud from your corporate network. 
  ### Enable Resolution for private cloud workload virtual machines
  
- If you need workload virtual machines deployed in your private cloud to resolve the private cloud management components you must add a forwarder to VMware NSX. 
+ If you need workload virtual machines deployed in your private cloud to resolve the private cloud management components, you must add a forwarder to VMware NSX. 
  
 1. In your Resource group, open your private cloud. 
- 2. Expand Workload Networking and select DNS. 
- 3. Select the Add button, select FQDN zone, enter your private cloud’s DNS zone name and Domain. For IP address enter the IP address of the inbound endpoint of your Azure DNS Private Resolver and select OK. 
- 4. Select DNS Service. 
- 5. Select Edit. 
- 6. Select the zone you just created in the FQDN zones dropdown and select OK.  
+ 2. Expand **Workload Networking** then select **DNS**. 
+ 3. Select the **Add** button, select **FQDN zone**, then enter your private cloud’s DNS zone name and Domain. For IP address, enter the IP address of the inbound endpoint of your Azure DNS Private Resolver and select OK. 
+ 4. Select **DNS Service**. 
+ 5. Select **Edit**. 
+ 6. Select the zone you created in the FQDN zones dropdown and select **OK**.  
 
  Your workload virtual machines can now resolve the private cloud management components. 
 
@@ -102,9 +102,9 @@ To configure the forward lookup zone:
 
 1. **Identify the DNS zone name** for your private cloud. The zone is typically derived from the Fully Qualified Domain Name (FQDN) of the vCenter Server. For example, if the vCenter Server URL is `https://vc123.avs.azure.com`, the DNS zone name is `avs.azure.com` (everything after `vc123`).
       
-2. **Create a forward lookup zone** in your DNS solution (either your on-premises DNS server or a DNS server you deployed in the Azure Virtual Network of the private cloud). Use the DNS zone name identified above.
+2. **Create a forward lookup zone** in your DNS solution (either your on-premises DNS server or a DNS server you deployed in the Azure Virtual Network of the private cloud). Use the DNS zone name you identified in the previous step.
          
-3. **Configure a forwarder** in that lookup zone. Point the zone to the IP address of the inbound endpoint of the Azure DNS Private Resolver that you deployed in the Virtual Network of the private cloud. This ensures that any DNS queries for private cloud FQDNs are forwarded to the Azure DNS Private Resolver.
+3. **Configure a forwarder** in that lookup zone. Point the zone to the IP address of the inbound endpoint of the Azure DNS Private Resolver that you deployed in the Virtual Network of the private cloud. This action ensures any DNS queries for private cloud FQDNs are forwarded to the Azure DNS Private Resolver.
    
 **Example**:
 
@@ -114,9 +114,9 @@ Forward lookup zone to create: `avs.azure.com`
 
 Forwarder target: IP address of your Azure DNS Private Resolver inbound endpoint
 
-Once complete, DNS queries for management components in your private cloud will resolve correctly from workloads within your Azure Virtual Network as well as from your on-premises environment.
+Once complete, DNS queries for management components in your private cloud resolve correctly from workloads within your Azure Virtual Network and from your on-premises environment.
 
-## Related topics
+## Related articles
 - [Connectivity to an Azure Virtual Network](native-network-connectivity.md)
 - [Connect to on-premises environment](native-connect-on-premises.md)
 - [Internet connectivity options](native-internet-connectivity-design-considerations.md)

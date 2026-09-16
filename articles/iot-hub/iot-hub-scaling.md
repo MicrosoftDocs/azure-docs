@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Hub scaling
 description: How to choose the correct IoT hub tier and size to support your anticipated message throughput and desired features.
-author: cwatson-cat
+author: sethmanheim
 
-ms.author: cwatson
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 03/20/2025
@@ -44,7 +44,6 @@ Both tiers offer the same security and authentication features.
 | [Monitoring and diagnostics](monitor-iot-hub.md) | Yes | Yes |
 | [Cloud-to-device messaging](iot-hub-devguide-c2d-guidance.md) |   | Yes |
 | [Device twins](iot-hub-devguide-device-twins.md), [module twins](iot-hub-devguide-module-twins.md), and [device management](iot-hub-device-management-overview.md) |   | Yes |
-| [Device streams (preview)](iot-hub-device-streams-overview.md) |   | Yes |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Yes |
 | [IoT Plug and Play](/previous-versions/azure/iot/overview-iot-plug-and-play) |   | Yes |
 

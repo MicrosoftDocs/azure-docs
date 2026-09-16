@@ -1,7 +1,6 @@
 ---
 title: 'Tutorial: Change a Workspace and Configure Data Collection Rules'
 description: In this tutorial, learn how to change a workspace and configure data collection rules for Azure Change Tracking and Inventory.
-services: automation
 ms.custom: linux-related-content
 ms.date: 11/06/2025
 ms.topic: tutorial

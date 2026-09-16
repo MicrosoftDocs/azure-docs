@@ -2,6 +2,8 @@
 metadata:
   title: Elastic integration with Azure frequently asked questions
   description: Answers to common questions about using Elastic Cloud (Elasticsearch), Elastic Observability, and Elastic Security in Azure.
+  author: pdjokar96
+  ms.author: piyushdash
   ms.topic: faq 
   ai-usage: ai-generated
   ms.date: 12/17/2025

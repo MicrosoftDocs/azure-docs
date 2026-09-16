@@ -3,7 +3,7 @@ title: Troubleshoot Azure IoT Edge common errors
 description: Resolve common issues in Azure IoT Edge solutions. Learn how to troubleshoot issues with provisioning, deployment, the IoT Edge runtime, and networking.
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/03/2026
+ms.date: 07/16/2026
 ms.topic: troubleshooting-general
 ms.service: azure-iot-edge
 services: iot-edge
@@ -191,11 +191,35 @@ IoT Edge agent makes excessive identity calls to Azure IoT Hub.
 
 #### Cause
 
-Device deployment manifest misconfiguration causes an unsuccessful deployment on the device. IoT Edge Agent retry logic continues to retry deployment. Each retry makes identity calls until the deployment is successful. For example, if the deployment manifest specifies a module URI that that doesn't exist in the container registry or is mistyped, the IoT Edge agent retries the deployment until the deployment manifest is corrected.
+Device deployment manifest misconfiguration causes an unsuccessful deployment on the device. IoT Edge Agent retry logic continues to retry deployment. Each retry makes identity calls until the deployment is successful. For example, if the deployment manifest specifies a module URI that doesn't exist in the container registry or is mistyped, the IoT Edge agent retries the deployment until the deployment manifest is corrected.
 
 #### Solution
 
 Verify the deployment manifest in the Azure portal. Correct any errors and redeploy the manifest to the device.
+
+### IoT Hub identity operation quota is exceeded on a large fleet
+
+#### Symptoms
+
+Devices on a busy IoT hub fail to connect, the device list doesn't load in the Azure portal, and operations return a `ThrottlingBacklogTimeout` error. The IoT Identity Service logs (`aziot-identityd`) show repeated `HTTP request throttled` warnings, and the IoT Edge hub logs show entries like `Encountered an error while refreshing the device scope identities cache. Will retry`.
+
+This symptom typically appears only on hubs with a large, dense fleet (many thousands of edge devices on a single hub).
+
+#### Cause
+
+Each IoT Edge hub keeps a local cache of the devices and modules in its scope so that it can authenticate downstream devices and modules locally. The IoT Edge hub refreshes this cache on a timer by enumerating its scope from IoT Hub, which generates identity operations against the hub. By default, this refresh runs every hour on every IoT Edge device.
+
+IoT Hub applies the identity operation throttle per hub. When a single hub hosts a large number of IoT Edge devices that all refresh their scope on the same default interval, the combined rate of scope enumeration operations can exceed the hub's identity operation quota. The result is throttling that can prevent both the scope refresh and normal device connections from succeeding. Because the throttle is per hub, the problem depends on device density (devices per hub) rather than on any individual device's configuration.
+
+Unlike the retry-loop cause described in the previous section, this cause isn't a misconfiguration. It's a scaling characteristic that appears at high device counts on a single hub.
+
+#### Solution
+
+To reduce the volume of scope refresh operations, increase the IoT Edge hub's scope cache refresh interval. Set the `DeviceScopeCacheRefreshRateSecs` environment variable on the IoT Edge hub (`$edgeHub`) module to a value larger than the default of `3600` seconds. For example, set it to `43200` (12 hours) to reduce the refresh rate to one-twelfth of the default. For more information about IoT Edge hub environment variables, see [Properties of the IoT Edge agent and IoT Edge hub module twins](module-edgeagent-edgehub.md).
+
+Consider this change carefully if your devices act as gateways for downstream (child) devices. A longer interval means that changes to a downstream device's identity, such as a device being removed or disabled, take longer to propagate to the IoT Edge hub's cache. New device authentication isn't affected, because the IoT Edge hub refreshes a single identity on demand when a client connects. For a standalone IoT Edge device with only local modules and no downstream devices, you can increase the interval with minimal tradeoff. Test a longer interval on a few devices first, and confirm that the throttling warnings in the `aziot-identityd` logs decrease.
+
+Other options that reduce identity operation pressure include distributing devices across more hubs (the throttle is per hub) and reducing the number of modules per device, which lowers the number of identities in each device's scope.
 
 ### IoT Edge hub fails to start
 
@@ -255,7 +279,7 @@ In the deployment.json file:
      "edgeHub": {
          "restartPolicy": "always",
          "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
             "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
          },
          "status": "running",
@@ -269,7 +293,7 @@ In the deployment.json file:
      "edgeHub": {
          "restartPolicy": "always",
          "settings": {
-         "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+         "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
          "status": "running",
          "type": "docker"
    }
@@ -330,7 +354,7 @@ In the Azure portal:
          },
          "restartPolicy": "always",
          "settings": {
-               "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+               "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
          },
          "status": "running",
@@ -377,6 +401,30 @@ The client message TTL (time to live) and the **EdgeHub** `MessageCleanupInterva
 If you change the TTL value for your application to a value that's shorter than the default, also adjust the `MessageCleanupIntervalSecs` value. The `MessageCleanupIntervalSecs` value should be significantly smaller than the smallest TTL value that the client uses. For example, if the client application defines a TTL of five minutes in the message header, set the `MessageCleanupIntervalSecs` value to one minute. These settings ensure that messages are cleaned up within six (5 + 1) minutes.  
 
 To configure the *MessageCleanupIntervalSecs* value, set the environment variable in the deployment manifest for the IoT Edge hub module. For more information about setting runtime environment variables, see [Edge Agent and Edge Hub Environment Variables](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
+
+### Custom modules stop sending messages after Edge CA certificate renewal
+
+#### Symptoms
+
+Custom modules stop communicating with EdgeHub after running for a period of time, typically around 24-30 days when using the default 30-day quickstart Edge CA certificate, or at 80% of the configured certificate lifetime. The EdgeHub and EdgeAgent modules continue to run, but custom modules can no longer send or receive messages through EdgeHub.
+
+#### Cause
+
+When the Edge CA certificate auto-renews, IoT Edge stops and restarts all modules so they receive new server certificates. After the restart, modules must reestablish their connection to EdgeHub. If a custom module doesn't implement connection retry logic, the module starts but can't reconnect to EdgeHub because the new EdgeHub server certificate isn't yet available or the module doesn't retry the initial connection attempt.
+
+#### Solution
+
+Check the EdgeAgent logs for certificate renewal events:
+
+```bash
+sudo iotedge logs edgeAgent | grep -i "renewal"
+```
+
+To resolve:
+
+1. Verify that each custom module has `"restartPolicy": "always"` in the deployment manifest.
+1. Implement connection retry logic in custom modules. Use the Azure IoT device SDK's built-in retry policies, or add exponential backoff retry logic so the module automatically reconnects to EdgeHub after a restart. For more information, see [Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs](../iot-hub/iot-hub-reliability-features-in-sdks.md).
+1. To control when the renewal disruption occurs, set the `threshold` to an absolute time instead of a percentage. For example, `threshold = "10d"` triggers renewal 10 days before certificate expiry. For more information, see [Plan for Edge CA renewal](how-to-manage-device-certificates.md#plan-for-edge-ca-renewal).
 
 ### IoT Edge Hub reports System.FormatException error when using AMQP protocol
 

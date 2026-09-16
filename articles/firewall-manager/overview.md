@@ -62,7 +62,7 @@ Easily route traffic to your secured hub for filtering and logging without the n
 
 This feature is available only with secured virtual hub deployments.
 
-You can use partner providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to virtual network (B2V), virtual network to virtual network (V2V) and virtual network to Internet (V2I).
+You can use partner providers for virtual network to Internet (V2I) and Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for private traffic such as Branch to virtual network (B2V) and virtual network to virtual network (V2V). For the supported provider combinations, see [What are security partner providers?](trusted-security-partners.md#key-scenarios).
 
 ### DDoS protection plan
 
@@ -91,7 +91,7 @@ Azure Firewall Manager has the following known issues:
 |DDoS Protection not supported with secured virtual hubs|DDoS Protection isn't integrated with vWANs.|Investigating<br><br>You can now associate a public IP address created in your tenants to secured hubs. The public IP addresses can be configured with Azure DDoS Protection. For more information, see [Customer provided public IP address support in secured hubs (preview)](../firewall/secured-hub-customer-public-ip.md).|
 |Activity logs not fully supported|Firewall policy doesn't currently support Activity logs.|Investigating|
 |Description of rules not fully supported|Firewall policy doesn't display the description of rules in an ARM export.|Investigating|
-|Azure Firewall Manager overwrites static and custom routes causing downtime in virtual WAN hub.|You shouldn't use Azure Firewall Manager to manage your settings in deployments configured with custom or static routes. Updates from Firewall Manager can potentially overwrite static or custom route settings.|If you use static or custom routes, use the Virtual WAN page to manage security settings and avoid configuration via Azure Firewall Manager.<br><br>For more information, see [Scenario: Azure Firewall - custom](../virtual-wan/scenario-route-between-vnets-firewall.md).|
+|Azure Firewall Manager overwrites static and custom routes causing downtime in virtual WAN hub.|You shouldn't use Azure Firewall Manager to manage your settings in deployments configured with custom or static routes. Updates from Firewall Manager can potentially overwrite static or custom route settings.|If you use static or custom routes, use the Virtual WAN page to manage security settings and avoid configuration via Azure Firewall Manager.<br><br>For more information, see [using static routes to send traffic to Azure Firewall and NVA in Virtual WAN spoke](../virtual-wan/hybrid-firewall-spoke-static.md).|
 
 ## Next steps
 

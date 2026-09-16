@@ -14,8 +14,8 @@ The following table shows limits that are different for Basic, Standard, Premium
 
 > [!NOTE]
 > - In the table, CU is [capacity unit](../event-hubs-dedicated-overview.md), PU is [processing unit](../event-hubs-scalability.md#processing-units), and TU is [throughput unit](../event-hubs-scalability.md#throughput-units).
-> - You can configure [TUs](../event-hubs-auto-inflate.md#use-azure-portal) for a Basic or Standard tier namespace or [PUs](../configure-processing-units-premium-namespace.md) for a Premium tier namespace.
-> - When you [create a dedicated cluster](../event-hubs-dedicated-cluster-create-portal.md#create-an-event-hubs-dedicated-cluster), Azure Event Hubs assigns one CU to the cluster. If you enable the **Support scaling** option while creating the cluster, you can scale out by increasing CUs or scale in by decreasing CUs for the cluster. For step-by-step instructions, see [Scale dedicated cluster](../event-hubs-dedicated-cluster-create-portal.md#scale-a-dedicated-cluster). For clusters that don't support the **Support scaling** feature, [submit a ticket](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request) to adjust CUs for the cluster.
+> - You can configure [TUs](../enable-auto-inflate.md) for a Basic or Standard tier namespace or [PUs](../configure-processing-units-premium-namespace.md) for a Premium tier namespace.
+> - When you [create a dedicated cluster](../event-hubs-dedicated-cluster-create-portal.md#create-an-event-hubs-dedicated-cluster), Azure Event Hubs assigns one CU to the cluster. You can scale out by increasing CUs or scale in by decreasing CUs for the cluster. For step-by-step instructions, see [Scale dedicated cluster](../event-hubs-dedicated-cluster-create-portal.md#scale-a-dedicated-cluster). To scale beyond 10 CUs, [submit a support request](../event-hubs-dedicated-cluster-create-portal.md#submit-a-support-request).
 
 | Limit | Basic | Standard | Premium | Dedicated |
 | ----- | ----- | -------- | -------- | --------- | 
@@ -25,7 +25,7 @@ The following table shows limits that are different for Basic, Standard, Premium
 | Number of brokered connections per namespace | 100 | 5,000 | 10,000 per PU<br/><br/>For example, if the namespace is assigned 4 PUs, the limit is 40,000. | 100,000 per CU |
 | Maximum retention period of event data | 1 day | 7 days | 90 days | 90 days |
 | Event storage for retention | 84 GB per TU | 84 GB per TU | 1 TB per PU | 10 TB per CU | 
-| Maximum TUs or PUs or CUs | 40 TUs | 40 TUs | 16 PUs | 20 CUs |
+| Maximum TUs or PUs or CUs | 40 TUs | 40 TUs | 16 PUs | 10 CUs (more via support request) |
 | Number of partitions per event hub | 32 | 32 | 100 per event hub, but there's a limit of 200 per PU at the namespace level.<br/><br/> For example, if a namespace is assigned 2 PUs, the limit for total number of partitions in all event hubs in the namespace is 2 * 200 = 400. | 1,024 per event hub<br/> 2,000 per CU |
 | Number of namespaces per subscription per region | 1,000 (all tiers) | 1,000 (all tiers) | 1,000 (all tiers) | 1,000 (50 per CU) |
 | Number of event hubs per namespace | 10 | 10 | 100 per PU | 1,000 |

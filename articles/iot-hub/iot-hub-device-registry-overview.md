@@ -2,8 +2,8 @@
 title: Integration with Azure Device Registry (preview)
 titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of how Azure Device Registry helps users manage IoT devices.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
@@ -57,5 +57,5 @@ For Azure subscription and service limits for Azure Device Registry in GA, see [
 
 - [FAQ: What is new in Azure IoT Hub?](iot-hub-faq.md)
 - [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md)
-- [What is Microsoft-backed X.509 certificate management?](iot-hub-certificate-management-overview.md)
-- [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
+- [What is Microsoft-backed X.509 certificate management?](../iot/iot-certificate-management-overview.md)
+- [Key concepts for certificate management](../iot/iot-certificate-management-concepts.md)

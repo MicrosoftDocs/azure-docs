@@ -6,12 +6,9 @@ items:
       - name: What is Microsoft Dev Box?
         href: overview-what-is-microsoft-dev-box.md
         displayName: DevBox, VDI
-      - name: Roadmap for Microsoft Dev Box
-        href: dev-box-roadmap.md
-        displayName: roadmap, future, features, enhancements, coming soon, in development
-      - name: Windows 365 adds Microsoft Dev Box capabilities
-        href: dev-box-windows-365-announcement.md
-        displayName: Windows 365, announcement, news
+      - name: Microsoft Dev Box retirement guide
+        href: dev-box-retirement-guide.md
+        displayName: retirement, maintenance mode, Windows 365, transition
   - name: Quickstarts
     items:
       - name: Get Started with the quick start template
@@ -107,7 +104,7 @@ items:
         href: how-to-create-dev-boxes-developer-portal.md
         displayName: Windows App, connect, access dev box, RDP, iPad
       - name: Connect to your dev box
-        href: how-to-create-dev-boxes-developer-portal.md#connect-through-the-windows-app
+        href: how-to-create-dev-boxes-developer-portal.md#connect-through-windows-app
         displayName: Windows App, connect, access dev box, RDP, iPad
       - name: Use multiple monitors
         href: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
