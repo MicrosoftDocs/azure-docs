@@ -378,13 +378,31 @@ The Azure Functions Core Tools supports three types of deployment:
 
 | Deployment type | Command | Description |
 | ----- | ----- | ----- |
-| Project files | [`func azure functionapp publish`](functions-core-tools-reference.md#func-azure-functionapp-publish) | Deploys function project files directly to your function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). |
+| Project files | [`func azure functionapp publish`](functions-core-tools-reference.md#func-azure-functionapp-publish) | Deploys function project files directly to your function app using [ZIP deployment](functions-deployment-technologies.md#zip-deployment). |
 | Azure Container Apps | `func azurecontainerapps deploy` | Deploys a containerized function app to an existing Container Apps environment. |
 | Kubernetes cluster | `func kubernetes deploy` | Deploys your Linux function app as a custom Docker container to a Kubernetes cluster. | 
 
 You must have either the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell) installed locally to be able to publish to Azure from Core Tools. By default, Core Tools uses these tools to authenticate with your Azure account. 
 
 If you don't have these tools installed, you need to instead [get a valid access token](/cli/azure/account#az-account-get-access-token) to use during deployment. You can present an access token using the `--access-token` option in the deployment commands.  
+
+## Create a deployment package
+
+Publishing commands, such as `func azure functionapp publish`, create the deployment package for you. Use the `func pack` command when you need a ready-to-run .zip file before deployment, such as when you deploy from an external package URL.
+
+From the project root folder that contains the *host.json* file, run:
+
+```console
+func pack
+```
+
+By default, Core Tools builds the project when required and creates a .zip file named for the project root folder. To package a project in another folder, provide the folder path:
+
+```console
+func pack <PROJECT_FOLDER>
+```
+
+For all available options, see the [`func pack`](functions-core-tools-reference.md#func-pack) reference.
 
 ## <a name="project-file-deployment"></a>Deploy project files
 
@@ -424,7 +442,7 @@ The following considerations apply to this kind of deployment:
 
 + A project folder might contain language-specific files and directories that shouldn't be published. Excluded items are listed in a *.funcignore* file in the root project folder. 
 
-+ By default, your project is deployed so that it [runs from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the [`--nozip` option][func azure functionapp publish]. 
++ By default, you deploy your project so that it [runs from the deployment package](deployment-zip-push.md#run-functions-from-the-deployment-package). To disable this recommended deployment mode, use the [`--nozip` option][func azure functionapp publish].
 
 + A [remote build](functions-deployment-technologies.md#remote-build) is performed on compiled projects. This can be controlled by using the [`--no-build` option][func azure functionapp publish].  
 

@@ -409,7 +409,7 @@ For more information about the resources required to run your containerized func
 
 ## <a name="republish-project-files"></a>Deploy project files
 
-Set up [continuous deployment](functions-continuous-deployment.md) so that your function app in Azure updates when you update source files in the connected source location. You can also deploy your project files from Visual Studio Code. When you publish from Visual Studio Code, you can take advantage of the [Zip deploy technology](functions-deployment-technologies.md#zip-deploy).
+Set up [continuous deployment](functions-continuous-deployment.md) so that your function app in Azure updates when you update source files in the connected source location. You can also deploy your project files from Visual Studio Code. When you publish from Visual Studio Code, you can use [ZIP deployment](functions-deployment-technologies.md#zip-deployment).
 
 [!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 

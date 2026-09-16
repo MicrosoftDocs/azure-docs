@@ -2,7 +2,7 @@
 title: Azure Blob storage trigger for Azure Functions
 description: Learn how to use Azure Function to run your custom code based on changes in an Azure Blob storage container. 
 ms.topic: reference
-ms.date: 05/14/2025
+ms.date: 08/28/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 zone_pivot_groups: programming-languages-set-functions
@@ -20,12 +20,16 @@ ms.custom:
 
 The Blob storage trigger starts a function when a new or updated blob is detected. The blob contents are provided as [input to the function](./functions-bindings-storage-blob-input.md).
 
-> [!TIP] 
-> There are several ways to execute your function code based on changes to blobs in a storage container. If you choose to use the Blob storage trigger, there are two implementations offered: a polling-based one (referenced in this article) and an event-based one. It is recommended that you use the [event-based implementation](./functions-event-grid-blob-trigger.md) as it has lower latency than the other. Also, the Flex Consumption plan supports only the event-based Blob storage trigger. 
+## Choose a Blob storage trigger implementation
 
-> For details about differences between the two implementations of the Blob storage trigger, as well as other triggering options, see [Working with blobs](./storage-considerations.md#working-with-blobs).
+Azure Functions provides two implementations of the Blob storage trigger:
 
-For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md). 
+- **Event-based Blob storage trigger:** Recommended because it has lower latency. The Flex Consumption plan supports only this implementation. You must use this implementation when the storage account has hierarchical namespace (HNS) enabled, such as an Azure Data Lake Storage Gen2 account.
+- **Polling-based Blob storage trigger:** This implementation results in higher latency and doesn't officially support storage accounts that have HNS enabled, such as Azure Data Lake Storage Gen2 accounts.
+
+For a comparison of these implementations and other ways to process blob changes, see [Working with blobs](./storage-considerations.md#working-with-blobs).
+
+For setup and configuration details, see the [Blob storage bindings overview](./functions-bindings-storage-blob.md).
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]  

@@ -820,16 +820,18 @@ Enables your function app to run from a package file, which can be locally mount
 |---|------------|
 |WEBSITE\_RUN\_FROM\_PACKAGE|`1`|
 
-Valid values are either a URL that resolves to the location of an external deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. For more information, see [Run your functions from a package file](run-functions-from-deployment-package.md).
+Valid values are either a URL that resolves to the location of an external deployment package file, or `1`. When set to `1`, the package must be in the `d:\home\data\SitePackages` folder. When you use zip deployment with `WEBSITE_RUN_FROM_PACKAGE` enabled, the package is automatically uploaded to this location. For more information, see [Run functions from the deployment package](deployment-zip-push.md#run-functions-from-the-deployment-package).
+
+Don't use this setting for a container deployment. When you convert an existing code-based function app to use a custom container, remove `WEBSITE_RUN_FROM_PACKAGE` so that the Functions host uses the content in your container image. For more information, see [Use application settings with containerized function apps](functions-how-to-custom-container.md#use-application-settings).
 
 When you use `WEBSITE_RUN_FROM_PACKAGE=<URL>`, the URL must resolve to the package file location in an accessible storage location, such as an Azure Blob Storage container. The container must be private to prevent unauthorized access, which requires you to use either a shared access signature (SAS) in the URL or Microsoft Entra ID authentication to allow access. Using Microsoft Entra ID with managed identities is recommended. 
 
-This is an example of setting `WEBSITE_RUN_FROM_PACKAGE` to the URL of a deployment package in an Azure Blog Storage container:  
+This is an example of setting `WEBSITE_RUN_FROM_PACKAGE` to the URL of a deployment package in an Azure Blob Storage container:
 `WEBSITE_RUN_FROM_PACKAGE=https://contosostorageaccount.blob.core.windows.net/mycontainer/mypackage.zip`
 
 When using SAS, you append the token to the URL as a query parameter.  
 
-When you [deploy a package from Azure Blob Storage using a user-assigned managed identity](run-functions-from-deployment-package.md#fetch-a-package-from-azure-blob-storage-using-a-managed-identity), you must also set [`WEBSITE_RUN_FROM_PACKAGE_BLOB_MI_RESOURCE_ID`](#website_run_from_package_blob_mi_resource_id) to the resource ID of the user-assigned managed identity. When you deploy from an external package URL, you must also manually sync triggers. For more information, see [Trigger syncing](functions-deployment-technologies.md#trigger-syncing).
+When you [deploy a package from Azure Blob Storage by using a user-assigned managed identity](deployment-zip-push.md#fetch-a-package-from-azure-blob-storage-by-using-a-managed-identity), you must also set [`WEBSITE_RUN_FROM_PACKAGE_BLOB_MI_RESOURCE_ID`](#website_run_from_package_blob_mi_resource_id) to the resource ID of the user-assigned managed identity. When you deploy from an external package URL, you must also manually sync triggers. For more information, see [Trigger syncing](functions-deployment-technologies.md#trigger-syncing).
 
 ## WEBSITE_RUN_FROM_PACKAGE_BLOB_MI_RESOURCE_ID
 
