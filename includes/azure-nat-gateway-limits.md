@@ -24,7 +24,7 @@ The following limits apply to Standard and StandardV2 NAT gateway resources mana
 | NAT gateways for Enterprise and CSP agreements<sup>2</sup>       | 1,000 per subscription per region | see previous column for combined quota |
 | NAT gateways for Sponsored and pay-as-you-go<sup>2</sup>         | 100 per subscription per region | see previous column for combined quota |
 | NAT gateways for Free Trial and all other offer types<sup>2</sup>             | 15 per subscription per region | see previous column for combined quota|
-| Packets processed   | 5M packets per second | 10M packets per second per NAT Gateway, 100,000 PPS per connection  |
+| Packets processed   | 5 million packets per second per NAT gateway, split across directions (2.5 million PPS outbound and 2.5 million PPS return traffic) | 10M packets per second per NAT Gateway, 100,000 PPS per connection  |
 | Connections to same destination endpoint | 50,000 connections to the same destination per public IP | 50,000 connections to the same destination per public IP |
 | Connections total | 2M connections per NAT gateway | 2M connections per NAT gateway |
 

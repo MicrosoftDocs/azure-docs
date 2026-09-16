@@ -278,6 +278,8 @@
     href: howto-telemetry-review-results.md
   - name: Analyze the impact of feature flags
     href: howto-metric-scorecards.md
+  - name: Enhanced feature flags
+    href: concept-enhanced-feature-flags.md
 
 - name: Hyperscale configuration
   items:
@@ -317,6 +319,8 @@
     href: concept-preview-api-life-cycle.md
 - name: Security
   items:
+  - name: Secure your Azure App Configuration
+    href: secure-azure-app-configuration.md
   - name: Authentication
     items:
     - name: Microsoft Entra ID
@@ -349,8 +353,6 @@
       href: concept-customer-managed-keys.md
   - name: Azure Policies
     href: ./security-controls-policy.md
-  - name: Security baselines
-    href: /security/benchmark/azure/baselines/azure-app-configuration-security-baseline?toc=/azure/azure-app-configuration/TOC.json
 - name: Reliability
   items:
   - name: Geo-replication

@@ -1,11 +1,9 @@
 ---
-title: Versions in Azure API Management | Microsoft Docs
+title: Versions in Azure API Management
 description: Learn about versions in Azure API Management. Versions allow you to present groups of related APIs to your developers.
-services: api-management
- 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/12/2025
+ms.date: 09/11/2026
 
 #Customer intent: As an API developer, I want to use versions in API Management so that I can safely handle breaking changes in my API.
 ---
@@ -34,7 +32,7 @@ Different API developers have different requirements for versioning. Azure API M
 
 ### Path-based versioning
 
-When the path versioning scheme is used, the version identifier needs to be included in the URL path for any API requests.
+When the path versioning scheme is used, include the version identifier in the URL path for any API requests.
 
 For example, `https://apis.contoso.com/products/v1` and `https://apis.contoso.com/products/v2` could refer to the same `products` API but to versions `v1` and `v2`.
 
@@ -92,7 +90,7 @@ If you find that your revision has breaking changes, or if you want to formally 
 
 ## Developer portal
 
-The [developer portal](./api-management-howto-developer-portal.md) lists each version of an API separately:
+The [developer portal](developer-portal-overview.md) lists each version of an API separately:
 
 :::image type="content" source="media/api-management-versions/portal-list.png" alt-text="Screenshot that shows a list of versioned APIs in the API Management developer portal." lightbox="media/api-management-versions/portal-list.png":::
 

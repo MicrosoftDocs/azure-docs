@@ -915,6 +915,8 @@ To delete individual resources by using Bicep, see [Deployment stacks](/azure/az
 
 By default, each asset opens a dedicated OPC UA session. You can configure assets to share an endpoint session and enable active and passive connector instances for high availability. To compare these modes and configure endpoint behavior, see [Configure OPC UA sessions and high availability](howto-configure-opc-ua-sessions-high-availability.md).
 
+Each inbound endpoint can also monitor whether its OPC UA server is alive. Server heartbeat monitoring is enabled by default and reports the endpoint's health from a dedicated monitoring session. To learn how it works and how to enable or disable it per endpoint, see [Monitor OPC UA server availability with heartbeat monitoring](concept-opc-ua-server-heartbeat-monitoring.md).
+
 ## Related content
 
 - [Manage asset and device configurations](howto-use-operations-experience.md)

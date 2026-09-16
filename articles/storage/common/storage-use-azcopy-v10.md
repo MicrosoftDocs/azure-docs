@@ -14,7 +14,10 @@ ai-usage: ai-assisted
 
 # Get started with AzCopy
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and transfer data.<br><br>
+> [!NOTE]
+> If you plan to migrate data into Azure Storage, use Azure Storage Mover. [Azure Storage Mover](https://learn.microsoft.com/azure/storage-mover/) is a managed service that's designed for high-scale transfers (more than 1 TB). It simplifies planning, execution, and monitoring at scale. For more information about migration tools for your scenario, see [aka.ms/migratemydata](https://aka.ms/migratemydata).
+
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and transfer data.
 
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 

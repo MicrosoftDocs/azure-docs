@@ -16,5 +16,5 @@
 1. Enter a name for the queue. Leave the other values with their defaults.
 1. Select **Create**.
  
-   :::image type="content" source="./media/service-bus-create-queue-portal/create-queue.png" alt-text="Screenshot that shows the Create queue page." lightbox="./media/service-bus-create-queue-portal/create-queue.png":::
+   :::image type="content" source="./media/service-bus-create-queue-portal/create-queue.png" alt-text="Screenshot that shows the Create queue page." lightbox="./media/service-bus-create-queue-portal/create-queue.png" border="true":::
 

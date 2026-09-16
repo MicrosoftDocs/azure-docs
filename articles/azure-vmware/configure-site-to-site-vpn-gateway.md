@@ -54,7 +54,7 @@ A virtual hub is a virtual network that is created and used by Azure Virtual WAN
    
    * **Device vendor** - The name of the VPN device vendor, for example, Citrix, Cisco, or Barracuda. It helps the Azure Team better understand your environment to add more optimization possibilities in the future or help you troubleshoot.
 
-   * **Private address space** - The CIDR IP address space located on your on-premises site. Traffic destined for this address space is routed to your local site. The CIDR block is only required if you [BGP](../vpn-gateway/bgp-howto.md) isn't enabled for the site.
+   * **Private address space** - The CIDR IP address space located on your on-premises site. Traffic destined for this address space is routed to your local site. The CIDR block is only required if you [BGP](../vpn-gateway/configure-bgp.md) isn't enabled for the site.
     
    >[!NOTE]
    >If you edit the address space (add more address spaces) after creating the site, it can take 8-10 minutes to update the effective routes while the components are recreated.

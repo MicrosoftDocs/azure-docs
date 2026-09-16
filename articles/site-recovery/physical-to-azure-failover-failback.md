@@ -72,7 +72,7 @@ After failover you need to [configure Azure settings](site-recovery-failover.md#
 
 ## Prepare for reprotection and failback
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 After failing over to Azure, you reprotect Azure VMs by replicating them to the on-premises site. Then after they're replicating, you can fail them back to on-premises, by running a failover from Azure to your on-premises site.
 

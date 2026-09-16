@@ -121,7 +121,4 @@ Next, you examine the profile configuration package, configure the Azure VPN Cli
 
 ## Next steps
 
-Configure the Azure VPN Client. You can use the steps in the VPN Gateway client documentation to configure the Azure VPN Client for Virtual WAN.
-
-* [Azure VPN Client for Windows](../vpn-gateway/point-to-site-entra-vpn-client-windows.md)
-* [Azure VPN Client for macOS](../vpn-gateway/point-to-site-entra-vpn-client-mac.md)
+Configure the Azure VPN Client. You can use the steps in the VPN Gateway client documentation to configure the Azure VPN Client for Virtual WAN. See [Configure a VPN client for P2S Microsoft Entra ID authentication connections](../vpn-gateway/point-to-site-entra-vpn-client.md).

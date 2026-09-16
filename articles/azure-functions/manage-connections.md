@@ -85,7 +85,7 @@ The identities that you use for your connections must have permissions to perfor
 
 Keep these considerations in mind when using identity-based connections: 
 
-+ In a Functions-hosted app, identity-based connections use a [managed identity](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). The system-assigned identity, which is specific to to your app, is used by default. However, user-assigned identities, which also require the `*__credential` and `*__clientID` properties, are more flexible and recommended.    
++ In a Functions-hosted app, identity-based connections use a [managed identity](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). The system-assigned identity, which is specific to your app, is used by default. However, user-assigned identities, which also require the `*__credential` and `*__clientID` properties, are more flexible and recommended.    
 
 + When your app runs in other contexts, such as local development, your developer identity is used instead. For more information, see the [local development](functions-develop-local.md#local-settings-file) article.
 
@@ -116,7 +116,7 @@ Before using managed identities for host-required connections, consider these li
     + Timer
   
     If your app uses any of these extensions, make sure its version also supports managed identities. 
-+ `AzureWebJobsStorage` maintains deployment artifacts in server-side (remote) builds in a Linux Consumption plan. In this scenario, you must deploy and run your app from an [external deployment package](run-functions-from-deployment-package.md).
++ `AzureWebJobsStorage` maintains deployment artifacts in server-side (remote) builds in a Linux Consumption plan. In this scenario, you must deploy and run your app from an [external deployment package](deployment-zip-push.md#run-from-an-external-package-url).
 + Other components of your function app might reuse the `AzureWebJobsStorage` connection, which could include storage binding extensions or storage clients created using the Azure SDK. When using managed identities, create new application settings for these nonhost components, even when they support managed identities.  
 
 These specific app settings define identity-based connections to both [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage) and [`APPLICATIONINSIGHTS_CONNECTION_STRING`](./functions-app-settings.md#applicationinsights_connection_string):

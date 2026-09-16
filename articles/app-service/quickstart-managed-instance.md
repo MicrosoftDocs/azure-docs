@@ -4,7 +4,7 @@ description: Learn how to configure Managed Instance on Azure App Service
 author: msangapu-msft
 ms.author: msangapu
 ms.reviewer: maghan
-ms.date: 08/18/2026
+ms.date: 08/28/2026
 ms.service: azure-app-service
 ms.topic: quickstart
 keywords:
@@ -28,6 +28,20 @@ In this quickstart, you complete the following steps:
 1. Create a Managed Instance on Azure App Service.
 1. Deploy a sample app.
 1. Verify the deployment.
+
+## Migrate an existing .NET app
+
+This quickstart shows how to create Managed Instance resources and deploy a sample app. If you're starting with an existing .NET application, you can use [GitHub Copilot modernization for .NET](/dotnet/azure/migration/appmod/overview) in Visual Studio Code to guide the migration from assessment through deployment.
+
+[!INCLUDE [copilot-modernization-availability](./includes/managed-instance/copilot-modernization-availability-note.md)]
+
+Set the assessment target to `AppServiceManagedInstance.Windows` to analyze the application against Managed Instance-specific guidance. GitHub Copilot modernization can then help you review migration issues, apply remediations, validate the application, prepare Azure resources, and deploy to Managed Instance.
+
+To use the agentic migration workflow, see:
+
+- [Assess and migrate a .NET project](/dotnet/azure/migration/appmod/quickstart)
+- [Configure and interpret an application assessment](/dotnet/azure/migration/appmod/working-with-assessment)
+- [Deploy a migrated project to Azure](/dotnet/azure/migration/appmod/deploy)
 
 ## Prerequisites
 

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 01/27/2026
+ms.date: 09/10/2026
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data on the health of my industrial assets and edge environment.
 ---
@@ -275,13 +275,13 @@ Configure Prometheus metrics collection on your cluster.
 You can set up the observability configuration of your Azure IoT Operations deployment at any time. Once observability resources are configured, you can upgrade the observability configuration by running the `az iot ops upgrade` command with the `--ops-config` parameter to specify the new configuration values:
 
 ```azurecli
-az iot ops upgrade --resource-group $RESOURCE_GROUP --name $AIO_INSTANCE_NAME --ops-config observability.metrics.openTelemetryCollectorAddress=aio-otel-collector.azure-iot-operations.svc.cluster.local:4317 observability.metrics.exportInternalSeconds=60
+az iot ops upgrade --resource-group $RESOURCE_GROUP --name $AIO_INSTANCE_NAME --ops-config observability.metrics.openTelemetryCollectorAddress=aio-otel-collector.azure-iot-operations.svc.cluster.local:4317 observability.metrics.exportIntervalSeconds=60
 ```
 
 | Parameter | Value | Description |    
 | --------- | ----- | ----------- |
 | `--ops-config` | `observability.metrics.openTelemetryCollectorAddress=<FULLNAMEOVERRIDE>.azure-iot-operations.svc.cluster.local:<GRPC_ENDPOINT>` | Provide the OpenTelemetry (OTel) collector address you configured in the otel-collector-values.yaml file.<br><br>The [instructions in this article](#deploy-opentelemetry-collector) use the sample values `fullnameOverride=aio-otel-collector` and `grpc.endpoint=4317`. |
-| `--ops-config` | `observability.metrics.exportInternalSeconds=<CHECK_INTERVAL>` | Provide the `check_interval` value you configured in the otel-collector-values.yaml file.<br><br>The [instructions in this article](#deploy-opentelemetry-collector) use the sample value `check_interval=60`. |
+| `--ops-config` | `observability.metrics.exportIntervalSeconds=<CHECK_INTERVAL>` | Provide the `check_interval` value you configured in the `otel-collector-values.yaml` file.<br><br>The [instructions in this article](#deploy-opentelemetry-collector) use the sample value `check_interval=60`. |
 
 > [!NOTE]
 > In preview releases, the `az iot ops upgrade` command doesn't work for upgrading to a preview version, but it works for configuring the Azure IoT Operations for observability.
@@ -307,6 +307,9 @@ Complete the following steps to install the Azure IoT Operations curated Grafana
 
 > [!NOTE]
 > In the **aio-observability.json** file, make sure to configure both the Prometheus and Azure Monitor datasources, and set the `subscriptionId` variable to your Azure subscription ID, for log queries.
+
+> [!NOTE]
+> A counter metric might not appear in Prometheus until the corresponding event occurs at least once. For example, an error counter might be absent until an error is recorded. An absent counter doesn't necessarily indicate a problem with metrics collection.
 
 ## Next steps
 

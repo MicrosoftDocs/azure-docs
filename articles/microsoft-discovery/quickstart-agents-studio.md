@@ -5,7 +5,7 @@ author: surajmb
 ms.author: surmb
 ms.service: azure
 ms.topic: quickstart
-ms.date: 05/20/2026
+ms.date: 09/04/2026
 ms.custom:
   - template-quickstart
 
@@ -97,3 +97,4 @@ After your shared session is created, follow these steps:
 ## Next steps
 
 - Explore [Microsoft Discovery agents](concept-discovery-agent.md) to understand agent capabilities in depth.
+- Review the [Microsoft Discovery FAQ](faq.yml) for common questions about agents, models, knowledge retrieval, and platform operations.

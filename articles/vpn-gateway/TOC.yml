@@ -230,20 +230,12 @@
               href: point-to-site-entra-users-access.md
             - name: Configure multifactor authentication (MFA)
               href: openvpn-azure-ad-mfa.md
-        - name: VPN client configuration
-          items:
-            - name: Azure VPN Client - Windows
-              items:
-                - name: Microsoft-registered authentication
-                  href: point-to-site-entra-vpn-client-windows.md
-                - name: Configure Device SSO
-                  href: point-to-site-entra-vpn-client-windows-device-sso.md
-            - name: Azure VPN Client - Linux
-              href: point-to-site-entra-vpn-client-linux.md
-            - name: Azure VPN Client - macOS
-              href: point-to-site-entra-vpn-client-mac.md
-            - name: Generate VPN client profile configuration files
-              href: about-vpn-profile-download.md
+        - name: Configure Azure VPN Client
+          href: point-to-site-entra-vpn-client.md
+        - name: Configure device SSO for Windows
+          href: point-to-site-entra-vpn-client-windows-device-sso.md
+        - name: Generate VPN client profile configuration files
+          href: about-vpn-profile-download.md
     - name: Configure P2S - RADIUS authentication
       items:
         - name: P2S gateway configuration
@@ -255,13 +247,7 @@
             - name: Multifactor authentication - P2S RADIUS and NPS server
               href: vpn-gateway-radius-mfa-nsp.md
             - name: VPN client configuration
-              items:
-                - name: Certificate authentication clients
-                  href: point-to-site-vpn-client-configuration-radius-certificate.md
-                - name: Password authentication clients
-                  href: point-to-site-vpn-client-configuration-radius-password.md
-                - name: Other authentication protocols
-                  href: point-to-site-vpn-client-configuration-radius-other.md
+              href: point-to-site-vpn-client-configuration-radius.md
     - name: Assign IP addresses to specific User Groups
       items:
         - name: About User Groups and client address pools
@@ -315,13 +301,7 @@
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md
 - name: IPv6 dual stack connections
-  items:
-    - name: Azure portal
-      href: ipv6-configuration.md
-    - name: Azure PowerShell
-      href: site-to-site-ipv6-azure-powershell.md
-    - name: Azure CLI
-      href: site-to-site-ipv6-azure-cli.md
+  href: site-to-site-ipv6-azure.md
 - name: VNet-to-VNet VPN
   items:
     - name: Configure VNet-to-VNet VPN connections
@@ -377,13 +357,7 @@
         - name: About BGP and VPN Gateway
           href: vpn-gateway-bgp-overview.md
         - name: Configure BGP for a VPN gateway
-          items:
-            - name: Azure portal
-              href: bgp-howto.md
-            - name: Azure PowerShell
-              href: vpn-gateway-bgp-resource-manager-ps.md
-            - name: Azure CLI
-              href: bgp-how-to-cli.md
+          href: configure-bgp.md
         - name: Connect AWS and Azure using a BGP-enabled VPN gateway
           href: vpn-gateway-howto-aws-bgp.md
     - name: NAT

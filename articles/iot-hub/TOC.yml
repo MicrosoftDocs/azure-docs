@@ -246,9 +246,6 @@
           href: iot-hub-public-network-access.md
         - name: Restrict outbound network access
           href: iot-hub-restrict-outbound-network-access.md
-    - name: Security baseline for IoT Hub
-      href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
-      displayName: security benchmark
     - name: Regulatory compliance controls by Azure Policy
       href: ./security-controls-policy.md
       displayName: regulatory, compliance, standards, Azure Security Benchmark, Azure Foundations Benchmark, CMMC, FedRAMP, HIPAA

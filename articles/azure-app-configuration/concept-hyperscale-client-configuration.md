@@ -18,7 +18,7 @@ App Configuration gives developers a single, consistent place to define configur
 
 ## System architecture
 
-:::image type="content" source="media/hyperscale-configuration-architecture.png" alt-text="Architecture diagram for integration of Azure Front Door with Azure App Configuration."
+:::image type="content" source="media/concept-hyperscale-client-configuration/hyperscale-configuration-architecture.png" alt-text="Architecture diagram for integration of Azure Front Door with Azure App Configuration."
 
 How it works
 - Client applications retrieve configuration through Azure Front Door endpoints without authentication, eliminating the security risk of embedding credentials in client-side code.
