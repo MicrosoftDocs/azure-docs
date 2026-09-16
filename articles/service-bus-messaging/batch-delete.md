@@ -25,12 +25,12 @@ By using the batch delete messages feature, you can delete multiple messages fro
 
 ## How to batch delete messages in Service Bus
 
-You can delete messages by calling [DeleteMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.deletemessagesasync?view=azure-dotnet-preview) on Service Bus Receiver object. On the server side, `DeleteMessagesAsync` requires two parameters: `messageCount` and `beforeEnqueueTime`.
+You can delete messages by calling DeleteMessagesAsync on Service Bus Receiver object. On the server side, `DeleteMessagesAsync` requires two parameters: `messageCount` and `beforeEnqueueTime`.
 
 - `messageCount`: The desired number of messages to delete. The service might delete fewer messages than this limit.
 - `beforeEnqueueTime`: An optional DateTimeOffset, in UTC, representing the cutoff time for deletion. Only messages that were enqueued before this time are deleted. 
 
-Additionally, you can call [PurgeMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.purgemessagesasync?view=azure-dotnet-preview) to purge all messages from entity. 
+Additionally, you can call PurgeMessagesAsync to purge all messages from entity. 
 
 ### Using Azure portal 
 
