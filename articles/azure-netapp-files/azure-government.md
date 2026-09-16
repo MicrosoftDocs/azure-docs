@@ -26,7 +26,6 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
 | Elastic zone-redundant storage service level | Preview | No |
-| Storage with cool access enhancement for Premium and Ultra service levels | Preview | No |
 
 ## Portal access
 

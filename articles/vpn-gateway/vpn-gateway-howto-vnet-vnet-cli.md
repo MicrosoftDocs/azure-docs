@@ -517,4 +517,4 @@ See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#V2VMulti) for VNet-to-VNet freq
 ## Next steps
 
 * Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see the [Virtual Machines documentation](../index.yml).
-* For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+* For information about BGP, see the [BGP overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](configure-bgp.md).

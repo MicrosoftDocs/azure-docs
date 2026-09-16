@@ -1,11 +1,11 @@
 ---
-title: What is Azure Web Application Firewall on Azure Front Door?
-description: Learn how Azure Web Application Firewall on Azure Front Door protects your web applications from malicious attacks.
+title: What Is Azure Web Application Firewall on Azure Front Door?
+description: Learn how Azure Web Application Firewall protects Azure Front Door applications and how WAF policies, attachment scopes, rules, modes, and actions work.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 02/25/2026
+ms.date: 09/01/2026
 
 # Customer intent: As a security administrator, I want to configure Azure Web Application Firewall policies on Azure Front Door, so that I can protect my web applications from malicious attacks and ensure compliance with security standards while maintaining high availability.
 ---
@@ -35,22 +35,48 @@ Azure Web Application Firewall is natively integrated with Azure Front Door Prem
 
 Azure Web Application Firewall protects your:
 
-* Web applications from web vulnerabilities and attacks without modifications to back-end code.
-* Web applications from malicious bots with the IP Reputation Rule Set.
-* Applications against DDoS attacks. For more information, see [Application DDoS protection](../application-ddos-protection.md).
+- Web applications from web vulnerabilities and attacks without modifications to back-end code.
+- Web applications from malicious bots with the IP Reputation Rule Set.
+- Applications against DDoS attacks. For more information, see [Application DDoS protection](../application-ddos-protection.md).
 
 ## WAF policy and rules
 
 You can configure a [WAF policy](waf-front-door-create-portal.md) and associate that policy to one or more Azure Front Door domains for protection. A WAF policy consists of two types of security rules:
 
-- Custom rules that the customer created.
+- Custom rules that you create.
 - Managed rule sets that are a collection of Azure-managed preconfigured sets of rules.
 
-When both are present, custom rules are processed before processing the rules in a managed rule set. A rule is made of a match condition, a priority, and an action. Action types supported are ALLOW, BLOCK, LOG, and REDIRECT. You can create a fully customized policy that meets your specific application protection requirements by combining managed and custom rules.
+When both are present, custom rules are processed before processing the rules in a managed rule set. A rule is made of a match condition, a priority, and an action. Action types supported are *Allow*, *Block*, *Log*, *Redirect*, and *Anomaly score* (for Default Rule Set 2.0 or later). You can create a fully customized policy that meets your specific application protection requirements by combining managed and custom rules.
 
-Rules within a policy are processed in a priority order. Priority is a unique integer that defines the order of rules to process. A smaller integer value denotes a higher priority, and those rules are evaluated before rules with a higher integer value. After a rule is matched, the corresponding action that was defined in the rule is applied to the request. After such a match is processed, rules with lower priorities aren't processed further.
+> [!IMPORTANT]
+> The HTTP DDoS ruleset is an exception to this processing order. It's evaluated before custom rules, and custom rules configured with the *Allow* action don't bypass it. For more information, see [HTTP DDoS ruleset](http-ddos-ruleset.md).
 
-A web application delivered by Azure Front Door can have only one WAF policy associated with it at a time. However, you can have an Azure Front Door configuration without any WAF policies associated with it. If a WAF policy is present, it's replicated to all of our edge locations to ensure consistent security policies across the world.
+Rules within a policy are processed in a priority order. Priority is a unique integer that defines the order of rules to process. A smaller integer value denotes a higher priority, and those rules are evaluated before rules with a higher integer value. After a rule is matched, the corresponding action that you defined in the rule is applied to the request. After such a match is processed, rules with lower priorities aren't processed further.
+
+A web application delivered by Azure Front Door can have only one WAF policy associated with it at a time. However, you can have an Azure Front Door configuration without any WAF policies associated with it. If a WAF policy is present, it's replicated to all of Microsoft's edge locations to ensure consistent security policies across the world.
+
+### Policy attachment scopes
+
+With Azure Front Door, you can attach WAF policies at multiple scopes so you can balance broad protection with targeted controls:
+
+- **Profile-level policy**: Applies a shared baseline policy across the Azure Front Door profile.
+- **Domain-level policy**: Applies policy settings to specific domains in the profile.
+- **Route-level policy**: Applies the most specific policy to selected routes.
+
+You can use one scope or combine scopes based on your deployment needs.
+
+### Policy precedence
+
+When more than one policy scope applies to a request, Azure Front Door WAF uses the most specific scope:
+
+1. **Route-level policy**
+2. **Domain-level policy**
+3. **Profile-level policy**
+
+For example, if a request matches both a profile-level policy and a route-level policy, Azure Front Door WAF applies the route-level policy for that request.
+
+> [!TIP]
+> Start with a profile-level baseline policy, and then apply domain-level or route-level policies only where you need different protections.
 
 ## WAF modes
 
@@ -73,23 +99,23 @@ WAF customers can choose to run from one of the actions when a request matches a
 
 A WAF policy can consist of two types of security rules:
 
-- Custom rules, authored by the customer and managed rule sets
+- Custom rules, authored by you, and managed rule sets
 - Azure-managed preconfigured sets of rules
 
 ### Custom-authored rules
 
 To configure custom rules for a WAF, use the following controls:
 
-- **IP allow list and block list**: You can control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported. This list can be configured to either block or allow those requests where the source IP matches an IP in the list.
-- **Geographic-based access control**: You can control access to your web applications based on the country code that's associated with a client's IP address.
-- **HTTP parameters-based access control**: You can base rules on string matches in HTTP/HTTPS request parameters. Examples include query strings, POST args, Request URI, Request Header, and Request Body.
-- **Request method-based access control**: You base rules on the HTTP request method of the request. Examples include GET, PUT, or HEAD.
-- **Size constraint**: You can base rules on the lengths of specific parts of a request, such as query string, Uri, or Request Body.
+- **IP allow list and block list**: Control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported. Configure this list to either block or allow requests where the source IP matches an IP in the list.
+- **Geographic-based access control**: Control access to your web applications based on the country code that's associated with a client's IP address.
+- **HTTP parameters-based access control**: Base rules on string matches in HTTP/HTTPS request parameters. Examples include query strings, POST args, Request URI, Request Header, and Request Body.
+- **Request method-based access control**: Base rules on the HTTP request method of the request. Examples include GET, PUT, or HEAD.
+- **Size constraint**: Base rules on the lengths of specific parts of a request, such as query string, Uri, or Request Body.
 - **Rate limiting rules**: A rate limiting rule limits abnormally high traffic from any client IP address. You might configure a threshold on the number of web requests allowed from a client IP during a one-minute duration. This rule is distinct from an IP list-based allow/block custom rule that either allows all or blocks all requests from a client IP. Rate limits can be combined with other match conditions, such as HTTP(S) parameter matches for granular rate control.
 
 ### Azure-managed rule sets
 
-Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because Azure manages these rule sets, the rules are updated as needed to protect against new attack signatures. The Azure-managed Default Rule Set includes rules against the following threat categories:
+Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because Azure manages these rule sets, it updates the rules as needed to protect against new attack signatures. The Azure-managed Default Rule Set includes rules against the following threat categories:
 
 - Cross-site scripting
 - Java attacks
@@ -107,13 +133,13 @@ For more information, see [Web Application Firewall Default Rule Set rule groups
 
 ### Bot protection rule set
 
-You can enable a managed bot protection rule set to take custom actions on requests from all bot categories.
+Enable a managed bot protection rule set to take custom actions on requests from all bot categories.
 
-Three bot categories are supported: *Bad*, *Good*, and *Unknown*. The WAF platform manages and dynamically updates bot signatures.
+The rule set supports three bot categories: *Bad*, *Good*, and *Unknown*. The WAF platform manages and dynamically updates bot signatures.
 
-- **Bad**: Bad bots are bots with malicious IP addresses and bots that falsified their identities. Bad bots include malicious IP addresses that are sourced from the Microsoft Threat Intelligence feed’s high confidence IP Indicators of Compromise and IP reputation feeds. Bad bots also include bots that identify themselves as good bots but their IP addresses don’t belong to legitimate bot publishers.
-- **Good**: Good Bots are trusted user agents. Good bot rules are categorized into multiple categories to provide granular control over WAF policy configuration. These categories include verified search engine bots (such as Googlebot and Bingbot), validated link checker bots, verified social media bots (such as Facebookbot and LinkedInBot), verified advertising bots, verified content checker bots, and validated miscellaneous bots.
-- **Unknown**: Unknown bots are user agents without additional validation. Unknown bots also include malicious IP addresses that are sourced from Microsoft Threat Intelligence feed’s medium confidence IP Indicators of Compromise.
+- **Bad**: Bad bots are bots with malicious IP addresses and bots that falsified their identities. Bad bots include malicious IP addresses that come from the Microsoft Threat Intelligence feed’s high confidence IP Indicators of Compromise and IP reputation feeds. Bad bots also include bots that identify themselves as good bots but their IP addresses don’t belong to legitimate bot publishers.
+- **Good**: Good bots are trusted user agents. Good bot rules are categorized into multiple categories to provide granular control over WAF policy configuration. These categories include verified search engine bots (such as Googlebot and Bingbot), validated link checker bots, verified social media bots (such as Facebookbot and LinkedInBot), verified advertising bots, verified content checker bots, and validated miscellaneous bots.
+- **Unknown**: Unknown bots are user agents without additional validation. Unknown bots also include malicious IP addresses that come from the Microsoft Threat Intelligence feed’s medium confidence IP Indicators of Compromise.
 
 The WAF platform manages and dynamically updates bot signatures. You can set custom actions to block, allow, log, or redirect for different types of bots.
 
@@ -134,7 +160,8 @@ You can configure and deploy all WAF policies by using the Azure portal, REST AP
 
 Monitoring for a WAF on Azure Front Door is integrated with Azure Monitor to track alerts and easily monitor traffic trends. For more information, see [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md).
 
-## Next steps
+## Related content
 
-- Learn about [Azure Web Application Firewall on Azure Application Gateway](../ag/ag-overview.md).
-- Learn more about [Azure network security](../../networking/security/index.yml).
+- [Configure a WAF policy by using the Azure portal](waf-front-door-create-portal.md)
+- [Web Application Firewall DRS rule groups and rules](waf-front-door-drs.md)
+- [Best practices for Web Application Firewall on Azure Front Door](waf-front-door-best-practices.md)

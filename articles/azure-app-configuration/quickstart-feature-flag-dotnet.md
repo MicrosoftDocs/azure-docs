@@ -31,7 +31,7 @@ The .NET feature management libraries extend .NET by providing feature flag supp
 
 Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store by using the Azure portal or the Azure CLI, see [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
-:::image type="content" source="media/add-beta-feature-flag.png" alt-text="Screenshot of the Create a new feature flag dialog in the Azure portal. The name and key fields contain Beta. The label and description are blank." lightbox="media/add-beta-feature-flag.png":::
+:::image type="content" source="media/quickstart-feature-flag-dotnet/add-beta-feature-flag.png" alt-text="Screenshot of the Create a new feature flag dialog in the Azure portal. The name and key fields contain Beta. The label and description are blank." lightbox="media/quickstart-feature-flag-dotnet/add-beta-feature-flag.png":::
 
 ## Configure access settings
 

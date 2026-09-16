@@ -50,4 +50,4 @@ See the VPN Gateway [BGP FAQ](vpn-gateway-vpn-faq.md#bgp) for frequently asked q
 
 ## Next steps
 
-See [How to configure BGP for Azure VPN Gateway](bgp-howto.md) for steps to configure BGP for your cross-premises and VNet-to-VNet connections.
+For steps to configure BGP for your cross-premises and VNet-to-VNet connections, see [How to configure BGP for Azure VPN Gateway](configure-bgp.md).

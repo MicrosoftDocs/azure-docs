@@ -1,7 +1,7 @@
 ---
 title: Work with Azure Functions in Containers
 description: Learn how to work with containerized function apps running in Linux containers in an Azure Container Apps environment.
-ms.date: 03/13/2026
+ms.date: 08/20/2026
 ms.topic: how-to
 zone_pivot_groups: functions-container-hosting
 ms.custom:
@@ -341,8 +341,10 @@ When you create a containerized function app in an environment that has workload
 
 Azure Functions lets you work with application settings for containerized function apps in the standard way. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
-> [!TIP]  
-> By default, a containerized function app monitors port 80 for incoming requests. If your app must use a different port, use the [`WEBSITES_PORT` application setting](../app-service/reference-app-settings.md#custom-containers) to change this port.
+Keep these considerations in mind when you configure application settings:
+
+- Don't use the `WEBSITE_RUN_FROM_PACKAGE` app setting for a containerized function app. This setting applies to package-based code deployments. When you convert an existing code-based function app to use a custom container, remove `WEBSITE_RUN_FROM_PACKAGE`. Otherwise, the Functions host might continue to use content from the previously deployed package instead of the content in your container image.
+- By default, a containerized function app monitors port 80 for incoming requests. If your app must use a different port, use the [`WEBSITES_PORT` application setting](../app-service/reference-app-settings.md#custom-containers) to change this port.
 
 :::zone pivot="container-apps"
 

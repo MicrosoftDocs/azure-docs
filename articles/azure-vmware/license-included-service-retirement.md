@@ -9,6 +9,9 @@ ms.date: 08/25/2026
 
 # Azure VMware Solution license-included service retirement, using portable VCF and other options
 
+>[!NOTE]
+>AVS is not ending, only the SKU that includes the license is changing.
+
 In November 2025, Broadcom changed its VMware licensing policies across all hyperscaler platforms to require customers to bring your own portable license for VMware Cloud Foundation (VCF). Azure VMware Solution continues to provide customers with a proven, fully managed service for running VMware workloads in Azure leveraging portable VCF licenses from Broadcom.
 
 ## What’s changing?
@@ -32,7 +35,7 @@ For organizations looking to accelerate application modernization, Azure offers 
 
 ## Take action today
 
-To avoid service disruptions on 31 August 2027, allow plenty of time to purchase VCF licenses from Broadcom and complete the transition to Azure VMware Solution VCF BYOL. For customers evaluating modernization opportunities, start assessing current Azure VMware Solution environments immediately, and develop a transition roadmap to ensure you have ample time to exit Azure VMware Solution and avoid service disruption on 31 August 2027. Reach out to your Microsoft account team so we can help you start this transition.
+Allow plenty of time to purchase VCF licenses from Broadcom and complete the transition to AVS VCF BYOL. For customers evaluating modernization opportunities, start assessing current AVS environments immediately, and develop a transition roadmap to ensure you have time to evaluate all options and avoid service disruption on August 31, 2027. Reach out to your Microsoft account team so we can help you start this transition.
 
 ## Key dates and transition details
 

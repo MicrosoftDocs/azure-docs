@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 08/24/2026
+ms.date: 08/28/2026
 ---
 
 # Traffic routing methods for origins
@@ -61,7 +61,7 @@ If you enable session affinity, the first request in a session follows the flow 
 
 Deploying origins in multiple global locations can enhance your application's responsiveness by routing traffic to the origin that is "closest" to your end users. The Latency routing method is the default for Azure Front Door configurations. This method directs user requests to the origin with the lowest network latency, rather than the closest geographic location, ensuring optimal performance.
 
-Azure Front Door's anycast architecture, combined with the Latency routing method, ensures that each user experiences the best performance based on their location. Each Front Door environment independently measures the latency to origins, meaning users in different locations are routed to the origin that offers the best performance for their specific environment.
+Azure Front Door's unicast architecture, combined with the Latency routing method, ensures that each user experiences the best performance based on their location. Each Front Door environment independently measures the latency to origins, meaning users in different locations are routed to the origin that offers the best performance for their specific environment.
 
 > [!NOTE]
 > By default, the latency sensitivity property is set to 0 ms. With this setting, requests are always forwarded to the fastest available origins. Weights on the origins only take effect if two origins have the same network latency.

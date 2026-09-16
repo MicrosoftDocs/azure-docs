@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: Create an Azure Maps account secured with SAS token authentication.
 author: pbrasil
 ms.author: peterbr
-ms.date: 06/08/2022
+ms.date: 08/28/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: authentication
@@ -171,12 +171,6 @@ The following steps describe how to create and configure an Azure Maps account w
 
 1. Create a template file *azuredeploy.json* to provision the Azure Maps account, role assignment, and SAS token.
 
-    > [!NOTE]
-    >
-    > **Azure Maps Gen1 pricing tier retirement**
-    >
-    > Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
-
     ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -217,24 +211,21 @@ The following steps describe how to create and configure an Azure Maps account w
             "pricingTier": {
                 "type": "string",
                 "allowedValues": [
-                    "S0",
-                    "S1",
                     "G2"
                 ],
                 "defaultValue": "G2",
                 "metadata": {
-                    "description": "The pricing tier for the account. Use S0 for small-scale development. Use S1 or G2 for large-scale applications."
+                    "description": "The SKU name for the Azure Maps account."
                 }
             },
             "kind": {
                 "type": "string",
                 "allowedValues": [
-                    "Gen1",
                     "Gen2"
                 ],
                 "defaultValue": "Gen2",
                 "metadata": {
-                    "description": "The pricing tier for the account. Use Gen1 for small-scale development. Use Gen2 for large-scale applications."
+                    "description": "The kind of the Azure Maps account."
                 }
             },
             "guid": {
@@ -463,4 +454,8 @@ Explore samples that show how to integrate Microsoft Entra ID with Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
 
-[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
+Review Azure Maps pricing and transaction details:
+> [!div class="nextstepaction"]
+> [Azure Maps account pricing]
+
+[Azure Maps account pricing]: how-to-manage-pricing-tier.md

@@ -660,6 +660,8 @@ items:
             href: bicep-config.md
           - name: Linter settings
             href: bicep-config-linter.md
+          - name: Bicep config inheritance
+            href: bicep-config-inheritance.md
           - name: Module settings
             displayName: registry
             href: bicep-config-modules.md

@@ -24,8 +24,14 @@ In Azure Monitor, metrics are a series of measured values and counts that are co
 
 The following metrics are available for the Microsoft.Dashboard/grafana resource type.
 
-- `HttpRequestCount`: The number of HTTP requests to the Azure Managed Grafana server.
-- `MemoryUsagePercentage`: The Azure Managed Grafana workspace memory usage as a percentage.
+| Metric | Description | Unit | Aggregations | Dimension |
+|---|---|---|---|---|
+| `HttpRequestCount` | The number of HTTP requests to the Azure Managed Grafana server. | Count | Count | None |
+| `MemoryUsagePercentage` | The Azure Managed Grafana workspace memory usage in percent. | Percent | Count, Average, Minimum, Maximum | `ContainerName` |
+| `NetworkBytesReceived` | Total bytes received by Grafana over the network. | Bytes | Average, Minimum, Maximum, Total (Sum) | `ContainerName` |
+| `NetworkBytesTransmitted` | Total bytes transmitted by Grafana over the network. | Bytes | Average, Minimum, Maximum, Total (Sum) | `ContainerName` |
+
+You collect all metrics at one-minute granularity. You can't export them to Azure Monitor Logs through diagnostic settings.
 
 For more details about supported metrics, go to [Supported metrics for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-metrics/microsoft-dashboard-grafana-metrics).
 

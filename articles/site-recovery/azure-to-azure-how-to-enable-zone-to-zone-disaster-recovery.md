@@ -35,7 +35,7 @@ Support for zone-to-zone disaster recovery is currently limited to the following
 | South Central US | Poland Central  | | | Korea Central |
 | US Gov Virginia | Sweden Central  | | | Southeast Asia |
 | West US 2 | Switzerland North | | | New Zealand North |
-| West US 3 | UK South | | | |
+| West US 3 | UK South | | | Indonesia Central |
 || West Europe ||||
 ||Spain Central ||||
 

@@ -173,7 +173,7 @@ Before you can publish your project, you must have a function app in your Azure 
 
 1. Select **Create** to create a function app and its related resources in Azure. Status of resource creation is shown in the lower left of the window.
 
-1. Back in **Functions instance**, make sure that **Run from package file** is checked. Your function app is deployed using [Zip Deploy](functions-deployment-technologies.md#zip-deploy) with [Run-From-Package](run-functions-from-deployment-package.md) mode enabled. This deployment method is recommended for your functions project, since it results in better performance.
+1. Back in **Functions instance**, make sure that **Run from package file** is checked. Your function app is deployed by using [ZIP deployment](functions-deployment-technologies.md#zip-deployment) with [run-from-package](deployment-zip-push.md#run-functions-from-the-deployment-package) mode enabled. This deployment method is recommended for your functions project, since it results in better performance.
 
 1. Select **Next**, and in the **API Management** page, also choose **+ Create new** or **Create a new instance**.
 
