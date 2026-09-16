@@ -50,7 +50,7 @@ Before you configure [cache volumes](configure-cache-volumes.md), make sure that
 #### Cache disconnected behavior
 When connectivity between a cache volume and its origin volume is interrupted, the cache volume enters a disconnected state. During this period, some commands and metadata operations might return information from the local cache volume rather than the origin volume.
 
-For example, the df -h command typically reports the origin volume properties. However, when the cache volume cannot communicate with the origin volume, df -h returns the local cache volume properties until connectivity is restored.
+For example, the `df -h` command typically reports the origin volume properties. However, when the cache volume can't communicate with the origin volume, `df -h` returns the local cache volume properties until connectivity is restored.
 
 To determine whether this behavior is caused by connectivity issues, monitor the cache volume connection metric and verify periodically whether the cache volume connection status becomes 0. See [Metrics for Azure NetApp](azure-netapp-files-metrics.md#cache-volume-metrics) for cache connection metrics.
 
