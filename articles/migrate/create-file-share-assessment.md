@@ -52,7 +52,8 @@ To create an assessment, follow these steps:
 1. After the assessment scope is complete, select **Next**.
  
     > [!Note]
-    > For accurate calculations, servers hosting the selected fileshares and other colocated fileshares will be automatically added to the assessment scope.  :wq
+    > For accurate calculations, servers hosting the selected fileshares and other colocated fileshares will be automatically added to the assessment scope.
+
 1. Select Next to move to the Azure Files–specific assessment properties.
 1. Select Edit defaults to review and customize Azure Files–specific settings.
 1. Select Save after updating any settings.
