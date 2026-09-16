@@ -107,11 +107,20 @@ To assign the custom role to a user at the resource group level using the Azure 
 
 1. Select **Review + assign** to review the role assignment. If everything looks good, select **Assign**.
 
-## Remove an identity's access to Azure IoT Operations
+## Manage an identity's access to Azure IoT Operations
 
-An Azure IoT Operations instance and its child resources run on the Azure Arc-enabled cluster specified by the associated custom location. To fully remove an identity's access, remove any Azure RBAC role assignments that grant the identity permissions to both:
+Access to an Azure IoT Operations instance and its child resources must be managed together with access to the associated Azure Arc custom location. The Azure IoT Operations resources run on the Azure Arc-enabled cluster specified by the custom location.
+
+When granting access, grant permissions to both:
 
 - The Azure IoT Operations instance and its child resources.
 - The associated Azure Arc custom location.
 
-Don't rely on removing access to either the custom location or the instance resource alone. Both paths can allow access to the underlying AIO cluster.
+Don't grant access to the Azure IoT Operations resources without also granting access to the associated custom location. Doing so can allow a user to make changes to the resource provider resources without having access to the custom location, which can circumvent permissions. Changes made to the Azure IoT Operations resources are applied to the associated custom location regardless of whether the identity making the changes has access to the custom location.
+
+When removing access, remove Azure RBAC role assignments for both:
+
+- The Azure IoT Operations instance and its child resources.
+- The associated Azure Arc custom location.
+
+Don't rely on removing access to either the custom location or the Azure IoT Operations resources alone. Both paths can allow access to the underlying Azure IoT Operations cluster.
