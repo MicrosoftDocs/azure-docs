@@ -46,6 +46,14 @@ Before you configure [cache volumes](configure-cache-volumes.md), make sure that
 * When creating a cache volume, subnets need to be specified for the cache volume (cacheSubnetResourceId) and for cluster peering (peeringSubnetResourceId). 
     * The same subnet can be specified for both cache volume and cluster peering (but the subnet must have the Microsoft.Netapp/volumes delegation).
     * When different subnets are used, each subnet needs to be on a different VNET and each subnet must have the Microsoft.Netapp/volumes delegation.
+ 
+#### Cache disconnected behavior
+When connectivity between a cache volume and its origin volume is interrupted, the cache volume enters a disconnected state. During this period, some commands and metadata operations might return information from the local cache volume rather than the origin volume.
+
+For example, the df -h command typically reports the origin volume properties. However, when the cache volume cannot communicate with the origin volume, df -h returns the local cache volume properties until connectivity is restored.
+
+To determine whether this behavior is caused by connectivity issues, monitor the cache volume connection metric and verify periodically whether the cache volume connection status becomes 0. See [Metrics for Azure NetApp](azure-netapp-files-metrics.md#cache-volume-metrics) for cache connection metrics.
+
 
 ### Write-back considerations 
 
