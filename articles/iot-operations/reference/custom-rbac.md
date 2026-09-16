@@ -109,7 +109,7 @@ To assign the custom role to a user at the resource group level using the Azure 
 
 ## Manage an identity's access to Azure IoT Operations
 
-Access to an Azure IoT Operations instance and its child resources must be managed together with access to the associated Azure Arc custom location. The Azure IoT Operations resources run on the Azure Arc-enabled cluster specified by the custom location.
+You must manage access to an Azure IoT Operations instance and its child resources together with access to the associated Azure Arc custom location. The Azure IoT Operations resources run on the Azure Arc-enabled cluster that the custom location specifies.
 
 When granting access, grant permissions to both:
 
