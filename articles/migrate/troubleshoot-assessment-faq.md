@@ -5,6 +5,7 @@ ms.topic: troubleshooting
 ms.service: azure-migrate
 ms.reviewer: jsuri
 ms.date: 08/20/2024
+ms.update-cycle: 365-days
 ms.custom: engagement-fy24
 # Customer intent: As a cloud administrator, I want to troubleshoot issues in Azure Migrate assessments, so that I can ensure accurate and effective migration planning for my on-premises resources.
 ---
