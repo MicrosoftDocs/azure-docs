@@ -146,6 +146,14 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 Rocky Linux | [See supported versions](#supported-rocky-linux-kernel-versions-for-azure-vms).
 Alma Linux | [See supported versions](#supported-alma-linux-kernel-versions-for-azure-vms).
 
+#### Linux distributions supported for NVMe
+
+Linux distribution | Supported versions
+--- | ---
+Red Hat Enterprise Linux (RHEL) | 9.0 to 9.7
+Ubuntu | 24.04 LTS
+SUSE Linux Enterprise Server (SLES) | 15 SP4 to SP7
+
 For Linux versions, Site Recovery doesn't support custom OS kernels. Only the stock kernels that are part of the distribution minor version release/update are supported.
 
 Site Recovery doesn't support VMs created on ARM64 CPU architecture.
@@ -428,7 +436,7 @@ Standard SSD | Supported. |
 Redundancy | Locally redundant storage (LRS), ZRS, and geo-redundant storage (GRS) are supported.
 Cool and hot storage | Not supported. | VM disks aren't supported on cool or hot storage.
 Storage Spaces | Supported. |
-NVMe storage interface | Supported | Supported for Azure-to-Azure for Windows, Linux (RHEL 9 (except RHEL 9.8), SLES 15, Ubuntu 24) for Gen2 VMs such as Da/Ea/Fa v6-series, Ddsv6, Edsv6, Ebsv5/Ebdsv5, and others that use NVMe interface. <br><br> Ephemeral OS disks and local NVMe disks aren't supported.|
+NVMe storage interface | Supported | Supported for Azure-to-Azure for Windows and [limited Linux distributions and versions](#linux-distributions-supported-for-nvme) for Gen2 VMs such as Da/Ea/Fa v6-series, Ddsv6, Edsv6, Ebsv5/Ebdsv5, and others that use NVMe interface. <br><br> Ephemeral OS disks and local NVMe disks aren't supported.|
 Performance Plus disk  | Supported | For VMs using Premium SSD, Standard SSD, Standard HDD disks. Ensure that you use only premium storage accounts during replication. | 
 Mixed controller VMs (SCSI + NVMe) | Not Supported | VMs SKUs such as Lsv3 aren't supported |
 Encryption at host | Not supported. | The VM is protected, but the failed-over VM doesn't have encryption at host enabled. For more information, see [Enable end-to-end encryption by using encryption at host](/Azure/virtual-machines/disks-enable-host-based-encryption-portal).
