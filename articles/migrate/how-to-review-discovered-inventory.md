@@ -7,6 +7,7 @@ ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 07/13/2026
+ms.update-cycle: 365-days
 ms.reviewer: jsuri
 ms.custom: engagement-fy23
 monikerRange: migrate
