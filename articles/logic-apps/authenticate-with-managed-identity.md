@@ -708,7 +708,7 @@ The following steps show how to use the managed identity by using the Azure port
 
      1. From the **Managed identity** list, select the identity you want, for example:
 
-        :::image type="content" source="media/authenticate-with-managed-identity/select-specific-managed-identity.png" alt-text="Screenshot that shows the Authentication section with the system-assigned managed identity selected, and Audience parameter." lighbox="media/authenticate-with-managed-identity/select-specific-managed-identity.png":::
+        :::image type="content" source="media/authenticate-with-managed-identity/select-specific-managed-identity.png" alt-text="Screenshot that shows the Authentication section with the system-assigned managed identity selected, and Audience parameter." lightbox="media/authenticate-with-managed-identity/select-specific-managed-identity.png":::
 
         > [!NOTE]
         >
@@ -915,7 +915,7 @@ To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), t
 
    The following example shows a sample **HTTP** action with all the previously described property values to use for the Snapshot Blob operation:
 
-   :::image type="content" source="media/authenticate-with-managed-identity/http-action-example-standard.png" alt-text="Screenshot that shows a Standard workflow and HTTP action configured to access an Azure resource." lighbox="media/authenticate-with-managed-identity/http-action-example-standard.png":::
+   :::image type="content" source="media/authenticate-with-managed-identity/http-action-example-standard.png" alt-text="Screenshot that shows a Standard workflow and HTTP action configured to access an Azure resource." lightbox="media/authenticate-with-managed-identity/http-action-example-standard.png":::
 
 1. In the **HTTP** action, from the **Advanced parameters** list, select **Authentication**.
 
