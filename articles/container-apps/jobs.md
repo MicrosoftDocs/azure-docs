@@ -538,7 +538,7 @@ The following table includes the job settings that you can configure:
 ### Long-running jobs
 
 > [!NOTE]
-> Long-running job replicas might be interrupted by platform maintenance, including routine security updates and upgrades. Configure a replica retry limit of at least `1`, and design your workload for at-least-once processing so that reruns can safely complete the intended job processing.
+> Platform maintenance, including routine security updates and upgrades, might interrupt long-running job replicas. Set the replica retry limit to at least `1`, and design your workload for at-least-once processing so that retries can safely complete the work.
 
 ### Example
 
