@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Render coverage tables list the countries/regions that support Azure Maps road tiles.
 author: faterceros
 ms.author: aterceros
-ms.date: 09/21/2023
+ms.date: 09/10/2026
 ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: render
@@ -18,7 +18,7 @@ The render coverage tables below list the countries/regions that support Azure M
 >
 > **Azure Maps Render v1 service retirement**
 >
-> The Azure Maps Render v1 service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API will need to be updated to use the [latest version] by 9/17/26.
+> The Azure Maps Render v1 service is deprecated and will retire on September 17, 2026. To avoid service disruptions, migrate all Render v1 requests to the latest version by that date. For more information, see [Migrate Azure Maps Render 1.0 APIs].
 
 ### Legend
 
@@ -215,4 +215,4 @@ The render coverage tables below list the countries/regions that support Azure M
 
 [Zoom levels and tile grid]: zoom-levels-and-tile-grid.md
 
-[latest version]: /rest/api/maps/render
+[Migrate Azure Maps Render 1.0 APIs]: migrate-render-v1-api.md

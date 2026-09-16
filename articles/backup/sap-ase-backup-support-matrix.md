@@ -6,7 +6,7 @@ ms.custom:
   - references_regions
   - ignite-2024
   - build-2025
-ms.date: 01/29/2026
+ms.date: 09/16/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -25,7 +25,7 @@ This article summarizes the scenarios supported and limitations present when you
 | **Scenario** | **Supported  configurations** | **Unsupported  configurations** |
 | ------- | -------- | -------- |
 | **Topology** | SAP ASE Database running in Azure Linux VMs only. | Windows |
-| **Regions**                   | **Americas** – Central US, East US 2, East US, North Central US, South Central US, West US 2, West US 3, West Central US, West US, Canada Central, Canada East, Brazil South <br> **Asia Pacific** – Australia Central, Australia Central 2, Australia East, Australia Southeast, Japan East, Japan West, Korea Central, Korea South, East Asia, Southeast Asia, Central India, South India, West India, China East, China East 2, China East 3, China North, China North 2, China North 3 <br> **Europe** – West Europe, North Europe, France Central, UK South, UK West, Germany North, Germany West Central, Switzerland North, Switzerland West, Central Switzerland North, Norway East, Norway West, Sweden Central, Sweden South <br> **Africa / ME** - South Africa North, South Africa West, UAE North, UAE Central  <BR>  **Azure Government regions** | France South, Germany Central, Germany Northeast, US Gov IOWA |
+| **Regions**                   | **Americas** – Central US, Central US EUAP, East US 2, East US 3, East US 2 EUAP, East US, North Central US, Northeast US 5, South Central US 2, Southeast US, Southeast US 3, Southeast US 5, Southwest US, South Central US, West US 2, West US 3, West Central US, West US, Canada Central, Canada East, Brazil South, Brazil Southeast, Chile Central, Mexico Central <br> **Asia Pacific** – Australia Central, Australia Central 2, Australia East, Australia Southeast, Japan East, Japan West, Korea Central, Korea South, East Asia, Southeast Asia, Central India, South India, West India, China East, China East 2, China East 3, China North, China North 2, China North 3, India South Central, Indonesia Central, Jio India Central, Jio India West, Malaysia South, Malaysia West, New Zealand North, Taiwan North, Taiwan Northwest <br> **Europe** – West Europe, North Europe, Austria East, Belgium Central, Denmark East, France Central, France South, Italy North, Poland Central, Spain Central, UK South, UK West, Germany North, Germany West Central, Switzerland North, Switzerland West, Central Switzerland North, Norway East, Norway West, Sweden Central, Sweden South <br> **Africa / ME** - South Africa North, South Africa West, UAE North, UAE Central, Israel Central, Israel Northwest, Qatar Central  <BR>  **Azure Government regions** - US Gov Arizona, US Gov Texas, US Gov Virginia, US DoD Central, US DoD East | Germany Central, Germany Northeast, US Gov IOWA |
 | **OS versions** | SLES 12 with SP0, SP1, SP2, SP3, SP4, and SP5; SLES 15 with SP0, SP1, SP2, SP3, SP4, and SP5, 15.6, 15.7 <br><br> RHEL 8.1, 8.2, 8.3, 8.4,8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.2, 9.4, 9.6 |  |
 | **ASE versions** | SAP Adaptive Server Enterprise 16.0 SP02, SP03, SP04, ASE version 16.1 |  |
 | **ASE Instances** | A single SAP ASE instance on a single Azure Virtual Machine (VM). <br><br> Multi SID on single VM. | HA on single VM isn't currently supported. |

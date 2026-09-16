@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 09/04/2026
+ms.date: 09/14/2026
 recommendations: false
 ms.custom:
   - template-concept
@@ -1232,7 +1232,7 @@ Placeholders are a platform capability that improves cold start for apps targeti
     az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
     ```
 
-    In this example, also replace `<framework>` with the appropriate version string, such as `v8.0`, according to your target .NET version.
+    In this example, also replace `<framework>` with the appropriate version string, such as `10`, according to your target .NET version.
         
 1. Make sure that your function app is configured to use a 64-bit process. Use this [az functionapp config set](/cli/azure/functionapp/config#az-functionapp-config-set) command:
 
@@ -1278,8 +1278,7 @@ To compile your project as ReadyToRun, update your project file by adding the `<
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>net8.0</TargetFramework>
-  <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    <TargetFramework>net10.0</TargetFramework>
   <RuntimeIdentifier>win-x64</RuntimeIdentifier>
   <PublishReadyToRun>true</PublishReadyToRun>
 </PropertyGroup>

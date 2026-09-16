@@ -6914,6 +6914,36 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/vpn-gateway/site-to-site-ipv6-azure-powershell.md",
+      "redirect_url": "/azure/vpn-gateway/site-to-site-ipv6-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/site-to-site-ipv6-azure-cli.md",
+      "redirect_url": "/azure/vpn-gateway/site-to-site-ipv6-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/bgp-howto.md",
+      "redirect_url": "/azure/vpn-gateway/configure-bgp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md",
+      "redirect_url": "/azure/vpn-gateway/configure-bgp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/bgp-how-to-cli.md",
+      "redirect_url": "/azure/vpn-gateway/configure-bgp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/ipv6-configuration.md",
+      "redirect_url": "/azure/vpn-gateway/site-to-site-ipv6-azure",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md",
       "redirect_url": "/azure/vpn-gateway/point-to-site-certificate-gateway",
       "redirect_document_id": false
@@ -8047,6 +8077,11 @@
     {
       "source_path": "articles/container-apps/deployment-errors.md",
       "redirect_url": "/azure/container-apps/troubleshoot-deployment-errors",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dns/private-dns-resiliency.md",
+      "redirect_url": "/azure/reliability/reliability-dns-private",
       "redirect_document_id": false
     }
   ]

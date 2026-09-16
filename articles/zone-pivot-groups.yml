@@ -1,5 +1,36 @@
 ### YamlMime:ZonePivotGroups
 groups:
+# Owner: v-mallicka
+- id: backup-client-portal-cli
+  title: Clients
+  prompt: Choose a client
+  pivots:
+  - id: client-portal
+    title: Azure portal
+  - id: client-cli
+    title: Azure CLI
+# Owner: duau
+- id: vpn-dual-stack-deployment-method
+  title: Deployment method
+  prompt: "Select the deployment method:"
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: powershell
+    title: Azure PowerShell
+  - id: cli
+    title: Azure CLI
+# Owner: duau
+- id: vpn-bgp-deployment-method
+  title: Deployment method
+  prompt: "Select the deployment method:"
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-powershell
+    title: Azure PowerShell
+  - id: azure-cli
+    title: Azure CLI
 # Owner: lilyjma
 - id: connector-namespace-hosted-servers
   title: Hosted server
@@ -53,7 +84,7 @@ groups:
   - id: client-portal
     title: Azure portal
   - id: client-powershell
-    title: PowerShell
+    title: Azure PowerShell
   - id: client-cli
     title: Azure CLI
 #Owner: kraigb
@@ -1378,6 +1409,17 @@ groups:
   - id: ios
     title: iOS
 # Owner: duau
+- id: vpn-client-os-desktop
+  title: Client operating system
+  prompt: "Select the client operating system:"
+  pivots:
+  - id: windows
+    title: Windows
+  - id: macos
+    title: macOS
+  - id: linux
+    title: Linux
+# Owner: duau
 - id: vpn-client-radius-auth
   title: Authentication method
   prompt: "Select the authentication method:"
@@ -1397,6 +1439,7 @@ groups:
     title: Current
   - id: expressroute-preview
     title: Preview
+# Owner: duau
 # Owner: halkazwini
 - id: front-door-tiers
   title: Front Door tiers
@@ -2189,6 +2232,15 @@ groups:
     title: Windows
   - id: linux
     title: Linux
+# Owner: kendownie
+- id: azure-files-resource-provider-options
+  title: Resource provider
+  prompt: Choose a resource provider
+  pivots:
+  - id: microsoft-storage
+    title: '<img src="media/storage-files-planning/icon-service-file-share.svg" width="18" height="18" alt="" aria-hidden="true"> Microsoft.Storage'
+  - id: microsoft-fileshares
+    title: '<img src="media/storage-files-planning/icon-service-managed-file-shares.svg" width="18" height="18" alt="" aria-hidden="true"> Microsoft.FileShares'
 # Owner: zamasiel
 - id: sap-ha-nfs-solution
   title: Azure NFS Hosting Option

@@ -135,6 +135,49 @@ items:
           - name: Code of conduct
             href: concept-code-of-conduct.md
             displayName: Microsoft Discovery, responsible AI, code of conduct
+  - name: Security and compliance
+    items:
+      - name: Security and compliance overview
+        href: concept-security-overview.md
+        displayName: Microsoft Discovery, security, compliance, shared responsibility, security questionnaire, CAIQ, SIG, Trust Center, vendor assessment
+      - name: Compliance guidance
+        href: concept-compliance-framework-mappings.md
+        displayName: Microsoft Discovery, compliance, control framework, audit evidence, Service Trust Portal, Microsoft Cloud Security Benchmark, MCSB, Compliance Manager, certification scope
+      - name: SIG-based security and compliance FAQ
+        href: faq-security-compliance-sig.yml
+        displayName: Microsoft Discovery, security FAQ, compliance FAQ, security questionnaire, vendor assessment, CAIQ, SIG
+      - name: Identity and access
+        items:
+          - name: Role assignments
+            href: concept-role-assignments.md
+            displayName: Microsoft Discovery, RBAC, role assignments, permissions, access control
+          - name: Managed identities
+            href: concept-managed-identities.md
+            displayName: Microsoft Discovery, managed identity, UAMI, authentication, roles, least privilege
+          - name: Project-level access control
+            href: concept-project-rbac.md
+            displayName: Microsoft Discovery, project RBAC, project roles, resource roles, isolation, access control
+      - name: Data encryption at rest
+        href: concept-data-encryption-at-rest.md
+        displayName: Microsoft Discovery, encryption at rest, Microsoft-managed keys, customer-managed keys, CMK
+      - name: Network security
+        href: concept-network-security.md
+        displayName: Microsoft Discovery, network security, NSP, private endpoints, network hardening
+      - name: Observability overview
+        href: concept-observability.md
+        displayName: Microsoft Discovery, observability, monitoring, logs, audit logs, diagnostics
+      - name: Enable audit logging
+        href: how-to-enable-audit-logging.md
+        displayName: Microsoft Discovery, audit logging, enable, diagnostic settings, compliance retention
+      - name: Responsible AI in Microsoft Discovery
+        href: concept-responsible-ai.md
+        displayName: Microsoft Discovery, responsible AI, safety, guardrails, prohibited uses, evaluations
+      - name: Code of conduct
+        href: concept-code-of-conduct.md
+        displayName: Microsoft Discovery, responsible AI, code of conduct
+      - name: Business continuity and disaster recovery
+        href: concept-discovery-business-continuity-disaster-recovery.md
+        displayName: Microsoft Discovery, business continuity, disaster recovery, BCDR, resiliency, geo-replication
   - name: How-tos
     items:
       - name: Identity & Access

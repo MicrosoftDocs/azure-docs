@@ -491,4 +491,4 @@ For more information about VNet-to-VNet connections, see the [VPN Gateway FAQ](v
 ## Next steps
 
 * Once your connection is complete, you can add virtual machines to your virtual networks. See the [Virtual Machines documentation](../index.yml) for more information.
-* For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+* For information about BGP, see the [BGP overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](configure-bgp.md).

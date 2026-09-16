@@ -176,6 +176,21 @@ sections:
           Set-AzFirewall -AzureFirewall $azfw
           ```
 
+          **For a firewall with a Management NIC and no public IP associated with the Dataplane NIC:**
+          ```azurepowershell
+          # Stop the firewall
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+          $azfw.Deallocate()
+          Set-AzFirewall -AzureFirewall $azfw
+
+          # Start the firewall
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+          $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+          $mgmtPip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
+          $azfw.Allocate($vnet, $null, $mgmtPip)
+          Set-AzFirewall -AzureFirewall $azfw
+          ```
+
           **For a firewall in a secured virtual hub:**
           ```azurepowershell
           # Stop the firewall

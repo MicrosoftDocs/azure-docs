@@ -100,7 +100,7 @@ When you deploy a function app, remember that the unit of deployment for functio
 
 Consider these options for a successful deployment:
 
-- Have your functions run from the deployment package. This [run from package approach](run-functions-from-deployment-package.md) provides the following benefits:
+- Have your functions run from the deployment package. This [run from package approach](deployment-zip-push.md#run-functions-from-the-deployment-package) provides the following benefits:
 
   - Reduces the risk of file copy locking problems.
   - Can be deployed directly to a production app and doesn't trigger a restart.
