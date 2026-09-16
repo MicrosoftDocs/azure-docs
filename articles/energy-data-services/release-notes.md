@@ -33,9 +33,6 @@ External Data Services (EDS) now supports larger metadata ingestion workloads wi
 
 Interrupted ingestion jobs can resume from checkpoints, reducing recovery time and avoiding duplicate submissions. Improved handling of temporary service interruptions, pagination, timeouts, and incremental watermarks lowers the risk of failed or incomplete ingestion. Enhanced status tracking, telemetry, and logging provide clearer insight into ingestion progress and failures.
 
-> [!IMPORTANT]
-> Applications that parse the `eds_ingest.ingestion_summary` activity parameter must support its revised schema. The `run_id` field is now a list of manifest run IDs, `dag_type` contains all DAGs used, and `airflow_task_error` is replaced by the `airflow_task_errors` list.
-
 ## August 2026
 ### Seismic single file restore - Preview
 
