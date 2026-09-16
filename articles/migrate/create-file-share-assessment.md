@@ -21,6 +21,7 @@ To quickly migrate your on-premises **file shares** to Azure, create an Azure Fi
 
 > [!Note]
 >  All assessments created with Azure Migrate are point‑in‑time snapshots. Assessment results can change based on aggregated server performance data or changes in the source environment configuration.  
+> Azure Migrate supports assessment of file shares hosted on Windows Server with version > Windows Server 2012R2. It is supported on all Linux distros
 
 ## Prerequisites 
 
@@ -51,7 +52,7 @@ To create an assessment, follow these steps:
 1. After the assessment scope is complete, select **Next**.
  
     > [!Note]
-    > For accurate calculations, servers hosting the selected fileshares and other colocated fileshares will be automatically added to the assessment scope.  
+    > For accurate calculations, servers hosting the selected fileshares and other colocated fileshares will be automatically added to the assessment scope.  :wq
 1. Select Next to move to the Azure Files–specific assessment properties.
 1. Select Edit defaults to review and customize Azure Files–specific settings.
 1. Select Save after updating any settings.
