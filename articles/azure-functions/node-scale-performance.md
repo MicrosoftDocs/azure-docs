@@ -230,7 +230,7 @@ export default httpTrigger;
 By default, every Functions host instance has a single language worker process. You can increase the number of worker processes per host (up to 10) by using the [`FUNCTIONS_WORKER_PROCESS_COUNT`](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers.
 
 > [!WARNING]
-> Use the `FUNCTIONS_WORKER_PROCESS_COUNT` setting with caution. Multiple processes running in the same instance can lead to unpredictable behavior and increase function load times. If you use this setting, [running from a package file](./run-functions-from-deployment-package.md) can offset these downsides.
+> Use the `FUNCTIONS_WORKER_PROCESS_COUNT` setting with caution. Multiple processes running in the same instance can lead to unpredictable behavior and increase function load times. If you use this setting, [running from a package file](./deployment-zip-push.md#run-functions-from-the-deployment-package) can offset these downsides.
 
 
 For CPU-bound apps, set the number of language workers to be the same as or higher than the number of cores that are available per function app. To learn more, see [Available instance SKUs](functions-premium-plan.md#available-instance-skus).
