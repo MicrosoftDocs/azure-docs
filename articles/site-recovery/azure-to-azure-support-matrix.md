@@ -146,14 +146,6 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 Rocky Linux | [See supported versions](#supported-rocky-linux-kernel-versions-for-azure-vms).
 Alma Linux | [See supported versions](#supported-alma-linux-kernel-versions-for-azure-vms).
 
-#### Linux distributions supported for NVMe
-
-Linux distribution | Supported versions
---- | ---
-Red Hat Enterprise Linux (RHEL) | 9.0 to 9.7
-Ubuntu | 24.04 LTS
-SUSE Linux Enterprise Server (SLES) | 15 SP4 to SP7
-
 For Linux versions, Site Recovery doesn't support custom OS kernels. Only the stock kernels that are part of the distribution minor version release/update are supported.
 
 Site Recovery doesn't support VMs created on ARM64 CPU architecture.
@@ -474,6 +466,14 @@ Storage Replica | Not supported.
 
 >[!IMPORTANT]
 > To avoid performance issues, ensure that you follow VM disk scalability and performance targets for [managed disks](/Azure/virtual-machines/disks-scalability-targets). If you use default settings, Site Recovery creates the required disks and storage accounts based on the source configuration. If you customize and select your own settings, follow the disk scalability and performance targets for your source VMs.
+
+#### Linux distributions supported for NVMe
+
+Linux distribution | Supported versions
+--- | ---
+Red Hat Enterprise Linux (RHEL) | 9.0 to 9.7
+Ubuntu | 24.04 LTS
+SUSE Linux Enterprise Server (SLES) | 15 (SP4 to SP7)
 
 ## Limits and data change rates
 
