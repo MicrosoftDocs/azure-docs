@@ -116,7 +116,7 @@ When granting access, grant permissions to both:
 - The Azure IoT Operations instance and its child resources.
 - The associated Azure Arc custom location.
 
-Don't grant access to the Azure IoT Operations resources without also granting access to the associated custom location. Doing so can allow a user to make changes to the resource provider resources without having access to the custom location, which can circumvent permissions. Changes made to the Azure IoT Operations resources are applied to the associated custom location regardless of whether the identity making the changes has access to the custom location.
+Don't grant access to the Azure IoT Operations resources without also granting access to the associated custom location. Doing so can allow a user to make changes to the resource provider resources without having access to the custom location, which can circumvent permissions. Any change to the Azure IoT Operations resources applies to the associated custom location, regardless of whether the identity making the change has access to it.
 
 When removing access, remove Azure RBAC role assignments for both:
 
