@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 04/28/2026
+ms.date: 09/16/2026
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -68,7 +68,7 @@ The following table shows locations by service provider. If you want to view ava
 | **`Cello`** | &check; | &check; | Sydney |
 | **`Cellcom Fixed Line Communication (l.p.)`** | &check; | &check; | Tel Aviv<br/>Tel Aviv2 |
 | **[`CDC`](https://cdc.com/services/network-services/)** | &check; | &check; | Canberra<br/>Canberra2 |
-| **[`Lumen (CenturyLink Cloud Connect)`](https://www.lumen.com/en-us/solutions/use-case/cloud-connectivity)** | &check; | &check; | Amsterdam2<br/>Atlanta<br/>Chicago<br/>Chicago2<br/>Dallas<br/>Dublin<br/>Frankfurt<br/>Hong Kong SAR<br/>Las Vegas<br/>London<br/>London2<br/>Montreal<br/>New York<br/>Paris<br/>Phoenix<br/>Phoenix2<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Singapore2<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC<br/>Washington DC2 |
+| **`Lumen (CenturyLink Cloud Connect)`** | &check; | &check; | Amsterdam2<br/>Atlanta<br/>Chicago<br/>Chicago2<br/>Dallas<br/>Dublin<br/>Frankfurt<br/>Hong Kong SAR<br/>Las Vegas<br/>London<br/>London2<br/>Montreal<br/>New York<br/>Paris<br/>Phoenix<br/>Phoenix2<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Singapore2<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC<br/>Washington DC2 |
 | **[`Chief Telecom`](https://www.chief.com.tw/)** |&check; |&check; | Hong Kong SAR<br/>Taipei |
 | **`China Mobile International`** |&check; |&check; | Hong Kong SAR<br/>Hong Kong2<br/>Singapore<br/>Singapore2 |
 | **`China Telecom Global`** |&check; |&check; | Hong Kong SAR<br/>Hong Kong2<br/>Singapore<br/>Tokyo2 |
@@ -148,7 +148,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[`Kordia`](https://www.kordia.co.nz/cloudconnect)** | &check; | &check; | Auckland<br/>Sydney |
 | **[`KPN`](https://www.kpn.com/zakelijk/cloud/connect.htm)** | &check; | &check; | Amsterdam<br/>Dublin2|
 | **[`KT`](https://cloud.kt.com/)** | &check; | &check; | Seoul<br/>Seoul2 |
-| **[`Lumen (Level 3 Communications)`](https://www.lumen.com/en-us/edge-cloud/cloud-connect.html)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>London<br/>Newport<br/>Sao Paulo<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Washington DC |
+| **`Lumen (Level 3 Communications)`** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>London<br/>Newport<br/>Sao Paulo<br/>Seattle<br/>Silicon Valley<br/>Singapore<br/>Washington DC |
 | **`LG CNS`** | &check; | &check; | Busan<br/>Seoul |
 | **`Lightpath`** | &check; | &check; | Chicago<br/>Miami<br/>New York<br/>New York<br/>Washington DC |
 | **[`Lightstorm`](https://polarin.lightstorm.net/)** | &check; | &check; | Chennai<br/>Dubai2<br/>Mumbai<br/>Pune<br/>Singapore |
@@ -260,10 +260,10 @@ Azure national clouds are isolated from each other and from the Azure public clo
 | Service provider | Microsoft Azure | Office 365 | Locations |
 | --- | --- | --- | --- |
 | **[`AT&T NetBond`](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |&check; |&check; |Chicago<br/>Phoenix<br/>Silicon Valley<br/>Washington DC |
-| **[`CenturyLink Cloud Connect`](https://www.centurylink.com/cloudconnect)** |&check; |&check; |New York<br/>Phoenix<br/>San Antonio<br/>Washington DC |
+| **`Lumen (CenturyLink Cloud Connect)`** |&check; |&check; |New York<br/>Phoenix<br/>San Antonio<br/>Washington DC |
 | **[`Equinix`](https://www.equinix.com/partners/microsoft-azure/)** |&check; |&check; |Atlanta<br/>Chicago<br/>Dallas<br/>New York<br/>Seattle<br/>Silicon Valley<br/>Washington DC |
 | **[`Internet2`](https://internet2.edu/services/microsoft-azure-expressroute/)** |&check; |&check; |Dallas |
-| **[`Level 3 Communications`](https://www.lumen.com/en-us/edge-cloud/cloud-connect.html)** |&check; |&check; |Chicago<br/>Silicon Valley<br/>Washington DC |
+| **`Lumen (Level 3 Communications)`** |&check; |&check; |Chicago<br/>Silicon Valley<br/>Washington DC |
 | **[`Megaport`](https://www.megaport.com/services/microsoft-expressroute/)** |&check; | &check; | Chicago<br/>Dallas<br/>San Antonio<br/>Seattle<br/>Washington DC |
 | **[`Verizon`](https://www.verizon.com/business/verizonpartnersolutions/products/cloud/secure-cloud-interconnect/)** |&check; |&check; |Chicago<br/>Dallas<br/>New York<br/>Silicon Valley<br/>Washington DC |
 
