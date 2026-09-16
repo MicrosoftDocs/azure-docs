@@ -68,7 +68,7 @@ The following table shows locations by service provider. If you want to view ava
 | **`Cello`** | &check; | &check; | Sydney |
 | **`Cellcom Fixed Line Communication (l.p.)`** | &check; | &check; | Tel Aviv<br/>Tel Aviv2 |
 | **[`CDC`](https://cdc.com/services/network-services/)** | &check; | &check; | Canberra<br/>Canberra2 |
-| **`Lumen (CenturyLink Cloud Connect)`** | &check; | &check; | Amsterdam2<br/>Atlanta<br/>Chicago<br/>Chicago2<br/>Dallas<br/>Dublin<br/>Frankfurt<br/>Hong Kong SAR<br/>Las Vegas<br/>London<br/>London2<br/>Montreal<br/>New York<br/>Paris<br/>Phoenix<br/>Phoenix2<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Singapore2<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC<br/>Washington DC2 |
+| **`Lumen (CenturyLink Cloud Connect)`** | &check; | &check; | Amsterdam2<br/>Atlanta<br/>Bogota<br/>Chicago<br/>Chicago Metro<br/>Chicago2<br/>Dallas<br/>Denver<br/>Dublin<br/>Frankfurt<br/>Hong Kong SAR<br/>Las Vegas<br/>London<br/>London2<br/>Minneapolis<br/>Montreal<br/>New York<br/>Paris<br/>Phoenix<br/>Phoenix2<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Silicon Valley Metro<br/>Singapore2<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC<br/>Washington DC2 |
 | **[`Chief Telecom`](https://www.chief.com.tw/)** |&check; |&check; | Hong Kong SAR<br/>Taipei |
 | **`China Mobile International`** |&check; |&check; | Hong Kong SAR<br/>Hong Kong2<br/>Singapore<br/>Singapore2 |
 | **`China Telecom Global`** |&check; |&check; | Hong Kong SAR<br/>Hong Kong2<br/>Singapore<br/>Tokyo2 |
