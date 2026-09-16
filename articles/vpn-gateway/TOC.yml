@@ -230,20 +230,12 @@
               href: point-to-site-entra-users-access.md
             - name: Configure multifactor authentication (MFA)
               href: openvpn-azure-ad-mfa.md
-        - name: VPN client configuration
-          items:
-            - name: Azure VPN Client - Windows
-              items:
-                - name: Microsoft-registered authentication
-                  href: point-to-site-entra-vpn-client-windows.md
-                - name: Configure Device SSO
-                  href: point-to-site-entra-vpn-client-windows-device-sso.md
-            - name: Azure VPN Client - Linux
-              href: point-to-site-entra-vpn-client-linux.md
-            - name: Azure VPN Client - macOS
-              href: point-to-site-entra-vpn-client-mac.md
-            - name: Generate VPN client profile configuration files
-              href: about-vpn-profile-download.md
+        - name: Configure Azure VPN Client
+          href: point-to-site-entra-vpn-client.md
+        - name: Configure device SSO for Windows
+          href: point-to-site-entra-vpn-client-windows-device-sso.md
+        - name: Generate VPN client profile configuration files
+          href: about-vpn-profile-download.md
     - name: Configure P2S - RADIUS authentication
       items:
         - name: P2S gateway configuration
