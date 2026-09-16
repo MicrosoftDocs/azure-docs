@@ -25,7 +25,7 @@ This page is updated with the details about the upcoming release approximately a
 ## September 2026
 ### Apache Airflow 3 upgrade
 
-Azure Data Manager for Energy Workflow Service orchestration engine has been upgraded from Apache Airflow 2 to Apache Airflow 3. This upgrade provides improved security, scalability, and performance for ingestion workloads, while keeping existing Workflow Service APIs unchanged. No customer action is required. For more information, see [Upgrading to Airflow 3](https://airflow.apache.org/docs/apache-airflow/stable/installation/upgrading_to_airflow3.html).
+Azure Data Manager for Energy Workflow Service orchestration engine was upgraded from Apache Airflow 2 to Apache Airflow 3. This upgrade provides improved security, scalability, and performance for ingestion workloads, while keeping existing Workflow Service APIs unchanged. No customer action is required. For more information, see [Upgrading to Airflow 3](https://airflow.apache.org/docs/apache-airflow/stable/installation/upgrading_to_airflow3.html).
 
 ### External Data Services ingestion performance and reliability improvements
 
