@@ -5,7 +5,7 @@ description: Discover MCP tools for Azure Managed Grafana. Query Application Ins
 author: weng5e
 ms.author: wuweng
 ms.reviewer: malev
-ms.date: 07/19/2026
+ms.date: 09/15/2026
 ms.topic: concept-article
 ms.service: azure-managed-grafana
 ---
@@ -40,7 +40,6 @@ Azure Managed Grafana MCP provides the following tools for interacting with Azur
 | `amgmcp_query_resource_log` | Queries an Azure resource log through a Grafana Azure Monitor data source. |
 | `amgmcp_query_azure_subscriptions` | Lists all the Azure subscriptions that the Grafana Azure Monitor data source can access. |
 | `amgmcp_insights_get_failures` | Gets failure insights. Returns failure summary data from Application Insights, such as failed requests, failed dependencies, and exceptions. |
-| `amgmcp_insights_get_agents` | Gets generative AI agent insights. Returns information related to generative AI agents from Application Insights, such as agent invocations, token usage, and latency. Queries data following *OpenTelemetry for generative AI* semantic conventions, for example, data emitted by OpenAI Python API, Google Cloud AI Agent Development Kit, Microsoft AI Foundry / Agent Toolkits, Microsoft Agent Framework, LangChain / LangGraph. |
 | `amgmcp_query_application_insights_trace` | Queries an Application Insights trace through a Grafana Azure Monitor data source. When trace data is stored in multiple Application Insights instances, this tool aggregates the data. |
 | `amgmcp_kusto_get_metadata` | Gets the metadata for connected Azure Data Explorer (Kusto) clusters. Lists all Azure Data Explorer data sources, and for each data source, gets the URL of the cluster, databases, and schema. |
 | `amgmcp_kusto_query` | Queries data in an Azure Data Explorer (Kusto) cluster. |

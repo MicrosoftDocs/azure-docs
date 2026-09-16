@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: A quickstart that demonstrates how to create interactive, searchable maps.
 author: sinnypan
 ms.author: sipa
-ms.date: 12/23/2021
+ms.date: 08/28/2026
 ms.topic: quickstart
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -38,7 +38,7 @@ Create a new Azure Maps account with the following steps:
     * The *Subscription* that you want to use for this account.
     * The *Resource group* name for this account. You may choose to *Create new* or *Select existing* resource group.
     * The *Name* of your new Azure Maps account.
-    * The *Pricing tier* for this account. Select **Gen2**.
+    * The *Pricing tier* for this account. Confirm that **Gen2** is selected.
     * Read the *License* and *Privacy Statement*, then select the checkbox to accept the terms.
 
     :::image type="content" source="./media/shared/create-account.png" alt-text="Screenshot showing the Create an Azure Maps Account resource page in the Azure portal." lightbox="./media/shared/create-account.png":::
