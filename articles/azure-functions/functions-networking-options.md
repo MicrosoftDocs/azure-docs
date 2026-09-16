@@ -48,7 +48,7 @@ For outbound traffic, choose the scenario that matches what your app needs to ac
 | Private endpoint, private IP address, or service restricted to selected subnets | [Virtual network integration](#virtual-network-integration) |
 | Host, content, or deployment storage restricted to a virtual network | [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) |
 | Queue, topic, event stream, or other trigger source restricted to a virtual network | [Virtual network triggers](#virtual-network-triggers-non-http) |
-| Predictable public source IP address for an allowlist | [Function app IP addresses](ip-addresses.md#virtual-network-nat-gateway-for-outbound-static-ip) |
+| Predictable public source IP address for an allow list | [Function app IP addresses](ip-addresses.md#virtual-network-nat-gateway-for-outbound-static-ip) |
 | Container image in a network-restricted registry for a custom container on a Functions plan | [Route container image pull traffic](../app-service/configure-vnet-integration-routing.md#container-image-pull) |
 | Deployment to an app or storage account with public access disabled | [Secured virtual networks](functions-deployment-technologies.md#secured-virtual-networks) |
 | Outbound access from a function hosted on Container Apps | [Networking in Azure Container Apps](../container-apps/networking.md) |
@@ -85,7 +85,7 @@ To learn more, see [Azure App Service static access restrictions](../app-service
 ::: zone-end
 ::: zone pivot="container-apps"
 
-For the [legacy Container Apps integration](./functions-container-apps-hosting.md), inbound access is managed through the Container Apps environment ingress configuration rather than App Service access restrictions. For more information, see [IP restrictions in Azure Container Apps](../container-apps/ip-restrictions.md). For the recommended hosting model, see [Networking and security for Azure Functions on Azure Container Apps](../container-apps/functions-overview.md#networking-and-security).
+For the [legacy Container Apps integration](./functions-container-apps-hosting.md), you manage inbound access through the Container Apps environment ingress configuration rather than App Service access restrictions. For more information, see [IP restrictions in Azure Container Apps](../container-apps/ip-restrictions.md). For the recommended hosting model, see [Networking and security for Azure Functions on Azure Container Apps](../container-apps/functions-overview.md#networking-and-security).
 
 ::: zone-end
 
@@ -395,7 +395,7 @@ Your workload might require your app to be triggered from an event source protec
 ::: zone pivot="container-apps"
 
 > [!NOTE]
-> For the [legacy Container Apps integration](./functions-container-apps-hosting.md), connectivity to virtual network-protected trigger sources is managed through the Container Apps environment networking configuration. For more information, see [Networking in Azure Container Apps environment](../container-apps/networking.md). For trigger and scaling behavior in the recommended hosting model, see [Event-driven scaling in Azure Functions on Azure Container Apps](../container-apps/functions-overview.md#event-driven-scaling).
+> For the [legacy Container Apps integration](./functions-container-apps-hosting.md), you manage connectivity to virtual network-protected trigger sources through the Container Apps environment networking configuration. For more information, see [Networking in Azure Container Apps environment](../container-apps/networking.md). For trigger and scaling behavior in the recommended hosting model, see [Event-driven scaling in Azure Functions on Azure Container Apps](../container-apps/functions-overview.md#event-driven-scaling).
 
 ::: zone-end
 ::: zone pivot="flex-consumption-plan"
@@ -507,7 +507,7 @@ To learn more about networking and Azure Functions:
 * [Read the Functions networking FAQ](./functions-networking-faq.yml)
 * [Learn more about virtual network integration with App Service/Functions](../app-service/overview-vnet-integration.md)
 * [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
-* [Enable more networking features and control with App Service Environments](../app-service/environment/overview.md)
+* [Enable more networking features and control with App Service Environments](../app-service/environment/overview.md).
 * [Connect to individual on-premises resources without firewall changes by using Hybrid Connections](../app-service/app-service-hybrid-connections.md)
 
 <!--Links-->
