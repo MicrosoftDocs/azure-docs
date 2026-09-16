@@ -41,7 +41,7 @@ When you create a new API Management instance in the **Premium** tier in a regio
 We recommend automatic availability zone configuration in the Premium tier, but you can manually configure or update availability zones for an existing location of your API Management instance. The following sections provide steps for manually configuring zone redundancy on an existing location of your API Management instance, depending on whether the instance is injected in a virtual network.
 
 > [!NOTE]
-> You can optionally enable a *zonal* configuration, where the API Management instance or location is deployed in a single availability zone. Because it doesn't provide resiliency to an outage in that zone, this configuration generally isn't recommended except for specific scenarios. For more information, see [Reliability in API Management](/azure/reliability/reliability-api-management).
+> You can optionally enable a *zonal* configuration, where the API Management instance or location is deployed in a single availability zone. Because it doesn't provide resilience to an outage in that zone, this configuration generally isn't recommended except for specific scenarios. For more information, see [Reliability in API Management](/azure/reliability/reliability-api-management).
 
 > [!CAUTION]
 > If you manually configure availability zones on an API Management instance that's configured with autoscaling, you might need to adjust your autoscale settings after configuration. In this case, the number of API Management units in autoscale rules and limits must be a multiple of the number of zones. If you use the automatic availability zone support, you don't need to adjust your autoscale settings. 
@@ -56,7 +56,7 @@ This behavior applies when you:
 
 - Switch between manual and automatic availability zone configuration.
  
-**Plan for IP address changes before starting the operation.** After the operation completes, update any dependencies that reference the previous IP addresses. Examples include DNS records, private DNS zones, firewall rules, allowlists, routing rules, Application Gateway backend settings, and any client configurations
+**Plan for IP address changes before starting the operation.** After the operation completes, update any dependencies that reference the previous IP addresses. Examples include DNS records, private DNS zones, firewall rules, allow lists, routing rules, Application Gateway backend settings, and any client configurations
  
 
 #### [Premium v2 or Standard v2](#tab/v2)
