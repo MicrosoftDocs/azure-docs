@@ -1,16 +1,16 @@
 ---
-title: Restore options with Microsoft Azure Recovery Services (MARS) agent
-description: Learn about the restore options available with the Microsoft Azure Recovery Services (MARS) agent.
-ms.reviewer: mepand
+title: Azure Backup Restore Options with the MARS Agent
+description: Compare MARS agent restore options for Azure Backup, including files, folders, volumes, Windows Server System State, and Cross Region Restore.
 ms.topic: overview
-ms.date: 09/24/2025
+ms.date: 09/16/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: As a system administrator, I want to explore the various restore options available with the MARS agent, so that I can efficiently recover data in different scenarios and ensure business continuity.
 ---
-# About restore using the Microsoft Azure Recovery Services (MARS) agent 
-This article describes the restore options available with the Microsoft Azure Recovery Services (MARS) agent, including how to recover data in various scenarios to ensure business continuity. You learn about Windows Server System State backups restore, recovery of all files in a volume, specific files and folders restore using PowerShell, and using Instant Restore for quick access to individual files. The article also covers Cross Region Restore, which enables recovery from a secondary Azure region for audit, compliance, or disaster recovery purposes. 
+# What is Azure Backup restore with the MARS agent?
+
+Use the Microsoft Azure Recovery Services (MARS) agent to restore Azure Backup data and support business continuity. This article compares options to restore Windows Server System State, all backed-up files in a volume, selected files and folders by using PowerShell, or individual files and folders with Instant Restore. It also explains how to use Cross Region Restore to recover data from a secondary Azure region for audit, compliance, and disaster recovery scenarios.
 
 ## Prerequisites
 

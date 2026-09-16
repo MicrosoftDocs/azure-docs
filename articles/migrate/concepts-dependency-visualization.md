@@ -7,6 +7,7 @@ ms.author: jsuri
 ms.service: azure-migrate
 ms.date: 06/06/2025
 ms.reviewer: jsuri
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 # Customer intent: As a cloud migration planner, I want to utilize dependency analysis for my on-premises servers, so that I can accurately group and assess them for migration to ensure smooth application functionality and avoid potential outages post-migration.
 ---

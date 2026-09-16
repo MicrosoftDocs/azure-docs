@@ -3,7 +3,7 @@ title: Create your Azure Maps account using an Azure Resource Manager template i
 description: Learn how to create an Azure Maps account using an Azure Resource Manager template.
 author: pbrasil
 ms.author: peterbr
-ms.date: 04/27/2021
+ms.date: 08/28/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: manage-account
@@ -51,7 +51,7 @@ The Azure Maps account resource is defined in this template:
     * **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
     * **Location**: select a location.
     * **Account Name**: enter a name for your Azure Maps account, which must be globally unique.
-    * **Pricing Tier**: select the appropriate pricing tier, the default value for the template is G2.
+    * **Pricing Tier**: confirm that the value is **G2**.
 
 3. Select **Review + create**.
 4. Confirm your settings on the review page and select **Create**. Once deployed successfully, you get a notification:

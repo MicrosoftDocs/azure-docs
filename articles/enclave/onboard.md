@@ -15,12 +15,12 @@ Use this article to onboard to Azure Enclave by registering the required resourc
 
 ## Prerequisites
 
-- You must already have an Azure tenant and subscription.
-- You must be an Owner of an existing Azure subscription.
+- You must already have an Azure tenant and subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/), and then sign in to the [Azure portal](https://portal.azure.com).
+- You must be an [Owner of an existing Azure subscription](/azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription).
 
 ## Register the required resource providers and configure `NetworkWatcherRG` access
 
-### Option 1: PowerShell
+### [Option 1: PowerShell](#tab/powershell)
 
 PowerShell is the fastest way to register all required resource providers to begin using Azure Enclave.
 
@@ -96,11 +96,11 @@ PowerShell is the fastest way to register all required resource providers to beg
 
 1. After the update is complete, proceed to [Azure setup](./best-practices.md#azure-setup) or [next steps](#next-steps).
 
-### Option 2: Azure portal
+### [Option 2: Azure portal](#tab/portal)
 
 1. Sign in to your Azure tenant and open the subscription.
 1. Under `Settings`, select `Resource providers`.
-1. Register the resource providers listed in [Option 1: PowerShell](#option-1-powershell) in the subscription. The PowerShell script is the fastest option and the authoritative source for the required registrations. These images show the expected end state.
+1. Register the resource providers listed in the `Option 1: PowerShell` tab in the subscription. The PowerShell script is the fastest option and the authoritative source for the required registrations. These images show the expected end state.
 
    :::image type="content" source="./media/onboard-providers-1.png" alt-text="Screenshot showing the first set of resource providers required by Azure Enclave." border="true" lightbox="./media/onboard-providers-1.png":::
 
@@ -113,6 +113,8 @@ PowerShell is the fastest way to register all required resource providers to beg
 1. Proceed to [Azure setup](./best-practices.md#azure-setup) or [next steps](#next-steps).
 
 For reference, you can also review the generic instructions for enabling a [preview feature](/azure/azure-resource-manager/management/preview-features).
+
+---
 
 ### Configure `NetworkWatcherRG` access
 

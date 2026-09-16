@@ -2,11 +2,11 @@
 title: 'Configure Device SSO for Windows - Azure VPN Client – Microsoft Entra ID authentication'
 description: Learn how to configure the Azure VPN Client to use Device SSO to connect to a virtual network using VPN Gateway point-to-site VPN, OpenVPN protocol connections, and Microsoft Entra ID authentication from a Windows computer. This article applies to P2S gateways configured with the Microsoft-registered App ID.
 titleSuffix: Azure VPN Gateway
-author: flapinski
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 02/26/2026
-ms.author: flapinski
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 #Audience and custom App ID values are not sensitive data. Please do not remove. They are required for the configuration.
@@ -22,7 +22,7 @@ This article helps you configure Device Single Sign On (SSO). Device SSO allows 
 
 Configure your VPN gateway for point-to-site VPN connections that specify Microsoft Entra ID authentication. See [Configure a P2S VPN gateway for Microsoft Entra ID authentication](point-to-site-entra-gateway.md). 
 
-Make sure you also followed the necessary steps to configure the Azure VPN Client profile configuration .xml file with the custom audience and Microsoft application ID, as mentioned in [Configure Azure VPN Client – Microsoft Entra ID authentication – Windows](point-to-site-entra-vpn-client-windows.md).
+Make sure you also follow the necessary steps to configure the Azure VPN Client profile configuration .xml file with the custom audience and Microsoft application ID, as mentioned in [Configure a VPN client for P2S Microsoft Entra ID authentication connections](point-to-site-entra-vpn-client.md).
 
 ## Workflow
 1. Once you downloaded your VPN Profile configuration package, open the .xml file with a text editor.
@@ -39,5 +39,5 @@ Make sure you also followed the necessary steps to configure the Azure VPN Clien
    ```
 
 ## Next steps
-- Continue back in [Configure Azure VPN Client – Microsoft Entra ID authentication – Windows](point-to-site-entra-vpn-client-windows.md#modify) to import your profile settings and connect to Azure.
+- Continue back in [Configure a VPN client for P2S Microsoft Entra ID authentication connections](point-to-site-entra-vpn-client.md#modify) to import your profile settings and connect to Azure.
 - Learn more [About point-to-site connections](point-to-site-about.md).

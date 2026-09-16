@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to request real-time (current) and forecasted (minute, hourly, daily) weather data using Microsoft Azure Maps Weather service 
 author: farazgis
 ms.author: fsiddiqui
-ms.date: 08/08/2024
+ms.date: 08/28/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: weather
@@ -298,13 +298,6 @@ In this example, you use the [Get Severe Weather Alerts API] to retrieve current
 
 The [Get Daily Forecast API] returns detailed daily weather forecast such as temperature and wind. The request can specify how many days to return: 1, 5, 10, 15, 25, or 45 days for a given coordinate location. The response includes details such as temperature, wind, precipitation, air quality, and UV index. In this example, we request for five days by setting `duration=5`.
 
-> [!IMPORTANT]
-> In the S0 pricing tier, you can request daily forecast for the next 1, 5, 10, and 15 days. In either Gen1 (S1) or Gen2 pricing tier, you can request daily forecast for the next 25 days, and 45 days.
->
-> **Azure Maps Gen1 pricing tier retirement**
->
-> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
-
 In this example, you use the [Get Daily Forecast API] to retrieve the five-day weather forecast for coordinates located in Seattle, WA.
 
 1. In the Bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
@@ -553,9 +546,6 @@ In this example, you use the [Get Daily Forecast API] to retrieve the five-day w
 
 The [Get Hourly Forecast API] returns detailed weather forecast by the hour for the next 1, 12, 24 (1 day), 72 (3 days), 120 (5 days), and 240 hours (10 days) for the given coordinate location. The API returns details such as temperature, humidity, wind, precipitation, and UV index.
 
->[!IMPORTANT]
->In the Gen1 (S0) pricing tier, you can request hourly forecast for the next 1, 12, 24 hours (1 day), and 72 hours (3 days). In either Gen1 (S1) or Gen2 pricing tier, you can request hourly forecast for the next 120 (5 days) and 240 hours (10 days).
-
 In this example, you use the [Get Hourly Forecast API] to retrieve the hourly weather forecast for the next 12 hours at coordinates located in Seattle, WA.
 
 1. In the Bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
@@ -789,7 +779,6 @@ In this example, you use the [Get Minute Forecast API] to retrieve the minute-by
 [Get Hourly Forecast API]: /rest/api/maps/weather/gethourlyforecast
 [Get Minute Forecast API]: /rest/api/maps/weather/getminuteforecast
 [Get Severe Weather Alerts API]: /rest/api/maps/weather/getsevereweatheralerts
-[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
 [Bruno]: https://www.usebruno.com/
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Weather service concepts]: weather-services-concepts.md

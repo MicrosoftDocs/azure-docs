@@ -27,6 +27,12 @@ Azure Enclave creates a secure foundation in a known configuration so you can pu
 
 Azure Enclave uses a managed community-and-enclave model. A community provides shared network controls, and each enclave provides isolated workload boundaries. You connect approved endpoints with enclave connections, and Azure Enclave applies policy and routing controls across those paths. For architecture details, see [What is Azure Enclave?](./what-azure-enclave.md).
 
+### Are Azure Enclave and confidential compute enclaves related?
+
+Azure Enclave and confidential compute enclaves address different security boundaries. Azure Enclave provides isolated virtual networks, workload boundaries, and policy controls for Azure resources. Confidential compute enclaves are hardware-based trusted execution environments that protect data while it's being processed. You can use confidential compute technologies within an Azure Enclave workload when your application requires protection for data in use.
+
+For more information, see [Application development for confidential computing](/azure/confidential-computing/application-development) and [Confidential computing enclaves](/azure/confidential-computing/confidential-computing-enclaves).
+
 ### What is the pricing for Azure Enclave?
 
 Azure Enclave pricing includes an hourly charge per enclave plus charges for the managed resources. The managed resources create the layers of secure enclave isolation and include Virtual WAN, Azure Firewall, virtual networks, and optional Log Analytics based on your deployment. For current rates, see [Azure Enclave pricing](./azure-enclave-pricing.md).

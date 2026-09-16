@@ -82,7 +82,7 @@
         },
         {
             "source_path_from_root": "/articles/vpn-gateway/openvpn-azure-ad-client.md",
-            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client-windows",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client",
             "redirect_document_id": false
         },
         {
@@ -92,7 +92,22 @@
         },
         {
             "source_path_from_root": "/articles/vpn-gateway/openvpn-azure-ad-client-mac.md",
-            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client-mac",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-entra-vpn-client-windows.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-entra-vpn-client-linux.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-entra-vpn-client-mac.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-entra-vpn-client",
             "redirect_document_id": false
         },
         {

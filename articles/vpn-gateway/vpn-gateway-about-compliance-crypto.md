@@ -5,7 +5,7 @@ description: Learn how to configure Azure VPN gateways to satisfy cryptographic 
 author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 01/26/2024
+ms.date: 08/19/2026
 ms.author: duau
 ms.custom: sfi-image-nochange
 

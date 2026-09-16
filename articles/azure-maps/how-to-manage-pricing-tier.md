@@ -1,47 +1,28 @@
 ---
-title: Manage your Azure Maps account's pricing tier
+title: Azure Maps account pricing
 titleSuffix: Microsoft Azure Maps
-description: You can use the Azure portal to manage your Microsoft Azure Maps account and its pricing tier.
+description: Learn about Azure Maps account pricing and the Gen2 account configuration.
 author: pbrasil
 ms.author: peterbr
-ms.date: 09/14/2023
+ms.date: 08/28/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: manage-account
 ---
 
-# Manage the pricing tier of your Azure Maps account
+# Azure Maps account pricing
 
-You can manage the pricing tier of your Azure Maps account through the [Azure portal] or an [Azure Resource Manager (ARM) template].
-
-For information related to calculating costs, see [Azure Maps pricing] and [Understanding Azure Maps Transactions].
+Azure Maps uses the Gen2 pricing tier. Gen2 provides access to all Azure Maps features with usage-based pricing and volume discounts. For cost information, see [Azure Maps pricing] and [Understanding Azure Maps Transactions].
 
 > [!NOTE]
 >
 > **Azure Maps Gen1 pricing tier retirement**
 >
-> Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing tier before it’s retired, otherwise it will automatically be updated.
->
->After 9/14/23, Gen1 pricing tier will no longer be available when creating new Azure Maps accounts via the Azure portal. After 10/12/23, Gen1 pricing tier will no longer be available when creating new Azure Maps accounts when using an ARM template.
->
-> You don't have to generate new subscription keys, client ID (for Microsoft Entra authentication) or shared access signature (SAS) tokens if you change the pricing tier for your Azure Maps account.
->
-> For more information on Gen2 pricing tier, see [Azure Maps pricing].
+> The Gen1 pricing tier retired on September 15, 2026. All accounts that used Gen1 S0 or S1 were automatically converted to Gen2. The conversion didn't require regenerating subscription keys, Microsoft Entra client IDs, or shared access signature (SAS) tokens.
 
-## Change a pricing tier
+## Configure an account with an ARM template
 
-### Azure portal
-
-To change your pricing tier from Gen1 to Gen2 in the Azure portal, navigate to the Pricing tier option in the settings menu of your Azure Maps account. Select Gen2 from the Pricing tier drop-down list then the Save button.
-
-> [!NOTE]
-> You don't have to generate new subscription keys, client ID (for Microsoft Entra authentication) or shared access signature (SAS) tokens if you change the pricing tier for your Azure Maps account.
-
-:::image type="content" source="./media/how-to-manage-pricing-tier/change-pricing-tier.png" border="true" alt-text="Change a pricing tier":::
-
-### ARM template
-
-To change your pricing tier from Gen1 to Gen2 in the ARM template, update `pricingTier` to **G2** and `kind` to **Gen2**. For more info on using ARM templates, see [Create account with ARM template].
+When you create an Azure Maps account with an Azure Resource Manager (ARM) template, set the SKU name to `G2` and the account kind to `Gen2`. For more information, see [Create account with ARM template].
 
 <!------
 
@@ -82,8 +63,6 @@ Learn how to see the API usage metrics for your Azure Maps account:
 > [View usage metrics]
 
 [Azure Maps pricing]: https://azure.microsoft.com/pricing/details/azure-maps/
-[Azure portal]: https://portal.azure.com/
-[Azure Resource Manager (ARM) template]: how-to-create-template.md
 [Create account with ARM template]: how-to-create-template.md
 [View usage metrics]: how-to-view-api-usage.md
 [Understanding Azure Maps Transactions]: understanding-azure-maps-transactions.md

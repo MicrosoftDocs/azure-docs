@@ -3,7 +3,7 @@ title: Migrate Azure Cosmos DB extension for Azure Functions to version 4.x
 description: This article shows you how to upgrade your existing function apps using the Azure Cosmos DB extension version 3.x to be able to use version 4.x of the extension. 
 ms.service: azure-functions
 ms.topic: how-to 
-ms.date: 08/25/2026
+ms.date: 09/09/2026
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ms.custom:
   - devx-track-extended-java
@@ -43,7 +43,7 @@ Update your `.csproj` project file to use the latest extension version for your 
 ```xml
 <Project Sdk="Azure.Functions.Sdk/1.0.0">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.52.0" />

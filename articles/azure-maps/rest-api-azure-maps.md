@@ -49,7 +49,7 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 
 | API | API version | Description |
 |-----|-------------|-------------|
-| [Search][search-2025-06-01-preview] | 2025-06-01-preview | The Route Range API supports high definition isochrone polygons. |
+|  |  | |
 ------------------------------------------------------------------------------------------>
 
 <!--- Links to latest versions of each service ---------------------------------->

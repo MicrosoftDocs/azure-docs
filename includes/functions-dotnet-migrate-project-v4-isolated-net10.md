@@ -4,7 +4,7 @@ ms.service: azure-functions
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 08/25/2026
+ms.date: 09/09/2026
 ms.author: glenga
 ---
 
@@ -14,7 +14,7 @@ The following changes are required in the *.csproj* XML project file:
 
 1. Set the `Sdk` attribute on the `Project` element to `Azure.Functions.Sdk/1.0.0`.
 
-1. Set the value of `PropertyGroup`.`TargetFramework` to `net8.0`.
+1. Set the value of `PropertyGroup`.`TargetFramework` to `net10.0`.
 
 1. In the `ItemGroup`.`PackageReference` list, replace the package reference to `Microsoft.NET.Sdk.Functions` with the following references. Keep the `Microsoft.Azure.Functions.Worker` package as an explicit reference:
 
@@ -41,7 +41,7 @@ After you make these changes, your updated project should look like the followin
 ```xml
 <Project Sdk="Azure.Functions.Sdk/1.0.0">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <RootNamespace>My.Namespace</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>

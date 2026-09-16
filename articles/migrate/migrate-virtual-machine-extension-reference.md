@@ -6,6 +6,7 @@ ms.author: snmuvva
 ms.service: azure-migrate
 ms.topic: reference
 ms.date: 10/23/2025
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 monikerRange: migrate
 ---

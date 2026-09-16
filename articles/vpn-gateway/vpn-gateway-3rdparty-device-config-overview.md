@@ -132,7 +132,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG
 ```
 
 ### <a name ="bgp"></a>(Optional) Use BGP on S2S VPN connection
-When you create the S2S VPN connection, you can optionally use [BGP for the VPN gateway](vpn-gateway-bgp-resource-manager-ps.md). This approach has two differences:
+When you create the S2S VPN connection, you can optionally use [BGP for the VPN gateway](configure-bgp.md). This approach has two differences:
 
 * The on-premises address prefixes can be a single host address. The on-premises BGP peer IP address is specified as follows:
 

@@ -37,6 +37,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
+This tutorial uses Azure Firewall Standard with IPv4 and a StandardV2 NAT gateway. Choose a region that supports StandardV2 NAT Gateway and use the same region for the firewall, NAT gateway, and virtual networks. The examples use **West US**. For unsupported regions, see [NAT Gateway SKU limitations](nat-sku.md#known-limitations).
+
 # [Portal](#tab/portal)
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
@@ -47,7 +49,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you run the commands locally, [install or update to the current Azure PowerShell release](/powershell/azure/install-azure-powershell), including the **Az.Network** module, before you begin. The examples use the **StandardV2** SKU. Use [Get-Module](/powershell/module/microsoft.powershell.core/get-module) with `-ListAvailable Az.Network` to check your installed network module. Sign in with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ---
 
@@ -63,7 +65,7 @@ Create a resource group to contain all resources for this quickstart.
 
 1. Select **+ Create**.
 
-1. In the **Basics** tab of **Create a resource group**, enter, or select the following information.
+1. In the **Basics** tab of **Create a resource group**, enter or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
@@ -221,9 +223,12 @@ Azure Bastion provides secure RDP and SSH connectivity to virtual machines over 
     | **Instance details** |  |
     | Name | Enter **bastion**. |
     | Region | Select your region. This example uses **West US**. |
-    | Tier | Select **Developer**. |
-    | Virtual network | Select **vnet-1**. |
+    | Tier | Select **Basic**. |
+    | Virtual network | Select **vnet-hub**. |
     | Subnet | Select **AzureBastionSubnet**. |
+    | Public IP address | Create a new Standard, static public IP address named **public-ip-bastion**. |
+
+    Bastion Basic supports connecting to the test VM in the peered spoke virtual network. Bastion Developer doesn't support connections to peered virtual networks. For more information, see [Bastion SKU comparison](../bastion/bastion-sku-comparison.md).
 
 1. Select **Review + create**, then select **Create**.
 
@@ -239,7 +244,6 @@ $publicIpBastionParams = @{
     Name = 'public-ip-bastion'
     Sku = 'Standard'
     AllocationMethod = 'Static'
-    Zone = 1, 2, 3
 }
 $publicIpBastion = New-AzPublicIpAddress @publicIpBastionParams
 ```
@@ -264,13 +268,15 @@ New-AzBastion @bastionParams
 
 ## Create Azure Firewall
 
+The portal steps create Azure Firewall Standard and a StandardV2 NAT gateway in the hub virtual network. The PowerShell steps create the firewall first and configure the NAT gateway in the next section.
+
 # [**Portal**](#tab/portal)
 
 1. In the search box at the top of the portal, enter **Firewall**. Select **Firewalls** in the search results.
 
 1. Select **+ Create**.
 
-1. On the **Create a Firewall** page, use the following table to configure the firewall:
+1. On the **Basics** tab of **Create a firewall**, use the following table to configure the firewall:
 
     | Setting | Value |
     | ------- | ----- |
@@ -280,7 +286,6 @@ New-AzBastion @bastionParams
     | **Instance details** |   |
     | Name | Enter **firewall**. |
     | Region | Select **West US**. |
-    | Availability zone | Accept the default **None**. |
     | Firewall SKU | Select **Standard**. |
     | Firewall management | Select **Use a Firewall Policy to manage this firewall**. |
     | Firewall policy | Select **Add new**.</br>Name: Enter **firewall-policy**.</br>Region: Select **West US**.</br>Policy tier: **Standard**.</br>Select **OK**. |
@@ -288,13 +293,34 @@ New-AzBastion @bastionParams
     | Virtual network | Select **Use existing**. |
     | Virtual network | Select **vnet-hub**. |
     | **Public IP address** |   |
-    | Public IP address | Select **Add new**.</br>Name: Enter **public-ip-firewall**.</br>SKU: **Standard**.</br>Assignment: **Static**.</br> Availability zone: **Zone-redundant**.</br>Select **OK**. |
+    | Public IP address | Select **Add new**.</br>Name: Enter **public-ip-firewall**.</br>SKU: **Standard**.</br>Assignment: **Static**.</br>Select **OK**. |
 
-1. Accept the other default values, then select **Review + create**.
+1. Clear **Enable Firewall Management NIC** for this tutorial, and then select **Next: Advanced**.
 
-1. Review the summary, and then select **Create** to create the firewall.
+1. On the **Advanced** tab, select **Enable NAT gateway**. Under **StandardV2 NAT gateway**, select **Create new**.
 
-    The firewall takes a few minutes to deploy.
+    NAT Gateway is optional when you create a firewall. This tutorial enables it to provide outbound SNAT through the NAT gateway's public IP address. In a region that doesn't support StandardV2 NAT Gateway, the form displays a validation error. Choose a supported region on **Basics** to continue with this tutorial.
+
+1. In **Create a new StandardV2 NAT Gateway**, enter **nat-gateway** for **Name**.
+
+1. Under **Public IPv4 addresses**, select **Create a public IP address**. Enter **public-ip-nat** for **Name**.
+1. Confirm that **SKU** is **StandardV2** and **Assignment** is **Static**, and then select **OK**.
+
+1. Confirm that **(New) public-ip-nat** is selected under **Public IPv4 addresses**. Leave the IPv6 address and public IP prefix fields unselected for this IPv4 tutorial.
+
+    :::image type="content" source="media/tutorial-hub-spoke-nat-firewall/create-nat-gateway.png" alt-text="Screenshot showing nat-gateway configured with the new public-ip-nat IPv4 address." lightbox="media/tutorial-hub-spoke-nat-firewall/create-nat-gateway.png":::
+
+1. Select **Add**. On **Advanced**, confirm that **Enable NAT gateway** is selected and **StandardV2 NAT gateway** shows **(New) nat-gateway**.
+
+    :::image type="content" source="media/tutorial-hub-spoke-nat-firewall/firewall-advanced-nat-gateway.png" alt-text="Screenshot showing the Advanced tab with NAT Gateway enabled and the new nat-gateway selected." lightbox="media/tutorial-hub-spoke-nat-firewall/firewall-advanced-nat-gateway.png":::
+
+1. Select **Review + create**. Confirm the summary shows **West US**, the **Standard** firewall SKU, **vnet-hub**, **public-ip-firewall**, and the new **StandardV2 NAT gateway**.
+
+1. Select **Create**.
+
+    The deployment creates the firewall, NAT gateway, and their public IP addresses. It also associates the NAT gateway with **AzureFirewallSubnet**. Deployment takes a few minutes.
+
+    Keep the firewall's own public IP address. Outbound SNAT uses the NAT gateway public IP, while inbound DNAT uses the firewall public IP. Workload routes still point to the firewall's private IP address.
 
 1. After deployment completes, go to the **test-rg** resource group, and select the **firewall** resource.
 
@@ -312,7 +338,6 @@ $publicIpFirewallParams = @{
     Name = 'public-ip-firewall'
     AllocationMethod  = 'Static'
     Sku = 'Standard'
-    Zone = 1, 2, 3
 }
 $publicIpFirewall = New-AzPublicIpAddress @publicIpFirewallParams
 ```
@@ -348,64 +373,16 @@ Use [New-AzFirewall](/powershell/module/az.network/new-azfirewall) to create Azu
 
 ## Create the NAT gateway
 
-All outbound internet traffic traverses the NAT gateway to the internet. Use the following example to create a NAT gateway for the hub and spoke network and associate it with the **AzureFirewallSubnet**.
+Associate the NAT gateway with **AzureFirewallSubnet** so outbound internet traffic from the firewall uses it. If you followed the portal steps, the firewall deployment created this association. If you're using PowerShell, create and associate the NAT gateway in this section.
 
 # [**Portal**](#tab/portal)
 
-1. In the search box at the top of the portal, enter **Public IP address**. Select **Public IP addresses** in the search results.
+Don't create another NAT gateway. Verify the resources and association created in the preceding section:
 
-1. Select **+ Create**.
-
-1. Enter the following information in **Create public IP address**.
-
-   | Setting | Value |
-   | ------- | ----- |
-   | Subscription | Select your subscription. |
-   | Resource group | Select **test-rg**. |
-   | Region | Select **West US**. |
-   | Name | Enter **public-ip-nat**. |
-   | IP version | Select **IPv4**. |
-   | SKU | Select **Standard V2**. |
-   | Availability zone | Select **Zone-redundant**. |
-   | Tier | Select **Regional**. |
-
-1. Select **Review + create** and then select **Create**.
-
-    > [!NOTE]
-    > A Standard V2 Public IP address can only be associated with a Standard V2 NAT Gateway and not any other services.
-
-1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
-
-1. Select **+ Create**.
-
-1. Enter or select the following information in the **Basics** tab of **Create network address translation (NAT) gateway**.
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |  |
-    | Subscription | Select your subscription. |
-    | Resource group | Select **test-rg**. |
-    | **Instance details** |  |
-    | NAT gateway name | Enter **nat-gateway**. |
-    | Region | Select **West US**. |
-    | SKU | Select **Standard V2**. |
-    | TCP idle timeout (minutes) | Leave the default of **4**. |
-
-1. Select **Next**.
-
-1. In the **Outbound IP** tab, select **+ Add public IP addresses or prefixes**.
-
-10. In **Add public IP addresses or prefixes**, select **Public IP addresses**. Select the public IP address you created earlier, **public-ip-nat**.
-
-11. Select **Next**.
-
-12. In the **Networking** tab, in **Virtual network**, select **vnet-hub**.
-
-13. Leave the checkbox for **Default to all subnets** unchecked.
-
-14. In **Select specific subnets**, select **AzureFirewallSubnet**.
-
-15. Select **Review + create**, then select **Create**.
+1. Open **test-rg**, and select **nat-gateway**. Confirm that its SKU is **StandardV2** and its location matches the firewall.
+1. Open **vnet-hub**, select **Subnets**, and select **AzureFirewallSubnet**.
+1. Confirm that **NAT gateway** is set to **nat-gateway**. Leave the subnet settings unchanged.
+1. Open **public-ip-nat** and confirm that it uses the **StandardV2** SKU. This address is separate from **public-ip-firewall**, which uses the **Standard** SKU.
 
 # [**PowerShell**](#tab/powershell)
 
@@ -430,6 +407,8 @@ $publicIPIPv4 = New-AzPublicIpAddress @ip
 
 Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
 
+A StandardV2 NAT Gateway is zone redundant by default. Omit the optional `Zone` parameter rather than assigning this gateway to a single zone.
+
 ```azurepowershell
 ## Create NAT gateway resource ##
 $nat = @{
@@ -439,7 +418,6 @@ $nat = @{
     Sku = 'StandardV2'
     Location = 'westus'
     PublicIpAddress = $publicIPIPv4
-    Zone = 1
 }
 $natGateway = New-AzNatGateway @nat
 ```
@@ -475,7 +453,7 @@ The spoke virtual network contains the test virtual machine used to test the rou
 
 1. Select **+ Create**.
 
-1. In the **Basics** tab of **Create virtual network**, enter, or select the following information:
+1. In the **Basics** tab of **Create virtual network**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -623,7 +601,7 @@ Add-AzVirtualNetworkPeering @peeringParams
 
 ## Create spoke network route table
 
-A route table forces all traffic leaving the spoke virtual network to the hub virtual network. The route table is configured with the private IP address of the Azure Firewall as the virtual appliance.
+The route table sends traffic matching the default route from the spoke subnet to Azure Firewall in the hub virtual network. The next hop is the firewall's private IP address.
 
 ### Obtain private IP address of firewall
 
@@ -655,7 +633,7 @@ $firewall.IpConfigurations[0].PrivateIpAddress
 
 ### Create route table
 
-Create a route table to force all inter-spoke and internet egress traffic through the firewall in the hub virtual network.
+Create a default route for outbound internet traffic through the firewall. This route doesn't override more-specific routes, such as virtual network peering routes. You need to add more routes if you extend this topology to inspect traffic between spokes.
 
 # [**Portal**](#tab/portal)
 
@@ -695,7 +673,7 @@ Create a route table to force all inter-spoke and internet egress traffic throug
     | Destination type | Select **IP Addresses**. |
     | Destination IP addresses/CIDR ranges | Enter **0.0.0.0/0**. |
     | Next hop type | Select **Virtual appliance**. |
-    | Next hop address | Enter **10.0.1.68**. |
+    | Next hop address | Enter the firewall's private IP address that you recorded earlier. Don't use the NAT gateway's public IP address. |
 
 1. Select **Add**.
 
@@ -771,7 +749,7 @@ $spokeVnet | Set-AzVirtualNetwork
 
 ## Configure firewall
 
-Traffic from the spoke through the hub must be allowed through and firewall policy and a network rule. Use the following example to create the firewall policy and network rule.
+Allow traffic from the spoke through the hub by using a network rule in the firewall policy. Use the following example to configure the network rule.
 
 ### Configure network rule
 
@@ -827,7 +805,7 @@ $networkRuleParams = @{
     SourceAddress = '10.1.0.0/24'
     Protocol = 'TCP'
     DestinationAddress = '*'
-    DestinationPort = '*'
+    DestinationPort = '80', '443'
 }
 $networkRule = New-AzFirewallPolicyNetworkRule @networkRuleParams
 ```
@@ -869,7 +847,7 @@ An Ubuntu virtual machine is used to test the outbound internet traffic through 
 
 1. In **Virtual machines**, select **+ Create**, then **Azure virtual machine**.
 
-1. On the **Basics** tab of **Create a virtual machine**, enter, or select the following information:
+1. On the **Basics** tab of **Create a virtual machine**, enter or select the following information:
 
     | Setting | Value |
     |---|---|
@@ -911,9 +889,9 @@ An Ubuntu virtual machine is used to test the outbound internet traffic through 
 
 1. The **Generate new key pair** dialog box appears. Select **Download private key and create resource**.
 
-The private key downloads to your local machine. The private key is needed in later steps for connecting to the virtual machine with Azure Bastion. The name of the private key file is the name you entered in the **Key pair name** field. In this example, the private key file is named **ssh-key**.
+The private key downloads to your local machine. You need the downloaded private key for **vm-spoke-key** when you connect to the virtual machine with Azure Bastion later in this tutorial.
 
-Wait for the virtual machine to finishing deploying before proceeding to the next steps.
+Wait for the virtual machine to finish deploying before proceeding to the next steps.
 
 >[!NOTE]
 >Virtual machines in a virtual network with a bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in bastion hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../virtual-network/ip-services/remove-public-ip-address-vm.md).
@@ -1028,7 +1006,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 1. Select **public-ip-nat**.
 
-1. Make note of value in **IP address**. The example used in this article is **203.0.113.0.25**.
+1. Make note of the value in **IP address**. The example used in this article is **203.0.113.25**.
 
 # [**PowerShell**](#tab/powershell)
 
@@ -1059,17 +1037,21 @@ $publicIpNat.IpAddress
 1. In the bash prompt, enter the following command:
 
     ```bash
-    curl ifconfig.me
+    curl -4 https://ifconfig.me/ip
     ```
 
 1. Verify the IP address returned by the command matches the public IP address of the NAT gateway.
 
     ```output
-    azureuser@vm-1:~$ curl ifconfig.me
-    203.0.113.0.25
+    azureuser@vm-spoke:~$ curl -4 https://ifconfig.me/ip
+    203.0.113.25
     ```
 
 1. Close the Bastion connection to **vm-spoke**.
+
+## Clean up resources
+
+When you no longer need the resources that you created, delete the resource group and all of the resources it contains.
 
 # [**Portal**](#tab/portal)
 

@@ -4,7 +4,7 @@ description: Learn how to change how Azure Files data in an existing storage acc
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/03/2026
+ms.date: 09/15/2026
 ms.author: kendownie
 ms.custom: references_regions, devx-track-azurepowershell
 # Customer intent: "As a cloud storage administrator, I want to change the redundancy configuration for Azure Files so that I can optimize data protection and cost based on my organization’s specific availability and disaster recovery needs."
@@ -100,6 +100,8 @@ The following table lists the redundancy options available for storage account t
 
 | Storage account type | Supports LRS | Supports ZRS | Supports conversion<br>(from the Azure portal) | Supports conversion<br>(by support request) | Supports manual migration |
 |:-|:-:|:-:|:-:|:-:|:-:|
+| HDD provisioned v2 | &#x2705; | &#x2705; | &#x2705; | &#x2705; <sup>1</sup> | &#x2705; |
+| SSD provisioned v2 | &#x2705; | &#x2705; | &#x2705; | &#x2705; <sup>1</sup> | &#x2705; |
 | SSD provisioned v1 | &#x2705; | &#x2705; | &#x2705; | &#x2705; <sup>1</sup> | &#x2705; |
 | HDD pay-as-you-go | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 
