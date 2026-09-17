@@ -77,6 +77,34 @@ After you submit the payment, allow time for the payment to appear in the Azure 
 
 Refunds are treated as a regular charge. They go to your bank account.
 
+### Paying with Pix in Brazil
+
+Customers who have billing address in Brazil and have an MCA billing account type can use Pix for one-time payment transactions. To make a payment with Pix:
+
+1. Select **Add a new payment method** when you're making a payment.
+2. Select **PIX**.
+3. You'll see a QR code appearing in the payments blade within Azure portal. Alternatively, you can use the payment link provided to complete the payment. The link and the QR code are valid for 24 hours.
+4. Once payment is completed, the payment blade will automatically close and land you back into Azure portal.
+
+After you submit the payment, allow time for the payment to appear in the Azure portal.
+
+> [!NOTE]
+> Paying with Pix is available only for MCA billing accounts. You can check your account type [here](#check-the-type-of-your-account).
+
+### Paying with Alipay in China
+
+Customers who have billing address in China and have an MCA billing account type can use Alipay for one-time payment transactions. To make a payment with Alipay:
+
+1. Select **Add a new payment method** when you're making a payment.
+2. Select **Alipay**.
+3. You're redirected to a payment partner, like Worldpay, where you’ll be able to view the QR code and complete the payment with your mobile device.
+4. Once payment is completed, the payment page will automatically close and land you back into Azure portal.
+
+After you submit the payment, allow time for the payment to appear in the Azure portal.
+
+> [!NOTE]
+> Paying with Alipay is available only for MCA billing accounts. You can check your account type [here](#check-the-type-of-your-account).
+
 ## Partial payments
 
 Partial payment is available for Azure global pay-as-you-go customers who experience a payment failure during the [Pay Now](/azure/cost-management-billing/understand/pay-bill#pay-now-in-the-azure-portal) flow. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards.
