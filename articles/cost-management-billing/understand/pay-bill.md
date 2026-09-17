@@ -93,7 +93,7 @@ After you submit the payment, wait for the payment to appear in the Azure portal
 
 ### Paying with Alipay in China
 
-Customers who have billing address in China and have an MCA billing account type can use Alipay for one-time payment transactions. To make a payment with Alipay:
+Customers who have a billing address in China and an MCA billing account type can use Alipay for one-time payment transactions. To make a payment with Alipay:
 
 1. Select **Add a new payment method** when you're making a payment.
 2. Select **Alipay**.
