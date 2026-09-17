@@ -945,6 +945,8 @@ az functionapp list-runtimes --os linux --query "[].{stack:join(' ', [runtime, v
 
 The previous command requires you to upgrade to version 2.40 of the Azure CLI.  
 
+Some managed Linux image updates use a three-part value in the format `<LANGUAGE>|<VERSION>|<IMAGE_VERSION>`. These values explicitly select the Linux distribution and aren't returned by the preceding command. For supported values and update instructions for affected Python and Java apps, see [Update the managed Linux image](set-runtime-version.md?pivots=platform-linux#update-the-managed-linux-image).
+
 ### Custom images
 
 When you create and maintain your own custom Linux container for your function app, the `linuxFxVersion` value is instead in the format `DOCKER|<IMAGE_URI>`, as in the following example:

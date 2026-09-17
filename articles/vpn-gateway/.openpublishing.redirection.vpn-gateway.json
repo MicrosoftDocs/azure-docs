@@ -116,13 +116,23 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/vpn-gateway/howto-point-to-site-multi-auth.md",
-            "redirect_url": "/azure/vpn-gateway/point-to-site-about#authentication",
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-certificate.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-configuration-radius",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-radius.md",
-            "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-configuration-radius-certificate",
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-password.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-configuration-radius",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-radius-other.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-configuration-radius",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/howto-point-to-site-multi-auth.md",
+            "redirect_url": "/azure/vpn-gateway/point-to-site-about#authentication",
             "redirect_document_id": false
         },
         {

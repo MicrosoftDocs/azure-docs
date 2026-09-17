@@ -247,13 +247,7 @@
             - name: Multifactor authentication - P2S RADIUS and NPS server
               href: vpn-gateway-radius-mfa-nsp.md
             - name: VPN client configuration
-              items:
-                - name: Certificate authentication clients
-                  href: point-to-site-vpn-client-configuration-radius-certificate.md
-                - name: Password authentication clients
-                  href: point-to-site-vpn-client-configuration-radius-password.md
-                - name: Other authentication protocols
-                  href: point-to-site-vpn-client-configuration-radius-other.md
+              href: point-to-site-vpn-client-configuration-radius.md
     - name: Assign IP addresses to specific User Groups
       items:
         - name: About User Groups and client address pools

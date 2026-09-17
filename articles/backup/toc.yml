@@ -511,19 +511,23 @@
         href: azure-kubernetes-service-cluster-backup-using-cli.md
       - name: Restore
         href: azure-kubernetes-service-cluster-restore-using-cli.md
-- name: Azure Elastic SAN backup
+- name: Azure Elastic  SAN volume operational backup
   items:
   - name: Overview
     href: azure-elastic-san-backup-overview.md
   - name: Support matrix
     href: azure-elastic-san-backup-support-matrix.md
+  - name: Quickstart
+    href: azure-elastic-san-backup-quickstart.md
+  - name: Tutorial
+    href: azure-elastic-san-backup-tutorial.md
   - name: Backup scenarios
     items:
-    - name: Configure backup
+    - name: Configure operational backup
       href: azure-elastic-san-backup-configure.md
     - name: Restore
       href: azure-elastic-san-backup-restore.md
-    - name: manage
+    - name: Manage
       href: azure-elastic-san-backup-manage.md
 - name: Azure Database for PostgreSQL -Flexible server backup
   items:
