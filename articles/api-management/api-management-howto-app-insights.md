@@ -351,7 +351,7 @@ Application Insights receives:
 
 ### External dependency telemetry for supported policies
 
-After you configure and enable Application Insights logging, you don't need to change any policies to collect external dependency telemetry for the following policies:
+After you configure and enable Application Insights logging, API Management automatically collects external dependency telemetry for the following policies. No additional policy or telemetry configuration is required:
 
 - `authentication-managed-identity`
 - `authentication-token`
