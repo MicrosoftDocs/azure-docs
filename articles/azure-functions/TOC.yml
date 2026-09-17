@@ -116,9 +116,6 @@
         href: functions-add-output-binding-cosmos-db-vs-code.md
       - name: Azure SQL Database
         href: functions-add-output-binding-azure-sql-vs-code.md
-    - name: OpenAI
-      displayName: Connect to OpenAI, text completion
-      href: functions-add-openai-text-completion.md  
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
@@ -153,8 +150,6 @@
     href: /training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
   - name: Data + AI
     items:
-    - name: Azure OpenAI for text completion
-      href: functions-add-openai-text-completion.md
     - name: Machine learning with TensorFlow
       href: functions-machine-learning-tensorflow.md
     - name: Image classification with PyTorch
