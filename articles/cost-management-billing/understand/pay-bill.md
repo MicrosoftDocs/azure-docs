@@ -98,7 +98,7 @@ Customers who have billing address in China and have an MCA billing account type
 1. Select **Add a new payment method** when you're making a payment.
 2. Select **Alipay**.
 3. You're redirected to a payment partner, like Worldpay, where you’ll be able to view the QR code and complete the payment with your mobile device.
-4. Once payment is completed, the payment page will automatically close and land you back into Azure portal.
+4. When you complete payment, the payment page automatically closes and returns you to Azure portal.
 
 After you submit the payment, allow time for the payment to appear in the Azure portal.
 
