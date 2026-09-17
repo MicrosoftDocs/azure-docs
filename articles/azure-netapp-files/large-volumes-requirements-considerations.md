@@ -203,7 +203,6 @@ If this is your first time using large volumes, register the feature with the [l
     az account set --subscription <subscriptionId>
     az feature show --namespace Microsoft.NetApp --name ANFLargeVolumes
     ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 # [Azure PowerShell](#tab/azurepowershell)
 
@@ -216,8 +215,6 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     Set-AzContext -SubscriptionId <subscriptionId>
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes
     ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
-
 ---
   
     
