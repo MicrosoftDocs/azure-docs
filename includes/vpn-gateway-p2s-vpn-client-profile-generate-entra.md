@@ -18,7 +18,7 @@ You can generate VPN client profile configuration files either with PowerShell, 
 
 To generate the VPN client profile configuration files using PowerShell, you can use the following example:
 
-[!INCLUDE [Generate profile configuration files - PowerShell](vpn-gateway-generate-profile-powershell.md)]
+[!INCLUDE [Generate profile configuration files - PowerShell](../articles/networking/includes/vpn-gateway/generate-profile-powershell.md)]
 
 ## <a name="extract"></a>Extract the zip file
 
