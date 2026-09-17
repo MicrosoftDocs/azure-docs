@@ -3,7 +3,7 @@ title: Manage device groups for Azure Device Update for IoT Hub | Microsoft Docs
 description: Learn how to configure Azure Device Update for IoT Hub device groups by using tags in the Azure portal or with Azure CLI.
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/15/2026
+ms.date: 09/17/2026
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
@@ -23,7 +23,7 @@ This article describes how to use the Azure portal or Azure CLI to create and ma
 Before you begin, note the following prerequisites:
 
 - Devices must be successfully onboarded to Device Update before group assignment can occur.
-- Devices must report a supported Plug and Play model ID.
+- Devices must report a supported Plug and Play model ID. For a list of supported model IDs, see [Device Update models](device-update-plug-and-play.md#device-update-models). 
 - For IoT Edge scenarios, the Device Update agent runs as a module and must report the model ID through the appropriate identity.
 
 # [Azure portal](#tab/portal)
