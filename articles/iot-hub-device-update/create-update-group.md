@@ -1,5 +1,5 @@
 ---
-title: Manage device groups for Azure Device Update for IoT Hub | Microsoft Docs
+title: Manage device groups for Azure Device Update for IoT Hub
 description: Learn how to configure Azure Device Update for IoT Hub device groups by using tags in the Azure portal or with Azure CLI.
 author: sethmanheim
 ms.author: sethm
@@ -235,8 +235,9 @@ If a device is ever assigned to a deleted group name again, Device Update automa
 If you tag a device but don't see a group, try the following troubleshooting steps:
 
 - Verify the tag is configured correctly.
-- Verify the device reports a supported Plug and Play model ID.
-- Verify the Device Update agent is healthy.
+- Verify the device includes a valid Plug and Play model ID and a valid `ADUGroup` tag.
+- Confirm that the IoT Hub message routes are correctly configured. For more information, see [Message routing](device-update-resources.md#message-routing).
+- Ensure the IoT Hub is correctly associated with the Device Update instance.
 - Run Device Update diagnostics and the agent check.
 - Run device sync if necessary.
 
