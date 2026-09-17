@@ -86,7 +86,7 @@ Customers who have a billing address in Brazil and an MCA billing account type c
 3. You'll see a QR code appearing in the payments blade within Azure portal. Alternatively, you can use the payment link provided to complete the payment. The link and the QR code are valid for 24 hours.
 4. Once payment is completed, the payment blade will automatically close and land you back into Azure portal.
 
-After you submit the payment, allow time for the payment to appear in the Azure portal.
+After you submit the payment, wait for the payment to appear in the Azure portal.
 
 > [!NOTE]
 > Paying with Pix is available only for MCA billing accounts. You can check your account type [here](#check-the-type-of-your-account).
