@@ -27,11 +27,11 @@ This article is updated to reflect the features that are currently in preview wi
 
 The following features are available in preview.
 
-### Explicit proxy (preview)
+### Dual-stack support (preview)
 
-When you set the Azure Firewall Explicit proxy on the outbound path, you can configure a proxy setting on the sending application (such as a web browser) with Azure Firewall configured as the proxy. As a result, traffic from a sending application goes to the firewall's private IP address, and therefore egresses directly from the firewall without using a user-defined route (UDR).
+Azure Firewall now supports IPv6 in preview, enabling you to configure Azure Firewall and Firewall Policy in dual-stack mode for both IPv4 and IPv6 traffic. This preview allows native IPv6 network-rule filtering and DNS Proxy support, helping organizations secure cloud, hybrid, and internal IPv6 traffic as they modernize toward dual-stack architectures. 
 
-For more information, see [Azure Firewall Explicit proxy (preview)](explicit-proxy.md).
+For more information, see [Deploy Azure Firewall in dual stack mode](deploy-dual-stack-firewall.md).
 
 ## Change tracking (preview)
 
