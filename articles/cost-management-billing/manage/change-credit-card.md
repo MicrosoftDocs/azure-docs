@@ -31,7 +31,7 @@ Most countries/regions accept credit cards and debit cards. Here's some specific
 
 - Hong Kong Special Administrative Region and Brazil support only credit cards.
 - India supports credit and debit cards through Visa and Mastercard.
-- China supports credit cards through UnionPay, Visa and Mastercard.
+- China supports credit cards through UnionPay, Visa, and Mastercard.
 
 The Reserve Bank of India has a [regulation for storing credit card information](https://rbi.org.in/Scripts/BS_CircularIndexDisplay.aspx?Id=12159) that might affect credit card users in India. To summarize, customers in India can't store credit card information in Azure for recurring charges. Instead, they must enter their credit card information each time they want to pay for Azure services. For more information, see [Reserve Bank of India](../understand/pay-bill.md#reserve-bank-of-india).
 
