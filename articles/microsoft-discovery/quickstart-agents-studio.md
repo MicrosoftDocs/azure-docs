@@ -49,7 +49,7 @@ You must sign in with your Entra ID (work or school account) credentials. Micros
 Every project comes with a default **Discovery** agent that you can use immediately to start chatting. If you want to create a custom agent tailored to a specific domain, follow the steps below. Otherwise, skip to [step 3](#3-create-a-shared-session).
 
 > [!NOTE]
-> The default **Discovery** agent is intended only for basic questions and answers about the Microsoft Discovery platform. It isn't designed to handle scientific use cases or specific user scenarios.
+> The default **Discovery** agent is intended only for basic questions and answers about the Microsoft Discovery platform. It's not designed to handle scientific use cases or specific user scenarios.
 
 Agents are autonomous, AI-powered systems that perform specific scientific tasks on behalf of users. Powered by large language models (LLMs), agents can use tools, models, and other agents to achieve a goal. In the Microsoft Discovery architecture, agents are the primary functional unit of execution.
 
