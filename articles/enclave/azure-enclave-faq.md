@@ -6,7 +6,7 @@ ms.author: aserfass
 ms.topic: concept-article
 ms.service: azure-enclave
 ai-usage: ai-assisted
-ms.date: 8/11/2026
+ms.date: 9/17/2026
 ---
 
 # Azure Enclave frequently asked questions
@@ -68,6 +68,12 @@ You can also query the current regions allowed for communities with the Azure CL
 ```azurecli
 az provider show --namespace Microsoft.Mission --query "resourceTypes[?resourceType=='communities'].locations"
 ```
+
+### Does Azure Enclave keep service data within my deployment geography?
+
+Azure Enclave-managed service data, including resource metadata and service audit and diagnostic logs, stays within the geography of the selected deployment region. Deployments in supported United States regions keep this data in the United States geography. Deployments in supported Japan regions keep it in the Japan geography.
+
+This is a geography-level boundary, not a single-region boundary. Customer-managed workloads and customer-selected data transfers have separate residency considerations. For the scope of the service-data boundary and customer responsibilities, see [Data residency](./quotas-region-availability.md#data-residency).
 
 ### What roles are used to manage permissions for Azure Enclave resources?
 
