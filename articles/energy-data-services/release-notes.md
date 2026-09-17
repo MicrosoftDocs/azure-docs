@@ -29,9 +29,9 @@ Azure Data Manager for Energy Workflow Service orchestration engine was upgraded
 
 ### External Data Services ingestion performance and reliability improvements
 
-External Data Services (EDS) now supports larger metadata ingestion workloads with improved reliability and operational visibility. Platform administrators can configure batch size and concurrent processing to balance throughput and resource use for each environment.
+External Data Services (EDS) now supports larger metadata ingestion workloads with improved reliability and operational visibility. Batch and concurrent processing improvements increase throughput while managing resource use.
 
-Interrupted ingestion jobs can resume from checkpoints, reducing recovery time and avoiding duplicate submissions. Improved handling of temporary service interruptions, pagination, timeouts, and incremental watermarks lowers the risk of failed or incomplete ingestion. Enhanced status tracking, telemetry, and logging provide clearer insight into ingestion progress and failures.
+Interrupted ingestion jobs can resume from checkpoints, reducing recovery time and avoiding duplicate submissions. Failed runs automatically retry after temporary service interruptions. Improved pagination and timeout handling lowers the risk of failed or incomplete ingestion. Enhanced status tracking, telemetry, and logging provide clearer insight into ingestion progress and failures.
 
 ## August 2026
 ### Seismic single file restore - Preview
