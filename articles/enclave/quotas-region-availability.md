@@ -4,6 +4,7 @@ description: Azure Enclave quotas, regional availability, and data residency bou
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
+ms.service: azure-enclave
 ms.date: 9/17/2026
 ai-usage: ai-assisted
 ---
