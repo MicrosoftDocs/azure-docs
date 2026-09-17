@@ -6,6 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: troubleshooting
 ms.service: azure-migrate
+ms.update:cycle: 365-days
 ms.reviewer: jsuri
 ms.date: 05/08/2025
 ms.custom: vmware-scenario-422, mvc, engagement-fy25

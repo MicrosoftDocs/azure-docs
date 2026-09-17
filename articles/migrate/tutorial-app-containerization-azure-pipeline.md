@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.reviewer: jsuri
 ms.topic: tutorial
 ms.date: 02/06/2025
+ms.update:cycle: 365-days
 ms.custom: engagement-fy23
 # Customer intent: "As a DevOps engineer, I want to set up a continuous deployment pipeline for my containerized applications, so that I can automate the build and deployment processes and improve efficiency in managing updates and Day 2 operations."
 ---
