@@ -54,7 +54,7 @@ and `productName`. It uses two built-in policies to apply the default tag value.
         },
         "policyDefinitions": [{
                 "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
-                "definitionVersion": "1.*.*"
+                "definitionVersion": "1.*.*",
                 "parameters": {
                     "tagName": {
                         "value": "costCenter"
@@ -126,7 +126,10 @@ there are some _common_ properties used by Azure Policy and in built-ins.
   as _deprecated_.
 
 ## Version
-Both built-in and custom policy initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version)
+
+Both built-in and custom policy initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version).
+
+Custom initiative versioning is in public preview. During preview, each custom initiative can hold up to four versions.
 
 The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey state and level of change to a policy definition or initiative. The format of `version` is: `{Major}.{Minor}.{Patch}`. When a policy definition is in preview state, the suffix _preview_ is appended to the `version` property and treated as a **boolean**. When a policy definition is deprecated, the deprecation is captured as a boolean in the definition's metadata using `"deprecated": "true"`.
 
@@ -267,7 +270,7 @@ Each _array_ element that represents a policy definition has the following prope
 - `parameters`: (Optional) The name/value pairs for passing an initiative parameter to the
   included policy definition as a property in that policy definition. For more information, see
   [Parameters](#parameters).
-- `definitionVersion` : (Optional) The version of the policy definition to refer to. If none is specified, it refers to the latest major version at assignment time and autoingest any minor updates. For more information, see [definition version](./definition-structure-basics.md#version)
+- `definitionVersion` : (Optional) The version of the policy definition to refer to. If none is specified, it refers to the latest major version at assignment time and autoingests any minor updates. For more information, see [definition version](./definition-structure-basics.md#version)
 - `groupNames` (array of strings): (Optional) The group the policy definition is a member of. For
   more information, see [Policy groups](#policy-definition-groups).
 
@@ -279,7 +282,7 @@ passed the same initiative parameter:
     {
         "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0ec8fc28-d5b7-4603-8fec-39044f00a92b",
         "policyDefinitionReferenceId": "allowedLocationsSQL",
-        "definitionVersion": "1.2.*"
+        "definitionVersion": "1.2.*",
         "parameters": {
             "sql_locations": {
                 "value": "[parameters('init_allowedLocations')]"
