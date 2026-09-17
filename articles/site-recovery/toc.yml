@@ -92,14 +92,16 @@
       href: avs-tutorial-reprotect.md
     - name: Fail back from Azure
       href: avs-tutorial-failback.md
-  - name: Move to modernized VMware VM disaster recovery
+  - name: Archive - retired classic VMware migration
     items:
     - name: Classic to modernized VMware disaster recovery
       href: move-from-classic-to-modernized-vmware-disaster-recovery.md
     - name: Move from classic to modernized VMware disaster recovery
       href: how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md
-    - name: Deploy Azure Site Recovery replication appliance (modernized)
-      href: deploy-vmware-azure-replication-appliance-modernized.md
+    - name: Classic to modernized VMware disaster recovery FAQ
+      href: classic-to-modernized-common-questions.md
+  - name: Deploy Azure Site Recovery replication appliance (modernized)
+    href: deploy-vmware-azure-replication-appliance-modernized.md
   - name: Set up disaster recovery for Azure Extended Zones VMs
     items:
     - name: Disaster recovery using the Recovery Services vault
@@ -152,8 +154,6 @@
       href: vmware-azure-common-questions.md
     - name: Hyper-V to Azure disaster recovery
       href: hyper-v-azure-common-questions.md
-    - name: Classic to Modernized
-      href: classic-to-modernized-common-questions.md
     - name: Monitoring
       href: monitoring-common-questions.md
   - name: About Azure VM disaster recovery
@@ -489,7 +489,7 @@
       href: ../backup/backup-center-obtain-insights.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
     - name: Perform actions
       href: ../backup/backup-center-actions.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
-  - name: Classic
+  - name: Archive - retired classic experience
     items:
     - name: VMware VM
       items:
