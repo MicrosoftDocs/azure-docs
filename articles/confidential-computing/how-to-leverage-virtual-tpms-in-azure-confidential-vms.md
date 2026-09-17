@@ -115,5 +115,5 @@ Using the steps mentioned in this document allows you to extend any arbitrary ru
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create a custom image for Azure confidential VMs](how-to-create-custom-image-confidential-vm.md)
+- [Attest a Linux workload with dm-verity and IMA](how-to-attest-linux-workload-dm-verity-ima.md).
+- [Create a custom image for Azure confidential VMs](how-to-create-custom-image-confidential-vm.md).

@@ -61,6 +61,8 @@
       href: guest-attestation-example.md
     - name: Use virtual TPMs in Azure confidential VMs
       href: how-to-leverage-virtual-tpms-in-azure-confidential-vms.md
+    - name: Attest a Linux workload with dm-verity and IMA
+      href: how-to-attest-linux-workload-dm-verity-ima.md
     - name: Create a custom image for a confidential VM
       href: how-to-create-custom-image-confidential-vm.md
     - name: How to migrate nested confidential VMs from one region to another

@@ -69,6 +69,12 @@ The verifier ([Microsoft Azure Attestation (MAA)](https://azure.microsoft.com/pr
 
 ![Figure of vTPM-based Evidence Trust Chain](media/guest-attestation-confidential-vms-design/azure-cvm-trusted-chain.png)
 
+### Linux workload measurements
+
+Linux Integrity Measurement Architecture (IMA) can extend runtime measurements into the vTPM, typically in PCR 10. For a read-only workload protected by dm-verity, device-mapper measurements can record the mapping configuration, including its root digest. A verifier must validate the IMA log against the quoted PCR state and compare the measured configuration with an approved value. Verifying the VM environment through guest attestation doesn't by itself establish that a workload image is approved.
+
+For guest setup and verifier requirements, see [Attest a Linux workload with dm-verity and IMA](how-to-attest-linux-workload-dm-verity-ima.md).
+
 ## Developer's Reference
 
 This section provides a reference to the vTPM-based guest attestation design used by Azure confidential VM.
