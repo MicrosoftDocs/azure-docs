@@ -5,7 +5,7 @@ services: firewall
 author: erjosito
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 06/19/2026
+ms.date: 09/17/2026
 ms.author: jomore
 # Customer intent: "As a network architect, I want to implement Azure Firewall in a multi hub and spoke topology, so that I can efficiently route and secure traffic between various virtual networks while simplifying network management."
 ---
@@ -43,7 +43,7 @@ To understand the multi-region design, you first need to understand the single-r
 Consider the routing requirements for each potential traffic flow in the single-region design to understand the user-defined route configuration:
 
 - **Spoke-to-spoke traffic**: Spokes aren't peered to each other, and virtual network peering isn't transitive. Each spoke knows how to route to the hub virtual network by default, but not to other spokes. A route for `0.0.0.0/0` applied to all spoke subnets covers spoke-to-spoke traffic.
-- **Spoke-to-internet traffic**: The `0.0.0.0/0` route in the spoke route table also covers traffic sent to the public internet. This route overwrites the system route included in public subnets by default. For more information, see [Default outbound access in Azure][default-outbound].
+- **Spoke-to-internet traffic**: The `0.0.0.0/0` route in the spoke route table directs traffic for the public internet to Azure Firewall. In a nonprivate subnet that has default outbound access, the user-defined route overrides the default Internet system route. New virtual networks created by using API versions released after March 31, 2026, use private subnets by default and require an explicit outbound method. In this design, Azure Firewall provides explicit outbound connectivity. For more information, see [Default outbound access in Azure][default-outbound].
 - **Internet-to-spoke traffic**: Traffic from the internet to the spoke usually goes through Azure Firewall first. Azure Firewall has Destination Network Address Translation (DNAT) rules configured, which also translates the source IP address (Source Network Address Translation or SNAT). The spoke workloads see traffic as coming from the Azure Firewall subnet. Virtual network peering creates system routes to the hub (`10.1.0.0/24`), so the spokes know how to route return traffic.
 - **On-premises-to-spoke and spoke-to-on-premises traffic**: Consider each direction separately:
   - **On-premises-to-spoke traffic**: Traffic arrives from the on-premises network to the VPN or ExpressRoute gateways. With default routing in Azure, a system route is created in the GatewaySubnet (and other subnets in the hub virtual network) for each spoke. You must override these system routes and set the next hop to the Azure Firewall's private IP address. In this example, you need two routes in a route table associated with the gateway subnet, one for each spoke (`10.1.1.0/24` and `10.1.2.0/24`). Using a summary such as `10.1.0.0/16` that encompasses all spoke virtual networks doesn't work because the system routes injected by the virtual network peerings in the gateway subnet are more specific (`/24` compared to the `/16` summary). This route table must have the **Propagate gateway routes** toggle enabled (set to *Yes*), otherwise gateway routing can become unpredictable.
