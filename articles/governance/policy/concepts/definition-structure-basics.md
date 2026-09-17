@@ -125,7 +125,7 @@ The following resource provider modes don't support built-in versioning:
 - `Microsoft.ManagedHSM.Data`
 - `Microsoft.CognitiveServices.Data`
 
-Custom policy versioning isn't supported for any Resource Provider mode during public preview, including:
+Custom policy versioning isn't supported for any resource provider mode during public preview, including:
 
 - `Microsoft.KeyVault.Data`
 
