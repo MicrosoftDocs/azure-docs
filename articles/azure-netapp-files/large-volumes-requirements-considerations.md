@@ -228,7 +228,7 @@ After submitting the request, check the status of feature registration with the 
 Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBreakthroughMode 
 ```
 
-You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
+You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to display the registration status. 
 
 ### Register for large volumes up to 7.2 PiB
 
