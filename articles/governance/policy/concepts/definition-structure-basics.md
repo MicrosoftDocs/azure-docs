@@ -135,7 +135,7 @@ Both built-in and custom policy definitions can host multiple versions with the 
 
 Custom policy versioning is in public preview. During preview, each custom definition or initiative can hold up to four versions.
 
-The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey state and level of change to a policy definition or initiative. The format of `version` is: `{Major}.{Minor}.{Patch}`. When a policy definition is in preview state, the suffix _preview_ is appended to the `version` property and treated as a **boolean**. When a policy definition is deprecated, the deprecation is captured as a boolean in the definition's metadata using `"deprecated": "true"`.
+The Azure Policy service uses the `version`, `preview`, and `deprecated` properties to convey state and level of change to a policy definition or initiative. The format of `version` is: `{Major}.{Minor}.{Patch}`. When a policy definition is in preview state, the suffix _preview_ is appended to the `version` property and treated as a **boolean**. When a policy definition is deprecated, the deprecation is captured as a boolean in the definition's metadata using `"deprecated": "true"`.
 
 - Major Version (example: 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default.
 - Minor Version (example: 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to `roleDefinitionIds`, adding or moving definitions within an initiative.
