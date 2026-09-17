@@ -131,7 +131,7 @@ Custom policy versioning isn't supported for any Resource Provider mode during p
 
 ## Version
 
-Both built-in and custom policy definitions can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version)
+Both built-in and custom policy definitions can host multiple versions with the same `definitionID`. If you don't specify a version number, all experiences show the latest version of the definition. To see a specific version of a built-in policy, specify it in the API, SDK, or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version).
 
 Custom policy versioning is in public preview. During preview, each custom definition or initiative can hold up to four versions.
 
