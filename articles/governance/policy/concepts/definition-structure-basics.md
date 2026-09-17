@@ -118,7 +118,7 @@ The following Resource Provider modes are currently supported as a [preview](htt
 > [!NOTE]
 > Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
 
-The following Resource Provider modes don't support built-in versioning:
+The following resource provider modes don't support built-in versioning:
 
 - `Microsoft.DataFactory.Data`
 - `Microsoft.MachineLearningServices.v2.Data`
