@@ -3,20 +3,22 @@ title: Create an enclave connection from the Azure portal
 description: Create an enclave connection from the Azure portal.
 author: jadean-msft
 ms.author: jadean
+ms.service: azure-enclave
 ai-usage: ai-assisted
 ms.topic: how-to
-ms.date: 06/16/2026
+ms.date: 09/17/2026
 ---
 
 # Create an enclave connection from the Azure portal
 
-[Enclave connections](./what-enclave-connection.md) enable network traffic to flow into, out of, and between Azure Enclave communities and enclaves. In this how-to guide, you create an enclave connection in the Azure portal.
+[Enclave connections](./what-enclave-connection.md) enable network traffic to flow between Azure Enclave communities, enclaves, and transit hubs. In this how-to guide, you create an enclave connection in the Azure portal.
 
 ## Prerequisites
 
 - An Azure subscription. If needed, create a [free Azure account](https://azure.microsoft.com/free/).
 - A [community](./create-community-portal.md) and an [enclave](./create-enclave-portal.md).
-- An existing [enclave endpoint](./what-enclave-endpoint.md) or [community endpoint](./what-community-endpoint.md) in the same community.
+- For an enclave source, an existing [enclave endpoint](./what-enclave-endpoint.md) or [community endpoint](./what-community-endpoint.md) in the same community.
+- For a transit hub source, an existing transit hub and an enclave endpoint in the same community.
 
 ## Sign in to Azure
 
@@ -38,6 +40,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
    - `Enclave connection name`: Enter a name for the enclave connection.
    - `Community`: Select the existing community from the list.
 
+Choose the source type for the connection and follow the corresponding steps:
+
+- If the source is an enclave, follow the steps in [Configure an enclave source connection](#configure-an-enclave-source-connection).
+- If the source is a transit hub, follow the steps in [Configure a transit hub source connection](#configure-a-transit-hub-source-connection).
+
 ## Configure an enclave source connection
 
 If the connection source is `Transit Hub`, skip this section.
@@ -54,7 +61,7 @@ For connections where the source is `Enclave`, enter the required information:
 
 1. Select the `Destination Endpoint` from the list.
 
-    ![Screenshot showing enclave creation page with Enclave source selected.](./media/create-enclave-connection-tab-1-basics-enclave-source.png)
+    ![Screenshot showing the enclave connection page with an enclave source selected.](./media/create-enclave-connection-tab-1-basics-enclave-source.png)
 
 ## Configure a transit hub source connection
 
@@ -64,12 +71,12 @@ For connections where the source is `Transit Hub`, enter the required informatio
 
 1. Under `Source Type`, select `Transit Hub`.
 
-1. Select the `Source transit hub` from the list.
+1. Select the `Source Transit Hub` from the list.
 
 1. Enter the `Source IP addresses/CIDR range(s)` for this connection.
 
-1. Select the `Destination endpoint` from the list.
+1. Select an existing `Enclave Endpoint` from the list. If the transit hub is secured by Azure Firewall, you can select an `Enclave Endpoint` or `Community Endpoint`.
 
-    ![Screenshot showing enclave creation page with transit hub source selected.](./media/create-enclave-connection-tab-1-basics-transit-hub-source.png)
+    ![Screenshot showing the enclave connection page with a transit hub source selected.](./media/create-enclave-connection-tab-1-basics-transit-hub-source.png)
 
 1. Select `Review + create`, and then select `Create`.
