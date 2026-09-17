@@ -253,9 +253,9 @@ Another common use case for overrides is rolling out a new version of a definiti
 
 Overrides have the following properties:
 
-- `kind`: The property the assignment overrides. The supported kinds are `policyEffect` and `policyVersion`. Overrides of kind policyVersion are supported for built-in definitions and initiatives only. They aren't supported for custom definitions or initiatives.
+- `kind`: The property the assignment overrides. The supported kinds are `policyEffect` and `definitionVersion`. Overrides of kind definitionVersion are supported for built-in definitions and initiatives only. They aren't supported for custom definitions or initiatives.
 
-- `value`: The new value that overrides the existing value. For `kind: policyEffect`, the supported values are [effects](effect-basics.md). For `kind: policyVersion`, the supported version number must be greater than or equal to the `definitionVersion` specified in the assignment.
+- `value`: The new value that overrides the existing value. For `kind: policyEffect`, the supported values are [effects](effect-basics.md). For `kind: definitionVersion`, the supported version number must be greater than or equal to the `definitionVersion` specified in the assignment.
 
 - `selectors`: (Optional) The property used to determine what scope of the policy assignment should take on the override.
 
@@ -265,7 +265,7 @@ Overrides have the following properties:
 
     - `resourceLocation`: This property is used to select resources based on their type. Can't be used in the same resource selector as `resourceWithoutLocation`.
 
-    Allowed value for  `kind: policyVersion`:
+    Allowed value for  `kind: definitionVersion`:
 
     - `resourceLocation`: This property is used to select resources based on their type. Can't be used in the same resource selector as `resourceWithoutLocation`.
 

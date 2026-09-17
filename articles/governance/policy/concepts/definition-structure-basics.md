@@ -123,16 +123,17 @@ The following Resource Provider modes don't support built-in versioning:
 - `Microsoft.DataFactory.Data`
 - `Microsoft.MachineLearningServices.v2.Data`
 - `Microsoft.ManagedHSM.Data`
-- `Microsoft.CognititveServices.Data`
+- `Microsoft.CognitiveServices.Data`
 
-Custom policy versioning ins't supported for any Resource Provider mode during public preview, including:
+Custom policy versioning isn't supported for any Resource Provider mode during public preview, including:
 
 - `Microsoft.KeyVault.Data`
-
 
 ## Version
 
 Both built-in and custom policy definitions can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version)
+
+Custom policy versioning is in public preview. During preview, each custom definition or initiative can hold up to four versions.
 
 The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey state and level of change to a policy definition or initiative. The format of `version` is: `{Major}.{Minor}.{Patch}`. When a policy definition is in preview state, the suffix _preview_ is appended to the `version` property and treated as a **boolean**. When a policy definition is deprecated, the deprecation is captured as a boolean in the definition's metadata using `"deprecated": "true"`.
 
