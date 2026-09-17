@@ -5,7 +5,7 @@ author: ffrachon
 ms.author: fabricfr
 ms.service: azure
 ms.topic: concept-article
-ms.date: 09/10/2026
+ms.date: 09/17/2026
 
 #CustomerIntent: As a researcher or deployer, I want to understand Microsoft Discovery and its intended purpose, capabilities, and limitations so that I can make informed decisions about adoption and use.
 ---
