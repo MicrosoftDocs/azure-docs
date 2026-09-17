@@ -1044,6 +1044,17 @@ groups:
     title: Previous
   - id: service-latest
     title: Latest
+# Owner: duau
+- id: azure-portal-powershell-cli
+  title: Deployment method
+  prompt: Choose a deployment method
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: powershell
+    title: Azure PowerShell
+  - id: cli
+    title: Azure CLI
 # Owner: richbrun
 - id: azure-maps-android
   title: Programming languages

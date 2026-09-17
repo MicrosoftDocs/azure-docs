@@ -14,7 +14,7 @@ ms.date: 07/09/2025
 
 # Tutorial: Create a site-to-site VPN connection in the Azure portal
 
-In this tutorial, you use the Azure portal to create a site-to-site (S2S) VPN gateway connection between your on-premises network and a virtual network. You can also create this configuration by using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or the [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). This configuration uses a specified pre-shared key for the connection between the Azure VPN gateway and your on-premises VPN device. You can also configure a site-to-site connection using [certificate authentication](site-to-site-certificate-authentication-gateway-portal.md).
+In this tutorial, you use the Azure portal to create a site-to-site (S2S) VPN gateway connection between your on-premises network and a virtual network. You can also create this configuration by using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or the [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). This configuration uses a specified pre-shared key for the connection between the Azure VPN gateway and your on-premises VPN device. You can also configure a site-to-site connection using [certificate authentication](site-to-site-certificate-authentication-gateway.md).
 
 :::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections." lightbox="./media/tutorial-site-to-site-portal/diagram.png":::
 

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to migrate Azure Maps Render service version 1.0 requests to version 2024-04-01.
 author: faterceros
 ms.author: aterceros
-ms.date: 09/10/2026
+ms.date: 09/17/2026
 ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: rest-api
@@ -15,7 +15,7 @@ ms.subservice: rest-api
 Azure Maps Render API version 2024-04-01 supersedes Render API version 1.0. This article explains how to migrate Render 1.0 requests to version 2024-04-01.
 
 > [!IMPORTANT]
-> Azure Maps Render version 1.0 retires on September 17, 2026. To avoid service disruptions, migrate all Render 1.0 requests and client libraries to a supported version by that date. For more information, see the [Azure Maps Render v1 retirement announcement].
+> Azure Maps Render version 1.0 retired on September 17, 2026. Render 1.0 requests are no longer supported. For more information, see [Migrate Render v1](migrate-render-v1-api.md).
 
 ## API equivalency mapping
 
