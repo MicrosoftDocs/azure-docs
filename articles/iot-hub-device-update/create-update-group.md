@@ -238,7 +238,7 @@ If you tag a device but don't see a group, try the following troubleshooting ste
 - Verify the device reports a supported Plug and Play model ID.
 - Ensure the device twin includes a valid Plug and Play model ID and a valid `ADUGroup` tag.
 - Confirm that the IoT Hub message routes are correctly configured. For more information, see [Message routing](device-update-resources.md#message-routing).
-- Make sure the IoT Hub is correctly associated with the Device Update instance.
+- Ensure the IoT Hub is correctly associated with the Device Update instance.
 - Run Device Update diagnostics and the agent check.
 - Run device sync if necessary.
 
