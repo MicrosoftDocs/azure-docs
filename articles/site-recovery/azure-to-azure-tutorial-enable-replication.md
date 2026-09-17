@@ -3,7 +3,7 @@ title: Tutorial to set up Azure VM disaster recovery with Azure Site Recovery
 description: In this tutorial, set up disaster recovery for Azure VMs to another Azure region, using the Site Recovery service.
 ms.topic: tutorial
 ms.service: azure-site-recovery
-ms.date: 05/05/2026
+ms.date: 09/11/2026
 ms.custom: mvc
 ms.author: v-gajeronika
 #Customer intent: As an Azure admin, I want to set up disaster recovery for my Azure VMs, so that they're available in a secondary region if the primary region becomes unavailable.
@@ -36,6 +36,7 @@ Before you start this tutorial:
 - You need one or more Azure VMs. Verify that [Windows](azure-to-azure-support-matrix.md#windows) or [Linux](azure-to-azure-support-matrix.md#replicated-machines---linux-file-systemguest-storage) VMs are supported.
 - Review VM [compute](azure-to-azure-support-matrix.md#replicated-machines---compute-settings), [storage](azure-to-azure-support-matrix.md#replicated-machines---storage), and [networking](azure-to-azure-support-matrix.md#replicated-machines---networking) requirements.
 - This tutorial presumes that VMs aren't encrypted. If you want to set up disaster recovery for encrypted VMs, [follow this article](azure-to-azure-how-to-enable-replication-ade-vms.md).
+- For shared disks, follow the [shared-disk guidance](tutorial-shared-disk.md). Don't use the generic **Add disks** operation for a shared cluster disk; disable and re-enable protection for the complete cluster configuration.
 
 ## Check Azure settings
 
@@ -176,9 +177,11 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 ### Review replication settings
 
 1. In **Replication settings**, review the settings. Site Recovery creates default settings/policy for the target region. For the purposes of this tutorial, we use the default settings.
+    Replica and failover disk types normally mirror the source. Premium SSD v2 and Ultra Disk use Premium SSD v1 replica disks and retain their source disk type for failover.
     >[!Note]
     >Azure Site Recovery has a *High Churn* option that you can choose to protect VMs with high data change rate. With this, you can use a *Premium Block Blob* type of storage account. By default, the **Normal Churn** option is selected. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md). You can select the **High Churn** option from  **Storage** > **View/edit storage configuration** > **Churn for the VM**.
-    >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/vm-churn-settings.png" alt-text="Screenshot of churn."::: 
+    >
+    >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/vm-churn-settings.png" alt-text="Screenshot of churn settings.":::
 
 2. Select **Next**.
   
@@ -188,11 +191,12 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 
 1. In **Manage**, do the following:
     1. Under **Replication policy**,
-       - **Replication policy**: Select the replication policy. Defines the settings for recovery point retention history and app-consistent snapshot frequency. By default, Site Recovery creates a new replication policy with default settings of 24 hours for recovery point retention.
-       - **Replication group**: Create replication group to replicate VMs together to generate Multi-VM consistent recovery points. Note that enabling multi-VM consistency can impact workload performance and should only be used if machines are running the same workload and you need consistency across multiple machines.
+       - **Replication policy**: Select the replication policy. For default settings, see [Replication policy](azure-to-azure-architecture.md#replication-policy).
+       - **Replication group**: Create a replication group only when VMs run the same workload and require multi-VM-consistent recovery points.
     1. Under **Extension settings**, 
        - Select **Update settings** and **Automation account**.
-         :::image type="manage" source="./media/azure-to-azure-tutorial-enable-replication/manage.png" alt-text="Screenshot showing manage tab.":::
+
+         :::image type="manage" source="./media/azure-to-azure-tutorial-enable-replication/manage.png" alt-text="Screenshot that shows the Manage tab.":::
 
 1. Select **Next**.
 
