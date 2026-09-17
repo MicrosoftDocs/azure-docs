@@ -79,7 +79,7 @@ Refunds are treated as a regular charge. They go to your bank account.
 
 ### Paying with Pix in Brazil
 
-Customers who have billing address in Brazil and have an MCA billing account type can use Pix for one-time payment transactions. To make a payment with Pix:
+Customers who have a billing address in Brazil and an MCA billing account type can use Pix for one-time payment transactions. To make a payment with Pix:
 
 1. Select **Add a new payment method** when you're making a payment.
 2. Select **PIX**.
