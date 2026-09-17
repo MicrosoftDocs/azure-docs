@@ -83,7 +83,7 @@ Customers who have a billing address in Brazil and an MCA billing account type c
 
 1. Select **Add a new payment method** when you're making a payment.
 2. Select **PIX**.
-3. You'll see a QR code appearing in the payments blade within Azure portal. Alternatively, you can use the payment link provided to complete the payment. The link and the QR code are valid for 24 hours.
+3. You see a QR code in the payments blade within Azure portal. Alternatively, use the payment link provided to complete the payment. The link and the QR code are valid for 24 hours.
 4. Once payment is completed, the payment blade will automatically close and land you back into Azure portal.
 
 After you submit the payment, wait for the payment to appear in the Azure portal.
