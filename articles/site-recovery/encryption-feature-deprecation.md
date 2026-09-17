@@ -4,7 +4,7 @@ description: Get details about the Azure Site Recovery data encryption feature.
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 02/11/2026
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 ms.custom: engagement-fy23
@@ -17,7 +17,7 @@ This article describes the deprecation details and the remediation action that y
 
 ## Deprecation information
 
-The Site Recovery data encryption feature was available for customers who wanted to protect replicated data for Hyper-V VMs against security threats. Microsoft deprecated this feature on *April 30, 2022*. It's replaced by the [encryption at rest](https://learn.microsoft.com/azure/site-recovery/encryption-feature-deprecation) feature, which uses [service-side encryption](../storage/common/storage-service-encryption.md) (SSE).
+The Site Recovery data encryption feature was available for customers who wanted to protect replicated data for Hyper-V VMs against security threats. Microsoft deprecated this feature on *April 30, 2022*. It's replaced by encryption at rest, which uses [service-side encryption](../storage/common/storage-service-encryption.md) (SSE). For supported Hyper-V storage and encryption configurations, see the [Hyper-V-to-Azure support matrix](hyper-v-azure-support-matrix.md#azure-storage).
 
 By using SSE, data is encrypted before persisting to storage and decrypted on retrieval. Upon failover to Azure, your VMs run from the encrypted storage accounts to help improve recovery time objective (RTO).
 
@@ -39,4 +39,4 @@ After you complete the initial replication to storage accounts with SSE enabled,
 
 ## Next steps
 
-Plan for performing the remediation steps, and execute them as soon as possible. If you have any questions about this deprecation, contact Microsoft Support. To read more about the scenario of Hyper-V replication to Azure, see [this article](hyper-v-vmm-architecture.md).
+Plan for performing the remediation steps, and execute them as soon as possible. If you have any questions about this deprecation, contact Microsoft Support. To learn more about Hyper-V replication to Azure, see the [Hyper-V-to-Azure support matrix](hyper-v-azure-support-matrix.md).

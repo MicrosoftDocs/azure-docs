@@ -1041,7 +1041,7 @@ az iot ops dataflowgraph apply \
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-07-01' = {
   name: 'alert-routing'
   parent: dataflowProfile
   properties: {

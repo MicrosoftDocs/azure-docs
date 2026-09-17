@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 04/28/2026
+ms.date: 09/16/2026
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -64,6 +64,7 @@ The following table shows connectivity locations and the service providers for e
 | **Auckland2** | [Spark MDR](https://www.spark.co.nz/online/large-business-govt/products/manage/data-centre-services) | 2 | New Zealand North | &check; |  |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | &cross; | &check; | `AIS`<br/>`National Telecom`<br/>`UIH` |
 | **Berlin** | [NTT GDC](https://services.global.ntt/en-us/newsroom/ntt-ltd-announces-access-to-microsoft-azure-expressroute-at-ntts-berlin-1-data-center) | 1 | Germany North | &check; | `Colt`<br/>`Equinix`<br/>`NTT Global DataCenters EMEA` |
+| **Bogota** | Equinix BG1 | 3 | &cross; | &cross; | `Lumen (CenturyLink Cloud Connect)`<br/>`Cirion Technologies`<br/>`Equinix` |
 | **Brussels** | [Digital Realty BRU4](https://www.digitalrealty.com/data-centers/emea/brussels/bru4) | 1 | &cross; | &check; | `BICS`<br/>`Digital Realty`<br/>`Eurofiber` |
 | **Brussels2** | [LCL Brussels-North](https://www.lcl.be/) | 1 | &cross; | &check; | `BICS`<br/>`Eurofiber` |
 | **Busan** | [LG CNS](https://www.lgcns.com/business/cloud/datacenter/) | 2 | Korea South | &cross; | `LG CNS` |
@@ -83,7 +84,7 @@ The following table shows connectivity locations and the service providers for e
 |--|--|--|--|--|--|
 | **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/)<br/>[Equinix DA6](https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/dallas-data-centers/da6) | 1 | &cross; | &check; | `Aryaka Networks`<br/>`AT&T Connectivity Plus`<br/>`AT&T Dynamic Exchange`<br/>`AT&T NetBond`<br/>`BICS`<br/>`Cologix`<br/>`Cox Business Cloud Port`<br/>`Equinix`<br/>`Flo Networks`<br/>`GTT`<br/>`Intercloud`<br/>`Internet2`<br/>`Lumen (Level 3 Communications)`<br/>`MCM Telecom`<br/>`Megaport`<br/>`Momentum Telecom`<br/>`Orange`<br/>`PacketFabric`<br/>`Telmex Uninet`<br/>`Arelion (Telia Carrier)`<br/>`Telefonica`<br/>`Verizon`<br/>`Vodafone`<br/>`Zayo` |
 | **Dallas2** | [Digital Realty DFW10](https://www.digitalrealty.com/data-centers/americas/dallas/dfw10) | 1 | &cross; | &check; | `Digital Realty`<br/>`Momentum Telecom` |
-| **Denver** | [CoreSite DE1](https://www.coresite.com/data-centers/locations/denver/de1) | 1 | West Central US | &check; | `CoreSite`<br/>`Megaport`<br/>`Momentum Telecom`<br/>`PacketFabric`<br/>`Zayo` |
+| **Denver** | [CoreSite DE1](https://www.coresite.com/data-centers/locations/denver/de1) | 1 | West Central US | &check; | `Lumen (CenturyLink Cloud Connect)`<br/>`CoreSite`<br/>`Megaport`<br/>`Momentum Telecom`<br/>`PacketFabric`<br/>`Zayo` |
 | **Doha** | [MEEZA MV2](https://www.meeza.net/services/data-centre-services/) | 3 | Qatar Central | &check; | `Ooredoo Cloud Connect`<br/>`Vodafone` |
 | **Doha2** | [Ooredoo](https://www.ooredoo.qa/) | 3 | Qatar Central | &check; | `DE-CIX`<br/>`Ooredoo Cloud Connect` |
 | **Dubai** | [PCCS](http://www.pacificcontrols.net/cloudservices/) | 3 | UAE North | &check; | `Etisalat UAE` |
@@ -118,7 +119,7 @@ The following table shows connectivity locations and the service providers for e
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | &cross; | &check; | `AT&T Dynamic Exchange`<br/>`C3ntro`<br/>`Claro`<br/>`Equinix`<br/>`Flo Networks`<br/>`Lightpath`<br/>`Megaport`<br/>`Momentum Telecom`<br/>`PacketFabric`<br/>`PitChile` |
 | **Milan** | [IRIDEOS](https://www.retelit.it/it/infrastrutture/data-center-italia) | 1 | Italy North | &check; | `Colt`<br/>`Equinix`<br/>`Fastweb`<br/>`IRIDEOS`<br/>`Megaport`<br/>`Noovle`<br/>`Retelit`<br/>`Telecom Italia Sparkle`<br/>`Vodafone` |
 | **Milan2** | [DATA4](https://www.data4group.com/it/data-center-a-milano-italia/) | 1 | Italy North | &check; | `Retelit` |
-| **Minneapolis** | [Cologix MIN1](https://www.cologix.com/data-centers/minneapolis/min1/) and [Cologix MIN3](https://www.cologix.com/data-centers/minneapolis/min3/) | 1 | &cross; | &check; | `Cologix`<br/>`Megaport`<br/>`Zayo` |
+| **Minneapolis** | [Cologix MIN1](https://www.cologix.com/data-centers/minneapolis/min1/) and [Cologix MIN3](https://www.cologix.com/data-centers/minneapolis/min3/) | 1 | &cross; | &check; | `Lumen (CenturyLink Cloud Connect)`<br/>`Cologix`<br/>`Megaport`<br/>`Zayo` |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/)<br/>[Cologix MTL7](https://cologix.com/data-centers/montreal/mtl7/) | 1 | &cross; | &check; | `Bell Canada`<br/>`Lumen (CenturyLink Cloud Connect)`<br/>`Cologix`<br/>`Equinix`<br/>`Fibrenoire`<br/>`Megaport`<br/>`RISQ`<br/>`Telus`<br/>`Zayo` |
 | **Mumbai** | Tata Communications | 2 | West India | &check; | `BSNL`<br/>`British Telecom`<br/>`DE-CIX`<br/>`Global CloudXchange (GCX)`<br/>`InterCloud`<br/>`Lightstorm`<br/>`NTT Communications India Network Services Pvt Ltd`<br/>`Reliance Jio`<br/>`Tata Communications`<br/>`Verizon`<br/>`Zenlayer` |
 | **Mumbai2** | Airtel | 2 | West India | &check; | `Airtel`<br/>`Equinix`<br/>`Sify`<br/>`Orange`<br/>`Vodafone Idea` |

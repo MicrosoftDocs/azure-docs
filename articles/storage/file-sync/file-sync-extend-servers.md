@@ -12,27 +12,15 @@ ms.custom: sfi-image-nochange
 
 # Tutorial: Extend Windows file servers with Azure File Sync
 
-This article demonstrates the basic steps for extending the storage capacity of a Windows Server by using Azure File Sync. Although this tutorial features Windows Server as an Azure virtual machine (VM), you typically perform this process for your on-premises servers. For instructions on deploying Azure File Sync in your own environment, see [Deploy Azure File Sync](file-sync-deployment-guide.md).
-
-> [!div class="checklist"]
-> - Deploy the Storage Sync Service
-> - Prepare Windows Server to use with Azure File Sync
-> - Install the Azure File Sync agent
-> - Register Windows Server with the Storage Sync Service
-> - Create a sync group and a cloud endpoint
-> - Create a server endpoint
+This article demonstrates the basic steps for extending the storage capacity of a Windows Server by using Azure Files and Azure File Sync. Although this tutorial uses a Windows Server as an Azure virtual machine (VM), you typically perform this process for your on-premises Windows file servers. For instructions on deploying Azure File Sync in your own environment, see [Deploy Azure File Sync](file-sync-deployment-guide.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-## Sign in to Azure
-
-Sign in to the [Azure portal](https://portal.azure.com).
-
 ## Prepare your environment
 
-For this tutorial, complete the following tasks before you can deploy Azure File Sync:
+In this tutorial, you complete the following prerequisites before you deploy Azure File Sync:
 
-- Create an Azure storage account and file share
+- Create an Azure storage account and classic file share
 - Set up a Windows Server VM
 - Prepare the Windows Server VM for Azure File Sync
 
@@ -44,7 +32,9 @@ On your local computer, create a new folder named *FilesToSync* and add a text f
 
 Create an Azure storage account and SMB classic file share, and upload a test file.
 
-1. Create a storage account and SMB classic file share by following the steps in [Create a classic file share](../files/create-classic-file-share.md). Name the file share *afsfileshare* and keep the tier set to *Transaction optimized*.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Create a storage account and SMB classic file share by following the steps in [Create a classic file share](../files/create-classic-file-share.md). For cost efficiency, create a standard (HDD) file share that uses the provisioned v2 billing model. Name the file share *afsfileshare*. If you want to easily delete the Azure resources when you finish this tutorial, create a new resource group specifically for this exercise.
 
 1. Go to your storage account and select the new classic file share. On the file share location, select **Upload**.
 
@@ -54,15 +44,17 @@ Create an Azure storage account and SMB classic file share, and upload a test fi
 
     :::image type="content" source="media/storage-sync-files-extend-servers/create-file-share-portal6.png" alt-text="Screenshot showing how to browse and upload a file to the new classic file share using the Azure portal.":::
 
-At this point, you created a storage account and a file share with one file in it. Next, deploy an Azure VM with Windows Server to represent the on-premises server in this tutorial.
+At this point, you created a storage account and a classic file share with one file in it. Next, deploy an Azure VM with Windows Server to represent the on-premises server in this tutorial.
 
 ### Deploy a VM and attach a data disk
+
+Follow these steps to deploy a VM and attach a data disk.
 
 1. Select **Home** in the Azure portal. Under **Azure services**, select **+ Create a resource**.
 1. Under **Popular Azure services**, select **Virtual machine** > **Create**.
 1. Under **Project details**, select your subscription and the resource group you created for this tutorial.
 
-    :::image type="content" source="media/storage-sync-files-extend-servers/vm-project-and-instance-details.png" alt-text="Screenshot showing how to supply project and instance details when creating a V M for this tutorial.":::
+    :::image type="content" source="media/storage-sync-files-extend-servers/vm-project-and-instance-details.png" alt-text="Screenshot showing how to supply project and instance details when creating a VM for this tutorial.":::
 
 1. Under **Instance details**, enter a VM name. For example, use *myVM*.
 1. Don't change the default settings for **Region**, **Availability options**, and **Security type**.

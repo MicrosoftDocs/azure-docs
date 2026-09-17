@@ -4,7 +4,7 @@ description: Describes how to use Azure Traffic Manager with Azure Site Recovery
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 12/14/2023
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 
 # Customer intent: "As an IT operations manager, I want to implement Azure Traffic Manager with Azure Site Recovery, so that I can ensure seamless traffic redirection and minimize downtime during disasters or migrations across on-premises and cloud environments."
@@ -93,7 +93,7 @@ To avoid running into this problem and ensure application resiliency, **Company 
 
 ![Multi-region application after](./media/concepts-traffic-manager-with-site-recovery/geographic-application-after.png)
 
-For example, if the endpoint in Germany Central fails, the application can quickly be recovered to Germany Northeast. The new endpoint handles traffic originating from Germany with minimal downtime for users. Similarly an endpoint outage in West Europe can be handled by recovering the application workload to North Europe, with Azure Traffic Manager handling DNS redirects to the available endpoint.
+For example, if an endpoint in West Europe fails, the application can be recovered to North Europe. The new endpoint handles the regional traffic with minimal downtime for users. Choose source and recovery regions from the [Azure-to-Azure region support matrix](azure-to-azure-support-matrix.md#region-support).
 
 The above setup can be expanded to include as many region and endpoint combinations required. Traffic Manager allows up to 10 levels of nested profiles and does not permit loops within the nested configuration.
 

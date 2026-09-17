@@ -6,7 +6,6 @@ ms.reviewer: jsuri
 ms.topic: tutorial
 ms.date: 02/05/2025
 zone_pivot_groups: web-apps-assessment-aks
-monikerRange:
 ms.custom:
   - template-tutorial
   - devx-track-extended-java

@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: v-gajeronika
-ms.date: 12/04/2023
+ms.date: 09/11/2026
 
 # Customer intent: As a disaster recovery manager, I want to understand how to fail back VMware VMs and physical servers to the on-premises site from Azure, so that I can ensure business continuity and maintain protection for my infrastructure after a failover.
 ---
@@ -15,7 +15,7 @@ This article describes how to fail back Azure VMs to an on-premises site, follow
 
 ## Before you start
 
-1. Learn about [VMware failback](failover-failback-overview.md#vmwarephysical-reprotectionfailback). 
+1. Learn about the [types of VMware failback](concepts-types-of-failback.md).
 2. Make sure you've reviewed and completed the steps to [prepare for failback](vmware-azure-prepare-failback.md), and that all the required components are deployed. Components include a process server in Azure, an on-premises master target server, and a VPN site-to-site connection (or Express Route private peering) for failback.
 3. Make sure you've completed the [requirements](vmware-azure-reprotect.md#before-you-begin) for reprotection and failback, and that you've [enabled reprotection](vmware-azure-reprotect.md#enable-reprotection) of Azure VMs, so that they're replicating from Azure to the on-premises site. VMs must be in a replicated state is order to fail back.
 
@@ -30,10 +30,10 @@ This article describes how to fail back Azure VMs to an on-premises site, follow
 2. In the vault > **Replicated items**, select the VM. Right-click the VM > **Failover**.
 3. In **Confirm Failover**, verify the failover direction (from Azure).
 4. Select the recovery point that you want to use for the failover.
-    - We recommend that you use the **Latest** recovery point. The app-consistent point is behind the latest point in time, and causes some data loss.
-    - **Latest** is a crash-consistent recovery point.
-    - With **Latest**, a VM fails over to its latest available point in time. If you have a replication group for multi-VM consistency within a recovery plan, each VM in the group fails over to its independent latest point in time.
-    - If you use an app-consistent recovery point, each VM fails back to its latest available point. If a recovery plan has a replication group, each group recovers to its common available recovery point.
+    - **Latest** minimizes the recovery point objective by using the latest processed data, but it might not provide application consistency.
+    - **Latest app-consistent** uses the newest available application-consistent recovery point. It can be older than **Latest**, but it preserves application-consistency guarantees.
+    - With **Latest**, each VM in a multi-VM consistency group can recover to its independently latest available point.
+    - With **Latest app-consistent**, machines in a replication group recover to their latest common application-consistent point.
 5. Failover begins. Site Recovery shuts down the Azure VMs.
 6. After failover completes, check everything's working as expected. Check that the Azure VMs are shut down. 
 7. With everything verified, right-click  the VM > **Commit**, to finish the failover process. Commit removes the failed-over Azure VM. 
@@ -58,4 +58,3 @@ After committing the failback, the Azure VMs are deleted. The VM is back in the 
 ## Next steps
 
 After the reprotect job finishes, the on-premises VM is replicating to Azure. As needed, you can [run another failover](site-recovery-failover.md) to Azure.
-

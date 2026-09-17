@@ -3,7 +3,7 @@ title: Supported Languages in Azure Functions
 description: Find out which languages are supported for developing function apps in Azure, the support level of the various language versions, and end-of-support dates.
 ms.topic: concept-article
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 08/21/2025
+ms.date: 08/27/2026
 zone_pivot_groups: programming-languages-set-functions
 # customer intent: As a developer, I want to find information about Azure Functions support for languages and language versions so that I can check whether my function app code is supported and stay informed about when I need to update it.
 ---
@@ -17,6 +17,19 @@ This article explains the levels of support offered for your preferred language 
 ## Languages by runtime version
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)] 
+
+## Managed Linux images for affected existing apps
+
+Existing function apps keep their selected managed Linux image until you change the app configuration. If an existing Python 3.11 or Java 8, 11, or 17 app on an Elastic Premium or Dedicated (App Service) plan uses Debian Bullseye, use the following values to select a newer Linux distribution while retaining the same language version:
+
+| Language version | Debian Bullseye value | Newer distribution | Newer image value |
+| --- | --- | --- | --- |
+| Python 3.11 | `Python\|3.11\|2.0` | Debian Bookworm | `Python\|3.11\|3.0` |
+| Java 8 | `Java\|8\|2.0` | Ubuntu Noble | `Java\|8\|4.0` |
+| Java 11 | `Java\|11\|2.0` | Ubuntu Noble | `Java\|11\|4.0` |
+| Java 17 | `Java\|17\|2.0` | Ubuntu Noble | `Java\|17\|4.0` |
+
+For instructions to test and change the managed image, see [Update the managed Linux image](set-runtime-version.md?pivots=platform-linux#update-the-managed-linux-image). For apps on the Linux Consumption plan, [migrate to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md?pivots=platform-linux).
 
 ## Language support details
 

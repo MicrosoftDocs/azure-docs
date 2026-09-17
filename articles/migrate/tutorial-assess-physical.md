@@ -7,7 +7,6 @@ ms.service: azure-migrate
 ms.reviewer: jsuri
 ms.custom: MVC, engagement-fy25
 ms.update-cycle: 180-days
-monikerRange:
 # Customer intent: As a server administrator, I want to assess my on-premises physical servers for their cloud readiness and migration costs, so that I can effectively plan and execute their migration to a cloud infrastructure.
 ---
 

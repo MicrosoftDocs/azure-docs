@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: AbhishekMallick-MS
   ms.author: v-mallicka
-  ms.date: 05/25/2026
+  ms.date: 09/15/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -54,6 +54,8 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: Operational backup for Azure Elastic SAN volume
+            url: azure-elastic-san-backup-overview.md
           - text: Snapshot backup for SQL Instances in Azure VM (preview)
             url: backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview
           - text: Azure Cosmos DB vaulted backup (preview)
@@ -119,7 +121,7 @@ landingContent:
             url: azure-kubernetes-service-backup-overview.md
           - text: Azure Data Lake Storage backup
             url: azure-data-lake-storage-backup-overview.md
-          - text: Azure Elastic SAN backup (preview)
+          - text: Azure Elastic SAN volume operational backup
             url: azure-elastic-san-backup-overview.md
           - text: Offline backup
             url: offline-backup-overview.md
@@ -212,4 +214,3 @@ landingContent:
             url: backup-reports-system-functions.md#sample-queries
           - text: Azure Backup archived release notes  
             url: backup-release-notes-archived.md
-

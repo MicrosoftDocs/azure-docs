@@ -3,7 +3,7 @@ title: Common questions about Azure virtual machine disaster recovery with Azure
 description: This article answers common questions about Azure virtual machine disaster recovery when you use Azure Site Recovery.
 ms.author: v-gajeronika
 author: Jeronika-MS
-ms.date: 07/25/2025
+ms.date: 09/11/2026
 ms.topic: faq
 ms.service: azure-site-recovery
 ms.custom: sfi-image-nochange
@@ -39,7 +39,7 @@ Yes. Even though Azure Site Recovery is free during the first 31 days of a prote
 
 #### How do we ensure capacity in the target region?
 
-The Site Recovery team, and the Azure capacity management team, plan for sufficient infrastructure capacity. When you start a failover, the teams also help ensure that virtual machine instances protected by Site Recovery deploy to the target region.
+Failover capacity is available on a best-effort basis unless you configure an on-demand capacity reservation. The reservation must support the exact target VM size, region or zone, and deployment configuration. Capacity Reservation doesn't support every GPU, M-series, ND, HB, or HC size, and it isn't compatible with Ultra Disk, availability sets, Dedicated Hosts, proximity placement groups, or Spot VMs.
 
 ## Replication
 
@@ -149,28 +149,59 @@ When you replicate a new VM and specify a new Automation Account name, the vault
 
 Azure Site Recovery uses this new Automation Account to manage the site recovery extension on all replicated VMs.
 
-### Premium SSD v2 disks
+### Initial replication, reprotection, and resynchronization duration estimates
+
+The following tables compare estimated completion times for fully used Premium SSD v1 disks with Premium SSD v2 and Ultra Disks.
+
+> [!NOTE]
+> These values are planning estimates, not service-level commitments. Actual completion times can vary based on the distance and network latency between the source and target regions, available network bandwidth, source and target disk throughput, workload write size and write pattern, cache and storage account throughput limits or throttling, concurrent replication activity, ongoing writes to the source disk, and transient failures that require retries. The relative difference generally decreases as disk size increases.
+
+**Estimated initial replication time**
+
+| Disk size | Premium SSD v1 | Premium SSD v2 or Ultra Disk | Additional time |
+| --- | ---: | ---: | ---: |
+| 1 TB | 4 hours | 9 hours | 125% |
+| 2 TB | 8 hours | 18 hours | 125% |
+| 4 TB | 16 hours | 28 hours | 75% |
+| 8 TB | 32 hours | 56 hours | 75% |
+| 16 TB | 64 hours | 80 hours | 25% |
+| 32 TB | 128 hours | Approximately 141 hours | Approximately 11% |
+
+**Estimated checksum-based resynchronization or reprotection time**
+
+These estimates include the time required to compare the source and replica disks and transfer and apply the required data.
+
+| Disk size | Premium SSD v1 | Premium SSD v2 or Ultra Disk | Additional time |
+| --- | ---: | ---: | ---: |
+| 1 TB | 6 hours | 11 hours | Approximately 84% |
+| 2 TB | 12 hours | 22 hours | Approximately 84% |
+| 4 TB | 24 hours | 36 hours | 50% |
+| 8 TB | 48 hours | 72 hours | 50% |
+| 16 TB | 96 hours | 112 hours | Approximately 17% |
+| 32 TB | 192 hours | Approximately 205 hours | Approximately 7% |
+
+The recovery point objective (RPO) and recovery time objective (RTO) service-level agreements remain unchanged. Site Recovery uses Premium SSD v1 replica disks, so a Premium SSD v2 or Ultra Disk created during failover also requires time for data hydration. This hydration doesn't affect the availability of the failed-over environment.
+
+### Premium SSD v2 and Ultra Disk
 
 #### If the source disk IOPS is changed after enable replication, will it reflect during failover?
 
 The IOPS of the source Premium SSD v2 at the time of enable replication are copied and reflected in the failover disk. Any changes made to the IOPS of the Premium SSD v2 after protection aren't reflected in the failover disk. You can change the IOPS of the failed over disk in the target region after completion of failover process.
 
-#### What disk sector size is supported when I protect VMs with Premium SSD v2 disks?
+#### Is Premium SSD v2 supported for Azure-to-Azure disaster recovery?
 
-Azure Site Recovery supports both 512 and 4096 sector size disks in public preview.
+Premium SSD v2 support is generally available for Azure-to-Azure disaster recovery.
  
 #### Does Azure Site Recovery support Premium SSD v2 capability to live resize?
 
 Azure Site Recovery supports live resync. Once resize is completed, resync of Replica disk is performed by Azure Site Recovery and the older recovery points are deleted. Once the resync is completed and new recovery points start generating, you can failover using the new recovery points.
- 
-#### Are there any changes in performance of Azure Site Recovery between Premium SSD v1 and Premium SSD v2 disks?
 
-The RPO and RTO SLAs of Azure Site Recovery remain the same for both disk types. However, Premium SSD v2 disks take more time to complete the enable protection process. Also, as Azure Site Recovery uses Premium SSD v1 disks as replica disks, during failover, the new Premium SSD v2 disks created in target using the replica disk, would need some time for data hydration. However, this would not impact the environment availability.
- 
-#### What snapshots are used when protecting VMs with Premium SSD v2 using Azure Site Recovery?
+#### Why does Azure Site Recovery retain a snapshot for Premium SSD v2 and Ultra Disk?
 
-The Premium SSD v2 disks use Standard Page Blob snapshots in source, and Premium Snapshots in target. If the visible snapshots are deleted, Azure Site Recovery will have to resync.
- 
+During initial replication and resynchronization, Azure Site Recovery creates a managed disk snapshot directly from each Premium SSD v2 or Ultra Disk source disk. The snapshot remains after the operation completes so that a future resynchronization can reuse it and finish faster.
+
+If reducing snapshot charges is a higher priority, you can delete the snapshot after initial replication or resynchronization completes. Ongoing replication continues, but a future resynchronization can take longer because Site Recovery must create a new snapshot.
+
 #### Will Azure Site Recovery work for Premium SSD v2 with Standard Cache storage account?
 
 Azure Site Recovery for Premium SSD v2 has Premium Cache Storage account as default, which reflects as High Churn. While you enable Azure Site Recovery from PowerShell ensure that the cache storage account used is premium.
@@ -321,7 +352,7 @@ Creating a recovery plan for multi-VM consistency virtual machine works only if 
 
 #### How do we ensure capacity in the target region?
 
-The Site Recovery team, and Azure capacity management team, plan for sufficient infrastructure capacity on a best-effort basis. When you start a failover, the teams also help ensure virtual machine instances that are protected by Site Recovery can deploy to the target region. 
+Failover capacity is provided on a best-effort basis unless you configure a compatible on-demand capacity reservation for the target VM size and placement.
 
 #### Is failover automatic?
 
@@ -391,7 +422,7 @@ In a recovery plan, you can create up to 7 groups of virtual machine for sequenc
 
 To check the RTO of a recovery plan, do a test failover for the recovery plan. In **Site Recovery jobs**, check the test failover duration. In the example  screenshot, the **SAPTestRecoveryPlan** test failover job took 8 minutes and 59 seconds.
 
-![List jobs showing the duration of the test failover for RTO](./media/azure-to-azure-common-questions/recovery-plan-rto.png)
+![List jobs showing the duration of the test failover for RTO](./media/azure-to-azure-common-questions/recovery-plan-rto.PNG)
 
 #### Can I add automation runbooks to recovery plans?
 
@@ -415,7 +446,7 @@ After reprotection, failback takes about the same amount of time it took to fail
 
 #### How do we ensure capacity in the target region?
 
-The Site Recovery team and Azure capacity management team plan for sufficient infrastructure capacity on a best-effort basis. When you start a failover, the teams also help ensure virtual machine instances that are protected by Site Recovery can deploy to the target region.
+Failover capacity is provided on a best-effort basis unless you configure an on-demand capacity reservation. Validate that the reservation supports the exact target VM size, region or zone, and deployment configuration before you enable protection.
 
 #### Does Site Recovery work with Capacity Reservation?
 
@@ -452,7 +483,13 @@ Yes, both encryption in transit and [encryption at rest in Azure](../storage/com
 
 #### What network access do the disks created by Azure Site Recovery have?
 
-Azure Site Recovery creates [replica](./azure-to-azure-architecture.md#target-resources) and target disks. *Replica disks* are disks where the data is replicated and *target disks* are disks that are attached to failover (or test failover) virtual machines. Azure Site Recovery creates these disks with public access enabled. However, you can manually disable the public access for these disks by following these steps:
+Azure Site Recovery creates [replica](./azure-to-azure-architecture.md#target-resources) and target disks. *Replica disks* are disks where the data is replicated and *target disks* are disks that are attached to failover (or test failover) virtual machines.
+
+When you enable replication by using PowerShell, you can set the disk access configuration with `RecoveryNetworkAccessPolicy`, `RecoveryDiskAccessId`, and `RecoveryPublicNetworkAccess`. These settings apply to replica and failover disks. Configure the corresponding settings again when you reprotect or fail back.
+
+Disk Access with Private Link restricts managed-disk import and export traffic; it doesn't affect VM disk attachment traffic. Recovery Services vault and cache-storage private endpoints control Site Recovery service and replication traffic. Configuring one type of private connectivity doesn't configure the other.
+
+For existing protected items whose disks were created with public access, use the following manual procedure:
 
 1. Go to the **Replicated items** section of your recovery services vault. 
 1. Select the virtual machine for which you want to change the disk network access policy.

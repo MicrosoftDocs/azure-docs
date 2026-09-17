@@ -109,8 +109,6 @@ items:
     expanded: false
   - name: Migrate to Azure Managed Grafana
     href: how-to-migrate.md
-  - name: Configure Grafana settings
-    href: grafana-settings.md
   - name: Migrate from Essential service tier
     href: how-to-migrate-essential-service-tier.md
   - name: Troubleshoot issues

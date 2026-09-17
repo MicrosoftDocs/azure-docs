@@ -5,6 +5,7 @@ author: rashi-ms
 ms.author: jsuri
 ms.service: azure-migrate
 ms.topic: concept-article
+ms.update-cycle: 1825-days
 ms.date: 04/17/2025
 # Customer intent: As an IT administrator, I want to evaluate workload sizing using performance-based assessments, so that I can ensure optimal resource allocation on Azure and reduce costs without compromising resilience.
 ---

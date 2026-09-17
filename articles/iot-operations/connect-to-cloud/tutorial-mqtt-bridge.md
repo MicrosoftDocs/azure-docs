@@ -278,10 +278,10 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
-resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
+resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-07-01' = {
   parent: aioInstance
   name: 'eventgrid'
   extendedLocation: {
@@ -350,14 +350,14 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
-resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
+resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-07-01' = {
   parent: defaultDataflowProfile
   name: 'local-to-remote'
   extendedLocation: {
@@ -403,7 +403,7 @@ resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
     ]
   }
 } 
-resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
+resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-07-01' = {
   parent: defaultDataflowProfile
   name: 'remote-to-local'
   extendedLocation: {

@@ -1,17 +1,19 @@
 ---
-title: Reservation discounts for Azure Backup storage
-description: This article explains about how reservation discounts are applied to Azure Backup storage.
+title: How Azure Backup reserved capacity discounts apply
+description: Learn how Azure Backup reserved capacity discounts apply to vault-standard backup storage, including eligible usage, unused capacity, and overage charges.
 ms.topic: overview
 ms.service: azure-backup
-ms.date: 09/24/2025
+ms.date: 09/17/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to understand how reservation discounts for backup storage are applied, so that I can optimize my storage costs and ensure efficient use of my reserved capacity.
 ---
 
-# Understand how reservation discounts are applied to Azure Backup storage
+# How Azure Backup reserved capacity discounts apply
 
-Azure Backup enables you to save money on backup storage costs using Reserved capacity pricing. After you purchase reserved capacity, the reservation discount is automatically applied to the backup storage that matches the terms of the reservation. 
+Azure Backup reserved capacity helps you reduce backup storage costs by providing a discount on eligible backup storage. After you purchase reserved capacity, Azure automatically applies the reservation discount to backup storage that matches the reservation terms.
+
+This article explains how Azure applies the discount and what happens when you underuse or exceed your reserved capacity.
 
 >[!Note]
 >The reservation discount applies to storage capacity only.

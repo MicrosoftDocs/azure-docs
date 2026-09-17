@@ -4,7 +4,7 @@ metadata:
   description: This article discusses popular general questions about Azure Site Recovery.
   ms.topic: faq
   ms.service: azure-site-recovery
-  ms.date: 05/30/2025
+  ms.date: 09/11/2026
 
 
 title: General questions about Azure Site Recovery
@@ -155,10 +155,7 @@ sections:
       - question: |
          How can I enforce TLS 1.2 on VMware-to-Azure and Physical Server-to-Azure Site Recovery scenarios?
         answer: |
-              Mobility agents installed on the replicated items communicate to Process Server only on TLS 1.2. However, communication from Configuration Server to Azure and from Process Server to Azure could be on TLS 1.1 or 1.0. Follow the [guidance](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) to enforce TLS 1.2 on all Configuration Servers and Process Servers set up by you.
-              
-              >[!Note]
-              >The modernized experience uses TLS 1.2 for all the communication and enforces it by default. 
+              Current supported Site Recovery deployments use TLS 1.2 or later for communication. Protocols earlier than TLS 1.2 aren't supported current configurations. For more information, see [Transport Layer Security for Azure Site Recovery](transport-layer-security.md).
 
       - question: |
          How can I enforce TLS 1.2 on Hyper-V-to-Azure Site Recovery scenarios?
@@ -176,11 +173,8 @@ sections:
               - Resource Manager based storage accounts (Premium Type):
                 - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
                 - [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
-              - Classic storage accounts:
-                - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
-                - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
 
-               Cache storage account is not supported for managed identity.
+              Azure Site Recovery supports using the Recovery Services vault managed identity to access cache storage accounts, including accounts with key-based authentication disabled. Grant the required management and data access before changing authentication. For the current configuration steps, see [Turn off shared key access for cache storage accounts](asr-turn-off-key-authentication-cache.md).
 
 
 

@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 08/12/2026
+ms.date: 09/16/2026
 ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud architect, I need to know how to use virtual network peering for connecting virtual networks. This knowledge will allow me to design connectivity correctly and understand future scalability options and limitations.
@@ -16,7 +16,7 @@ ms.custom: sfi-image-nochange
 
 Azure Virtual Network peering enables you to seamlessly connect two or more virtual networks in Azure, making them appear as one for connectivity purposes. This powerful feature allows you to create secure, high-performance connections between virtual networks while keeping all traffic on Microsoft's private backbone infrastructure, eliminating the need for public internet routing.
 
-**What you'll learn in this article:**
+**What you learn in this article:**
 
 - How virtual network peering works and its key benefits
 
@@ -28,7 +28,7 @@ Azure Virtual Network peering enables you to seamlessly connect two or more virt
 
 Whether you're designing a hub-and-spoke topology or connecting networks across regions, this guide helps you understand the capabilities and limitations of virtual network peering.
 
-By default, a virtual network is peered with up to 500 other virtual networks. By using the [connectivity configuration for Azure Virtual Network Manager](../virtual-network-manager/concept-connectivity-configuration.md), you can increase this limit to peer up to 1,000 virtual networks to a single virtual network. With this larger size, you can create a hub-and-spoke topology with 1,000-spoke virtual networks, for example. You can also create a mesh of 1,000-spoke virtual networks where all spoke virtual networks are directly interconnected.
+By using [Azure Virtual Network Manager connectivity configurations](../virtual-network-manager/concept-connectivity-configuration.md), you can scale connectivity beyond traditional virtual network peering limits. For example, you can create a hub-and-spoke topology with up to 1,000 spoke virtual networks connected to a hub, or create a mesh connected group containing up to 3,000 virtual networks that can communicate directly with one another.
 
 Azure supports the following types of peering:
 
@@ -52,9 +52,9 @@ The benefits of using virtual network peering, whether local or global, include:
 
 Network traffic between peered virtual networks is private. Traffic between the virtual networks is kept on the Microsoft backbone network. No public internet, gateways, or encryption are required in the communication between the virtual networks.
 
-We recently introduced an added flexibility on top of virtual network peering - '**Subnet peering**'.
+Microsoft recently introduced an added flexibility on top of virtual network peering - '**Subnet peering**'.
  
-It's an added flexibility built on top of virtual network peering, where users get an option to choose specific subnets that need to be peered across virtual networks. Users can specify/enter the list of subnets across the virtual networks that they want to peer. In contrast, in regular virtual network peering, entire address space/subnets across the virtual networks get peered. For more information, see [How to configure Subnet Peering](how-to-configure-subnet-peering.md).
+It's an added flexibility built on top of virtual network peering, where you get an option to choose specific subnets that need to be peered across virtual networks. You can specify or enter the list of subnets across the virtual networks that you want to peer. In contrast, in regular virtual network peering, the entire address space and subnets across the virtual networks get peered. For more information, see [How to configure Subnet Peering](how-to-configure-subnet-peering.md).
 
 ## Connectivity
 
@@ -102,7 +102,7 @@ Each virtual network, including a peered virtual network, can have its own gatew
 
 When you configure both options for virtual network interconnectivity, the traffic between the virtual networks flows through the peering configuration. The traffic uses the Azure backbone.
 
-You can also configure the gateway in the peered virtual network as a transit point to an on-premises network. In this case, the virtual network that's using a remote gateway can't have its own gateway. A virtual network could have only one gateway. The gateway should be either a local or remote gateway in the peered virtual network, as shown in the following diagram.
+You can also configure the gateway in the peered virtual network as a transit point to an on-premises network. In this case, the virtual network that's using a remote gateway can't have its own gateway. A virtual network can have only one gateway. The gateway should be either a local or remote gateway in the peered virtual network, as shown in the following diagram.
 
 :::image type="content" source="./media/virtual-networks-peering-overview/local-or-remote-gateway-in-peered-virual-network.png" alt-text="Diagram that shows virtual network peering transit.":::
 
@@ -118,7 +118,7 @@ When you peer virtual networks that share a single ExpressRoute connection, the 
 
 In hub-and-spoke designs that use gateway transit, Azure VPN Gateway and ExpressRoute Gateway can advertise a large number of prefixes to on-premises because the default behavior is to advertise the address space of the hub and the address spaces of peered virtual networks.
 
-To reduce the number of advertised prefixes, you can configure advertised gateway prefixes on the gateway virtual network using the `summarizedGatewayPrefixes` property. When this property is populated on the hub virtual network, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes instead of the hub's address space and suppress advertisement of spoke address spaces that are covered by the summarized space.
+To reduce the number of advertised prefixes, you can configure advertised gateway prefixes on the gateway virtual network by using the `summarizedGatewayPrefixes` property. When you populate this property on the hub virtual network, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes instead of the hub's address space and suppress advertisement of spoke address spaces that are covered by the summarized space.
 
 > [!NOTE]
 > The `summarizedGatewayPrefixes` property only affects virtual networks with a gateway subnet.
@@ -127,7 +127,7 @@ For more information, see [Advertised gateway prefixes overview](advertised-gate
 
 ## Troubleshoot
 
-To confirm that virtual networks are peered, you can check effective routes. Check routes for a network interface in any subnet in a virtual network. If a virtual network peering exists, all subnets within the virtual network have routes with next hop type **Virtual network peering**, for each address space in each peered virtual network. For more information, see [Diagnose a virtual machine routing problem](diagnose-network-routing-problem.md).
+To confirm that virtual networks are peered, check effective routes. Check routes for a network interface in any subnet in a virtual network. If a virtual network peering exists, all subnets within the virtual network have routes with next hop type **Virtual network peering**, for each address space in each peered virtual network. For more information, see [Diagnose a virtual machine routing problem](diagnose-network-routing-problem.md).
 
 You can also troubleshoot connectivity to a virtual machine in a peered virtual network by using Azure Network Watcher. A connectivity check lets you see how traffic is routed from a source virtual machine's network interface to a destination virtual machine's network interface. For more information, see [Troubleshoot connections with Azure Network Watcher by using the Azure portal](../network-watcher/network-watcher-connectivity-portal.md).
 
@@ -141,7 +141,7 @@ The following constraints apply only when virtual networks are globally peered:
    
 * Some services that use a basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global virtual network peering and load balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers)
 
-You can't perform virtual network peerings as part of the `PUT` virtual network operation.
+* You can't perform virtual network peerings as part of the `PUT` virtual network operation.
 
 For more information, see [Requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn more about the supported number of peerings, see [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
@@ -151,7 +151,7 @@ To learn about permissions required to create a virtual network peering, see [Pe
 
 ## Pricing
 
-A nominal fee is charged for ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
+You pay a nominal fee for ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
 
 Gateway transit is a peering property that enables a virtual network to use a virtual private network or an ExpressRoute gateway in a peered virtual network. Gateway transit works for both cross-premises and network-to-network connectivity. Traffic to the gateway (ingress or egress) in the peered virtual network incurs virtual network peering charges on the spoke virtual network (or virtual network without a VPN gateway). For more information, see [Azure VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) for VPN gateway charges and ExpressRoute gateway charges.
 
@@ -163,12 +163,12 @@ Gateway transit is a peering property that enables a virtual network to use a vi
 Ready to implement virtual network peering? Choose your scenario:
 
 ### Get started with tutorials
-- **[Create peering in same subscription](tutorial-connect-virtual-networks-portal.md)** - Perfect for testing and development environments
-- **[Create peering across subscriptions](create-peering-different-subscriptions.md)** - Ideal for enterprise scenarios with multiple subscriptions
+- **[Create peering in same subscription](tutorial-connect-virtual-networks-portal.md)** - Perfect for testing and development environments.
+- **[Create peering across subscriptions](create-peering-different-subscriptions.md)** - Ideal for enterprise scenarios with multiple subscriptions.
 
 ### Advanced configurations  
-- **[Build a hub-and-spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)** - Scale your network architecture
-- **[Manage peering settings](virtual-network-manage-peering.md)** - Complete reference for all peering options
+- **[Build a hub-and-spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)** - Scale your network architecture.
+- **[Manage peering settings](virtual-network-manage-peering.md)** - Complete reference for all peering options.
 
 ### Need help?
-- **[Virtual network peering FAQ](virtual-networks-faq.md#virtual-network-peering)** - Common questions and answers
+- **[Virtual network peering FAQ](virtual-networks-faq.md#virtual-network-peering)** - Common questions and answers.

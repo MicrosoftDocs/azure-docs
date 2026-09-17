@@ -3,7 +3,7 @@ title: Migrate the metrics collector to Logs Ingestion - Azure IoT Edge
 description: Upgrade to Metrics Collector 2.0 and migrate authentication, module configuration, queries, saved workbooks, and alert rules.
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/15/2026
+ms.date: 09/16/2026
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -135,6 +135,25 @@ AZURE_CLIENT_CERTIFICATE_PATH=/run/secrets/metrics-collector/client.pfx
 The path refers to the file inside the container. Use your secure secret-delivery mechanism for certificate passwords or client secrets. Don't place private key content in a deployment manifest.
 
 Plan certificate renewal and distribution before the certificate expires. For credential configuration, see [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential).
+
+### Client-secret authentication
+
+Use an application registration in the tenant that contains the DCR. Grant its service principal **Monitoring Metrics Publisher** on the DCR. [Create a client secret](/entra/identity-platform/howto-create-service-principal-portal#option-3-create-a-new-client-secret) and use its **value**, not its ID.
+
+> [!WARNING]
+> The deployment manifest and the `$edgeAgent` module twin contain the client secret in plain text. Anyone with read access to that configuration can read the secret. Don't commit a manifest that contains a secret to source control. Prefer certificate authentication or workload identity federation for production.
+
+Set the collector module's environment variables in your deployment manifest. Replace the example values with your tenant ID, application client ID, and client secret value:
+
+```json
+"env": {
+  "AZURE_TENANT_ID": { "value": "<tenant-id>" },
+  "AZURE_CLIENT_ID": { "value": "<application-client-id>" },
+  "AZURE_CLIENT_SECRET": { "value": "<client-secret-value>" }
+}
+```
+
+Rotate the secret before it expires. After you verify ingestion with the replacement, revoke the old secret.
 
 ### Managed identity
 
