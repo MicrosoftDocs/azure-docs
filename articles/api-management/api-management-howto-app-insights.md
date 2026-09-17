@@ -371,7 +371,7 @@ After you configure and enable Application Insights logging, API Management auto
 
 Application Insights records these external calls as correlated child operations. For example, you can see retry attempts, OpenID Connect metadata retrieval by `validate-jwt`, a Service Bus send, or backend forwarding as related operations. To verify the telemetry in the Azure portal, open **End-to-end transaction details** in your Application Insights resource and review the related operations for a request.
 
-Currently we only support dependency tracking for the policies in the preceding list.
+Currently, dependency tracking is supported only for the policies in the preceding list.
 
 > [!NOTE]
 > For information about the maximum size and number of metrics and events per Application Insights instance, see [Application Insights limits](/azure/azure-monitor/service-limits#application-insights).
