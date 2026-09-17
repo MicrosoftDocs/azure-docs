@@ -56,7 +56,7 @@ You can manage both the route table associated with the spoke subnets and the ro
 
 ## Hub virtual network workloads
 
-Deploying workloads in the hub virtual network, such as Active Directory domain controllers, DNS servers, or other shared infrastructure, increases the complexity of the hub-and-spoke design. We recommend that you avoid placing workloads in the hub and instead deploy them in a dedicated spoke for shared services.
+Deploying workloads in the hub virtual network, such as Active Directory domain controllers, DNS servers, or other shared infrastructure, increases the complexity of the hub-and-spoke design. Avoid placing workloads in the hub. Instead, deploy them in a dedicated spoke for shared services.
 
 This section describes the configuration required for hub workloads so you can evaluate whether this complexity is acceptable for your requirements. We also describe a common mistake that can cause asymmetric traffic and packet drops.
 
@@ -74,7 +74,7 @@ The critical detail is that the user-defined routes configured in both the gatew
 
 ## Inter-subnet traffic inspection
 
-In the current setup, traffic between spokes is sent to the firewall, but intra-spoke traffic stays within the spoke virtual network, where you control it by using [network security groups][nsg]. This design considers virtual networks as a security boundary: the firewall only inspects traffic that exits or enters a virtual network.
+In the current setup, the firewall handles traffic between spokes, but intra-spoke traffic stays within the spoke virtual network, where you control it by using [network security groups][nsg]. This design considers virtual networks as a security boundary: the firewall only inspects traffic that exits or enters a virtual network.
 
 To inspect traffic between subnets in the same spoke virtual network, modify the route table associated with the spoke subnets as shown in the following diagram:
 
