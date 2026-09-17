@@ -78,7 +78,7 @@ For scenarios where acquiring tokens is supported, see the [Scenarios](https://g
 ## Samples
 
 - [RBAC samples using the legacy .NET Microsoft.Azure.EventHubs package](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). We're working on creating a new version of this sample by using the latest Azure.Messaging.EventHubs package. See the already converted [Managed Identity](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp).
-- [RBAC sample using the legacy Java com.microsoft.azure.eventhubs package](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Rbac). Use the [migration guide](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md) to migrate this sample to use the new package (`com.azure.messaging.eventhubs`). To learn more about using the new package, see the [Event Hubs Java samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs).
+- [RBAC sample using the legacy Java com.microsoft.azure.eventhubs package](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Rbac). Use the [migration guide](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md) to migrate this sample to use the new package (`com.azure.messaging.eventhubs`). To learn more about using the new package, see the [Event Hubs Java samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhuds/azure-messaging-eventhuds/src/samples/java/com/azure/messaging/eventhuds).
 
 ## Related content
 
