@@ -1,6 +1,6 @@
 ---
 title: Quota and region availability in Azure Enclave
-description: Learn about Azure Enclave quotas, regional availability, and data residency boundaries.
+description: Azure Enclave quotas, regional availability, and data residency boundaries.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
@@ -12,7 +12,7 @@ ai-usage: ai-assisted
 All Azure services set default limits and quotas for resources and features, such as usage restrictions for certain virtual machine (VM) sizes.
 Example: [DS_v5 series](/azure/virtual-machines/dv5-dsv5-series#dsv5-series) VMs (see the table showing resource limitations) 
 
-This article details the default resource limits for Azure Enclave resources, regional availability, and the geography boundaries for Azure Enclave-managed service data.
+This article covers Azure Enclave's default resource limits, regional availability, and service-data residency.
 
 ## Product Limitation Summary
 
@@ -74,22 +74,22 @@ az provider show --namespace Microsoft.Mission --query "resourceTypes[?resourceT
 
 ## Data residency
 
-Azure Enclave processes and stores its service data within the Azure geography of the customer-selected deployment region. This service data includes resource metadata and service audit and diagnostic logs.
+Azure Enclave processes and stores its service data in the Azure geography of your selected deployment region. This includes resource metadata and service audit and diagnostic logs.
 
-| Deployment region | Geography where Azure Enclave service data is processed and stored |
+| Deployment region | Service-data geography |
 | --- | --- |
 | Any supported United States region | United States |
 | Any supported Japan region | Japan |
 
-Regional availability and data residency describe different boundaries. Regional availability determines where you can deploy Azure Enclave. Data residency determines the geography in which Azure Enclave processes and stores the service data associated with that deployment. The table doesn't imply that Azure Enclave is available in every region within either geography; use the [regional availability guidance](#regions) to check supported deployment locations.
+This table doesn't imply availability in every region within either geography. See [regional availability](#regions) for supported deployment locations.
 
-The residency boundary is the geography, not an individual region. Service-managed replication and recovery copies of this data remain within the same geography.
+The residency boundary is the geography, not a single region. Service-managed replication and recovery copies of this data remain within that geography.
 
 ### Customer-managed workloads and data movement
 
-The service-data boundary doesn't replace the residency behavior of the Azure services that you deploy in your workloads or the destinations that you configure. Customer-selected diagnostic destinations, backups, replication, exports, and network connections can move data to another geography.
+Customer-managed workloads follow the residency behavior of the Azure services you use and your configuration. Customer-selected diagnostic destinations, backups, replication, exports, and network connections can move data across geography boundaries.
 
-For workloads that must remain within one geography, select services and destinations that meet that requirement, including secondary regions used for disaster recovery. Review [configurable logging destinations](./observability.md#configurable-logging-destinations), [disaster recovery planning](./disaster-recovery-planning.md), and the [shared responsibility model](./shared-responsibility-model.md).
+For workloads that must stay within one geography, choose services and destinations, including disaster recovery regions, that meet that requirement. See [configurable logging destinations](./observability.md#configurable-logging-destinations), [disaster recovery planning](./disaster-recovery-planning.md), and the [shared responsibility model](./shared-responsibility-model.md).
 
 ## Next steps
 You can increase certain default limits and quotas. If your resource supports an increase, request the increase through an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (for **Issue type**, select **Quota**).
