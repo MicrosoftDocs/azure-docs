@@ -4,7 +4,7 @@ description: Learn how to deploy Tomcat, JBoss EAP, or Java SE apps to run on Az
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring boot, quarkus
 ms.devlang: java
 ms.topic: how-to
-ms.date: 09/17/2026
+ms.date: 09/18/2026
 ms.custom:
   - devx-track-java
   - devx-track-azurecli
@@ -103,49 +103,7 @@ For more information on version support, see [App Service language runtime suppo
 
 To identify web apps using Java 8, 11 and 17 you can use the following query with Azure CLI or Azure Cloud Shell to output a list to a file named java-webapps.csv.  Syntax is provided for both PowerShell or Bash.
 
-# [PowerShell](#tab/PowerShell)
-```powershell
-$outputFile = 'java-webapps.csv' 
-
-az account list --query "[].{id:id, name:name}" -o json | ConvertFrom-Json | ForEach-Object { 
-
-$sub = $_ 
-
-Write-Host "Scanning subscription: $($sub.name)" -ForegroundColor Cyan 
-az account set --subscription $sub.id 
-az webapp list --query "[].{name:name, rg:resourceGroup, location:location}" -o json | 
-    ConvertFrom-Json | 
-    ForEach-Object { 
-        $config = az webapp config show -n $_.name -g $_.rg ` 
-        --query "{javaVersion:javaVersion, linuxFxVersion:linuxFxVersion}" ` 
-        -o json | ConvertFrom-Json 
-
-        $jv = $config.javaVersion 
-        $lx = $config.linuxFxVersion 
-        $windowsJavaMatch = $jv -match '^(?:1\.8|8|11|17)(?:[._+-].*)?$' 
-        $linuxJavaMatch = $lx -match '(?i)(?:java|jre)[^0-9]*(?:1\.8|8|11|17)(?![0-9])' 
-
-        if ($windowsJavaMatch -or $linuxJavaMatch) { 
-            [PSCustomObject]@{ 
-            Subscription = $sub.name 
-            SubscriptionId = $sub.id 
-            Name = $_.name 
-            ResourceGroup = $_.rg 
-            Location = $_.location 
-            JavaVersion = $jv 
-            LinuxFxVersion = $lx 
-            } 
-        } 
-    } 
-} | Export-Csv -Path $outputFile -NoTypeInformation -Encoding utf8 
-
-Write-Host "Results exported to: $outputFile" -ForegroundColor Green 
-
-```
-
-# [Bash](#tab/Bash)
-
-```bash
+```azurecli-interactive
 output_file="java-webapps.csv" 
     printf '%s\n' \ 
     'Subscription,SubscriptionId,Name,ResourceGroup,Location,JavaVersion,LinuxFxVersion' \ 
