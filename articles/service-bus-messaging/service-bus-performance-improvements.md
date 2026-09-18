@@ -62,11 +62,15 @@ Service Bus operates several background processes that can affect compute utiliz
 
 If your application uses any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace. You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md). It's recommended to increase the number of Message Units (MUs) when CPU usage exceeds 70% to ensure optimal performance.
 
+### Plan namespace capacity by workload
+
+The maximum entity quota indicates how many entities a namespace can contain; it isn't a performance-sizing target. Namespace capacity requirements depend on the number of active entities, aggregate and per-entity activity, traffic concentration, message characteristics, and enabled features. Evaluate expected and peak workloads with representative testing and monitoring instead of sizing namespaces or MUs based on entity count alone.
+
 ### Sharding across namespaces
 
-While scaling up Compute (Messaging Units) allocated to the namespace is an easier solution, it **might not** provide a linear increase in the throughput. It's because of Service Bus internals (storage, network, etc.), which might be limiting the throughput.
+Consider distributing heavily used entities or independent workload groups across multiple Service Bus Premium namespaces. This topology provides workload isolation and allows each namespace to scale independently. You can adopt it proactively when workloads have different scaling or isolation requirements.
 
-The cleaner solution in this case is to shard your entities (queues, and topics) across different Service Bus Premium namespaces. You can also consider sharding across different namespaces in different Azure regions.
+Sharding can also help when increasing the compute (Messaging Units) allocated to a namespace doesn't provide a linear increase in throughput because other Service Bus resources, such as storage or networking, might limit performance. If your workload requires regional distribution, you can also shard entities across namespaces in different Azure regions.
 
 ## Protocols
 Service Bus enables clients to send and receive messages via one of three protocols:
