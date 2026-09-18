@@ -140,7 +140,7 @@ Yes, the new config must be distributed to the new clients to prevent any impact
 
 ### Will I be able to enable SSTP protocol up to the retirement date?
 
-No, you won't be able to enable SSTP protocol after March 31, 2026.
+No, you can't enable the SSTP protocol after August 31, 2026.
 
 ### Can I go to “IKEv2” protocol directly instead of IKEv2 and SSTP protocol?
 
