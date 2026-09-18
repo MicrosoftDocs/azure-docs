@@ -691,6 +691,8 @@
       href: migrate-version-3-version-4.md
     - name: Migrate v1.x to v4.x
       href: migrate-version-1-version-4.md
+    - name: Runtime v1.x legacy reference
+      href: functions-runtime-1x-legacy.md
   - name: Language version updates
     items:
     - name: Update language versions
