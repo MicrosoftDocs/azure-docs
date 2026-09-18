@@ -29,7 +29,7 @@ Sometimes the settings for your local network gateway Address Prefix or Gateway 
 
 Install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-[!INCLUDE [CLI-login](../../includes/vpn-gateway-cli-login-include.md)]
+[!INCLUDE [CLI-login](../networking/includes/vpn-gateway/cli-login.md)]
 
 ## <a name="ipaddprefix"></a>Modify IP address prefixes
 

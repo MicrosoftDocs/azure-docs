@@ -52,7 +52,7 @@ You can create an Azure VPN gateway in an active-active mode configuration. In a
 
 :::image type="content" source="./media/vpn-gateway-highlyavailable/active-active.png" alt-text="Diagram shows an on-premises site with private I P subnets and on-premises V P N connected to two active Azure V P N gateway to connect to subnets hosted in Azure.":::
 
-[!INCLUDE [active-active gateways](../../includes/vpn-gateway-active-active-gateway-include.md)]
+[!INCLUDE [active-active gateways](../networking/includes/vpn-gateway/active-active-gateway.md)]
 
 ### Dual-redundancy: active-active VPN gateways for both Azure and on-premises networks
 
