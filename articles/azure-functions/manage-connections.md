@@ -133,7 +133,7 @@ These specific app settings define identity-based connections to both [`AzureWeb
 
 Because the double-underscore value (`__`) is interpreted at runtime as a colon (`:`), the series of settings are interpreted as properties of the `AzureWebJobsStorage` object. Choose the example that matches your storage account configuration.
 
-#### Standard Azure DNS
+#### Use standard Azure DNS endpoints for AzureWebJobsStorage
 
 For a storage account that uses standard Azure DNS endpoints, use these app settings:
 
@@ -152,7 +152,7 @@ At runtime, the host interprets these settings as a complex `AzureWebJobsStorage
 }
 ```
 
-#### Custom DNS or sovereign cloud
+#### Use custom DNS or sovereign cloud endpoints for AzureWebJobsStorage
 
 For a storage account that uses custom DNS or is in a sovereign cloud, use these app settings:
 
