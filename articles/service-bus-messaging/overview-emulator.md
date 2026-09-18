@@ -73,7 +73,7 @@ Like the Service Bus cloud service, the emulator provides the following quotas f
 | Number of entities(queues/topics) in a namespace| 50| Yes
 | Number of Subscriptions per topic | 50 | Yes
 | Number of correlation filters per topic | 1,000 | Yes 
-| Number of SQL filters per topic | 70 | Yes
+| Number of SQL filters per topic | 70 | Yes |
 | Length of filter condition or rule action string | 1,024 | Yes
 | Number of expressions per rule action | 32 | Yes  
 | Number of concurrent connections to namespace| 10 |Yes
