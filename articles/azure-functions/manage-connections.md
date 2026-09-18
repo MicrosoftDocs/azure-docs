@@ -133,7 +133,7 @@ These specific app settings define identity-based connections to both [`AzureWeb
 
 Because the double-underscore value (`__`) is interpreted at runtime as a colon (`:`), the series of settings are interpreted as properties of the `AzureWebJobsStorage` object. Choose the example that matches your storage account configuration.
 
-#### [Standard Azure DNS](#tab/standard-dns)
+#### Standard Azure DNS
 
 For a storage account that uses standard Azure DNS endpoints, use these app settings:
 
@@ -152,7 +152,7 @@ At runtime, the host interprets these settings as a complex `AzureWebJobsStorage
 }
 ```
 
-#### [Custom DNS or sovereign cloud](#tab/custom-dns)
+#### Custom DNS or sovereign cloud
 
 For a storage account that uses custom DNS or is in a sovereign cloud, use these app settings:
 
@@ -174,8 +174,6 @@ At runtime, the host interprets these settings as a complex `AzureWebJobsStorage
     "clientId": "<MY_USER_ASSIGNED_IDENTITY_ID>"
 }
 ```
-
----
 
 You must also grant permissions for the identity in the default storage account so that the host can connect with sufficient permissions to perform the required tasks. To learn how, see [Grant permissions to an identity](#grant-permissions-to-an-identity). 
 
