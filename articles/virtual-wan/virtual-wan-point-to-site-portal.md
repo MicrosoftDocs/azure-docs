@@ -66,7 +66,7 @@ The instructions you follow depend on the authentication method you want to use.
 
 [!INCLUDE [Point to site page](../../includes/virtual-wan-p2s-gateway-include.md)]
 
-[!INCLUDE [Point to site page](../../includes/virtual-wan-hub-router-provisioning-warning.md)]
+[!INCLUDE [Point to site page](../networking/includes/virtual-wan/hub-router-provisioning-warning.md)]
 
 ## <a name="download"></a>Generate client configuration files
 
