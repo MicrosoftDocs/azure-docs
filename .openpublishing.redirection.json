@@ -1,6 +1,101 @@
 {
   "redirections": [
     {
+      "source_path": "articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/physical-azure-disaster-recovery.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/physical-azure-set-up-source.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/physical-manage-configuration-server.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/physical-to-azure-failover-failback.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/site-recovery-plan-capacity-vmware.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-deploy-configuration-server.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-failback.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-install-linux-master-target.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-manage-configuration-server.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-manage-process-server.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-manage-vcenter.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-reprotect.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-set-up-process-server-azure.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-set-up-process-server-scale.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-set-up-target.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-physical-large-deployment.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-physical-manage-mobility-service.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/site-recovery/vmware-azure-prepare-failback.md",
+      "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/site-recovery/site-recovery-whats-new-archive.md",
       "redirect_url": "/azure/site-recovery/site-recovery-whats-new",
       "redirect_document_id": false
