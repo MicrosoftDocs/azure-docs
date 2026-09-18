@@ -137,7 +137,7 @@ Because the double-underscore value (`__`) is interpreted at runtime as a colon 
 
 For a storage account that uses standard Azure DNS endpoints, use these app settings:
 
-+ `AzureWebJobsStorage__accountName=<STORAGE_ACCOUNT_NAME>`
++ `AzureWebJobsStorage__accountName=<ACCOUNT_NAME>`
 + `AzureWebJobsStorage__credential=managedidentity`
 + `AzureWebJobsStorage__clientId=<MY_USER_ASSIGNED_IDENTITY_ID>`
 
@@ -146,7 +146,7 @@ At runtime, the host interprets these settings as a complex `AzureWebJobsStorage
 ```json
 "AzureWebJobsStorage":
 {
-    "accountName": "<STORAGE_ACCOUNT_NAME>",
+    "accountName": "<ACCOUNT_NAME>",
     "credential": "managedidentity",
     "clientId": "<MY_USER_ASSIGNED_IDENTITY_ID>"
 }
@@ -156,9 +156,9 @@ At runtime, the host interprets these settings as a complex `AzureWebJobsStorage
 
 For a storage account that uses custom DNS or is in a sovereign cloud, use these app settings:
 
-+ `AzureWebJobsStorage__blobServiceUri=https://<STORAGE_ACCOUNT_NAME>.blob.contoso.com`
-+ `AzureWebJobsStorage__queueServiceUri=https://<STORAGE_ACCOUNT_NAME>.queue.contoso.com`
-+ `AzureWebJobsStorage__tableServiceUri=https://<STORAGE_ACCOUNT_NAME>.table.contoso.com`
++ `AzureWebJobsStorage__blobServiceUri=https://<ACCOUNT_NAME>.blob.contoso.com`
++ `AzureWebJobsStorage__queueServiceUri=https://<ACCOUNT_NAME>.queue.contoso.com`
++ `AzureWebJobsStorage__tableServiceUri=https://<ACCOUNT_NAME>.table.contoso.com`
 + `AzureWebJobsStorage__credential=managedidentity`
 + `AzureWebJobsStorage__clientId=<MY_USER_ASSIGNED_IDENTITY_ID>`
 
@@ -167,9 +167,9 @@ At runtime, the host interprets these settings as a complex `AzureWebJobsStorage
 ```json
 "AzureWebJobsStorage":
 {
-    "blobServiceUri": "https://<STORAGE_ACCOUNT_NAME>.blob.contoso.com",
-    "queueServiceUri": "https://<STORAGE_ACCOUNT_NAME>.queue.contoso.com",
-    "tableServiceUri": "https://<STORAGE_ACCOUNT_NAME>.table.contoso.com",
+    "blobServiceUri": "https://<ACCOUNT_NAME>.blob.contoso.com",
+    "queueServiceUri": "https://<ACCOUNT_NAME>.queue.contoso.com",
+    "tableServiceUri": "https://<ACCOUNT_NAME>.table.contoso.com",
     "credential": "managedidentity",
     "clientId": "<MY_USER_ASSIGNED_IDENTITY_ID>"
 }
