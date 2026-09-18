@@ -178,7 +178,7 @@ The renewal process requires that the service principal for App Service has the 
 
    :::image type="content" source="./media/configure-ssl-certificate/auto-renew-app-service-cert.png" alt-text="Screenshot that shows the specified certificate's autorenewal settings." lightbox="./media/configure-ssl-certificate/auto-renew-app-service-cert.png":::
 
-1. To manually renew the certificate instead, select **Manual Renew**. You can request to manually renew your certificate when it expires within the next 90 days, but [certificates can't be issued for longer than 397 days](https://www.godaddy.com/help/important-notification-about-ssl-offerings-9322).
+1. To renew manually instead, select **Manual Renew**. Manual renewal is available during the last 90 days before the certificate expires. A [certificate can't be issued for longer than 397 days](https://www.godaddy.com/help/important-notification-about-ssl-offerings-9322).
 
 1. After the renewal operation finishes, select **Sync**.
 
