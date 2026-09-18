@@ -72,7 +72,7 @@ An action specifies a task to perform and always appears as a subsequent step in
 
 ## Connection permissions
 
-In a Consumption logic app workflow, before you can create or manage logic app resources, workflows, and their connections, you need specific permissions. For more information about these permissions, see [Secure operations - Secure access and data in Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md#secure-operations).
+In a Consumption logic app workflow, before you can create or manage logic app resources, workflows, and their connections, you need specific permissions. For more information about these permissions, see [Secure operations - Secure access and data in Azure Logic Apps](../logic-apps/set-up-security-permissions.md#secure-operations).
 
 ## Connection creation, configuration, and authentication
 
@@ -108,7 +108,7 @@ Azure Logic Apps can refresh OAuth access tokens while the refresh token remains
 > 
 > If your organization doesn't permit you to access specific resources through connectors in Azure Logic Apps, you can [block the capability to create such connections](../logic-apps/block-connections-connectors.md) using [Azure Policy](../governance/policy/overview.md).
 
-For more information about securing logic app workflows and connections, see [Secure access and data in Azure Logic Apps](../logic-apps/logic-apps-securing-a-logic-app.md).
+For more information about securing logic app workflows and connections, see [Secure access and data in Azure Logic Apps](set-up-security-permissions.md).
 
 <a name="firewall-access"></a>
 
