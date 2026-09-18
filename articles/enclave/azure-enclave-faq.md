@@ -71,7 +71,7 @@ az provider show --namespace Microsoft.Mission --query "resourceTypes[?resourceT
 
 ### Where does Azure Enclave keep service data?
 
-Azure Enclave processes and stores service data for any supported United States region in the United States geography, and for any supported Japan region in the Japan geography. This service data includes resource metadata, service audit and diagnostic logs, and service-managed replication and recovery copies.
+Azure Enclave processes and stores service data for any supported region. This service data includes resource metadata, service audit and diagnostic logs, and service-managed replication and recovery copies.
 
 Residency covers the geography, not a single region. Customer-managed workloads and configured data transfers follow the relevant services and your configuration and can cross geography boundaries. See [Data residency](./quotas-region-availability.md#data-residency) for scope and customer responsibilities.
 
