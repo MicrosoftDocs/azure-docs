@@ -12,7 +12,7 @@ You can generate VPN client profile configuration files either with PowerShell, 
 
 ### Azure portal
 
-[!INCLUDE [Generate profile configuration files - Azure portal](vpn-gateway-generate-profile-portal.md)]
+[!INCLUDE [Generate profile configuration files - Azure portal](../articles/networking/includes/vpn-gateway/generate-profile-portal.md)]
 
 ### PowerShell
 
