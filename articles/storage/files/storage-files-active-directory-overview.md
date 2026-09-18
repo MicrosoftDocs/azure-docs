@@ -47,6 +47,8 @@ Use the following table to choose an identity source.
 | [Microsoft Entra Domain Services](storage-files-identity-auth-domain-services-enable.md) | Organizations that already use or need a managed domain in Azure | Cloud-only or hybrid identities on Windows and Linux | Join clients to the managed domain and provide connectivity to its domain controllers. Manage file and directory permissions from a Windows client by using File Explorer or `icacls`. |
 | [Microsoft Entra Kerberos](storage-files-identity-auth-hybrid-identities-enable.md) | Cloud-first or hybrid environments, Microsoft Entra-joined clients, FSLogix profiles, macOS clients, or clients without domain-controller connectivity | Hybrid or cloud-only identities on Windows and [macOS](identity-kerberos-authentication-macos.md) (preview). Linux user authentication isn't supported. | Clients don't need domain-controller connectivity for authentication. Exclude the storage account application from applicable multifactor authentication (MFA) policies. For cloud-only identities, manage file and directory permissions by using the Azure portal or `RestSetAcls`. |
 
+For applications and Azure compute workloads that need keyless SMB access, consider using a [managed identity](files-managed-identities.md). Managed identity is separate from the three user identity sources and can coexist with user identity-based authentication on the same storage account.
+
 After you choose an identity source:
 
 1. Enable the identity source on the storage account.
@@ -55,8 +57,10 @@ After you choose an identity source:
 1. Configure [network access and DNS](storage-files-networking-overview.md).
 1. Prepare the clients and mount the file share.
 
+Authentication is only one part of access. To access a file or directory, the identity needs share-level permission and the appropriate file or directory permission. Configure network connectivity separately.
+
 > [!TIP]
-> You can change the identity source on a storage account later if your requirements change. For example, if you're moving from on-premises AD DS to cloud-only or hybrid identities backed by Microsoft Entra ID, you can migrate the storage account from AD DS to Microsoft Entra Kerberos authentication. For guidance, see [Change the identity source for Azure file shares](change-identity-source.md).
+> You can change the identity source on a storage account later if your requirements change. For example, if you're moving from on-premises AD DS to cloud-only or hybrid identities backed by Microsoft Entra ID, you can migrate the storage account from AD DS to Microsoft Entra Kerberos authentication. Changing the identity source temporarily interrupts identity-based access to all file shares in the storage account. For guidance, see [Change the identity source for Azure file shares](change-identity-source.md).
 
 ## Enable an identity source on your storage account
 
