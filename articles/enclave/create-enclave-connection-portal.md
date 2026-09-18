@@ -11,7 +11,7 @@ ms.date: 09/17/2026
 
 # Create an enclave connection from the Azure portal
 
-[Enclave connections](./what-enclave-connection.md) enable network traffic to flow between Azure Enclave communities, enclaves, and transit hubs. In this how-to guide, you create an enclave connection in the Azure portal.
+By using [enclave connections](./what-enclave-connection.md), you can enable network traffic to flow between Azure Enclave communities, enclaves, and transit hubs. In this how-to guide, you create an enclave connection in the Azure portal.
 
 ## Prerequisites
 
