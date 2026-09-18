@@ -2,7 +2,7 @@
 title: Bicep CLI commands 
 description: Learn about the commands that you can use in the Bicep CLI. These commands include building JSON Azure Resource Manager templates from Bicep.
 ms.topic: reference
-ms.date: 05/14/2026
+ms.date: 09/13/2026
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
 ---
 
@@ -364,6 +364,73 @@ az bicep decompile-params --file azuredeploy.parameters.json --bicep-file ./dir/
 ---
 
 This command decompiles an _azuredeploy.parameters.json_ parameters file into an _azuredeploy.parameters.bicepparam_ file. Use `--bicep-file` to specify the path to the Bicep file (relative to the `.bicepparam` file) that's referenced in the `using` declaration.
+
+## docs
+
+The `docs` command group is experimental and is available in Bicep CLI v0.47.16 or later. Its `generate` command compiles a Bicep module and renders documentation for it from the module's resource types, parameters, exported types, variables, and functions, outputs, referenced modules, and usage examples. The built-in template produces a Markdown _README.md_ file. You can replace the template with a custom [Scriban](https://github.com/scriban/scriban) template. For a walkthrough, see [Generate documentation for Bicep modules](./generate-module-documentation.md).
+
+[!INCLUDE [Bicep-experimental-features-not-supported](../../../includes/resource-manager-experimental-features.md)]
+
+To write _README.md_ next to a module, use:
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep docs generate main.bicep
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+`az bicep docs` doesn't exist. You must run `bicep docs` directly.
+
+---
+
+To generate documentation for every module that matches a glob pattern and write the files under a separate folder, use:
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep docs generate --pattern './modules/**/main.bicep' --outdir ./docs
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+`az bicep docs` doesn't exist. You must run `bicep docs` directly.
+
+---
+
+To print the rendered document to `stdout` without writing a file, use:
+
+# [Bicep CLI](#tab/bicep-cli)
+
+```bicepcli
+bicep docs generate main.bicep --stdout
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+`az bicep docs` doesn't exist. You must run `bicep docs` directly.
+
+---
+
+The command requires either one input `.bicep` file or `--pattern`, but not both. The following options are available:
+
+| Option | Argument | Description |
+| :-- | :-- | :-- |
+| `--stdout` | none | Prints the rendered document to `stdout`. Can't be combined with `--pattern`, `--outdir`, or `--outfile`. |
+| `--pattern` | glob | Generates documentation for every matching Bicep file. Can't be combined with an input file or `--outfile`. |
+| `--outdir` | folder | Writes the generated files beneath this folder. With `--pattern`, the relative folder structure of the matched modules is preserved. Can't be combined with `--outfile`. |
+| `--outfile` | path | Writes the single generated document to this exact path. |
+| `--template-file` | path | Uses a custom Scriban template instead of the built-in template. |
+| `--template-root` | folder | Sets the root folder for template `include` statements. Defaults to the module folder. |
+| `--custom-template-value` | `key=value` | Supplies one custom string value to the template. Can be repeated. |
+| `--custom-template-value-file-path` | path | Loads custom string values from a JSON object file. Can be repeated. |
+| `--no-restore` | none | Skips restoring external modules before compilation. |
+| `--diagnostics-format` | `default` or `sarif` | Sets the format for compilation diagnostics. |
+
+The output file name, template, and example discovery settings can also be configured under the `documentation` property in [_bicepconfig.json_](./generate-module-documentation.md#configure-documentation-settings). Options on the command line take precedence over the configuration file.
+
+Any failure returns exit code `1`. When you use `--pattern`, the command continues past modules that fail to compile so that valid modules are still documented.
 
 ## format
 
