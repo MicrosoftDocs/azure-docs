@@ -121,7 +121,7 @@ Azure Spring Apps sets the default maximum heap memory size to about 50%-80% of 
 
 #### Default maximum direct memory size
 
-When the maximum direct memory size isn't set using JVM options, the JVM automatically sets the maximum direct memory size to the value returned by [Runtime.getRuntime.maxMemory()](https://docs.oracle.com/javase/8/docs/api/java/lang/Runtime.html#maxMemory--). This value is approximately equal to the maximum heap memory size. For more information, see the [JDK 8 VM.java file](http://hg.openjdk.java.net/jdk8u/jdk8u/jdk/file/a71d26266469/src/share/classes/sun/misc/VM.java#l282&gt;%20jdk8).
+When the maximum direct memory size isn't set using JVM options, the JVM automatically sets the maximum direct memory size to the value returned by [Runtime.getRuntime.maxMemory()](https://docs.oracle.com/javase/8/docs/api/java/lang/Runtime.html#maxMemory--). This value is approximately equal to the maximum heap memory size. For more information, see the [JDK 8 VM.java file](https://github.com/openjdk/jdk8u-dev/blob/master/jdk/src/share/classes/sun/misc/VM.java#L280-L292).
 
 ### Memory usage layout
 
