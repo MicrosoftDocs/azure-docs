@@ -52,7 +52,7 @@ In this section, you create a virtual network by using the following values:
 * **IPv4 address space**: 10.1.0.0/16
 * **Subnet name**: FrontEnd
 * **Subnet address space**: 10.1.0.0/24
-[!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
+[!INCLUDE [About cross-premises addresses](../networking/includes/vpn-gateway/cross-premises.md)]
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 

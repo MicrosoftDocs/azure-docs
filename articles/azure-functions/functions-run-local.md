@@ -3,7 +3,7 @@ title: Develop Azure Functions Locally by using Core Tools
 description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you deploy them to run them on Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: how-to
-ms.date: 05/29/2026
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions
 ms.custom:
   - build-2026
@@ -275,10 +275,6 @@ Keep in mind the following considerations when running your functions locally:
 + You can trigger non-HTTP functions locally without connecting to a live service. For more information, see [Run a local function](./functions-run-local.md?tabs=non-http-trigger#run-a-local-function).
 
 + When you include your Application Insights connection information in the *local.settings.json* file, local log data is written to the specific Application Insights instance. To keep local telemetry data separate from production data, consider using a separate Application Insights instance for development and testing.
-
-::: zone pivot="programming-language-csharp,programming-language-javascript"
-+ When using version 1.x of the Core Tools, instead use the `func host start` command to start the local runtime.
-::: zone-end 
 
 ## Run a local function
 
@@ -567,10 +563,6 @@ When the settings file is encrypted and decrypted, the file's `IsEncrypted` sett
 
 [Functions triggers and bindings](functions-triggers-bindings.md) are implemented as .NET extension (NuGet) packages. To be able to use a specific binding extension, that extension must be installed in the project.
 
-::: zone pivot="programming-language-javascript,programming-language-csharp"
-This section doesn't apply to version 1.x of the Functions runtime. In version 1.x, supported bindings were included in the core product extension.
-::: zone-end
-
 ::: zone pivot="programming-language-csharp"
 For C# class library projects, add references to the specific NuGet packages for the binding extensions required by your functions. C# script (.csx) project must use [extension bundles](extension-bundles.md).
 ::: zone-end
@@ -606,9 +598,10 @@ The following considerations apply to Core Tools installations:
 + When upgrading to the latest version of Core Tools, you should use the same method that you used for original installation to perform the upgrade. For example, if you used an MSI on Windows, uninstall the current MSI and install the latest one. Or if you used npm, rerun the `npm  install command`.  
 
 + Version 2.x and 3.x of Core Tools were used with versions 2.x and 3.x of the Functions runtime, which have reached their end of support. For more information, see [Azure Functions runtime versions overview](functions-versions.md).  
-::: zone pivot="programming-language-csharp,programming-language-javascript"  
-+ Version 1.x of Core Tools is required when using version 1.x of the Functions Runtime, which is still supported. This version of Core Tools can only be run locally on Windows computers. If you're currently running on version 1.x, you should consider [migrating your app to version 4.x](migrate-version-1-version-4.md) today.
-::: zone-end  
+
+::: zone pivot="programming-language-csharp,programming-language-javascript"
+For historical information about Core Tools 1.x, see the [runtime 1.x legacy reference](functions-runtime-1x-legacy.md). To return a runtime 1.x app to full support, [migrate it to runtime 4.x](migrate-version-1-version-4.md).
+::: zone-end
 
 ## Related content
 
