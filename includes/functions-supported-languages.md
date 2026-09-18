@@ -101,7 +101,7 @@ The following table shows the language versions supported for PowerShell functio
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
-| [PowerShell 7.6](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | Preview | TBD |
+| [PowerShell 7.6](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 14, 2028 |
 | [PowerShell 7.4](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 10, 2026 |
 
 > [!NOTE]
