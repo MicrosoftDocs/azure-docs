@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create your first Azure Container Apps sandbox using the aca CLI (preview)'
+title: 'Quickstart: Create your first Azure Container Apps sandbox using the aca CLI'
 description: Install the aca CLI, create a sandbox group, and run your first Azure Container Apps sandbox from a shell.
 author: craigshoemaker
 ms.author: cshoe
@@ -10,13 +10,9 @@ ms.date: 08/21/2026
 # customer intent: As a developer, I want to create an Azure Container Apps sandbox from the command line so that I can start using an isolated environment without using the portal.
 ---
 
-# Quickstart: Create your first Azure Container Apps sandbox using the aca CLI (preview)
+# Quickstart: Create your first Azure Container Apps sandbox using the aca CLI
 
 In this quickstart, you install the `aca` CLI, provision a sandbox group, launch a sandbox, run a command, and tear it all down.
-
-
-> [!IMPORTANT]
-> Azure Container Apps Sandboxes are currently in preview. Sandboxes created during preview might not be compatible with future releases and might need to be recreated.
 
 ## Prerequisites
 
