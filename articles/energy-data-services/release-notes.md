@@ -25,13 +25,13 @@ This page is updated with the details about the upcoming release approximately a
 ## September 2026
 ### Apache Airflow 3 upgrade
 
-Azure Data Manager for Energy Workflow Service orchestration engine was upgraded from Apache Airflow 2 to Apache Airflow 3. This upgrade provides improved security, scalability, and performance for ingestion workloads, while keeping existing Workflow Service APIs unchanged. No customer action is required. For more information, see [Upgrading to Airflow 3](https://airflow.apache.org/docs/apache-airflow/stable/installation/upgrading_to_airflow3.html).
+Azure Data Manager for Energy Workflow Service orchestration engine was upgraded from Apache Airflow 2 to Apache Airflow 3. This upgrade provides improved security, scalability, and performance for ingestion workloads, while keeping existing Workflow Service APIs unchanged. No customer action is required.
 
 ### External Data Services ingestion performance and reliability improvements
 
-External Data Services (EDS) now supports larger metadata ingestion workloads with improved reliability and operational visibility. Batch and concurrent processing improvements increase throughput while managing resource use.
+External Data Services (EDS) now supports larger metadata ingestion workloads with improved reliability and operational visibility. Memory-based batching distributes processing across available workers, reducing peak memory use and memory-related ingestion failures while increasing throughput through horizontal scaling.
 
-Interrupted ingestion jobs can resume from checkpoints, reducing recovery time and avoiding duplicate submissions. Failed runs automatically retry after temporary service interruptions. Improved pagination and timeout handling lowers the risk of failed or incomplete ingestion. Enhanced status tracking, telemetry, and logging provide clearer insight into ingestion progress and failures.
+Interrupted ingestion jobs can make a best-effort recovery from checkpoints, reducing repeated work and duplicate ingestion attempts. Failed jobs automatically retry after recoverable service interruptions. If a search cursor expires, EDS can recover and continue searching for records instead of failing the ingestion run. EDS also tracks ingestion jobs until completion instead of relying on a fixed wait period, so workflows can finish as soon as all ingestion jobs complete. Enhanced status tracking, telemetry, and logging provide clearer insight into failures and workflow state at key processing milestones.
 
 ## August 2026
 ### Seismic single file restore - Preview
