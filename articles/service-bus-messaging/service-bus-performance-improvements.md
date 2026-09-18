@@ -64,7 +64,7 @@ If your application uses any of the above features and you aren't receiving the 
 
 ### Plan namespace capacity by workload
 
-The maximum entity quota indicates how many entities a namespace can contain; it isn't a performance-sizing target. Namespace capacity requirements depend on the number of active entities, aggregate and per-entity activity, traffic concentration, message characteristics, and enabled features. Evaluate expected and peak workloads with representative testing and monitoring instead of sizing namespaces or MUs based on entity count alone.
+The maximum entity quota shows how many entities a namespace can hold. It isn't a performance-sizing target. Namespace capacity needs depend on the number of active entities, aggregate and per-entity activity, traffic concentration, message characteristics, and enabled features. Evaluate expected and peak workloads by using representative testing and monitoring instead of sizing namespaces or MUs based on entity count alone.
 
 ### Sharding across namespaces
 
