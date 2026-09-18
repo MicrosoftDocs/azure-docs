@@ -3,7 +3,7 @@ title: Supported Languages in Azure Functions
 description: Find out which languages are supported for developing function apps in Azure, the support level of the various language versions, and end-of-support dates.
 ms.topic: concept-article
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 08/21/2025
+ms.date: 08/27/2026
 zone_pivot_groups: programming-languages-set-functions
 # customer intent: As a developer, I want to find information about Azure Functions support for languages and language versions so that I can check whether my function app code is supported and stay informed about when I need to update it.
 ---
@@ -18,6 +18,19 @@ This article explains the levels of support offered for your preferred language 
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)] 
 
+## Managed Linux images for affected existing apps
+
+Existing function apps keep their selected managed Linux image until you change the app configuration. If an existing Python 3.11 or Java 8, 11, or 17 app on an Elastic Premium or Dedicated (App Service) plan uses Debian Bullseye, use the following values to select a newer Linux distribution while retaining the same language version:
+
+| Language version | Debian Bullseye value | Newer distribution | Newer image value |
+| --- | --- | --- | --- |
+| Python 3.11 | `Python\|3.11\|2.0` | Debian Bookworm | `Python\|3.11\|3.0` |
+| Java 8 | `Java\|8\|2.0` | Ubuntu Noble | `Java\|8\|4.0` |
+| Java 11 | `Java\|11\|2.0` | Ubuntu Noble | `Java\|11\|4.0` |
+| Java 17 | `Java\|17\|2.0` | Ubuntu Noble | `Java\|17\|4.0` |
+
+For instructions to test and change the managed image, see [Update the managed Linux image](set-runtime-version.md?pivots=platform-linux#update-the-managed-linux-image). For apps on the Linux Consumption plan, [migrate to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md?pivots=platform-linux).
+
 ## Language support details
 
 The following table shows which languages supported by Functions can run on Linux or Windows. It also indicates whether there's support for editing each language in the Azure portal. The language is based on the **Runtime stack** option you select when you [create your function app in the Azure portal](functions-create-function-app-portal.md#create-a-function-app). This value is the same as the `--worker-runtime` option that you specify when you use the `func init` command in Azure Functions Core Tools.
@@ -31,7 +44,8 @@ The following table shows which languages supported by Functions can run on Linu
 | [Java](functions-reference-java.md) | Java |✓ |✓ | |
 | [PowerShell](functions-reference-powershell.md) |PowerShell Core |✓ |✓ |✓ |
 | [TypeScript](functions-reference-node.md?tabs=typescript) | Node.js |✓ |✓ |  |
-| [Go/Rust/other](functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
+| [Go (Preview)](functions-reference-go.md) | Go |✓ | | |
+| [Rust/other](functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
 
 1. In-portal editing isn't currently supported when running in the [Flex Consumption plan](./flex-consumption-plan.md). When in-portal editing isn't available, you must instead [develop your function apps locally](functions-develop-local.md#local-development-environments).
 2. Although we recommend local development for C# apps, you can use the portal to develop and test C# script functions that use the in-process model. For more information, see [Create a C# script app](functions-reference-csharp.md#create-a-c-script-app).
@@ -99,4 +113,8 @@ The following table lists the support that Open Database Connectivity (ODBC) dri
 ::: zone pivot="programming-language-python"
 > [!div class="nextstepaction"]
 > [Python developer reference](functions-reference-python.md)
+::: zone-end
+::: zone pivot="programming-language-go"
+> [!div class="nextstepaction"]
+> [Go developer reference](functions-reference-go.md)
 ::: zone-end

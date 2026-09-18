@@ -5,7 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: faq
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 03/05/2026
+ms.date: 07/29/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -52,35 +52,47 @@ Firmware analysis supports unencrypted images that contain file systems with emb
 
 ## What SBOM components does firmware analysis detect?
 
+> [!NOTE]
+> If firmware analysis detects a component but is unable to determine the version of that component, it may report the version as `0.0.0`. No CVEs will be reported for that particular component.
+
+
 **Component** | **Component** | **Component** | **Component**
----|---|---|---
-acpid       |   gtk         |   msmtp       |   redis       
-apache      |   harfbuzz    |   mstpd       |   rp_pppoe    
-avahi_daemon|   heimdal     |   ncurses     |   samba
-axios		|	hostapd		|	neon		|	sqlite
-backbonejs	|	inetutils_telnetd|	netatalk	|	ssmtp
-bash		|	iptables	|	netkit_telnetd	|	strongswan
-bftpd		|	jquery		|	netsnmp	    |		stunnel
-bluetoothd	|	libcurl		|	nettools	|	sudo
-busybox		|	libevent	|	nginx		|	tcpdump
-bzip2		|	libexpat	|	nss		    |	uclibc
-cairo		|	libgcrypt	|	openldap	|	underscorejs
-codesys		|	libidn		|	openssh		|	usbutils
-coreutils	|	libmicrohttpd	|	openssl	|		util_linux
-dhcpd		|	libpcap		|	openvpn		|	vim
-dnsmasq		|	libpng		|	openvswitch	|	vsftpd
-dropbear	|	libsoup		|	p7zip		|	vuejs
-e2fsprogs	|	libvorbis	|	pango		|	wget
-element		|	lighttpd	|	pcre		|	wolfssl
-extJS		|	lodash		|	pcre2		|	wpa_supplicant
-ffmpeg		|	logrotate	|	perl		|	xinetd
-fribidi		|	lua			|    php		|	      xl2tpd
-gdbserver	|	matrixssl	|	polarssl	|	zebra
-gdkpixbuf	|	mbedtls		|	pppd		|	zeptojs
-glibc		|	mcproxy		|	proftpd		|	zlib
-gmp			|   miniupnpd	|   python      |
-gnutls		|	mit_kerberos|	radvd
-gpg			|   mosquitto	|   readline
+ ---|---|---|---
+ acpid             | gtk               | mcproxy           | readline
+ apache            | harfbuzz          | miniupnpd         | redis
+ avahi_daemon      | hdparm            | mit_kerberos      | rngd
+ axios             | heimdal           | mosquitto         | rngtest
+ backbonejs        | hostapd           | msmtp             | rp_pppoe
+ bash              | i2c-tools         | mstpd             | samba
+ bftpd             | inetutils_telnetd | mtd-utils         | setserial
+ bluetoothd        | iperf3            | nano              | sqlite
+ bridge-utils      | iproute2          | ncurses           | ssmtp
+ busybox           | ipset             | neon              | strace
+ bzip2             | iptables          | netatalk          | strongswan
+ cairo             | jansson           | netkit_telnetd    | stunnel
+ chrony            | jquery            | netsnmp           | sudo
+ codesys           | json-c            | nettools          | tcpdump
+ conntrack-tools   | libarchive        | nginx             | uclibc
+ coreutils         | libcap            | nss               | underscorejs
+ dhcpd             | libcurl           | openldap          | usbutils
+ dnsmasq           | libevent          | openssh           | util_linux
+ dropbear          | libexpat          | openssl           | vim
+ e2fsprogs         | libgcrypt         | openvpn           | vsftpd
+ ebtables          | libidn            | openvswitch       | vuejs
+ eeprog            | libmicrohttpd     | p7zip             | wget
+ element           | libpcap           | pango             | wolfssl
+ ethtool           | libpng            | pcre              | wpa_supplicant
+ exfat             | libsoup           | pcre2             | xinetd
+ extJS             | libvorbis         | perl              | xl2tpd
+ ffmpeg            | libxml2           | php               | zebra
+ fribidi           | lighttpd          | polarssl          | zeptojs
+ gdbserver         | lodash            | pppd              | zip
+ gdkpixbuf         | logrotate         | procps            | zipcloak
+ glibc             | lspci             | proftpd           | zipnote
+ gmp               | lua               | protobuf-c        | zlib
+ gnutls            | matrixssl         | python            |
+ gpg               | mbedtls           | radvd             |
+
 
 
 

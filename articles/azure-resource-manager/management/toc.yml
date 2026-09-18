@@ -124,7 +124,7 @@
         - name: Databases
           items:
           - name: Cache for Redis
-            href: ../../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/azure-resource-manager/management/toc.json
+            href: /azure/azure-cache-for-redis/cache-moving-resources?toc=/azure/azure-resource-manager/management/toc.json
           - name: Cosmos DB
             href: ./relocation/relocation-cosmos-db.md
           - name: Database for MariaDB Server

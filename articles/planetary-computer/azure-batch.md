@@ -179,7 +179,7 @@ geocatalog_url = environ["GEOCATALOG_URL"]
 response = requests.get(
     f"{geocatalog_url}/stac/collections",
     headers={"Authorization": "Bearer " + access_token.token},
-    params={"api-version": "2025-04-30-preview"},
+    params={"api-version": "2026-04-15"},
 )
 print(json.dumps(response.json(), indent=2))
 ```

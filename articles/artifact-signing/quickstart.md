@@ -3,7 +3,7 @@ title: "Quickstart: Set up Artifact Signing"
 description: This quickstart helps you get started with using Artifact Signing to sign your files.
 author: TacoTechSharma
 ms.author: mesharm 
-ms.service: trusted-signing 
+ms.service: azure-artifact-signing
 ms.topic: quickstart 
 ms.date: 05/21/2026
 ms.custom:
@@ -26,11 +26,12 @@ You can use either the Azure portal or an Azure CLI extension to create and mana
 ## Prerequisites
 
 > [!NOTE]
-> For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation is not applicable to Private Trust certificates.
+> Public Trust certificates are available to organizations in the United States, Canada, the European Union, the United Kingdom, Australia, New Zealand, Japan, South Korea, Singapore, Switzerland, Norway, and Israel. Individual developers must be located in the United States or Canada. These geographic restrictions do not apply to Private Trust certificates.
 
 >[!Note]
->  For a Public Identity for individual identity validation details are automatically sourced from your Azure billing account under the subscription used to register this resource provider. The billing account type must match the identity validation type: a billing account with an Account Type of "Individual" can only be used for individual identity validation. You cannot use an individual billing account to validate an organization identity, or vice versa.
->Before starting the identity validation process, ensure that all billing account information—including legal name, and billing address details—exactly matches the information you intend to appear on your Artifact Signing Public Trust certificate profile. Any discrepancies between the billing profile and the intended certificate subject may result in incorrect information being reflected on the certificate. To review or update your billing account information, see [Manage billing accounts](/microsoft-365/commerce/manage-billing-accounts?toc=/azure/artifact-signing/toc.json&bc=/azure/artifact-signing/breadcrumb/toc.json).
+> For Public Trust individual identity validation, Artifact Signing automatically sources identity details from the Azure billing account associated with the subscription used to create the Artifact Signing resource. The billing account must have an Account Type of Individual. The legal name and sold-to address on the billing account must match the information on the government-issued ID used for identity validation.
+> Before starting validation, review and update the legal name and sold-to address as needed. This information appears on the Public Trust certificate profile. For instructions, see [Manage billing accounts](/microsoft-365/commerce/manage-billing-accounts?toc=/azure/artifact-signing/toc.json&bc=/azure/artifact-signing/breadcrumb/toc.json).
+> This billing account type requirement applies only to individual identity validation. Organization identity validation doesn't require an Azure billing account with an Account Type of Organization. 
 
 
 To complete this quickstart, you need:
@@ -292,7 +293,7 @@ To create an identity validation request for an Organization or a DBA:
     | **Organization Name**          | For public identity validation, provide the legal business entity to which the certificate is issued. For private identity validation, the value defaults to your Microsoft Entra tenant name. |
     | **(Private Identity Type only) Organizational Unit**          | Enter the relevant information. |
     | **Website url**          | Enter the website that belongs to the legal business entity. |
-    | **Primary Email**           | Enter the email address associated with the legal business entity undergoing validation. Part of the Identity Validation process, a verification link is sent to this email address and the link expires in seven days. Ensure that the email address can receive emails(with links) from external email addresses. This is the email address to which the links for completing Verified Credentials and email verification are sent.  |
+    | **Primary Email**           | Enter a monitored email address on a domain owned by the legal business entity. Verified Credentials and email verification links are sent to this address and expire in seven days. The mailbox must accept links from external senders.  |
     | **Secondary Email**          | This email address must be different from the primary email address (distribution lists are accepted). For organizations, the domain must match the email address that is provided in the primary email address. Ensure that the email address can receive emails from external email addresses that have links.|
     | **Business Identifier**           | Enter a business identifier for the legal business entity. |
     | **Seller ID**          | Applies only to Microsoft Store customers. Find your Seller ID in the Partner Center portal. |
@@ -495,6 +496,7 @@ To create a certificate profile in the Azure portal:
       For more information, see [Naming constraints for certificate profiles](#naming-constraints-for-certificate-profiles).
 
       The value for **Certificate Type** is autopopulated based on the certificate profile type you selected.
+      For **Program Type**, keep the default None. Change it only if you're enrolled in the Windows endpoint security platform or (windows recovery environment)[https://learn.microsoft.com/windows-hardware/manufacture/desktop/winre-remote-recovery-management-overview] program.
    
    b. For **Verified CN and O**, select an identity validation that must be displayed on the certificate.
    - If the street address must be displayed on the certificate, select the **Include street address** checkbox.
@@ -503,7 +505,7 @@ To create a certificate profile in the Azure portal:
       The values for the remaining fields are autopopulated based on your selection for **Verified CN and O**.
 
       A generated **Certificate Subject Preview** shows the preview of the certificate that will be issued.
-5. Select **Create**.
+6. Select **Create**.
 
    :::image type="content" source="media/artifact-signing-certificate-profile-creation.png" alt-text="Screenshot that shows the Create certificate profile pane." lightbox="media/artifact-signing-certificate-profile-creation.png":::
 

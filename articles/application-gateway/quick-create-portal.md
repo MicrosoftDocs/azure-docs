@@ -5,7 +5,7 @@ description: Use the Azure portal to create an Azure Application Gateway that di
 services: application-gateway
 author: mbender-ms
 ms.author: mbender
-ms.date: 03/04/2026
+ms.date: 08/04/2026
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom:
@@ -99,7 +99,7 @@ Create the application gateway by using the tabs on the **Create application gat
 
     > [!NOTE]
     > Application Gateways are zone-redundant by default in regions that support multiple availability zones.
-    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
 
 ### Frontends tab
 
@@ -108,7 +108,7 @@ The frontend IP address is the entry point for incoming traffic. You can configu
 1. Select **Next: Frontends**.
 1. On the **Frontends** tab, verify that **Frontend IP address type** is set to **Public**.
    > [!NOTE]
-   > * [Private-only deployment](application-gateway-private-deployment.md) for the Application Gateway v2 SKU is currently in public preview.
+   > * Application Gateway v2 also supports private-frontend-only deployments when you register the `EnableApplicationGatewayNetworkIsolation` feature. For more information, see [Private Application Gateway deployment](application-gateway-private-deployment.md).
    > * Application Gateway frontend now supports dual-stack IP addresses (public preview). You can create up to four frontend IP addresses: two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 1. Select **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 

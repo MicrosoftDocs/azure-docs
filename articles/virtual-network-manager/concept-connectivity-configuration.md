@@ -6,7 +6,7 @@ ms.author: mbender
 ms.reviewer: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 01/09/2026
+ms.date: 09/16/2026
 ms.custom:
   - ai-gen-docs-bap
   - ai-gen-description
@@ -21,7 +21,7 @@ Azure Virtual Network Manager simplifies the management of connectivity, securit
 
 ## Connectivity configuration
 
-With *connectivity configurations*, you can create and maintain different network topologies based on your network needs. You have two topologies to choose from: mesh and hub-and-spoke. Your connectivity configuration's settings define connectivity between your virtual networks. You define the virtual networks for which you want to establish connectivity via [network groups](concept-network-groups.md). Your connectivity configuration then uses the network groups to establish connectivity as described by your desired topology among the virtual networks in the network groups.
+By using *connectivity configurations*, you can create and maintain different network topologies based on your network needs. You have two topologies to choose from: mesh and hub-and-spoke. Your connectivity configuration's settings define connectivity between your virtual networks. You define the virtual networks for which you want to establish connectivity via [network groups](concept-network-groups.md). Your connectivity configuration then uses the network groups to establish connectivity as described by your desired topology among the virtual networks in the network groups.
 
 If you enable *delete existing peerings* for your connectivity configuration, Azure Virtual Network Manager removes any peerings that don't match the contents of this connectivity configuration, even if you manually created these peerings after deploying this configuration. If you remove a virtual network from a network group used in the configuration, your Azure Virtual Network Manager instance removes only the connectivity that it created.
 
@@ -31,7 +31,7 @@ When you deploy a connectivity configuration, Azure Virtual Network Manager esta
 - For hub-and-spoke with a hub virtual network, connectivity is established by using virtual network peerings.
 - For hub-and-spoke with a Virtual WAN hub, connectivity is established by creating or updating Virtual WAN virtual network connections.
 
-This connectivity is established according to the settings you define and network groups included in your connectivity configuration.
+You establish this connectivity according to the settings you define and network groups included in your connectivity configuration.
 
 ## Mesh topology
 
@@ -53,9 +53,9 @@ When you create a mesh topology or enable direct connectivity in a hub-and-spoke
 > [!NOTE]
 > A virtual network can be part of up to two connected groups, meaning it can be part of up to two mesh topologies.
 
-### Enable high-scale private endpoints in Azure Virtual Network Manager connected groups
+### <a name="enable-high-scale-private-endpoints-in-azure-virtual-network-manager-connected-groups"></a>Enable up to 20,000 private endpoints in a connected group
 
-Azure Virtual Network Manager's high-scale private endpoint feature in connected group feature empowers you to extend your network capacity. Use the following steps to enable this feature to support up to 20,000 private endpoints across the connected group.
+The high-scale private endpoint feature extends the private endpoint capacity of a connected group. Use the following steps to enable this feature to support up to 20,000 private endpoints across the connected group.
 
 #### Prepare each virtual network in the connected group
 
@@ -74,11 +74,11 @@ In this step, you configure the connectivity configuration's mesh topology setti
 1. After verifying all virtual networks are properly configured, deploy the connectivity configuration. This step finalizes the setup of your high-scale connected group.
 
 > [!NOTE]
-> Mesh topology for high-scale private endpoints is not supported when virtual networks in the mesh have overlapping IP addresses.
+> Mesh topology for high-scale private endpoints isn't supported when virtual networks in the mesh have overlapping IP addresses.
 
-### Enable high-scale connectivity in Azure Virtual Network Manager connected groups
+### <a name="enable-high-scale-connectivity-in-azure-virtual-network-manager-connected-groups"></a>Enable up to 3,000 virtual networks in a connected group
 
-Azure Virtual Network Manager's high-scale connectivity feature in connected group feature empowers you to extend your network capacity. To use this feature, register the preview feature "AllowHighScaleConnectedGroup" (you can find it with the Display Name of "Enable High Scale Connected Group"). This feature allows a connected group in the supported regions to contain up to 5,000 virtual networks.
+The high-scale connected group feature extends the number of virtual networks a connected group can contain. To use this feature, register the `AllowHighScaleConnectedGroup` preview feature on your subscription. Its display name is **Enable High Scale Connected Group**. For the steps to register a preview feature, see [Set up preview features in an Azure subscription](../azure-resource-manager/management/preview-features.md), and then submit the [high-scale connected group enablement form](https://forms.cloud.microsoft.com/r/1Je8uWNkXJ) for approval. After the feature is registered, a connected group can contain up to 3,000 virtual networks.
 
 ## Hub-and-spoke topology
 
@@ -125,7 +125,7 @@ When you deploy a hub-and-spoke topology from the Azure portal, the **Use hub as
 
 ## Discover network group topology with Topology View
 
-To help you understand the topology of your network group, Azure Virtual Network Manager provides a **Topology View** that displays the connectivity between network groups and their member virtual networks. You can view the topology of your connectivity configuration during the [creation of your connectivity configuration](create-virtual-network-manager-portal.md#create-a-configuration) with the following steps:
+To help you understand the topology of your network group, Azure Virtual Network Manager provides a **Topology View** that displays the connectivity between network groups and their member virtual networks. You can view the topology of your connectivity configuration during the [creation of your connectivity configuration](create-virtual-network-manager-portal.md#create-a-configuration) by using the following steps:
 
 1. Go to the **Configurations** page and create a connectivity configuration.
 
@@ -141,13 +141,13 @@ You can review the current topology of a connectivity configuration by selecting
 
 ## How to avoid overlapping addresses in a mesh
 
-By default, Azure Virtual Network Manager allows overlapping addresses within a mesh network. If you add two virtual networks with the same address space to a mesh network, the overlapping address space is removed from the mesh, so communication with resources in that address space doesn't work. This removal happens because when traffic is sent to that address space, Azure Virtual Network Manager can't determine which virtual network should receive the traffic. While this behavior protects the integrity of the mesh, it can cause outages if you add a new overlapping virtual network to an existing mesh.
+By default, Azure Virtual Network Manager allows overlapping addresses within a mesh network. If you add two virtual networks with the same address space to a mesh network, Azure Virtual Network Manager removes the overlapping address space from the mesh, so communication with resources in that address space doesn't work. This removal happens because when traffic is sent to that address space, Azure Virtual Network Manager can't determine which virtual network should receive the traffic. While this behavior protects the integrity of the mesh, it can cause outages if you add a new overlapping virtual network to an existing mesh.
 
 Azure Virtual Network Manager provides a mechanism to prevent overlapping IP address spaces within a mesh.
 
 ### Use the ConnectedGroupAddressOverlap property
 
-The connectivity configuration includes a property - `ConnectedGroupAddressOverlap`:
+The connectivity configuration includes a property named `ConnectedGroupAddressOverlap`:
 
 - **Default**: Allowed
 - **Optional Setting**: Disallowed
@@ -172,7 +172,7 @@ Azure Virtual Network Manager allows you to enforce peering relationships within
 
 ### Create a hub-and-spoke connectivity configuration with peering enforcement
 
-To enforce peering, you must enable the peering enforcement option when creating a hub-and-spoke connectivity configuration:
+To enforce peering, enable the peering enforcement option when creating a hub-and-spoke connectivity configuration:
 
 | Method | Instructions |
 |--------|-------------|
@@ -183,7 +183,7 @@ To enforce peering, you must enable the peering enforcement option when creating
 
 After creating and deploying this configuration:
 
-- All peerings created by Azure Virtual Network Manager or preexisting customer peerings inside the topology become enforced.
+- All peerings that Azure Virtual Network Manager creates or preexisting customer peerings inside the topology become enforced.
 - If a peering belongs to more than one topology, any configuration marked as enforced enforces that peering.
 
 ### How to remove enforcement on peering
@@ -196,10 +196,9 @@ To remove enforcement:
 
 ## Next steps
 
-- [Learn how to create a mesh connectivity configuration](how-to-create-mesh-network.md).
-- [Learn how to create a hub-and-spoke connectivity configuration](how-to-create-hub-and-spoke.md).
+- [Learn how to create a mesh or hub-and-spoke topology](how-to-create-network-manager-topologies.md).
 - [Create a secured hub-and-spoke topology in this tutorial](tutorial-create-secured-hub-and-spoke.md).
 - [Learn how to deploy a hub-and-spoke topology with Azure Firewall](how-to-deploy-hub-spoke-topology-with-azure-firewall.md).
 - [Understand configuration deployments](concept-deployments.md) to effectively manage your network settings.
-- [Block unwanted network traffic](how-to-block-network-traffic-portal.md) using security admin configurations.
+- [Block unwanted network traffic](how-to-block-network-traffic-portal.md) by using security admin configurations.
 - [Deploy Azure Virtual Network Manager using Terraform](create-virtual-network-manager-terraform.md) to quickly set up your environment.

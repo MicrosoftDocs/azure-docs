@@ -35,9 +35,13 @@ This article shows how to implement singleton orchestrators with code examples f
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 The following example shows an HTTP-trigger function that creates a singleton background job orchestration. The code attempts to ensure that only one active instance exists for a specified instance ID.
 
 # [C#](#tab/csharp)
+
+This C# code uses the isolated worker model, which is the recommended model for .NET apps. For more information about the differences between the in-process and isolated worker models, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 ```cs
 [Function("HttpStartSingle")]
@@ -73,8 +77,7 @@ public static async Task<HttpResponseData> RunSingle(
 }
 ```
 
-> [!NOTE]
-> The previous C# code is for the isolated worker model, which is the recommended model for .NET apps. For more information about the differences between the in-process and isolated worker models, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+
 
 # [JavaScript](#tab/javascript)
 
@@ -354,7 +357,7 @@ The orchestrator function itself can use any pattern — a standard function tha
 
 ::: zone pivot="durable-functions"
 > [!div class="nextstepaction"]
-> [Learn about the native HTTP features of orchestrations](../../azure-functions/durable-functions/durable-functions-http-features.md)
+> [Learn about the native HTTP features of orchestrations](../durable-functions/durable-functions-http-features.md)
 
 - [Eternal orchestrations](durable-task-eternal-orchestrations.md)
 - [Sub-orchestrations](durable-task-sub-orchestrations.md)

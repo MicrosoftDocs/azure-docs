@@ -2,12 +2,12 @@
 title: 'Configure customer-controlled maintenance for your Virtual WAN gateways'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure customer-controlled maintenance for your Virtual WAN gateways using the Azure portal or PowerShell.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/11/2025
-ms.author: cherylmc
+ms.author: duau
 ---
 # Configure customer-controlled gateway maintenance for Virtual WAN
 

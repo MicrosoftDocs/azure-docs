@@ -5,7 +5,7 @@ description: Learn about Network Virtual Appliances in a Virtual WAN hub.
 author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 12/10/2024
+ms.date: 08/27/2026
 ms.author: wellee
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in a Virtual WAN hub.
@@ -34,8 +34,13 @@ Deploying NVAs into a Virtual WAN hub provides the following benefits:
 ## <a name="partners"></a> Partners
 
 The following tables describe the Network Virtual Appliances that are eligible to be deployed in the Virtual WAN hub and the relevant use cases (connectivity and/or firewall). The Virtual WAN NVA Vendor Identifier column corresponds to the NVA Vendor that is displayed in Azure portal when you deploy a new NVA or view existing NVAs deployed in the Virtual hub.
+
+> [!NOTE]
+> New deployments of VMware SD-WAN in Azure Virtual WAN will be blocked at the end of June 2026. While existing deployments will continue to work, use Arista Velocloud SD-WAN for new NVA deployments.
+
  
 [!INCLUDE [NVA partners](../../includes/virtual-wan-nva-hub-partners.md)]
+
 
 ## Basic use cases
 
@@ -176,7 +181,9 @@ In this example, 8 IP addresses are consumed in the external subnet. 8 IP addres
 
 ## <a name="configuration"></a>NVA configuration process
 
-Partners have worked to provide an experience that configures the NVA automatically as part of the deployment process. Once the NVA is provisioned into the virtual hub, any additional configuration that might be required for the NVA must be done via the NVA partners portal or management application. Direct access to the NVA isn't available.
+Partners provide an experience that configures the NVA automatically as part of the deployment process. After the deployment, use the NVA partner portal or management application for any additional configuration. You can't access the NVA directly for configuration.
+
+If an NVA instance becomes unresponsive or unreachable, Virtual WAN provides recovery operations instead of direct access. For more information, see [How to restart a Network Virtual Appliance in an Azure Virtual WAN hub](how-to-network-virtual-appliance-restart.md) and [How to reimage a Network Virtual Appliance in an Azure Virtual WAN hub](how-to-network-virtual-appliance-reimage.md). Access to an NVA instance's serial console requires Azure Support.
 
 ## <a name="resources"></a>Site and connection resources with NVAs
 

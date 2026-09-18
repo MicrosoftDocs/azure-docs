@@ -5,7 +5,7 @@ description: Learn about Microsoft Entra ID features, which are still supported 
 author: kengaderdus
 manager: mwongerapk
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: overview
 ms.date: 05/20/2025

@@ -105,6 +105,8 @@
     href: security-overview.md
   - name: FAQ-Protection against Ransomware
     href: protect-backups-from-ransomware-faq.yml
+  - name: Best practices for backup data protection
+    href: azure-backup-data-protection-best-practices.md
   - name: Azure role-based access control
     href: backup-rbac-rs-vault.md
   - name: Multi-user authorization
@@ -509,19 +511,23 @@
         href: azure-kubernetes-service-cluster-backup-using-cli.md
       - name: Restore
         href: azure-kubernetes-service-cluster-restore-using-cli.md
-- name: Azure Elastic SAN backup
+- name: Azure Elastic  SAN volume operational backup
   items:
   - name: Overview
     href: azure-elastic-san-backup-overview.md
   - name: Support matrix
     href: azure-elastic-san-backup-support-matrix.md
+  - name: Quickstart
+    href: azure-elastic-san-backup-quickstart.md
+  - name: Tutorial
+    href: azure-elastic-san-backup-tutorial.md
   - name: Backup scenarios
     items:
-    - name: Configure backup
+    - name: Configure operational backup
       href: azure-elastic-san-backup-configure.md
     - name: Restore
       href: azure-elastic-san-backup-restore.md
-    - name: manage
+    - name: Manage
       href: azure-elastic-san-backup-manage.md
 - name: Azure Database for PostgreSQL -Flexible server backup
   items:
@@ -599,6 +605,18 @@
         href: backup-azure-cosmos-db-restore.md
       - name: Manage
         href: backup-azure-cosmos-db-manage.md
+    - name: With Azure CLI
+      items:
+      - name: Backup
+        href: backup-azure-cosmos-db-using-cli.md
+      - name: Restore
+        href: backup-azure-cosmos-db-restore-cli.md
+    - name: With PowerShell
+      items:
+      - name: Backup
+        href: backup-azure-cosmos-db-using-powershell.md
+      - name: Restore
+        href: backup-azure-cosmos-db-restore-powershell.md
 - name: Azure Database for MySQL - Flexible Server backup (preview)
   items:
   - name: Overview
@@ -753,6 +771,8 @@
         href: backup-azure-sap-hana-database.md
       - name: HANA System Replication database
         href: sap-hana-database-with-hana-system-replication-backup.md
+      - name: HANA Scale-out database
+        href: sap-hana-database-scale-out-backup.md
       - name: Instance snapshot
         href: sap-hana-database-instances-backup.md
     - name: Restore
@@ -855,6 +875,8 @@
       href: manage-telemetry.md
     - name: Unattended installation
       href: backup-mabs-unattended-install.md
+    - name: Create Application Control supplemental policy for MABS with PowerShell  
+      href: backup-server-application-control-supplemental-policy-create.md
   - name: Configure and manage private endpoint in Recovery Services vault for backup
     items:
     - name: Configure private endpoint
@@ -887,6 +909,10 @@
     href: restore-azure-backup-server-vmware.md
   - name: Back up the MABS server
     href: backup-the-mabs-server.md
+  - name: Stop protection in Azure Backup Server
+    href: backup-server-stop-protection.md  
+  - name: Monitor MABS
+    href: backup-server-monitor.md 
 - name: Azure Backup Server on Azure Stack
   items:
   - name: Install Azure Backup Server
@@ -977,7 +1003,7 @@
     href: backup-azure-granular-billing.md
   - name: Optimize storage cost
     href: backup-azure-reserved-pricing-optimize-cost.md
-  - name: Reservation discount for storage
+  - name: Reserved capacity discounts for storage
     href: backup-azure-reserved-pricing-overview.md 
   - name: Pricing calculator
     href: azure-backup-pricing.md

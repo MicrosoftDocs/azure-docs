@@ -1,9 +1,8 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 06/19/2024
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 You can use the Azure client library to access various cognitive APIs that Foundry Tools support. We use Azure AI Text Analytics as an example in this sample. Refer to [Authenticate requests to Foundry Tools](/azure/ai-services/authentication#authenticate-with-a-multi-service-resource-key) to call the cognitive APIs directly.
@@ -20,7 +19,7 @@ You can use the Azure client library to access various cognitive APIs that Found
     ```csharp
     using Azure.AI.TextAnalytics;
     
-    string endpoint = Environment.GetEnvironmentVariable("AZURE_AISERVICES_COGNITIVESERVICES_ENDPOINT")
+    string endpoint = Environment.GetEnvironmentVariable("AZURE_AISERVICES_COGNITIVESERVICES_ENDPOINT");
     string key = Environment.GetEnvironmentVariable("AZURE_AISERVICES_KEY");
 
     TextAnalyticsClient languageServiceClient = new(
@@ -68,12 +67,12 @@ You can use the Azure client library to access various cognitive APIs that Found
     
     key = os.environ['AZURE_AISERVICES_KEY']
     endpoint = os.environ['AZURE_AISERVICES_COGNITIVESERVICES_ENDPOINT']
-    language_service_client = TextAnalyticsClient(
-      endpoint=retrieved_endpoint, 
-      credential=AzureKeyCredential(key))
+        language_service_client = TextAnalyticsClient(
+            endpoint=endpoint,
+            credential=AzureKeyCredential(key))
     ```
 
-### [NodeJS](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 1. Install the following dependency. We use `ai-text-analytics` as an example.
     ```bash

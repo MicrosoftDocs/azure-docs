@@ -2,7 +2,7 @@
 title: Azure Event Grid trigger for Azure Functions
 description: Learn to run code when Event Grid events in Azure Functions are dispatched.
 ms.topic: reference
-ms.date: 08/20/2025
+ms.date: 09/15/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
@@ -30,9 +30,8 @@ Use the function trigger to respond to an event sent by an [Event Grid source](.
 
 For an HTTP trigger example, see [Receive events to an HTTP endpoint](../event-grid/receive-events.md). 
 
-The type of the input parameter used with an Event Grid trigger depends on these three factors:
+The type of the input parameter used with an Event Grid trigger depends on these factors:
 
-+ Functions runtime version
 + Binding extension version
 + Modality of the C# function. 
 
@@ -333,6 +332,38 @@ def main(event: func.EventGridEvent):
 
 ---
 ::: zone-end  
+::: zone pivot="programming-language-go"
+
+The following example shows an Event Grid trigger function that logs incoming events:
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/sdk/bindings"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.EventGrid("eventGridTrigger", processEvent)
+	worker.Start(app)
+}
+
+func processEvent(ctx context.Context, event bindings.EventGridEvent) error {
+	log.Printf("Event Grid trigger processed an event:")
+	log.Printf("  Subject: %s", event.Subject)
+	log.Printf("  Event Type: %s", event.EventType)
+	log.Printf("  Data: %v", event.Data)
+	return nil
+}
+```
+
+::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
@@ -400,7 +431,7 @@ See the [Example section](#example) for complete examples.
 The Event Grid trigger uses a webhook HTTP request, which can be configured using the same [*host.json* settings as the HTTP Trigger](functions-bindings-http-webhook.md#hostjson-settings).
 
 ::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used. 
+The parameter type supported by the Event Grid trigger depends on the extension package version and the C# modality used.
 
 # [Extension v3.x](#tab/extensionv3/in-process)
 
@@ -419,13 +450,6 @@ In-process C# class library functions supports the following types:
 + [Newtonsoft.Json.Linq.JObject][JObject]
 + [System.String][String]
 
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-In-process C# class library functions supports the following types:
-
-+ [Newtonsoft.Json.Linq.JObject][JObject]
-+ [System.String][String]
-
 # [Extension v3.x](#tab/extensionv3/isolated-process)
 
 [!INCLUDE [functions-bindings-event-grid-trigger-dotnet-isolated-types](../../includes/functions-bindings-event-grid-trigger-dotnet-isolated-types.md)]
@@ -433,10 +457,6 @@ In-process C# class library functions supports the following types:
 # [Extension v2.x](#tab/extensionv2/isolated-process)
 
 Requires you to define a custom type, or use a string. See the [Example section](#example) for examples of using a custom parameter type.
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support the isolated worker process. 
 
 ---
 

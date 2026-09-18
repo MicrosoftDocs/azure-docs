@@ -71,10 +71,6 @@ landingContent:
         links:
           - text: AI-enabled functions
             url: functions-create-ai-enabled-apps.md
-      - linkListType: tutorial
-        links:
-          - text: Azure OpenAI for text completion
-            url: functions-add-openai-text-completion.md
       - linkListType: reference
         links:
           - text: Azure OpenAI bindings
@@ -112,13 +108,13 @@ landingContent:
       - linkListType: concept
         links:
           - text: What are Durable Functions?
-            url: durable-functions/durable-functions-overview.md
+            url: ../durable-task/durable-functions/durable-functions-overview.md
       - linkListType: quickstart
         links:
           - text: Create a C# app 
-            url: ./durable-functions/durable-functions-isolated-create-first-csharp.md
+            url: ../durable-task/durable-functions/durable-functions-isolated-create-first-csharp.md
           - text: Create a Python app 
-            url: ./durable-functions/quickstart-python-vscode.md
+            url: ../durable-task/durable-functions/quickstart-python-vscode.md
       - linkListType: sample
         links:
           - text: Durable Functions samples 

@@ -6,7 +6,7 @@ description: Learn how to define a CAPTCHA display controls custom policy in Azu
 author: kengaderdus
 manager: mwongerapk
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/17/2024

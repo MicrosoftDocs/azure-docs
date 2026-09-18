@@ -32,6 +32,10 @@ For information on setup and configuration details, see the [overview](./functio
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
@@ -546,8 +550,6 @@ Write a single queue message by using a method parameter such as `out T paramNam
 * `byte[]`
 * [CloudQueueMessage] 
 
-If you try to bind to [CloudQueueMessage] and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
-
 You can write multiple messages to the queue by using one of the following types: 
 
 * `ICollector<T>` or `IAsyncCollector<T>`
@@ -605,7 +607,7 @@ The output function parameter must be defined as `func.Out[func.QueueMessage]`, 
 
 ::: zone-end  
 
-[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
+[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-connections.md)]
 
 ## Exceptions and return codes
 

@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: how-to
 ms.date: 03/30/2026
 ms.service: azure-iot-operations
+ms.subservice: azure-data-flows
 ai-usage: ai-assisted
 
 # CustomerIntent: As a developer, I want to debug WASM modules locally in VS Code so that I can troubleshoot issues and validate my module logic before deploying to production.

@@ -3,7 +3,7 @@ title: Model Provider Selection in Azure SRE Agent
 description: Learn how to choose your Azure SRE Agent AI model provider and model to match your operational workloads and data residency requirements.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 04/02/2026
+ms.date: 07/10/2026
 author: dm-chelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -18,7 +18,7 @@ Choose between Azure OpenAI (GPT-5 family) and Anthropic (Claude family) as your
 > [!TIP]
 > - Choose between Azure OpenAI (GPT-5 family) and Anthropic (Claude family) as your agent's AI provider.
 > - Your agent automatically selects the best model within your chosen provider. No manual model configuration is needed.
-> - Your default provider depends on the region. Use Anthropic in East US 2 and Australia East, and use Azure OpenAI in Sweden Central, European Union (EU) data residency.
+> - Your default provider depends on the region. Use Anthropic in East US 2 and Australia East, and use Azure OpenAI in Sweden Central and UK South for European Union (EU) data residency.
 > - You can change providers anytime in **Settings** > **Basics**. There's no downtime, and the change takes effect on the next conversation.
 
 ## Available providers
@@ -72,6 +72,6 @@ If EU data residency is a requirement for your organization, select **Azure Open
 ## Related content
 
 - [Agent reasoning](agent-reasoning.md)
-- [Deep context](workspace-tools.md)
+- [Deep context](agent-reasoning.md#deep-context)
 - [Audit agent actions](audit-agent-actions.md)
 - [Pricing and billing—AAU rates by model](pricing-billing.md)

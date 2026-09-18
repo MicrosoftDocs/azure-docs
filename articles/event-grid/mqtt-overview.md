@@ -45,7 +45,7 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
    	- **Server-sent disconnect packets**: Allows your clients to efficiently handle disconnects.
    	- [MQTT Retain](mqtt-retain.md): Ensures that the broker stores the last published message on a topic and automatically delivers it to any new subscribers. This feature allows devices to instantly receive the latest known state without waiting for the next update. This capability enables faster and more reliable state synchronization across IoT systems.
    	- **Shared subscriptions**: Enables multiple clients to consume messages from a single subscription as a group, with the broker distributing messages across them for load-balanced, scalable processing.
-   	- **Subscription identifiers (preview)**: Allows MQTT 5 clients to tag each subscription with a unique numeric ID, which simplifies identifying which subscription a received message matches when a client manages multiple subscriptions.
+   	- **Subscription identifiers**: Allows MQTT 5 clients to tag each subscription with a unique numeric ID, which simplifies identifying which subscription a received message matches when a client manages multiple subscriptions.
 
 - MQTT v3.1.1 features:
   	- **Last Will and Testament**: Notifies your MQTT clients of the abrupt disconnections of other MQTT clients. You can use this feature to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections.
@@ -141,7 +141,7 @@ This pattern is useful for:
 
 Common scenarios include telemetry processing, order handling, and event-driven microservices. In Azure Event Grid MQTT Broker, shared subscriptions help build resilient, horizontally scalable consumer applications without requiring complex custom load-balancing logic.
 
-### Subscription identifiers (preview)
+### Subscription identifiers
 
 Subscription identifiers in MQTT 5 provide a lightweight way for clients to label each subscription with a unique numeric ID, enabling them to easily identify which subscription a received message corresponds to. When a client subscribes to multiple topics—especially with overlapping filters—the broker includes the associated subscription identifier in every matching message.
 

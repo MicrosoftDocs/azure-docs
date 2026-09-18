@@ -2,7 +2,7 @@
 title: "Tutorial: Configure item-level backup for an Azure Kubernetes Service cluster"
 description: Learn how to configure backup for an Azure Kubernetes Service (AKS) cluster, and use Azure Backup to back up specific items from the cluster.
 ms.topic: tutorial
-ms.date: 01/09/2026
+ms.date: 09/02/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -43,10 +43,7 @@ To configure item-level backup for an AKS cluster, follow these steps:
     The Backup vault must have Trusted Access enabled for the AKS cluster that you want to back up. To enable Trusted Access, select **Grant permission**. If it's already enabled, select **Next**.
 
     :::image type="content" source="./media/tutorial-configure-backup-aks/backup-vault-review.png" alt-text="Screenshot that shows the review page for Configure Backup." lightbox="./media/tutorial-configure-backup-aks/backup-vault-review.png":::
-
-    > [!NOTE]
-    > Before you enable Trusted Access, enable the `TrustedAccessPreview` feature flag for the `Microsoft.ContainerServices` resource provider on the subscription.
-
+   
 1. Select a backup policy, which defines the schedule for backups and their retention period. Then select **Next**.
 
     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png" alt-text="Screenshot that shows the Backup policy page." lightbox="./media/azure-kubernetes-service-cluster-backup/select-backup-policy.png":::

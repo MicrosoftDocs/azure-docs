@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 02/24/2026
+ms.date: 08/25/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for OpenTelemetry destinations in Azure IoT Operations so that I can send metrics and logs to observability platforms like Grafana and Azure Monitor.
@@ -18,7 +18,7 @@ OpenTelemetry (OTEL) data flow endpoints send metrics and logs to OpenTelemetry 
 
 This article describes how to create and configure an OpenTelemetry data flow endpoint to export asset data from your MQTT broker to an OpenTelemetry collector. The article describes the *OTEL data flow endpoint*, which routes asset data from the MQTT broker to external OTEL collectors. You can also send asset data to observability endpoints using the OpenTelemetry data flow endpoint if you want to route telemetry to platforms like Grafana or Azure Monitor.
  
-This feature is for routing device and asset data, not for collecting Azure IoT Operations component health metrics or logs. For cluster observability (monitoring the health of the MQTT broker, data flow components, and so on), see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
+This feature is for routing device and asset data, not for collecting Azure IoT Operations component health metrics or logs. For cluster observability (monitoring the health of the MQTT broker, data flow components, and so on), see [Configure observability and monitoring](../deploy-iot-ops/howto-configure-observability.md).
 
 ## Prerequisites
 
@@ -30,13 +30,17 @@ This feature is for routing device and asset data, not for collecting Azure IoT 
 
 - Administrative access to your Azure IoT Operations cluster.
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the `X509_SECRET_NAME` environment variable for the name of the TLS secret. Set it before you run the related command.
+
 ## Terminology
 
 | Term                    | Definition                                                                                                                                                                         |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | OTEL data flow endpoint                    | A destination‑only data flow endpoint that exports asset telemetry to an OpenTelemetry (OTEL) collector using OTLP. It can't be used as a source.                                                                  |
 | OTLP                    | The OpenTelemetry Protocol (OTLP) is the default protocol for sending telemetry data to an OpenTelemetry Collector.                                                                |
-| OTEL Collector (for cluster observability)          | A separate third-party component that collects Azure IoT Operations component metrics and logs for cluster health monitoring. For more information, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).                                                                                             |
+| OTEL Collector (for cluster observability)          | A separate third-party component that collects Azure IoT Operations component metrics and logs for cluster health monitoring. For more information, see [Configure observability and monitoring](../deploy-iot-ops/howto-configure-observability.md).                                                                                             |
 | OpenTelemetry Exporter           | A component that sends observability data to a destination backend.                                                                                                                |
 
 ## OpenTelemetry endpoint overview
@@ -224,7 +228,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = '<ENDPOINT_NAME>'
 param collectorHost string = '<COLLECTOR_HOST>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -232,7 +236,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource openTelemetryEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
+resource openTelemetryEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-07-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
@@ -265,7 +269,7 @@ resource openTelemetryEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoi
 Deploy the file by running the following Azure CLI command:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -275,7 +279,7 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 Create a Kubernetes manifest **.yaml** file with the following content. Replace `<OTEL_AUDIENCE>` with the audience value for your OpenTelemetry collector configuration. This value must match the expected audience on the collector:
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowEndpoint
 metadata:
   name: <ENDPOINT_NAME>
@@ -299,7 +303,7 @@ spec:
 Apply the manifest file to the Kubernetes cluster:
 
 ```bash
-kubectl apply -f <FILE>.yaml
+kubectl apply -f main.yaml
 ```
 
 ---
@@ -405,7 +409,7 @@ authentication:
 Before you use X.509 certificate authentication, create a Kubernetes secret with your client certificate:
 
 ```bash
-kubectl create secret tls <X509_SECRET_NAME> \
+kubectl create secret tls $X509_SECRET_NAME \
   --cert=client.crt \
   --key=client.key \
   -n azure-iot-operations
@@ -519,7 +523,7 @@ batching: {
 
 | Property | Description | Default |
 |----------|-------------|---------|
-| `latencySeconds` | Maximum time to wait before sending a batch. | 60 seconds |
+| `latencySeconds` | Maximum time to wait before sending a batch. | 5 seconds |
 | `maxMessages` | Maximum number of messages in a batch. | 100000 messages |
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -534,7 +538,7 @@ batching:
 
 | Property | Description | Default |
 |----------|-------------|---------||
-| `latencySeconds` | Maximum time to wait before sending a batch. | 60 seconds |
+| `latencySeconds` | Maximum time to wait before sending a batch. | 5 seconds |
 | `maxMessages` | Maximum number of messages in a batch. | 100000 messages |
 
 ---
@@ -553,11 +557,11 @@ This section provides a step-by-step walkthrough to create and configure an OTEL
 
 ### Step 1: Create a new OTEL data flow endpoint
 
-When you create a new data flow endpoint, select **OpenTelemetry (OTEL)** as the endpoint type. Make sure the host is prefixed with `http://`.
+When you create a new data flow endpoint, select **OpenTelemetry (OTEL)** as the endpoint type. Include the protocol (`http://` or `https://`) and port number.
 
 :::image type="content" source="media/open-telemetry/create-dataflow.png" alt-text="Screenshot showing configuration of new endpoint." lightbox="media/open-telemetry/create-dataflow.png":::
 
-Follow the steps in [Deploy observability resources and set up logs](../configure-observability-monitoring/howto-configure-observability.md).
+Follow the steps in [Deploy observability resources and set up logs](../deploy-iot-ops/howto-configure-observability.md).
 
 ### Step 2: Create a data flow graph using the OTEL endpoint
 
@@ -603,4 +607,3 @@ The OpenTelemetry endpoint provides delivery guarantees to the collector itself,
 - [Create a data flow](howto-create-dataflow.md)
 - [Configure data flow endpoints](howto-configure-dataflow-endpoint.md)
 - [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)
-

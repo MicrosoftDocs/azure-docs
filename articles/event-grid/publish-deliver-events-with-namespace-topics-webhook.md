@@ -34,7 +34,7 @@ The article provides step-by-step instructions to publish events to Azure Event 
 
 - This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-[!INCLUDE [register-provider-cli.md](./includes/register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](~/reusable-content/ce-skilling/azure/includes/event-grid/register-provider-cli.md)]
 
 ## Create a resource group
 

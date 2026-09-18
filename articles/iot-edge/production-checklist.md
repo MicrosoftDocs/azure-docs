@@ -3,7 +3,7 @@ title: Prepare your Azure IoT Edge solution for production
 description: Ready your Azure IoT Edge solution for production. Learn how to set up your devices with certificates and make a deployment plan for future updates.
 author: sethmanheim
 ms.author: sethm
-ms.date: 02/27/2026
+ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -174,7 +174,7 @@ In some cases, such as when dependencies exist between modules, you might want t
 
 ### Use tags to manage versions
 
-A tag is a Docker concept that you can use to distinguish between versions of Docker containers. Tags are suffixes like **1.5** that go on the end of a container repository. For example, **mcr.microsoft.com/azureiotedge-agent:1.5**. Tags are mutable and can change to point to another container at any time, so your team should agree on a convention to follow as you update your module images moving forward.
+A tag is a Docker concept that you can use to distinguish between versions of Docker containers. Tags are suffixes like **1.6** that go on the end of a container repository. For example, **mcr.microsoft.com/azureiotedge-agent:1.6**. Tags are mutable and can change to point to another container at any time, so your team should agree on a convention to follow as you update your module images moving forward.
 
 Tags also help you enforce updates on your IoT Edge devices. When you push an updated version of a module to your container registry, increment the tag. Then, push a new deployment to your devices with the tag incremented. The container engine recognizes the incremented tag as a new version and pulls the latest module version down to your device.
 
@@ -182,9 +182,9 @@ Tags also help you enforce updates on your IoT Edge devices. When you push an up
 
 The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version that they're associated with. There are two different ways to use tags with the runtime images:
 
-* **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.5 is updated whenever there's a new release to point to the latest 1.5.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. Deployments from the Azure portal default to rolling tags. *This approach is suggested for development purposes.*
+* **Rolling tags** - Use only the first two values of the version number to get the latest image that matches those digits. For example, 1.6 is updated whenever there's a new release to point to the latest 1.6.x version. If the container runtime on your IoT Edge device pulls the image again, the runtime modules are updated to the latest version. Deployments from the Azure portal default to rolling tags. *This approach is suggested for development purposes.*
 
-* **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.5.0 doesn't change after its initial release. You declare a new version number in the deployment manifest when you're ready to update. This approach is suggested for production purposes.
+* **Specific tags** - Use all three values of the version number to explicitly set the image version. For example, 1.6.0 doesn't change after its initial release. You declare a new version number in the deployment manifest when you're ready to update. This approach is suggested for production purposes.
 
 ### Manage volumes
 IoT Edge doesn't remove volumes attached to module containers. This behavior is by design, as it allows persisting the data across container instances such as upgrade scenarios. However, if these volumes are unused, they can lead to disk space exhaustion and subsequent system errors. If you use Docker volumes in your scenario, use Docker tools such as [docker volume prune](https://docs.docker.com/engine/reference/commandline/volume_prune/) and [docker volume rm](https://docs.docker.com/engine/reference/commandline/volume_rm/) to remove the unused volumes, especially for production scenarios.
@@ -199,10 +199,10 @@ The following steps show how to pull a Docker image of **edgeAgent** and **edgeH
 
    ```bash
    # Pull edgeAgent image
-   docker pull mcr.microsoft.com/azureiotedge-agent:1.5
+   docker pull mcr.microsoft.com/azureiotedge-agent:1.6
 
    # Pull edgeHub image
-   docker pull mcr.microsoft.com/azureiotedge-hub:1.5
+   docker pull mcr.microsoft.com/azureiotedge-hub:1.6
    ```
 
 1. List all your Docker images, find the **edgeAgent** and **edgeHub** images, then copy their image IDs.
@@ -215,20 +215,20 @@ The following steps show how to pull a Docker image of **edgeAgent** and **edgeH
 
    ```bash
    # Retag your edgeAgent image
-   docker tag <my-image-id> <registry-name/server>/azureiotedge-agent:1.5
+   docker tag <my-image-id> <registry-name/server>/azureiotedge-agent:1.6
 
    # Retag your edgeHub image
-   docker tag <my-image-id> <registry-name/server>/azureiotedge-hub:1.5
+   docker tag <my-image-id> <registry-name/server>/azureiotedge-hub:1.6
    ```
 
 1. Push your **edgeAgent** and **edgeHub** images to your private registry. Replace the value in brackets with your own.
 
    ```bash
    # Push your edgeAgent image to your private registry
-   docker push <registry-name/server>/azureiotedge-agent:1.5
+   docker push <registry-name/server>/azureiotedge-agent:1.6
 
    # Push your edgeHub image to your private registry
-   docker push <registry-name/server>/azureiotedge-hub:1.5
+   docker push <registry-name/server>/azureiotedge-hub:1.6
    ```
 
 1. Update the image references in the *deployment.template.json* file for the **edgeAgent** and **edgeHub** system modules, by replacing `mcr.microsoft.com` with your own "registry-name/server" for both modules.
@@ -243,7 +243,7 @@ The following steps show how to pull a Docker image of **edgeAgent** and **edgeH
 
    ```toml
    [agent.config]
-   image = "<registry-name/server>/azureiotedge-agent:1.5"
+   image = "<registry-name/server>/azureiotedge-agent:1.6"
    ```
 
 1. If your private registry requires authentication, set the authentication parameters in `[agent.config.auth]`.

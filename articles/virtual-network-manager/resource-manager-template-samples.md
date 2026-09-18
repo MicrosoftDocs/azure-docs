@@ -7,7 +7,7 @@ author: mbender-ms
 ms.service: azure-virtual-network-manager
 ms.custom: devx-track-arm-template
 ms.topic: sample
-ms.date: 03/28/2024
+ms.date: 07/29/2026
 ms.author: mbender
 ---
 
@@ -23,6 +23,8 @@ For the JSON syntax and properties to use in templates, see [Microsoft.Network r
 > In cases where a template is deploying connectivity or security configurations, the template requires a custom deployment script to deploy the configuration. The script is located at the end of the ARM template, and it uses the `Microsoft.Resources/deploymentScripts` resource type. For more information on deployment scripts, review [Use deployment scripts in ARM templates](../azure-resource-manager/templates/deployment-script-template.md).
 
 ## Samples
-| Example | Description |
-|-------- | ----------- |
-| [Hub-spoke network topology in Azure](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/) | Creates a hub-spoke network pattern with customer-managed hub infrastructure components. |
+
+| Example | Connectivity topology | Network group membership | Deployment scope | Description |
+|-------- | --------------------- | ------------------------ | ---------------- | ----------- |
+| [Hub-spoke network topology in Azure](/samples/mspnp/samples/hub-and-spoke-deployment-with-connected-groups/) | Hub-and-spoke, using connected groups | Static | Resource group | Creates a hub-spoke network pattern with customer-managed hub infrastructure components. Also deploys sample security admin rules, an Azure Firewall, and an Azure Bastion host. |
+| [Virtual Network Manager connectivity configuration](/samples/azure/azure-quickstart-templates/virtual-network-manager-connectivity/) | Mesh, hub-and-spoke, or mesh with hub-and-spoke; you choose at deployment time | Static or dynamic; you choose at deployment time | Subscription | Creates a network manager instance, network groups, virtual networks, and a connectivity configuration. Dynamic membership also deploys an Azure Policy definition and assignment. |

@@ -2,8 +2,6 @@
 title: Import OpenAI-Compatible Google Gemini API - Azure API Management
 description: How to import an OpenAI-compatible Google Gemini model as a REST API in Azure API Management and manage a chat completions endpoint
 ms.service: azure-api-management
-author: dlepow
-ms.author: danlep
 ms.topic: how-to
 ms.date: 02/26/2026
 ms.collection: ce-skilling-ai-copilot

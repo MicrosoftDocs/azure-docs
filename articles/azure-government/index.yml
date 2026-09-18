@@ -83,8 +83,6 @@ landingContent:
             url: documentation-government-developer-guide.md
           - text: Impact Level 5 isolation guidance
             url: documentation-government-impact-level-5.md
-          - text: Azure secure isolation guidance
-            url: azure-secure-isolation-guidance.md
           - text: Secure Azure computing architecture
             url: ./compliance/secure-azure-computing-architecture.md
           - text: Develop with Storage API

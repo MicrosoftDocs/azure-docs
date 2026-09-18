@@ -35,8 +35,6 @@
     href: file-sync-replace-server.md
   - name: Replace drive of an Azure File Sync server
     href: file-sync-replace-drive.md
-  - name: Install Azure File Sync agent extension on Arc-enabled Windows Servers
-    href: file-sync-extension.md    
 - name: Cloud tiering
   items:
   - name: Cloud tiering overview
@@ -195,6 +193,8 @@
     href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json
   - name: Troubleshoot managed identities
     href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-managed-identities?toc=/azure/storage/file-sync/toc.json
+  - name: Troubleshoot server cloning and duplicate identity issues
+    href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-server-cloning?toc=/azure/storage/file-sync/toc.json    
 - name: Training
   items:
   - name: Configure Azure Files and Azure File Sync

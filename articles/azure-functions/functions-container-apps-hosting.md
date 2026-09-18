@@ -1,7 +1,7 @@
 ---
 title: Azure Container Apps hosting of Azure Functions 
 description: Learn about how you can use Azure Functions on Azure Container Apps to host and manage containerized function apps in Azure.
-ms.date: 04/22/2025
+ms.date: 08/08/2026
 ms.topic: concept-article
 ms.custom:
   - build-2024
@@ -14,7 +14,9 @@ ms.custom:
 
 [!INCLUDE [functions-aca-v2-note](../../includes/functions-aca-v2-note.md)]
 
-Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs. Container Apps hosting lets you run your functions in a fully managed, Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and Kubernetes Event-driven Autoscaling (KEDA).
+This article documents the legacy approach that uses the `Microsoft.Web` resource provider to deploy containerized function apps to a Container Apps environment.
+
+Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container-hosted programs. Container Apps hosting lets you run your functions in a fully managed, Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and Kubernetes Event-driven Autoscaling (KEDA).
 
 You can write your function code in any [language stack supported by Functions](supported-languages.md). You can use the same Functions triggers and bindings with event-driven scaling. You can also use existing Functions client tools and the Azure portal to create containers, deploy function app containers to Container Apps, and configure continuous deployment. 
 
@@ -69,7 +71,7 @@ You can continuously deploy your containerized apps from source code using eithe
 
 For the best security, you should connect to remote services using Microsoft Entra authentication and managed identity authorization. You can use managed identities for these connections:
 
-+ [Default storage account (`AzureWebJobsStorage`)](./functions-reference.md#connections) 
++ [Default storage account (`AzureWebJobsStorage`)](./manage-connections.md?tabs=host%2Cidentity#define-connections) 
 + [Azure Container Registry](functions-deploy-container-apps.md?tabs=acr#create-and-configure-a-function-app-on-azure-with-the-image)
 
 When running in Container Apps, you can use Microsoft Entra ID with managed identities for all binding extensions that support managed identities. Currently, only these binding extensions support event-driven scaling when using managed identity authentication:
@@ -78,7 +80,7 @@ When running in Container Apps, you can use Microsoft Entra ID with managed iden
 + Azure Queue Storage
 + Azure Service Bus
 
-For other bindings, use fixed replicas when using managed identity authentication. For more information, see the [Functions developer guide](./functions-reference.md#connections).
+For other bindings, use fixed replicas when using managed identity authentication. For more information, see [Manage connections in Azure Functions](manage-connections.md).
 
 ## Virtual network integration
 

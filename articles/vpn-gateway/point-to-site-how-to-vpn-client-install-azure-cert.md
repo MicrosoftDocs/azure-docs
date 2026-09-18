@@ -2,12 +2,12 @@
 title: 'Install a Point-to-Site client certificate'
 titleSuffix: Azure VPN Gateway
 description: Learn how to install client certificates for P2S certificate authentication - Windows, Mac, Linux.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 02/13/2025
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: As a network administrator, I want to install client certificates for P2S VPN authentication on various operating systems, so that I can ensure secure and proper access for users connecting to the network.
 ---
 # Install client certificates for P2S certificate authentication connections
@@ -26,7 +26,7 @@ For information about generating certificates, see the [Generate certificates](p
 
 ## <a name="installlinux"></a>Linux
 
-The Linux client certificate is installed on the client as part of the client configuration. There are a few different methods to install certificates. You can use [strongSwan](point-to-site-vpn-client-certificate-ike-linux.md), or [OpenVPN client](point-to-site-vpn-client-certificate-openvpn-linux.md) steps.
+The Linux client certificate is installed on the client as part of the client configuration. There are a few different methods to install certificates. See the Linux options in [Configure a VPN client for P2S certificate authentication connections](point-to-site-vpn-client-certificate.md).
 
 ## <a name="vpn-clients"></a>Configure VPN clients
 

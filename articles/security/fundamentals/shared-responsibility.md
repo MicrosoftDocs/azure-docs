@@ -1,30 +1,36 @@
 ---
 title: Shared responsibility in the cloud - Microsoft Azure
-description: "Understand the shared responsibility model and which security tasks are handled by the cloud provider and which tasks are handled by you."
+description: "Understand the shared responsibility model and which security tasks the cloud provider handles and which tasks you handle."
 services: security
 author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 05/05/2026
+ms.date: 08/24/2026
 ms.author: mbaldwin
 #customer intent: As a cloud security administrator, I want to understand the shared responsibility model in Azure so that I can clearly identify which security tasks are mine and which are handled by Microsoft.
+ai-usage: ai-assisted
 ---
 # Shared responsibility in the cloud
 
-As you consider and evaluate public cloud services, it's critical to understand the shared responsibility model and which security tasks the cloud provider handles and which tasks you handle. The workload responsibilities vary depending on whether the workload is hosted on Software as a Service (SaaS), Platform as a Service (PaaS), Infrastructure as a Service (IaaS), or in an on-premises datacenter:
+As you consider and evaluate public cloud services, it's critical to understand the shared responsibility model and which security tasks the cloud provider handles and which tasks you handle. Workload responsibilities vary depending on whether the workload is hosted on software as a service (SaaS), platform as a service (PaaS), infrastructure as a service (IaaS), or in an on-premises datacenter:
 
-- **[IaaS](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-iaas)** (Infrastructure as a Service): You manage virtual machines, operating systems, and applications. Examples include Azure Virtual Machines, Azure Disk Storage, and virtual networks.
-- **[PaaS](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-paas)** (Platform as a Service): You deploy applications without managing VMs or operating systems. Examples include Azure App Service, Azure Functions, Azure SQL Database, and Azure Storage.
-- **[SaaS](https://azure.microsoft.com/resources/cloud-computing-dictionary/what-is-saas)** (Software as a Service): You use ready-made applications. Examples include Microsoft 365, Dynamics 365, and other cloud applications.
+- **IaaS** (infrastructure as a service): You manage virtual machines, operating systems, and applications. Examples include Azure Virtual Machines, Azure Disk Storage, and virtual networks.
+- **PaaS** (platform as a service): You deploy applications without managing VMs or operating systems. Examples include Azure App Service, Azure Functions, Azure SQL Database, and Azure Storage.
+- **SaaS** (software as a service): You use ready-made applications. Examples include Microsoft 365, Dynamics 365, and other cloud applications.
 
 Many Azure solutions use a combination of service models. For more detailed guidance on choosing compute services, see [Choose an Azure compute service](/azure/architecture/guide/technology-choices/compute-decision-tree).
+
+For generative AI workloads, see the [AI shared responsibility model](shared-responsibility-ai.md). For autonomous, tool-using AI agents, see the [AI agent shared responsibility model](shared-responsibility-ai-agent.md).
+
+> [!NOTE]
+> This article uses "responsibility" in a governance sense: who is expected to configure, operate, and monitor each control. It is illustrative guidance and is not intended to convey legal conclusions or to modify or contradict the terms of any agreement between you and Microsoft.
 
 ## Division of responsibility
 
 In an on-premises datacenter, you own the whole stack. As you move to the cloud, some responsibilities transfer to Microsoft. The following diagram illustrates the areas of responsibility between you and Microsoft, according to the type of deployment of your stack.
 
-:::image type="content" source="media/shared-responsibility/shared-responsibility.svg" alt-text="Diagram showing responsibility zones." border="false":::
+:::image type="content" source="media/shared-responsibility/shared-responsibility.svg" alt-text="Diagram of the cloud shared responsibility model showing how security responsibility is divided between the customer and Microsoft across on-premises, IaaS, PaaS, and SaaS deployment models, with rows for information and data, devices, accounts and identities, identity and directory infrastructure, applications, network controls, operating system, physical hosts, physical network, and physical datacenter." border="false":::
 
 For all cloud deployment types, you own your data and identities. You're responsible for protecting the security of your data and identities, on-premises resources, and the cloud components you control. Cloud components you control vary by service type.
 
@@ -60,7 +66,7 @@ Some responsibilities are shared between you and Microsoft, with the division va
 
 - **Applications** - In IaaS, you're fully responsible for deployed applications. In PaaS and SaaS, Microsoft manages parts of the application stack, but you're responsible for application configuration, code security, and access controls.
 - **Network controls** - In IaaS, you configure all network security including firewalls and network segmentation. In PaaS, Microsoft provides baseline network security, but you configure application-level network controls. In SaaS, Microsoft manages network security.
-- **Client devices** - In SaaS scenarios, Microsoft may provide some device management capabilities, but you're responsible for endpoint protection and compliance.
+- **Client devices** - In SaaS scenarios, Microsoft can provide some device management capabilities, but you're responsible for endpoint protection and compliance.
 
 ### Microsoft responsibilities
 
@@ -72,28 +78,22 @@ Microsoft is responsible for the underlying cloud infrastructure, which includes
 - **Hypervisor** - Managing the virtualization layer that enables virtual machines in IaaS and PaaS.
 - **Platform services** - In PaaS and SaaS, Microsoft manages operating systems, runtime environments, and middleware.
 
-## AI shared responsibility
-
-When using AI services, the shared responsibility model introduces unique considerations beyond traditional IaaS, PaaS, and SaaS. Microsoft is responsible for securing the AI infrastructure, model hosting, and platform-level safeguards. Customers, however, remain accountable for how AI is applied within their environment—this includes protecting sensitive data, managing prompt security, mitigating prompt injection risks, and ensuring compliance with organizational and regulatory requirements.
-
-Because responsibilities differ significantly for AI workloads, you should review the [AI Shared Responsibility Model](shared-responsibility-ai.md) for detailed guidance on roles, best practices, and risk management.
-
 ## Cloud security advantages
-The cloud offers significant advantages for solving long standing information security challenges. In an on-premises environment, organizations likely have unmet responsibilities and limited resources available to invest in security, which creates an environment where attackers are able to exploit vulnerabilities at all layers.
+The cloud offers significant advantages for solving longstanding information security challenges. In an on-premises environment, organizations likely have unmet responsibilities and limited resources to invest in security. This situation creates an environment where attackers can exploit vulnerabilities at all layers.
 
 Common examples of unmet responsibilities in traditional on-premises environments include:
 
 - **Delayed patching** - Security updates aren't applied promptly due to limited IT staff or concerns about system downtime, leaving known vulnerabilities exposed.
-- **Inadequate physical security** - Server rooms may lack proper access controls, environmental monitoring, or surveillance due to budget constraints.
-- **Incomplete network monitoring** - Organizations may not have tools or expertise to detect intrusions, monitor traffic anomalies, or respond to threats in real time.
-- **Outdated hardware** - Aging infrastructure may no longer receive security updates from vendors, creating permanent security gaps.
-- **Insufficient backup and disaster recovery** - Backups may be infrequent, untested, or stored on-site, leaving data vulnerable to ransomware or physical disasters.
+- **Inadequate physical security** - Server rooms might lack proper access controls, environmental monitoring, or surveillance due to budget constraints.
+- **Incomplete network monitoring** - Organizations might not have tools or expertise to detect intrusions, monitor traffic anomalies, or respond to threats in real time.
+- **Outdated hardware** - Aging infrastructure might no longer receive security updates from vendors, which creates permanent security gaps.
+- **Insufficient backup and disaster recovery** - Backups might be infrequent, untested, or stored on-site, which leaves data vulnerable to ransomware or physical disasters.
 
-The following diagram shows a traditional approach where many security responsibilities are unmet due to limited resources. In the cloud-enabled approach, you're able to shift day to day security responsibilities to your cloud provider and reallocate your resources.
+The following diagram shows a traditional approach where limited resources lead to many unmet security responsibilities. In the cloud-enabled approach, you can shift day-to-day security responsibilities to your cloud provider and reallocate your resources.
 
-:::image type="content" source="media/shared-responsibility/cloud-enabled-security.svg" alt-text="Diagram showing security advantages of cloud era." border="false":::
+:::image type="content" source="media/shared-responsibility/cloud-enabled-security.svg" alt-text="Diagram comparing a traditional on-premises approach, where many security responsibilities go unmet due to limited resources, with a cloud-enabled approach, where day-to-day security responsibilities shift to the cloud provider and free customer resources for higher-priority work." border="false":::
 
-In the cloud-enabled approach, you're also able to apply cloud-based security capabilities for more effectiveness and use cloud intelligence to improve your threat detection and response time. By shifting responsibilities to the cloud provider, organizations can get more security coverage, which enables them to reallocate security resources and budget to other business priorities.
+In the cloud-enabled approach, you can also apply cloud-based security capabilities more effectively and use cloud intelligence to improve threat detection and response time. By shifting responsibilities to the cloud provider, organizations can get more security coverage. This shift helps them reallocate security resources and budget to other business priorities.
 
 ## Next step
 Learn more about shared responsibility and strategies to improve your security posture in the Well-Architected Framework's [overview of the security pillar](/azure/architecture/framework/security/overview).

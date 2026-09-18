@@ -5,7 +5,7 @@ ms.topic: reference
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 05/11/2025
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -25,33 +25,15 @@ The extension NuGet package you install depends on the C# mode you're using in y
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SendGrid), version 3.x.
+
 # [In-process model](#tab/in-process)
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
----
-
-The functionality of the extension varies depending on the extension version:
-
-# [Functions v2.x+](#tab/functionsv2/in-process)
-
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), version 3.x.
-
-# [Functions v1.x](#tab/functionsv1/in-process)
-
-[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
-
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), version 2.x.
-
-# [Functions v2.x+](#tab/functionsv2/isolated-process)
-
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SendGrid), version 3.x.
-
-# [Functions v1.x](#tab/functionsv1/isolated-process)
-
-Functions 1.x doesn't support running in an isolated worker process.
 
 ---
 
@@ -63,6 +45,10 @@ Functions 1.x doesn't support running in an isolated worker process.
 ::: zone-end
 
 ## Example
+
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
@@ -377,9 +363,6 @@ Optional properties may have default values defined in the binding and either ad
 ## host.json settings
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
-
-> [!NOTE]
-> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
 ```json
 {

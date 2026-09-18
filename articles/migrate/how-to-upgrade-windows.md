@@ -1,12 +1,13 @@
 ---
 title: Upgrade Windows Operating System
 description: Learn how to upgrade Windows OS during migration.
-author: vijain
-ms.author: vijain 
+author: jyothisuri
+ms.author: jsuri
 ms.manager: vijain
 ms.topic: how-to
 ms.date: 05/08/2025
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 # Customer intent: As a system administrator, I want to upgrade the Windows Server OS during migration to Azure, so that I can ensure a seamless transition while preserving my settings, server roles, and data integrity.
 ---
@@ -42,10 +43,6 @@ The Windows OS upgrade capability helps you move from an older operating system 
 
 You can upgrade to up to two versions from the current version.   
 
-> [!NOTE]
-> After you migrate and upgrade to Windows Server 2012 in Azure, you will get 3 years of free Extended Security Updates in Azure. [Learn more](/windows-server/get-started/extended-security-updates-overview).
-
-
 **Source** | **Supported target versions**
 --- | ---
 Windows Server 2008 SP2 | Windows Server 2012
@@ -59,7 +56,7 @@ Windows Server 2019 | Windows Server 2022
 
 To upgrade Windows during the test migration, follow these steps:
 
-1. In Azure Migrate project, Go to **Execute>Migrations**, select **Start execution**. [Learn more](end-to-end-portal-experience-server-migrations.md#execute-migrations) on how to start execution for servers you want to migrate.
+1. In your Azure Migrate project, go to **Execute > Migrations**, and select **Start execution**. [Learn more](execute-server-migrations.md#execute-migrations) about how to start execution for servers you want to migrate.
 
 1. In the **Migrations** page, select the windows server for which you want to upgrade OS which is currently in **Testing** stage, select **Testing** drop-down menu and select **Start test migration**.
 

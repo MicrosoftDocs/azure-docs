@@ -1,8 +1,9 @@
 ---
 title: Slurm Scheduler Integration version 3.0
-description: New CycleCloud Slurm 3.0+ functionality.
+description: Learn about Slurm 3.0+ functionality in Azure CycleCloud and how to configure the updated Slurm integration.
 author: anhoward
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: anhoward
 ---
 

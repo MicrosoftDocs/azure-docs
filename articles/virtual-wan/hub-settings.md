@@ -2,11 +2,11 @@
 title: 'About virtual hub settings'
 titleSuffix: Azure Virtual WAN
 description: This article answers common questions about virtual hub settings and routing infrastructure units.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 08/24/2023
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 ---
 
@@ -157,7 +157,7 @@ The following table shows the configurations available for each virtual WAN type
 
 ## <a name="router-status"></a>Virtual hub router status
 
-[!INCLUDE [virtual hub router status](../../includes/virtual-wan-hub-router-status.md)]
+[!INCLUDE [virtual hub router status](../networking/includes/virtual-wan/hub-router-status.md)]
 
 ## Next steps
 

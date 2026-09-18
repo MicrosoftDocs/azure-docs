@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.author: godonnell
 ms.date: 01/05/2025
 ms.topic: how-to
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.subservice: b2c
 ms.custom:
   - mvc

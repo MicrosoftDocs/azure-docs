@@ -44,7 +44,7 @@ More details on eligible subscription types are as follows:
 
 \* In some countries/regions, number purchases are only allowed for own use. Reselling or suballcoating to another parties isn't allowed. Due to this, purchases for CSP and LSP customers isn't allowed.
 
-\** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Reach out to acstns@microsoft.com for assistance with your application.
+\** Applications from all other subscription types are reviewed and approved on a case-by-case basis. Create a ticket to https://pstnsd.powerappsportals.com/ for assistance.
 
 
 ## Azure subscription billing locations where Italy phone numbers are available

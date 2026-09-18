@@ -1,8 +1,9 @@
 ---
 title: Configure private endpoints for topics or domains
-description: This article describes how to configure private endpoints for Azure Event Grid custom topics or domain. 
+description: Configure private endpoints for Azure Event Grid custom topics or domains to allow secure event ingress from your virtual network over a private link.
+ai-usage: ai-assisted
 ms.topic: how-to
-ms.date: 01/21/2025 
+ms.date: 06/11/2026
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: I want to know how to enable private only access for my Azure Event Grid topics or domains. 
 ---
@@ -21,11 +22,11 @@ This section shows you how to use the Azure portal to create a private endpoint 
 > [!NOTE]
 > The steps shown in this section are mostly for custom topics. You can use similar steps to create private endpoints for **domains**. 
 
-### When creating a new topic
+### For a new topic
 
 This section shows you how to enable private network access for an Event Grid topic or a domain. For step-by-step instructions to create a new topic, see [Create a custom topic](custom-event-quickstart-portal.md#create-a-custom-topic).
 
-1. On the **Basics** page of the **Create topic** wizard, select **Next: Networking** at the bottom of the page after filling the required fields. 
+1. On the **Basics** page of the **Create topic** wizard, fill in the required fields, and then select **Next: Networking**. 
 
     :::image type="content" source="./media/configure-firewall/networking-link.png" alt-text="Image showing the selection of Networking link at the bottom of the page. ":::
 1. To allow access to the Event Grid topic via a private endpoint, select the **Private access** option. 
@@ -47,36 +48,36 @@ This section shows you how to enable private network access for an Event Grid to
 
 ### For an existing topic
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your topic or domain.
-2. Switch to the **Networking** tab of your topic page. In the **Public access** tab, select **Private endpoints only**.
+1. Switch to the **Networking** tab of your topic page. On the **Public access** tab, select **Private endpoints only**.
 
     :::image type="content" source="./media/configure-firewall/select-private-endpoints.png" alt-text="Screenshot that shows the Public network access page with Private endpoints only option selected.":::
 1. Switch to the **Private endpoint connections** tab, and then select **+ Private endpoint** on the toolbar.
 
     :::image type="content" source="./media/configure-private-endpoints/add-button.png" alt-text="Screenshot showing the selection of + Private endpoint link on the Private endpoint connection tab.":::
-2. On the **Basics** page, follow these steps: 
+1. On the **Basics** page, follow these steps: 
     1. Select an **Azure subscription** in which you want to create the private endpoint. 
-    2. Select an **Azure resource group** for the private endpoint. 
-    3. Enter a **name** for the **endpoint**. 
+    1. Select an **Azure resource group** for the private endpoint. 
+    1. Enter a **name** for the **endpoint**. 
     1. Update the **name** for the **network interface** if needed. 
-    1. Select the **region** for the endpoint. Your private endpoint must be in the same region as your virtual network, but can in a different region from the private link resource (in this example, an  Event Grid topic). 
-    1. Then, select **Next: Resource >** button at the bottom of the page. 
+    1. Select the **region** for the endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the private link resource (in this example, an Event Grid topic). 
+    1. Select **Next: Resource >**. 
 
         :::image type="content" source="./media/configure-private-endpoints/basics-page.png" alt-text="Screenshot showing the Basics page of the Create a private endpoint wizard.":::
-3. On the **Resource** page, follow these steps, confirm that **topic** is selected for **Target sub-resource**, and then select **Next: Virtual Network >** button at the bottom of the page. 
+1. On the **Resource** page, confirm that **topic** is selected for **Target sub-resource**, and then select **Next: Virtual Network >**. 
 
     :::image type="content" source="./media/configure-private-endpoints/resource-page.png" alt-text="Screenshot showing the Resource page of the Create a private endpoint wizard.":::
-4. On the **Virtual Network** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
+1. On the **Virtual Network** page, select the subnet in a virtual network where you want to deploy the private endpoint. 
     1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
-    2. Select a **subnet** in the virtual network you selected. 
+    1. Select a **subnet** in the virtual network you selected. 
     1. Specify whether you want the **IP address** to be allocated statically or dynamically. 
     1. Select an existing **application security group** or create one and then associate with the private endpoint.
-    1. Select **Next: DNS >** button at the bottom of the page. 
+    1. Select **Next: DNS >**. 
 
-        :::image type="content" source="./media/configure-private-endpoints/configuration-page.png" alt-text="Screenshot showing the Networking page of the Creating a private endpoint wizard.":::
-5. On the **DNS** page, select whether you want the private endpoint to be integrated with a **private DNS zone**, and then select **Next: Tags** at the bottom of the page. 
+        :::image type="content" source="./media/configure-private-endpoints/configuration-page.png" alt-text="Screenshot showing the Virtual Network page of the Create a private endpoint wizard.":::
+1. On the **DNS** page, select whether you want the private endpoint to be integrated with a **private DNS zone**, and then select **Next: Tags**. 
 
-    :::image type="content" source="./media/configure-private-endpoints/dns-zone-page.png" alt-text="Screenshot showing the DNS page of the Creating a private endpoint wizard."::: 
-1. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create** button at the bottom of the page. 
+    :::image type="content" source="./media/configure-private-endpoints/dns-zone-page.png" alt-text="Screenshot showing the DNS page of the Create a private endpoint wizard."::: 
+1. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create**. 
 1. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint. 
 
 ### Manage private link connection
@@ -92,11 +93,11 @@ There are four provisioning states:
 | Reject | Rejected | Connection was rejected by the private link resource owner. |
 | Remove | Disconnected | Connection was removed by the private link resource owner, the private endpoint becomes informative and should be deleted for cleanup. |
  
-###  How to manage a private endpoint connection
+### How to manage a private endpoint connection
 The following sections show you how to approve or reject a private endpoint connection. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the search bar, type in **Event Grid topics** or **Event Grid domains**.
+1. In the search bar, enter **Event Grid topics** or **Event Grid domains**.
 1. Select the **topic** or **domain** that you want to manage.
 1. Select the **Networking** tab.
 1. If there are any connections that are pending, you'll see a connection listed with **Pending** in the provisioning state. 
@@ -107,15 +108,15 @@ You can approve a private endpoint that's in the pending state. To approve, foll
 > [!NOTE]
 > The steps shown in this section are mostly for topics. You can use similar steps to approve private endpoints for **domains**. 
 
-1. Select the **private endpoint** you wish to approve, and select **Approve** on the toolbar.
+1. Select the **private endpoint** you want to approve, and select **Approve** on the toolbar.
 
-    ![Private endpoint - pending state](./media/configure-private-endpoints/pending.png)
+    :::image type="content" source="./media/configure-private-endpoints/pending.png" alt-text="Screenshot showing a private endpoint connection in Pending state on the Networking tab.":::
 1. On the **Approve connection** dialog box, enter a comment (optional), and select **Yes**. 
 
-    ![Private endpoint - approve](./media/configure-private-endpoints/approve.png)
-1. Confirm that you see the status of the endpoint as **Approved**. 
+    :::image type="content" source="./media/configure-private-endpoints/approve.png" alt-text="Screenshot showing the Approve connection dialog box with a comment field and Yes button.":::
+1. Confirm that the status of the endpoint shows as **Approved**. 
 
-    ![Private endpoint - approved state](./media/configure-private-endpoints/approved-status.png)
+    :::image type="content" source="./media/configure-private-endpoints/approved-status.png" alt-text="Screenshot showing the private endpoint connection with Approved status.":::
 
 ### To reject a private endpoint
 You can reject a private endpoint that's in the pending state or approved state. To reject, follow these steps: 
@@ -123,50 +124,21 @@ You can reject a private endpoint that's in the pending state or approved state.
 > [!NOTE]
 > The steps shown in this section are for topics. You can use similar steps to reject private endpoints for **domains**. 
 
-1. Select the **private endpoint** you wish to reject, and select **Reject** on the toolbar.
+1. Select the **private endpoint** you want to reject, and select **Reject** on the toolbar.
 
-    ![Screenshot that shows the "Networking - Private endpoint connections" with "Reject" selected.](./media/configure-private-endpoints/reject-button.png)
+    :::image type="content" source="./media/configure-private-endpoints/reject-button.png" alt-text="Screenshot showing the Private endpoint connections tab with the Reject button selected.":::
 1. On the **Reject connection** dialog box, enter a comment (optional), and select **Yes**. 
 
-    ![Private endpoint - reject](./media/configure-private-endpoints/reject.png)
-1. Confirm that you see the status of the endpoint as **Rejected**. 
+    :::image type="content" source="./media/configure-private-endpoints/reject.png" alt-text="Screenshot showing the Reject connection dialog box with a comment field and Yes button.":::
+1. Confirm that the status of the endpoint shows as **Rejected**. 
 
-    ![Private endpoint - rejected state](./media/configure-private-endpoints/rejected-status.png)
+    :::image type="content" source="./media/configure-private-endpoints/rejected-status.png" alt-text="Screenshot showing the private endpoint connection with Rejected status.":::
 
     > [!NOTE]
     > You can't approve a private endpoint in the Azure portal once it's rejected. 
 
 
 ## Use Azure CLI
-To create a private endpoint, use the [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create) method as shown in the following example:
-
-```azurecli-interactive
-az network private-endpoint create \
-    --resource-group <RESOURCE GROUP NAME> \
-    --name <PRIVATE ENDPOINT NAME> \
-    --vnet-name <VIRTUAL NETWORK NAME> \
-    --subnet <SUBNET NAME> \
-    --private-connection-resource-id "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME>" \
-    --connection-name <PRIVATE LINK SERVICE CONNECTION NAME> \
-    --location <LOCATION> \
-    --group-ids topic
-```
-
-For descriptions of the parameters used in the example, see documentation for [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). A few points to note in this example are: 
-
-- For `private-connection-resource-id`, specify the resource ID of the **topic** or **domain**. The preceding example uses the type: topic.
-- for `group-ids`, specify `topic` or `domain`. In the preceding example, `topic` is used. 
-
-To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) method as shown in the following example:
-
-```azurecli-interactive
-az network private-endpoint delete --resource-group <RESOURCE GROUP NAME> --name <PRIVATE ENDPOINT NAME>
-```
-
-> [!NOTE]
-> The steps shown in this section are for topics. You can use similar steps to create private endpoints for **domains**. 
-
-
 
 ### Prerequisites
 Update the Azure Event Grid extension for CLI by running the following command: 
@@ -199,7 +171,7 @@ az network private-endpoint create \
 For descriptions of the parameters used in the example, see documentation for [az network private-endpoint create](/cli/azure/network/private-endpoint?#az-network-private-endpoint-create). A few points to note in this example are: 
 
 - For `private-connection-resource-id`, specify the resource ID of the **topic** or **domain**. The preceding example uses the type: topic.
-- for `group-ids`, specify `topic` or `domain`. In the preceding example, `topic` is used. 
+- For `group-ids`, specify `topic` or `domain`. In the preceding example, `topic` is used. 
 
 To delete a private endpoint, use the [az network private-endpoint delete](/cli/azure/network/private-endpoint?#az-network-private-endpoint-delete) method as shown in the following example:
 
@@ -451,8 +423,9 @@ Get-AzPrivateEndpointConnection -ResourceId $pseEndpoint.Id
 
 ```
 
-You can approve the connection even after it's rejected via API. If you use Azure portal, you can't approve an endpoint that has been rejected. 
+You can approve the connection even after it's rejected via API. If you use the Azure portal, you can't approve an endpoint that was rejected. 
 
 ## Related content
-* To learn about how to configure IP firewall settings, see [Configure IP firewall for Azure Event Grid topics or domains](configure-firewall.md).
-* To troubleshoot network connectivity issues, see [Troubleshoot network connectivity issues](troubleshoot-network-connectivity.md)
+
+- [Configure IP firewall for Azure Event Grid topics or domains](configure-firewall.md)
+- [Troubleshoot network connectivity issues](troubleshoot-network-connectivity.md)

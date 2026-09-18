@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Firewall
 description: This article contains important reference material you need when you monitor Azure Firewall by using Azure Monitor.
-ms.date: 09/29/2025
+ms.date: 08/19/2026
 ms.custom: horz-monitor
 ms.topic: reference
 author: duongau
@@ -58,7 +58,12 @@ For the *SNAT port utilization* metric, when you add more public IP addresses to
 
 Effectively, a given percentage of SNAT ports utilization might go down without you adding any public IP addresses, just because the service scaled out. You can directly control the number of public IP addresses available to increase the ports available on your firewall. But, you can't directly control firewall scaling.
 
-If your firewall is running into SNAT port exhaustion, you should add at least five public IP addresses. This increases the number of SNAT ports available. For more information, see [Azure Firewall features](features.md#multiple-public-ip-addresses).
+If your firewall is running into SNAT port exhaustion, you have two options to scale outbound connectivity:
+
+- **Add multiple public IP addresses** (at least five) to increase the available SNAT ports. This option is lower cost and simple to configure. For more information, see [Azure Firewall features](features.md#multiple-public-ip-addresses).
+- **Use an Azure NAT Gateway** to dynamically allocate SNAT ports for greater scale and resiliency. For more information, see [Scale SNAT ports with Azure NAT Gateway](integrate-with-nat-gateway.md).
+
+If you're cost sensitive, add public IP addresses. If you need a more scalable and robust solution, use a NAT gateway. For a side-by-side comparison, see [Best practices for Azure Firewall performance](firewall-best-practices.md#recommendations).
 
 #### AZFW Latency Probe
 
@@ -104,6 +109,28 @@ The latency probe currently uses Microsoft's Ping Mesh technology, which is base
 - Support request: If you observe continuous latency degradation that does not align with expected behavior, consider filing a support ticket for further assistance. 
 
   :::image type="content" source="media/metrics/latency-probe.png" alt-text="Screenshot showing the Azure Firewall Latency Probe metric.":::
+
+### Resource Health states and events
+
+Azure Resource Health reports the following states for Azure Firewall:
+
+| Health state | Description |
+| --- | --- |
+| **Available** | No known problems affect the firewall. The firewall is processing traffic as expected. |
+| **Degraded** | The firewall is processing traffic with reduced capacity or resiliency. Existing connections continue to work, but intermittent problems might occur. Review the health event and follow its recommended action. |
+| **Unavailable** | The firewall isn't processing traffic as expected, and traffic is likely affected. Follow the recommended actions and open a support case if the problem persists. |
+| **Unknown** | Resource Health can't determine the firewall's health because it hasn't received recent health signals. This state usually resolves within a few minutes. |
+
+The following conditions can generate Azure Firewall Resource Health events:
+
+| Condition | Health state | Recommended action |
+| --- | --- | --- |
+| Some firewall instances are unhealthy | **Degraded** | Review the reported health event. Existing connections continue to work while Azure repairs the affected instances. |
+| All firewall instances are unhealthy or unreachable | **Unavailable** | Follow the recommendations in the health event, and open a support case if the problem persists. |
+| SNAT ports are approaching exhaustion | **Degraded** | Add public IP addresses to increase the available SNAT ports, or use Azure NAT Gateway. For more information, see [Scale SNAT ports with Azure NAT Gateway](integrate-with-nat-gateway.md). |
+| Available connections are running low | **Degraded** | Reduce the traffic load. This condition usually indicates high traffic. |
+
+To view the current state, review health history, and create alerts, see [Monitor firewall health with Resource Health](monitor-firewall.md#monitor-firewall-health-with-resource-health).
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 

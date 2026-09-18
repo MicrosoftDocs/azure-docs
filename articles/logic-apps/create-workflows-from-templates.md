@@ -1,12 +1,12 @@
 ---
-title: Create workflows from prebuilt templates
-description: Learn to use a prebuilt template as a starting point for building workflows that run in Azure Logic Apps.
-services: azure-logic-apps
+title: Create Workflows from Prebuilt Templates
+description: Build workflows from prebuilt templates in Azure Logic Apps.
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/03/2025
-# Customer intent: As a developer, I want to use a template as a faster way to build my workflows that run Azure Logic Apps.
+ms.update-cycle: 365-days
+ms.date: 07/10/2026
+# Customer intent: As an automation and integration developer who works in Azure Logic App, I want to use a template as a faster way to build my workflows that run Azure Logic Apps.
 ---
 
 # Create workflows from prebuilt templates in Azure Logic Apps

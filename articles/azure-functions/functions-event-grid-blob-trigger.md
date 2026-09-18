@@ -4,7 +4,7 @@ description: This tutorial shows how to create a low-latency, event-driven trigg
 ms.topic: tutorial
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts, ignite-2024
 ms.date: 11/01/2025
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As an Azure Functions developer, I want learn how to create an event-based trigger on a Blob Storage container so that I can get a more rapid response to changes in the container.
 ---
 

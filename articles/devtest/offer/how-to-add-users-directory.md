@@ -1,48 +1,44 @@
 ---
-title: Add users to your Azure Dev/Test developer directory tenant
+title: Add users and assign access to your Azure subscription
 description: A how-to guide for adding users to your Azure credit subscription and managing their access with role-based controls.
 ms.author: amast
-author: rigel512
+author: joseb-rdc
 ms.service: visual-studio-family
 ms.subservice: subscriptions
 ms.topic: how-to 
-ms.date: 10/18/2023
+ms.date: 07/09/2026
 ms.custom: devtestoffer
 ---
 
-# Add users to your Azure credit subscription  
+# Add users and assign access to your Azure subscription  
 
-To manage and access subscription resources, you must be a user within the directory. In the subscriptions themselves, the hierarchy is controlled by the Microsoft Entra tenancies. Microsoft Entra ID is a lightweight directory protocol (LDAP) that stores account names and passwords.  
+To access and manage subscription resources, users must exist in the associated Microsoft Entra directory. Access within a subscription is governed by Azure role-based access control (Azure RBAC), which works with Microsoft Entra ID.
 
-Before adding users, you need to determine your business hierarchy and what level of access they need within your subscription.  
+Before adding users, determine your business hierarchy and the level of access required for each role.  
 
 ## Why do I need to add users?
 
-Step 1 is determining whether you need to add a new user to your subscription. Here are some examples of why you would need to add new users:  
+Determine whether you need to add a new user to your subscription. Common scenarios include:  
 
-- Working on a project and need to give IT access to monitor for security  
-- Working on new API protocols that could be beneficial to another member of an organization  
-- Need to give access at the subscription level so they can access all resource groups  
-- At the business level, a single resource group needs to sign in to one computer but they don’t need access to the subscription  
-- Provides more visibility and transparency for projects you're working on but still isolates certain parts of work if necessary  
-- Add a consultant as a user or within a group to contribute  
-- You want to collaborate with someone to test and monitor preproduction  
+- Grant IT access to monitor and enforce security requirements
+- Collaborate with team members on development or API work
+- Provide subscription-level access across all resource groups
+- Limit access to specific resources or resource groups
+- Improve visibility and transparency while isolating specific parts of work as needed
+- Add external contributors, such as consultants
+- Enable collaboration for testing and preproduction validation
 
 ## Where do I add users and their roles within my subscription?
 
-Within Microsoft Entra ID, access management is a critical function. [Azure role-based access control](../../role-based-access-control/overview.md) \(Azure RBAC\) is the authorization system that provides fine-grained access management of Azure resources.  
+Microsoft Entra ID provides identity management, while [Azure role-based access control](../../role-based-access-control/overview.md) \(Azure RBAC\) defines access to resources. After determining the need to add a user, identify where to add them and the scope of access required. Scope defines the set of resources a user can access.
 
-Once you’ve determined the need to add a user, you must understand where you're adding them and what resources they need access to. The set of resources that a user can access is referred to as scope.  
+If projects require IT oversight for security, assign an administrative role at the management group level to provide broad access accross the subscription.
 
-If the project and tasks you're working on need to be monitored by IT to enable security protocols, you need that user to have an Admin role within the Management group to have full access and permissions within the subscription.  
+In contrast, collaborators might only require access to the resource group or resource level.  
 
-![A screenshot of the access levels in Azure.](media/how-to-add-users-directory/access-management.png "Managing roles with management groups in Azure.")
+For more information, see the [Azure RBAC overview](../../role-based-access-control/overview.md).
 
-However, if you're collaborating with another developer or a colleague, they might only need access at the resource or resource group level.  
-
-Read through the [Azure RBAC overview](../../role-based-access-control/overview.md) to better understand how Azure RBAC works and the purpose it serves within your subscription.  
-
-How to Add Users or delete users using Microsoft Entra ID  
+To add or delete users by using Microsoft Entra ID, see:
 
 - [Add or delete users - Microsoft Entra ID | Microsoft Docs](../../active-directory/fundamentals/add-users-azure-active-directory.md)  
 

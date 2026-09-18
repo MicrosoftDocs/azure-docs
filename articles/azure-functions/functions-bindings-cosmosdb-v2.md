@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-python
   - devx-track-ts
   - build-2025
-ms.date: 12/21/2025
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -24,7 +24,6 @@ This set of articles explains how to work with [Azure Cosmos DB](/azure/cosmos-d
 
 > [!IMPORTANT]
 > This version of the Azure Cosmos DB binding extension supports [Azure Functions version 4.x](functions-versions.md). If your app still uses version 1.x of the Functions runtime, instead see [Azure Cosmos DB bindings for Azure Functions 1.x](functions-bindings-cosmosdb.md).
-> In the Functions v1.x runtime, this binding was originally named `DocumentDB`. 
 
 ## Supported APIs
 
@@ -55,13 +54,13 @@ The process for installing the extension varies depending on the extension versi
 
 _This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 4.x._
 
-This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
+This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./manage-connections.md?pivots=functions-auth-identity&tabs=bindings#define-connections).
 
 This version also changes the types that you can bind to, replacing the types from the v2 SDK `Microsoft.Azure.DocumentDB` with newer types from the v3 SDK [Microsoft.Azure.Cosmos](/azure/cosmos-db/sql/sql-api-sdk-dotnet-standard). Learn more about how these new types are different and how to migrate to them from the [SDK migration guide](/azure/cosmos-db/migrate-dotnet-v3), [trigger](./functions-bindings-cosmosdb-v2-trigger.md), [input binding](./functions-bindings-cosmosdb-v2-input.md), and [output binding](./functions-bindings-cosmosdb-v2-output.md) examples.
 
 This extension version is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB), version 4.x.
 
-# [Functions 2.x+](#tab/functionsv2/in-process)
+# [Extension 3.x](#tab/functionsv2/in-process)
 
 _This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x or 3.x._
 
@@ -69,7 +68,7 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 # [Extension 4.x+](#tab/extensionv4/isolated-process)
 
-This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
+This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./manage-connections.md?pivots=functions-auth-identity&tabs=bindings#define-connections).
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 4.x.
 
@@ -82,7 +81,7 @@ hostBuilder.ConfigureFunctionsWorkerDefaults(fun (context: HostBuilderContext) (
 ) |> ignore
 ```
 
-# [Functions 2.x+](#tab/functionsv2/isolated-process)
+# [Extension 3.x](#tab/functionsv2/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 3.x.
 
@@ -90,13 +89,17 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-go,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"
 
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 ::: zone-end
 ::: zone pivot="programming-language-java"   
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 ::: zone-end  
+
+::: zone pivot="programming-language-go"
+Register Azure Cosmos DB triggers in code by using `app.CosmosDB()`. Azure Cosmos DB input and output bindings aren't currently supported by the Go worker; use the Azure SDK for Go directly when you need to read or write documents outside the trigger payload.
+::: zone-end
 ::: zone pivot="programming-language-csharp"
 
 ## Binding types
@@ -130,7 +133,7 @@ The Azure Cosmos DB extension supports parameter types according to the table be
 
 <sup>1</sup> Documents containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
 
-# [Functions 2.x+](#tab/functionsv2/in-process)
+# [Extension 3.x](#tab/functionsv2/in-process)
 
 Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.Documents] namespace. Newer types from [Microsoft.Azure.Cosmos] are exclusive to **extension 4.x and higher**.
 
@@ -150,7 +153,7 @@ The isolated worker process supports parameter types according to the tables bel
 
 [!INCLUDE [functions-bindings-cosmosdb-v2-output-dotnet-isolated-types](../../includes/functions-bindings-cosmosdb-v2-output-dotnet-isolated-types.md)]
 
-# [Functions 2.x+](#tab/functionsv2/isolated-process)
+# [Extension 3.x](#tab/functionsv2/isolated-process)
 
 Earlier versions of extensions in the isolated worker process only support binding to JSON serializable types. Additional options are available to **extension 4.x and higher**.
 
@@ -219,7 +222,7 @@ SDK Type support for Azure Cosmos is in Preview. Follow the [Python SDK Bindings
 |**userAgentSuffix**| n/a | Adds the specified string value to all requests made by the trigger or binding to the service. This makes it easier for you to track the activity in Azure Monitor, based on a specific function app and filtering by `User Agent`. |
 
 
-# [Functions 2.x+](#tab/functionsv2)
+# [Extension 3.x](#tab/functionsv2)
 
 ```json
 {

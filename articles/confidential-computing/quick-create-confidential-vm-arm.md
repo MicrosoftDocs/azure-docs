@@ -229,6 +229,22 @@ Use this example to create a custom parameter file for a Linux-based confidentia
       az keyvault key create --vault-name $KeyVault --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --default-cvm-policy
       ```
 
+      > [!NOTE]
+      > In regions with new buildouts, MAA (Microsoft Azure Attestation) endpoints might not be available when using the `--default-cvm-policy` flag. As a workaround, you can use the following PowerShell script to retrieve the regional MAA endpoint URL:
+      >
+      > ```powershell
+      > $sub = "<subscription-id>"
+      > az account set --subscription $sub
+      > $token = Get-AzAccessToken
+      > $region = "<region-name>"
+      > $url = "https://management.azure.com/subscriptions/$sub/providers/Microsoft.Attestation/Locations/$region/defaultProvider?api-version=2021-06-01"
+      > $r = Invoke-WebRequest -Uri $url -Method Get -Headers @{'Authorization' = 'Bearer ' + $token.Token}
+      > $d = $r.content | ConvertFrom-Json
+      > $d.properties.attestUri
+      > ```
+      >
+      > Replace `<subscription-id>` with your Azure subscription ID and `<region-name>` with the target deployment region.
+
     1. Get information about the key that you created.
 
         ```azurecli-interactive

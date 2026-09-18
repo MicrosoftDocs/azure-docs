@@ -1,12 +1,12 @@
 ---
 title: 'Azure Virtual WAN Overview'
 description: Learn about Virtual WAN automated scalable branch-to-branch connectivity, available regions, and partners.
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: overview
 ms.date: 03/26/2025
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
 
@@ -114,7 +114,7 @@ You can connect an Azure virtual network to a virtual hub. For more information,
 
 Virtual WAN allows transit connectivity between VNets. VNets connect to a virtual hub via a virtual network connection. Transit connectivity between the VNets in **Standard Virtual WAN** is enabled due to the presence of a router in every virtual hub. This router is instantiated when the virtual hub is first created.
 
-[!INCLUDE [virtual hub router status](../../includes/virtual-wan-hub-router-status.md)]
+[!INCLUDE [virtual hub router status](../networking/includes/virtual-wan/hub-router-status.md)]
 
 Every virtual hub router supports an aggregate throughput up to 50 Gbps.
 

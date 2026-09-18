@@ -2,7 +2,8 @@
 title: Cluster Template Reference - Nodes
 description: Attributes for nodes and nodearrays within cluster templates for use with Azure CycleCloud
 author: adriankjohnson
-ms.date: 06/29/2025
+ms.date: 06/19/2026
+ms.topic: reference
 ms.update-cycle: 1095-days
 ms.author: adjohnso
 ---

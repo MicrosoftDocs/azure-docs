@@ -1,30 +1,32 @@
 ---
-title: Configure on-premise disks for Azure through Hydration
-description: Learn how to prepare for Configuration changes via hydration process in Azure Site Recovery.
+title: Prepare on-premises disks for Azure through hydration
+description: Learn how Azure Site Recovery prepares on-premises disks for failover to Azure through hydration.
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 04/15/2026
+ms.date: 09/11/2026
 ---
 
-# Configure on-premise disks for Azure through Hydration
+# Prepare on-premises disks for Azure through hydration
 
-You have to make some changes to the VMs' configuration before the failover to ensure that the migrated VMs function properly on Azure. Azure Site Recovery handles these configuration changes via the *hydration* process. The hydration process is only performed for the versions of [operating systems supported by Azure Site Recovery](/azure/site-recovery/vmware-physical-azure-support-matrix#for-windows). Before you failover, you may need to perform the required changes manually for other operating system versions that aren't listed above. If the VM is migrated without the required changes, the VM may not boot, or you may not have connectivity to the migrated VM. The following diagram shows you that Azure Site Recovery performs the hydration process.
+Some on-premises virtual machines (VMs) require configuration changes before they can start and connect in Azure. Azure Site Recovery can make these changes through the *hydration* process during test, planned, or unplanned failover. Hydration applies only to eligible Hyper-V-to-Azure and VMware-to-Azure protected machines and supported operating system versions. Other replication paths that are already prepared for Azure don't use a temporary hydration VM.
 
-When a user triggers *Test Failover* or *Failover*, Azure Site Recovery performs the hydration process to prepare the on-premises VM for failover to Azure.
-To set up the hydration process, Azure Site Recovery creates a temporary Azure VM and attaches the disks of the source VM to perform changes to make the source VM ready for Azure. The temporary Azure VM is an intermediate VM created during the failover process before the final migrated VM is created. The temporary VM will be created with a similar OS type (Windows/Linux) using one of the marketplace OS images. If the on-premises VM is running Windows, the operating system disk of the on-premises VM will be attached as a data disk to the temporary VM for performing changes. If it's a Linux server, all the disks attached to the on-premises VM will be attached as data disks to the temporary Azure VM.
+Whether hydration is required depends on the selected recovery point and the source and target VM configuration. If an unsupported operating system isn't prepared before failover, the recovered VM might not boot or have network connectivity.
 
-For more information about Hydration VM SKU selection, see [selection of SKUs for Temporary VM (Hydration VM)](#troubleshoot).
+## How hydration works
 
-Azure Site Recovery will create the network interface, a new virtual network, subnet, and a network security group (NSG) to host the temporary VM. These resources are created in the customer's subscription. If there are conflicting policies that prevent the creation of the network artifacts, Azure Site Recovery will attempt to create the temporary Azure VM in the virtual network and subnet provided as part of the replication target settings options.
+1. Site Recovery resolves the selected recovery point and prepares target copies of the disks represented in that recovery point. Depending on the replication method, this preparation can include copying and validating virtual hard disks and creating managed disks. A disk added after the selected recovery point isn't included when you fail over to that older point.
+1. Site Recovery creates a temporary helper VM and attaches the prepared source disks as data disks. For Windows, the source OS disk is normally attached. For Linux, all protected disks in the selected recovery point are normally attached.
+1. Site Recovery runs the required operating system preparation on the attached disks.
+1. Site Recovery detaches the prepared disks and attempts to remove the temporary resources.
+1. Site Recovery creates the final recovered VM by using the prepared disks. The helper VM is temporary and is never converted into the recovered VM.
 
-The virtual network must have outbound access to Storage service tag of the target region. For more information, see [Available service tags](/azure/virtual-network/service-tags-overview#available-service-tags).
+To host the helper VM, Site Recovery can create a network interface, virtual network, subnet, and network security group in your subscription. If Azure Policy prevents creation of these network resources, Site Recovery attempts to use the target virtual network and subnet configured for replication. The virtual network must allow outbound access to the Storage service tag for the target region. For more information, see [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags).
 
-After the virtual machine is created, Azure Site Recovery will invoke the [Custom Script Extension](/azure/virtual-machines/extensions/custom-script-windows) on the temporary VM using the Azure Virtual Machine REST API. The Custom Script Extension utility will execute a preparation script containing the required configuration for Azure readiness on the on-premises VM disks attached to the temporary Azure VM. The preparation script is downloaded from an Azure Site Recovery owned storage account. The network security group rules of the virtual network will be configured to permit the temporary Azure VM to access the Azure Site Recovery storage account for invoking the script.
+Temporary helper VMs and temporary image disks use platform-managed encryption and don't support customer-managed keys (CMKs). This limitation applies only to temporary hydration artifacts. Validated Disk Encryption Set and CMK settings remain applicable to the final recovery disks.
 
->[!NOTE]
->Hydration VM disks do not support Customer Managed Key (CMK). Platform Managed Key (PMK) is the default option.
+For helper VM size requirements and selection behavior, see [Troubleshoot hydration](#troubleshoot-hydration).
 
 ## Changes performed during the hydration process
 
@@ -99,17 +101,17 @@ The preparation script executes the following changes based on the OS type of th
 
 1. **Install the Windows Azure Guest Agent**.
 
-    [!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
-    Azure Site Recovery will attempt to install the Microsoft Azure Virtual Machine Agent (VM Agent), a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. Azure Site Recovery automatically installs the Windows VM agent on Windows Server 2008 R2 and higher versions.
+   Azure Site Recovery will attempt to install the Microsoft Azure Virtual Machine Agent (VM Agent), a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. Azure Site Recovery automatically installs the Windows VM agent on Windows Server 2008 R2 and higher versions.
 
-    The Windows VM agent can be manually installed with a Windows installer package. To manually install the Windows VM Agent, [download the VM Agent installer](https://go.microsoft.com/fwlink/?LinkID=394789). You can also search for a specific version in the [GitHub Windows IaaS VM Agent releases](https://github.com/Azure/WindowsVMAgent/releases). The VM Agent is supported on Windows Server 2008 (64 bit) and later.
+   The Windows VM agent can be manually installed with a Windows installer package. To manually install the Windows VM Agent, [download the VM Agent installer](https://go.microsoft.com/fwlink/?LinkID=394789). You can also search for a specific version in the [GitHub Windows IaaS VM Agent releases](https://github.com/Azure/WindowsVMAgent/releases). The VM Agent is supported on Windows Server 2008 (64 bit) and later.
 
-    To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell)
+   To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell)
 
-    ![Screenshot showing successful Installation of Azure VM Agent.](./media/hydration-process/installation-azure-vm-agent.png)
+   ![Screenshot showing successful Installation of Azure VM Agent.](./media/hydration-process/installation-azure-vm-agent.png)
 
-    After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for failover.
+   After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for failover.
     [Learn more about the changes for Windows servers.](/azure/virtual-machines/windows/prepare-for-upload-vhd-image)
 
 # [Linux servers](#tab/linux)
@@ -260,14 +262,31 @@ The preparation script executes the following changes based on the OS type of th
 
 ---
 
-### Clean up the temporary VM
+## Cleanup and validation
 
-After the necessary changes are performed, Azure Site Recovery will spin down the temporary VM and free the attached OS disks (and data disks). This marks the end of the *hydration process*.
+Site Recovery automatically attempts to detach the protected disks and remove service-created helper resources, such as the helper VM, network interface, helper OS disk, and temporary network resources that are no longer in use. Cleanup is best effort. A failed or canceled operation can leave temporary resources or target disks in the subscription, and the Site Recovery job records cleanup problems.
 
-After this, the modified OS disk and the data disks that contain the replicated data are cloned. A new virtual machine is created in the target region, virtual network, and subnet, and the cloned disks are attached to the virtual machine. This marks the completion of the failover process.
+Helper-resource cleanup is separate from **Cleanup test failover**. After you validate a test failover, you must run **Cleanup test failover** to delete the customer-visible test VM and test environment.
 
-### Troubleshoot
+Some hydration problems appear as warnings instead of stopping failover. Similarly, the final VM can be created while the job records a boot or post-provisioning warning. Before you commit a failover:
 
-| **Error Observed** | **Details** |
-|---------------------|-------------|
-| `ComputeRpVmAllocationFailed` / `SkuNotAvailableForHydrationVM` | **Selection of SKUs for Temporary VM (Hydration VM)**<br><br>During test failover/failover, Azure attempts to allocate a temporary VM (Hydration VM). The failover VM size is used if it passes the following checks:<br><br>1. **Blocklist Check** – SKUs in the Hydration blocklist (legacy SKUs, Confidential VM SKUs, SKUs without temp storage or Gen1 support) are rejected.<br> - [Allocation failures for older VM sizes](/troubleshoot/azure/virtual-machines/windows/allocation-failure#allocation-failures-for-older-vm-sizes-av1-dv1-dsv1-d15v2-ds15v2-etc)<br> - [Confidential VM options](/azure/confidential-computing/virtual-machine-options)<br>2. **Disk Count Check** – Windows: only OS disk treated as data disk; Linux: all disks treated as data disks. Hydration VM must support *Customer Disk Count + 2*.<br><br>3. **Basic SKUs** – Basic_* series deprioritized unless no better option exists.<br><br>4. **Regional/Subscription Availability** – VM size must be available in the region/subscription.<br><br>5. **Premium IO Support** – Required if customer uses Premium Storage/Disks.<br><br>6. **UltraSSD Support** – SKU must have `UltraSSDAvailable` if UltraSSD disks are used.<br><br>7. **Temp Storage Capability** – `MaxResourceVolumeMB` must be present.<br><br>8. **Generation 1 VM Support** – SKU must support Generation 1 VMs.<br><br>9. **Zonal Availability** – SKU must exist in the target zone for zonal failovers.<br><br>If no suitable failover VM size passes these checks:<br>- All SKUs in the location/subscription are evaluated.<br>- Priority is given to SKUs in the same family.<br>- If still unresolved, the first suitable SKU from the broader pool is selected.<br><br>**Important:** Validate whether the selected SKU meets these requirements by checking [Azure VM sizes documentation](/azure/virtual-machines/sizes/overview).
+- Review all warnings and errors in the Site Recovery job.
+- Verify the final VM's size, zone, availability configuration, and other placement settings. For retryable provisioning failures, Site Recovery can retry without an unsupported or overconstraining placement setting.
+- Verify the VM power state, boot diagnostics, serial console, network connectivity, licensing, and workload-specific registration before commit.
+
+## Troubleshoot hydration
+
+### Helper VM size selection
+
+Site Recovery first evaluates the configured final VM size for use by the temporary helper VM. The helper size can differ from the final recovered VM size. A suitable helper size must:
+
+- Use a compatible x64 architecture, support generation 1, and be available to the subscription in the target region and zone.
+- Have at least two active cores and 2 GiB of memory when a fallback size is selected.
+- Support the number of source disks attached during hydration. The helper VM's own OS and resource disks don't count toward this data-disk limit. Hydration of more than 64 attached source disks isn't supported.
+- Support Premium storage when required by the attached source disks.
+
+Site Recovery doesn't select retired or unsupported VM families. These families include older A, D, F, G, L, and H families, confidential-computing families, and selected specialized or retired high-memory and accelerator sizes. These categories can change as Azure VM families retire. Site Recovery considers basic sizes only as a last-resort fallback.
+
+If the configured final size isn't suitable, Site Recovery searches compatible sizes in the same family first, prioritizing sufficient disk capacity and then core count. It then searches the broader eligible pool. If no compatible helper size is available, the job returns `SkuNotAvailableForHydrationVM`.
+
+For troubleshooting steps, see [Troubleshoot errors when failing over VMware VM or physical machine to Azure](site-recovery-failover-to-azure-troubleshoot.md#hydration-vm-size-and-allocation-failures).

@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 02/12/2025
- ms.author: cherylmc
+ ms.author: duau
 
 #Customer intent: this file is used for both virtual wan and vpn gateway articles.
 ---
@@ -38,7 +38,7 @@ For more information about certificates for Linux, see the following articles:
 
 [!INCLUDE [Install strongSwan](vpn-gateway-strongswan-install-include.md)]
 
-## View VPN client profile configuration files
+## View strongSwan VPN client profile configuration files
 
 When you generate a VPN client profile configuration package, all the necessary configuration settings for VPN clients are contained in a VPN client profile configuration zip file. The VPN client profile configuration files are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect.
 

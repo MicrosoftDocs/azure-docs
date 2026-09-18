@@ -5,7 +5,7 @@ description: Follow this tutorial to learn how to prepare for registering your a
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: tutorial
 ms.date: 09/11/2024

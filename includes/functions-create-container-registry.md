@@ -28,7 +28,7 @@ Before you begin, you must have the following requirements in place:
 + Install [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools) version 4.x.
 :::zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-+ Install a version of [Node.js](https://nodejs.org) that's [supported by Azure Functions](../articles/azure-functions/functions-reference-node.md#supported-versions).
++ Install a version of [Node.js](https://nodejs.org) that's [supported by Azure Functions](../articles/azure-functions/functions-reference-node.md#programming-model).
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

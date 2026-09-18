@@ -37,7 +37,7 @@ Supercomputers are currently available in the following Azure regions:
 
 - East US
 - UK South
-- West Europe
+- Sweden Central
 
 ### API version
 

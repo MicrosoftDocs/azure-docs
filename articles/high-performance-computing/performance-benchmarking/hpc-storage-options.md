@@ -1,10 +1,11 @@
 ---
 title: "High-Performance Computing (HPC) workload best practices and storage options"
 description: A comprehensive guide to choosing a storage solution best suited to your HPC workloads.
+ai-usage: ai-assisted
 author: christinechen2
 ms.author: padmalathas
 ms.reviewer: normesta
-ms.date: 06/25/2025
+ms.date: 09/16/2026
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: concept-article
@@ -17,19 +18,48 @@ ms.topic: concept-article
 
 This guide provides best practices, guidelines, a detailed comparison and technical specifications of storage solutions that is best suited to your HPC workload on Azure VMs. It includes performance metrics, protocol support, cost tiers, and use case alignment for each storage type. There's typically a trade-off between optimizing for costs and optimizing for performance. If your workload is less demanding, you might not require every recommended optimization. Consider your performance needs, costs, and workload patterns as you evaluate these recommendations.
 
+## Evaluate storage requirements
+
+Start with workload requirements instead of a specific storage product. Record the following characteristics before you compare services:
+
+- **Access model:** Determine whether applications use object APIs or require a shared file system with POSIX, NFS, or SMB semantics.
+- **I/O pattern:** Measure file sizes, read-to-write ratio, metadata operations, throughput, IOPS, and latency requirements with a representative workload.
+- **Scale:** Estimate active data size, client and compute-node count, aggregate bandwidth, and expected growth.
+- **Data lifecycle:** Decide where durable data resides and whether you need a temporary accelerator, cache, or parallel file system during compute runs.
+- **Operations and cost:** Compare provisioned and consumption billing, regional availability, data movement, backup, security, and management requirements.
+
+Use these requirements with the [at-a-glance recommendations](#at-a-glance) to create a shortlist. Benchmark that shortlist with your application and data before you choose a production design. Peak service specifications aren't a substitute for workload-specific testing.
+
 ## Overview
 
 Storage for HPC workloads consists of core storage and in some cases, an accelerator. Core storage acts as the permanent home for your data. It contains rich data management features and is durable, available, scalable, elastic, and secure. An accelerator enhances core storage by providing high-performance data access. An accelerator can be provisioned on demand and gives your computational workload much faster access to data.
 
-## Storage Services Comparison
+## Storage service comparison
 
-| Feature        | Standard Blob | Premium Blob | Premium Files | Azure NetApp Files | Azure Managed Lustre |
-|----------------|---------------|--------------|----------------|---------------------|-----------------------|
-| **Capacity**   | 20+ PiB       | 20+ PiB      | 100 TiB        | 500 TiB             | 1 PiB                 |
-| **Bandwidth**  | 15 GB/s       | 15 GB/s      | 10 GB/s        | 10 GiB/s            | Up to 512 GB/s        |
-| **IOPS**       | 20,000        | 20,000       | 100,000        | 800,000             | >100,000              |
-| **Latency**    | <100 ms       | <10 ms       | 2–4 ms         | <1 ms               | <2 ms                 |
-| **Protocols**  | REST, HDFS, NFSv3, SFTP, FUSE, CSI | Same | REST, NFSv4.1, SMB3, CSI | NFSv3/4.1, SMB3, CSI | Lustre, CSI |
+| Service | Evaluate when | Access model | Typical role |
+| --- | --- | --- | --- |
+| [Azure Standard Blob](/azure/storage/blobs/) | The workload uses large files, needs high aggregate throughput, or separates durable data from temporary compute storage. | Object APIs or file access through tools such as BlobFuse2 and NFS. | Core storage behind a compute-side accelerator or cache. |
+| [Azure Premium Blob](/azure/storage/blobs/storage-blob-block-blob-premium) | The workload needs lower and more consistent latency for transaction-heavy object access or uses many medium-sized files. | Object APIs or file access through tools such as BlobFuse2. | Core storage. |
+| [Azure Premium Files](/azure/storage/files/) | The workload needs a managed shared file system at moderate scale. | NFS or SMB. | Core shared storage. |
+| [Azure NetApp Files](/azure/azure-netapp-files/) | The workload needs low-latency shared file access, multiprotocol workflows, or strong small-file performance. | NFS or SMB, including multiprotocol volumes. | Core shared storage or a high-performance tier. |
+| [Azure Managed Lustre](/azure/azure-managed-lustre/) | Large-scale HPC or AI jobs need a parallel file system and high aggregate throughput. | Lustre or CSI. | Compute-side accelerator or standalone high-performance storage. |
+
+Service limits and performance depend on region, deployment size, service tier, and workload access pattern. Use the linked service documentation to verify current limits for your candidate configuration, and benchmark with representative data.
+
+## Approve a storage design
+
+Test the shortlist with the production compute shape, application, data volume, file-size distribution, and concurrency. Approve a storage design only when you can record evidence for every criterion:
+
+| Criterion | Evidence to record |
+| --- | --- |
+| Application compatibility | Required APIs, file-system semantics, permissions, locking, and software integrations work without application changes you didn't plan. |
+| End-to-end performance | Job time meets the target, including data staging, metadata operations, reads, writes, checkpoints, and result persistence. |
+| Scale | Throughput, IOPS, latency, and metadata rate remain within target at the expected node and client count. |
+| Recovery and durability | Data remains available or can be restored after a compute-node loss, interrupted job, or storage-component failure covered by the design. |
+| Cost | Provisioned capacity, transactions, data transfer, backup, and accelerator runtime produce an acceptable cost per completed job. |
+| Operations | Named owners can monitor capacity and performance, handle access failures, protect durable data, and scale or retire temporary tiers. |
+
+If a candidate fails a required criterion, reject it or revise the data path and repeat the same benchmark. Don't assume that adding compute resolves a storage bottleneck: more nodes can increase I/O concurrency and cost without reducing job time.
 
 ## Initial consideration
 
@@ -65,29 +95,13 @@ If you are still stuck between options after using the decision trees, here are 
 
 ---
 
-## Specialized Storage Solutions
-Azure offers a range of storage services tailored to meet the demanding needs of HPC workloads. Each solution is optimized for different performance characteristics, access patterns, and cost profiles. Following is an overview of the most relevant storage options and what they are best suited for in HPC scenarios.
-
-| Storage Solution | Use Cases   | Performance Benchmarks   | Scalability Options  | Integration with Other Azure Services |
-|------|------|-----|-----|-----|
-| Azure Blob Storage  |  * Data Analytics <br> * Content Distribution <br>  * Backup and Archival | Throughput up to 30GB/s with BlobFuse2  | * Storage Accounts up to 5 PiB per account <br>  * Unlimited number of containers per account | * Azure AI <br>* AKS <br> * Azure Data Lake |
-||||||
-| Azure Files  | * DevOps <br> * Backups <br> * Remote Work | Encryption in Transit (TLS 1.3 for NFS shares) | * File Shares up to 100 TiB per share (Standard) <br> * IOPS up to 100,000 (Premium)  | * Azure Backup <br>  * Azure Monitor <br> * Microsoft Entra ID |
-||||||
-| Azure NetApp Files  | * Databases <br> * VDI <br> * HPC  | IOPS and Throughput measured using FIO | * Capacity Pools up to 100 TiB per pool <br> * Volumes up to 100 TiB per volume | * AKS <br> * Azure Backup <br> * Azure Monitor |
-||||||
-| Azure Managed Lustre   | * Large-scale simulations <br> * Genomics <br> * Scientific Workloads | Throughput up to 30GB/s with the 250MB/s/TiB performance tier | * File Systems up to 1.5 PB capacity<br> * Throughput up to 375 GB/s | * Azure Blob Storage <br> * AKS <br> * Azure Monitor  |
-||||||
-
----
-
-## AI and RAG Workload Storage Requirements
+## AI and RAG workload storage requirements
 
 The storage requirements for AI and RAG workloads vary across different stages. During the training stage, it is essential to have high throughput, checkpointing, local caching, and the ability to load large models. For the inference stage, fast model access, low latency, and concurrent GPU access are required. In the RAG stage, secure unstructured storage, vector database integration, freshness, and low latency are necessary.
 
 ---
 
-## Partner Solutions
+## Partner solutions
 
 | Partner           | Protocols           | Scale         | Unique Features                                      |
 |-------------------|---------------------|---------------|------------------------------------------------------|
@@ -101,7 +115,7 @@ The storage requirements for AI and RAG workloads vary across different stages. 
 
 ---
 
-## Performance Optimization Tips
+## Performance optimization tips
 - Size volumes based on performance, not just capacity.
 - Use Availability Zones to control latency.
 - Use large volume features in ANF for max bandwidth.
@@ -115,3 +129,9 @@ In order of most to least expensive, the core storage option prices are:
 - Azure Standard Blob
 
 For more info on the pricing, see [Azure product pricing](https://azure.microsoft.com/pricing/#product-pricing).
+
+## Next steps
+
+- [Plan an HPC and AI benchmark](overview.md)
+- [Run your first benchmark by using STREAM](stream-benchmark.md)
+- [Plan and size HPC clusters in Azure CycleCloud](/azure/cyclecloud/concepts/plan-and-size-hpc-clusters)

@@ -6,7 +6,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 02/12/2025
+ms.date: 06/16/2026
 ms.author: rolyon
 ---
 
@@ -76,7 +76,7 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Database for PostgreSQL Flexible Server with Microsoft Entra authentication integration enabled or with Customer Managed Key enabled | Yes | No |  | You cannot transfer an Azure Database for PostgreSQL with Microsoft Entra authentication or with Customer Managed Key enabled to a different directory. You have to disable these features first, transfer the server, and then re-enable these features. | 
 | Azure Storage and Azure Data Lake Storage Gen2 | Yes | Yes |  | You must re-create any ACLs. |
 | Azure Files | Yes | In most scenarios |  | You must re-create any ACLs. For storage accounts with Microsoft Entra Kerberos authentication enabled, you must disable and re-enable Microsoft Entra Kerberos authentication after the transfer. For Microsoft Entra Domain Services, transferring to another Microsoft Entra directory where Microsoft Entra Domain Services is not enabled is not supported. |
-| Azure File Sync | Yes | Yes |  | The storage sync service and/or storage account can be moved to a different directory. For more information, see [Frequently asked questions (FAQ) about Azure Files](../storage/files/storage-files-faq.md#azure-file-sync) |
+| Azure File Sync | Yes | Yes |  | The storage sync service and/or storage account can be moved to a different directory. For more information, see [Frequently asked questions (FAQ) about Azure Files](../storage/files/storage-files-faq.md#azure-file-sync-faq) |
 | Azure Managed Disks | Yes | Yes |  |  If you're using Disk Encryption Sets to encrypt Managed Disks with customer-managed keys, you must disable and re-enable the system-assigned identities associated with Disk Encryption Sets. And you must re-create the role assignments to again grant required permissions to Disk Encryption Sets in the Key Vaults. |
 | Azure Kubernetes Service | Yes | No |  | You cannot transfer your AKS cluster and its associated resources to a different directory. For more information, see [Frequently asked questions about Azure Kubernetes Service (AKS)](/azure/aks/faq) |
 | Azure Policy | Yes | No | All Azure Policy objects, including custom definitions, assignments, exemptions, and compliance data. | You must [export](../governance/policy/how-to/export-resources.md), import, and re-assign definitions. Then, create new policy assignments and any needed [policy exemptions](../governance/policy/concepts/exemption-structure.md). |
@@ -91,6 +91,8 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Databricks | Yes | No |  | Currently, Azure Databricks doesn't support moving workspaces to a new tenant. For more information, see [Manage your Azure Databricks account](/azure/databricks/administration-guide/account-settings/#move-workspace-between-tenants-unsupported). |
 | Azure Compute Gallery | Yes | Yes |  | Replicate the image versions in the gallery to other regions or [copy an image from another gallery](/azure/virtual-machines/image-version). |
 | Azure resource locks | Yes | Yes | [List resource locks](/cli/azure/resource/lock#az-resource-lock-list) | Export Azure resource locks manually using the Azure portal or [Azure CLI](/cli/azure/resource/lock). |
+| Microsoft Sentinel | Yes | Yes | [Onboard Microsoft Sentinel](/azure/sentinel/quickstart-onboard) | All Microsoft Sentinel workspaces are offboarded immediately. Onboard those workspaces to Microsoft Sentinel in the new tenant, and the workspace has the same Microsoft Sentinel data as before, as long as the re-onboarding is done within 90 days. |
+| SIEM in Microsoft Defender | Yes | Yes | [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops/microsoft-sentinel-onboard) | All SIEM workspaces in Microsoft Defender are disconnected immediately. Connect those workspaces to the new tenant. |
 
 
 > [!WARNING]

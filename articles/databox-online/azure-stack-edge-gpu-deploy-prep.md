@@ -37,7 +37,7 @@ For Azure Stack Edge Pro GPU deployment, you need to first prepare your environm
 |**[1. Prepare the Azure portal for Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md)** |Create and configure your Azure Stack Edge resource before you install an Azure Stack Box Edge physical device. |
 |**[2. Install Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-install.md)**|Unpack, rack, and cable the Azure Stack Edge Pro GPU physical device.  |
 |**[3. Connect to Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-connect.md)** |Once the device is installed, connect to device local web UI.  |
-|**[4. Configure network settings for Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)** |Configure network including the compute network and web proxy settings for your device. If setting up a two-node cluster, advanced networking and cluster configuration is also needed.  |
+|**[4. Configure network settings for Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)** |Configure network including the compute network and web proxy settings for your device. |
 |**[5. Configure device settings for Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-set-up-device-update-time.md)** |Assign a device name and DNS domain, configure update server and device time. |
 |**[6. Configure security settings for Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-configure-certificates.md)** |Configure certificates for your device. Use device-generated certificates or bring your own certificates.   |
 |**[7. Activate Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-activate.md)** |Use the activation key from service to activate the device. The device is ready to set up SMB or NFS shares or connect via REST. |
@@ -78,10 +78,7 @@ Before you deploy a physical device, make sure that:
 
 - You've [run the Azure Stack Network Readiness Checker tool](azure-stack-edge-deploy-check-network-readiness.md) to check network readiness for your Azure Stack Edge device. You can use the tool to check whether your firewall rules are blocking access to any essential URLs for the service and verify custom URLs, among other tests. For more information, see [Check network readiness for your Azure Stack Edge device](azure-stack-edge-deploy-check-network-readiness.md).
 - You've reviewed the safety information that was included in the shipment package.
-- To rackmount the device in a standard 19* rack in your datacenter, make sure to have:
-
-    - A 1U slot available when deploying a single node device. 
-    - Two 1U slots available when deploying a two-node cluster.
+- To rackmount the device in a standard 19-inch rack in your datacenter, make sure you have a 1U slot available when deploying the device.
 - You have access to a flat, stable, and level work surface where the device can rest safely.
 - The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
 - You have access to your device.

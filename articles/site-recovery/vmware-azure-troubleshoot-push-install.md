@@ -181,7 +181,7 @@ If connection is unsuccessful, please check whether all pre-requisites are met.
 
 After a connectivity check, verify if the File and Printer sharing service is enabled on your virtual machine. These settings are required to copy the Mobility agent to the source machine.
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 For **Windows 2008 R2 and prior versions**:
 

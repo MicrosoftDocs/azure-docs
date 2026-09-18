@@ -80,7 +80,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Arc-enabled servers](/azure/azure-arc/servers/) | &#x2705; | &#x2705; |
 | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) | &#x2705; | &#x2705; |
 | [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview) | &#x2705; | &#x2705; |
-| [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; |
+| [Azure Cache for Redis](/azure/azure-cache-for-redis/) | &#x2705; | &#x2705; |
 | [Azure Cosmos DB (Including DocumentDB)](/azure/cosmos-db/) | &#x2705; | &#x2705; |
 | [Azure Container Apps](../../container-apps/index.yml) | &#x2705; | &#x2705; |
 | [Azure Database for MySQL](/azure/mysql/) | &#x2705; | &#x2705; |
@@ -284,16 +284,16 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 - FedRAMP High = FedRAMP High Provisional Authorization to Operate (P-ATO) in Azure Government
 - DoD IL2 = DoD SRG Impact Level 2 Provisional Authorization (PA) in Azure Government
 - DoD IL4 = DoD SRG Impact Level 4 Provisional Authorization (PA) in Azure Government
-- DoD IL5 = DoD SRG Impact Level 5 Provisional Authorization (PA) in Azure Government
+- DoD IL5WI = DoD SRG Impact Level 5 Workload Isolation (IL5WI) Provisional Authorization (PA) in Azure Government
 - DoD IL6 = DoD SRG Impact Level 6 Provisional Authorization (PA) in Azure Government Secret
 - &#x2705; = service is included in audit scope and has been authorized
 
 > [!NOTE]
 >
-> - Some services deployed in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions) require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
-> - For DoD IL5 PA compliance scope in Azure Government regions US DoD Central and US DoD East (US DoD regions), see **[US DoD regions IL5 audit scope](../documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
+> - For DoD IL5 via Workload Isolation (IL5WI) PA compliance scope in Azure Government regions US Gov Arizona, US Gov Texas, and US Gov Virginia (US Gov regions), services require extra configuration to meet DoD IL5 compute and storage isolation requirements, as explained in **[Isolation guidelines for Impact Level 5 workloads](../documentation-government-impact-level-5.md).**
+> - For DoD IL5 PA compliance scope in US DoD Central and US DoD East (US DoD regions), see **[US DoD regions IL5 audit scope](../documentation-government-overview-dod.md#us-dod-regions-il5-audit-scope).**
 
-| Service | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5 | DoD IL6 |
+| Service | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5WI | DoD IL6 |
 | ------- |:------------:|:-------:|:-------:|:-------:|:-------:|
 | [Advisor](/azure/advisor/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [AI Builder](/ai-builder/) | &#x2705; | &#x2705; | &#x2705; | &#x2705;| |
@@ -312,8 +312,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Arc-enabled servers](/azure/azure-arc/servers/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Arc-enabled SQL Server](/sql/sql-server/azure-arc/overview) | &#x2705; | &#x2705; | |  |  |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
-| [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
+| [Azure Cache for Redis](/azure/azure-cache-for-redis/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Container Apps](../../container-apps/index.yml) | &#x2705; | &#x2705; |  |  |  |
 | [Azure Cosmos DB (Including DocumentDB)](/azure/cosmos-db/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure CXP Nomination Portal](https://cxp.azure.com/nominationportal/nominationform/fasttrack) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -332,7 +332,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Policy](../../governance/policy/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Policy's guest configuration](../../governance/machine-configuration/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Red Hat OpenShift](/azure/openshift/) | &#x2705; | &#x2705; | &#x2705; |  |  |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
 | [Azure Resource Manager](../../azure-resource-manager/management/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [SQL Server on Azure VM](/azure/azure-sql/virtual-machines/) | &#x2705; | &#x2705; | |  |  |
@@ -353,7 +353,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Cloud Services](../../cloud-services/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Cloud Services Extended Support](../../cloud-services-extended-support/index.yml) | &#x2705; | &#x2705; |  |  |  |
 | [Cloud Shell](../../cloud-shell/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
 | [Foundry: Azure AI Search](/azure/search/) (formerly Azure Cognitive Search) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Foundry: Azure AI Computer Vision](/azure/ai-services/computer-vision/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Foundry: Azure AI Content Moderator](/azure/ai-services/content-moderator/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -370,7 +370,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Container Instances](/azure/container-instances/)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Container Registry](/azure/container-registry/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Content Delivery Network (CDN)](../../cdn/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
 | [Cost Management and Billing](../../cost-management-billing/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Data Box](../../databox/index.yml) **&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -387,7 +387,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Dynamics 365 Contact Center](/dynamics365/contact-center)| &#x2705; | &#x2705; | | | |
 | [Dynamics 365 Customer Insights](/dynamics365/customer-insights/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dynamics 365 Customer Service](/dynamics365/customer-service/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
 | [Dynamics 365 Customer Voice](/dynamics365/customer-voice/about) (formerly Forms Pro) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dynamics 365 Field Service](/dynamics365/field-service/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dynamics 365 Finance](/dynamics365/finance/) | &#x2705; | &#x2705; | &#x2705; | | |
@@ -404,7 +404,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Document Intelligence](/azure/ai-services/document-intelligence/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Front Door](../../frontdoor/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Functions](../../azure-functions/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
 | [HDInsight](../../hdinsight/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [HPC Cache](../../hpc-cache/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Import/Export](../../import-export/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -419,7 +419,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Media Services](/azure/media-services/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Microsoft Azure portal](/azure/azure-portal/) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
 | [Microsoft Foundry portal](/azure/foundry/what-is-foundry#microsoft-foundry-portals) | &#x2705; | &#x2705; | |  |  |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
 | [Microsoft Azure Attestation](/azure/attestation/)| &#x2705; | &#x2705; | |  |  |
 | [Microsoft Azure Government portal](../documentation-government-get-started-connect-with-portal.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | |
 | [Microsoft Defender for Cloud](/azure/defender-for-cloud/) (formerly Azure Security Center) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -439,7 +439,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Notification Hubs](../../notification-hubs/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Peering Service](../../peering-service/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Planned Maintenance for VMs](/azure/virtual-machines/maintenance-and-updates) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
 | [Power Apps](/powerapps/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power Pages](https://powerapps.microsoft.com/portals/) (formerly PowerApps Portal)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power Automate](/power-automate/) (formerly Microsoft Flow) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -455,7 +455,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Scheduler](../../scheduler/index.yml) (replaced by [Logic Apps](../../logic-apps/index.yml)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Service Bus](../../service-bus-messaging/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Service Fabric](/azure/service-fabric/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
 | [Service Health](/azure/service-health/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [SignalR Service](../../azure-signalr/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Site Recovery](../../site-recovery/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -471,7 +471,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [StorSimple](../../storsimple/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Stream Analytics](../../stream-analytics/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Synapse Analytics](../../synapse-analytics/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5WI** | **DoD IL6** |
 | [Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Traffic Manager](../../traffic-manager/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

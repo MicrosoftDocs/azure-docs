@@ -13,26 +13,17 @@ ms.custom: knowledge-base, upload, documents, runbooks, troubleshooting, automat
 
 # Upload knowledge documents in Azure SRE Agent
 
-
-> [!TIP]
-> - Your agent creates and uploads runbooks during conversations with no manual file management.
-> - Attach 31 file types in chat, including `.kql`, `.bicep`, `.tf`, `.har`, `.py`, and `.xlsx`, for immediate analysis context.
-> - Upload 28 file types to Knowledge settings for persistent, indexed storage across all future conversations
-> - Incident resolutions become institutional knowledge automatically
-
-## The problem: knowledge dies with the conversation
-
 Every incident your team resolves generates valuable knowledge: what went wrong, what commands fixed it, and what to check first next time. But that knowledge lives in chat threads, engineer memory, and postmortems that nobody reads at 3 AM.
 
 Your team has runbooks, but they go stale. The fix discovered during last night's incident? It's in someone's head, or buried in a conversation that scrolls out of view by next week. The next time the same issue occurs, a different engineer starts from scratch.
 
 ## How your agent solves this problem
 
-Your agent can upload documents to Knowledge settings during conversations by using the **Upload Knowledge Document** tool. When your agent discovers a fix, creates a troubleshooting guide, or synthesizes investigation findings, it stores that knowledge directly and makes it searchable for every future conversation.
+Your agent can upload documents to Knowledge settings during conversations by using the **Upload Knowledge Document** tool. When your agent discovers a fix, creates a troubleshooting guide, or synthesizes investigation findings, it stores that knowledge directly. This approach makes the information searchable for every future conversation.
 
 ```text
-"Create a runbook from the steps we just followed to fix this database
-connection pool exhaustion issue and save it to Knowledge settings."
+Create a runbook from the steps we just followed to fix this database
+connection pool exhaustion issue and save it to Knowledge settings.
 ```
 
 Your agent generates a structured runbook and uploads it in seconds. The document is indexed automatically and becomes searchable for future investigations.
@@ -73,7 +64,7 @@ When your agent uploads a document:
 1. **Confirms** the upload with a success message.
 
 > [!NOTE]
-> If a document with the same filename already exists, the new content replaces it. This process makes it easy for your agent to update knowledge. Upload with the same name to refresh the content.
+> If a document with the same file name already exists, the new content replaces it. This process makes it easy for your agent to update knowledge. Upload the document by using the same name to refresh the content.
 
 ## Supported file formats
 
@@ -131,9 +122,7 @@ When your agent creates documents during conversations (by using the **Upload Kn
 During an incident investigation, ask your agent:
 
 ```text
-We just resolved the high CPU issue on web-app-prod. It was caused by a
-memory leak in the connection pool. Create a troubleshooting guide from
-what we learned and upload it to Knowledge settings.
+We just resolved the high CPU issue on web-app-prod. It was caused by a memory leak in the connection pool. Create a troubleshooting guide from what we learned and upload it to Knowledge settings.
 ```
 
 Your agent generates a structured troubleshooting guide with:
@@ -152,19 +141,19 @@ The next time a similar CPU issue occurs, your agent automatically references th
 | Agent version | 26.1.57.0 or later |
 | Knowledge settings | Enabled on your agent |
 | Write permissions | Your agent needs write access to Knowledge settings |
-| Run mode | Review or Autonomous. Write actions require approval in Review mode. |
+| Run mode | Review or Autonomous. Write actions require approval in Review mode |
 
 ## Limits
 
-| Attribute | Chat attachments | Knowledge settings uploads | Agent tool |
+| Type | Chat attachments | Knowledge settings uploads | Agent tool |
 |---|---|---|---|
 | **Maximum file size** | 10 MB | 16 MB | 16 MB |
-| **Maximum total** | 50 MB per message | 100 MB per upload | N/A |
+| **Maximum total** | 50 MB per message | 100 MB per upload | Not applicable |
 | **Maximum files** | 5 per message | No limit (total size capped at 100 MB) | 1 per action |
 | **Folder upload** | Not supported | ✓ Drag folders to upload all files at once | Not supported |
 | **Supported extensions** | 31 | 28 | 2 (`.md`, `.txt`) |
-| **Filename characters** | N/A | Letters, numbers, hyphens, underscores, dots | Same |
-| **Maximum filename length** | N/A | 1,024 characters | Same |
+| **Filename characters** | Not applicable | Letters, numbers, hyphens, underscores, dots | Same |
+| **Maximum filename length** | Not applicable | 1,024 characters | Same |
 
 ## When to use something else
 

@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: SoniaLopezBravo
+author: sethmanheim
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 10/20/2021
-ms.author: sonialopez
+ms.author: sethm
 ms.custom:
   - include file
   - sfi-image-nochange

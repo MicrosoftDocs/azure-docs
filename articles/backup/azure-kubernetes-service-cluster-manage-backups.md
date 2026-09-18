@@ -123,7 +123,20 @@ However, if the number of resources in the cluster exceeds 1000, the extension p
 
 #### Resolving OOMKilled Errors by Increasing CPU and Memory
 
-To ensure successful backup and restore operations, manually update the resource settings for the extension pods by following these steps:
+An OOMKilled event typically occurs when a container exceeds its configured memory limit or is selected as a victim during node-level memory pressure. 
+
+To verify whether the issue was caused by an OOMKilled event, review the memory usage of the Velero container in the `dataprotection-microsoft-kubernetes-agent` pod using your monitoring solution, if available. Reviewing the container's memory consumption can help determine whether it was terminated due to memory exhaustion. It is also recommended to check the memory utilization of the node hosting the pod.
+	
+Alternatively, you can confirm whether the agent pod was terminated with an Out of Memory (OOM) condition.
+```azurecli
+$ kubectl describe pod [The full name of the agent pod] -n dataprotection-microsoft
+...
+ "reason": "OOMKilled",
+ "exitCode": 137,
+...
+```
+
+If the root cause is confirmed to be an OOMKilled event, manually update the resource settings for the extension pods by following these steps to help ensure successful backup and restore operations.
 
 1. Open the AKS cluster in the Azure portal.
 
@@ -145,12 +158,12 @@ To ensure successful backup and restore operations, manually update the resource
 
 > [!NOTE]
 >
-> If the node where the extension pod is provisioned doesn't have the required CPU or memory, and you've only updated the resource limits, the pod may be repeatedly killed. To resolve this, update the configuration settings using `resources.requests.cpu` and `resources.requests.memory`. This ensures the pod is scheduled on a node that meets the requested resource requirements.
+> If the node where the extension pod is provisioned doesn't have the required CPU or memory, and you've only updated the resource limits, the pod may be repeatedly killed. To resolve this, update the configuration settings using `resources.requests.cpu` and `resources.requests.memory`. It is recommended setting same value of requests and limits if the pod resource usage is high. This prevents pods from being scheduled on nodes that do not have enough available resources to satisfy their resource limits.
 
  
 #### Verifying the Changes
 
-Once changes are applied, either wait for a scheduled backup to run or initiate an on-demand backup. If you still experience an OOMKilled failure, repeat the steps above and gradually increase memory limits and if it still persists increase `resources.limits.cpu` parameter also.
+After you update the settings, check whether the resources of the `dataprotection-microsoft-kubernetes-agent` pod are applied correctly. Once the pod restarted after updating the settings and is applied successfully, wait for a scheduled backup to run or initiate an on-demand backup. If you still experience an OOMKilled failure, repeat the steps above and gradually increase memory limits and if it still persists increase `resources.limits.cpu` parameter also.
 
 ### Monitor a backup operation
 

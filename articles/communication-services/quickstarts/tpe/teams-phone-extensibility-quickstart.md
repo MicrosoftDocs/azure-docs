@@ -17,14 +17,17 @@ services: azure-communication-services
 
 This article describes how an independent software vendor (ISV) can provision Teams Phone for the scope of Teams Phone extensibility (TPE). This article also describes how an ISV can guide their customers because there are operations in Teams that a tenant needs to implement.
 
-## Presumptions
+> [!NOTE]
+> To let a Teams user place and receive calls from your application by using their Teams Phone identity (separate from their Teams client), see [Access a user's Teams Phone separate from their Teams client](./teams-phone-extensibility-access-teams-phone.md).
+
+## Prerequisites
 
 - ISV’s Customer has access to Teams Admin Center.
 - ISV’s Customer has access to Microsoft 365 Admin Center.
 - ISV has access to change Azure Communication Services Resource settings.
 - You grant Teams Tenant access to a CCaaS service for Graph API usage.
-- ISV uses the .NET, JavaScript, or Java ACS Call Automation SDK version 1.5.0 or above (Python version will be released soon).
-- ISV uses the JavaScript ACS Client SDK version 1.37 and above.
+- ISV uses the latest .NET, JavaScript, Python, or Java ACS Call Automation SDK version (1.5.0 and above).
+- ISV uses the latest JavaScript ACS Client SDK version (1.37 and above).
 
 
 ## Quick start
@@ -40,13 +43,13 @@ Before you can create a bot, you need to register an Application ID.
     :::image type="content" source="media/teams-phone-extensibility-app-registration.png" alt-text="Screen capture showing the Azure portal with App registration selected from services."  lightbox="media/teams-phone-extensibility-app-registration.png":::
 
 2. Select **New registration**.
-3. Complete the required fields and click **Register**.
-4. When the portal completes the resource, click **Go to resource**.
+1. Complete the required fields and select **Register**.
+1. When the portal finishes creating the resource, select **Go to resource**.
 5. Record the values for the **Application (client) ID** and **Directory (tenant) ID**.
 
     :::image type="content" source="media/teams-phone-extensibility-app-registration-resources.png" alt-text="Screen capture showing the Azure portal App registrations resource displaying Essentials including Application (client) ID and Directory (tenant) ID."  lightbox="media/teams-phone-extensibility-app-registration-resources.png":::
 
-6. Open **Certificates & secrets**. Create new a client secret and record the certificate and secret ID values.
+1. Open **Certificates & secrets**. Create a new client secret and record the certificate and secret ID values.
 
 For more information, see [Registering a calling bot](https://microsoftgraph.github.io/microsoft-graph-comms-samples/docs/articles/calls/register-calling-bot.html#registering-an-app-registration).
 
@@ -93,10 +96,10 @@ Example:
 New-AzBotService -ResourceGroupName teamsphonetest-rg -Name "teamsPhoneBot" -ApplicationId aa123456-1234-1234-1234-aaa123456789 -Location "global" -Sku S1 -Description "My Teams Phone Test Bot" 
 ```
 
-For this step, when you configure Teams, the webhook can be any URL. Enter any valid URL such as `https://mycompanydomain.com`.
+For this step, when you configure Teams, set the webhook to `https://eventgrid.azure.net`. This value determines how your application receives incoming call notifications. When you configure the Event Grid URL, incoming call notifications are delivered through Azure Event Grid. If you set a different URL, notifications are delivered directly to that webhook instead. Use `https://eventgrid.azure.net` unless you specifically set up a direct webhook endpoint to handle incoming call notifications.
 
 > [!NOTE]
-> In the future, we expect to remove this dependency on URL.
+> This webhook URL is currently required. Until the dependency is removed, set it to `https://eventgrid.azure.net` to route incoming call notifications through Azure Event Grid.
 
 ### Teams Admin: Provision Resource Account
 
@@ -120,7 +123,7 @@ Example:
  New-CsOnlineApplicationInstance -UserPrincipalName myteamsphoneresourceaccount@contoso.com -ApplicationId aa123456-1234-1234-1234-aaa123456789 -DisplayName "My Teams Phone Resource Account" 
 ```
 
-Use the updated [Set-CSonlineApplicationInstance](/powershell/module/skype/set-csonlineapplicationinstance) command to assign the Resource Account to your Azure Communication Services Resource. This command routes calls to that Azure Communication Services Resource. It's up to the CCaaS developer on how to communicate the `ACSResourceID` to the Teams Tenant.
+Use the updated [Set-CSonlineApplicationInstance](/powershell/module/teams/set-csonlineapplicationinstance) command to assign the Resource Account to your Azure Communication Services Resource. This command routes calls to that Azure Communication Services Resource. It's up to the CCaaS developer on how to communicate the `ACSResourceID` to the Teams Tenant.
 
 Example:
 
@@ -177,6 +180,9 @@ You need to assign a public switched telephone network (PSTN) number to your Res
 ### CCaaS Developer: Get Resource Account Information
 
 We're introducing a new Graph API to get a list of Resource Accounts and phone numbers where assigned. The Graph API supports an optional filter on your Microsoft Entra first party `applicationID` / `clientId`.
+
+> [!NOTE]
+> The Graph API examples in this section use the `beta` endpoint (`https://graph.microsoft.com/beta`). Beta APIs aren't supported for production use and are subject to change. For more information, see [Microsoft Graph REST API beta endpoint](/graph/api/overview?view=graph-rest-beta).
 
 Authentication:
 
@@ -330,6 +336,22 @@ public static async Task<List<JObject>> GetResourceAccountsAsync(
 }
 ```
 
+### CCaaS Developer: Provide server consent
+
+Before your Azure Communication Services resource can receive calls for the Teams Resource Account, the resource owner must authorize calls from that Teams Resource Account. Send a `PUT` request to the Microsoft Teams Extension access assignments API. For more information, including authentication options and the full request and response schema, see [Access a user's Teams Phone separate from their Teams client](./teams-phone-extensibility-access-teams-phone.md#provide-server-consent).
+
+- The `{YOUR-ACS-RESOURCE-ENDPOINT}` is the Azure Communication Services resource fully qualified domain name (FQDN) from Azure.
+- The `{TENANT-GUID}` is the Teams Tenant GUID.
+- The `{YOUR-RESOURCE-ACCOUNT-GUID}` is the `oid` value returned by the Graph API in the previous step.
+
+```http
+PUT https://{YOUR-ACS-RESOURCE-ENDPOINT}/access/teamsExtension/tenants/{TENANT-GUID}/assignments/{YOUR-RESOURCE-ACCOUNT-GUID}?api-version=2025-06-30
+
+{
+   "principalType": "teamsResourceAccount"
+}
+```
+
 ### CCaaS Developer: Receive and answer incoming call
 
 The following steps demonstrate how to receive and answer an incoming Teams call.
@@ -450,7 +472,8 @@ Sample Incoming Call Event with Teams Resource Account Identifier and custom con
        "voipHeaders":  
         {  
            "X-myCustomVoipHeaderName": "myValue"  
-        }, 
+        }
+  },
   "incomingCallContext": "<CALL_CONTEXT VALUE>", 
   "correlationId": "2e0fa6fe-bf3e-4351-9beb-568add4f5315" 
 } 
@@ -458,7 +481,7 @@ Sample Incoming Call Event with Teams Resource Account Identifier and custom con
 
 ### CCaaS Developer: How to access media directly
 
-If the built-in PlayTo, recognize and recording options that come with the Call Automation SDK don't meet the needs of the CCaaS service, the CCaaS developer can access media directly. You can access media for calls can be accessed via REST + Websocket notification mechanisms when instantiating the `AnswerCallOptions` object. Once the call is established, media flow via WebSocket notifications to the URL provided in the `MediaStreamingOptions` object. See the following example code snippet: 
+If the built-in PlayTo, recognize, and recording options that come with the Call Automation SDK don't meet the needs of the CCaaS service, the CCaaS developer can access media directly. You can access media for calls through REST and WebSocket notification mechanisms when you instantiate the `AnswerCallOptions` object. Once the call is established, media flows through WebSocket notifications to the URL you provide in the `MediaStreamingOptions` object. See the following example code snippet: 
 
 The following options aren't specific to Teams Phone extensibility and are also available to non Teams Phone extensibility flows. 
 
@@ -497,7 +520,7 @@ Once the user interaction is complete and auth is successful, a token is returne
 
 Parse the Azure Communication Services token to get the [CommunicationUserIdentifier interface | Microsoft Learn](/javascript/api/@azure/communication-common/communicationuseridentifier).
 
-See the code sample defined in [Create a credential capable of obtaining a Microsoft Entra user token](https://github.com/Azure/communication-preview/blob/master/Teams%20Phone%20Extensibility/teams-phone-extensibility-access-teams-phone.md#create-a-credential-capable-of-obtaining-a-microsoft-entra-user-token).
+See the code sample defined in [Create a credential capable of obtaining a Microsoft Entra user token](./teams-phone-extensibility-access-teams-phone.md#create-a-credential-capable-of-obtaining-a-microsoft-entra-user-token).
 
 ### CCaaS Client Developer: How to construct the Teams Phone extensibility Call Agent
 
@@ -638,4 +661,4 @@ Response<RecordingStateResult> response = await callAutomationClient.GetCallReco
 ## Related articles
 
 - [Teams Phone extensibility overview](../../concepts/interop/tpe/teams-phone-extensibility-overview.md)
-- [REST API for Teams Phone extensibility](./teams-phone-extensiblity-rest-api.md)
+- [REST API for Teams Phone extensibility](./teams-phone-extensibility-rest-api.md)

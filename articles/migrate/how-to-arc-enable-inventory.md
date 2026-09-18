@@ -1,11 +1,12 @@
 ---
 title: View and enable Azure Arc for discovered servers in Azure Migrate
 description: Learn how to view Arc status and enable Azure Arc for on-premises servers discovered via Azure Migrate’s appliance-based discovery tool.
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 08/18/2024
+ms.update-cycle: 365-days
 ms.custom: sfi-image-nochange
 
 # Customer intent: As a system administrator tasked with managing on-premises servers, I want to enable Azure Arc on my discovered inventory so that I can achieve unified management and better visibility throughout the migration process.

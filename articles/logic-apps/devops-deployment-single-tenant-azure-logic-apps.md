@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: concept-article
-ms.update-lifecycle: 365 days
+ms.update-cycle: 365-days
 ai-usage: ai-assisted
 ms.date: 05/12/2026
 # Customer intent: As an automation and integration developer who works with Azure Logic Apps, I want to learn about DevOps deployment support for Standard logic app workflows.

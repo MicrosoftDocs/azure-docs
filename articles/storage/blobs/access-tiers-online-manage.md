@@ -496,7 +496,7 @@ To change access tier of blobs with a batch operation, use one of the Azure Stor
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/AccessTiers.cs" id="Snippet_BulkArchiveContainerContents":::
 
-For an in-depth sample application that shows how to change tiers with a batch operation, see [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
+For an in-depth sample application that shows how to change tiers with a batch operation, see [AzBulkSetBlobTier](/sql/).
 
 ## Next steps
 

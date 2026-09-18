@@ -6,10 +6,10 @@ ms.author: molir
 ms.manager: ronai
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
-ms.update-cycle: 180-days
+ms.update-cycle: 365-days
 # Customer intent: "As a system administrator, I want to deploy the Azure Migrate appliance for server discovery and assessment, so that I can evaluate the infrastructure and plan for migration to the cloud."
 ---
 
@@ -36,7 +36,7 @@ The Azure Migrate appliance is used in the following scenarios.
 
 The appliance can be deployed using a couple of methods:
 
-- The appliance can be deployed using a template for servers running in VMware or Hyper-V environment ([OVA template for VMware](how-to-set-up-appliance-vmware.md) or [VHD for Hyper-V](how-to-set-up-appliance-hyper-v.md)).
+- Use a template for servers running in VMware or Hyper-V environments. For example, use the [OVA template for VMware](tutorial-discover-vmware.md#set-up-the-appliance)or [VHD for Hyper-V](tutorial-discover-hyper-v.md#set-up-the-appliance).
 - If you don't want to use a template, you can deploy the appliance for VMware or Hyper-V environment using a [PowerShell installer script](deploy-appliance-script.md).
 - In Azure Government, you should deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](deploy-appliance-script-government.md).
 - For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
@@ -73,19 +73,19 @@ C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip 
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | VMware- OVA file (11.9 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 79679469041FD9E474B03A3AEEA0D554552EFD57F79B322E61595EC58F5FF625   |
+    | VMware- OVA file (12.8 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | 5E94BF55CAC7E209188478734359469A3C9EBC424A9DA191A53FE6425ED6738F   |
 
     - Use the VHD file to set up the Hyper-V appliance in Azure public cloud.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Hyper-V -  VHD file (9.46Gb)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | AD3C72FB21037B10969548228B4F651BF5A79CD0A34D608CD470B75329A24A24   |
+    | Hyper-V -  VHD (Zip file) (11.4 GB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | AD3C72FB21037B10969548228B4F651BF5A79CD0A34D608CD470B75329A24A24      |
 
     - Use the Zip file to set up the VMware, Hyper-V, or Physical appliance stack in Azure public cloud and Azure Government.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Zip file (839 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | 42CF83E265D54E4D014658DAB36457C83B630A2EA22C8150AD41C607DE7A0476   |
+    | ZIP file (746 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  |  D7CC59E5C16A34155C53CDDFF9710D9F07EC1CE51EA802E9354641A602484C7C  |
 
 
 ## Appliance services
@@ -116,11 +116,11 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Project limits** |  An appliance can only be registered with a single project.<br> A single project can have multiple registered appliances.
 **Discovery limits** | An appliance can discover up to 10,000 severs running across multiple vCenter Servers.<br>A single appliance can connect to up to 10 vCenter Servers.
 **Supported deployment** | Deploy as new server running on vCenter Server using OVA template. <br><br> Deploy on an existing server that runs Windows Server 2022 or Windows Server 2025 using PowerShell.
-**OVA template** | Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2191954).<br><br> Download size is 11.9 GB.<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days.<br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance using OVA template, or you activate the operating system license of the appliance server.
+**OVA template** | Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2191954).<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days.<br>If the evaluation period is close to expiry, download and deploy a new appliance by using the OVA template, or activate the operating system license of the appliance server.
 **OVA verification** | The OVA template downloaded from project by checking the hash values.
 **PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-vmware) on how to deploy an appliance using the PowerShell installer script.<br/><br/> 
 **Hardware and network requirements** |  The appliance should run on server with Windows Server 2022 or Windows Server 2025, 32-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> The onboarding script checks for Windows Server 2016 or earlier versions and blocks the appliance deployment on those systems.<br/><br/> The appliance requires internet access, either directly or through a proxy.<br/><br/> If you deploy the appliance using OVA template, you need enough resources on the vCenter Server to create a server that meets the hardware requirements.
-**VMware requirements** | If you deploy the appliance as a server on vCenter Server, it  must be deployed on a vCenter Server running 5.5, 6.0, 6.5, 6.7 or 7.0 and an ESXi host running version 5.5 or later.<br/><br/> 
+**VMware requirements** | If you deploy the appliance as a server on vCenter Server, you  must deploy it on a vCenter Server running [!INCLUDE [vmware-discovery-supported-versions](includes/vmware-discovery-supported-versions.md)] and an ESXi host running version 5.5 or later.<br/><br/> 
 **VDDK (agentless migration)** | To use the appliance for agentless migration of servers, the VMware vSphere VDDK must be installed on the appliance server.
 
 ## Appliance - Hyper-V
@@ -132,7 +132,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 |**Project limits** |  An appliance can only be registered with a single project.<br> A single project can have multiple registered appliances.|
 |**Discovery limits** | An appliance can discover up to 5000 servers running in Hyper-V environment.<br/><br/> An appliance can connect to up to 300 Hyper-V hosts.|
 |**Supported deployment** | Deploy as server running on a Hyper-V host using a VHD template. <br/><br/>  Deploy on an existing server that runs Windows Server 2022 or Windows Server 2025 using PowerShell.|
-|**VHD template** | Zip file that includes a VHD. Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2140422).<br><br> Download size is 8.91 GB.<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance server.|
+|**VHD template** | Zip file that includes a VHD. Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2191848).<br><br> The downloaded appliance template comes with a Windows Server 2022 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance server.|
 |**VHD verification** | Verify the VHD template downloaded from project by checking the hash values.|
 |**PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v) on how to deploy an appliance using the PowerShell installer script.|
 |**Hardware and network requirements**  |  The appliance should run on server with Windows Server 2022 or Windows Server 2025, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.
@@ -148,7 +148,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Project limits** |  An appliance can only be registered with a single project.<br> A single project can have multiple registered appliances.<br>
 **Discovery limits** | An appliance can discover up to 1000 physical servers.
 **Supported deployment** | Deploy on an existing server that runs Windows Server 2022 or Windows Server 2025 using PowerShell.
-**PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zip file from the project or from [here](https://go.microsoft.com/fwlink/?linkid=2140334). [Learn more](tutorial-discover-physical.md).<br><br> Download size is 85.8 MB.
+**PowerShell script** | Download the script (AzureMigrateInstaller.ps1) in a zip file from the project or from [here](https://go.microsoft.com/fwlink/?linkid=2140334). <br> <br> [Learn more](tutorial-discover-physical.md).
 **Script verification** | Verify the PowerShell installer script downloaded from project by checking the hash values.
 **Hardware and network requirements** |  The appliance runs on a server with Windows Server 2022 or Windows Server 2025. It needs 32 GB RAM, 8 vCPUs, about 80 GB of disk storage, and an external virtual switch.<br/><br/> The appliance uses a static or dynamic IP address and needs internet access, either directly or through a proxy.
 

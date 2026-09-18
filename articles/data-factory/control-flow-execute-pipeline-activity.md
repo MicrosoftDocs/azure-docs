@@ -17,6 +17,9 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> The Fabric equivalent of Execute Pipeline activity is Invoke Pipeline activity. For configuration details, see [Invoke Pipeline activity](/fabric/data-factory/invoke-pipeline-activity).
+
 The Execute Pipeline activity allows a Data Factory or Synapse pipeline to invoke another pipeline.
 
 ## Create an Execute Pipeline activity with UI

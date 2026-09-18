@@ -11,7 +11,9 @@ ms.author: glenga
 # [C#](#tab/csharp)
 
 * [Complete the quickstart article](../articles/azure-functions/durable-functions/durable-functions-isolated-create-first-csharp.md)
-* [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/precompiled) (uses the in-process model)
+* Clone or download the samples project from GitHub
+  * [Isolated model samples](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-functions/dotnet)
+  * [In-process model samples](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/precompiled)
 
 # [JavaScript](#tab/javascript)
 

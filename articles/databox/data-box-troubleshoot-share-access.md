@@ -4,7 +4,7 @@ description: Describes how to identify network issues preventing SMB share conne
 services: databox
 author: v-dalc
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: troubleshooting
 ms.date: 04/15/2022
 ms.author: shaas

@@ -2,7 +2,7 @@
 title: Integration and Automation Platform Options in Azure
 description: "Compare Microsoft cloud services that are optimized for integration tasks: Power Automate, Logic Apps, Functions, and WebJobs."
 ms.topic: overview
-ms.date: 03/23/2026
+ms.date: 09/15/2026
 ms.custom: mvc
 #Customer intent: As a developer, I want to understand the choices that Azure offers for hosting and executing my business logic so that I can choose the right set of Azure services.
 ---
@@ -37,20 +37,20 @@ To help you determine whether you want to use Azure Logic Apps or Power Automate
 
 ## Compare Azure Functions and Azure Logic Apps
 
-These Azure services allow you to build and run serverless workloads. Azure Functions is a serverless compute service, while Azure Logic Apps is a serverless workflow integration platform. Both can create complex *orchestrations*. An orchestration is a collection of functions, which are called *actions* in Azure Logic Apps, that you can run to complete a complex task. For example, to process a batch of orders, you might execute many instances of a function in parallel, wait for all instances to finish, and then execute a function that computes a result on the aggregate.
+These Azure services allow you to build and run serverless workloads. Azure Functions is a serverless compute service, while Azure Logic Apps is a serverless workflow integration platform. Both can create complex *orchestrations*. An orchestration is a collection of functions. In Azure Logic Apps, a workflow coordinates operations called *actions*. For example, to process a batch of orders, you might execute many instances of a function in parallel, wait for all instances to finish, and then execute a function that computes a result on the aggregate.
 
-For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](../durable-task/common/what-is-durable-task.md). For Azure Logic Apps, you create orchestrations by using a visual designer or by editing Azure Resource Manager templates.
+For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](../durable-task/common/what-is-durable-task.md). For Azure Logic Apps, you create workflows by using a visual designer or by editing the underlying JSON workflow definition. For Standard workflows, you can also [use the Azure Logic Apps Standard SDK to create workflows in C#](../logic-apps/standard-sdk/create-workflows-with-csharp.md). This code-first option is currently in preview. For automated deployment, Azure Logic Apps supports Azure Resource Manager templates.
 
 You can mix and match services when you build an orchestration. For example, you can call functions from logic app workflows and call logic app workflows from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some key differences between these services:
 
 |     | Durable Functions | Azure Logic Apps |
 | --- | ----------------- | ---------------- |
-| **Development** | Code-first (imperative) | Designer-first (declarative) |
+| **Development** | Code-first (imperative) | Designer-first (declarative). Standard workflows also support code-first C# development in preview. |
 | **Connectivity** | - [A dozen built-in binding types](functions-triggers-bindings.md#supported-bindings) <br>- Write code for custom bindings | - [1,400+ prebuilt connectors with triggers and actions](/connectors/connector-reference/connector-reference-logicapps-connectors) <br>- [Enterprise Integration Pack for B2B scenarios](../logic-apps/logic-apps-enterprise-integration-overview.md) <br>- [Custom connectors](/connectors/custom-connectors/) |
 | **Actions** | Each activity is an Azure function; write code for activity functions | [1,400+ prebuilt connectors with triggers and actions](/connectors/connector-reference/connector-reference-logicapps-connectors) |
 | **Monitoring** | [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) | - [Azure portal](../logic-apps/view-workflow-status-run-history.md) <br>- [Azure Monitor Logs](../logic-apps/monitor-workflows-collect-diagnostic-data.md) <br>- [Microsoft Defender for Cloud](../logic-apps/healthy-unhealthy-resource.md) <br>- [Azure Application Insights for Standard workflows](/azure/logic-apps/create-single-tenant-workflows-azure-portal#enable-or-open-application-insights-after-deployment) <br>- [Health Check for Standard workflows](/azure/logic-apps/monitor-health-standard-workflows) <br><br>For more information, see [Monitor workflows in Azure Logic Apps](/azure/logic-apps/monitor-logic-apps-overview). |
-| **Management** | - [REST API](durable-functions/durable-functions-http-api.md) <br>- [Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | - [Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md) <br>- [Visual Studio Code]() <br>- [REST API](/rest/api/logic/) <br>- [PowerShell](/powershell/module/az.logicapp) <br>- [Azure CLI (Standard workflows)](/cli/azure/logicapp) <br>- [Azure CLI (Consumption workflows)](/cli/azure/logic) |
-| **Execution context** | Can run [locally](./functions-kubernetes-keda.md) or in the cloud | Can run in Azure, locally in Visual Studio Code, or in partially connected environments. For more information, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md#resource-environment-differences) |
+| **Management** | - [REST API](../durable-task/durable-functions/durable-functions-http-api.md) <br>- [Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | - [Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md) <br>- [Visual Studio Code](../logic-apps/create-standard-workflows-visual-studio-code.md) <br>- [REST API](/rest/api/logic/) <br>- [PowerShell](/powershell/module/az.logicapp) <br>- [Azure CLI (Standard workflows)](/cli/azure/logicapp) <br>- [Azure CLI (Consumption workflows)](/cli/azure/logic) |
+| **Execution context** | Can run [locally](./functions-kubernetes-keda.md) or in the cloud | Consumption and Standard workflows can run in Azure. You can locally develop, debug, and test Standard workflows in Visual Studio Code. You can also deploy Standard workflows to partially connected environments on infrastructure that you control. For more information, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md#resource-environment-differences). |
 
 <a name="function"></a>
 

@@ -6,7 +6,7 @@ description: Learn how to find technical, pre-sales, billing, and subscription h
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: troubleshooting
 ms.date: 05/20/2025

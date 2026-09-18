@@ -5,8 +5,9 @@ ms.topic: how-to
 author: ankurgupta2212
 ms.author: ankug
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 03/12/2026
+ms.update-cycle: 180-days
 monikerRange: migrate 
 # Customer intent: Customers plan and analyze VMware migrations to Azure using Azure Copilot migration agent, including inventory review, readiness assessment, cost and ROI analysis, and Azure landing zone design—before migration execution in Azure Migrate.
 ---

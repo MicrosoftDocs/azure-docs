@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 08/01/2025
+ms.date: 08/05/2026
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource using Azure PowerShell, so that I can control the network traffic to and from the resource.
 # Customer intent: As a network administrator, I want to create and manage a network security perimeter for an Azure Key Vault using PowerShell, so that I can enhance security by controlling the network traffic within a trusted boundary.
 ---
@@ -21,28 +21,21 @@ Get started with network security perimeter by creating a network security perim
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- Install the Az.Tools.Installer module:
-  
+- The Azure PowerShell `Az` module installed locally. The network security perimeter cmdlets ship in the current stable release of `Az.Network`, so no prerelease build is required.
+
     ```azurepowershell
-    # Install the Az.Tools.Installer module    
-    Install-Module -Name Az.Tools.Installer -Repository PSGallery
+    # Install or update the Az PowerShell module
+    Install-Module -Name Az -Repository PSGallery -Scope CurrentUser -Force
     ```
 
-- Install the preview build of the `Az.Network`:
-
-    ```azurepowershell-interactive
-    # Install the preview build of the Az.Network module 
-    Install-Module -Name Az.Network -AllowPrerelease -Force -RequiredVersion 7.13.0-preview
-    ```
-    
 - You can choose to use Azure PowerShell locally or use [Azure Cloud Shell](/azure/cloud-shell/overview).
 - To get help with the PowerShell cmdlets, use the `Get-Help` command:
     ```azurepowershell-interactive
     # Get help for a specific command
-    Get-Help -Name <powershell-command> - full
+    Get-Help -Name <powershell-command> -Full
 
     # Example
-    Get-Help -Name New-AzNetworkSecurityPerimeter - full
+    Get-Help -Name New-AzNetworkSecurityPerimeter -Full
     ```
 
 ## Sign in to your Azure account and select your subscription
@@ -57,7 +50,7 @@ Connect-AzAccount
 Then, connect to your subscription:
 
 ```azurepowershell
-# List all subscriptions
+# Select the subscription to use
 Set-AzContext -Subscription <subscriptionId>
 
 # Register the Microsoft.Network resource provider
@@ -104,8 +97,7 @@ $nsp = @{
         ResourceGroupName = $rgParams.name  
         } 
 
-$demoNSP=New-AzNetworkSecurityPerimeter @nsp
-$nspId = $demoNSP.Id
+$demoNSP = New-AzNetworkSecurityPerimeter @nsp
   
 ```
 
@@ -160,7 +152,7 @@ In this step, you create a new profile and associate the PaaS resource, the Azur
 
 ## Manage network security perimeter access rules
 
-In this step, you create, update and delete network security perimeter access rules with public IP address prefixes.
+In this step, you create and update network security perimeter access rules with public IP address prefixes.
 
 ```azurepowershell-interactive
     # Create an inbound access rule for a public IP address prefix
@@ -186,7 +178,7 @@ In this step, you create, update and delete network security perimeter access ru
     Update-AzNetworkSecurityPerimeterAccessRule @updateInboundRule | format-list
 ```
 
-[!INCLUDE [network-security-pe~rimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
+[!INCLUDE [network-security-perimeter-note-managed-id](../../includes/network-security-perimeter-note-managed-id.md)]
 
 ## Delete all resources 
 
@@ -195,7 +187,7 @@ When you no longer need the network security perimeter, remove all resources ass
 ```azurepowershell-interactive
 
     # Retrieve the network security perimeter and place it in a variable
-    $nsp= Get-AzNetworkSecurityPerimeter -Name demo-nsp -ResourceGroupName $rg.Params.Name
+    $nsp = Get-AzNetworkSecurityPerimeter -Name 'demo-nsp' -ResourceGroupName $rgParams.Name
 
     # Delete the network security perimeter and all associated resources
     $removeNsp = @{ 

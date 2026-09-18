@@ -23,6 +23,10 @@ For information on setup and configuration details, see the [overview](./functio
 ## Examples
 <a id="example"></a>
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
@@ -408,9 +412,9 @@ The following example shows a SQL input binding that is [triggered by an HTTP](.
 ::: zone pivot="programming-language-typescript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/sqlInput1.ts" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 TypeScript samples aren't documented for model v3.
@@ -421,9 +425,9 @@ TypeScript samples aren't documented for model v3.
 ::: zone pivot="programming-language-javascript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlInput1.js" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 The following is binding data in the function.json file:
@@ -483,9 +487,9 @@ The following example shows a SQL input binding that is [triggered by an HTTP](.
 ::: zone pivot="programming-language-typescript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/sqlInput2.ts" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 TypeScript samples aren't documented for model v3.
@@ -496,9 +500,9 @@ TypeScript samples aren't documented for model v3.
 ::: zone pivot="programming-language-javascript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlInput2.js" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 The following is binding data in the function.json file:
@@ -563,9 +567,9 @@ The stored procedure `dbo.DeleteToDo` must be created on the database. In this e
 ::: zone pivot="programming-language-typescript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/sqlInput3.ts" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 TypeScript samples aren't documented for model v3.
@@ -576,9 +580,9 @@ TypeScript samples aren't documented for model v3.
 ::: zone pivot="programming-language-javascript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlInput3.js" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 ```json
@@ -1107,7 +1111,7 @@ The following table explains the properties that you can set on the `options` ob
 | Property | Description |
 |---------|----------------------|
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#connections). |
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 | **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and the parameter value can't contain a comma (`,`) or an equals sign (`=`). |
 
@@ -1121,7 +1125,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Required. Must be set to `in`. |
 |**name** |  Required. The name of the variable that represents the query results in function code. | 
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#connections). |
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 | **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and the parameter value can't contain a comma (`,`) or an equals sign (`=`). |
 
@@ -1139,7 +1143,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Required. Must be set to `in`. |
 |**name** |  Required. The name of the variable that represents the query results in function code. | 
 | **commandText** | Required. The Transact-SQL query command or name of the stored procedure executed by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#sql-connection-string). |
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database against which the query or stored procedure is being executed. This value isn't the actual connection string and must instead resolve to an environment variable name. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#connections). |
 | **commandType** | Required. A [CommandType](/dotnet/api/system.data.commandtype) value, which is [Text](/dotnet/api/system.data.commandtype#fields) for a query and [StoredProcedure](/dotnet/api/system.data.commandtype#fields) for a stored procedure. |
 | **parameters** | Optional. Zero or more parameter values passed to the command during execution as a single string. Must follow the format `@param1=param1,@param2=param2`. The parameter name and the parameter value can't contain a comma (`,`) or an equals sign (`=`). |
 ::: zone-end  
@@ -1149,13 +1153,13 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-The binding definition includes the SQL command text, the command type, parameters, and the connection string setting name. The command can be a Transact-SQL (T-SQL) query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
-
-[!INCLUDE [functions-sql-database-authentication-note](../../includes/functions-sql-database-authentication-note.md)]
+The binding definition includes the SQL command text, the command type, parameters, and the connection string setting name. The command can be a Transact-SQL (T-SQL) query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. 
 
 Queries executed by the input binding are [parameterized](/dotnet/api/microsoft.data.sqlclient.sqlparameter) in Microsoft.Data.SqlClient to reduce the risk of [SQL injection](/sql/relational-databases/security/sql-injection) from the parameter values passed into the binding.
 
 If an exception occurs when a SQL input binding is executed, then the function code doesn't execute. This behavior may result in an error code being returned, such as an HTTP trigger returning a 500 error code.
+
+[!INCLUDE [functions-sql-connections](../../includes/functions-sql-connections.md)]
 
 ## Next steps
 

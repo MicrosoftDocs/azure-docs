@@ -2,11 +2,11 @@
 title: How to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway 
 titleSuffix: Azure VPN Gateway
 description: Learn how to migrate from a Basic SKU public IP address to a Standard SKU public IP address for VPN Gateway deployment.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 01/30/2026
-ms.author: cherylmc
+ms.date: 07/16/2026
+ms.author: duau
 #customer intent: As a cloud network administrator, I want to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway, so that I can ensure optimal performance and compliance with service standards during our infrastructure upgrade.
 ---
 
@@ -27,11 +27,20 @@ Additionally, if your VPN Gateway gateway SKU is VpnGw 1-5, your gateway SKU mig
 
 In the Azure portal, there are three sections for the migration process:
 
-* The first section is used to prepare for the migration.
-* The second section is used for two actions:
+* Use the first section to prepare for the migration.
+* Use the second section for two actions:
   * Migrate the public IP address from the Basic SKU public IP address resource to a Standard SKU public IP address resource. The IP address assigned to your gateway doesn't change.
   * Migrate the VPN Gateway gateway SKU from a non-AZ SKU to an AZ SKU. For example, VpnGw2 becomes VpnGw2AZ.
 * The third section validates the migration and deletes the old Basic SKU public IP address resource.
+
+To learn about the migration process and its key steps, watch the following videos:
+* To learn about the migration process for VPN Gateway in **Active/Standby** mode, see:
+
+  > [!VIDEO https://learn-video.azurefd.net/vod/player?id=f03be51c-ec60-4280-8656-679b6907bfbd]
+
+* To learn about the migration process for VPN Gateway in **Active/Active** mode, see:
+
+  > [!VIDEO https://learn-video.azurefd.net/vod/player?id=f866d3a7-a120-4c91-a7fb-83b2cbc00212]
 
 ## <a name="migrate"></a>Migrate to a Standard SKU public IP address for VPN Gateway
 
@@ -49,7 +58,7 @@ Use the steps in the Azure portal to migrate your Basic SKU public IP address re
 
    :::image type="content" source="./media/basic-public-ip-address-migrate-howto/migrate-prepare.png" alt-text="Screenshot of the migrate tab for migrating a virtual network gateway."lightbox="./media/basic-public-ip-address-migrate-howto/migrate-prepare.png":::
 
-1. The **Migrate** tab lets you prepare for migration, and then migrate. If the environment requires manual preparation steps, you'll see a list of prerequisites that must be met before migration can begin. If these prerequisites aren't met, validation fails and you can't proceed with the migration. You must fix any issues identified in this section before you can proceed with the migration.
+1. The **Migrate** tab lets you prepare for migration, and then migrate. If the environment requires manual preparation steps, you see a list of prerequisites that must be met before migration can begin. If these prerequisites aren't met, validation fails and you can't proceed with the migration. You must fix any problems identified in this section before you can proceed with the migration.
 
 Before your initiate migration for your VPN gateway, verify that your gateway subnet has at least three available IP addresses in your current prefix. If your current gateway subnet is /28 or smaller, the migration tool might error out. You need to [add multiple prefixes](../virtual-network/how-to-multiple-prefixes-subnet.md) for the gateway subnet before you can proceed with migration.
 
@@ -65,7 +74,7 @@ Before your initiate migration for your VPN gateway, verify that your gateway su
 
    :::image type="content" source="./media/basic-public-ip-address-migrate-howto/migrate.png" alt-text="Screenshot of the migrate step for migrating a virtual network gateway."lightbox="./media/basic-public-ip-address-migrate-howto/migrate.png":::
 
-1. Click the **Migrate** button to migrate your public IP address SKU and your gateway SKU. You'll have 5 minutes of downtime and can't make any changes to your VPN gateway during this time.
+1. Select **Migrate** to migrate your public IP address SKU and your gateway SKU. You have up to 10 minutes of downtime and can't make any changes to your VPN gateway during this time.
 
 ### Validate migration
 
@@ -96,11 +105,11 @@ Use Azure PowerShell to migrate your Basic SKU public IP address resource to a S
 
 > [!NOTE]
 > * Migrating your public IP address from Basic SKU to Standard SKU also upgrades your VPN Gateway SKU from a non-AZ to an AZ SKU.
-> * Before starting migration, ensure your gateway subnet has at least three available IP addresses in its current prefix. If your subnet is /28 or smaller, the migration tool may fail. [Add multiple prefixes](../virtual-network/how-to-multiple-prefixes-subnet.md) if needed.
+> * Before starting migration, ensure your gateway subnet has at least three available IP addresses in its current prefix. If your subnet is /28 or smaller, the migration tool might fail. [Add multiple prefixes](../virtual-network/how-to-multiple-prefixes-subnet.md) if needed.
 
 ### Prepare for migration
 
-Run [Invoke-AzVirtualNetworkGatewayPrepareMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewaypreparemigration?view=azps-latest) to prepare your gateway for migration.
+Run [Invoke-AzVirtualNetworkGatewayPrepareMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewaypreparemigration?view=azps-latest&preserve-view=true) to prepare your gateway for migration.
 
 ```azurepowershell-interactive
 $gateway = Get-AzVirtualNetworkGateway -Name "ContosoVirtualGateway" -ResourceGroupName "RGName"
@@ -110,7 +119,7 @@ Invoke-AzVirtualNetworkGatewayPrepareMigration -InputObject $gateway -MigrationP
 
 ### Execute migration
 
-Run [Invoke-AzVirtualNetworkGatewayExecuteMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewayexecutemigration?view=azps-latest) to start the migration.
+Run [Invoke-AzVirtualNetworkGatewayExecuteMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewayexecutemigration?view=azps-latest&preserve-view=true) to start the migration.
 
 ```azurepowershell-interactive
 $gateway = Get-AzVirtualNetworkGateway -Name "ContosoVirtualGateway" -ResourceGroupName "RGName"
@@ -119,7 +128,7 @@ Invoke-AzVirtualNetworkGatewayExecuteMigration -InputObject $gateway
 
 ### Commit migration
 
-After validating that migration was successful, run [Invoke-AzVirtualNetworkGatewayCommitMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewaycommitmigration?view=azps-latest) to finalize the migration.
+After validating that migration was successful, run [Invoke-AzVirtualNetworkGatewayCommitMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewaycommitmigration?view=azps-latest&preserve-view=true) to finalize the migration.
 
 ```azurepowershell-interactive
 $gateway = Get-AzVirtualNetworkGateway -Name "ContosoVirtualGateway" -ResourceGroupName "RGName"
@@ -128,7 +137,7 @@ Invoke-AzVirtualNetworkGatewayCommitMigration -InputObject $gateway
 
 ### Abort migration
 
-If you need to roll back the migration before committing, run [Invoke-AzVirtualNetworkGatewayAbortMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewayabortmigration?view=azps-latest).
+If you need to roll back the migration before committing, run [Invoke-AzVirtualNetworkGatewayAbortMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewayabortmigration?view=azps-latest&preserve-view=true).
 
 ```azurepowershell-interactive
 $gateway = Get-AzVirtualNetworkGateway -Name "ContosoVirtualGateway" -ResourceGroupName "RGName"
@@ -141,7 +150,7 @@ Invoke-AzVirtualNetworkGatewayAbortMigration -InputObject $gateway
 
 ### Guided migration for Point-to-Site VPN Gateways using legacy DNS (cloudapp.net)
 
-Some Point-to-Site (P2S) VPN Gateways were originally deployed using legacy cloudapp.net DNS. These gateways cannot use the standard public IP migration process.
+Some Point-to-Site (P2S) VPN Gateways were originally deployed using legacy cloudapp.net DNS. These gateways can't use the standard public IP migration process.
 Azure now provides a guided migration experience in the Azure portal that enables eligible legacy DNS P2S gateways to migrate from a Basic SKU public IP address to a Standard SKU, without requiring customers to manually reconfigure DNS or Point-to-Site settings.
 
 
@@ -195,8 +204,7 @@ Follow these migration steps if your VPN Gateway uses legacy cloudapp.NET DNS
 
 ## What is the known Traffic selector behavior during Active-Active VPN Gateway migration?
 
-When migrating an Active Active Azure VPN Gateway that has BGP enabled, IPsec tunnels may go down after migration if Narrow Traffic Selectors are both configured. 
-This behavior can cause site to site connectivity loss immediately after migration.
+When you migrate an Active-Active Azure VPN Gateway that has BGP enabled, IPsec tunnels might go down after migration if Narrow Traffic Selectors are both configured. This behavior can cause site-to-site connectivity loss immediately after migration.
  
 * Which configurations are impacted?
   
@@ -205,9 +213,9 @@ This behavior applies only to the following scenario: <br>
 •	BGP enabled <br>
 •	Narrow (custom) traffic selectors on Azure or on the on prem device
 
-* Which configurations are not impacted?
+* Which configurations aren't impacted?
   
-This behavior does not apply to: <br>
+This behavior doesn't apply to: <br>
 •	Gateways that accept or negotiate wildcard (0.0.0.0/0) traffic selectors <br>
 •	Gateways without BGP enabled
 
@@ -216,7 +224,7 @@ This behavior does not apply to: <br>
 To avoid connectivity loss during migration, customers who use Narrow Traffic Selectors should: <br>
 •	Change traffic selectors to wildcard (0.0.0.0/0) on the on premises VPN device before initiating migration, or <br>
 •	Ensure the on premises device can accept wildcard traffic selectors during IPsec negotiation <br>
-Making this change prior to migration allows tunnels to renegotiate successfully after the gateway upgrade.
+Making this change before migration allows tunnels to renegotiate successfully after the gateway upgrade.
 
 
 

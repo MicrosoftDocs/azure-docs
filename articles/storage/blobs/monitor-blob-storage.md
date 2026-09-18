@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Blob Storage
 description: Start here to learn how to monitor Azure Blob Storage.
-ms.date: 02/07/2024
+ms.date: 07/15/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: normesta
@@ -13,9 +13,6 @@ ms.service: azure-blob-storage
 # Monitor Azure Blob Storage
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
-
->[!IMPORTANT]
->Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. For more information, see [Migrate to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview).
 
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
@@ -31,6 +28,9 @@ For a list of available metrics for Azure Blob Storage, see [Azure Blob Storage 
 <a name="collection-and-routing"></a>
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Blob Storage, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs).
+
+[!INCLUDE [storage-logs-correlation-id](includes/storage-logs-correlation-id.md)]
+
 > [!NOTE]
 > Data Lake Storage doesn't appear as a storage type because Data Lake Storage is a set of capabilities available to Blob storage.
 
@@ -137,7 +137,7 @@ az monitor metrics list --resource <resource-ID> --metric "Transactions" --inter
 
 ### [.NET](#tab/dotnet)
 
-Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
+Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definitions and values. 
 
 In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
 
@@ -386,7 +386,7 @@ The following table lists common and recommended alert rules for Azure Blob Stor
 Other Blob Storage monitoring content:
 - [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md). A reference of the logs and metrics created by Azure Blob Storage.
 - [Best practices for monitoring Azure Blob Storage](blob-storage-monitoring-scenarios.md). Guidance for common monitoring and troubleshooting scenarios.
-- [Metrics and logs FAQ](storage-blob-faq.yml#metrics-and-logs).
+- [Metrics and logs FAQ](monitor-blob-storage-faq.md).
 
 Overall Azure Storage monitoring content:
 - [Monitor storage with Azure Monitor Storage insights](../common/storage-insights-overview.md). Get a unified view of storage performance, capacity, and availability.

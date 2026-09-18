@@ -1,8 +1,9 @@
 ---
 title: Common Issues - Slurm Configuration| Microsoft Docs
-description: Azure CycleCloud common issue - Slurm Configuration
+description: Troubleshoot Slurm (slurmd) configuration and startup errors on Azure CycleCloud clusters.
 author: adriankjohnson
-ms.date: 06/30/2025
+ms.date: 06/19/2026
+ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso
 ---
 # Common issues: Slurm configuration errors

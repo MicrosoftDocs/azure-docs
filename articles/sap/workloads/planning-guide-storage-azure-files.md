@@ -1,6 +1,6 @@
 ---
-title: Azure Premium Files NFS and SMB for SAP
-description: Learn about using Azure Premium Files NFS and SMB for SAP workloads.
+title: Azure Files SSD NFS and SMB for SAP
+description: Learn about using Azure Files SSD NFS and SMB for SAP workloads.
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: concept-article
@@ -8,12 +8,12 @@ manager: msjuergent
 author: msftrobiro
 ms.author: robiro
 ms.date: 03/12/2026
-# Customer intent: As an SAP administrator, I want to evaluate Azure Premium Files for NFS and SMB configurations, so that I can optimize storage performance and capacity for my SAP workloads while ensuring system stability and compliance with best practices.
+# Customer intent: As an SAP administrator, I want to evaluate Azure Files SSD for NFS and SMB configurations, so that I can optimize storage performance and capacity for my SAP workloads while ensuring system stability and compliance with best practices.
 ---
 
-# Using Azure Premium Files NFS and SMB for SAP workload
+# Using Azure Files SSD NFS and SMB for SAP workload
 
-This document is about Azure Premium Files file shares used for SAP workload. Both Network Files Share (NFS) volumes and Server Message Block (SMB) file shares are covered. For considerations around Azure NetApp Files for SMB or NFS volumes, see the following two documents:
+This article describes using Azure Files SSD file shares for SAP workloads. It covers both Network File Share (NFS) volumes and Server Message Block (SMB) file shares. For considerations around Azure NetApp Files for SMB or NFS volumes, see the following two articles:
 
 - [Azure Storage types for SAP workload](./planning-guide-storage.md)
 - [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
@@ -29,13 +29,13 @@ For SAP workloads, the supported uses of Azure Files shares are:
 - File interface between your SAP landscape and other applications.
 
 > [!NOTE]
-> No SAP DBMS workloads are supported on Azure Premium Files volumes, NFS, or SMB. For support restrictions on Azure storage types for SAP NetWeaver/application layer of S/4HANA, read SAP Note [2015553](https://launchpad.support.sap.com/#/notes/2015553).
+> SAP DBMS workloads aren't supported on Azure Files SSD volumes, NFS, or SMB. For support restrictions on Azure storage types for SAP NetWeaver/application layer of S/4HANA, see SAP Note [2015553](https://launchpad.support.sap.com/#/notes/2015553).
 
-## Important considerations for Azure Premium Files shares with SAP
+## Important considerations for Azure Files SSD shares with SAP
 
 When you plan your deployment with Azure Files, consider the following important points. The term share in this section applies to both SMB share and NFS volume.
 
-- The minimum share size is 100 gibibytes (GiB). With Azure Premium Files, you pay for the [capacity of the provisioned shares](/azure/storage/files/understanding-billing#provisioned-model).
+- The minimum share size is 100 GiB. With Azure Files SSD, you pay for the [capacity of the provisioned shares](/azure/storage/files/understanding-billing#provisioned-model).
 - Size your file shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details, see [Azure files share targets](/azure/storage/files/storage-files-scale-targets#azure-file-share-scale-targets).
 - Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file share performance](/azure/storage/files/storage-troubleshooting-files-performance).
 - Deploy a separate `sapmnt` share for each SAP system.
@@ -47,7 +47,7 @@ When you plan your deployment with Azure Files, consider the following important
 - In general, avoid mixing shares like `sapmnt` for nonproduction and production SAP systems in the same storage account.
 - Use a [private endpoint](/azure/storage/files/storage-files-networking-endpoints) with Azure Files. In the unlikely event of a zonal failure, your NFS sessions automatically redirect to a healthy zone. You don't have to remount the NFS shares on your VMs. If you use a private link, it can result in extra charges for the data processed. See details about [private link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 - If you're deploying your VMs across availability zones, use a [storage account with ZRS](/azure/storage/common/storage-redundancy#zone-redundant-storage) in the Azure regions that support ZRS.
-- Azure Premium Files doesn't currently support automatic cross-region replication for disaster recovery scenarios. See [guidelines on DR for SAP applications](disaster-recovery-overview-guide.md) for available options.
+- Azure Files SSD doesn't currently support automatic cross-region replication for disaster recovery scenarios. See [guidelines on DR for SAP applications](disaster-recovery-overview-guide.md) for available options.
 
 Carefully consider when consolidating multiple activities into one file share or multiple file shares in one storage account. Distributing these shares onto separate storage accounts improves throughput, resiliency and simplifies the performance analysis.
 

@@ -3,7 +3,7 @@ title: Language customization in Azure Active Directory B2C
 description: Learn how to customize the language experience in your user flows in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 01/05/2025
 ms.author: godonnell

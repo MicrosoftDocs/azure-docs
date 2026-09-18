@@ -1,19 +1,22 @@
 ---
-title: $convert-data FAQ for the FHIR service in Azure Health Data Services
-description: Get answers to frequently asked questions about the $convert-data operation.
+title: $convert-data FAQ for FHIR service
+description: Find answers about $convert-data operation setup, ETL pipelines, template customization, and troubleshooting for FHIR data conversion.
 services: healthcare-apis
 author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.topic: faq
-ms.date: 08/12/2025
+ms.date: 08/14/2026
 ms.author: kesheth
+ai-usage: ai-assisted
 ---
 
-# $convert-data FAQ
+# $convert-data FAQ for the FHIR service
+
+Use this FAQ to find answers about $convert-data conversion setup, ETL pipeline usage, template customization, and troubleshooting.
 
 ## What's the difference between $convert-data and the FHIR converter?
 
-The [FHIR&reg; converter (preview)](https://mcr.microsoft.com/product/healthcareapis/fhir-converter/about) is a stand-alone API decoupled from the FHIR service and packaged as a container (Docker) image. In addition to enabling you to convert data from the source of record to FHIR R4 bundles, the FHIR converter offers many net new capabilities, such as:
+The [FHIR&reg; converter (preview)](https://mcr.microsoft.com/product/healthcareapis/fhir-converter/about) is a standalone API that's decoupled from the FHIR service and packaged as a container image. In addition to enabling you to convert data from the source of record to FHIR R4 bundles, the FHIR converter offers many new capabilities, such as:
 
 - Bidirectional data conversion from source of record to FHIR R4 bundles and back. For example, the FHIR converter can convert data from FHIR R4 format back to HL7v2 format.
 - Improved experience for customization of default [Liquid](https://shopify.github.io/liquid/) templates. 
@@ -23,7 +26,7 @@ To implement the FHIR converter container image, see the [FHIR converter GitHub 
 
 ## Does your service create and manage the entire ETL pipeline for me?
 
-You can use the `$convert-data` endpoint as a component within an ETL (extract, transform, and load) pipeline for the conversion of health data from various formats (for example: HL7v2, CCDA, JSON, and FHIR; STU3) into the [FHIR format](https://www.hl7.org/fhir/R4/). You can create an ETL pipeline for a complete workflow as you convert your health data. We recommend that you use an ETL engine based on [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) or [Azure Data Factory](../../data-factory/introduction.md). For example, a workflow might include: data ingestion, performing `$convert-data` operations, validation, data pre- and post- processing, data enrichment, data deduplication, and loading the data for persistence in the [FHIR service](overview.md). 
+You can use the `$convert-data` endpoint as a component within an ETL (extract, transform, and load) pipeline for the conversion of health data from various formats (for example: HL7v2, CCDA, JSON, and FHIR; STU3) into the [FHIR format](https://www.hl7.org/fhir/R4/). You can create an ETL pipeline for a complete workflow as you convert your health data. Use an ETL engine based on [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) or [Azure Data Factory](../../data-factory/introduction.md). For example, a workflow might include: data ingestion, performing `$convert-data` operations, validation, data pre- and post- processing, data enrichment, data deduplication, and loading the data for persistence in the [FHIR service](overview.md). 
 
 However, the `$convert-data` operation itself isn't an ETL pipeline.
 
@@ -32,19 +35,19 @@ However, the `$convert-data` operation itself isn't an ETL pipeline.
 There's an example published in the [Azure Data Factory template gallery](../../data-factory/solution-templates-introduction.md#template-gallery) named **Transform HL7v2 health data to FHIR R4 format and write to ADLS Gen2**. This template transforms HL7v2 messages read from an Azure Data Lake Storage (ADLS) Gen2 or an Azure Blob Storage account into the FHIR R4 format. It then persists the transformed FHIR bundle JSON file into an ADLS Gen2 or a Blob Storage account. When you’re in the Azure Data Factory template gallery, you can search for the template.
 
 > [!IMPORTANT]
-> The purpose of this template is to help you get started with an ETL pipeline. Any steps in this pipeline can be removed, added, edited, or customized to fit your needs.  
+> The purpose of this template is to help you get started with an ETL pipeline. You can remove, add, edit, or customize any steps in this pipeline to fit your needs.  
 >
 > In a scenario with batch processing of HL7v2 messages, this template doesn't take sequencing into account. Post processing is needed if sequencing is a requirement. 
 
 ## How can I persist the converted data into the FHIR service?
 
-You can use the FHIR service's APIs to persist the converted data into the FHIR service by using `POST {{fhirUrl}}/{{FHIR resource type}}` with the request body containing the FHIR resource to be persisted in JSON format. 
+Use the FHIR service APIs to persist the converted data into the FHIR service. Use `POST {{fhirUrl}}/{{FHIR resource type}}` with the request body containing the FHIR resource to persist in JSON format. 
 
 For more information, see [Access the FHIR service in Azure Health Data Services by using REST Client](using-rest-client.md).
 
 ## What's the difference between the $convert-data endpoint in Azure API for FHIR versus the FHIR service in Azure Health Data Services?
 
-The experience and core `$convert-data` operation functionality is similar for both Azure API for FHIR and the FHIR service in [Azure Health Data Services](../../healthcare-apis/fhir/overview.md). The only difference exists in the setup for the Azure API for FHIR version of the `$convert-data` operation, which requires assigning permissions to the right resources. 
+The experience and core `$convert-data` operation functionality are similar for both Azure API for FHIR and the FHIR service in [Azure Health Data Services](../../healthcare-apis/fhir/overview.md). The only difference is in the setup for the Azure API for FHIR version of the `$convert-data` operation, which requires assigning permissions to the right resources. 
 
 Learn more:
 
@@ -54,7 +57,7 @@ Learn more:
 
 ## I'm not familiar with Liquid templates. Where do I start?
 
-[Liquid](https://shopify.github.io/liquid/) is a template language engine that allows displaying data in a template. Liquid has constructs such as output, logic, loops, and deals with variables. Liquid files are a mixture of HTML and Liquid code, and have the `.liquid` file extension. The open source FHIR Converter comes with a few ready-to-use [Liquid templates and custom filters](https://github.com/microsoft/FHIR-Converter/tree/main/data/Templates) for the supported conversion formats to help you get started.
+[Liquid](https://shopify.github.io/liquid/) is a template language engine that you can use to display data in a template. Liquid has constructs such as output, logic, loops, and it deals with variables. Liquid files are a mixture of HTML and Liquid code, and they have the `.liquid` file extension. The open source FHIR Converter comes with a few ready-to-use [Liquid templates and custom filters](https://github.com/microsoft/FHIR-Converter/tree/main/data/Templates) for the supported conversion formats to help you get started.
 
 ## The conversion succeeded. Does this mean I have a valid FHIR bundle?
 
@@ -64,21 +67,21 @@ The outcome of FHIR conversion is a FHIR bundle as a batch.
 
 ## Can I customize a default Liquid template? 
 
-Yes. You can use the [FHIR Converter Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to customize templates according to your specific requirements. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data. The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA, and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates are currently not supported. For more information, see [Configure settings for $convert-data using the Azure portal](convert-data-configuration.md).
+Yes. Use the [FHIR Converter Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter) to customize templates according to your specific requirements. The extension provides an interactive editing experience and makes it easy to download Microsoft-published templates and sample data. The FHIR Converter extension for Visual Studio Code is available for HL7v2, C-CDA, and JSON Liquid templates. FHIR STU3 to FHIR R4 Liquid templates aren't currently supported. For more information, see [Configure settings for $convert-data using the Azure portal](convert-data-configuration.md).
 
 ## After I customize a template, can I reference and store various versions?
 
-Yes. It’s possible to store and reference custom templates. For more information, see [Configure settings for $convert-data by using the Azure portal](convert-data-configuration.md).
+Yes. You can store and reference custom templates. For more information, see [Configure settings for $convert-data by using the Azure portal](convert-data-configuration.md).
 
-## Why are my dates being converted when transforming JSON data?
+## Why are my dates converted when transforming JSON data?
  
-It's possible for dates supplied within JSON data to be returned in a different format than what was supplied. During deserialization of the JSON payload, strings that are identified as dates get converted into .NET DateTime objects. These objects then get converted back to strings before going through the Liquid template engine. This conversion can cause the date value to be reformatted and represented in the local timezone of the FHIR service.
+Dates that you supply within JSON data can appear in a different format than what you originally provided. During deserialization of the JSON payload, the system converts strings that it identifies as dates into .NET DateTime objects. The system then converts these objects back to strings before the data goes through the Liquid template engine. This conversion can reformat the date value and represent it in the local timezone of the FHIR service.
 
-The coercion of strings to .NET DateTime objects can be disabled using the boolean parameter `jsonDeserializationTreatDatesAsStrings`. When set to `true`, the supplied data is treated as a string and won't be modified before being supplied to the Liquid engine.
+You can disable the coercion of strings to .NET DateTime objects by using the boolean parameter `jsonDeserializationTreatDatesAsStrings`. When set to `true`, the supplied data is treated as a string and isn't modified before being supplied to the Liquid engine.
 
 ## If I need support with troubleshooting, where can I go?
 
-Depending on the version of `$convert-data` you’re using, you can:
+Depending on the version of `$convert-data` you're using, you can:
 
 * Use the [troubleshooting guide](convert-data-troubleshoot.md) for the FHIR service in Azure Health Data Services version of the `$convert-data` operation.
 

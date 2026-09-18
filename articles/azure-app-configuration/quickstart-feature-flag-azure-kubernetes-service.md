@@ -28,7 +28,7 @@ Follow the documents to use dynamic configuration in Azure Kubernetes Service.
 Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot showing creating feature flag named Beta.](./media/add-beta-feature-flag.png)
+> ![Screenshot showing creating feature flag named Beta.](./media/quickstart-feature-flag-azure-kubernetes-service/add-beta-feature-flag.png)
 
 ## Use a feature flag
 
@@ -122,7 +122,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
     metadata:
       name: appconfigurationprovider-sample
     spec:
-      endpoint: <your-app-configuration-store-endpoint>
+      endpoint: <AppConfigurationEndpoint>
       target:
         configMapName: configmap-created-by-appconfig-provider
         configMapData: 
@@ -130,7 +130,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
           key: mysettings.json
       auth:
         workloadIdentity:
-          managedIdentityClientId: <your-managed-identity-client-id>
+          managedIdentityClientId: <ManagedIdentityClientId>
       featureFlag:
         selectors:
           - keyFilter: 'Beta'

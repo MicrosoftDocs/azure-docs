@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 02/26/2025
- ms.author: cherylmc
+ ms.author: duau
 ---
 
 Generate the CA certificate.

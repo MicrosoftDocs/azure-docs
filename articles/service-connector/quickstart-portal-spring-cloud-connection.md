@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
-ms.date: 8/19/2025
+ms.date: 06/18/2026
 keywords: azure spring apps, service connector, database connection, managed identity, azure storage, authentication
 ms.custom:
   - kr2b-contr-experiment
@@ -17,7 +17,7 @@ ms.custom:
 
 # Quickstart: Connect Azure Spring Apps to databases and services with Service Connector
 
-Get started with Service Connector to connect your Azure Spring Apps to databases, storage accounts, and other Azure services. Service Connector simplifies authentication and configuration, enabling you to connect to resources using managed identities other authentication methods.
+Get started with Service Connector to connect your Azure Spring Apps to databases, storage accounts, and other Azure services. Service Connector simplifies authentication and configuration, enabling you to connect to resources by using managed identities or other authentication methods.
 
 This article provides step-by-step instructions for both the Azure portal and Azure CLI. Choose your preferred method using the tabs above.
 
@@ -28,14 +28,14 @@ This article provides step-by-step instructions for both the Azure portal and Az
 ::: zone pivot="azure-portal"
 - An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An app deployed to [Azure Spring Apps](../spring-apps/basic-standard/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
-- A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
+- A target resource to connect Azure Spring Apps to. For example, an [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections.
 ::: zone-end
 
 ::: zone pivot="azure-cli"
 - An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An app deployed to [Azure Spring Apps](../spring-apps/basic-standard/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
-- A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
+- A target resource to connect Azure Spring Apps to. For example, an [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
 - The [necessary permissions](./concept-permission.md) to create and manage service connections.
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 - Version 2.37.0 or higher of the Azure CLI. To upgrade to the latest version, run `az upgrade`. If using Azure Cloud Shell, the latest version is already installed.

@@ -2,10 +2,10 @@
 title: Add multiple sender addresses with Management SDKs in Azure Communication Services using the Azure Communication Services Management Client Libraries
 titleSuffix: An Azure Communication Services article
 description: This article describes how to add and remove sender addresses in Azure Communication Services using the Azure Communication Services Management Client Libraries.
-author: yogeshmo
+author: anmolbohra97
 manager: koagbakp
 services: azure-communication-services
-ms.author: ymohanraj
+ms.author: anmolbohra
 ms.date: 04/19/2023
 ms.topic: quickstart
 ms.service: azure-communication-services

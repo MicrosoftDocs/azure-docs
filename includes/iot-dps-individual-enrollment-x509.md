@@ -1,9 +1,9 @@
 ---
-author: SoniaLopezBravo
+author: sethmanheim
 ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 07/25/2025
-ms.author: sonialopez
+ms.author: sethm
 ms.subservice: azure-iot-hub-dps
 ---
 

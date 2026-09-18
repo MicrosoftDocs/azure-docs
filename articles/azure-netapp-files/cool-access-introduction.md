@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/10/2026
+ms.date: 08/09/2026
 ms.author: anfdocs
 ms.custom: references_regions
 # Customer intent: As a storage administrator, I want to configure inactive data to move from a hot tier to a cool tier in Azure NetApp Files, so that I can optimize storage costs while maintaining accessibility to archived data.
@@ -53,6 +53,9 @@ When cool access is enabled on the Premium and Ultra service levels, throughput 
 
 If a volume is within the Premium or Ultra service levels with auto QoS enabled and has more than 100 GiB of cool access data, the throughput QoS limit is different for the data on hot and cool tier respectively.
 
+> [!NOTE]
+> Throughput is calculated per volume, not per capacity pool. Volumes within the same pool that have different amounts of data in the cool tier have different maximum throughput. This difference is expected. To find any volume's maximum throughput, apply the formulas in the following table to each volume separately.
+
 Review the table to understand how throughput limit is calculated. 
 
 | Service level | Formula without cool access | Formula with cool access | 
@@ -78,27 +81,54 @@ With either throughput calculation, increasing the volume quota increases the th
 
 ### Supported regions for cool access throughput for premium and ultra service levels feature
 
+* Australia Central
+* Australia Central 2
+* Australia East
 * Australia Southeast
 * Brazil South
 * Brazil Southeast
 * Canada Central
 * Canada East
+* Central India
 * Central US
 * East Asia
+* East US
+* East US 2
+* France Central
 * Germany North 
 * Germany West Central
-* Israel Central 
+* Israel Central
+* Italy North
 * Japan East
+* Japan West
+* Korea Central
 * Korea South
+* Malaysia West
+* New Zealand North 
 * North Central US
+* North Europe
 * Norway East
+* Norway West
 * Qatar Central
+* South Africa North
+* South India
+* South Central US
 * Southeast Asia
+* Spain Central
 * Sweden Central
+* Switzerland North
 * Switzerland West
 * UAE Central
+* UAE North
+* UK South
 * UK West
+* US Gov Arizona
+* US Gov Texas
+* US Gov Virginia 
+* West Europe
 * West US
+* West US 2
+* West US 3
 
 ## Billing 
 

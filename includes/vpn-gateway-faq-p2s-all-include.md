@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 06/19/2024
- ms.author: cherylmc
+ ms.author: duau
 ---
 ### How many VPN client endpoints can I have in my point-to-site configuration?
 
@@ -13,16 +13,8 @@ It depends on the gateway SKU. For more information on the supported number of c
 
 The following client operating systems are supported:
 
-* Windows Server 2008 R2 (64-bit only)
-* Windows 8.1 (32-bit and 64-bit)
-* Windows Server 2012 (64-bit only)
-* Windows Server 2012 R2 (64-bit only)
-* Windows Server 2016 (64-bit only)
-* Windows Server 2019 (64-bit only)
-* Windows Server 2022 (64-bit only)
-* Windows 10
 * Windows 11
-* macOS version 10.11 or later
+* macOS version 13.0 or later
 * Linux (strongSwan)
 * iOS
 
@@ -82,6 +74,9 @@ IKEv2 is supported on Windows 10 and Windows Server 2016. However, to use IKEv2 
 
 > [!NOTE]
 > Windows OS builds newer than Windows 10 Version 1709 and Windows Server 2016 Version 1607 don't require these steps.
+
+> [!NOTE]
+>Microsoft recommends using Windows 11 with Point-to-Site VPN connections. Windows 10 reached end of support in October 2025. For more information, see [Supported Windows versions for Azure VPN Client](../articles/vpn-gateway/azure-vpn-client-versions.md#supported-windows-versions).
 
 To prepare Windows 10 or Windows Server 2016 for IKEv2:
 

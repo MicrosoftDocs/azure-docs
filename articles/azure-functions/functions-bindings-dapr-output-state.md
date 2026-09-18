@@ -50,9 +50,9 @@ public static async Task<IActionResult> Run(
 # [Isolated process](#tab/isolated-process)
 
 More samples for the Dapr output state binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-dapr-extension/blob/master/samples/dotnet-isolated-azurefunction/OutputBinding).
-
+<!--
 :::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/OutputBinding/StateOutputBinding.cs" range="16-28"::: 
-
+-->
 ---
 
 ::: zone-end 

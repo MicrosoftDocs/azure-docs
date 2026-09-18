@@ -1,7 +1,7 @@
 ---
 title: Use template reference
 description: Use the Azure Resource Manager template (ARM template) reference to create a template.
-ms.date: 10/29/2025
+ms.date: 06/26/2026
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---

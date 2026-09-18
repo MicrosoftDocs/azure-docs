@@ -3,7 +3,7 @@ title: Relocate Azure Container Apps to another region
 description: Learn how to relocate an Azure Container Apps workload to a different Azure region by redeploying the managed environment and container apps.
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 04/17/2026
+ms.date: 09/04/2026
 author: craigshoemaker
 ms.author: cshoe
 ---
@@ -24,7 +24,7 @@ Before you begin, verify that you meet the following requirements:
 - You have sufficient quota in the target region for the resources you plan to deploy.
 - You have the following permissions in both the source and target subscriptions:
   - **Owner** or **Contributor** on the resource group.
-  - **Azure Container Apps Contributor** (recommended).
+  - **Container Apps Contributor** (recommended). This role includes wildcard permissions that grant access to Container Apps secret values. For narrower access, see [Permissions for managing secrets](manage-secrets.md#permissions-for-managing-secrets).
 - Your container images are in a registry accessible from the target region (for example, Azure Container Registry or a supported external registry).
 - Dependent Azure resource such as Key Vault, storage accounts, databases, virtual networks, and messaging services are either already available in the target region or have a redeployment plan.
 
@@ -59,7 +59,7 @@ The following dependent resources must exist in the target region before cutover
 - Network security groups (NSGs) and user-defined routes (UDRs)
 - Private DNS zones
 - Log Analytics workspaces
-- Dapr components and service connectors (if used)
+- Dapr components (if used)
 
 > [!IMPORTANT]
 > Secrets, certificates, custom domains, and secure configuration values **aren't preserved** in exported templates. You must recreate these resources manually in the target region from their original sources.
@@ -140,8 +140,6 @@ After exporting the container app configuration, make the following changes:
 - **Reconfigure secrets and app settings**: Recreate secrets by using Azure Key Vault references or application configuration. Don't rely on exported values for sensitive settings.
 
 - **Update Dapr components**: If you use Dapr, verify that Dapr component configurations reference resources available in the target region (for example, state stores, pub/sub brokers, secret stores).
-
-- **Update service connectors**: If you use service connectors, recreate them to point to the target-region instances of dependent services.
 
 - **Update diagnostics and monitoring**: Verify Log Analytics workspace references and reconfigure diagnostic settings as needed.
 
@@ -267,7 +265,7 @@ After traffic cutover, validate the following items:
 - Scaling behavior under expected and peak load.
 - Connectivity to dependent services such as databases, Key Vault, storage, and messaging.
 - Managed identity access to downstream resources.
-- Dapr component and service connector functionality, if used.
+- Dapr component functionality, if used.
 - Logs and metrics flowing to Azure Monitor and Log Analytics.
 
 Verify by using the CLI:

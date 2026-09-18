@@ -14,54 +14,6 @@ ms.author: momakhij
 
 This article describes the steps that are required to get started with Business Process Solutions.
 
-## Supported regions
-
-Business Process Solutions is delivered as a Microsoft Fabric workload, which runs entirely within the selected Fabric capacity region. All business data processed and transformed by the solution remains within the chosen Fabric capacity and doesn't leave that region.
-
-To support orchestration and management, a back-end service operates in each geography. This back end stores only artifact metadata, such as an object list or source system definition. The back end exists solely to enable workload functionality and doesn't process or retain customer business content.
-
-The following table summarizes the regional availability of the solution and the associated back-end infrastructure.
-
-| Fabric capacity region | Business Process Solutions service region |
-|------------------------|------------------------|
-| East US                | East US                |
-| Central US             | East US                |
-| North Central US       | East US                |
-| West Central US        | East US                |
-| East US 2              | East US                |
-| South Central US       | East US                |
-| West US                | East US                |
-| West US 2              | East US                |
-| North Europe           | West Europe            |
-| West Europe            | West Europe            |
-| Germany West Central   | West Europe            |
-| Germany Central        | West Europe            |
-| Germany Northeast      | West Europe            |
-| Germany North          | West Europe            |
-| Italy North            | West Europe            |
-| Norway East            | West Europe            |
-| Norway West            | West Europe            |
-| Poland Central         | West Europe            |
-| Spain Central          | West Europe            |
-| Sweden Central         | West Europe            |
-| Switzerland North      | West Europe            |
-| Switzerland West       | West Europe            |
-| UK South               | West Europe            |
-| UK West                | West Europe            |
-| France Central         | West Europe            |
-| Southeast Asia         | Australia East         |
-| East Asia              | Australia East         |
-| Japan East             | Australia East         |
-| Japan West             | Australia East         |
-| Korea Central          | Australia East         |
-| Korea South            | Australia East         |
-| Central India          | Australia East         |
-| South India            | Australia East         |
-| West India             | Australia East         |
-| Israel Central         | Australia East         |
-| UAE Central            | Australia East         |
-| UAE North              | Australia East         |
-
 ## Deploy Business Process Solutions in Microsoft Fabric
 
 To deploy Business Process Solutions, you need:
@@ -120,34 +72,57 @@ To deploy Business Process Solutions, follow these steps:
 
 1. After the configuration is finished, the new item appears.
 
-### Set up a Fabric SQL Database connection
+## Supported regions
 
-Business Process Solutions uses a Fabric SQL Database connection to read and orchestrate data processing. You must create this connection before you configure source system connections. To set up the connection, follow these steps:
+Business Process Solutions is delivered as a Microsoft Fabric workload, which runs entirely within the selected Fabric capacity region. All business data processed and transformed by the solution remains within the chosen Fabric capacity and doesn't leave that region.
 
-1. To create a new connection, go to your workspace and select **Settings** in the upper-right corner.
-1. Select **Manage connections and gateways**.
+To support orchestration and management, a back-end service operates in each geography. This back end stores only artifact metadata, such as an object list or source system definition. The back end exists solely to enable workload functionality and doesn't process or retain customer business content.
 
-   :::image type="content" source="./media/deploy-workload-item/open-settings.png" alt-text="Screenshot that shows how to open the Settings page." lightbox="./media/deploy-workload-item/open-settings.png":::
+The following table summarizes the regional availability of the solution and the associated back-end infrastructure.
 
-1. Select **New**.
-
-   :::image type="content" source="./media/deploy-workload-item/new-connection.jpg" alt-text="Screenshot that shows how to create a new connection." lightbox="./media/deploy-workload-item/new-connection.jpg":::
-
-1. In the new connection input, select **Cloud** as the type.
-1. Enter the connection name.
-1. For the connection type, select **Fabric SQL Database**.
-1. For the authentication method, select **OAuth** > **Edit Credentials** and enter the details.
-1. Select **Create** to create the connection.
-
-   :::image type="content" source="./media/deploy-workload-item/enter-connection-details.jpg" alt-text="Screenshot that shows how to enter connection details for a new connection." lightbox="./media/deploy-workload-item/enter-connection-details.jpg":::
-
-1. Open the connection, copy the connection ID, and keep it handy.
-
-   :::image type="content" source="./media/deploy-workload-item/copy-connection-details.png" alt-text="Screenshot that shows how to copy the connection ID." lightbox="./media/deploy-workload-item/copy-connection-details.png":::
+| Fabric capacity region | Business Process Solutions service region |
+|------------------------|------------------------|
+| East US                | East US                |
+| Central US             | East US                |
+| North Central US       | East US                |
+| West Central US        | East US                |
+| East US 2              | East US                |
+| South Central US       | East US                |
+| West US                | East US                |
+| West US 2              | East US                |
+| North Europe           | West Europe            |
+| West Europe            | West Europe            |
+| Germany West Central   | West Europe            |
+| Germany Central        | West Europe            |
+| Germany Northeast      | West Europe            |
+| Germany North          | West Europe            |
+| Italy North            | West Europe            |
+| Norway East            | West Europe            |
+| Norway West            | West Europe            |
+| Poland Central         | West Europe            |
+| Spain Central          | West Europe            |
+| Sweden Central         | West Europe            |
+| Switzerland North      | West Europe            |
+| Switzerland West       | West Europe            |
+| UK South               | West Europe            |
+| UK West                | West Europe            |
+| France Central         | West Europe            |
+| Southeast Asia         | Australia East         |
+| East Asia              | Australia East         |
+| Japan East             | Australia East         |
+| Japan West             | Australia East         |
+| Korea Central          | Australia East         |
+| Korea South            | Australia East         |
+| Central India          | Australia East         |
+| South India            | Australia East         |
+| West India             | Australia East         |
+| Israel Central         | Australia East         |
+| UAE Central            | Australia East         |
+| UAE North              | Australia East         |
 
 ## Related content
 
-After you deploy Business Process Solutions and create a Fabric SQL Database connection in your Fabric workspace, you can configure source system connections:
+After you deploy Business Process Solutions in your Fabric workspace, you can configure source system connections:
 
 - [Configure SAP source system with Azure Data Factory](configure-source-system-with-data-factory.md)
 - [Configure SAP source system with open mirroring](configure-source-system-with-open-mirroring.md)

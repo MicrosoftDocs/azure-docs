@@ -3,8 +3,8 @@ title: Use the diagnose connectivity feature in the SSIS integration runtime
 description: Troubleshoot connection issues in the SSIS integration runtime by using the diagnose connectivity feature. 
 ms.subservice: integration-services
 ms.topic: troubleshooting
-ms.author: meiyl
-author: meiyl
+ms.author: makromer
+author: kromerm
 ms.reviewer: chugugrace
 ms.date: 05/15/2024
 ms.custom: sfi-image-nochange
@@ -13,6 +13,8 @@ ms.custom: sfi-image-nochange
 # Use the diagnose connectivity feature in the SSIS integration runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 You might find connectivity problems while executing SQL Server Integration Services (SSIS) packages in the SSIS integration runtime. These problems occur especially if your SSIS integration runtime joins the Azure virtual network.
 

@@ -1,9 +1,8 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 11/28/2023
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/sql-secret-dotnet)
@@ -59,7 +58,7 @@ ms.author: wchi
     }
     ```
 
-### [SpringBoot](#tab/sql-secret-springBoot)
+### [Spring Boot](#tab/sql-secret-springBoot)
 1. Add dependency in your 'pom.xml' file:
     ```xml
     <dependencyManagement>
@@ -159,7 +158,7 @@ ms.author: wchi
     log.Printf("Connected!\n")
     ```
 
-### [NodeJS](#tab/sql-secret-nodejs)
+### [Node.js](#tab/sql-secret-nodejs)
 
 1. Install dependencies.
     ```bash
@@ -196,15 +195,15 @@ ms.author: wchi
 1. Get the Azure SQL Database connection configurations from the environment variables added by Service Connector.
     ```php
     <?php
-    $server = getenv("AZURE_SQL_SERVERNAME");
+    $serverName = getenv("AZURE_SQL_SERVERNAME");
     $database = getenv("AZURE_SQL_DATABASE");
     $user = getenv("AZURE_SQL_UID");
     $password = getenv("AZURE_SQL_PASSWORD");
     
     $connectionOptions = array(
-        "Database" => database,
-        "Uid" => user,
-        "PWD" => password
+        "Database" => $database,
+        "Uid" => $user,
+        "PWD" => $password
     );
 
     $conn = sqlsrv_connect($serverName, $connectionOptions);

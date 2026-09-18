@@ -2,11 +2,11 @@
 title: Phone number types
 titleSuffix: An Azure Communication Services article
 description: Learn about phone number types you can use to make voice call and send SMS messages in Azure Communication Services.
-author: sadas
+author: henikaraa
 manager: rcole
 services: azure-communication-services
 
-ms.author: sadas
+ms.author: henikaraa
 ms.date: 03/04/2022
 ms.topic: reference
 ms.service: azure-communication-services

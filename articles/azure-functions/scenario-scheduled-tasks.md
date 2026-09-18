@@ -4,7 +4,7 @@ description: "Learn how to use the Azure Developer CLI (azd) to create resources
 ms.date: 05/01/2026
 ms.topic: quickstart
 ai-usage: ai-assisted
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy scheduled tasks using Timer triggers to a new function app in the Flex Consumption plan in Azure.
 ---
 
@@ -345,6 +345,7 @@ You can review the complete template project [here](https://github.com/Azure-Sam
 > [!TIP]
 > The `runOnStartup` option is useful during development and testing because the function runs immediately when the host starts. In production, you should set this to `false` to avoid unexpected executions during deployments or restarts.
 ::: zone-end
+
 
 After you verify your function locally, it's time to publish it to Azure. 
 

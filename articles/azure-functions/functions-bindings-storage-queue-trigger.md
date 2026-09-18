@@ -32,6 +32,10 @@ Azure Queue storage scaling decisions for the Consumption and Premium plans are 
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 Use the queue trigger to start a function when a new item is received on a queue. The queue message is provided as input to the function.
@@ -543,7 +547,7 @@ The following message metadata properties can be accessed from the passed bindin
 
 ::: zone-end
 
-[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
+[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-connections.md)]
 
 ## Poison messages
 
@@ -569,7 +573,7 @@ The algorithm uses the following logic:
 - When a message is found, the runtime waits 100 milliseconds and then checks for another message.
 - When no message is found, it waits about 200 milliseconds before trying again.
 - After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute.
-- The maximum wait time is configurable via the `maxPollingInterval` property in the [host.json file](functions-host-json-v1.md#queues).
+- The maximum wait time is configurable via the `maxPollingInterval` property in the [host.json file](functions-bindings-storage-queue.md#host-json).
 
 During local development, the maximum polling interval defaults to two seconds.
 

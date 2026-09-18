@@ -3,7 +3,7 @@ title: URL Rewrite for Azure Application Gateway for Containers - Gateway API
 description: Learn how to rewrite URLs in Gateway API for Application Gateway for Containers.
 services: application gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: how-to
 ms.date: 11/05/2024
 ms.author: mbender
@@ -16,7 +16,7 @@ Application Gateway for Containers allows you to rewrite the URL of a client req
 
 ## Usage details
 
-URL Rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.HTTPURLRewriteFilter) as defined by Kubernetes Gateway API.
+URL Rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#httpurlrewritefilter) as defined by Kubernetes Gateway API.
 
 ## Background
 

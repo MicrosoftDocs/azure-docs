@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" font-family="Segoe UI, Arial, sans-serif" role="img" aria-label="AI agent shared responsibility diagram">
+  <title>AI agent shared responsibility across IaaS, PaaS, and SaaS deployment models</title>
+  <desc>Diagram showing six agentic layers stacked from top to bottom (AI usage; AI application; agent memory and state; tools and actions; agent orchestration; AI platform) with a base row for physical infrastructure. Three columns represent IaaS agent, PaaS agent, and SaaS agent deployments. Cells are colored to indicate whether the customer, Microsoft, or both are responsible for each layer under each deployment model. Three layers are marked "new" to highlight responsibilities introduced by AI agents that don't exist in the request/response AI model.</desc>
+
+  <defs>
+    <style>
+      .layer-label { font-size: 14px; fill: #201f1e; }
+      .layer-sub { font-size: 11px; fill: #605e5c; }
+      .header { font-size: 15px; font-weight: 600; fill: #ffffff; text-anchor: middle; }
+      .cell-text { font-size: 13px; font-weight: 600; text-anchor: middle; fill: #ffffff; }
+      .badge { font-size: 10px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+      .legend-text { font-size: 12px; fill: #201f1e; }
+      .title { font-size: 18px; font-weight: 600; fill: #201f1e; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="960" height="720" fill="#ffffff"/>
+
+  <text x="480" y="30" class="title" text-anchor="middle">AI agent shared responsibility</text>
+
+  <rect x="300" y="60" width="200" height="36" fill="#605e5c"/>
+  <text x="400" y="83" class="header">IaaS agent</text>
+  <rect x="510" y="60" width="200" height="36" fill="#605e5c"/>
+  <text x="610" y="83" class="header">PaaS agent</text>
+  <rect x="720" y="60" width="200" height="36" fill="#605e5c"/>
+  <text x="820" y="83" class="header">SaaS agent</text>
+
+  <g>
+    <text x="290" y="120" class="layer-label" text-anchor="end">AI usage</text>
+    <text x="290" y="134" class="layer-sub" text-anchor="end">Accountability for autonomous actions</text>
+    <rect x="300" y="105" width="200" height="46" fill="#605e5c"/>
+    <text x="400" y="133" class="cell-text">Customer</text>
+    <rect x="510" y="105" width="200" height="46" fill="#605e5c"/>
+    <text x="610" y="133" class="cell-text">Customer</text>
+    <rect x="720" y="105" width="200" height="46" fill="#605e5c"/>
+    <text x="820" y="133" class="cell-text">Customer</text>
+  </g>
+
+  <g>
+    <text x="290" y="176" class="layer-label" text-anchor="end">AI application</text>
+    <text x="290" y="190" class="layer-sub" text-anchor="end">App, grounding, content safety</text>
+    <rect x="300" y="161" width="200" height="46" fill="#605e5c"/>
+    <text x="400" y="189" class="cell-text">Customer</text>
+    <rect x="510" y="161" width="200" height="46" fill="#8764b8"/>
+    <text x="610" y="189" class="cell-text">Shared</text>
+    <rect x="720" y="161" width="200" height="46" fill="#0078d4"/>
+    <text x="820" y="189" class="cell-text">Microsoft</text>
+  </g>
+
+  <g>
+    <text x="290" y="232" class="layer-label" text-anchor="end">Agent memory &amp; state</text>
+    <text x="290" y="246" class="layer-sub" text-anchor="end">Context, persistent memory, vector stores</text>
+    <rect x="300" y="217" width="200" height="46" fill="#605e5c"/>
+    <text x="400" y="245" class="cell-text">Customer</text>
+    <rect x="510" y="217" width="200" height="46" fill="#8764b8"/>
+    <text x="610" y="245" class="cell-text">Shared</text>
+    <rect x="720" y="217" width="200" height="46" fill="#0078d4"/>
+    <text x="820" y="245" class="cell-text">Microsoft</text>
+    <rect x="20" y="228" width="34" height="16" rx="8" fill="#107c10"/>
+    <text x="37" y="240" class="badge">NEW</text>
+  </g>
+
+  <g>
+    <text x="290" y="288" class="layer-label" text-anchor="end">Tools &amp; actions</text>
+    <text x="290" y="302" class="layer-sub" text-anchor="end">Connectors, plugins, MCP servers, APIs</text>
+    <rect x="300" y="273" width="200" height="46" fill="#605e5c"/>
+    <text x="400" y="301" class="cell-text">Customer</text>
+    <rect x="510" y="273" width="200" height="46" fill="#8764b8"/>
+    <text x="610" y="301" class="cell-text">Shared</text>
+    <rect x="720" y="273" width="200" height="46" fill="#8764b8"/>
+    <text x="820" y="301" class="cell-text">Shared</text>
+    <rect x="20" y="284" width="34" height="16" rx="8" fill="#107c10"/>
+    <text x="37" y="296" class="badge">NEW</text>
+  </g>
+
+  <g>
+    <text x="290" y="344" class="layer-label" text-anchor="end">Agent orchestration</text>
+    <text x="290" y="358" class="layer-sub" text-anchor="end">Planning, tool selection, instructions</text>
+    <rect x="300" y="329" width="200" height="46" fill="#605e5c"/>
+    <text x="400" y="357" class="cell-text">Customer</text>
+    <rect x="510" y="329" width="200" height="46" fill="#8764b8"/>
+    <text x="610" y="357" class="cell-text">Shared</text>
+    <rect x="720" y="329" width="200" height="46" fill="#0078d4"/>
+    <text x="820" y="357" class="cell-text">Microsoft</text>
+    <rect x="20" y="340" width="34" height="16" rx="8" fill="#107c10"/>
+    <text x="37" y="352" class="badge">NEW</text>
+  </g>
+
+  <g>
+    <text x="290" y="400" class="layer-label" text-anchor="end">AI platform</text>
+    <text x="290" y="414" class="layer-sub" text-anchor="end">Model, weights, inference APIs, safety</text>
+    <rect x="300" y="385" width="200" height="46" fill="#8764b8"/>
+    <text x="400" y="413" class="cell-text">Customer / Microsoft</text>
+    <rect x="510" y="385" width="200" height="46" fill="#0078d4"/>
+    <text x="610" y="413" class="cell-text">Microsoft</text>
+    <rect x="720" y="385" width="200" height="46" fill="#0078d4"/>
+    <text x="820" y="413" class="cell-text">Microsoft</text>
+  </g>
+
+  <g>
+    <text x="290" y="456" class="layer-label" text-anchor="end">Physical infrastructure</text>
+    <text x="290" y="470" class="layer-sub" text-anchor="end">Hosts, network, datacenter</text>
+    <rect x="300" y="441" width="200" height="46" fill="#0078d4"/>
+    <text x="400" y="469" class="cell-text">Microsoft</text>
+    <rect x="510" y="441" width="200" height="46" fill="#0078d4"/>
+    <text x="610" y="469" class="cell-text">Microsoft</text>
+    <rect x="720" y="441" width="200" height="46" fill="#0078d4"/>
+    <text x="820" y="469" class="cell-text">Microsoft</text>
+  </g>
+
+  <g>
+    <line x1="300" y1="530" x2="900" y2="530" stroke="#201f1e" stroke-width="2"/>
+    <polygon points="300,530 312,524 312,536" fill="#201f1e"/>
+    <text x="600" y="552" class="legend-text" text-anchor="middle">Responsibility shifts left: you take more ownership as you move from SaaS to PaaS to IaaS</text>
+  </g>
+
+  <g transform="translate(200,600)">
+    <rect x="0" y="0" width="24" height="18" fill="#605e5c"/>
+    <text x="32" y="14" class="legend-text">Customer</text>
+
+    <rect x="140" y="0" width="24" height="18" fill="#0078d4"/>
+    <text x="172" y="14" class="legend-text">Microsoft</text>
+
+    <rect x="280" y="0" width="24" height="18" fill="#8764b8"/>
+    <text x="312" y="14" class="legend-text">Shared</text>
+
+    <rect x="420" y="0" width="34" height="16" rx="8" fill="#107c10"/>
+    <text x="437" y="12" class="badge">NEW</text>
+    <text x="462" y="14" class="legend-text">Layer introduced by agents</text>
+  </g>
+
+  <text x="480" y="660" class="legend-text" text-anchor="middle">On IaaS, base model hosting is Customer if self-hosted, or Microsoft if consuming a hosted model API.</text>
+</svg>

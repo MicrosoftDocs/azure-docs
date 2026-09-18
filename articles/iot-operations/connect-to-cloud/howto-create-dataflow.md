@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 05/22/2026
+ms.date: 09/03/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
@@ -18,6 +18,7 @@ ms.custom:
 
 A data flow is the path that data takes from the source to the destination with optional transformations. You can configure the data flow by creating a *Data flow* custom resource or using the operations experience web UI. A data flow is made up of three parts: the **source**, the **transformation**, and the **destination**. 
 
+<!--
 ```mermaid
 flowchart LR
   subgraph Source
@@ -34,6 +35,7 @@ flowchart LR
   Source - -> BuiltInTransformation
   BuiltInTransformation - -> Destination
 ```
+--->
 
 :::image type="content" source="media/howto-create-dataflow/dataflow.svg" alt-text="Diagram of a data flow showing flow from source to transform then destination.":::
 
@@ -60,6 +62,10 @@ To learn how to configure a new data flow profile, see [Configure data flow prof
 
 You need data flow endpoints to configure the source and destination for the data flow. To get started quickly, use the [default data flow endpoint for the local MQTT broker](./howto-configure-mqtt-endpoint.md#default-endpoint). You can also create other types of data flow endpoints like Kafka, Event Hubs, OpenTelemetry, or Azure Data Lake Storage. For more information, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for resource names that you choose: `DATAFLOW` (the name of the data flow), `PROFILE` (the name of the data flow profile). Set each one to a value that you want before you run the related commands.
+
 ## Get started
 
 When you have the prerequisites, you can start creating a data flow.
@@ -85,7 +91,7 @@ When you have the prerequisites, you can start creating a data flow.
 Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
 
 ```azurecli
-az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --profile $PROFILE --name $DATAFLOW --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -133,7 +139,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param dataflowName string = '<DATAFLOW_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -141,18 +147,18 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' existing = {
+resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
 // Pointer to the default data flow profile
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-07-01' = {
   // Reference to the parent data flow profile, the default profile in this case
   // Same usage as profileRef in Kubernetes YAML
   parent: defaultDataflowProfile
@@ -419,7 +425,7 @@ Use the **Compute** transform to apply a formula to the source data. This operat
 
     Enter or edit a formula in the **Formula** field. The formula can use the fields in the source data. Enter `@` or select **Ctrl + Space** to choose datapoints from a dropdown. For built-in formulas, select the `<dataflow>` placeholder to see the list of available datapoints.
 
-    Enter MQTT metadata properties by using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. Enter $metadata headers by using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+    Enter MQTT metadata properties by using the format `@$metadata.user_property.<property>` or `@$metadata.topic`. Enter $metadata headers by using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
     The formula can use the fields in the source data. For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` output field. 
     
@@ -441,7 +447,7 @@ Use the **Rename** transform to rename a datapoint. This operation renames a dat
     | New datapoint name | Enter the new name for the datapoint.                                                                   |
     | Description        | Provide a description for the transformation.                                                           |
 
-    Enter MQTT metadata properties by using the format `@$metadata.user_properties.<property>` or `@$metadata.topic`. Enter $metadata headers by using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+    Enter MQTT metadata properties by using the format `@$metadata.user_property.<property>` or `@$metadata.topic`. Enter $metadata headers by using the format `@$metadata.<header>`. The `$metadata` syntax is only needed for MQTT properties that are part of the message header. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
 1. Select **Apply**.
 
@@ -494,7 +500,7 @@ For example, you can use the `temperature` field in the source data to convert t
 
 # [Bicep](#tab/bicep)
 
-You can access MQTT metadata properties by using the format `$metadata.user_properties.<property>` or `$metadata.topic`. You can also enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+Access MQTT metadata properties by using the format `$metadata.user_property.<property>` or `$metadata.topic`. Enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
 For example, you can use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. Enrich the source data with the `location` field from the contextualization dataset:
 
@@ -522,7 +528,7 @@ builtInTransformationSettings: {
 
 [!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
-You can access MQTT metadata properties by using the format `$metadata.user_properties.<property>` or `$metadata.topic`. You can also enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
+Access MQTT metadata properties by using the format `$metadata.user_property.<property>` or `$metadata.topic`. Enter $metadata headers by using the format `$metadata.<header>`. For more information, see [field references](concept-dataflow-mapping.md#field-references).
 
 For example, you can use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. Enrich the source data with the `location` field from the contextualization dataset:
 
@@ -575,7 +581,7 @@ To remove a datapoint from the output schema, use the `builtInTransformationSett
           "weight"
         ],
         "output": ""
-      }
+      },
       {
           "inputs": [
           "weight.SourceTimestamp"
@@ -725,7 +731,7 @@ The following example is a data flow configuration that uses the MQTT endpoint f
 Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
 
 ```azurecli
-az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --profile $PROFILE --name $DATAFLOW --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -841,7 +847,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param dataflowName string = '<DATAFLOW_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -850,18 +856,18 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
 }
 
 // Pointer to the default data flow endpoint
-resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' existing = {
+resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
 // Pointer to the default data flow profile
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-07-01' = {
   // Reference to the parent data flow profile, the default profile in this case
   // Same usage as profileRef in Kubernetes YAML
   parent: defaultDataflowProfile
@@ -1014,7 +1020,7 @@ Select the data flow you want to export, then select **Export** from the toolbar
 Use the [az iot ops dataflow show](/cli/azure/iot/ops/dataflow/#az-iot-ops-dataflow-show) command to export a data flow.
 
 ```azurecli
-az iot ops dataflow show --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <DataflowName> --profile <DataflowProfileName> --output json > my-dataflow.json
+az iot ops dataflow show --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $DATAFLOW --profile $PROFILE --output json > my-dataflow.json
 ```
 
 Here's an example command to export a data flow named `data-flow` to a JSON file named `data-flow.json`:

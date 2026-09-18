@@ -5,7 +5,7 @@ author: robece
 ms.author: robece
 ms.subservice: kubernetes
 ms.custom: devx-track-azurecli, build-2024
-ms.date: 03/24/2022
+ms.date: 06/10/2026
 ms.topic: how-to
 ---
 

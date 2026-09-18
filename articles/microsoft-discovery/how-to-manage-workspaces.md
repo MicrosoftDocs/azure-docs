@@ -5,12 +5,12 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/02/2026
+ms.date: 09/10/2026
 ---
 
 # Manage workspaces in Microsoft Discovery
 
-> **Applies to:** Microsoft Discovery (Public Preview)
+> **Applies to:** Microsoft Discovery
 
 This article describes how to create, update, browse, and delete a **Microsoft Discovery workspace** using the Azure portal.
 
@@ -28,19 +28,19 @@ After you create a workspace, you can:
 
 Before you begin, make sure the following requirements are met:
 
-- An active [Azure subscription](https://aka.ms/discovery/publicpreviewportal) that is enabled for Microsoft Discovery **Public Preview** support.
+- An active [Azure subscription](https://portal.azure.com) that's enabled for Microsoft Discovery support.
 - **Microsoft Discovery Platform Administrator (Preview)** role or **Owner** role on the resource group.
-- A virtual network with the required subnets (`workspaceSubnet`, `privateEndpointSubnet`, `agentSubnet`). For more information, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md#c-create-a-virtual-network-and-subnets).
-- A **user-assigned managed identity (UAMI)** with the required role assignments. For more information, see [Create a User Assigned Managed Identity (UAMI)](quickstart-infrastructure-portal.md#d-create-a-user-assigned-managed-identity-uami).
+- A virtual network with the required subnets (`workspaceSubnet`, `privateEndpointSubnet`, `agentSubnet`). For more information, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure.md#b-create-a-virtual-network-and-subnets).
+- A **user-assigned managed identity (UAMI)** with the required role assignments. For more information, see [Create a User Assigned Managed Identity (UAMI)](quickstart-infrastructure.md#c-create-a-user-assigned-managed-identity-uami).
 - At least one **supercomputer** created and available for attachment. For more information, see [Manage Supercomputer and Nodepools](how-to-manage-supercomputers.md).
 
 ## Create a workspace
 
-For a complete step-by-step guide to creating a workspace along with all prerequisite resources, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md#4-create-a-workspace).
+For a complete step-by-step guide to creating a workspace along with all prerequisite resources, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure.md#4-create-a-workspace).
 
 The following steps summarize the workspace creation process:
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Workspaces**.
 1. Select **+ Create**.
 1. On the **Basics** tab, specify:
@@ -78,7 +78,7 @@ You can attach additional supercomputers to a workspace or detach existing ones.
 
 #### Attach a supercomputer
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Workspaces** and select your workspace.
 1. In the left navigation pane, under **Settings**, select **Supercomputers**.
 1. Select **Add Supercomputer**.
@@ -87,7 +87,7 @@ You can attach additional supercomputers to a workspace or detach existing ones.
 
 #### Detach a supercomputer
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Workspaces** and select your workspace.
 1. In the left navigation pane, under **Settings**, select **Supercomputers**.
 1. Select the supercomputer you want to detach.
@@ -101,7 +101,7 @@ You can attach additional supercomputers to a workspace or detach existing ones.
 
 You can enable or disable public network access for a workspace after creation.
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Workspaces** and select your workspace.
 1. In the left navigation pane, under **Settings**, select **Networking**.
 1. Select **Enable from all networks** or **Disabled** based on your requirements.
@@ -118,7 +118,7 @@ The workspace overview in the Azure portal provides access to the key resources 
 
 To view the supercomputers attached to your workspace:
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Workspaces** and select your workspace.
 1. In the left navigation pane, under **Settings**, select **Supercomputers**.
 
@@ -130,7 +130,7 @@ To view the chat model deployments configured for your workspace:
 
 - In the workspace resource, in the left navigation pane, under **Settings**, select **Chat Model Deployments**.
 
-This page lists all model deployments associated with the workspace, including the model name, format, and deployment status. You can also create new chat model deployments from this page. For more information, see [Create Chat Model Deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment).
+This page lists all model deployments associated with the workspace, including the model name, format, and deployment status. You can also create new chat model deployments from this page. For more information, see [Create Chat Model Deployment](quickstart-infrastructure.md#6-create-chat-model-deployment).
 
 ### Projects
 
@@ -152,7 +152,7 @@ Before you delete a workspace, ensure the following:
 
 To delete a workspace:
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Workspaces** and select your workspace.
 1. On the **Overview** page, select **Delete**.
 1. Confirm the deletion by typing the workspace name.
@@ -177,7 +177,7 @@ To delete a workspace:
 
 ## Related content
 
-- [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md)
+- [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure.md)
 - [Manage Supercomputer and Nodepools](how-to-manage-supercomputers.md)
 - [Quota reservations for Microsoft Discovery](concept-quota-reservation.md)
 - [Get started with agents and investigations in Microsoft Discovery Studio](quickstart-agents-studio.md)

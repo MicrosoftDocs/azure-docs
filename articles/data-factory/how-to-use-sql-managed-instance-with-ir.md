@@ -1,8 +1,8 @@
 ---
 title: Use Azure SQL Managed Instance with Azure-SQL Server Integration Services (SSIS) in Azure Data Factory
 description: Learn how to use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory. 
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ms.topic: how-to
 ms.date: 10/03/2024
 ms.subservice: integration-services
@@ -12,6 +12,8 @@ ms.custom: sfi-image-nochange
 # Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 You can now move your SQL Server Integration Services (SSIS) projects, packages, and workloads to the Azure cloud. Deploy, run, and manage SSIS projects and packages on Azure SQL Database or SQL Managed Instance with familiar tools such as SQL Server Management Studio (SSMS). This article highlights the following specific areas when using Azure SQL Managed Instance with Azure-SSIS integration runtime (IR):
 

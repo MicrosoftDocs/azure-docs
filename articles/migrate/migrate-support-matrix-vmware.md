@@ -6,7 +6,8 @@ ms.author: molir
 ms.manager: ronai
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
+ms.update-cycle: 1095-days
 ms.date: 05/09/2025
 ms.custom:
   - vmware-scenario-422
@@ -30,7 +31,7 @@ As you plan your migration of VMware servers to Azure, see the [migration suppor
 
 VMware | Details
 --- | ---
-vCenter Server | Servers that you want to discover and assess must be managed by vCenter Server version 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses aren't supported for vCenter Server (for discovery and assessment of servers) and ESXi hosts (for replication of servers).
+vCenter Server | Servers that you want to discover and assess must be managed by vCenter Server version [!INCLUDE [vmware-discovery-supported-versions](includes/vmware-discovery-supported-versions.md)].<br /><br /> Discovering servers by providing ESXi host details in the appliance currently isn't supported. <br /><br /> IPv6 addresses aren't supported for vCenter Server (for discovery and assessment of servers) and ESXi hosts (for replication of servers).
 Permissions | The Azure Migrate: Discovery and assessment tool requires a vCenter Server read-only account.<br /><br /> If you want to use the tool for software inventory, agentless dependency analysis, web apps, and SQL discovery, the account must have privileges for guest operations on VMware virtual machines (VMs).
 
 
@@ -307,7 +308,7 @@ Required privileges | The user should be a part of the two user groups 1. Remote
 
 Support | Details
 --- | ---
-Supported servers | You can enable agentless dependency analysis on up to 1,000 servers (across multiple vCenter Servers) discovered per appliance.
+Supported servers | You can enable agentless dependency analysis on up to 3,000 servers (across multiple vCenter Servers) discovered per appliance.
 Windows servers | Windows Server 2022 <br/> Windows Server 2019<br /> Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br /> Windows Server 2008 (32-bit)
 Linux servers | Red Hat Enterprise Linux 6.x, 7.x, 8.x, 9.x, 9.5 <br /> Ubuntu 24.04, 22.04, 12.04, 14.04, 16.04, 18.04, 20.04, 22.04 <br /> OracleLinux 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5 <br /> SUSE Linux 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3 <br /> Debian 7, 8, 9, 10, 11 <br /> Alma Linux 8.x, 9.x <br /> Rocky Linux 8.x, 9.x
 Server requirements | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Windows Servers have PowerShell version 2.0 or later.<br /><br /> Linux Servers have Bash version 4.0 or later installed. <br /><br/> WMI should be enabled and available on Windows servers.
@@ -321,33 +322,14 @@ Discovery method |  Dependency information between servers is gathered by using 
 > In some recent Linux OS versions, the netstat command was replaced by the `ss` command; have that in mind when preparing the servers.
 
 
-## Dependency analysis requirements (agent-based)
+## Agent-based dependency visualization (retired)
 
-[Dependency analysis](concepts-dependency-visualization.md) helps you identify dependencies between on-premises or Azure VMware Solution servers that you want to assess and migrate to Azure. The following table summarizes the requirements for setting up agent-based dependency analysis.
+**Agent-based dependency analysis** is supported only in the classic view and isn't available in the new experience. The classic view is scheduled for deprecation by the end of 2026. Until then, you can continue to access Log Analytics workspaces for servers where agent-based dependency analysis is already enabled. However, you can't onboard new servers for agent-based dependency analysis. For information, see [Set up dependency visualization](how-to-create-group-machine-dependencies.md).
 
-Requirement | Details
---- | ---
-Before deployment | You should have a project in place with the Azure Migrate: Discovery and assessment tool added to the project.<br /><br />You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises or Azure VMware Solution servers.<br /><br />Learn how to [create a project for the first time](create-manage-projects.md).<br /> Learn how to [add a discovery and assessment tool to an existing project](how-to-assess.md).<br /> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
-Supported servers | Supported for all servers in your on-premises and Azure VMware Solution environment.
-Log Analytics | Azure Migrate and Modernize uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) for dependency visualization.<br /><br /> You associate a new or existing Log Analytics workspace with a project. You can't modify the workspace for a project after you add the workspace. <br /><br /> The workspace must be in the same subscription as the project.<br /><br /> The workspace must be located in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br /><br /> The workspace must be in a [region in which Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> In Log Analytics, the workspace associated with Azure Migrate is tagged with the project key and project name.
-Required agents | On each server that you want to analyze, install the following agents:<br />- Azure Monitor agent (AMA)<br />- [Dependency agent](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance)<br /><br /> If on-premises or Azure VMware Solution servers aren't connected to the internet, download and install the Log Analytics gateway on them.<br /><br /> Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and the Azure Monitor agent.
-Log Analytics workspace | The workspace must be in the same subscription as the project.<br /><br /> Azure Migrate supports workspaces that are located in the East US, Southeast Asia, and West Europe regions.<br /><br />  The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> You can't modify the workspace for a project after you add the workspace.
-Cost | The Service Map solution doesn't incur any charges for the first 180 days. The count starts from the day you associate the Log Analytics workspace with the project.<br /><br /> After 180 days, standard Log Analytics charges apply.<br /><br /> Using any solution other than Service Map in the associated Log Analytics workspace incurs [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br /><br /> When the project is deleted, the workspace isn't automatically deleted. After you delete the project, Service Map usage isn't free. Each node is charged according to the paid tier of the Log Analytics workspace.<br /><br />If you have projects that you created before Azure Migrate general availability (GA on February 28, 2018), you might incur other Service Map charges. To ensure that you're charged only after 180 days, we recommend that you create a new project. Workspaces that were created before GA are still chargeable.
-Management | When you register agents to the workspace, use the ID and key provided by the project.<br /><br /> You can use the Log Analytics workspace outside Azure Migrate and Modernize.<br /><br /> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](/azure/azure-monitor/logs/manage-access).<br /><br /> Don't delete the workspace created by Azure Migrate and Modernize unless you delete the project. If you do, the dependency visualization functionality doesn't work as expected.
-Internet connectivity | If servers aren't connected to the internet, install the Log Analytics gateway on the servers.
-Azure Government | Agent-based dependency analysis isn't supported.
+If you are using Service Map for agent-based dependency analysis, migrate to VM Insights. [ServiceMap](/azure/azure-monitor/vm/vminsights-migrate-from-service-map) is retired.
 
-
-## Limitations
-
-Requirement | Details
---- | ---
-Project limits | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 35,000 servers in a VMware environment in a single [project](migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
-Discovery | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance.<br /><br />The scale is also valid to access discovered servers for Azure Migrate VMware Solution (AVS).<br /><br />The same vCenter can be discovered by multiple appliances within the same project, but it is not recommended to have same VM discovered by multiple appliances. More details on how to set [discovery scope](set-discovery-scope.md).
-Assessment | You can add up to 35,000 servers in a single group.<br /><br /> You can assess up to 35,000 servers in a single assessment.
-
-Learn more about [assessments](concepts-assessment-calculation.md).
-
+>[!NOTE]
+> Agent-based dependency analysis incurs additional charges. Usage charges for the associated Log Analytics workspace may apply. For pricing information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Import servers using RVTools XLSX (preview)
 

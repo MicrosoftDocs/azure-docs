@@ -90,6 +90,10 @@ Azure Route Server keepalive timer is 60 seconds and the hold timer is 180 secon
 
 Azure Route Server supports **NO_ADVERTISE** BGP community. If a network virtual appliance (NVA) advertises routes with this community string to the Route Server, the Route Server doesn't advertise it to other peers including the ExpressRoute gateway. This feature can help reduce the number of routes sent from Azure Route Server to ExpressRoute.
 
+### Can I use route maps to control routing on Azure Route Server?
+
+Yes. Route maps lets you filter routes, aggregate prefixes, and modify BGP attributes such as AS-PATH and Community on BGP peerings, ExpressRoute gateway connections, and VPN gateway connections. For more information, see [About route maps for Azure Route Server](route-maps-about.md) and [Configure route maps](route-maps-how-to.md).
+
 ### When a virtual network peering is created between my hub virtual network and spoke virtual network, does this cause a BGP soft reset between Azure Route Server and its peered NVAs?
 
 Yes. If a virtual network peering is created between your hub virtual network and spoke virtual network, Azure Route Server performs a BGP soft reset by sending route refresh requests to all its peered NVAs. If the NVAs don't support BGP route refresh, then Azure Route Server performs a BGP hard reset with the peered NVAs, which might cause connectivity disruption for traffic traversing the NVAs.
@@ -163,6 +167,14 @@ No, Azure Route Server provides transit only between ExpressRoute and Site-to-Si
 
 No. The spoke virtual network can't have a Route Server if it's connected to the Virtual WAN hub.
 
+### What happens if an NVA advertises a route containing ASN 65515 in the AS_PATH?
+ 
+Azure Route Server uses ASN 65515 by default. If an NVA advertises a route to Azure Route Server that already contains 65515 in the BGP AS_PATH attribute, Azure Route Server identifies its own ASN in the AS path and rejects the route as part of standard BGP loop prevention behavior. As a result, the route is not installed or propagated by Azure Route Server.
+ 
+To avoid this issue, ensure that routes advertised by NVAs do not contain Azure-reserved ASN 65515 in the AS_PATH. 
+ 
+Example: If an NVA advertises prefix 10.10.0.0/16 with an AS_PATH of 65001 65515, Azure Route Server drops the route because the AS_PATH already contains its own ASN (65515), which would create a potential routing loop. This behavior is consistent with standard BGP loop prevention mechanisms.
+
 ## Limitations
 
 ### How many Azure Route Servers can I create in a virtual network?
@@ -184,6 +196,7 @@ Azure Route Server has the following limits (per deployment).
 [!INCLUDE [route server limits](../../includes/route-server-limits.md)]
 
 For information on troubleshooting routing problems in a virtual machine, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
+
 
 ### Why am I seeing an error about invalid scope and authorization to perform operations on Route Server resources?
 

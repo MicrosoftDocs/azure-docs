@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - validate-jwt | Microsoft Docs
 description: Reference for the validate-jwt policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 02/25/2026
-ms.author: danlep
+ms.date: 08/18/2026
 ---
 
 # Validate JWT
@@ -99,6 +97,8 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 | n | (Issuer signing key only) Modulus of the public key used to verify the issuer of a token signed with an asymmetric key. Must be specified with the value of the exponent `e`. Policy expressions aren't allowed. | No | N/A|
 | e | (Issuer signing key only) Exponent of the public key used to verify the issuer of a token signed with an asymmetric key. Must be specified with the value of the modulus `n`. Policy expressions aren't allowed. | No | N/A|
 
+> [!IMPORTANT]
+> Linked access isn't checked when a certificate is referenced by using `certificate-id`. A user who has permission to write a policy can reference any available certificate and cause API Management to use its public key to verify JWT signatures or its private key to decrypt JWTs, even if the user doesn't have read access to the certificate resource. This doesn't grant access to retrieve the certificate or its private key.
 
 
 ### claim attributes

@@ -4,7 +4,7 @@ description: Learn about ways to improve performance and throughput for SSD (pre
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 03/16/2026
+ms.date: 07/13/2026
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -22,12 +22,12 @@ This article explains how you can improve performance for SSD (premium) SMB Azur
 
 The following tips might help you optimize performance:
 
-- Ensure that your storage account and your client are in the same Azure region to reduce network latency.
+- Make sure your storage account and your client are in the same Azure region to reduce network latency.
 - Use multi-threaded applications and spread the load across multiple files.
+- Run multiple performance tests and repeat. Don't draw conclusions based on one initial test.
 - Performance benefits of SMB Multichannel increase with the number of files distributing the load.
 - SSD share performance is bound by provisioned share size, including IOPS and throughput, and single file limits. For details, see [understanding the provisioning v1 model](understanding-billing.md#provisioned-v1-model).
 - Maximum performance of a single virtual machine (VM) client is still bound to VM limits. For example, [Standard_D32s_v3](/azure/virtual-machines/dv3-dsv3-series) supports a maximum bandwidth of approximately 1.86 GiB/sec. Ingress (writes to storage) is metered, but egress (reads from storage) isn't. File share performance is subject to machine network limits, CPUs, internal storage available network bandwidth, IO sizes, parallelism, and other factors.
-- The initial test is usually a warm-up. Discard the results and repeat the test.
 - If performance is limited by a single client and workload is still below provisioned share limits, you can achieve higher performance by spreading the load over multiple clients.
 - Use [zonal placement](zonal-placement.md) to select the specific availability zone in which your storage account resides. This allows you to place your VMs in the same availability zone as your storage, which can reduce latency by up to 30 percent. 
 
@@ -43,7 +43,7 @@ SMB Multichannel enables an SMB client to establish multiple network connections
 
 ### Benefits of SMB Multichannel
 
-SMB Multichannel enables clients to use multiple network connections that provide increased performance while lowering the cost of ownership. Increased performance is achieved through bandwidth aggregation over multiple NICs and utilizing Receive Side Scaling (RSS) support for NICs to distribute the I/O load across multiple CPUs.
+When you enable SMB Multichannel, clients can use multiple network connections. This setup boosts performance and lowers the cost of ownership. You get better performance through bandwidth aggregation over multiple NICs and by using Receive Side Scaling (RSS) support for NICs to spread the I/O load across multiple CPUs.
 
 - **Increased throughput**:
     Multiple connections allow data to be transferred over multiple paths in parallel and thereby significantly benefits workloads that use larger file sizes with larger I/O sizes, and require high throughput from a single VM or a smaller set of VMs. Some of these workloads include media and entertainment for content creation or transcoding, genomics, and financial services risk analysis.
@@ -72,7 +72,7 @@ SMB Multichannel for Azure file shares currently has the following restrictions:
 
 - Only available for SSD file shares. Not available for HDD file shares.
 - Only supported on clients that are using SMB 3.1.1. Ensure SMB client operating systems are patched to recommended levels.
-- Maximum number of channels is four. For details, see [here](/troubleshoot/azure/azure-storage/files/performance/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-4-number-of-smb-channels-exceeds-four).
+- The maximum number of channels is four. For details, see [Number of SMB channels exceeds four](/troubleshoot/azure/azure-storage/files/performance/files-troubleshoot-performance?toc=/azure/storage/files/toc.json#cause-4-number-of-smb-channels-exceeds-four).
 
 ### Verify SMB Multichannel is enabled on clients
 
@@ -89,7 +89,7 @@ Get-SmbClientConfiguration | Select-Object -Property EnableMultichannel
 You can view the status of SMB Multichannel and enable or disable it on a storage account by using the Azure portal, Azure PowerShell, or Azure CLI.
 
 # [Portal](#tab/azure-portal)
-To view the status of SMB Multichannel, go to the storage account that contains your SSD file shares and select **File shares** under the **Data storage** heading in the storage account table of contents. You see the status of SMB Multichannel under the **File share settings** section. If you don't see it, make sure your storage account is of the FileStorage account kind.
+To view the status of SMB Multichannel, go to the storage account that contains your SSD file shares. From the service menu, under **Data storage**, select **Classic file shares**. You see the status of SMB Multichannel under the **File share settings** section. If you don't see it, make sure your storage account is of the FileStorage account kind.
 
 :::image type="content" source="media/smb-performance/smb-multichannel-enabled.png" alt-text="A screenshot of the file shares section within the storage account highlighting the SMB Multichannel setting." lightbox="media/smb-performance/smb-multichannel-enabled.png":::
 
@@ -220,12 +220,14 @@ Set-ItemProperty `
 
 Azure Files supports SMB Multichannel with native Linux SMB clients on the following distributions:
 
-- *Ubuntu 24.04 AKS: 6.8.0-1042*
-- *Ubuntu 24.04 VMs: 6.14.0-1017*
-- *Ubuntu 22.04 VMs: 6.8.0-1044*
-- *AzLinux 3.0 (VMs and AKS): 6.6.106.1*
-- *RHEL 9.7: 5.14.0-611.5.1.el9_7*
-- *RHEL 10.1: 6.12.0-124.8.1.el10_1*
+| Distribution | Minimum kernel version |
+|---|---|
+| Ubuntu 24.04 AKS | 6.8.0-1042 |
+| Ubuntu 24.04 VMs | 6.14.0-1017 |
+| Ubuntu 22.04 VMs | 6.8.0-1044 |
+| AzLinux 3.0 (VMs and AKS) | 6.6.106.1 |
+| RHEL 9.7 | 5.14.0-611.5.1.el9_7 |
+| RHEL 10.1 | 6.12.0-124.8.1.el10_1 |
 
 These clients must be running the appropriate kernel stack and CIFS utilities that support multichannel. SMB Multichannel support on Linux enables performance scaling similar to Windows by establishing multiple parallel TCP connections to the same file share endpoint.
 
@@ -236,7 +238,7 @@ The following are prerequisites to use SMB Multichannel with Linux.
 - Kernel with SMB multichannel support enabled (see [Linux SMB Multichannel support](#linux-smb-multichannel-support))
 - SMB 3.1.1
 - Port 445/TCP open between client and Azure Files endpoint
-- Ensure client side receive-side scaling (RSS) is enabled for multi-queue support
+- Make sure client-side receive-side scaling (RSS) is enabled for multiqueue support
 
 #### Example mount command
 
@@ -253,12 +255,12 @@ mount -t cifs //<storageaccount>.file.core.windows.net/<share> /mnt/azfiles \
 To verify that SMB Multichannel is configured correctly, follow these steps:
 
 1. Create a new SSD file share or use an existing SSD file share.
-1. Ensure your client supports SMB Multichannel (one or more network adapters has receive-side scaling enabled). Refer to the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel) for more details.
+1. Make sure your client supports SMB Multichannel (one or more network adapters has receive-side scaling enabled). See the [Windows documentation](/azure-stack/hci/manage/manage-smb-multichannel) for more details.
 1. Mount a file share to your client.
 1. Generate load with your application.
     A copy tool such as robocopy /MT, or any performance tool such as Diskspd to read/write files can generate load.
 1. Open PowerShell as an admin and run the following command:
-`Get-SmbMultichannelConnection |fl`
+`Get-SmbMultichannelConnection | fl`
 1. Look for **MaxChannels** and **CurrentChannels** properties.
 
 ### Performance comparison
@@ -268,9 +270,9 @@ There are two categories of read/write workload patterns: single-threaded and mu
 - **Multi-threaded/multiple files**:
     Depending on the workload pattern, you should see significant performance improvement in read and write I/Os over multiple channels. The performance gains vary from anywhere between 2x to 4x in terms of IOPS, throughput, and latency. For this category, SMB Multichannel should be enabled for the best performance.
 - **Multi-threaded/single file**:
-    For most use cases in this category, workloads benefit from having SMB Multichannel enabled, especially if the workload has an average I/O size > ~16k. A few example scenarios that benefit from SMB Multichannel are backup or recovery of a single large file. An exception where you might want to disable SMB Multichannel is if your workload is heavy on small I/Os. In that case, you might observe a slight performance loss of ~10%. Depending on the use case, consider spreading load across multiple files, or disable the feature.
+    For most use cases in this category, workloads benefit from having SMB Multichannel enabled, especially if the workload has an average I/O size (greater than 16 KiB). A few example scenarios that benefit from SMB Multichannel are backup or recovery of a single large file. An exception where you might want to disable SMB Multichannel is if your workload is heavy on small I/Os. In that case, you might observe a slight performance loss of about 10%. Depending on the use case, consider spreading load across multiple files, or disable the feature.
 - **Single-threaded/multiple files or single file**:
-    For most single-threaded workloads, there are minimum performance benefits due to lack of parallelism. Usually there is a slight performance degradation of 10% if SMB Multichannel is enabled. In this case, it's ideal to disable SMB Multichannel, with one exception. If the single-threaded workload can distribute load across multiple files and uses on an average larger I/O size (greater than 16 KiB), then there should be slight performance benefits from SMB Multichannel.
+    For most single-threaded workloads, there are minimum performance benefits due to lack of parallelism. Usually there's a slight performance degradation of 10% if SMB Multichannel is enabled. In this case, it's ideal to disable SMB Multichannel, with one exception. If the single-threaded workload can distribute load across multiple files and uses an average I/O size greater than 16 KiB, then there should be slight performance benefits from SMB Multichannel.
 
 ### Performance test configuration
 
@@ -302,7 +304,7 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 :::image type="content" source="media/smb-performance/diagram-smb-multi-channel-single-file-compared-to-single-channel-throughput-performance.png" alt-text="Diagram of single file throughput performance." lightbox="media/smb-performance/diagram-smb-multi-channel-single-file-compared-to-single-channel-throughput-performance.png":::
 
 - On a single NIC with larger average I/O size (greater than 16 KiB), there were significant improvements in both reads and writes.
-- For smaller I/O sizes, there was a slight impact of approximately 10% on performance with SMB Multichannel enabled. This could be mitigated by spreading the load over multiple files, or disabling the feature.
+- For smaller I/O sizes, there's a slight impact of approximately 10% on performance with SMB Multichannel enabled. You can mitigate this impact by spreading the load over multiple files or disabling the feature.
 - Performance is still bound by [single file limits](storage-files-scale-targets.md).
 
 ## Metadata caching for SSD file shares

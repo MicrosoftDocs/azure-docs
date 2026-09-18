@@ -8,19 +8,18 @@ ms.topic: how-to
 ms.custom:
   - engagement-fy23
   - build-2025
-ms.date: 05/08/2025
+ms.date: 06/18/2026
 ---
 
 # Integrate MongoDB Atlas cluster with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect MongoDB Atlas cluster from Azure compute services using Service Connector. You might still be able to connect to MongoDB Atlas cluster in other programming languages without using Service Connector. This page also shows default environment variable names and values you get when you create the service connection.
+This article describes supported authentication methods and clients, and provides sample code for connecting Azure compute services to MongoDB Atlas clusters by using Service Connector. You can also connect to MongoDB Atlas clusters in other programming languages without using Service Connector. This article also lists default environment variable names and values you get when you create the service connection.
 
 ## Supported compute services
 
 Service Connector can be used to connect the following compute services to MongoDB Atlas cluster:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 
@@ -31,14 +30,14 @@ The table below shows which combinations of authentication methods and clients a
 | Client type               | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
 |---------------------------|:--------------------------------:|:------------------------------:|:------------------------:|:-----------------:|
 | .NET                      |                No                |                No              |            Yes           |        No         |
-| Go (pg)                   |                No                |                No              |            Yes           |        No         |
+| Go                        |                No                |                No              |            Yes           |        No         |
 | Java (JDBC)               |                No                |                No              |            Yes           |        No         |
 | Java - Spring Boot (JDBC) |                No                |                No              |            Yes           |        No         |
-| Node.js (pg)              |                No                |                No              |            Yes           |        No         |
+| Node.js                   |                No                |                No              |            Yes           |        No         |
 | PHP (native)              |                No                |                No              |            Yes           |        No         |
-| Python (psycopg2)         |                No                |                No              |            Yes           |        No         |
+| Python (PyMongo)          |                No                |                No              |            Yes           |        No         |
 | Python-Django             |                No                |                No              |            Yes           |        No         |
-| Ruby (ruby-pg)            |                No                |                No              |            Yes           |        No         |
+| Ruby                      |                No                |                No              |            Yes           |        No         |
 | None                      |                No                |                No              |            Yes           |        No         |
 
 
@@ -46,7 +45,7 @@ The table below shows which combinations of authentication methods and clients a
 
 Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect compute services to MongoDB Atlas cluster. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
-### Connection String
+### Connection string
 
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
@@ -81,7 +80,7 @@ Reference the connection details and sample code in the following tables, accord
 |-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | Go MongoDB Atlas connection string   | `mongodb+srv://<database-username>:<database-password>@<cluster-URL>/?retryWrites=true&w=majority&appName=Cluster0`  |
 
-#### [NodeJS](#tab/nodejs)
+#### [Node.js](#tab/nodejs)
 
 | Default environment variable name   | Description                     | Example value                                                                                                                   |
 |-------------------------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -97,7 +96,7 @@ Reference the connection details and sample code in the following tables, accord
 
 | Default environment variable name | Description                     | Example value                                                                    |
 |-----------------------------------|---------------------------------|----------------------------------------------------------------------------------|
-| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | Ruby MongoDB Atlas connection string | `mongodb+srv:/<database-username>:<database-password>@<cluster-URL>/?retryWrites=true&w=majority&appName=Cluster0` |
+| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | Ruby MongoDB Atlas connection string | `mongodb+srv://<database-username>:<database-password>@<cluster-URL>/?retryWrites=true&w=majority&appName=Cluster0` |
 
 #### [Other](#tab/none)
 

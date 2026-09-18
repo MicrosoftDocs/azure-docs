@@ -2,11 +2,9 @@
 title: Revisions in Azure API Management | Microsoft Docs
 description: Learn about the concept of revisions in Azure API Management.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 09/29/2025
-ms.author: danlep
 ms.custom: fasttrack-new
 ---
 

@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 04/04/2023
+ms.date: 09/16/2026
 ms.author: glenga
 ms.custom:
   - build-2025
@@ -363,10 +363,43 @@ public class EventHubReceiver {
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+
+The following example shows an Event Hubs trigger function that logs incoming event messages:
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/sdk/bindings"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.EventHub("eventHubTrigger", processEvent,
+		sdk.WithEventHubName("myeventhub"),
+		sdk.WithConnection("EventHubConnection"),
+	)
+	worker.Start(app)
+}
+
+func processEvent(ctx context.Context, event bindings.EventHubMessage) error {
+	log.Printf("Event Hub trigger processed a message: %s", event.Body)
+	return nil
+}
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](../articles/azure-functions/functions-dotnet-class-library.md) and [isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md) C# libraries use attribute to configure the trigger. C# script instead uses a function.json configuration file as described in the [C# scripting guide](../articles/azure-functions/functions-reference-csharp.md#event-hubs-trigger).
+Both [in-process](../articles/azure-functions/functions-dotnet-class-library.md) and [isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md) C# libraries use attributes to configure the trigger. C# script instead uses a function.json configuration file as described in the [C# scripting guide](../articles/azure-functions/functions-reference-csharp.md#event-hubs-trigger).
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -462,9 +495,7 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end
 ::: zone pivot="programming-language-powershell,programming-language-python"  
 
-The following table explains the trigger configuration properties that you set in the *function.json* file, which differs by runtime version.
-
-# [Functions 2.x+](#tab/functionsv2)
+The following table explains the trigger configuration properties that you set in the *function.json* file.
 
 |function.json property | Description|
 |---------|----------------------|
@@ -476,20 +507,6 @@ The following table explains the trigger configuration properties that you set i
 |**cardinality** | Set to `many` in order to enable batching. If omitted or set to `one`, a single message is passed to the function.|
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
 |**dataType** | An optional property that sets the type of the trigger input. Choose `string` or `binary` if the input is not valid JSON. | 
-
-# [Functions 1.x](#tab/functionsv1)
-
-|function.json property | Description                                                                                                                                                                                                   |
-|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|**type** | Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.                                                                                         |
-|**direction** | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal.                                                                                                      |
-|**name** | The name of the variable that represents the event item in function code.                                                                                                                                     |
-|**path** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime.                                                                   |
-|**consumerGroup** | An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
-|**cardinality** | Set to `many` in order to enable batching. If omitted or set to `one`, a single message is passed to the function.                                                                                            |
-|**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).                                                                                |
-
----
 
 ::: zone-end
 

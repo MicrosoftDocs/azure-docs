@@ -2,11 +2,11 @@
 title: 'Create an Intune profile for Azure VPN clients'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create an Intune custom profile to deploy Azure VPN client profiles.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/31/2025
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: "As an IT admin, I want to create custom profiles in Intune for deploying Azure VPN client configurations, so that I can ensure secure and consistent access for remote users."
 ---

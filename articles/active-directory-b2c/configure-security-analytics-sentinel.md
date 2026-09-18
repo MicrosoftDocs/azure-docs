@@ -6,7 +6,7 @@ description: Use Microsoft Sentinel to perform security analytics for Azure Acti
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: tutorial
 ms.date: 07/31/2024

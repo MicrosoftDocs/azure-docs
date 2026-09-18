@@ -321,7 +321,7 @@ producer.setDeliveryDelay(30000);
 producer.send(session.createTextMessage("Scheduled message"));
 ```
 
-For a complete working sample, see [QueueScheduledSend.java](https://github.com/Azure/azure-servicebus-jms-samples/blob/sample/scheduled-messages/src/main/java/com/microsoft/azure/samples/QueueScheduledSend.java) in the azure-servicebus-jms-samples repository.
+For a complete working sample, see [QueueScheduledSend.java](https://github.com/Azure/azure-servicebus-jms-samples/blob/main/src/main/java/com/microsoft/azure/samples/QueueScheduledSend.java) in the azure-servicebus-jms-samples repository.
 
 ### Connection factory selection and resilience
 
@@ -366,7 +366,7 @@ connection.setExceptionListener(exception -> {
 
 In Spring Boot, set the exception listener on the `CachingConnectionFactory` (for senders) and the `DefaultJmsListenerContainerFactory` (for listeners).
 
-For a complete working sample showing all of these patterns, see the [Spring Boot JMS Resilience sample](https://github.com/Azure/azure-servicebus-jms-samples/tree/sample/spring-boot-resilience/spring-boot-resilience) in the azure-servicebus-jms-samples repository.
+For a complete working sample showing all of these patterns, see the [Spring Boot JMS Resilience sample](https://github.com/Azure/azure-servicebus-jms-samples/tree/main/spring-boot-resilience) in the azure-servicebus-jms-samples repository.
 ### Dead letter queues
 
 Every queue and topic subscription in Azure Service Bus has an associated [dead letter queue (DLQ)](service-bus-dead-letter-queues.md). The system automatically moves messages that it can't deliver or process to the DLQ. For example, the system moves a message to the DLQ when the message exceeds the maximum delivery count or its time-to-live (TTL) expires.
@@ -416,7 +416,7 @@ String reason = message.getStringProperty("DeadLetterReason");
 String description = message.getStringProperty("DeadLetterErrorDescription");
 ```
 
-For a complete working sample, see [QueueDeadLetterReceive.java](https://github.com/Azure/azure-servicebus-jms-samples/blob/sample/dead-letter-queue/src/main/java/com/microsoft/azure/samples/QueueDeadLetterReceive.java) in the azure-servicebus-jms-samples repository.
+For a complete working sample, see [QueueDeadLetterReceive.java](https://github.com/Azure/azure-servicebus-jms-samples/blob/update/migrate-to-jms-sdk-2.1.0/src/main/java/com/microsoft/azure/samples/QueueDeadLetterReceive.java) in the azure-servicebus-jms-samples repository.
 
 ## AMQP disposition and Service Bus operation mapping
 

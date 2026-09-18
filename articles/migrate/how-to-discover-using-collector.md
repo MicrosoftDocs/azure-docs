@@ -6,9 +6,10 @@ ms.author: molir
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.reviewer: v-uhabiba
-ms.date: 05/19/2026
+ms.reviewer: jsuri
+ms.date: 05/26/2026
 ms.custom: engagement-fy26
+ms.update-cycle: 1095-days
 # Customer intent: As an IT professional, I want to use Azure Migrate Collector to discover my IT estate and generate assessment and business case reports, so that I can plan migration and modernization effectively.
 ---
 
@@ -20,6 +21,9 @@ Azure Migrate collector can discover your VMware estate or individual Windows an
 
 ## Collect data from VMware estate
 
+> [!NOTE]
+> If you prefer agentless continuous discovery using an appliance, see [Discover servers in VMware environment](tutorial-discover-vmware.md).
+
 ### Prerequisites
 
 Before you set up the collector, [create a new Azure Migrate project](quickstart-create-project.md). If you plan to collect data from an Azure VMware Solution (AVS) private cloud, ensure that the machine where the collector is installed has network line-of-sight to the AVS vCenter.
@@ -28,7 +32,7 @@ Before you set up the collector, [create a new Azure Migrate project](quickstart
 |---|---|
 | Operating System | A server running Windows Server 2019, 2022, or 2025 Operating System. Ensure the server has IIS role installed. |
 | Compute and storage | A server with 16 GB of RAM, 8 vCPUs, and approximately 80 GB of disk storage. |
-| Supported vCenter versions | 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5. |
+| Supported vCenter versions | [!INCLUDE [vmware-discovery-supported-versions](includes/vmware-discovery-supported-versions.md)] |
 | Networking - vCenter | Network line of sight from collector to vCenter with inbound access allowed on TCP port 443. <br><br> If the server running vCenter server listens on a different port, you can modify the port when you provide the vCenter server details in the collector configuration manager. |
 | Networking – ESXi hosts | Network line of sight from collector to all ESXi hosts with inbound access allowed on TCP port 443. |
 | Networking – Windows/Linux | To collect data about installed software, webapps and database (SQL, MySQL, PostgreSQL) inventory, network line of sight isn't required from collector to guest machines. Collector captures guest data using the following ports via VMware pipe. <br><br> Windows - WinRM https (5986) or http (5985) <br> Linux - SSH over port 22 |
@@ -74,6 +78,29 @@ Before you set up the collector, [create a new Azure Migrate project](quickstart
 
 7.  After successful execution, the appliance configuration manager launches automatically and creates a desktop shortcut.
 
+### Verify security
+
+To verify that the downloaded collector installer ZIP file is secure, check its hash value:
+
+1. On the server where you downloaded the file, open a Command Prompt window by using the **Run as administrator** option.
+1. Run this command to create the hash for the ZIP file:
+
+   ```
+   C:\>CertUtil -HashFile <file_location> SHA256
+   ```
+
+   For example:
+
+   ```
+   C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\AzureMigratecollector.zip SHA256
+   ```
+
+1. Verify the latest collector version and hash value:
+
+   | Algorithm | Version | Download | SHA256 |
+   | --- | --- | --- | --- |
+   | Collector zip file (670.25 MB) | 20260827.3 | [Latest version](https://aka.ms/Migrate/DownloadCollector) | 1AF404274728EAC90B9B0F500FA4D12B75A7AFE68373E3FFEC51A42170BA5F69 |
+
 ### Provide vCenter credentials
 
 1.	Select **Add credentials**, and then enter a name for the credentials.
@@ -101,6 +128,8 @@ You can add up to 10 vCenter servers per collector
 ## Collect data from physical servers
 
 You can use the same Azure migrate collector to discover both VMware machines and physical servers that’s hypervisor agnostic. To collect data about physical servers, switch the fabric type to physical. 
+
+To discover physical servers using an appliance-based approach, see [Discover physical servers](tutorial-discover-physical.md).
 
 ### Provide credentials for Windows and Linux servers
 
@@ -205,3 +234,4 @@ You can use the same Azure migrate collector to discover both VMware machines an
 - Review the [discovered inventory](how-to-review-discovered-inventory.md).
 - Generate a [business case](migrate-appliance.md).
 - Create an [assessment](tutorial-discover-import.md).
+- Compare [discovery approaches](discovery-methods-modes.md)

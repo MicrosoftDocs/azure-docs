@@ -57,13 +57,28 @@ The following table lists the locations where Azure Center for SAP solutions is 
 
 | Azure Center for SAP solutions service locations |
 |---|
-| Australia East |
-| Central India |
-| East Asia |
-| East US |
-| East US 2 |
-| North Europe |
 | West Europe |
+| Germany West Central |
+| Australia East |
+| Japan East |
+| East US |
+| West US 2 |
+| North Europe |
+| East US 2 |
+| Italy North |
+| UK South |
+| Canada Central |
+| East Asia |
+| Central India |
+| Norway East |
+| Switzerland North |
+| Sweden Central |
+| South Central US |
+| France Central |
+| South Africa North |
+| Korea Central |
+| UAE North |
+| Brazil South |
 | West US 3 |
 
 ## Related content

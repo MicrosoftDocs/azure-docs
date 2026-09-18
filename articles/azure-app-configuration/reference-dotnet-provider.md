@@ -1,7 +1,7 @@
 ---
 title: .NET Configuration Provider
 titleSuffix: Azure App Configuration
-description: Learn to load configurations and feature flags from the Azure App Configuration service in .NET application.
+description: Learn to load configurations and feature flags from the Azure App Configuration service in a .NET application.
 services: azure-app-configuration
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
-ms.date: 04/29/2025
+ms.date: 08/28/2026
 #Customer intent: I want to learn how to use the Azure App Configuration .NET configuration provider library.
 ---
 
@@ -23,13 +23,13 @@ Azure App Configuration is a managed service that helps developers centralize th
 
 The Azure App Configuration .NET configuration provider integrates with the .NET configuration system, making it easy to load configuration values from your Azure App Configuration store. You can add the provider during application startup and use it alongside other configuration sources. 
 
-To use .NET configuration provider, install the package:
+To use the .NET configuration provider, install the package:
 
 ```console
 dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
 ```
 
-You call `AddAzureAppConfiguration` extension method on `IConfigurationBuilder` to add Azure App Configuration as a configuration provider of your application.
+Call the `AddAzureAppConfiguration` extension method on `IConfigurationBuilder` to add Azure App Configuration as a configuration provider for your application.
 
 The configuration provider library implements a combined **Options Pattern** and **Builder Pattern** to provide a clean, declarative way to configure the `AzureAppConfigurationOptions`. The `AddAzureAppConfiguration` method accepts an `Action<AzureAppConfigurationOptions>` delegate parameter that lets you configure the provider through a fluent API.
 
@@ -307,7 +307,7 @@ For ASP.NET Core applications, you can use the `Microsoft.Azure.AppConfiguration
 dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
 ```
 
-After registering the service, call the `UseAzureAppConfiguration` to add the `AzureAppConfigurationRefreshMiddleware` to your application pipeline to automatically refresh configuration on incoming requests:
+After registering the service, call `UseAzureAppConfiguration` to add `AzureAppConfigurationRefreshMiddleware` to your application pipeline and automatically refresh configuration on incoming requests:
 
 ```csharp
 ...
@@ -494,7 +494,7 @@ When feature flag telemetry is enabled, the Azure App Configuration provider inj
 
 - **AllocationID**: A unique identifier representing the state of the feature flag's allocation.
 - **ETag**: The current ETag for the feature flag.
-- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`. When a label is present, the reference includes it as a query parameter: `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
+- **FeatureFlagReference**: A reference to the feature flag in the format of `<AppConfigurationEndpoint>kv/<FeatureFlagKey>`. When a label is present, the reference includes it as a query parameter: `<AppConfigurationEndpoint>kv/<FeatureFlagKey>?label=<FeatureFlagLabel>`.
 
 The full schema can be found in the [App Configuration Feature Evaluation Event schema definition](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent/AppConfigurationFeatureEvaluationEvent.v1.0.0.schema.json). For more information about how to use the feature flag telemetry, go to the [enable telemetry for feature flags](./howto-telemetry.md) walkthrough.
 

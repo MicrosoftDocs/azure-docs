@@ -29,7 +29,7 @@ The Spring Boot Feature Management libraries do **not** have a dependency on any
 Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag). At this stage the Enable feature flag check box should be unchecked.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of enable feature flag named Beta.](media/add-beta-feature-flag.png)
+> ![Screenshot of enable feature flag named Beta.](media/quickstart-feature-flag-spring-boot/add-beta-feature-flag.png)
 
 ## Create a console app
 
@@ -136,7 +136,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ### [Windows command prompt](#tab/windowscommandprompt)
 
     ```console
-    setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_ENDPOINT "<AppConfigurationEndpoint>"
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -144,13 +144,13 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ### [PowerShell](#tab/powershell)
 
     ```azurepowershell
-    $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIG_ENDPOINT = "<AppConfigurationEndpoint>"
     ```
 
     ### [macOS](#tab/unix)
 
     ```console
-    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_ENDPOINT='<AppConfigurationEndpoint>'
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -158,7 +158,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ### [Linux](#tab/linux)
 
     ```console
-    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_ENDPOINT='<AppConfigurationEndpoint>'
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.

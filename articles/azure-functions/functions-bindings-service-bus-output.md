@@ -3,7 +3,7 @@ title: Azure Service Bus output bindings for Azure Functions
 description: Learn to send Azure Service Bus messages from Azure Functions.
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 01/15/2024
+ms.date: 09/15/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 zone_pivot_groups: programming-languages-set-functions
@@ -30,6 +30,10 @@ For information on setup and configuration details, see the [overview](functions
 ::: zone-end
 
 ## Example
+
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -432,7 +436,6 @@ The following table explains the properties you can set using the attribute:
 |**QueueName**|Name of the queue. Set only if sending queue messages, not for a topic. |
 |**TopicName**|Name of the topic. Set only if sending topic messages, not for a queue.|
 |**Connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that doesn't have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property isn't available because the latest version of the Service Bus SDK doesn't support manage operations.|
 
 Here's an example that shows the attribute applied to the return value of the function:
 
@@ -545,7 +548,6 @@ The following table explains the binding configuration properties that you set i
 |**queueName**|Name of the queue. Set only if sending queue messages, not for a topic.|
 |**topicName**|Name of the topic. Set only if sending topic messages, not for a queue.|
 |**connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**accessRights** (v1 only)|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that doesn't have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property isn't available because the latest version of the Service Bus SDK doesn't support manage operations.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -565,7 +567,7 @@ All C# modalities and extension versions support the following output parameter 
 | **byte[]** | Use for writing binary data messages. When the parameter value is null when the function exits, Functions doesn't create a message. |
 | **Object** | When a message contains JSON, Functions serializes the object into a JSON message payload. When the parameter value is null when the function exits, Functions creates a message with a null object.|
 
-Messaging-specific parameter types contain extra message metadata and aren't compatible with JSON serialization. As a result, it isn't possible to use `ServiceBusMessage` with the output binding in the isolated model. The specific types supported by the output binding depend on the Functions runtime version, the extension package version, and the C# modality used.
+Messaging-specific parameter types contain extra message metadata and aren't compatible with JSON serialization. As a result, it isn't possible to use `ServiceBusMessage` with the output binding in the isolated model. The specific types supported by the output binding depend on the extension package version and the C# modality used.
 
 # [Extension v5.x](#tab/extensionv5/in-process)
 
@@ -575,7 +577,7 @@ When the parameter value is null when the function exits, Functions doesn't crea
 
 [!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
 
-# [Functions 2.x and higher](#tab/functionsv2/in-process)
+# [Earlier extension versions](#tab/functionsv2/in-process)
 
 Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type when sending messages with metadata. Parameters are defined as `return` type attributes. Use an `ICollector<T>` or `IAsyncCollector<T>` to write multiple messages. A message is created when you call the `Add` method.
 
@@ -585,28 +587,18 @@ When the parameter value is null when the function exits, Functions doesn't crea
 
 [!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
 
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-Use the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) type when sending messages with metadata. Parameters are defined as `return` type attributes. When the parameter value is null when the function exits, Functions doesn't create a message.
-
-[!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
-
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
 [!INCLUDE [functions-bindings-service-bus-output-dotnet-isolated-types](../../includes/functions-bindings-service-bus-output-dotnet-isolated-types.md)]
 
-# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+# [Earlier extension versions](#tab/functionsv2/isolated-process)
 
 Earlier versions of this extension in the isolated worker process only support binding to messaging-specific types. More options are available to **Extension 5.x and higher**
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
 
 ---
 ::: zone-end  
 
-In Azure Functions 1.x, the runtime creates the queue if it doesn't exist and you have set `accessRights` to `manage`. In Azure Functions version 2.x and higher, the queue or topic must already exist; if you specify a queue or topic that doesn't exist, the function fails. 
+The queue or topic must already exist; if you specify a queue or topic that doesn't exist, the function fails.
 
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"

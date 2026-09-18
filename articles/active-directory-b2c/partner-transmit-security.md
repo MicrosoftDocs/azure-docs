@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Learn how to configure Azure Active Directory B2C with Transmit Security for risk detect.
 author: yoelh
 manager: martinco
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 06/04/2024
 ms.author: yoelh

@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: How to set up Application Insights to trace the execution of your custom policies.
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: troubleshooting
 ms.date: 04/17/2025
 ms.author: kengaderdus

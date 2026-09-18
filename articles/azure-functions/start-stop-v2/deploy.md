@@ -70,9 +70,9 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 to
     |Application Insights Name |Specify the name of your Application Insights instance that holds the analytics for Start/Stop VMs. |
     |Application Insights Region |Specify the region for the Application Insights instance.|
     |Storage Account Name |Specify the name of the Azure Storage account to store Start/Stop VMs execution telemetry. |
-    |Email Address |Specify one or more email addresses to receive status notifications, separated by a comma (,).|
-
-    :::image type="content" source="media/deploy/deployment-template-details.png" alt-text="Start/Stop VMs template deployment configuration":::
+    |Workspace Name |Specify the name of the Log Analytics workspace instance that stores ingested Application Insights telemetry for Start/Stop VMs. |
+    |Workspace Region |Specify the region for the Log Analytics workspace.  |
+    |Email Addresses |Specify one or more email addresses to receive status notifications, separated by a comma (,).|
 
 1. Select **Review + create** on the bottom of the page.
 1. Select **Create** to start the deployment.
@@ -414,4 +414,4 @@ You can also include or exclude specific VMs from start and stop actions by sett
 
 ## Next steps
 
-To learn how to monitor status of your Azure VMs managed by the Start/Stop VMs v2 feature and perform other management tasks, see the [Manage Start/Stop VMs](manage.md) article.
+To learn how to monitor the status of your Azure VMs managed by the Start/Stop VMs v2 feature and perform other management tasks, see the [Manage Start/Stop VMs](manage.md) article.

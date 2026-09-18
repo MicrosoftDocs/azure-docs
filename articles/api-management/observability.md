@@ -2,12 +2,10 @@
 title: Observability in Azure API Management | Microsoft Docs
 description: Overview of all API observability and monitoring options in Azure API Management.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 08/26/2025
-ms.author: danlep
+ms.date: 09/15/2026
 ---
 
 # Observability in Azure API Management
@@ -16,13 +14,15 @@ ms.author: danlep
 
 Observability is the ability to understand the internal state of a system from the data it produces and the ability to explore that data to answer questions about what happened and why. 
 
-Azure API Management helps organizations centralize the management of all APIs. Since it serves as a single point of entry of all API traffic, it's an ideal place to observe the APIs.
+Azure API Management helps organizations centralize the management of all APIs. Since it serves as a single point of entry for all API traffic, it's an ideal place to observe the APIs.
 
 ## Overview
 
 Azure API Management allows you to choose to use the managed gateway or [self-hosted gateway](self-hosted-gateway-overview.md), either self-deployed or by using an [Azure Arc extension](how-to-deploy-self-hosted-gateway-azure-arc.md).
 
 The following table summarizes all the observability capabilities supported by API Management to operate APIs and what deployment models they support. API publishers and others with permissions to operate or manage the API Management instance can use these capabilities. 
+
+Application Insights also provides external dependency telemetry for supported policy executions. For more information, see [Integrate Azure API Management with Application Insights](api-management-howto-app-insights.md).
 
 > [!NOTE]
 > For API consumers who use the developer portal, a built-in API report is available. It only provides information about their individual API usage during the preceding 90 days. Currently, the built-in API report isn't available in the developer portal for the v2 service tiers.
@@ -41,6 +41,15 @@ The following table summarizes all the observability capabilities supported by A
 <sup>2</sup> Optional, depending on the configuration of the gateway.<br/>
 <sup>3</sup> The [self-hosted gateway](self-hosted-gateway-overview.md) currently doesn't send diagnostic logs to Azure Monitor. However, it's possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, see [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md).<br/>
 <sup>4</sup> Except for request tracing, all logging in API Management occurs asynchronously.
+
+## Best practices
+
+The following practices can enhance your API observability: 
+- Granular monitoring: Enable [per-method](/azure/api-management/api-management-howto-use-azure-monitor) metrics for detailed insights into response times and error rates.
+- Tail latency monitoring: Configure per-method alerts for tail latency (for example, 90th, 95th, or 99th [percentile](/kusto/query/percentiles-aggregation-function)), as average latency can be misleading. To implement this feature, use Kusto Query Language (KQL) to forward logs to a Log Analytics workspace.
+- Proactive alerting: Establish per-method alerts for error rates and low success [rates](/azure/azure-monitor/reference/supported-metrics/microsoft-apimanagement-service-metrics) , use rates instead of counts to ensure accuracy.
+- Distributed tracing: Enable [tracing](/azure/api-management/api-management-howto-app-insights) to identify performance bottlenecks and troubleshoot issues.
+- Resource tagging: Apply [tags to APIs](/rest/api/apimanagement/tag/assign-to-api) for accurate cost tracking and allocation.
 
 ## Related content
 

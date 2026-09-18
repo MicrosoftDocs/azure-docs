@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: how-to
 ms.date: 03/30/2026
 ms.service: azure-iot-operations
+ms.subservice: azure-data-flows
 ai-usage: ai-assisted
 
 # CustomerIntent: As a developer, I want to test my WASM modules so that I can validate my processing logic before deploying to production.

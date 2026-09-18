@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Create and use Web Application Firewall v2 custom rules on Application Gateway
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 The Web Application Firewall (WAF) v2 on Azure Application Gateway provides protection for web applications. This protection is provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). In some cases, you may need to create your own custom rules to meet your specific needs. For more information about WAF custom rules, see [Custom web application firewall rules overview](custom-waf-rules-overview.md).
 
@@ -449,7 +449,58 @@ Corresponding JSON:
 
 ## Example 6
 
-You want to only allow requests from specific known user agents.
+You want to only allow requests from specific known user agents and block any requests where the user agent isn't present. You will need to create two custom rules for this scenario; one to block any requests where user agent is missing, and a second rule to block any requests with an unauthorized user agent.
+
+### Rule 1
+
+```azurepowershell
+$variable = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RequestHeaders `
+   -Selector User-Agent
+$condition = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable `
+   -Operator Any `
+   -NegationCondition $True
+
+$rule = New-AzApplicationGatewayFirewallCustomRule `
+   -Name BlockMissingUserAgents `
+   -Priority 1 `
+   -RuleType MatchRule `
+   -MatchCondition $condition `
+   -Action Block `
+   -State Enabled
+```
+
+Corresponding JSON:
+
+```json
+[
+  {
+    "name": "BlockMissingUserAgents",
+    "priority": 1,
+    "ruleType": "MatchRule",
+    "matchConditions": [
+      {
+        "matchVariables": [
+          {
+            "variableName": "RequestHeaders",
+            "selector": "User-Agent"
+          }
+        ],
+        "operator": "Any",
+        "negationConditon": true,
+        "matchValues": [
+          ".*"
+        ],
+        "transforms": []
+      }
+    ],
+    "action": "Block",
+    "state": "Enabled"
+  },
+```
+
+### Rule 2
 
 Because the logic used here is **or**, and all the values are in the *User-Agent* header, all of the *MatchValues* can be in a comma-separated list.
 

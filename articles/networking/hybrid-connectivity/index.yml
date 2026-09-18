@@ -57,6 +57,11 @@ productDirectory:
       imageSrc: ./media/virtual-wan.svg
       summary: Connect and manage your on-premises network to Azure through a centralized network hub.
       url: ../../virtual-wan/index.yml
+    # Card
+    - title: Multicloud Interconnect
+      imageSrc: ./media/multicloud-interconnect.svg
+      summary: Connect Azure to a supported cloud service provider through private connectivity.
+      url: ../../multicloud-interconnect/index.yml
 
 # conceptualContent section (Optional; Remove if not applicable.)
 conceptualContent:

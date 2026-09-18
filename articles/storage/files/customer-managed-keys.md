@@ -13,7 +13,7 @@ ms.author: kendownie
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
-:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider (preview)
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider
 
 Azure encrypts all data in a storage account at rest, including Azure Files data, using AES-256 encryption. By default, Microsoft manages the encryption keys for a storage account. For more control over encryption keys, you can use [customer-managed keys](/azure/storage/common/customer-managed-keys-overview) (CMK) instead of Microsoft-managed keys to protect and control access to the encryption key that encrypts your data. This article explains how to configure customer-managed keys for Azure Files workloads.
 

@@ -2,7 +2,7 @@
 title: Azure Tables output bindings for Azure Functions
 description: Understand how to use Azure Tables output bindings in Azure Functions.
 ms.topic: reference
-ms.date: 11/11/2022
+ms.date: 09/15/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 zone_pivot_groups: programming-languages-set-functions
@@ -29,6 +29,10 @@ For information on setup and configuration details, see the [overview](./functio
 ::: zone-end
 
 ## Example
+
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -505,7 +509,7 @@ The following table explains the binding configuration properties that you set i
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 ::: zone-end  
 
-[!INCLUDE [functions-table-connections](../../includes/functions-table-connections.md)]
+[!INCLUDE [functions-storage-connections](../../includes/functions-storage-connections.md)]
 
 ## Usage
 
@@ -543,15 +547,6 @@ The following types are supported for `out` parameters and return types:
 
 You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
 
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-The following types are supported for `out` parameters and return types:
-
-- A plain-old CLR object (POCO) that includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
-- `ICollector<T>` or `IAsyncCollector<T>` where `T` includes the `PartitionKey` and `RowKey` properties. You can accompany these properties by implementing `ITableEntity` or inheriting `TableEntity`.
-
-You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.azure.cosmos.table.cloudtable) as a method parameter. You can then use that object to write to the table.
-
 # [Azure Tables extension](#tab/table-api/isolated-process)
 
 [!INCLUDE [functions-bindings-table-output-dotnet-isolated-types](../../includes/functions-bindings-table-output-dotnet-isolated-types.md)]
@@ -559,10 +554,6 @@ You can also bind to `CloudTable` [from the Storage SDK](/dotnet/api/microsoft.a
 # [Combined Azure Storage extension](#tab/storage-extension/isolated-process)
 
 Return a plain-old CLR object (POCO) with properties that can be mapped to the table entity.
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process.
 
 ---
 

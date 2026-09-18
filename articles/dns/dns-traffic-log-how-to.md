@@ -4,42 +4,42 @@ description: Learn how to filter and view Azure DNS traffic
 author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 07/02/2025
+ms.date: 07/28/2026
 ms.author: allensu
-# Customer intent: "As a network administrator, I want to configure and view DNS traffic security policies, so that I can monitor and control DNS queries in my virtual network for enhanced security and compliance."
+# Customer intent: "As a network administrator, I want to configure and view DNS traffic resolver policies, so that I can monitor and control DNS queries in my virtual network for enhanced security and compliance."
 ---
 
 # Secure and view DNS traffic
 
-This article shows you how to view and filter DNS traffic at the virtual network with [DNS security policy](dns-security-policy.md) and secure your DNS traffic with Threat intelligence feed in Azure DNS.
+This article shows you how to view and filter DNS traffic at the virtual network with [DNS resolver policy](dns-security-policy.md) and secure your DNS traffic with Threat intelligence feed in Azure DNS.
 
 ## Prerequisites
 
 * If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * A virtual network is required. For more information, see [Create a virtual network](../virtual-network/quick-create-portal.md).
 
-## Create a security policy
+## Create a resolver policy
 
-Choose one of the following methods to create a security policy using the Azure portal or PowerShell:
+Choose one of the following methods to create a resolver policy using the Azure portal or PowerShell:
 
 ## [Azure portal](#tab/sign-portal)
 
-To create a DNS security policy using the Azure portal:
+To create a DNS resolver policy by using the Azure portal:
 
-1. On the Azure portal **Home** page, search for and select **DNS Security Policies**. You can also choose **Dns Security Policy** from the Azure Marketplace.
+1. On the Azure portal **Home** page, search for and select **DNS Resolver Policies**. You can also choose **DNS Resolver Policy** from the Azure Marketplace.
 2. Select **+ Create** to begin creating a new policy.
 3. On the **Basics** tab, select the **Subscription** and **Resource group**, or create a new resource group.
-4. Next to **Instance Name**, enter a name for the DNS security policy and then choose the **Region** where the security policy applies.
+1. Next to **Instance Name**, enter a name for the DNS resolver policy, and then choose the **Region** where the resolver policy applies.
 
      > [!NOTE]
-     > A DNS security policy can only be applied to VNets in the same region as the security policy.
+     > You can only apply a DNS resolver policy to VNets in the same region as the resolver policy.
 
-    ![Screenshot of the Basics tab for security policy.](./media/dns-traffic-log-how-to/secpol-basics.png)
+    ![Screenshot of the Basics tab for resolver policy.](./media/dns-traffic-log-how-to/secpol-basics.png)
 
-5. Select **Next: Virtual Networks Link** and then select **+ Add**.  
-6. VNets in the same region as the security policy are displayed. Select one or more available VNets and then select **Add**. You can't choose a VNet that is already associated with another security policy. In the following example, two VNets are associated with a security policy, leaving two VNets available to select.
+1. Select **Next: Virtual Networks Link** and then select **+ Add**.
+1. VNets in the same region as the resolver policy are displayed. Select one or more available VNets and then select **Add**. You can't choose a VNet that is already associated with another resolver policy. In the following example, two VNets are associated with a resolver policy, leaving two VNets available to select.
 
-    ![Screenshot of the Virtual Network Links tab for security policy.](./media/dns-traffic-log-how-to/secpol-vnet-links.png)
+    ![Screenshot of the Virtual Network Links tab for resolver policy.](./media/dns-traffic-log-how-to/secpol-vnet-links.png)
 
 7. VNets that were selected are displayed. If desired, you can remove VNets from the list before creating virtual network links.
 
@@ -48,7 +48,7 @@ To create a DNS security policy using the Azure portal:
      > [!NOTE]
      > Virtual network links are created for all VNets displayed in the list, whether or not they are *selected*. Use checkboxes to select VNets for removal from the list.
 
-8. Select **Review + create** and then select **Create**. Choosing **Next: DNS Traffic Rules** is skipped here, but you can also create traffic rules now. In this guide, traffic rules and DNS domain lists are created and applied to DNS security policy later.
+1. Select **Review + create** and then select **Create**. This step skips **Next: DNS Traffic Rules**, but you can also create traffic rules now. In this guide, you create traffic rules and DNS domain lists and apply them to the DNS resolver policy later.
 
 ## Create a log analytics workspace
 
@@ -61,17 +61,17 @@ To create a Log Analytics Workspace using the Azure portal:
 3. On the **Basics** tab, select the **Subscription** and **Resource group**, or create a new resource group.
 4. Next to **Name**, enter a name for the workspace and then choose the **Region** for the workspace.
 
-    ![Screenshot of the Virtual Network Links list for security policy.](./media/dns-traffic-log-how-to/workspace-create.png)
+    ![Screenshot of the Virtual Network Links list for resolver policy.](./media/dns-traffic-log-how-to/workspace-create.png)
 
 5. Select **Review + create** and then select **Create**.
 
 ## Configure diagnostic settings
 
-Now that you have a Log Analytics Workspace, configure the diagnostic settings in your security policy to use this workspace.
+After creating a Log Analytics workspace, configure the diagnostic settings in your resolver policy to use this workspace.
 
 To configure diagnostic settings:
 
-1. Select the DNS security policy that you created (**myeast-secpol** in this example).
+1. Select the DNS resolver policy that you created (**myeast-secpol** in this example).
 2. Under **Monitoring**, select **Diagnostic settings**.
 3. Select **Add diagnostic setting**.
 4. Next to **Diagnostic setting name**, enter a name for the logs you collect here.
@@ -79,7 +79,7 @@ To configure diagnostic settings:
 6. Under **Destination details**, select **Send to Log Analytics workspace** and then choose the subscription and workspace that you created.
 7. Select **Save**. See the following example.
 
-    ![Screenshot of the diagnostic setting for security policy.](./media/dns-traffic-log-how-to/diagnostic-setting.png)
+    ![Screenshot of the diagnostic setting for resolver policy.](./media/dns-traffic-log-how-to/diagnostic-setting.png)
 
 ## Create a DNS domain list
 
@@ -88,10 +88,10 @@ To create a DNS domain list using the Azure portal:
 1. On the Azure portal **Home** page, search for and select **DNS Domain Lists**.
 2. Select **+ Create** to begin creating a new domain list.
 3. On the **Basics** tab, select the **Subscription** and **Resource group**, or create a new resource group.
-4. Next to **Domain list name**, enter a name for the domain list and then choose the **Region** for the list. 
+1. Next to **Domain list name**, enter a name for the domain list, and then choose the **Region** for the list.
 
      > [!NOTE]
-     > Security policies require domain lists in the same region.
+     > Resolver policies require domain lists in the same region.
 
 5. Select **Next: DNS Domains**.
 6. On the **DNS Domains** tab, enter domain names manually one at a time, or import them from a comma-separated-value (CSV) file.
@@ -110,14 +110,14 @@ Multiple domain lists can be dynamically added or removed from a single DNS traf
 
 ## Configure DNS traffic rules
 
-Now that you have a DNS domain list, configure the diagnostic settings in your security policy to use this workspace.
+Now that you have a DNS domain list, configure the diagnostic settings in your resolver policy to use this workspace.
 
 > [!NOTE]
 > CNAME chains are examined ("chased") to determine if the traffic rules that are associated with a domain should apply. For example, a rule that applies to **malicious.contoso.com** also applies to **adatum.com** if **adatum.com** maps to **malicious.contoso.com** or if **malicious.contoso.com** appears anywhere in a CNAME chain for **adatum.com**.
 
 To configure diagnostic settings:
 
-1. Select the DNS security policy that you created (**myeast-secpol** in this example).
+1. Select the DNS resolver policy that you created (**myeast-secpol** in this example).
 2. Under **Settings**, select **DNS Traffic Rules**.
 3. Select **+ Add**. The **Add DNS Traffic Rule** pane opens.
 4. Next to **Priority**, enter a value in the range of 100-65000. Lower number rules have higher priority.
@@ -134,11 +134,11 @@ To configure diagnostic settings:
 
 ## Secure DNS traffic with Threat intelligence feed
 
-The threat intelligence feed is a fully managed domain list that’s continuously updated in the background. Within DNS Security Policy, it’s treated just like any other standard domain list — using the same configuration model for priority and for the chosen action (allow, block, or alert). 
+The threat intelligence feed is a fully managed domain list that Microsoft continuously updates in the background. Within DNS resolver policy, treat it like any other standard domain list. Use the same configuration model for priority and for the chosen action (allow, block, or alert).
 
-Select it by adding a new DNS traffic rule and configure it with the action you would like to apply and its respective priority. 
+Select the threat intelligence feed by adding a new DNS traffic rule. Configure the rule with the action you want to apply and its respective priority.
 
-Associate threat intelligence feed with a DNS traffic rule by selecting **Azure DNS threat intel**: 
+Associate the threat intelligence feed with a DNS traffic rule by selecting **Azure DNS threat intel**:
 
 :::image type="content" source="./media/dns-traffic-log-how-to/enable-threat-intelligence-feed.png" alt-text="Screenshot of enablement of Threat intelligence feed." lightbox="./media/dns-traffic-log-how-to/enable-threat-intelligence-feed.png":::
 
@@ -148,8 +148,8 @@ Configure the action and priority:
 
 ## View and test DNS logs
 
-1. Navigate to your DNS security policy and then under **Monitoring**, select **Diagnostic settings**.
-2. Select the Log Analytics workspace that you previously associated with security policy (**secpol-loganalytics** in this example). 
+1. Go to your DNS resolver policy. Under **Monitoring**, select **Diagnostic settings**.
+1. Select the Log Analytics workspace that you previously associated with the resolver policy (**secpol-loganalytics** in this example).
 3. Select **Logs** on the left.
 4. To view DNS queries from a virtual machine with IP address 10.40.40.4 in the same region, run a query as follows:
 
@@ -186,25 +186,25 @@ This change results in a failed query:
 
 ```
 
-C:\>dig @168.63.129.16 db.sec.contoso.com 
+C:\>dig @168.63.129.16 db.sec.contoso.com
 ; <<>> DiG 9.18.33-1~deb12u2-Debian <<>> db.sec.contoso.com
 ;; global options: +cmd
 ;; Got answer:
 ;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 26872
 ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 1
- 
+
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1224
 ; COOKIE: 336258f5985121ba (echoed)
 ;; QUESTION SECTION:
 ; db.sec.contoso.com. IN  A
- 
+
 ;; ANSWER SECTION:
 db.sec.contoso.com. 1006632960 IN CNAME blockpolicy.azuredns.invalid.
- 
+
 ;; AUTHORITY SECTION:
 blockpolicy.azuredns.invalid. 60 IN     SOA     ns1.azure-dns.com. support.azure.com. 1000 3600 600 1800 60
- 
+
 ;; Query time: 0 msec
 ;; SERVER: 168.63.129.16#53(168.63.129.16) (UDP)
 ;; WHEN: Mon Sep 08 11:06:59 UTC 2025
@@ -223,8 +223,8 @@ The failed query is recorded in log analytics:
 
 Set up a local PowerShell repository and install the Az.DnsResolver PowerShell module. This is only needed if you aren't using Cloud Shell.
 
-1. Create a new folder on your disk to act as a local PowerShell repository. In this example, `C:\bin\PSRepo` is used. 
-2. Download [Az.DnsResolver.0.2.6.nupkg](https://github.com/sfiguemsft/privateresolver/blob/main/Az.DnsResolver.0.2.6.nupkg) into this directory. 
+1. Create a new folder on your disk to act as a local PowerShell repository. In this example, use `C:\bin\PSRepo`.
+1. Download [Az.DnsResolver.0.2.6.nupkg](https://github.com/sfiguemsft/privateresolver/blob/main/Az.DnsResolver.0.2.6.nupkg) into this directory.
 3. Set up your local repository by running the following command:
 
     ```PowerShell
@@ -251,7 +251,7 @@ Set up a local PowerShell repository and install the Az.DnsResolver PowerShell m
     Select-AzSubscription -SubscriptionObject (Get-AzSubscription -SubscriptionId <your-sub-id>)
     ```
 
-5. Create a DNS security policy with PowerShell. 
+1. Create a DNS resolver policy with PowerShell.
 
     ```PowerShell
     $ErrorActionPreference = "Stop"
@@ -293,7 +293,7 @@ Set up a local PowerShell repository and install the Az.DnsResolver PowerShell m
     Write-Host $storageAccount.ToString()
 
     ################################
-    # Create DNS security policy
+    # Create DNS resolver policy
     ################################
 
     Write-Host "Creating DNS resolver policy"
@@ -314,7 +314,7 @@ Set up a local PowerShell repository and install the Az.DnsResolver PowerShell m
     $domainList = New-AzDnsResolverDomainList -Location $region -ResourceGroupName $resourceGroupName -Name $domainListName -Domain @("contoso.com.", "adatum.com.")
     Write-Host $domainList.ToJsonString()
 
-    Write-Host "Creating DNS security policy rule"
+    Write-Host "Creating DNS resolver policy rule"
     $rule = New-AzDnsResolverPolicyDnsSecurityRule -ResourceGroupName $resourceGroupName -Name $securityRuleName -DnsResolverDomainList @{id = $domainList.Id;} -DnsSecurityRuleState "Enabled" -ActionType "Block" -ActionBlockResponseCode "SERVFAIL" -Priority 100 -DnsResolverPolicyName $resolverPolicyName -Location $region
     Write-Host $rule.ToJsonString()
     ```
@@ -323,15 +323,15 @@ Set up a local PowerShell repository and install the Az.DnsResolver PowerShell m
 
     ```PowerShell
     ################################
-    # Update DNS security policy
+    # Update DNS resolver policy
     ################################
 
     Write-Host "Updating DNS resolver policy"
-    $resolverPolicy = Update-AzDnsResolverPolicy -ResourceGroupName $resourceGroupName -Name $resolverPolicyName -Tag @{"key0" = "value0"} 
+    $resolverPolicy = Update-AzDnsResolverPolicy -ResourceGroupName $resourceGroupName -Name $resolverPolicyName -Tag @{"key0" = "value0"}
     Write-Host $resolverPolicy.ToJsonString()
 
     Write-Host "Updating DNS resolver policy virtual network link"
-    $link = Update-AzDnsResolverPolicyVirtualNetworkLink -ResourceGroupName $resourceGroupName -DnsResolverPolicyName $resolverPolicyName -Name $resolverPolicyLinkName -Tag @{"key1" = "value1"} 
+    $link = Update-AzDnsResolverPolicyVirtualNetworkLink -ResourceGroupName $resourceGroupName -DnsResolverPolicyName $resolverPolicyName -Name $resolverPolicyLinkName -Tag @{"key1" = "value1"}
     Write-Host $link.ToJsonString()
 
     $log = New-AzDiagnosticSettingLogSettingsObject -Enabled $false -Category DnsResponse
@@ -341,19 +341,19 @@ Set up a local PowerShell repository and install the Az.DnsResolver PowerShell m
     Write-Host $diagnosticSetting.ToJsonString()
 
     Write-Host "Updating domain list"
-    $domainList = Update-AzDnsResolverDomainList -ResourceGroupName $resourceGroupName -Name $domainListName -Tag @{"key2" = "value2"} 
+    $domainList = Update-AzDnsResolverDomainList -ResourceGroupName $resourceGroupName -Name $domainListName -Tag @{"key2" = "value2"}
     Write-Host $domainList.ToJsonString()
 
-    Write-Host "Updating DNS security policy rule"
+    Write-Host "Updating DNS resolver policy rule"
     $rule = Update-AzDnsResolverPolicyDnsSecurityRule -ResourceGroupName $resourceGroupName -Name $securityRuleName -DnsResolverDomainList @{id = $domainList.Id;} -DnsResolverPolicyName $resolverPolicyName
     Write-Host $rule.ToJsonString()
     ```
 
-7. Review the DNS security policy configuration.
+1. Review the DNS resolver policy configuration.
 
     ```PowerShell
     ################################
-    # Get DNS security policy
+    # Get DNS resolver policy
     ################################
 
     Write-Host "Getting DNS resolver policy"
@@ -372,14 +372,14 @@ Set up a local PowerShell repository and install the Az.DnsResolver PowerShell m
     $domainList = Get-AzDnsResolverDomainList -ResourceGroupName $resourceGroupName -Name $domainListName
     Write-Host $rule.ToJsonString()
 
-    Write-Host "Getting DNS security policy rule"
+    Write-Host "Getting DNS resolver policy rule"
     $rule = Get-AzDnsResolverPolicyDnsSecurityRule -ResourceGroupName $resourceGroupName -Name $securityRuleName -DnsResolverPolicyName $resolverPolicyName
     Write-Host $rule.ToJsonString()
     ```
 
-## Test DNS security policy
+## Test DNS resolver policy
 
-To test your new security policy, connect to a host device inside the virtual network and issue a query for the domains that you blocked. In this example the domainlist is **contoso.com** and **adatum.com**.
+To test your new resolver policy, connect to a host device inside the virtual network and issue a query for the domains that you blocked. In this example, the domain list is **contoso.com** and **adatum.com**.
 
 Input:
 ```PowerShell
@@ -399,6 +399,6 @@ At line:1 char:1
 
 ## Related content
 
-- Review concepts related to [DNS security policy](dns-security-policy.md).
+- Review concepts related to [DNS resolver policy](dns-security-policy.md).
 - Review [Azure Private DNS zones scenarios](private-dns-scenarios.md).
 - Review [DNS resolution in virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).

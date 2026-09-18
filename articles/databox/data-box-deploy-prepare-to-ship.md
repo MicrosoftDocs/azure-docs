@@ -4,7 +4,7 @@ description: In this tutorial, learn how to prepare to ship Data Box for return.
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: tutorial
 ms.custom: references_regions
 ms.date: 07/21/2022

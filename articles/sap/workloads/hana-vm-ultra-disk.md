@@ -49,7 +49,7 @@ In this configuration, you keep the **/hana/data** and **/hana/log** volumes sep
 The recommendations are often exceeding the SAP minimum requirements as stated earlier in this article. The listed recommendations are a compromise between the size recommendations by SAP and the maximum storage throughput the different VM types provide.
 
 > [!NOTE]
-> Azure Ultra Disk is enforcing a minimum of two IOPS per Gigabyte capacity of a disk
+> Azure Ultra Disk enforces a minimum of two IOPS per GB capacity of a disk.
 
 | Virtual machine memory or SKU            | Data throughput         | Data IOPS  | Log throughput | Log IOPS |
 | ---                                      | ---                     | ---        | ---            | ---      |

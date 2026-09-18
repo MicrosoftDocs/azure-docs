@@ -2,7 +2,7 @@
 title: Replicate Azure Stack Hub to Azure using Azure Site Recovery
 description: Learn how to set up disaster recovery to Azure for Azure Stack Hub with the Azure Site Recovery service.
 ms.topic: how-to
-ms.date: 02/27/2026
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 ms.custom:
@@ -79,7 +79,10 @@ Here's what you need to set up this scenario.
 
 Make sure that the VMs are running one of the operating systems summarized in the table.
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+> [!IMPORTANT]
+> The following list shows the intentionally narrower set of operating systems that are validated for this Azure Stack Hub scenario as of September 11, 2026.
+
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 **Operating system** | **Details**
 --- | ---

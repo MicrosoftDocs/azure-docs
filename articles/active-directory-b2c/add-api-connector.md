@@ -2,7 +2,7 @@
 title: Add API connectors to sign up user flows
 description: Configure an API connector to be used in a sign-up user flow.
 
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.subservice: b2c
 ms.topic: how-to
 ms.date: 01/24/2024

@@ -3,7 +3,7 @@ title: Azure Functions best practices
 description: Learn best practices for designing, deploying, and maintaining efficient function code running in Azure.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: concept-article
-ms.date: 01/20/2026
+ms.date: 09/15/2026
 ms.devlang: csharp
 ms.custom:
   - build-2024
@@ -100,7 +100,7 @@ When you deploy a function app, remember that the unit of deployment for functio
 
 Consider these options for a successful deployment:
 
-- Have your functions run from the deployment package. This [run from package approach](run-functions-from-deployment-package.md) provides the following benefits:
+- Have your functions run from the deployment package. This [run from package approach](deployment-zip-push.md#run-functions-from-the-deployment-package) provides the following benefits:
 
   - Reduces the risk of file copy locking problems.
   - Can be deployed directly to a production app and doesn't trigger a restart.
@@ -171,7 +171,7 @@ For your language of choice, keep in mind the following considerations:
 
 - [Use `async` and `await`](functions-reference-node.md#use-async-and-await).
 
-- [Use multiple worker processes for CPU bound applications](functions-reference-node.md?tabs=v2#scaling-and-concurrency).
+- [Use multiple worker processes for CPU bound applications](node-scale-performance.md?tabs=v2#use-multiple-language-worker-processes).
 
 # [PowerShell](#tab/powershell)
 
@@ -200,11 +200,7 @@ Both Flex Consumption and Premium plans are recommended for reducing cold starts
 
 Azure Functions offers built-in integration with Azure Application Insights to monitor your function execution and traces written from your code. For more information, see [Monitor executions in Azure Functions](functions-monitoring.md). Azure Monitor also provides facilities for monitoring the health of the function app itself. For more information, see [Monitor Azure Functions](monitor-functions.md).
 
-Be aware of the following considerations when using Application Insights integration to monitor your functions:
-
-- Remove the [AzureWebJobsDashboard](functions-app-settings.md#azurewebjobsdashboard) application setting. This setting was supported in older versions of Functions. Removing `AzureWebJobsDashboard` improves the performance of your functions.
-
-- Review the [Application Insights logs](analyze-telemetry-data.md). If data you expect to find is missing, consider adjusting the sampling settings to better capture your monitoring scenario. Use the `excludedTypes` setting to exclude certain types from sampling, such as `Request` or `Exception`. For more information, see [Configure sampling](configure-monitoring.md?tabs=v2#configure-sampling).
+When using Application Insights integration to monitor your functions, review the [Application Insights logs](analyze-telemetry-data.md). If data you expect to find is missing, consider adjusting the sampling settings to better capture your monitoring scenario. Use the `excludedTypes` setting to exclude certain types from sampling, such as `Request` or `Exception`. For more information, see [Configure sampling](configure-monitoring.md#configure-sampling).
 
 Azure Functions also allows you to [send system-generated and user-generated logs to Azure Monitor Logs](functions-monitor-log-analytics.md). Integration with Azure Monitor Logs is currently in preview.
 

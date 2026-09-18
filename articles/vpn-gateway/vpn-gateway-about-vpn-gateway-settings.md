@@ -1,11 +1,11 @@
 ---
 title: 'Azure VPN Gateway configuration settings'
 description: Learn about VPN Gateway resources and configuration settings.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 03/31/2025
-ms.author: cherylmc 
+ms.author: duau
 ms.custom: devx-track-azurepowershell
 ms.devlang: azurecli
 # Customer intent: As a network administrator, I want to configure a VPN gateway for a virtual network, so that I can establish secure site-to-site connections between on-premises networks and Azure resources.
@@ -60,7 +60,7 @@ Each connection requires a specific virtual network gateway connection type. The
 
 ## <a name="connectionmode"></a>Connection modes
 
-[!INCLUDE [Connection modes](../../includes/vpn-gateway-connection-mode-include.md)]
+[!INCLUDE [Connection modes](../networking/includes/vpn-gateway/connection-mode.md)]
 
 ## <a name="gwsub"></a>Gateway subnet
 

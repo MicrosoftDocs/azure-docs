@@ -2,11 +2,11 @@
 title: PostgreSQL Assessment properties
 description: Describes the components of a PostgreSQL assessment in Azure Migrate
 author: ankitsurkar06
-ms.author: v-uhabiba
+ms.author: jsuri
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 08/11/2025
-monikerRange:
+ms.update-cycle: 1825-days
 # Customer intent: As a cloud architect, I want to configure assessment properties for workload migration, so that I can ensure optimal resource allocation, cost management, and security compliance in Azure.
 ---
 

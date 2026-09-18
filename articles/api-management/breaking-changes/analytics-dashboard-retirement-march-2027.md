@@ -2,11 +2,9 @@
 title: Azure API Management - Analytics dashboard retirement (March 2027)
 description: Azure API Management is replacing the built-in API analytics dashboard as of March 2027. A similar Azure Monitor-based dashboard is available.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 08/05/2024
-ms.author: danlep
 ---
 
 # Built-in API analytics dashboard retirement (March 2027)

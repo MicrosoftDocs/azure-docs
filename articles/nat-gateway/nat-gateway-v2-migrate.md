@@ -7,7 +7,7 @@ ms.author: alittleton
 ms.service: azure-nat-gateway 
 ms.topic: how-to 
 ms.customs: references_regions 
-ms.date: 05/15/2026
+ms.date: 08/11/2026
 
 #customer intent: "As a cloud engineer who uses Azure NAT Gateway, I need guidance on migrating my workloads from the Standard SKU to the StandardV2 SKU so that I can take advantage of zone redundancy with higher throughput." 
 ---
@@ -43,11 +43,7 @@ Before you migrate to a StandardV2 NAT gateway, make sure that your specific sce
 * The following regions don't support StandardV2 NAT gateways and StandardV2 public IPs:
 
   * Canada East
-  * Chile Central
-  * Indonesia Central
-  * Israel Northwest
-  * Malaysia West
-  * Qatar Central
+  * India South Central
   * Sweden South
   * West India
 
@@ -58,7 +54,7 @@ Before you migrate to a StandardV2 NAT gateway, make sure that your specific sce
   * Load balancer outbound rules to provide outbound connectivity for both IPv4 and IPv6 traffic
   * A Standard NAT gateway to provide outbound connectivity for IPv4 traffic and load balancer outbound rules for IPv6 traffic
 
-* Existing outbound connections that use a load balancer or instance-level public IPs on a VM instance might be interrupted when you attach a Standard or StandardV2 NAT gateway to the subnet. New connections use the NAT gateway.
+* Outbound connections that use a load balancer, Azure Firewall, or VM instance-level public IPs might be interrupted when you add a StandardV2 NAT gateway to a subnet. All net new outbound connections use the StandardV2 NAT gateway.
 
 ## Guidance for manual migration
 

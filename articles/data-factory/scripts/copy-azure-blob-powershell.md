@@ -1,8 +1,8 @@
 ---
 title: Copy data in the cloud using PowerShell
 description: This PowerShell script copies data from one location in an Azure Blob Storage to another location in the same Blob Storage.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: article
 ms.custom: devx-track-azurepowershell
@@ -26,7 +26,7 @@ This sample PowerShell script creates a pipeline in Azure Data Factory that copi
 > [!IMPORTANT]
 > This script creates JSON files that define Data Factory entities (linked service, dataset, and pipeline) on your hard drive in the c:\ folder.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/copy-from-azure-blob-to-blob/copy-from-azure-blob-to-blob.ps1 "Copy from Blob Storage -> Blob Storage")]
+[!code-powershell[main](~/powershell_scripts/data-factory/copy-from-azure-blob-to-blob/copy-from-azure-blob-to-blob.ps1 "Copy from Blob Storage -> Blob Storage")]
 
 
 ## Clean up deployment

@@ -3,6 +3,7 @@ title: "Tutorial: Add assets"
 description: "Tutorial: Add OPC UA assets that publish messages to the MQTT broker in your Azure IoT Operations cluster."
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: tutorial
 ms.date: 02/16/2026
 ms.custom:

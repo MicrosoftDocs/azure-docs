@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 09/10/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-virtual-wan
 ---
 # Azure Virtual WAN monitoring data reference

@@ -21,7 +21,6 @@ ms.date: 02/13/2025
 > * [HDInsight Spark](transform-data-using-spark.md)
 > * [ML Studio (classic)](transform-data-using-machine-learning.md) 
 > * [Stored Procedure](transform-data-using-stored-procedure.md)
-> * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
 > * [Azure Synapse notebook](../synapse-analytics/synapse-notebook-activity.md)
 > * [Databricks notebook](transform-data-databricks-notebook.md)
 > * [Databricks Jar](transform-data-databricks-jar.md)
@@ -29,6 +28,8 @@ ms.date: 02/13/2025
 > * [.NET custom](transform-data-using-dotnet-custom-activity.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 [!INCLUDE[ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)] 
 
@@ -81,9 +82,6 @@ See [Use ML Studio (classic) activities](transform-data-using-machine-learning.m
 
 ### Stored procedure activity
 You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics, SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure activity](transform-data-using-stored-procedure.md) article for details.  
-
-### Data Lake Analytics U-SQL activity
-Data Lake Analytics U-SQL activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL activity](transform-data-using-data-lake-analytics.md) article for details. 
 
 ### Azure Synapse Notebook activity 
 

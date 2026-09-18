@@ -87,10 +87,10 @@ Add the following key-values to the App Configuration store. Leave **Label** wit
 
 ### Create JSON key-values using Azure CLI
 
-The following commands will create JSON key-values in your App Configuration store. Replace `<appconfig_name>` with the name of your App Configuration store.
+The following commands will create JSON key-values in your App Configuration store. Replace _`<AppConfigurationStoreName>`_ with the name of your App Configuration store.
 
 ```azurecli-interactive
-appConfigName=<appconfig_name>
+appConfigName=<AppConfigurationStoreName>
 az appconfig kv set -n $appConfigName --content-type application/json --key Settings:BackgroundColor --value \"Green\"
 az appconfig kv set -n $appConfigName --content-type application/json --key Settings:FontSize --value 24
 az appconfig kv set -n $appConfigName --content-type application/json --key Settings:UseDefaultRouting --value false
@@ -130,7 +130,7 @@ az appconfig kv import -s file --format json --path "~/Import.json" --content-ty
 
 The JSON key-values you created should look like this in App Configuration:
 
-:::image type="content" source="./media/create-json-settings.png" alt-text="Screenshot that shows the Config store containing JSON key-values.":::
+:::image type="content" source="./media/howto-leverage-json-content-type/create-json-settings.png" alt-text="Screenshot that shows the Config store containing JSON key-values.":::
 
 To check this, open your App Configuration resource in the Azure portal and go to **Configuration explorer**.
 

@@ -1,35 +1,36 @@
 ---
-title: How to deploy a Virtual Machine with Azure Integrated HSM enabled
-description: This article provides how to deploy a VM with Azure Integrated HSM enabled at boot.
+title: Deploy a virtual machine with Azure Integrated HSM enabled
+description: Learn how to deploy a VM with Azure Integrated HSM enabled at boot by using the Azure portal, Azure CLI, ARM templates, or Azure SDK.
 services: security
 author: simranparkhe
 ms.service: security
 ms.topic: article
 ms.date: 04/30/2026
 ms.author: simranparkhe
+ai-usage: ai-assisted
 ---
 
-# How to deploy a Virtual Machine with Azure Integrated HSM
+# Deploy a virtual machine with Azure Integrated HSM enabled
 
 **Applies to:** :heavy_check_mark: Windows VMs
 
-Azure Integrated HSM is a Hardware Security Module (HSM) cache and crypto accelerator designed to enhance the security and performance of cryptographic operations in a virtual machine (VM).
-For customers who heavily rely on cryptography and have performance-intensive workloads, Azure Integrated HSM provides a secure way to store cryptographic keys for quick and secure retrieval. 
+Azure Integrated HSM is a hardware security module (HSM) cache and cryptographic accelerator designed to enhance the security and performance of cryptographic operations in a virtual machine (VM).
+If you rely heavily on cryptography and have performance-intensive workloads, Azure Integrated HSM provides a secure way to store cryptographic keys for quick and secure retrieval.
 
 > [!NOTE]
-> In order for a VM to use Azure Integrated HSM, include a tag `platformsettings.host_environment.AzureIntegratedHSM=True` *at the time of deployment*. Adding the tag to the VM post deployment will result in the VM not being able to use Azure Integrated HSM.
+> For a VM to use Azure Integrated HSM, include the tag `platformsettings.host_environment.AzureIntegratedHSM=True` *at deployment time*. Adding the tag after deployment prevents the VM from using Azure Integrated HSM.
 
-## 1. Enroll in Azure Integrated HSM flag for your subscription
+## 1. Enroll in the Azure Integrated HSM feature flag for your subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Go to your subscription.
-3. In the left hand menu, select Settings.
-4. Under settings select on preview features.
-5. Search for *Azure Integrated HSM* and select on it.
-6. Select register at the bottom of the page.
-7. Wait for registration process to complete and get the success notification.
+1. Go to your subscription.
+1. In the left menu, select **Settings**.
+1. Under **Settings**, select **Preview features**.
+1. Search for *Azure Integrated HSM*, and select it.
+1. Select **Register** at the bottom of the page.
+1. Wait for the registration process to complete and get the success notification.
 
-You can now proceed to create Azure Integrated HSM enabled virtual machines with that subscription.
+You can now create Azure Integrated HSM-enabled virtual machines in that subscription.
 
 ## 2. Create a resource group
 
@@ -44,16 +45,16 @@ The following example creates a resource group named `myResourceGroup` in the `e
 az group create --name myResourceGroup --location eastus2
 ```
 
-## 3. Create general purpose VM with Azure Integrated HSM feature enabled
+## 3. Create a general-purpose VM with Azure Integrated HSM enabled
 
 ### Option 1 - Azure CLI
 
 Create a VM with the `az vm create` command.
 
 The following example creates a VM named `myVM` and adds a user account named `azureuser`.
-Azure Integrated HSM is supported only on specific VM SKUs; see the [supported SKUs](/azure/security/fundamentals/azure-integrated-hardware-security-module-overview) documentation for more on which SKUs are supported.
+Azure Integrated HSM supports only specific VM SKUs. For more information about supported SKUs, see [Azure Integrated HSM overview](/azure/security/fundamentals/azure-integrated-hardware-security-module-overview).
 
-The VMs must support TrustedLaunch and Secure Boot in order to support Azure Integrated HSM.
+The VMs must support Trusted Launch and Secure Boot to support Azure Integrated HSM.
 
 ```powershell
 az vm create `
@@ -72,9 +73,9 @@ az vm create `
 ```
 
 It takes a few minutes to create the VM and supporting resources.
-Once created user should be able to see the tag applied in portal in the tag section.
+After Azure creates the VM, you can see the tag in the Azure portal **Tags** section.
 
-### Option 2 - ARM Templates
+### Option 2 - ARM templates
 
 Create a resource group:
 
@@ -83,8 +84,8 @@ az group create --name $resourceGroup --location $region
 ```
 
 Create a VM with the `az deployment group create` command.
-Input your resource group name, deployment name, and VM name.
-Use the [ARM templates provided our GitHub](https://github.com/microsoft/AziHSM-Guest/tree/main/arm_templates) to deploy the VM; be sure to input the username and password you wish to use on your VM.
+Enter your resource group name, deployment name, and VM name.
+Use the [ARM templates provided in GitHub](https://github.com/microsoft/AziHSM-Guest/tree/main/arm_templates) to deploy the VM. Enter the username and password that you want to use on your VM.
 
 ```powershell
 az deployment group create `
@@ -97,10 +98,10 @@ az deployment group create `
 
 ### Option 3 - Azure SDK
 
-There are many different languages supported by the Azure SDK.
-As an example, we will use the [AziHSM Python SDK example](https://github.com/microsoft/AziHSM-Guest/tree/main/azure_sdk/python) to deploy an AziHSM-enabled VM.
+The Azure SDK supports many languages.
+This example uses the [AziHSM Python SDK example](https://github.com/microsoft/AziHSM-Guest/tree/main/azure_sdk/python) to deploy an AziHSM-enabled VM.
 
-Navigate to [azure_sdk/python](https://github.com/microsoft/AziHSM-Guest/tree/main/azure_sdk/python) and create a python virtual environment and install the Azure SDK:
+Navigate to [azure_sdk/python](https://github.com/microsoft/AziHSM-Guest/tree/main/azure_sdk/python), create a Python virtual environment, and install the Azure SDK:
 
 ```powershell
 python -m venv .venv
@@ -108,14 +109,13 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-Then run the sample script provided. The script includes documentation on what resources are deployed in order to deploy a VM:
+Run the provided sample script. The script includes documentation about the resources that it deploys for the VM:
 
 ```powershell
 python ./sample.py
 ```
 
-## What's next
+## Next steps
 
-- Install guest driver and Key Service Provider to your Azure Integrated HSM enabled VM [following the instructions on our GitHub](https://github.com/microsoft/AziHSM-Guest/tree/main)
+- Install the guest driver and Key Service Provider on your Azure Integrated HSM-enabled VM by following the [instructions on GitHub](https://github.com/microsoft/AziHSM-Guest/tree/main).
 - [Azure Integrated HSM overview](/azure/security/fundamentals/azure-integrated-hardware-security-module-overview)
-

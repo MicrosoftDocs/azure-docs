@@ -60,7 +60,10 @@ By default, short-term clones convert to regular volumes after 32 days.
     >The quota value is the space for anticipated writes to the short-term clone volume. For example, some database workloads may require a 10 percent change to the existing data files. The minimum quota value is 50 GiB.
 
 1. Select **Review and create**.
-1. Confirm the short-term clone is created in the **Volume** menu. In the overview menu for the individual clone, you can confirm the volume type under the **Short-term clone volume** field and track the **Split clone volume progress.** You can also monitor activity on a short-term clone in the **Activity Log** for the volume. 
+1. Confirm the short-term clone is created in the **Volume** menu. In the overview menu for the individual clone, you can confirm the volume type under the **Short-term clone volume** field and track the **Split clone volume progress.** You can also monitor activity on a short-term clone in the **Activity Log** for the volume.
+
+   >[!NOTE]
+    >After a short-term clone volume is created, the system initiates a background process to settle the volume's metadata. During this time, performing any concurrent operations such as update, delete, or split on the same volume may result in an error. It is recommended to wait for around 10-15 minutes before triggering any further operations.
 
 ## Convert a short-term clone to a volume
 

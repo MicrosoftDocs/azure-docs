@@ -156,12 +156,7 @@ Standard Blob Storage API costs for listing and reading blob properties during t
 
 ## Permissions
 
-The managed identity associated with the storage task must have the appropriate role on the target storage account to perform a mock run. Although the process doesn't perform any operations, the identity needs read access to scan and evaluate blobs:
-
-- **Minimum role:** Storage Blob Data Reader
-- **Recommended role:** Storage Blob Data Owner (if you plan to transition to a real run using the same assignment)
-
-Both system-assigned and user-assigned managed identities support mock runs.
+The managed identity associated with the storage task must have the appropriate role on the target storage account to perform a mock run. The recommended role is to use the **Storage Actions Blob Data Operator** (if you plan to transition to a real run using the same assignment). Both system-assigned and user-assigned managed identities support mock runs.
 
 If the target storage account has network restrictions, ensure that the **Allow trusted Microsoft services** option is enabled in the account's networking configuration.
 

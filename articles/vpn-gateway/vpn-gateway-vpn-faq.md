@@ -1,11 +1,11 @@
 ---
 title: Azure VPN Gateway FAQ
 description: Get answers to frequently asked questions about VPN Gateway connections and configuration settings.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 05/13/2026
-ms.author: cherylmc
+ms.date: 06/04/2026
+ms.author: duau
 # Customer intent: As a network administrator, I want to understand the configuration options and limitations of Azure VPN Gateway, so that I can effectively manage cross-premises connections and optimize my organization’s hybrid network architecture.
 ---
 
@@ -72,6 +72,11 @@ To help ensure proper functionality and healthy state for your VPN gateway, cons
 * Add in your custom DNS configuration a DNS forwarder that points to Azure DNS (168.63.129.16). Depending on the specific rules and nature of your custom DNS, this setup might not resolve the issue as expected.
 
 When configuring the Azure DNS Private Resolver's forwarding rule in the VNet where the VPN Gateway is deployed, if you include a wildcard in the DNS forwarding ruleset, ensure that the forwarding destination IP points to the built-in Azure DNS service (168.63.129.16) to resolve public URLs.
+
+### Can a private DNS zone linked to a virtual network affect the operation of an Azure VPN gateway?
+
+Yes. Azure VPN Gateway requires access to Azure Blob Storage endpoints for certain service operations. If you link the privatelink.blob.core.windows.net private DNS zone to the gateway virtual network, DNS queries for Blob Storage are evaluated against that zone. When the required storage account doesn't have a private endpoint or a matching private DNS record in the zone, the query can return **NXDOMAIN** instead of resolving the storage account's public endpoint. As a result, the VPN gateway might be unable to reach the required Blob Storage endpoint, which can affect its normal operation.
+To prevent this issue, enable [Fallback to internet for Azure Private DNS zones](/azure/dns/private-dns-fallback) on the virtual network link for the **privatelink.blob.core.windows.net** private DNS zone. When the **NxDomainRedirect** resolution policy is enabled on a virtual network link, the Azure recursive resolver retries the query. This allows the VPN gateway to resolve and access the required public Blob Storage endpoint when no private DNS record is available in private DNS Zone.
 
 ### Can two VPN clients connected in point-to-site to the same VPN gateway communicate?
 
@@ -173,7 +178,7 @@ You're limited to using preshared keys for authentication.
 
 ### Does Azure VPN Gateway support IPv6?
 
-Yes. For additional information see [Configure IPv6 for VPN Gateway](ipv6-configuration.md).
+Yes. For more information, see [Create a site-to-site VPN connection in IPv4 and IPv6 dual stack](site-to-site-ipv6-azure.md) and [About Point-to-Site VPN](point-to-site-about.md#protocol).
 
 ### How do I specify which traffic goes through the VPN gateway?
 
@@ -209,6 +214,10 @@ See the following articles:
 
 ### Is IP fragmentation in site-to-site VPN tunnels supported?
 No. IP fragmentation is not supported for ESP packets or for any packets encapsulated within the site-to-site VPN tunnel.
+
+## <a name="root-certificate"></a>Root Certificate Migration for point-to-site VPN gateways
+
+Azure periodically requires migration of the gateway root certificate used by VPN gateways for point-to-site (P2S) connections. When a certificate migration occurs, VPN administrators must download an updated VPN client profile and redistribute it to all P2S users. To determine if you’re affected and for instructions to update your client profiles, see [About gateway certificate migration](point-to-site-about-gateway-certificate-migration.md).
 
 ## <a name="sku-deprecate"></a>Deprecation of older SKUs
 
@@ -387,17 +396,6 @@ Yes, this is supported. For more information, see [Configure ExpressRoute and si
 ## <a name="bgp"></a>BGP and routing
 
 [!INCLUDE [vpn-gateway-faq-bgp-include](../../includes/vpn-gateway-faq-bgp-include.md)]
-
-### Can I control which Azure prefixes are advertised to my on-premises network?
-
-For gateway-enabled virtual networks, you can configure advertised gateway prefixes using the `summarizedGatewayPrefixes` property on the virtual network. This property lets you provide summarized (aggregated) CIDR prefixes that Azure VPN Gateway and ExpressRoute Gateway use when determining the routing prefix list to advertise to on-premises.
-
-By default, Azure VPN Gateway and ExpressRoute Gateway advertise the address space of the hub and the address spaces of peered virtual networks. When the `summarizedGatewayPrefixes` property is populated, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes instead and suppress advertisement of spoke address spaces that are covered by the summarized space.
-
-> [!NOTE]
-> The `summarizedGatewayPrefixes` property only affects virtual networks with a gateway subnet.
-
-For more information, see [Advertised gateway prefixes overview](/azure/virtual-network/advertised-gateway-prefixes-overview).
 
 ### Can I configure forced tunneling?
 

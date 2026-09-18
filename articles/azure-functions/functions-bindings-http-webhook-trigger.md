@@ -2,7 +2,7 @@
 title: Azure Functions HTTP trigger
 description: Learn how to call an Azure Function via HTTP.
 ms.topic: reference
-ms.date: 05/02/2025
+ms.date: 09/15/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom:
@@ -19,10 +19,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 The HTTP trigger lets you invoke a function with an HTTP request. You can use an HTTP trigger to build serverless APIs and respond to webhooks.
 
-The default return value for an HTTP-triggered function is:
-
-- `HTTP 204 No Content` with an empty body in Functions 2.x and higher
-- `HTTP 200 OK` with an empty body in Functions 1.x
+The default return value for an HTTP-triggered function is `HTTP 204 No Content` with an empty body.
 
 To modify the HTTP response, configure an [output binding](./functions-bindings-http-webhook-output.md).
 
@@ -46,8 +43,6 @@ For more information about HTTP bindings, see the [overview](./functions-binding
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
-
-The code in this article defaults to .NET Core syntax, used in Functions version 2.x and higher. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -292,7 +287,7 @@ public HttpResponseMessage run(
 
 # [Model v4](#tab/nodejs-v4)
 
-The following example shows an HTTP trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=typescript&pivots=nodejs-model-v4#http-request). 
+The following example shows an HTTP trigger [TypeScript function](functions-reference-node.md?tabs=typescript#http-triggers). The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=typescript&pivots=nodejs-model-v4#http-request). 
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger1.ts" :::
 
@@ -307,13 +302,13 @@ TypeScript samples aren't documented for model v3.
 
 # [Model v4](#tab/nodejs-v4)
 
-The following example shows an HTTP trigger [JavaScript function](functions-reference-node.md). The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=javascript&pivots=nodejs-model-v4#http-request). 
+The following example shows an HTTP trigger [JavaScript function](functions-reference-node.md#http-triggers). The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=javascript&pivots=nodejs-model-v4#http-request). 
 
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
-The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=javascript&pivots=nodejs-model-v3#http-request). 
+The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md#http-triggers) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=javascript&pivots=nodejs-model-v3#http-request). 
 
 Here's the *function.json* file:
 
@@ -503,6 +498,40 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 ---
 
 ::: zone-end
+::: zone pivot="programming-language-go"
+
+The following example shows an HTTP trigger function that returns a personalized greeting. The function uses standard Go `net/http` types:
+
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.HTTP("hello", hello,
+		sdk.WithMethods("GET", "POST"),
+		sdk.WithAuth("anonymous"),
+	)
+	worker.Start(app)
+}
+
+func hello(w http.ResponseWriter, r *http.Request) {
+	name := r.URL.Query().Get("name")
+	if name == "" {
+		name = "world"
+	}
+	fmt.Fprintf(w, "Hello, %s!", name)
+}
+```
+
+::: zone-end
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
@@ -527,7 +556,6 @@ In [in-process functions](functions-dotnet-class-library.md), the `HttpTriggerAt
 |  **AuthLevel** | Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](#http-auth).  |
 | **Methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
 | **Route** | Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
-| **WebHookType** | _Supported only for the version 1.x runtime._<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. For supported values, see [WebHook type](#webhook-type).|
 
 ---
 
@@ -602,10 +630,6 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end 
 ::: zone pivot="programming-language-powershell,programming-language-python"  
 
-The following table explains the trigger configuration properties that you set in the *function.json* file, which differs by runtime version.
-
-# [Functions 2.x+](#tab/functionsv2)
-
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
 |function.json property | Description|
@@ -616,22 +640,6 @@ The following table explains the binding configuration properties that you set i
 | **authLevel** |  Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](#http-auth).  |
 | **methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
 | **route** |  Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
-
-# [Functions 1.x](#tab/functionsv1)
-
-The following table explains the binding configuration properties that you set in the *function.json* file.
-
-|function.json property | Description|
-|---------|---------------------|
-| **type** | Required - must be set to `httpTrigger`. |
-| **direction** | Required - must be set to `in`. |
-| **name** | Required - the variable name used in function code for the request or request body. |
-| **authLevel** |  Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](#http-auth).  |
-| **methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](#customize-the-http-endpoint). |
-| **route** |  Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](#customize-the-http-endpoint). |
-| **webHookType** | Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. For supported values, see [WebHook type](#webhook-type).|
-
----
 
 ::: zone-end 
 
@@ -931,6 +939,9 @@ By default, all function routes are prefixed with `api`. You can also customize 
 }
 ```
 
+> [!IMPORTANT]
+> The `/admin` and `/runtime` paths at the root of your function app are reserved for the Functions host's own administrative and runtime APIs. The host handles requests to these paths, and they never reach your functions; unmatched requests to them return HTTP 404. With the default `api` route prefix, your function endpoints are served under `/api/`, so they don't collide with these reserved paths. If you remove or change the route prefix so that functions are served from the app's root, avoid function routes that begin with `admin` or `runtime`, because the host intercepts those requests before they reach your code. This also applies when a function has no explicit `route`: the function name becomes its route, so a function named `admin` or `runtime` isn't reachable.
+
 ### Using route parameters
 
 Route parameters that defined a function's `route` pattern are available to each binding. For example, if you have a route defined as `"route": "products/{id}"` then a table storage binding can use the value of the `{id}` parameter in the binding configuration.
@@ -1011,7 +1022,7 @@ You can programmatically access the `invoke_URL_template` by using the Azure Res
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 ### HTTP streams
 
-You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](functions-reference-node.md?pivots=nodejs-model-v4#http-streams).   
+You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](node-http-stream.md?pivots=nodejs-model-v4).   
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ### HTTP streams
@@ -1032,7 +1043,7 @@ HTTP streams are disabled by default. You need to enable this feature in your ap
 
 1. Add the `azurefunctions-extensions-http-fastapi` extension package to the `requirements.txt` file in the project, which should include at least these packages:
 
-    :::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/requirements.txt" range="5-6" ::: 
+    :::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/requirements.txt" range="5-6" :::
 
 1. Add this code to the `function_app.py` file in the project, which imports the FastAPI extension:
 
@@ -1050,7 +1061,7 @@ After you enable the HTTP streaming feature, you can create functions that strea
 
 This example is an HTTP triggered function that receives and processes streaming data from a client in real time. It demonstrates streaming upload capabilities that can be helpful for scenarios like processing continuous data streams and handling event data from IoT devices.
 
-:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload/function_app.py" range="5-25" ::: 
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload/function_app.py" range="5-25" :::
 
 ### Calling HTTP streams
 
@@ -1107,7 +1118,7 @@ If your function app is using [App Service Authentication / Authorization](../ap
 You can also read this information from binding data. 
 
 > [!NOTE] 
-> Access to authenticated client information is currently only available for .NET languages. It also isn't supported in version 1.x of the Functions runtime.
+> Access to authenticated client information is currently only available for .NET languages.
 
 ::: zone pivot="programming-language-csharp"
 Information regarding authenticated clients is available as a [ClaimsPrincipal], which is available as part of the request context as shown in the following example:
@@ -1200,42 +1211,6 @@ You can allow anonymous requests, which don't require keys. You can also require
 
 > [!NOTE]
 > When running functions locally, authorization is disabled regardless of the specified authorization level setting. After publishing to Azure, the `authLevel` setting in your trigger is enforced. Keys are still required when running [locally in a container](functions-create-container-registry.md#build-the-container-image-and-verify-locally).
-
-### Webhooks
-
-> [!NOTE]
-> Webhook mode is only available for version 1.x of the Functions runtime. This change was made to improve the performance of HTTP triggers in version 2.x and higher.
-
-In version 1.x, webhook templates provide another validation for webhook payloads. In version 2.x and higher, the base HTTP trigger still works and is the recommended approach for webhooks. 
-
-#### WebHook type
-
-The `webHookType` binding property indicates the type if webhook supported by the function, which also dictates the supported payload.  The webhook type can be one of the following values:
-
-| Type value | Description |
-| --- | --- |
-| **`genericJson`**| A general-purpose webhook endpoint without logic for a specific provider. This setting restricts requests to only those using HTTP POST and with the `application/json` content type.|
-| **[`github`](#github-webhooks)** | The function responds to [GitHub webhooks](https://developer.github.com/webhooks/). Don't use the  `authLevel` property with GitHub webhooks. | 
-| **[`slack`](#slack-webhooks)** | The function responds to [Slack webhooks](https://api.slack.com/outgoing-webhooks). Don't use the `authLevel` property with Slack webhooks. |
-
-When setting the `webHookType` property, don't also set the `methods` property on the binding. 
-
-#### GitHub webhooks
-
-To respond to GitHub webhooks, first create your function with an HTTP Trigger, and set the **webHookType** property to `github`. Then copy its URL and API key into the **Add webhook** page of your GitHub repository. 
-
-![Screenshot that shows how to add a webhook for your function.](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-#### Slack webhooks
-
-The Slack webhook generates a token for you instead of letting you specify it, so you must configure a function-specific key with the token from Slack. See [Authorization keys](#authorization-keys).
-
-### Webhooks and keys
-
-Webhook authorization is handled by the webhook receiver component, part of the HTTP trigger, and the mechanism varies based on the webhook type. Each mechanism does rely on a key. By default, the function key named "default" is used. To use a different key, configure the webhook provider to send the key name with the request in one of the following ways:
-
-* **Query string**: The provider passes the key name in the `clientid` query string parameter, such as `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
-* **Request header**: The provider passes the key name in the `x-functions-clientid` header.
 
 ## Invoke HTTP triggers
 

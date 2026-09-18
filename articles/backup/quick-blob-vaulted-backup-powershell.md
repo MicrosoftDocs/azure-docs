@@ -4,6 +4,7 @@ description: In this Quickstart, learn how to configure vaulted backup for Azure
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/17/2025
+ms.update-cycle: 1095-days
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -20,7 +21,7 @@ This quickstart describes how to configure vaulted backup for Azure Blobs using 
 
 Before you configure blob vaulted backup, ensure that:
 
-- You install the Azure PowerShell version **Az 5.9.0**.
+- Install the Azure PowerShell version **Az 5.9.0**. To configure auto-protection for present and future containers, install Az.DataProtection version 3.0.1 or later.
 - You review the [support matrix](../backup/blob-backup-support-matrix.md) to learn about the Azure Blob region availability, supported scenarios, and limitations.
 - You have a Backup vault to configure Azure Blob backup. If you haven't created the Backup vault, [create one](../backup/backup-blobs-storage-account-ps.md#create-a-backup-vault).
 

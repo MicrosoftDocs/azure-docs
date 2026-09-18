@@ -3,7 +3,7 @@ title: How to target Azure Functions runtime versions
 description: Learn how to specify the runtime version of a function app hosted in Azure.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 01/23/2026
+ms.date: 08/27/2026
 ms.custom: ignite-2023, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux
 
@@ -147,9 +147,9 @@ To pin your function app to a specific runtime version on Linux, set a version-s
 >
 > Pinning to a specific runtime isn't currently supported for Linux function apps running in a Consumption plan.
 
-The following example shows the [`linuxFxVersion`] value required to pin a Node.js 16 function app to a specific runtime version of 4.14.0.3:
+The following example shows the [`linuxFxVersion`] value required to pin a Node.js 22 function app to a specific runtime version of 4.14.0.3:
 
-`DOCKER|mcr.microsoft.com/azure-functions/node:4.14.0.3-node16`
+`DOCKER|mcr.microsoft.com/azure-functions/node:4.14.0.3-node22`
 
 When needed, a support professional can provide you with a valid base image URI for your application.
 
@@ -178,6 +178,116 @@ You can run these commands from the [Azure Cloud Shell](../cloud-shell/overview.
 
 The function app restarts after the change is made to the site config.
 ::: zone-end  
+
+::: zone pivot="platform-linux"
+## Update the managed Linux image
+
+This section applies only to existing Python 3.11 and Java 8, 11, or 17 apps on Linux Elastic Premium or Dedicated (App Service) plans that use a Debian Bullseye managed image. If your app doesn't meet all of these conditions, you don't need to follow this procedure.
+
+The newer managed image provides a temporary path for an affected app to remain on its current language version while moving to a supported Linux distribution. This procedure doesn't apply to Flex Consumption or custom container apps. For an app on the Linux Consumption plan, [migrate to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md?pivots=platform-linux).
+
+This update selects the Linux distribution for the existing language version by using a three-part `linuxFxVersion` value. It doesn't pin the Functions host to a specific `DOCKER|<IMAGE_URI>` image.
+
+### Choose a Bookworm or Noble `linuxFxVersion` value
+
+First, determine whether you can update the language version or need to retain the current language version and select a newer Linux distribution.
+
+1. Consider [updating the app to a newer supported language version](update-language-versions.md). After a language update, the app uses the current default managed image for that language version.
+
+1. If the app must remain on its current language version, choose the corresponding newer image value:
+
+    | Language version | Debian Bullseye value | Newer distribution | Newer image value |
+    | --- | --- | --- | --- |
+    | Python 3.11 | `Python\|3.11\|2.0` | Debian Bookworm | `Python\|3.11\|3.0` |
+    | Java 8 | `Java\|8\|2.0` | Ubuntu Noble | `Java\|8\|4.0` |
+    | Java 11 | `Java\|11\|2.0` | Ubuntu Noble | `Java\|11\|4.0` |
+    | Java 17 | `Java\|17\|2.0` | Ubuntu Noble | `Java\|17\|4.0` |
+
+    These three-part values explicitly select the managed Linux image for these Bullseye-era images. They aren't returned by the [`az functionapp list-runtimes`](/cli/azure/functionapp#az-functionapp-list-runtimes) command.
+
+### Test the newer managed Linux image
+
+Test your app and its dependencies on the newer image before you update the production app.
+
+1. Create a separate test app or [create a deployment slot](functions-deployment-slots.md#add-a-slot).
+
+1. Deploy the same code and configuration that your production app uses to the test app or slot.
+
+1. Set the newer image value by following the steps in [Update the image value](#update-the-image-value). When you use a slot, include `--slot <SLOT_NAME>` in each Azure CLI command.
+
+1. Invoke each function and verify that the app starts successfully, triggers run as expected, and native or operating-system dependencies load correctly.
+
+### Update the image value
+
+Changing the image value restarts the function app. Update production during a maintenance window, or use a deployment slot.
+
+1. View the current `linuxFxVersion` value:
+
+    ```azurecli-interactive
+    az functionapp config show --name <APP_NAME> \
+      --resource-group <RESOURCE_GROUP> \
+      --query linuxFxVersion --output tsv
+    ```
+
+    This command returns the value stored in the site configuration. The returned value might contain only the language and language version, such as `Python|3.11`, rather than the three-part value that identifies the Linux distribution. If the value doesn't include the image version, follow the steps in [Verify the Linux distribution](#verify-the-linux-distribution) to confirm that the app currently uses Debian Bullseye.
+
+1. Set `linuxFxVersion` to the newer image value:
+
+    ```azurecli-interactive
+    az functionapp config set --name <APP_NAME> \
+      --resource-group <RESOURCE_GROUP> \
+      --linux-fx-version "<LANGUAGE|VERSION|IMAGE_VERSION>"
+    ```
+
+    For Python 3.11 on Debian Bookworm, use `Python|3.11|3.0`. For Java on Ubuntu Noble, use `Java|8|4.0`, `Java|11|4.0`, or `Java|17|4.0`.
+
+1. Wait for the app to restart.
+
+### Verify the Linux distribution
+
+Verify both the configured value and the Linux distribution that runs your app.
+
+1. Confirm the updated `linuxFxVersion` value:
+
+    ```azurecli-interactive
+    az functionapp config show --name <APP_NAME> \
+      --resource-group <RESOURCE_GROUP> \
+      --query linuxFxVersion --output tsv
+    ```
+
+    Because you explicitly set a three-part value, this command returns the exact Bookworm or Noble value that you selected.
+
+1. Open the app's Kudu site at `https://<APP_NAME>.scm.azurewebsites.net`.
+
+1. Select **Environment** and review `KUDU_ENV`, or open an SSH session and run:
+
+    ```bash
+    cat /etc/os-release
+    ```
+
+1. Confirm that the output identifies Debian Bookworm for Python 3.11 or Ubuntu Noble for Java 8, 11, or 17.
+
+1. Invoke each function and confirm that triggers and dependencies continue to work as expected.
+
+### Roll back the managed Linux image update
+
+If the updated image causes a compatibility issue, temporarily restore the previous `linuxFxVersion` value while you fix the problem.
+
+> [!WARNING]
+> Debian Bullseye is no longer supported after its end-of-life date and doesn't receive security updates. Use rollback only as a temporary mitigation, and return to a supported image as soon as possible.
+
+1. From the table in [Choose a Bookworm or Noble `linuxFxVersion` value](#choose-a-bookworm-or-noble-linuxfxversion-value), find the Debian Bullseye value for your language version.
+
+1. Set `linuxFxVersion` to that Bullseye value:
+
+    ```azurecli-interactive
+    az functionapp config set --name <APP_NAME> \
+      --resource-group <RESOURCE_GROUP> \
+      --linux-fx-version "<BULLSEYE_LINUX_FX_VERSION>"
+    ```
+
+1. Wait for the app to restart, and then repeat the checks in [Verify the Linux distribution](#verify-the-linux-distribution).
+::: zone-end
 
 ## Next steps
 

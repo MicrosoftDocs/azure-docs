@@ -5,7 +5,7 @@ titleSuffix: Azure AD B2C
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.custom: devx-track-js
 ms.topic: how-to

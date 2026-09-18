@@ -34,6 +34,10 @@ Each route includes an address prefix and next hop type. Azure uses the route wi
 |Default|172.16.0.0/12                                           |None           |
 |Default|192.168.0.0/16                                          |None           |
 |Default|100.64.0.0/10                                           |None           |
+|Default|157.59.0.0/16                                           |None           |
+|Default|127.0.0.0/8                                             |None           |
+|Default|104.147.0.0/16                                          |None           |
+|Default|104.146.0.0/17                                          |None           |
 
 The next hop types listed in the previous table represent how Azure routes traffic destined for the address prefix listed. Here are explanations for the next hop types:
 
@@ -44,7 +48,7 @@ The next hop types listed in the previous table represent how Azure routes traff
     * **10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16**: Reserved for private use in RFC 1918.
     * **100.64.0.0/10**: Reserved in RFC 6598.
 
-    If you assign any of the previous address ranges within the address space of a virtual network, Azure automatically changes the next hop type for the route from **None** to **Virtual network**. If you assign an address range to the address space of a virtual network that includes, but isn't the same as, one of the four reserved address prefixes, Azure removes the route for the prefix and adds a route for the address prefix you added, with **Virtual network** as the next hop type.
+    If you assign any of the previous address ranges within the address space of a virtual network, Azure automatically changes the next hop type for the route from **None** to **Virtual network**. If you assign an address range to the address space of a virtual network that includes, but isn't the same as, one of the four reserved address prefixes, Azure removes the route for the prefix and adds a route for the address prefix you added, with **Virtual network** as the next hop type. Default Route (0.0.0.0/0) with Next Hop Type = Virtual Network Gateway will cause these Default System Routes with Next Hop Type = None to be removed. 
 
 ### Optional default routes
 
@@ -107,7 +111,7 @@ You can specify the following next hop types when you create a UDR:
    * For Virtual Networks connected to a Virtual WAN hub:
       * The Virtual Network's gateway is always set to the Virtual WAN hub router.
 
-      On your premises, you might have a device that inspects the traffic and determines whether to forward or drop the traffic. If you intend to create a UDR for the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first. Instead of configuring a UDR for the 0.0.0.0/0 address prefix, you can advertise a route with the 0.0.0.0/0 prefix via BGP if the [BGP for a VPN virtual network gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) is enabled.
+      On your premises, you might have a device that inspects the traffic and determines whether to forward or drop the traffic. If you intend to create a UDR for the 0.0.0.0/0 address prefix, read [0.0.0.0/0 address prefix](#default-route) first. Instead of configuring a UDR for the 0.0.0.0/0 address prefix, you can advertise a route with the 0.0.0.0/0 prefix via BGP if the [BGP for a VPN virtual network gateway](../vpn-gateway/configure-bgp.md?toc=%2fazure%2fvirtual-network%2ftoc.json) is enabled.
 
 * **None**: Specify when you want to drop traffic to an address prefix, rather than forwarding the traffic to a destination. Azure might show **None** for some of the optional system routes if a capability isn't configured. For example, if you see that **Next hop IP address** shows **None** and **Next hop type** shows **Virtual network gateway** or **Virtual appliance**, it might be because the device isn't running or isn't fully configured. Azure creates system [default routes](#default) for reserved address prefixes with **None** as the next hop type.
 * **Virtual network**: Specify the **Virtual network** option when you want to override the default routing within a virtual network. For an example of why you might create a route with the **Virtual network** hop type, see [Routing example](#routing-example).
@@ -358,7 +362,7 @@ Azure removed the routes for the 10.0.0.0/8, 192.168.0.0/16, and 100.64.0.0/10 a
 ## Related content
 
 * [Create a UDR table with routes and a network virtual appliance](tutorial-create-route-table-portal.md).
-* [Configure BGP for an Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* [Configure BGP for an Azure VPN Gateway](../vpn-gateway/configure-bgp.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * [Use BGP with ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits). 
 * [View all routes for a subnet](diagnose-network-routing-problem.md). A UDR table shows you only the UDRs, not the default, and BGP routes for a subnet. Viewing all routes shows you the default, BGP, and UDRs for the subnet in which a network interface is located.
 * [Determine the next hop type](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) between a virtual machine and a destination IP address. You can use the Azure Network Watcher next hop feature to determine whether traffic is leaving a subnet and being routed to where you think it should be.

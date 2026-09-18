@@ -2,11 +2,11 @@
 title: 'About VPN devices for connections'
 titleSuffix: Azure VPN Gateway
 description: Learn about VPN devices and IPsec parameters for Site-to-Site cross-premises connections. Links are provided to configuration instructions and samples.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 03/31/2025
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: "As a network administrator, I want to configure validated VPN devices for Site-to-Site connections, so that I can establish secure connections between on-premises networks and Azure virtual networks."
 ---
@@ -26,7 +26,7 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 
 In partnership with device vendors, we have validated a set of standard VPN devices. All of the devices in the device families in the following list should work with VPN gateways. These are the recommended algorithms for your device configuration.
 
-[!INCLUDE [Recommended Algorithms table](../../includes/vpn-gateway-recommended-algorithms.md)]
+[!INCLUDE [Recommended Algorithms table](../networking/includes/vpn-gateway/recommended-algorithms.md)]
 
 To help configure your VPN device, refer to the links that correspond to the appropriate device family. The links to configuration instructions are provided on a best-effort basis and defaults listed in configuration guide need not contain the best cryptographic algorithms. For VPN device support, contact your device manufacturer.
 

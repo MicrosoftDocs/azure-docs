@@ -1,0 +1,45 @@
+### YamlMime:Landing
+
+title: Connector Namespace documentation # < 60 chars
+summary: Host and run prebuilt connectors and MCP servers with Connector Namespace so you can integrate apps and AI agents with external services without custom API code. # < 160 chars
+metadata:
+  title: Connector Namespace documentation
+  description: Host and run prebuilt connectors and MCP servers with Connector Namespace so you can integrate apps and AI agents with external services without custom API code.
+  ms.service: connector-namespace
+  ms.topic: landing-page
+  author: wsilveira
+  ms.author: wsilveira
+  ms.date: 07/10/2026
+  ms.update-cycle: 365-days
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  - title: About Connector Namespace
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Connector Namespace?
+            url: connector-namespace-overview.md
+      - linkListType: concept
+        links:
+          - text: Hosted MCP servers
+            url: connector-namespace-hosted-mcp.md
+      - linkListType: quickstart
+        links:
+          - text: Create connector namespaces
+            url: create-connector-namespace.md            
+          - text: Create hosted MCP servers
+            url: hosted-mcp-quickstart.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create connector namespace connections
+            url: create-connector-namespace-connection.md
+          - text: Create MCP connectors for agents and Azure integrations
+            url: create-mcp-server-connectors.md
+          - text: Hosted MCP server developer guide
+            url: hosted-mcp-dev-guide.md
+      - linkListType: reference
+        links:
+          - text: Azure Connectors SDK
+            url: /dotnet/api/azure.connectors.sdk

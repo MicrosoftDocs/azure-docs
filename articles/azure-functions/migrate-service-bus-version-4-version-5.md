@@ -4,8 +4,8 @@ description: This article shows you how to upgrade your existing function apps u
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.topic: how-to 
-ms.date: 01/12/2024
-zone_pivot_groups: programming-languages-set-functions
+ms.date: 09/09/2026
+zone_pivot_groups: programming-languages-set-functions-no-go
 ---
 
 # Migrate function apps from Azure Service Bus extension version 4.x to version 5.x 
@@ -33,16 +33,13 @@ Update your `.csproj` project file to use the latest extension version for your 
 ### [Isolated worker model](#tab/isolated-process)
 
 ```xml
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Azure.Functions.Sdk/1.0.0">
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
-    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.21.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.52.0" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.ServiceBus" Version="5.16.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.4" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
@@ -113,6 +110,7 @@ To update your application to use the latest extension bundle, update your `host
 
 The Azure Functions Azure Service Bus extension version 5 is built on top of the Azure.Messaging.ServiceBus SDK version 3, which removed support for the `Message` class. Instead, use the `ServiceBusReceivedMessage` type to receive message metadata from Service Bus Queues and Subscriptions.
 ::: zone-end  
+
 
 ## Next steps
 

@@ -1,11 +1,12 @@
 ---
 title: Configuring agents in Agent framework with Azure App Configuration
 description: Learn how to configure agents in Agent framework with Azure App Configuration
-author: MaryanneNjeri
-ms.author: mgichohi
+author: maud-lv
+ms.author: malev
+ms.reviewer: mgichohi
 ms.topic: how-to
 ms.service: azure-app-configuration
-ms.date: 11/25/2025
+ms.date: 06/22/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---

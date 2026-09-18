@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: This article describes how to define and use user-defined data types in Bicep.
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 12/22/2025
+ms.date: 06/26/2026
 ---
 
 # User-defined data types in Bicep
@@ -12,9 +12,11 @@ Learn how to create user-defined data types in Bicep. For system-defined data ty
 
 [Bicep CLI version 0.12.X or higher](./install.md) is required to use this feature.
 
+The [use-user-defined-types](./linter-rule-use-user-defined-types.md) linter rule encourages the use of [user-defined data types](./user-defined-data-types.md) instead of the generic [`object`](./data-types.md#objects) or [`array`](./data-types.md#arrays) types.
+
 ## Define types
 
-You can use the `type` statement to create user-defined data types. You can also use type expressions in some places to define custom types.
+Use the `type` statement to create user-defined data types. You can also use type expressions in some places to define custom types.
 
 ```bicep
 @<decorator>(<argument>)
@@ -23,168 +25,209 @@ type <user-defined-data-type-name> = <type-expression>
 
 The [`@allowed`](./parameters.md#use-decorators) decorator is permitted only on [`param` statements](./parameters.md). To declare a type with a set of predefined values in a `type`, use [union type syntax](./data-types.md#union-types).
 
-The valid type expressions include:
+Valid type expressions include:
 
-- Symbolic references are identifiers that refer to an *ambient* type (like `string` or `int`) or a user-defined type symbol declared in a `type` statement:
+### Symbolic references
 
-    ```bicep
-    // Bicep data type reference
-    type myStringType = string
+Symbolic references are identifiers that refer to an *ambient* type (like `string` or `int`) or a user-defined type symbol declared in a `type` statement.
 
-    // user-defined type reference
-    type myOtherStringType = myStringType
-    ```
+```bicep
+// Bicep data type reference
+type myStringType = string
 
-- Primitive literals, including strings, integers, and Booleans, are valid type expressions. For example:
+// user-defined type reference
+type myOtherStringType = myStringType
+```
 
-    ```bicep
-    // a string type with three allowed values.
-    type myStringLiteralType = 'bicep' | 'arm' | 'azure'
+### Primitive literals
 
-    // an integer type with one allowed value
-    type myIntLiteralType = 10
+Primitive literals, including strings, integers, and Booleans, are valid type expressions. For example:
 
-    // an boolean type with one allowed value
-    type myBoolLiteralType = true
-    ```
+```bicep
+// a string type with three allowed values.
+type myStringLiteralType = 'bicep' | 'arm' | 'azure'
 
-- You can declare array types by appending `[]` to any valid type expression:
+// an integer type with one allowed value
+type myIntLiteralType = 10
 
-    ```bicep
-    // A string type array
-    type myStrStringsType1 = string[]
-    // A string type array with three allowed values
-    type myStrStringsType2 = ('a' | 'b' | 'c')[]
+// an boolean type with one allowed value
+type myBoolLiteralType = true
+```
 
-    type myIntArrayOfArraysType = int[][]
+### Array types
 
-    // A mixed-type array with four allowed values
-    type myMixedTypeArrayType = ('fizz' | 42 | {an: 'object'} | null)[]
-    ```
+You can declare array types by appending `[]` to any valid type expression. For example:
 
-- Object types contain zero or more properties between curly brackets:
+```bicep
+// A string type array
+type myStrStringsType1 = string[]
+// A string type array with three allowed values
+type myStrStringsType2 = ('a' | 'b' | 'c')[]
 
-    ```bicep
-    type storageAccountConfigType = {
-      name: string
-      sku: string
-    }
-    ```
+type myIntArrayOfArraysType = int[][]
 
-    Each property in an object consists of a key and a value separated by a colon `:`. The key can be any string, with nonidentifier values enclosed in quotation marks. The value can be any type of expression.
+// A mixed-type array with four allowed values
+type myMixedTypeArrayType = ('fizz' | 42 | {an: 'object'} | null)[]
+```
 
-    Properties are required unless they have an optionality marker `?` after the property value. For example, the `sku` property in the following example is optional:
+### Union types
 
-    ```bicep
-    type storageAccountConfigType = {
-      name: string
-      sku: string?
-    }
-    ```
+A union type allows you to create a combined type consisting of a set of subtypes. A value matches the type if it matches any one of the subtypes. Use the pipe (`|`) operator to separate the individual member types. Bicep translates union types into the allowed-value constraint, so only literals are permitted as members. Unions can include any number of literal-typed expressions.
 
-  You can use decorators on properties. You can use an asterisk (`*`) to make all values require a constraint. You can define more properties by using `*`. This example creates an object that requires a key of type `int` named `id`. All other entries in the object must be a string value at least 10 characters long.
+```bicep
+type directions = 'east' | 'south' | 'west' | 'north'
 
-    ```bicep
-    type obj = {
-      @description('The object ID')
-      id: int
+type obj = {
+  level: 'bronze' | 'silver' | 'gold'
+}
+```
 
-      @description('Additional properties')
-      @minLength(10)
-      *: string
-    }
-    ```
+You can declare union types inline, and a member can be a reference to another literal-typed symbol.
 
-    The following sample shows how to use the [union type syntax](./data-types.md#union-types) to list a set of predefined values:
+#### Mixed-type unions
 
-    ```bicep
-    type directions = 'east' | 'south' | 'west' | 'north'
+The member types don't need to be the same kind of literal. A union can combine string, integer, Boolean, object, and `null` literals.
 
-    type obj = {
-      level: 'bronze' | 'silver' | 'gold'
-    }
-    ```
+```bicep
+type mixedType = 'fizz' | 42 | { an: 'object' } | null
+```
 
-- Object types can use direct or indirect recursion if at least the leg of the path to the recursion point is optional. For example, the `myObjectType` definition in the following example is valid because the directly recursive `recursiveProp` property is optional:
+> [!NOTE]
+> The `|` operator is also used in several related scenarios documented elsewhere in this article:
+>
+> - To create an array whose elements are constrained to union members, see [Array types](#array-types).
+> - To pair the `|` operator with the `@discriminator()` decorator and build a discriminated union, see [Tagged union data type](#tagged-union-data-type).
+> - When you use [Resource-derived types](#resource-derived-types), their expanded equivalents are expressed as unions.
 
-    ```bicep
-    type myObjectType = {
-      stringProp: string
-      recursiveProp: myObjectType?
-    }
-    ```
+### Object types
 
-    The following type definition wouldn't be valid because none of `level1`, `level2`, `level3`, `level4`, or `level5` is optional.
+Object types contain zero or more properties between curly brackets:
 
-    ```bicep
-    type invalidRecursiveObjectType = {
-      level1: {
-        level2: {
-          level3: {
-            level4: {
-              level5: invalidRecursiveObjectType
-            }
-          }
+```bicep
+type storageAccountConfigType = {
+  name: string
+  sku: string
+}
+```
+
+Each property in an object consists of a key and a value separated by a colon `:`. The key can be any string, with nonidentifier values enclosed in quotation marks. The value can be any type of expression.
+
+Properties are required unless they have an optionality marker `?` after the property value. For example, the `sku` property in the following example is optional:
+
+```bicep
+type storageAccountConfigType = {
+  name: string
+  sku: string?
+}
+```
+
+You can use decorators on properties. You can use an asterisk (`*`) to make all values require a constraint. You can define more properties by using `*`. This example creates an object that requires a key of type `int` named `id`. All other entries in the object must be a string value at least 10 characters long.
+
+```bicep
+type obj = {
+  @description('The object ID')
+  id: int
+
+  @description('Additional properties')
+  @minLength(10)
+  *: string
+}
+```
+
+The following sample shows how to use the [union type syntax](./data-types.md#union-types) to list a set of predefined values:
+
+```bicep
+type directions = 'east' | 'south' | 'west' | 'north'
+
+type obj = {
+  level: 'bronze' | 'silver' | 'gold'
+}
+```
+
+### Recursion
+
+Object types can use direct or indirect recursion if at least the leg of the path to the recursion point is optional. For example, the `myObjectType` definition in the following example is valid because the directly recursive `recursiveProp` property is optional:
+
+```bicep
+type myObjectType = {
+  stringProp: string
+  recursiveProp: myObjectType?
+}
+```
+
+The following type definition isn't valid because none of `level1`, `level2`, `level3`, `level4`, or `level5` is optional.
+
+```bicep
+type invalidRecursiveObjectType = {
+  level1: {
+    level2: {
+      level3: {
+        level4: {
+         level5: invalidRecursiveObjectType
         }
       }
     }
-    ```
+  }
+}
+```
 
-- You can use [Bicep unary operators](./operators.md) with integer and Boolean literals or references to integer or Boolean literal-typed symbols:
+### Unary operators
 
-    ```bicep
-    type negativeIntLiteral = -10
-    type negatedIntReference = -negativeIntLiteral
+Use [Bicep unary operators](./operators.md) with integer and Boolean literals or references to integer or Boolean literal-typed symbols.
 
-    type negatedBoolLiteral = !true
-    type negatedBoolReference = !negatedBoolLiteral
-    ```
+```bicep
+type negativeIntLiteral = -10
+type negatedIntReference = -negativeIntLiteral
 
-- Unions can include any number of literal-typed expressions. Union types are translated into the [allowed-value constraint](./parameters.md#use-decorators) in Bicep, so only literals are permitted as members.
+type negatedBoolLiteral = !true
+type negatedBoolReference = !negatedBoolLiteral
+```
 
-    ```bicep
-    type oneOfSeveralObjects = {
-      foo: 'bar'
-    } | {
-      fizz: 'buzz'
-    } | {
-      snap: 'crackle'
-    }
-    type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
-    ```
+Unions can include any number of literal-typed expressions. Bicep translates union types into the [allowed-value constraint](./parameters.md#use-decorators), so only literals are permitted as members.
 
-You can use type expressions in the `type` statement, and you can also use type expressions to create user-defined data types, as shown in the following places:
+```bicep
+type oneOfSeveralObjects = {
+  foo: 'bar'
+} | {
+  fizz: 'buzz'
+} | {
+  snap: 'crackle'
+}
+type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
+```
+
+Use type expressions in the `type` statement. You can also use type expressions to create user-defined data types, as shown in the following places.
 
 - As the type clause of a `param` statement. For example:
 
-    ```bicep
-    param storageAccountConfig {
-      name: string
-      sku: string
-    }
-    ```
+  ```bicep
+  param storageAccountConfig {
+    name: string
+    sku: string
+  }
+  ```
 
 - Following the `:` in an object type property. For example:
 
-    ```bicep
-    param storageAccountConfig {
-     name: string
-      properties: {
-        sku: string
-      }
-    } = {
-      name: 'store$(uniqueString(resourceGroup().id)))'
-      properties: {
-        sku: 'Standard_LRS'
-      }
+  ```bicep
+  param storageAccountConfig {
+   name: string
+    properties: {
+      sku: string
     }
-    ```
+  } = {
+    name: 'store$(uniqueString(resourceGroup().id)))'
+    properties: {
+      sku: 'Standard_LRS'
+    }
+  }
+  ```
 
 - Preceding the `[]` in an array type expression. For example:
 
-    ```bicep
-    param mixedTypeArray ('fizz' | 42 | {an: 'object'} | null)[]
-    ```
+  ```bicep
+  param mixedTypeArray ('fizz' | 42 | {an: 'object'} | null)[]
+  ```
 
 A typical Bicep file to create a storage account looks like:
 
@@ -234,7 +277,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
 
 ## Use decorators
 
-Decorators are written in the format `@expression` and are placed above the declarations of the user-defined data type. The following table shows the available decorators for user-defined data types.
+Write decorators in the format `@expression` and place them above the declarations of the user-defined data type. The following table shows the available decorators for user-defined data types.
 
 | Decorator | Apply to | Argument | Description |
 | --------- | ----------- | ------- |
@@ -279,7 +322,7 @@ Use `@export()` to share the user-defined data type with other Bicep files. For 
 
 ### Integer constraints
 
-You can set minimum and maximum values for integer type. You can set one or both constraints.
+Set minimum and maximum values for the integer type. You can set one or both constraints.
 
 ```bicep
 @minValue(1)
@@ -289,7 +332,7 @@ type month int
 
 ### Length constraints
 
-You can specify minimum and maximum lengths for string and array types. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
+Specify minimum and maximum lengths for string and array types. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
 
 The following example declares two types. One type is for a storage account name that must have 3 to 24 characters. The other type is an array that must have from one to five items.
 
@@ -307,7 +350,7 @@ type appNames array
 
 If you have custom properties that you want to apply to a user-defined data type, add a metadata decorator. Within the metadata, define an object with the custom names and values. The object you define for the metadata can contain properties of any name and type.
 
-You might use this decorator to track information about the data type that doesn't make sense to add to the [description](#description).
+Use this decorator to track information about the data type that doesn't make sense to add to the [description](#description).
 
 ```bicep
 @description('Configuration values that are applied when the application starts.')
@@ -318,7 +361,7 @@ You might use this decorator to track information about the data type that doesn
 type settings object
 ```
 
-When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the `@metadata()` value is redundant and is replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
+When you provide a `@metadata()` decorator with a property that conflicts with another decorator, the conflicting property within the `@metadata()` value is redundant and replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
 
 ### Sealed
 
@@ -345,7 +388,7 @@ type anObject = {
   property: string
   optionalProperty: string?
 }
- 
+
 param aParameter anObject = {
   property: 'value'
   otionalProperty: 'value'
@@ -357,7 +400,7 @@ The warning informs you that the `anObject` type doesn't include a property name
 To escalate these warnings to errors, apply the `@sealed()` decorator to the object type:
 
 ```bicep
-@sealed() 
+@sealed()
 type anObject = {
   property: string
   optionalProperty?: string
@@ -371,8 +414,8 @@ type anObject = {
   property: string
   optionalProperty: string?
 }
- 
-@sealed() 
+
+@sealed()
 param aParameter anObject = {
   property: 'value'
   otionalProperty: 'value'
@@ -420,7 +463,7 @@ For more information, see [Custom tagged union data type](./data-types.md#custom
 
 ## Resource-derived types
 
-Bicep allows you to derive types directly from Azure resource schemas using the `resourceInput<>` and `resourceOutput<>` constructs. Resource-derived types allow you to check parameters and variables against a portion of a resource body instead of with a custom type. [Bicep CLI version 0.34.1](https://github.com/Azure/bicep/releases/tag/v0.34.1) or higher is required to use these constructs.
+Bicep enables you to derive types directly from Azure resource schemas by using the `resourceInput<>` and `resourceOutput<>` constructs. By using resource-derived types, you can check parameters and variables against a portion of a resource body instead of using a custom type. To use these constructs, you need [Bicep CLI version 0.34.1](https://github.com/Azure/bicep/releases/tag/v0.34.1) or higher.
 
 Templates can reuse resource types wherever a type is expected.
 
@@ -428,13 +471,13 @@ Templates can reuse resource types wherever a type is expected.
 resourceInput<'type@version'>
 ```
 
-`resourceInput<>`: Represents the writable properties of a resource type, stripping away any properties marked as ReadOnly in the ARM template schema. It uses the type that you would need to pass in to the resource declaration.
+- `resourceInput<>`: Represents the writable properties of a resource type, removing any properties marked as ReadOnly in the ARM template schema. It uses the type that you need to pass to the resource declaration.
 
 ```bicep
 resourceOutput<'type@version'>
 ```
 
-`resourceOutput<>`: Represents the readable properties of a resource type, stripping away any properties marked as WriteOnly in the ARM template schema. It matches the type of value returned after the resource is provisioned.
+- `resourceOutput<>`: Represents the readable properties of a resource type, removing any properties marked as WriteOnly in the ARM template schema. It matches the type of value returned after the resource is provisioned.
 
 You can apply `resourceInput<>` or `resourceOutput<>` to extract only a part of a resource schema. For example, to type a variable or parameter based on just the `kind` or `properties` of a storage account:
 
@@ -448,7 +491,7 @@ The preceding example is equivalent to:
 type accountKind = 'BlobStorage' | 'BlockBlobStorage' | 'FileStorage' | 'Storage' | 'StorageV2'
 ```
 
-The following example shows how to use `resourceInput<>` to create a typed parameter based on the `properties` of a storage account resource. This allows you to define a parameter that matches the writable properties of a storage account, such as `accessTier`, `minimumTlsVersion`, and others:
+The following example shows how to use `resourceInput<>` to create a typed parameter based on the `properties` of a storage account resource. This approach defines a parameter that matches the writable properties of a storage account, such as `accessTier`, `minimumTlsVersion`, and other properties:
 
 ```bicep
 // Typed parameter using the .properties path of a storage account
@@ -477,7 +520,7 @@ The following example shows how to use `resourceOutput<>` to create a typed outp
 output storageEndpoints resourceOutput<'Microsoft.Storage/storageAccounts@2024-01-01'>.properties.primaryEndpoints = ...
 ```
 
-Unlike user-defined data types, resource-derived types are checked by Bicep when editing or compiling a file, but they aren't checked by the ARM service.
+Unlike user-defined data types, Bicep checks resource-derived types when you edit or compile a file, but the ARM service doesn't check them.
 
 ## Related content
 

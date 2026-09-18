@@ -71,7 +71,7 @@ You create an Azure Functions project for your static web app's API. By default,
     > [!TIP]
     > You can learn more about the differences between programming models in the [Azure Functions developer guide](/azure/azure-functions/functions-reference)
 
-    An Azure Functions project is generated with an HTTP triggered function. Your app now has a project structure similar to the following example.
+    An Azure Functions project is generated with an HTTP-triggered function. Your app now has a project structure similar to the following example.
 
     ```Files
     ├── .github
@@ -79,10 +79,10 @@ You create an Azure Functions project for your static web app's API. By default,
     │       └── azure-static-web-apps-<DEFAULT_HOSTNAME>.yml
     │
     ├── api
-    ├── └──src
-    │   │  │ functions
-    │   │  │  └── message.js
-    │   │  └── index.js
+    │   ├── src
+    │   │   ├── functions
+    │   │   │   └── message.js
+    │   │   └── index.js
     │   ├── .funcignore
     │   ├── host.json
     │   ├── local.settings.json
@@ -138,7 +138,7 @@ Update the content of the _src/index.html_ file with the following code to fetch
 
     <script>
     (async function() {
-        const { text } = await( await fetch(`/api/message`)).json();
+        const { text } = await (await fetch(`/api/message`)).json();
         document.querySelector('#name').textContent = text;
     }());
     </script>
@@ -198,7 +198,7 @@ function App() {
 
   useEffect(() => {
     (async function () {
-      const { text } = await( await fetch(`/api/message`)).json();
+      const { text } = await (await fetch(`/api/message`)).json();
       setData(text);
     })();
   });
@@ -294,7 +294,7 @@ npm run build
 
 Run the frontend app and API together by starting the app with the Static Web Apps CLI. Running the two parts of your application this way allows the CLI to serve your frontend's build output from a folder, and makes the API accessible to the running app.
 
-1. In root of your repository, start the Static Web Apps CLI with the `start` command. Adjust the arguments if your app has a different folder structure.
+1. In the root of your repository, start the Static Web Apps CLI with the `start` command. Adjust the arguments if your app has a different folder structure.
 
     # [No Framework](#tab/vanilla-javascript)
 
@@ -330,7 +330,7 @@ Run the frontend app and API together by starting the app with the Static Web Ap
 
     ---
 
-1. Windows Firewall might prompt to request that the Azure Functions runtime can access the Internet. Select **Allow**.
+1. Windows Firewall might prompt you to allow the Azure Functions runtime to access the Internet. Select **Allow**.
 
 1. When the CLI processes start, access your app at `http://localhost:4280/`. Notice how the page calls the API and displays its output, `Hello from the API`.
 
@@ -353,7 +353,7 @@ Before you can deploy your app to Azure, update your repository's GitHub Actions
    ###### End of Repository/Build Configurations ######
    ```
 
-   **Note**: The above values of `api_location` ,`app_location`,`output_location`  are for no framework and these values change based on your framework.
+   **Note**: The above values of `api_location`, `app_location`, `output_location` apply to apps without a framework. These values may vary depending on your framework.
 
 1. Save the file.
 

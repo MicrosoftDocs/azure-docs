@@ -5,6 +5,7 @@ services: automation
 ms.service: azure-automation
 ms.subservice: process-automation
 ms.date: 05/08/2025
+ms.update-cycle: 1825-days
 ms.topic: how-to 
 ms.author: v-rochak2
 author: RochakSingh-blr

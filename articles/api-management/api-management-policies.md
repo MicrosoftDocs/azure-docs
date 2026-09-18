@@ -1,33 +1,31 @@
 ---
-title: Azure API Management policy reference | Microsoft Docs
+title: Azure API Management Policy Reference
 description: Reference index for all Azure API Management policies and settings. Policies allow the API publisher to change API behavior through configuration.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 05/06/2025
-ms.author: danlep
+ms.date: 08/24/2026
 ---
 
-# API Management policy reference
+# Azure API Management policy reference
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This section provides brief descriptions and links to reference articles for all API Management policies. The API Management [gateways](api-management-gateways-overview.md) that support each policy are indicated. For detailed policy settings and examples, see the linked reference articles.
+This article lists all Azure API Management policies, with brief descriptions and links to the reference article for each policy. Each table indicates the Azure API Management [gateways](api-management-gateways-overview.md) that support the policy. For detailed policy settings and examples, see the linked reference articles.
 
 More information about policies:
 
-+ [Policy overview](api-management-howto-policies.md)
-+ [Set or edit policies](set-edit-policies.md)
-+ [Policy expressions](api-management-policy-expressions.md)
-+ [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)
-+ [Azure API Management policy toolkit](https://github.com/Azure/azure-api-management-policy-toolkit/)
-+ [Author policies using Azure Copilot](/azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+- [Policy overview](api-management-howto-policies.md)
+- [Set or edit policies](set-edit-policies.md)
+- [Policy expressions](api-management-policy-expressions.md)
+- [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)
+- [Azure API Management policy toolkit](https://github.com/Azure/azure-api-management-policy-toolkit/)
+- [Author policies using Azure Copilot](/azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
 > [!IMPORTANT]
->  [Limit call rate by subscription](rate-limit-policy.md) and [Set usage quota by subscription](quota-policy.md) have a dependency on the subscription key. A subscription key isn't required when other policies are applied.
+> [Limit call rate by subscription](rate-limit-policy.md) and [Set usage quota by subscription](quota-policy.md) have a dependency on the subscription key. A subscription key isn't required when other policies are applied.
 
 ## Rate limiting and quotas
 
@@ -35,8 +33,8 @@ More information about policies:
 |---------|---------|---------|---------|---------|--------|--------|
 | [Limit call rate by subscription](rate-limit-policy.md) | Prevents API usage spikes by limiting call rate, on a per subscription basis. | Yes | Yes | Yes | Yes | Yes |
 | [Limit call rate by key](rate-limit-by-key-policy.md) | Prevents API usage spikes by limiting call rate, on a per key basis. | Yes | Yes | No | Yes | Yes |
-| [Set usage quota by subscription](quota-policy.md) | Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis. | Yes | Yes | Yes | Yes | Yes |
-| [Set usage quota by key](quota-by-key-policy.md) |  Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | Yes | No | Yes | Yes |
+| [Set usage quota by subscription](quota-policy.md) | Enforces a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis. | Yes | Yes | Yes | Yes | Yes |
+| [Set usage quota by key](quota-by-key-policy.md) | Enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | Yes | No | Yes | Yes |
 | [Limit concurrency](limit-concurrency-policy.md) | Prevents enclosed policies from executing by more than the specified number of requests at a time. | Yes | Yes | Yes | Yes | Yes |
 | [Limit large language model API token usage](llm-token-limit-policy.md) | Prevents large language model (LLM) API usage spikes by limiting LLM tokens per calculated key. | Yes | Yes | No | Yes | Yes |
 
@@ -72,14 +70,14 @@ More information about policies:
 |---------|---------|---------|---------|---------|--------|----------|
 |  [Forward request](forward-request-policy.md) | Forwards the request to the backend service. | Yes | Yes | Yes | Yes | Yes |
 |  [Set backend service](set-backend-service-policy.md) | Changes the backend service base URL of an incoming request to a URL or a [backend](backends.md). Referencing a backend resource allows you to manage the backend service base URL and other settings in a single place. Also implement [load balancing of traffic across a pool of backend services](backends.md#load-balanced-pool) and [circuit breaker rules](backends.md#circuit-breaker) to protect the backend from too many requests. | Yes | Yes | Yes | Yes | Yes |
-|  [Set HTTP proxy](proxy-policy.md) | Allows you to route forwarded requests via an HTTP proxy. | Yes | Yes | Yes | Yes | Yes |
+|  [Set HTTP proxy](proxy-policy.md) | Routes forwarded requests via an HTTP proxy. | Yes | Yes | Yes | Yes | Yes |
 
 ## Caching
 
 |Policy  |Description  | Classic | V2  | Consumption |Self-hosted  | Workspace |
 |---------|---------|---------|---------|---------|--------|-----------|
 |  [Get from cache](cache-lookup-policy.md) | Performs cache lookup and return a valid cached response when available. | Yes | Yes | Yes | Yes | Yes |
-|  [Store to cache](cache-store-policy.md) | Caches response according to the specified cache control configuration. | Yes | Yes | Yes | Yes | Yes | 
+|  [Store to cache](cache-store-policy.md) | Caches response according to the specified cache control configuration. | Yes | Yes | Yes | Yes | Yes |
 |  [Get value from cache](cache-lookup-value-policy.md) | Retrieves a cached item by key. | Yes | Yes | Yes | Yes | Yes |
 |  [Store value in cache](cache-store-value-policy.md) | Stores an item in the cache by key. | Yes | Yes | Yes | Yes | Yes |
 |  [Remove value from cache](cache-remove-value-policy.md) | Removes an item in the cache by key. | Yes | Yes | Yes | Yes | Yes |
@@ -93,7 +91,7 @@ More information about policies:
 
 |Policy  |Description  | Classic | V2  | Consumption |Self-hosted  | Workspace |
 |---------|---------|---------|---------|---------|--------|----------|
-|  [Set request method](set-method-policy.md) | Allows you to change the HTTP method for a request. | Yes | Yes | Yes | Yes | Yes |
+|  [Set request method](set-method-policy.md) | Changes the HTTP method for a request. | Yes | Yes | Yes | Yes | Yes |
 |  [Set status code](set-status-policy.md) | Changes the HTTP status code to the specified value.    | Yes | Yes | Yes | Yes | Yes |
 |  [Set variable](set-variable-policy.md) | Persists a value in a named [context](api-management-policy-expressions.md#ContextVariables) variable for later access. | Yes | Yes | Yes | Yes | Yes |
 | [Set body](set-body-policy.md) | Sets the message body for a request or response. | Yes | Yes | Yes | Yes | Yes |
@@ -120,13 +118,13 @@ More information about policies:
 
 |Policy  |Description  | Classic | V2  | Consumption |Self-hosted  | Workspace |
 |---------|---------|---------|---------|---------|--------|----------|
- |  [Send request](send-request-policy.md) | Sends a request to the specified URL. | Yes | Yes | Yes | Yes | Yes |
- |  [Send one way request](send-one-way-request-policy.md) | Sends a request to the specified URL without waiting for a response. | Yes | Yes | Yes | Yes | Yes |
+|  [Send request](send-request-policy.md) | Sends a request to the specified URL. | Yes | Yes | Yes | Yes | Yes |
+|  [Send one way request](send-one-way-request-policy.md) | Sends a request to the specified URL without waiting for a response. | Yes | Yes | Yes | Yes | Yes |
 |  [Log to event hub](log-to-eventhub-policy.md) | Sends a message in the specified format to an event hub defined by a Logger entity.| Yes | Yes | Yes | Yes | Yes |
 | [Send message to Azure Service Bus](send-service-bus-message-policy.md) (preview) | Sends a message to an Azure Service Bus queue or topic. | Yes | No | No | No  | No |
-| [Send request to a service (Dapr)](set-backend-service-dapr-policy.md)| Uses Dapr runtime to locate and reliably communicate with a Dapr microservice. To learn more about service invocation in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md#service-invocation) file.     | No | No | No | Yes | No |
-| [Send message to Pub/Sub topic (Dapr)](publish-to-dapr-policy.md) | Uses Dapr runtime to publish a message to a Publish/Subscribe topic. To learn more about Publish/Subscribe messaging in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file. | No | No | No | Yes | No |
-| [Trigger output binding (Dapr)](invoke-dapr-binding-policy.md) | Uses Dapr runtime to invoke an external system via output binding. To learn more about bindings in Dapr, see the description in this [README](https://github.com/dapr/docs/blob/master/README.md) file. | No | No | No | Yes | No |
+| [Send request to a service (Dapr)](set-backend-service-dapr-policy.md)| Uses Dapr runtime to locate and reliably communicate with a Dapr microservice. For more information, see [Service invocation in Dapr](https://github.com/dapr/docs/blob/master/README.md#service-invocation).     | No | No | No | Yes | No |
+| [Send message to Pub/Sub topic (Dapr)](publish-to-dapr-policy.md) | Uses Dapr runtime to publish a message to a Publish/Subscribe topic. For more information, see [Publish and subscribe messaging in Dapr](https://github.com/dapr/docs/blob/master/README.md). | No | No | No | Yes | No |
+| [Trigger output binding (Dapr)](invoke-dapr-binding-policy.md) | Uses Dapr runtime to invoke an external system via output binding. For more information, see [Bindings in Dapr](https://github.com/dapr/docs/blob/master/README.md). | No | No | No | Yes | No |
 
 ## Logging
 
@@ -135,7 +133,6 @@ More information about policies:
 |  [Trace](trace-policy.md) | Adds custom traces into the [request tracing](./api-management-howto-api-inspector.md) output in the test console, Application Insights telemetries, and resource logs. | Yes | Yes<sup>1</sup> | Yes | Yes | Yes |
 |  [Emit metrics](emit-metric-policy.md) | Sends custom metrics to Application Insights at execution. | Yes | Yes | Yes | Yes | Yes |
 |  [Emit large language model API token metrics](llm-emit-token-metric-policy.md) | Sends metrics to Application Insights for consumption of large language model (LLM) tokens through LLM APIs. | Yes | Yes | No | Yes | Yes |
-
 
 <sup>1</sup> In the V2 gateway, the `trace` policy currently does not add tracing output in the test console.
 
@@ -166,6 +163,6 @@ More information about policies:
 |  [Control flow](choose-policy.md) | Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md). | Yes | Yes | Yes | Yes | Yes |
 |  [Include fragment](include-fragment-policy.md) | Inserts a policy fragment in the policy definition. | Yes | Yes | Yes | Yes | Yes |
 |  [Retry](retry-policy.md) | Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count. | Yes | Yes | Yes | Yes | Yes |
- |  [Wait](wait-policy.md) | Waits for enclosed [Send request](send-request-policy.md), [Get value from cache](cache-lookup-value-policy.md), or [Control flow](choose-policy.md) policies to complete before proceeding. | Yes | Yes | Yes | Yes | Yes |
+|  [Wait](wait-policy.md) | Waits for enclosed [Send request](send-request-policy.md), [Get value from cache](cache-lookup-value-policy.md), or [Control flow](choose-policy.md) policies to complete before proceeding. | Yes | Yes | Yes | Yes | Yes |
 
-[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]	
+[!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

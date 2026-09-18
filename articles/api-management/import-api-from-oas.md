@@ -2,11 +2,9 @@
 title: Import an OpenAPI specification to Azure API Management | Microsoft Docs
 description: Learn how to import an OpenAPI specification to an API Management instance using the Azure portal, Azure CLI, or Azure PowerShell. Then, test the API.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 02/02/2026
-ms.author: danlep
 ms.custom: engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 #customer intent: As an API developer, I want to know how to import a backend API into API Management to choose the best workflow for my projects.
 ---

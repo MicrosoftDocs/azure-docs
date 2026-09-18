@@ -23,7 +23,7 @@ This article also explores the business model for Teams Phone extensibility. We 
 ## PSTN connectivity options for Teams Phone extensibility
 
 There are three primary options available:
-- **Calling Plans** are an all-in-the-cloud solution in which Microsoft acts as your PSTN carrier. Calling Plans are the simplest option, ideal for organizations that doesn't need to retain their current PSTN carrier. With Calling Plans, you get Teams Phone with added Domestic or International Calling Plans for your solution to reach phone numbers around the world.
+- **Calling Plans** are an all-in-the-cloud solution in which Microsoft acts as your PSTN carrier. Calling Plans are the simplest option, ideal for organizations that don't need to retain their current PSTN carrier. With Calling Plans, you get Teams Phone with added Domestic or International Calling Plans for your solution to reach phone numbers around the world.
 
    This option doesn't require any on-premises deployment or maintenance. For more information, see [Microsoft Teams Calling Plans](/microsoftteams/calling-plans-for-office-365).
 

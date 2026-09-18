@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 06/20/2025
-ms.author: danlep
+ms.author: patricka
 ---
 
 While you have the option to use a private or custom DNS server, we recommend:

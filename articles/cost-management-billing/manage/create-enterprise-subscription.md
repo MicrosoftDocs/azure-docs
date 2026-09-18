@@ -2,13 +2,13 @@
 title: Create an Enterprise Agreement subscription
 titleSuffix: Azure Cost Management + Billing
 description: Learn how to add a new Enterprise Agreement subscription in the Azure portal. See information about billing account forms and view other available resources.
-author: Nicholak-MS
+author: mijeffer
 ms.author: mijeffer
 ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/29/2025
+ms.date: 06/07/2026
 ms.custom:
 - sfi-image-nochange
 - sfi-ga-nochange

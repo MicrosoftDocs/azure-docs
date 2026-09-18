@@ -25,8 +25,8 @@ Integrated third-party Security as a service (SECaaS) partners are now available
 Skip this section if you're deploying a third-party provider into an existing hub.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In **Search**, type **Firewall Manager** and select it under **Services**.
-3. Navigate to **Overview**. Select **View secured virtual hubs**.
+1. In **Search**, type **Network Security** and select it under **Services**.
+1. Go to **Secure your resources**. Select **Virtual hubs**.
 4. Select **Create new secured virtual hub**.
 5. Enter your subscription and resource group, select a supported region, and add your hub and virtual WAN information. 
 6. Select **Include VPN gateway to enable Security Partner Providers**.
@@ -44,7 +44,7 @@ Skip this section if you're deploying a third-party provider into an existing hu
 
 The VPN gateway deployment can take more than 30 minutes.
 
-To verify that the hub has been created, navigate to Azure Firewall Manager->Overview->View secured virtual hubs. You see the security partner provider name and the security partner status as **Security Connection Pending**.
+To verify that the hub is created, go to **Network Security** > **Secure your resources** > **Virtual hubs**. You see the security partner provider name and the security partner status as **Security Connection Pending**.
 
 Once the hub is created and the security partner is set up, continue on to connect the security provider to the hub.
 
@@ -88,7 +88,7 @@ You can add other network virtual appliances to your virtual WAN hub. For more i
 
 ## Configure security with Firewall Manager
 
-1. Browse to the Azure Firewall Manager -> Secured Hubs. 
+1. In **Network Security**, under **Secure your resources**, select **Virtual hubs**.
 2. Select a hub. The hub status should now show **Provisioned** instead of **Security Connection Pending**.
 
    Ensure the third-party provider can connect to the hub. The tunnels on the VPN gateway should be in a **Connected** state. This state is more reflective of the connection health between the hub and the third-party partner, compared to previous status.
@@ -99,7 +99,7 @@ You can add other network virtual appliances to your virtual WAN hub. For more i
    > [!NOTE]
    > Do not manually create a 0.0.0.0/0 (default) route over BGP for branch advertisements. This is automatically done for secure virtual hub deployments with 3rd party security providers. Doing so may break the deployment process.
 
-4. Configure virtual WAN security by setting **Internet Traffic** via Azure Firewall and **Private Traffic** via a trusted security partner. This automatically secures individual connections in the Virtual WAN.
+4. Configure virtual WAN security by setting **Internet Traffic** via a trusted security partner and **Private Traffic** via Azure Firewall. This configuration automatically secures individual connections in the Virtual WAN.
 
    :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="Security configuration":::
 5. Additionally, if your organization uses public IP ranges in virtual networks and branch offices, you need to specify those IP prefixes explicitly using **Private Traffic Prefixes**. The public IP address prefixes can be specified individually or as aggregates.

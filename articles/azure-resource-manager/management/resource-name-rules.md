@@ -2,7 +2,7 @@
 title: Naming rules and restrictions for Azure resources
 description: Learn the rules and restrictions for naming Azure resources.
 ms.topic: article
-ms.date: 02/27/2026
+ms.date: 08/05/2026
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -643,7 +643,7 @@ In the following tables, the term alphanumeric refers to:
 > | netAppAccounts / shareNames | NetApp account | 1-64 | Alphanumerics and hyphens. <br><br>Start with alphanumeric.<br><br>Underscores aren't supported. |
 > | netAppAccounts / snapshots | NetApp account | 1-255 | Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. |
 > | netAppAccounts / snapshotPolicies | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
-> | netAppAccounts / volumes | NetApp account | 1-64 | Alphanumerics and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named `bin` or `default`. |
+> | netAppAccounts / volumes | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named `bin` or `default`. |
 > | netAppAccounts / buckets | NetApp account |13-64 |  Alphanumerics and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named `bin` or `default`. |
 > | netAppAccounts / volumeGroups | NetApp account | 3-64 | Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
 
@@ -863,6 +863,8 @@ In the following tables, the term alphanumeric refers to:
 > | signalR | global | 3-63 | Alphanumerics and hyphens<br><br>Start with a letter. End with letter or number. |
 
 ## Microsoft.Sql
+
+[!INCLUDE [resource-naming-customer-data-note](~/reusable-content/ce-skilling/azure/includes/databases/resource-naming-customer-data-note.md)]
 
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |

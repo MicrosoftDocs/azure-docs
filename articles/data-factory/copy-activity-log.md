@@ -1,16 +1,18 @@
 ---
 title: Session log in a Copy activity 
 description: Learn how to enable session log in a Copy activity in Azure Data Factory.
-author: dearandyxu
+author: kromerm
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 01/05/2024
-ms.author: yexu
+ms.author: makromer
 ms.custom: sfi-image-nochange
 ---
 #  Session log in a Copy activity
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 You can log your copied file names in a Copy activity.  This can help ensure data not only copies successfully from source to destination, but also validate consistency between source and destination.  
 

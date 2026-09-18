@@ -22,6 +22,10 @@ For a complete end-to-end example of using the MCP tool trigger, see [Create a r
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"  
 >[!NOTE]  
 > For C#, the Azure Functions MCP extension supports only the [isolated worker model](dotnet-isolated-process-guide.md). 
@@ -276,7 +280,7 @@ export async function getSnippet(
 }
 ```
 
-For the complete code example, see [snippetsMcpTool.ts](https://github.com/Azure-Samples/remote-mcp-functions-typescript/blob/main/src/functions/snippetsMcpTool.ts).  
+For the complete code example, see [snippetsMcpTool.ts](https://github.com/Azure-Samples/remote-mcp-functions-typescript/blob/main/mcp-tools/src/functions/snippetsMcpTool.ts).  
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 

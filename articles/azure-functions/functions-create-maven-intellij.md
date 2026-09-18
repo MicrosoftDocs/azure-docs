@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: jialuogan
 ms.topic: quickstart
-ms.date: 05/28/2024
+ms.date: 06/18/2026
 ms.devlang: java
 ms.custom:
   - mvc

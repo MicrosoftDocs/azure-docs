@@ -2,11 +2,11 @@
 title: 'Change a gateway to active-active mode'
 titleSuffix: Azure VPN Gateway
 description: Learn how to change a VPN gateway from active-standby to active-active.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 12/05/2024
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: As a network administrator, I want to change a VPN gateway from active-standby to active-active mode, so that I can ensure high availability and improved performance for my network connections.
 ---
@@ -17,9 +17,9 @@ The steps in this article help you change active-standby VPN gateways to active-
 
 BGP considerations:
 
-* **Active-standby mode to active-active mode**: When you change an active-standby mode gateway to active-active mode, if you have BGP sessions running, the Azure VPN Gateway BGP configuration changes and two newly assigned BGP IPs are provisioned within the Gateway Subnet address range. The old Azure VPN Gateway BGP IP address will no longer exist. This incurs downtime. Updating the BGP peers on the on-premises devices is required. Once the gateway is finished provisioning, the new BGP IPs can be obtained and the on-premises device configuration needs to be updated accordingly. This applies to non APIPA BGP IPs. To understand how to configure BGP in Azure, see [How to configure BGP on Azure VPN gateways](bgp-howto.md).
+* **Active-standby mode to active-active mode**: When you change an active-standby mode gateway to active-active mode, if you have BGP sessions running, the Azure VPN Gateway BGP configuration changes and two newly assigned BGP IPs are provisioned within the Gateway Subnet address range. The old Azure VPN Gateway BGP IP address no longer exists. This change incurs downtime. You need to update the BGP peers on the on-premises devices. When the gateway finishes provisioning, you can get the new BGP IPs and need to update the on-premises device configuration accordingly. This change applies to non-APIPA BGP IPs. To understand how to configure BGP in Azure, see [How to configure BGP on Azure VPN gateways](configure-bgp.md).
 
-* **Active-active mode to active-standby mode**: When you change an active-active mode gateway to active-standby, if you have BGP sessions running, the Azure VPN Gateway BGP configuration changes from two BGP IP addresses to a single BGP address. The platform generally assigns the last usable IP of the Gateway Subnet. This incurs downtime. Updating the BGP peers on the on-premises devices is required. This applies to non APIPA BGP IPs. To understand how to configure BGP in Azure, see [How to configure BGP on Azure VPN gateways](bgp-howto.md).
+* **Active-active mode to active-standby mode**: When you change an active-active mode gateway to active-standby, if you have BGP sessions running, the Azure VPN Gateway BGP configuration changes from two BGP IP addresses to a single BGP address. The platform generally assigns the last usable IP of the Gateway Subnet. This change incurs downtime. You need to update the BGP peers on the on-premises devices. This change applies to non-APIPA BGP IPs. To understand how to configure BGP in Azure, see [How to configure BGP on Azure VPN gateways](configure-bgp.md).
 
 ## Azure portal
 

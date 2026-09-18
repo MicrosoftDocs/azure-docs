@@ -3,6 +3,7 @@ title: Azure IoT Operations versions, support, and licensing
 description: Explore supported versions, environments, dependencies, and licensing for Azure IoT Operations deployments.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: overview
 ms.date: 02/18/2026
 ms.custom: references_regions
@@ -71,4 +72,4 @@ If any of the licensing terms found in these documents block your adoption of Az
 * [Pricing for Azure IoT Operations](https://azure.microsoft.com/pricing/details/iot-operations/)
 * [Overview of Azure IoT Operations](overview-iot-operations.md)
 * [Deployment details](deploy-iot-ops/overview-deploy.md)
-* [Upgrade to a new version](deploy-iot-ops/howto-upgrade.md)
+* [Upgrade to a new version](manage-iot-ops/howto-upgrade.md)

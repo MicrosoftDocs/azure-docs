@@ -6,7 +6,7 @@ description: Build web applications using the OpenID Connect authentication prot
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: concept-article
 ms.date: 03/21/2025

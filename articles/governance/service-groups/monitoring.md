@@ -5,7 +5,7 @@ author: lauradolan
 ms.author: ladolan
 ms.service: azure-policy 
 ms.topic: how-to
-ms.date: 11/19/2025
+ms.date: 06/04/2026
 
 ---
 
@@ -32,6 +32,7 @@ On the **Monitoring** page for your resource, the **Overview** tab is shown. Thi
 - **Issues in the last day (trend)** to [see and investigate active issues and trends](#find-and-investigate-issues). 
 - **Application Map** to [view your application map](#view-application-maps).
 - **Availability tests** to [run availability tests](#run-availability-tests)
+- **Service Level Indicators and Objectives (SLIs and SLOs)** to [measure and maintain service reliability](#slis-and-slos)
 
 The monitoring experience only shows insights for resources in the selected service group. Insights from child and/or nested service groups aren't included.
 
@@ -96,6 +97,17 @@ The **Monitoring coverage by resource type** tile shows what type of monitoring 
 The **Monitoring recommendations** tile shows which monitoring enhancements you can apply at scale to close coverage gaps. If there are no supported resources in the service group, no recommendations are displayed. 
 
 The table shows a description of each recommendation, which you can select for more details. The number and type of impacted resources are also listed along with the severity level. You can select the **Apply** button next to each recommendation to apply the suggested change automatically. 
+
+## SLIs and SLOs
+
+Today, Azure customers have a large amount of telemetry in Azure Monitor that tracks their applications and infrastructure health and performance already, these applications need to be continuously monitored to ensure their business growth and end user satisfaction. You can monitor their application’s health and measure the impact of infrastructure disruptions to their application using service level indicators (SLIs) in a standard and industry accepted way. For more information, see [Service level indicators in Azure Monitor](/azure/azure-monitor/fundamentals/service-level-indicators-create).
+
+Key capabilities:
+- Author your application SLIs and add a baseline service level objective (SLO) to SLIs.
+- Deep dive into a specific SLI and track the SLI trends, error budget as well as burn rate through trend charts. 
+- Create burn rate-based alerts.
+
+You can author SLIs, set targets, and track trends for your Service Group through the SLI experience in Azure Monitor. This helps you measure and maintain service reliability.
 
 ## Costs
 

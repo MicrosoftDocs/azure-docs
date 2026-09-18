@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 02/19/2026
+ms.date: 05/26/2026
 ai-usage: ai-assisted
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 ---
@@ -21,6 +21,28 @@ Azure IoT Hub exposes various endpoints to support the devices and services that
 You can find the hostname of an IoT hub in the Azure portal, on your IoT hub's **Overview** pane. By default, the DNS name of an IoT hub looks like the following example:
 
 `{your iot hub name}.azure-devices.net`
+
+## TLS 1.3-enabled endpoints (preview)
+
+Azure IoT Hub provides additional endpoints to support TLS 1.3 with enhanced security requirements. These endpoints are available alongside the existing endpoint to allow gradual and non-disruptive adoption.
+
+There's no planned change to the existing IoT Hub endpoint (`<hub>.azure-devices.net`), commonly referred to as the *classic endpoint*. This endpoint remains fully supported, including for Private Link scenarios, and continues to be the default for existing workloads.
+
+The new endpoints are additive, not a replacement, and enable customers to adopt stronger security configurations at their own pace.
+
+### Endpoint types
+
+| Endpoint type     | Hostname                              | Protocol support                |
+|------------------|----------------------------------------|--------------------------------|
+| Classic          | `<hub>.azure-devices.net`              | TLS 1.2 (existing behavior)    |
+| Device endpoint (preview)  | `<hub>.device.azure-devices.net`       | TLS 1.2 (restricted) + TLS 1.3 |
+| Service endpoint (preview) | `<hub>.service.azure-devices.net`      | TLS 1.2 (restricted) + TLS 1.3 |
+
+### Key considerations
+
+- Existing applications and devices that use the classic endpoint keep working without any changes.
+- New endpoints support TLS 1.3 and enhanced security requirements.
+- Both endpoint models coexist to support gradual migrations with no service disruption.
 
 ## IoT Hub endpoints for development and management
 
@@ -76,6 +98,7 @@ IoT Hub supports the following Azure services as custom endpoints:
 * Service Bus queues
 * Service Bus topics
 * Cosmos DB
+* Microsoft Fabric Eventstreams (preview)
    
 For the limits on endpoints per hub, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
@@ -141,6 +164,42 @@ You can configure the synthetic partition key value by specifying a template in 
 
 > [!CAUTION]
 > If you're using the system assigned managed identity for authenticating to Cosmos DB, you must use Azure CLI or Azure PowerShell to assign the Cosmos DB Built-in Data Contributor built-in role definition to the identity. Role assignment for Cosmos DB isn't currently supported from the Azure portal. For more information about the various roles, see [Configure role-based access for Azure Cosmos DB](/azure/cosmos-db/how-to-setup-rbac). To understand assigning roles via CLI, see [Manage Azure Cosmos DB SQL role resources.](/cli/azure/cosmosdb/sql/role)
+
+### Microsoft Fabric Eventstreams as a routing endpoint (preview)
+
+You can route device-to-cloud messages to a [Microsoft Fabric eventstream](/fabric/real-time-intelligence/event-streams/overview) by adding a Fabric Eventstream custom endpoint to your IoT hub. This integration brings IoT Hub telemetry directly into Fabric Real-Time Intelligence for downstream processing and analytics.
+
+> [!NOTE]
+> Routing to Microsoft Fabric Eventstreams is in public preview. This capability applies to both IoT Hub and IoT Hub Gen 2 instances.
+
+To route messages to a Fabric eventstream, create a route in IoT Hub, add a Fabric Eventstream endpoint, and connect it to a Fabric eventstream that uses a custom endpoint (custom app) source.
+
+In your Microsoft Fabric workspace, select the custom endpoint source tile you want to connect to on your published Eventstream. If a custom endpoint source tile doesn't exist on your Eventstream, [create a new custom endpoint source tile](/fabric/real-time-intelligence/event-streams/add-source-custom-app?pivots=basic-features). Once the source tile is selected, go to the **Details** pane. Select **Event Hub** as the **Protocol**. Select **Entra ID Authentication** and access the connection details. To ensure Entra ID Authentication is set up correctly for your Fabric workspace, see [Connect to Eventstream using Microsoft Entra ID authentication](/fabric/real-time-intelligence/event-streams/custom-endpoint-entra-id-auth).
+
+#### Authentication
+
+The Fabric Eventstream endpoint supports Microsoft Entra ID authentication only. Shared access signature (SAS) key authentication isn't supported. You can use either a system-assigned or a user-assigned managed identity for the IoT hub. For more information, see [Egress connectivity from IoT Hub to other Azure resources](./iot-hub-managed-identity.md#egress-connectivity-from-iot-hub-to-other-azure-resources).
+
+#### Message schema
+
+Messages routed to a Fabric Eventstream endpoint conform to the [CloudEvents](https://cloudevents.io/) schema, which differs from the schema used by other routing endpoints such as Event Hubs. Device identity and event metadata are preserved in the CloudEvents envelope. For IoT hubs that use Azure Device Registry (ADR), the event payload includes ADR identifiers. For a comparison with the default routed-message schema, see [message schema at routing endpoints](iot-hub-devguide-messages-construct.md#message-schema-at-routing-endpoints).
+
+<!-- TODO (WI 599257): Add the full CloudEvents schema, field mappings, and configuration guidance. Pending cleaned-up schema and field-mapping details from the feature team, plus confirmation of any additional Fabric-side configuration. -->
+
+#### Enrichment property restrictions
+
+[Message enrichment](iot-hub-message-enrichments-overview.md) property names for Fabric Eventstream endpoints have the following restrictions:
+
+- Names must start with a lowercase letter.
+- Names can contain only lowercase letters and digits.
+- Hyphens, underscores, periods, and camelCase aren't allowed.
+- Names can be at most 20 characters long.
+
+#### Tooling
+
+You can create and configure a Fabric Eventstream endpoint by using the Azure CLI and Bicep.
+
+<!-- TODO (WI 599257): Add Azure CLI and Bicep examples, and portal screenshots (requires test-environment access). -->
 
 ## Endpoint Health
 

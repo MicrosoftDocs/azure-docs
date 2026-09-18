@@ -77,7 +77,7 @@ Or, if you're already on the Subscriptions page, you can refresh your browser's 
 
 ## Configure Azure Service Health on the new subscription
 
-Azure Service Health alerting is essential alongside your new subscription because it gives you early, personalized awareness of Azure issues that directly affect your environment. Alerting is free, easy to configure and should be considered for all production subscriptions. [Learn More about Azure Service Health](https://learn.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal)
+Azure Service Health alerting is essential alongside your new subscription because it gives you early, personalized awareness of Azure issues that directly affect your environment. Alerting is free, easy to configure and should be considered for all production subscriptions. [Learn More about Azure Service Health](/azure/service-health/alerts-activity-log-service-notifications-portal)
 
 ## View all subscriptions
 

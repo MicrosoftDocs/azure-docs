@@ -4,7 +4,7 @@ description: Learn how to migrate an existing function app in Azure running in a
 ms.service: azure-functions
 ms.collection: 
  - migration
-ms.date: 04/09/2026
+ms.date: 09/08/2026
 ms.topic: concept-article
 zone_pivot_groups: app-service-platform-windows-linux
 
@@ -28,7 +28,7 @@ The following table shows which migration methods are available for each operati
 
 | Migration method | Description | Linux | Windows |
 | --- | --- | --- | --- |
-| [Azure Skills in GitHub Copilot](https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugin/skills/azure-upgrade/references/services/functions/consumption-to-flex.md).  | Let Copilot guide and automate your migration interactively (recommended for Linux). | ✅ | ❌ |
+| [Azure Skills in GitHub Copilot](https://github.com/microsoft/GitHub-Copilot-for-Azure/blob/main/plugins/azure-skills/skills/azure-upgrade/references/services/functions/consumption-to-flex.md).  | Let Copilot guide and automate your migration interactively (recommended for Linux). | ✅ | ❌ |
 | CLI migration command | Use [`az functionapp flex-migration`](/cli/azure/functionapp/flex-migration) to automate migration. | ✅ | ❌ |
 | Standard CLI commands | Stepwise migration using Azure CLI commands. | ➖ | ✅ |
 | [Azure portal](https://portal.azure.com) | Stepwise migration in the Azure portal. | ✅ | ✅ |
@@ -360,7 +360,7 @@ If your region isn't currently supported and you still choose to migrate your fu
 
 ### Verify language stack compatibility
 
-Flex Consumption plans don't yet support all [Functions language stacks](../supported-languages.md). This table indicates which language stacks are currently supported:
+Flex Consumption plans don't support all [Functions language stacks](../supported-languages.md). This table indicates which language stacks are currently supported:
 
 | Stack setting  | Stack name  | Supported |
 |---------|--------|--------------|
@@ -369,6 +369,7 @@ Flex Consumption plans don't yet support all [Functions language stacks](../supp
 | `java`  | [Java](../functions-reference-java.md)  | ✅ Yes |
 | `python` | Python   | ✅ Yes                        |
 | `powershell`  | [PowerShell](../functions-reference-powershell.md)  | ✅ Yes |
+| `go`  | [Go (Preview)](../functions-reference-go.md) | ✅ Yes |
 | `dotnet`  | [.NET (in-process model)](../functions-dotnet-class-library.md) | ❌ No  |
 | `custom`  | [Custom handlers](../functions-custom-handlers.md) | ✅ Yes   |
 
@@ -420,6 +421,7 @@ In this example, replace `<REGION>` with your current region and `<LANGUAGE_STAC
 | [PowerShell](../functions-reference-powershell.md) | `powershell` |
 | [Python](../functions-reference-python.md)     | `python` |
 | [TypeScript](../functions-reference-node.md) | `node` |
+| [Go (Preview)](../functions-reference-go.md) | `go` |
 
  This command displays all versions of the specified language stack  supported by the Flex Consumption plan in your region.
 
@@ -488,7 +490,7 @@ If your function app is currently using deployment slots, you can't currently re
 
 ### Verify the use of certificates
 
-The Flex Consumption plan supports TLS/SSL certificates through a [site-scoped certificate model](../flex-consumption-how-to.md#configure-site-scoped-certificates), currently in preview. Unlike other hosting plans where certificates are shared across apps in the same region and resource group, Flex Consumption certificates are scoped to each individual app. If your existing app uses certificates, be aware of these differences:
+The Flex Consumption plan supports TLS/SSL certificates through a [site-scoped certificate model](../flex-consumption-how-to.md#configure-site-scoped-certificates). Unlike other hosting plans where certificates are shared across apps in the same region and resource group, Flex Consumption certificates are scoped to each individual app. If your existing app uses certificates, be aware of these differences:
 
 - The `WEBSITE_LOAD_CERTIFICATES` app setting isn't used in the Flex Consumption plan. Instead, you make each certificate accessible to your code by using the **Accessible to app code** toggle in the portal. For more information, see [Make a certificate accessible to your code](../flex-consumption-how-to.md#make-a-certificate-accessible-to-your-code).
 - Because Flex Consumption runs on Linux, your code must load certificates from file paths (`/var/ssl/certs` for public, `/var/ssl/private` for private) rather than from the Windows certificate store.
@@ -943,7 +945,7 @@ The migration command supports several options to customize the migration:
 | Option | Description |
 |--------|-------------|
 | `--storage-account` | Specify a different storage account for the new app |
-| `--maximum-instance-count` | Set the maximum number of instances for scaling |
+| `--maximum-instance-count` | Set the maximum number of on-demand instances per function group |
 | `--skip-access-restrictions` | Skip migrating IP access restrictions |
 | `--skip-cors` | Skip migrating CORS settings |
 | `--skip-hostnames` | Skip migrating custom domains |
@@ -1217,7 +1219,7 @@ The Copilot migration skill automatically verifies the new app as part of the mi
 
 The automated migration command transfers most configurations. However, manually verify that these items are migrated. You might need to configure them manually:
 
-- **Certificates**: TLS/SSL certificates aren't supported in Flex Consumption yet.
+- **Certificates**: Re-add TLS/SSL certificates to the Flex Consumption app by using the [site-scoped certificate process](../flex-consumption-how-to.md#add-a-certificate).
 - **Deployment slots**: Not supported in Flex Consumption.
 - **Built-in authentication settings**: You need to reconfigure these settings manually.
 - **CORS settings**: You might need to verify these settings manually depending on your configuration.
@@ -1514,7 +1516,7 @@ How you configure managed identities in your new app depends on the kind of mana
 Recreating the role assignments correctly is key to ensuring your function app has the same access to Azure resources after the migration.
 
 >[!TIP]  
->If your original app used connection strings or other shared secrets for authentication, this is a great opportunity to improve your app's security by switching to using Microsoft Entra ID authentication with managed identities. For more information, see [Tutorial: Create a function app that connects to Azure services using identities instead of secrets](../functions-identity-based-connections-tutorial.md).
+>If your original app used connection strings or other shared secrets for authentication, this is a great opportunity to improve your app's security by switching to using Microsoft Entra ID authentication with managed identities. For more information, see [Configure connections to remote services in Azure Functions](../manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 #### [System-assigned](#tab/system-assigned/github-copilot)
 

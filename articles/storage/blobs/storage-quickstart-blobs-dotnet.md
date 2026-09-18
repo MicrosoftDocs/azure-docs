@@ -377,6 +377,8 @@ The following code cleans up the resources the app created by deleting the conta
 
 The app pauses for user input by calling `Console.ReadLine` before it deletes the blob, container, and local files. This pause is a good chance to verify that the resources were created correctly, before the app deletes them.
 
+After you delete a container, you can't create another container with the same name for at least 30 seconds. Additionally, the container might not be available for more than 30 seconds if the service is still processing the request. While the container is being deleted, attempts to create a container of the same name generate a conflict and fail with status code 409. The service indicates that the container is being deleted. All other operations, including operations on any blobs within the container, aren't found and fail with a 404 status code while the container is being deleted.
+
 ::: zone pivot="blob-storage-quickstart-scratch"
 
 Add the following code to the end of the `Program.cs` file:

@@ -155,7 +155,7 @@ Configure the query string behavior on the Front Door route.
 
 ::: zone pivot="front-door-standard-premium"
 
-See [Cache purging in Azure Front Door](standard-premium/how-to-cache-purge.md) to learn how to configure cache purge.
+To learn how to configure cache purge, see [Purge cache in Azure Front Door](cache-purge.md).
 
 ::: zone-end
 
@@ -198,6 +198,18 @@ If the `Cache-Control` header isn't present on the response from the origin, by 
 > Cache expiration can't be greater than **366 days**.
 
 You may see `REVALIDATED_HIT` in the `Cache-Control` response header. This indicates that the cached content in Azure Front Door was revalidated with the origin server before being served to the client. This can happen when the cached content has expired, but the origin server indicates that the content hasn't changed. In this case, the cached content is served to the client, and the cache expiration is reset.
+
+## Validators
+When the cache is stale, Azure Front Door uses HTTP cache validators to compare the cached version of a file with the version on the origin server. Azure Front Door supports only `Last-Modified`.
+
+> [!NOTE]
+> Azure Front Door doesn't support `etag`.
+
+Last-Modified:
+
+- Specifies the date and time that the origin server determined the resource was last modified. For example, `Last-Modified: Thu, 19 Oct 2025 09:28:00 GMT`.
+- For content larger than 8 MB, origin backend servers should maintain consistent `Last-Modified` timestamps per asset. Returning inconsistent `Last-Modified` times from backend servers causes validator mismatch errors and results in partial file downloads or HTTP 5XX failures. Azure Storage might not support consistent `Last-Modified` timestamps across replicas, which can cause similar validator mismatch errors.
+- A cache validates a file by using `Last-Modified`. It sends an `If-Modified-Since` header with a date and time in the request. The origin server compares that date with the `Last-Modified` header of the latest resource. If the resource isn't modified since the specified time, the server returns status code 304 (Not Modified) in its response. If the resource is modified, the server returns status code 200 (OK) and the updated resource.
 
 ## Request headers
 

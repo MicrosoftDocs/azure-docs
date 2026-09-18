@@ -2,8 +2,8 @@
 title: Copy data from Amazon Redshift
 description: Learn how to copy data from Amazon Redshift to supported sink data stores using Azure Data Factory or Synapse Analytics pipelines.
 titleSuffix: Azure Data Factory & Azure Synapse
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 05/12/2026
@@ -16,7 +16,13 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from an Amazon Redshift. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Amazon Redshift connector documentation](/fabric/data-factory/connector-amazon-redshift-overview).
+
 
 > [!IMPORTANT]
 > The Amazon Redshift connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Amazon Redshift connector](#differences-between-amazon-redshift-connector-version-20-and-version-10) from version 1.0 to 2.0.

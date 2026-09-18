@@ -39,13 +39,45 @@ The STAC specification consists of four complementary standards for describing g
 
 Planetary Computer Pro uses the STAC specification across all aspects of data management.
 
-[ ![Diagram showing the STAC specification components and their relationships, including STAC Catalog, STAC collection, STAC Items, and STAC API, with arrows showing how they interconnect.](media/stac-summary.png) ](media/stac-summary.png#lightbox)
 
-## STAC catalogs
+```mermaid
+flowchart LR
+    subgraph GC["GeoCatalog (Azure resource)"]
+        direction TB
+        subgraph C1["STAC Collection"]
+            I1["STAC Items"]
+        end
+        subgraph C2["STAC Collection"]
+            I2["STAC Items"]
+        end
+        subgraph C3["STAC Collection"]
+            I3["STAC Items"]
+        end
+    end
+
+    API["STAC API"]
+    GC -- exposes --> API
+
+    classDef resource fill:#0a3d62,stroke:#0a3d62,color:#ffffff;
+    classDef collection fill:#e8f1fb,stroke:#0a3d62,color:#0a3d62;
+    classDef items fill:#ffffff,stroke:#0a3d62,color:#0a3d62;
+    classDef api fill:#1e824c,stroke:#1e824c,color:#ffffff;
+
+    class GC resource;
+    class C1,C2,C3 collection;
+    class I1,I2,I3 items;
+    class API api;
+```
+> [!NOTE]
+> Microsoft Planetary Computer Pro currently targets the STAC 1.0.0 specification and isn't yet compatible with STAC 1.1.0. Support for STAC 1.1.0 is planned for an upcoming release.
+
+## GeoCatalogs and STAC
 
 ### Introduction to GeoCatalogs
 
-The Planetary Computer Pro service enables you to [create a GeoCatalog resource](./deploy-geocatalog-resource.md) in your Azure subscription to [ingest](./ingestion-overview.md), manage, search, and distribute geospatial datasets. A GeoCatalog is an Azure resource that, from a STAC API perspective, is logically equivalent to a STAC Catalog. A STAC Catalog is the top-level object in the STAC hierarchy that logically groups STAC collections and STAC Items. You can see the STAC Catalog JSON for a specific GeoCatalog by using the JSON web viewer and going to `https://<your geocatalog uri>/json-api?path=/`. For more information about the STAC Catalog specification, see [STAC Catalog Spec](https://github.com/radiantearth/stac-spec/tree/master/catalog-spec).
+The Planetary Computer Pro service enables you to [create a GeoCatalog resource](./deploy-geocatalog-resource.md) in your Azure subscription to [ingest](./ingestion-overview.md), manage, search, and distribute geospatial datasets. A GeoCatalog is an Azure resource that exposes a STAC-compliant API for the geospatial data you manage with it. In addition to STAC API support, a GeoCatalog provides ingestion, managed storage, identity-based access control, visualization, and other Azure-native capabilities that aren't part of the STAC specification itself.
+
+From a STAC API perspective, a GeoCatalog presents a top-level STAC Catalog object that groups its STAC collections and STAC Items. You can view that top-level STAC Catalog JSON for a specific GeoCatalog by using the JSON web viewer at `https://<your geocatalog uri>/json-api?path=/`. For more information about the STAC Catalog specification, see [STAC Catalog Spec](https://github.com/radiantearth/stac-spec/tree/master/catalog-spec).
 
 A GeoCatalog is defined using the following information:
 

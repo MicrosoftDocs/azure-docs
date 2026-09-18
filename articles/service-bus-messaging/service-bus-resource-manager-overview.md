@@ -32,6 +32,9 @@ These Service Bus Azure Resource Manager templates are available for download an
 * [Create a Service Bus namespace with queue and authorization rule](service-bus-resource-manager-namespace-auth-rule.md)
 * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
 
+> [!NOTE]
+> If your entity names contain forward slashes (`/`), use `~` (tilde) in place of `/` in ARM template resource names. For example, to create a queue named `orders/us/west`, specify the name as `orders~us~west` in the template. For details, see [Entity names with forward slashes](service-bus-resource-manager-exceptions.md#error-entity-names-with-forward-slashes).
+
 ## Deploy with PowerShell
 
 The following procedure describes how to use PowerShell to deploy an Azure Resource Manager template that creates a Standard tier Service Bus namespace, and a queue within that namespace. This example is based on the [Create a Service Bus namespace with queue](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicebus/servicebus-create-queue/azuredeploy.json) template. The approximate workflow is as follows:

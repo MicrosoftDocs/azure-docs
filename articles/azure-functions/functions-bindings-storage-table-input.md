@@ -2,7 +2,7 @@
 title: Azure Tables input bindings for Azure Functions
 description: Understand how to use Azure Tables input bindings in Azure Functions.
 ms.topic: reference
-ms.date: 11/11/2022
+ms.date: 09/15/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 zone_pivot_groups: programming-languages-set-functions
@@ -26,6 +26,10 @@ For information on setup and configuration details, see the [overview](./functio
 ::: zone-end
 
 ## Example
+
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -191,59 +195,6 @@ namespace FunctionAppCloudTable2
 
 For more information about how to use CloudTable, see [Get started with Azure Table storage](/azure/cosmos-db/tutorial-develop-table-dotnet).
 
-If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
-
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-The following example shows a [C# function](./functions-dotnet-class-library.md) that reads a single table row. For every message sent to the queue, the function will be triggered.
-
-The row key value `{queueTrigger}` binds the row key to the message metadata, which is the message string.
-
-```csharp
-public class TableStorage
-{
-    public class MyPoco
-    {
-        public string PartitionKey { get; set; }
-        public string RowKey { get; set; }
-        public string Text { get; set; }
-    }
-
-    [FunctionName("TableInput")]
-    public static void TableInput(
-        [QueueTrigger("table-items")] string input, 
-        [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
-        ILogger log)
-    {
-        log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
-    }
-}
-```
-
-The following example shows a [C# function](./functions-dotnet-class-library.md) that reads multiple table rows where the `MyPoco` class derives from `TableEntity`.
-
-```csharp
-public class TableStorage
-{
-    public class MyPoco : TableEntity
-    {
-        public string Text { get; set; }
-    }
-
-    [FunctionName("TableInput")]
-    public static void TableInput(
-        [QueueTrigger("table-items")] string input, 
-        [Table("MyTable", "MyPartition")] IQueryable<MyPoco> pocos, 
-        ILogger log)
-    {
-        foreach (MyPoco poco in pocos)
-        {
-            log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
-        }
-    }
-}
-```
-
 # [Azure Tables extension](#tab/table-api/isolated-process)
 
 The following `MyTableData` class represents a row of data in the table: 
@@ -310,7 +261,7 @@ The following `MyTableData` class represents a row of data in the table:
 
 The following function, which is started by a Queue Storage trigger, reads a row key from the queue, which is used to get the row from the input table. The expression `{queueTrigger}` binds the row key to the message metadata, which is the message string.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="12-29" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="12-29" :::
 
 The following Queue-triggered function returns the first 5 entities as an `IEnumerable<T>`, with the partition key value set as the queue message.  
 
@@ -331,10 +282,6 @@ public static void Run([QueueTrigger("myqueue", Connection = "AzureWebJobsStorag
 ```
 
 The `Filter` and `Take` properties are used to limit the number of entities returned.
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process.
 
 ---
 
@@ -730,7 +677,7 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end  
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-[!INCLUDE [functions-table-connections](../../includes/functions-table-connections.md)]
+[!INCLUDE [functions-storage-connections](../../includes/functions-storage-connections.md)]
 
 ## Usage
 
@@ -762,12 +709,6 @@ To return a specific entity by key, use a binding parameter that derives from [T
 
 To execute queries that return multiple entities, bind to a [CloudTable] object. You can then use this object to create and execute queries against the bound table. Note that [CloudTable] and related APIs belong to the [Microsoft.Azure.Cosmos.Table](/dotnet/api/microsoft.azure.cosmos.table) namespace.  
 
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-To return a specific entity by key, use a binding parameter that derives from [TableEntity]. The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table. 
-
-To execute queries that return multiple entities, bind to an [`IQueryable<T>`] of a type that inherits from [TableEntity]. 
-
 # [Azure Tables extension](#tab/table-api/isolated-process)
 
 [!INCLUDE [functions-bindings-table-input-dotnet-isolated-types](../../includes/functions-bindings-table-input-dotnet-isolated-types.md)]
@@ -777,10 +718,6 @@ To execute queries that return multiple entities, bind to an [`IQueryable<T>`] o
 To return a specific entity by key, use a plain-old CLR object (POCO). The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table.
 
  When returning multiple entities as an [`IEnumerable<T>`], you can instead use `Take` and `Filter` properties to restrict the result set.
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process.
 
 ---
 

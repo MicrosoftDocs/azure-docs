@@ -2,12 +2,10 @@
 title: Feature-based comparison of Azure API Management tiers
 description: Compare API Management tiers based on the features they offer. See a table that summarizes the key features available in each pricing tier.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/11/2025
-ms.author: danlep
+ms.date: 06/05/2026
 ms.custom:
   - build-2025
 ---
@@ -28,12 +26,12 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Feature                                                                                      | Consumption | Developer | Basic | Basic v2 |Standard | Standard v2 | Premium | Premium v2 |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | --------- | --------- | ----- | -------- | ------- | ------- | 
 | Microsoft Entra integration<sup>1</sup>                                                             | ❌          | ✔️       | ❌    | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
-| Virtual network injection support                                                               | ❌          | ✔️       | ❌    | ❌       | ❌       | ❌       | ✔️    | ✔️ |
 | Private endpoint support for inbound connections                                                               | ❌          | ✔️       | ✔️    | ❌       | ✔️      | ✔️     | ✔️  | ✔️   |
-| Outbound virtual network integration support                                                             | ❌          | ❌       | ❌    | ❌       | ❌       | ✔️       | ❌    | ✔️ |
+| Deploy (inject) service in virtual network                                                  | ❌          | ✔️       | ❌    | ❌       | ❌       | ❌       | ✔️    | ✔️ |
+| Connect to backends isolated in virtual network                                                            | ❌          | ✔️       | ❌    | ❌       | ❌       | ✔️       | ✔️    | ✔️ |
 | Multi-region deployment                                                                      | ❌          | ❌        | ❌    | ❌       | ❌       | ❌       | ✔️     | ❌ |
 | Availability zones                                                                           | ❌          | ❌        | ❌    | ❌       | ❌       | ❌       | ✔️     | ✔️  |
-| Multiple custom domain names for gateway                                                                 | ❌          | ✔️        | ❌    | ❌      | ❌       | ❌        | ✔️     | ❌ |
+| Multiple custom domain names for gateway                                                                 | ❌          | ✔️        | ❌    | ❌      | ❌       | ❌        | ✔️     | ✔️ |
 | Developer portal<sup>2</sup>                                                                 | ❌          | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
 | Scale units | ❌ (automatic scaling)     | 1                                             | 2           | 10        | 4    | 10       | 12 per region      | 30 |
 | Built-in cache | ❌      | 10 MB                                            | 50 MB          | 250 MB       | 1 GB   | 1 GB      | 5 GB     | 5 GB |
@@ -41,10 +39,10 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Autoscaling                                                    | ❌         | ❌       | ✔️   | ✔️      | ✔️      | ✔️      |✔️     | ✔️ |
 | API analytics                                     | ❌          | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
 | [Self-hosted gateway](self-hosted-gateway-overview.md)<sup>3</sup>                           | ❌          | ✔️       | ❌    | ❌       | ❌       | ❌       | ✔️     | ❌ |
-| [Workspaces](workspaces-overview.md)                                                         | ❌          | ❌       | ❌    | ❌     | ❌     | ❌       | ✔️     |  ✔️ |
+| [Workspaces](workspaces-overview.md)<sup>4</sup>                                                         | ❌          | ❌       | ❌    | ✔️     | ❌     | ✔️       | ✔️     |  ✔️ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md)                             | ✔️         | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
 | [Client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) | ✔️         | ✔️       | ✔️   | ✔️      | ✔️     | ✔️      |✔️     | ✔️ |
-| [Policies](api-management-howto-policies.md)<sup>4</sup> | ✔️         | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
+| [Policies](api-management-howto-policies.md)<sup>5</sup> | ✔️         | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
 | [Credential manager](credentials-overview.md)  | ✔️         | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     |  ✔️ |
 | [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md)               | ❌          | ✔️       | ✔️   | ❌          | ✔️      | ❌          | ✔️     | ❌ |
 | Azure Monitor metrics                                                               | ✔️          | ✔️       | ✔️   | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
@@ -55,11 +53,11 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Export API to Postman                                                         | ✔️          | ✔️       | ✔️    | ✔️       | ✔️       | ✔️       | ✔️     | ✔️ |
 
 
-
 <sup>1</sup> Enables the use of Microsoft Entra ID (and Azure AD B2C or [Microsoft Entra External ID](/entra/external-id/customers/overview-customers-ciam)) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality such as users, groups, issues, applications, and email templates and notifications.<br/>
 <sup>3</sup> See [Gateway overview](api-management-gateways-overview.md#feature-comparison-managed-versus-self-hosted-gateways) for a feature comparison of managed versus self-hosted gateways. In the Developer tier, self-hosted gateways are limited to a single gateway node. <br/>
-<sup>4</sup> See [Gateway overview](api-management-gateways-overview.md#policies) for differences in policy support in the classic, v2, consumption, workspace, and self-hosted gateways. <br/>
+<sup>4</sup> For information about the roadmap for workspaces tier support, see the [blog post](https://aka.ms/apim/workspaces/built-in-gateway-changes). <br/>
+<sup>5</sup> See [Gateway overview](api-management-gateways-overview.md#policies) for differences in policy support in the classic, v2, consumption, workspace, and self-hosted gateways. <br/>
 
 ## Related content
 

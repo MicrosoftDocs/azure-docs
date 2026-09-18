@@ -34,7 +34,7 @@ Indexing builds the knowledge graph from your documents. It requires memory opti
 
   | Index size | Data size (text data) | Recommended SKU | vCPU | Memory |
   |------------|----------------------|-----------------|------|-----|
-  | Small | ~200 MB | Standard_E24s_v6 | 24 | 192 GB |
+  | Small | ~200 MB | Standard_E20s_v6 | 20 | 160 GB |
   | Medium | ~500 MB | Standard_E64s_v6 | 64 | 512 GB |
   | Large | ~1 GB | Standard_E96s_v6 | 96 | 768 GB |
 
@@ -93,6 +93,9 @@ The networking tab requires two subnet configurations:
 
 - **Private Endpoint Subnet** — Used for private connectivity to the Bookshelf data plane. Select a virtual network and subnet (for example, *discovery-uksouth-v2* / *default*).
 - **Search Subnet** — Used by the managed AI Search service created in the Bookshelf's managed resource group. The search subnet must be different from the private endpoint subnet (for example, *discovery-uksouth-v2* / *bookshelfsearch*).
+
+> [!NOTE]
+> Provision a separate search subnet for each Bookshelf. You can't share search subnets across Bookshelf resources.
 
 :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/create-bookshelf-networking.png" alt-text="Screenshot that shows how to configure network security for a Bookshelf resource in the Azure portal." lightbox="media/how-to-index-bookshelf-knowledgebase/create-bookshelf-networking.png":::
 

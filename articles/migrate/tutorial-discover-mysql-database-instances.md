@@ -4,10 +4,10 @@ description: Learn how to discover MySQL database instances running in your data
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: tutorial
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
+ms.update-cycle: 365-days
 ms.date: 03/03/2025
 ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
-monikerRange:
 # Customer intent: As a database administrator, I want to discover MySQL database instances in my datacenter using an agentless solution, so that I can assess and manage my databases efficiently before migrating to the cloud.
 ---
 
@@ -55,9 +55,6 @@ The following table lists the regions that support MySQL Discovery and Assessmen
    
 - After you create a project, ensure you've completed the server discovery using the Azure Migrate appliance.
 - Ensure that you perform the [discovery of software inventory](how-to-discover-applications.md) by providing the server credentials to the appliance configuration manager.
-
-> [!NOTE]
-> Only Azure Migrate projects created with public endpoint connectivity are supported. Private endpoint projects aren't supported in the preview.
 
 ## Provide MySQL credentials
 

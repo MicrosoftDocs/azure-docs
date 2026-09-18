@@ -4,9 +4,10 @@ description: At-scale migration of ASP.NET web apps to Azure App Service using A
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.topic: tutorial
 ms.date: 02/07/2025
+ms.update-cycle: 365-days
 ms.custom:
   - template-tutorial
   - sfi-image-nochange

@@ -2,8 +2,8 @@
 title: Copy data from or to MongoDB Atlas
 description: Learn how to copy data from MongoDB Atlas to supported sink data stores, or from supported source data stores to MongoDB Atlas, using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
-ms.author: jianleishen
+author: simplywilson
+ms.author: tinglee
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 12/25/2025
@@ -17,7 +17,13 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from and to a MongoDB Atlas database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric MongoDB Atlas connector documentation](/fabric/data-factory/connector-mongodb-atlas-overview).
+
 
 ## Supported capabilities
 
@@ -146,7 +152,7 @@ The following properties are supported in the copy activity **source** section:
 | batchSize | Specifies the number of documents to return in each batch of the response from MongoDB Atlas instance. In most cases, modifying the batch size will not affect the user or the application. Azure Cosmos DB limits each batch cannot exceed 40MB in size, which is the sum of the batchSize number of documents' size, so decrease this value if your document size being large. | No<br/>(the default is **100**) |
 
 >[!TIP]
->The service supports consuming BSON document in **Strict mode**. Make sure your filter query is in Strict mode instead of Shell mode. More description can be found at [MongoDB manual](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html).
+>The service supports consuming BSON documents in **Strict mode**. Ensure your filter query is in Strict mode instead of Shell mode. For more information, see [MongoDB manual](https://www.mongodb.com/docs/manual/reference/mongodb-extended-json/).
 
 **Example:**
 

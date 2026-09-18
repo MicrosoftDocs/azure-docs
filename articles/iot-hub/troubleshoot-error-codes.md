@@ -148,7 +148,7 @@ For device developers, if the volume of errors is a concern, switch to the C SDK
 In general, the error message presented should explain how to fix the error. If for some reason you don't have access to the error message detail, make sure:
 
 * The SAS or other security token you use isn't expired.
-* For X.509 certificate authentication, the device certificate or the CA certificate associated with the device isn't expired. To learn how to register X.509 CA certificates with IoT Hub, see [Tutorial: Create and upload certificates for testing](tutorial-x509-test-certs.md).
+* For X.509 certificate authentication, the device certificate or the CA certificate associated with the device isn't expired. To learn how to register X.509 CA certificates with IoT Hub, see [Tutorial: Create and upload certificates for testing](../iot-hub/tutorial-x509-test-certs.md).
 * For X.509 certificate thumbprint authentication, the thumbprint of the device certificate is registered with IoT Hub.
 * The authorization credential is well formed for the protocol that you use. To learn more, see [Control access to IoT Hub by using Microsoft Entra ID](authenticate-authorize-azure-ad.md).
 * The authorization rule used has the permission for the operation requested.
@@ -285,7 +285,7 @@ This error can occur because the [SAS token used to connect to IoT Hub](iot-hub-
 
 Some other possibilities include:
 
-* The device lost underlying network connectivity longer than the [MQTT keep-alive](iot-mqtt-connect-to-iot-hub.md#default-keep-alive-time-out), resulting in a remote idle time-out. The MQTT keep-alive setting can be different per device.
+* The device lost underlying network connectivity longer than the [MQTT keep-alive](iot-mqtt-connect-to-iot-hub.md#default-keep-alive-timeout), resulting in a remote idle time-out. The MQTT keep-alive setting can be different per device.
 * The device sent a TCP/IP-level reset but didn't send an application-level `MQTT DISCONNECT`. Basically, the device abruptly closed the underlying socket connection. Sometimes, bugs in older versions of the Azure IoT SDK might cause this issue.
 * The device side application crashed.
 

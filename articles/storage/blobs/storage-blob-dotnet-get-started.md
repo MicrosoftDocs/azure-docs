@@ -1,14 +1,14 @@
 ---
-title: Get started with Azure Blob Storage and .NET
+title: Get Started with Azure Blob Storage and .NET
 titleSuffix: Azure Storage
-description: Get started developing a .NET application that works with Azure Blob Storage. This article helps you set up a project and authorize access to an Azure Blob Storage endpoint.
+description: Learn how to connect a .NET app to Azure Blob Storage, set up secure authorization, and start building now with this step-by-step guide.
 services: storage
 author: stevenmatthew
 
 ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 06/02/2026
 ms.devlang: csharp
 ms.custom:
   - template-how-to
@@ -61,17 +61,17 @@ Blob client library information:
 
 ## Authorize access and connect to Blob Storage
 
-To connect an app to Blob Storage, create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. This object is your starting point to interact with data resources at the storage account level. You can use it to operate on the storage account and its containers. You can also use the service client to create container clients or blob clients, depending on the resource you need to work with.
+To connect an app to Blob Storage, create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. This object is your starting point to interact with data resources at the storage account level. Use it to operate on the storage account and its containers. You can also use the service client to create container clients or blob clients, depending on the resource you need to work with.
 
 To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
-You can authorize a `BlobServiceClient` object by using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS). For optimal security, Microsoft recommends using Microsoft Entra ID with managed identities to authorize requests against blob data. For more information, see [Authorize access to blobs using Microsoft Entra ID](authorize-access-azure-active-directory.md).
+Authorize a `BlobServiceClient` object by using a Microsoft Entra authorization token, an account access key, or a shared access signature (SAS). For optimal security, Microsoft recommends using Microsoft Entra ID with managed identities to authorize requests against blob data. For more information, see [Authorize access to blobs using Microsoft Entra ID](authorize-access-azure-active-directory.md).
 
 <a name='azure-ad'></a>
 
 ## [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
-To authorize with Microsoft Entra ID, you'll need to use a security principal. The type of security principal you need depends on where your app runs. Use this table as a guide.
+To authorize with Microsoft Entra ID, use a security principal. The type of security principal you need depends on where your app runs. Use the following table as a guide.
 
 | Where the app runs | Security principal | Guidance |
 | --- | --- | --- |
@@ -82,9 +82,9 @@ To authorize with Microsoft Entra ID, you'll need to use a security principal. T
 
 #### Authorize access using DefaultAzureCredential
 
-An easy and secure way to authorize access and connect to Blob Storage is to obtain an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. You can then use that credential to create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object.
+An easy and secure way to authorize access and connect to Blob Storage is to get an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. Use that credential to create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) object.
 
-The following example creates a `BlobServiceClient` object authorized using `DefaultAzureCredential`:
+The following example creates a `BlobServiceClient` object authorized by using `DefaultAzureCredential`:
 
 ```csharp
 public BlobServiceClient GetBlobServiceClient(string accountName)
@@ -97,7 +97,7 @@ public BlobServiceClient GetBlobServiceClient(string accountName)
 }
 ```
 
-If you know exactly which credential type you'll use to authenticate users, you can obtain an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These classes derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
+If you know exactly which credential type you'll use to authenticate users, you can get an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These classes derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
 
 You can also register the client for dependency injection in your .NET app. For more information, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection).
 
@@ -153,7 +153,7 @@ BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
 > [!IMPORTANT]
-> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
+> Use the account access key with caution. If your account access key is lost or accidentally placed in an insecure location, your service becomes vulnerable. Anyone who has the access key can authorize requests against the storage account, and effectively has access to all the data. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authorization to Azure services.
 
 ---
 

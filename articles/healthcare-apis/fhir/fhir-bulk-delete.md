@@ -1,6 +1,6 @@
 ---
 title: Bulk delete resources from the FHIR service in Azure Health Data Services
-description: Learn how to bulk delete resources from the FHIR service in Azure Health Data Services.
+description: Learn how to use bulk delete in the FHIR service to remove outdated resources and dependent data at scale. Follow this guide to clean up data now.
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir

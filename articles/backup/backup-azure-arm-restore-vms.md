@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 05/04/2026
+ms.date: 05/27/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -432,6 +432,9 @@ Azure Backup allows you to restore up to 100 protected Azure virtual machines to
 >- Bulk VM restore doesn’t support Classic, Unmanaged, Encrypted, or Confidential virtual machines.
 >- Bulk VM restore isn’t supported for cross‑region restore (CRR) scenarios.
 >- Target subnets must use `/16` or a smaller subnet mask.
+
+>[!IMPORTANT]
+>Bulk restore fails when the name prefix and source VM name combination is identical for the first **30 characters** across VMs. In this scenario, one restore can succeed, while others fail due to a naming collision. We recommend you to avoid multiple similarly named VMs in a single bulk restore request or trigger restores in stages to prevent simultaneous execution.
 
 To restore VMs in bulk using the Azure portal, follow these steps:
 

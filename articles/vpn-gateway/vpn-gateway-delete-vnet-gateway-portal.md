@@ -2,10 +2,10 @@
 title: 'Delete a virtual network gateway: portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to delete a virtual network gateway using the Azure portal.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.date: 08/07/2024
-ms.author: cherylmc
+ms.author: duau
 ms.topic: how-to
 # Customer intent: "As a network administrator, I want to delete a virtual network gateway, so that I can remove unused resources and potentially reconfigure my network setup."
 ---
@@ -25,7 +25,7 @@ This article helps you delete a virtual network gateway. There are a couple of d
 
 To delete a virtual network gateway, you must first delete each resource that pertains to the virtual network gateway. Resources must be deleted in a certain order due to dependencies.
 
-[!INCLUDE [delete gateway](../../includes/vpn-gateway-delete-vnet-gateway-portal-include.md)]
+[!INCLUDE [delete gateway](../networking/includes/vpn-gateway/delete-vnet-gateway-portal.md)]
 
 At this point, the virtual network gateway is deleted.
 

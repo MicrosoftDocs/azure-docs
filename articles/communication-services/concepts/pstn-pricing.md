@@ -2,8 +2,8 @@
 title: Pricing for PSTN
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' Telephony Pricing Model.
-author: sadas
-ms.author: sadas
+author: henikaraa
+ms.author: henikaraa
 ms.date: 1/28/2022
 ms.topic: reference
 ms.service: azure-communication-services

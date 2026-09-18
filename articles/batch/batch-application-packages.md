@@ -2,7 +2,7 @@
 title: Deploy application packages to compute nodes
 description: Learn how to use the application packages feature of Azure Batch to easily manage multiple applications and versions for installation on Batch compute nodes.
 ms.topic: how-to
-ms.date: 01/12/2026
+ms.date: 05/22/2026
 ms.devlang: csharp
 ms.custom: H1Hack27Feb2017, devx-track-csharp
 # Customer intent: As a developer, I want to manage application packages in Azure Batch, so that I can deploy multiple application versions to compute nodes efficiently and simplify my deployment process.
@@ -13,7 +13,10 @@ Application packages can simplify the code in your Azure Batch solution and make
 
 The APIs for creating and managing application packages are part of the [Batch Management .NET](batch-management-dotnet.md) library. The APIs for installing application packages on a compute node are part of the [Batch .NET](quick-run-dotnet.md) library. Comparable features are in the available Batch APIs for other programming languages.
 
-This article explains how to upload and manage application packages in the Azure portal. It also shows how to install them on a pool's compute nodes with the [Batch .NET](quick-run-dotnet.md) library.
+This article describes the supported upload workflow for application packages, explains how to upload and manage them in the Azure portal, and shows how to install them on a pool's compute nodes with the [Batch .NET](quick-run-dotnet.md) library.
+
+> [!IMPORTANT]
+> Starting in May 2026, a security improvement affects programmatic application package uploads through Azure PowerShell, Batch Management SDK, and Batch Management REST API. Review [Supported upload workflow](#supported-upload-workflow) before you upload new application packages. Azure portal, Azure CLI, and Batch Explorer users aren't affected.
 
 ## Application package requirements
 
@@ -51,7 +54,7 @@ With application packages, your pool's start task doesn't have to specify a long
 
 ## Upload and manage applications
 
-You can use the [Azure portal](https://portal.azure.com) or the Batch Management APIs to manage the application packages in your Batch account. The following sections explain how to link a storage account, you learn how to add and manage applications and application packages in the Azure portal.
+The following sections walk through how to link a storage account, describe the supported upload workflow, and show how to add and manage applications and application packages in the Azure portal.
 
 > [!NOTE]
 > While you can define application values in the [Microsoft.Batch/batchAccounts](/azure/templates/microsoft.batch/batchaccounts) resource of an [ARM template](quick-create-template.md), it's not currently possible to use an ARM template to upload application packages to use in your Batch account. You must upload them to your linked storage account as described in [Add a new application](#add-a-new-application).
@@ -60,7 +63,7 @@ You can use the [Azure portal](https://portal.azure.com) or the Batch Management
 
 To use application packages, you must link an [Azure Storage account](accounts.md#azure-storage-accounts) to your Batch account. The Batch service uses the associated storage account to store your application packages. Ideally, you should create a storage account specifically for use with your Batch account.
 
-If you haven't yet configured a storage account, the Azure portal displays a warning the first time you select **Applications** from the left navigation menu in your Batch account. To need to link a storage account to your Batch account:
+If you haven't yet configured a storage account, the Azure portal displays a warning the first time you select **Applications** from the left navigation menu in your Batch account. To link a storage account to your Batch account:
 
 1. Select the **Warning** window that states, "No Storage account configured for this batch account." 
 1. Then choose **Storage Account set...** on the next page. 
@@ -75,6 +78,43 @@ After you link the two accounts, Batch can automatically deploy the packages sto
 
 The Batch service uses Azure Storage to store your application packages as block blobs. You're [charged as normal](https://azure.microsoft.com/pricing/details/storage/) for the block blob data, and the size of each package can't exceed the maximum block blob size. For more information, see [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md). To minimize costs, be sure to consider the size and number of your application packages, and periodically remove deprecated packages.
 
+### Supported upload workflow
+
+You can upload and manage application packages by using the [Azure portal](https://portal.azure.com), Azure CLI, Azure PowerShell, Batch Explorer, Batch Management SDK, or Batch Management REST API.
+
+Starting in May 2026, if you upload application packages programmatically by using Azure PowerShell, Batch Management SDK, Batch Management REST API, or another API-based tool, you must use the supported upload workflow described in this section.
+
+#### Required upload sequence: Create, upload, then Activate
+
+Use the following sequence to upload an application package version:
+
+1. Use [`ApplicationPackage - Create`](/rest/api/batchmanagement/application-package/create) (HTTP `PUT`) to create or update the application package. The response contains `properties.storageUrl`, the URL to which you upload your package file, and `properties.storageUrlExpiry`, which indicates when the URL expires.
+1. Upload your application package file (a .zip file) to that `storageUrl`. The URL points to a block blob in the storage account linked to your Batch account.
+1. Use [`ApplicationPackage - Activate`](/rest/api/batchmanagement/application-package/activate) (HTTP `POST`) to activate the package so it can be used by pools and tasks.
+
+#### Behavior of `storageUrl` and `storageUrlExpiry` in API responses
+
+With this security improvement, Azure Batch returns the upload URL and expiry only in the [`ApplicationPackage - Create`](/rest/api/batchmanagement/application-package/create) (HTTP `PUT`) response. In [`ApplicationPackage - Get`](/rest/api/batchmanagement/application-package/get) (HTTP `GET`) and [`ApplicationPackage - Activate`](/rest/api/batchmanagement/application-package/activate) (HTTP `POST`) responses, `properties.storageUrl` and `properties.storageUrlExpiry` are `null`:
+
+- **API versions later than `2025-06-01`**: `properties.storageUrl` and `properties.storageUrlExpiry` are always `null` in HTTP `GET` and HTTP `POST` responses. You can't opt out of this behavior.
+- **API versions `2025-06-01` and earlier**: Beginning in May 2026, a progressive rollout applies the same behavior. To reduce disruption, Azure Batch temporarily exempts users it detects are still using HTTP `GET` to get the upload URL for upload purposes. Plan to migrate to the supported workflow: use HTTP `PUT` to get the upload URL, upload the package file, and then use HTTP `POST` to activate the application package.
+
+> [!IMPORTANT]
+> If you use API version `2025-06-01` or earlier and are affected during the progressive rollout because your workflow depends on the legacy response shape, [open an Azure support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request). Plan to migrate to the supported upload workflow.
+
+#### How this affects your tooling
+
+The following table summarizes whether you need to take action for each tool.
+
+| Tool | Action required |
+| --- | --- |
+| Azure portal | None. |
+| Azure CLI | None. |
+| Azure PowerShell | Update to Azure PowerShell version **15.2** or later, which includes the **Az.Batch** module version **4.0.1** or later. |
+| Batch Explorer | None. |
+| Batch Management SDK | Review your workflow. If your upload workflow uses HTTP `GET` to get the upload URL, update the workflow to use HTTP `PUT`. For example, in .NET, use `Update()`, upload to the URL, and then use `Activate()`. Don't use `Get()` to get the URL for upload purposes. |
+| Batch Management REST API | Review your workflow. If your upload workflow uses HTTP `GET` to get the upload URL, update the workflow to use HTTP `PUT`. Don't use HTTP `GET` to get the URL for upload purposes. |
+
 ### Add a new application
 
 To create a new application, you add an application package and specify a unique application ID.
@@ -86,7 +126,7 @@ In your Batch account, select **Applications** from the left navigation menu, an
 Enter the following information:
 
 - **Application ID**: The ID of your new application.
-- **Version**": The version for the application package you're uploading.
+- **Version**: The version for the application package you're uploading.
 - **Application package**: The .zip file containing the application binaries and supporting files that are required to run the application.
 
 The **Application ID** and **Version** you enter must follow these requirements:

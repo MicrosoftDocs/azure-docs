@@ -2,23 +2,22 @@
 title: host.json reference for Azure Functions 1.x
 description: Reference documentation for the Azure Functions host.json file with the v1 runtime.
 ms.topic: reference
-ms.date: 10/19/2018
+ms.date: 09/15/2026
 ---
 
 # host.json reference for Azure Functions 1.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
-> * [Version 1](functions-host-json-v1.md)
-> * [Version 2](functions-host-json.md)
+> [!IMPORTANT]
+> [Support ended for version 1.x of the Azure Functions runtime on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). [Migrate your apps to version 4.x](/azure/azure-functions/migrate-version-1-version-4) for full support.
 
 The *host.json* metadata file contains configuration options that affect all functions in a function app instance. This article lists the settings that are available for the version 1.x runtime. The JSON schema is at http://json.schemastore.org/host.
 
 > [!NOTE]
-> This article is for Azure Functions 1.x.  For a reference of host.json in Functions 2.x and later, see [host.json reference for Azure Functions 2.x](functions-host-json.md).
+> This article preserves the *host.json* reference for Azure Functions runtime 1.x. For other historical information, see the [runtime 1.x legacy reference](functions-runtime-1x-legacy.md). For the current *host.json* reference, see [host.json reference for Azure Functions 2.x and later](/azure/azure-functions/functions-host-json).
 
-Other function app configuration options are managed in your [app settings](functions-app-settings.md).
+Other function app configuration options are managed in your [app settings](/azure/azure-functions/functions-app-settings).
 
-Some host.json settings are only used when running locally in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
+Some host.json settings are only used when running locally in the [local.settings.json](/azure/azure-functions/functions-develop-local#local-settings-file) file.
 
 ## Sample host.json file
 
@@ -110,11 +109,43 @@ The following sections of this article explain each top-level property. All are 
 
 ## aggregator
 
-[!INCLUDE [aggregator](../../includes/functions-host-json-aggregator.md)]
+Specifies how many function invocations are aggregated when [calculating metrics for Application Insights](/azure/azure-functions/configure-monitoring#configure-the-aggregator).
+
+```json
+{
+    "aggregator": {
+        "batchSize": 1000,
+        "flushTimeout": "00:00:30"
+    }
+}
+```
+
+| Property | Default | Description |
+| --- | --- | --- |
+| `batchSize` | 1000 | Maximum number of requests to aggregate. |
+| `flushTimeout` | 00:00:30 | Maximum time period to aggregate. |
+
+Function invocations are aggregated when the first of the two limits is reached.
 
 ## applicationInsights
 
-[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+Controls the [sampling feature in Application Insights](/azure/azure-functions/configure-monitoring#configure-sampling).
+
+```json
+{
+        "applicationInsights": {
+                "sampling": {
+                    "isEnabled": true,
+                    "maxTelemetryItemsPerSecond" : 5
+                }
+        }
+}
+```
+
+| Property | Default | Description |
+| --- | --- | --- |
+| `isEnabled` | true | Enables or disables sampling. |
+| `maxTelemetryItemsPerSecond` | 5 | The threshold at which sampling begins. |
 
 ## DocumentDB
 
@@ -140,15 +171,17 @@ Configuration settings for the [Azure Cosmos DB trigger and bindings](functions-
 
 ## durableTask
 
-[!INCLUDE [durabletask](../../includes/functions-host-json-durabletask.md)]
+Configuration settings for [Durable Functions](/azure/azure-functions/durable-functions-overview).
+
+In Azure Functions runtime 1.x, the `durableTask` section is at the root of the *host.json* file. The available settings depend on the version of the Durable Functions extension. For the current configuration reference, see [Durable Functions host.json settings](/azure/azure-functions/durable-functions-bindings#hostjson-settings).
 
 ## eventHub
 
-Configuration settings for [Event Hub triggers and bindings](functions-bindings-event-hubs.md?tabs=functionsv1#hostjson-settings).
+Configuration settings for [Event Hub triggers and bindings](/azure/azure-functions/functions-bindings-event-hubs#hostjson-settings).
 
 ## functions
 
-A list of functions that the job host runs. An empty array means run all functions. Intended for use only when [running locally](functions-run-local.md). In function apps in Azure, you should instead follow the steps in [How to disable functions in Azure Functions](disable-function.md) to disable specific functions rather than using this setting.
+A list of functions that the job host runs. An empty array means run all functions. Intended for use only when [running locally](/azure/azure-functions/functions-run-local). In function apps in Azure, you should instead follow the steps in [How to disable functions in Azure Functions](/azure/azure-functions/disable-function) to disable specific functions rather than using this setting.
 
 ```json
 {
@@ -192,7 +225,7 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 
 ## http
 
-Configuration settings for [http triggers and bindings](functions-bindings-http-webhook.md).
+Configuration settings for [HTTP triggers and bindings](/azure/azure-functions/functions-bindings-http-webhook).
 
 ```json
 {
@@ -226,7 +259,7 @@ If you share a Storage account across multiple function apps, make sure that eac
 
 ## logger
 
-Controls filtering for logs written by an [ILogger](functions-dotnet-class-library.md#ilogger) object or by [context.log](functions-reference-node.md#contextlog-method).
+Controls filtering for logs written by an [ILogger](/azure/azure-functions/functions-dotnet-class-library#ilogger) object or by [context.log](/azure/azure-functions/functions-reference-node#logging).
 
 ```json
 {
@@ -251,7 +284,7 @@ Controls filtering for logs written by an [ILogger](functions-dotnet-class-libra
 
 ## queues
 
-Configuration settings for [Storage queue triggers and bindings](functions-bindings-storage-queue.md).
+Configuration settings for [Storage queue triggers and bindings](/azure/azure-functions/functions-bindings-storage-queue).
 
 ```json
 {
@@ -275,7 +308,7 @@ Configuration settings for [Storage queue triggers and bindings](functions-bindi
 
 ## SendGrid
 
-Configuration setting for the [SendGrind output binding](functions-bindings-sendgrid.md)
+Configuration setting for the [SendGrid output binding](/azure/azure-functions/functions-bindings-sendgrid).
 
 ```json
 {
@@ -291,7 +324,7 @@ Configuration setting for the [SendGrind output binding](functions-bindings-send
 
 ## serviceBus
 
-Configuration setting for [Service Bus triggers and bindings](functions-bindings-service-bus.md).
+Configuration setting for [Service Bus triggers and bindings](/azure/azure-functions/functions-bindings-service-bus).
 
 ```json
 { 
@@ -357,7 +390,7 @@ Configuration settings for logs that you create by using a `TraceWriter` object.
 
 ## watchDirectories
 
-A set of [shared code directories](functions-reference-csharp.md#watched-directories) that should be monitored for changes.  Ensures that when code in these directories is changed, the changes are picked up by your functions.
+A set of [shared code directories](/azure/azure-functions/functions-reference-csharp#watched-directories) that should be monitored for changes. Ensures that when code in these directories is changed, the changes are picked up by your functions.
 
 ```json
 {
@@ -368,7 +401,7 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to update the host.json file](functions-reference.md#fileupdate)
+> [Learn how to update the host.json file](/azure/azure-functions/functions-reference#fileupdate)
 
 > [!div class="nextstepaction"]
-> [Persist settings in environment variables](functions-app-settings.md)
+> [Persist settings in environment variables](/azure/azure-functions/functions-app-settings)

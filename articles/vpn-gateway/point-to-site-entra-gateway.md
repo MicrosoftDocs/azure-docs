@@ -2,11 +2,11 @@
 title: 'Configure P2S VPN gateway for Microsoft Entra ID authentication: Microsoft-registered client'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure P2S gateway settings and Microsoft Entra ID authentication using Microsoft-registered Azure VPN Client.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 02/13/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom:
   - linux-related-content
   - sfi-image-nochange
@@ -87,8 +87,8 @@ This article assumes the following prerequisites:
 
      * `https://sts.windows.net/{Microsoft ID Entra Tenant ID}/`
 
-1. You don't need to click **Grant administrator consent for Azure VPN client application**. This link is only for manually registered VPN clients that use the older Audience values. It opens a page in the Azure portal.
-1. Once you finish configuring settings, click **Save** at the top of the page.
+1. You don't need to select **Grant administrator consent for Azure VPN client application**. This link is only for manually registered VPN clients that use the older Audience values. It opens a page in the Azure portal.
+1. When you finish configuring settings, select **Save** at the top of the page.
 
 ## <a name="download"></a>Download the VPN client profile configuration package
 
@@ -102,8 +102,4 @@ Next, you examine the profile configuration package, configure the Azure VPN Cli
 
 ## Next steps
 
-Configure the Azure VPN Client.
-
-* [Azure VPN Client for Linux](point-to-site-entra-vpn-client-linux.md)
-* [Azure VPN Client for Windows](point-to-site-entra-vpn-client-windows.md)
-* [Azure VPN Client for macOS](point-to-site-entra-vpn-client-mac.md)
+Configure the Azure VPN Client. See [Configure a VPN client for P2S Microsoft Entra ID authentication connections](point-to-site-entra-vpn-client.md).

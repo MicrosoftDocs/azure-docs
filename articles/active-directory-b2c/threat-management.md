@@ -6,7 +6,7 @@ description: Learn about detection and mitigation techniques for credential atta
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 09/20/2021

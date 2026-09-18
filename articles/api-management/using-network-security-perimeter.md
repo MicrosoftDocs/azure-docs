@@ -4,8 +4,6 @@ description: Step-by-step guidance to secure an Azure service backend with a net
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/27/2026
-author: dlepow
-ms.author: danlep
 ai-usage: ai-assisted
 ---
 

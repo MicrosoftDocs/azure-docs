@@ -1,6 +1,48 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-protect-sensitive-data.md",
+            "redirect_url": "/azure/frontdoor/sensitive-data-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/sensitive-data-protection.md",
+            "redirect_url": "/azure/frontdoor/sensitive-data-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/tls-policy.md",
+            "redirect_url": "/azure/frontdoor/tls-policy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/tls-policy-configure.md",
+            "redirect_url": "/azure/frontdoor/tls-policy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/troubleshoot-cross-origin-resources.md",
+            "redirect_url": "/azure/frontdoor/cross-origin-resource-sharing",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/front-door-how-to-onboard-apex-domain.md",
+            "redirect_url": "/azure/frontdoor/apex-domain-onboard",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-cache-purge-cli.md",
+            "redirect_url": "/azure/frontdoor/cache-purge",
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-cache-purge-powershell.md",
+            "redirect_url": "/azure/frontdoor/cache-purge",
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-cache-purge.md",
+            "redirect_url": "/azure/frontdoor/cache-purge",
+        },
+        {
             "source_path_from_root": "/articles/frontdoor/troubleshoot-issues.md",
             "redirect_url": "/troubleshoot/azure/front-door/troubleshoot-issues",
         },
@@ -28,6 +70,11 @@
         },
         {
             "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-enable-private-link-web-app-cli.md",
+            "redirect_url": "/azure/frontdoor/standard-premium/how-to-enable-private-link-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-enable-private-link-web-app-powershell.md",
             "redirect_url": "/azure/frontdoor/standard-premium/how-to-enable-private-link-web-app",
             "redirect_document_id": false
         },

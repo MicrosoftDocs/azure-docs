@@ -13,6 +13,8 @@ ms.date: 05/15/2024
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 The following table includes links to sample Azure PowerShell scripts for Azure Data Factory.
 
 | Script | Description  |

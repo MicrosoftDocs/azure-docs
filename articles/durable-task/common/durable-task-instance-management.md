@@ -14,22 +14,26 @@ zone_pivot_groups: azure-durable-approach
 
 # Manage orchestration instances
 
-Use the built-in instance management APIs to start, query, terminate, suspend, resume, and purge orchestration instances in your durable workflows. In [Durable Functions](what-is-durable-task.md), the [orchestration client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) exposes these APIs. In the [Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md), the same operations are available through the `DurableTaskClient` class. This article shows how to perform each instance management operation with code examples for both platforms.
+Use the built-in instance management APIs to start, query, terminate, suspend, resume, and purge orchestration instances in your durable workflows. In [Durable Functions](what-is-durable-task.md), the [orchestration client binding](../durable-functions/durable-functions-bindings.md#orchestration-client) exposes these APIs. In the [Durable Task SDKs](../sdks/quickstart-portable-durable-task-sdks.md), the same operations are available through the `DurableTaskClient` class. This article shows how to perform each instance management operation with code examples for both platforms.
 
 > [!TIP]
 > The [Azure Durable Task Scheduler](what-is-durable-task.md) is the recommended backend for both Durable Functions and the Durable Task SDKs, providing a fully managed, serverless experience for running durable workflows at scale.
 
 ## Start instances
 
-The *start-new* (or *schedule-new*) method on the orchestration client starts a new orchestration instance. Internally, this method writes a message to the configured backend (such as the Durable Task Scheduler or Azure Storage) and then returns. This message asynchronously triggers the start of an orchestration with the specified name.
+The *start-new* (or *schedule-new*) method on the orchestration client starts a new orchestration instance. Internally, this method writes a message to the configured backend (such as the Durable Task Scheduler) and then returns. This message asynchronously triggers the start of an orchestration with the specified name.
 
 Here are the parameters for starting a new orchestration instance:
 
 ::: zone pivot="durable-functions"
 
-* **Name**: The name of the orchestrator function to schedule.
-* **Input**: Any JSON-serializable data that should be passed as the input to the orchestrator function.
-* **InstanceId**: (Optional) The unique ID of the instance. If you don't specify this parameter, the method uses a random ID.
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
+| Parameter | Description |
+| --- | --- |
+| **Name** | The name of the orchestrator function to schedule. |
+| **Input** | Any JSON-serializable data that should be passed as the input to the orchestrator function. |
+| **InstanceId** | (Optional) The unique ID of the instance. If you don't specify this parameter, the method uses a random ID. |
 
 > [!TIP]
 > Use a random identifier for the instance ID whenever possible. Random instance IDs help ensure an equal load distribution when you scale orchestrator functions across multiple VMs. The proper time to use nonrandom instance IDs is when the ID comes from an external source or when you're implementing the [singleton orchestrator](durable-task-singletons.md) pattern.
@@ -38,9 +42,11 @@ Here are the parameters for starting a new orchestration instance:
 
 ::: zone pivot="durable-task-sdks"
 
-* **Name**: The name of the orchestration to schedule.
-* **Input**: Any JSON-serializable data that should be passed as input to the orchestration.
-* **InstanceId**: (Optional) The unique ID of the instance. If you don't specify this parameter, the method uses a random ID.
+| Parameter | Description |
+| --- | --- |
+| **Name** | The name of the orchestration to schedule. |
+| **Input** | Any JSON-serializable data that should be passed as input to the orchestration. |
+| **InstanceId** | (Optional) The unique ID of the instance. If you don't specify this parameter, the method uses a random ID. |
 
 > [!TIP]
 > Use a random identifier for the instance ID whenever possible. Random instance IDs help ensure an equal load distribution when you scale orchestrations across multiple VMs. The proper time to use nonrandom instance IDs is when the ID comes from an external source or when you're implementing the [singleton orchestrator](durable-task-singletons.md) pattern.
@@ -52,6 +58,29 @@ Here are the parameters for starting a new orchestration instance:
 The following example function starts a new orchestration instance:
 
 # [C#](#tab/csharp)
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("HelloWorldQueueTrigger")]
+public static async Task Run(
+    [QueueTrigger("start-queue")] string input,
+    [DurableClient] DurableTaskClient client,
+    FunctionContext functionContext)
+{
+    string instanceId = await client.ScheduleNewOrchestrationInstanceAsync("HelloWorld", input);
+    functionContext.GetLogger("HelloWorldQueueTrigger")
+        .LogInformation("Started orchestration with ID = '{InstanceId}'.", instanceId);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
 
 ```csharp
 [FunctionName("HelloWorldQueueTrigger")]
@@ -65,8 +94,9 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](../../azure-functions/durable-functions/durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -313,49 +343,53 @@ It takes an `instanceId` (required), `showHistory` (optional), `showHistoryOutpu
 
 The method returns an object with the following properties:
 
-* **Name**: The name of the orchestrator function.
-* **InstanceId**: The instance ID of the orchestration (should be the same as the `instanceId` input).
-* **CreatedTime**: The time at which the orchestrator function starts running.
-* **LastUpdatedTime**: The time at which the orchestration last checkpoints.
-* **Input**: The input of the function as a JSON value. This field isn't populated if `showInput` is `false`.
-* **CustomStatus**: Custom orchestration status in JSON format.
-* **Output**: The output of the function as a JSON value (if the function completes). If the orchestrator function fails, this property includes the failure details. If the orchestrator function is suspended or terminated, this property includes the reason for the suspension or termination (if any).
-* **RuntimeStatus**: One of the following values:
-  * **Pending**: The instance is scheduled but hasn't yet started running.
-  * **Running**: The instance is running.
-  * **Completed**: The instance completed normally.
-  * **ContinuedAsNew**: The instance restarted itself with a new history. This state is a transient state.
-  * **Failed**: The instance failed with an error.
-  * **Terminated**: The instance stopped abruptly.
-  * **Suspended**: The instance is suspended and can be resumed at a later point in time.
-* **History**: The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`.
+| Property | Description |
+| --- | --- |
+| **Name** | The name of the orchestrator function. |
+| **InstanceId** | The instance ID of the orchestration (should be the same as the `instanceId` input). |
+| **CreatedTime** | The time at which the orchestrator function starts running. |
+| **LastUpdatedTime** | The time at which the orchestration last checkpoints. |
+| **Input** | The input of the function as a JSON value. This field isn't populated if `showInput` is `false`. |
+| **CustomStatus** | Custom orchestration status in JSON format. |
+| **Output** | The output of the function as a JSON value (if the function completes). If the orchestrator function fails, this property includes the failure details. If the orchestrator function is suspended or terminated, this property includes the reason for the suspension or termination (if any). |
+| **RuntimeStatus: Pending** | The instance is scheduled but hasn't yet started running. |
+| **RuntimeStatus: Running** | The instance is running. |
+| **RuntimeStatus: Completed** | The instance completed normally. |
+| **RuntimeStatus: ContinuedAsNew** | The instance restarted itself with a new history. This state is a transient state. |
+| **RuntimeStatus: Failed** | The instance failed with an error. |
+| **RuntimeStatus: Terminated** | The instance stopped abruptly. |
+| **RuntimeStatus: Suspended** | The instance is suspended and can be resumed later. |
+| **History** | The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`. |
 
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 
-* **`showHistory`**: If set to `true`, the response contains the execution history.
-* **`showHistoryOutput`**: If set to `true`, the execution history contains activity outputs.
-* **`showInput`**: If set to `false`, the response doesn't contain the input of the orchestration. The default value is `true`.
+| Parameter | Description |
+| --- | --- |
+| **`showHistory`** | If set to `true`, the response contains the execution history. |
+| **`showHistoryOutput`** | If set to `true`, the execution history contains activity outputs. |
+| **`showInput`** | If set to `false`, the response doesn't contain the input of the orchestration. The default value is `true`. |
 
 The method returns an object with the following properties:
 
-* **Name**: The name of the orchestration.
-* **InstanceId**: The instance ID of the orchestration (should be the same as the `instanceId` input).
-* **CreatedTime**: The time at which the orchestration starts running.
-* **LastUpdatedTime**: The time at which the orchestration last checkpoints.
-* **Input**: The input of the orchestration as a JSON value. This field isn't populated if `showInput` is `false`.
-* **CustomStatus**: Custom orchestration status in JSON format.
-* **Output**: The output of the orchestration as a JSON value (if the orchestration completes). If the orchestration fails, this property includes the failure details. If the orchestration is suspended or terminated, this property includes the reason for the suspension or termination (if any).
-* **RuntimeStatus**: One of the following values:
-  * **Pending**: The instance is scheduled but hasn't yet started running.
-  * **Running**: The instance is running.
-  * **Completed**: The instance completed normally.
-  * **ContinuedAsNew**: The instance restarted itself with a new history. This state is a transient state.
-  * **Failed**: The instance failed with an error.
-  * **Terminated**: The instance stopped abruptly.
-  * **Suspended**: The instance is suspended and can be resumed at a later point in time.
-* **History**: The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`.
+| Property | Description |
+| --- | --- |
+| **Name** | The name of the orchestration. |
+| **InstanceId** | The instance ID of the orchestration (should be the same as the `instanceId` input). |
+| **CreatedTime** | The time at which the orchestration starts running. |
+| **LastUpdatedTime** | The time at which the orchestration last checkpoints. |
+| **Input** | The input of the orchestration as a JSON value. This field isn't populated if `showInput` is `false`. |
+| **CustomStatus** | Custom orchestration status in JSON format. |
+| **Output** | The output of the orchestration as a JSON value (if the orchestration completes). If the orchestration fails, this property includes the failure details. If the orchestration is suspended or terminated, this property includes the reason for the suspension or termination (if any). |
+| **RuntimeStatus: Pending** | The instance is scheduled but hasn't yet started running. |
+| **RuntimeStatus: Running** | The instance is running. |
+| **RuntimeStatus: Completed** | The instance completed normally. |
+| **RuntimeStatus: ContinuedAsNew** | The instance restarted itself with a new history. This state is a transient state. |
+| **RuntimeStatus: Failed** | The instance failed with an error. |
+| **RuntimeStatus: Terminated** | The instance stopped abruptly. |
+| **RuntimeStatus: Suspended** | The instance is suspended and can be resumed at a later point in time. |
+| **History** | The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`. |
 
 ::: zone-end
 
@@ -368,6 +402,29 @@ This method returns `null` (.NET and Java), `undefined` (JavaScript), or `None` 
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("GetStatus")]
+public static async Task Run(
+    [DurableClient] DurableTaskClient client,
+    [QueueTrigger("check-status-queue")] string instanceId)
+{
+    OrchestrationMetadata? metadata = await client.GetInstanceAsync(
+        instanceId,
+        getInputsAndOutputs: true);
+    // Do something based on the current status.
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("GetStatus")]
 public static async Task Run(
@@ -379,8 +436,9 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](../../azure-functions/durable-functions/durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -523,6 +581,34 @@ You can use APIs in your language SDK to query the statuses of all orchestration
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("GetAllStatus")]
+public static async Task Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData request,
+    [DurableClient] DurableTaskClient client,
+    FunctionContext functionContext)
+{
+    ILogger logger = functionContext.GetLogger("GetAllStatus");
+    AsyncPageable<OrchestrationMetadata> instances = client.GetAllInstancesAsync(
+        new OrchestrationQuery());
+
+    await foreach (OrchestrationMetadata instance in instances)
+    {
+        logger.LogInformation("{Instance}", instance);
+    }
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("GetAllStatus")]
 public static async Task Run(
@@ -545,8 +631,9 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](../../azure-functions/durable-functions/durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -587,7 +674,7 @@ For the function.json configuration, see [Start instances](#python-function-json
 
 # [PowerShell](#tab/powershell)
 > [!NOTE]
-> PowerShell doesn't currently support this feature, but you can achieve it by using the [Durable Functions HTTP API](../../azure-functions/durable-functions/durable-functions-http-api.md).
+> PowerShell doesn't currently support this feature, but you can achieve it by using the [Durable Functions HTTP API](../durable-functions/durable-functions-http-api.md).
 
 # [Java](#tab/java)
 
@@ -681,6 +768,43 @@ What if you don't need all the information that a standard instance query provid
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("QueryStatus")]
+public static async Task Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestData request,
+    [DurableClient] DurableTaskClient client,
+    FunctionContext functionContext)
+{
+    ILogger logger = functionContext.GetLogger("QueryStatus");
+    var query = new OrchestrationQuery
+    {
+        Statuses = new[]
+        {
+            OrchestrationRuntimeStatus.Pending,
+            OrchestrationRuntimeStatus.Running,
+        },
+        CreatedFrom = DateTime.UtcNow.Subtract(TimeSpan.FromDays(7)),
+        CreatedTo = DateTime.UtcNow.Subtract(TimeSpan.FromDays(1)),
+        PageSize = 100,
+    };
+
+    await foreach (OrchestrationMetadata instance in client.GetAllInstancesAsync(query))
+    {
+        logger.LogInformation("{Instance}", instance);
+    }
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("QueryStatus")]
 public static async Task Run(
@@ -711,8 +835,9 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](../../azure-functions/durable-functions/durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -766,7 +891,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 # [PowerShell](#tab/powershell)
 > [!NOTE]
-> This feature isn't currently supported in PowerShell, but you can achieve it by using the [Durable Functions HTTP API](../../azure-functions/durable-functions/durable-functions-http-api.md).
+> This feature isn't currently supported in PowerShell, but you can achieve it by using the [Durable Functions HTTP API](../durable-functions/durable-functions-http-api.md).
 
 # [Java](#tab/java)
 
@@ -894,6 +1019,27 @@ The two parameters for the terminate API are an *instance ID* and a *reason* str
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("TerminateInstance")]
+public static Task Run(
+    [DurableClient] DurableTaskClient client,
+    [QueueTrigger("terminate-queue")] string instanceId)
+{
+    string reason = "Found a bug";
+    return client.TerminateInstanceAsync(instanceId, reason);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("TerminateInstance")]
 public static Task Run(
@@ -905,8 +1051,9 @@ public static Task Run(
 }
 ```
 
-> [!NOTE]
-> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](../../azure-functions/durable-functions/durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -1028,6 +1175,32 @@ The two parameters for the suspend API are an instance ID and a reason string, w
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("SuspendResumeInstance")]
+public static async Task Run(
+    [DurableClient] DurableTaskClient client,
+    [QueueTrigger("suspend-resume-queue")] string instanceId)
+{
+    // To suspend an orchestration
+    string suspendReason = "Need to pause workflow";
+    await client.SuspendInstanceAsync(instanceId, suspendReason);
+
+    // To resume an orchestration
+    string resumeReason = "Continue workflow";
+    await client.ResumeInstanceAsync(instanceId, resumeReason);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("SuspendResumeInstance")]
 public static async Task Run(
@@ -1043,6 +1216,10 @@ public static async Task Run(
     await client.ResumeAsync(instanceId, resumeReason);
 }
 ```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -1098,7 +1275,7 @@ Resume-DurableOrchestration -InstanceId $InstanceId -Reason $ResumeReason
 ```
 
 > [!NOTE]
-> This feature is available in the standalone [Durable Functions PowerShell SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) only. See the difference between the standalone SDK and the legacy built-in SDK along with [migration guide](../../azure-functions/durable-functions/durable-functions-powershell-v2-sdk-migration-guide.md).
+> This feature is available in the standalone [Durable Functions PowerShell SDK](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK) only. See the difference between the standalone SDK and the legacy built-in SDK along with [migration guide](../durable-functions/durable-functions-powershell-v2-sdk-migration-guide.md).
 
 # [Java](#tab/java)
 
@@ -1220,6 +1397,27 @@ The parameters for *raise event* are:
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("RaiseEvent")]
+public static Task Run(
+    [DurableClient] DurableTaskClient client,
+    [QueueTrigger("event-queue")] string instanceId)
+{
+    int[] eventData = new int[] { 1, 2, 3 };
+    return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("RaiseEvent")]
 public static Task Run(
@@ -1231,8 +1429,9 @@ public static Task Run(
 }
 ```
 
-> [!NOTE]
-> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](../../azure-functions/durable-functions/durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -1356,7 +1555,41 @@ Here's an example HTTP-trigger function that demonstrates how to use this API:
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("HttpSyncStart")]
+public static async Task<HttpResponseData> Run(
+    [HttpTrigger(
+        AuthorizationLevel.Function,
+        "post",
+        Route = "orchestrators/{functionName}/wait")] HttpRequestData request,
+    [DurableClient] DurableTaskClient client,
+    string functionName)
+{
+    string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(functionName);
+
+    using var timeoutCancellation = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+    return await client.WaitForCompletionOrCreateCheckStatusResponseAsync(
+        request,
+        instanceId,
+        timeoutCancellation.Token);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -1546,7 +1779,7 @@ Transfer-Encoding: chunked
 ]
 ```
 
-* The orchestration instances can't finish within the defined timeout, and the response is the default one described in [HTTP API URL discovery](../../azure-functions/durable-functions/durable-functions-http-api.md):
+* The orchestration instances can't finish within the defined timeout, and the response is the default one described in [HTTP API URL discovery](../durable-functions/durable-functions-http-api.md):
 
 ```http
 HTTP/1.1 202 Accepted
@@ -1573,7 +1806,7 @@ Transfer-Encoding: chunked
 
 ## Retrieve HTTP management webhook URLs for orchestration instances
 
-Use an external system to monitor or raise events to an orchestration. External systems communicate with Durable Functions through the webhook URLs that are part of the default response described in [HTTP API URL discovery](../../azure-functions/durable-functions/durable-functions-http-features.md#http-api-url-discovery). The webhook URLs are alternatively accessible programmatically using the [orchestration client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client). Specifically, the *create HTTP management payload* API gets a serializable object that contains these webhook URLs.
+Use an external system to monitor or raise events to an orchestration. External systems communicate with Durable Functions through the webhook URLs that are part of the default response described in [HTTP API URL discovery](../durable-functions/durable-functions-http-features.md#http-api-url-discovery). The webhook URLs are alternatively accessible programmatically using the [orchestration client binding](../durable-functions/durable-functions-bindings.md#orchestration-client). Specifically, the *create HTTP management payload* API gets a serializable object that contains these webhook URLs.
 
 The *create HTTP management payload* API has one parameter:
 
@@ -1593,6 +1826,33 @@ Functions send instances of these objects to external systems to monitor or rais
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("SendInstanceInfo")]
+[CosmosDBOutput(
+    databaseName: "MonitorDB",
+    containerName: "HttpManagementPayloads",
+    Connection = "CosmosDBConnectionSetting")]
+public static object SendInstanceInfo(
+    [ActivityTrigger] TaskActivityContext context,
+    [DurableClient] DurableTaskClient client)
+{
+    HttpManagementPayload payload = client.CreateHttpManagementPayload(context.InstanceId);
+
+    // Send the payload to Azure Cosmos DB.
+    return new { Payload = payload, id = context.InstanceId };
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("SendInstanceInfo")]
 public static void SendInstanceInfo(
@@ -1610,8 +1870,9 @@ public static void SendInstanceInfo(
 }
 ```
 
-> [!NOTE]
-> The previous C# code uses the in-process model with `IDurableOrchestrationClient` and `IDurableActivityContext`, which are marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](../../azure-functions/durable-functions/durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -1680,7 +1941,7 @@ If you have an orchestration failure for an unexpected reason, *rewind* the inst
 > [!NOTE]
 > This API isn't intended to be a replacement for proper error handling and retry policies. Rather, it's intended to be used only in cases where orchestration instances fail for unexpected reasons. Orchestrations in states other than `Failed` (for example, `Running`, `Pending`, `Terminated`, or `Completed`) can't be "rewound". For more information about error handling and retry policies, see the [Error handling](durable-task-error-handling.md) article.
 
-Use the `RewindAsync` (.NET) or `rewind` (JavaScript) method of the [orchestration client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) to put the orchestration back into the *Running* state. This method also reruns the activity or suborchestration execution failures that caused the orchestration failure.
+Use the `RewindAsync` (.NET) or `rewind` (JavaScript) method of the [orchestration client binding](../durable-functions/durable-functions-bindings.md#orchestration-client) to put the orchestration back into the *Running* state. This method also reruns the activity or suborchestration execution failures that caused the orchestration failure.
 
 For example, say you have a workflow involving a series of [human approvals](durable-task-human-interaction.md). Suppose a series of activity functions notify someone that their approval is needed and wait out the real-time response. After all the approval activities receive responses or time out, suppose another activity fails because of an application misconfiguration, like an invalid database connection string. The result is an orchestration failure deep into the workflow. With the `RewindAsync` (.NET) or `rewind` (JavaScript) API, an application admin can fix the configuration error and rewind the failed orchestration back to the state immediately before the failure. None of the human-interaction steps need to be re-approved, and the orchestration can now complete successfully.
 
@@ -1690,6 +1951,27 @@ For example, say you have a workflow involving a series of [human approvals](dur
 ::: zone pivot="durable-functions"
 
 # [C#](#tab/csharp)
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("RewindInstance")]
+public static Task Run(
+    [DurableClient] DurableTaskClient client,
+    [QueueTrigger("rewind-queue")] string instanceId)
+{
+    string reason = "Orchestrator failed and needs to be revived.";
+    return client.RewindInstanceAsync(instanceId, reason);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
 
 ```csharp
 [FunctionName("RewindInstance")]
@@ -1702,8 +1984,9 @@ public static Task Run(
 }
 ```
 
-> [!NOTE]
-> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](../../azure-functions/durable-functions/durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -1811,6 +2094,26 @@ Restarting an orchestration creates a new instance using the history of a previo
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("RestartInstance")]
+public static Task<string?> Run(
+    [DurableClient] DurableTaskClient client,
+    [QueueTrigger("restart-queue")] string instanceId)
+{
+    return client.RestartAsync(instanceId, restartWithNewInstanceId: true);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("RestartInstance")]
 public static Task Run(
@@ -1821,8 +2124,9 @@ public static Task Run(
 }
 ```
 
-> [!NOTE]
-> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](../../azure-functions/durable-functions/durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -1896,13 +2200,33 @@ This sample is shown for .NET and JavaScript only.
 
 ## Purge orchestration instance history
 
-To remove all the data associated with an orchestration, purge the instance history. For example, delete any storage resources associated with a completed instance. Use the *purge instance* API defined by the [orchestration client](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client).
+To remove all the data associated with an orchestration, purge the instance history. For example, delete any storage resources associated with a completed instance. Use the *purge instance* API defined by the [orchestration client](../durable-functions/durable-functions-bindings.md#orchestration-client).
 
 The following example shows how to purge a single orchestration instance.
 
 ::: zone pivot="durable-functions"
 
 # [C#](#tab/csharp)
+
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("PurgeInstanceHistory")]
+public static async Task Run(
+    [DurableClient] DurableTaskClient client,
+    [QueueTrigger("purge-queue")] string instanceId)
+{
+    await client.PurgeInstanceAsync(instanceId);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -1913,6 +2237,10 @@ public static Task Run(
     return client.PurgeInstanceHistoryAsync(instanceId);
 }
 ```
+
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -1942,7 +2270,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 # [PowerShell](#tab/powershell)
 
 > [!NOTE]
-> This feature is currently not supported in PowerShell, but can be achieved using the [Durable Functions HTTP API](../../azure-functions/durable-functions/durable-functions-http-api.md).
+> This feature is currently not supported in PowerShell, but can be achieved using the [Durable Functions HTTP API](../durable-functions/durable-functions-http-api.md).
 
 # [Java](#tab/java)
 
@@ -2028,6 +2356,31 @@ The following example shows a timer-triggered function that purges the history f
 
 # [C#](#tab/csharp)
 
+<details>
+<summary><b>Isolated worker model</b></summary>
+
+```csharp
+[Function("PurgeInstanceHistory")]
+public static async Task Run(
+    [DurableClient] DurableTaskClient client,
+    [TimerTrigger("0 0 12 * * *")] TimerInfo myTimer)
+{
+    var filter = new PurgeInstancesFilter(
+        CreatedFrom: DateTime.MinValue,
+        CreatedTo: DateTime.UtcNow.AddDays(-30),
+        Statuses: new[] { OrchestrationRuntimeStatus.Completed });
+
+    await client.PurgeAllInstancesAsync(filter);
+}
+```
+
+</details>
+
+<br>
+
+<details>
+<summary><b>In-process model</b></summary>
+
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
@@ -2044,8 +2397,9 @@ public static Task Run(
 }
 ```
 
-> [!NOTE]
-> The previous C# code uses the in-process model with `IDurableOrchestrationClient`, which is marked as obsolete in newer versions of the Durable Functions extension. For new .NET projects, consider using the [.NET isolated worker model](../../azure-functions/durable-functions/durable-functions-dotnet-isolated-overview.md) with `DurableTaskClient`. For more information, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+</details>
+
+<br>
 
 # [JavaScript](#tab/javascript)
 
@@ -2092,7 +2446,7 @@ module.exports = async function (context, myTimer) {
 # [PowerShell](#tab/powershell)
 
 > [!NOTE]
-> This feature is currently not supported in PowerShell, but can be achieved using the [Durable Functions HTTP API](../../azure-functions/durable-functions/durable-functions-http-api.md).
+> This feature is currently not supported in PowerShell, but can be achieved using the [Durable Functions HTTP API](../durable-functions/durable-functions-http-api.md).
 
 # [Python](#tab/python)
 
@@ -2218,10 +2572,10 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 
 ::: zone pivot="durable-functions"
 > [!div class="nextstepaction"]
-> [Handle versioning](../../azure-functions/durable-functions/durable-functions-versioning.md)
+> [Handle versioning](../durable-functions/durable-functions-versioning.md)
 
 > [!div class="nextstepaction"]
-> [Built-in HTTP API reference for instance management](../../azure-functions/durable-functions/durable-functions-http-api.md)
+> [Built-in HTTP API reference for instance management](../durable-functions/durable-functions-http-api.md)
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"

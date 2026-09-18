@@ -6,6 +6,8 @@
       href: ddos-protection-overview.md
     - name: Azure DDoS Protection features
       href: ddos-protection-features.md
+    - name: DDoS custom policy overview
+      href: ddos-custom-policy-overview.md
     - name: Tier comparison
       href: ddos-protection-sku-comparison.md
     - name: Price comparison
@@ -45,6 +47,15 @@
         - name: ARM template
           href: manage-ddos-ip-protection-template.md
           displayName: Resource Manager
+    - name: DDoS custom policy
+      items:
+        - name: Portal
+          href: manage-ddos-custom-policy-portal.md
+        - name: CLI
+          href: manage-ddos-custom-policy-cli.md
+        - name: ARM template
+          href: manage-ddos-custom-policy-template.md
+          displayName: Resource Manager
     - name: Switch tiers
       href: ddos-switch-ddos-protection-tier.md
 - name: Deploy
@@ -59,6 +70,8 @@
       href: ../load-balancer/tutorial-protect-load-balancer-ddos.md?toc=/azure/ddos-protection/TOC.json
 - name: Secure
   items:
+    - name: Secure DDoS Protection deployment
+      href: secure-ddos-protection.md
     - name: DDoS Protection on Front Door
       href: ../frontdoor/front-door-ddos.md?toc=/azure/ddos-protection/TOC.json
     - name: Defend against API Management DDoS attacks

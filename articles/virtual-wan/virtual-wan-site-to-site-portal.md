@@ -2,11 +2,11 @@
 title: 'Tutorial: Create site-to-site connections using Virtual WAN'
 titleSuffix: Azure Virtual WAN
 description: Learn how to use Azure Virtual WAN to create a site-to-site VPN connection to Azure.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: tutorial
 ms.date: 03/10/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 # Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -57,7 +57,7 @@ In this section, you configure site-to-site connectivity settings, and then crea
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
-[!INCLUDE [hub warning message](../../includes/virtual-wan-hub-router-provisioning-warning.md)]
+[!INCLUDE [hub warning message](../networking/includes/virtual-wan/hub-router-provisioning-warning.md)]
 
 ## <a name="site"></a>Create a site
 

@@ -18,54 +18,54 @@ This article provides recommendations for working with directories that contain 
 
 ## Increase the number of hash buckets
 
-The total amount of RAM present on the system doing the enumeration influences the internal working of filesystem protocols like NFS and SMB. Even if users aren't experiencing high memory usage, the amount of memory available influences the number of inode hash buckets the system has, which impacts/improves enumeration performance for large directories. You can modify the number of inode hash buckets the system has to reduce the hash collisions that can occur during large enumeration workloads.
+The total amount of RAM present on the system doing the enumeration influences the internal working of filesystem protocols like NFS and SMB. Even if users aren't experiencing high memory usage, the amount of memory available influences the number of inode hash buckets the system has, which affects enumeration performance for large directories. You can modify the number of inode hash buckets the system has to reduce the hash collisions that can occur during large enumeration workloads.
 
 To increase the number of inode hash buckets, modify your boot configuration settings:
 
-1. Using a text editor, edit the `/etc/default/grub` file.
+Using a text editor, edit the `/etc/default/grub` file.
 
-   ```bash
-   sudo vim /etc/default/grub
-   ```
+```bash
+sudo vim /etc/default/grub
+```
 
-2. Add the following text to the `/etc/default/grub` file. This command sets 128MB as the inode hash table size, increasing system memory consumption by a maximum of 128MB.
+Add the following text to the `/etc/default/grub` file. This setting configures 128MB as the inode hash table size, increasing system memory consumption by a maximum of 128MB.
 
-   ```bash
-   GRUB_CMDLINE_LINUX="ihash_entries=16777216"
-   ```
+```bash
+GRUB_CMDLINE_LINUX="ihash_entries=16777216"
+```
 
-   If `GRUB_CMDLINE_LINUX` already exists, add `ihash_entries=16777216` separated by a space, like this:
+If `GRUB_CMDLINE_LINUX` already exists, add `ihash_entries=16777216` separated by a space, like this:
 
-   ```bash
-   GRUB_CMDLINE_LINUX="<previous commands> ihash_entries=16777216"
-   ```
+```bash
+GRUB_CMDLINE_LINUX="<previous commands> ihash_entries=16777216"
+```
 
-3. To apply the changes, run:
+To apply the changes, run:
 
-   ```bash
-   sudo update-grub2
-   ```
+```bash
+sudo update-grub2
+```
 
-4. Restart the system:
+Restart the system:
 
-   ```bash
-   sudo reboot
-   ```
+```bash
+sudo reboot
+```
 
-5. To verify that the changes are effective after reboot, check the kernel cmdline commands:
+To verify that the changes are effective after reboot, check the kernel cmdline commands:
 
-   ```bash
-   cat /proc/cmdline
-   ```
+```bash
+cat /proc/cmdline
+```
 
-   If `ihash_entries` is visible, the system has applied the setting, and enumeration performance should improve exponentially.
+If `ihash_entries` is visible, the system has applied the setting, and enumeration performance should improve exponentially.
 
-   You can also check the dmesg output to see if the kernel cmdline was applied:
+You can also check the dmesg output to see if the kernel cmdline was applied:
 
-   ```bash
-   dmesg | grep "Inode-cache hash table"
-   Inode-cache hash table entries: 16777216 (order: 15, 134217728 bytes, linear)
-   ```
+```bash
+dmesg | grep "Inode-cache hash table"
+Inode-cache hash table entries: 16777216 (order: 15, 134217728 bytes, linear)
+```
 
 ## Recommended mount options
 
@@ -77,29 +77,48 @@ The `actimeo` mount option specifies the time (in seconds) that the client cache
 
 On NFS clients, specifying `actimeo` sets all of `acregmin`, `acregmax`, `acdirmin`, and `acdirmax` to the same value. If `actimeo` isn't specified, the client uses the defaults for each of these options.
 
-We recommend setting `actimeo` between 30 and 60 seconds when working with large directories. Setting a value in this range makes the attributes remain valid for a longer time period in the client's attribute cache, allowing operations to get file attributes from the cache instead of fetching them over the wire. This can reduce latency in situations where the cached attributes expire while the operation is still running.
+Set `actimeo` between 30 and 60 seconds when working with large directories. Setting a value in this range makes the attributes remain valid for a longer time period in the client's attribute cache, so operations get file attributes from the cache instead of fetching them over the wire. This change can reduce latency in situations where the cached attributes expire while the operation is still running.
 
-The following graph compares the total time it takes to finish different operations with default mount versus setting an `actimeo` value of 30 for a workload that has 1 million files in a single directory. In our testing, the total completion time reduced by as much as 77% for some operations. All operations were done with [unaliased ls](#use-unaliased-ls).
+To mount an NFS Azure file share with `actimeo=30`:
+
+```bash
+sudo mount -t nfs <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /mount/<YourStorageAccountName>/<FileShareName> -o vers=4,minorversion=1,sec=sys,actimeo=30
+```
+
+The following graph compares the total time it takes to finish different operations with default mount versus setting an `actimeo` value of 30 for a workload that has 1 million files in a single directory. In testing, the total completion time reduced by as much as 77% for some operations. All operations were done with [unaliased ls](#use-unaliased-ls).
 
 :::image type="content" source="media/nfs-large-directories/default-mount-versus-actimeo.png" alt-text="Graph comparing the time to finish different operations with default mount versus setting an actimeo value of 30 for a workload with 1 million files." border="false":::
 
 ### NFS nconnect
-NFS nconnect is a client-side mount option for NFS file shares that allows you to use multiple TCP connections between the client and your NFS file share. We recommend the optimal setting of `nconnect=4` to reduce latency and improve performance. The nconnect feature can be especially useful for workloads that use asynchronous or synchronous I/O from multiple threads. [Learn more](nfs-performance.md#nfs-nconnect).
+
+NFS nconnect is a client-side mount option for NFS file shares that you use to set up multiple TCP connections between the client and your NFS file share. Use the optimal setting of `nconnect=4` to reduce latency and improve performance. The nconnect feature can be especially useful for workloads that use asynchronous or synchronous I/O from multiple threads. [Learn more](nfs-performance.md#nfs-nconnect).
+
+To mount an NFS Azure file share with `nconnect=4`:
+
+```bash
+sudo mount -t nfs <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /mount/<YourStorageAccountName>/<FileShareName> -o vers=4,minorversion=1,sec=sys,nconnect=4
+```
+
+You can combine the `nconnect` and `actimeo` options to get the benefits of both:
+
+```bash
+sudo mount -t nfs <YourStorageAccountName>.file.core.windows.net:/<YourStorageAccountName>/<FileShareName> /mount/<YourStorageAccountName>/<FileShareName> -o vers=4,minorversion=1,sec=sys,nconnect=4,actimeo=30
+```
 
 ## Commands and operations
 
 The way commands and operations are specified can also affect performance. Listing all the files in a large directory using the `ls` command is a good example.
 
 > [!NOTE]
-> Some operations such as recursive `ls`, `find`, and `du` need both file names and file attributes, so they combine directory enumerations (to get the entries) with a stat on each entry (to get the attributes). We suggest using a higher value for [actimeo](#actimeo) on mount points where you're likely to run such commands.
+> Some operations, such as recursive `ls`, `find`, and `du`, need both file names and file attributes. These operations combine directory enumerations (to get the entries) with a stat on each entry (to get the attributes). Use a higher value for [actimeo](#actimeo) on mount points where you're likely to run such commands.
 
 ### Use unaliased ls
 
-In some Linux distributions, the shell automatically sets default options for the `ls` command such as `ls --color=auto`. This changes how `ls` works over the wire and adds more operations to the `ls` execution. To avoid performance degradation, we recommended using unaliased ls. You can do this one of three ways:
+In some Linux distributions, the shell automatically sets default options for the `ls` command, such as `ls --color=auto`. This option changes how `ls` works over the wire and adds more operations to the `ls` execution. To avoid performance degradation, use unaliased `ls`. You can do this in one of three ways:
 
 - As a temporary workaround that only impacts the current session, you can remove the alias by using the command `unalias ls`. 
 
-- For a permanent change, you can edit the `ls` alias in the user's `bashrc/bash_aliases` file. In Ubuntu, edit `~/.bashrc` to remove the alias for `ls`.
+- For a permanent change, edit the `ls` alias in the user's `~/.bashrc` or `~/.bash_aliases` file. In Ubuntu, edit `~/.bashrc` to remove the alias for `ls`.
 
 - Instead of calling `ls`, you can directly call the `ls` binary, for example `/usr/bin/ls`. This allows you to use `ls` without any options that might be in the alias. You can find the location of the binary by running the command `which ls`.
 
@@ -117,17 +136,17 @@ The following chart compares the time it takes to output results using unaliased
 
 ## File copy and backup operations
 
-When copying data from a file share or backing up from file shares to another location, for optimal performance we recommend using a share snapshot as the source instead of the live file share with active I/O. Backup applications should run commands on the snapshot directly. For more information, see [Use share snapshots with Azure Files](storage-snapshots-files.md).
+When you copy data from a file share or back up data from file shares to another location, use a share snapshot as the source for optimal performance instead of the live file share with active I/O. Backup applications should run commands on the snapshot directly. For more information, see [Use share snapshots with Azure Files](storage-snapshots-files.md).
 
 ## Application-level recommendations
 
 When developing applications that use large directories, follow these recommendations.
 
-- **Skip file attributes.** If the application only needs the file name and not file attributes like file type or last modified time, you can use multiple calls to system calls such as `getdents64` with a good buffer size to get the entries in the specified directory without the file type, making the operation faster by avoiding extra operations that aren't needed.  
+- **Skip file attributes.** If the application only needs the file name and not file attributes like file type or last modified time, use multiple calls to `getdents64` (the Linux syscall for reading directory entries) with a good buffer size to get the entries in the specified directory without the file type. This approach makes the operation faster by avoiding extra operations that aren't needed.  
 
 - **Interleave stat calls.** If the application needs attributes and the file name, we recommend interleaving the stat calls along with `getdents64` instead of getting all entries until end of file with `getdents64` and then doing a statx on all entries returned. Interleaving the stat calls instructs the client to request both the file and its attributes at once, reducing the number of calls to the server. When combined with a high `actimeo` value, interleaving stat calls can significantly improve performance. For example, instead of `[ getdents64, getdents64, ... , getdents64, statx (entry1), ... , statx(n) ]`, place the statx calls after each `getdents64` like this: `[ getdents64, (statx, statx, ... , statx), getdents64, (statx, statx, ... , statx), ... ]`.
 
-- **Increase I/O depth.** If possible, we suggest configuring `nconnect` to a non-zero value (greater than 1) and distributing the operation among multiple threads, or using asynchronous I/O. This enables operations that can be asynchronous to benefit from multiple concurrent connections to the file share.
+- **Increase I/O depth.** If possible, configure `nconnect` to a non-zero value (greater than 1) and distribute the operation among multiple threads, or use asynchronous I/O. This configuration enables operations that can be asynchronous to benefit from multiple concurrent connections to the file share.
 
 - **Force-use cache.** If the application is querying the file attributes on a file share that only one client has mounted, use the statx system call with the `AT_STATX_DONT_SYNC` flag. This flag ensures that the cached attributes are retrieved from the cache without synchronizing with the server, avoiding extra network round trips to get the latest data.
 

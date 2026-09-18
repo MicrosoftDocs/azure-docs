@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Create an ExpressRoute association to Azure Virtual WAN'
 description: In this tutorial, learn how to use Azure Virtual WAN to create ExpressRoute connections to Azure and on-premises environments.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: tutorial
 ms.date: 12/12/2024
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ---
 # Tutorial: Create an ExpressRoute association to Virtual WAN - Azure portal
@@ -113,6 +113,8 @@ Use the authorization key and circuit URI you were provided in order to connect.
 ## To test connectivity
 
 After the circuit connection is established, the hub connection status will indicate 'this hub', implying the connection is established to the hub ExpressRoute gateway. Wait approximately 5 minutes before you test connectivity from a client behind your ExpressRoute circuit, for example, a VM in the VNet that you created earlier.
+
+To test failover after you establish connectivity, see [ExpressRoute Gateway Resiliency Validation](../expressroute/resiliency-validation.md). Resiliency Validation is in preview for Virtual WAN and requires connections to circuits in at least two distinct peering locations. Unlike the connectivity check, a resiliency validation test temporarily disconnects the gateway from the selected circuit and can interrupt traffic on nonredundant routes. Review the prerequisites and test warnings before starting.
 
 ## To change the size of a gateway
 

@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 04/09/2026
-ms.author: danlep
+ms.author: patricka
 ---
 | Property | Description | Required | Default |
 |---|---|---|---|

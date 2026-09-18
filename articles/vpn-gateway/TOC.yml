@@ -19,7 +19,7 @@
             - name: Shared key
               href: tutorial-site-to-site-portal.md
             - name: Certificate authentication
-              href: site-to-site-certificate-authentication-gateway-portal.md
+              href: site-to-site-certificate-authentication-gateway.md
         - name: Configure a point-to-site connection
           items:
             - name: Certificate authentication
@@ -125,11 +125,7 @@
         - name: Azure CLI
           href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
     - name: Configure site-to-site connections - certificate
-      items:
-        - name: Azure portal
-          href: site-to-site-certificate-authentication-gateway-portal.md
-        - name: Azure PowerShell
-          href: site-to-site-certificate-authentication-gateway-powershell.md
+      href: site-to-site-certificate-authentication-gateway.md
     - name: Connect AWS and Azure using a BGP-enabled VPN gateway
       href: vpn-gateway-howto-aws-bgp.md
     - name: Site-to-site with ExpressRoute connections
@@ -184,6 +180,8 @@
       href: point-to-site-about.md
     - name: About point-to-site VPN routing
       href: vpn-gateway-about-point-to-site-routing.md
+    - name: Migrate from Azure VPN Client for Linux
+      href: azure-vpn-client-linux-retirement.md
     - name: Configure P2S - certificate authentication
       items:
         - name: P2S gateway configuration
@@ -193,35 +191,7 @@
             - name: Azure PowerShell
               href: vpn-gateway-howto-point-to-site-rm-ps.md
         - name: VPN client configuration
-          items:
-            - name: Windows clients
-              items:
-                - name: Native VPN client
-                  href: point-to-site-vpn-client-certificate-windows-native.md
-                - name: Azure VPN client
-                  href: point-to-site-vpn-client-certificate-windows-azure-vpn-client.md
-                - name: OpenVPN client
-                  items:
-                    - name: Version 2.x
-                      href: point-to-site-vpn-client-certificate-windows-openvpn-client.md
-                    - name: Version 3.x
-                      href: point-to-site-vpn-client-certificate-windows-openvpn-client-version-3.md
-            - name: Linux clients
-              items:
-                - name: Azure VPN client
-                  href: point-to-site-certificate-client-linux-azure-vpn-client.md
-                - name: OpenVPN client
-                  href: point-to-site-vpn-client-certificate-openvpn-linux.md
-                - name: IKEv2 - strongSwan
-                  href: point-to-site-vpn-client-certificate-ike-linux.md
-            - name: macOS and iOS clients
-              items:
-                - name: Native VPN client
-                  href: point-to-site-vpn-client-cert-mac.md
-                - name: OpenVPN client - macOS
-                  href: point-to-site-vpn-client-certificate-openvpn-mac.md
-                - name: OpenVPN client - iOS
-                  href: point-to-site-vpn-client-certificate-openvpn-ios.md
+          href: point-to-site-vpn-client-certificate.md
         - name: Generate self-signed certificates
           items:
             - name: .cer and .pfx files
@@ -254,20 +224,12 @@
               href: point-to-site-entra-users-access.md
             - name: Configure multifactor authentication (MFA)
               href: openvpn-azure-ad-mfa.md
-        - name: VPN client configuration
-          items:
-            - name: Azure VPN Client - Windows
-              items:
-                - name: Microsoft-registered authentication
-                  href: point-to-site-entra-vpn-client-windows.md
-                - name: Configure Device SSO
-                  href: point-to-site-entra-vpn-client-windows-device-sso.md
-            - name: Azure VPN Client - Linux
-              href: point-to-site-entra-vpn-client-linux.md
-            - name: Azure VPN Client - macOS
-              href: point-to-site-entra-vpn-client-mac.md
-            - name: Generate VPN client profile configuration files
-              href: about-vpn-profile-download.md
+        - name: Configure Azure VPN Client
+          href: point-to-site-entra-vpn-client.md
+        - name: Configure device SSO for Windows
+          href: point-to-site-entra-vpn-client-windows-device-sso.md
+        - name: Generate VPN client profile configuration files
+          href: about-vpn-profile-download.md
     - name: Configure P2S - RADIUS authentication
       items:
         - name: P2S gateway configuration
@@ -279,13 +241,7 @@
             - name: Multifactor authentication - P2S RADIUS and NPS server
               href: vpn-gateway-radius-mfa-nsp.md
             - name: VPN client configuration
-              items:
-                - name: Certificate authentication clients
-                  href: point-to-site-vpn-client-configuration-radius-certificate.md
-                - name: Password authentication clients
-                  href: point-to-site-vpn-client-configuration-radius-password.md
-                - name: Other authentication protocols
-                  href: point-to-site-vpn-client-configuration-radius-other.md
+              href: point-to-site-vpn-client-configuration-radius.md
     - name: Assign IP addresses to specific User Groups
       items:
         - name: About User Groups and client address pools
@@ -296,6 +252,8 @@
             href: point-to-site-user-groups-create-portal.md
           - name: PowerShell
             href: point-to-site-user-groups-create.md
+          - name: Azure CLI
+            href: point-to-site-user-groups-create-cli.md
         - name: RADIUS - Configure NPS and user groups
           href: point-to-site-user-groups-radius.md
     - name: Configure Always On tunnels
@@ -306,6 +264,12 @@
           href: vpn-gateway-howto-always-on-device-tunnel-macos.md
         - name: User tunnel - Windows clients
           href: vpn-gateway-howto-always-on-user-tunnel.md
+    - name: Gateway root certificate migration
+      items:
+        - name: About gateway root certificate migration
+          href: point-to-site-about-gateway-certificate-migration.md
+        - name: Update a P2S VPN Client profile
+          href: point-to-site-user-vpn-profile-update.md
     - name: Move to OpenVPN or IKEv2 from SSTP
       href: ikev2-openvpn-from-sstp.md
     - name: P2S session management
@@ -314,6 +278,8 @@
       href: vpn-gateway-p2s-advertise-custom-routes.md
     - name: Create custom IPsec policies for P2S
       href: create-custom-policies-p2s-ps.md
+    - name: Update a P2S VPN Client profile
+      href: point-to-site-user-vpn-profile-update.md
     - name: Azure VPN Client versions, checks & settings
       items:
         - name: Azure VPN Client - optional settings
@@ -329,13 +295,7 @@
     - name: Intune - Deploy VPN client profile
       href: vpn-profile-intune.md
 - name: IPv6 dual stack connections
-  items:
-    - name: Azure portal
-      href: ipv6-configuration.md
-    - name: Azure PowerShell
-      href: site-to-site-ipv6-azure-powershell.md
-    - name: Azure CLI
-      href: site-to-site-ipv6-azure-cli.md
+  href: site-to-site-ipv6-azure.md
 - name: VNet-to-VNet VPN
   items:
     - name: Configure VNet-to-VNet VPN connections
@@ -384,18 +344,14 @@
       href: site-to-site-tunneling.md
     - name: Gateway transit for VNet peering
       href: vpn-gateway-peering-gateway-transit.md
+    - name: Use a VPN or ExpressRoute gateway in a different region
+      href: vpn-gateway-different-region.md
     - name: BGP
       items:
         - name: About BGP and VPN Gateway
           href: vpn-gateway-bgp-overview.md
         - name: Configure BGP for a VPN gateway
-          items:
-            - name: Azure portal
-              href: bgp-howto.md
-            - name: Azure PowerShell
-              href: vpn-gateway-bgp-resource-manager-ps.md
-            - name: Azure CLI
-              href: bgp-how-to-cli.md
+          href: configure-bgp.md
         - name: Connect AWS and Azure using a BGP-enabled VPN gateway
           href: vpn-gateway-howto-aws-bgp.md
     - name: NAT

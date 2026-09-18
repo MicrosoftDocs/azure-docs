@@ -47,6 +47,8 @@
     href: how-to-custom-domain-suffix.md
   - name: Upgrade preference for planned maintenance
     href: how-to-upgrade-preference.md
+  - name: Configure Isolated v4 tier
+    href: app-service-configure-isolated-v4-tier.md
 - name: Resources
   items:
   - name: Azure Roadmap

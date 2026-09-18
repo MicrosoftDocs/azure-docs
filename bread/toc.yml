@@ -173,15 +173,15 @@ items:
     topicHref: /azure/azure-functions/
     items:
     - name: Durable Functions
-      tocHref: /azure/azure-functions/durable-functions/
-      topicHref: /azure/azure-functions/durable-functions/index
+      tocHref: /azure/durable-task/durable-functions/
+      topicHref: /azure/durable-task/durable-functions/index
   - name: Durable Task
     tocHref: /azure/durable-task/common/
     topicHref: /azure/durable-task/index
     items:
     - name: Durable Functions
-      tocHref: /azure/azure-functions/durable-functions/
-      topicHref: /azure/azure-functions/durable-functions/index
+      tocHref: /azure/durable-task/durable-functions/
+      topicHref: /azure/durable-task/durable-functions/index
   - name: Azure Australia
     tocHref: /azure/azure-australia/
     topicHref: /azure/azure-australia/
@@ -419,6 +419,9 @@ items:
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
+  - name: Connector Namespace
+    tocHref: /azure/connector-namespace/
+    topicHref: /azure/connector-namespace/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
@@ -685,6 +688,9 @@ items:
     - name: Load Balancer
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
+    - name: Multicloud Interconnect
+      tocHref: /azure/multicloud-interconnect/
+      topicHref: /azure/multicloud-interconnect/
     - name: NAT Gateway
       tocHref: /azure/nat-gateway
       topicHref: /azure/nat-gateway
@@ -951,10 +957,3 @@ items:
   - name: Operator Insights
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
-  - name: Redis
-    tocHref: /azure/redis/
-    topicHref: /azure/redis/index
-    items:
-    - name: Azure Cache for Redis
-      tocHref: /azure/azure-cache-for-redis/
-      topicHref: /azure/azure-cache-for-redis/index

@@ -2,11 +2,11 @@
 title: Create S2S VPN connection - shared key authentication - Azure PowerShell
 description: Learn how to create a site-to-site VPN Gateway IPsec connection between your on-premises network and a virtual network using shared key authentication and PowerShell.
 titleSuffix: Azure VPN Gateway
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/25/2025
-ms.author: cherylmc 
+ms.author: duau
 ms.custom: devx-track-azurepowershell
 
 # Customer intent: "As a network administrator, I want to establish a site-to-site VPN connection using PowerShell, so that I can securely link my on-premises network to an Azure virtual network for seamless data access and management."
@@ -143,6 +143,6 @@ Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
 ## Next steps
 
 * Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml).
-* For information about BGP, see the [BGP Overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+* For information about BGP, see the [BGP overview](vpn-gateway-bgp-overview.md) and [How to configure BGP](configure-bgp.md).
 * For information about creating a site-to-site VPN connection using Azure Resource Manager template, see [Create a site-to-site VPN Connection](https://azure.microsoft.com/resources/templates/site-to-site-vpn-create/).
 * For information about creating a vnet-to-vnet VPN connection using Azure Resource Manager template, see [Deploy HBase geo replication](https://azure.microsoft.com/resources/templates/hdinsight-hbase-replication-geo/).

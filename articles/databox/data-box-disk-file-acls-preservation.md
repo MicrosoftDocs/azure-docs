@@ -4,7 +4,7 @@ description: ACLs, timestamps, and attributes preserved during data copy to Azur
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.custom: linux-related-content
 ms.topic: concept-article
 ms.date: 12/22/2022

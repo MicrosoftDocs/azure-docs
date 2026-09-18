@@ -14,7 +14,10 @@ ai-usage: ai-assisted
 
 # Get started with AzCopy
 
-AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and transfer data.<br><br>
+> [!NOTE]
+> If you plan to migrate data into Azure Storage, use Azure Storage Mover. [Azure Storage Mover](https://learn.microsoft.com/azure/storage-mover/) is a managed service that's designed for high-scale transfers (more than 1 TB). It simplifies planning, execution, and monitoring at scale. For more information about migration tools for your scenario, see [aka.ms/migratemydata](https://aka.ms/migratemydata).
+
+AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and transfer data.
 
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 
@@ -91,8 +94,7 @@ Append a SAS token to each source or destination URL that you use in your AzCopy
 ```azcopy
 azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
-
-To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](./storage-sas-overview.md).
+The SAS token in the example above contains query parameters that define the access granted to the storage resource. For example, `sv` specifies the storage service version, `sp` specifies the permitted operations, `st` and `se` define the validity period, `spr` specifies the allowed protocol, and `sig` contains the cryptographic signature. The `--recursive=true` flag copies all files and subdirectories from the specified local directory. To learn more about SAS tokens and how to obtain one, see [shared access signatures (SAS)](./storage-sas-overview.md).
 
 <a id="transfer-data"></a>
 
@@ -111,7 +113,7 @@ For example commands, see any of these articles.
 |Azure Files |[Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)|
 |Amazon S3|[Copy data from Amazon S3 to Azure Storage](storage-use-azcopy-s3.md)|
 |Google Cloud Storage|[Copy data from Google Cloud Storage to Azure Storage (preview)](storage-use-azcopy-google-cloud.md)|
-|Azure Stack storage|[Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
+|Azure Stack Storage|[Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
 
 You can run AzCopy commands interactively. You can also incorporate AzCopy into automated scripts for batch operations, scheduled data transfers, or continuous integration pipelines. For more information, see [Use AzCopy in scripts and scheduled transfers](storage-use-azcopy-in-script.md).
 
@@ -144,7 +146,7 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 |[azcopy jobs show](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_jobs_show)|Shows detailed information for the given job ID.|
 |[azcopy list](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_list)|Lists the entities in a given resource.|
 |[azcopy login](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_login)|Signs in to Microsoft Entra ID to access Azure Storage resources.|
-|[azcopy login status](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_login_status)|Lists the entities in a given resource.|
+|[azcopy login status](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_login_status)|Displays the current Azure authentication status.|
 |[azcopy logout](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_logout)|Signs the user out and terminates access to Azure Storage resources.|
 |[azcopy make](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_make)|Creates a container or file share.|
 |[azcopy remove](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_remove)|Deletes blobs or files from an Azure storage account.|
@@ -154,7 +156,7 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 > [!NOTE]
 > AzCopy doesn't have a command to rename files.
 
-## Configure, optimize, and fix
+## Configure, optimize, and troubleshoot AzCopy
 
 See any of the following resources:
 

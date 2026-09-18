@@ -2,8 +2,8 @@
 title: Copy data to and from Azure Table storage
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from supported source stores to Azure Table storage, or from Table storage to supported sink stores, using Azure Data Factory or Synapse Analytics pipelines.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 08/01/2024
@@ -18,7 +18,13 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
+
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data to and from Azure Table storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Azure Table Storage connector documentation](/fabric/data-factory/connector-azure-table-storage-overview).
+
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 

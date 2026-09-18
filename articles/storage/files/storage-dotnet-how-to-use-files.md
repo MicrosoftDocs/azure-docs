@@ -20,14 +20,14 @@ Learn how to develop .NET applications that use Azure Files to store data. Azure
 
 In this article, you learn about the different approaches to developing with Azure Files in .NET, and how to choose the approach that best fits the needs of your app. You also learn how to create a basic console app that interacts with Azure Files resources.
 
-## About .NET app development with Azure Files
+## Choose an approach for .NET development with Azure Files
 
 Azure Files offers several ways for .NET developers to access data and manage resources in Azure Files. The following table lists the approaches, summarizes how they work, and provides guidance on when to use each approach:
 
 | Approach | How it works | When to use |
 | --- | --- | --- |
 | Standard file I/O libraries | Uses OS-level API calls through Azure file shares mounted using SMB or NFS. When you mount a file share using SMB/NFS, you can use file I/O libraries for a programming language or framework, such as `System.IO` for .NET. | You have line-of-business apps with existing code that uses standard file I/O, and you don't want to rewrite code for the app to work with an Azure file share. |
-| FileREST API | Directly calls HTTPS endpoints to interact with data stored in Azure Files. Provides programmatic control over file share resources. The Azure SDK provides the File Shares client library (`Azure.Storage.Files.Shares`) that builds on the FileREST API, allowing you interact with FileREST API operations through familiar .NET programming language paradigms. | You're building value-added cloud services and apps for customers and you want to use advanced features not available through `System.IO`. |
+| FileREST API | Directly calls HTTPS endpoints to interact with data stored in Azure Files. Provides programmatic control over file share resources. The Azure SDK provides the File Shares client library (`Azure.Storage.Files.Shares`) that builds on the FileREST API, so you can interact with FileREST API operations through familiar .NET programming language paradigms. | You're building value-added cloud services and apps for customers and you want to use advanced features not available through `System.IO`. |
 | Storage resource provider REST API | Uses Azure Resource Manager (ARM) to manage storage accounts and file shares. Calls REST API endpoints for various resource management operations. | Your app or service needs to perform resource management tasks, such as creating, deleting, or updating storage accounts or file shares. |
 
 For general information about these approaches, see [Overview of application development with Azure Files](storage-files-developer-overview.md).
@@ -50,11 +50,11 @@ This section walks you through steps to prepare a .NET console app to work with 
 
 ### Create the project
 
-If you don't already have a .NET app, create one using Visual Studio or the .NET CLI. In this article, we create a console app for simplicity.
+If you don't already have a .NET app, create one using Visual Studio or the .NET CLI. In this article, the examples use a console app for simplicity.
 
 ### [Visual Studio 2022](#tab/visual-studio)
 
-1. Start Visual Studio and select **Create a new project**. Or if you're in Visual Studio, navigate to **File** > **New** > **Project**.
+1. Start Visual Studio and select **Create a new project**. Or if you're in Visual Studio, go to **File** > **New** > **Project**.
 1. In the dialog window, choose **Console App** for C# and  select **Next**.
 1. Enter a name for the project, leave the defaults, and select **Next**.
 1. For **Framework**, select the latest installed version of .NET. Leave the other defaults, and select **Create**.
@@ -156,7 +156,7 @@ To use `System.IO`, you must first mount a file share. See the following resourc
 - [Mount an SMB file share on Linux](storage-how-to-use-files-linux.md)
 - [Mount an NFS file share on Linux](storage-files-how-to-mount-nfs-shares.md)
 
-In this article, we use the following path to refer to a mounted SMB file share on Windows:
+In this article, the code examples use the following path to refer to a mounted SMB file share on Windows:
 
 ```csharp
 string fileSharePath = @"Z:\file-share";
@@ -293,7 +293,7 @@ static void EnumerateFileACLs(string filePath)
 
 The FileREST API provides programmatic access to Azure Files. It allows you to call HTTPS endpoints to perform operations on file shares, directories, and files. The FileREST API is designed for high scalability and advanced features that might not be available through native protocols. The Azure SDK provides client libraries, such as the File Shares client library for .NET, that build on the FileREST API.
 
-Consider using the FileREST API and the File Share client library if your application requires:
+Consider using the FileREST API and the File Shares client library if your application requires:
 
 - **Advanced features:** Access operations and features that aren't available through native protocols.
 - **Custom cloud integrations:** Build custom value-added services, such as backup, antivirus, or data management, that interact directly with Azure Files.

@@ -45,6 +45,30 @@ items:
               href: jobs-get-started-portal.md
             - name: Command line
               href: jobs-get-started-cli.md
+    - name: Sandboxes
+      items:
+        - name: Overview
+          href: sandboxes-overview.md
+        - name: Get started
+          href: sandboxes-get-started.md
+        - name: Quickstarts
+          items:
+            - name: Azure portal
+              href: sandboxes-quickstart-portal.md
+            - name: Agent skills
+              href: sandboxes-quickstart-agent-skills.md
+            - name: CLI
+              href: sandboxes-quickstart-cli.md
+            - name: Bicep
+              href: sandboxes-quickstart-bicep.md
+            - name: Python SDK
+              href: sandboxes-quickstart-python-sdk.md
+        - name: Snapshots and state management
+          href: sandboxes-snapshots-state-management.md
+        - name: Egress policies
+          href: sandboxes-egress-policies.md
+        - name: Reliability in Container Apps Sandboxes
+          href: /azure/reliability/reliability-container-apps-sandboxes?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Express
       items:
         - name: Overview
@@ -175,12 +199,8 @@ items:
       items:
         - name: Communicate between multiple apps
           href: connect-apps.md
-        - name: Connect to a cloud service using Service Connector
-          items:
-            - name: .NET app with Blob Storage
-              href: service-connector.md
-            - name: Java Quarkus app with Postgres DB
-              href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
+        - name: Java Quarkus app with Postgres DB
+          href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
     - name: Build a multiple app scenario
       items:
         - name: Deploy a backend microservice app
@@ -273,6 +293,10 @@ items:
               href: troubleshoot-target-port-settings.md
             - name: Container start
               href: troubleshoot-container-start-failures.md
+            - name: Deployment failures
+              href: troubleshoot-deployment-errors.md
+        - name: Use Diagnose and Solve
+          href: diagnose-solve.md
     - name: Migrate to Azure Container Apps
       items:
         - name: Heroku migration overview
@@ -308,20 +332,32 @@ items:
           href: logging.md
         - name: Logging options
           href: log-options.md
+        - name: Change logging from Log Analytics to Azure Monitor
+          href: migrate-logs-azure-monitor.md
         - name: Log monitoring
           href: log-monitoring.md
         - name: Metrics
           href: metrics.md
         - name: Alerts
           href: alerts.md
-    - name: End-to-end tracing and dashboards
+    - name: Dashboards
       items:
         - name: Aspire Dashboard
           href: aspire-dashboard.md
-        - name: OpenTelemetry agents
-          href: opentelemetry-agents.md
         - name: Grafana dashboards
           href: grafana-dashboards.md
+    - name: OpenTelemetry agents
+      items:
+        - name: Overview
+          href: opentelemetry-agents.md
+        - name: Export to Datadog
+          href: opentelemetry-export-datadog.md
+        - name: Export to Dynatrace
+          href: opentelemetry-export-dynatrace.md
+        - name: Export to Elastic
+          href: opentelemetry-export-elastic.md
+        - name: Export to New Relic
+          href: opentelemetry-export-new-relic.md
     - name: Troubleshoot and resolve issues with SRE agent
       items:
         - name: Overview
@@ -374,6 +410,8 @@ items:
           href: authentication-openid.md
 - name: Security
   items:
+    - name: Secure your Azure Container Apps deployment
+      href: secure-deployment.md
     - name: Overview
       href: security.md
       displayName: Security overview
@@ -387,8 +425,6 @@ items:
           href: managed-identity.md
         - name: Azure Container Registry image pull with managed identity
           href: managed-identity-image-pull.md
-    - name: Secure deployments
-      href: secure-deployment.md
     - name: Confidential compute
       href: confidential-compute.md
 - name: Resiliency (preview)
@@ -401,6 +437,8 @@ items:
   items:
     - name: Reliability in Azure Container Apps
       href: /azure/reliability/reliability-container-apps?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+    - name: Reliability in Container Apps Sandboxes
+      href: /azure/reliability/reliability-container-apps-sandboxes?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Create a zone-redundant container app
       href: how-to-zone-redundancy.md
     - name: Relocate to another region
@@ -522,8 +560,8 @@ items:
         - name: Overview
           href: dotnet-overview.md
           displayName: .NET overview
-        - name: Deploy a .NET Aspire app
-          href: /dotnet/aspire/deployment/azure/aca-deployment
+        - name: Deploy an Aspire app
+          href: https://aspire.dev/deployment/azure/container-apps/
         - name: Deploy and scale an ASP.NET Core app
           href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
     - name: Java
@@ -557,16 +595,6 @@ items:
             - name: Artifacts (preview)
               href: java-get-started.md
               displayName: java
-        - name: Artificial intelligence
-          items:
-            - name: PetClinic AI
-              items:
-                - name: Overview
-                  href: java-petclinic-ai-overview.md
-                  displayName: java
-                - name: Deploy the PetClinic AI sample
-                  href: java-petclinic-ai-tutorial.md
-                  displayName: java
         - name: Java components
           items:
             - name: Launch Java microservice apps
@@ -667,12 +695,12 @@ items:
       href: azure-arc-create-container-app.md
 - name: Compliance
   items:
+    - name: Secure your Azure Container Apps deployment
+      href: secure-deployment.md
     - name: Microsoft Azure Compliance Offerings
       href: https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3
     - name: Azure, Dynamics 365, Microsoft 365, and Power Platform compliance offerings
       href: /azure/compliance/offerings/
-    - name: Azure security baseline for Azure Container Apps
-      href: /security/benchmark/azure/baselines/azure-container-apps-security-baseline
 - name: Samples & FAQs
   items:
     - name: Samples

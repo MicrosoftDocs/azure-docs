@@ -28,14 +28,18 @@ For information on setup and configuration details of the Azure OpenAI extension
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"  
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="25-57"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="25-57":::
 
 This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="63-78"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="63-78":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
@@ -53,12 +57,12 @@ This example shows how to generate embeddings for a raw text string.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="3-27":::
+:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="3-28":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="3-31":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="3-32":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
@@ -66,12 +70,12 @@ This example shows how to generate embeddings for a raw text string.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="29-54":::
+:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="29-56":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="33-62":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="33-64":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -88,7 +92,7 @@ For more information about *function.json* file properties, see the [Configurati
 ::: zone pivot="programming-language-python"  
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="python" source="~/functions-openai-extension/samples/embeddings/python/function_app.py" range="8-27":::
+:::code language="python" source="~/functions-openai-extension/samples/embeddings/python/function_app.py" range="8-28":::
 
 ::: zone-end  
 <!--- End code examples section -->  
@@ -181,6 +185,8 @@ See the [Example section](#example) for complete examples.
 Changing the default embeddings `model` changes the way that embeddings are stored in the vector database. Changing the default model can cause the lookups to start misbehaving when they don't match the rest of the data that was previously ingested into the vector database. The default model for embeddings is `text-embedding-ada-002`.
 
 When calculating the maximum character length for input chunks, consider that the maximum input tokens allowed for second-generation input embedding models like `text-embedding-ada-002` is `8191`. A single token is approximately four characters in length (in English), which translates to roughly 32,000 (English) characters of input that can fit into a single chunk.
+
+[!INCLUDE [functions-openai-connections](../../includes/functions-openai-connections.md)]
 
 ## Related content
 

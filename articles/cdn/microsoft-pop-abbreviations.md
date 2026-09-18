@@ -5,7 +5,7 @@ description: This article lists Microsoft POP locations, sorted by POP abbreviat
 services: cdn
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: concept-article
 ms.date: 02/28/2026
 ms.custom: references_regions

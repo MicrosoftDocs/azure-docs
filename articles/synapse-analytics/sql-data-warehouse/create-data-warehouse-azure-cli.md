@@ -40,7 +40,7 @@ Use these commands to sign on to Azure and set up a resource group.
    az group create --name myResourceGroup --location WestEurope
    ```
 
-1. Create a [logical SQL server](/azure/azure-sql/database/logical-servers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) by using the [az sql server create](/cli/azure/sql/server#az-sql-server-create) command:
+1. Create a [logical SQL server](../sql/logical-servers.md) by using the [az sql server create](/cli/azure/sql/server#az-sql-server-create) command:
 
    ```azurecli
    az sql server create --resource-group myResourceGroup --name mysqlserver \

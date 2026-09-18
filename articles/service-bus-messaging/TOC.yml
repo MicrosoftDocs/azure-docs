@@ -118,6 +118,8 @@
       href: message-transfers-locks-settlement.md
     - name: Dead-letter queues
       href: service-bus-dead-letter-queues.md
+    - name: Prevent message loss and duplicates
+      href: service-bus-message-loss-and-duplicates.md
     - name: Message deferral
       href: message-deferral.md
     - name: Prefetch messages
@@ -138,8 +140,6 @@
       href: service-bus-outages-disasters.md
     - name: Throttling
       href: service-bus-throttling.md
-    - name: Enforce minimum required TLS version
-      href: transport-layer-security-enforce-minimum-version.md
     - name: Delete messages in Service Bus
       href: batch-delete.md
   - name: Federation
@@ -160,34 +160,57 @@
         href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus
   - name: Reliability
     href: /azure/reliability/reliability-service-bus?toc=/azure/service-bus-messaging/TOC.json
-  - name: Security
-    items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/service-bus-messaging-security-baseline?toc=/azure/service-bus-messaging/TOC.json
-    - name: Authentication and authorization
-      href: service-bus-authentication-and-authorization.md
-      items:
-      - name: Authentication with Shared Access Signatures
-        href: service-bus-sas.md
-      - name: Use Microsoft Entra ID
-        items:
-        - name: Authenticate with managed identities for Azure resources
-          href: service-bus-managed-service-identity.md
-        - name: Authenticate from an application
-          href: authenticate-application.md
-    - name: Security controls by Azure Policy
-      displayName: regulatory, compliance, standards, domains
-      href: ./security-controls-policy.md
-    - name: Network security
-      href: network-security.md
-    - name: Confidential computing
-      href: confidential-computing.md
-    - name: Network security perimeter
-      href: network-security-perimeter.md
   - name: Integration with other services
     items:
     - name: Azure Service Bus and Azure Event Grid integration
       href: service-bus-to-event-grid-integration-concept.md
+- name: Security
+  items:
+  - name: Secure your Service Bus deployment
+    href: secure-service-bus.md
+  - name: Authentication and authorization
+    href: service-bus-authentication-and-authorization.md
+    items:
+    - name: Authentication with Shared Access Signatures
+      href: service-bus-sas.md
+    - name: Use Microsoft Entra ID
+      items:
+      - name: Authenticate with managed identities for Azure resources
+        href: service-bus-managed-service-identity.md
+      - name: Authenticate from an application
+        href: authenticate-application.md
+    - name: Disable local or SAS authentication
+      href: disable-local-authentication.md
+  - name: Network security
+    href: network-security.md
+    items:
+    - name: Allow access from specific IP addresses
+      href: service-bus-ip-filtering.md
+    - name: Allow access from specific virtual networks
+      href: service-bus-service-endpoints.md
+    - name: Allow access via private endpoints
+      href: private-link-service.md
+    - name: Network security perimeter
+      href: network-security-perimeter.md
+  - name: Data protection
+    items:
+    - name: Encrypt data using customer-managed keys
+      href: configure-customer-managed-key.md
+  - name: Transport Layer Security (TLS)
+    items:
+    - name: Enforce minimum required TLS version
+      href: transport-layer-security-enforce-minimum-version.md
+    - name: Configure minimum required TLS version
+      href: transport-layer-security-configure-minimum-version.md
+    - name: Audit minimum required TLS version
+      href: transport-layer-security-audit-minimum-version.md
+  - name: Compliance and governance
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+  - name: Confidential computing
+    href: confidential-computing.md
 - name: How-to guides
   items:
   - name: Develop
@@ -309,6 +332,8 @@
     items:
     - name: Troubleshooting guide
       href: service-bus-troubleshooting-guide.md
+    - name: Handle timeouts and configure retries
+      href: service-bus-timeouts-retries.md
     - name: SDK troubleshooting guide
       href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/TROUBLESHOOTING.md
     - name: Resource Manager exceptions

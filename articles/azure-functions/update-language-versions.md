@@ -3,7 +3,7 @@ title: Update Language Versions in Azure Functions
 description: Find out how to update the version of the native language used by a function app in Azure Functions, including configurations with multiple slots.
 ms.topic: how-to
 ms.custom: devx-track-extended-java, devx-track-azurecli, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 08/21/2025
+ms.date: 08/25/2026
 zone_pivot_groups: programming-languages-set-functions
 #customer intent: As a developer who supports function apps in Azure Functions, I want to update the language stack of my function apps so that I can take advantage of new language features.
 ---
@@ -20,10 +20,7 @@ To help ensure your function apps continue to receive support, follow the instru
 
 ::: zone pivot="programming-language-csharp"   
 > [!NOTE]
-> This article shows you how to update the .NET version of a function app that uses the [isolated worker model](dotnet-isolated-process-guide.md). If your function app runs on an older version of .NET and uses the [in-process model](functions-dotnet-class-library.md), consider the following options:
->
-> - [Update to target .NET 8](./functions-dotnet-class-library.md#updating-to-target-net-8).
-> - [Migrate from the in-process model to the isolated worker model](migrate-dotnet-to-isolated-model.md).
+> This article shows you how to update the .NET version of a function app that uses the [isolated worker model](dotnet-isolated-process-guide.md). If your function app uses the [in-process model](functions-dotnet-class-library.md), you must [migrate from the in-process model to the isolated worker model](migrate-dotnet-to-isolated-model.md) before November 10, 2026.
 ::: zone-end  
 
 ## Prepare your function app
@@ -54,7 +51,7 @@ Use these steps to update the project on your local computer:
 
    If you're targeting a preview version, see [Functions guidance for preview .NET versions](./dotnet-isolated-process-guide.md#preview-net-versions) to ensure that the version is supported. Using .NET previews might require more steps.
 
-1. Update your references to the latest versions of [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/).
+1. Update the project SDK to the latest version of [Azure.Functions.Sdk](https://www.nuget.org/packages/Azure.Functions.Sdk/) and update your explicit [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) reference to the latest version.
 
 1. Update your project's target framework to the new version. For C# projects, you must update the `<TargetFramework>` element in the *.csproj* file. For more information about your version, see [Target frameworks](/dotnet/standard/frameworks).
 
@@ -471,4 +468,9 @@ If you need to revert to the previous language version:
 > [!div class="nextstepaction"]
 > [PowerShell developer guide](./functions-reference-powershell.md)
 
+::: zone-end
+
+::: zone pivot="programming-language-go"
+> [!div class="nextstepaction"]
+> [Go developer reference](./functions-reference-go.md)
 ::: zone-end

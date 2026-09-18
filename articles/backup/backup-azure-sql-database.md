@@ -16,6 +16,9 @@ ms.author: v-mallicka
 - Point-in-time recovery up to a second
 - Individual-database-levels backup and restore
 
+>[!NOTE]
+>Azure Backup now provides snapshot-based backup for SQL Server instances in Azure VMs, which is currently in preview. Snapshot-based backups allow you to protect large databases with improved performance and achieve faster restores from the instant recovery tier. To know the latest product enhancements and feature updates in Azure, see [Microsoft Azure Updates](https://azure.microsoft.com/updates?id=564668).
+
 To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Snapshot backup for SQL Instances in Azure VM (preview)

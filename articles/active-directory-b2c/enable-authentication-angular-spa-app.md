@@ -4,7 +4,7 @@ description:  Use the building blocks of Azure Active Directory B2C to sign in a
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 01/11/2024

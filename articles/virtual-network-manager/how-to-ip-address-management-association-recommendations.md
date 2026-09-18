@@ -7,7 +7,7 @@ author: mbender-ms
 ms.service: azure-virtual-network-manager
 ms.author: mbender
 ms.reviewer: mbender
-ms.date: 11/05/2025
+ms.date: 07/29/2026
 ms.topic: how-to
 ---
 
@@ -32,7 +32,7 @@ Before you begin, ensure that you have:
 - At least one IPAM pool created in your network manager
 - One or more unmanaged virtual networks in your scope
 
-### Review the pool association recommendations
+## Review the pool association recommendations
 
 To review the pool association recommendations for your unmanaged virtual networks, follow these steps:
 
@@ -47,7 +47,7 @@ The possible recommendation outcomes are:
 - **Two pools recommended** - Two pools recommended, one to contain the entire IPv4 space, and the second to contain the entire IPv6 space, of the dual-stack virtual network
 - **No pools recommended** - No pools recommended and instead a **Create Pool** link to create a pool that can contain the virtual network's space
 
-### Associate Virtual Network
+## Associate virtual networks with recommended pools
 
 To associate virtual networks to the recommended IPAM pools, follow these steps:
 
@@ -55,14 +55,14 @@ To associate virtual networks to the recommended IPAM pools, follow these steps:
     1. You can select up to 100 virtual networks to associate in bulk.
 1. After selecting your desired virtual networks' pool recommendations, select **Associate** in the top left hand corner. If the association request doesn't overlap with other concurrent requests, it succeeds and displays a success message in your notifications.
 
-### Observe new associations
+## Observe new associations
 
 After initiating the association process, follow these steps to monitor the progress and verify the new associations:
 
 - The page automatically refreshes when the batch of associations finishes.
 - After the refresh, go to the **IP address pools** page to see your pool's updated IP allocation and available IP addresses.
 
-### Change pool recommendations
+## Change pool recommendations
 
 To change the pool recommendation for a specific unmanaged virtual network, use the following steps:
 
@@ -70,7 +70,7 @@ To change the pool recommendation for a specific unmanaged virtual network, use 
 1. In the **Edit Recommended Pool(s)** window, select new pool association from the list. Choose one option for each IP version. 
 1. Select **Save** to apply your changes.
 
-### Filter recommendations
+## Filter recommendations
 
 You can filter the recommendations you see by using one or more of the following criteria:
 
@@ -83,7 +83,7 @@ You can filter the recommendations you see by using one or more of the following
 - Recommended pools
   - Use this filter to view only unmanaged virtual networks that have valid pool recommendations, or those that don't.
 
-### Views
+## Views
 
 The Pool Association Recommendation window provides different views based on whether the virtual network is single stack or dual stack. 
 
@@ -91,7 +91,7 @@ The single stack view displays recommendations for IPv4 or IPv6 virtual networks
 
 :::image type="content" source="media/how-to-ip-address-management-association-recommendations/dual-stack-recommended-pools-selection.png" alt-text="Screenshot of dual stack recommended pools selection window with virtual network chosen.":::
 
-### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Manage IP addresses with Azure Virtual Network Manager](how-to-manage-ip-addresses-network-manager.md)

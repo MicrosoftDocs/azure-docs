@@ -3,7 +3,7 @@ title: Azure Functions HTTP triggers and bindings
 description: Learn to use HTTP triggers and bindings in Azure Functions.
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 03/04/2022
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -26,52 +26,35 @@ The extension NuGet package you install depends on the C# mode you're using in y
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http), version 3.x.
+
+> [!NOTE]
+> An additional extension package is needed for [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration)
+
 # [In-process model](#tab/in-process)
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
----
-
-The functionality of the extension varies depending on the extension version:
-
-# [Functions v2.x+](#tab/functionsv2/in-process)
-
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http), version 3.x.
-
-# [Functions v1.x](#tab/functionsv1/in-process)
-
-[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
-
-Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
-
-# [Functions v2.x+](#tab/functionsv2/isolated-process)
-
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http), version 3.x.
-
-> [!NOTE]
-> An additional extension package is needed for [ASP.NET Core integration in .NET Isolated](./dotnet-isolated-process-guide.md#aspnet-core-integration)
-
-# [Functions v1.x](#tab/functionsv1/isolated-process)
-
-Functions 1.x doesn't support running in an isolated worker process.
 
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-go,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"
 
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Register HTTP functions in code by using `app.HTTP()`. For examples, see the [HTTP trigger](functions-bindings-http-webhook-trigger.md) article. Go handles HTTP responses through the standard response writer in your HTTP trigger handler, as shown in the [HTTP output](functions-bindings-http-webhook-output.md) article.
+::: zone-end
+
 ## host.json settings
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
-
-> [!NOTE]
-> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md#http).
 
 ```json
 {

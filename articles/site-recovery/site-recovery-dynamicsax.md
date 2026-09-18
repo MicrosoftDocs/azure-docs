@@ -120,7 +120,7 @@ For information about recovery steps specific to SQL server, see [Replication ap
 Make sure that the recovery point selected is as close as possible to the database PIT, but not ahead of it.
 
 * **Script**: Add load balancer (only E-A).
-Add a script (via Azure Automation) after the Application Object Server VM group comes up to add a load balancer to it. You can use a script to do this task. For more information, see [How to add a load balancer for multitier application disaster recovery](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
+Add a script (via Azure Automation) after the Application Object Server VM group comes up to add a load balancer to it. You can use a script to do this task. For more information, see [How to add a load balancer for multitier application disaster recovery](https://azure.microsoft.com/solutions/migration/).
 
 * **Failover Group 2**: Fail over the Dynamics AX client VMs. Fail over the web tier VMs as part of the recovery plan.
 

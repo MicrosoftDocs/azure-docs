@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: concept-article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 02/23/2026
+ms.date: 07/22/2026
 ms.author: cgardin
 # Customer intent: Secure Azure infrastructure for SAP applications
 ---
@@ -100,7 +100,7 @@ We recommend that you enable TDE for all DBMSs that run SAP applications on Azur
 
 Most DBMS platforms create encrypted backups if the database is enabled for TDE. This configuration mitigates one common attack vector: theft of backups.
 
-SAP HANA doesn't support storing keys in Azure Key Vault or any other HSM device. For more information, see [SAP Note 3444154: HSM for SAP HANA Encryption Key Management](https://userapps.support.sap.com/sap/support/knowledge/en/3444154). To enable TDE on HANA, see [Enable Encryption](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/4b11e7dee04f4dd98301fcd86e2f3d8b.html) in the SAP Help Portal.
+SAP HANA doesn't support storing keys in Azure Key Vault or any other HSM device. For more information, see [SAP Note 3444154: HSM for SAP HANA Encryption Key Management](https://support.sap.com/). To enable TDE on HANA, see [Enable Encryption](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/4b11e7dee04f4dd98301fcd86e2f3d8b.html) in the SAP Help Portal.
 
 SQL Server TDE is fully integrated into Key Vault. For more information, see:
 
@@ -115,7 +115,6 @@ Oracle DBMS supports TDE in combination with SAP applications. Keys for TDE can 
 
 DB2 native encryption is supported in combination with SAP applications. Encryption keys can be stored in HSM PKCS#11 devices. For more information, see:
 
-- [Running an SAP NetWeaver Application Server on DB2 for LUW with the IBM DB2 Encryption Technology](https://www.sap.com/documents/2015/07/7e504681-5b7c-0010-82c7-eda71af511fa.html) (SAP documentation)
 - [DB2 native encryption](https://www.ibm.com/docs/en/db2/12.1.0?topic=rest-db2-native-encryption) (IBM documentation)
 - [IBM DB2 and Thales Luna HSMs - Integration Guide](https://cpl.thalesgroup.com/resources/encryption/ibm-db2-luna-hsms-integration-guide#:~:text=This%20document%20is%20intended%20to%20guide%20security%20administrators,databases%20and%20backup%20images%20using%20DB2%20native%20encryption) (Thales documentation)
 
@@ -165,7 +164,14 @@ Here are resources for hardening Linux OS distributions:
 
 ### SELinux
 
-SELinux is supported on the latest Red Hat Enterprise Linux (RHEL) releases. Microsoft supports running SAP workloads on RHEL in accordance with SAP and Red Hat guidance. Microsoft does not deliver, or provide support on managing SELinux policies. Customers are responsible for configuring, maintaining, and validating any SELinux policy changes required for their environments.
+SELinux is supported for SAP workloads on the latest Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) releases. Microsoft supports running SAP workloads on both distributions in accordance with SAP, and OS vendor guidance. Microsoft does not deliver or provide support for managing SELinux policies. Customers are responsible for configuring, maintaining, and validating any SELinux policy changes required for their environments.
+
+For more details about SELinux on SLES, see:
+
+- [Understanding SELinux Basics (SUSE documentation)](https://documentation.suse.com/sles/16.0/html/SLES-SELinux/)
+- [Using SELinux with SAP Workloads (SUSE documentation)](https://documentation.suse.com/sles/16.0/html/SLES-SELinux-sap/)
+- [3565382 - SUSE Linux Enterprise Server 16: Installation Note](https://me.sap.com/notes/3565382)
+- [3577842 - SAP HANA DB: Recommended OS settings for SLES 16 / SLES for SAP Applications 16](https://me.sap.com/notes/3577842)
 
 For more details about SELinux on RHEL, see:
 

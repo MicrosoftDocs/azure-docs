@@ -14,8 +14,8 @@ You can use the provided PowerShell script to create a free root CA and private 
 
 ## Prerequisites
 
-- A Device Registry namespace. For setup steps, see [Configure a Root CA credential in Azure Device Registry](how-to-configure-credential.md).
-- A Device Registry policy with an [external root CA](how-to-create-policy-external-certificate.md). Download the CSR file from your external root CA to your local machine.
+- A Device Registry namespace. For setup steps, see [Configure a Root CA credential in Azure Device Registry](../iot/how-to-configure-credential.md).
+- A Device Registry policy with an [external root CA](../iot/how-to-create-policy-external-certificate.md). Download the CSR file from your external root CA to your local machine.
 - Install OpenSSL. If you don't have OpenSSL installed, use the command `winget install --id ShiningLight.OpenSSL.Dev -e`. Add OpenSSL to PATH in your environment variables.
 
 ## Script

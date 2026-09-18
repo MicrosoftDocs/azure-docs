@@ -19,10 +19,10 @@ Azure DDoS Protection, combined with application design best practices, provides
 
 :::image type="content" source="./media/ddos-best-practices/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for an Azure DDoS protected PaaS web application." lightbox="./media/ddos-best-practices/ddos-protection-overview-architecture.png":::
 
-Azure DDoS Protection protects at layer 3 and layer 4 network layers. For web applications protection at layer 7, you need to add protection at the application layer using a WAF offering. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
+Azure DDoS Protection protects at layer 3 and layer 4 network layers. For web applications protection at layer 7, you need to add protection at the application layer using a WAF offering. For more information, see [Application DDoS protection](../web-application-firewall/application-ddos-protection.md).
 
 > [!NOTE]
-> Azure DDoS Protections is one of the services that make up the Network Security category in Azure. Other services in this category include [Azure Firewall](../firewall/overview.md) and [Azure Web Application Firewall](../web-application-firewall/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Security](../networking/security/network-security.md).
+> Azure DDoS Protection is one of the services that make up the Network Security category in Azure. Other services in this category include [Azure Firewall](../firewall/overview.md) and [Azure Web Application Firewall](../web-application-firewall/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Security](../networking/security/network-security.md).
 
 ## Tiers
 
@@ -36,12 +36,16 @@ DDoS IP Protection is a pay-per-protected IP model. DDoS IP Protection contains 
 
 
 For more information about the tiers, see [DDoS Protection tier comparison](ddos-protection-sku-comparison.md).
+
+> [!NOTE]
+> You can fine-tune detection thresholds for specific protocols by using a DDoS Protection custom policy (preview). For more information, see [What is Azure DDoS Protection custom policy?](ddos-custom-policy-overview.md)
+
 ## Key Features  
 
 - **Always-on traffic monitoring:**
  Your application traffic patterns are monitored 24 hours a day, 7 days a week, looking for indicators of DDoS attacks. Azure DDoS Protection instantly and automatically mitigates the attack, once it's detected.
 
-- **Adaptive real time tuning:**
+- **Adaptive real-time tuning:**
  Intelligent traffic profiling learns your application's traffic over time, and selects and updates the profile that is the most suitable for your service. The profile adjusts as traffic changes over time.
 
 - **DDoS Protection analytics, metrics, and alerting:**
@@ -65,7 +69,7 @@ Get detailed reports in five-minute increments during an attack, and a complete 
 - **Turnkey protection:**
 Simplified configuration immediately protects all resources on a virtual network as soon as DDoS Network Protection is enabled. No intervention or user definition is required. Similarly, simplified configuration immediately protects a public IP resource when DDoS IP Protection is enabled for it.
 
-- **Multi-Layered protection:**
+- **Multilayered protection:**
 When deployed with a web application firewall (WAF), Azure DDoS Protection protects both at the network layer (Layer 3 and 4, offered by Azure DDoS Protection) and at the application layer (Layer 7, offered by a WAF). WAF offerings include Azure [Application Gateway WAF SKU](../web-application-firewall/ag/ag-overview.md?toc=/azure/virtual-network/toc.json) and third-party web application firewall offerings available in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 
 - **Extensive mitigation scale:**
@@ -89,7 +93,7 @@ To learn about Azure DDoS Protection pricing, see [Azure DDoS Protection pricing
 Maximize the effectiveness of your DDoS protection and mitigation strategy by following these best practices:  
    
 - Design your applications and infrastructure with redundancy and resilience in mind.  
-- Implement a multi-layered security approach, including network, application, and data protection.  
+- Implement a multilayered security approach, including network, application, and data protection.  
 - Prepare an incident response plan to ensure a coordinated response to DDoS attacks.  
 
 To learn more about best practices, see [Fundamental best practices](./fundamental-best-practices.md). 

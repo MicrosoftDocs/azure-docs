@@ -3,7 +3,7 @@ title: Azure Functions legacy C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
 ms.topic: reference
 ms.custom: devx-track-csharp
-ms.date: 08/29/2025
+ms.date: 09/15/2026
 ---
 # Azure Functions legacy C# script (.csx) developer reference
 
@@ -49,13 +49,12 @@ FunctionsProject
  | | - function.json
  | | - function.proj
  | - host.json
- | - extensions.csproj
- | - bin
+ | - local.settings.json
 ```
 
-There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file (.csx) and binding configuration file (function.json).
+There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app and a [local.settings.json](./functions-develop-local.md#local-settings-file) file used during local development. Each function has its own code file (.csx) and binding configuration file (function.json).
 
-The binding extensions required in [version 2.x and later versions](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./extension-bundles.md). When you develop functions in the Azure portal, this registration is done for you.
+Bindings are defined in extension packages. By default, the [supported set of Functions extension NuGet packages](functions-triggers-bindings.md#supported-bindings) are made available to your C# script function app by using extension bundles. To learn more, see [Extension bundles](extension-bundles.md).
 
 ## Create a C# script app
 
@@ -123,7 +122,7 @@ The `#r` statement is explained [later in this article](#referencing-external-as
 
 ## Connections
 
-When possible, use managed identity-based connections in your triggers and bindings. For more information, see the [Function developer guide](./functions-reference.md#connections).
+When possible, use managed identity-based connections in your triggers and bindings. For more information, see [Manage connections](manage-connections.md?tabs=identity).
 
 ## Supported types for bindings
 
@@ -423,24 +422,9 @@ The following assemblies are automatically added by the Azure Functions hosting 
 * `System.Web.Http`
 * `System.Net.Http.Formatting`
 
-The following assemblies may be referenced by simple-name, by runtime version:
-
-### [v2.x+](#tab/functionsv2)
+The following assemblies may be referenced by simple name:
 
 * `Newtonsoft.Json`
-* `Microsoft.WindowsAzure.Storage`<sup>*</sup>
-
-<sup>*</sup>Removed in version 4.x of the runtime.
-
-### [v1.x](#tab/functionsv1)
-
-* `Newtonsoft.Json`
-* `Microsoft.WindowsAzure.Storage`
-* `Microsoft.ServiceBus`
-* `Microsoft.AspNet.WebHooks.Receivers`
-* `Microsoft.AspNet.WebHooks.Common`
-
----
 
 
 In code, assemblies are referenced like the following example:
@@ -465,52 +449,9 @@ The directory that contains the function script file is automatically watched fo
 
 ## Using NuGet packages
 
-The way that both binding extension packages and other NuGet packages are added to your function app depends on the [targeted version of the Functions runtime](functions-versions.md).
-
-### [v2.x+](#tab/functionsv2)
-
 By default, the [supported set of Functions extension NuGet packages](functions-triggers-bindings.md#supported-bindings) are made available to your C# script function app by using extension bundles. To learn more, see [Extension bundles](extension-bundles.md). 
 
-If for some reason you can't use extension bundles in your project, you can also use the Azure Functions Core Tools to install extensions based on bindings defined in the function.json files in your app. When using Core Tools to register extensions, make sure to use the `--csx` option. To learn more, see [func extensions install](functions-core-tools-reference.md#func-extensions-install).
-
-By default, Core Tools reads the function.json files and adds the required packages to an *extensions.csproj* C# class library project file in the root of the function app's file system (wwwroot). Because Core Tools uses dotnet.exe, you can use it to add any NuGet package reference to this extensions file. During installation, Core Tools builds the extensions.csproj to install the required libraries. Here's an example *extensions.csproj* file that adds a reference to *Microsoft.ProjectOxford.Face* version *1.1.0*:
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
-    </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="Microsoft.ProjectOxford.Face" Version="1.1.0" />
-    </ItemGroup>
-</Project>
-```
-> [!NOTE]
-> For C# script (.csx), you must set `TargetFramework` to a value of `netstandard2.0`. Other target frameworks, such as `net8.0`, aren't supported.
-
-### [v1.x](#tab/functionsv1)
-
-Version 1.x of the Functions runtime uses a *project.json* file to define dependencies. Here's an example *project.json* file:
-
-```json
-{
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "Microsoft.ProjectOxford.Face": "1.1.0"
-      }
-    }
-   }
-}
-```
-
-Extension bundles aren't supported by version 1.x.
-
----
-
-To use a custom NuGet feed, specify the feed in a *Nuget.Config* file in the function app root folder. For more information, see [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior).
-
-If you're working on your project only in the portal, you'll need to manually create the extensions.csproj file or a Nuget.Config file directly in the site. To learn more, see [Manually install extensions](functions-how-to-use-azure-function-app-settings.md#manually-install-extensions).
+If you need to add custom NuGet packages not included in an extension bundle, you should instead develop your C# functions locally as a [compiled C# class library project that uses the isolated process model](./dotnet-isolated-process-guide.md).
 
 ## Environment variables
 
@@ -668,7 +609,6 @@ The following table lists the .NET attributes for each binding type and the pack
 > | Azure Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
 > | Event Hubs | [`Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/b798412ad74ba97cf2d85487ae8479f277bdd85c/test/Microsoft.Azure.WebJobs.ServiceBus.UnitTests/ServiceBusAccountTests.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
 > | Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
-> | Notification Hubs | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
 > | Service Bus | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/b798412ad74ba97cf2d85487ae8479f277bdd85c/test/Microsoft.Azure.WebJobs.ServiceBus.UnitTests/ServiceBusAttributeTests.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/b798412ad74ba97cf2d85487ae8479f277bdd85c/test/Microsoft.Azure.WebJobs.ServiceBus.UnitTests/ServiceBusAccountTests.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
 > | Storage queue | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 > | Storage blob | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
@@ -1376,7 +1316,6 @@ The following table explains the trigger configuration properties that you set i
 | **authLevel** |  Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see [Authorization level](./functions-bindings-http-webhook-trigger.md#http-auth).  |
 | **methods** | An array of the HTTP methods to which the function  responds. If not specified, the function responds to all HTTP methods. See [customize the HTTP endpoint](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint). |
 | **route** |  Defines the route template, controlling to which request URLs your function responds. The default value if none is provided is `<functionname>`. For more information, see [customize the HTTP endpoint](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint). |
-| **webHookType** | _Supported only for the version 1.x runtime._<br/><br/>Configures the HTTP trigger to act as a [webhook](https://en.wikipedia.org/wiki/Webhook) receiver for the specified provider. For supported values, see [WebHook type](./functions-bindings-http-webhook-trigger.md#webhook-type).|
 
 The following example shows a trigger binding in a *function.json* file and a C# script function that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
@@ -1473,14 +1412,14 @@ The following table explains the trigger configuration properties that you set i
 |**type** |  Must be set to `eventHubTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** |  Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** |  The name of the variable that represents the event item in function code. |
-|**eventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](./functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%`. In version 1.x, this property is named `path`. |
+|**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](./functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%`. |
 |**consumerGroup** |An optional property that sets the [consumer group](../event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](./functions-bindings-event-hubs-trigger.md#connections).|
 
 
 The following example shows an Event Hubs trigger binding in a *function.json* file and a C# script function    that uses the binding. The function logs the message body of the Event Hubs trigger.
 
-The following examples show Event Hubs binding data in the *function.json* file for Functions runtime version 2.x and later versions. 
+The following example shows Event Hubs binding data in the *function.json* file.
 
 ```json
 {
@@ -1552,12 +1491,12 @@ The following table explains the binding configuration properties that you set i
 |**type** |  Must be set to `eventHub`. |
 |**direction** | Must be set to `out`. This parameter is set automatically when you create the binding in the Azure portal. |
 |**name** |  The variable name used in function code that represents the event. |
-|**eventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. In Functions 1.x, this property is named `path`.|
+|**eventHubName** | The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. |
 |**connection**  | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](./functions-bindings-event-hubs-output.md#connections).|
 
 The following example shows an event hub trigger binding in a *function.json* file and a C# script function that uses the binding. The function writes a message to an event hub.
 
-The following examples show Event Hubs binding data in the *function.json* file for Functions runtime version 2.x and later versions. 
+The following example shows Event Hubs binding data in the *function.json* file.
 
 ```json
 {
@@ -1715,9 +1654,8 @@ The following table explains the binding configuration properties that you set i
 |**topicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**subscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
 |**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](./functions-bindings-service-bus-trigger.md#connections).|
-|**accessRights**| Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 |**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
-|**autoComplete**| `true` when the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>Setting to `false` is only supported in C#.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/When set to `false`, you are responsible for calling [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) methods to complete, abandon, or deadletter the message, session, or batch. When an exception is thrown (and none of the `ServiceBusReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br/><br/>This property is available only in Azure Functions 2.x and higher. |
+|**autoComplete**| `true` when the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>Setting to `false` is only supported in C#.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/When set to `false`, you are responsible for calling [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) methods to complete, abandon, or deadletter the message, session, or batch. When an exception is thrown (and none of the `ServiceBusReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed. |
 
 The following example shows a Service Bus trigger binding in a *function.json* file and a C# script function that uses the binding. The function reads message metadata and logs a Service Bus queue message.
 
@@ -1769,7 +1707,6 @@ The following table explains the binding configuration properties that you set i
 |**queueName**|Name of the queue.  Set only if sending queue messages, not for a topic.
 |**topicName**|Name of the topic. Set only if sending topic messages, not for a queue.|
 |**connection**|The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](./functions-bindings-service-bus-output.md#connections).|
-|**accessRights** (v1 only)|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 
 The following example shows a Service Bus output binding in a *function.json* file and a C# script function that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
 
@@ -3678,8 +3615,6 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 ### Warmup trigger
 
 The following example shows a warmup trigger in a *function.json* file and a [C# script function](functions-reference-csharp.md) that runs on each new instance when it's added to your app.
-
-Not supported for version 1.x of the Functions runtime.
 
 Here's the *function.json* file:
 

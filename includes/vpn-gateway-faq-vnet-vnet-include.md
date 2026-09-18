@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 10/18/2023
- ms.author: cherylmc
+ ms.author: duau
 
 ---
 The VNet-to-VNet information in this section applies to VPN gateway connections. For information about VNet peering, see [Virtual network peering](../articles/virtual-network/virtual-network-peering-overview.md).

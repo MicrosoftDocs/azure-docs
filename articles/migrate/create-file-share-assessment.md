@@ -5,8 +5,9 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.reviewer: v-uhabiba
-ms.date: 11/05/2024
+ms.reviewer: jsuri
+ms.date: 11/05/2025
+ms.update-cycle: 365-days
 # Customer intent: As a cloud architect, I want to create an application assessment using Azure Migrate, so that I can evaluate migration strategies, identify optimal targets, and understand the cost and readiness of my application workloads for the cloud transition.
 ---
 
@@ -20,6 +21,7 @@ To quickly migrate your on-premises **file shares** to Azure, create an Azure Fi
 
 > [!Note]
 >  All assessments created with Azure Migrate are point‑in‑time snapshots. Assessment results can change based on aggregated server performance data or changes in the source environment configuration.  
+> Azure Migrate supports assessment of file shares hosted on Windows Server with version greater than Windows Server 2012 R2. It's supported on all Linux distros.
 
 ## Prerequisites 
 
@@ -50,7 +52,8 @@ To create an assessment, follow these steps:
 1. After the assessment scope is complete, select **Next**.
  
     > [!Note]
-    > For accurate calculations, servers hosting the selected fileshares and other colocated fileshares will be automatically added to the assessment scope.  
+    > For accurate calculations, servers hosting the selected file shares and other colocated file shares are automatically added to the assessment scope.  
+
 1. Select Next to move to the Azure Files–specific assessment properties.
 1. Select Edit defaults to review and customize Azure Files–specific settings.
 1. Select Save after updating any settings.

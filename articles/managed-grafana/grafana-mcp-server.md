@@ -5,7 +5,7 @@ description: Discover MCP tools for Azure Managed Grafana. Query Application Ins
 author: weng5e
 ms.author: wuweng
 ms.reviewer: malev
-ms.date: 05/12/2026
+ms.date: 09/15/2026
 ms.topic: concept-article
 ms.service: azure-managed-grafana
 ---
@@ -40,17 +40,21 @@ Azure Managed Grafana MCP provides the following tools for interacting with Azur
 | `amgmcp_query_resource_log` | Queries an Azure resource log through a Grafana Azure Monitor data source. |
 | `amgmcp_query_azure_subscriptions` | Lists all the Azure subscriptions that the Grafana Azure Monitor data source can access. |
 | `amgmcp_insights_get_failures` | Gets failure insights. Returns failure summary data from Application Insights, such as failed requests, failed dependencies, and exceptions. |
-| `amgmcp_insights_get_agents` | Gets generative AI agent insights. Returns information related to generative AI agents from Application Insights, such as agent invocations, token usage, and latency. Queries data following *OpenTelemetry for generative AI* semantic conventions, for example, data emitted by OpenAI Python API, Google Cloud AI Agent Development Kit, Microsoft AI Foundry / Agent Toolkits, Microsoft Agent Framework, LangChain / LangGraph. |
 | `amgmcp_query_application_insights_trace` | Queries an Application Insights trace through a Grafana Azure Monitor data source. When trace data is stored in multiple Application Insights instances, this tool aggregates the data. |
 | `amgmcp_kusto_get_metadata` | Gets the metadata for connected Azure Data Explorer (Kusto) clusters. Lists all Azure Data Explorer data sources, and for each data source, gets the URL of the cluster, databases, and schema. |
 | `amgmcp_kusto_query` | Queries data in an Azure Data Explorer (Kusto) cluster. |
-| `amgmcp_mssql_get_metadata` | Gets the metadata for all connected Microsoft SQL Server data sources. Lists the databases, tables, and column schemas for each SQL Server data source. |
-| `amgmcp_mssql_query` | Queries data in a SQL Server data source. |
+| `amgmcp_sql_get_metadata` | Gets metadata for connected Microsoft SQL Server, PostgreSQL, and MySQL data sources, including databases, tables, and column schemas. |
+| `amgmcp_sql_query` | Queries a Microsoft SQL Server, PostgreSQL, or MySQL data source using the data source's SQL dialect. |
 | `amgmcp_query_resource_health` | Queries Azure Resource Health availability status for a subscription, resource group, or single resource. Supports current status and historical availability transitions. |
 | `amgmcp_query_resource_health_events` | Queries Azure Resource Health service-health events (service issues, planned maintenance, health advisories, security advisories, RCAs, emerging issues, billing events) at subscription or single-resource scope. |
 | `amgmcp_query_activity_log` | Queries Azure Activity Log to investigate management-plane operations (creates, deletes, updates, RBAC changes, deployments, etc.) on Azure resources. |
 | `amgmcp_cost_analysis` | Shows Azure cost analysis. Breaks down costs by resource type, region, and service category (MeterCategory). Supports querying a single subscription or all accessible subscriptions. |
 | `amgmcp_datasource_list` | Lists all Grafana data sources. Optionally filters by data source type. |
+| `amgmcp_alert_get_history` | Gets the state-change history for one Grafana-managed alert rule over a time window. |
+| `amgmcp_alert_list` | Lists Grafana-managed alert rules together with their live evaluation state and firing instances. |
+| `amgmcp_alert_update` | Creates, replaces, or patches a Grafana-managed alert rule. Supports full rule definitions, targeted patch operations, and validation-only mode. |
+| `amgmcp_loki_list_labels` | Lists label names or values from a Loki data source to help build stream selectors. |
+| `amgmcp_loki_query` | Queries logs data from a Loki data source using LogQL. |
 
 ## MCP configuration
 
@@ -90,13 +94,13 @@ Use a Grafana service account token for authentication. Start by creating a toke
 
 Use a Microsoft Entra ID token for authentication. This approach is useful when you're using managed identities or service principals.
 
-- Use the Azure CLI to obtain a Microsoft Entra ID token that's associated with the Azure Managed Grafana resource ID:
+- Use the Azure CLI to obtain a Microsoft Entra ID token for the Azure Managed Grafana audience `https://dashboard.azure.com`.
 
     ```bash
-    az account get-access-token --resource ce34e7e5-485f-4d76-964f-b3d2b16d1e4f --query accessToken -o tsv
+    az account get-access-token --resource https://dashboard.azure.com --query accessToken -o tsv
     ```
 
-- Alternatively, use a managed identity to programmatically acquire a token with the Azure Managed Grafana audience `ce34e7e5-485f-4d76-964f-b3d2b16d1e4f`.
+- Alternatively, use a managed identity to programmatically acquire a token with the Azure Managed Grafana audience `https://dashboard.azure.com`.
 
     ```json
     {
@@ -106,7 +110,7 @@ Use a Microsoft Entra ID token for authentication. This approach is useful when 
         "type": "streamableHttp",
         "url": "https://my-grafana-d5ggtqegcr2safcp.wcus.grafana.azure.com/api/azure-mcp",
         "headers": {
-          "Authorization": "Bearer <entra-id-token>"
+          "Authorization": "Bearer <entra-id-token-for-https://dashboard.azure.com>"
         }
       }
     }
@@ -235,5 +239,6 @@ If you encounter any problems, open an issue in the [Azure Managed Grafana GitHu
 
 ## Related content
 
+- [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md)
 - [Configure MCP for AI Foundry agents](./how-to-configure-mcp-for-ai-foundry.md)
 - [Enable zone redundancy](./how-to-enable-zone-redundancy.md)

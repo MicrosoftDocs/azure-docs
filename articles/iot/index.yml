@@ -76,7 +76,7 @@ conceptualContent:
     - title: Azure Device Registry
       summary: A unified service for managing devices and assets across both Azure IoT Hub and Azure IoT Operations.
       links:
-        - url: ../iot-hub/iot-hub-device-registry-overview.md
+        - url: ./iot-device-registry-overview.md
           itemType: overview
           text: What is Azure Device Registry?
         - url: ./iot-device-registry-namespace-guidance.md

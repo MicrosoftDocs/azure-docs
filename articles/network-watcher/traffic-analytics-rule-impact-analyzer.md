@@ -21,7 +21,7 @@ The rules impact analyzer enables you to preview the impact of security admin ru
 
 - Traffic analytics enabled for your virtual network flow logs or network security group flow logs. For more information, see [Enable traffic analytics on virtual network flow logs](vnet-flow-logs-manage.md#enable-or-disable-traffic-analytics) or [Enable traffic analytics on network security group flow logs](nsg-flow-logs-manage.md#enable-or-disable-traffic-analytics).
  
-- Required role-based access control (RBAC) permissions. For more information, see [Traffic analytics RBAC Permissions](required-rbac-permissions.md#traffic-analytics).
+- Required role-based access control (RBAC) permissions. For more information, see [Traffic analytics RBAC Permissions](rbac-permissions.md#traffic-analytics).
 
 - A network group. For more information, see [Create a network group](../virtual-network-manager/create-virtual-network-manager-portal.md#create-a-network-group).
 

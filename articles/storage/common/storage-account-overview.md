@@ -3,12 +3,12 @@ title: Storage Account Overview
 titleSuffix: Azure Storage
 description: Learn about the types of storage accounts in Azure Storage. Review account naming, tiers, redundancy, encryption, endpoints, and more.
 services: storage
-author: akashdubey-ms
+author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: concept-article
-ms.date: 03/04/2025
-ms.author: akashdubey
+ms.date: 07/16/2026
+ms.author: normesta
 #customer intent: As a cloud architect, I want to understand the types of storage accounts and their features, so that I can choose the right account type based on my application's performance, redundancy, and cost requirements.
 ---
 
@@ -33,7 +33,7 @@ The following table describes the types of storage accounts that we recommend fo
 
 <sup>1</sup> Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Blob Storage. For more information, see [Introduction to Data Lake Storage](../blobs/data-lake-storage-introduction.md) and [Create a storage account to use with Data Lake Storage](../blobs/create-data-lake-storage-account.md).
 
-<sup>2</sup> ZRS, GZRS, and RA-GZRS are available only for standard general-purpose v2, premium block blobs, premium file shares, and premium page blobs accounts in certain regions. For more information, see [Azure Storage redundancy](storage-redundancy.md).
+<sup>2</sup> ZRS, GZRS, and RA-GZRS are not available for all storage account types. They are supported for standard general-purpose v2, premium block blob, premium file share, and premium page blob accounts. However, the available redundancy options can vary not only by type, but also by region. For more information, see [Azure Storage redundancy](storage-redundancy.md).
 
 <sup>3</sup> Premium performance storage accounts use solid-state drives (SSDs) for low latency and high throughput.
 
@@ -173,18 +173,18 @@ An Azure DNS zone service endpoint in Azure Storage includes:
 
 * The protocol. (We recommend HTTPS.)
 * The storage account name as the subdomain.
-* A domain that includes the name of the service and the identifier for the DNS zone. The identifier for the DNS zone always begins with `z` and can range from `z00` to `z50`.
+* A domain that includes the name of the service and the identifier for the DNS zone. The identifier for the DNS zone always begins with `z` and can range from `z1` to `z9`, or `z10` to `z50`.
 
 The following table lists the format for Azure DNS zone endpoints for each of the Azure Storage services:
 
 | Storage service | Endpoint |
 |--|--|
-| Blob Storage | `https://<storage-account>.z[00-50].blob.storage.azure.net` |
-| Static website (Blob Storage) | `https://<storage-account>.z[00-50].web.storage.azure.net` |
-| Data Lake Storage | `https://<storage-account>.z[00-50].dfs.storage.azure.net` |
-| Azure Files | `https://<storage-account>.z[00-50].file.storage.azure.net` |
-| Queue Storage | `https://<storage-account>.z[00-50].queue.storage.azure.net` |
-| Table Storage | `https://<storage-account>.z[00-50].table.storage.azure.net` |
+| Blob Storage | `https://<storage-account>.z<N>.blob.storage.azure.net` |
+| Static website (Blob Storage) | `https://<storage-account>.z<N>.web.storage.azure.net` |
+| Data Lake Storage | `https://<storage-account>.z<N>.dfs.storage.azure.net` |
+| Azure Files | `https://<storage-account>.z<N>.file.storage.azure.net` |
+| Queue Storage | `https://<storage-account>.z<N>.queue.storage.azure.net` |
+| Table Storage | `https://<storage-account>.z<N>.table.storage.azure.net` |
 
 > [!IMPORTANT]
 > You can create up to 5,000 accounts with Azure DNS zone endpoints per region per subscription. However, you might need to update your application code to query for the account endpoint at runtime. You can call the [`get properties`](/rest/api/storagerp/storage-accounts/get-properties) operation to query for the storage account endpoints.
@@ -223,7 +223,6 @@ The following table summarizes and points to guidance on how to move, upgrade, o
 | Move a storage account to a different resource group | Azure Resource Manager provides options for moving a resource to a different resource group. For more information, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). |
 | Move a storage account to a different region | To move a storage account, create a copy of your storage account in another region. Then, move your data to that account by using AzCopy or another tool of your choice. For more information, see [Move an Azure Storage account to another region](storage-account-move.md). |
 | Upgrade to a general-purpose v2 storage account | You can upgrade a general-purpose v1 storage account or legacy Blob Storage account to a general-purpose v2 account. This action can't be undone. For more information, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). |
-| Migrate a classic storage account to Azure Resource Manager | The Azure Resource Manager deployment model is superior to the classic deployment model in terms of functionality, scalability, and security. For more information about migrating a classic storage account to Azure Resource Manager, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts). |
 
 ## Transferring data into a storage account
 
@@ -254,13 +253,13 @@ The [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/sto
 The following account types are retired or scheduled for retirement. They aren't recommended for new deployments. If you still have these accounts, plan to migrate to a supported account type.
 
 > [!IMPORTANT]
-> Azure storage accounts that use the *classic deployment model (ASM)* type were retired on August 31, 2024. Migrate to the Azure Resource Manager deployment model. For migration guidance, see [classic account migration overview](./classic-account-migration-overview.md). For more information, see [Update on classic storage account retirement](https://techcommunity.microsoft.com/blog/azurestorageblog/update-on-classic-storage-account-retirement-and-upcoming-changes-for-classic-st/4282217).
+> Azure storage accounts that use the *classic deployment model (ASM)* type were retired on August 31, 2024. 
 
 | Retired account type | Supported services | Redundancy options | Deployment model | Guidance |
 | --- | --- | --- | --- | --- |
 | **Standard general-purpose v1** | Blob Storage, Queue Storage, Table Storage, Azure Files | LRS/GRS/RA-GRS | Resource Manager, classic¹ | Upgrade existing general-purpose v1 accounts to general-purpose v2 to access modern features and cost-optimization capabilities. Before you upgrade, you can model capacity and operations costs by reading [General-purpose v1 account migration](./general-purpose-version-1-account-migration-overview.md). For the in-place upgrade, see [storage account upgrade](./storage-account-upgrade.md). |
 | **Blob Storage** | Block blobs and append blobs | LRS/GRS/RA-GRS | Resource Manager | Upgrade existing legacy Blob Storage accounts to GPv2 to use access tiers and lifecycle management. See [Legacy Blob Storage account migration overview](./legacy-blob-storage-account-migration-overview.md) and [access tiers overview](../blobs/access-tiers-overview.md). |
-| **Classic (ASM) storage accounts** | Blob Storage, Queue Storage, Table Storage, Azure Files | LRS/GRS/RA-GRS | classic | Retired. Migrate to the Resource Manager deployment model. See [classic account migration overview](./classic-account-migration-overview.md). |
+| **Classic (ASM) storage accounts** | Blob Storage, Queue Storage, Table Storage, Azure Files | LRS/GRS/RA-GRS | classic | Retired. |
 
 ¹ *Classic* denotes the Azure Service Management deployment model.
 

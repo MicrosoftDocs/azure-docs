@@ -41,16 +41,17 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 | Maximum size of a single large volume with breakthrough mode (preview) | 2,400 TiB | No |
 | Maximum size of a large volume up to 7.2 PiB** | 7.2 PiB | Yes** |
 |  Maximum size of a single file on regular Azure NetApp Files volumes    |    64 TiB    |    No    | 
-|  Maximum size of a single file on Azure NetApp Files large volumes    |    16 TiB    |    No    |    
+|  Maximum size of a single file on Azure NetApp Files large volumes    |    16 TiB    |    No    |  
+|  Maximum size of a single file on Azure NetApp Files cache volumes    |    16 TiB    |    No    |    
 | Maximum size of a large volume up to 7.2 PiB*** | 7.2 PiB | Yes** |
-|  Maximum size of a single file     |    16 TiB    |    No    |    
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
 |  Maximum number of files in a single directory  | *Approximately* 4 million. <br> See [Determine if a directory is approaching the limit size](directory-sizes-concept.md#directory-limit).  |    No    |   
 |  Maximum number of `maxfiles` per volume | See [`maxfiles`](maxfiles-concept.md)  | Yes**** |    
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Maximum number of quota rules per volume     |   1,000  |    No    | 
 |  Minimum assigned throughput for a manual Quality of Service (QoS) volume     |    1 MiB/s   |    No    |    
-|  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
+|  Maximum assigned throughput for a manual QoS regular volume     |    4,500 MiB/s    |    No    |   
+|  Maximum assigned throughput for a manual QoS large volume     |    12,800 MiB/s    |    No    |   
 |  Number of cross-region replication data protection volumes (destination volumes)     |    2000    |    Yes    |     
 |  Number of cross-zone replication data protection volumes (destination volumes)     |    2000    |    Yes    |     
 |  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 2 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 0 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 0 (minimum) to 1019 (maximum) </ol></li> <br> The maximum hourly, daily, weekly, and monthly backup retention counts *combined* is 1019.  |  No  |

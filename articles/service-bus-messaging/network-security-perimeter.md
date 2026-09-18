@@ -3,7 +3,7 @@ title: Network Security Perimeter
 titleSuffix: Azure Service Bus
 description: Learn how to associate an Azure Service Bus namespace with a network security perimeter.
 ms.reviewer: spelluru
-ms.date: 04/28/2026
+ms.date: 08/24/2026
 author: EldertGrootenboer
 ms.author: egrootenboer
 ms.topic: feature-guide

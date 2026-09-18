@@ -18,12 +18,12 @@ ms.custom:
 
 # Tutorial: Create and upload certificates for testing
 
-You can use X.509 certificates to authenticate devices to your IoT hub. For production environments, we recommend that you purchase an X.509 CA certificate from a professional certificate services vendor. You can then issue certificates within your organization from an internal, self-managed certificate authority (CA) chained to the purchased CA certificate as part of a comprehensive public key infrastructure (PKI) strategy. For more information about getting an X.509 CA certificate from a professional certificate services vendor, see the [Get an X.509 CA certificate](iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) section of [Authenticate devices using X.509 CA certificates](iot-hub-x509ca-overview.md).
+You can use X.509 certificates to authenticate devices to your IoT hub. For production environments, we recommend that you purchase an X.509 CA certificate from a professional certificate services vendor. You can then issue certificates within your organization from an internal, self-managed certificate authority (CA) chained to the purchased CA certificate as part of a comprehensive public key infrastructure (PKI) strategy. For more information about getting an X.509 CA certificate from a professional certificate services vendor, see the [Get an X.509 CA certificate](../iot-hub/iot-hub-x509ca-overview.md#get-an-x509-ca-certificate) section of [Authenticate devices using X.509 CA certificates](../iot-hub/iot-hub-x509ca-overview.md).
 
 However, creating your own self-managed, private CA that uses an internal root CA as the trust anchor is adequate for testing environments. A self-managed private CA with at least one subordinate CA chained to your internal root CA, with client certificates for your devices signed by your subordinate CAs, allows you to simulate a recommended production environment.
 
->[!IMPORTANT]
->We don't recommend the use of self-signed certificates for production environments. This tutorial is presented for demonstration purposes only.
+> [!IMPORTANT]
+> Don't use self-signed certificates for production environments. This tutorial is presented for demonstration purposes only.
 
 The following tutorial uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) to describe how to accomplish the following tasks:
 
@@ -34,13 +34,13 @@ The following tutorial uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL
 > * Use the subordinate CA to create client certificates for the IoT devices you want to test with your IoT hub
 
 >[!NOTE]
->Microsoft provides PowerShell and Bash scripts to help you understand how to create your own X.509 certificates and authenticate them to an IoT hub. The scripts are included with the [Azure IoT Hub Device SDK for C](https://github.com/Azure/azure-iot-sdk-c). The scripts are provided for demonstration purposes only. Certificates created by them must not be used for production. The certificates contain hard-coded passwords (“1234”) and expire after 30 days. You must use your own best practices for certificate creation and lifetime management in a production environment. For more information, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertificateOverview.md) in the GitHub repository for the [Azure IoT Hub Device SDK for C](https://github.com/Azure/azure-iot-sdk-c).
+>Microsoft provides PowerShell and Bash scripts to help you understand how to create your own X.509 certificates and authenticate them to an IoT hub. The scripts are included with the [Azure IoT Hub Device SDK for C](https://github.com/Azure/azure-iot-sdk-c). The scripts are provided for demonstration purposes only. Certificates created by them must not be used for production. The certificates contain hard-coded passwords ("1234") and expire after 30 days. Use your own best practices for certificate creation and lifetime management in a production environment. For more information, see [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/main/tools/CACertificates/CACertificateOverview.md) in the GitHub repository for the [Azure IoT Hub Device SDK for C](https://github.com/Azure/azure-iot-sdk-c).
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
-* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](../iot-hub/create-hub.md).
 
 * The latest version of [Git](https://git-scm.com/downloads). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/downloads) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
@@ -232,7 +232,7 @@ You must first create an internal root certificate authority (CA) and a self-sig
 
 ## Create a subordinate CA
 
-After you create your internal root CA, you should create a subordinate CA to use as an *intermediate CA* with which to sign client certificates for your devices. In theory, you don't need to create a subordinate CA; you can upload your root CA certificate to your IoT hub and sign client certificates directly from your root CA. However, using a subordinate CA as an intermediate CA to sign client certificates more closely simulates a recommended production environment, in which your root CA is kept offline. You can also use a subordinate CA to sign another subordinate CA, which in turn can sign another subordinate CA, and so on. Using subordinate CAs to sign other subordinate CAs creates a hierarchy of intermediate CAs as part of a *certificate chain of trust.* In a production environment, the certificate chain of trust allows a delegation of trust towards signing devices. For more information about signing devices into a certificate chain of trust, see [Authenticate identities with X.509 certificates](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust).
+After you create your internal root CA, create a subordinate CA to use as an *intermediate CA* for signing client certificates for your devices. In theory, you don't need to create a subordinate CA. You can upload your root CA certificate to your IoT hub and sign client certificates directly from your root CA. However, using a subordinate CA as an intermediate CA to sign client certificates more closely simulates a recommended production environment, in which you keep your root CA offline. You can also use a subordinate CA to sign another subordinate CA, which in turn can sign another subordinate CA, and so on. Using subordinate CAs to sign other subordinate CAs creates a hierarchy of intermediate CAs as part of a *certificate chain of trust.* In a production environment, the certificate chain of trust allows a delegation of trust towards signing devices. For more information about signing devices into a certificate chain of trust, see [Authenticate identities with X.509 certificates](../iot-hub/iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust).
 
 Similar to your root CA, the files used to create and maintain your subordinate CA are stored in a folder structure and initialized as part of this process. Perform the following steps to:
 
@@ -472,7 +472,7 @@ Perform the following steps to:
     
     ```
 
-    Confirm that the CSR file is present in the subordinate CA directory. Then, confirm that the private key file is present in the `private` subdirectory before continuing. For more information about the formats of the CSR and private key files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).
+    Confirm that the CSR file is present in the subordinate CA directory. Then, confirm that the private key file is present in the `private` subdirectory before continuing. For more information about the formats of the CSR and private key files, see [X.509 certificates](../iot-hub/reference-x509-certificates.md#certificate-formats).
 
 1. In the Git Bash window, run the following command, replacing the device name placeholders with the same name you used in the previous steps.
 
@@ -514,6 +514,6 @@ Perform the following steps to:
 
 ## Next steps
 
-You can register your device with your IoT hub for testing the client certificate that you created for that device. For more information about registering a device, see [Create and manage device identities](create-connect-device.md).
+You can register your device with your IoT hub for testing the client certificate that you created for that device. For more information about registering a device, see [Create and manage device identities](../iot-hub/create-connect-device.md).
 
 If you have multiple related devices to test, you can use the Azure IoT Hub Device Provisioning Service to provision multiple devices in an enrollment group. For more information about using enrollment groups in the Device Provisioning Service, see [Tutorial: Provision multiple X.509 devices using enrollment groups](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).

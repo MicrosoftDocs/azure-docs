@@ -1,7 +1,7 @@
 ---
 title: Workflow automation in Azure SRE Agent
 description: Automate operational workflows by connecting triggers, subagents, and tools to run without manual intervention.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 04/24/2026
 author: craigshoemaker

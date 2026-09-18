@@ -3,12 +3,10 @@ title: Failed to Add Custom Domain Using Key Vault Certificate
 titleSuffix: Azure API Management
 description: Learn how to troubleshoot failure to add a custom domain in Azure API Management using a key vault certificate.
 services: api-management
-author: genlin
 manager: dcscontentpm
 ms.service: azure-api-management
 ms.topic: troubleshooting-general
 ms.date: 02/18/2026
-ms.author: tehnoonr
 ms.custom: sfi-image-nochange
 ---
 

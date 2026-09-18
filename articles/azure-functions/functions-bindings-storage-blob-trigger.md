@@ -2,7 +2,7 @@
 title: Azure Blob storage trigger for Azure Functions
 description: Learn how to use Azure Function to run your custom code based on changes in an Azure Blob storage container. 
 ms.topic: reference
-ms.date: 05/14/2025
+ms.date: 08/28/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 zone_pivot_groups: programming-languages-set-functions
@@ -20,12 +20,16 @@ ms.custom:
 
 The Blob storage trigger starts a function when a new or updated blob is detected. The blob contents are provided as [input to the function](./functions-bindings-storage-blob-input.md).
 
-> [!TIP] 
-> There are several ways to execute your function code based on changes to blobs in a storage container. If you choose to use the Blob storage trigger, there are two implementations offered: a polling-based one (referenced in this article) and an event-based one. It is recommended that you use the [event-based implementation](./functions-event-grid-blob-trigger.md) as it has lower latency than the other. Also, the Flex Consumption plan supports only the event-based Blob storage trigger. 
+## Choose a Blob storage trigger implementation
 
-> For details about differences between the two implementations of the Blob storage trigger, as well as other triggering options, see [Working with blobs](./storage-considerations.md#working-with-blobs).
+Azure Functions provides two implementations of the Blob storage trigger:
 
-For information on setup and configuration details, see the [overview](./functions-bindings-storage-blob.md). 
+- **Event-based Blob storage trigger:** Recommended because it has lower latency. The Flex Consumption plan supports only this implementation. You must use this implementation when the storage account has hierarchical namespace (HNS) enabled, such as an Azure Data Lake Storage Gen2 account.
+- **Polling-based Blob storage trigger:** This implementation results in higher latency and doesn't officially support storage accounts that have HNS enabled, such as Azure Data Lake Storage Gen2 accounts.
+
+For a comparison of these implementations and other ways to process blob changes, see [Working with blobs](./storage-considerations.md#working-with-blobs).
+
+For setup and configuration details, see the [Blob storage bindings overview](./functions-bindings-storage-blob.md).
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]  
@@ -259,7 +263,7 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 This example uses SDK types to directly access the underlying [`BlobClient`](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object provided by the Blob storage trigger: 
 
-:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-12,29-37"::: 
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-12,29-37":::
 
 For examples of using other SDK types, see the [`ContainerClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_containerclient/function_app.py) and [`StorageStreamDownloader`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_storagestreamdownloader/function_app.py) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for Blob Sample](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-python).
 
@@ -320,8 +324,50 @@ def main(myblob: func.InputStream):
 ```
 
 ::: zone-end  
+::: zone pivot="programming-language-go"
 
----
+The following example shows a Blob Storage trigger function that processes uploaded blobs:
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"io"
+	"log"
+
+	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob"
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	_ "github.com/azure/azure-functions-golang-worker/triggers/blob"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.Blob("blobTrigger", processBlob,
+		sdk.WithPath("samples-workitems/{name}"),
+		sdk.WithConnection("AzureWebJobsStorage"),
+	)
+	worker.Start(app)
+}
+
+func processBlob(ctx context.Context, client *blob.Client) error {
+	get, err := client.DownloadStream(ctx, nil)
+	if err != nil {
+		return fmt.Errorf("download error: %w", err)
+	}
+	data, _ := io.ReadAll(get.Body)
+	get.Body.Close()
+	log.Printf("Go Blob trigger function processed blob, %d bytes", len(data))
+	return nil
+}
+```
+
+> [!NOTE]
+> The Blob trigger in Go provides an authenticated Azure SDK `*blob.Client` directly to your handler. You must add a blank import for `triggers/blob` to make the Blob trigger package available to the Go worker.
+
+::: zone-end  
 
 ::: zone pivot="programming-language-csharp"
 ## Attributes
@@ -518,8 +564,6 @@ See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding
 
 Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#memory-usage-and-concurrency).
 
-If you get an error message when trying to bind to one of the Storage SDK types, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-blob.md#tabpanel_2_functionsv1_in-process).
-
 [!INCLUDE [functions-bindings-blob-storage-attribute](../../includes/functions-bindings-blob-storage-attribute.md)]
 ::: zone-end  
 
@@ -558,7 +602,7 @@ Functions also support Python SDK type bindings for Azure Blob storage, which le
 
 ::: zone-end  
 
-[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
+[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-connections.md)]
 
 ## Blob name patterns
 

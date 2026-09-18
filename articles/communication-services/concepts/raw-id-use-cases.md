@@ -2,7 +2,7 @@
 title: Use cases for string identifiers
 titleSuffix: An Azure Communication Services article
 description: Learn how to use Raw ID in SDKs
-author: ostoliarova-msft
+author: rajuanitha88
 manager: rajuanitha88
 services: azure-communication-services
 

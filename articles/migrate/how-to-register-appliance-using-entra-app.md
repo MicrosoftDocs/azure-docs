@@ -6,8 +6,9 @@ ms.author: molir
 ms.manager: ronai
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 09/01/2025
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 # Customer intent: "As an IT administrator, I would like ot set up Migarte appliance using an existing Microsoft Entra ID application and not in the user context to avoid challenges such as missing tenant permissions for the user and DCF being disabled at Microsoft Entra ID level."
 ---
@@ -21,6 +22,9 @@ After setting up Azure Migrate appliance prerequisite, users sign in to Azure to
 -	**Use of Pre-Approved Microsoft Entra ID Applications**: Enterprises might prefer to use existing, preapproved Microsoft Entra ID applications that align with internal naming conventions and compliance policies, rather than allowing the appliance to create a new Microsoft Entra ID app automatically.
 
 To avoid registering the appliance under a user's context and to address the above challenges, you can use a preconfigured Microsoft Entra ID application for appliance registration.
+
+> [!NOTE]
+> Alternatively, register the appliance without a Microsoft Entra ID application by installing the Azure Arc agent. For information about how to install the Azure Arc agent and the supported scenarios, see [Register Azure Migrate appliance by onboarding it to Azure Arc](how-to-register-appliance-using-arc-agent.md).
 
 
 ## 1.	Register a Microsoft Entra ID application and assign permissions

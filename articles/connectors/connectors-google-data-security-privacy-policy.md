@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
 ms.custom: sfi-image-nochange
-ms.date: 09/12/2025
+ms.date: 06/17/2026
 #Customer intent: As an integration developer who works with Google connector in Azure Logic Apps, I need to know how Google's policies affect workflows that use Google services, such as Gmail.
 ---
 
@@ -17,6 +17,10 @@ ms.date: 09/12/2025
 Starting **May 1, 2020**, changes due to Google's [data security and privacy policies](https://www.blog.google/technology/safety-security/project-strobe/) might affect logic app workflows that use the Google connectors, such as the [Gmail connector](/connectors/gmail/).
 
 If your workflows use the Gmail connector with a Gmail consumer account, which is an email address that ends with `@gmail.com` or `@googlemail.com`, your workflows can use only specific [Google-approved connector operations](#approved-connectors). If your workflows use the Gmail connector with a G-Suite business account, which is an email address with a custom domain, your workflows aren't affected and have no restrictions on using the Gmail connector.
+
+> [!NOTE]
+>
+> The Gmail connector works only with *Consumption* logic app workflows, not *Standard* logic app workflows.
 
 ## Affected workflows
 

@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: concept-article
-ms.date: 03/19/2026
+ms.date: 07/17/2026
 ms.author: primittal
 ---
 
@@ -54,7 +54,7 @@ Service plans:
 Read the following articles that apply to you to learn how discounts apply to a specific Azure service:
 
 - [App Service](reservation-discount-app-service.md)
-- [Azure Managed Redis](../../redis/reserved-pricing.md)
+- [Azure Managed Redis](/azure/redis/reserved-pricing)
 - [Azure Cosmos DB](understand-cosmosdb-reservation-charges.md)
 - [Azure SQL Edge](discount-sql-edge.md)
 - [Database for MySQL](understand-reservation-charges-mysql.md)

@@ -2,11 +2,11 @@
 title: Monitor copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to monitor the copy activity execution in Azure Data Factory and Azure Synapse Analytics.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.date: 09/25/2024
-ms.author: jianleishen
+ms.author: tinglee
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -14,6 +14,8 @@ ms.custom:
 # Monitor copy activity
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE [Migrate to Data Factory in Microsoft Fabric](includes/migrate-to-fabric.md)]
 
 This article outlines how to monitor the copy activity execution in Azure Data Factory and Synapse pipelines. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.  You can also monitor copy activities generated with the [Copy Data Tool](copy-data-tool.md) as well as [Delete activities](delete-activity.md) using the same approach.
 

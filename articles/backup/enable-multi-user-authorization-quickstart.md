@@ -3,6 +3,7 @@ title: Quickstart - Multi-user authorization using Resource Guard
 description: In this quickstart, learn how to use Multi-user authorization to protect against unauthorized operation.
 ms.topic: quickstart
 ms.date: 06/09/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

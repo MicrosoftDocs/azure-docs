@@ -32,11 +32,57 @@ The connector for OPC UA must trust the OPC UA servers it connects to. The conne
 
 - The connector for OPC UA is enabled on your Azure IoT Operations instance.
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for certificate values that you choose: `CERTIFICATE_SUBJECT_NAME`, `APPLICATION_URI`, `SETTING_NAME`, and `SETTING_VALUE`. Set each one before you run the related commands.
+
 ## Configure a self-signed application instance certificate for the connector for OPC UA
 
 The default deployment of the connector for OPC UA installs all the resources needed by [cert-manager](https://cert-manager.io/) to create an OPC UA compliant self-signed certificate. This certificate is stored in the `aio-opc-opcuabroker-default-application-cert` secret. This secret is mapped into all the connector for OPC UA pods and acts as the OPC UA client application instance certificate. `cert-manager` handles the automatic renewal of this application instance certificate.
 
 This configuration is typically sufficient for compliant and secure communication between your OPC UA servers and the connector for OPC UA in a demonstration or exploration environment. For a production environment, use [enterprise-grade application instance certificates](#configure-an-enterprise-grade-application-instance-certificate) in your deployment.
+
+## Configure a custom self-signed application instance certificate
+
+If you need more control over the application instance certificate than `cert-manager` provides, you can generate a custom self-signed certificate by using OpenSSL and register it with the connector for OPC UA. This approach is useful in test or QA environments where you need to match specific OPC UA server requirements.
+
+### Generate the certificate
+
+Use the following `openssl` command to generate a self-signed X.509 certificate with an RSA 2048-bit key pair, valid for 365 days:
+
+```bash
+openssl req -x509 -newkey rsa:2048 \
+  -keyout opcuabroker-custom-own.pem \
+  -out opcuabroker-custom-own.der \
+  -outform DER \
+  -sha256 -days 365 -noenc \
+  -subj "/CN=aio-opc-opcuabroker-custom" \
+  -addext "subjectAltName=URI:urn:microsoft.com:aio:opc:opcuabroker:custom" \
+  -addext "keyUsage=critical, nonRepudiation, digitalSignature, keyEncipherment, dataEncipherment, keyCertSign" \
+  -addext "extendedKeyUsage=critical, serverAuth, clientAuth" \
+  -addext "basicConstraints=CA:FALSE"
+```
+
+This command generates the certificate in DER format (*opcuabroker-custom-own.der*) and the private key in PEM format (*opcuabroker-custom-own.pem*). The certificate includes the OPC UA application URI as a Subject Alternative Name and the appropriate key usage extensions for server and client authentication.
+
+### Register the certificate with the connector
+
+Use the following command to upload the generated certificate and private key to the OPC UA connector instance:
+
+```azurecli
+az iot ops connector opcua client add \
+    --instance $AIO_INSTANCE_NAME \
+    -g $RESOURCE_GROUP \
+    --public-key-file "./opcuabroker-custom-own.der" \
+    --private-key-file "./opcuabroker-custom-own.pem" \
+    --subject-name "aio-opc-opcuabroker-custom" \
+    --application-uri "urn:microsoft.com:aio:opc:opcuabroker:custom"
+```
+
+> [!IMPORTANT]
+> The `--subject-name` and `--application-uri` values **must exactly match** the corresponding values in the certificate. Specifically, the subject name must match the Common Name (`CN`) from the `-subj` parameter and the application URI must match the URI from the `subjectAltName` extension. A mismatch causes the OPC UA session establishment to fail because the OPC UA server validates that the application instance certificate matches the client's declared identity.
+
+After you register the custom certificate, don't forget to add the new certificate's public key to the trusted certificate lists of all OPC UA servers the connector needs to connect to. For more information, see [Configure your OPC UA server](#configure-your-opc-ua-server).
 
 ## Configure the trusted certificates list
 
@@ -54,7 +100,7 @@ To use the operations experience web UI to manage the trusted certificates list,
 1. You can add the certificate directly to your Azure Key Vault as a secret and import from there, or you can upload the certificate to the trusted certificates list using the operations experience.
 
     > [!NOTE]
-    > The connector for OPC UA uses a Kubernetes-native secret named `aio-opc-ua-broker-trust-list` to store the trusted certificates list. This secret is created when you deploy Azure IoT Operations.
+    > The connector for OPC UA uses a `SecretProviderClass` custom resource named `aio-opc-ua-broker-trust-list` to store the trusted certificates list. This `SecretProviderClass` resource is created when you deploy Azure IoT Operations.
 
 1. Go to the **Devices** page in the [operations experience](https://iotoperations.azure.com) web UI.
 
@@ -85,20 +131,20 @@ To use the Azure CLI to manage the trusted certificates list, complete the follo
     > [!TIP]
     > Typically, an OPC UA server has an interface that lets you export its application instance certificate. This interface isn't standardized. For servers such as KEPServerEx, there's a Windows-based configuration UI for certificates management. Other servers might have a web interface or use operating system folders to store the certificates. To find out how to export the application instance certificate, refer to the user manual of your server. After you have the certificate, make sure it's either DER or PEM encoded. These certificates are typically stored in files with either the `.der` or `.crt` extension. If the certificate isn't in one of those file formats, use a tool such as `openssl` to transform the certificate into the required format.
 
-1. Add the OPC UA server's application instance certificate to the trusted certificates list. This list is implemented as a Kubernetes-native secret named `aio-opc-ua-broker-trust-list` that's created when you deploy Azure IoT Operations.
+1. Add the OPC UA server's application instance certificate to the trusted certificates list. This list is implemented as a `SecretProviderClass` custom resource named `aio-opc-ua-broker-trust-list` that's created when you deploy Azure IoT Operations.
 
     For a DER encoded certificate in a file such as `./my-server.der`, run the following command:
 
     ```azurecli
     # Append my-server.der OPC UA server certificate to the trusted certificate list secret as a new entry
-    az iot ops connector opcua trust add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server.der"
+    az iot ops connector opcua trust add --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server.der"
     ```
 
     For a PEM encoded certificate in a file such as `./my-server.crt`, run the following command:
 
     ```azurecli
     # Append my-server.crt OPC UA server certificate to the trusted certificate list secret as a new entry
-    az iot ops connector opcua trust add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server.crt"
+    az iot ops connector opcua trust add --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server.crt"
     ```
 
 If your OPC UA server uses a certificate issued by a certificate authority (CA), you can trust the CA by adding its public key certificate to the connector for OPC UA trusted certificates list. The connector for OPC UA now automatically trusts all the servers that use a valid certificate issued by the CA. Therefore, you don't need to explicitly add the OPC UA server's certificate to the connector for OPC UA trusted certificates list.
@@ -107,13 +153,13 @@ To trust a CA, complete the following steps:
 
 1. Get the CA certificate public key encoded in DER or PEM format. These certificates are typically stored in files with either the `.der` or `.crt` extension. Get the CA's CRL. This list is typically in a file with the `.crl` extension. Check the documentation for your OPC UA server for details.
 
-1. Save the CA certificate and the CRL in the `aio-opc-ua-broker-trust-list` Kubernetes-native secret:
+1. Save the CA certificate and the CRL in the `SecretProviderClass` custom resource called `aio-opc-ua-broker-trust-list`:
 
     For a DER encoded CA certificate in a file such as `./my-server-ca.der`, run the following commands:
 
     ```bash
     # Append CA certificate to the trusted certificate list secret as a new entry
-    az iot ops connector opcua trust add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.der"
+    az iot ops connector opcua trust add --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.der"
 
     # Append the CRL to the trusted certificate list secret as a new entry
     data=$(kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}')
@@ -122,7 +168,7 @@ To trust a CA, complete the following steps:
 
     ```powershell
     # Append CA certificate to the trusted certificate list secret as a new entry
-    az iot ops connector opcua trust add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.der"
+    az iot ops connector opcua trust add --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.der"
 
     # Append the CRL to the trusted certificate list secret as a new entry
     $data = kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}'
@@ -133,7 +179,7 @@ To trust a CA, complete the following steps:
 
     ```bash
     # Append CA certificate to the trusted certificate list secret as a new entry
-    az iot ops connector opcua trust add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.crt"
+    az iot ops connector opcua trust add --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.crt"
 
     # Append the CRL to the trusted certificates list secret as a new entry
     data=$(kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}')
@@ -142,7 +188,7 @@ To trust a CA, complete the following steps:
 
     ```powershell
     # Append CA certificate to the trusted certificate list secret as a new entry
-    az iot ops connector opcua trust add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.crt"
+    az iot ops connector opcua trust add --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.crt"
 
     # Append the CRL to the trusted certificate list secret as a new entry
     $data = kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}'
@@ -166,7 +212,7 @@ To use the operations experience web UI to manage the issuer certificates list, 
 1. You can add the issuer certificate directly to your Azure Key Vault as a secret and import from there, or you can upload the certificate and certificate revocation list (.crl file) to the issuer certificates list using the operations experience.
 
     > [!NOTE]
-    > The connector for OPC UA uses a Kubernetes-native secret named `aio-opc-ua-broker-issuer-list` to store the issuer certificates list. This secret is created when you deploy Azure IoT Operations.
+    > The connector for OPC UA uses a `SecretProviderClass` custom resource named `aio-opc-ua-broker-issuer-list` to store the issuer certificates list. This `SecretProviderClass` resource is created when you deploy Azure IoT Operations.
 
 1. Go to the **Devices** page in the [operations experience](https://iotoperations.azure.com) web UI.
 
@@ -198,20 +244,20 @@ To use the Azure CLI to manage the issuer certificates list, complete the follow
 
     ```azurecli
     # Append CA certificate to the issuer list secret as a new entry
-    az iot ops connector opcua issuer add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.der"
+    az iot ops connector opcua issuer add --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.der"
 
     # Append the CRL to the issuer list secret as a new entry
-    az iot ops connector opcua issuer add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.crl"
+    az iot ops connector opcua issuer add --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.crl"
     ```
 
 1. For a PEM encoded certificate in a file such as `./my-server-ca.crt`, run the following commands:
 
     ```azurecli
     # Append CA certificate to the issuer list secret as a new entry
-    az iot ops connector opcua issuer add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.crt"
+    az iot ops connector opcua issuer add --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.crt"
 
     # Append the CRL to the issuer list secret as a new entry
-    az iot ops connector opcua issuer add --instance <your instance name> --resource-group <your resource group> --certificate-file "./my-server-ca.crl"
+    az iot ops connector opcua issuer add --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./my-server-ca.crl"
     ```
 
 ---
@@ -253,9 +299,9 @@ The following example references the following items:
 | `enterprise-grade-ca-1.der`   | File that contains the enterprise-grade CA certificate public key. |
 | `enterprise-grade-ca-1.crl`   | The CA's CRL file. |
 
-Like the previous examples, you use a dedicated Kubernetes secret to store the certificates and CRLs. To configure the enterprise-grade application instance certificate, complete the following steps:
+Like the previous examples, use a dedicated  `SecretProviderClass` custom resource to store the certificates and CRLs. To configure the enterprise-grade application instance certificate, complete the following steps:
 
-1. Save the certificates and the CRL in the `aio-opc-ua-broker-client-certificate` secret by using the following command:
+1. Save the certificates and the CRL in the `SecretProviderClass` custom resource called `aio-opc-ua-broker-client-certificate` by using the following command:
 
     # [Bash](#tab/bash)
 
@@ -264,12 +310,12 @@ Like the previous examples, you use a dedicated Kubernetes secret to store the c
     # Upload OPC UA public key certificate as an entry to the secret
     # Upload OPC UA private key certificate as an entry to the secret
     az iot ops connector opcua client add \
-        --instance <your instance name> \
-        -g <your resource group> \
+        --instance $AIO_INSTANCE_NAME \
+        -g $RESOURCE_GROUP \
         --public-key-file "./opcuabroker-certificate.der" \
         --private-key-file "./opcuabroker-certificate.pem" \
-        --subject-name <subject name from the public key cert> \
-        --application-uri <application uri from the public key cert>
+        --subject-name "$CERTIFICATE_SUBJECT_NAME" \
+        --application-uri "$APPLICATION_URI"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -279,12 +325,12 @@ Like the previous examples, you use a dedicated Kubernetes secret to store the c
     # Upload OPC UA public key certificate as an entry to the secret
     # Upload OPC UA private key certificate as an entry to the secret
     az iot ops connector opcua client add `
-        --instance <your instance name> `
-        -g <your resource group> `
+        --instance $AIO_INSTANCE_NAME `
+        -g $RESOURCE_GROUP `
         --public-key-file "./opcuabroker-certificate.der" `
         --private-key-file "./opcuabroker-certificate.pem" `
-        --subject-name <subject name from the public key cert> `
-        --application-uri <application uri from the public key cert>
+        --subject-name "$CERTIFICATE_SUBJECT_NAME" `
+        --application-uri "$APPLICATION_URI"
     ```
 
     ---
@@ -296,10 +342,10 @@ Like the previous examples, you use a dedicated Kubernetes secret to store the c
 
     ```azurecli
     # Append CA certificate to the issuer list secret as a new entry
-    az iot ops connector opcua issuer add --instance <your instance name> --resource-group <your resource group> --certificate-file "./enterprise-grade-ca-1.der"
+    az iot ops connector opcua issuer add --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./enterprise-grade-ca-1.der"
 
     # Append the CRL to the issuer list secret as a new entry
-    az iot ops connector opcua issuer add --instance <your instance name> --resource-group <your resource group> --certificate-file "./enterprise-grade-ca-1.crl"
+    az iot ops connector opcua issuer add --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --certificate-file "./enterprise-grade-ca-1.crl"
     ```
 
 Now that the connector for OPC UA uses the enterprise certificate, don't forget to add the new certificate's public key to the trusted certificate lists of all OPC UA servers it needs to connect to.
@@ -314,9 +360,9 @@ To lower the connector's PKI security restrictions to allow communication with O
 # [Bash](#tab/bash)
 
 ```bash
-az k8s-extension update --name <your instance name> \
-  --cluster-name <your cluster name> \
-  --resource-group <your resource group> \
+az k8s-extension update --name $AIO_INSTANCE_NAME \
+  --cluster-name $CLUSTER_NAME \
+  --resource-group $RESOURCE_GROUP \
   --cluster-type connectedClusters \
   --config connectors.values.securityPki.minimumCertificateKeySize=1024 \
   --config connectors.values.securityPki.rejectSha1SignedCertificates=false
@@ -325,15 +371,70 @@ az k8s-extension update --name <your instance name> \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az k8s-extension update --name <your instance name> `
-  --cluster-name <your cluster name> `
-  --resource-group <your resource group> `
+az k8s-extension update --name $AIO_INSTANCE_NAME `
+  --cluster-name $CLUSTER_NAME `
+  --resource-group $RESOURCE_GROUP `
   --cluster-type connectedClusters `
   --config connectors.values.securityPki.minimumCertificateKeySize=1024 `
   --config connectors.values.securityPki.rejectSha1SignedCertificates=false
 ```
 
 ---
+
+The following table describes these settings:
+
+| Setting | Default | Description |
+| ------- | ------- | ----------- |
+| `connectors.values.securityPki.minimumCertificateKeySize` | `2048` | The minimum RSA key size, in bits, that the connector accepts for server certificates. |
+| `connectors.values.securityPki.rejectSha1SignedCertificates` | `true` | Whether the connector rejects server certificates signed with the deprecated SHA-1 algorithm. |
+
+### Reset PKI security settings to defaults
+
+Configuration overrides applied by `az k8s-extension update --config` are sticky. Once you set them, they persist across updates. To restore the default security settings, explicitly set them back:
+
+# [Bash](#tab/bash)
+
+```bash
+az k8s-extension update --name $AIO_INSTANCE_NAME \
+  --cluster-name $CLUSTER_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --cluster-type connectedClusters \
+  --config connectors.values.securityPki.minimumCertificateKeySize=2048 \
+  --config connectors.values.securityPki.rejectSha1SignedCertificates=true
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az k8s-extension update --name $AIO_INSTANCE_NAME `
+  --cluster-name $CLUSTER_NAME `
+  --resource-group $RESOURCE_GROUP `
+  --cluster-type connectedClusters `
+  --config connectors.values.securityPki.minimumCertificateKeySize=2048 `
+  --config connectors.values.securityPki.rejectSha1SignedCertificates=true
+```
+
+---
+
+## Verify connector configuration after certificate changes
+
+After you update certificates or PKI security settings, verify that the connector pods pick up the new configuration. Run the following command to check the status of the connector pods:
+
+```bash
+kubectl get pods -n azure-iot-operations | grep -E "aio-opc-opc.tcp|aio-opc-opcua-commander"
+```
+
+To force the pods to reload the updated certificate and security settings, restart them:
+
+```bash
+kubectl delete pod -n azure-iot-operations $(kubectl get pods -n azure-iot-operations -o name | grep "aio-opc-opc.tcp")
+kubectl delete pod -n azure-iot-operations $(kubectl get pods -n azure-iot-operations -o name | grep "aio-opc-opcua-commander")
+```
+
+The pods are automatically recreated by their respective deployments. Verify they come back up in a `Running` state before you proceed with OPC UA connectivity tests.
+
+> [!NOTE]
+> You only need to restart pods if the connector doesn't automatically pick up the new configuration. In most cases, the connector detects certificate changes and reloads them automatically.
 
 ## Configure certificate subject alternative names
 
@@ -389,19 +490,19 @@ If an OPC UA server rejects connections with certificate hostname or IP validati
 Configure `securityPki` settings by using `az k8s-extension update`:
 
 ```bash
-az k8s-extension update --name <your instance name> \
-  --cluster-name <your cluster name> \
-  --resource-group <your resource group> \
+az k8s-extension update --name $AIO_INSTANCE_NAME \
+  --cluster-name $CLUSTER_NAME \
+  --resource-group $RESOURCE_GROUP \
   --cluster-type connectedClusters \
-  --config connectors.values.securityPki.<settingName>=<value>
+  --config connectors.values.securityPki.$SETTING_NAME=$SETTING_VALUE
 ```
 
 ```powershell
-az k8s-extension update --name <your instance name> `
-  --cluster-name <your cluster name> `
-  --resource-group <your resource group> `
+az k8s-extension update --name $AIO_INSTANCE_NAME `
+  --cluster-name $CLUSTER_NAME `
+  --resource-group $RESOURCE_GROUP `
   --cluster-type connectedClusters `
-  --config connectors.values.securityPki.<settingName>=<value>
+  --config connectors.values.securityPki.$SETTING_NAME=$SETTING_VALUE
 ```
 
 ### Certificate validation settings

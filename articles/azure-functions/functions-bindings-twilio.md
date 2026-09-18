@@ -2,7 +2,7 @@
 title: Azure Functions Twilio binding
 description: Understand how to use Twilio bindings with Azure Functions.
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 09/15/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, H1Hack27Feb2017, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
@@ -25,33 +25,15 @@ The extension NuGet package you install depends on the C# mode you're using in y
 
 Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated worker process](dotnet-isolated-process-guide.md).
 
+There is currently no support for Twilio for an isolated worker process app.
+
 # [In-process model](#tab/in-process)
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
----
-
-The functionality of the extension varies depending on the extension version:
-
-# [Functions v2.x+](#tab/functionsv2/in-process)
-
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio), version 3.x.
-
-# [Functions v1.x](#tab/functionsv1/in-process)
-
-[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
-
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio), version 1.x.
-
-# [Functions v2.x+](#tab/functionsv2/isolated-process)
-
-There is currently no support for Twilio for an isolated worker process app.
-
-# [Functions v1.x](#tab/functionsv1/isolated-process)
-
-Functions 1.x doesn't support running in an isolated worker process.
 
 ---
 
@@ -64,7 +46,9 @@ Functions 1.x doesn't support running in an isolated worker process.
 
 ## Example
 
-Unless otherwise noted, these examples are specific to version 2.x and later version of the Functions runtime.
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
@@ -283,8 +267,6 @@ Place the [TwilioSmsOutput](/java/api/com.microsoft.azure.functions.annotation.t
 
 The following table explains the binding configuration properties that you set in the *function.json* file, which differs by runtime version:
 
-# [Functions v2.x+](#tab/functionsv2)
- 
 | function.json property | Description|
 |---------|------------------------|
 |**type**| must be set to `twilioSms`.|
@@ -296,21 +278,6 @@ The following table explains the binding configuration properties that you set i
 |**body** |  This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |
 
 In version 2.x, you set the `to` value in your code.
-
-# [Functions 1.x](#tab/functionsv1)
-
-| function.json property | Description|
-|---------|-----------------------|
-|**type**|must be set to `twilioSms`.|
-|**direction**| must be set to `out`.|
-|**name**| Variable name used in function code for the Twilio SMS text message. |
-|**accountSid**| This value must be set to the name of an app setting that holds your Twilio Account Sid (`TwilioAccountSid`). When not set, the default app setting name is `AzureWebJobsTwilioAccountSid`. |
-|**authToken**|This value must be set to the name of an app setting that holds your Twilio authentication token (`TwilioAccountAuthToken`). When not set, the default app setting name is `AzureWebJobsTwilioAuthToken`. |
-|**to**| This value is set to the phone number that the SMS text is sent to.|
-|**from**|  This value is set to the phone number that the SMS text is sent from.|
-|**body**|  This value can be used to hard code the SMS text message if you don't need to set it dynamically in the code for your function. |
-
----
 
 ::: zone-end
 

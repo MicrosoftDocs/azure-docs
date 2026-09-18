@@ -3,6 +3,7 @@ title: Manage Office 365 services using Azure Automation
 description: This article tells how to use Azure Automation to manage Office 365 subscription services.
 services: automation
 ms.date: 09/15/2024
+ms.update-cycle: 1095-days
 ms.topic: how-to
 ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.author: v-rochak2

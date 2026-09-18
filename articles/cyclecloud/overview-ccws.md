@@ -1,8 +1,10 @@
 ---
 title: Overview of Azure CycleCloud Workspace for Slurm
 description: In this overview, learn about Azure CycleCloud Workspace for Slurm, a solution to quickly create a ready to use Slurm based AI/HPC cluster.
+ai-usage: ai-assisted
 author: xpillons
-ms.date: 07/01/2025
+ms.date: 09/16/2026
+ms.topic: overview
 ms.author: padmalathas
 ---
 
@@ -12,10 +14,31 @@ Slurm is one of the most popular and widely used open-source workload managers f
 
 However, setting up and managing Slurm clusters on the cloud can be challenging and time-consuming, especially if you're not familiar with the cloud environment or the Slurm configuration. You need to handle tasks such as provisioning and scaling compute nodes, installing and updating Slurm software, configuring network and storage, monitoring cluster health and performance, and troubleshooting issues. These tasks can distract you from your core research or business objectives and reduce the productivity and efficiency of your AI and HPC workloads.
 
-Azure CycleCloud Workspace for Slurm is an Azure Marketplace solution template that you can use to create, configure, and deploy predefined Slurm clusters with CycleCloud on Azure. You don't need any prior knowledge of Azure or Slurm. The solution preconfigures Slurm clusters with PMix v4, Pyxis, and enroot to support containerized AI/HPC Slurm jobs. You can access the provisioned sign-in node using SSH or Visual Studio Code to perform common tasks like submitting and managing Slurm jobs.
+Azure CycleCloud Workspace for Slurm is an Azure Marketplace solution template that you can use to create, configure, and deploy predefined Slurm clusters with CycleCloud on Azure. You don't need prior Azure or Slurm knowledge to deploy the template, but operating and customizing the environment requires those skills. The solution preconfigures Slurm clusters with PMix v4, Pyxis, and enroot to support containerized AI/HPC Slurm jobs. You can access the provisioned sign-in node by using SSH or Visual Studio Code to perform common tasks like submitting and managing Slurm jobs.
 
 While Azure CycleCloud already allows you to do some of these tasks, it doesn't deploy the AI/HPC infrastructure for you. You must deal with tasks such as installing and configuring CycleCloud, configuring network and storage, and creating and configuring the Slurm cluster. Azure CycleCloud Workspace for Slurm executes these tasks for you in a Marketplace solution template that you can deploy directly from the Azure portal or via the Azure CLI. You're ready in minutes and not days or weeks.
 
+## Choose an Azure orchestration option
+
+Choose an option based on the scheduler experience and level of infrastructure control your team needs:
+
+| Option | Best fit | Operating model |
+| --- | --- | --- |
+| **Azure CycleCloud Workspace for Slurm** | Teams that want a ready-to-deploy Slurm environment for HPC or AI workloads | A Marketplace solution deploys CycleCloud, Slurm, networking, storage, and access components in your Azure subscription. |
+| **[Azure CycleCloud](overview.md)** | HPC environments that require a scheduler other than Slurm, a custom cluster topology, or close alignment with existing on-premises workflows | You install CycleCloud and configure the scheduler, cluster, networking, and storage. CycleCloud provisions and autoscales the Azure infrastructure. |
+| **[Azure Batch](/azure/batch/batch-technical-overview)** | Parallel and high-throughput workloads that don't require you to operate scheduler software | Azure provides scheduling as a service. You build with Batch APIs and tools while Batch manages pools, nodes, jobs, and tasks. |
+
+Use your current environment as the deciding factor:
+
+| Starting point | Prefer | Why |
+| --- | --- | --- |
+| You want Slurm and the predefined networking, storage, access, and cluster architecture meets your requirements. | Azure CycleCloud Workspace for Slurm | The Marketplace solution shortens the path to a working Slurm environment while keeping the resources in your subscription. |
+| You need a scheduler other than Slurm or must customize topology, scheduler policies, or infrastructure beyond the solution design. | Azure CycleCloud | CycleCloud provides control over the scheduler and cluster configuration. |
+| Your application can use pools, jobs, and tasks and doesn't require scheduler compatibility. | Azure Batch | Batch provides scheduling as a service and removes the need to operate Slurm. |
+
+Don't choose Workspace for Slurm if you expect a managed platform service. Your team still owns the deployed Azure resources, Slurm configuration, security, monitoring, upgrades, and workload operations. Choose custom CycleCloud when the predefined architecture doesn't meet a required topology or integration.
+
+Before production implementation, record why Workspace for Slurm fits, which alternatives you rejected, whether the deployment is greenfield or reuses existing resources, the network and identity design, storage benchmark, regional VM quota and capacity, recovery approach, operations owner, and time and cost per representative job. Start with [deployment planning](how-to/ccws/plan-your-deployment.md). For a custom CycleCloud cluster, see [Plan and size HPC clusters](concepts/plan-and-size-hpc-clusters.md).
 
 ## Benefits of Azure CycleCloud Workspace for Slurm
 Azure CycleCloud is a great solution when you want to build an AI/HPC environment in Azure, either to lift and shift some of your on-premises AI/HPC workload or to build a new one. However, building a full end-to-end AI/HPC environment isn't an easy task. You have to decide how to design your network, which storage component to use as a shared filesystem, which VM type to use for running your workload, and many small things that can make your project complex to deliver.
@@ -46,3 +69,7 @@ Finally, in an environment with no public IP and no VPN, you need a Bastion. The
 ## Next steps
 
 * [Try Azure CycleCloud Workspace for Slurm](qs-deploy-ccws.md)
+* [Plan your CycleCloud Workspace for Slurm deployment](how-to/ccws/plan-your-deployment.md)
+* [Deploy CycleCloud Workspace for Slurm with the CLI](how-to/ccws/deploy-with-cli.md)
+* [Submit a job with Slurm](how-to/ccws/submit-job-with-slurm.md)
+* [Configure Open OnDemand](how-to/ccws/configure-open-ondemand.md)
