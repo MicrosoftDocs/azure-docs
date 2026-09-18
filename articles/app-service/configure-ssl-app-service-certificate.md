@@ -188,7 +188,7 @@ The renewal process requires that the service principal for App Service has the 
 
 ### What renewing does before the paid term ends
 
-Being able to request a renewal doesn't mean you get extra validity. If more than 32 days are left on the term you already paid for, a renewal reissues the certificate for free, and the new certificate keeps the same expiration date as the term you already paid for. You are not charged, and repeating the renewal doesn't add any more days. When you renew within the last 32 days of the paid term, the renewal buys the next year, your subscription is charged once, and the expiration date moves out by a year. If you need a certificate that lasts longer than your current term today, buy a new App Service certificate instead.
+Being able to request a renewal doesn't mean you get extra validity. If more than 32 days are left on the term you already paid for, a renewal rekeys the certificate for free, and the new certificate keeps the same expiration date as the term you already paid for. You are not charged, and repeating the renewal doesn't add any more days. When you renew within the last 32 days of the paid term, the renewal buys the next year, your subscription is charged once, and the expiration date moves out by a year. If you need a certificate that lasts longer than your current term today, buy a new App Service certificate instead.
 
 ## Rekey an App Service certificate
 
@@ -216,7 +216,7 @@ The rekey process requires that the service principal for App Service has the re
 
 ### Why a rekey returns a shorter certificate than a renewal
 
-A rekey replaces the private key on your certificate and keeps the existing expiration date. The new certificate is valid only for the days that were left on the previous one. If you rekey 60 days before expiration, the new certificate is valid for about 60 days. A reissue behaves the same way.
+A rekey replaces the private key on your certificate and keeps the existing expiration date. The new certificate is valid only for the days that were left on the previous one. If you rekey 60 days before expiration, the new certificate is valid for about 60 days.
 
 A renewal is different. It issues a fresh certificate. On a subscription based order, the new certificate is valid for 198 days.
 
