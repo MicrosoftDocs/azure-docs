@@ -51,7 +51,7 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
 1. Enter the basic details for your first enclave:
    - `Subscription`: Select an existing subscription
    - `Resource Group`: `myResourceGroup`
-   - `Enclave name`: `Enclave-WebApp`
+   - `Enclave name`: `ve-Enclave-WebApp`
    - `Region`: `East US`
    - `Community`: Select the `cmt-fabrikam` community that you created in [Tutorial 1-1: Deploy a community](./1-1-create-community.md).
    - `Dedicated hub`: Select `Create new`
@@ -109,7 +109,7 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
 1. To deploy the second enclave, repeat steps 1 and 2. On the `Create enclave` page, enter these basic details:
    - `Subscription`: Select an existing subscription
    - `Resource Group`: `myResourceGroup`
-   - `Enclave name`: `Enclave-DMZ`.
+   - `Enclave name`: `ve-Enclave-DMZ`.
    - `Region`: `East US`
    - `Community`: Select the `cmt-fabrikam` community that you created in [Tutorial 1-1: Deploy a community](./1-1-create-community.md).
    - `Dedicated hub`: Select the hub you already created named `dh-fabrikam-eastus` and then select `Save`.
