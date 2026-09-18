@@ -33,11 +33,11 @@ Install the latest version of the CLI commands (2.0 or later). For information a
 
 ## <a name="ipaddprefix"></a>Modify IP address prefixes
 
-[!INCLUDE [modify-prefix](../../includes/vpn-gateway-modify-ip-prefix-cli-include.md)]
+[!INCLUDE [modify-prefix](../networking/includes/vpn-gateway/modify-ip-prefix-cli.md)]
 
 ## <a name="gwip"></a>Modify the gateway IP address
 
-[!INCLUDE [modify-gateway-IP](../../includes/vpn-gateway-modify-lng-gateway-ip-cli-include.md)]
+[!INCLUDE [modify-gateway-IP](../networking/includes/vpn-gateway/modify-lng-gateway-ip-cli.md)]
 
 ## Next steps
 
