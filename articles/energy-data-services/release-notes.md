@@ -31,7 +31,7 @@ Azure Data Manager for Energy Workflow Service orchestration engine was upgraded
 
 External Data Services (EDS) now supports larger metadata ingestion workloads with improved reliability and operational visibility. Memory-based batching distributes processing across available workers, reducing peak memory use and memory-related ingestion failures while increasing throughput through horizontal scaling.
 
-Interrupted ingestion jobs can make a best-effort recovery from checkpoints, reducing repeated work and duplicate ingestion attempts. Failed jobs automatically retry after recoverable service interruptions. If a search cursor expires, EDS can recover and continue searching for records instead of failing the ingestion run. EDS also tracks ingestion jobs until completion instead of relying on a fixed wait period, so workflows can finish as soon as all ingestion jobs complete. Enhanced status tracking, telemetry, and logging provide clearer insight into failures and workflow state at key processing milestones.
+Interrupted ingestion jobs can make a best-effort recovery from checkpoints, reducing repeated work and duplicate ingestion attempts. Failed jobs automatically retry after recoverable service interruptions. EDS also tracks ingestion jobs until completion instead of relying on a fixed wait period, so workflows can finish as soon as all ingestion jobs complete. Enhanced status tracking, telemetry, and logging provide clearer insight into failures and workflow state at key processing milestones.
 
 ## August 2026
 ### Seismic single file restore - Preview
