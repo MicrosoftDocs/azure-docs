@@ -57,7 +57,7 @@ In this section, you configure site-to-site connectivity settings, and then crea
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
-[!INCLUDE [hub warning message](../../includes/virtual-wan-hub-router-provisioning-warning.md)]
+[!INCLUDE [hub warning message](../networking/includes/virtual-wan/hub-router-provisioning-warning.md)]
 
 ## <a name="site"></a>Create a site
 
