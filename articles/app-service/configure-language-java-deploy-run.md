@@ -101,7 +101,7 @@ For more information on version support, see [App Service language runtime suppo
 
 ## How can I identify apps using Java 8, 11, and 17?
 
-To identify web apps using Java 8, 11, and 17 use the following query with Azure CLI or Azure Cloud Shell to output a list to a file named java-webapps.csv.
+To identify web apps using Java 8, 11, and 17, use the following query with Azure CLI or Azure Cloud Shell to output a list to a file named java-webapps.csv.
 
 ```azurecli-interactive
 output_file="java-webapps.csv" 
