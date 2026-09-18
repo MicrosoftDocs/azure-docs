@@ -3,7 +3,7 @@ title: Azure Queue storage trigger and bindings for Azure Functions overview
 description: Understand how to use the Azure Queue storage trigger and output binding in Azure Functions.
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 09/04/2026
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -58,21 +58,13 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage.Queues
 
 [!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
 
-# [Functions 2.x+](#tab/functionsv2/in-process)
+# [Extensions 3.x and 4.x](#tab/functionsv2/in-process)
 
 <a name="functions-2x-and-higher"></a>
 
 _This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 2.x._
 
 Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package], version 3.x or 4.x.
-
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
-
-Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
-
-[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
@@ -93,13 +85,9 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues
 
 [!INCLUDE [functions-bindings-storage-extension-v5-isolated-worker-tables-note](../../includes/functions-bindings-storage-extension-v5-isolated-worker-tables-note.md)]
 
-# [Functions 2.x+](#tab/functionsv2/isolated-process)
+# [Extension 4.x](#tab/functionsv2/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/), version 4.x.
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support the isolated worker process.
 
 ---
 
@@ -145,7 +133,7 @@ The Azure Queues extension supports parameter types according to the table below
 
 <sup>1</sup> Messages containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
 
-# [Functions 2.x+](#tab/functionsv2/in-process)
+# [Extensions 3.x and 4.x](#tab/functionsv2/in-process)
 
 Earlier versions of the extension exposed types from the now deprecated [Microsoft.Azure.Storage.Queues] namespace. Newer types from [Azure.Storage.Queues] are exclusive to **Extension 5.x+**.
 
@@ -157,10 +145,6 @@ This version of the extension supports parameter types according to the table be
 | Queue output  | [CloudQueueMessage]<br/>JSON serializable types<sup>1</sup><br/>`string`<br/>`byte[]`<br/>[CloudQueue] |
 
 <sup>1</sup> Messages containing JSON data can be deserialized into known plain-old CLR object (POCO) types.
-
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-Functions 1.x exposed types from the deprecated [Microsoft.WindowsAzure.Storage] namespace. Newer types from [Azure.Storage.Queues] are exclusive to the **Extension 5.x+**. To use these, you will need to [upgrade your application to Functions 4.x].
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
@@ -174,13 +158,9 @@ The isolated worker process supports parameter types according to the tables bel
 
 [!INCLUDE [functions-bindings-storage-queue-output-dotnet-isolated-types](../../includes/functions-bindings-storage-queue-output-dotnet-isolated-types.md)]
 
-# [Functions 2.x+](#tab/functionsv2/isolated-process)
+# [Extension 4.x](#tab/functionsv2/isolated-process)
 
 Earlier versions of extensions in the isolated worker process only support binding to string types. Additional options are available to the **Extension 5.x**.
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support the isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
 
 ---
 
@@ -191,16 +171,12 @@ Functions version 1.x doesn't support the isolated worker process. To use the is
 [CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage
 [CloudQueue]: /dotnet/api/microsoft.azure.storage.queue.cloudqueue
 
-[upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
 
 :::zone-end
 
 ## <a name="host-json"></a>host.json settings
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
-
-> [!NOTE]
-> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
 ```json
 {
@@ -220,7 +196,7 @@ Functions version 1.x doesn't support the isolated worker process. To use the is
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|maxPollingInterval|00:01:00|The maximum interval between queue polls. The minimum interval is 00:00:00.100 (100 ms). Intervals increment up to `maxPollingInterval`. The default value of `maxPollingInterval` is 00:01:00 (1 min). `maxPollingInterval` must not be less than 00:00:00.100 (100 ms). In Functions 2.x and later, the data type is a `TimeSpan`. In Functions 1.x, it is in milliseconds.|
+|maxPollingInterval|00:01:00|The maximum interval between queue polls. The minimum interval is 00:00:00.100 (100 ms). Intervals increment up to `maxPollingInterval`. The default value of `maxPollingInterval` is 00:01:00 (1 min). `maxPollingInterval` must not be less than 00:00:00.100 (100 ms). The data type is a `TimeSpan`.|
 |visibilityTimeout|00:00:00|The time interval between retries when processing of a message fails. |
 |batchSize|16|The number of queue messages that the Functions runtime retrieves simultaneously and processes in parallel. When the number being processed gets down to the `newBatchThreshold`, the runtime gets another batch and starts processing those messages. So the maximum number of concurrent messages being processed per function is `batchSize` plus `newBatchThreshold`. This limit applies separately to each queue-triggered function. <br><br>If you want to avoid parallel execution for messages received on one queue, you can set `batchSize` to 1. However, this setting eliminates concurrency as long as your function app runs only on a single virtual machine (VM). If the function app scales out to multiple VMs, each VM could run one instance of each queue-triggered function.<br><br>The maximum `batchSize` is 32. |
 |maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.|
@@ -241,12 +217,10 @@ Functions version 1.x doesn't support the isolated worker process. To use the is
 - [Run a function as queue storage data changes (Trigger)](./functions-bindings-storage-queue-trigger.md)
 - [Write queue storage messages (Output binding)](./functions-bindings-storage-queue-output.md)
  
-[extension bundle]: ./extension-bundles.md
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
 [Update your extensions]: ./functions-bindings-register.md
 
 [Azure.Storage.Queues]: /dotnet/api/azure.storage.queues
 [Microsoft.Azure.Storage.Queues]: /dotnet/api/microsoft.azure.storage.queue
-[Microsoft.WindowsAzure.Storage]: /dotnet/api/microsoft.windowsazure.storage
 
 [C# scripting]: ./functions-reference-csharp.md

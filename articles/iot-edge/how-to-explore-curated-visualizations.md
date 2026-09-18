@@ -3,7 +3,7 @@ title: Explore curated visualizations in Azure IoT Edge
 description: Use Azure workbooks to visualize and explore IoT Edge built-in metrics
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/03/2026
+ms.date: 09/15/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -19,6 +19,8 @@ You can visually explore metrics collected from IoT Edge devices by using Azure 
 * For devices connected to IoT Central, from the **IoT Central** page in the Azure portal, go to the **Workbooks** page in the **Monitoring** section.
 
 Curated workbooks use [built-in metrics](how-to-access-built-in-metrics.md) from the IoT Edge runtime. You must first [ingest](how-to-collect-and-transport-metrics.md) metrics into a Log Analytics workspace. These views don't require metrics instrumentation from workload modules.
+
+The workbooks can read legacy `InsightsMetrics`, a new custom table (default `IoTEdgeMetrics_CL`), or both histories around a cutover. For collector configuration, use [Monitor IoT Edge devices](tutorial-monitor-with-workbooks.md).
 
 ## Access curated workbooks
 
@@ -38,14 +40,40 @@ Follow these steps to access the curated workbooks:
 
 For a preview of the data and visualizations each workbook offers, see the following sections.
 
-> [!NOTE]
-> The screen captures that follow might not reflect the latest workbook design.
+## Select the metrics source
+
+1. Select your **Metrics Log Analytics workspace**.
+1. Select the IoT Hub or IoT Central application that you want to monitor.
+1. Select a time range that includes metric uploads.
+1. Choose **Metrics source**:
+
+   | Selection | Data |
+   | --- | --- |
+   | **Legacy only** | `InsightsMetrics` only. Existing saved copies keep their saved setting. |
+   | **New only** (default in updated gallery templates) | The selected custom table only. No cutover time is required. |
+   | **Combine legacy and new history** | Legacy data before the cutover, and new data at or after it. |
+
+1. Set `MetricsTableName` to your custom table name, or keep the default `IoTEdgeMetrics_CL`.
+
+   The table must use the [collector schema](migrate-metrics-collector.md#configure-the-collector-schema). An omitted or cleared value uses `IoTEdgeMetrics_CL`. An invalid name displays an error and also uses this default until you correct it. **Legacy only** always reads `InsightsMetrics`.
+
+1. For **Combine legacy and new history**, enter **Cutover time (UTC)** in `YYYY-MM-DDTHH:mm:ssZ` format.
+
+The cutover control appears only in Combine mode. Use the actual event-time boundary for your selected devices, not the current time.
+
+The workbooks query the selected workspace and filter resource IDs without regard to case. Users need query access to that workspace. These workbooks use the [pass-through schema](migrate-metrics-collector.md#understand-resource-matching-and-query-scope) and don't rely on ingestion-time resource association.
+
+Combine mode uses one boundary for the selection. For devices with different cutover times, use separate selections or customize the queries. For the full procedure, see [Preserve history in custom queries](migrate-metrics-collector.md#preserve-history-in-custom-queries).
 
 ## Fleet view workbook
 
-:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif" alt-text="Screenshot of the devices section of the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif":::
+The following animation focuses on the device list. It doesn't show the workspace or metrics-source controls described in [Select the metrics source](#select-the-metrics-source).
 
-By default, this view shows the health of devices associated with the current IoT cloud resource. Select multiple IoT resources using the dropdown control at the top left. 
+:::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif" alt-text="Animation of the devices section of the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-fleet-view.gif":::
+
+This view shows device health for the selected IoT resources. Select multiple resources to view their devices together.
+
+Health status depends on metric freshness and the configured thresholds. A device with old samples can have an **Unknown** status even when historical charts contain data.
 
 Use the **Settings** tab to adjust thresholds to categorize devices as healthy or unhealthy.
 
@@ -106,19 +134,30 @@ This workbook integrates directly with the portal-based troubleshooting experien
 
 ## Alerts workbook
 
-View the generated alerts from [pre-created alert rules](how-to-create-alerts.md) in the **Alerts** workbook. This view lets you see alerts from multiple IoT Hubs or IoT Central applications.
+View generated alerts from [precreated alert rules](how-to-create-alerts.md) in the **Alerts** workbook. This view lets you see alerts from multiple IoT Hubs. Alert rules are separate Azure resources: updating a workbook doesn't update their queries, scopes, dimensions, or action groups.
 
 :::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif" alt-text="Screenshot of the alerts section in the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif":::
+
+The **Alerts** view reads alert records, not metric rows. Its workspace, metrics-source, and `MetricsTableName` controls provide context for links to **Device Details**.
 
 Select a severity row to view alert details. The **Alert rule** link opens the alert context, and the **Device** link opens the detailed metrics workbook. When opened from this view, the device details workbook automatically adjusts to the time range around the alert firing.
 
 ## Customize workbooks
 
-You can customize [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview). Edit the public templates to suit your requirements. All the visualizations come from resource-centric [Kusto Query Language](/azure/data-explorer/kusto/query/) queries on the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. 
+You can customize [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview). The templates use [Kusto Query Language](/kusto/query/) to normalize the selected metrics source before chart calculations.
 
 To customize a workbook, enter editing mode. Select the **Edit** button in the workbook's menu bar. Curated workbooks use workbook groups extensively. You might need to select **Edit** on several nested groups to view a visualization query.
 
 Save your changes as a new workbook. You can [share](/azure/azure-monitor/visualize/workbooks-overview#access-control) the saved workbook with your team or [deploy them programmatically](/azure/azure-monitor/visualize/workbooks-automate) as part of your organization's resource deployments.
+
+> [!IMPORTANT]
+> Updating a public template doesn't update workbooks that you previously saved or customized. Inventory and migrate those copies separately. Keep an unchanged backup until the migrated copy is reviewed and tested.
+
+For existing saved copies, use [Update saved workbooks and alerts](migrate-metrics-collector.md#update-saved-workbooks-and-alerts). A table-name replacement alone isn't sufficient.
+
+Preserve your custom metrics, dimensions, thresholds, and counter-reset logic. Update all metric queries, device-selection queries, no-data checks, and drill-through links.
+
+Check that navigation retains the workspace, resource, device, time range, metrics source, table name, and cutover time. Check Legacy, New, and Combine modes before replacing your saved copy.
 
 ## Next steps
 

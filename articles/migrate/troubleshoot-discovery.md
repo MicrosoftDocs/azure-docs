@@ -6,6 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
+ms.update:cycle: 365-days
 ms.reviewer: jsuri
 ms.date: 08/21/2024
 ms.custom:

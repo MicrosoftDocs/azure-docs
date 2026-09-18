@@ -5,6 +5,7 @@ ms.topic: troubleshooting
 ms.service: azure-migrate
 ms.reviewer: jsuri
 ms.date: 08/20/2024
+ms.update-cycle: 365-days
 ms.custom: engagement-fy24, linux-related-content
 # Customer intent: "As a cloud architect, I want to troubleshoot issues with VM assessments in Azure Migrate, so that I can ensure accurate migration planning and effective resource allocation."
 ---

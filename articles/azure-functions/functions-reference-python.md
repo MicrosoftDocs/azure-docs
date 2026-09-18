@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop, validate, and deploy your Python code projects to Azure Functions using the Python library for Azure Functions.
 ms.topic: article
-ms.date: 04/26/2026
+ms.date: 08/27/2026
 ms.devlang: python
 ms.custom:
   - devx-track-python
@@ -95,7 +95,7 @@ Your function code can use `azure-functions` to:
 - Create output values (such as `HttpResponse`)
 - Interact with runtime-provided context and binding data
 
-If you're using `azure-functions` in your app, it must be included in your project dependencies.
+If you're using `azure-functions` in your app, include it in your project dependencies.
 
 > [!NOTE]
 > The `azure-functions` library defines the programming surface for Python Azure Functions, but it isn’t a general-purpose SDK. Use it specifically for authoring and running functions within the Azure Functions runtime.
@@ -205,7 +205,7 @@ Your function app code depends on this library to:
 - Declare triggers and bindings (for example, `@app.route`, `@app.timer_trigger`)
 - Access typed inputs and outputs (such as `HttpRequest` and `HttpResponse`, and Out`)
 
-The `azure-functions` must be included in your project dependencies. To learn more, see [package management](#package-management).
+You must include `azure-functions` in your project dependencies. To learn more, see [package management](#package-management).
 
 > [!NOTE]
 > The `azure-functions` library defines the programming surface for Python Azure Functions, but it isn’t a general-purpose SDK. Use it specifically for authoring and running functions within the Azure Functions runtime.
@@ -220,7 +220,7 @@ def http_trigger(req: func.HttpRequest) -> str:
 
 You can define route parameters directly in the HTTP route template and read them from the request object.
 
-For example, the route products/{product_id} captures the value from the URL path and makes it available through HttpRequest.route_params.
+For example, the route `products/{product_id}` captures the value from the URL path and makes it available through `HttpRequest.route_params`.
 
 ```python
 import azure.functions as func
@@ -236,7 +236,7 @@ def get_product(req: func.HttpRequest) -> func.HttpResponse:
 ```
 
 >[!IMPORTANT]
->In the Python v2 model, route parameters shouldn't be added as extra function arguments. Read them from `req.route_params` instead.
+>In the Python v2 model, don't add route parameters as extra function arguments. Read them from `req.route_params` instead.
 
 ### Organizing with blueprints
 
@@ -321,12 +321,13 @@ Use the following structure for a Python Azure Functions project:
 ::: zone-end
 
 
-> [NOTE!]
-> Include a `requirements.txt` file when you deploy with [remote build](./python-build-options.md#remote-build). If you don't use remote build or want to use another file for defining app dependencies, you can perform a [local build](./python-build-options.md#local-build) and deploy the app with pre-built dependencies.
+> [!NOTE]
+> Include a `requirements.txt` file when you deploy with [remote build](./python-build-options.md#remote-build). If you don't use remote build or want to use another file for defining app dependencies, you can perform a [local build](./python-build-options.md#local-build) and deploy the app with prebuilt dependencies.
 
-> For guidance on unit testing, see [Unit Testing](#unit-testing).
-> For container deployments, see [Deploy with custom containers](./functions-how-to-custom-container.md?pivots=azure-functions).
+For more information, see:
 
+- [Unit testing](#unit-testing)
+- [Deploy with custom containers](./functions-how-to-custom-container.md?pivots=azure-functions)
 
 ---
 
@@ -528,7 +529,7 @@ setting_value = os.getenv("myAppSetting", "default_value")
 
 ### Package management
 
-To use other Python packages in your Azure Functions app, list them in a `requirements.txt` file at the root of your project. These packages are imported by Python's import system, and you can then reference those packages as usual.
+To use other Python packages in your Azure Functions app, list them in a `requirements.txt` file at the root of your project. Python's import system imports these packages, and you can reference them as usual.
 To learn more about building and deployment options with external dependencies, see [Build Options for Python Function Apps](./python-build-options.md).
 
 For example, the following sample shows how the `requests` module is included and used in the function app.
@@ -538,7 +539,7 @@ requests==2.31.0
 ```
 Install the package locally with `pip install -r requirements.txt`.
 
-Once the package is installed, you can import and use it in your function code:
+After you install the package, you can import and use it in your function code:
 
 ::: zone pivot="python-mode-configuration"
 
@@ -575,12 +576,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
    - Avoid naming your project folders after [Python standard libraries](https://docs.python.org/3/library/) (for example, `email/`, `json/`).
    - Don't include Python native libraries (like `logging`, `asyncio`, or `uuid`) in `requirements.txt`.
 - Deployment:
-   - To prevent [`ModuleNotFound` errors](./recover-python-functions.md#troubleshoot-modulenotfounderror), ensure all required dependencies are listed in `requirements.txt`.
+   - To prevent [`ModuleNotFound` errors](./recover-python-functions.md#troubleshoot-modulenotfounderror), ensure you list all required dependencies in `requirements.txt`.
    - If you update your app's Python version, rebuild and redeploy your app on the new Python version to avoid dependency conflicts with previously built packages.
-- Non-PyPI Dependencies:
-   - You can include dependencies that aren't available on PyPI in your app, such as local packages, wheel files, or private feeds. See [Custom dependencies in Python  Azure Functions](./python-build-options.md#custom-dependencies) for setup instructions.
+- Non-PyPI dependencies:
+   - You can include dependencies that aren't available on PyPI in your app, such as local packages, wheel files, or private feeds. For setup instructions, see [Custom dependencies in Python Azure Functions](./python-build-options.md#custom-dependencies).
 - Azure Functions Python worker dependencies:
-   - If your package contains certain libraries that might collide with worker's dependencies (for example, `protobuf` or `grpcio`), configure [PYTHON_ISOLATE_WORKER_DEPENDENCIES](./functions-app-settings.md#python_isolate_worker_dependencies) to 1 in app settings to prevent your application from referring to worker's dependencies. For Python 3.13 and above, [this feature is enabled by default](#python-313-updates).
+   - If your package contains certain libraries that might collide with the worker's dependencies (for example, `protobuf` or `grpcio`), set [PYTHON_ISOLATE_WORKER_DEPENDENCIES](./functions-app-settings.md#python_isolate_worker_dependencies) to `1` in app settings to prevent your application from referring to the worker's dependencies. For Python 3.13 and later, [this feature is enabled by default](#python-313-updates).
 
 ## Running and deploying
 This section provides information about [running functions locally](#running-locally), [Python version support](#supported-python-versions), [build and deployment options](#build-and-deployment), and runtime configuration. Use this information to successfully run your function app in both local and Azure environments.
@@ -657,20 +658,22 @@ Hello, World!
 
 ::: zone-end
 
-This approach doesn't require any extra packages or setup and is ideal for quick validation during development. For more in-depth testing, see [Unit Testing](#unit-testing)
+This approach doesn't require any extra packages or setup and is ideal for quick validation during development. For more in-depth testing, see [Unit testing](#unit-testing).
 
 ### Supported Python versions
 Azure Functions supports the Python versions listed in [Supported languages in Azure Functions](./supported-languages.md).
 For more general information, see the [Azure Functions runtime support policy](./language-support-policy.md).
 
-> [!Important]  
-> If you change the Python version for your function app, you must rebuild and redeploy the app by using the new version. 
-> Existing deployment artifacts and dependencies aren't automatically rebuilt when the Python version changes.
+Keep these considerations in mind when you update your app:
 
-## Build and Deployment
+- If an existing Python 3.11 app on a Linux Elastic Premium or Dedicated (App Service) plan uses a Debian Bullseye managed image, [update the app to a Debian Bookworm image](set-runtime-version.md?pivots=platform-linux#update-the-managed-linux-image) to stay on a supported Linux distribution.
+- Rebuild the app and its dependencies by using the new version if you change the Python version for your function app.
+- Redeploy the rebuilt app. Changing the Python version doesn't automatically rebuild existing deployment artifacts and dependencies.
+
+## Build and deployment
 To learn more about the recommended build mechanism for your scenario, see [Build Options](./python-build-options.md). For a general overview of deployment, see [Deployment technologies in Azure Functions](functions-deployment-technologies.md).
 
-**Deployment Mechanisms Quick Comparison**
+**Deployment mechanisms quick comparison**
 
 | **Tool / Platform**                                                                             | **Command / Action**                                                                                                                  | **Best Use Case**                                                                                                                                             |
 |-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -708,7 +711,7 @@ Key changes include:
       | Pinned to a specific version | `azure-functions-runtime==1.2.0` | Your Python 3.13+ app stays on the pinned runtime version and doesn't receive automatic updates. You must instead manually update your pinned version to take advantage of new features, fixes, and improvements in the runtime. Pinning is recommended for critical production workloads where stability and predictability are essential. Pinning also lets you test your app on prereleased runtime versions during development. |
       | No package reference         | n/a                              | By not setting the `azure-functions-runtime`, your Python 3.13+ app runs on a default version of the Python runtime that is behind the latest released version. Updates are made periodically by Functions. This option ensures stability and broad compatibility. However, access to the newest features and fixes are delayed until the default version is updated.                                                               |
 
-- Dependency isolation: Your app’s dependencies (like `grpcio` or `protobuf`) are fully isolated from the worker’s dependencies, preventing version conflicts. The app setting [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](./functions-app-settings.md#python_isolate_worker_dependencies) will have no impact for apps running on Python 3.13 or later.
+- Dependency isolation: Your app’s dependencies (like `grpcio` or `protobuf`) are fully isolated from the worker’s dependencies, preventing version conflicts. The app setting [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](./functions-app-settings.md#python_isolate_worker_dependencies) has no impact for apps running on Python 3.13 or later.
 - Simplified [HTTP streaming](./functions-bindings-http-webhook-trigger.md?tabs=python-v2&pivots=programming-language-python#http-streams-1) setup—no special app settings required.
 - Removed support for worker extensions and shared memory features.
 
@@ -729,7 +732,7 @@ Key changes include:
       | Pinned to a specific version | `azure-functions-runtime-v1==1.2.0` | Your Python 3.13+ app stays on the pinned runtime version and doesn't receive automatic updates. You must instead manually update your pinned version to take advantage of new features, fixes, and improvements in the runtime. Pinning is recommended for critical production workloads where stability and predictability are essential. Pinning also lets you test your app on prereleased runtime versions during development. |
       | No package reference         | n/a                                 | By not setting the `azure-functions-runtime-v1`, your Python 3.13+ app runs on a default version of the Python runtime that is behind the latest released version. Updates are made periodically by Functions. This option ensures stability and broad compatibility. However, access to the newest features and fixes are delayed until the default version is updated.                                                            |
 
-- Dependency isolation: Your app’s dependencies (like `grpcio` or `protobuf`) are fully isolated from the worker’s dependencies, preventing version conflicts. The app setting [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](./functions-app-settings.md#python_isolate_worker_dependencies) will have no impact for apps running on Python 3.13 or later.
+- Dependency isolation: Your app’s dependencies (like `grpcio` or `protobuf`) are fully isolated from the worker’s dependencies, preventing version conflicts. The app setting [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](./functions-app-settings.md#python_isolate_worker_dependencies) has no impact for apps running on Python 3.13 or later.
 - Removed support for worker extensions and shared memory features.
 
 ::: zone-end
@@ -790,7 +793,7 @@ To learn more about monitoring Azure Functions in the portal, see [Monitor Azure
 
 #### Logging from background threads
 
-If your function starts a new thread and needs to log from that thread, make sure to pass the `context` argument into the thread. The `context` contains thread-local storage and the current `invocation_id`, which must be set on the worker thread in order for logs to be associated properly with the function execution.
+If your function starts a new thread and needs to log from that thread, ensure you pass the `context` argument into the thread. The `context` contains thread-local storage and the current `invocation_id`, which must be set on the worker thread for logs to associate properly with the function execution.
 
 ::: zone pivot="python-mode-configuration"
 
@@ -908,7 +911,7 @@ class TestFunction(unittest.TestCase):
     )
 ```
 
-Inside your Python virtual environment folder, you can run the following commands to test the app:
+Inside your Python virtual environment folder, run the following commands to test the app:
 ```bash
 pip install pytest
 pytest test_my_function.py

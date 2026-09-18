@@ -65,16 +65,16 @@ To view the default BrokerAuthentication resource, create a Bicep `.bicep` file 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource defaultBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-03-01' existing = {
+resource defaultBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-07-01' existing = {
   parent: defaultBroker
   name: 'default'
 }
@@ -264,7 +264,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -272,12 +272,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-03-01' = {
+resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-07-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -544,7 +544,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 param trustedCaConfigMap string = '<TRUSTED_CA_CONFIGMAP>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -552,12 +552,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-03-01' = {
+resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-07-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -994,7 +994,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -1002,12 +1002,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-03-01' = {
+resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-07-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -1174,7 +1174,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -1182,12 +1182,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-03-01' = {
+resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-07-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {

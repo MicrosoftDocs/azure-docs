@@ -2,7 +2,7 @@
 title: What is Azure Backup?
 description: Provides an overview of the Azure Backup service, and how it contributes to your business continuity and disaster recovery (BCDR) strategy.
 ms.topic: overview
-ms.date: 07/17/2026
+ms.date: 09/16/2026
 ms.custom: mvc, engagement-fy24, ignite-2024
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -35,7 +35,7 @@ Azure Backup supports a wide range of workloads, that include:
 | Category | Workloads | Backup article reference |
 | --- | --- | --- |
 | Azure compute | - Azure Virtual Machines<br>- Azure Disks | - [Azure VM backup overview](backup-azure-vms-introduction.md)<br>- [Overview of Azure Disk Backup](disk-backup-overview.md) |
-| Databases | - SQL Server<br>- SAP HANA<br>- PostgreSQL Server<br>- PostgreSQL Flexible Server<br>- MySQL Flexible Server<br>- Azure Cosmos DB | - [Back up SQL Server databases to Azure Overview](backup-azure-sql-database.md)<br>- [SAP HANA database backup on Azure VMs overview](sap-hana-database-about.md)<br>- [Azure Database for PostgreSQL Backup overview](backup-azure-database-postgresql-overview.md)<br>- [Azure Database for PostgreSQL Flexible server backup overview](backup-azure-database-postgresql-flex-overview.md)<br>- [Retention of Azure Database for MySQL - Flexible Server overview (preview)](backup-azure-mysql-flexible-server-about.md)<br>- [Azure Cosmos DB backup overview (preview)](backup-azure-cosmos-db-overview.md) |
+| Databases | - SQL Server<br>- SAP HANA <br> - SAP ASE (Sybase) <br>- PostgreSQL Server<br>- PostgreSQL Flexible Server<br>- MySQL Flexible Server<br>- Azure Cosmos DB | - [Back up SQL Server databases to Azure Overview](backup-azure-sql-database.md)<br>- [SAP HANA database backup on Azure VMs overview](sap-hana-database-about.md)<br>- [SAP ASE (Sybase) database backup on Azure VMs overview](sap-ase-database-about.md)<br>- [Azure Database for PostgreSQL Backup overview](backup-azure-database-postgresql-overview.md)<br>- [Azure Database for PostgreSQL Flexible server backup overview](backup-azure-database-postgresql-flex-overview.md)<br>- [Retention of Azure Database for MySQL - Flexible Server overview (preview)](backup-azure-mysql-flexible-server-about.md)<br>- [Azure Cosmos DB backup overview (preview)](backup-azure-cosmos-db-overview.md) |
 | Storage | - Azure Files<br>- Azure Blobs<br>- Azure Data Lake Storage | - [Azure Files backup overview](azure-file-share-backup-overview.md)<br>- [Azure Blob backup overview](blob-backup-overview.md)<br>- [Azure Data Lake Storage Vaulted Backup overview](azure-data-lake-storage-backup-overview.md) |
 | Containers | Azure Kubernetes Service (AKS) | [Azure Kubernetes Service (AKS) Backup overview](azure-kubernetes-service-backup-overview.md) |
 | On-premises | Files, folders, system state, Hyper-V, VMware (via agents) | - [Microsoft Azure Recovery Server (MARS) Agent overview](backup-azure-about-mars.md)<br>- [What's new in Microsoft Azure Backup Server (MABS)](backup-mabs-whats-new-mabs.md) |

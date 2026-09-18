@@ -186,6 +186,10 @@ Issue ID: 1330
 
 ---
 
+Fixed in version 1.4.73 (2608) and later
+
+---
+
 Log signature: N/A
 
 ---

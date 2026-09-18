@@ -1,44 +1,46 @@
 ---
-title: Setup Customer Managed Key (CMK) Encryption within an enclave
+title: Configure customer-managed-key (CMK) encryption within an enclave
 titleSuffix: Azure Enclave
-description: Setup Customer Managed Key (CMK) Encryption within an enclave.
+description: Configure customer-managed-key (CMK) encryption within an enclave.
 author: jadean-msft
 ms.author: jadean
-ms.topic: overview
-ms.date: 9/30/2025
+ms.service: azure-enclave
+ai-usage: ai-assisted
+ms.topic: how-to
+ms.date: 08/24/2026
 ---
 
-# Set-up customer-managed-key (CMK) encryption within an enclave
+# Configure customer-managed key (CMK) encryption within an enclave
 
-The fastest way to deploy customer managed keys to be compliant with the Azure Enclave policy requiring CMK is through the [Common Dependencies](./deploy-common-dependencies-service-catalog.md) service catalog template. 
+The fastest way to deploy customer-managed keys and stay compliant with the Azure Enclave policy requiring CMK is through the [Common Dependencies](./deploy-common-dependencies-service-catalog.md) service catalog template.
 
-Several types of [encryption](/azure/virtual-machines/windows/disk-encryption-overview) are available for securing your data on managed disks and other Azure PaaS services, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE), and encryption at host. In accordance with Azure Enclave default [governance and cybersecurity posture](./what-azure-enclave.md#multi-layered-governance-security-and-monitoring) requires customer-managed-key encryption for all resources deployed in an [enclave](./what-enclave.md).
+Several types of [encryption](/azure/virtual-machines/windows/disk-encryption-overview) are available for securing your data on managed disks and other Azure PaaS services, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE), and encryption at host. Azure Enclave's default [governance and cybersecurity posture](./what-azure-enclave.md#multi-layered-governance-security-and-monitoring) requires customer-managed key encryption for all resources deployed in an [enclave](./what-enclave.md).
 
 ## Prerequisites for manual deployment method
-- Portal Access from Admin VM (192.168.x.x/26 usually).
-  - [Create community endpoint](./create-community-endpoint-portal.md) to Azure portal and Microsoft Azure services.
-    - A default endpoint can be created within the community that defines access to common Microsoft sites and endpoints. If so you can skip this step.
-  - [Create enclave connection](./create-enclave-connection-portal.md) to community endpoint.
-- You have the `Key Vault Contributor` role on the key vault or workload resource group that contains the key vault.
+- Portal access from the Admin VM (usually `192.168.x.x/26`).
+  - [Create a community endpoint](./create-community-endpoint-portal.md) to the Azure portal and Microsoft Azure services.
+    - A default endpoint can be created within the community that defines access to common Microsoft sites and endpoints. If so, you can skip this step.
+  - [Create an enclave connection](./create-enclave-connection-portal.md) to the community endpoint.
+- You have the `Key Vault Contributor` role on the key vault or on the workload resource group that contains the key vault.
 
 ## Steps in this guide
-- [Create KV RSA 2048 Key](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) or Bring your own key.
-- [Create Managed Identity](./create-user-managed-identity.md) with permissions to the KV Key.
+- [Create a KV RSA 2048 key](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) or bring your own key.
+- [Create a managed identity](./create-user-managed-identity.md) with permissions to the KV key.
 
 ### Enclave Key Vault
-Every enclave is deployed with an [Azure Key Vault](https://aka.ms/kv) in the [default resource group](./best-practices.md#enclave-managed-resource-group) for enclave infrastructure. Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. By default, enclave contributors should be able to upload keys, secrets, or certificates to the enclave Key Vault and utilize existing Azure capabilities and design patterns of other Azure services to support CMK encryption.
+Azure Enclave might create or reuse a Key Vault in the enclave managed resource group for flow-log storage CMK configuration. For customer application keys and other workload resources, create the Key Vault in a workload resource group. Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. By default, enclave contributors can upload keys, secrets, or certificates to a Key Vault deployed for the enclave and use existing Azure capabilities and design patterns from other Azure services to support CMK encryption.
 
-Examples of setting-up CMK encryption are provided in the next steps, with more [detailed instructions](#create-cmk-via-the-portal) or articles provided.
+The next sections provide examples of setting up CMK encryption, with more [detailed instructions](#create-cmk-via-the-portal) or articles provided.
 
-### Create a Key in a Key Vault
-- How-to Azure article - [Key creation starts after Step 6](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-azure-key-vault)
+### Create a key in a Key Vault
+- For steps to create a key, see [Set up your Azure Key Vault](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-azure-key-vault). Key creation begins at step 6 of that article.
 
 ### Disk encryption sets (Windows IaaS)
-- Read how-to Azure article - [starting after KV creation](/azure/virtual-machines/disks-enable-customer-managed-keys-portal)
+- For steps that start after Key Vault creation, see [Use the Azure portal to enable server-side encryption with customer-managed keys](/azure/virtual-machines/disks-enable-customer-managed-keys-portal).
 - [Learn more](/azure/virtual-machines/windows/disk-encryption-windows)
 
 ### Azure PaaS example (Storage account)
-- [Customer Managed Keys overview](/azure/storage/common/customer-managed-keys-overview)
+- [Customer-managed keys overview](/azure/storage/common/customer-managed-keys-overview)
 - [Existing storage accounts](/azure/storage/common/customer-managed-keys-configure-existing-account)
 - [New storage accounts](/azure/storage/common/customer-managed-keys-configure-new-account)
 
@@ -46,37 +48,36 @@ Examples of setting-up CMK encryption are provided in the next steps, with more 
 Follow these instructions to create a [key vault](./deploy-key-vault-service-catalog.md) from the Service Catalog of validated templates for common Azure services.
 
 ## Create CMK via the Portal
-Alternatively, CMK can be created via the Portal
-### Steps in this guide
-1. [Sign in to Admin VM](./understand-admin-vm.md).
-1. [Create Access Policy from Admin VM](#create-access-policy-from-admin-vm).
-1. [Generate Key for CMK in Key Vault](#generate-key-for-cmk-in-key-vault).
+Alternatively, you can create a CMK through the Azure portal.
 
-### Enable Enclave access to the Azure portal
-Key vault access is restricted to the KV virtual network so the key vault Key needs to be created from the Azure portal from within the Admin VM.
-* [Create enclave connection](./create-enclave-connection-portal.md) to community endpoint for access to the Azure portal.
- 
+### Steps in this guide
+1. [Enable enclave access to the Azure portal](#enable-enclave-access-to-the-azure-portal).
+1. [Sign in to the Admin VM](#sign-in-to-admin-vm).
+1. [Open the Azure portal from the Admin VM](#open-the-azure-portal-from-the-admin-vm).
+1. [Assign Key Vault RBAC permissions from the Admin VM](#assign-key-vault-rbac-permissions-from-admin-vm).
+1. [Generate a key for CMK in Key Vault](#generate-key-for-cmk-in-key-vault).
+
+### Enable enclave access to the Azure portal
+Key vault access is restricted to the KV virtual network, so you must create the key vault key from the Azure portal from within the Admin VM.
+* [Create an enclave connection](./create-enclave-connection-portal.md) to the community endpoint for access to the Azure portal.
+
 ### Sign in to Admin VM
 Follow [these Admin VM](./understand-admin-vm.md) instructions to sign in.
 
-### Update Key Vault from Admin VM
-1. After Admin VM sign in, open Microsoft Edge (for example, via the Start Menu).
-1. Navigate to `https://portal.azure.com` or the domain specific portal URL.
+### Open the Azure portal from the Admin VM
+1. After you sign in to the Admin VM, open Microsoft Edge (for example, via the Start menu).
+1. Go to `https://portal.azure.com` or the domain-specific portal URL.
 
-### Create Access Policy from Admin VM
-Key vault access is restricted to the KV virtual network so the key vault Key needs to be created from the Azure portal from within the Admin VM.
-1. From the portal, navigate to the Key Vault and select the `Access Policy` on the left side.
-1. Select `Create`.
-1. Select the "Configure from a template" dropdown and select `Key Management`.
-1. Select `Next` to the Principle tab.
-1. Enter your username in the search bar and select your user account.
-1. Select `Next` and then `Create`.
+### Assign Key Vault RBAC permissions from Admin VM
+Follow [Grant permission to applications to access an Azure key vault using Azure RBAC](/azure/key-vault/general/rbac-guide)
+to assign the appropriate role at the Key Vault scope. To create and manage keys for CMK encryption, assign the
+`Key Vault Crypto Officer` role to your user account.
 
 ### Generate Key for CMK in Key Vault
-1. From the portal, navigate to the Key Vault and select the `Keys` on the left side.
+1. From the portal, go to the key vault and select `Keys`.
 1. Select `Generate/Import`.
 1. Enter the name for the new key.
-1. Select `Create`. The default options should create an RSA 2048 key.
+1. Select **Create**. The default options create an RSA 2048 key.
 1. Copy the key name you created.
 1. You can sign out of the Admin VM.
 
@@ -85,6 +86,5 @@ Key vault access is restricted to the KV virtual network so the key vault Key ne
 
 ## Further reading
 - [Configure Disk Encryption](/azure/virtual-machines/windows/disk-encryption-overview)
-Read More:
 - [Generate Keys on Windows](/windows-server/administration/openssh/openssh_keymanagement)
 - [Configure Key Vault for Storage Account CMK](/azure/storage/common/customer-managed-keys-configure-new-account)

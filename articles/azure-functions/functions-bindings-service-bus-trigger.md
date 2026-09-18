@@ -3,7 +3,7 @@ title: Azure Service Bus trigger for Azure Functions
 description: Learn to run an Azure Function when as Azure Service Bus messages are created.
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 04/04/2023
+ms.date: 09/15/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 zone_pivot_groups: programming-languages-set-functions
@@ -441,7 +441,6 @@ The following table explains the properties you can set using this trigger attri
 |**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
 |**Connection**| The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 |**IsBatched**| Messages are delivered in batches. Requires an array or collection type. |
 |**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
 |**AutoComplete**|`true` Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br/><br/>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>When set to `false`, you are responsible for calling [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver) methods to complete, abandon, or deadletter the message, session, or batch. When an exception is thrown (and none of the `ServiceBusReceiver` methods are called), then the lock remains. Once the lock expires, the message is requeued with the `DeliveryCount` incremented and the lock is automatically renewed. |
@@ -506,9 +505,8 @@ The following table explains the properties that you can set on the `options` ob
 |**topicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**subscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
 |**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**accessRights**| Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 |**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
-|**autoComplete**| Must be `true` for non-C# functions, which means that the trigger should either automatically call complete after processing, or the function code manually calls complete.<br/><br/>When set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>Exceptions in the function results in the runtime call `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. This property is available only in Azure Functions 2.x and higher. |
+|**autoComplete**| Must be `true` for non-C# functions, which means that the trigger should either automatically call complete after processing, or the function code manually calls complete.<br/><br/>When set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>Exceptions in the function results in the runtime call `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -523,9 +521,8 @@ The following table explains the binding configuration properties that you set i
 |**topicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**subscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
 |**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**accessRights**| Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 |**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
-|**autoComplete**| Must be `true` for non-C# functions, which means that the trigger should either automatically call complete after processing, or the function code manually calls complete.<br/><br/>When set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>Exceptions in the function results in the runtime call `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. This property is available only in Azure Functions 2.x and higher. |
+|**autoComplete**| Must be `true` for non-C# functions, which means that the trigger should either automatically call complete after processing, or the function code manually calls complete.<br/><br/>When set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>Exceptions in the function results in the runtime call `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
 
 ---
 
@@ -545,9 +542,8 @@ The following table explains the binding configuration properties that you set i
 |**topicName**| Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**subscriptionName**| Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
 |**connection**|  The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
-|**accessRights**| Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
 |**isSessionsEnabled**| `true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
-|**autoComplete**| Must be `true` for non-C# functions, which means that the trigger should either automatically call complete after processing, or the function code manually calls complete.<br/><br/>When set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>Exceptions in the function results in the runtime call `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. This property is available only in Azure Functions 2.x and higher. |
+|**autoComplete**| Must be `true` for non-C# functions, which means that the trigger should either automatically call complete after processing, or the function code manually calls complete.<br/><br/>When set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br/><br/>Exceptions in the function results in the runtime call `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -566,7 +562,7 @@ The following parameter types are supported by all C# modalities and extension v
 | **byte[]** | Use for binary data messages. |
 | **Object** | When a message contains JSON, Functions tries to deserialize the JSON data into known plain-old CLR object type. |
 
-Messaging-specific parameter types contain additional message metadata. The specific types supported by the Service Bus trigger depend on the Functions runtime version, the extension package version, and the C# modality used.
+Messaging-specific parameter types contain additional message metadata. The specific types supported by the Service Bus trigger depend on the extension package version and the C# modality used.
 
 # [Extension v5.x](#tab/extensionv5/in-process)
 
@@ -576,7 +572,7 @@ In [C# class libraries](functions-dotnet-class-library.md), the attribute's cons
 
 [!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
 
-# [Functions 2.x and higher](#tab/functionsv2/in-process)
+# [Earlier extension versions](#tab/functionsv2/in-process)
 
 Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type to receive messages with metadata. To learn more, see [Messages, payloads, and serialization](../service-bus-messaging/service-bus-messages-payloads.md).
 
@@ -586,30 +582,13 @@ In [C# class libraries](functions-dotnet-class-library.md), the attribute's cons
 
 [!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
 
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-The following parameter types are available for the queue or topic message:
-
-* [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method.
-* [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Used to receive and acknowledge messages from the message container, which is required when `autoComplete` is set to `false`.
-
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
-
-In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes the name of the queue or the topic and subscription. In Azure Functions version 1.x, you can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. 
-
-[!INCLUDE [functions-service-bus-account-attribute](../../includes/functions-service-bus-account-attribute.md)]
-
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
 [!INCLUDE [functions-bindings-service-bus-trigger-dotnet-isolated-types](../../includes/functions-bindings-service-bus-trigger-dotnet-isolated-types.md)]
 
-# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+# [Earlier extension versions](#tab/functionsv2/isolated-process)
 
 Earlier versions of this extension in the isolated worker process only support binding to messaging-specific types. Additional options are available to **extension 5.x and higher**
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
 
 ---
 
@@ -673,7 +652,7 @@ If the function runs longer than the `PeekLock` timeout, the lock is automatical
 ::: zone pivot="programming-language-csharp" 
 ## Message metadata
 
-Messaging-specific types let you easily retrieve [metadata as properties of the object](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties depend on the Functions runtime version, the extension package version, and the C# modality used.
+Messaging-specific types let you easily retrieve [metadata as properties of the object](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties depend on the extension package version and the C# modality used.
 
 # [Extension v5.x](#tab/extensionv5/in-process)
 
@@ -693,7 +672,7 @@ These properties are members of the [ServiceBusReceivedMessage](/dotnet/api/azur
 |`Subject`|`string`|The application-specific label which can be used in place of the `Label` metadata property.|
 |`To`|`string`|The send to address.|
 
-# [Functions 2.x and higher](#tab/functionsv2/in-process)
+# [Earlier extension versions](#tab/functionsv2/in-process)
 
 These properties are members of the [Message](/dotnet/api/microsoft.azure.servicebus.message) class.
 
@@ -709,29 +688,6 @@ These properties are members of the [Message](/dotnet/api/microsoft.azure.servic
 |`Label`|`string`|The application-specific label.|
 |`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
 |`ReplyTo`|`string`|The reply to queue address.|
-|`To`|`string`|The send to address.|
-|`UserProperties`|`IDictionary<string, object>`|Properties set by the sender. |
-
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-These properties are members of the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) and [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) classes.
-
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
-
-|Property|Type|Description|
-|--------|----|-----------|
-|`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application-specific logic.|
-|`CorrelationId`|`string`|The correlation ID.|
-|`DeadLetterSource`|`string`|The dead letter source.|
-|`DeliveryCount`|`Int32`|The number of deliveries.|
-|`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
-|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC.|
-|`Label`|`string`|The application-specific label.|
-|`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
-|`MessageReceiver`|`MessageReceiver`|Service Bus message receiver. Can be used to abandon, complete, or deadletter the message.|
-|`MessageSession`|`MessageSession`|A message receiver specifically for session-enabled queues and topics.|
-|`ReplyTo`|`string`|The reply to queue address.|
-|`SequenceNumber`|`long`|The unique number assigned to a message by the Service Bus.|
 |`To`|`string`|The send to address.|
 |`UserProperties`|`IDictionary<string, object>`|Properties set by the sender. |
 
@@ -754,13 +710,9 @@ These properties are members of the [ServiceBusReceivedMessage](/dotnet/api/azur
 |`To`|`string`|The send to address.|
 
 
-# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+# [Earlier extension versions](#tab/functionsv2/isolated-process)
 
 Earlier versions of this extension in the isolated worker process only support binding to messaging-specific types. Additional options are available to **Extension 5.x and higher**
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
 
 ---
 

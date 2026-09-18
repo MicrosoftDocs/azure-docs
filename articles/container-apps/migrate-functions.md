@@ -14,6 +14,9 @@ ms.author: cshoe
 
 Use this guide to move Azure Functions running on the legacy Functions v1 model to the recommended Functions v2 model on Azure Container Apps. You learn why to migrate, what changes, and how to execute the transition with minimal risk.
 
+> [!NOTE]
+> Use the [Azure Functions on Azure Container Apps v1 migration assistant](https://github.com/Azure-Samples/functions-on-container-apps-v1-migration-assistant) to help migrate your function apps from the v1 model to the v2 model.
+
 You can host Azure Functions in Azure Container Apps by using two deployment models:
 
 - **Functions v1**: Legacy proxy model that uses a Function App (`Microsoft.Web` resource provider) plus a behind-the-scenes container app.

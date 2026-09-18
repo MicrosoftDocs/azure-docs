@@ -121,7 +121,7 @@ The following services support server-side encryption with customer-managed keys
 
 | Product, feature, or service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|
-| [App Configuration](../../azure-app-configuration/index.yml) | Yes | | [Use customer-managed keys to encrypt data](../../azure-app-configuration/concept-customer-managed-keys.md) |
+| [App Configuration](../../azure-app-configuration/index.yml) | Yes | Yes | [Use customer-managed keys to encrypt data](../../azure-app-configuration/concept-customer-managed-keys.md) |
 | [Automation](../../automation/index.yml) | Yes | | [Encryption of automation assets](../../automation/automation-secure-asset-encryption.md) |
 | [Azure Chaos Studio](/azure/chaos-studio/) | Yes | | [Configure customer-managed keys for Azure Chaos Studio](/azure/chaos-studio/chaos-studio-configure-customer-managed-keys) |
 | [Azure Migrate](../../migrate/index.yml) | Yes | | [Tutorial: Migrate VMware VMs to Azure](../../migrate/tutorial-migrate-vmware.md) |

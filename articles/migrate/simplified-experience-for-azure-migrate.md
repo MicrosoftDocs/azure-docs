@@ -7,6 +7,7 @@ ms.manager: dhananjayanr
 ms.service: azure-migrate
 ms.reviewer: jsuri
 ms.topic: how-to
+ms.update-cycle: 365-days
 ms.date: 11/11/2025
 # Customer intent: As a system administrator managing physical and VMware environments, I want to utilize an upgraded agent-based migration stack so that I can efficiently migrate newer Linux distributions and ensure a seamless migration process to Azure.
 ---

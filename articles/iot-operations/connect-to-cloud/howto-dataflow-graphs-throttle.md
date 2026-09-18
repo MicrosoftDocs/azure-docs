@@ -378,7 +378,7 @@ The Azure CLI applies a data flow graph from a single JSON configuration file. C
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-07-01' = {
   name: 'sensors-throttle'
   parent: dataflowProfile
   properties: {

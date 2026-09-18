@@ -6,6 +6,7 @@ ms.author: snmuvva
 ms.service: azure-migrate
 ms.topic: quickstart
 ms.date: 10/21/2025
+ms.update-cycle: 365-days
 monikerRange: migrate
 # Customer intent: "As a IT admin, I want to evaluate the readiness and potential savings of migrating my Arc-enabled on-premises servers to Azure."
 ---

@@ -8,6 +8,7 @@ ms.topic: troubleshooting
 ms.service: azure-migrate
 ms.reviewer: jsuri
 ms.date: 10/16/2024
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 # Customer intent: "As an IT administrator, I want to troubleshoot issues with the Azure Migrate appliance, so that I can ensure successful deployment and connectivity for on-premises server migrations."
 ---

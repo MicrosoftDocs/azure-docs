@@ -1,3 +1,4 @@
+items:
 - name: Durable Task Documentation
   href: index.yml
 - name: Overview
@@ -199,7 +200,7 @@
       - name: Zip deployment
         href: ../../azure-functions/deployment-zip-push.md
       - name: Run from package
-        href: ../../azure-functions/run-functions-from-deployment-package.md
+        href: ../../azure-functions/deployment-zip-push.md#run-functions-from-the-deployment-package
       - name: Zero downtime deployment
         href: ../durable-functions/durable-functions-zero-downtime-deployment.md
     - name: Monitor

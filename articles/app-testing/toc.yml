@@ -247,6 +247,8 @@ items:
           href: playwright-workspaces/how-to-manage-authentication.md
         - name: Use service package options
           href: playwright-workspaces/how-to-use-service-config-file.md
+        - name: Access privately hosted applications
+          href: playwright-workspaces/how-to-access-private-websites.md
         - name: Remote MCP server for AI agents
           href: playwright-workspaces/how-to-playwright-workspaces-remote-mcp.md
     - name: Tutorials

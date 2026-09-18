@@ -6,7 +6,7 @@ ms.service: azure-functions
 ms.topic: reference
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 02/10/2026
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -19,7 +19,6 @@ The following considerations apply when using a warmup trigger:
 * There can be only one warmup trigger function per function app, and it can't be invoked after the instance is already running.
 * The name of the function that is the warmup trigger for your app should be `warmup` (case-insensitive). 
 * The warmup trigger isn't available to apps running on the [Consumption plan](./consumption-plan.md).
-* The warmup trigger isn't supported on version 1.x of the Functions runtime.  
 * Support for the warmup trigger is provided by default in all development environments. You don't have to manually install the package or register the extension.
 * The warmup trigger is only called during scale-out operations, not during restarts or other nonscaling startups. Make sure your logic can load all required dependencies without relying on the warmup trigger. Lazy loading is a good pattern to achieve this goal.
 * Dependencies created by warmup trigger should be shared with other functions in your app. To learn more, see [Static clients](manage-connections.md#reuse-client-instances).

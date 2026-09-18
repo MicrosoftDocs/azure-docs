@@ -5,7 +5,7 @@ ms.topic: concept-article
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 author: Jeronika-MS
-ms.date: 06/03/2026
+ms.date: 09/11/2026
 # Customer intent: "As a disaster recovery manager, I want to stay informed about the latest updates in Azure Site Recovery features, so that I can ensure optimal protection and monitoring of our critical workloads."
 ---
 
@@ -60,7 +60,7 @@ Azure Site Recovery now supports replication and disaster recovery for Windows A
 
 ### Azure Site Recovery for Virtual Machines with Premium SSD v2 disks
 
-Azure Site Recovery support for Virtual Machines with Premium SSD v2 disks is in public preview. Azure Site Recovery provides seamless disaster recovery for Virtual Machines across Azure Regions and from on-premises to Azure, helping organizations maintain business continuity. It offers cost-effective replication, automated failover, and easy disaster recovery simulation, ensuring minimal production impact during disaster events. With built-in security, compliance support, and native integration with Azure services, Azure Site Recovery helps your organization stay resilient and minimize downtime. [Learn more](azure-to-azure-support-matrix.md).
+Premium SSD v2 support is generally available for Azure-to-Azure disaster recovery. Premium SSD v2 and Ultra Disk aren't supported as source or recovery-target disk types for on-premises-to-Azure protection. [Learn more](azure-to-azure-support-matrix.md).
 
 ## Updates (April 2025)
 
@@ -117,7 +117,7 @@ Enabling disaster recovery on Premium SSD v2 is currently available in select re
 
 ### Use Azure Business Continuity center (preview)
 
-You can now also manage Azure Site Recovery protections using Azure Business Continuity (ABC) center. ABC enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities. [Learn more about the supported scenarios](../business-continuity-center/business-continuity-center-support-matrix.md).
+You can now also manage Azure Site Recovery protections using Azure Business Continuity (ABC) center. ABC enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities. [Learn more about the supported scenarios](../resiliency/resiliency-support-matrix.md).
 
 ## Updates (August 2023)
 
