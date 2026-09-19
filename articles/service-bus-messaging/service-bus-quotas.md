@@ -11,3 +11,5 @@ This section lists basic quotas and throttling thresholds in Azure Service Bus m
 ## Messaging quotas
 [!INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]
 
+> [!NOTE]
+> The **Number of topics or queues per namespace** limit is a maximum quota, not a performance-sizing target. Namespace requirements depend on the active entity count and workload characteristics. For more information, see [Plan namespace capacity by workload](service-bus-performance-improvements.md#plan-namespace-capacity-by-workload).
