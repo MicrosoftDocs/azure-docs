@@ -134,7 +134,7 @@ This behavior can happen if the logic app resource isn't healthy, or typically, 
 
 1. Exclude all containers with names that start with `azure-webjobs-*` from Azure Storage lifecycle management policies. 
 
-    Any archived or tiered blobs in these containers break runtime scale monitoring.
+    Archived or tiered blobs in these containers break runtime scale monitoring.
 
 ### My workflow intermittently stops processing messages for hours but runs well most other times.
 
