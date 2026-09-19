@@ -11,11 +11,11 @@ Unfortunately, we don't have capacity to on-board any new partner offers at this
 
 ### Can I deploy any NVA from Azure Marketplace into the Virtual WAN hub?
 
-Only partners listed in the [Partners](../articles/virtual-wan/about-nva-hub.md#partners) section can be deployed into the Virtual WAN hub.
+Only partners listed in the [Partners](../../../virtual-wan/about-nva-hub.md#partners) section can be deployed into the Virtual WAN hub.
 
 ### What is the cost of the NVA?
 
-You must purchase a license for the NVA from the NVA vendor. Bring-your-own license (BYOL) is the only licensing model supported today. In addition, Microsoft charges for the NVA Infrastructure Units you consume, and any other resources you use. For more information, see [Pricing concepts](../articles/virtual-wan/pricing-concepts.md).
+You must purchase a license for the NVA from the NVA vendor. Bring-your-own license (BYOL) is the only licensing model supported today. In addition, Microsoft charges for the NVA Infrastructure Units you consume, and any other resources you use. For more information, see [Pricing concepts](../../../virtual-wan/pricing-concepts.md).
 
 ### Can I deploy an NVA to a Basic hub?
 
@@ -35,7 +35,7 @@ All routing scenarios supported by Virtual WAN are supported with NVAs in the hu
 
 ### What regions are supported?
 
-For supported regions, see [NVA supported regions](../articles/virtual-wan/about-nva-hub.md#regions).
+For supported regions, see [NVA supported regions](../../../virtual-wan/about-nva-hub.md#regions).
 
 ### How do I delete my NVA in the hub?
 
@@ -70,5 +70,5 @@ The same series of steps can be executed from Azure CLI.
    ```
 ### How is MANA support handled for NVAs in the hub?
 
-For all NVA in the hub deployments, Azure automatically applies the [LegacyVMNVA](../articles/virtual-network/accelerated-networking-mana-overview.md) tag. This tag prevents the NVA from running on MANA hardware through [May 31, 2027](../articles/virtual-network/accelerated-networking-mana-overview.md). After this date, the tag is no longer honored, and NVAs deployed in the hub might run on MANA hardware. No action is required to apply the tag. To avoid any network disruption, work with your NVA provider to upgrade to a software version that supports MANA before [May 31, 2027](../articles/virtual-network/accelerated-networking-mana-overview.md).
+For all NVA in the hub deployments, Azure automatically applies the [LegacyVMNVA](../../../virtual-network/accelerated-networking-mana-overview.md) tag. This tag prevents the NVA from running on MANA hardware through [May 31, 2027](../../../virtual-network/accelerated-networking-mana-overview.md). After this date, the tag is no longer honored, and NVAs deployed in the hub might run on MANA hardware. No action is required to apply the tag. To avoid any network disruption, work with your NVA provider to upgrade to a software version that supports MANA before [May 31, 2027](../../../virtual-network/accelerated-networking-mana-overview.md).
    
