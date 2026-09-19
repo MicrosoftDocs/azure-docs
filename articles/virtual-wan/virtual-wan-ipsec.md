@@ -17,11 +17,11 @@ This article shows the supported IPsec policy combinations.
 
 ## Default IPsec policies
 
-[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
+[!INCLUDE [IPsec](../networking/includes/virtual-wan/ipsec.md)]
 
 ## Custom IPsec policies
 
-[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-custom-include.md)]
+[!INCLUDE [IPsec](../networking/includes/virtual-wan/ipsec-custom.md)]
 
 ## Next steps
 

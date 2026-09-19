@@ -11,7 +11,7 @@
 ---
 
 > [!NOTE]
-> When working with Default policies, Azure can act as both initiator and responder during an IPsec tunnel setup. While Virtual WAN VPN supports many algorithm combinations, our recommendation is GCMAES256 for both IPSEC Encryption and Integrity for optimal performance. AES256 and SHA256 are considered less performant and therefore performance degradation such as latency and packet drops can be expected for similar algorithm types. For more information about Virtual WAN, see the [Azure Virtual WAN FAQ](../articles/virtual-wan/virtual-wan-faq.md).
+> When working with Default policies, Azure can act as both initiator and responder during an IPsec tunnel setup. While Virtual WAN VPN supports many algorithm combinations, our recommendation is GCMAES256 for both IPSEC Encryption and Integrity for optimal performance. AES256 and SHA256 are considered less performant and therefore performance degradation such as latency and packet drops can be expected for similar algorithm types. For more information about Virtual WAN, see the [Azure Virtual WAN FAQ](../../../virtual-wan/virtual-wan-faq.md).
 >
 
 ### Initiator
