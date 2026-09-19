@@ -72,7 +72,7 @@ An action specifies a task to perform and always appears as a subsequent step in
 
 ## Connection permissions
 
-In a Consumption logic app workflow, before you can create or manage logic app resources, workflows, and their connections, you need specific permissions. For more information about these permissions, see [Secure operations - Secure access and data in Azure Logic Apps](../logic-apps/set-up-security-permissions.md#secure-operations).
+In a Consumption logic app workflow, you need specific permissions before you can create or manage logic app resources, workflows, and their connections. For more information about these permissions, see [Secure operations - Secure access and data in Azure Logic Apps](../logic-apps/set-up-security-permissions.md#secure-operations).
 
 ## Connection creation, configuration, and authentication
 
