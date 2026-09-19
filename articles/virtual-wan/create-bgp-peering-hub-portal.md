@@ -38,7 +38,7 @@ Once you have the settings configured, click **Review + Create** to validate, th
 
 After your hub router status is provisioned, create a connection between your hub and VNet.
 
-[!INCLUDE [Connect a VNet to a hub](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect a VNet to a hub](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## Configure a BGP peer
 

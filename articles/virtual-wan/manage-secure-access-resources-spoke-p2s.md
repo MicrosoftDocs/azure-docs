@@ -82,7 +82,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 
 In this section, you create a connection between your hub and the spoke VNet.
 
-[!INCLUDE [Connect spoke virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect spoke virtual network](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## <a name="create-vm"></a>Create virtual machines
 

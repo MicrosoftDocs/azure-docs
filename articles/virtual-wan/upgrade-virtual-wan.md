@@ -17,7 +17,7 @@ When you upgrade from Basic to Standard, all the hubs within the virtual WAN are
 
 The following table shows the configurations available for each WAN type:
 
-[!INCLUDE [Basic and Standard SKUs](../../includes/virtual-wan-standard-basic-include.md)]
+[!INCLUDE [Basic and Standard SKUs](../networking/includes/virtual-wan/standard-basic.md)]
 
 ## <a name = "upgrade"></a>To upgrade
 
