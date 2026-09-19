@@ -28,7 +28,7 @@ When adding a binding to an existing function, you need to add binding-specific 
 When adding a binding to an existing function, you need to update the function code and add a definition to the function.json configuration file. 
 ::: zone-end  
 ::: zone pivot="programming-language-python"
-When adding a binding to an existing function, you need update the function definition, depending on your model:
+When adding a binding to an existing function, you need to update the function definition, depending on your model:
 
 #### [v2](#tab/python-v2)
 You need to add binding-specific annotations to the function definition in code.
