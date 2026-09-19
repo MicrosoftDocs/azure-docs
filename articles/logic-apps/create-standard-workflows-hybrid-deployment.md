@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/09/2026
+ms.date: 09/19/2026
 ms.update-cycle: 1095-days
 ms.custom:
   - build-2025
@@ -18,34 +18,48 @@ ms.custom:
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-For scenarios where you need to use, control, and manage your own infrastructure, you can create Standard logic app workflows using the hybrid deployment model in Azure Logic Apps. This model provides capabilities for you to build and host integration solutions for partially connected environments that require local processing, storage, and network access. Your infrastructure can include on-premises systems, private clouds, and public clouds. With the hybrid model, your Standard logic app workflow is powered by the Azure Logic Apps runtime, which is hosted on premises as part of an Azure Container Apps extension.
+For scenarios where you need to use, control, and manage your own infrastructure, you can create Standard logic app workflows using the hybrid deployment model in Azure Logic Apps. This model provides capabilities for you to build and host integration solutions for partially connected environments that require local processing, storage, and network access. Your infrastructure can include on-premises systems, private clouds, and public clouds. With the hybrid model, your Standard logic app workflow is powered by the Azure Logic Apps runtime, which is hosted on your infrastructure as part of an Azure Container Apps extension.
 
 For an architectural overview that shows where Standard logic app workflows are hosted and run in a partially connected environment, see [Set up infrastructure requirements for hybrid deployment for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).
 
-This how-to guide shows how to create and deploy a Standard logic app workflow using the hybrid deployment model after you set up the necessary on-premises resources for hosting your app.
+This how-to guide shows how to create and deploy a Standard logic app workflow using the hybrid deployment model after you set up the necessary resources for hosting your app.
+
+> [!IMPORTANT]
+>
+> The local Azure Logic Apps runtime and workflows that use only locally available dependencies can continue running when Azure connectivity is interrupted. Azure-dependent management, deployment, monitoring, identity operations, and managed connectors might be unavailable while disconnected. After 24 hours, logging data might be lost, although local runtime execution continues. For more information, see [Limitations for hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md#limitations).
 
 ## Limitations
 
-The following section describes the limitations for the hybrid deployment option:
+For the current supported Azure regions, supported Kubernetes clusters, and platform-wide limitations, see [Limitations for hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md#limitations).
+
+The following limitations apply when you create and operate hybrid logic apps:
 
 | Limitation | Description |
 |------------|-------------|
-| Supported Azure regions | Hybrid deployment is currently available and supported only in the following Azure regions: <br><br>- Central US <br>- East Asia <br>- East US <br>- North Central US <br>- Southeast Asia <br>- Sweden Central <br>- UK South <br>- West Europe <br>- West US <br> |
-| Data logging with a disconnected runtime | In partially connected mode, the Azure Logic Apps runtime can stay disconnected up to 24 hours and still retain data logs. However, any logging data past this duration might be lost. |
-| Unsupported capabilities available in single-tenant Azure Logic Apps (Standard) and related Azure services | - Deployment slots <br><br>- Azure Business process tracking <br><br>- Resource health under **Support + troubleshooting** in Azure portal <br><br>- Managed identity authentication for connector operations. Azure Arc-enabled Kubernetes clusters currently don't support managed identity authentication for managed API connections. Instead, you must create your own app registration using Microsoft Entra ID. For more information, [follow these steps later in this guide](#authenticate-managed-api-connections). |
+| Managed identity authentication for managed API connections | Managed identity authentication isn't currently supported for managed API connections in hybrid logic apps. Instead, you must create your own app registration using Microsoft Entra ID. For more information, [follow these steps later in this guide](#authenticate-managed-api-connections). |
 | Function-based triggers | Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to the Azure storage account associated with your Standard logic app. If you use any function-based triggers, in your Standard logic app's environment variables in the Azure portal or in your logic app project's **local.settings.json** file in Visual Studio Code, add the app setting named **AzureWebJobsStorage** and provide your storage account connection string:<br><br>`"Values": {` <br>    `"name": "AzureWebJobsStorage",` <br>    `"value": "{storage-account-connection-string}"` <br>`}` |
+
+### Behavior during an Azure connectivity interruption
+
+- Workflows can continue running when the runtime and all required workflow dependencies remain locally available.
+- Built-in operations run with the local runtime, but any external service called by an operation must remain reachable.
+- Managed connector operations require connectivity to their Azure-hosted services.
+- Azure portal management, Azure-based deployment, identity operations, and telemetry delivery might be unavailable or delayed.
+- Logging data generated after the runtime is disconnected for more than 24 hours might be lost.
+
+If your workloads require deployment, monitoring, alerting, run resubmission, or identity operations during an extended disconnection, validate the behavior for your specific configuration with your Microsoft account or product team.
 
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- The following on-premises resources, which must all exist within the same network for the required connectivity:
+- The following customer-managed resources, which must all exist within the same network for the required connectivity:
 
-  - An Azure Kubernetes Service cluster that is connected to Azure Arc
+  - A supported Kubernetes cluster that is connected to Azure Arc
   - An SQL database to locally store workflow run history, inputs, and outputs for processing
   - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
-  To meet these requirements, [set up these on-premises resources to support hybrid deployment for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).
+  To meet these requirements, [set up these resources to support hybrid deployment for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).
 
 - To work in Visual Studio Code, you need the Azure Logic Apps (Standard) extension for Visual Studio Code with the [related prerequisites](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
@@ -74,7 +88,7 @@ Create your Standard logic app for hybrid deployment by following these steps:
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. <br><br>This example uses **Pay-As-You-Go**. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your hybrid app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Hybrid-RG**. |
    | **Logic App name** | Yes | <*logic-app-name*> | Your logic app name, which must be unique across regions and can contain only lowercase letters, numbers, or hyphens (**-**). <br><br>This example uses **my-logic-app-hybrid**. |
-   | **Region** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#limitations). <br><br>This example uses **East US**. |
+   | **Region** | Yes | <*Azure-region*> | An Azure region that [supports hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md#limitations). <br><br>This example uses **East US**. |
    | **Container App Connected Environment** | Yes | <*connected-environment-name*> | The Arc-enabled Kubernetes cluster that you created as the deployment environment for your logic app. For more information, see [Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-enable-cluster.md). |
    | **Configure storage settings** | Yes | Enabled or disabled | Continues to the **Storage** tab on the **Create Logic App (Hybrid)** page. |
 
@@ -141,7 +155,7 @@ If you want to deploy with SMB file share, confirm that the following conditions
 
    This example uses **Hybrid-RG**.
 
-1. From the location list, select an Azure region that is [supported for Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#limitations).
+1. From the location list, select an Azure region that [supports hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md#limitations).
 
    This example uses **East US**.
 
@@ -160,6 +174,8 @@ Zip deployment provides the following benefits over the SMB file share option.
 - Visual Studio Code doesn't need a connection to the SMB file share.
 - Subsequent deployments don't require credentials for the SMB file share.
 - Zip deployment provides a more stable and reliable option over SMB deployment, which is prone to 409 conflicts.
+
+Both deployment options depend on Azure management services. SMB deployment changes how workflow artifacts are transferred, but doesn't make the hybrid logic app independent from Azure Arc or Azure management.
 
 To use zip deployment, follow these steps:
 
@@ -234,6 +250,8 @@ You can set up enhanced telemetry collection in Application Insights for your St
 
 For partially connected and on-premises scenarios, you can set up your Standard logic app to emit telemetry based on the [OpenTelemetry-supported](https://opentelemetry.io/) app settings that you define for the specific environment. By default, this telemetry data is sent to Application Insights. For more information, see [Enable enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](enable-enhanced-telemetry-standard-workflows.md).
 
+Application Insights requires Azure connectivity. During a connectivity interruption, telemetry delivery might be delayed, and logging data generated after 24 hours might be lost. Validate any requirement for local monitoring and alerting against the telemetry destination and configuration that you use.
+
 <a name="change-vcpu-memory"></a>
 
 ## Change vCPU and memory allocation in the Azure portal
@@ -299,7 +317,7 @@ You can expose your logic app to the public web, your virtual network, and other
 
 ## Set up authentication for managed API connections
 
-To authenticate managed API connections in Standard logic app workflows hosted on Azure Arc-enabled Kubernetes clusters, you must create your own app registration using Microsoft Entra ID. You can then add this app registration's values as environment variables in your Standard logic app resource to authenticate your API connections instead.
+Managed identity authentication isn't currently supported for managed API connections in hybrid logic apps. To authenticate these connections, you must create your own app registration using Microsoft Entra ID. You can then add this app registration's values as environment variables in your Standard logic app resource. This authentication model requires connectivity to Microsoft Entra ID.
 
 ### Create an app registration with Microsoft Entra ID
 
@@ -313,7 +331,10 @@ To authenticate managed API connections in Standard logic app workflows hosted o
 
    - Client ID
    - Tenant ID
-   - Client secret
+
+1. On the resource menu, select **Certificates & secrets** > **Client secrets** > **New client secret**.
+
+1. Create the client secret, and immediately save the secret's **Value**. The value doesn't appear again after you leave the page.
 
 1. For the object ID, follow these steps:
 
@@ -329,18 +350,28 @@ To authenticate managed API connections in Standard logic app workflows hosted o
 
 #### Azure CLI
 
-1. To create the app registration, use the [**az ad sp create** command](/cli/azure/ad/sp#az-ad-sp-create).
+1. To create an app registration and its service principal without assigning an Azure role, run the following command:
 
-1. To review all the properties, use the [**az ad sp show** command](/cli/azure/ad/sp#az-ad-sp-show).
+   ```azurecli
+   az ad sp create-for-rbac \
+      --name <app-registration-name> \
+      --skip-assignment
+   ```
 
-1. In the output from both commands, find and save the following values, which you need later for connection authentication:
+   Save the `appId`, `password`, and `tenant` values from the output as the client ID, client secret, and tenant ID. The command output is the only place where the client secret appears.
 
-   - Client ID
-   - Object ID
-   - Tenant ID
-   - Client secret
+1. Get the service principal object ID:
+
+   ```azurecli
+   az ad sp show \
+      --id <client-ID> \
+      --query id \
+      --output tsv
+   ```
 
 1. Now, [add the saved values as environment variables](#add-app-registration-values-environment-variables) to your Standard logic app resource.
+
+For more information, see [**az ad sp create-for-rbac**](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) and [**az ad sp show**](/cli/azure/ad/sp#az-ad-sp-show).
 
 <a name="add-app-registration-values-environment-variables"></a>
 
@@ -363,15 +394,14 @@ To authenticate managed API connections in Standard logic app workflows hosted o
    | **WORKFLOWAPP_AAD_CLIENTID** | <*my-client-ID*> |
    | **WORKFLOWAPP_AAD_OBJECTID** | <*my-object-ID*> |
    | **WORKFLOWAPP_AAD_TENANTID** | <*my-tenant-ID*> |
-   | **WORKFLOWAPP_AAD_CLIENTSECRET** | <*my-client-secret*> |
 
 1. When you finish, select **Save**.
 
 <a name="store-client-id-secret-for-reference"></a>
 
-### Store and reference client ID and client secret
+### Store and reference the client secret
 
-You can store the client ID and client secret values in your logic app resource as secrets and then reference those values on the **Environment variables** tab instead.
+Store the client secret in your logic app resource as a secret, and then reference that secret from the **WORKFLOWAPP_AAD_CLIENTSECRET** environment variable. Plan to rotate the secret before it expires.
 
 1. In the Azure portal, go to your logic app resource.
 
@@ -379,12 +409,19 @@ You can store the client ID and client secret values in your logic app resource 
 
 1. On the toolbar, select **Add**.
 
-1. On the **Add secret** pane, provide the following information for each secret, and then select **Add**:
+1. On the **Add secret** pane, provide the following information, and then select **Add**:
 
    | Key | Value |
    |-----|-------|
-   | **WORKFLOWAPP_AAD_CLIENTID** | <*my-client-ID*> |
    | **WORKFLOWAPP_AAD_CLIENTSECRET** | <*my-client-secret*> |
+
+1. On the resource menu, under **Settings**, select **Containers**, and then select the **Environment variables** tab.
+
+1. On the toolbar, select **Edit and deploy**.
+
+1. Add the **WORKFLOWAPP_AAD_CLIENTSECRET** environment variable, select the option to reference a secret, and select the secret that you created.
+
+1. When you finish, select **Save**.
 
 ## Known issues and troubleshooting
 
@@ -418,10 +455,9 @@ After you deploy your Standard logic app, confirm that your app is running corre
 
    :::image type="content" source="media/create-standard-workflows-hybrid-deployment/running-logic-app-hybrid-deployment.png" alt-text="Screenshot shows browser and logic app running as a website.":::
 
-   Otherwise, if your app has any failures, check that your AKS pods are running correctly. From Windows PowerShell, run the following commands:
+   Otherwise, if your app has any failures, check that your Kubernetes pods are running correctly. Make sure that `kubectl` uses the context for your cluster, and then run the following commands:
 
    ```powershell
-   az aks get-credentials --resource-group {resource-group-name} --name {aks-cluster-name} --admin
    kubectl get ns
    kubectl get pods -n logicapps-aca-ns
    kubectl describe pod {logic-app-pod-name} -n logicapps-aca-ns 
@@ -429,16 +465,15 @@ After you deploy your Standard logic app, confirm that your app is running corre
 
    For more information, see the following documentation:
 
-   - [**az aks get-credentials**](/cli/azure/aks#az-aks-get-credentials)
    - [Command line tool (kubectl)](https://kubernetes.io/docs/reference/kubectl/)
 
-### Cluster doesn't have enough nodes
+### Cluster doesn't have enough capacity
 
 If you ran the previous command and get a warning similar to the following example, your cluster doesn't have enough nodes for processing:
 
 **`Warning: FailedScheduling  4m52s (x29 over 46m)  default-scheduler  0/2 nodes are available: 2 Too many pods. preemption: 0/2 nodes are available: 2 No preemption victims found for incoming pod.`**
 
-To increase the number of nodes, and set up autoscale, follow these steps:
+For AKS, increase the number of nodes and set up autoscale by following these steps:
 
 1. In the Azure portal, go to your Kubernetes service instance.
 
@@ -453,6 +488,8 @@ For more information, see the following documentation:
 - [Cluster autoscaling in Azure Kubernetes Service (AKS) overview](/azure/aks/cluster-autoscaler-overview)
 - [Use the cluster autoscaler in Azure Kubernetes Service (AKS)](/azure/aks/cluster-autoscaler?tabs=azure-cli)
 
+For OpenShift or RKE2, use the supported procedure for your Kubernetes distribution to add capacity.
+
 ### SMB Container Storage Interface (CSI) driver not installed
 
 After you ran the earlier **`kubectl describe pod`** command, if the following warning appears, confirm whether the CSI driver for your SMB file share is installed correctly:
@@ -461,25 +498,23 @@ After you ran the earlier **`kubectl describe pod`** command, if the following w
 
 **`Normal NotTriggerScaleUp 9m49s (x31 over 14m) cluster-autoscaler pod didn't trigger scale-up: 3 pod has unbound immediate PersistentVolumeClaims`**
 
-To confirm, from Windows PowerShell, run the following commands:
+To confirm, run the following command:
 
-```powershell
+```azurecli
 kubectl get csidrivers
 ```
 
-If the results list that appears doesn't include **smb.csi.k8s.io**, from a Windows command prompt, and run the following command:
+If the results don't include **smb.csi.k8s.io**, follow the distribution-specific instructions to [install the SMB driver](set-up-standard-workflows-hybrid-deployment-requirements.md#install-the-smb-driver).
 
-**`helm repo add csi-driver-smb`**<br>
-**`helm repo update`**
-**`helm install csi-driver-smb csi-driver-smb/csi-driver-smb --namespace kube-system --version v1.15.0`**
+To check the CSI SMB driver pod status, run the following command:
 
-To check the CSI SMB Driver pods status, from the Windows command prompt, run the following command:
-
-**`kubectl --namespace=kube-system get pods --selector="app.kubernetes.io/name=csi-driver-smb" --watch`**
-
-For more information, see [Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)](/azure/aks/csi-storage-drivers).
+```azurecli
+kubectl --namespace=kube-system get pods --selector="app.kubernetes.io/name=csi-driver-smb" --watch
+```
 
 ## Related content
 
 - [Set up requirements for Standard logic app deployment on your own infrastructure](set-up-standard-workflows-hybrid-deployment-requirements.md)
 - [Enable enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](enable-enhanced-telemetry-standard-workflows.md)
+- [Why migrate from BizTalk Server to Azure Logic Apps Standard?](biztalk-server-migration-overview.md)
+- [Migrate BizTalk Server with Azure Logic Apps Migration Agent](biztalk-server-migration-approaches.md)
