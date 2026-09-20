@@ -74,14 +74,14 @@ When you connect to VNet using User VPN (P2S), you can use the VPN client that i
 
 There are two different types of configuration profiles that you can download: global and hub. The global profile is a WAN-level configuration profile. When you download the WAN-level configuration profile, you get a built-in Traffic Manager-based User VPN profile. When you use a global profile, if for some reason a hub is unavailable, the built-in traffic management provided by the service ensures connectivity (via a different hub) to Azure resources for point-to-site users. For more information, or to download a hub-level profile VPN client configuration package, see [Global and hub profiles](global-hub-profile.md).
 
-[!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
+[!INCLUDE [Download profile](../networking/includes/virtual-wan/p2s-download-profile.md)]
 
 ## <a name="configure-client"></a>Configure VPN clients
 
 Use the downloaded profile package to configure the native VPN client on your computer. The procedure for each operating system is different. Follow the instructions that apply to your system.
 Once you have finished configuring your client, you can connect.
 
-[!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
+[!INCLUDE [Configure clients](../networking/includes/virtual-wan/p2s-configure-clients.md)]
 
 ## <a name="connect-vnet"></a>Connect VNet to hub
 

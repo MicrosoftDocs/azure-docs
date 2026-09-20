@@ -76,7 +76,7 @@ If you want to use the VPN client profile configuration files to configure your 
 
 You can download global (WAN-level) profiles, or a profile for a specific hub. For information and additional instructions, see [Download global and hub profiles](global-hub-profile.md). The following steps walk you through downloading a global WAN-level profile.
 
-[!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
+[!INCLUDE [Download profile](../networking/includes/virtual-wan/p2s-download-profile.md)]
 
 ## Next steps
 
