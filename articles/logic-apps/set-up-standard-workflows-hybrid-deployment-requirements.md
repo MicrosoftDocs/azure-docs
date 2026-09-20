@@ -23,7 +23,7 @@ Sometimes you have to set up and manage your own infrastructure to meet specific
 >
 > Hybrid deployment separates local workflow execution from Azure-connected management. The local Azure Logic Apps runtime and workflows that use only locally available dependencies can continue running when Azure connectivity is interrupted. However, Azure Arc operations and other Azure-dependent capabilities might be unavailable. Hybrid deployment doesn't provide a fully autonomous, air-gapped management plane.
 
-If you're evaluating hybrid deployment as a target for BizTalk Server workloads, first review [Why migrate from BizTalk Server to Azure Logic Apps Standard?](biztalk-server-migration-overview.md).
+If you're evaluating hybrid deployment as a target for BizTalk Server workloads, first review [Why migrate from BizTalk Server to Azure Logic Apps Standard?](biztalk-server-migration-overview.md)
 
 ## How hybrid deployment works
 
