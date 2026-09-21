@@ -22,7 +22,7 @@ For scenarios where you need to use, control, and manage your own infrastructure
 
 For an architectural overview that shows where Standard logic app workflows are hosted and run in a partially connected environment, see [Set up infrastructure requirements for hybrid deployment for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).
 
-This how-to guide shows how to create and deploy a Standard logic app workflow using the hybrid deployment model after you set up the necessary resources for hosting your app.
+This how-to guide shows how to create and deploy a Standard logic app workflow by using the hybrid deployment model after you set up the necessary resources for hosting your app.
 
 > [!IMPORTANT]
 >
