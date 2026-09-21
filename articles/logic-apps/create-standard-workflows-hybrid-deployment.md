@@ -36,7 +36,7 @@ The following limitations apply when you create and operate hybrid logic apps:
 
 | Limitation | Description |
 |------------|-------------|
-| Managed identity authentication for managed API connections | Managed identity authentication isn't currently supported for managed API connections in hybrid logic apps. Instead, you must create your own app registration by using Microsoft Entra ID. For more information, [follow these steps later in this guide](#authenticate-managed-api-connections). |
+| Managed identity authentication for managed API connections | Managed API connections currently don't support managed identity authentication in hybrid logic apps. You must create your own app registration by using Microsoft Entra ID. For more information, [follow these steps later in this guide](#authenticate-managed-api-connections). |
 | Function-based triggers | Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to the Azure storage account associated with your Standard logic app. If you use any function-based triggers, in your Standard logic app's environment variables in the Azure portal or in your logic app project's **local.settings.json** file in Visual Studio Code, add the app setting named **AzureWebJobsStorage** and provide your storage account connection string:<br><br>`"Values": {` <br>    `"name": "AzureWebJobsStorage",` <br>    `"value": "{storage-account-connection-string}"` <br>`}` |
 
 ### Behavior during an Azure connectivity interruption
