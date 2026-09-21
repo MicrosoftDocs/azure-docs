@@ -458,7 +458,7 @@ After you deploy your Standard logic app, confirm that your app is running corre
 
    :::image type="content" source="media/create-standard-workflows-hybrid-deployment/running-logic-app-hybrid-deployment.png" alt-text="Screenshot shows browser and logic app running as a website.":::
 
-   Otherwise, if your app has any failures, check that your Kubernetes pods are running correctly. Make sure that `kubectl` uses the context for your cluster, and then run the following commands:
+   Otherwise, if your app has any failures, check that your Kubernetes pods are running correctly. Ensure that `kubectl` uses the context for your cluster, and then run the following commands:
 
    ```powershell
    kubectl get ns
