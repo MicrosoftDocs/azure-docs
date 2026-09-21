@@ -250,7 +250,7 @@ You can set up enhanced telemetry collection in Application Insights for your St
 
 For partially connected and on-premises scenarios, you can set up your Standard logic app to emit telemetry based on the [OpenTelemetry-supported](https://opentelemetry.io/) app settings that you define for the specific environment. By default, this telemetry data is sent to Application Insights. For more information, see [Enable enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](enable-enhanced-telemetry-standard-workflows.md).
 
-Application Insights requires Azure connectivity. During a connectivity interruption, telemetry delivery might be delayed, and logging data generated after 24 hours might be lost. Validate any requirement for local monitoring and alerting against the telemetry destination and configuration that you use.
+Application Insights requires Azure connectivity. During connectivity interruption, telemetry delivery might encounter delays, and logging data generated after 24 hours might be lost. Validate any requirement for local monitoring and alerting against the telemetry destination and configuration that you use.
 
 <a name="change-vcpu-memory"></a>
 
