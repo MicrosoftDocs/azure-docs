@@ -20,7 +20,6 @@ This table shows the triggers and bindings available in Azure Functions:<sup>1</
 | [HTTP and webhooks](../articles/azure-functions/functions-bindings-http-webhook.md) | ✔ | | ✔ |
 | [IoT Hub](../articles/azure-functions/functions-bindings-event-iot.md) | ✔ | | |
 | [Kafka](../articles/azure-functions/functions-bindings-kafka.md)<sup>2</sup> | ✔ | | ✔ |
-| [Managed connector](../articles/azure-functions/functions-connectors-overview.md) | ✔ | | |
 | [Model Context Protocol](../articles/azure-functions/functions-bindings-mcp.md) | ✔ | | |
 | [Queue Storage](../articles/azure-functions/functions-bindings-storage-queue.md) | ✔ | | ✔ |
 | [Redis](../articles/azure-functions/functions-bindings-cache.md) | ✔ | ✔ | ✔ |
@@ -31,6 +30,7 @@ This table shows the triggers and bindings available in Azure Functions:<sup>1</
 | [Table Storage](../articles/azure-functions/functions-bindings-storage-table.md) | | ✔ | ✔ |
 | [Timer](../articles/azure-functions/functions-bindings-timer.md) | ✔ | | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md) | | | ✔ |
+| [Managed connector](../articles/azure-functions/functions-connectors-overview.md) | ✔ | | |
 
 1. Register all bindings except HTTP and timer. See [Register Azure Functions binding extensions](../articles/azure-functions/functions-bindings-register.md).
 1. Triggers aren't supported in the Consumption plan. This binding type requires [runtime-driven triggers](../articles/azure-functions/functions-target-based-scaling.md#premium-plan-with-runtime-scale-monitoring-enabled).
