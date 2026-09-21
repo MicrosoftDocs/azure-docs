@@ -41,7 +41,7 @@ The following limitations apply when you create and operate hybrid logic apps:
 
 ### Behavior during an Azure connectivity interruption
 
-- Workflows can continue running when the runtime and all required workflow dependencies remain locally available.
+- Workflows might still continue running if the runtime and all required workflow dependencies stay locally available.
 - Built-in operations run with the local runtime, but any external service called by an operation must remain reachable.
 - Managed connector operations require connectivity to their Azure-hosted services.
 - Azure portal management, Azure-based deployment, identity operations, and telemetry delivery might be unavailable or delayed.
