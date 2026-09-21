@@ -415,7 +415,7 @@ Store the client secret in your logic app resource as a secret, and then referen
    |-----|-------|
    | **WORKFLOWAPP_AAD_CLIENTSECRET** | <*my-client-secret*> |
 
-1. On the resource menu, under **Settings**, select **Containers**, and then select the **Environment variables** tab.
+1. On the logic app sidebar, under **Settings**, select **Containers**, and then select the **Environment variables** tab.
 
 1. On the toolbar, select **Edit and deploy**.
 
