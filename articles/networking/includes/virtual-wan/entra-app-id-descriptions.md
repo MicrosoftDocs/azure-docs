@@ -9,13 +9,13 @@ ms.topic: include
 
 Virtual WAN now supports a Microsoft-registered App ID and corresponding Audience values for the latest versions of the Azure VPN Client. When you configure a P2S VPN gateway using the new Audience values, you skip the previously required Azure VPN Client app manual registration process for your Microsoft Entra tenant. The App ID is already created and your tenant is automatically able to use it with no extra registration steps. This process is more secure than manually registering the Azure VPN Client because you don't need to authorize the app or assign permissions via the Cloud App Administrator role. To better understand the difference between the types of application objects, see [How and why applications are added to Microsoft Entra ID](/entra/identity-platform/how-applications-are-added).
 
-* If your P2S User VPN gateway is configured using the Audience values for the manually configured Azure VPN Client app, you can easily [change](../articles/virtual-wan/point-to-site-entra-gateway-update.md) the gateway and client settings to take advantage of the new Microsoft-registered App ID.
+* If you configure your P2S User VPN gateway by using the audience values for the manually configured Azure VPN Client app, you can easily [change](../../../virtual-wan/point-to-site-entra-gateway-update.md) the gateway and client settings to take advantage of the new Microsoft-registered app ID.
 
-* For this configuration, you can instead, use a custom Audience value. For more information, see [Create a custom audience app ID for P2S VPN](../articles/virtual-wan/point-to-site-entra-register-custom-app.md).
+* For this configuration, you can use a custom audience value. For more information, see [Create a custom audience app ID for P2S VPN](../../../virtual-wan/point-to-site-entra-register-custom-app.md).
 
 **Considerations**
 
-[!INCLUDE [Linux retirement](../includes/vpn-gateway-azure-vpn-client-linux-retirement.md)]
+[!INCLUDE [Linux retirement](../../../../includes/vpn-gateway-azure-vpn-client-linux-retirement.md)]
 
 * A P2S User VPN gateway can only support one Audience value. It can't support multiple Audience values simultaneously.
 
@@ -25,4 +25,4 @@ Virtual WAN now supports a Microsoft-registered App ID and corresponding Audienc
 
 The following table shows the versions of the Azure VPN Client that are supported for each App ID and the corresponding available Audience values.
 
-[!INCLUDE [About the Microsoft-registered Azure VPN Client](vpn-gateway-entra-audience-values.md)]
+[!INCLUDE [About the Microsoft-registered Azure VPN Client](../../../../includes/vpn-gateway-entra-audience-values.md)]

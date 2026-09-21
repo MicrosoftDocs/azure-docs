@@ -16,7 +16,7 @@ ms.author: duau
 
 This article helps you configure point-to-site User VPN connection to Virtual WAN that uses Microsoft Entra ID authentication and the new **Microsoft-registered Azure VPN Client App ID**.
 
-[!INCLUDE [About Microsoft-registered app](../../includes/virtual-wan-entra-app-id-descriptions.md)]
+[!INCLUDE [About Microsoft-registered app](../networking/includes/virtual-wan/entra-app-id-descriptions.md)]
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
