@@ -48,7 +48,7 @@ When selecting the authentication method, you have three choices. Each method ha
 
 * **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
-[!INCLUDE [Define parameters](../../includes/virtual-wan-p2s-configuration-include.md)]
+[!INCLUDE [Define parameters](../networking/includes/virtual-wan/p2s-configuration.md)]
 
 ## <a name="hub"></a>Create the hub and gateway
 
@@ -64,7 +64,7 @@ In this section, you create the virtual hub with a point-to-site gateway. When c
 
 ### Point to site page
 
-[!INCLUDE [Point to site page](../../includes/virtual-wan-p2s-gateway-include.md)]
+[!INCLUDE [Point to site page](../networking/includes/virtual-wan/p2s-gateway.md)]
 
 ## <a name="generate"></a>Generate VPN client configuration files
 

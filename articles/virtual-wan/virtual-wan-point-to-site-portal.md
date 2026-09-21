@@ -54,7 +54,7 @@ The instructions you follow depend on the authentication method you want to use.
 
 ### Configuration steps
 
-[!INCLUDE [Create P2S configuration](../../includes/virtual-wan-p2s-configuration-include.md)]
+[!INCLUDE [Create P2S configuration](../networking/includes/virtual-wan/p2s-configuration.md)]
 
 ## <a name="hub"></a>Create a virtual hub and gateway
 
@@ -64,7 +64,7 @@ The instructions you follow depend on the authentication method you want to use.
 
 ### Point to site page
 
-[!INCLUDE [Point to site page](../../includes/virtual-wan-p2s-gateway-include.md)]
+[!INCLUDE [Point to site page](../networking/includes/virtual-wan/p2s-gateway.md)]
 
 [!INCLUDE [Point to site page](../networking/includes/virtual-wan/hub-router-provisioning-warning.md)]
 
