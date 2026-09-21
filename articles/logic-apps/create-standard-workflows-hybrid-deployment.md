@@ -44,7 +44,7 @@ The following limitations apply when you create and operate hybrid logic apps:
 - Workflows might still continue running if the runtime and all required workflow dependencies stay locally available.
 - Built-in operations run with the local runtime, but any external service called by an operation must remain reachable.
 - Managed connector operations require connectivity to their Azure-hosted services.
-- Azure portal management, Azure-based deployment, identity operations, and telemetry delivery might be unavailable or delayed.
+- Azure portal management, Azure-based deployment, identity operations, and telemetry delivery might become unavailable or delayed.
 - If the runtime stays disconnected after 24 hours, you might lose logging data generated after this time.
 
 If your workloads require deployment, monitoring, alerting, run resubmission, or identity operations during an extended disconnection, validate the behavior for your specific configuration with your Microsoft account or product team.
