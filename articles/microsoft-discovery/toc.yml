@@ -214,6 +214,9 @@ items:
           - name: Delete Discovery resources
             href: how-to-delete-discovery-resources.md
             displayName: Microsoft Discovery, delete, cleanup, deletion order, dependencies, resource group, teardown, supercomputer, workspace
+          - name: Deploy Discovery resources across multiple regions
+            href: how-to-deploy-across-regions.md
+            displayName: Microsoft Discovery, deploy, multi-region, resource group, supercomputer, workspace
       - name: Agents
         items:
           - name: Create agents

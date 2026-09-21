@@ -11,9 +11,9 @@ ms.topic: include
 * You have a virtual network to which you want to connect.
 
   * Verify that none of the subnets of your on-premises networks overlap with the virtual networks that you want to connect to.
-  * To create a virtual network in the Azure portal, see the [Quickstart](../articles/virtual-network/quick-create-portal.md) article.
+  * To create a virtual network in the Azure portal, see the [Quickstart](../../../virtual-network/quickstart-create-virtual-network.md) article.
 
-    [!INCLUDE [Virtual network values](virtual-wan-virtual-network-example-values.md)]
+    [!INCLUDE [Virtual network values](virtual-network-example-values.md)]
 
 * Your virtual network must not have any existing virtual network gateways.
 

@@ -2,7 +2,7 @@
 title: Triggers and Bindings in Azure Functions
 description: Learn how to use triggers and bindings to connect your Azure function to online events and cloud-based services.
 ms.topic: concept-article
-ms.date: 02/26/2026
+ms.date: 09/04/2026
 ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ai-usage: ai-assisted
@@ -216,6 +216,10 @@ Azure Functions supports multiple bindings, which must be configured correctly. 
 For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
 
 Specific versions of binding extensions are supported only while the underlying service SDK is supported. Changes to support in the underlying service SDK version affect the support for the consuming extension.
+
+### Managed connectors
+
+Managed connectors in [Azure Connector Namespace](../connector-namespace/connector-namespace-overview.md) extend the services available through supported bindings. You can use connector triggers and SDK actions to integrate with services such as Microsoft 365, Teams, and SharePoint while Connector Namespace manages webhooks, authentication, and retries. To learn more, see [Use managed connectors in Azure Functions](functions-connectors-overview.md).
 
 ## SDK types
 
