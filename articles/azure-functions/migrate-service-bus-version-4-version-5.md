@@ -4,7 +4,7 @@ description: This article shows you how to upgrade your existing function apps u
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.topic: how-to 
-ms.date: 08/25/2026
+ms.date: 09/09/2026
 zone_pivot_groups: programming-languages-set-functions-no-go
 ---
 
@@ -35,7 +35,7 @@ Update your `.csproj` project file to use the latest extension version for your 
 ```xml
 <Project Sdk="Azure.Functions.Sdk/1.0.0">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="2.52.0" />

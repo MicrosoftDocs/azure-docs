@@ -3,7 +3,7 @@ title: Tutorial - Azure Monitor workbooks for IoT Edge
 description: Learn how to monitor IoT Edge modules and devices using Azure Monitor Workbooks for IoT. Monitor the health and performance of your IoT Edge deployments.
 author: sethmanheim
 ms.author: sethm
-ms.date: 06/04/2025
+ms.date: 09/15/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge
 services: iot-edge
@@ -18,6 +18,8 @@ ms.custom:
 
 Use Azure Monitor workbooks to monitor the health and performance of your Azure IoT Edge deployments.
 
+This tutorial uses Metrics Collector `2.0.0`, a Log Analytics custom table, a DCR, and Microsoft Entra authentication. For an existing collector 1.x deployment, use [Migrate the metrics collector](migrate-metrics-collector.md).
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -30,6 +32,16 @@ In this tutorial, you learn how to:
 
 You need an IoT Edge device with the simulated temperature sensor module deployed. If you don't have a device ready, follow the steps in [Deploy your first IoT Edge module to a virtual Linux device](quickstart-linux.md) to create one using a virtual machine.
 
+You also need:
+
+- Permission to update the device's deployment.
+- A Log Analytics workspace, a DCR, and a custom metrics table (default `IoTEdgeMetrics_CL`).
+- Permission to register an application in the Microsoft Entra tenant that contains the DCR.
+- Permission to assign an Azure role on the DCR.
+- Permission to query the workspace and open workbooks for your IoT Hub.
+
+Use [Prepare Azure Monitor resources](migrate-metrics-collector.md#prepare-azure-monitor-resources) for the platform setup links and collector-specific schema.
+
 ## Understand IoT Edge metrics
 
 Every IoT Edge device relies on two modules, called the *runtime modules*, that manage the lifecycle and communication of all other modules on a device. These modules are the **IoT Edge agent** and the **IoT Edge hub**. To learn more about these modules, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
@@ -38,23 +50,41 @@ Both runtime modules create metrics that let you remotely monitor how an IoT Edg
 
 Both modules automatically expose these metrics, so you can create your own solutions to access and report on them. To make this process easier, Microsoft provides the [azureiotedge-metrics-collector module](https://mcr.microsoft.com/artifact/mar/azureiotedge-metrics-collector/tags), which handles this process if you don't have or want a custom solution. The metrics collector module collects metrics from the two runtime modules and any other modules you want to monitor, and sends them off the device.
 
-The metrics collector module sends your metrics to the cloud in one of two ways. The first option, used in this tutorial, sends the metrics directly to Log Analytics. The second option is recommended only if your networking policies require it. It sends the metrics through IoT Hub and then sets up a route to pass the metric messages to Log Analytics. Either way, once the metrics are in your Log Analytics workspace, you can view them through Azure Monitor workbooks.
+This tutorial sends metrics directly to the custom table. The alternative `IotMessage` path sends metrics through IoT Hub and needs a separate cloud workflow for Log Analytics ingestion.
 
-## Create a Log Analytics workspace
+## Record your ingestion configuration
 
-A Log Analytics workspace is necessary collect metrics data, use a query language, and integrate with Azure Monitor so you can monitor your devices.
+Record the HTTPS logs-ingestion endpoint, DCR immutable ID, and input-stream name from your Azure Monitor configuration. The immutable ID starts with `dcr-`.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+The collector uses Microsoft Entra authentication. It doesn't use the workspace ID or shared key.
 
-1. Search for **Log Analytics workspaces**, and then select it.
+## Create a tutorial identity
 
-1. Select **Create**, and then follow the prompts to create a new workspace.
+For this tutorial, register a single-tenant Microsoft Entra application and use a short-lived client secret.
 
-1. When your workspace is ready, select **Go to resource**.
+> [!IMPORTANT]
+> Use a client secret only to learn and test this tutorial. Don't use this authentication method for a production deployment. The secret becomes part of the IoT Edge module deployment configuration and is delivered to the device. Anyone or any service that can read that configuration can recover the secret, even if the portal masks it on screen. Secrets also require secure distribution, rotation, revocation, and cleanup on every device where they're deployed.
+>
+> For production, choose an authentication method that your host and credential-delivery process support. An Azure virtual machine can use its managed identity when the identity endpoint is available to the container. Workload identity federation requires a supported OIDC issuer, a matching federated credential, and a refreshed token file available to the container. Don't treat an untested custom token refresher as a supported configuration. You can also use a securely delivered and rotated certificate. See [Configure authentication](migrate-metrics-collector.md#configure-authentication).
 
-1. In the main menu under **Settings**, select **Agents**.
+1. In the [Azure portal](https://portal.azure.com), go to **Microsoft Entra ID** > **App registrations**, and then select **New registration**.
+1. Enter a name, such as `iot-edge-metrics-tutorial`.
+1. For **Supported account types**, select **Accounts in this organizational directory only**. Leave **Redirect URI** empty, and then select **Register**.
+1. On the application's **Overview** page, copy these values:
 
-1. Copy the values for **Workspace ID** and **Primary key** under *Log Analytics agent instructions*. You use these values later in the tutorial to configure the metrics collector module to send metrics to this workspace.
+   - **Application (client) ID**. You use this value for `AZURE_CLIENT_ID`.
+   - **Directory (tenant) ID**. You use this value for `AZURE_TENANT_ID`.
+
+1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
+1. Enter a description, select the shortest expiration that gives you enough time to complete the tutorial, and then select **Add**.
+1. Copy the new secret's **Value** immediately and store it securely until you configure the module. The value is shown only once. Don't copy the **Secret ID**.
+1. In the Azure portal, open the DCR that sends data to your custom metrics table.
+1. Select **Access control (IAM)** > **Add** > **Add role assignment**.
+1. On the **Role** tab, select **Monitoring Metrics Publisher**, and then select **Next**.
+1. On the **Members** tab, select **User, group, or service principal** > **Select members**. Find the application that you registered, select it, and then select **Select**.
+1. Select **Review + assign**, review the DCR-scoped assignment, and then select **Review + assign** again.
+
+No Microsoft Graph API permission is required. The DCR-scoped Azure role assignment authorizes ingestion. Allow up to 30 minutes for the assignment to take effect. An upload attempted before propagation can return HTTP 403.
 
 ## Retrieve your IoT hub resource ID
 
@@ -104,15 +134,14 @@ Follow these steps to deploy and configure the collector module:
 1. Add and configure the metrics collector module:
 
    1. Select **Add**, then choose **IoT Edge Module**.
-   1. Search for and select **IoT Edge Metrics Collector**.
    1. Update the following module settings:
 
-        | Setting            | Value                                                                |
-        |--------------------|----------------------------------------------------------------------|
-        | IoT Module name    | `IoTEdgeMetricsCollector`                                         |
-        | Image URI          | `mcr.microsoft.com/azureiotedge-metrics-collector:latest` |
-        | Restart policy     | always                                                               |
-        | Desired status     | running                                                              |
+      | Setting            | Value                                                                |
+      |--------------------|----------------------------------------------------------------------|
+      | IoT Module name    | `IoTEdgeMetricsCollector`                                         |
+      | Image URI          | `mcr.microsoft.com/azureiotedge-metrics-collector:2.0.0` |
+      | Restart policy     | always                                                               |
+      | Desired status     | running                                                              |
 
    To use a different version or architecture of the metrics collector module, find available images in the [Microsoft Artifact Registry](https://mcr.microsoft.com/artifact/mar/azureiotedge-metrics-collector/tags).
 
@@ -123,10 +152,18 @@ Follow these steps to deploy and configure the collector module:
       | ---- | ----- |
       | **ResourceId** | Your IoT hub resource ID that you retrieved in a previous section. |
       | **UploadTarget** | `AzureMonitor` |
-      | **LogAnalyticsWorkspaceId** | Your Log Analytics workspace ID that you retrieved in a previous section. |
-      | **LogAnalyticsSharedKey** | Your Log Analytics key that you retrieved in a previous section. |
+      | **DataCollectionEndpoint** | Your HTTPS logs-ingestion base endpoint. |
+      | **DataCollectionRuleId** | Your DCR immutable ID. |
+      | **DataCollectionStreamName** | Your DCR input-stream name, such as `Custom-IoTEdgeMetrics`. |
+      | **AZURE_TENANT_ID** | The **Directory (tenant) ID** that you copied from the app registration. |
+      | **AZURE_CLIENT_ID** | The **Application (client) ID** that you copied from the app registration. |
+      | **AZURE_CLIENT_SECRET** | The client secret **Value** that you copied. Don't use the **Secret ID**. |
 
-      For more information about environment variable settings, see [Metrics collector configuration](https://aka.ms/edgemon-config).
+      Treat any masked display of `AZURE_CLIENT_SECRET` in the portal as visual masking only. The value is still stored in the deployment configuration. Don't put it in source control, screenshots, support bundles, or logs.
+
+      The default endpoints are `http://edgeHub:9600/metrics,http://edgeAgent:9600/metrics`. The default collection interval is 300 seconds.
+
+      For all environment variables and production authentication options, see [Metrics collector configuration](how-to-collect-and-transport-metrics.md#metrics-collector-configuration) and [Configure authentication](migrate-metrics-collector.md#configure-authentication).
 
    1. Select **Apply** to save your changes.
 
@@ -141,7 +178,9 @@ After you finish deploying the modules, return to the device details page, where
 
 ## Monitor device health
 
-It can take up to 15 minutes for your device monitoring workbooks to be ready to view. After you deploy the metrics collector module, it starts sending metrics messages to Log Analytics, where they're organized in a table. The IoT Hub resource ID you provide links the ingested metrics to the correct hub. As a result, the curated IoT Edge workbooks retrieve metrics by querying the metrics table with the resource ID.
+Allow time for a collection cycle and ingestion. In the destination workspace, use [Check new ingestion](migrate-metrics-collector.md#check-new-ingestion) to check for recent rows.
+
+Metrics are in your custom table (default `IoTEdgeMetrics_CL`), using the [pass-through schema](migrate-metrics-collector.md#understand-resource-matching-and-query-scope). These workbooks query the workspace and filter for your IoT Hub.
 
 Azure Monitor provides three default workbook templates for IoT:
 
@@ -161,9 +200,25 @@ The fleet view workbook shows all your devices and lets you select specific devi
 
 1. Select the **Fleet View** workbook.
 
-1. You see your device that's running the metrics collector module. The device is listed as either **healthy** or **unhealthy**.
+1. Select your **Metrics Log Analytics workspace**.
 
-1. Select the device name to view detailed metrics.
+1. Select your IoT Hub and a time range that contains recent uploads.
+
+1. Confirm that **Metrics source** is **New only**.
+
+   The updated gallery template defaults to **New only**, which reads the selected custom table and doesn't require a cutover time. An existing saved copy keeps its saved setting and might still open in **Legacy only**.
+
+1. Set `MetricsTableName` to your custom table name, or keep the default `IoTEdgeMetrics_CL`.
+
+1. Select **Details** to open the device list.
+
+1. Find your device in the list.
+
+   Health depends on the configured thresholds and metric freshness. Older samples can produce an **Unknown** status.
+
+1. Select the status icon to open **Health Snapshot**.
+
+   The device-name link opens **Device Details** instead.
 
 1. On any time chart, use the arrow icons under the X-axis or select the chart and drag your cursor to change the time range.
 
@@ -176,6 +231,8 @@ The fleet view workbook shows all your devices and lets you select specific devi
 The device details workbook shows performance details for an individual device. Follow these steps to explore the workbook visualizations:
 
 1. In the workbooks gallery, select the **IoT Edge device details** workbook.
+
+1. Select the workspace, IoT Hub, **New only**, and your device.
 
 1. The first page in the device details workbook is the **messaging** view with the **routing** tab selected.
 
@@ -215,7 +272,13 @@ You can also access the troubleshoot page from an IoT Edge device's details page
 
 ## Next steps
 
-As you go through the rest of the tutorials, keep the metrics collector module on your devices, and return to these workbooks to see how the information changes when you add more complex modules and routing.
+As you go through the rest of the tutorials, keep the metrics collector module on your test devices, and return to these workbooks to see how the information changes when you add more complex modules and routing.
+
+Before you use the collector in production, replace the tutorial client secret with a [production authentication method](migrate-metrics-collector.md#configure-authentication). Then delete the client secret. If you no longer need the tutorial application, also remove its DCR role assignment and delete the application registration.
+
+To compare old and new history, use [Migrate the metrics collector](migrate-metrics-collector.md#switch-workbooks-to-the-new-data).
+
+To retain custom views, [save a workbook copy](how-to-explore-curated-visualizations.md#customize-workbooks). Configure [alert rules](how-to-create-alerts.md) separately.
 
 Go to the next tutorial to set up your developer environment and start deploying custom modules to your devices.
 

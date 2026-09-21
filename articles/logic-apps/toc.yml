@@ -234,10 +234,10 @@ items:
             items:
               - name: Why migrate from BizTalk Server?
                 href: biztalk-server-migration-overview.md
-              - name: Migration options and best practices
-                href: biztalk-server-migration-approaches.md
               - name: Migration Agent for Azure Logic Apps
                 items:
+                  - name: Migration approaches with Migration Agent
+                    href: biztalk-server-migration-approaches.md
                   - name: About Migration Agent
                     href: migration/migration-agent-overview.md
                   - name: Migrate to Azure Logic Apps

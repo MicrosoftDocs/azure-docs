@@ -3,7 +3,7 @@ title: Support matrix for VMware/physical disaster recovery in Azure Site Recove
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 09/08/2026
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 ms.custom: engagement-fy23, linux-related-content
@@ -17,7 +17,7 @@ ms.custom: engagement-fy23, linux-related-content
 
 This article summarizes supported components and settings for disaster recovery of VMware VMs and physical servers to Azure by using [Azure Site Recovery](site-recovery-overview.md).
 
-- [Learn more](vmware-azure-architecture.md) about VMware VM/physical server disaster recovery architecture.
+- [Learn more](vmware-azure-architecture-modernized.md) about VMware VM/physical server disaster recovery architecture.
 - Follow our [tutorials](tutorial-prepare-azure.md) to try out disaster recovery.
 
 > [!NOTE]
@@ -35,7 +35,7 @@ Disaster recovery of physical servers | Replication of on-premises Windows/Linux
 **Server** | **Requirements** | **Details**
 --- | --- | ---
 vCenter Server | Version 9.0 and subsequent updates in this version, Version 8.0, 7.0, 6.7, or 6.5 | Use a vCenter server in your disaster recovery deployment.
-vSphere hosts | Version 9.0 and subsequent updates in this version, Version 8.0, 7.0, 6.7, or 6.5 | Locate vSphere hosts and vCenter servers in the same network as the process server. By default, the process server runs on the configuration server. [Learn more](vmware-physical-azure-config-process-server-overview.md).
+vSphere hosts | Version 9.0 and subsequent updates in this version, Version 8.0, 7.0, 6.7, or 6.5 | Locate vSphere hosts and vCenter servers in the same network as the process server. By default, the process server runs on the configuration server. [Learn more](vmware-azure-deploy-configuration-server.md).
 
 ## Azure Site Recovery replication appliance
 
@@ -74,7 +74,7 @@ Site Recovery supports replication of any workload running on a supported machin
 --- | ---
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
 Machine workload | Site Recovery supports replication of any workload running on a supported machine. [Learn more](./site-recovery-workload.md).
-Machine name | Ensure that the display name of machine doesn't fall into [Azure reserved resource names](../azure-resource-manager/templates/error-reserved-resource-name.md).<br/><br/> Logical volume names aren't case-sensitive. Ensure that no two volumes on a device have same name. For example, Volumes with names "voLUME1" and "volume1" can't be protected through Azure Site Recovery.
+Machine name | Ensure that the display name of machine doesn't fall into [Azure resource naming restrictions](../azure-resource-manager/management/resource-name-rules.md).<br/><br/> Logical volume names aren't case-sensitive. Ensure that no two volumes on a device have same name. For example, Volumes with names "voLUME1" and "volume1" can't be protected through Azure Site Recovery.
 Azure Virtual Machines as Physical | Failover of virtual machines with Marketplace image disks is currently not supported.
 
 >[!NOTE]
@@ -83,7 +83,7 @@ Azure Virtual Machines as Physical | Failover of virtual machines with Marketpla
 ### For Windows
 
 > [!NOTE]
-> Ensure that 500-MB free space is available on the installation folder in the on-premises and Azure machine.
+> Ensure that at least 600 MB of free space is available in the installation folder on the on-premises and Azure machines.
 
 **Operating system** | **Details**
 --- | ---
@@ -98,16 +98,16 @@ Windows 7 with SP1 64-bit | Supported.
 ### For Linux
 
 > [!NOTE]
-> Supported Linux kernel versions are no longer updated in a support matrix. For the latest supported kernel versions, see [Azure Site Recovery supported kernels](https://github.com/Azure/Azure-SiteRecovery/tree/main/MobilityAgent/OnPremiseToAzure).
+> This article retains distro, Mobility service, and kernel details for planning. Before enabling replication, also verify the exact running kernel against the latest Azure Site Recovery supported-kernel list.
 
 **Operating system** | **Details**
 --- | ---
-Linux | Only 64-bit system is supported. 32-bit system isn't supported.<br/><br/>Every Linux server should have [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) installed. It's required to boot the server in Azure after test failover/failover. If in-built LIS components are missing, ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure. <br/><br/> Site Recovery orchestrates failover to run Linux servers in Azure. However Linux vendors might limit support to only distribution versions that haven't reached end-of-life.<br/><br/> On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported.<br/><br/> Upgrading protected machines across major Linux distribution versions isn't supported. To upgrade, disable replication, upgrade the operating system, and then enable replication again.<br/><br/> [Learn more](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) about support for Linux and open-source technology in Azure.<br/><br/> Chained IO isn't supported by Site Recovery. <br/><br/> **Note**: The Azure failover VM requires the Guest Agent on the server. Although the failover process installs the Guest Agent, the source server must preinstall Python 2.6 or later to ensure a successful installation on the target (failover) VM. [Learn more](/azure/virtual-machines/extensions/agent-linux#requirements).
-Red Hat Enterprise Linux| 5.2 to 5.11</b><br/> 6.1 to 6.10</b> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9 Beta version](https://support.microsoft.com/help/4578241/), [7.9](https://support.microsoft.com/help/4590304/) </br> [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609), [8.3](https://support.microsoft.com/help/4597409/), [8.4](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-305.30.1.el8_4.x86_64 or higher), [8.5](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-348.5.1.el8_5.x86_64 or higher), [8.6](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b), 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 9.8 10.0, 10.1 <br/> Few older kernels on servers running Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 don't have [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) preinstalled. If in-built LIS components are missing, ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure.  <br> <br> **Notes**: RHEL `9.x` and `10.x` is supported for [the following kernel versions](#supported-kernel-versions-for-red-hat-enterprise-linux-for-azure-virtual-machines) |
+Linux | Only 64-bit system is supported. 32-bit system isn't supported.<br/><br/>Supported Linux systems must include the Hyper-V storage driver required to boot in Azure. The Mobility service explicitly validates `hv_storvsc` on Red Hat Enterprise Linux 5 and 6. Newer supported stock kernels are expected to include the driver.<br/><br/>Site Recovery orchestrates failover to run Linux servers in Azure. However, Linux vendors might limit support to distribution versions that haven't reached end of life.<br/><br/>Only stock kernels that are part of the distribution minor-version release or update are supported. For Ubuntu and Debian, the running kernel must exactly match an entry supported by the installed Mobility service.<br/><br/>Upgrading protected machines across major Linux distribution versions isn't supported. To upgrade, disable replication, upgrade the operating system, and then enable replication again.<br/><br/>Chained I/O isn't supported by Site Recovery.<br/><br/>Guest preparation and Azure Linux Agent installation or repair occur only when the selected recovery point requires preparation during failover.
+Red Hat Enterprise Linux | 5.2 to 5.11</b><br/> 6.1 to 6.10</b> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9 Beta version](https://support.microsoft.com/help/4578241/), [7.9](https://support.microsoft.com/help/4590304/) </br> [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609), [8.3](https://support.microsoft.com/help/4597409/), [8.4](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-305.30.1.el8_4.x86_64 or higher), [8.5](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-348.5.1.el8_5.x86_64 or higher), [8.6](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b), 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 9.8, 10.0, 10.1 <br/> Few older kernels on servers running Red Hat Enterprise Linux 5.2-5.11 and 6.1-6.10 don't have the required Hyper-V storage driver preinstalled. Install the required driver before enabling replication. <br> <br> **Notes**: RHEL `9.x` and `10.x` is supported for [the following kernel versions](#supported-kernel-versions-for-red-hat-enterprise-linux-for-azure-virtual-machines)
 Ubuntu | Ubuntu 14.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions)<br/>Ubuntu 16.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> Ubuntu 18.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> Ubuntu 20.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) <br> Ubuntu 22.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) <br> Ubuntu 24.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 (includes support for all 7. *x*, 8. *x* versions). [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server). <br/> Debian 9 (includes support for 9.1 to 9.13. Debian 9.0 isn't supported.). [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server). <br/> Debian 10, Debian 11, Debian 12 [(Review supported kernel versions)](#debian-kernel-versions).
-SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(review supported kernel versions)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1, SP2, SP3, SP4, SP5, SP6, SP7 [(review supported kernel versions)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Notes**: <br> - Upgrading replicated machines from SUSE Linux Enterprise Server 11 SP3 to SP4 isn't supported. To upgrade, disable replication and re-enable after the upgrade. <br> - Support for SUSE Linux Enterprise Server 15 SP5, SP6, and SP7 is available for Modernized experience only.| 
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8, 8.9, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6 <br/><br/>Unbreakable Enterprise Kernel Release 7 (UEK7) is supported from 8.7. <br/><br/> **Notes:** <br> Running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/). <br> Oracle Linux `9.x` is supported for the [following kernel versions](#supported-red-hat-linux-kernel-versions-for-oracle-linux-on-azure-virtual-machines) |
+SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(review supported kernel versions)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1, SP2, SP3, SP4, SP5, SP6, SP7 [(review supported kernel versions)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Notes**: <br> - Upgrading replicated machines from SUSE Linux Enterprise Server 11 SP3 to SP4 isn't supported. To upgrade, disable replication and re-enable after the upgrade. <br> - Support for SUSE Linux Enterprise Server 15 SP5, SP6, and SP7 is available for Modernized experience only.
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8, 8.9, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 10.0 <br/><br/>Unbreakable Enterprise Kernel Release 7 (UEK7) is supported from 8.7. <br/><br/> **Notes:** <br> Running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/). <br> Oracle Linux `9.x` and `10.x` are supported for the [following kernel versions](#supported-red-hat-linux-kernel-versions-for-oracle-linux-on-azure-virtual-machines).
 Rocky Linux | [See supported versions](#rocky-linux-server-supported-kernel-versions).
 
 > [!NOTE]
@@ -220,6 +220,7 @@ SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 | 9.62 | By default, al
 
 **Release** | **Mobility service version** | **Red Hat kernel version** |
 --- | --- | --- |
+Oracle Linux 10.0 | 9.66 | 6.12.0-55.9.1 and later
 Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linux 9.3 <br> Oracle Linux 9.4 <br> Oracle Linux 9.5 <br> Oracle Linux 9.6 | 9.66 | 5.14.0-503.11.1 and later |
 Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linux 9.3 <br> Oracle Linux 9.4 <br> Oracle Linux 9.5 | 9.65 | 5.14.0-503.11.1 and later |
 Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linux 9.3 <br> Oracle Linux 9.4  | 9.64 | No new kernels in this release.|
@@ -241,18 +242,18 @@ Rocky Linux 9.0 <br> Rocky Linux 9.1 | 9.62 |  5.14.0-70.97.1.el9_0.x86_64 <br> 
 
 **Component** | **Supported**
 --- | ---
-File systems | ext3, ext4, XFS, BTRFS (conditions applicable as per this table)
+File systems | Supported root file systems are ext3, ext4, XFS, and BTRFS. A separate `/boot` file system can also use ext2.
 Logical volume management (LVM) provisioning| Thick provision - Yes <br></br> Thin provision - Yes, it's supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. Earlier Mobility service versions don't support it.
-Volume manager | - LVM is supported.<br/> - /boot on LVM is supported from [Update Rollup 31](https://support.microsoft.com/help/4478871/) (version 9.20 of the Mobility service) onwards. Earlier Mobility service versions don't support it.<br/> - Multiple OS disks aren't supported.
+Volume manager | - LVM is supported. If the root file system is on LVM, install the `lvm2` package and ensure that `vgdisplay` is available before enabling replication.<br/> - /boot on LVM is supported from [Update Rollup 31](https://support.microsoft.com/help/4478871/) (version 9.20 of the Mobility service) onwards. Earlier Mobility service versions don't support it.<br/> - `/boot` on an LVM logical volume that spans more than one physical disk isn't supported.<br/> - Multiple OS disks aren't supported.
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported. <br><br> Supported only for VMware and not for AWS (Physical). 
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
 Device/Mount point naming convention | Device name or mount point name should be unique.<br/> Ensure that no two devices/mount points have case-sensitive names. For example, naming devices for the same VM as *device1* and *Device1* isn't supported.
 Directories | If you're running a version of the Mobility service earlier than version 9.20 (released in [Update Rollup 31](https://support.microsoft.com/help/4478871/)), then these restrictions apply:<br/><br/> - These directories (if set up as separate partitions/file-systems) must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - The /boot directory should be on a disk partition and not be an LVM volume.
 Boot directory | Boot disks with GPT partition format are supported. GPT disks are also supported as data disks.<br/><br/> Multiple boot disks on a VM aren't supported.<br/><br/> - /boot on an LVM volume across more than one disk isn't supported.<br/> - A machine without a boot disk can't be replicated.
-Free space requirements| 2 GB on the /(root) partition <br/><br/> 600 MB on the installation folder
+Free space requirements | The installer enforces at least 1 GiB free on the root file system. Keep 2 GB free as the recommended operational minimum.<br/><br/>Keep at least 600 MB free in the installation folder.
 XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported (Mobility service version 9.10 onwards).<br/> Use the xfs_info utility to check the XFS superblock for the partition. If `ftype` is set to 1, then XFSv5 features are in use.
-BTRFS | Current disk configuration doesn't support replication.
+BTRFS | Supported only when the file system is backed by one disk. Multi-device, spanned, or RAID BTRFS file systems aren't supported.
 
 Oracle Grid with Automatic Storage Management  | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com/help/4490016) (version 9.22 of the Mobility service) onwards. BTRFS isn't supported if:<br/><br/> - The BTRFS file system subvolume is changed after enabling protection.</br> - The BTRFS file system is spread over multiple disks.</br> - The BTRFS file system supports RAID.
 ## VM/Disk management
@@ -261,6 +262,7 @@ Oracle Grid with Automatic Storage Management  | BTRFS is supported from [Update
 --- | ---
 Resize disk on replicated VM | You can resize up on the source VM. Resizing down on the source VM isn't supported. Resize the disk before failover, directly in the VM properties. You don't need to disable or re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
 Add disk on replicated VM | Supported.<br/> You can manually enable replication on a disk added after a VMware VM is protected. [Learn more](vmware-azure-enable-replication-added-disk.md).
+Remove disk from replicated VM | Not supported. Disable replication, remove the disk, and then enable replication again for the updated disk configuration.
 Exclude disk before replicating VM | Supported for VMware machines. <br/><br/> Not supported for Physical machines, if using modernized experience. 
 
 > [!NOTE]
@@ -285,7 +287,9 @@ Guest/server network multiple NICs | Yes.
 Private link access to Site Recovery service | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md).
 
 > [!NOTE]
-> VM must allow outbound traffic on port 443 and 9943 to the appliance. 
+> VMs must allow TCP 443 for control-channel orchestration and TCP 9443 for data transport to the appliance, unless the data-transport port was customized.
+>
+> Select a regular workload subnet for recovery. `GatewaySubnet` and `AzureFirewallSubnet` aren't supported as recovery subnets. For VMware storage-based mapping, `AzureBastionSubnet`, `RouteServerSubnet`, delegated subnets, and subnets used by external resources also aren't supported.
 
 ## Azure VM network (after failover)
 
@@ -318,12 +322,12 @@ Guest/server shared cluster disk | No
 Guest/server encrypted disk | No
 FIPS encryption | No
 Guest/server NFS | No
-Guest/server iSCSI | For Migration - Yes, but you must set up replication as a Physical machine.<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
+Guest/server iSCSI | Included only for forward migration to Azure when the machine is protected by using the physical-machine workflow.<br/>Not supported for disaster recovery, Azure-to-on-premises failback, or Azure-to-Azure protection.
 Guest/server SMB 3.0 | No
 Guest/server RDM | Yes<br/><br/> However, when failing back such VMs from Azure to on-premises VMware, the RDM disks attach as more disks. <br> N/A for physical servers
-Guest/server disk > 1 GB | Yes, disk must be larger than 1,024 MB<br/><br/>Up to 32,767 GB when replicating to managed disk (9.41 version onwards)<br></br> Up to 4,095 GB when replicating to storage accounts
-Guest/server disk with 4K logical and 4k physical sector size | No
-Guest/server disk with 4K logical and 512-bytes physical sector size | No
+Guest/server disk > 1 GB | Yes, disk must be larger than 1,024 MB.<br/><br/>Up to 32,767 GiB (approximately 32 TiB) when replicating to managed disk (version 9.41 onwards).<br></br> Up to 4,095 GiB when replicating to storage accounts.
+Guest/server disk with 512-byte logical sectors | Supported for 512n and 512e disks, subject to the other disk requirements in this matrix.
+Guest/server disk with 4-KiB logical sectors | Not supported, whether the physical sector size is 4 KiB (4Kn) or 512 bytes. This restriction applies to both OS and data disks.
 Guest/server volume with striped disk >4 TB | Yes
 Logical volume management (LVM)| Thick provisioning - Yes <br></br> Thin provisioning - Yes, it's supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
 Guest/server - Storage Spaces | No
@@ -333,9 +337,12 @@ Guest/server - remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
-Guest/server EFI/UEFI boot | - Supported for all [Azure Marketplace UEFI operating systems](/azure/virtual-machines/generation-2#generation-2-vm-images-in-azure-marketplace). <br/> - UEFI boot is supported as long as the Secure Boot setting is disabled. [Learn more.](/azure/virtual-machines/generation-2#on-premises-vs-azure-generation-2-vms)
+Guest/server EFI/UEFI boot | - Site Recovery uses the discovered BIOS or EFI firmware and guest boot layout to determine the recovery VM generation.<br/> - Windows UEFI protection requires Windows 8 or Windows Server 2012 or later, with the boot and system partitions on the same disk. The `atapi`, `vmbus`, `storflt`, `storvsc`, and `intelide` boot-driver services must be available.<br/> - Secure Boot is supported for Windows 10, Windows 11, and Windows Server 2016 or later. Disable Secure Boot for earlier Windows versions and for Linux machines.<br/> - Validate the operating system and boot layout before changing generation-conversion behavior.
 Storage vMotion | Supported for migration. Not supported for disaster recovery. 
 BIOS | Supported.
+
+> [!NOTE]
+> Older non-storage-based VMware mapping is deprecated and blocked for new production operations. Use storage-based mapping or the modernized protection architecture.
 
 ## Replication channels
 
@@ -360,6 +367,13 @@ Encryption at rest (SSE)| Yes
 Encryption at rest (CMK)| Yes (via PowerShell Az 3.3.0 module onwards)
 Double Encryption at rest | Yes (via PowerShell Az 3.3.0 module onwards). Learn more on supported regions for [Windows](/azure/virtual-machines/disk-encryption) and [Linux](/azure/virtual-machines/disk-encryption).
 Premium storage | Yes
+Standard HDD LRS recovery disk | Supported for OS and data disks, subject to size and VM requirements.
+Standard SSD LRS recovery disk | Supported for OS and data disks, subject to size and VM requirements.
+Standard SSD ZRS recovery disk | Supported with modernized protection when the target region supports ZRS and the placement configuration is compatible.
+Premium SSD v1 LRS recovery disk | Supported for OS and data disks, subject to size and VM requirements.
+Premium SSD v1 ZRS recovery disk | Supported with modernized protection when the target region supports ZRS and the placement configuration is compatible.
+Premium SSD v2 and Ultra Disk source and recovery disks | Not supported for on-premises-to-Azure protection as source or recovery-target disk types.
+Performance Plus and shared recovery disks | Not supported.
 Secure transfer option | Yes
 Import/export service | No
 Azure Storage firewalls for VNets | Yes.<br/> Configured on target storage/cache storage account (used to store replication data).
@@ -374,7 +388,8 @@ Notating hierarchical namespace | Not supported.
 --- | ---
 Availability sets | Yes 
 Proximity Placement Groups | Yes
-Availability zones | No
+Availability zones | Supported with modernized protection when the target region, subscription, disk type, and VM size support the selected zone. An availability set and availability zone can't be configured together. Not supported with the classic experience.
+Secure VM target types | Trusted Launch and Confidential VM conversion are supported only for designated migration scenarios. They aren't supported as recovery targets for VMware or physical disaster recovery.
 HUB | Yes
 Managed disks | Yes
 
@@ -388,8 +403,8 @@ Guest operating system | Verify [supported operating systems](#replicated-machin
 Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB for Generation 1 machines. <br> Up to 4,095 GB for Generation 2 machines. | Check fails if unsupported.
 Operating system disk count | 1 </br> boot and system partition on different disks isn't supported | Check fails if unsupported.
-Data disk count | 64 or less. | The number of supported disks could be affected if the count of logical volumes is large. In such scenarios, use the formula to calculate maximum supported count of data disks. </br></br> If all disks share a logical volume: </br></br> D < 627790 / (450 + (Count of Logical Volume * 317))</br></br> If logical volume shared by disks is varying: </br></br> D < (627790 - (Count of times Logical Volume is repeated * Count of Logical Volume * 317)) / 450 </br></br> Here **D** is the maximum count of data disks that can be protected.
-Data disk size | Up to 32 TB when replicating to managed disk (9.41 version onwards)<br> Up to 4 TB when replicating to storage account </br> Each premium storage account can host up to 35 TB of data </br> Minimum disk size requirement - at least 1 GB  | Check fails if unsupported.
+Data disk count | Up to 64 data disks, using LUNs 0 through 63. | The selected target VM size can impose a lower limit. The number of supported disks can also be reduced when the logical-volume metadata is large. In such scenarios, use the formula to calculate the maximum supported count of data disks. </br></br> If all disks share a logical volume: </br></br> D < 627790 / (450 + (Count of Logical Volume * 317))</br></br> If logical volume shared by disks is varying: </br></br> D < (627790 - (Count of times Logical Volume is repeated * Count of Logical Volume * 317)) / 450 </br></br> Here **D** is the maximum count of data disks that can be protected.
+Data disk size | From 1 GiB through 32,767 GiB (approximately 32 TiB) when replicating to managed disk (version 9.41 onwards).<br> Up to 4,095 GiB when replicating to a storage account.</br> Each premium storage account can host up to 35 TB of data. | Check fails if unsupported.
 RAM | Site Recovery driver consumes 6% of RAM.
 Network adapters | Multiple adapters are supported. |
 Shared VHD | Not supported. | Check fails if unsupported.
@@ -424,6 +439,7 @@ Peak data churn across all disks on a VM | 54 MB/s
 Maximum data churn per day supported by a Process Server | 2 TB
 
 - These numbers are averages assuming a 30 percent I/O overlap.
+- The 54-MB/s value is the aggregate VM limit, not a per-disk limit. Per-disk limits are listed in the preceding table and depend on disk tier and average write size.
 - Site Recovery can handle higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior.
 - These numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it's processed and a recovery point is created within five minutes.
 
@@ -459,8 +475,8 @@ Move storage, network, and Azure VMs within and across subscriptions | No
 
 **Name** | **Description** | **Details**
 --- | --- | ---
-Configuration server | Installed on-premises.<br/> Coordinates communications between on-premises VMware servers or physical machines, and Azure. | - [Learn about](vmware-physical-azure-config-process-server-overview.md) the configuration server.<br/> - [Learn about](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) upgrading to the latest version.<br/> - [Learn about](vmware-azure-deploy-configuration-server.md) setting up the configuration server.
-Process server | Installed by default on the configuration server.<br/> Receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure.<br/> As your deployment grows, you can add more process servers to handle larger volumes of replication traffic. | - [Learn about](vmware-physical-azure-config-process-server-overview.md) the process server.<br/> - [Learn about](vmware-azure-manage-process-server.md#upgrade-a-process-server) upgrading to the latest version.<br/> - [Learn about](vmware-physical-large-deployment.md#set-up-a-process-server) setting up scale-out process servers.
+Configuration server | Installed on-premises.<br/> Coordinates communications between on-premises VMware servers or physical machines, and Azure. | - [Learn about](vmware-azure-deploy-configuration-server.md) the configuration server.<br/> - [Learn about](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) upgrading to the latest version.<br/> - [Learn about](vmware-azure-deploy-configuration-server.md) setting up the configuration server.
+Process server | Installed by default on the configuration server.<br/> Receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure.<br/> As your deployment grows, you can add more process servers to handle larger volumes of replication traffic. | - [Learn about](vmware-azure-manage-process-server.md) the process server.<br/> - [Learn about](vmware-azure-manage-process-server.md#upgrade-a-process-server) upgrading to the latest version.<br/> - [Learn about](vmware-physical-large-deployment.md#set-up-a-process-server) setting up scale-out process servers.
 Mobility Service | Installed on VMware VM or physical servers you want to replicate.<br/> Coordinates replication between on-premises VMware servers/physical servers and Azure.| - [Learn about](vmware-physical-mobility-service-overview.md) the Mobility service.<br/> - [Learn about](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) upgrading to the latest version.<br/>
 
 

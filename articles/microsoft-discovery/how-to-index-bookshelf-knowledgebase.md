@@ -94,6 +94,9 @@ The networking tab requires two subnet configurations:
 - **Private Endpoint Subnet** — Used for private connectivity to the Bookshelf data plane. Select a virtual network and subnet (for example, *discovery-uksouth-v2* / *default*).
 - **Search Subnet** — Used by the managed AI Search service created in the Bookshelf's managed resource group. The search subnet must be different from the private endpoint subnet (for example, *discovery-uksouth-v2* / *bookshelfsearch*).
 
+> [!NOTE]
+> Provision a separate search subnet for each Bookshelf. You can't share search subnets across Bookshelf resources.
+
 :::image type="content" source="media/how-to-index-bookshelf-knowledgebase/create-bookshelf-networking.png" alt-text="Screenshot that shows how to configure network security for a Bookshelf resource in the Azure portal." lightbox="media/how-to-index-bookshelf-knowledgebase/create-bookshelf-networking.png":::
 
 Select **Next** to continue to the **Encryption** tab.

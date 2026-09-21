@@ -1,197 +1,177 @@
 ---
-title: Mainframe and midrange modernization
-description: Learn about building mainframe and midrange system integration solutions in Azure Logic Apps using mainframe and midrange connectors.
+title: Modernize Mainframe and Midrange Workloads with Standard Workflows
+description: Learn how to integrate and incrementally modernize mainframe and midrange workloads in Azure or on Azure Arc-enabled Kubernetes by using Azure Logic Apps Standard.
 author: haroldcampos
 ms.author: hcampos
 ms.service: azure-logic-apps
 ms.topic: concept-article
-ms.date: 07/18/2025
-
-#CustomerIntent: As an integration developer, I need to learn about mainframe and midrange system integration with Standard workflows in Azure Logic Apps.
+ms.update-cycle: 365-days
+ms.date: 09/13/2026
+# Customer intent: As an integration architect, I want to understand how Azure Logic Apps Standard can help integrate and modernize mainframe and midrange workloads and which hosting option fits my requirements.
 ---
 
-# Mainframe and midrange modernization with Azure Logic Apps
+# Modernize mainframe and midrange workloads by using Azure Logic Apps Standard
 
-This guide describes how your organization can increase business value and agility by modernizing your mainframe and midrange environments using Azure Logic Apps. The current business world is experiencing an era of hyper-innovation and is on a permanent quest to obtain enterprise efficiencies, cost reduction, growth, and business alignment. Organizations are looking for ways to modernize, and one effective strategy is to augment the business value while using existing legacy assets.
+Azure Logic Apps Standard helps organizations extend and incrementally modernize mainframe and midrange workloads without first rewriting established host programs or moving all processing to Azure. Use workflows and built-in connectors to expose existing transactions, data, messages, files, and screen-driven applications to modern consumers. Run the integration layer in Azure, in App Service Environment v3 (ASE v3), or on customer-managed infrastructure through Hybrid deployment on Azure Arc-enabled Kubernetes.
 
-For organizations with investments in mainframe and midrange systems, this means making the best use of platforms that helped send humans to the moon or helped build current financial markets and extend their value using the cloud and artificial intelligence (AI). This scenario is where Azure Logic Apps and its native capabilities for integrating with mainframe and midrange systems come into play, by opening the door to the AI world for legacy investments. Among other features, Azure Logic Apps incorporates the core capabilities of Host Integration Server (HIS), which has been used for mainframe and midrange integration at the core of Microsoft's most strategic customers over 20+ years. As a result, Azure Logic Apps has become an Integration Platform-as-a-Service (iPaaS) for mainframe and midrange systems.
+Customers migrating from BizTalk Server can preserve compatible host-integration metadata and use existing adapter configurations as inputs for new built-in connector connections. This approach supports gradual coexistence between existing and modernized systems while teams move interfaces and business capabilities in manageable waves.
 
-When enterprise developers build integration workflows with Azure Logic Apps, they can more quickly deliver new applications using little to no code or less custom code. Developers who use Visual Studio can be more productive than those who use IBM mainframe development tools and technologies because they don't require knowledge about mainframe systems and infrastructure. Azure Logic Apps empowers business analysts and decision makers to more quickly analyze and report vital legacy information. They can directly access data in mainframe data sources, which removes the need to have mainframe developers create programs that extract and convert complex mainframe structures.
+## Customer value
 
-## Cloud native capabilities for mainframe and midrange system integration
+Azure Logic Apps Standard provides the following value for mainframe and midrange modernization:
 
-Since 1990, Microsoft has provided integration with mainframe and midrange systems through Microsoft Communications Server. Further evolution of Microsoft Communications Server created Host Integration Server (HIS) in 2000. While HIS started as a System Network Architecture (SNA) Gateway, HIS expanded to include IBM data stores (DB2, VSAM, and Informix), IBM transaction systems (CICS, IMS, and IBM i), and IBM messaging (MQ Series). Microsoft's strategic customers have used these technologies for more than 20 years.
+| Customer goal | Azure Logic Apps Standard value |
+| --- | --- |
+| Preserve working systems | Reuse existing host programs, data structures, queues, files, and compatible metadata while modernizing the surrounding integration layer. |
+| Modernize incrementally | Introduce workflows as integration façades, move one interface or business capability at a time, and keep legacy and modern systems operating together during transition. |
+| Reduce custom integration code | Use visual workflows, built-in connectors, transformations, and workflow-scoped code instead of building every integration component from the ground up. |
+| Choose where processing runs | Host workflows in Azure or run them on Arc-enabled Kubernetes near local systems when latency, data residency, or network requirements favor local processing. |
+| Support different workload characteristics | Use stateful workflows for durable, long-running processes and stateless workflows for lower-latency, in-memory processing when persistence isn't required. |
+| Adopt modern delivery practices | Store workflow definitions, configuration, metadata, and supporting code in source control and use automated build and deployment pipelines. |
 
-To empower customers that run applications and data on Azure to continue using these technologies, Azure Logic Apps and Visual Studio has gradually incorporated these capabilities. For example, the HIS Designer for Logic Apps that runs on Visual Studio, and the 3270 Design Tool, help you create metadata artifacts required by the built-in connectors that you use for mainframe and midrange integration in Azure Logic Apps. These built-in connectors run using the same compute resources as Standard logic app workflows. This design not only allows you to achieve low-latency scenarios, but also extends your reach to address more disaster recovery and high availability customer needs.
+Azure Logic Apps Standard is the core orchestration and integration runtime for the solution. Other messaging, API management, event distribution, database, or customer-managed services aren't required by default. Add them only when the refactored architecture requires an independent capability, scale boundary, lifecycle, or ownership model.
 
-:::image type="content" source="media/mainframe-modernization-overview/mainframe-modernization.png" alt-text="Conceptual diagram showing Microsoft cloud native capabilities for mainframe integration." lightbox="media/mainframe-modernization-overview/mainframe-modernization.png":::
+## Why use Azure Logic Apps Standard
 
-For more information about the Microsoft's capabilities for mainframe and midrange integration, continue to the following sections.
+Standard provides capabilities suited to host-system integration that aren't all available together in the Consumption resource type:
 
-### Microsoft HIS Designer for Logic Apps
+- Built-in, service provider-based connectors run with the Azure Logic Apps runtime and provide direct access to supported mainframe and midrange systems.
+- A Standard logic app can contain multiple related workflows that share compute, storage, networking, configuration, and deployment boundaries.
+- Stateful and stateless workflows support durable processes and lower-latency request-response scenarios.
+- Azure-hosted Standard workflows support virtual network integration and private endpoints for access to private systems.
+- Hybrid deployment runs workflows and built-in connector operations on customer-managed infrastructure.
+- Visual Studio Code development supports local testing, source control, and CI/CD.
 
-This tool creates mainframe and midrange system metadata artifacts for Azure Logic Apps and works with Microsoft Visual Studio by providing a graphical designer so that you can create, view, edit, and map metadata objects to mainframe artifacts. Azure Logic Apps uses these maps to mirror the programs and data in mainframe and midrange systems. For more information, see [HIS Designer for Logic Apps](/host-integration-server/core/application-integration-ladesigner-2).
+Azure Logic Apps Standard provides cloud-native implementations of many core integration capabilities historically provided by Host Integration Server (HIS), including access to IBM transaction programs, messaging systems, databases, host files, and 3270 applications. Some protocols and scenarios, such as LU6.2 connectivity, continue to require HIS.
+
+:::image type="content" source="media/mainframe-modernization-overview/mainframe-modernization.png" alt-text="Conceptual diagram that shows the Microsoft cloud native capabilities for mainframe integration." lightbox="media/mainframe-modernization-overview/mainframe-modernization.png":::
+
+## Choose where to run workflows
+
+The mainframe and midrange built-in connectors in this article are supported with each Standard hosting option. Choose the option that meets the workload's requirements for infrastructure ownership, isolation, connectivity, latency, and data location.
+
+| Hosting option | Best fit | Key considerations |
+| --- | --- | --- |
+| Workflow Service Plan | Managed Azure hosting for workflows that connect to host systems through private or public network paths. | Uses reserved WS1, WS2, or WS3 capacity and supports virtual network integration, private endpoints, and Azure monitoring. |
+| App Service Environment v3 | Azure-hosted workloads that require dedicated isolation, networking, compliance boundaries, or consolidation with other App Service workloads. | Requires an ASE v3 and an Isolated v2 App Service Plan. |
+| Hybrid | Local processing, data residency, low-latency access to host systems, or customer-managed infrastructure. | Runs on Azure Arc-enabled Kubernetes and requires customer-managed Kubernetes, SQL Server, SMB storage, networking, scaling, and operations. |
+
+Hybrid deployment is partially connected, not air-gapped. Built-in connector operations run with the local Azure Logic Apps runtime, while Azure management and any cloud-hosted managed connectors require outbound connectivity. For current infrastructure requirements and limitations, see [Set up your own infrastructure for Standard logic apps using hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md).
+
+## Preserve existing integration investments
+
+For decades, Microsoft has provided mainframe and midrange integration capabilities through Microsoft Host Integration Server. Azure Logic Apps Standard builds on this experience with metadata-driven tools and connectors that help preserve existing application investments.
+
+### Microsoft HIS Designer for Azure Logic Apps
+
+This Visual Studio tool creates the Host Integration Designer XML (HIDX) metadata that Azure Logic Apps connectors use to interact with mainframe and midrange programs and data structures. The graphical designer lets you create, view, edit, and map program interfaces, methods, parameters, records, and data types. You can also import COBOL and RPG copybooks. For more information, see [HIS Designer for Azure Logic Apps](/host-integration-server/core/application-integration-ladesigner-2).
 
 ### Microsoft 3270 Design Tool
 
-This tool records screens, navigation paths, methods, and parameters for the tasks in your application so that you can add and run those tasks as 3270 connector actions. While the HIS Designer for Logic Apps targets transactional systems and data, the 3270 Design Tool targets 3270 applications. For more information, see [3270 Design Tool](/host-integration-server/core/application-integration-3270designer-2).
+This tool records screens, navigation paths, methods, and parameters for tasks in a 3270 application. The tool generates HIDX metadata that the IBM 3270 connector uses to run the recorded navigation plan. For more information, see [3270 Design Tool](/host-integration-server/core/application-integration-3270designer-2).
 
-### Azure Logic Apps connectors for IBM mainframe and midrange systems
+### Migrate BizTalk host-system integrations
 
-The following sections describe the [built-in, service provider-based connectors](custom-connector-overview.md#service-provider-interface-implementation) that you can use to access and interact with IBM mainframe and midrange systems when you create Standard workflows in Azure Logic Apps.
+If your BizTalk Server applications use adapters for host systems, you can use many existing artifacts and configuration details to accelerate migration to Azure Logic Apps Standard:
 
-> [!NOTE]
->
-> Although some of the following connectors are available as "shared" connectors that run
-> in global Azure, this guide is focused on the built-in, service provider-based connectors, 
-> which are available only when you create Standard workflows in Azure Logic Apps.
+- Reuse compatible HIDX metadata with the CICS, IMS, IBM i, IBM 3270, and IBM Host File built-in connectors.
+- Use existing COBOL and RPG copybooks to create or update HIDX metadata.
+- Use the Azure Logic Apps Migration Agent to discover supported BizTalk artifacts, including bindings, endpoint configurations, and HIDX files, and use them during analysis, planning, and conversion.
 
-#### IBM 3270
+Existing settings don't transfer as deployable Azure Logic Apps connections without review. Recreate environment-specific configuration, credentials, certificates, and network settings for the target hosting environment, and validate the resulting behavior. BizTalk Integrations that depend on LU6.2 require refactoring or redesign. For more information, see [Migrate BizTalk Server with Azure Logic Apps Migration Agent](biztalk-server-migration-approaches.md).
 
-This Azure Logic Apps connector for 3270 allows Standard workflows to access and run IBM mainframe applications that you usually drive by navigating through 3270 emulator screens. The connector uses the TN3270 stream. For more information, see [Integrate 3270 screen-driven apps on IBM mainframes with Azure by using Azure Logic Apps and IBM 3270 connector](../connectors/integrate-3270-apps-ibm-mainframe.md).
+## Map existing assets to built-in connectors
 
-#### IBM Customer Information Control System (CICS)
+The following built-in, service provider-based connectors run with the Standard runtime. Some connectors also have managed versions that run in global Azure, but this article focuses on the built-in versions.
 
-This Azure Logic Apps connector for CICS provides Standard workflows with the capability to interact and integrate with CICS programs using multiple protocols, such as TCP/IP and HTTP. If you need to access CICS environments using LU6.2, you need to use Host Integration Server (HIS). For more information, see [Integrate CICS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM CICS connector](../connectors/integrate-cics-apps-ibm-mainframe.md).
+| Existing asset or integration | Azure Logic Apps Standard modernization path | Investment to preserve |
+| --- | --- | --- |
+| IBM 3270 application | Use the IBM 3270 connector to run recorded screen navigation over a TN3270 data stream. This option fits applications that don't provide a program-level interface. | HIDX navigation metadata and TN3270 connection requirements. See [Integrate IBM 3270 applications](../connectors/integrate-3270-apps-ibm-mainframe.md). |
+| CICS transaction program | Use the CICS Program Call connector to expose existing transactions to workflows and modern applications over TCP/IP or HTTP. Use HIS when LU6.2 is required. | HIDX metadata, copybooks, and host and CICS connection requirements. See [Integrate CICS programs](../connectors/integrate-cics-apps-ibm-mainframe.md). |
+| IBM DB2 database | Use the IBM DB2 connector to read and modify supported DB2 databases directly over TCP/IP without an on-premises data gateway. | Server, database, package, code-page, and authentication requirements. See the [IBM DB2 built-in connector reference](/azure/logic-apps/connectors/built-in/reference/db2/). |
+| IBM host file | Use the IBM Host File connector to parse binary content into structured data or generate binary host-file content. The connector doesn't require a direct host connection. | HIDX layouts, copybooks, and code-page information. See [Parse and generate IBM host files](../connectors/integrate-host-files-ibm-mainframe.md). |
+| IBM i COBOL or RPG program | Use the IBM i Program Call connector to reuse established business logic through the Distributed Program Calls server over TCP/IP. Use HIS when LU6.2 is required. | HIDX metadata, copybooks, and IBM i connection requirements. See [Integrate IBM i programs](../connectors/integrate-ibmi-apps-distributed-program-calls.md). |
+| IMS transaction program | Use the IMS Program Call connector to call programs through IMS Connect over TCP/IP. Behind the scenes, IMS Connect uses IMS message queues to route requests and responses. | HIDX metadata, copybooks, and IMS Connect settings. See [Integrate IMS programs](../connectors/integrate-ims-apps-ibm-mainframe.md). |
+| IBM MQ messaging | Use the IBM MQ connector to connect existing queues and messages to modern workflow processes. | Queue manager, channel, queue, TLS, and message-format requirements. See [Connect to IBM MQ](../connectors/connectors-create-api-mq.md). |
 
-#### IBM DB2
+## Modernize incrementally
 
-This Azure Logic Apps connector for DB2 enables connections between Standard workflows and DB2 databases that are either on premises or in Azure. The connector offers enterprise IT professionals and developers direct access to vital information stored in DB2 database management systems. For more information, see [Access and manage IBM DB2 resources using Azure Logic Apps](../connectors/connectors-create-api-db2.md).
+Mainframe and midrange environments often contain tightly connected programs, data, files, schedulers, and external interfaces. A single big-bang migration attempts to replace the selected scope in one coordinated release. This approach can fit a small, well-understood environment, but the delivery and cutover risk increases with the number of dependencies and the duration of the project.
 
-#### IBM Host Files
+:::image type="content" source="media/mainframe-modernization-overview/waterfall-mainframe.png" alt-text="Conceptual diagram that shows big bang migration phases approach." lightbox="media/mainframe-modernization-overview/waterfall-mainframe.png":::
 
-This Azure Logic Apps "connector" for Host Files provides a thin wrapper around the "Flat File Parser" feature in Host Integration Server. This offline "connector" provides operations that parse or generate binary data to and from host files. These operations require this data to come from any trigger or another action that produces binary data. For more information, see [Parse and generate IBM host files using Azure Logic Apps](../connectors/integrate-host-files-ibm-mainframe.md).
+For most estates, use iterative waves to preserve working behavior and deliver value sooner:
 
-#### IBM i
+1. Inventory programs, data, interfaces, jobs, dependencies, service objectives, and operational requirements.
+1. Select an end-to-end integration flow with clear business value and manageable dependencies.
+1. Introduce Azure Logic Apps Standard as an integration façade while the host system remains operational.
+1. Reuse compatible metadata and configure the required built-in connectors.
+1. Test functional behavior, throughput, recovery, security, and coexistence with the legacy implementation.
+1. Redirect consumers to the modernized interface and monitor the production flow.
+1. Repeat for subsequent waves, and retire legacy interfaces only after their consumers and dependencies move.
 
-This Azure Logic Apps connector for IBM i lets Standard workflows interact and integrate with COBOL and RPG programs running on IBM i systems using TCP/IP. If you need to access IBM i environments using LU6.2, you need to use Host Integration Server (HIS). For more information, see [Integrate COBOL and RPG programs on IBM midranges with Standard workflows in Azure Logic Apps using the IBM i connector](../connectors/integrate-ibmi-apps-distributed-program-calls.md).
+:::image type="content" source="media/mainframe-modernization-overview/mainframe-waves.png" alt-text="Conceptual diagram that showss mainframe migration with Agile waves approach." lightbox="media/mainframe-modernization-overview/mainframe-waves.png":::
 
-#### IBM Information Management System (IMS)
+Each wave can deliver one feature or a related group of integration flows. Shared jobs and highly interconnected applications might remain until later waves, after lower-risk interfaces establish reusable workflow, security, deployment, and operations patterns.
 
-This Azure Logic Apps connector for IMS uses the IBM IMS Connect component, which provides high performance access from Standard workflows to IMS transactions using TCP/IP. This model uses the IMS message queue for processing data. For more information, see [Integrate IMS programs on IBM mainframes with Standard workflows in Azure Logic Apps using the IBM IMS connector](../connectors/integrate-ims-apps-ibm-mainframe.md).
+:::image type="content" source="media/mainframe-modernization-overview/mainframe-streams.png" alt-text="Conceptual diagram that shows mainframe migration with Agile waves per streams." lightbox="media/mainframe-modernization-overview/mainframe-streams.png":::
 
-#### IBM MQ
+## Apply modernization patterns
 
-This Azure Logic Apps connector for MQ enables connections between Standard workflows and IBM MQ servers on premises or in Azure. Microsoft also provides IBM MQ integration capabilities with Host Integration Server and BizTalk Server. For more information, see [Connect to an IBM MQ server from a workflow in Azure Logic Apps](../connectors/connectors-create-api-mq.md).
-
-## Challenges for mainframe and midrange systems modernization
-
-Mainframe and midrange systems can host multiple environments that contain programs, data, files, and tools. Over the years, these environments might not have been refactored or were left to grow and reach their limits, despite hardware upgrades. These environments might also have been maintained by multiple developers and IT admins, who follow different programming patterns and techniques, or recruited other parties to help with tasks that require expertise scarce in the market. Along with a shrinking pool of experienced professionals, all these factors create a complex and challenging job of modernizing mainframe and midrange environments.
-
-While the following list isn't comprehensive, defining a successful modernization strategy minimally includes ways to handle the following tasks:
-
-- Maintain the current service level indicators and objectives for your environments.
-- Manage coexistence between legacy data along with migrated data.
-- Conduct DevOps across environments during coexistence.
-- Manage application interdependencies.
-- Define the future of the mainframe scheduler and jobs.
-- Define a strategy for replacing commercial off-the-shelf (COTS) products.
-- Conduct hybrid functional and nonfunctional testing activities.
-- Maintain external dependencies or interfaces.
-   
-With these tasks in mind, customers typically choose any of the following paths to conduct mainframe and midrange systems modernization:
-
-- Big bang
-
-  This approach is largely based on the waterfall software delivery model but with iterations in phases. The big bang approach is adopted more by customers with small mainframe or midrange systems and low complexity environments due to a low number of lines of code, low application density, and well-known legacy systems or programming languages.
-
-- Agile waves
-
-  This approach follows the Agile principles of software engineering. The Agile waves approach is adopted more by customers with larger mainframe or midrange systems and high complexity environments due to a high number of lines of code, high application density, lesser-known systems or programming languages, and a high number of dependencies and interfaces. 
-
-The choice between these paths depends on your organization's needs and scenarios. Each path has benefits and drawbacks to consider. The following sections provide more information about these modernization approaches.
-
-### Big bang or waterfall
-
-A big bang migration typically has the following phases:
-
-:::image type="content" source="media/mainframe-modernization-overview/waterfall-mainframe.png" alt-text="Conceptual diagram showing big bang migration phases approach." lightbox="media/mainframe-modernization-overview/waterfall-mainframe.png":::
-
-1. **Envisioning**: Kickoff
-
-1. **Planning**: Identify and prepare planning deliverables, such as scope, time, and resources.
-
-1. **Building**: Begins after planning deliverables are approved
-
-   This phase also expects that all the work for dependencies has been identified, and then migration activities can begin. Multiple iterations occur to complete the migration work.
-
-1. **Stabilizing or testing**: Begins when the migrated environment, dependencies, and applications are tested against the test regions in the mainframe environment.
-
-1. **Deploy**: After everything is approved, the migration goes live into production.
-
-Organizations that typically choose this approach focus on locking time, migration scope, and resources. This path sounds like a positive choice but includes the following risks:
-
-- Migrations can take months or even years.
-
-- Deployments to production are riskier.
-
-- The analysis that you perform at the start of the migration journey or during planning is no longer accurate because that information is usually outdated.
-
-- Organizations typically focus on having comprehensive documentation to reduce delivery risks for delivery.
-
-  However, the time spent on providing planning artifacts causes exactly the opposite effect. Focusing on planning more than executing tends to create execution delays, which cause increased costs in the long run.
-
-### Agile waves
-
-An Agile approach is results oriented and focused on building software and not planning deliverables. The first stages of an Agile delivery might be chaotic and complex for the organizational barriers that need to break down and to align the migration team. However, after the migration team matures following several sprints of execution, the journey becomes smoother. The goal of this approach is to frequently release features to production and to provide business value sooner than with a big bang approach.
-
-An Agile waves migration typically has the following sprints:
-
-:::image type="content" source="media/mainframe-modernization-overview/mainframe-waves.png" alt-text="Conceptual diagram showing mainframe migration with Agile waves approach." lightbox="media/mainframe-modernization-overview/mainframe-waves.png":::
-
-- Sprint zero (0)
-
-  - Define the team, an initial work backlog, and the core dependencies.
-  - Identify the features and a Minimum Viable Product (MVP) to deliver.
-  - Kick off mainframe readiness with a selected set of work items or user stories to begin the work.
-
-- Sprint 1, 2, ..., *N*
-
-  Each sprint has a goal where the team maintains a shipping mindset, meaning that they focus on completing migration goals and releasing deliverables to production. The team can use a group of sprints to deliver a specific feature or a wave of features. Each feature includes slices of integration workloads.
-
-:::image type="content" source="media/mainframe-modernization-overview/mainframe-streams.png" alt-text="Conceptual diagram showing mainframe migration with Agile waves per streams." lightbox="media/mainframe-modernization-overview/mainframe-streams.png":::
-
-Shared elements, such as jobs and interdependencies, exist and have impact across the entire environment. A successful strategy focuses on partially enabling jobs, redesigning applications for modernization, and leaving the systems with most interdependencies until the end to first reduce the amount of migration work and then complete the scope of the modernization effort.
-
-Microsoft recommends modernizing mainframe and midrange system workloads by following an iterative, Agile waves-based model by focusing on investments in the new platform, while limiting the growth of legacy systems. This approach considerably reduces implementation risks by preserving the existing business value, while introducing the modernized environment.  That way, your team can also leverage technology skills that help your business be more competitive. This scenario is where Azure Logic Apps can help you in your modernization journey.
-
-
-## Modernization patterns
-
-Good design includes factors such as consistency and coherence in component design and deployment, maintainability to simplify administration and development, and reusability that allows other applications and scenarios to reuse components and subsystems. For cloud-hosted applications and services, decisions made during the design and implementation phase have a huge impact on quality and the total cost of ownership.
-
-The Azure Architecture Center provides tested [design and implementation patterns](/azure/architecture/patterns/category/design-implementation) that describe the problem that they address, considerations for applying the pattern, and an example based on Microsoft Azure. While multiple design and implementation patterns exist, some of the most relevant patterns for mainframe modernization include the "Anti-corruption Layer", "Strangler Fig", "Saga", and "Choreography" patterns.
+Use architecture patterns according to the target workload rather than treating any one pattern as mandatory.
 
 ### Anti-corruption Layer pattern
 
-Regardless which modernization approach that you select, you need to implement an "anti-corruption layer" using Azure Logic Apps. This service becomes the façade or adapter layer between the mainframe legacy system and Azure. For an effective approach, identify the mainframe workloads to integrate or coexist as mainframe integration workloads. Create a strategy for each integration workload, which is the set of interfaces that you need to enable for migrating a mainframe application. 
+Consider using Azure Logic Apps Standard as an anti-corruption layer between legacy interfaces and modern consumers. Workflows can translate protocols, formats, and interaction models without requiring consumers to understand host-specific details. The façade can run in Azure or on Arc-enabled Kubernetes near the host environment.
 
-:::image type="content" source="media/mainframe-modernization-overview/anti-corruption-pattern.png" alt-text="Conceptual diagram showing the Anti-corruption Layer pattern." lightbox="media/mainframe-modernization-overview/anti-corruption-pattern.png":::
+:::image type="content" source="media/mainframe-modernization-overview/anti-corruption-pattern.png" alt-text="Conceptual diagram that shows the Anti-corruption Layer pattern." lightbox="media/mainframe-modernization-overview/anti-corruption-pattern.png":::
 
-For more information, see [Anti-corruption Layer](/azure/architecture/patterns/anti-corruption-layer).
+For more information, see [Anti-corruption Layer pattern](/azure/architecture/patterns/anti-corruption-layer).
 
 ### Strangler Fig pattern
 
-After you implement the anti-corruption layer, modernization progressively happens. For this phase, you need to use the "Strangler Fig" pattern where you identify mainframe workloads or features that you can incrementally modernize. For example, if you choose to modernize a CICS application, you have to modernize not only the CICS programs, but most likely the 3270 applications along with their corresponding external dependencies, data, and jobs.
+Use the Strangler Fig pattern to route selected interfaces or capabilities through the new integration layer while the remaining workload continues to run on the host. Replace implementations incrementally, validate each cutover, and decommission legacy components only after their dependencies move.
 
-Eventually, after you replace all the workloads or features in the mainframe system with your new system, you'll finish the migration process, which means that you can decommission your legacy system.
-
-:::image type="content" source="media/mainframe-modernization-overview/strangler-fig-pattern.png" alt-text="Conceptual diagram showing the Strangler Fig pattern." lightbox="media/mainframe-modernization-overview/strangler-fig-pattern.png":::
+:::image type="content" source="media/mainframe-modernization-overview/strangler-fig-pattern.png" alt-text="Conceptual diagram that shows the Strangler Fig pattern." lightbox="media/mainframe-modernization-overview/strangler-fig-pattern.png":::
 
 For more information, see [Strangler Fig pattern](/azure/architecture/patterns/strangler-fig).
 
 ### Saga and Choreography patterns
 
-Distributed transactions such as the two-phase commit (2PC) protocol require that all participants in a transaction to commit or roll back before the transaction can proceed. Cloud hybrid architectures work better following an eventual consistency paradigm rather than a distributed transaction model.
+Use the Saga pattern when a business process spans systems that can't participate in one distributed transaction. A stateful workflow can act as the central saga orchestrator by coordinating participants and explicitly handling retries, failures, and compensating actions. Each participant performs its own local transaction. Workflow actions aren't automatically atomic as a group, and Azure Logic Apps doesn't automatically reverse changes in external systems. Design operations for idempotency and implement compensation by using actions, scopes, and run-after conditions.
 
-The "Saga" design pattern is a way to manage consistency across services in distributed transaction scenarios. A *saga* is a sequence of transactions that updates each service and publishes a message or event to trigger the next transaction step. If a step fails, the saga executes compensating transactions that counteract the preceding transactions. For more information, see [Saga distributed transactions pattern](/azure/architecture/reference-architectures/saga/saga).
+In a choreography-based saga, participating services exchange events through messaging infrastructure without a central workflow coordinating the entire transaction. Add services such as Azure Service Bus or Azure Event Grid only when the architecture requires independent messaging or event distribution. For more information, see [Saga distributed transactions pattern](/azure/architecture/reference-architectures/saga/saga) and [Choreography pattern](/azure/architecture/patterns/choreography).
 
-In Azure Logic Apps, workflows can act as choreographers to coordinate sagas. Workflow actions are atomic, so you can rerun them individually. The **Scope** action type provides the capability to run a group of actions only after another group of actions succeed or fail. Azure Logic Apps conducts compensating transactions at the scope level, while Azure Event Grid and Azure Service Bus provide the event management required for specific domains. All these services, which make up Azure Integration Services, provide the support required by customers when they need a reliable integration platform for mission critical scenarios. For more information, see [Choreography pattern](/azure/architecture/patterns/choreography).
+:::image type="content" source="media/mainframe-modernization-overview/saga-pattern.png" alt-text="Conceptual diagram that shows the SAGA pattern." lightbox="media/mainframe-modernization-overview/saga-pattern.png":::
 
-:::image type="content" source="media/mainframe-modernization-overview/saga-pattern.png" alt-text="Conceptual diagram showing the SAGA pattern." lightbox="media/mainframe-modernization-overview/saga-pattern.png":::
+## Plan security, operations, and cost
 
-While this article covers several modernization patterns, complex solutions require many more patterns and that you clearly understand your organization's modernization goals. Although the task to extend the value of legacy assets is challenging, this option is the best way to preserve investment in these assets and prolong their business value.
+- Use private network connectivity and secure authentication appropriate to the hosting environment and host system. Store secrets in approved secret stores rather than workflow definitions.
+- Keep workflow definitions, HIDX files, configuration templates, and supporting code in source control. Separate environment-specific values from deployable artifacts and use automated pipelines.
+- Design for retries and at-least-once processing. Use idempotency, deduplication, correlation identifiers, and safe writes to prevent duplicate effects.
+- Define monitoring, alerting, run-history retention, disaster recovery, and support ownership before production cutover. Azure-hosted and hybrid deployments have different monitoring capabilities and limitations.
+- Compare total cost of ownership across hosting, connector usage, networking, storage, monitoring, and customer-managed infrastructure. Standard includes built-in operation executions, while managed connector operations and supporting resources can add charges.
+
+For current limits and pricing, see [Azure Logic Apps limits and configuration](logic-apps-limits-and-config.md) and [Azure Logic Apps pricing and billing models](logic-apps-pricing.md).
+
+## Example modernization scenarios
+
+### Expose a CICS transaction to a modern application
+
+Create a Standard workflow that calls an existing CICS program through the built-in connector, transforms the response, and returns a modern interface to an application or API layer. Keep the CICS program as the system of record while consumers move away from host-specific connectivity.
+
+### Make DB2 data available to analytics
+
+Use a Standard workflow to read approved operational data from DB2, validate and transform the records, and send them to an Azure data or analytics service. This approach avoids creating a separate mainframe extraction program for each consumer while preserving governance over when and how data leaves the host.
+
+### Run integration near host systems
+
+Deploy Azure Logic Apps Standard on Azure Arc-enabled Kubernetes when workflows need local processing, data residency, or low-latency access to IBM systems. Built-in connector operations run with the local runtime, while the workflow can selectively connect to Azure services when the architecture and network policy permit.
 
 ## Next steps
 
-- [Azure Architecture Center for mainframes and midrange systems](/azure/architecture/browse/?terms=mainframe)
+- [Create Standard workflows with Visual Studio Code](create-standard-workflows-visual-studio-code.md)
+- [Set up Hybrid deployment infrastructure](set-up-standard-workflows-hybrid-deployment-requirements.md)
+- [Review built-in connectors for Standard workflows](../connectors/built-in.md)
+- [Migrate BizTalk Server with Azure Logic Apps Migration Agent](biztalk-server-migration-approaches.md)
+- [Explore Azure Architecture Center guidance for mainframes and midrange systems](/azure/architecture/browse/?terms=mainframe)

@@ -7,6 +7,7 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.reviewer: jsuri
+ms.update-cycle: 365-days
 ms.date: 02/07/2025
 ms.collection:
  - migration

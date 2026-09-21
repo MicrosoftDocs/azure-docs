@@ -24,7 +24,7 @@ The following list includes common integrated scenarios that use Functions.
 | --- | --- |
 | [Process file uploads](./functions-scenarios.md#process-file-uploads) | Run code when a file is uploaded or changed in blob storage. |
 | [Process data in real time](./functions-scenarios.md#real-time-stream-and-event-processing)| Capture and transform data from event and IoT source streams on the way to storage.   |
-| [Run AI inference](./functions-scenarios.md#machine-learning-and-ai)| Pull text from a queue and present it to various AI services for analysis and classification. |
+| [Build AI-enabled apps](./functions-scenarios.md#build-ai-enabled-apps) | Make data and APIs available to AI clients, and add AI reasoning to event-driven applications. |
 | [Run scheduled task](./functions-scenarios.md#run-scheduled-tasks)| Execute data clean-up code on predefined timed intervals. |
 | [Build a scalable web API](./functions-scenarios.md#build-a-scalable-web-api)| Implement a set of REST endpoints for your web applications using HTTP triggers. |
 | [Build a serverless workflow](./functions-scenarios.md#build-a-serverless-workflow)| Create an event-driven workflow from a series of functions using Durable Functions. |

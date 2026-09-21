@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 08/12/2026
+ms.date: 09/11/2026
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -19,7 +19,7 @@ This article summarizes support and prerequisites for disaster recovery (DR) of 
 Deployment | Support
 --- | ---
 Azure portal | Supported.
-Azure PowerShell | Supported. For more information, see how to [set up DR for Azure VMs by using Azure PowerShell](Azure-to-Azure-powershell.md).
+Azure PowerShell | Supported. For more information, see how to [set up DR for Azure VMs by using Azure PowerShell](azure-to-azure-powershell.md).
 REST API | Supported.
 Azure CLI | Not currently supported.
 
@@ -68,7 +68,7 @@ This table summarizes support for the cache storage account that Site Recovery u
 Setting | Support | Details
 --- | --- | ---
 General-purpose V2 (GPv2) storage accounts (hot and cool tiers) | Supported | Use GPv2 because GPv1 doesn't support zone-redundant storage (ZRS).
-Premium storage | Supported | Use Premium block blob storage accounts to get high-churn support. For more information, see [Azure VM disaster recovery: High-churn support](./concepts-Azure-to-Azure-high-churn-support.md).
+Premium storage | Supported | Use Premium block blob storage accounts to get high-churn support. For more information, see [Azure VM disaster recovery: High-churn support](./concepts-azure-to-azure-high-churn-support.md).
 Region | Same region as VM | Cache storage account should be in the same region as the VM you're protecting.
 Subscription | Can be different from source VMs | Cache storage account must be in the same subscription as the source VMs. To use cache storage from the target subscription, use Azure PowerShell.
 Azure Storage firewalls for virtual networks | Supported | If you use a firewall-enabled cache storage account or a target storage account, ensure that you [allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions).<br></br>Access must also be allowed to all subnets containing source Virtual Machines.<br></br>If you use user-assigned managed identity (UAMI) created on an Azure Recovery Services vault, don't restrict virtual network access to your storage accounts that are used for Site Recovery. Allow access from all networks if you use vault UAMI.
@@ -87,7 +87,7 @@ As average churn on the disks increases, the number of disks that a storage acco
 
 The cache limits are specific to Azure-to-Azure and zone-to-zone DR scenarios.
 
-When you enable replication by using the VM workflow for cross-subscriptions, the portal lists only the cache storage account from the source subscription. It doesn't list any storage account created in the target subscription. To set up this scenario, use [Azure PowerShell](Azure-to-Azure-powershell.md).
+When you enable replication by using the VM workflow for cross-subscriptions, the portal lists only the cache storage account from the source subscription. It doesn't list any storage account created in the target subscription. To set up this scenario, use [Azure PowerShell](azure-to-azure-powershell.md).
 
 ## Replicated machine operating systems
 
@@ -148,8 +148,6 @@ Alma Linux | [See supported versions](#supported-alma-linux-kernel-versions-for-
 
 For Linux versions, Site Recovery doesn't support custom OS kernels. Only the stock kernels that are part of the distribution minor version release/update are supported.
 
-Site Recovery doesn't support VMs created on ARM64 CPU architecture.
-
 ### Linux kernel support timelines
 
 > [!NOTE]
@@ -166,10 +164,12 @@ Only the scenarios mentioned in the *Scenarios covered by 30-day best-effort sup
 
  Distribution | Scenarios covered by 30-day best-effort support | Scenarios not covered by 30-day best-effort support
  --- | --- | --- 
-Ubuntu | New kernel within an already supported kernel series within a supported Ubuntu version. An example is 5.15.0-1081-Azure for Ubuntu 22.04 if 5.15.0-1079-Azure is already supported for Ubuntu 22.04 because both belong to the 5.15.0-* kernel series. Applies to both Azure (`-Azure`) and generic kernels (`-generic`) only. | New major OS version released. For example, assume Ubuntu releases Ubuntu 26.04, which Site Recovery doesn't support yet.<br/><br/>New kernel series not previously supported for the same Ubuntu version. An example is 6.5.0-18-Azure for Ubuntu 22.04 if no kernel from the 6.5.0-* series is supported.
-Debian | New kernel within an already supported kernel series within a supported Debian version. An example is 4.19.0-27-cloud-amd64 for Debian 10 if 4.19.0-26-cloud-amd64 is already supported for Debian 10 because both belong to the 4.19.0-* kernel series. Applies to Azure kernels (`-cloud-amd64`) and stock kernels (`-amd64`) only. | New major OS version released. For example, assume Debian releases Debian 11, which Site Recovery doesn't support yet.<br/><br/> New kernel series not previously supported for the same Debian version. An example is 5.10.0-0.deb10.30-cloud-amd64 for Debian 10 if no kernel from the 5.10.0-* series is supported.
-SUSE | New kernel within an already supported kernel series within a supported service pack (SP) version. An example is 6.4.0-150600.8.8 for SUSE 15 SP6 if 6.4.0-150600.8.5 is already supported for SUSE 15 SP6 because both belong to the 6.4.0-150600.8.* kernel series. Applies to Azure kernels (`-Azure:`[service pack number]). Stock kernels (`-default`) are supported by default. | New service pack releases. For example, assume SUSE releases SUSE 15 SP7, which Site Recovery doesn't support yet.<br/><br/> New kernel series isn't previously supported for the same SP version.
-RHEL, Rocky, Alma, and Oracle Linux. (All distros are based on RHEL kernels.) | A new kernel for RHEL 8.x or 9.y is supported if it meets two criteria. The minor OS version (RHEL 8.x or RHEL 9.y) is supported. The kernel series is already supported for that minor OS version. For RHEL 8.x, this support applies only if x ≥6. <br/><br/> For Oracle Linux UEK kernels, this support applies only if new kernels are within a supported UEK kernel series within a supported OS version. | New major version released. For example, assume RHEL 10.x, Rocky Linux 10.x, Alma Linux 10.x, or Oracle Linux 10.x is released, which Site Recovery doesn't support. <br/><br/> Minor OS version is released within a supported major OS version. For example, assume RHEL 9.5 is released, which Site Recovery doesn't support.<br/><br/> New kernels for RHEL 8.x where x <6 (for example, RHEL 8.4) aren't supported within 30 days.<br/><br/> Site Recovery doesn't support new kernel releases for a UEK kernel series.
+Ubuntu | New kernel within an already supported kernel series within a supported Ubuntu version. An example is 5.15.0-1081-Azure for Ubuntu 22.04 if 5.15.0-1079-Azure is already supported for Ubuntu 22.04 because both belong to the 5.15.0-* kernel series. Applies to both Azure (`-Azure`) and generic kernels (`-generic`) only. | New major OS version released. For example, assume Ubuntu releases Ubuntu 28.04, which Site Recovery doesn't support yet.<br/><br/>New kernel series not previously supported for the same Ubuntu version. An example is 6.5.0-18-Azure for Ubuntu 22.04 if no kernel from the 6.5.0-* series is supported.
+Debian | New kernel within an already supported kernel series within a supported Debian version. An example is 4.19.0-27-cloud-amd64 for Debian 10 if 4.19.0-26-cloud-amd64 is already supported for Debian 10 because both belong to the 4.19.0-* kernel series. Applies to Azure kernels (`-cloud-amd64`) and stock kernels (`-amd64`) only. | New major OS version released. For example, assume Debian releases Debian 14, which Site Recovery doesn't support yet.<br/><br/> New kernel series not previously supported for the same Debian version. An example is 5.10.0-0.deb10.30-cloud-amd64 for Debian 10 if no kernel from the 5.10.0-* series is supported.
+SUSE | New kernel within an already supported kernel series within a supported service pack (SP) version. An example is 6.4.0-150600.8.8 for SUSE 15 SP6 if 6.4.0-150600.8.5 is already supported for SUSE 15 SP6 because both belong to the 6.4.0-150600.8.* kernel series. Applies to Azure kernels (`-Azure:`[service pack number]). Stock kernels (`-default`) are supported by default. | New service pack releases. For example, assume SUSE releases SUSE 16 SP1, which Site Recovery doesn't support yet.<br/><br/> New kernel series isn't previously supported for the same SP version.
+RHEL, Rocky, Alma, and Oracle Linux. (All distros are based on RHEL kernels.) | A new kernel for RHEL 8.x or 9.y is supported if it meets two criteria. The minor OS version (RHEL 8.x or RHEL 9.y) is supported. The kernel series is already supported for that minor OS version. For RHEL 8.x, this support applies only if x ≥6. <br/><br/> For Oracle Linux UEK kernels, this support applies only if new kernels are within a supported UEK kernel series within a supported OS version. | New major version released. For example, assume RHEL 11.x, Rocky Linux 11.x, Alma Linux 11.x, or Oracle Linux 11.x is released, which Site Recovery doesn't support.<br/><br/> Minor OS version is released within a supported major OS version. For example, assume RHEL 10.3 is released, which Site Recovery doesn't support.<br/><br/> New kernels for RHEL 8.x where x <6 (for example, RHEL 8.4) aren't supported within 30 days.<br/><br/> Site Recovery doesn't support new kernel releases for a UEK kernel series.
+
+For Ubuntu and Debian, the Mobility service installer compares the complete kernel version with its supported-kernel list. A newly released stock kernel isn't supported until the exact version is listed or a compatible preinstalled driver is available.
 
 ## Upgrade Linux major OS version without disabling replication (preview) 
 
@@ -192,7 +192,7 @@ To update the Azure Site Recovery agent manually, follow these steps:
 1. Upgrade Linux OS and navigate to the **Replicated Items** page of the VM in the Azure portal. 
 2. Select **Update Agent to support new OS version detected on VM**.
  
- :::image type="content" source="./media/Azure-to-Azure-support-matrix/replicated-items.png" alt-text="Screenshot of replicated items." lightbox="./media/Azure-to-Azure-support-matrix/replicated-items.png":::
+ :::image type="content" source="./media/azure-to-azure-support-matrix/replicated-items.png" alt-text="Screenshot of replicated items." lightbox="./media/azure-to-azure-support-matrix/replicated-items.png":::
 
 3. Review the details in the context pane and proceed with the agent upgrade as prompted. 
 
@@ -361,8 +361,9 @@ Alma Linux 9.8 | 9.67 | [Supported kernels](https://github.com/Azure/Azure-SiteR
 
 ## <a name = "replicated-machines---linux-file-systemguest-storage"></a>Replicated machines: Linux file system/guest storage
 
-* **File systems**: ext3, ext4, XFS, and BTRFS
-* **Volume manager**: LVM2
+* **Root file systems**: ext3, ext4, XFS, and single-device BTRFS. Multi-device, spanned, and RAID BTRFS file systems aren't supported.
+* **Boot file system**: A separate `/boot` file system can also use ext2. A `/boot` file system on an LVM logical volume isn't supported if the logical volume spans multiple physical disks.
+* **Volume manager**: LVM2. If the root file system is on LVM, install the `lvm2` package and verify that `vgdisplay` is available before you enable replication.
 
 Multipath software isn't supported.
 
@@ -370,10 +371,11 @@ Multipath software isn't supported.
 
 Setting | Support | Details
 --- | --- | ---
-Size | Any Azure VM size with at least two CPU cores and 1-GB RAM.| Verify [Azure VM sizes](/Azure/virtual-machines/sizes).
+Size | Supported when all requirements are met. | The VM must have at least two active vCPUs and 1 GiB RAM. For constrained-vCPU sizes, use the active vCPU count, not the nominal count in the base size name. Validate the exact source and target VM sizes, including disk-controller, security-type, generation, disk, networking, and target-region capabilities.
+CPU architecture | x64 is supported. Arm64 isn't supported. | Arm64-based VM sizes, including Azure Cobalt and Ampere Altra sizes, aren't supported.
 RAM | Site Recovery driver consumes 6% of RAM.
 Availability sets | Supported. | If you enable replication for an Azure VM with the default options, an availability set is created automatically based on the source region settings. You can modify these settings.
-Availability zones | Supported. |
+Availability zones | Supported with restrictions. | Multiple source NIC IP configurations are supported only for regional replication.
 Azure Dedicated Host | Not supported. |
 Hybrid Use Benefit (HUB) | Supported. | If the source VM has a HUB license enabled, a test failover or failed-over VM also uses the HUB license.
 Virtual Machine Scale Set Flex | Availability scenario: Supported. Scalability scenario: Not supported. |
@@ -383,6 +385,9 @@ Custom images: Non-Microsoft published | Supported. | The VM is supported if it 
 VMs migrated by using Site Recovery | Supported. | If a VMware VM or physical machine was migrated to Azure by using Site Recovery, you need to uninstall the older version of the Mobility service running on the machine and restart the machine before you replicate it to another Azure region.
 Azure role-based access control (RBAC) policies | Not supported. | Azure role-based access control policies on VMs aren't replicated to the failover VM in the target region.
 Extensions | Not supported. | Extensions aren't replicated to the failover VM in the target region. It needs to be installed manually after failover.
+VM boot generation | Generation 1 and Generation 2 are supported. | Generation 1 uses PCAT boot and Generation 2 uses UEFI boot. A VM size-series suffix such as v5, v6, or v7 identifies a hardware-series version, not the VM boot generation.
+VM security type | Standard and Trusted Launch are supported with restrictions. Confidential VMs aren't supported. | Trusted Launch is subject to the [Trusted Launch support requirements](concepts-trusted-vm.md), including the 1,200 protected-disk subscription limit. Before enabling replication, update the Mobility service so that the detected security type matches the VM configuration.
+Specialized VM sizes | Validate the exact source and target size before protection. | For GPU, FPGA, HPC, RDMA-enabled, storage-optimized, isolated, and nested-virtualization sizes, verify target availability and equivalent accelerator, networking, isolation, and nested-virtualization capabilities. VM extensions and drivers aren't replicated. Local NVMe data and nested guests aren't protected.
 Proximity placement groups (PPGs) | Supported. | VMs located inside PPGs by using Site Recovery.
 Tags | Supported. | User-generated tags applied on source VMs are carried over to target VMs post-test failover or failover. Tags on the VMs replicate once every 24 hours for as long as the VMs are present in the target region.
 
@@ -398,10 +403,8 @@ Change source disk SKU. | Supported. Changing the source disk SKU doesn't impact
 
 ## <a name = "replicated-machines---storage"></a>Replicated machines: Storage
 
-> [!NOTE]
-> Site Recovery supports storage accounts with page blobs for unmanaged disk replication.
->
-> Unmanaged disks were deprecated on September 30, 2022, and are slated to fully retire by March 31, 2026. Managed disks now offer the full capabilities of unmanaged disks, along with other advancements.
+> [!IMPORTANT]
+> Unmanaged Azure VM disks retired on March 31, 2026. They're no longer supported as source, replica, or failover target disks. Disable and re-enable protection after migrating the VM to managed disks.
 
 The following table summarizes support for the Azure VM OS disk, data disk, and temporary disk:
 
@@ -409,59 +412,65 @@ The following table summarizes support for the Azure VM OS disk, data disk, and 
 - If you deploy with the default settings, Site Recovery automatically creates disks and storage accounts based on the source settings.
 - If you customize, ensure that you follow the guidelines.
 
+The following table shows the default managed-disk mapping. A source disk SKU change doesn't update the replica disk SKU. To change the replica configuration, disable and re-enable replication.
+
+Source disk | Replica disk | Failover disk | Notes
+--- | --- | --- | ---
+Standard HDD LRS (`Standard_LRS`) | `Standard_LRS` | `Standard_LRS` | Standard HDD remains supported for data disks. Standard HDD OS disks retire on September 8, 2028; use Standard SSD or Premium SSD for new recovery OS disks.
+Standard SSD LRS or ZRS (`StandardSSD_LRS`, `StandardSSD_ZRS`) | Matches the source redundancy | Matches the source redundancy | ZRS source disks are supported for regional disaster recovery, but not zone-to-zone disaster recovery.
+Premium SSD v1 LRS or ZRS (`Premium_LRS`, `Premium_ZRS`) | Matches the source redundancy | Matches the source redundancy | ZRS source disks are supported for regional disaster recovery, but not zone-to-zone disaster recovery.
+Premium SSD v2 LRS (`PremiumV2_LRS`) | `Premium_LRS` | `PremiumV2_LRS` | Generally available. Requires High Churn and must be selected when replication is enabled. Host caching isn't supported.
+Ultra Disk LRS (`UltraSSD_LRS`) | `Premium_LRS` | `UltraSSD_LRS` | Requires High Churn. Zone-to-zone disaster recovery and host caching aren't supported.
+
 Component | Support | Details
 --- | --- | ---
 Disk renaming | Supported. | 
 OS disk maximum size | [4,095 GiB](/Azure/virtual-machines/managed-disks-overview#os-disk). | Learn more about [VM disks](/Azure/virtual-machines/managed-disks-overview).
 Temporary disk | Not supported. | The temporary disk is always excluded from replication.<br/><br/> Don't store any persistent data on the temporary disk. Learn more about [temporary disks](/Azure/virtual-machines/managed-disks-overview).
-Data disk maximum size | 32 TiB for managed disks.<br></br>4 TiB for unmanaged disks.|
-Data disk minimum size | No restriction for unmanaged disks. 1 GiB for managed disks. |
-Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size. | Learn more about [VM sizes](/Azure/virtual-machines/sizes).
-Data disk maximum size per storage account (for unmanaged disks) | 35 TiB. | This size is the upper limit for cumulative size of page blobs created in a Premium storage account.
-Data disks change rate | Maximum of 20 MBps per disk for Premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, replication can't catch up.<br/><br/> If the maximum is exceeded sporadically, replication can catch up, but you might see slightly delayed recovery points.
-Data disk: Standard storage account | Supported. |
-Data disk: Premium storage account | Supported. | If a VM has disks spread across Premium and Standard storage accounts, you can select a different target storage account for each disk to ensure that you have the same storage configuration in the target region.
-Managed disk: Standard | Supported in Azure regions in which Site Recovery is supported. |
-Managed disk: Premium | Supported in Azure regions in which Site Recovery is supported. |
+Data disk minimum size | 1 GiB. | No additional restrictions.
+Data disk maximum number | Up to 64, with LUNs 0 through 63. | The selected source or target VM size can impose a lower limit.
+Data disk maximum size | 32,767 GiB (approximately 32 TiB). | This Site Recovery limit also applies to Premium SSD v2 and Ultra Disk, even when Azure Disk Storage supports a larger disk.
 Disk subscription limits | Up to 3,000 (1,200 if Trusted VMs) protected disks per subscription. | Ensure that the source or target subscription doesn't have more than 3,000 (1,200 if Trusted VMs) Site Recovery-protected disks (both data and OS).
 Standard SSD | Supported. |
-Redundancy | Locally redundant storage (LRS), ZRS, and geo-redundant storage (GRS) are supported.
+Managed disk redundancy | LRS and ZRS are supported. | ZRS is available only for Standard SSD and Premium SSD v1. Premium SSD v2 and Ultra Disk don't have a ZRS SKU.
 Cool and hot storage | Not supported. | VM disks aren't supported on cool or hot storage.
 Storage Spaces | Supported. |
-NVMe storage interface | Supported | Supported for Azure-to-Azure for Windows, Linux (RHEL 9 (except RHEL 9.8), SLES 15, Ubuntu 24) for Gen2 VMs such as Da/Ea/Fa v6-series, Ddsv6, Edsv6, Ebsv5/Ebdsv5, and others that use NVMe interface. <br><br> Ephemeral OS disks and local NVMe disks aren't supported.|
-Performance Plus disk  | Supported | For VMs using Premium SSD, Standard SSD, Standard HDD disks. Ensure that you use only premium storage accounts during replication. | 
-Mixed controller VMs (SCSI + NVMe) | Not Supported | VMs SKUs such as Lsv3 aren't supported |
-Encryption at host | Not supported. | The VM is protected, but the failed-over VM doesn't have encryption at host enabled. For more information, see [Enable end-to-end encryption by using encryption at host](/Azure/virtual-machines/disks-enable-host-based-encryption-portal).
+NVMe storage interface | Supported with restrictions. | Remote managed-disk NVMe requires an eligible Generation 2 Standard or Trusted Launch image, a supported Mobility service version and operating system, and an available target VM size. Supported Linux configurations include RHEL 9, SLES 15 SP4 or later, SLES 16, Ubuntu 24.04, and Ubuntu 26.04. `curl` and access to Azure Instance Metadata Service are required during installation and upgrade. Mixed SCSI and NVMe controllers, multiple controller addresses of the same type, ephemeral OS disks, and local NVMe disks aren't supported.
+Local storage | Not replicated. | Azure temporary or resource disks and directly mapped local NVMe devices must not contain persistent data. A VM with an ordinary temporary disk can be protected when all other requirements are met. Ephemeral OS disks aren't supported.
+Performance Plus disk | Supported for Azure-to-Azure disaster recovery. | Requires High Churn. The setting is preserved for replication, test failover, and failover. Use a supported cache account and region.
+Disk performance settings | Supported with restrictions. | For Premium SSD v2 and Ultra Disk, only the IOPS and throughput configured when replication is enabled are copied to the target disk. Later changes aren't reflected. For Premium SSD v1 tier or SKU changes, wait for a new recovery point before failover.
+Replica disk SKU changes | Supported with restrictions. | You can move a replica disk to a higher supported tier after revoking its active shared access signature (SAS). Premium SSD v2 (`PremiumV2_LRS`) and Ultra Disk (`UltraSSD_LRS`) aren't supported as replica disk types in any Site Recovery scenario. If a replica disk is manually changed to either unsupported SKU, replication is blocked. Because the disk can't be downgraded to Premium SSD v1, disable and re-enable replication to create a supported replica disk.
+Premium SSD v2 and Ultra Disk replication operation duration | Supported with additional time. | Initial replication, checksum-based resynchronization, and reprotection can take longer than the same operations for Premium SSD v1. The relative difference decreases as disk size increases. For planning estimates, see [initial replication, reprotection, and resynchronization duration estimates](azure-to-azure-common-questions.md#initial-replication-reprotection-and-resynchronization-duration-estimates).
+Premium SSD v2 and Ultra Disk source snapshots | Retained by default. | During initial replication and resynchronization, Site Recovery creates a managed disk snapshot directly from each source disk. The retained snapshot helps a future resynchronization finish faster. To reduce snapshot charges, you can delete it after initial replication or resynchronization completes. Ongoing replication continues, but a future resynchronization can take longer because Site Recovery must create a new snapshot.
+Mixed controller VMs (SCSI + NVMe) | Not supported. | VM sizes such as Lsv3 aren't supported.
+Encryption at host | Source protection is supported, but the setting isn't preserved. | Encryption at host isn't enabled on test-failover or failover VMs. Select a supported target VM size and re-enable encryption at host after failover.
 Encryption at rest (SSE) | Supported. | SSE is the default setting on storage accounts.
 Encryption at rest (CMK) | Supported. | Both software and hardware security module (HSM) keys are supported for managed disks.
 Double encryption at rest | Supported. | Learn more about supported regions for [Windows](/Azure/virtual-machines/disk-encryption) and [Linux](/Azure/virtual-machines/disk-encryption).
 FIPS encryption | Not supported.
 Azure Disk Encryption for Windows OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. |
-Azure Disk Encryption for Linux OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. <br><br> Known issue with enabling replication. For more information, see [Enable protection failed because the installer is unable to find the root disk](Azure-to-Azure-troubleshoot-errors.md). |
+Azure Disk Encryption for Linux OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. <br><br> Known issue with enabling replication. For more information, see [Enable protection failed because the installer is unable to find the root disk](azure-to-azure-troubleshoot-errors.md).
 Shared access signature key rotation | Supported. | If the shared access signature key for storage accounts is rotated, you must disable and re-enable replication. |
-Host caching | Supported. | Host caching isn't supported for Premium SSD v2 disks. For more information, see [Premium SSD v2 limitations](/azure/virtual-machines/disks-deploy-premium-v2?tabs=portal#limitations). |
+Host caching | Supported with disk-specific restrictions. | Validate the target VM cache capacity. Premium SSD v2, Ultra Disk, and shared disks don't support host caching.
 Hot add | Supported. | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks. <br/><br/> Use hot add to add only one disk at a time to an Azure VM. Parallel addition of multiple disks isn't supported. |
 Hot remove disk | Not supported. | If you remove a data disk on the VM, you need to disable replication and enable replication again for the VM.
-Exclude disk | Supported. Use [Azure PowerShell](Azure-to-Azure-exclude-disks.md) or go to the **Advanced Setting** > **Storage Settings** > **Disk to Replicate** option from the portal. | Temporary disks are excluded by default.
+Exclude disk | Supported. Use [Azure PowerShell](azure-to-azure-exclude-disks.md) or go to the **Advanced Setting** > **Storage Settings** > **Disk to Replicate** option from the portal. | Temporary disks are excluded by default.
 Storage Spaces Direct | Supported for crash-consistent recovery points. Application-consistent recovery points aren't supported. |
 Scale-Out File Server | Supported for crash-consistent recovery points. Application-consistent recovery points aren't supported. |
 Distributed replicated block device (DRBD) | Disks that are part of a DRBD setup aren't supported. |
-LRS | Supported. |
-GRS | Supported. |
-Read-access GRS | Supported. |
-ZRS | Supported. | 
+Cache storage account redundancy | Supported. | LRS, ZRS, GRS, and read-access GRS are supported according to the storage account type and region availability.
 Cool and hot storage | Not supported. | VM disks aren't supported on cool or hot storage.
 Azure Storage firewalls for virtual networks | Supported. | If you want to restrict virtual network access to storage accounts, enable [Allow trusted Microsoft services](../storage/common/storage-network-security.md#exceptions).
 General-purpose V2 storage accounts (hot and cool tiers) | Supported. | Transaction costs increase substantially compared to general-purpose V1 storage accounts.
-Generation 2 (UEFI boot) | Supported.
-Managed shared disk| Supported. |
-Managed Premium SSD v2| Supported. | Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Premium SSD v2 disks can't be supported. __This SKU supports only new replications. Disks must be PV2 from the enable time. Upgrading from PV1 to PV2 for an existing replication job isn't supported and requires re-enabling replication.__
-Ultra Disks | Supported. | Zonal Disaster Recovery isn't supported. Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Ultra Disks can't be supported.
+Managed shared disk | Supported with restrictions. | See the [shared disk support matrix](shared-disk-support-matrix.md). The same shared-disk set must be attached to every protected Windows Server Failover Cluster node, and every node must have a healthy Mobility service.
+Managed Premium SSD v2 | Supported. | Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Premium SSD v2 disks isn't supported there. Converting a protected Premium SSD v1 disk requires disabling and re-enabling replication. Public network access is required during enable protection or resynchronization operations. It can be disabled after the operation has completed.
+Ultra Disks | Supported. | Zone-to-zone disaster recovery isn't supported. Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Ultra Disks isn't supported there. Public network access is required during enable protection or resynchronization operations. It can be disabled after the operation has completed.
 Secure transfer option | Supported.
-Write accelerator enabled disks | Not supported.
+Write Accelerator-enabled disks | Not supported during protection. | Disable Write Accelerator before enabling replication. After failover, re-enable it manually only on a supported M-series VM with Premium SSD v1 and a compatible caching setting.
 Tags | Supported. | User-generated tags replicate every 24 hours.
 Soft delete | Not supported. | Soft delete isn't supported because after soft delete is enabled on a storage account, it increases cost. Site Recovery performs frequent creations and deletions of log files. Replicating causes costs to increase.
-iSCSI disks | Not supported. | You can use Site Recovery to migrate or fail over iSCSI disks into Azure. However, iSCSI disks aren't supported for Azure-to-Azure replication and failover/failback.
+iSCSI disks | Not supported. | Guest iSCSI disks can be migrated to Azure through the physical-machine migration workflow. They aren't supported for disaster recovery, failback, or Azure-to-Azure replication.
+Azure Elastic SAN volumes | Not supported as VM disks. | Site Recovery doesn't replicate Elastic SAN resources, snapshots, or iSCSI session configuration. Use Elastic SAN snapshots or application-level replication and recreate connectivity in the recovery site.
 Storage Replica | Not supported.
 
 >[!IMPORTANT]
@@ -474,7 +483,7 @@ The following table summarizes Site Recovery limits:
 - These limits are based on tests but don't cover all possible application I/O combinations.
 - Actual results can vary based on your app I/O mix.
 - Consider two limits: per-disk data churn and per-VM data churn.
-- The current limit for per-VM data churn is 54 MBps regardless of size.
+- Normal Churn supports up to 54 MB/s per VM. High Churn limits depend on VM memory, disk type and size, write size, operating system, region pair, Mobility service version, and cache account.
 
 Replica disk type | Average source disk I/O | Average source disk data churn | Total source disk data churn per day
 ---|---|---|---
@@ -485,7 +494,7 @@ Premium SSD with disk size 128 GiB or more | 32 KB or greater | 8 MBps | 672 GB 
 Premium SSD with disk size 512 GiB or more | 8 KB | 5 MBps | 421 GB per disk
 Premium SSD with disk size 512 GiB or more | 16 KB or greater |20 MBps | 1,684 GB per disk
 
-High-churn support is now available in Site Recovery where churn limit per VM increased up to 100 MBps. For more information, see [Azure VM disaster recovery: High-churn support](./concepts-Azure-to-Azure-high-churn-support.md).
+Eligible High Churn configurations support up to 500 MB/s per VM and 250 MB/s per disk. Other High Churn configurations remain limited to 54 MB/s or 100 MB/s per VM. For the authoritative limits, see [Azure VM disaster recovery: High Churn support](./concepts-azure-to-azure-high-churn-support.md).
 
 ## <a name = "replicated-machines---networking"></a>Replicated machines: Networking
 
@@ -493,8 +502,8 @@ Setting | Support | Details
 --- | --- | ---
 Network interface card (NIC) | Maximum number supported for a specific Azure VM size | NICs are created when the VM is created during failover.<br/><br/> The number of NICs on the failover VM depends on the number of NICs on the source VM when replication was enabled. If you add or remove a NIC after enabling replication, it doesn't affect the number of NICs on the replicated VM after failover. <br/><br/> The order of NICs after failover isn't guaranteed to be the same as the original order. <br><br> You can rename NICs in the target region based on your organization's naming conventions.
 Internet load balancer | Not supported | Set up public/internet load balancers in the primary region. Site Recovery doesn't support public/internet load balancers in the DR region.
-Internal load balancer | Supported | Associate the preconfigured load balancer by using an Azure Automation script in a recovery plan.
-Public IP address | Supported | Associate an existing public IP address with the NIC. You can also create a public IP address and associate it with the NIC by using an Azure Automation script in a recovery plan.
+Internal load balancer | Supported | The recovery load balancer must use the recovery virtual network and contain the selected backend pool. Its SKU and placement must be compatible with the VM zone, availability set, and VM size. Associate it by using an Azure Automation script in a recovery plan.
+Public IP address | Supported | The recovery public IP must exist in the target region, must not be attached to an unrelated NIC or VM, and must use a SKU compatible with the load balancer. Associate it with the NIC manually or by using an Azure Automation script in a recovery plan.
 Network security group (NSG) on NIC | Supported | Associate the NSG with the NIC by using an Azure Automation script in a recovery plan.
 NSG on subnet | Supported | Associate the NSG with the subnet by using an Azure Automation script in a recovery plan.
 Application security group (ASG) | Unsupported | Site Recovery doesn't support ASGs.
@@ -504,18 +513,18 @@ Multiple IP addresses | Supported | When you fail over a VM that has a NIC with 
 Azure Traffic Manager | Supported | You can preconfigure Traffic Manager so that traffic is regularly routed to the endpoint in the source region. You can also route traffic to the endpoint in the target region if there was failover.
 Azure Domain Name System (DNS) | Supported |
 Custom Domain Name System (DNS) | Supported |
-Unauthenticated proxy | Supported | Learn more about [networking in Azure VM disaster recovery](./Azure-to-Azure-about-networking.md).
+Unauthenticated proxy | Supported | Learn more about [networking in Azure VM disaster recovery](./azure-to-azure-about-networking.md).
 Authenticated proxy | Not supported | If the VM is using an authenticated proxy for outbound connectivity, it can't be replicated by using Site Recovery.
-VPN site-to-site connection to on-premises (with or without Azure ExpressRoute)| Supported | Ensure that the user-defined routes and NSGs are configured in such a way that the Site Recovery traffic isn't routed to on-premises. Learn more about [networking in Azure VM disaster recovery](./Azure-to-Azure-about-networking.md).
-Network-to-network connection | Supported | Learn more about [networking in Azure VM disaster recovery](./Azure-to-Azure-about-networking.md).
+VPN site-to-site connection to on-premises (with or without Azure ExpressRoute) | Supported | Ensure that the user-defined routes and NSGs are configured in such a way that the Site Recovery traffic isn't routed to on-premises. Learn more about [networking in Azure VM disaster recovery](./azure-to-azure-about-networking.md).
+Network-to-network connection | Supported | Learn more about [networking in Azure VM disaster recovery](./azure-to-azure-about-networking.md).
 Virtual network service endpoints | Supported | If you restrict the virtual network access to storage accounts, ensure that the trusted Microsoft services are allowed access to the storage account.
-Accelerated networking | Supported | You can enable accelerated networking on the recovery VM only if you enable it on the source VM also. Learn more about [accelerated networking with Azure VM disaster recovery](Azure-vm-disaster-recovery-with-accelerated-networking.md).
+Accelerated networking | Supported | You can enable accelerated networking on the recovery VM only if you enable it on the source VM also. Ensure that the source VM has sufficient network bandwidth and CPU capacity for the selected churn level. Learn more about [accelerated networking with Azure VM disaster recovery](azure-vm-disaster-recovery-with-accelerated-networking.md).
 Palo Alto Network Appliance | Not supported | With non-Microsoft appliances, the provider inside the VM often imposes restrictions. Site Recovery needs agents, extensions, and outbound connectivity to be available. The appliance doesn't allow any outbound activity to be configured inside the VM.
 IPv6 | Not supported | Mixed configurations that include both IPv4 and IPv6 are supported. Site Recovery uses any free IPv4 address that's available. If there are no free IPv4 addresses in the subnet, the configuration isn't supported.
-Private link access to Site Recovery | Supported | Learn more about how to [replicate machines with private endpoints](Azure-to-Azure-how-to-enable-replication-private-endpoints.md).
+Private link access to Site Recovery | Supported | Learn more about how to [replicate machines with private endpoints](azure-to-azure-how-to-enable-replication-private-endpoints.md).
 Tags | Supported | User-generated tags on NICs replicate every 24 hours.
 
 ## Related content
 
-- Read [networking guidance](./Azure-to-Azure-about-networking.md) for replicating Azure VMs.
-- Deploy disaster recovery by [replicating Azure VMs](./Azure-to-Azure-quickstart.md).
+- Read [networking guidance](./azure-to-azure-about-networking.md) for replicating Azure VMs.
+- Deploy disaster recovery by [replicating Azure VMs](./azure-to-azure-quickstart.md).

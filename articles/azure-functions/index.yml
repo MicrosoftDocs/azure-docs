@@ -71,10 +71,6 @@ landingContent:
         links:
           - text: AI-enabled functions
             url: functions-create-ai-enabled-apps.md
-      - linkListType: tutorial
-        links:
-          - text: Azure OpenAI for text completion
-            url: functions-add-openai-text-completion.md
       - linkListType: reference
         links:
           - text: Azure OpenAI bindings

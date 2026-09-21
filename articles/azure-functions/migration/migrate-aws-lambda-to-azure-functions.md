@@ -9,7 +9,7 @@ ms.custom:
 ms.collection: 
  - migration
  - aws-to-azure
-ms.date: 10/29/2025
+ms.date: 08/28/2026
 ms.topic: upgrade-and-migration-article
 #customer intent: As a developer, I want to learn how to migrate serverless applications from AWS Lambda to Azure Functions so that I can make the transition efficiently.
 ---
@@ -622,7 +622,7 @@ For more information, see [VNet.bicep](https://github.com/Azure-Samples/function
 
 #### Configure deployment settings
 
-Deployments follow a single path. After you build your project code and zip it into an application package, deploy it to a Blob Storage container. When it starts, your app gets the package and runs your function code from it. By default, the same storage account that stores internal host metadata, such as `AzureWebJobsStorage`, also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by configuring your app's deployment settings. For more information, see [Deployment technology details](/azure/azure-functions/functions-deployment-technologies#deployment-technology-details) and [Configure deployment settings](/azure/azure-functions/flex-consumption-how-to#configure-deployment-settings).
+Deployments follow a single path. After you build your project code and zip it into an application package, deploy it to a Blob Storage container. When it starts, your app gets the package and runs your function code from it. By default, the same storage account that stores internal host metadata, such as `AzureWebJobsStorage`, also serves as the deployment container. However, you can use an alternative storage account or choose your preferred authentication method by configuring your app's deployment settings. For more information, see [Deployment behavior by hosting plan](/azure/azure-functions/functions-deployment-technologies#deployment-behavior-by-hosting-plan) and [Configure deployment settings](/azure/azure-functions/flex-consumption-how-to#configure-deployment-settings).
  
 ### Generate IaC files
 
@@ -675,7 +675,7 @@ Deploy and test functions to validate their performance and correctness.
 
 ### Deploy to Azure
 
-Deploy workloads by using the [VS Code](/azure/azure-functions/functions-develop-vs-code#publish-to-azure) publish feature. You can also deploy workloads from the command line by using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). [Azure DevOps](/azure/azure-functions/functions-how-to-azure-devops#deploy-your-app) and [GitHub Actions](/azure/azure-functions/functions-how-to-github-actions) also use One Deploy.
+Deploy workloads by using the [VS Code](/azure/azure-functions/functions-develop-vs-code#publish-to-azure) publish feature. You can also deploy workloads from the command line by using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local#project-file-deployment) or the [Azure CLI](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). For automated package deployment, use [Azure DevOps](/azure/azure-functions/functions-how-to-azure-devops#deploy-your-app) or [GitHub Actions](/azure/azure-functions/functions-how-to-github-actions).
 
 - Azure Functions Core Tools: [Deploy your function app](/azure/azure-functions/flex-consumption-how-to#deploy-your-code-project) by using [Azure Functions Core Tools](/azure/azure-functions/functions-run-local) with the `func azure functionapp publish <FunctionAppName>` command.
 

@@ -2,7 +2,7 @@
 title: Tutorial to fail over Azure VMs to a secondary region for disaster recovery with Azure Site Recovery.
 description: Tutorial to learn how to fail over and reprotect Azure VMs replicated to a secondary Azure region for disaster recovery, with the Azure Site Recovery service.
 ms.topic: tutorial
-ms.date: 09/08/2025
+ms.date: 09/11/2026
 ms.custom: mvc
 ms.service: azure-site-recovery
 ms.author: v-gajeronika
@@ -74,6 +74,7 @@ Before you start this tutorial, you should have:
     ![Success notification](./media/azure-to-azure-tutorial-failover-failback/notification-failover-finish.png)     
 
 5. After the failover, the Azure VM created in the target region appears in **Virtual Machines**. Make sure that the VM is running, and sized appropriately. If you want to use a different recovery point for the VM, select **Change recovery point**, on the **Essentials** page.
+   Verify that any configured capacity reservation supports the target VM size and zone. Also verify the proximity placement group assignment. These placement settings depend on target availability and might require manual reassociation after failover or reprotection.
 6. When you're satisfied with the failed over VM, select **Commit** on the overview page, to finish the failover.
 
     ![Commit button](./media/azure-to-azure-tutorial-failover-failback/commit-button.png) 
@@ -97,7 +98,7 @@ After failover, you reprotect the VM in the secondary region, so that it replica
 2. Check that you can access the primary region is available, and that you have permissions to create VMs in it.
 3. On the VM **Overview** page, select **Re-Protect**.
 
-   ![Button to enable reprotect for a VM for a VM.](./media/azure-to-azure-tutorial-failover-failback/reprotect-button.png)
+   ![Button to enable reprotect for a VM.](./media/azure-to-azure-tutorial-failover-failback/reprotect-button.png)
 
 4. In **Re-protect**, verify the replication direction (secondary to primary region), and review the target settings for the primary region. Resources marked as new are created by Site Recovery as part of the reprotect operation.
 
@@ -113,4 +114,3 @@ After failover, you reprotect the VM in the secondary region, so that it replica
 ## Next steps
 
 In this tutorial, you failed over from the primary region to the secondary, and started replicating VMs back to the primary region. Now you can [fail back from the secondary region to the primary](azure-to-azure-tutorial-failback.md).
-

@@ -4,8 +4,9 @@ description: Learn how to create an enclave in Azure Enclave using the Azure por
 author: jadean-msft
 ms.author: jadean
 ai-usage: ai-assisted
+ms.service: azure-enclave
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 09/10/2026
 ---
 
 # Create an enclave in the Azure portal
@@ -60,18 +61,18 @@ Enclave deployments can take several minutes to complete. After deployment compl
 
    :::image type="content" source="./media/create-enclave-tab-3-maintenance-mode.png" alt-text="Screenshot showing the enclave maintenance mode settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-3-maintenance-mode.png":::
 
-1. Select `Next` and on the `Approvals` tab, decide which [approval settings](./configure-approvals.md) to apply to your enclave.
+1. Select `Next`. On the `Approvals` tab, decide which [approval settings](./configure-approvals.md) to apply to your enclave.
 
    :::image type="content" source="./media/create-enclave-tab-4-approvals.png" alt-text="Screenshot showing the enclave approvals settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-4-approvals.png":::
 
-1. Select `Next` and on the `Policy management` tab and customize your settings as needed.
+1. Select `Next`. On the `Policy management` tab, customize your settings as needed.
 
    :::image type="content" source="./media/create-enclave-tab-5-policy-management.png" alt-text="Screenshot showing the enclave policy management settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-5-policy-management.png":::
 
 1. Select `Next`. On the `Monitoring` tab, select where enclave logs are stored.
 
    :::image type="content" source="./media/create-enclave-tab-6-monitoring.png" alt-text="Screenshot showing the enclave monitoring settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-6-monitoring.png":::
-   
+
 1. Select `Next`. On the `Enclave administration` tab, select the users and groups that should have privileged access to the managed resource group for the enclave.
 
    :::image type="content" source="./media/create-enclave-tab-7-enclave-administration.png" alt-text="Screenshot showing the enclave administration settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-7-enclave-administration.png":::
@@ -83,11 +84,10 @@ Enclave deployments can take several minutes to complete. After deployment compl
      - Disabled: Only permissions defined under workload admin settings apply to workload resources.
    - `Reader Access`
      - Allowed: Standard RBAC inheritance is enabled for read permissions only over workload resources.
-     - Denied: Read access is denied unless explicitly defined under workload admin settings. 
-   - `Workload Access Controls`: Define role assignments and deny assignment exclusions over workload resource group(s). 
+     - Denied: Read access is denied unless explicitly defined under workload admin settings.
+   - `Workload Access Controls`: Define role assignments and deny assignment exclusions over workload resource groups.
 
    :::image type="content" source="./media/create-enclave-tab-8-workload-permissions.png" alt-text="Screenshot showing the enclave workload permissions settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-8-workload-permissions.png":::
-
 
 1. Select `Next`, and then create any [tags](/azure/azure-resource-manager/management/tag-resources) for your enclave.
 

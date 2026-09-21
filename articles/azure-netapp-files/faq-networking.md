@@ -103,6 +103,60 @@ There's no impact on your workload or volume creation ability. With the upgrade 
 
 Use Standard network features for all new deployments and plan to transition existing environments over time as part of normal lifecycle management. 
 
+## Basic to Standard networking upgrade 
+
+### Do I need to take any action for this upgrade?
+
+Yes. Review your UDR and NSG configurations to ensure there are no stale UDRs or NSGs that might become active and affect your traffic route after the upgrade before September 28. After this date, the upgrade starts and happens automatically in the background. You don't need to take any action for the upgrade. Starting June 2026, all new Azure NetApp Files volumes use Standard network features by default.
+
+### Will this upgrade impact my applications or cause downtime?
+
+Review your UDR/NSG configurations to ensure there are no stale UDRs or NSGs that might become active and affect your traffic route after the upgrade.
+
+During the upgrade, some volume operations such as create or delete might be temporarily unavailable (about 30 minutes) while the system completes internal updates.
+
+* This behavior is expected during the upgrade window.
+* The restriction is temporary (typically about 25 minutes per storage system).
+* Your existing volumes and applications continue to run normally.
+
+> [!NOTE] 
+> Check [how to avoid stale UDR configurations affecting your traffic](#how-to-avoid-and-update-stale-udr-configuration).
+
+### Why is this upgrade happening?
+
+This upgrade improves consistency and aligns your resources with Azure's latest networking model, helping ensure better long-term reliability and support.
+
+### What should I do if I encounter an error?
+
+Wait for the upgrade to complete and retry the operation. No other action is required. If you need more help, contact the Azure customer support team.
+
+> [!NOTE] 
+> Check [how to avoid stale UDR configurations affecting your traffic](#how-to-avoid-and-update-stale-udr-configuration).
+
+### Is there a cost difference between Basic and Standard network features?
+
+There's no cost difference when you move from Basic to Standard network features, unless you choose other Azure network features that involve costs, such as peering.
+
+### Can I manually update to Standard networking?
+
+Yes. You can manually update to Standard networking. Complete manual updates to Standard networking before September 28. After this date, if Azure doesn't automatically upgrade your volume, you might still be able to update it manually as Azure gradually rolls out updates across regions. The timing might vary depending on your region. 
+
+### How to avoid and update stale UDR configuration
+
+1. Identify the virtual network and delegated subnet used by the Azure NetApp Files volume.
+1. Review the route table associated with the delegated subnet. 
+    1. Access the Azure portal and use the search function to locate **Route tables**. 
+    1. Review the list of route tables available in your subscription. For more information, see [Manage route tables](../virtual-network/manage-route-table.yml).
+1. Before upgrading from Basic to Standard networking, remove or update any UDRs or NSGs that could cause traffic disruption after the upgrade.
+
+### What should I do if I'm using an MTU size greater than 1500?
+Azure NetApp Files supports an MTU size of 1500 bytes. If your environment is configured with a custom MTU greater than 1500, review and update your configuration to use 1500 MTU to ensure a supported setup.
+
+### What configuration does Standard network feature support?
+
+See the [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints) for information about the supported configuration.
+
+
 ## Next steps  
 
 - [Microsoft Azure ExpressRoute FAQs](../expressroute/expressroute-faqs.md)
