@@ -72,7 +72,7 @@ This guide shows how to create, authenticate, authorize, and use a connection in
 
 - [Create and manage connector namespaces for integration](create-connector-namespace.md)  
 - [What is Connector Namespace?](connector-namespace-overview.md)
-- [Use connectors in Azure Functions](../azure-functions/functions-connectors-overview.md)
+- [Connect Azure Functions to more services with connectors](../azure-functions/functions-connectors-overview.md)
 
 <!--
 - Subscribe to connector triggers

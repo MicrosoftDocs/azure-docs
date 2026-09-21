@@ -114,4 +114,4 @@ To manage your connector namespace and any connections, triggers, and MCP server
 
 - [Create reusable connections in connector namespaces for integration](create-connector-namespace-connection.md)
 - [What is Connector Namespace?](connector-namespace-overview.md)
-- [Use connectors in Azure Functions](../azure-functions/functions-connectors-overview.md)
+- [Connect Azure Functions to more services with connectors](../azure-functions/functions-connectors-overview.md)

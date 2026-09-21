@@ -32,6 +32,7 @@ This table shows the bindings that are supported in the major versions of the Az
 | [Table Storage](../articles/azure-functions/functions-bindings-storage-table.md)         |✔|✔| |✔|✔|
 | [Timer](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
+| [Managed connector](../articles/azure-functions/functions-connectors-overview.md) |✔|✔|✔| | |
 
 1. Register all bindings except HTTP and timer. See [Register Azure Functions binding extensions](../articles/azure-functions/functions-bindings-register.md). This step isn't required when using version 1.x of the Functions runtime.
 1. [Support ends for version 1.x of the Azure Functions runtime on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). [Migrate your apps to version 4.x](../articles/azure-functions/migrate-version-1-version-4.md) for full support.
