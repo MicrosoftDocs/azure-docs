@@ -685,14 +685,18 @@ items:
           href: /javascript/api/overview/azure/arm-appcontainers-readme
         - name: Python
           href: /python/api/azure-mgmt-appcontainers/azure.mgmt.appcontainers
-- name: Azure Arc
+- name: Azure Arc-enabled Kubernetes
   items:
-    - name: Azure Arc-enabled Kubernetes clusters
+    - name: Overview
       href: azure-arc-overview.md
-    - name: 1 - Set up Azure Arc-enabled Kubernetes clusters
+    - name: Plan deployment
+      href: azure-arc-plan.md
+    - name: Set up cluster
       href: azure-arc-enable-cluster.md
-    - name: 2 - Create container app
+    - name: Create first app
       href: azure-arc-create-container-app.md
+    - name: Troubleshoot
+      href: azure-arc-troubleshoot.md
 - name: Compliance
   items:
     - name: Secure your Azure Container Apps deployment

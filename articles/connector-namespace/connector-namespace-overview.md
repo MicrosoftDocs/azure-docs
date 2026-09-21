@@ -9,7 +9,7 @@ ms.service: connector-namespace
 ms.topic: concept-article
 ai-usage: ai-assisted
 ms.update-cycle: 365-days
-ms.date: 06/02/2026
+ms.date: 09/04/2026
 ms.custom:
   - build-2026
 #Customer intent: As a backend developer who works with Azure, I want to understand connector namespaces so I can integrate my Azure solutions with Microsoft and non-Microsoft services, systems, apps, and data. I want to learn how to use hosted, reusable connectors and MCP servers so I don't have to write or manage custom code for authentication, hosting, or API clients.
@@ -113,7 +113,7 @@ This section describes ways that your app can use connector namespaces and conne
 
   - Azure App Service
   - Azure Container Apps
-  - Azure Functions
+  - [Azure Functions](../azure-functions/functions-connectors-overview.md)
 
 - Any self-hosted compute service can use connectors through a connector namespace.
 
@@ -170,4 +170,3 @@ While Connector Namespace is in preview, review the following considerations if 
 - [Create reusable connections in connector namespaces for integration](create-connector-namespace-connection.md)
 - Learn about [hosted MCP servers](connector-namespace-hosted-mcp.md) and how they differ from managed MCP servers.
 - Add a [hosted MCP server](hosted-mcp-quickstart.md) from the catalog and configure it for your scenario.
-

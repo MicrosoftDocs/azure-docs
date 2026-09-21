@@ -16,7 +16,7 @@ ms.author: duau
 
 This article helps you configure point-to-site User VPN connection to Virtual WAN that uses Microsoft Entra ID authentication and the new **Microsoft-registered Azure VPN Client App ID**.
 
-[!INCLUDE [About Microsoft-registered app](../../includes/virtual-wan-entra-app-id-descriptions.md)]
+[!INCLUDE [About Microsoft-registered app](../networking/includes/virtual-wan/entra-app-id-descriptions.md)]
 
 [!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
@@ -107,7 +107,7 @@ This section shows you how to add a gateway to an already existing virtual hub. 
 
 In this section, you create a connection between your virtual hub and your virtual network.
 
-[!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect virtual network](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## <a name="download-profile"></a>Download User VPN profile
 

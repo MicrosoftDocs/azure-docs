@@ -22,7 +22,7 @@ The steps in this article help you create the architecture in the following diag
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../../includes/virtual-wan-before-include.md)]
+[!INCLUDE [Prerequisites](../networking/includes/virtual-wan/before.md)]
 
 * You have the values available for the authentication configuration that you want to use. For example, a RADIUS server, Microsoft Entra authentication, or [Generate and export certificates](certificates-point-to-site.md).
 
@@ -48,7 +48,7 @@ When selecting the authentication method, you have three choices. Each method ha
 
 * **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
-[!INCLUDE [Define parameters](../../includes/virtual-wan-p2s-configuration-include.md)]
+[!INCLUDE [Define parameters](../networking/includes/virtual-wan/p2s-configuration.md)]
 
 ## <a name="hub"></a>Create the hub and gateway
 
@@ -64,7 +64,7 @@ In this section, you create the virtual hub with a point-to-site gateway. When c
 
 ### Point to site page
 
-[!INCLUDE [Point to site page](../../includes/virtual-wan-p2s-gateway-include.md)]
+[!INCLUDE [Point to site page](../networking/includes/virtual-wan/p2s-gateway.md)]
 
 ## <a name="generate"></a>Generate VPN client configuration files
 
@@ -82,7 +82,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 
 In this section, you create a connection between your hub and the spoke VNet.
 
-[!INCLUDE [Connect spoke virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect spoke virtual network](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## <a name="create-vm"></a>Create virtual machines
 

@@ -19,7 +19,7 @@ This article shows you how to use Virtual WAN to connect to your resources in Az
 
 ## Prerequisites
 
-[!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
+[!INCLUDE [Before beginning](../networking/includes/virtual-wan/before.md)]
 
 ### Azure PowerShell
 

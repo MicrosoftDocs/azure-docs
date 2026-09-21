@@ -9,7 +9,7 @@ ms.service: connector-namespace
 ms.topic: how-to
 ai-usage: ai-assisted
 ms.update-cycle: 365-days
-ms.date: 06/02/2026
+ms.date: 09/04/2026
 ms.custom:
   - build-2026
 # Customer intent: As a backend developer who works with Azure, I want to create connector namespaces so I can organize and manage reusable connections, triggers, actions, and MCP servers that my solutions need to access and integrate with other services, systems, apps, and data.
@@ -114,4 +114,4 @@ To manage your connector namespace and any connections, triggers, and MCP server
 
 - [Create reusable connections in connector namespaces for integration](create-connector-namespace-connection.md)
 - [What is Connector Namespace?](connector-namespace-overview.md)
-
+- [Connect Azure Functions to more services with connectors](../azure-functions/functions-connectors-overview.md)

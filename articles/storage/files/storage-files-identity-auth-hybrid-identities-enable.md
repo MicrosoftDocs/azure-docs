@@ -81,7 +81,7 @@ Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](/entra
 
 ## Regional availability for Microsoft Entra Kerberos
 
-Microsoft Entra Kerberos supports hybrid and cloud-only identities in all regions of the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/).
+Microsoft Entra Kerberos supports hybrid identities in all regions of the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/). Cloud-only identities are supported in all regions of the Azure Public cloud, but aren't supported in Azure US Gov or Azure China 21Vianet clouds.
 
 <a name='enable-azure-ad-kerberos-authentication'></a>
 
