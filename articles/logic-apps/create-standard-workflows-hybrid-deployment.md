@@ -405,7 +405,7 @@ Store the client secret in your logic app resource as a secret, and then referen
 
 1. In the Azure portal, go to your logic app resource.
 
-1. On the resource menu, under **Settings**, select **Secrets**.
+1. On the logic app sidebar, under **Settings**, select **Secrets**.
 
 1. On the toolbar, select **Add**.
 
