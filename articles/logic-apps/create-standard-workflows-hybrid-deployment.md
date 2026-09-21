@@ -332,7 +332,7 @@ Managed identity authentication isn't currently supported for managed API connec
    - Client ID
    - Tenant ID
 
-1. On the resource menu, select **Certificates & secrets** > **Client secrets** > **New client secret**.
+1. On the resource sidebar, select **Certificates & secrets** > **Client secrets** > **New client secret**.
 
 1. Create the client secret, and immediately save the secret's **Value**. The value doesn't appear again after you leave the page.
 
