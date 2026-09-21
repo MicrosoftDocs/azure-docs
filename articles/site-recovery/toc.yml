@@ -477,10 +477,6 @@
       href: ../backup/backup-center-obtain-insights.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
     - name: Perform actions
       href: ../backup/backup-center-actions.md?toc=/azure/site-recovery/toc.json&bc=/azure/site-recovery/breadcrumb/toc.json
-  - name: Archive - retired classic experience
-    items:
-    - name: VMware VM
-    - name: Physical VM
 - name: Automation
   items:
   - name: Set up disaster recovery of Azure VMs using PowerShell
