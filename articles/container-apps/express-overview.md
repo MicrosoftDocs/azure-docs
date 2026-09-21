@@ -91,9 +91,9 @@ Keep these important points in mind when using express:
 
 - **Opinionated configuration**: The express model uses opinionated defaults with a minimal configuration surface. If you need fine-grained control over compute, networking, or cold-start behavior, use standard Container Apps with a [workload profiles environment](environment.md).
 
-- **Focused networking**: Express supports internal or external ingress, IP restrictions, CORS, virtual network egress, and environment private endpoints. For virtual network egress, use either an environment-level subnet or an app-level outbound subnet. An app-level subnet can't be combined with an environment-level virtual network, can only be shared by apps in the same environment, and can't be changed or removed after it's set. Custom domains, client certificates, session affinity, and built-in service discovery aren't yet supported.
+- **Focused networking**: Express supports internal or external ingress, IP restrictions, CORS, virtual network egress, and environment private endpoints. For virtual network egress, use either an environment-level subnet or an app-level outbound subnet. An app-level subnet can't be combined with an environment-level virtual network, can only be shared by apps in the same environment, and can't be changed or removed after it's set. Custom domains, client certificates, session affinity, and built-in service discovery aren't supported.
 
-- **Feature availability**: Express offers a focused set of Container Apps capabilities. User-assigned managed identities, HTTP, CPU, and memory scale rules, `EmptyDir` volume mounts, and custom ephemeral storage are available with the limitations described in the following table. Dapr, jobs, workload profiles, and system-assigned managed identities aren't yet supported.
+- **Feature availability**: Express offers a focused set of Container Apps capabilities. User-assigned managed identities, HTTP, CPU, and memory scale rules, `EmptyDir` volume mounts, and custom ephemeral storage are available with the limitations described in the following table. Dapr, jobs, workload profiles, and system-assigned managed identities aren't supported.
 
 ## Supported features
 
