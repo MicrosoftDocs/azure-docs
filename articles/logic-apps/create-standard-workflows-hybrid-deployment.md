@@ -317,7 +317,7 @@ You can expose your logic app to the public web, your virtual network, and other
 
 ## Set up authentication for managed API connections
 
-Managed identity authentication isn't currently supported for managed API connections in hybrid logic apps. To authenticate these connections, you must create your own app registration using Microsoft Entra ID. You can then add this app registration's values as environment variables in your Standard logic app resource. This authentication model requires connectivity to Microsoft Entra ID.
+Managed identity authentication isn't currently supported for managed API connections in hybrid logic apps. To authenticate these connections, you must create your own app registration by using Microsoft Entra ID. You can then add this app registration's values as environment variables in your Standard logic app resource. This authentication model requires connectivity to Microsoft Entra ID.
 
 ### Create an app registration with Microsoft Entra ID
 
