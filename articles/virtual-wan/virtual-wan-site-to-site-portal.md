@@ -57,7 +57,7 @@ In this section, you configure site-to-site connectivity settings, and then crea
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
-[!INCLUDE [hub warning message](../../includes/virtual-wan-hub-router-provisioning-warning.md)]
+[!INCLUDE [hub warning message](../networking/includes/virtual-wan/hub-router-provisioning-warning.md)]
 
 ## <a name="site"></a>Create a site
 
@@ -67,13 +67,13 @@ For example, if you have a branch office in NY, a branch office in London, and a
 
 If you have a Virtual WAN partner CPE device, check with them to learn about their automation to Azure. Typically, automation implies a simple click experience to export large-scale branch information into Azure, and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway. For more information, see [Automation guidance from Azure to CPE partners](virtual-wan-configure-automation-providers.md).
 
-[!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
+[!INCLUDE [Create a site](../networking/includes/virtual-wan/tutorial-s2s-site.md)]
 
 ## <a name="connectsites"></a>Connect the VPN site to a virtual hub
 
 In this section, you connect your VPN site to the virtual hub.
 
-[!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
+[!INCLUDE [Connect VPN sites](../networking/includes/virtual-wan/tutorial-s2s-connect-vpn-site.md)]
 
 ## <a name="vnet"></a>Connect a VNet to the virtual hub
 

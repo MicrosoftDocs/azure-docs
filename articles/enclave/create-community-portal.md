@@ -30,7 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
    :::image type="content" source="./media/azure-enclave-homepage.png" alt-text="Screenshot showing the Azure portal homepage for Azure Enclave with the Create a community button." border="True" lightbox="./media/azure-enclave-homepage.png#lightbox":::
 
-1. Select the `Create a community` button. The community deployment can take several minutes to complete.
+1. Select the `Create a community` button.
 1. Enter details for your community on the `Basics` tab:
    - `Subscription`: Select an Azure subscription.
    - `Resource group`: Create a new resource group or select an existing one.

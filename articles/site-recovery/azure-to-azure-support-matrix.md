@@ -435,15 +435,15 @@ Standard SSD | Supported. |
 Managed disk redundancy | LRS and ZRS are supported. | ZRS is available only for Standard SSD and Premium SSD v1. Premium SSD v2 and Ultra Disk don't have a ZRS SKU.
 Cool and hot storage | Not supported. | VM disks aren't supported on cool or hot storage.
 Storage Spaces | Supported. |
-NVMe storage interface | Supported with restrictions. | Remote managed-disk NVMe requires an eligible Generation 2 Standard or Trusted Launch image, a supported Mobility service version and operating system, and an available target VM size. Supported Linux configurations include RHEL 9, SLES 15 SP4 or later, SLES 16, Ubuntu 24.04, and Ubuntu 26.04. `curl` and access to Azure Instance Metadata Service are required during installation and upgrade. Mixed SCSI and NVMe controllers, multiple controller addresses of the same type, ephemeral OS disks, and local NVMe disks aren't supported.
+NVMe storage interface | Supported | Remote managed-disk NVMe requires an eligible Generation 2 Standard or Trusted Launch image, a supported Mobility service version and operating system, and an available target VM size. Supported for Azure-to-Azure - Windows and [limited Linux distributions and versions](#linux-distributions-supported-for-nvme) for Gen2 VMs such as Da/Ea/Fa v6-series, Ddsv6, Edsv6, Ebsv5/Ebdsv5, and others that use NVMe interface. `curl` and access to Azure Instance Metadata Service are required during installation and upgrade. Mixed SCSI and NVMe controllers, multiple controller addresses of the same type, ephemeral OS disks, and local NVMe disks aren't supported.
 Local storage | Not replicated. | Azure temporary or resource disks and directly mapped local NVMe devices must not contain persistent data. A VM with an ordinary temporary disk can be protected when all other requirements are met. Ephemeral OS disks aren't supported.
-Performance Plus disk | Supported for Azure-to-Azure disaster recovery. | Requires High Churn. The setting is preserved for replication, test failover, and failover. Use a supported cache account and region.
+Performance Plus disk | Supported | For VMs using Premium SSD, Standard SSD, Standard HDD disks. Ensure that you use only premium storage accounts during replication. Requires High Churn. The setting is preserved for replication, test failover, and failover. Use a supported cache account and region.
 Disk performance settings | Supported with restrictions. | For Premium SSD v2 and Ultra Disk, only the IOPS and throughput configured when replication is enabled are copied to the target disk. Later changes aren't reflected. For Premium SSD v1 tier or SKU changes, wait for a new recovery point before failover.
 Replica disk SKU changes | Supported with restrictions. | You can move a replica disk to a higher supported tier after revoking its active shared access signature (SAS). Premium SSD v2 (`PremiumV2_LRS`) and Ultra Disk (`UltraSSD_LRS`) aren't supported as replica disk types in any Site Recovery scenario. If a replica disk is manually changed to either unsupported SKU, replication is blocked. Because the disk can't be downgraded to Premium SSD v1, disable and re-enable replication to create a supported replica disk.
 Premium SSD v2 and Ultra Disk replication operation duration | Supported with additional time. | Initial replication, checksum-based resynchronization, and reprotection can take longer than the same operations for Premium SSD v1. The relative difference decreases as disk size increases. For planning estimates, see [initial replication, reprotection, and resynchronization duration estimates](azure-to-azure-common-questions.md#initial-replication-reprotection-and-resynchronization-duration-estimates).
 Premium SSD v2 and Ultra Disk source snapshots | Retained by default. | During initial replication and resynchronization, Site Recovery creates a managed disk snapshot directly from each source disk. The retained snapshot helps a future resynchronization finish faster. To reduce snapshot charges, you can delete it after initial replication or resynchronization completes. Ongoing replication continues, but a future resynchronization can take longer because Site Recovery must create a new snapshot.
 Mixed controller VMs (SCSI + NVMe) | Not supported. | VM sizes such as Lsv3 aren't supported.
-Encryption at host | Source protection is supported, but the setting isn't preserved. | Encryption at host isn't enabled on test-failover or failover VMs. Select a supported target VM size and re-enable encryption at host after failover.
+Encryption at host | Source protection is supported, but the setting isn't preserved. | Encryption at host isn't enabled on test-failover or failover VMs. Select a supported target VM size and re-enable encryption at host after failover. For more information, see [Enable end-to-end encryption by using encryption at host](/Azure/virtual-machines/disks-enable-host-based-encryption-portal).
 Encryption at rest (SSE) | Supported. | SSE is the default setting on storage accounts.
 Encryption at rest (CMK) | Supported. | Both software and hardware security module (HSM) keys are supported for managed disks.
 Double encryption at rest | Supported. | Learn more about supported regions for [Windows](/Azure/virtual-machines/disk-encryption) and [Linux](/Azure/virtual-machines/disk-encryption).
@@ -475,6 +475,14 @@ Storage Replica | Not supported.
 
 >[!IMPORTANT]
 > To avoid performance issues, ensure that you follow VM disk scalability and performance targets for [managed disks](/Azure/virtual-machines/disks-scalability-targets). If you use default settings, Site Recovery creates the required disks and storage accounts based on the source configuration. If you customize and select your own settings, follow the disk scalability and performance targets for your source VMs.
+
+#### Linux distributions supported for NVMe
+
+Linux distribution | Supported versions
+--- | ---
+Red Hat Enterprise Linux (RHEL) | 9.0 to 9.7
+Ubuntu | 24.04 LTS
+SUSE Linux Enterprise Server (SLES) | 15 (SP4 to SP7)
 
 ## Limits and data change rates
 

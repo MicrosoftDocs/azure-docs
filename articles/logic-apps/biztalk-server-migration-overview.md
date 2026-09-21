@@ -81,6 +81,9 @@ For pricing details, see [Azure Logic Apps pricing and billing models](logic-app
 
 Azure Logic Apps has separate Consumption and Standard resource types. For BizTalk migration, use Azure Logic Apps Standard capabilities and choose an Azure-hosted or hybrid hosting option based on your requirements.
 
+> [!IMPORTANT]
+>
+> If you currently use Azure Logic Apps Consumption and plan to migrate BizTalk Server workloads, you must migrate to Azure Logic Apps Standard. BizTalk migration capabilities aren't supported for Consumption workflows.
 
 | Hosting option | Best fit | Cost and ownership | Key considerations |
 | --- | --- | --- | --- |
@@ -98,17 +101,17 @@ For required infrastructure, supported configurations, pricing, and current limi
 
 BizTalk Server and Azure Logic Apps use different architectures. Use the Migration Agent to inventory each BizTalk application, map its artifacts and integration patterns to Logic Apps capabilities, and identify components that you need to reuse, refactor, replace, or redesign.
 
-| BizTalk capability | Logic Apps modernization path | Typical assessment |
-| --- | --- | --- |
-| Orchestrations | Stateful or stateless Standard workflows | Refactor business process logic into workflows. |
-| Pipelines and helper code | Workflow actions, .NET local functions, inline code, custom connectors, or external services | Reuse or refactor according to the required lifecycle and scale boundary. |
-| MessageBox routing | Azure Service Bus topics and subscriptions, RabbitMQ exchanges, Apache Kafka topics, or workflow routing | Redesign messaging independently from the workflow runtime. |
-| Schemas and maps | Project artifacts, XSLT maps, Liquid templates, and Data Mapper | Reuse compatible artifacts and validate transformations. |
-| Business rules | Azure Logic Apps Rules Engine | Reuse supported BizTalk Business Rules Engine policies or refactor unsupported facts. |
-| EDI and B2B | Standard workflows, connectors, and integration accounts | Assess partners, agreements, certificates, schemas, and protocol requirements. |
-| Adapters | Built-in, managed, or custom connectors and APIs | Confirm connector availability, authentication, throughput, and hosting support. |
-| BAM | Azure Business Process Tracking for supported Azure-hosted solutions, or an external observability design | Redesign for hybrid deployment, where Azure Business Process Tracking isn't supported. |
-| Tracking and monitoring | Run history, tracked properties, Azure Monitor, Application Insights, and OpenTelemetry | Refactor the operational and support model. |
+| BizTalk capability | Logic Apps modernization path | Typical assessment | Related guidance |
+| --- | --- | --- | --- |
+| Orchestrations | Stateful or stateless Standard workflows | Refactor business process logic into workflows. | [Create a Standard workflow](create-single-tenant-workflows-azure-portal.md) |
+| Pipelines and helper code | Workflow actions, .NET local functions, inline code, custom connectors, or external services | Reuse or refactor according to the required lifecycle and scale boundary. | [Create and run .NET local functions](create-run-custom-code-functions.md) |
+| MessageBox routing | Azure Service Bus topics and subscriptions, RabbitMQ exchanges, Apache Kafka topics, or workflow routing | Redesign messaging independently from the workflow runtime. | [Service Bus queues, topics, and subscriptions](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) |
+| Schemas and maps | Project artifacts, XSLT maps, Liquid templates, and Data Mapper | Reuse compatible artifacts and validate transformations. | [Schemas](logic-apps-enterprise-integration-schemas.md) and [maps](logic-apps-enterprise-integration-maps.md) |
+| Business rules | Azure Logic Apps Rules Engine | Reuse supported BizTalk Business Rules Engine policies or refactor unsupported facts. | [Azure Logic Apps Rules Engine overview](rules-engine/rules-engine-overview.md) |
+| EDI and B2B | Standard workflows, connectors, and integration accounts | Assess partners, agreements, certificates, schemas, and protocol requirements. | [B2B enterprise integration workflows](logic-apps-enterprise-integration-overview.md) |
+| Adapters | Built-in, managed, or custom connectors and APIs | Confirm connector availability, authentication, throughput, and hosting support. | [Connectors overview](../connectors/introduction.md) |
+| BAM | Azure Business Process Tracking for supported Azure-hosted solutions, or an external observability design | Redesign for hybrid deployment, where Azure Business Process Tracking isn't supported. | [Azure Business Process Tracking overview](../business-process-tracking/overview.md) |
+| Tracking and monitoring | Run history, tracked properties, Azure Monitor, Application Insights, and OpenTelemetry | Refactor the operational and support model. | [Monitor logic apps and workflows](monitor-logic-apps-overview.md) |
 
 The following diagram provides another view of common BizTalk Server capabilities and their Azure-hosted modernization paths:
 

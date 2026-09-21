@@ -6,7 +6,7 @@ ms.service: azure-virtual-wan
 ms.topic: include
 ---
 
-1. To generate a [WAN-level global profile](../articles/virtual-wan/global-hub-profile.md) VPN client configuration package, go to the **virtual WAN** (not the virtual hub).
+1. To generate a [WAN-level global profile](../../../virtual-wan/global-hub-profile.md) VPN client configuration package, go to the **virtual WAN** (not the virtual hub).
 
 1. In the left pane, select **User VPN configurations**.
 

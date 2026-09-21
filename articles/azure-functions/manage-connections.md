@@ -3,7 +3,7 @@ title: Configure connections to remote services in Azure Functions
 description: Learn how to securely and efficiently connect to remote services from your function app in Azure.
 ms.topic: concept-article
 ms.custom: devx-track-csharp, peer-review-program
-ms.date: 07/07/2026
+ms.date: 09/18/2026
 ai-usage: ai-assisted
 zone_pivot_groups: functions-auth-method
 
@@ -36,7 +36,7 @@ The Functions host requires your app to have these specific named connections, w
 
 + [**`APPLICATIONINSIGHTS_CONNECTION_STRING`**](./functions-app-settings.md#applicationinsights_connection_string): You should also configure the host to write logs to an Application Insights instance.
 
-+ [**`WEBSITE_AZUREFILESCONNECTIONSTRING`**](functions-app-settings.md#website_contentazurefileconnectionstring): Used only by apps that run in a [Consumption plan](./consumption-plan.md) or [Elastic Premium plan](./functions-premium-plan.md). Defines the storage account that contains the Azure Files share that maintains the deployment package for your app. 
++ [**`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`**](functions-app-settings.md#website_contentazurefileconnectionstring): Used only by apps that run in a [Consumption plan](./consumption-plan.md) or [Elastic Premium plan](./functions-premium-plan.md). Defines the storage account that contains the Azure Files share that maintains the deployment package for your app.
 
 ### [Bindings](#tab/bindings)
 
@@ -101,13 +101,13 @@ Managed identity support for `AzureWebJobsStorage` varies by hosting plan:
 | --- | --- | --- | --- |
 | [Flex Consumption](./flex-consumption-plan.md) | Full support | None (no Azure Files) | Recommended for MI |
 | [Dedicated (App Service)](./dedicated-plan.md) | Full support | None (no dynamic scaling) | Full MI, no workaround needed |
-| [Consumption](./consumption-plan.md) | Blobs, queues, tables | Key Vault or remove Azure Files | Store `WEBSITE_AZUREFILESCONNECTIONSTRING` in Key Vault |
-| [Elastic Premium](./functions-premium-plan.md) | Blobs, queues, tables | Key Vault or remove Azure Files | Store `WEBSITE_AZUREFILESCONNECTIONSTRING` in Key Vault |
+| [Consumption](./consumption-plan.md) | Blobs, queues, tables | Key Vault or remove Azure Files | Store `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` in Key Vault |
+| [Elastic Premium](./functions-premium-plan.md) | Blobs, queues, tables | Key Vault or remove Azure Files | Store `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` in Key Vault |
 
 Before using managed identities for host-required connections, consider these limitations:
 
 + For Consumption and Premium plans, implement one of these workarounds for Azure Files:
-    + Store only the `WEBSITE_AZUREFILESCONNECTIONSTRING` connection string in Key Vault, which is the next most secure option.
+    + Store only the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` connection string in Key Vault, which is the next most secure option.
     + Create a Consumption or Premium plan app that runs without Azure Files. There are performance impacts when running without Azure Files. For more information, see [Create an app without Azure Files](./storage-considerations.md#create-an-app-without-azure-files).
 + These triggers rely on `AzureWebJobsStorage` to run correctly: 
     + Azure Blob Storage
@@ -119,10 +119,11 @@ Before using managed identities for host-required connections, consider these li
 + `AzureWebJobsStorage` maintains deployment artifacts in server-side (remote) builds in a Linux Consumption plan. In this scenario, you must deploy and run your app from an [external deployment package](deployment-zip-push.md#run-from-an-external-package-url).
 + Other components of your function app might reuse the `AzureWebJobsStorage` connection, which could include storage binding extensions or storage clients created using the Azure SDK. When using managed identities, create new application settings for these nonhost components, even when they support managed identities.  
 
-These specific app settings define identity-based connections to both [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage) and [`APPLICATIONINSIGHTS_CONNECTION_STRING`](./functions-app-settings.md#applicationinsights_connection_string):
+These specific app settings define identity-based connections to both [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage) and [`APPLICATIONINSIGHTS_CONNECTION_STRING`](./functions-app-settings.md#applicationinsights_connection_string). For a storage account that uses the standard Azure DNS endpoints, set `AzureWebJobsStorage__accountName`. For a storage account in a sovereign cloud or that uses custom DNS, instead set the three service-specific URI settings.
 
 | Setting | Description | 
 | ---------- | ------------ | 
+| [`AzureWebJobsStorage__accountName`](./functions-app-settings.md#azurewebjobsstorage__accountname) | The name of the default storage account. Use this setting when the account uses standard Azure DNS endpoints. This syntax is unique to `AzureWebJobsStorage`. |
 | [`AzureWebJobsStorage__blobServiceUri`](./functions-app-settings.md#azurewebjobsstorage__blobserviceuri)| The URI for Blob Storage in the default storage account. Required for sovereign clouds or a custom storage DNS, such as: `https://mystorageaccount.blob.contoso.com`. `HTTPS` is required. |
 | [`AzureWebJobsStorage__queueServiceUri`](./functions-app-settings.md#azurewebjobsstorage__queueserviceuri) | The URI for Queue Storage in the default storage account. Required for sovereign clouds or a custom storage DNS, such as: `https://mystorageaccount.queue.contoso.com`. `HTTPS` is required.|
 | [`AzureWebJobsStorage__tableServiceUri`](./functions-app-settings.md#azurewebjobsstorage__tableserviceuri) | The URI for Table Storage in the default storage account. Required for sovereign clouds or a custom storage DNS, such as: `https://mystorageaccount.table.contoso.com`. `HTTPS` is required. |
@@ -130,22 +131,45 @@ These specific app settings define identity-based connections to both [`AzureWeb
 | [`AzureWebJobsStorage__clientId`](./functions-app-settings.md#azurewebjobsstorage__clientid) or<br/>[`AzureWebJobsStorage__managedIdentityResourceId`](./functions-app-settings.md#azurewebjobsstorage__managedidentityresourceid) | Returns a specific user-assigned identity used to obtain an access token for managed identity authentication. When neither is set, the system-assigned identity of the application is used. |
 | [`APPLICATIONINSIGHTS_AUTHENTICATION_STRING`](./functions-app-settings.md#applicationinsights_authentication_string) | Enables connections to Application Insights using Microsoft Entra authentication. Set to either `Authorization=AAD` (system-assigned) or `ClientId=<YOUR_CLIENT_ID>;Authorization=AAD` (user-assigned). |
 
-Because the double-underscore value (`__`) is interpreted at runtime as a colon (`:`), the series of settings are interpreted as properties of the `AzureWebJobsStorage` object. For example, consider these `AzureWebJobsStorage` connection settings:
+Because the double-underscore value (`__`) is interpreted at runtime as a colon (`:`), the series of settings are interpreted as properties of the `AzureWebJobsStorage` object. Choose the example that matches your storage account configuration.
 
-+ `AzureWebJobsStorage__blobServiceUri=https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
-+ `AzureWebJobsStorage__queueServiceUri=https://<STORAGE_ACCOUNT_NAME>.queue.core.windows.net` 
-+ `AzureWebJobsStorage__tableServiceUri=https://<STORAGE_ACCOUNT_NAME>.table.core.windows.net` 
+#### Use standard Azure DNS endpoints for AzureWebJobsStorage
+
+For a storage account that uses standard Azure DNS endpoints, use these app settings:
+
++ `AzureWebJobsStorage__accountName=<ACCOUNT_NAME>`
 + `AzureWebJobsStorage__credential=managedidentity`
 + `AzureWebJobsStorage__clientId=<MY_USER_ASSIGNED_IDENTITY_ID>`
 
-At runtime, the host interprets these settings as a complex `AzureWebJobsStorage` setting.
+At runtime, the host interprets these settings as a complex `AzureWebJobsStorage` setting:
 
 ```json
 "AzureWebJobsStorage":
 {
-    "blobServiceUri": "https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net",
-    "queueServiceUri": "https://<STORAGE_ACCOUNT_NAME>.queue.core.windows.net",
-    "tableServiceUri": "https://<STORAGE_ACCOUNT_NAME>.table.core.windows.net",
+    "accountName": "<ACCOUNT_NAME>",
+    "credential": "managedidentity",
+    "clientId": "<MY_USER_ASSIGNED_IDENTITY_ID>"
+}
+```
+
+#### Use custom DNS or sovereign cloud endpoints for AzureWebJobsStorage
+
+For a storage account that uses custom DNS or is in a sovereign cloud, use these app settings:
+
++ `AzureWebJobsStorage__blobServiceUri=https://<ACCOUNT_NAME>.blob.contoso.com`
++ `AzureWebJobsStorage__queueServiceUri=https://<ACCOUNT_NAME>.queue.contoso.com`
++ `AzureWebJobsStorage__tableServiceUri=https://<ACCOUNT_NAME>.table.contoso.com`
++ `AzureWebJobsStorage__credential=managedidentity`
++ `AzureWebJobsStorage__clientId=<MY_USER_ASSIGNED_IDENTITY_ID>`
+
+At runtime, the host interprets these settings as a complex `AzureWebJobsStorage` setting:
+
+```json
+"AzureWebJobsStorage":
+{
+    "blobServiceUri": "https://<ACCOUNT_NAME>.blob.contoso.com",
+    "queueServiceUri": "https://<ACCOUNT_NAME>.queue.contoso.com",
+    "tableServiceUri": "https://<ACCOUNT_NAME>.table.contoso.com",
     "credential": "managedidentity",
     "clientId": "<MY_USER_ASSIGNED_IDENTITY_ID>"
 }
@@ -326,7 +350,7 @@ Keep these considerations in mind when maintaining connections in Key Vault:
 
 You can configure the [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage) setting to return a [Key Vault reference](../app-service/app-service-key-vault-references.md) that contains the connection string instead of returning the connection string itself. To learn how, see [Use Key Vault references as app settings](../app-service/app-service-key-vault-references.md).
 
-Azure Files doesn't currently support managed identity connections. Because of this limitation, use Key Vault to secure the `WEBSITE_AZUREFILESCONNECTIONSTRING` setting, which is required for dynamic scaling by both Consumption and Premium plans. The [Flex Consumption plan](./flex-consumption-plan.md) is also a dynamic plan that doesn't use Azure Files and fully supports managed identity connections.   
+Azure Files doesn't currently support managed identity connections. Because of this limitation, use Key Vault to secure the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` setting, which is required for dynamic scaling by both Consumption and Premium plans. The [Flex Consumption plan](./flex-consumption-plan.md) is also a dynamic plan that doesn't use Azure Files and fully supports managed identity connections.
 
 ### [Bindings](#tab/bindings)
 

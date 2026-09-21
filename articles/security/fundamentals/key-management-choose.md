@@ -1,19 +1,19 @@
 ---
 title: How to choose the right Azure key management solution
-titleSuffix: How to choose between Azure Key Vault, Azure Key Vault Managed HSM, Azure Cloud HSM, and Azure Payment HSM
-description: Choose the right Azure key management solution. Compare Azure Key Vault, Managed HSM, Cloud HSM, and Payment HSM by use case, compliance, and cost.
+titleSuffix: How to choose between Azure Key Vault, Azure Key Vault Managed HSM, Azure Cloud HSM, Azure Payment HSM, and Azure Payment HSM v2
+description: Choose the right Azure key management solution. Compare Azure Key Vault, Managed HSM, Cloud HSM, Payment HSM, and Payment HSM v2 by use case, compliance, and cost.
 services: security
 author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.date: 07/08/2026
+ms.date: 09/18/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 ---
 
 # How to choose the right Azure key management solution
 
-Azure offers several solutions for cryptographic key storage and management in the cloud: Azure Key Vault (standard and premium offerings), Azure Key Vault Managed HSM, Azure Cloud HSM, and Azure Payment HSM. This article helps you choose the right solution based on your scenarios, requirements, and industry.
+Azure offers several solutions for cryptographic key storage and management in the cloud: Azure Key Vault (standard and premium offerings), Azure Key Vault Managed HSM, Azure Cloud HSM, Azure Payment HSM, and Azure Payment HSM v2 (preview). This article helps you choose the right solution based on your scenarios, requirements, and industry.
 
 For an overview of key management concepts and detailed descriptions of each solution, see [Key management in Azure](key-management.md).
 
@@ -33,8 +33,8 @@ It also refers to these various key management use cases:
 
 - Azure IaaS, PaaS, and SaaS models typically enable _encryption at rest_. Applications such as Microsoft 365; Microsoft Purview Information Protection; platform services that use the cloud for storage, analytics, and service bus functionality; and infrastructure services that host and deploy operating systems and applications in the cloud use encryption at rest. Azure Storage and Microsoft Entra use _customer-managed keys for encryption at rest_. For the highest security, use HSM-backed, 3072-bit or 4096-bit RSA keys. For customer-managed key scenarios, use Azure Key Vault Premium as the recommended minimum. Use Azure Key Vault Managed HSM for key sovereignty. If regulatory or contractual requirements mandate that key encryption keys (KEKs) physically reside outside Microsoft infrastructure, Managed HSM external key management (preview) can delegate wrap and unwrap operations to a customer-run external key management (EKM) Proxy in front of a customer-owned, customer-operated HSM outside Azure. Use external key management only when physical key control outside Microsoft infrastructure is mandatory. External key management supports wrap and unwrap only, and the Managed HSM service-level agreement (SLA) doesn't cover it. For more information about encryption at rest, see [Azure Data Encryption at Rest](encryption-atrest.md).
 - Azure Key Vault Managed HSM and Azure Cloud HSM support _SSL/TLS offload_. Azure Cloud HSM supports traditional SSL/TLS offloading with Apache, NGINX, and F5 BIG-IP running in Azure Virtual Machines. Azure Key Vault Managed HSM provides high availability and security for Keyless TLS with F5 and NGINX.
-- _Lift and shift_ refers to scenarios where you migrate an on-premises PKCS#11 application to Azure Virtual Machines and run software such as Oracle transparent data encryption (TDE) in Azure Virtual Machines. Azure Payment HSM supports lift and shift that requires payment PIN processing. Azure Cloud HSM supports all other scenarios. Full native PKCS#11, JCA/JCE, and CNG/KSP support is available only with Azure Cloud HSM. Azure Key Vault Managed HSM offers [limited PKCS#11 support](/azure/key-vault/managed-hsm/tls-offload-library) for TLS offload scenarios with F5 and NGINX.
-- _Payment PIN processing_ includes allowing card and mobile payment authorization and 3D-Secure authentication; PIN generation, management, and validation; payment credential issuing for cards, wearables, and connected devices; securing keys and authentication data; and sensitive data protection for point-to-point encryption, security tokenization, and EMV payment tokenization. This also includes certifications such as PCI DSS, PCI 3DS, and PCI PIN. Only Azure Payment HSM supports these certifications.
+- _Lift and shift_ refers to scenarios where you migrate an on-premises PKCS#11 application to Azure Virtual Machines and run software such as Oracle transparent data encryption (TDE) in Azure Virtual Machines. Azure Payment HSM and Azure Payment HSM v2 (preview) support lift and shift that requires payment PIN processing. Azure Cloud HSM supports all other scenarios. Full native PKCS#11, JCA/JCE, and CNG/KSP support is available only with Azure Cloud HSM. Azure Key Vault Managed HSM offers [limited PKCS#11 support](/azure/key-vault/managed-hsm/tls-offload-library) for TLS offload scenarios with F5 and NGINX.
+- _Payment PIN processing_ includes allowing card and mobile payment authorization and 3D-Secure authentication; PIN generation, management, and validation; payment credential issuing for cards, wearables, and connected devices; securing keys and authentication data; and sensitive data protection for point-to-point encryption, security tokenization, and EMV payment tokenization. This also includes certifications such as PCI DSS, PCI 3DS, and PCI PIN. Only Azure Payment HSM and Azure Payment HSM v2 (preview) support these certifications.
 
 :::image type="content" source="./media/choosing-key-management-solutions/key-management-product-flow-chart.png" alt-text="Flowchart for choosing the right Azure key management solution based on requirements and use cases." lightbox="./media/choosing-key-management-solutions/key-management-product-flow-chart.png":::
 
@@ -48,34 +48,34 @@ Microsoft manages provisioning and hosting across all solutions. You're responsi
 
 ### Service characteristics and responsibilities
 
-Use the following table to compare how each service works and who manages what. This trade-off of management responsibility ranges from Azure Key Vault having the least customer responsibility to Azure Payment HSM having the most.
+Use the following table to compare how each service works and who manages what. This trade-off of management responsibility ranges from Azure Key Vault having the least customer responsibility to Azure Payment HSM having the most. Azure Payment HSM v2 (preview) shifts more of that responsibility back to Microsoft, which manages the underlying infrastructure, availability, and lifecycle operations, while providing administrative control of their Payment HSM v2 cluster.
 
-|  | **Azure Key Vault Standard** | **Azure Key Vault Premium** | **Azure Key Vault Managed HSM** | **Azure Cloud HSM** | **Azure Payment HSM** |
-| --- | --- | --- | --- | --- | --- |
-| **Service model** | PaaS | PaaS | PaaS | IaaS-style HSM service | IaaS-style HSM service |
-| **Authentication** | Microsoft Entra ID | Microsoft Entra ID | Microsoft Entra ID | HSM authentication (password) | HSM authentication (password) |
-| **HSM administrative control** | Microsoft | Microsoft | Customer | Customer | Customer |
-| **Patching and maintenance** | Microsoft | Microsoft | Microsoft | Microsoft | Customer |
-| **Service health and hardware failover** | Microsoft | Microsoft | [Shared](/azure/key-vault/managed-hsm/disaster-recovery-guide) | [Shared](/azure/cloud-hsm/overview#customer-owned-highly-available-single-tenant-hsm-as-a-service) | [Customer](/azure/payment-hsm/deployment-scenarios#high-availability-deployment) |
-| **Business continuity (within-region)** | Automatic | Automatic | [Automatic](/azure/key-vault/managed-hsm/disaster-recovery-guide) | [Automatic](/azure/cloud-hsm/overview#customer-owned-highly-available-single-tenant-hsm-as-a-service) | [Customer](/azure/payment-hsm/deployment-scenarios#high-availability-deployment) |
-| **Disaster recovery (cross-region)** | Automatic | Automatic | [Manual](/azure/key-vault/managed-hsm/disaster-recovery-guide) | [Manual](/azure/cloud-hsm/backup-restore) | [Manual](/azure/payment-hsm/deployment-scenarios#disaster-recovery-deployment) |
-| **Backup and restore** | [Built-in service backup](/azure/key-vault/general/backup) | [Built-in service backup](/azure/key-vault/general/backup) | [Service-managed](/azure/key-vault/managed-hsm/backup-restore) | [Manual HSM backup](/azure/cloud-hsm/backup-restore) | [Manual HSM backup](/azure/payment-hsm/support-guide#support-contacts) |
+|  | **Azure Key Vault Standard** | **Azure Key Vault Premium** | **Azure Key Vault Managed HSM** | **Azure Cloud HSM** | **Azure Payment HSM** | Azure Payment HSM v2 (preview) |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Service model** | PaaS | PaaS | PaaS | IaaS-style HSM service | IaaS-style HSM service | Managed single-tenant HSM service |
+| **Authentication** | Microsoft Entra ID | Microsoft Entra ID | Microsoft Entra ID | HSM authentication (password) | HSM authentication (password) | HSM authentication (mutual TLS and smart cards) |
+| **HSM administrative control** | Microsoft | Microsoft | Customer | Customer | Customer | Customer |
+| **Patching and maintenance** | Microsoft | Microsoft | Microsoft | Microsoft | Customer | Microsoft |
+| **Service health and hardware failover** | [Microsoft](/azure/reliability/reliability-key-vault) | [Microsoft](/azure/reliability/reliability-key-vault) | [Shared](/azure/key-vault/managed-hsm/disaster-recovery-guide) | [Shared](/azure/cloud-hsm/overview#customer-owned-highly-available-single-tenant-hsm-as-a-service) | [Customer](/azure/payment-hsm/deployment-scenarios#high-availability-deployment) | [Microsoft](/azure/payment-hsm-v2/overview#service-maintenance) |
+| **Business continuity (within-region)** | [Automatic](/azure/reliability/reliability-key-vault) | [Automatic](/azure/reliability/reliability-key-vault) | [Automatic](/azure/key-vault/managed-hsm/disaster-recovery-guide) | [Automatic](/azure/cloud-hsm/overview#customer-owned-highly-available-single-tenant-hsm-as-a-service) | [Customer](/azure/payment-hsm/deployment-scenarios#high-availability-deployment) | [Highly available cluster](/azure/payment-hsm-v2/overview) |
+| **Disaster recovery (cross-region)** | [Automatic](/azure/reliability/reliability-key-vault) | [Automatic](/azure/reliability/reliability-key-vault) | [Manual](/azure/key-vault/managed-hsm/disaster-recovery-guide) | [Manual](/azure/cloud-hsm/backup-restore) | [Manual](/azure/payment-hsm/deployment-scenarios#disaster-recovery-deployment) | [Customer-maintained capacity](/azure/payment-hsm-v2/overview#administrative-and-single-tenant-control) |
+| **Backup and restore** | [Built-in service backup](/azure/key-vault/general/backup) | [Built-in service backup](/azure/key-vault/general/backup) | [Service-managed](/azure/key-vault/managed-hsm/backup-restore) | [Manual HSM backup](/azure/cloud-hsm/backup-restore) | [Manual HSM backup](/azure/payment-hsm/support-guide#support-contacts) | [Manual HSM backup](/azure/payment-hsm-v2/secure-payment-hsm-v2#backup-and-recovery) |
 
 ### Decision criteria
 
 Use the following table to compare all the solutions side by side. Answer each question to help identify the solution that meets your requirements.
 
-|  | **Azure Key Vault Standard** | **Azure Key Vault Premium** | **Azure Key Vault Managed HSM** | **Azure Cloud HSM** | **Azure Payment HSM** |
-| --- | --- | --- | --- | --- | --- |
-| What level of **compliance** do you need? | FIPS 140-2 Level 1 | FIPS 140-3 Level 3† | FIPS 140-3 Level 3, PCI DSS, PCI 3DS | FIPS 140-3 Level 3 | FIPS 140-2 Level 3, PCI HSM v3, PCI PTS HSM v3, PCI DSS, PCI 3DS, PCI PIN |
-| Do you need **key sovereignty**? | No | No | Yes | Yes | Yes |
-| Do you need **single tenancy**? | No | No | Yes | Yes | Yes |
-| What are your **use cases**? | Encryption at rest, customer-managed keys, custom applications | Encryption at rest, customer-managed keys, custom applications | Encryption at rest, SSL/TLS offload, customer-managed keys, external key management (preview; wrap/unwrap only), custom applications | Lift and shift, PKCS#11, SSL/TLS offload, TDE, code signing | Payment PIN processing, custom applications |
-| Do you need **HSM hardware protection**? | No | Yes | Yes | Yes | Yes |
-| What kind of **objects** do you need to store? | Asymmetric keys, secrets, certificates | Asymmetric keys, secrets, certificates | Asymmetric and symmetric keys only‡ | Asymmetric and symmetric keys, certificates | Keys |
-| Do you need **dedicated capacity**? | No | No | Yes | Yes | Yes |
-| Do you need **customer control of root of trust**? | No | No | Yes | Yes | Yes |
-| What is your **budget**? | $ | $$ | $$$ | $$$ | $$$$ |
+|  | **Azure Key Vault Standard** | **Azure Key Vault Premium** | **Azure Key Vault Managed HSM** | **Azure Cloud HSM** | **Azure Payment HSM** | Azure Payment HSM v2 (preview) |
+| --- | --- | --- | --- | --- | --- | --- |
+| What level of **compliance** do you need? | FIPS 140-2 Level 1 | FIPS 140-3 Level 3† | FIPS 140-3 Level 3, PCI DSS, PCI 3DS | FIPS 140-3 Level 3 | FIPS 140-2 Level 3, PCI HSM v3, PCI PTS HSM v3, PCI DSS, PCI 3DS, PCI PIN | FIPS 140-3 Level 3, PCI DSS, PCI 3DS, PCI PIN |
+| Do you need **key sovereignty**? | No | No | Yes | Yes | Yes | Yes |
+| Do you need **single tenancy**? | No | No | Yes | Yes | Yes | Yes |
+| What are your **use cases**? | Encryption at rest, customer-managed keys, custom applications | Encryption at rest, customer-managed keys, custom applications | Encryption at rest, SSL/TLS offload, customer-managed keys, external key management (preview; wrap/unwrap only), custom applications | Lift and shift, PKCS#11, SSL/TLS offload, TDE, code signing | Payment PIN processing, custom applications | Payment PIN processing, custom applications |
+| Do you need **HSM hardware protection**? | No | Yes | Yes | Yes | Yes | Yes |
+| What kind of **objects** do you need to store? | Asymmetric keys, secrets, certificates | Asymmetric keys, secrets, certificates | Asymmetric and symmetric keys only‡ | Asymmetric and symmetric keys, certificates | Keys | Keys |
+| Do you need **dedicated capacity**? | No | No | Yes | Yes | Yes | Yes |
+| Do you need **customer control of root of trust**? | No | No | Yes | Yes | Yes | Yes |
+| What is your **budget**? | $ | $$ | $$$ | $$$ | $$$$ | N/A (free during preview) |
 
 ## Common key management solution uses by industry segments
 
@@ -85,7 +85,7 @@ The following table lists common key management solutions by industry segment.
 | --- | --- | --- |
 | Enterprise or organization with strict security and compliance requirements, such as banking, government, or other highly regulated industries. | Azure Key Vault Managed HSM | Azure Key Vault Managed HSM is FIPS 140-3 Level 3 compliant and PCI-compliant for e-commerce. Azure Key Vault Managed HSM supports encryption for PCI DSS 4.0 and includes HSM-backed keys, key sovereignty, and single tenancy. |
 | Direct-to-consumer e-commerce merchant who needs to store, process, and transmit customers' credit cards to an external payment processor or gateway and needs a PCI-compliant solution. | Azure Key Vault Managed HSM | Azure Key Vault Managed HSM is FIPS 140-3 Level 3 compliant and PCI-compliant for e-commerce. Azure Key Vault Managed HSM supports encryption for PCI DSS 4.0 and includes HSM-backed keys, key sovereignty, and single tenancy. |
-| Service provider for financial services, an issuer, a card acquirer, a card network, a payment gateway/PSP, or 3DS solution provider looking for a single-tenant service that can meet PCI and multiple major compliance frameworks. | Azure Payment HSM | Azure Payment HSM is FIPS 140-2 Level 3, PCI HSM v3, PCI DSS, PCI 3DS, and PCI PIN compliant. Azure Payment HSM provides key sovereignty and single tenancy, which are common internal compliance requirements for payment processing. Azure Payment HSM supports full payment transaction and PIN processing. |
+| Service provider for financial services, an issuer, a card acquirer, a card network, a payment gateway/PSP, or 3DS solution provider looking for a single-tenant service that can meet PCI and multiple major compliance frameworks. | Azure Payment HSM, Azure Payment HSM v2 (preview) | Azure Payment HSM is FIPS 140-2 Level 3, PCI HSM v3, PCI DSS, PCI 3DS, and PCI PIN compliant. Azure Payment HSM provides key sovereignty and single tenancy, which are common internal compliance requirements for payment processing. Azure Payment HSM supports full payment transaction and PIN processing. Azure Payment HSM v2 (preview) offers the same single-tenant payment cryptography as a Microsoft-managed, highly available cluster that integrates into your virtual network, is FIPS 140-3 Level 3 certified, and is PCI DSS, PCI 3DS, and PCI PIN compliant. |
 | Early-stage startup looking to prototype a cloud-native application. | Azure Key Vault Standard | Azure Key Vault Standard provides software-backed keys at an economy price. |
 | Startup looking to bring a cloud-native application to production. | Azure Key Vault Premium, Azure Key Vault Managed HSM | Both Azure Key Vault Premium and Azure Key Vault Managed HSM provide HSM-backed keys* and are good fits for building cloud-native applications. |
 | IaaS customer who wants to move an application to Azure Virtual Machines and HSMs. | Azure Cloud HSM | Azure Cloud HSM specifically supports IaaS scenarios and is FIPS 140-3 Level 3 compliant with key sovereignty and single tenancy. Azure Cloud HSM works well for lift-and-shift migrations requiring PKCS#11 support, such as migrating from on-premises HSMs, Azure Dedicated HSM, or AWS CloudHSM. Azure Cloud HSM doesn't integrate with Azure PaaS/SaaS services. For those scenarios, use Azure Key Vault Managed HSM instead. |
@@ -106,4 +106,5 @@ For detailed information about each Azure key management solution, including tec
 - [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview)
 - [Azure Cloud HSM](/azure/cloud-hsm/overview)
 - [Azure Payment HSM](/azure/payment-hsm/overview)
+- [Azure Payment HSM v2](/azure/payment-hsm-v2/overview)
 - [What is Zero Trust?](/security/zero-trust/zero-trust-overview)
