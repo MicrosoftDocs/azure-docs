@@ -56,7 +56,7 @@ If your workloads require deployment, monitoring, alerting, run resubmission, or
 - The following customer-managed resources, which must all exist within the same network for the required connectivity:
 
   - A supported Kubernetes cluster that is connected to Azure Arc
-  - An SQL database to locally store workflow run history, inputs, and outputs for processing
+  - A SQL database to locally store workflow run history, inputs, and outputs for processing
   - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
   To meet these requirements, [set up these resources to support hybrid deployment for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).
