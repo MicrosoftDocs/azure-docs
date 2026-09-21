@@ -371,7 +371,10 @@ Managed identity authentication isn't currently supported for managed API connec
 
 1. Now, [add the saved values as environment variables](#add-app-registration-values-environment-variables) to your Standard logic app resource.
 
-For more information, see [**az ad sp create-for-rbac**](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) and [**az ad sp show**](/cli/azure/ad/sp#az-ad-sp-show).
+For more information, see:
+
+- [**az ad sp create-for-rbac**](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
+- [**az ad sp show**](/cli/azure/ad/sp#az-ad-sp-show)
 
 <a name="add-app-registration-values-environment-variables"></a>
 
