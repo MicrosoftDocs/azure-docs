@@ -2,7 +2,7 @@
 title: Azure Tables bindings for Azure Functions
 description: Understand how to use Azure Tables bindings in Azure Functions.
 ms.topic: reference
-ms.date: 11/11/2022
+ms.date: 09/15/2026
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -71,14 +71,6 @@ Working with the bindings requires that you reference the appropriate NuGet pack
 > [!NOTE]
 > Tables have been moved out of this package starting in its 5.x version. You need to instead use version 4.x of the extension NuGet package or additionally include the [Azure Tables extension](#table-api-extension) when using version 5.x.
 
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
-
-Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
-
-[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
-
 # [Azure Tables extension](#tab/table-api/isolated-process)
 
 [!INCLUDE [functions-bindings-supports-identity-connections-note](../../includes/functions-bindings-supports-identity-connections-note.md)]
@@ -114,10 +106,6 @@ Tables are included in a combined package for Azure Storage. Install the [Micros
 
 > [!NOTE]
 > Tables have been moved out of this package starting in its 5.x version. You need to instead use version 4.x of the extension NuGet package or additionally include the [Azure Tables extension](#table-api-extension) when using version 5.x.
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process.
 
 ---
 
@@ -169,10 +157,6 @@ This version of the extension supports parameter types according to the table be
 | Table input | A plain old CLR object (POCO) representing the entity<br/>[CloudTable] |
 | Table output | A plain old CLR object (POCO) representing the entity<br/>[CloudTable] |
 
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-Functions 1.x exposed types from the deprecated [Microsoft.WindowsAzure.Storage.Table] namespace. Newer types from [Azure.Data.Tables] are exclusive to the **Azure Tables extension**. To use these, you will need to [upgrade your application to Functions 4.x].
-
 # [Azure Tables extension](#tab/table-api/isolated-process)
 
 The isolated worker process supports parameter types according to the tables below. Support for binding to types from [Azure.Data.Tables] is in preview.
@@ -189,10 +173,6 @@ The isolated worker process supports parameter types according to the tables bel
 
 Earlier versions of extensions in the isolated worker process only support binding to plain-old CLR object (POCO) types. Additional options are available to the **Azure Tables extension**.
 
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
-
 ---
 
 [ITableEntity]: /dotnet/api/azure.data.tables.itableentity
@@ -200,7 +180,6 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 
 [CloudTable]: /dotnet/api/microsoft.azure.cosmos.table.cloudtable
 
-[upgrade your application to Functions 4.x]: ./migrate-version-1-version-4.md
 
 :::zone-end
 
@@ -212,12 +191,10 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 [Azure.Data.Tables]: /dotnet/api/azure.data.tables
 
 [Microsoft.Azure.Cosmos.Table]: /dotnet/api/microsoft.azure.cosmos.table
-[Microsoft.WindowsAzure.Storage.Table]: /dotnet/api/microsoft.windowsazure.storage.table
 
 [storage-4.x]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/4.0.5
 [table-api-package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Tables/
 
-[extension bundle]: ./extension-bundles.md
 
 [Update your extensions]: ./functions-bindings-register.md
 

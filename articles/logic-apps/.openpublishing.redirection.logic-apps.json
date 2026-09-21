@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/logic-apps-securing-a-logic-app.md",
+            "redirect_url": "/azure/logic-apps/set-up-security-permissions",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md",
             "redirect_url": "/copilot/security/connector-logicapp",
             "redirect_document_id": false

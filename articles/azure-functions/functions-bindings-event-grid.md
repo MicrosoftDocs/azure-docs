@@ -3,7 +3,7 @@ title: Azure Event Grid bindings for Azure Functions
 description: Understand how to handle Event Grid events in Azure Functions.
 
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 09/15/2026
 ms.custom: fasttrack-edit, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -59,14 +59,6 @@ Supports the default Event Grid binding parameter type of [Microsoft.Azure.Event
 
 Add the extension to your project by installing the [NuGet package], version 2.x.
 
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
-
-Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x. Event Grid extension versions earlier than 3.x don't support [CloudEvents schema](../event-grid/cloudevents-schema.md#azure-functions). To consume this schema, instead use an HTTP trigger, or switch to **Extension v3.x**. To do so, you will need to [upgrade your application to Functions 4.x].
-
-The Event Grid output binding is only available for Functions 2.x and higher.
-
 # [Extension v3.x](#tab/extensionv3/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventGrid), version 3.x.
@@ -74,12 +66,6 @@ Add the extension to your project by installing the [NuGet package](https://www.
 # [Extension v2.x](#tab/extensionv2/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventGrid), version 2.x. Event Grid extension versions earlier than 3.x don't support [CloudEvents schema](../event-grid/cloudevents-schema.md#azure-functions). To consume this schema, instead use an HTTP trigger.
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support the isolated worker process. 
-
-The Event Grid output binding is only available for Functions 2.x and higher.
 
 ---
 
@@ -92,7 +78,6 @@ The Event Grid output binding is only available for Functions 2.x and higher.
 Considerations for the Event Grid extension:
 
 + Event Grid extension versions earlier than 3.x don't support [CloudEvents schema](../event-grid/cloudevents-schema.md#azure-functions). To consume this schema, instead use an HTTP trigger.
-+ The Event Grid output binding is only available for Functions 2.x and higher. 
 
 ::: zone-end
 
@@ -137,15 +122,6 @@ This version of the extension supports parameter types according to the table be
 | Event Grid trigger | [Microsoft.Azure.EventGrid.Models.EventGridEvent]<br/>[Newtonsoft.Json.Linq.JObject][JObject]<br/>`string` |
 | Event Grid output | [Microsoft.Azure.EventGrid.Models.EventGridEvent]<br/>[Newtonsoft.Json.Linq.JObject][JObject]<br/>`string` |
 
-# [Functions 1.x](#tab/functionsv1/in-process)
-
-This version of the extension supports parameter types according to the table below. It doesn't support for the [CloudEvents schema], which is exclusive to **Extension v3.x**.
-
-| Binding | Parameter types |
-|-|-|
-| Event Grid trigger | [Newtonsoft.Json.Linq.JObject][JObject]<br/>`string` |
-| Event Grid output | [Newtonsoft.Json.Linq.JObject][JObject]<br/>`string` |
-
 # [Extension v3.x](#tab/extensionv3/isolated-process)
 
 The isolated worker process supports parameter types according to the tables below. Support for binding to `Stream`, and to types from [Azure.Messaging] is in preview.
@@ -161,10 +137,6 @@ The isolated worker process supports parameter types according to the tables bel
 # [Extension v2.x](#tab/extensionv2/isolated-process)
 
 Earlier versions of this extension in the isolated worker process only support binding to strings and plain-old CLR object (POCO) types. Additional options are available to **Extension v3.x**.
-
-# [Functions 1.x](#tab/functionsv1/isolated-process)
-
-Functions version 1.x doesn't support isolated worker process. To use the isolated worker model, [upgrade your application to Functions 4.x].
 
 ---
 

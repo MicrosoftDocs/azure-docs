@@ -46,7 +46,7 @@ For more information, see:
 
 - [Webhooks and subscriptions](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 - [Create custom APIs that support a webhook](../logic-apps/logic-apps-create-api-app.md)
-- [Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
+- [Access for outbound calls to other services and systems](../logic-apps/set-up-security-permissions.md#secure-outbound-requests)
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ This built-in trigger calls the subscribe endpoint on the target service and reg
 
 1. If you need to use authentication, add the **Subscribe Authentication** and **Unsubscribe Authentication** parameters from the **Advanced parameters** list.
 
-   For more information about authentication types available for **HTTP Webhook**, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   For more information about authentication types available for **HTTP Webhook**, see [Add authentication to outbound calls](../logic-apps/set-up-security-permissions.md#add-authentication-outbound).
 
 1. Add any other actions that your scenario needs.
 
@@ -127,7 +127,7 @@ This built-in action calls the subscribe endpoint on the target service and regi
 
 1. If you need to use authentication, add the **Subscribe Authentication** and **Unsubscribe Authentication** parameters from the **Advanced parameters** list.
 
-   For more information about authentication types available for **HTTP Webhook**, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   For more information about authentication types available for **HTTP Webhook**, see [Add authentication to outbound calls](../logic-apps/set-up-security-permissions.md#add-authentication-outbound).
 
 1. Add any other actions that your scenario needs.
 
@@ -243,6 +243,6 @@ The following example shows the webhook trigger definition with the `accessKeyTy
 
 ## Related content
 
-- [Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+- [Access for inbound calls to request-based triggers](../logic-apps/set-up-security-permissions.md#secure-inbound-requests)
 - [List of all Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors)
 - [Built-in connectors in Azure Logic Apps](built-in.md)

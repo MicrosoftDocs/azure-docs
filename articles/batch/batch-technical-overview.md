@@ -1,8 +1,9 @@
 ---
 title: Azure Batch runs large parallel jobs in the cloud
 description: Learn about using the Azure Batch service for large-scale parallel and HPC workloads.
+ai-usage: ai-assisted
 ms.topic: overview
-ms.date: 07/09/2026
+ms.date: 09/16/2026
 # Customer intent: "As a developer, I want to utilize Azure Batch for managing and executing large-scale parallel workloads, so that I can efficiently run high-performance computing tasks without worrying about underlying infrastructure management."
 ---
 
@@ -16,6 +17,28 @@ Developers can use Batch as a platform service to build SaaS applications or cli
 There's no extra charge to use Batch. You pay only for the underlying resources consumed, such as virtual machines, storage, and networking.
 
 For a comparison between Batch and other HPC solution options in Azure, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
+
+## Choose an Azure service for batch and HPC workloads
+
+Choose a service based on the scheduling experience and level of infrastructure control your workload requires:
+
+| Service | Best fit | Operating model |
+| --- | --- | --- |
+| **Azure Batch** | Parallel and high-throughput workloads that can run as independent tasks or tightly coupled jobs | Azure provides scheduling as a service. You build with Batch APIs and tools without operating cluster or scheduler software. |
+| **[Azure CycleCloud](/azure/cyclecloud/overview)** | HPC environments that require a specific scheduler, custom cluster topology, or close alignment with existing on-premises workflows | You deploy and manage the scheduler and cluster configuration. CycleCloud provisions and autoscales the Azure infrastructure. |
+| **[Azure CycleCloud Workspace for Slurm](/azure/cyclecloud/overview-ccws)** | Teams that want a ready-to-deploy Slurm environment for HPC or AI workloads | A Marketplace solution deploys CycleCloud, Slurm, networking, storage, and access components in your Azure subscription. |
+
+Use your current workload as the deciding factor:
+
+| Starting point | Prefer | Why |
+| --- | --- | --- |
+| You're building an application that can submit independent tasks or MPI jobs through an API. | Azure Batch | Batch supplies the scheduling service, so your team owns the workload application rather than scheduler infrastructure. |
+| You already have scheduler-specific job scripts, queues, policies, or integrations that must remain in place. | Azure CycleCloud | Moving those workflows to Batch would require translating them into Batch pools, jobs, and tasks. CycleCloud preserves the scheduler operating model. |
+| You require Slurm but don't want to design the supporting Azure infrastructure from individual components. | Azure CycleCloud Workspace for Slurm | The Marketplace solution supplies a predefined Slurm environment that you can configure after deployment. |
+
+Don't choose Batch only to avoid managing virtual machines. If scheduler compatibility is a requirement, translating existing scheduler workflows into the Batch programming model can become an application redesign. Choose CycleCloud or Workspace for Slurm instead.
+
+Before production implementation, record why Batch fits, which alternatives you rejected, the peak task and capacity estimate, the recovery behavior for interrupted work, and benchmarked time and cost per representative job. For capacity and fallback planning, see [Plan for Batch capacity](batch-capacity-planning.md). For CycleCloud, see [Plan and size HPC clusters](/azure/cyclecloud/concepts/plan-and-size-hpc-clusters).
 
 ## Run parallel workloads
 

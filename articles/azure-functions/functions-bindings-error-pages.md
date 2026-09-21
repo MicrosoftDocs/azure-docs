@@ -3,7 +3,7 @@ title: Azure Functions Error Handling and Retry Guidance
 description: Learn how to handle errors and retry events in Azure Functions, with links to specific binding errors, including information on retry policies.
 ms.topic: concept-article
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 08/25/2026
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -71,10 +71,6 @@ With Azure Functions, you can define retry policies for specific trigger types. 
 
 ::: zone pivot="programming-language-python"  
 Retry support is the same for both v1 and v2 Python programming models.
-::: zone-end
-
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript"
-Retry policies aren't supported in version 1.x of the Azure Functions runtime.
 ::: zone-end
 
 The retry policy tells the runtime to rerun a failed execution until either successful completion occurs or the maximum number of retries is reached.

@@ -3,8 +3,10 @@ title: "Tutorial 1-2: Create enclaves in an Azure Enclave community"
 description: Create two isolated enclaves in an Azure Enclave community by using the Azure portal.
 author: aserfass-msft
 ms.author: aserfass
+ms.service: azure-enclave
 ms.topic: tutorial
-ms.date: 06/02/2026
+ms.date: 09/03/2026
+ai-usage: ai-assisted
 ---
 
 # Tutorial 1-2: Create enclaves in an Azure Enclave community
@@ -35,8 +37,7 @@ For more information about enclave settings, see [Create an enclave in the Azure
 
 Before creating an enclave instance, you need a resource group. An Azure resource group is a logical container into which you deploy and manage Azure resources. Azure Enclave also creates managed resources for each enclave in a managed resource group.
 
-> [!Important]
->
+> [!IMPORTANT]
 > This tutorial uses `myResourceGroup` as a placeholder for the resource group name. If you want to use a different name, replace `myResourceGroup` with your own resource group name.
 
 Enclave deployments can take around 30-45 minutes to complete. After deployment completes, open your enclave and verify that `Status` is `Succeeded`.
@@ -62,7 +63,7 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
     1. Select `Next` and select `+ Subnet`.
 
     1. Create a subnet delegated to App Service:
-        - `Name`: `common-subnet`
+        - `Name`: `webapp-subnet`
         - `Size`: `/26`
         - `Delegate subnet to a service`: Select `Microsoft.Web/serverFarms`
         
@@ -97,9 +98,9 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
     1. For `Role`, select `Contributor`.
     1. For `Principals`, select `Choose Microsoft Entra principal` and select your name.
 
-    [ ![Screenshot showing the enclave adminstration inputs.](./media/tutorial-step-two-create-webapp-enclave-administration.png) ](./media/tutorial-step-two-create-webapp-enclave-administration.png#lightbox)
+    [ ![Screenshot showing the enclave administration inputs.](./media/tutorial-step-two-create-webapp-enclave-administration.png) ](./media/tutorial-step-two-create-webapp-enclave-administration.png#lightbox)
 
-    If you select the `Workload permissions` tab, you see that workload permissions are inherited so you're `contributor` on the enclave and that permission is inherited on the workloads too.
+    If you select the `Workload permissions` tab, you see that the `Contributor` role you assigned on the enclave also applies at the workload scope, so you have `Contributor` access on the workloads too.
 
     [ ![Screenshot showing the enclave workload permissions inputs.](./media/tutorial-step-two-create-webapp-enclave-workload-permissions.png) ](./media/tutorial-step-two-create-webapp-enclave-workload-permissions.png#lightbox)
 
@@ -124,7 +125,7 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
 
 After the enclave resources are created, you can view them in the Azure portal from the `cmt-fabrikam` community.
 
-[ ![Screenshot showing created enclaves on listed on enclaves page.](./media/tutorial-step-two-azure-enclave-page-enclaves-list-both-deployed.png) ](./media/tutorial-step-two-azure-enclave-page-enclaves-list-both-deployed.png#lightbox)
+[ ![Screenshot showing created enclaves listed on the Enclaves page.](./media/tutorial-step-two-azure-enclave-page-enclaves-list-both-deployed.png) ](./media/tutorial-step-two-azure-enclave-page-enclaves-list-both-deployed.png#lightbox)
 
 Confirm that:
 

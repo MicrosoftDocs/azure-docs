@@ -1,14 +1,14 @@
 ---
 title: Connect to Oracle Database from Workflows
-description: Access and run tasks in your Oracle database by using automation and integration workflows in Azure Logic Apps.
+description: Connect to Oracle databases from workflows in Azure Logic Apps.
 services: azure-logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
 ai-usage: ai-assisted
 ms.update-cycle: 365-days
-ms.date: 04/29/2026
-# Customer intent: As an automation and integration developer who works with Azure Logic Apps, I want to connect to an Oracle database from my workflow to perform management operations.
+ms.date: 09/16/2026
+# Customer intent: As an automation and integration developer who works with Azure Logic Apps, I want to connect my workflows to Oracle databases so I can monitor changes and perform management tasks.
 ---
 
 # Connect to Oracle databases from workflows in Azure Logic Apps
@@ -23,12 +23,14 @@ The **Oracle Database** connector helps you solve common data integration tasks,
 - Update order records in your database.
 - Get, insert, or delete table rows as part of your workflow.
 
+For Standard workflows, the **Oracle Database** built-in connector is available in public preview. The connector runs in-process with the Azure Logic Apps runtime, which can provide lower latency and higher throughput than the managed connector. When the runtime has network access to the Oracle endpoint, the built-in connector doesn't require an on-premises data gateway. Azure-hosted workflows can use virtual network integration to reach private Oracle endpoints, while workflows using the Hybrid deployment model can reach Oracle databases from customer-managed infrastructure.
+
 ## Supported Oracle Database versions
 
 The following table lists the supported Oracle DB versions that each connector supports:
 
 | Connector | Logic app | Supported Oracle DB versions |
-|-----------|-----------|------------------------------|
+| --- | --- | --- |
 | Managed | - Consumption <br>- Standard | - Oracle 9 and later <br>- Oracle Data Access Client (ODAC) 11.2 and later |
 | Built-in (preview) | Standard | Oracle Database 11 and later |
 
@@ -37,7 +39,7 @@ The following table lists the supported Oracle DB versions that each connector s
 The Oracle Database connector has different versions, based on [logic app workflow type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
 | Logic app | Environment | Connector version |
-|-----------|-------------|-------------------|
+| --- | --- | --- |
 | **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under the **Shared** filter. <br><br>For more information, see [Oracle Database managed connector reference](/connectors/oracle/). |
 | **Standard** | Single-tenant Azure Logic Apps, App Service Environment v3 (Windows plans only), and Hybrid | Managed connector, which appears in the connector gallery under the **Shared** filter, and built-in connector (public preview), which appears in the connector gallery under the **Built-in** filter. <br><br>The built-in version runs in-process with the Azure Logic Apps runtime and doesn't require the on-premises data gateway because the runtime can reach your Oracle endpoint over the network. <br><br>For more information, see: <br><br>- [Oracle Database managed connector reference](/connectors/oracle/) <br>- [Built-in connector reference](#built-in-connector-operations-preview) |
 
@@ -46,7 +48,7 @@ The Oracle Database connector has different versions, based on [logic app workfl
 The built-in connector currently supports the following actions:
 
 | Name | Parameters | Description | Returns |
-|------|------------|-------------|---------|
+| --- | --- | --- | --- |
 | **Execute query** (`executeQuery`) | - **Query** (`query`): Required with `string` type. The SQL query to run. <br><br>- **Query Parameters** (`queryParameters`): Optional with `object` type. The query parameters to include. | Runs a SQL query. | The SQL query result as an `array`. |
 | **Execute stored procedure** (`executeStoredProcedure`) | - **Stored procedure name** (`storedProcedure`): Required with `string` type. The name for the stored procedure to run. <br><br>- **Stored procedure parameters** (`storedProcedureParameters`): Optional with `object` type. The stored procedure parameters to include. | Runs a stored procedure and returns the result sets and output parameters. | - **Result sets** (`resultSets`) with `string` type. The list of result sets returned by the stored procedure. <br><br>- **Output parameters** (`outputParmaters`) with `string` type. The output parameter values returned by the stored procedure. |
 | **Get rows** (`getRows`) | - **Table name** (`tableName`): Required with `string` type. The name for the source table. <br><br>- **Where condition** (`columnValuesForWhereCondition`): Optional with `object` type. The key-value pair of columns that identify the rows to get. <br><br>- **Offset for Get Rows** (`skipCount`): Optional with `string` type. The number of entries to skip. Default is 0. <br><br>- **Max Rows** (`maxcount`): Optional with `string` type. The maximum rows to get. Default is 0. <br><br>- **Ordering Column** (`orderBy`): Optional with `string` type. The column name to use for ordering the query result. <br><br>- **Select Columns** (`filterBy`): Optional with `string` type. The column value to get from the table or view. | Gets one or more rows based on the specified condition. | The fetched rows as an `array`. |
@@ -81,18 +83,18 @@ The built-in connector currently supports the following actions:
 
 - When you create the Oracle database connection, you need the following values:
 
-  - Oracle database server IP address
+  - Oracle database server address
   - Username
   - Password
 
-  For the server IP address, specify this value in the following formats:
-  
+  For the server address, specify this value in one of the following formats:
+
   | Format | Syntax | Example |
-  |--------|--------|---------|
+  | --- | --- | --- |
   | Easy Connect (non-SSL) | \<*host*\>:\<*port*\>/\<*database-service-name*\> | `localhost:1522/XE` |
   | Transparent Network Substrate (TNS) descriptor (SSL): The full Oracle Datasource descriptor | (description=(retry_count=\<*retries*\>)(retry_delay=\<*delay-duration*\>)(address=(protocol=tcps)(port=\<*port-number*\>)(host=\<*host*\>))(connect_data=(service_name=\<*service-name*\>))(security=(ssl_server_dn_match=yes))) | (description=(retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=localhost))(connect_data=(service_name=XE))(security=(ssl_server_dn_match=yes))) |
 
-- For the **Get row** action used in this example, you need to know the identifier for the table to access.
+- For the **Get rows** action used in this example, you need to know the name of the table to access.
 
   If you don't know this information, contact your Oracle Database administrator, or get the output from the following statement: `select * from <table-name>`.
 
@@ -101,9 +103,9 @@ The built-in connector currently supports the following actions:
 The current connector versions don't support triggers. Use any trigger that fits your scenario to start your workflow, and then add Oracle actions.
 
 | Connector | Limitations |
-|-----------|-------------|
+| --- | --- |
 | Managed | - Tables with composite keys <br>- Tables with nested object types <br>- Database functions with nonscalar values |
-| Built-in | - No dedicated update or delete actions. For update and delete scenarios, use the **Execute query** or **Execute stored procedure** actions. <br>- Some connection problems might appear only at workflow runtime, rather than at connection creation time. |
+| Built-in | - No dedicated update or delete actions. For update and delete scenarios, use the **Execute query** or **Execute stored procedure** actions. <br>- Some connection problems might appear only at workflow runtime, rather than at connection creation time. <br>- The default query timeout is 30 seconds. Longer operations remain subject to the [workflow action and function host timeout settings](../logic-apps/edit-app-settings-host-settings.md#run-actions). <br>- Oracle identifiers can be case-sensitive. Make sure that table, view, and column names match the identifiers defined in your schema. |
 
 ## Add an action
 
@@ -119,7 +121,7 @@ The steps to add and use an Oracle action differ based on whether you use the bu
 
    This example continues with the **Get rows** action.
 
-1. In the connection information pane, enter the required information, such as the connection name you want, Oracle database server IP address, username, and password, for example:
+1. In the connection information pane, enter the required information, such as the connection name you want, Oracle database server address, username, and password, for example:
 
    :::image type="content" source="media/connectors-create-api-oracledatabase/built-in-connection.png" alt-text="Screenshot shows the Azure portal, Standard workflow designer, and the Oracle Database connection pane for the Get rows action." lightbox="media/connectors-create-api-oracledatabase/built-in-connection.png":::
 
@@ -163,6 +165,20 @@ The steps to add and use an Oracle action differ based on whether you use the bu
 
 ## Troubleshoot Oracle database connection problems
 
+### Built-in connector
+
+When a built-in connector action fails, review the workflow run history and diagnostic logs. The following table describes common status codes and troubleshooting steps:
+
+| Status code | Cause and resolution |
+| --- | --- |
+| `401` | Authentication failed. Verify the username and password, the account lock status, and password expiration policies. |
+| `404` | The requested database object wasn't found. Verify the schema, table, or view name, including the identifier casing, and confirm that the user has permission to access the object. |
+| `429` | The Oracle database reached a resource or session limit. Review Oracle session limits and workflow concurrency settings. |
+| `502` | The runtime couldn't reach the Oracle endpoint. Verify host and port connectivity, DNS resolution, firewall rules, and Oracle listener availability. |
+| `504` | The operation timed out. Review query complexity and indexes, and check the query and workflow host timeout settings. |
+
+### Managed connector
+
 #### **Error**: Cannot reach the Gateway
 
 **Cause**: The on-premises data gateway can't connect to the cloud.
@@ -183,5 +199,6 @@ The steps to add and use an Oracle action differ based on whether you use the bu
 
 ## Related content
 
+- [Oracle Database built-in connector public preview announcement](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcing-the-public-preview-of-oracle-database-built-in-connector-for-azure-lo/4516714)
 - [Managed connectors for Azure Logic Apps](managed.md)
 - [Built-in connectors for Azure Logic Apps](built-in.md)

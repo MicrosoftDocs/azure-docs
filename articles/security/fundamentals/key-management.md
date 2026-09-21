@@ -1,11 +1,11 @@
 ---
 title: Overview of key management in Azure
-description: Overview of Azure key management solutions. Compare Azure Key Vault, Managed HSM, Cloud HSM, and Payment HSM by compliance, pricing, and capabilities.
+description: Overview of Azure key management solutions. Compare Azure Key Vault, Managed HSM, Cloud HSM, Payment HSM, and Payment HSM v2 by compliance, pricing, and capabilities.
 services: security
 author: msmbaldwin
 ms.service: security
 ms.topic: article
-ms.date: 07/08/2026
+ms.date: 09/18/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 ms.collection:
@@ -28,7 +28,7 @@ You can store CMKs on-premises or, more commonly, in a cloud key management serv
 
 ## Azure key management services
 
-Azure offers several options for storing and managing your keys in the cloud, including Azure Key Vault, Azure Key Vault Managed HSM, Azure Cloud HSM, and Azure Payment HSM. These options differ in their FIPS compliance level, management overhead, and intended applications.
+Azure offers several options for storing and managing your keys in the cloud, including Azure Key Vault, Azure Key Vault Managed HSM, Azure Cloud HSM, Azure Payment HSM, and Azure Payment HSM v2 (preview). These options differ in their FIPS compliance level, management overhead, and intended applications.
 
 For a comprehensive guide to choosing the right key management solution, see [How to choose the right key management solution](key-management-choose.md).
 
@@ -60,6 +60,10 @@ Azure Cloud HSM is a highly available, FIPS 140-3 Level 3 validated single-tenan
 
 Azure Payment HSM is a FIPS 140-2 Level 3 and PCI HSM v3 validated single-tenant bare-metal HSM offering. You can lease a payment HSM appliance in Microsoft datacenters for payment operations, including payment PIN processing, payment credential issuing, key and authentication data security, and sensitive data protection. The service is PCI DSS, PCI 3DS, and PCI PIN compliant. Azure Payment HSM offers single-tenant HSMs so you have complete administrative control and exclusive access to the HSM. After Microsoft allocates the HSM to you, Microsoft has no access to customer data. When you no longer require the HSM, Microsoft zeroizes and erases customer data as soon as you release the HSM to help maintain privacy and security. For more information, see [Azure Payment HSM overview](/azure/payment-hsm/overview).
 
+### Azure Payment HSM v2 (preview)
+
+Azure Payment HSM v2 is a single-tenant payment HSM service, currently in preview, that provides payment cryptography for real-time payment transactions by using Utimaco Atalla Payment Module (APM) software. It's certified to FIPS 140-3 Level 3 and is PCI DSS, PCI 3DS, and PCI PIN compliant. Unlike Azure Payment HSM, which leases bare-metal Thales payShield 10K appliances that you maintain, Azure Payment HSM v2 delivers an isolated, highly available HSM cluster that integrates into your Azure virtual network through private endpoints while Microsoft manages the underlying infrastructure, availability, and lifecycle operations. You keep exclusive administrative control of the cluster, and Microsoft has no access to your keys or data. The two services coexist and are managed independently. During preview, the service is available in the West US and West Europe regions through a gated onboarding model at no charge. For more information, see [Azure Payment HSM v2 overview](/azure/payment-hsm-v2/overview).
+
 ### Azure Dedicated HSM (retiring)
 
 Azure Dedicated HSM is retiring. Microsoft will fully support existing Dedicated HSM customers until July 31, 2028. Microsoft doesn't accept new customer onboarding requests. For full details and required actions, see the [Azure Dedicated HSM retirement announcement](https://azure.microsoft.com/updates?id=499214).
@@ -68,19 +72,19 @@ If you're an Azure Dedicated HSM user, see [Transition from Azure Dedicated HSM 
 
 ## Pricing
 
-Azure Key Vault standard and premium tiers bill on a transactional basis, with an extra monthly per-key charge for premium hardware-backed keys. Azure Key Vault Managed HSM, Azure Cloud HSM, and Azure Payment HSM don't charge on a transactional basis. Instead, they're always-on devices that bill at a fixed hourly rate. For detailed pricing information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/), [Cloud HSM pricing](https://azure.microsoft.com/pricing/details/azure-cloud-hsm/), and [Payment HSM pricing](https://azure.microsoft.com/pricing/details/payment-hsm/).
+Azure Key Vault standard and premium tiers bill on a transactional basis, with an extra monthly per-key charge for premium hardware-backed keys. Azure Key Vault Managed HSM, Azure Cloud HSM, and Azure Payment HSM don't charge on a transactional basis. Instead, they're always-on devices that bill at a fixed hourly rate. Azure Payment HSM v2 is free during preview. For detailed pricing information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/), [Cloud HSM pricing](https://azure.microsoft.com/pricing/details/azure-cloud-hsm/), and [Payment HSM pricing](https://azure.microsoft.com/pricing/details/payment-hsm/).
 
 ## Service limits
 
-Azure Key Vault Managed HSM, Azure Cloud HSM, and Azure Payment HSM offer dedicated capacity. Azure Key Vault standard and premium tiers are multitenant offerings and have throttling limits. For service limits, see [Key Vault service limits](/azure/key-vault/general/service-limits) and [Cloud HSM service limits](/azure/cloud-hsm/service-limits).
+Azure Key Vault Managed HSM, Azure Cloud HSM, Azure Payment HSM, and Azure Payment HSM v2 offer dedicated capacity. Azure Key Vault standard and premium tiers are multitenant offerings and have throttling limits. For service limits, see [Key Vault service limits](/azure/key-vault/general/service-limits) and [Cloud HSM service limits](/azure/cloud-hsm/service-limits).
 
 ## Encryption at rest
 
-Azure Key Vault and Azure Key Vault Managed HSM integrate with Azure services and Microsoft 365 for customer-managed keys. You can use your own keys in Azure Key Vault and Azure Key Vault Managed HSM for encryption at rest of data stored in these services. For organizations with regulatory or contractual requirements that mandate key material physically reside outside Microsoft infrastructure, Azure Key Vault Managed HSM also supports [external key management](/azure/key-vault/managed-hsm/external-key-management-overview). External key management is in preview and keeps the key encryption key in a customer-operated HSM outside Azure. Azure Cloud HSM and Azure Payment HSM are infrastructure as a service (IaaS) offerings and don't integrate with Azure platform as a service (PaaS) or software as a service (SaaS) services. For an overview of encryption at rest with Azure Key Vault and Azure Key Vault Managed HSM, see [Azure Data Encryption at Rest](encryption-atrest.md).
+Azure Key Vault and Azure Key Vault Managed HSM integrate with Azure services and Microsoft 365 for customer-managed keys. You can use your own keys in Azure Key Vault and Azure Key Vault Managed HSM for encryption at rest of data stored in these services. For organizations with regulatory or contractual requirements that mandate key material physically reside outside Microsoft infrastructure, Azure Key Vault Managed HSM also supports [external key management](/azure/key-vault/managed-hsm/external-key-management-overview). External key management is in preview and keeps the key encryption key in a customer-operated HSM outside Azure. Azure Cloud HSM and Azure Payment HSM are infrastructure as a service (IaaS) offerings and don't integrate with Azure platform as a service (PaaS) or software as a service (SaaS) services. Azure Payment HSM v2 is likewise a single-tenant service dedicated to payment cryptography and doesn't integrate with Azure PaaS or SaaS services. For an overview of encryption at rest with Azure Key Vault and Azure Key Vault Managed HSM, see [Azure Data Encryption at Rest](encryption-atrest.md).
 
 ## APIs
 
-Azure Cloud HSM supports the PKCS#11, OpenSSL, JCA, JCE, CNG, and KSP APIs. Azure Payment HSM uses Thales payShield interfaces for HSM management and cryptographic operations. Azure Key Vault and Azure Key Vault Managed HSM don't support these APIs. Instead, they use the Azure Key Vault REST API and offer SDK support. For more information on the Azure Key Vault API, see [Azure Key Vault REST API Reference](/rest/api/keyvault/).
+Azure Cloud HSM supports the PKCS#11, OpenSSL, JCA, JCE, CNG, and KSP APIs. Azure Payment HSM uses Thales payShield interfaces for HSM management and cryptographic operations, and Azure Payment HSM v2 uses the Utimaco Atalla Payment Module (APM) interface. Azure Key Vault and Azure Key Vault Managed HSM don't support these APIs. Instead, they use the Azure Key Vault REST API and offer SDK support. For more information on the Azure Key Vault API, see [Azure Key Vault REST API Reference](/rest/api/keyvault/).
 
 ## Next steps
 
@@ -89,4 +93,5 @@ Azure Cloud HSM supports the PKCS#11, OpenSSL, JCA, JCE, CNG, and KSP APIs. Azur
 - [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview)
 - [Azure Cloud HSM](/azure/cloud-hsm/overview)
 - [Azure Payment HSM](/azure/payment-hsm/overview)
+- [Azure Payment HSM v2](/azure/payment-hsm-v2/overview)
 - [What is Zero Trust?](/security/zero-trust/zero-trust-overview)

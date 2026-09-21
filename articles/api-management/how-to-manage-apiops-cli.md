@@ -13,7 +13,7 @@ ms.date: 08/31/2026
 
 APIOps CLI is a configuration-as-code tool for Azure API Management. In this article, you use it to extract API Management configuration into local artifacts, review the artifacts in Git, preview changes, and publish approved artifacts to an API Management instance. The CLI can also scaffold GitHub Actions or Azure Pipelines files for an APIOps workflow.
 
-<!-- The steps provide a minimal workflow that you can validate with a nonproduction API Management instance. For architecture and design guidance, see [Automated API deployments with APIOps](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops). -->
+The steps provide a minimal workflow that you can validate with a nonproduction API Management instance. For architecture and design guidance, see [Automated API deployments with APIOps](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops).
 
 Use this workflow to:
 

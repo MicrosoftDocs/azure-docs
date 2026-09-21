@@ -220,7 +220,7 @@ Virtual WAN has concepts of VPN connection, link connection, and tunnels. A sing
 
 **Values for various scale units supported in Virtual WAN**
 
-[!INCLUDE [values for scale units](../../includes/virtual-wan-tunnels-throuput-instance-include.md)]
+[!INCLUDE [values for scale units](../networking/includes/virtual-wan/tunnels-throughput-instance.md)]
 
 ### Which device providers (Virtual WAN partners) are supported?
 
@@ -501,7 +501,7 @@ No. Virtual WAN doesn't support ASN changes for Virtual Hubs or any gateways.
 
 ### In Virtual WAN, what are the estimated performances by ExpressRoute gateway SKU?
 
-[!INCLUDE [ExpressRoute Performance](../../includes/virtual-wan-expressroute-performance.md)]
+[!INCLUDE [ExpressRoute Performance](../networking/includes/virtual-wan/expressroute-performance.md)]
 
 ### If I connect an ExpressRoute Local circuit to a Virtual WAN hub, will I only be able to access regions in the same metro location as the Local circuit? 
 

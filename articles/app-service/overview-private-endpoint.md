@@ -4,7 +4,7 @@ description: Learn how to connect privately to Azure App Service apps using a pr
 author: seligj95
 ms.author: jordanselig
 ms.topic: overview
-ms.date: 10/06/2025
+ms.date: 09/17/2026
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 
 #customer intent: As an app developer, I want to understand options that allow clients on our private networks to access apps in Azure App Service.
@@ -120,6 +120,7 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 ## Limitations
 
+- Apps must use an inbound IP mode (`ipMode`) of `IPv4` or `IPv4AndIPv6` to support connections through private endpoints. Apps configured with `ipMode` set to `IPv6` (IPv6-only) aren't supported because the private endpoint forwarding service requires a reachable IPv4 address for the destination app. In IPv6-only mode, DNS no longer returns an IPv4 address for the app, so private endpoint connections fail. For configuration instructions, see [Configure IPv6 support](./overview-inbound-outbound-ips.md#configure-ipv6-support).
 - When you use an Azure function in the Elastic Premium plan with a private endpoint, you must have direct network access to run the function in the Azure portal. Otherwise, you receive an HTTP 403 error. Your browser must be able to reach the private endpoint to run the function from the Azure portal.
 - You can connect up to 100 private endpoints to a particular app.
 - Remote debugging functionality isn't available through the private endpoint. We recommend that you deploy the code to a slot and debug it remotely there.

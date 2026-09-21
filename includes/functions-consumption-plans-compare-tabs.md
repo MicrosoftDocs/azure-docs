@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 10/28/2025
+ms.date: 09/16/2026
 ms.author: glenga
 ---
 
@@ -12,6 +12,6 @@ Provides fast horizontal scaling, with flexible compute options, virtual network
 
 ### [Consumption plan](#tab/consumption-plan)
 
-Provides dynamic scale and serverless hosting when your app must run on Windows, on version 1.x of the Functions runtime, on the full .NET Framework, or with full support for PowerShell. Use the Flex Consumption plan for hosting new apps, unless your app requires these specialized hosting conditions. For more information, see [Azure Functions Consumption plan hosting](../articles/azure-functions/consumption-plan.md). 
+Provides dynamic scale and serverless hosting when your app must run on Windows, on the full .NET Framework, or with full support for PowerShell. Use the Flex Consumption plan for hosting new apps, unless your app requires these specialized hosting conditions. For more information, see [Azure Functions Consumption plan hosting](../articles/azure-functions/consumption-plan.md).
 
 ---

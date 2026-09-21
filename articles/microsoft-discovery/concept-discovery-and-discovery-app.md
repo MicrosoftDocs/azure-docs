@@ -5,7 +5,7 @@ author: reburkea
 title: Microsoft Discovery & the Microsoft Discovery app
 description: Conceptual overview comparing Microsoft Discovery and the Microsoft Discovery app
 ms.topic: concept-article
-ms.date: 05/28/2026
+ms.date: 09/16/2026
 ---
 
 # Microsoft Discovery & the Microsoft Discovery app
@@ -31,7 +31,7 @@ The Microsoft Discovery platform is a cloud-based, production-grade platform dep
   </tr>
   <tr>
     <td align="center">
-      <strong>User Installer</strong> <a href="https://aka.ms/discovery/download/current"><strong>x64</strong></a> <a href="https://aka.ms/discovery/download/arm64/current"><strong>Arm64</strong></a>
+      <strong>User Installer</strong> <strong>Windows:</strong> <a href="https://aka.ms/discovery/download/current"><strong>x64</strong></a> <a href="https://aka.ms/discovery/download/arm64/current"><strong>Arm64</strong></a> <strong>macOS:</strong> <a href="https://aka.ms/discovery/download/osx/current"><strong>Arm64</strong></a>
     </td>
   </tr>
 </table>
@@ -69,7 +69,7 @@ The following table provides a side-by-side comparison of the two experiences:
 |---|---|---|---|
 | **Differences** | Availability | Generally available | In preview |
 | | Support & SLA | Fully supported for production use under Microsoft's enterprise support agreements | Community-based support via GitHub |
-| | Deployment & setup | Requires an Azure subscription and enterprise cloud resources for setup | Downloadable app for Windows; only requires a GitHub Copilot account for setup (any tier) |
+| | Deployment & setup | Requires an Azure subscription and enterprise cloud resources for setup | Downloadable app for Windows and macOS; only requires a GitHub Copilot account for setup (any tier) |
 | | IT/Admin experience | Manage cloud resources in Azure portal. Manage project resources in [Discovery Studio](/azure/microsoft-discovery/concept-studio) | N/A |
 | | Architecture | Runs as a cloud service in Azure | Runs locally on your machine |
 | | Compute & scale | Scalable Azure compute infrastructure including high performance CPUs, GPUs, and specialized hardware across clusters for large-scale or parallel investigations | Uses your device's compute |

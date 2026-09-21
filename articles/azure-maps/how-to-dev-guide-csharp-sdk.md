@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the C# SDK Developers Guide.
 author: sinnypan
 ms.author: sipa
-ms.date: 09/10/2026
+ms.date: 09/17/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: rest-sdk
@@ -78,7 +78,7 @@ dotnet add package Azure.Identity
 
 You need to register the new Microsoft Entra application and grant access to Azure Maps by assigning the required role to your service principal. For more information, see [Host a daemon on non-Azure resources]. The Application (client) ID, a Directory (tenant) ID, and a client secret are returned. Copy these values and store them in a secure place. You need them in the following steps.
 
-Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Microsoft Entra application, and the map resource’s client ID as environment variables:
+Set the values of the Application (client) ID, Directory (tenant) ID, and client secret of your Microsoft Entra application, and the map resource's client ID as environment variables:
 
 | Environment Variable | Description                                                   |
 |----------------------|---------------------------------------------------------------|
@@ -303,7 +303,7 @@ for (var i = 0; i < count; i++)
 
 ## Use the v1 SDK for Search
 
-For more information about using Search v1, see [Azure Maps Search client library for .NET](https://www.nuget.org/packages/Azure.Maps.Search/1.0.0-beta.5/). To migrate a Render v1 application, see [Migrate Azure Maps Render 1.0 APIs].
+For more information about using Search v1, see [Azure Maps Search client library for .NET](https://www.nuget.org/packages/Azure.Maps.Search/1.0.0-beta.5/).
 
 ## Additional information
 
@@ -320,7 +320,6 @@ The [Azure.Maps Namespace] in the .NET documentation.
 [geolocation package]: https://www.nuget.org/packages/Azure.Maps.geolocation
 [Host a daemon on non-Azure resources]: ./how-to-secure-daemon-app.md#host-a-daemon-on-non-azure-resources
 [Identity library .NET]: /dotnet/api/overview/azure/identity-readme
-[Migrate Azure Maps Render 1.0 APIs]: migrate-render-v1-api.md
 [rendering package]: https://www.nuget.org/packages/Azure.Maps.Rendering
 [rendering readme]: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/maps/Azure.Maps.Rendering/README.md
 [rendering sample]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps/Azure.Maps.Rendering/samples

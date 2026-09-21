@@ -14,7 +14,7 @@ ms.date: 07/09/2025
 
 # Tutorial: Create a site-to-site VPN connection in the Azure portal
 
-In this tutorial, you use the Azure portal to create a site-to-site (S2S) VPN gateway connection between your on-premises network and a virtual network. You can also create this configuration by using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or the [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). This configuration uses a specified pre-shared key for the connection between the Azure VPN gateway and your on-premises VPN device. You can also configure a site-to-site connection using [certificate authentication](site-to-site-certificate-authentication-gateway-portal.md).
+In this tutorial, you use the Azure portal to create a site-to-site (S2S) VPN gateway connection between your on-premises network and a virtual network. You can also create this configuration by using [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) or the [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md). This configuration uses a specified pre-shared key for the connection between the Azure VPN gateway and your on-premises VPN device. You can also configure a site-to-site connection using [certificate authentication](site-to-site-certificate-authentication-gateway.md).
 
 :::image type="content" source="./media/tutorial-site-to-site-portal/diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections." lightbox="./media/tutorial-site-to-site-portal/diagram.png":::
 
@@ -52,7 +52,7 @@ In this section, you create a virtual network by using the following values:
 * **IPv4 address space**: 10.1.0.0/16
 * **Subnet name**: FrontEnd
 * **Subnet address space**: 10.1.0.0/24
-[!INCLUDE [About cross-premises addresses](../../includes/vpn-gateway-cross-premises.md)]
+[!INCLUDE [About cross-premises addresses](../networking/includes/vpn-gateway/cross-premises.md)]
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 

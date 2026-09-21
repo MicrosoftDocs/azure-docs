@@ -136,7 +136,7 @@ The trigger attribute specifies the trigger type and binds input data to a metho
 The method signature might contain parameters other than the one used with the trigger attribute. Here are some of the other parameters that you can include:
 
 - [Input and output bindings](functions-triggers-bindings.md) marked as such by decorating them with attributes.  
-- An `ILogger` or `TraceWriter` ([version 1.x-only](functions-versions.md#creating-1x-apps)) parameter for [logging](#logging).
+- An `ILogger` parameter for [logging](#logging).
 - A `CancellationToken` parameter for [graceful shutdown](#cancellation-tokens).
 - [Binding expressions](./functions-bindings-expressions-patterns.md) parameters to get trigger metadata.
 
@@ -217,8 +217,6 @@ The *function.json* file generation is performed by the NuGet package [Microsoft
 
 The following example shows the relevant parts of the `.csproj` files that have different target frameworks of the same `Sdk` package:
 
-# [v4.x](#tab/v4)
-
 ```xml
 <PropertyGroup>
   <TargetFramework>net8.0</TargetFramework>
@@ -232,33 +230,13 @@ The following example shows the relevant parts of the `.csproj` files that have 
 > [!IMPORTANT]
 > Starting with version 4.0.6517 of the Core Tools, in-process model projects must reference [version 4.5.0 or later of `Microsoft.NET.Sdk.Functions`](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/4.5.0). If an earlier version is used, the `func start` command will error.
 
-# [v1.x](#tab/v1)
-
-```xml
-<PropertyGroup>
-  <TargetFramework>net48</TargetFramework>
-</PropertyGroup>
-<ItemGroup>
-  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.24" />
-</ItemGroup>
-```
----
-
-Among the `Sdk` package dependencies are triggers and bindings. A 1.x project refers to 1.x triggers and bindings because those triggers and bindings target the .NET Framework, while 4.x triggers and bindings target .NET Core.
-
-The `Sdk` package also depends on [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), and indirectly on [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage). These dependencies make sure that your project uses the versions of those packages that work with the Functions runtime version that the project targets. For example, `Newtonsoft.Json` has version 11 for .NET Framework 4.6.1, but the Functions runtime that targets .NET Framework 4.6.1 is only compatible with `Newtonsoft.Json` 9.0.1. So your function code in that project also has to use `Newtonsoft.Json` 9.0.1.
-
 The source code for `Microsoft.NET.Sdk.Functions` is available in the GitHub repo [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
 ## Local runtime version
 
 Visual Studio uses the [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to run Functions projects on your local computer. The Core Tools is a command-line interface for the Functions runtime.
 
-If you install the Core Tools using the Windows installer (MSI) package or by using npm, it doesn't affect the Core Tools version used by Visual Studio. For the Functions runtime version 1.x, Visual Studio stores Core Tools versions in *%USERPROFILE%\AppData\Local\Azure.Functions.Cli* and uses the latest version stored there. For Functions 4.x, the Core Tools are included in the **Azure Functions and Web Jobs Tools** extension. For Functions 1.x, you can see what version is being used in the console output when you run a Functions project:
-
-```terminal
-[3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
-```
+If you install the Core Tools by using the Windows installer (MSI) package or by using npm, it doesn't affect the Core Tools version that Visual Studio uses. For Functions 4.x, the Core Tools are included in the **Azure Functions and Web Jobs Tools** extension.
 
 ## ReadyToRun
 
@@ -385,7 +363,7 @@ namespace ServiceBusCancellationToken
 
 ## Logging
 
-In your function code, you can write output to logs that appear as traces in Application Insights. The recommended way to write to the logs is to include a parameter of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), which is typically named `log`. Version 1.x of the Functions runtime used `TraceWriter`, which also writes to Application Insights, but doesn't support structured logging. Don't use `Console.Write` to write your logs, since this data isn't captured by Application Insights.
+In your function code, you can write output to logs that appear as traces in Application Insights. The recommended way to write to the logs is to include a parameter of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), which is typically named `log`. Don't use `Console.Write` to write your logs, since this data isn't captured by Application Insights.
 
 ### ILogger
 
@@ -457,9 +435,7 @@ In this command, replace `<VERSION>` with a version of this package that support
 
 The following C# examples uses the [custom telemetry API](/azure/azure-monitor/app/api-custom-events-metrics). The example is for a .NET class library, but the Application Insights code is the same for C# script.
 
-# [v4.x](#tab/v4)
-
-Version 2.x and later versions of the runtime use newer features in Application Insights to automatically correlate telemetry with the current operation. There's no need to manually set the operation `Id`, `ParentId`, or `Name` fields.
+The runtime automatically correlates telemetry with the current operation. There's no need to manually set the operation `Id`, `ParentId`, or `Name` fields.
 
 ```cs
 using System;
@@ -530,88 +506,6 @@ namespace functionapp0915
 In this example, the custom metric data gets aggregated by the host before being sent to the customMetrics table. To learn more, see the [GetMetric](/azure/azure-monitor/app/api-custom-events-metrics#getmetric) documentation in Application Insights. 
 
 When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-develop-local.md#local-settings-file) file.
-
-# [v1.x](#tab/v1)
-
-```cs
-using System;
-using System.Net;
-using Microsoft.ApplicationInsights;
-using Microsoft.ApplicationInsights.DataContracts;
-using Microsoft.ApplicationInsights.Extensibility;
-using Microsoft.Azure.WebJobs;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Extensions.Logging;
-using System.Linq;
-
-namespace functionapp0915
-{
-    public static class HttpTrigger2
-    {
-        private static string key = TelemetryConfiguration.Active.InstrumentationKey = 
-            System.Environment.GetEnvironmentVariable(
-                "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
-
-        private static TelemetryClient telemetryClient = 
-            new TelemetryClient() { InstrumentationKey = key };
-
-        [FunctionName("HttpTrigger2")]
-        public static async Task<HttpResponseMessage> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
-            HttpRequestMessage req, ExecutionContext context, ILogger log)
-        {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-            DateTime start = DateTime.UtcNow;
-
-            // Parse query parameter
-            string name = req.GetQueryNameValuePairs()
-                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
-                .Value;
-
-            // Get request body
-            dynamic data = await req.Content.ReadAsAsync<object>();
-
-            // Set name to query string or body data
-            name = name ?? data?.name;
-         
-            // Track an Event
-            var evt = new EventTelemetry("Function called");
-            UpdateTelemetryContext(evt.Context, context, name);
-            telemetryClient.TrackEvent(evt);
-            
-            // Track a Metric
-            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
-            UpdateTelemetryContext(metric.Context, context, name);
-            telemetryClient.TrackMetric(metric);
-            
-            // Track a Dependency
-            var dependency = new DependencyTelemetry
-            {
-                Name = "GET api/planets/1/",
-                Target = "swapi.co",
-                Data = "https://swapi.co/api/planets/1/",
-                Timestamp = start,
-                Duration = DateTime.UtcNow - start,
-                Success = true
-            };
-            UpdateTelemetryContext(dependency.Context, context, name);
-            telemetryClient.TrackDependency(dependency);
-        }
-        
-        // Correlate all telemetry with the current Function invocation
-        private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
-        {
-            context.Operation.Id = functionContext.InvocationId.ToString();
-            context.Operation.ParentId = functionContext.InvocationId.ToString();
-            context.Operation.Name = functionContext.FunctionName;
-            context.User.Id = userName;
-        }
-    }    
-}
-```
----
 
 Don't call `TrackRequest` or `StartOperation<RequestTelemetry>` because you see duplicate requests for a function invocation. The Functions runtime automatically tracks requests.
 

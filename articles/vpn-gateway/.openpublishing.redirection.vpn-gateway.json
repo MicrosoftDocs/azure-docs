@@ -136,6 +136,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/site-to-site-certificate-authentication-gateway-cli.md",
+            "redirect_url": "/azure/vpn-gateway/site-to-site-certificate-authentication-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/site-to-site-certificate-authentication-gateway-portal.md",
+            "redirect_url": "/azure/vpn-gateway/site-to-site-certificate-authentication-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/site-to-site-certificate-authentication-gateway-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/site-to-site-certificate-authentication-gateway",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/vpn-gateway/powershell-samples.md",
             "redirect_url": "/azure/vpn-gateway/vpn-gateway-about-vpngateways",
             "redirect_document_id": false

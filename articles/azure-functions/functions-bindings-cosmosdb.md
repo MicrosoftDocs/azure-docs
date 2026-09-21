@@ -2,7 +2,7 @@
 title: Azure Cosmos DB bindings for Functions 1.x
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions 1.x.
 ms.topic: reference
-ms.date: 08/12/2026
+ms.date: 09/15/2026
 ms.devlang: csharp
 # ms.devlang: csharp, javascript
 ms.custom: devx-track-csharp
@@ -12,15 +12,16 @@ ms.custom: devx-track-csharp
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Version 1](functions-bindings-cosmosdb.md)
-> * [Version 2](functions-bindings-cosmosdb-v2.md)
+> * [Version 2](/azure/azure-functions/functions-bindings-cosmosdb-v2)
 
-[!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
+> [!IMPORTANT]
+> [Support ended for version 1.x of the Azure Functions runtime on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). [Migrate your apps to version 4.x](/azure/azure-functions/migrate-version-1-version-4) for full support.
 
 This article explains how to work with [Azure Cosmos DB](/azure/cosmos-db/serverless-computing-database) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
 
 Keep these important considerations in mind when using the Azure Cosmos DB binding for the Functions v1.x runtime:
 
-* This article is for Azure Functions 1.x. We recommend that you run your functions on the most recent version of the Functions runtime. For information about how to use these bindings in the latest Functions runtime, see [Azure Cosmos DB bindings for Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
+* This article is for Azure Functions 1.x. We recommend that you run your functions on the most recent version of the Functions runtime. For information about how to use these bindings in the latest Functions runtime, see [Azure Cosmos DB bindings for Azure Functions 2.x](/azure/azure-functions/functions-bindings-cosmosdb-v2).
 
 * This binding was originally named DocumentDB. In Azure Functions version 1.x, only the trigger was renamed Azure Cosmos DB; the input binding, output binding, and NuGet package retain the DocumentDB name.
 
@@ -32,7 +33,13 @@ Keep these important considerations in mind when using the Azure Cosmos DB bindi
 
 The Azure Cosmos DB bindings for Functions version 1.x are provided in the [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet package, version 1.x.
 
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
+The following table lists how to add support for the binding in each development environment.
+
+| Development environment | To add support in Functions 1.x |
+| --- | --- |
+| Local development: C# class library | [Install the package](/azure/azure-functions/functions-develop-vs#add-bindings). |
+| Local development: C# script, JavaScript, F# | Automatic |
+| Portal development | Automatic |
 
 ## Trigger
 
@@ -42,7 +49,7 @@ The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](/azure/cosmos
 
 # [C#](#tab/csharp)
 
-The following example shows an [in-process C# function](functions-dotnet-class-library.md) that is invoked when there are inserts or updates in the specified database and collection.
+The following example shows an [in-process C# function](/azure/azure-functions/functions-dotnet-class-library) that is invoked when there are inserts or updates in the specified database and collection.
 
 ```cs
 using Microsoft.Azure.Documents;
@@ -75,7 +82,7 @@ namespace CosmosDBSamplesV1
 
 # [JavaScript](#tab/javascript)
 
-The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes log messages when Azure Cosmos DB records are modified.
+The following example shows an Azure Cosmos DB trigger binding in a *function.json* file and a [JavaScript function](/azure/azure-functions/functions-reference-node) that uses the binding. The function writes log messages when Azure Cosmos DB records are modified.
 
 Here's the binding data in the *function.json* file:
 
@@ -106,7 +113,7 @@ Here's the JavaScript code:
 
 # [C#](#tab/csharp)
 
-For [in-process C# class libraries](functions-dotnet-class-library.md), use the [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) attribute.
+For [in-process C# class libraries](/azure/azure-functions/functions-dotnet-class-library), use the [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) attribute.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Trigger - configuration](#trigger---configuration). Here's a `CosmosDBTrigger` attribute example in a method signature:
 
@@ -155,7 +162,7 @@ The following table explains the binding configuration properties that you set i
 |**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Optional) When set, it customizes the maximum amount of items received per Function call.
 |**startFromBeginning**| **StartFromBeginning**| (Optional) When set, it tells the Trigger to start reading changes from the beginning of the history of the collection instead of the current time. This only works the first time the Trigger starts, as in subsequent runs, the checkpoints are already stored. Setting this to `true` when there are leases already created has no effect.
 
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+When you're developing locally, add your application settings in the [local.settings.json file](/azure/azure-functions/functions-develop-local#local-settings-file) in the `Values` collection.
 
 ## Trigger - usage
 
@@ -200,7 +207,7 @@ namespace CosmosDBSamplesV1
 
 ### Queue trigger, look up ID from JSON
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by a queue message that contains a JSON object. The queue trigger parses the JSON into an object named `ToDoItemLookup`, which contains the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [C# function](/azure/azure-functions/functions-dotnet-class-library) that retrieves a single document. The function is triggered by a queue message that contains a JSON object. The queue trigger parses the JSON into an object named `ToDoItemLookup`, which contains the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
 namespace CosmosDBSamplesV1
@@ -249,7 +256,7 @@ namespace CosmosDBSamplesV1
 
 ### HTTP trigger, look up ID from query string
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [C# function](/azure/azure-functions/functions-dotnet-class-library) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -291,7 +298,7 @@ namespace CosmosDBSamplesV1
 
 ### HTTP trigger, look up ID from route data
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [C# function](/azure/azure-functions/functions-dotnet-class-library) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -338,7 +345,7 @@ namespace CosmosDBSamplesV1
 
 ### HTTP trigger, look up ID from route data, using SqlQuery
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [C# function](/azure/azure-functions/functions-dotnet-class-library) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -380,7 +387,7 @@ namespace CosmosDBSamplesV1
 
 ### HTTP trigger, get multiple docs, using SqlQuery
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The query is specified in the `SqlQuery` attribute property.
+The following example shows a [C# function](/azure/azure-functions/functions-dotnet-class-library) that retrieves a list of documents. The function is triggered by an HTTP request. The query is specified in the `SqlQuery` attribute property.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -423,7 +430,7 @@ namespace CosmosDBSamplesV1
 
 ### HTTP trigger, get multiple docs, using DocumentClient (C#)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `DocumentClient` instance provided by the Azure Cosmos DB binding to read a list of documents. The `DocumentClient` instance could also be used for write operations.
+The following example shows a [C# function](/azure/azure-functions/functions-dotnet-class-library) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `DocumentClient` instance provided by the Azure Cosmos DB binding to read a list of documents. The `DocumentClient` instance could also be used for write operations.
 
 ```cs
 using Microsoft.Azure.Documents.Client;
@@ -494,7 +501,7 @@ This section contains the following examples:
 
 ### Queue trigger, look up ID from JSON
 
-The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads a single document and updates the document's text value.
+The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [JavaScript function](/azure/azure-functions/functions-reference-node) that uses the binding. The function reads a single document and updates the document's text value.
 
 Here's the binding data in the *function.json* file:
 
@@ -537,7 +544,7 @@ Here's the JavaScript code:
 
 ### HTTP trigger, look up ID from query string
 
-The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [JavaScript function](/azure/azure-functions/functions-reference-node) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 Here's the *function.json* file:
 
@@ -593,7 +600,7 @@ module.exports = async function (context, req, toDoItem) {
 
 ### HTTP trigger, look up ID from route data
 
-The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [JavaScript function](/azure/azure-functions/functions-reference-node) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
 Here's the *function.json* file:
 
@@ -650,7 +657,7 @@ module.exports = async function (context, req, toDoItem) {
 
 ### Queue trigger, get multiple docs, using SqlQuery
 
-The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
+The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [JavaScript function](/azure/azure-functions/functions-reference-node) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
 
 The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department.
 
@@ -688,7 +695,7 @@ Here's the JavaScript code:
 
 # [C#](#tab/csharp)
 
-In [in-process C# class libraries](functions-dotnet-class-library.md), use the `DocumentDB`.
+In [in-process C# class libraries](/azure/azure-functions/functions-dotnet-class-library), use the `DocumentDB`.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [the following configuration section](#input---configuration).
 
@@ -709,12 +716,12 @@ The following table explains the binding configuration properties that you set i
 |**name**     | n/a | Name of the binding parameter that represents the document in the function.  |
 |**databaseName** |**DatabaseName** |The database containing the document.        |
 |**collectionName** |**CollectionName** | The name of the collection that contains the document. |
-|**id**    | **Id** | The ID of the document to retrieve. This property supports [binding expressions](./functions-bindings-expressions-patterns.md). Don't set both the **id** and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved. |
+|**id**    | **Id** | The ID of the document to retrieve. This property supports [binding expressions](/azure/azure-functions/functions-bindings-expressions-patterns). Don't set both the **id** and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved. |
 |**sqlQuery**  |**SqlQuery**  | An Azure Cosmos DB SQL query used for retrieving multiple documents. The property supports runtime bindings, as in this example: `SELECT * FROM c where c.departmentId = {departmentId}`. Don't set both the **id** and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved.|
 |**connection**     |**ConnectionStringSetting**|The name of the app setting containing your Azure Cosmos DB connection string.        |
 |**partitionKey**|**PartitionKey**|Specifies the partition key value for the lookup. May include binding parameters.|
 
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+When you're developing locally, add your application settings in the [local.settings.json file](/azure/azure-functions/functions-develop-local#local-settings-file) in the `Values` collection.
 
 ## Input - usage
 
@@ -756,7 +763,7 @@ namespace CosmosDBSamplesV1
 
 ### Queue trigger, write one doc
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
+The following example shows a [C# function](/azure/azure-functions/functions-dotnet-class-library) that adds a document to a database, using data provided in message from Queue storage.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -787,7 +794,7 @@ namespace CosmosDBSamplesV1
 
 ### Queue trigger, write docs using IAsyncCollector
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that adds a collection of documents to a database, using data provided in a queue message JSON.
+The following example shows a [C# function](/azure/azure-functions/functions-dotnet-class-library) that adds a collection of documents to a database, using data provided in a queue message JSON.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -822,7 +829,7 @@ namespace CosmosDBSamplesV1
 
 # [JavaScript](#tab/javascript)
 
-The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
+The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [JavaScript function](/azure/azure-functions/functions-reference-node) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
 
 ```json
 {
@@ -879,7 +886,7 @@ Here's the JavaScript code:
 
 # [C#](#tab/csharp)
 
-In [in-process C# class libraries](functions-dotnet-class-library.md), use the `DocumentDB` attribute.
+In [in-process C# class libraries](/azure/azure-functions/functions-dotnet-class-library), use the `DocumentDB` attribute.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Output - configuration](#output---configuration). Here's a `DocumentDB` attribute example in a method signature:
 
@@ -917,7 +924,7 @@ The following table explains the binding configuration properties that you set i
 |**collectionThroughput**|**CollectionThroughput**| When `CreateIfNotExists` is true, defines the [throughput](/azure/cosmos-db/set-throughput) of the created collection.|
 |**connection**    |**ConnectionStringSetting** |The name of the app setting containing your Azure Cosmos DB connection string.        |
 
-[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+When you're developing locally, add your application settings in the [local.settings.json file](/azure/azure-functions/functions-develop-local#local-settings-file) in the `Values` collection.
 
 ## Output - usage
 
@@ -935,9 +942,9 @@ By default, when you write to the output parameter in your function, a document 
 ## Next steps
 
 * [Learn more about serverless database computing with Azure Cosmos DB](/azure/cosmos-db/serverless-computing-database)
-* [Learn more about Azure Functions triggers and bindings](functions-triggers-bindings.md)
+* [Learn more about Azure Functions triggers and bindings](/azure/azure-functions/functions-triggers-bindings)
 
 <!---
 > [!div class="nextstepaction"]
-> [Go to a quickstart that uses an Azure Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
+> [Use Azure Cosmos DB bindings with supported Functions runtime versions](/azure/azure-functions/functions-bindings-cosmosdb-v2)
 --->
