@@ -378,7 +378,7 @@ Now, continue building your workflow by adding another action as the next step. 
 > If the **Response** action has the **Asynchronous response** setting turned on, or if your workflow doesn't include a **Response** action, your workflow 
 > immediately returns the **202 ACCEPTED** status to the caller.
 
-For information about security, authentication, and encryption for inbound calls to your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), [OAuth with Microsoft Entra ID](/entra/architecture/auth-oauth2), [Shared Access Signatures (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas), exposing your logic app resource with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+For information about security, authentication, and encryption for inbound calls to your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), [OAuth with Microsoft Entra ID](/entra/architecture/auth-oauth2), [Shared Access Signatures (SAS)](../logic-apps/set-up-security-permissions.md#sas), exposing your logic app resource with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Access for inbound calls to request-based triggers](../logic-apps/set-up-security-permissions.md#secure-inbound-requests).
 
 ## Trigger outputs
 
@@ -495,9 +495,9 @@ For more information about the trigger's underlying JSON definition and how to c
 
 In a Standard logic app workflow that starts with the Request trigger (but not a webhook trigger), you can use the Azure Functions provision for authenticating inbound calls sent to the endpoint created by that trigger by using a managed identity. This provision is also known as *Easy Auth*. For more information, see [Trigger workflows in Standard logic apps with Easy Auth](https://techcommunity.microsoft.com/blog/integrationsonazureblog/trigger-workflows-in-standard-logic-apps-with-easy-auth/3207378).
 
-For more information about security, authorization, and encryption for inbound calls to your logic app workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+For more information about security, authorization, and encryption for inbound calls to your logic app workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Access for inbound calls to request-based triggers](../logic-apps/set-up-security-permissions.md#secure-inbound-requests).
 
 ## Related content
 
-* [Authentication types for connectors that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Authentication types for connectors that support authentication](../logic-apps/set-up-security-permissions.md#secure-inbound-requests)
 * [Managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)

@@ -1,6 +1,6 @@
 ---
-title: Azure Functions Scenarios
-description: Identify key scenarios that use Azure Functions to provide serverless compute resources in aa Azure cloud-based topology.
+title: Azure Functions scenarios
+description: Identify common scenarios that use Azure Functions to provide serverless compute resources in an Azure cloud-based architecture.
 ms.topic: concept-article
 ms.custom:
   - devx-track-extended-java
@@ -9,7 +9,7 @@ ms.custom:
   - build-2025
 ms.collection:
   - ce-skilling-ai-copilot
-ms.date: 06/02/2026
+ms.date: 09/09/2026
 ms.update-cycle: 180-days
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -156,107 +156,47 @@ public static async Task Run(
 + [Apache Kafka trigger for Azure Functions](functions-bindings-kafka-trigger.md?pivots=programming-language-java)
 ::: zone-end
 
-## Machine learning and AI
+## Build AI-enabled apps
 
-Azure Functions provides serverless compute resources that integrate with AI and Azure services to streamline building cloud-hosted intelligent applications. You can use the Functions programming model to create and host remote Model Context Protocol (MCP) servers and implement various AI tools. For more information, see [Tools and MCP servers](functions-create-ai-enabled-apps.md#tools-and-mcp-servers).
+Use Azure Functions to make data and APIs available to AI clients and to add AI reasoning to event-driven applications.
 
-The [Azure OpenAI binding extension](./functions-bindings-openai.md) lets you integrate AI features and behaviors of [Azure OpenAI](/azure/ai-services/openai/overview), such as retrieval-augmented generation (RAG), into your function code executions. For more information, see [Retrieval-augmented generation](functions-create-ai-enabled-apps.md#retrieval-augmented-generation).
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-python"
 
-A function might also call a TensorFlow model or Foundry Tools to process and classify a stream of images.
+### Make your data and APIs available to AI
 
-:::image type="content" source="media/functions-scenarios/machine-learning-and-ai.png" alt-text="Diagram of a machine learning and AI process using Azure Functions." lightbox="media/functions-scenarios/machine-learning-and-ai-expanded.png":::
+AI clients and agents need tools that provide controlled access to business data, APIs, and application logic. You can use Azure Functions to build and host remote Model Context Protocol (MCP) servers that expose these capabilities as tools. Functions provides managed hosting, authentication, networking, monitoring, and scaling for your MCP server.
 
-::: zone pivot="programming-language-csharp"
-### [Tools and MCP servers](#tab/mcp-tools)
+For example, you might expose product inventory, customer account data, or an existing business API as tools that an AI client can discover and call.
+
+:::image type="content" source="media/functions-scenarios/ai-tools-mcp-server.png" alt-text="Diagram showing an AI client calling a remote MCP server hosted by Azure Functions, which provides controlled access to business APIs and data." lightbox="media/functions-scenarios/ai-tools-mcp-server-expanded.png":::
 
 + [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md)
++ [Quickstart: Build MCP Apps using Azure Functions](scenario-mcp-apps.md)
 + [Quickstart: Host servers built with MCP SDKs on Azure Functions](scenario-host-mcp-server-sdks.md)
-+ [Sample: Build and deploy a remote MCP server by using Azure Functions](https://github.com/Azure-Samples/remote-mcp-functions-dotnet)
-+ [Sample: Host remote MCP servers built with official MCP SDKs on Azure Functions](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet)
++ [Tutorial: Host an MCP server on Azure Functions](functions-mcp-tutorial.md)
++ [Reference: MCP binding for Azure Functions](functions-bindings-mcp.md)
++ [Use AI tools and models in Azure Functions](functions-create-ai-enabled-apps.md#tools-and-mcp-servers)
 
-### [Azure OpenAI](#tab/open-ai)
-
-+ [Tutorial: Add Azure OpenAI text completion hints to your functions](functions-add-openai-text-completion.md?pivots=programming-language-csharp)
-+ [Sample: Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo)
-+ [Sample: Text summarization using AI Cognitive Language Service](https://github.com/Azure-Samples/function-csharp-ai-textsummarize)
-+ [Sample: Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/csharp-ooproc)
-+ [Sample: Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/csharp-ooproc)
-+ [Sample: Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/csharp-ooproc/Embeddings)
-+ [Sample: Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/csharp-ooproc)
-
----
 ::: zone-end
-::: zone pivot="programming-language-java"
-### [Tools and MCP servers](#tab/mcp-tools)
 
-+ [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md)
-+ [Sample: Build and deploy a remote MCP server using Azure Functions](https://github.com/Azure-Samples/remote-mcp-functions-java)
-
-### [Azure OpenAI](#tab/open-ai)
-
-+ [Tutorial: Add Azure OpenAI text completion hints to your functions](functions-add-openai-text-completion.md?pivots=programming-language-java)
-+ [Sample: Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/java)
-+ [Sample: Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/java)
-+ [Sample: Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/java)
-+ [Sample: Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/java)
-
----
-::: zone-end
-::: zone pivot="programming-language-javascript"
-+ [Tutorial: Add Azure OpenAI text completion hints to your functions](functions-add-openai-text-completion.md?pivots=programming-language-javascript)
-+ [Sample: Chat using ChatGPT](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)
-+ [Sample: Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo)
-::: zone-end
-::: zone pivot="programming-language-typescript"
-### [Tools and MCP servers](#tab/mcp-tools)
-
-+ [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md)
-+ [Quickstart: Host servers built with MCP SDKs on Azure Functions](scenario-host-mcp-server-sdks.md)
-+ [Sample: Build and deploy a remote MCP server using Azure Functions](https://github.com/Azure-Samples/remote-mcp-functions-typescript)
-+ [Sample: Host remote MCP servers built with official MCP SDKs on Azure Functions](https://github.com/Azure-Samples/mcp-sdk-functions-hosting-node)
-
-### [Azure OpenAI](#tab/open-ai)
-
-+ [Tutorial: Add Azure OpenAI text completion hints to your functions](functions-add-openai-text-completion.md?pivots=programming-language-typescript)
-+ [Training: Create a custom skill for Azure AI Search](/training/modules/create-azure-ai-custom-skill/)
-+ [Sample: Chat using ChatGPT](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)
-+ [Sample: Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo)
-
----
-::: zone-end
 ::: zone pivot="programming-language-python"
-### [Tools and MCP servers](#tab/mcp-tools-2)
 
-+ [Quickstart: Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md)
-+ [Quickstart: Host servers built with MCP SDKs on Azure Functions](scenario-host-mcp-server-sdks.md)
+### Add AI reasoning to business events
 
-### [Azure OpenAI](#tab/open-ai-2)
+Some business events require reasoning before your application can decide what to do next. Azure Functions hosted skills let you define AI-powered work in Markdown and start it from schedules, HTTP requests, queue messages, storage changes, and other events. The hosted skill can call tools and services before returning a result or taking an action.
 
-+ [Tutorial: Add Azure OpenAI text completion hints to your functions](functions-add-openai-text-completion.md?pivots=programming-language-python)
-+ [Sample: Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/python)
-+ [Sample: Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/python)
-+ [Sample: Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/python)
-+ [Sample: Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/python)
-+ [Sample: Chat using ChatGPT](https://github.com/Azure-Samples/function-python-ai-openai-chatgpt)
-+ [Sample: LangChain with Azure OpenAI and ChatGPT](https://github.com/Azure-Samples/function-python-ai-langchain)
+For example, a hosted skill can classify an incoming complaint and route it to the appropriate queue. For more complex work, a dynamic workflow can create a durable, multistep plan that runs tasks in parallel, waits for external conditions, and resumes after worker restarts.
 
-### [Data models](#tab/data-models)
+:::image type="content" source="media/functions-scenarios/ai-reasoning-business-events.png" alt-text="Diagram showing events, messages, and schedules starting a hosted skill on Azure Functions, which uses a Foundry model and can call tools, APIs, connectors, and actions." lightbox="media/functions-scenarios/ai-reasoning-business-events-expanded.png":::
 
-+ [Tutorial: Apply machine learning models in Azure Functions with Python and TensorFlow](./functions-machine-learning-tensorflow.md)
-+ [Tutorial: Deploy a pretrained image classification model to Azure Functions with PyTorch](./machine-learning-pytorch.md)
-
----
++ [Quickstart: Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md)
++ [How-to: Create and run dynamic workflows with Azure Functions hosted skills](functions-hosted-skills-dynamic-workflows-how-to.md)
++ [Sample: Event-driven hosted skills app](https://github.com/Azure-Samples/functions-quickstart-serverless-agents-azd)
++ [Sample: Workflow incident triage](https://github.com/Azure/azure-functions-agents-runtime/tree/main/samples/workflow-incident-triage)
++ [Overview: Azure Functions hosted skills](functions-hosted-skills.md)
++ [Overview: Dynamic workflows in Azure Functions hosted skills](functions-hosted-skills-dynamic-workflows.md)
 
 ::: zone-end
-::: zone pivot="programming-language-powershell"
-+ [Tutorial: Add Azure OpenAI text completion hints to your functions](functions-add-openai-text-completion.md?pivots=programming-language-powershell)
-+ [Sample: Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/powershell)
-+ [Sample: Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/powershell)
-+ [Sample: Generate embeddings](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings/powershell)
-+ [Sample: Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/powershell)
-::: zone-end
-
-For more information, see [Use AI tools and models in Azure Functions](functions-create-ai-enabled-apps.md).
 
 ## Run scheduled tasks
 

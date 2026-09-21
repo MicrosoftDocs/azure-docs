@@ -8,8 +8,8 @@ metadata:
   description: Learn about Azure Maps and how to use it to provide geospatial services to your web or mobile application.
   ms.service: azure-maps
   ms.topic: landing-page
-  author: jkebeck
-  ms.author: jokebeck
+  author: farazgis
+  ms.author: farazgis
   ms.date: 3/4/2024
 
 
@@ -53,7 +53,7 @@ landingContent:
             url: how-to-manage-account-keys.md
           - text: Manage authentication with Azure Maps
             url: how-to-manage-authentication.md
-          - text: Manage Azure Maps account pricing tier
+          - text: Azure Maps account pricing
             url: how-to-manage-pricing-tier.md
           - text: View Azure Maps API usage metrics
             url: how-to-view-api-usage.md

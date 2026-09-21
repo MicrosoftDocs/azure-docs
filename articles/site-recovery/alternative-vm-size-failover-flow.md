@@ -5,7 +5,7 @@ services: site-recovery
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 09/11/2025
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 ---
 
@@ -15,12 +15,15 @@ Azure Site Recovery now provides alternative virtual machine (VM) size guidance 
 
 ## How alternative VM size capacity guidance works 
 
-:::image type="content" source="./media/alternative-vm-size-failover-flow/failover-recommendations-inline.png" alt-text="Diagram that shows the failover-recommendations screen." lightbox="./media/alternative-vm-size-failover-flow/failover-recommendations-expanded.png":::
+:::image type="content" source="./media/alternative-vm-size-failover-flow/failover-recommendations-inline.png" alt-text="Diagram that shows the failover recommendations screen." lightbox="./media/alternative-vm-size-failover-flow/failover-recommendations-expanded.png":::
+
 *Select any one of the alternatives as per your preference, and then select **Save**. You can then proceed with the failover or test failover.*
 
 - **Capacity validation**: When you reach failover or test failover screen in the Azure Site Recovery portal experience, Azure Site Recovery checks whether target location has sufficient capacity for configured VM size. 
 
 - **Alternative recommendations**: If the chances of success are low, Azure Site Recovery determines if there are alternative VM size recommendations that can be suggested to you that can increase your chances of allocation in the target location. 
+
+- **VM size lifecycle**: Don't select a retired VM size. Avoid previous-generation, capacity-limited, or retirement-announced sizes unless no supported current-generation alternative exists. Check the lifecycle and retirement date of each recommended size before selecting it, and revalidate protected items when a configured target size enters retirement.
 
 - **Selection and proceeding**: You can choose to select an alternative recommendation and proceed with failover or test failover. 
 
@@ -29,7 +32,7 @@ Azure Site Recovery now provides alternative virtual machine (VM) size guidance 
 >[!NOTE]
 >- If you select a recommendation, that VM size is used for all further failovers and test failovers. You can choose to change the target VM size by navigating to the Compute section of Azure Site Recovery protected item. 
 > :::image type="content" source="./media/alternative-vm-size-failover-flow/replicated-items.png" alt-text="Diagram that shows the replicated items screen.":::
-> - Sometimes, the capacity issues might be temporary and retrying the failover after a short period can resolve the problem. This is because enough resources may have been freed in the cluster, region, or zone to accommodate your request. 
+> - Sometimes, the capacity issues might be temporary and retrying the failover after a short period can resolve the problem. This condition occurs because the cluster, region, or zone has freed enough resources to accommodate your request.
 
 ## Limitations 
 

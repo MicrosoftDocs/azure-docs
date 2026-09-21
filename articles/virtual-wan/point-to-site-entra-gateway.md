@@ -113,7 +113,7 @@ In this section, you create a connection between your virtual hub and your virtu
 
 All of the necessary configuration settings for the VPN clients are contained in a VPN client configuration zip file. The settings in the zip file help you easily configure the VPN clients. The VPN client configuration files that you generate are specific to the User VPN configuration for your gateway. You can download global (WAN-level) profiles, or a profile for a specific hub. For information and additional instructions, see [Download global and hub profiles](global-hub-profile.md). The following steps walk you through downloading a global WAN-level profile.
 
-[!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
+[!INCLUDE [Download profile](../networking/includes/virtual-wan/p2s-download-profile.md)]
 
 ##  <a name="configure-client"></a>Configure the Azure VPN Client
 
@@ -121,7 +121,4 @@ Next, you examine the profile configuration package, configure the Azure VPN Cli
 
 ## Next steps
 
-Configure the Azure VPN Client. You can use the steps in the VPN Gateway client documentation to configure the Azure VPN Client for Virtual WAN.
-
-* [Azure VPN Client for Windows](../vpn-gateway/point-to-site-entra-vpn-client-windows.md)
-* [Azure VPN Client for macOS](../vpn-gateway/point-to-site-entra-vpn-client-mac.md)
+Configure the Azure VPN Client. You can use the steps in the VPN Gateway client documentation to configure the Azure VPN Client for Virtual WAN. See [Configure a VPN client for P2S Microsoft Entra ID authentication connections](../vpn-gateway/point-to-site-entra-vpn-client.md).

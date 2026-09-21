@@ -157,7 +157,7 @@ The following table shows the configurations available for each virtual WAN type
 
 ## <a name="router-status"></a>Virtual hub router status
 
-[!INCLUDE [virtual hub router status](../../includes/virtual-wan-hub-router-status.md)]
+[!INCLUDE [virtual hub router status](../networking/includes/virtual-wan/hub-router-status.md)]
 
 ## Next steps
 

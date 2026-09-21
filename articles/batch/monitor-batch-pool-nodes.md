@@ -5,7 +5,7 @@ author: xinlaoda
 ms.author: xxin
 ms.service: azure-batch
 ms.topic: how-to
-ms.date: 08/31/2026
+ms.date: 09/01/2026
 ai-usage: ai-assisted
 ms.custom: devx-track-azurecli, linux-related-content
 # Customer intent: As a cloud administrator, I want to collect guest operating system performance data from Batch pool compute nodes, so that I can monitor node health and troubleshoot workload performance.
@@ -220,7 +220,7 @@ For information about selecting counters and controlling ingestion cost, see [Co
 
 ## Create a pool with Azure Monitor Agent
 
-Create a file named *pool.json*. The following example uses Ubuntu 22.04 and installs the Linux AMA extension. Replace `<managed-identity-resource-id>` with the value of `$identityId`.
+Create a file named *pool.json*. The following example uses Ubuntu 22.04 and installs the Linux AMA extension. Replace `<pool-name>` with the value of `$poolName`, and replace `<managed-identity-resource-id>` with the value of `$identityId`.
 
 ```json
 {

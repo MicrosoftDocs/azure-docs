@@ -109,7 +109,7 @@ You can generate client profile configuration files using PowerShell, or by usin
 
 ### Azure portal
 
-[!INCLUDE [Generate profile configuration files - Azure portal](../../includes/vpn-gateway-generate-profile-portal.md)]
+[!INCLUDE [Generate profile configuration files - Azure portal](../networking/includes/vpn-gateway/generate-profile-portal.md)]
 
 ## <a name="clientconfig"></a>Configure VPN clients and connect to Azure
 

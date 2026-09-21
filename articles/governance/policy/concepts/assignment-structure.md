@@ -72,11 +72,11 @@ The scope used for assignment resource creation time is the primary driver of re
 
 This field must be the full path name of either a policy definition or an initiative definition. The `policyDefinitionId` is a string and not an array. The latest content of the assigned policy definition or initiative is retrieved each time the policy assignment is evaluated. The recommendation is that if multiple policies are often assigned together, to use an [initiative](./initiative-definition-structure.md) instead.
 
-For built-in definitions and initiatives, you can use specific the `definitionVersion` of which to assess on. By default, the version is set to the latest major version and autoingest minor and patch changes.
+For both built-in and custom definitions and initiatives, you can use  `definitionVersion` of which to assess on. By default, the version is set to the latest major version and autoingest minor and patch changes.
 
 - To autoingest any minor changes of the definition, the version number would be `#.*.*`. The Wildcard represents autoingesting updates.
 - To pin to a minor version path, the version format would be `#.#.*`.
-- All patch changes must be autoinjested for security purposes. Patch changes are limited to text changes and break glass scenarios.
+- All patch changes must be autoingested for security purposes. Patch changes are limited to text changes and break glass scenarios.
 
 ## Display name and description
 
@@ -253,9 +253,9 @@ Another common use case for overrides is rolling out a new version of a definiti
 
 Overrides have the following properties:
 
-- `kind`: The property the assignment overrides. The supported kinds are `policyEffect` and `policyVersion`.
+- `kind`: The property the assignment overrides. The supported kinds are `policyEffect` and `definitionVersion`. Overrides of kind definitionVersion are supported for built-in definitions and initiatives only. They aren't supported for custom definitions or initiatives.
 
-- `value`: The new value that overrides the existing value. For `kind: policyEffect`, the supported values are [effects](effect-basics.md). For `kind: policyVersion`, the supported version number must be greater than or equal to the `definitionVersion` specified in the assignment.
+- `value`: The new value that overrides the existing value. For `kind: policyEffect`, the supported values are [effects](effect-basics.md). For `kind: definitionVersion`, the supported version number must be greater than or equal to the `definitionVersion` specified in the assignment.
 
 - `selectors`: (Optional) The property used to determine what scope of the policy assignment should take on the override.
 
@@ -265,7 +265,7 @@ Overrides have the following properties:
 
     - `resourceLocation`: This property is used to select resources based on their type. Can't be used in the same resource selector as `resourceWithoutLocation`.
 
-    Allowed value for  `kind: policyVersion`:
+    Allowed value for  `kind: definitionVersion`:
 
     - `resourceLocation`: This property is used to select resources based on their type. Can't be used in the same resource selector as `resourceWithoutLocation`.
 

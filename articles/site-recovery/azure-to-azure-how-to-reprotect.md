@@ -6,7 +6,7 @@ services: site-recovery
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 10/22/2025
+ms.date: 09/11/2026
 ms.author: v-gajeronika
 # Customer intent: As an IT administrator managing disaster recovery for virtual machines, I want to reprotect VMs to the primary region after a failover, so that I can ensure continuous data replication and quickly restore services to their original location.
 ---
@@ -45,7 +45,6 @@ You can customize the following properties of the target virtual machine during 
 |Target resource group | Modify the target resource group in which the virtual machine is created. As the part of reprotection, the target virtual machine is deleted. When you reprotect a failed over virtual machine to the source virtual machine, the target resource group can't be changed. |
 |Target virtual network | The target network can't be changed during the reprotect job. To change the network, redo the network mapping. |
 |Capacity reservation | Configure a capacity reservation for the virtual machine. You can create a new capacity reservation group to reserve capacity or select an existing capacity reservation group. [Learn more](azure-to-azure-how-to-enable-replication.md#enable-replication) about capacity reservation. |
-|Target storage (Secondary virtual machine doesn't use managed disks) | You can change the storage account that the virtual machine uses after failover. |
 |Replica managed disks (Secondary virtual machine uses managed disks) | Site Recovery creates replica managed disks in the primary region to mirror the secondary virtual machine's managed disks. |
 |Cache storage | You can specify a cache storage account to be used during replication. By default, a new cache storage account is created, if it doesn't exist. </br>By default, type of storage account (Standard storage account or Premium Block Blob storage account) that you have selected for the source virtual machine in original primary location is used. For example, during replication from original source to target, if you have selected *High Churn*, during re-protection back from target to original source, Premium Block blob will be used by default. You can configure and change it for re-protection. For more information, see [Azure virtual machine Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).|
 |Availability set | If the virtual machine in the secondary region is part of an availability set, you can choose an availability set for the target virtual machine in the primary region. By default, Site Recovery tries to find the existing availability set in the primary region, and use it. During customization, you can specify a new availability set. |
@@ -57,7 +56,7 @@ By default, the following occurs:
 1. A cache storage account is created in the region where the failed over virtual machine is running.
 1. If the target storage account (the original storage account in the primary region) doesn't exist, a new one is created. The assigned storage account name is the name of the storage account used by the secondary virtual machine, suffixed with `asr`.
 1. If your virtual machine uses managed disks, replica managed disks are created in the primary region to store the data replicated from the secondary virtual machine's disks.
-1. Temporary replicas of the source disks (disks attached to the virtual machines in secondary region) are created with the name `ms-asr-<GUID>`, that are used to transfer / read data. The temp disks let us utilize the complete bandwidth of the disk instead of only 16% bandwidth of the original disks (that are connected to the virtual machine). The temp disks are deleted once the reprotection completes.
+1. Site Recovery creates temporary managed replica disks named `ms-asr-<GUID>` to transfer data. These are billable, persistent managed disks while they exist, and Site Recovery deletes them after reprotection completes. They aren't VM-local temporary or resource disks, ephemeral OS disks, or local NVMe disks.
 1. If the target availability set doesn't exist, a new one is created as part of the reprotect job if necessary. If you've customized the reprotection settings, then the selected set is used.
 
 > [!NOTE]
@@ -72,7 +71,7 @@ By default, the following occurs:
 1. If the virtual machine is using managed disks, a copy of the original disk is created with an `-ASRReplica` suffix. The original disks are deleted. The `-ASRReplica` copies are used for replication.
 
 > [!NOTE]
-> The `ms-asr` disks are temporary disks that are deleted after the *reprotect* action is completed.  You will be charged a minimal cost based on the Azure managed disk price for the time that these disks are active.
+> The `ms-asr` temporary managed replica disks are deleted after reprotection. You're charged based on the Azure managed disk price while these disks are active.
 
 
 #### Estimated time to do the reprotection
@@ -88,7 +87,8 @@ In most cases, Azure Site Recovery doesn't replicate the complete data to the so
 The following factors affect the reprotection time when the source virtual machine is accessible in scenario 2:
 
 1. **Checksum calculation time** - The time taken to complete the enable replication process from the primary to the disaster recovery location is used as a benchmark for the checksum differential calculation. Navigate to **Recovery Services vaults** > **Monitoring** > **Site Recovery jobs** to see the time taken to complete the enable replication process. This will be the minimum time required to complete the checksum calculation.
-   :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/estimated-reprotection.png" alt-text="Screenshot displays duration of reprotection of a virtual machine on the Azure portal." lightbox="./media/site-recovery-how-to-reprotect-azure-to-azure/estimated-reprotection.png":::
+
+   :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/estimated-reprotection.png" alt-text="Screenshot that displays the duration of reprotection of a virtual machine in the Azure portal." lightbox="./media/site-recovery-how-to-reprotect-azure-to-azure/estimated-reprotection.png":::
 
 1. **Checksum differential data transfer** happens at approximately 23% of disk throughput.
 1. **The time taken to process the recovery points sent from Azure Site Recovery agent** – Azure Site Recovery agent continues to send recovery points during the checksum calculation and transfer phase, as well. However, Azure Site Recovery processes them only once the checksum diff transfer is complete. 

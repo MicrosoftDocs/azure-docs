@@ -54,7 +54,7 @@ productDirectory:
       links:
         - url: ./datadog/overview.md
           text: Cloud-scale observability and security for your Azure, hybrid, or multicloud environment to troubleshoot quickly, increase uptime, and control costs.
-    - title: Dell PowerScale Preview
+    - title: Dell PowerScale
       imageSrc: ./media/index/dell.svg
       links:
         - text: Scalable, high-performance enterprise file storage. 

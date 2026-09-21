@@ -43,6 +43,8 @@ A standalone design can start with one session host and expand to multiple hosts
 
 Standalone visualization is operationally separate from an HPC cluster. Users can still access shared project storage or submit jobs to a cluster, but administrators must design and maintain those connections.
 
+For a standalone Linux VDI implementation, see [Deploy GPU-accelerated Linux virtual desktops with ThinLinc on Azure](/azure/virtual-machines/linux/thinlinc-linux-vdi).
+
 ### Standalone planning considerations
 
 - **Users and concurrency:** A single VM can be appropriate for a pilot or a few dedicated users. Larger deployments need a host-allocation, session-brokering, or host-pool design. Product licensing and measured application demand determine the supported number of sessions, not a general user-count range.
@@ -62,7 +64,7 @@ Use scheduled cluster visualization when:
 
 In this model, an access portal or service requests an interactive job from the scheduler. The scheduler places the session on an appropriate compute resource, and the user connects through the configured remote-display path. The design must account for session startup time, idle-session policies, job limits, resource cleanup, and reconnect behavior.
 
-[Azure CycleCloud Workspace for Slurm](/azure/cyclecloud/overview) includes Open OnDemand as a web entry point. The CycleCloud Workspace for Slurm 2026.03.10 release notes identify ThinLinc integration with Open OnDemand. Verify the feature, configuration, and support path in the specific workspace release that you deploy before making it part of a production design. For the current authentication guidance, see [Configure Open OnDemand with CycleCloud](/azure/cyclecloud/how-to/ccws/configure-open-ondemand).
+[Azure CycleCloud Workspace for Slurm](/azure/cyclecloud/overview) includes Open OnDemand as a web entry point. ThinLinc is one application option for Linux VDI sessions scheduled through Slurm. Microsoft provides limited support for the packaged integration, while Cendio supports the ThinLinc product and its licensing. For deployment and validation steps, see [Configure ThinLinc with Open OnDemand in CycleCloud Workspace for Slurm](/azure/cyclecloud/how-to/ccws/configure-thinlinc).
 
 ### Scheduled-cluster planning considerations
 

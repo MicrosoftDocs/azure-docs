@@ -6,7 +6,7 @@ ms.reviewer: souchak
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: reference
-ms.date: 03/12/2026
+ms.date: 09/16/2026
 ms.author: souchak
 ms.custom:
 - references_regions
@@ -25,150 +25,150 @@ For more information about payment methods, see [Add, update, or remove a paymen
 
 ## Supported credit and debit cards
 
-| **Country or region** | **American Express** | **Discover** | **JCB** | **Mastercard** | **Visa** | **UPI** | **Netbanking** | **SEPA** |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Afghanistan | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Albania | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Algeria |     |     |     | ✔   | ✔   |     |     |     |
-| Angola |     |     |     | ✔   | ✔   |     |     |     |
-| Argentina | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Armenia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Australia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Austria | ✔   |     |     | ✔   | ✔   |     |     | ✔     |
-| Azerbaijan | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Bahamas | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Bahrain | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Bangladesh | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Barbados | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Belarus | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Belgium | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Belize |     |     |     | ✔   | ✔   |     |     |     |
-| Bermuda | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Bolivia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Bosnia and Herzegovina | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Botswana | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Brazil | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Brunei |     |     |     | ✔   | ✔   |     |     |     |
-| Bulgaria | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Cabo Verde | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Cambodia |     |     |     |     | ✔   |     |     |     |
-| Cameroon | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Canada | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Cayman Islands | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Chile | ✔   |     |     | ✔   | ✔   |     |     |     |
-| China |     |     |     | ✔   | ✔   |     |     |     |
-| Colombia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Costa Rica | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Côte d'Ivoire  | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Croatia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Curacao | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Cyprus | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Czechia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Denmark | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Dominican Republic | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Ecuador | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Egypt | ✔   |     |     | ✔   | ✔   |     |     |     |
-| El Salvador | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Estonia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Ethiopia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Faroe Islands |     |     |     | ✔   | ✔   |     |     |     |
-| Fiji | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Finland | ✔   |     |     | ✔   | ✔   |     |     |     |
-| France | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Georgia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Germany | ✔   |     |     | ✔   | ✔   |     |     | ✔   |
-| Ghana | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Greece | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Guatemala | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Honduras | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Hong Kong SAR | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Hungary | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Iceland | ✔   |     |     | ✔   | ✔   |     |     |     |
-| India |     |     |     | ✔   | ✔   | ✔   | ✔   |     |
-| Indonesia | ✔   |     | ✔   | ✔   | ✔   |     |     |     |
-| Iraq |     |     |     | ✔   | ✔   |     |     |     |
-| Ireland | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Israel | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Italy | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Jamaica | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Japan | ✔   |     | ✔   | ✔   | ✔   |     |     |     |
-| Jordan | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Kazakhstan | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Kenya | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Korea | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Kuwait | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Kyrgyzstan |     |     |     | ✔   | ✔   |     |     |     |
-| Latvia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Lebanon | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Libya | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Liechtenstein | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Lithuania |     |     |     | ✔   | ✔   |     |     |     |
-| Luxembourg | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Macao SAR | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Malaysia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Malta | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Mauritius | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Mexico | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Moldova | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Monaco | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Mongolia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Montenegro |     |     |     | ✔   | ✔   |     |     |     |
-| Morocco |  ✔   |     |     | ✔   | ✔   |     |     |     |
-| Namibia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Nepal |     |     |     |  ✔   |   ✔  |     |     |     |
-| Netherlands | ✔   |     |     | ✔   | ✔   |     |     | ✔   |
-| New Zealand | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Nicaragua | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Nigeria | ✔   |     |     | ✔   | ✔   |     |     |     |
-| North Macedonia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Norway | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Oman | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Pakistan | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Palestinian Authority | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Panama | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Paraguay |     |     |     | ✔   | ✔   |     |     |     |
-| Peru | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Philippines | ✔   |     | ✔   | ✔   | ✔   |     |     |     |
-| Poland | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Portugal | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Puerto Rico | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Qatar | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Romania | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Russia |     |     |     | ✔   | ✔   |     |     |     |
-| Rwanda |     |     |     | ✔   | ✔   |     |     |     |
-| Saint Kitts and Nevis |     |     |     | ✔   | ✔   |     |     |     |
-| Saudi Arabia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Senegal | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Serbia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Singapore | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Slovakia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Slovenia |     |     |     | ✔   | ✔   |     |     |     |
-| South Africa | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Spain | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Sri Lanka | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Sweden | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Switzerland | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Taiwan |     |     | ✔   | ✔   | ✔   |     |     |     |
-| Tajikistan |     |     |     | ✔   | ✔   |     |     |     |
-| Tanzania |     |     |     | ✔   | ✔   |     |     |     |
-| Thailand | ✔   |     | ✔   | ✔   | ✔   |     |     |     |
-| Trinidad and Tobago | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Tunisia | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Turkiye | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Turkmenistan |     |     |     | ✔   | ✔   |     |     |     |
-| United States Virgin Islands | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Uganda | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Ukraine | ✔   |     |     | ✔   | ✔   |     |     |     |
-| United Arab Emirates | ✔   |     |     | ✔   | ✔   |     |     |     |
-| United Kingdom | ✔   |     |     | ✔   | ✔   |     |     |     |
-| United States | ✔   | ✔   |     | ✔   | ✔   |     |     |     |
-| Uruguay | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Uzbekistan |     |     |     | ✔   | ✔   |     |     |     |
-| Venezuela | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Vietnam | ✔   |     | ✔   | ✔   | ✔   |     |     |     |
-| Yemen | ✔   |     |     | ✔   | ✔   |     |     |     |
-| Zambia |     |     |     | ✔   | ✔   |     |     |     |
-| Zimbabwe |     |     |     | ✔   | ✔   |     |     |     |
+| **Country or region** | **American Express** | **Discover** | **JCB** | **Mastercard** | **Visa** | **UnionPay** | **UPI** | **Netbanking** | **SEPA** | **Alipay QR** | **Pix** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Afghanistan | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Albania | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Algeria |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Angola |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Argentina | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Armenia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Australia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Austria | ✔   |     |     | ✔   | ✔   |     |     |     | ✔     |     |     |
+| Azerbaijan | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Bahamas | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Bahrain | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Bangladesh | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Barbados | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Belarus | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Belgium | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Belize |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Bermuda | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Bolivia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Bosnia and Herzegovina | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Botswana | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Brazil | ✔   |     |     | ✔   | ✔   |     |     |     |     |     | ✔   |
+| Brunei |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Bulgaria | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Cabo Verde | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Cambodia |     |     |     |     | ✔   |     |     |     |     |     |     |
+| Cameroon | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Canada | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Cayman Islands | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Chile | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| China |     |     |     | ✔   | ✔   | ✔   |     |     |     | ✔   |     |
+| Colombia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Costa Rica | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Côte d'Ivoire  | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Croatia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Curacao | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Cyprus | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Czechia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Denmark | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Dominican Republic | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Ecuador | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Egypt | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| El Salvador | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Estonia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Ethiopia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Faroe Islands |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Fiji | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Finland | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| France | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Georgia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Germany | ✔   |     |     | ✔   | ✔   |     |     |     | ✔   |     |     |
+| Ghana | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Greece | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Guatemala | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Honduras | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Hong Kong SAR | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Hungary | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Iceland | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| India |     |     |     | ✔   | ✔   |     | ✔   | ✔   |     |     |     |
+| Indonesia | ✔   |     | ✔   | ✔   | ✔   |     |     |     |     |     |     |
+| Iraq |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Ireland | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Israel | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Italy | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Jamaica | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Japan | ✔   |     | ✔   | ✔   | ✔   |     |     |     |     |     |     |
+| Jordan | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Kazakhstan | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Kenya | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Korea | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Kuwait | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Kyrgyzstan |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Latvia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Lebanon | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Libya | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Liechtenstein | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Lithuania |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Luxembourg | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Macao SAR | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Malaysia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Malta | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Mauritius | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Mexico | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Moldova | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Monaco | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Mongolia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Montenegro |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Morocco |  ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Namibia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Nepal |     |     |     |  ✔   |   ✔  |     |     |     |     |     |     |
+| Netherlands | ✔   |     |     | ✔   | ✔   |     |     |     | ✔   |     |     |
+| New Zealand | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Nicaragua | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Nigeria | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| North Macedonia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Norway | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Oman | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Pakistan | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Palestinian Authority | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Panama | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Paraguay |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Peru | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Philippines | ✔   |     | ✔   | ✔   | ✔   |     |     |     |     |     |     |
+| Poland | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Portugal | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Puerto Rico | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Qatar | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Romania | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Russia |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Rwanda |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Saint Kitts and Nevis |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Saudi Arabia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Senegal | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Serbia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Singapore | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Slovakia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Slovenia |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| South Africa | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Spain | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Sri Lanka | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Sweden | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Switzerland | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Taiwan |     |     | ✔   | ✔   | ✔   |     |     |     |     |     |     |
+| Tajikistan |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Tanzania |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Thailand | ✔   |     | ✔   | ✔   | ✔   |     |     |     |     |     |     |
+| Trinidad and Tobago | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Tunisia | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Turkiye | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Turkmenistan |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| United States Virgin Islands | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Uganda | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Ukraine | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| United Arab Emirates | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| United Kingdom | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| United States | ✔   | ✔   |     | ✔   | ✔   |     |     |     |     |     |     |
+| Uruguay | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Uzbekistan |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Venezuela | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Vietnam | ✔   |     | ✔   | ✔   | ✔   |     |     |     |     |     |     |
+| Yemen | ✔   |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Zambia |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
+| Zimbabwe |     |     |     | ✔   | ✔   |     |     |     |     |     |     |
 
 ## Related content
 

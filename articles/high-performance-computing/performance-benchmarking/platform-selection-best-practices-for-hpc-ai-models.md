@@ -1,12 +1,13 @@
 ---
 title: Choose an Azure platform for AI model training and fine-tuning
 description: Architecture guidance for selecting the right Azure platform for AI model training, fine-tuning, and inference based on customer requirements.
+ai-usage: ai-assisted
 author: padmalathas
 ms.author: padmalathas
 ms.topic: concept-article
 ms.service: azure-virtual-machines
 ms.subservice: hpc
-ms.date: 02/12/2026
+ms.date: 09/16/2026
 # Customer intent: "As an HPC administrator, I want to understand the lift and shift process for migrating on-premises infrastructure to the cloud, so that I can efficiently transition workloads while maintaining system performance and management."
 ---
 
@@ -14,9 +15,23 @@ ms.date: 02/12/2026
 
 Azure provides multiple platforms for training, fine-tuning, and deploying AI models. Each platform addresses different requirements such as managed fine-tuning of foundation models, full MLOps lifecycle management, HPC-style training with Slurm, or Kubernetes-native portability.
 
-While the Azure Well-Architected Framework (WAF) commonly recommends **Azure Machine Learning** for managed training and MLOps. Other platforms such as **Microsoft Foundry**, **Azure Kubernetes Service (AKS)**, and **Azure CycleCloud** are also valid and recommended depending on the scenario.
+While the Azure Well-Architected Framework (WAF) commonly recommends **Azure Machine Learning** for managed training and MLOps, other platforms such as **Microsoft Foundry**, **Azure Kubernetes Service (AKS)**, and **Azure CycleCloud** are also valid depending on the scenario.
 
 The platforms overlap in capability, which can create confusion. This guide focuses on decision clarity rather than prescribing a single correct platform and helps choose the appropriate Azure platform for AI workloads based on workload type, operational model, and customer requirements.
+
+## Eliminate platforms by hard requirements
+
+Start with requirements that make an option unsuitable. Don't compare feature lists until you resolve these operating-model choices:
+
+| Hard requirement | Keep in the shortlist | Eliminate when |
+| --- | --- | --- |
+| Managed foundation-model customization with integrated safety controls | Microsoft Foundry | You need a custom training loop, scheduler-specific behavior, or infrastructure-level control. |
+| Managed experiment tracking, pipelines, model registry, and custom model training | Azure Machine Learning | The training execution platform itself must provide Slurm or another HPC scheduler. You can still integrate a separate CycleCloud training environment with Azure Machine Learning for experiment tracking, model registry, and deployment. |
+| Slurm or another supported HPC scheduler, custom cluster topology, or existing scheduler job scripts | Azure CycleCloud | Your team doesn't want to operate scheduler and cluster infrastructure. |
+| A predefined Slurm environment whose networking, storage, and access design meets your requirements | Azure CycleCloud Workspace for Slurm | You need a different scheduler or customization beyond the solution design. |
+| Kubernetes-native workflows or multicloud portability | AKS | Your team doesn't want to operate Kubernetes or assemble its training and MLOps integrations. |
+
+When two options support the same training scenario, compare them by using the same model, dataset, training configuration, evaluation objective, and minimum model-quality and safety thresholds. Record end-to-end completion time, scaling behavior, regional quota and capacity, recovery behavior, cost per run, required platform integrations, and the team that owns operations. For a multiplatform design, validate the complete path across training, tracking, registry, and deployment boundaries. Reject an option if it misses a hard requirement even when it produces the lowest benchmark time or cost.
 
 
 
@@ -28,7 +43,7 @@ The platforms overlap in capability, which can create confusion. This guide focu
 
 Choose Microsoft Foundry when you need a managed, end-to-end platform to fine-tune foundation models such as GPT, Llama, or Phi and deploy them safely at scale. 
 
-Foundry simplifies fine-tuning without infrastructure management, provides integrated content safety and responsible AI controls, enables faster AI app development through visual prompt flow orchestration. It offers unified access to Azure OpenAI models with customization across the model lifecycle. 
+Foundry simplifies fine-tuning without infrastructure management, provides integrated content safety and responsible AI controls, and enables faster AI app development through visual prompt flow orchestration. It offers unified access to Azure OpenAI models with customization across the model lifecycle.
 
 Consider alternatives like Azure Machine Learning for custom training loops or unsupported models, and CycleCloud for Slurm-based workflows.
 
@@ -43,13 +58,17 @@ Azure ML also provides robust model versioning, registration, and governance thr
 For simpler foundation model fine-tuning, Microsoft Foundry may be a better fit, while CycleCloud suits Slurm/PBS scheduler needs and AKS is preferred for multi-cloud portability.
 
 
+### Azure CycleCloud
+
+Use [Azure CycleCloud](/azure/cyclecloud/overview) when you need HPC-style AI infrastructure with a familiar scheduler, custom cluster configuration, and high-performance InfiniBand networking. CycleCloud supports schedulers such as Slurm, PBS Professional, IBM Spectrum LSF, Grid Engine, and HTCondor.  
+
+Choose CycleCloud when you need one of these supported schedulers or a custom topology and software stack.
+
 ### Azure CycleCloud Workspace for Slurm
 
-Azure CycleCloud Workspace for Slurm is recommended when you need HPC‑style AI infrastructure with Slurm, PBS, or Grid Engine schedulers and high‑performance InfiniBand/RDMA networking. 
+Choose [Azure CycleCloud Workspace for Slurm](/azure/cyclecloud/overview-ccws) when you specifically want a ready-to-deploy Slurm environment. The Marketplace solution deploys CycleCloud, Slurm, networking, storage, and access components in your Azure subscription.
 
-It enables teams to run distributed, multinode training using familiar Slurm‑based workflows, migrate existing on‑prem HPC workloads to Azure with minimal script changes, and retain full control over cluster configuration and software stacks. 
-
-CycleCloud also supports bursting on‑premises HPC environments into Azure, extending existing investments with elastic cloud capacity. If you prefer a fully managed service or require end‑to‑end MLOps pipelines, Azure Machine Learning is a better alternative.
+Both options enable distributed, multinode training with familiar HPC workflows. If you prefer a managed scheduling service or require end-to-end MLOps pipelines, consider Azure Batch or Azure Machine Learning instead. For infrastructure decisions, see [Plan and size HPC clusters](/azure/cyclecloud/concepts/plan-and-size-hpc-clusters).
 
 
 ### AKS with partner solutions
@@ -69,7 +88,7 @@ The following table compares Azure platforms commonly used for AI training and d
 | Capability | Foundry | Azure ML | CycleCloud | AKS |
 |------------|:----------:|:--------:|:----------:|:---:|
 | Foundation model fine-tuning | Built-in, managed | Supported | Requires custom setup | Requires custom setup |
-| Custom model training | Supported (scoped scearios) | Native supported | Fully supported | Fully supported |
+| Custom model training | Supported for select scenarios | Natively supported | Fully supported | Fully supported |
 | Experiment tracking | Built-in | Built-in | Not available | Support via MLflow |
 | MLOps pipelines | Prompt flow-based | Native pipelines | Not available | Support via Kubeflow |
 | Slurm/PBS scheduler | Not supported | Not supported | Native support | Not supported |
@@ -121,4 +140,3 @@ Platform decisions are trade‑offs, not absolutes, and should be guided by work
 - [Well-Architected Framework: Azure Machine Learning](/azure/well-architected/service-guides/azure-machine-learning)
 - [Cloud Adoption Framework: HPC landing zone](/azure/cloud-adoption-framework/scenarios/azure-hpc/ready)
 - [Anyscale on Azure Marketplace](https://marketplace.microsoft.com/product/anyscale1750870039553.anyscale-2025-1)
-- [Run:ai on Azure Marketplace](https://marketplace.microsoft.com/product/runailabsltd1647779544073.runai-quickstart)
