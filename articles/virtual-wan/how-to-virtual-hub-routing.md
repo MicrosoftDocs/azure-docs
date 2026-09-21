@@ -86,7 +86,7 @@ You can't delete a **Default** or **None** route table. However, you can delete 
 
 ## <a name="routing-configuration"></a>Configure routing for a virtual network connection
 
-[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## Next steps
 

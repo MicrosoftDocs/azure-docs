@@ -87,7 +87,7 @@ Once you have finished configuring your client, you can connect.
 
 In this section, you create a connection between your virtual hub and your virtual network. For this tutorial, you don't need to configure the routing settings.
 
-[!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect virtual network](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## <a name="viewwan"></a>Point to site sessions dashboard
 
@@ -99,7 +99,7 @@ In this section, you create a connection between your virtual hub and your virtu
 
 ### <a name="address-pool"></a>Modify client address pool
 
-[!INCLUDE [Modify client address pool](../../includes/virtual-wan-client-address-pool-include.md)]
+[!INCLUDE [Modify client address pool](../networking/includes/virtual-wan/client-address-pool.md)]
 
 ### <a name="dns"></a>Modify DNS servers
 
@@ -117,7 +117,7 @@ In this section, you create a connection between your virtual hub and your virtu
 
 When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
 
-[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
+[!INCLUDE [Delete resources](../networking/includes/virtual-wan/resource-cleanup.md)]
 
 ## Next steps
 

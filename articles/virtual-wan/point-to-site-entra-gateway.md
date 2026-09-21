@@ -107,7 +107,7 @@ This section shows you how to add a gateway to an already existing virtual hub. 
 
 In this section, you create a connection between your virtual hub and your virtual network.
 
-[!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect virtual network](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## <a name="download-profile"></a>Download User VPN profile
 
