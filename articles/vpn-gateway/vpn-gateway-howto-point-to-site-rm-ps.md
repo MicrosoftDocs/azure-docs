@@ -207,7 +207,7 @@ Make sure the client certificate was exported as a .pfx along with the entire ce
 
 Each VPN client is configured using the files in a VPN client profile configuration package that you generate and download. The configuration package contains settings that are specific to the VPN gateway that you created. If you make changes to the gateway, such as changing a tunnel type, certificate, or authentication type, you must generate another VPN client profile configuration package and install it on each client. Otherwise, your VPN clients may not be able to connect.
 
-[!INCLUDE [Generate profile configuration files - PowerShell](../../includes/vpn-gateway-generate-profile-powershell.md)]
+[!INCLUDE [Generate profile configuration files - PowerShell](../networking/includes/vpn-gateway/generate-profile-powershell.md)]
 
 ## <a name="connect"></a>Configure VPN clients and connect to Azure
 

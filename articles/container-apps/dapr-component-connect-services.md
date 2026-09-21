@@ -8,7 +8,7 @@ ms.service: azure-container-apps
 ms.subservice: dapr
 ms.custom: build-2023
 ms.topic: concept-article
-ms.date: 03/27/2026
+ms.date: 09/04/2026
 ---
 
 # Connect to other Azure or partner services by using Dapr components
@@ -74,6 +74,8 @@ scopes:
 As an alternative to Kubernetes secrets, local environment variables, and local file Dapr secret stores, Azure Container Apps provides a platform-managed approach for creating and using Kubernetes secrets. This approach can be used to connect to non-Azure services. Or, in dev/test scenarios it can be used for quickly deploying components via the CLI without setting up a secret store or managed identity.
 
 This component configuration defines the sensitive value as a secret parameter that can be referenced from the metadata section. 
+
+Some Container Apps built-in roles grant permission to list the values of secrets configured for Dapr components. Review [permissions for managing secrets](manage-secrets.md#permissions-for-managing-secrets) before you assign a role.
 
 ```yaml
 componentType: secretstores.azure.keyvault

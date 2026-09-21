@@ -6,6 +6,7 @@ ms.author: jsuri
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 05/08/2025
+ms.update:cycle: 365-days
 ms.custom: engagement-fy25
 # Customer intent: "As a cloud administrator, I want to troubleshoot Windows OS upgrade issues during VM migration, so that I can ensure successful OS upgrades without errors and optimize my cloud resource management."
 ---

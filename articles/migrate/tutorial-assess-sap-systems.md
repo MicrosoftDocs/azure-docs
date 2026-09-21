@@ -9,8 +9,6 @@ ms.service: azure-migrate
 ms.reviewer: jsuri
 ms.date: 02/06/2025
 ms.custom: engagement-fy25
-monikerRange:
-
 # Customer intent: As an IT administrator, I want to assess my on-premises SAP systems for migration to Azure, so that I can understand the cost and performance requirements for a successful transition.
 ---
 

@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure
 ms.topic: quickstart
-ms.date: 08/17/2026
+ms.date: 09/04/2026
 ms.custom:
   - template-quickstart
   - subject-armqs
@@ -461,8 +461,9 @@ Remove-AzResourceGroup -Name exampleRG
 
 ---
 
-## Next step
+## Next steps
 
-After you set up your infrastructure and create your project, continue with the following next step:
+After you set up your infrastructure and create your project, use the following resources:
 
 - [Get started with agents and shared sessions in Microsoft Discovery Studio](quickstart-agents-studio.md)
+- Review the [Microsoft Discovery FAQ](faq.yml) for common deployment, networking, security, quota, and cleanup questions.

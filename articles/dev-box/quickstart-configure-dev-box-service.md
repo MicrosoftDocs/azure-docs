@@ -172,7 +172,7 @@ To let users manage projects, assign them the DevCenter Project Admin role. Foll
 ## Discover more about Microsoft Dev Box
 
 - Find out [What's new in Microsoft Dev Box](https://aka.ms/devbox/WhatsNew)
-- Discover what's coming up next in Microsoft Dev Box: [Microsoft Dev Box roadmap](dev-box-roadmap.md)
+- Review the [Microsoft Dev Box retirement guide](dev-box-retirement-guide.md)
 - [Learn how Microsoft Dev Box impacts developer productivity](https://azure.microsoft.com/blog/study-showcases-how-microsoft-dev-box-impacts-developer-productivity/)
 
 ## Next step

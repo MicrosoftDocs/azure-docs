@@ -23,7 +23,7 @@ In this article, you learn how to use the Azure Network Watcher [packet capture]
 
 - A virtual machine (VM) or virtual machine scale set with outbound TCP connectivity to: `169.254.169.254` over port `80` and `168.63.129.16` over port `8037`. The Network Watcher agent VM extension uses these IP addresses to communicate with the Azure platform.
 
-- Network Watcher Agent VM extension installed on the target virtual machine. Whenever you use Network Watcher packet capture in the Azure portal, the agent is automatically installed on the target VM or scale set if it wasn't previously installed. To update an already installed agent, see [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md).
+- Network Watcher Agent VM extension installed on the target virtual machine. Whenever you use Network Watcher packet capture in the Azure portal, the agent is automatically installed on the target VM or scale set if it wasn't previously installed. To update an already installed agent, see [Update Network Watcher Agent VM extension](network-watcher-agent-manage.md#update-network-watcher-agent-vm-extension).
 
 - An Azure storage account with VM outbound TCP connectivity to it over port `443`. If you don't have a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json).
     - The storage account must be accessible from the subnet of the target virtual machine or scale set. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?tabs=azure-portal&toc=/azure/network-watcher/toc.json).

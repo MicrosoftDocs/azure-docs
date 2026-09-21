@@ -24,7 +24,7 @@ Before you create a connection, be aware of the following:
 
 ## Add a connection
 
-[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 > [!NOTE]
 >

@@ -20,7 +20,7 @@ This article applies to Windows operating system clients. For more information a
 
 Before beginning client configuration steps, verify that you're on the correct VPN client configuration article. The following table shows the configuration articles available for Virtual WAN point-to-site VPN clients. Steps differ, depending on the authentication type, tunnel type, and the client OS.
 
-[!INCLUDE [P2S client configuration articles](../../includes/virtual-wan-vpn-client-install-articles.md)]
+[!INCLUDE [P2S client configuration articles](../networking/includes/virtual-wan/vpn-client-install-articles.md)]
 
 ### Prerequisites
 

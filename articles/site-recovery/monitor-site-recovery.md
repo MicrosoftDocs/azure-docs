@@ -87,7 +87,7 @@ For detailed query examples and scenarios you can use for setting up Site Recove
 
 ### Built-in Azure Monitor alerts for Azure Site Recovery
 
-Azure Site Recovery provides default alerts via Azure Monitor as a preview feature. Once you register this feature, Azure Site Recovery surfaces a default alert via Azure Monitor whenever any of the following critical events occur:
+Azure Site Recovery provides default alerts via Azure Monitor. When you register this feature, Azure Site Recovery surfaces a default alert via Azure Monitor whenever any of the following critical events occur:
 
 - Enable disaster recovery failure alerts for Azure VM, Hyper-V, and VMware replication.
 - Replication health critical alerts for Azure VM, Hyper-V, and VMware replication.

@@ -6,7 +6,7 @@ ms.author: jadean
 ai-usage: ai-assisted
 ms.service: azure-enclave
 ms.topic: overview
-ms.date: 06/21/2026
+ms.date: 09/16/2026
 ---
 
 # Azure Enclave best practices
@@ -53,6 +53,8 @@ Azure Enclave makes the following overall recommendations:
 - Communities should be deployed when you have networking requirements to support a large number of systems on a distributed, hub-and-spoke wide area network. Learn more about [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-faq).
 - [Enclaves](./what-enclave.md) should be deployed when you have networking requirements to deploy similar workloads as part of the same private network.
 - Enclaves should be deployed when you have workload requirements that need a virtual network and is within the same Virtual WAN as an existing community.
+
+Azure Enclave doesn't currently support IPv6. Enclave and community address spaces, connections, and endpoints must use IPv4. This limitation exists because Azure Virtual WAN, which underlies Azure Enclave networking, [currently supports IPv4 traffic only](/azure/virtual-network/ip-services/ipv6-overview#limitations).
 
 #### Community network design considerations
 

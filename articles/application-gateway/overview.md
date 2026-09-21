@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: overview
 ms.custom: mvc, portfolio-consolidation-2025
-ms.date: 08/18/2026
+ms.date: 09/10/2026
 ms.author: mbender
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
 # Customer intent: "As an IT administrator, I want to understand how to use a web traffic load balancer for managing application routing, so that I can optimize traffic distribution based on HTTP request attributes and enhance application performance."
@@ -33,6 +33,12 @@ Application Gateway operates at the application layer (OSI layer 7) and provides
 > Your end-to-end scenarios can benefit from combining these solutions as needed.
 > For an overview of the load balancing and content delivery services in Azure, see [Load Balancing and Content Delivery](../networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md).
 
+
+## Retirement of Application Gateway V1
+
+Microsoft [deprecated Application Gateway V1 on April 28, 2023](v1-retirement.md) and retired it on April 28, 2026. Microsoft no longer supports Application Gateway V1 resources, and V1 deployments that aren't migrated might experience traffic disruption as the underlying hardware is decommissioned.
+
+If you still use Application Gateway V1, [migrate to Application Gateway v2](migrate-v1-v2.md) as soon as possible. For answers to common questions about the retirement timeline and migration process, see the [V1 retirement FAQ](retirement-faq.md).
 
 ## Features
 

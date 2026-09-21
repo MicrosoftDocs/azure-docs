@@ -4,8 +4,14 @@ items:
   items:
   - name: Migrate to Azure
     href: ./migrate-to-azure.md
-#  - name: Workload migration strategy
-#    href: ./migrate-workload.md
+  - name: Migrate from on-premises
+    items:
+    - name: Get started
+      href: ./migrate-from-on-premises.yml
+    - name: Fundamentals of Azure
+      href: ./migrate-from-on-premises-fundamentals.md
+    - name: Azure landing zones
+      href: ./migrate-from-on-premises-platform-landing-zone.md
   - name: Migrate from AWS
     items:
     - name: Getting started
@@ -76,11 +82,3 @@ items:
         href: /azure/sentinel/migration
       - name: Google Cloud Platform IAM connector for Microsoft Sentinel
         href: /azure/sentinel/connect-google-cloud-platform
-  - name: Migrate from on-premises
-    items:
-    - name: Get started
-      href: ./migrate-from-on-premises.yml
-    - name: Fundamentals of Azure
-      href: ./migrate-from-on-premises-fundamentals.md
-    - name: Azure landing zones
-      href: ./migrate-from-on-premises-platform-landing-zone.md

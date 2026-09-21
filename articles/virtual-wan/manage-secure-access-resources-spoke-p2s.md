@@ -70,19 +70,19 @@ In this section, you create the virtual hub with a point-to-site gateway. When c
 
 In this section, you generate and download the configuration profile files. These files are used to configure the native VPN client on the client computer. 
 
-[!INCLUDE [Download profile](../../includes/virtual-wan-p2s-download-profile-include.md)]
+[!INCLUDE [Download profile](../networking/includes/virtual-wan/p2s-download-profile.md)]
 
 ## <a name="clients"></a>Configure VPN clients
 
 Use the downloaded profile to configure the remote access clients. The procedure for each operating system is different, follow the instructions that apply to your system.
 
-[!INCLUDE [Configure clients](../../includes/virtual-wan-p2s-configure-clients-include.md)]
+[!INCLUDE [Configure clients](../networking/includes/virtual-wan/p2s-configure-clients.md)]
 
 ## <a name="connect-spoke"></a>Connect the spoke VNet
 
 In this section, you create a connection between your hub and the spoke VNet.
 
-[!INCLUDE [Connect spoke virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect spoke virtual network](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## <a name="create-vm"></a>Create virtual machines
 

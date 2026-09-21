@@ -129,6 +129,7 @@ Sometimes, you need to provide your own TLS certificates. Common scenarios for p
 > - Azure Front Door supports Bring Your Own Certificates (BYOC) for domain ownership validation. Front Door approves the domain ownership if the Certificate Name (CN) or Subject Alternative Name (SAN) of the certificate matches the custom domain.
 > - For custom domains created before BYOC based validation, and the domain validation status isn't **Approved**, you need to trigger the auto approval of the domain ownership validation by selecting the **Validation State** and clicking on the **Revalidate** button in the portal. If you use the command line tool, you can trigger domain validation by sending an empty PATCH request to the domain API.
 > - Azure managed certificates can be used with wildcard custom domains. When you select an Azure managed certificate, domain validation uses the DNS TXT record.
+> - Cross-signed certificates are supported only on Azure Front Door Standard and Premium. When you use a cross-signed certificate, upload the complete certificate chain to your key vault, including the cross-signed CA certificate that chains to the widely trusted root CA. Front Door serves the certificate chain that you provide, so the uploaded chain must terminate at the intended trusted root.
 
 #### Certificate requirements
 

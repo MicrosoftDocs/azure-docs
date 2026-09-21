@@ -5,7 +5,7 @@ author: surajmb
 ms.author: surmb
 ms.service: azure
 ms.topic: quickstart
-ms.date: 05/20/2026
+ms.date: 09/04/2026
 ms.custom:
   - template-quickstart
 
@@ -47,6 +47,9 @@ You must sign in with your Microsoft Entra ID (work or school account) credentia
 ## 2. (Optional) Create a custom agent
 
 Every project comes with a default **Discovery** agent that you can use immediately to start chatting. If you want to create a custom agent tailored to a specific domain, follow the steps below. Otherwise, skip to [step 3](#3-create-a-shared-session).
+
+> [!NOTE]
+> The default **Discovery** agent is intended only for basic questions and answers about the Microsoft Discovery platform. It's not designed to handle scientific use cases or specific user scenarios.
 
 Agents are autonomous, AI-powered systems that perform specific scientific tasks on behalf of users. Powered by large language models (LLMs), agents can use tools, models, and other agents to achieve a goal. In the Microsoft Discovery architecture, agents are the primary functional unit of execution.
 
@@ -94,6 +97,10 @@ After your shared session is created, follow these steps:
 1. Enter a prompt and select **Send** to get a response using the selected agent.
    :::image type="content" source="media/quickstart-agents-studio/studio-investigations-chat.jpg" alt-text="Screenshot showing the chat interface in a Microsoft Discovery shared session.":::
 
+> [!NOTE]
+> Session chat and tasks operate as independent modes of interaction and can't be combined within the same exchange. Each maintains its own separate context, and neither has visibility into the context, history, or state of the other. As a result, information shared or generated in a session chat isn't available to a task, and vice versa. Plan your workflow accordingly to ensure that any context required by both is provided explicitly in each.
+
 ## Next steps
 
 - Explore [Microsoft Discovery agents](concept-discovery-agent.md) to understand agent capabilities in depth.
+- Review the [Microsoft Discovery FAQ](faq.yml) for common questions about agents, models, knowledge retrieval, and platform operations.

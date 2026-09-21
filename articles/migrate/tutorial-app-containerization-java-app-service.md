@@ -6,6 +6,7 @@ ms.author: jsuri
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 02/06/2025
+ms.update-cycle: 365-days
 ms.custom:
   - devx-track-extended-java
   - sfi-image-nochange

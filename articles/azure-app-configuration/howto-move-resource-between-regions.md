@@ -38,7 +38,7 @@ Follow these steps to export your configuration to the target store using the Az
 
 1. Navigate to your source configuration store in the [Azure portal](https://portal.azure.com) and select **Import/Export** under **Operations**.
 1. Select **Export** and choose **App Configuration** in the **Target Service** dropdown.
-    ![Export to another configuration store](media/export-to-config-store.png)
+    ![Export to another configuration store](media/howto-move-resource-between-regions/export-to-config-store.png)
 1. Click on **Select Resource** and enter your **Subscription** and **Resource group**. The **Resource** is the name of the target configuration store you created previously.
 1. Select **Apply** to verify your target configuration store.
 1. Leave the **From label**, **Time**, and **Label** fields with their default values and select **Apply**. For more information about labels, go to [Keys and values](concept-key-value.md).

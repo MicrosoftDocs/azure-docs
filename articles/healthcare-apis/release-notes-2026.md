@@ -17,6 +17,25 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## September 2026
+### FHIR service
+
+**SMART-on-FHIR compartment authorization enforced on `_include` and `_revinclude`**: SMART-on-FHIR compartment authorization is now enforced on `_include` and `_revinclude` query results. Previously, included resources could be returned without verifying they belonged to the authorized patient compartment. Queries using `_include` or `_revinclude` under SMART scopes might now return fewer results.
+
+**Reindex operation optimizations**: Reindex operations are significantly optimized with reduced memory usage, removal of unnecessary database scans, and a fail-fast approach for improved reliability.
+
+#### Bug fixes:
+
+**Fix for conditional patch with required ETags**: Fixed an issue where conditional patch requests failed when ETags were required. Conditional patches now correctly pass the ETag for optimistic concurrency checks.
+
+**Fix for intermittent errors from non-thread-safe HTTP header access**: Fixed intermittent errors in request processing caused by non-thread-safe HTTP header access, improving overall service stability.
+
+**Fix for NullReferenceException in security provider during background jobs**: Fixed a NullReferenceException in the security provider that occurred during background jobs when the capability statement cache hadn't yet been built.
+
+**Fix for HTTP 500 on mixed SMART v1 and v2 scopes**: Fixed an incorrect HTTP 500 error response when a request contained a mix of SMART v1 and v2 scopes. The service now returns a proper authorization error.
+
+**Fix for `$import` status endpoint HTTP 500 with processing job ID**: Fixed an HTTP 500 error from the `$import` status endpoint when polling with a processing job ID instead of the orchestrator's ID.
+
 ## August 2026
 ### FHIR service
 

@@ -6,6 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.reviewer: jsuri
 ms.topic: tutorial
+ms.update-cycle: 365-days
 ms.date: 05/12/2025
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422, mvc, subject-rbac-steps, engagement-fy24
