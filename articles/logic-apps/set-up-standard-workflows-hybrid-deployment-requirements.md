@@ -34,7 +34,7 @@ Azure hosts managed connector operations and requires connectivity to their Azur
 For example, if you have an on-premises scenario, the following architectural overview shows where Standard logic app workflows are hosted and run in the hybrid model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
 
 - A supported Azure Arc-enabled Kubernetes cluster
-- An SQL database to locally store workflow run history, inputs, and outputs for processing
+- A SQL database to locally store workflow run history, inputs, and outputs for processing
 - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
 :::image type="content" source="media/set-up-standard-workflows-hybrid-deployment-requirements/architecture-overview.png" alt-text="Diagram that shows the hybrid deployment model where Standard logic apps run on Arc-enabled Kubernetes with SQL database and SMB file share." border="false":::
