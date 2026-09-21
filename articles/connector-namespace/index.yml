@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: wsilveira
   ms.author: wsilveira
-  ms.date: 07/10/2026
+  ms.date: 09/04/2026
   ms.update-cycle: 365-days
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: Hosted MCP servers
             url: connector-namespace-hosted-mcp.md
+          - text: Connectors in Azure Functions
+            url: ../azure-functions/functions-connectors-overview.md
       - linkListType: quickstart
         links:
           - text: Create connector namespaces
