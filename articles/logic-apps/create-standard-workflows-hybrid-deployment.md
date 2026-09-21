@@ -473,7 +473,7 @@ If you ran the previous command and get a warning similar to the following examp
 
 **`Warning: FailedScheduling  4m52s (x29 over 46m)  default-scheduler  0/2 nodes are available: 2 Too many pods. preemption: 0/2 nodes are available: 2 No preemption victims found for incoming pod.`**
 
-For AKS, increase the number of nodes and set up autoscale by following these steps:
+For AKS, increase the number of nodes, and set up autoscale by following these steps:
 
 1. In the Azure portal, go to your Kubernetes service instance.
 
