@@ -116,7 +116,7 @@ A software as a service (SaaS) platform supports 800 million orchestrations mont
 
 The Consumption SKU offers a pay-as-you-use model, ideal for variable workloads and development scenarios. 
 
-You can create up to 10 schedulers and 5 task hubs per region per subscription with the Consumption SKU. For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
+You can create up to 10 schedulers per region per subscription and up to 5 task hubs per scheduler with the Consumption SKU. For more quota, [contact support](https://github.com/Azure/azure-functions-durable-extension/issues).
 
 ### Key features
 

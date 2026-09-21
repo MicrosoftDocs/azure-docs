@@ -41,7 +41,7 @@ After your Virtual WAN  server configuration is complete, your next steps are as
 
 ## Install the Azure VPN Client
 
-[!INCLUDE [Download the Azure VPN Client for Linux](../../includes/virtual-wan-download-azure-vpn-client-linux.md)]
+[!INCLUDE [Download the Azure VPN Client for Linux](../networking/includes/virtual-wan/download-azure-vpn-client-linux.md)]
 
 ## Extract the VPN client profile configuration package
 
@@ -58,7 +58,7 @@ If your P2S gateway configuration was previously configured to use the older, ma
 
 ## Import VPN client profile configuration settings
 
-[!INCLUDE [Import Azure VPN Client settings for Linux](../../includes/virtual-wan-import-azure-vpn-client-settings-linux.md)]
+[!INCLUDE [Import Azure VPN Client settings for Linux](../networking/includes/virtual-wan/import-azure-vpn-client-settings-linux.md)]
 
 ## Next steps
 
