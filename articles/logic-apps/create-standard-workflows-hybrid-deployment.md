@@ -358,7 +358,7 @@ Managed identity authentication isn't currently supported for managed API connec
       --skip-assignment
    ```
 
-   Save the `appId`, `password`, and `tenant` values from the output as the client ID, client secret, and tenant ID. The command output is the only place where the client secret appears.
+1. From the command output, save the `appId`, `password`, and `tenant` values the client ID, client secret, and tenant ID. The client secret appears only in the command output.
 
 1. Get the service principal object ID:
 
