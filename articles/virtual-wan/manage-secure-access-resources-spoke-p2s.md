@@ -22,7 +22,7 @@ The steps in this article help you create the architecture in the following diag
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../../includes/virtual-wan-before-include.md)]
+[!INCLUDE [Prerequisites](../networking/includes/virtual-wan/before.md)]
 
 * You have the values available for the authentication configuration that you want to use. For example, a RADIUS server, Microsoft Entra authentication, or [Generate and export certificates](certificates-point-to-site.md).
 

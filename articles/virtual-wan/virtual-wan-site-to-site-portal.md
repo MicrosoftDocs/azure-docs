@@ -37,7 +37,7 @@ In this tutorial you learn how to:
 
 Verify that you've met the following criteria before beginning your configuration:
 
-[!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
+[!INCLUDE [Before you begin](../networking/includes/virtual-wan/before.md)]
 
 ## <a name="openvwan"></a>Create a virtual WAN
 

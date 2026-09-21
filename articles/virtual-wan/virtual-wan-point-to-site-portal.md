@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-[!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
+[!INCLUDE [Before beginning](../networking/includes/virtual-wan/before.md)]
 
 ## <a name="wan"></a>Create a virtual WAN
 
