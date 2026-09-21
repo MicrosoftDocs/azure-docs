@@ -59,7 +59,7 @@ If your workloads require deployment, monitoring, alerting, run resubmission, or
   - A SQL database to locally store workflow run history, inputs, and outputs for processing
   - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
-  To meet these requirements, [set up these resources to support hybrid deployment for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).
+  To meet these requirements, [set up these resources to support hybrid deployment for Standard workflows](set-up-standard-workflows-hybrid-deployment-requirements.md).
 
 - To work in Visual Studio Code, you need the Azure Logic Apps (Standard) extension for Visual Studio Code with the [related prerequisites](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
