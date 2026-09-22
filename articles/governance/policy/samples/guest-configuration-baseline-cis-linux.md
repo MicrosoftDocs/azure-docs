@@ -63,7 +63,7 @@ The following Linux distributions and CIS benchmark versions are currently suppo
 | [Debian Linux 12](cis-linux/debian-ado.md) | v1.1.0 | L1 + L2 Server | ✓ | ✓ | X |
 | [SUSE Linux Enterprise 12](cis-linux/suse-ado.md) | v3.2.1 | L1 + L2 Server | ✓ | ✓ | X |
 | [SUSE Linux Enterprise 15](cis-linux/suse-ado.md) | v2.0.1 | L1 + L2 Server | ✓ | ✓ | X |
-| [AKS Optimized Azure Linux 3](cis-linux/azurelinux-ado.md) | v1.0.0 | L1 + L2 Server | ✓ | ✓ | X |
+| [AKS Optimized Azure Linux 3](cis-linux/azure-linux-ado.md) | v1.0.0 | L1 + L2 Server | ✓ | ✓ | X |
 
 Auto-remediation capabilities are planned for future releases and will be marked with ✓ when available.
 	
@@ -160,4 +160,3 @@ Follow this same method to apply changes to file permissions, groups, owners, et
 For questions or support regarding CIS Benchmarks for Linux in Azure Machine Configuration, please refer to this documentation or contact Azure support.
 
 For questions, suggestions or any feedback on the rules, evaluations, distro coverage, feature requests - you can also use the Azure Support - or open a [GitHub issue under azure-osconfig repository](https://github.com/Azure/azure-osconfig/issues).
-
