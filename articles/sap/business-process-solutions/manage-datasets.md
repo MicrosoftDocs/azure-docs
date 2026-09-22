@@ -30,7 +30,7 @@ Prebuilt Power BI dashboards in Business Process Solutions rely on specific data
 
 Before you start data extraction, enable the datasets that represent the functional areas that you want to process. To import a dataset from a template, follow these steps:
 
-1. Open your Business Process Solutions item and select **Set up your Datasets**.
+1. Open your Business Process Solutions item and select **Datasets**.
 
    :::image type="content" source="./media/configure-dataset/set-up-datasets.png" alt-text="Screenshot that shows how to go to the Dataset tab." lightbox="./media/configure-dataset/set-up-datasets.png":::
 

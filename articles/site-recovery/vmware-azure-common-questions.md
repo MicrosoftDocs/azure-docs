@@ -45,7 +45,7 @@ If you're a subscription administrator, you have the replication permissions you
 - Create an Azure VM in the resource group and virtual network you specify when you configure Site Recovery.
 - Write to the selected storage account or managed disk based on your configuration.
 
-[Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) about required permissions.
+[Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-perform-replication-and-failover-actions-on-virtual-machines) about required permissions.
 
 ### What applications can I replicate?
 

@@ -1,7 +1,7 @@
 ---
 title: Reference - CIS Security Benchmarks for Debian Linux via Machine Configuration
 description: Reference - CIS Security Benchmarks for Debian Linux via Machine Configuration
-ms.date: 06/18/2026
+ms.date: 09/11/2026
 author: pallakatos
 ms.author: pallakatos
 ms.topic: reference
@@ -99,7 +99,7 @@ This article provides detailed information about the CIS Security Benchmarks for
 ||expectedActiveState|active|
 ||unitNameIscDhcpServer6Service|isc-dhcp-server6.service|
 ||packageName|isc-dhcp-server|
-|Ensure dns server services are not in use|serviceName|named.service|
+|Ensure dns server services are not in use|serviceName|bind9.service|
 ||expectedUnitFileState|enabled|
 ||expectedActiveState|active|
 ||packageName|bind9|
@@ -302,9 +302,9 @@ This article provides detailed information about the CIS Security Benchmarks for
 > [!NOTE]
 > The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.
 
-- Ensure only one logging system is in use
-- Ensure cryptographic mechanisms are used to protect the integrity of audit tools
-- Ensure world writable files and directories are secured
+- 6.1.1.4 Ensure only one logging system is in use
+- 6.3.3 Ensure cryptographic mechanisms are used to protect the integrity of audit tools
+- 7.1.11 Ensure world writable files and directories are secured
 
 ### Configurable parameters
 
@@ -473,6 +473,7 @@ This article provides detailed information about the CIS Security Benchmarks for
 |Ensure crontab is restricted to authorized users|filenameEtcCronAllow|/etc/cron.allow|
 ||owner|root|
 ||group|root\|crontab|
+||mask|0137|
 ||filenameEtcCronDeny|/etc/cron.deny|
 |Ensure at is restricted to authorized users|mask|0137|
 ||owner|root|

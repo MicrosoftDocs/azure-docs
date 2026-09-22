@@ -113,7 +113,7 @@ This section shows you how to add a gateway to an already existing virtual hub. 
 
 In this section, you create a connection between your virtual hub and your virtual network.
 
-[!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect virtual network](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## <a name="download-profile"></a>Download User VPN profile
 
@@ -137,7 +137,7 @@ Each computer that connects must have a client installed. You configure each cli
 
 When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
 
-[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
+[!INCLUDE [Delete resources](../networking/includes/virtual-wan/resource-cleanup.md)]
 
 ## Next steps
 

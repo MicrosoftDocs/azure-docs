@@ -63,7 +63,7 @@ Throughput units define the ingress and egress event rate capacity in namespaces
 | Outbound MQTT bandwidth per session       | 1 MB per second                                                                   |
 | Outbound in-flight MQTT messages*        | 100 messages                                                                   |
 | Outbound in-flight MQTT bandwidth*         | 64 KB                                                             |
-| Maximum message size                             | 512 KB                                                                            |
+| Maximum message size                             | 1 MB (1024 KB)                                                                            |
 | Segments per topic/topic filter             | 15                                                                                 |
 | Topic size                                   | 256 B                                                                             |
 | MQTTv5 response topic                        | 256 B                                                                             |

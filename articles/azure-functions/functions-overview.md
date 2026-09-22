@@ -3,7 +3,7 @@ title: Azure Functions Overview
 description: Learn how you can use Azure Functions to build robust serverless apps without writing extra code.
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
-ms.date: 03/23/2026
+ms.date: 09/04/2026
 ms.custom: devdivchpfy22, build-2023
 #customer intent: As a developer, I want an overview of Azure Functions capabilities and hosting options so that I can choose the right model and plan for my workload.
 ---
@@ -30,6 +30,7 @@ The following list includes common integrated scenarios that use Functions.
 | [Build a serverless workflow](./functions-scenarios.md#build-a-serverless-workflow)| Create an event-driven workflow from a series of functions using Durable Functions. |
 | [Respond to database changes](./functions-scenarios.md#respond-to-database-changes)| Run custom logic when a document is created or updated in a database. |
 | [Create reliable message systems](./functions-scenarios.md#create-reliable-message-systems)| Process message queues using Azure Queue Storage, Service Bus, or Event Hubs. |
+| [Integrate with SaaS and business services](./functions-connectors-overview.md) | Use managed connectors to respond to events and call operations in services such as Microsoft 365, Teams, and SharePoint. |
 
 These scenarios allow you to build event-driven systems using modern architectural patterns. For more information, see [Azure Functions scenarios](functions-scenarios.md).
 

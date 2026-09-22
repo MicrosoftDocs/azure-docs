@@ -17,7 +17,7 @@ You can configure a custom IPsec policy for a Virtual WAN VPN connection in the 
 
 ## Working with custom policies
 
-[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-custom-include.md)]
+[!INCLUDE [IPsec](../networking/includes/virtual-wan/ipsec-custom.md)]
 
 ## Configure a policy
 

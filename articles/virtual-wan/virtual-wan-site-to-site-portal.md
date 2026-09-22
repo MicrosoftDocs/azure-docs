@@ -37,7 +37,7 @@ In this tutorial you learn how to:
 
 Verify that you've met the following criteria before beginning your configuration:
 
-[!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
+[!INCLUDE [Before you begin](../networking/includes/virtual-wan/before.md)]
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
@@ -79,7 +79,7 @@ In this section, you connect your VPN site to the virtual hub.
 
 In this section, you create a connection between the virtual hub and your virtual network.
 
-[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
+[!INCLUDE [Connect](../networking/includes/virtual-wan/connect-vnet-hub.md)]
 
 ## <a name="device"></a>Download VPN configuration
 
@@ -258,7 +258,7 @@ On the **Edit VPN Gateway** page, you can see the following settings:
 
 When you no longer need the resources that you created, delete them. Some of the Virtual WAN resources must be deleted in a certain order due to dependencies. Deleting can take about 30 minutes to complete.
 
-[!INCLUDE [Delete resources](../../includes/virtual-wan-resource-cleanup.md)]
+[!INCLUDE [Delete resources](../networking/includes/virtual-wan/resource-cleanup.md)]
 
 ## Next steps
 
