@@ -2,8 +2,8 @@
 title: Reference - CIS Security Benchmarks for Ubuntu via Machine Configuration
 description: Reference - CIS Security Benchmarks for Ubuntu via Machine Configuration
 ms.date: 09/11/2026
-author: linux-security-baseline@service.microsoft.com
-ms.author: linux-security-baseline@service.microsoft.com
+author: pallakatos
+ms.author: pallakatos
 ms.topic: reference
 ms.custom: generated
 ---
