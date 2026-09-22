@@ -6,7 +6,7 @@ metadata:
   author: craigshoemaker
   ms.topic: faq
   ms.service: azure-container-apps
-  ms.date: 08/04/2026
+  ms.date: 09/21/2026
   ms.author: cshoe
 title: Azure Container Apps express frequently asked questions (FAQs)
 summary: |
@@ -18,7 +18,7 @@ sections:
       - question: |
           What is Azure Container Apps express?
         answer: |
-          Azure Container Apps express is a streamlined environment tier purpose-built for web applications. It delivers the fastest provisioning, instant scale-from-zero, and the simplest developer experience in Azure Container Apps. Express removes infrastructure decisions: no environment to manually provision, no networking to configure, and no scaling rules to write. You bring a container image, and express handles everything else.
+          Azure Container Apps express is a streamlined environment tier purpose-built for web applications. It delivers fast provisioning, scale from zero, and a simplified developer experience in Azure Container Apps. Express removes infrastructure decisions: no environment to manually provision, no networking to configure, and no scaling rules to write. You bring a container image, and express handles everything else.
 
       - question: |
           How is Azure Container Apps express different from Azure Container Apps?
@@ -130,7 +130,16 @@ sections:
       - question: |
           What features aren't available in express?
         answer: |
-          For the current list, see [Not supported](express-overview.md#not-supported).
+          Express provides a focused set of Azure Container Apps capabilities. Features not available include:
+
+          - Custom domains
+          - System-assigned managed identities
+          - Dapr
+          - Container Apps jobs
+          - Workload profiles
+          - GPU compute
+
+          The [express documentation](https://aka.ms/aca/express) includes the current list of supported capabilities.
 
       - question: |
           Are there any requirements for the container image I deploy to express?
@@ -140,7 +149,7 @@ sections:
       - question: |
           Can I use private (virtual network) inbound or outbound networking with express?
         answer: |
-          For current networking capabilities and limitations, see [Considerations](express-overview.md#considerations) and [Available capabilities](express-overview.md#available-capabilities).
+          Yes. Express supports internal or external HTTP ingress, outbound traffic through the virtual network configured for the Express environment, and environment private endpoints when public network access is disabled. Custom domains, client certificates, session affinity, and built-in service discovery aren't supported.
 
       - question: |
           Where can I find the current express feature matrix?
@@ -152,12 +161,12 @@ sections:
       - question: |
           Which Azure regions support express?
         answer: |
-          For the current list, see [Region availability](express-overview.md#region-availability).
+          Express is available in the regions listed in [Region availability](express-overview.md#region-availability).
 
       - question: |
           Why can't I create an express environment in my preferred region?
         answer: |
-          Express availability varies by region. The portal and CLI may display regions where express isn't supported. If you receive an `ExpressEnvironmentNotAvailableInRegion` error, that region isn't supported. For the current list, see [Region availability](express-overview.md#region-availability).
+          Express is available in a specific set of regions. The portal and CLI may display regions where Express isn't supported. If you receive an `ExpressEnvironmentNotAvailableInRegion` error, select a region from the [supported region list](express-overview.md#region-availability).
 
   - name: Pricing and billing
     questions:
@@ -307,11 +316,16 @@ sections:
   - name: Production readiness
     questions:
       - question: |
-          Can production environments be automatically migrated?
+          Can production environments be automatically migrated to express?
         answer: |
           Yes. Express builds on Azure Container Apps consumption, and Microsoft may migrate production apps that meet the eligibility criteria.
 
           You can opt out before migration or self-migrate at any time.
+
+      - question: |
+          Is express ready for production workloads?
+        answer: |
+          Express can run production workloads that use supported features. Review the [supported features](express-overview.md#supported-features) and [region availability](express-overview.md#region-availability) before migration.
 
       - question: |
           How do I provide feedback or report issues?
