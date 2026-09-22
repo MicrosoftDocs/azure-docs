@@ -3,7 +3,7 @@ title: Develop a deployment script in Bicep
 description: Learn how to develop a deployment script within a Bicep file or store one externally as a separate file.
 ms.custom: devx-track-bicep
 ms.topic: article
-ms.date: 12/22/2025
+ms.date: 08/18/2026
 ---
 
 # Develop a deployment script in Bicep
@@ -123,7 +123,7 @@ In your deployment script, specify these property values:
 
     - Az version *greater than or equal to 12 uses Ubuntu 24.04.
     - Az version *greater than or equal to 9* but less than 12 uses Ubuntu 22.04.
-    
+
     > [!IMPORTANT]
     > We advise you to upgrade to the latest version of Ubuntu. Ubuntu 18.04 is nearing its end of support and won't receive security updates after [May 31, 2023](https://ubuntu.com/18-04).
 
@@ -467,6 +467,9 @@ output result object = deploymentScript.properties.outputs
 
 The approach to handling outputs varies based on the type of script you're using-the Azure CLI or Azure PowerShell.
 
+> [!IMPORTANT]
+> Deployment script logs can include content written to `Write-Host`, `echo`, `stdout`, and `stderr`. You might retrieve this information through the `/deploymentScripts/logs` endpoint or related APIs. Don't write sensitive information to script output, including access tokens, bearer tokens, SAS tokens, connection strings, credentials, or other secrets. Script authors are responsible for ensuring that deployment script logs don't expose sensitive information.
+
 # [CLI](#tab/CLI)
 
 The Azure CLI deployment script uses an environment variable named `AZ_SCRIPTS_OUTPUT_PATH` to indicate the location of the file for script outputs. When you're running a deployment script within a Bicep file, the Bash shell automatically configures this environment variable for you. Its predefined value is set as `/mnt/azscripts/azscriptoutput/scriptoutputs.json`.
@@ -701,6 +704,9 @@ Here are the requirements for using an existing storage account:
 - The deployment principal must have permissions to manage the storage account, which includes reading, creating, and deleting file shares. For more information, see [Configure the minimum permissions](./deployment-script-bicep.md#configure-the-minimum-permissions).
 - The `allowSharedKeyAccess` property of the storage account must be set to `true`. The only way to mount a storage account in Azure Container Instance(ACI) is via an access key.
 
+> [!IMPORTANT]
+> If you assign a managed identity with permissions that exceed the script's operational requirements, the script author is responsible for ensuring the storage account is protected from unintended access. Wherever possible, follow the principle of least privilege.
+
 To specify an existing storage account, add the following Bicep code to the property element of `Microsoft.Resources/deploymentScripts`:
 
 ```bicep
@@ -789,7 +795,7 @@ The two automatically created supporting resources can never outlive the `deploy
   - `OnExpiration`: Delete the two supporting resources only when the `retentionInterval` setting is expired. If you use an existing storage account, the script service removes the file share but retains the storage account.
 
   The container instance and storage account are deleted according to the `cleanupPreference` value. However, if the script fails and `cleanupPreference` isn't set to `Always`, the deployment process automatically keeps the container running for one hour or until the container is cleaned up. You can use the time to troubleshoot the script.
-  
+
   If you want to keep the container running after successful deployments, add a sleep step to your script. For example, add [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) to the end of your script. If you don't add the sleep step, the container is set to a terminal state and can't be accessed even if you haven't deleted it yet.
 
 - `retentionInterval`: Specify the time interval that a `deploymentScript` resource will be retained before it's expired and deleted.

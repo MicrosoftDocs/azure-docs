@@ -17,7 +17,7 @@ In this article, you set up a VNet-integrated agent with outbound traffic routed
 ## Prerequisites
 
 - An SRE Agent in **Running** state
-- An Azure Virtual Network with a subnet that is **/28 or larger**
+- An Azure Virtual Network with a subnet that is **/27 or larger**
 - The subnet must be **delegated to `Microsoft.App/environments`**
 - **Network Contributor** role (or equivalent with `Microsoft.Network/virtualNetworks/subnets/join/action`) on the target subnet
 - **SRE Agent Administrator** role on the agent resource
@@ -44,7 +44,7 @@ Select **Azure VNet** to route agent traffic through your network.
 ## Connect your VNet
 
 1. Select **Browse subnets...** to open the subnet picker dialog.
-1. In the dialog, select your **Subscription**, **Resource group**, **Virtual network**, and **Subnet** from the cascading dropdowns. The subnet must be /28 or larger and delegated to `Microsoft.App/environments`.
+1. In the dialog, select your **Subscription**, **Resource group**, **Virtual network**, and **Subnet** from the cascading dropdowns. The subnet must be /27 or larger and delegated to `Microsoft.App/environments`.
 1. Select **Connect**. The **Use VNet's private DNS** option is enabled automatically. This option lets the agent resolve private endpoint hostnames (for example, Log Analytics workspaces behind AMPLS).
 
 > [!TIP]

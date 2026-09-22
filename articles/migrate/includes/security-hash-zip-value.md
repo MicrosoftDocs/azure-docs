@@ -1,6 +1,6 @@
 ---
-author: habibaum
-ms.author: v-uhabiba 
+author: jyothisuri
+ms.author: jsuri
 ms.topic: include
 ms.date: 07/22/2024
 # Customer intent: As a cloud software user, I want to understand the features and capabilities of the service, so that I can effectively implement it to meet my organizational needs.

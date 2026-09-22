@@ -46,32 +46,27 @@ The Functions runtime manages four types of keys:
 | **Function keys** (`default` + custom) | Single function | Authorize calls to one specific function. Provides more granular control than host keys. |
 | **System keys** | Extension endpoints | Used by platform extensions such as Event Grid webhook subscriptions and Durable Functions. Managed automatically. |
 
+## Choose a storage backend
+
+Set the `AzureWebJobsSecretStorageType` environment variable to control where the runtime persists access keys. Azure Container Apps supports three production-grade backends.
+
+| Backend | Setting value | Auto-generates keys | External dependency | Best for |
+|---------|--------------|--------------------|--------------------|----------|
+| **Container Apps secret store** | `containerapps` | No - you provision keys as Container Apps secrets | None | Most workloads (**Recommended**) |
+| **Azure Key Vault** | `keyvault` | No - trigger creation manually | Key Vault instance | Centralized governance, compliance auditing |
+| **Azure Blob Storage** | `blob` | Yes | Storage account | Legacy apps or existing `AzureWebJobsStorage` account |
+
+Keep these backend considerations in mind:
+
+- The runtime doesn't automatically select Container Apps secret storage. If you don't set `AzureWebJobsSecretStorageType` or set it to an unrecognized value, the Functions host uses Blob Storage when `AzureWebJobsStorage` is available.
+- Keep `AzureWebJobsStorage` configured for storage health checks and storage-dependent features.
+- Don't set `AzureWebJobsSecretStorageType` to `files`. The Container Apps file system is ephemeral, so keys stored with this backend are lost when the app scales to zero, restarts, or deploys a new revision.
+
 ## Secret name patterns
 
 The naming convention for stored keys depends on the storage backend.
 
-### Key Vault
-
-The Key Vault backend stores each key as an individual Key Vault secret using a double-dash (`--`) convention:
-
-| Key type | Secret name pattern | Example |
-|--|--|--|--|
-| Master key | `host--masterKey--master` |`host--masterKey--master` |
-| Function key (default) |`host--functionKey--default` |`host--functionKey--default` |
-| Function key (custom) |`host--functionKey--<name>` | `host--functionKey--MyApiClient` |
-| System key | `host--systemKey--<extension>` | `host--systemKey--eventgrid_extension` |
-| Per-function key | `function--<functionName>--<keyName>` | `function--myhttpfunc--default` |
-
-### Blob Storage
-
-The Blob Storage backend stores keys as JSON files in the `azure-webjobs-secrets` blob container. All host-level keys (master, function keys, and system keys) are stored together in a single `host.json` blob. Per-function keys are stored in separate blobs named after each function.
-
-| Blob path | Contents |
-|-----------|----------|
-| `<siteSlotName>/host.json` | JSON file containing `masterKey`, `functionKeys`, and `systemKeys` |
-| `<siteSlotName>/<functionName>.json` | JSON file containing keys for a specific function |
-
-### Container Apps secret store
+# [Container Apps secret store](#tab/container-apps-secret-store)
 
 The Container Apps secret store uses a different convention. The Functions host reads keys from volume-mounted files at `/run/secrets/functions-keys/`. Each file uses a **dotted** name (for example, `host.master`), but Container Apps secret names only allow **lowercase alphanumeric characters and dashes**. When you mount a secret volume, you must explicitly set the `path` field to the dotted file name the Functions host expects (for example, `secretRef: host-master` → `path: host.master`). The platform doesn't perform any automatic name translation.
 
@@ -84,27 +79,31 @@ The Container Apps secret store uses a different convention. The Functions host 
 | Custom function key for a specific function | `functions-<functionname>-<keyname>` | `functions.<functionName>.<keyName>` |
 | System key | `host-systemkey-<extension>` | `host.systemKey.<extension>` |
 
+# [Key Vault](#tab/key-vault)
+
+The Key Vault backend stores each key as an individual Key Vault secret using a double-dash (`--`) convention:
+
+| Key type | Secret name pattern | Example |
+|--|--|--|
+| Master key | `host--masterKey--master` |`host--masterKey--master` |
+| Function key (default) |`host--functionKey--default` |`host--functionKey--default` |
+| Function key (custom) |`host--functionKey--<name>` | `host--functionKey--MyApiClient` |
+| System key | `host--systemKey--<extension>` | `host--systemKey--eventgrid_extension` |
+| Per-function key | `function--<functionName>--<keyName>` | `function--myhttpfunc--default` |
+
+# [Blob Storage](#tab/blob-storage)
+
+The Blob Storage backend stores keys as JSON files in the `azure-webjobs-secrets` blob container. All host-level keys (master, function keys, and system keys) are stored together in a single `host.json` blob. Per-function keys are stored in separate blobs named after each function.
+
+| Blob path | Contents |
+|-----------|----------|
+| `<SITE_SLOT_NAME>/host.json` | JSON file containing `masterKey`, `functionKeys`, and `systemKeys` |
+| `<SITE_SLOT_NAME>/<FUNCTION_NAME>.json` | JSON file containing keys for a specific function |
+
+---
+
 > [!TIP]
 > When troubleshooting, search for these patterns in your backend store to verify that keys are configured correctly.
-
-## Choose a storage backend
-
-Set the `AzureWebJobsSecretStorageType` environment variable to control where the runtime persists access keys. Azure Container Apps supports three production-grade backends.
-
-> [!IMPORTANT]
-> For production workloads, prefer backends in this order: Container Apps secret store (`containerapp`) > Azure Key Vault (`keyvault`) > Azure Blob Storage (`blob`). The Container Apps secret store has no external dependencies and is the simplest to operate.
-
-| Backend | Setting value | Auto-generates keys | External dependency | Best for |
-|---------|--------------|--------------------|--------------------|----------|
-| **Container Apps secret store** | `containerapp` | No - you provision keys as Container Apps secrets | None | Most workloads (**Recommended**) |
-| **Azure Key Vault** | `keyvault` | No - trigger creation manually | Key Vault instance | Centralized governance, compliance auditing |
-| **Azure Blob Storage** | `blob` | Yes | Storage account | Legacy apps or existing `AzureWebJobsStorage` account |
-
-> [!NOTE]
-> For Functions on Azure Container Apps, Blob storage is the default behavior when `AzureWebJobsSecretStorageType` isn't set.
-
-> [!WARNING]
-> Don't set `AzureWebJobsSecretStorageType` to `files`. On Azure Container Apps, the file system is **ephemeral**, so host keys stored with the `files` backend are lost every time the app scales to zero, restarts, or deploys a new revision. Always use one of the three production backends listed above.
 
 ## Configure the Container Apps secret store
 
@@ -128,7 +127,7 @@ With this backend, the Functions host reads keys from files volume-mounted at `/
     | Property | Value |
     |---|---|
     | **Name** | `AzureWebJobsSecretStorageType` |
-    | **Value** | `containerapp` |
+    | **Value** | `containerapps` |
 
 1. Select **Save**, and then select **Apply** to confirm the changes.
 
@@ -138,7 +137,7 @@ With this backend, the Functions host reads keys from files volume-mounted at `/
 az containerapp update \
   --resource-group "<RESOURCE_GROUP>" \
   --name "<FUNCTIONS_APP_NAME>" \
-  --set-env-vars "AzureWebJobsSecretStorageType=containerapp"
+  --set-env-vars "AzureWebJobsSecretStorageType=containerapps"
 ```
 
 ---
@@ -308,62 +307,9 @@ az containerapp revision restart \
 > [!NOTE]
 > All replicas share the same mounted secrets. After a restart, every replica picks up the updated key values.
 
-## Configure Blob Storage
+## Configure Key Vault or Blob Storage as the store
 
-The Blob Storage backend enables the runtime to auto-generate and manage access keys. Use this option when you already have a storage account for `AzureWebJobsStorage` and don't need centralized governance.
-
-> [!NOTE]
-> **Encryption at rest:** When you inspect the blob content (for example, `azure-webjobs-secrets/<app>/host.json`), you may see `"encrypted": false` in the JSON payload. This flag indicates that the Functions host didn't apply its own host-level encryption to the key values before writing them to storage. However, this doesn't mean your secrets are stored unencrypted. [Azure Storage Service Encryption](/azure/storage/common/storage-service-encryption) automatically encrypts all blob data at rest using AES-256 encryption. The entire blob payload, including your key values, is encrypted transparently by the storage layer. Host-level encryption is primarily needed for backends like the local file system that don't provide their own encryption at rest.
-
-1. Enable managed identity on your container app (if not already enabled):
-
-    ```azurecli
-    az containerapp identity assign \
-      --resource-group "<RESOURCE_GROUP>" \
-      --name "<FUNCTIONS_APP_NAME>" \
-      --system-assigned
-    ```
-
-1. Grant the **Storage Blob Data Contributor** role on the storage account to the managed identity:
-
-    ```azurecli
-    PRINCIPAL_ID=$(az containerapp show \
-      --resource-group "<RESOURCE_GROUP>" \
-      --name "<FUNCTIONS_APP_NAME>" \
-      --query identity.principalId \
-      --output tsv)
-
-    STORAGE_ID=$(az storage account show \
-      --name "<STORAGE_ACCOUNT_NAME>" \
-      --resource-group "<RESOURCE_GROUP>" \
-      --query id \
-      --output tsv)
-
-    az role assignment create \
-      --role "Storage Blob Data Contributor" \
-      --assignee "$PRINCIPAL_ID" \
-      --scope "$STORAGE_ID"
-    ```
-
-1. Set the storage type:
-
-    ```azurecli
-    az containerapp update \
-      --resource-group "<RESOURCE_GROUP>" \
-      --name "<FUNCTIONS_APP_NAME>" \
-      --set-env-vars "AzureWebJobsSecretStorageType=blob"
-    ```
-
-1. The runtime auto-generates keys on the next cold start. Verify:
-
-    ```azurecli
-    az containerapp function keys list \
-      --resource-group "<RESOURCE_GROUP>" \
-      --name "<FUNCTIONS_APP_NAME>" \
-      --key-type hostKey
-    ```
-
-## Configure Key Vault
+# [Configure Key Vault](#tab/configure-key-vault)
 
 The Key Vault backend stores access keys as Key Vault secrets, providing enterprise-grade auditing and access control.
 
@@ -439,45 +385,115 @@ The Key Vault backend stores access keys as Key Vault secrets, providing enterpr
       --key-type hostKey
     ```
 
+# [Configure Blob Storage](#tab/configure-blob-storage)
+
+The Blob Storage backend enables the runtime to auto-generate and manage access keys. Use this option when you already have a storage account for `AzureWebJobsStorage` and don't need centralized governance.
+
+1. Enable managed identity on your container app (if not already enabled):
+
+    ```azurecli
+    az containerapp identity assign \
+      --resource-group "<RESOURCE_GROUP>" \
+      --name "<FUNCTIONS_APP_NAME>" \
+      --system-assigned
+    ```
+
+1. Grant the **Storage Blob Data Contributor** role on the storage account to the managed identity:
+
+    ```azurecli
+    PRINCIPAL_ID=$(az containerapp show \
+      --resource-group "<RESOURCE_GROUP>" \
+      --name "<FUNCTIONS_APP_NAME>" \
+      --query identity.principalId \
+      --output tsv)
+
+    STORAGE_ID=$(az storage account show \
+      --name "<STORAGE_ACCOUNT_NAME>" \
+      --resource-group "<RESOURCE_GROUP>" \
+      --query id \
+      --output tsv)
+
+    az role assignment create \
+      --role "Storage Blob Data Contributor" \
+      --assignee "$PRINCIPAL_ID" \
+      --scope "$STORAGE_ID"
+    ```
+
+1. Set the storage type:
+
+    ```azurecli
+    az containerapp update \
+      --resource-group "<RESOURCE_GROUP>" \
+      --name "<FUNCTIONS_APP_NAME>" \
+      --set-env-vars "AzureWebJobsSecretStorageType=blob"
+    ```
+
+1. The runtime auto-generates keys on the next cold start. Verify:
+
+    ```azurecli
+    az containerapp function keys list \
+      --resource-group "<RESOURCE_GROUP>" \
+      --name "<FUNCTIONS_APP_NAME>" \
+      --key-type hostKey
+    ```
+
+---
+
 ## Manage access keys
 
 Regardless of backend, use the following commands to list, create, and delete access keys:
 
-```azurecli
-# List all host keys
-az containerapp function keys list \
-  --resource-group "<RESOURCE_GROUP>" \
-  --name "<FUNCTIONS_APP_NAME>" \
-  --key-type hostKey
+> [!NOTE]
+> Keep at least one replica running to perform these key management operations.
 
-# List the master key
-az containerapp function keys list \
-  --resource-group "<RESOURCE_GROUP>" \
-  --name "<FUNCTIONS_APP_NAME>" \
-  --key-type masterKey
+- List all host keys:
 
-# Create or overwrite a custom host key
-az containerapp function keys set \
-  --resource-group "<RESOURCE_GROUP>" \
-  --name "<FUNCTIONS_APP_NAME>" \
-  --key-name "MyCustomKey" \
-  --key-value "<YOUR_KEY_VALUE>" \
-  --key-type hostKey
+  ```azurecli
+  az containerapp function keys list \
+    --resource-group "<RESOURCE_GROUP>" \
+    --name "<FUNCTIONS_APP_NAME>" \
+    --key-type hostKey
+  ```
 
-# Show a specific key
-az containerapp function keys show \
-  --resource-group "<RESOURCE_GROUP>" \
-  --name "<FUNCTIONS_APP_NAME>" \
-  --key-name "<KEY_NAME>" \
-  --key-type hostKey
+- List the master key:
 
-# Delete a host key
-az containerapp function keys delete \
-  --resource-group "<RESOURCE_GROUP>" \
-  --name "<FUNCTIONS_APP_NAME>" \
-  --key-name "MyCustomKey" \
-  --key-type hostKey
-```
+  ```azurecli
+  az containerapp function keys list \
+    --resource-group "<RESOURCE_GROUP>" \
+    --name "<FUNCTIONS_APP_NAME>" \
+    --key-type masterKey
+  ```
+
+- Create or overwrite a custom host key:
+
+  ```azurecli
+  az containerapp function keys set \
+    --resource-group "<RESOURCE_GROUP>" \
+    --name "<FUNCTIONS_APP_NAME>" \
+    --key-name "MyCustomKey" \
+    --key-value "<YOUR_KEY_VALUE>" \
+    --key-type hostKey
+  ```
+
+- Show a specific key:
+
+  ```azurecli
+  az containerapp function keys show \
+    --resource-group "<RESOURCE_GROUP>" \
+    --name "<FUNCTIONS_APP_NAME>" \
+    --key-name "<KEY_NAME>" \
+    --key-type hostKey
+  ```
+
+- Delete a host key:
+
+  ```azurecli
+  az containerapp function keys delete \
+    --resource-group "<RESOURCE_GROUP>" \
+    --name "<FUNCTIONS_APP_NAME>" \
+    --key-name "MyCustomKey" \
+    --key-type hostKey
+  ```
 
 ## Call a function with an access key
 

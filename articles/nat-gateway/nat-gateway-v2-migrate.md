@@ -44,7 +44,6 @@ Before you migrate to a StandardV2 NAT gateway, make sure that your specific sce
 
   * Canada East
   * India South Central
-  * Israel Northwest
   * Sweden South
   * West India
 

@@ -1,0 +1,225 @@
+### YamlMime:FAQ
+metadata:
+  title: Wave planning capabilities in Azure Migrate - common questions
+  description: This article answers common questions about wave planning capabilities in Azure Migrate.
+  ms.date: 09/01/2026
+  ms.topic: faq
+  ms.service: azure-migrate
+  ms.author: shuj
+  monikerRange: migrate
+title: Wave planning - common questions
+summary: This article summarizes frequently asked questions about wave planning in Azure Migrate. 
+
+
+sections:
+  - name: Migration wave planning
+    questions:
+      - question: |
+         Is wave planning mandatory for migrations?
+        answer: |
+              No, wave planning isn't mandatory to migrate with Azure Migrate. It's a guided, step-by-step process that helps you plan and execute large-scale migrations on time.
+      - question: |
+         How do I ensure waves show latest data?
+        answer: |
+             Create, edit, delete, and other wave operations can take time depending on the size of the wave. To see the latest data, follow these steps:
+
+             1. Ensure deployments for each operation are complete.
+             
+             :::image type="content" source="./media/common-questions-wave-planning/notifications.png" alt-text="The screenshot shows the notifications." lightbox="./media/common-questions-wave-planning/notifications.png":::
+             
+             2. Select **Refresh** to update the page.
+      - question: |
+         Why can't I add an application to a wave?
+        answer: |
+             Each workload in a migration wave can have a unique  migration plan and be part of only one wave. If any workload of an application is part of another wave, you can add the entire application to a different wave. 
+             Alternatively, switch to **Workload selection** view, filter by the application name, and add the remaining workloads to the wave.  
+      - question: |
+         Why does the number of workloads or apps in a wave differ from the count added to the wave?
+        answer: | 
+            THe following are the reasons explain why the workloads or apps selected for the wave might vary from the count you see:
+
+            - The workload is part of multiple applications. Migrating this workload moves parts of various applications, so the complete list of applications appears in the wave.
+            - The application contains an unsupported workload. This application is split into multiple workloads, and the remaining workloads are added to the wave.
+      - question: |
+         Which migration executions are supported in wave planning?
+        answer: |    
+            Azure Migrate supports two types of category tracking:
+
+            - **Automated tracking**: When Azure Migrate supports the migration tool and approach (for example, Server Migration), you can perform migration and modernization tasks through waves, and the status gets updated automatically.
+
+            - **Manualy tracking**: When Azure Migrate doesn't natively support migration tooling (for example, DMS or other tools), you manually update task status (for example, select **Mark as complete**). This keeps waves status up to date and reflects the current stage in the migration and modernization journey.
+
+      - question: |
+         How can I export the wave? 
+        answer: |      
+            All Azure Migrate data, including waves, is available in Azure Resource Graph (ARG). It includes the following wave planning data:
+
+            - Wave: `microsoft.migrate/migrateprojects/waves`
+            - Workload in wave: `microsoft.migrate/migrateprojects/migrationentities`
+            - Application in wave: `microsoft.migrate/migrateprojects/migrationentitygroups`
+
+            You can build queries as needed by using the Azure portal, Azure CLI, PowerShell, REST APIs, or the Power BI connector to generate reports. For more information, see [Azure Resource Graph](/azure/governance/resource-graph/overview).
+
+  - name: General questions
+    questions:
+      - question: |
+         What is the difference between a wave plan and a migration wave?
+        answer: |
+            A wave plan for an assessment's is a recommendation - a proposed grouping and sequence. You can regenerate it, import changes, and revise it as many times as needed. It has no effect on your migration environment.
+
+            A migration wave is the execution object you create from the wave plan. Creating a wave is the commitment point. After that point, configure and execute the migration through the waves.
+
+      - question: |
+         What data is required to generate a migration wave plan?
+        answer: |
+           At a minimum, wave planning needs a workload inventory with configuration data and a completed assessment. Additional data categories enhance the quality and improve the confidence of the wave plan.
+
+            Wave planning uses the following categories of data:
+
+            | Data category | What it provides | Where it comes from |
+            |--------------|-----------------|---------------------|
+            | **Workload inventory** | VM names, OS, CPU, RAM, disk, workload type | Appliance discovery, CSV import, RVTools |
+            | **Assessment data** | Migration strategy, readiness, cost, code changes | Assessment report |
+            | **Dependency data** | Server-to-server network connection data | Dependency mapping (agentless or agent-based) |
+            | **Application data** | Application grouping, criticality, complexity | App list |
+
+            Additional inputs that improve precision when available include environment classification (Prod/Dev/Test), OS end-of-support dates, and business criticality tags.
+
+      - question: |
+         How is the migration wave Priority Score calculated?
+        answer: |
+            The Priority score is a number from 0 to 100 that determines wave sequencing. A higher score means the workload must migrate earlier. The score reflects several influencing factors:
+
+            | Factor | How it influences sequencing |
+            |--------|------------------------------|
+            | **Complexity** | Simpler workloads migrate first to build team confidence before tackling complex ones |
+            | **Business Criticality** | Less critical workloads go first to reduce business risk |
+            | **Readiness** | Workloads that are migration-ready are prioritized over those still needing preparation |
+            | **Effort** | Lower-effort workloads migrate first so quick wins build momentum |
+            | **Value** | Workloads with the biggest cost savings or end-of-support urgency get priority |
+
+      - question: |
+         What conditions does migration wave planning apply?
+        answer: |
+            Wave planning evaluates multiple conditions to validate wave compositions. Critical conditions introduce high risk if violated. For the full list, see the [Planning conditions](automatic-wave-planning-architecture.md#planning-conditions).
+
+      - question: |
+         Why must application components be migrated in the same wave?
+        answer: |
+            This requirement is one of the critical conditions that wave planning enforces. All components of an application must migrate as a single unit. If you place the web tier in Wave 1 and the database tier in Wave 3, the application doesn't function correctly during the gap between those migrations. Splitting application components across waves creates downtime and dependency failures.
+
+      - question: |
+         Can an assessment contain multiple migration wave plans?
+        answer: |
+
+            Yes. Each assessment can have one wave plan per migration path. The primary path wave plan is generated automatically when you trigger wave planning. You generate secondary path wave plans on demand when you want to compare different migration strategies.
+
+      - question: |
+         How long does it take to generate a migration wave plan?
+        answer: |
+            Typically within three minutes. Generation can take longer for large estates. During generation, the system scopes your workloads, analyzes dependencies, applies conditions, calculates priority scores, optimizes wave sizes, and validates the result.
+
+  - name: Confidence and risk
+    questions:
+      - question: |
+          What does confidence level mean?
+        answer: |
+            Confidence reflects how much input data was available when the plan was generated. A lower confidence level means the system had less information to work with, which might reduce grouping accuracy.
+
+            | Confidence level | What it means |
+            |-----------------|---------------|
+            | High | Inventory, dependency, and application mapping data are all present |
+            | Medium | One or two data categories are missing (typically dependency mapping or application grouping) |
+            | Low | Multiple data categories are missing - the plan is based primarily on inventory and assessment data |
+
+      - question: |
+         How can I improve my confidence level?
+        answer: |
+            Confidence comes from data completeness across three dimensions: inventory coverage, dependency mapping, and application grouping. To raise your confidence level:
+
+            - **Enable dependency mapping.** Deploy the Azure Migrate appliance and enable agentless dependency analysis. Allow 1-30 days for network traffic patterns to be collected, then regenerate.
+            - **Map workloads to applications.** Group workloads under their parent applications in the portal. This lets the system enforce application atomicity and produce better wave groupings.
+            - **Populate metadata.** Capture missing fields, environment classification (Production or Development or Test), and business criticality and complexity of app.
+
+      - question: |
+         What does the risk level mean?
+        answer: |
+            Risk reflects how well the wave plan satisfies the planning conditions. It's calculated from condition evaluation:
+
+            - **Low risk:** All critical conditions are satisfied and confidence is High.
+            - **Medium risk:** Some advisory conditions are violated, or confidence is Medium.
+            - **High risk:** One or more critical conditions are violated, or confidence is Low with multiple condition issues.
+
+            The reasoning panel for each wave shows exactly which conditions are satisfied, which are violated, and what you can do about it.
+      - question: |
+         How can I reduce my risk level?
+        answer: |
+            Review the reasoning panel for each flagged wave to identify which conditions are violated. Common causes of high risk and how to address them:
+
+            - **Application components split across waves**: Move all members of the same application to one wave via export/import.
+            - **Strongly dependent workloads in different waves**: Enable dependency mapping to give the system better grouping data, then regenerate.
+            - **Production workloads in early waves**: Ensure environment classification (Production or Development or Test) is populated in your inventory so the system can apply environment sequencing conditions.
+            - **Production and Development/Test mixed in the same wave**: Add environment tags to your workloads so the system can separate them.
+            
+      - question: |
+         What is a cross-wave dependency?
+        answer: |
+            A cross-wave dependency exists when a workload in one wave depends on a workload in a different wave. There are two types:
+
+            - **Unidirectional:** One wave depends on a workload in another wave. For example, Wave 3 needs an authentication service in Wave 1. Wave 1 must complete before Wave 3 can finish.
+            - **Bidirectional:** Two workloads in different waves depend on each other. Neither wave can complete independently. This condition carries the highest risk and typically requires coordinated cutover or moving both workloads to the same wave.
+
+            The wave plan surfaces cross-wave dependencies in the reasoning panel and factors them into the risk assessment.
+
+  - name: Wave plan generation
+    questions:
+      - question: |
+          Why does generation seem stuck?
+        answer: |  
+            If you triggered generation and the portal appears to hang:
+
+            - Wait up to five minutes. Large estates with hundreds of workloads might take longer than the typical three minutes.
+            - Refresh the page after waiting. The plan should appear once generation finishes.
+            - If the issues still persist, contact the support team by raising a support ticket
+      - question: |
+          Why does my wave plan look outdated?
+        answer: | 
+            There's no automatic sync between your assessment and wave plan. If you update your assessment - add workloads, run new dependency analysis, or refresh results - the wave plan still reflects the data from when it was last generated.
+
+            Compare the **Last generate** timestamp on your wave plan with the last update date on your assessment. If the assessment is newer, regenerate the wave plan to pick up the latest data.
+
+            > [!IMPORTANT]
+            > Regeneration replaces the current plan entirely. Export first if you want to preserve offline edits or stakeholder-reviewed assignments.
+
+  - name: Export and CSV format
+    questions:
+      - question: |
+          Which files are included in the export?
+        answer: |
+            Wave plan export produces three files:
+
+            | File | Contents | Editable for reimport? |
+            |------|---------|-----------|
+            | Workload-to-wave mapping CSV  | One row per workload with all inventory columns plus a Wave Name column | Yes - Edit the Wave Name column only |
+            | Wave details CSV | One row per wave with wave-level properties (cost, confidence, risk, dates) | No - Read-only reference |
+            | Wave plan report (Markdown) | Formatted summary with executive overview, per-wave details, and rationale | No - Read-only for stakeholder review |
+
+  - name: Wave creation
+    questions:
+      - question: |
+         What happens when I create waves from the plan?
+        answer: | 
+            Creating waves is a commitment point. You select one or more waves from the wave plan and the system creates them in Azure Migrate. Before creating, the system reconciles the recommendation against current inventory and surfaces any conflicts for you to resolve.
+
+            Created waves start in the planning stage. The wave plan remains independently revisable after wave creation - the wave plan and created waves are independent of each other.
+
+      - question: |
+          What happens if I regenerate the wave plan after creating some waves?
+        answer: | 
+          Wave plan regeneration always covers the full assessment scope. If you regenerate the wave plan and there are changes in the inventory, assessment, or any input data, the wave plan might deviate from the created wave.
+
+additionalContent: |
+    ## Related content
+      - [Create waves using auto wave planning](how-to-plan-create-waves.md).
+      - [Automatic wave planning concepts](automatic-wave-planning-architecture.md).
+      - [Create waves in Azure Migrate](how-to-plan-create-waves.md).

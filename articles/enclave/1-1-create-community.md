@@ -3,8 +3,10 @@ title: "Tutorial 1-1: Deploy an Azure Enclave community"
 description: Learn how to plan, deploy, validate, and clean up an Azure Enclave community in the Azure portal.
 author: aserfass-msft
 ms.author: aserfass
+ms.service: azure-enclave
 ms.topic: tutorial
-ms.date: 06/01/2026
+ms.date: 08/31/2026
+ai-usage: ai-assisted
 ---
 
 # Tutorial 1-1: Deploy an Azure Enclave community
@@ -183,7 +185,7 @@ Before creating a community, you need a resource group. An Azure resource group 
 > [!IMPORTANT]
 > This tutorial uses `myResourceGroup` as a placeholder for the resource group name. You can optionally replace `myResourceGroup` with your own resource group name following your naming convention.
 
-**Best practices for resource group:**
+**Best practices for the resource group:**
 - Use descriptive names that indicate purpose and environment
 - Apply tags for organization and cost tracking
 - Ensure appropriate RBAC permissions are assigned
@@ -252,7 +254,7 @@ You can look through the other tabs but for this tutorial you keep the defaults:
 Select the `Approvals` tab next.
 
 #### Step 4: Approvals
-For this tutorial, you only need approvals for enclave connection creation and update. Enter the basic details for your community:
+For this tutorial, you only need approvals for enclave connection creation and update. Enter the approval details for your community:
 
 **Approvals configuration:**
 
@@ -283,7 +285,7 @@ Select `Create` to begin deployment.
 **What happens during deployment:**
 
 The deployment process creates:
-- **Virtual Network**: Hub virtual network with community address space
+- **Virtual WAN**: Hub virtual WAN and virtual hub with community address space
 - **Azure Firewall**: Premium or Standard tier for traffic filtering
 - **Firewall Policy**: Default rules and policies
 - **Log Analytics Workspace**: For monitoring and diagnostics
@@ -295,7 +297,7 @@ The deployment process creates:
 - Track deployment status in the Azure portal notifications
 - Review deployment logs if issues occur
 - Estimated time: 30-45 minutes
-- Status shows "Running" then "Succeeded"
+- Status shows `Running` then `Succeeded`
 
 ## Validate deployment
 
@@ -310,7 +312,7 @@ After the community deployment completes, perform these validation steps to ensu
    [ ![Screenshot showing created community on its overview page.](./media/tutorial-step-one-community-overview-page.png) ](./media/tutorial-step-one-community-overview-page.png#lightbox)
 
 **Key information to verify:**
-- **Provisioning State**: Should be "Succeeded"
+- **Provisioning State**: Should be `Succeeded`.
 - **Resource Group**: Correct resource group listed
 - **Location**: Matches selected region
 - **Address Space**: Correct CIDR displayed
@@ -347,14 +349,14 @@ After the community deployment completes, perform these validation steps to ensu
 
 After deployment, confirm:
 
-  - Community status shows **Succeeded**
-  - Community managed resource group created with expected resources
-  - Managed connectivity resources configured with the correct address space
-  - Firewall policy and rule collections created
-  - Log Analytics workspace connected
-  - Diagnostic settings enabled
-  - RBAC permissions are configured
-  - No deployment errors in activity log
+- Community status shows `Succeeded`.
+- Community managed resource group created with expected resources
+- Managed connectivity resources configured with the correct address space
+- Firewall policy and rule collections created
+- Log Analytics workspace connected
+- Diagnostic settings enabled
+  - RBAC permissions configured
+- No deployment errors in activity log
 
 ## Clean up resources
 
@@ -387,7 +389,7 @@ az resource delete \
   --resource-group myResourceGroup \
   --resource-type Microsoft.Mission/communities \
   --name fabrikam \
-  --api-version 2025-05-01-preview
+  --api-version 2026-03-01-preview
 ```
 
 **What gets deleted:**
@@ -408,7 +410,7 @@ az resource delete \
 ### Issue: Deployment fails with address space overlap error
 
 **Symptom:**
-Deployment fails with error message about address space conflicts
+Deployment fails with an error message about address space conflicts.
 
 **Possible causes:**
 - Address space overlaps with existing virtual network in subscription

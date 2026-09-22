@@ -14,7 +14,7 @@ ms.date: 05/19/2026
 
 # What is Azure Deployment Environments?
 
-[!INCLUDE [note-deployment-environments-maintenance-mode](includes/note-deployment-environments-maintenance-mode.md)]
+[!INCLUDE [note-deployment-environments-retirement](includes/note-deployment-environments-retirement.md)]
 
 Azure Deployment Environments empowers development teams to quickly and easily spin up app infrastructure with project-based templates that establish consistency and best practices while maximizing security. This on-demand access to secure environments speeds up the stages of the software development lifecycle in a compliant and cost-efficient way. This article provides an overview of Azure Deployment Environments
 

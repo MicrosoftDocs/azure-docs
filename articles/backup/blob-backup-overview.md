@@ -77,7 +77,7 @@ To allow Backup to enable these properties on the storage accounts to be protect
 
 # [Vaulted backup](#tab/vaulted-backup)
 
-Vaulted backup is configured at the storage account level. However, you can exclude containers that don't need backup. If your storage account has *>1000* containers, you need to mandatorily exclude containers to reduce the count to *1000* or below. For vaulted backups, the schedule and retention are managed via backup policy. You can set the frequency as *daily* or *weekly*, and specify when the backup recovery points need to be created. You can also configure different retention values for backups taken every day, week, month, or year. The retention rules are evaluated in a predetermined order of priority. The *yearly* rule has the priority compared to *monthly* and *weekly* rule. Default retention settings are applied if other rules don't qualify.
+Vaulted backup is configured at the storage account level. You can choose to auto-protect all containers or exclude containers that don't need backup. When you use auto-protection, new containers created after backup configuration are automatically protected until the protected container count reaches 1000. Selecting auto-protection for all present and future containers is permanent, and you can't switch back to the earlier container selection options. If your storage account has *>1000* containers, you need to mandatorily exclude containers to reduce the count to *1000* or below. For vaulted backups, the schedule and retention are managed via backup policy. You can set the frequency as *daily* or *weekly*, and specify when the backup recovery points need to be created. You can also configure different retention values for backups taken every day, week, month, or year. The retention rules are evaluated in a predetermined order of priority. The *yearly* rule has the priority compared to *monthly* and *weekly* rule. Default retention settings are applied if other rules don't qualify.
 
 In storage accounts (for which vaulted backups are configured), the object replication rules get created under the *object replication* item on the *TOC* blade of the source storage account.
 
@@ -87,7 +87,7 @@ You can enable operational backup and vaulted backup (or both) of blobs on a sto
 
 Once you have enabled backup on a storage account, a Backup Instance is created corresponding to the storage account in the Backup vault. You can perform any Backup-related operations for a storage account like initiating restores, monitoring, stopping protection, and so on, through its corresponding Backup Instance.
 
-Both operational and vaulted backups integrate directly with Resiliency to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Resiliency is an unified platform for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations pertaining to back up and restore of data.
+Both operational and vaulted backups integrate directly with Resiliency to help you manage the protection of all your storage accounts centrally, along with all other Backup supported workloads. Resiliency is a unified platform for all your Backup requirements like monitoring jobs and state of backups and restores, ensuring compliance and governance, analyzing backup usage, and performing operations related to backing up and restoring data.
 
 ---
 

@@ -2,7 +2,7 @@
 title: Back up Azure Local virtual machines with MABS
 description: This article contains the procedures to back up and recover virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 06/05/2026
+ms.date: 08/18/2026
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -82,6 +82,13 @@ These are the prerequisites for backing up virtual machines with MABS:
    >
    >`Get-ClusterNode | % {$session = New-PsSession -ComputerName $_ ; Invoke-Command -Session $session -ScriptBlock {$env:COMPUTERNAME ; Disable-NetFirewallRule AzsHci-ImdsAttestation-Block-TCP-In }}`
 
+   >[!IMPORTANT]
+   >MABS V4 UR2 is now generally available and supports agent deployment and upgrade when Application Control (WDAC) runs in Enforced mode. 
+   >
+   >Before you deploy or upgrade the agent in Enforced mode, create an Application Control supplemental policy for MABS. For more information, see [Create an Application Control supplemental policy for MABS when Azure Local is running in Application Control Enforced mode](backup-server-application-control-supplemental-policy-create.md#create-an-application-control-supplemental-policy-for-mabs).
+   >
+   >If you use a version earlier than MABS V4 UR2, Application Control policies can block agent deployment. To avoid this issue, switch Application Control to Audit mode before you install the agent. After deployment completes, switch Application Control back to Enforced mode. If you already run MABS V4 RTM or MABS V4 UR1, install the agent while Application Control is in Audit mode, apply the supplemental policy, enable Enforced mode, and then upgrade to MABS V4 UR2 from the MABS console. For more information, see [Switch Application Control to Audit mode](backup-server-application-control-supplemental-policy-create.md#check-and-switch-the-application-control-policy-mode-on-azure-local).
+
 3. To deploy the agent, choose one of the following methods:
 
    - **Attach agents**: Select an agent that's already installed.
@@ -91,8 +98,6 @@ These are the prerequisites for backing up virtual machines with MABS:
         ```
         Install DPMAgentInstaller.exe`
         ```
-        >[!Note]
-        >Default Application Control settings may prevent agent deployment, [switch application control to "Audit" mode](/azure/azure-local/manage/manage-wdac#switch-application-control-policy-modes) before agent installation to work around this issue. After deployment is complete, we recommend that you switch the application control back to **Enforced** mode. 
 
      2. After the installation is complete, go to the installation location `C:\Program Files\Microsoft Data Protection Manager\DPM\bin`, and run the following command to configure the agent on the node:
 
@@ -108,13 +113,13 @@ These are the prerequisites for backing up virtual machines with MABS:
 
 5. On the **Select Group Members** page, select the VMs you want to protect from the host servers on which they're located. We recommend that you put all VMs that will have the same protection policy into one protection group. To make efficient use of space, enable colocation. Colocation allows you to locate data from different protection groups on the same disk or tape storage, so that multiple data sources have a single replica and recovery point volume.
 
-   During VM selection, you can choose one of the following VM type:
+   During VM selection, you can choose one of the following VM types:
 
    - **Hyper-V (Unmanaged) VMs**: Select this VM type from the individual node.
 
      :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-hyper-v-vm.png" alt-text="Screenshot shows the selection of Hyper-V VMs." lightbox="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-hyper-v-vm.png":::
 
-   - **Highly Availabe VMs**: Select this VM type from the cluster.
+   - **Highly Available VMs**: Select this VM type from the cluster.
 
      :::image type="content" source="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-clustered-vm.png" alt-text="Screenshot shows the selection of Clustered VMs." lightbox="./media/back-up-azure-stack-hyperconverged-infrastructure-virtual-machines/select-clustered-vm.png":::
 

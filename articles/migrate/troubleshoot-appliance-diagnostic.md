@@ -5,9 +5,10 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.topic: troubleshooting
 ms.date: 02/06/2025
+ms.update-cycle: 365-days
 ms.custom: engagement-fy24
 # Customer intent: As a cloud administrator, I want to run diagnostics on my Azure Migrate appliance, so that I can identify and resolve any configuration issues that may impede migration operations.
 ---

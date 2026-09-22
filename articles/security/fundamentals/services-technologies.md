@@ -8,7 +8,7 @@ ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: overview
-ms.date: 05/05/2026
+ms.date: 09/18/2026
 ms.author: mbaldwin
 ai-usage: ai-assisted
 
@@ -74,6 +74,7 @@ For detailed encryption options and best practices, see [Azure encryption overvi
 |[Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview)| Single-tenant, FIPS 140-3 Level 3 validated HSM service offering full customer control with confidential key support. Integrates with Azure PaaS services.|
 |[Azure Cloud HSM](/azure/cloud-hsm/overview)| Fully managed, single-tenant FIPS 140-3 Level 3 validated HSM cluster supporting PKCS#11, SSL/TLS offloading, and on-premises migration scenarios. IaaS only.|
 |[Azure Payment HSM](/azure/payment-hsm/overview)| Single-tenant, FIPS 140-2 Level 3 validated, PCI HSM v3 compliant HSM for payment processing operations.|
+|[Azure Payment HSM v2](/azure/payment-hsm-v2/overview)| Single-tenant, FIPS 140-3 Level 3 certified, PCI DSS, PCI 3DS, and PCI PIN compliant Microsoft-managed payment HSM cluster for payment processing operations. In preview.|
 
 For comprehensive key management options, see [Key management in Azure](key-management.md).
 

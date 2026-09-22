@@ -132,7 +132,7 @@ items:
             href: create-single-tenant-workflows-visual-studio-code.md
           - name: Export Standard from portal to Visual Studio Code
             href: export-standard-logic-app-to-visual-studio-code.md
-          - name: Create and run .NET code
+          - name: Create and run local functions in Standard workflows
             href: create-run-custom-code-functions.md
           - name: Create workflows with C# and Logic Apps Standard SDK
             href: standard-sdk/create-workflows-with-csharp.md            
@@ -158,10 +158,12 @@ items:
                 href: create-autonomous-agent-workflows.md
               - name: Create conversational agentic workflows
                 href: create-conversational-agent-workflows.md
-              - name: Add agent tools in Foundry backed by connectors
-                href: add-agent-tools-connector-actions.md
+              - name: Call Foundry agents from workflows
+                href: automate-foundry-agents-with-workflows.md
               - name: Add agent actions in Foundry backed by workflows
                 href: add-agent-action-create-run-workflow.md
+              - name: Add agent tools in Foundry backed by connectors
+                href: add-agent-tools-connector-actions.md
               - name: Create MCP servers and tools from connectors
                 href: create-mcp-server-api-center.md
               - name: Create MCP servers from Standard workflows
@@ -232,10 +234,10 @@ items:
             items:
               - name: Why migrate from BizTalk Server?
                 href: biztalk-server-migration-overview.md
-              - name: Migration options and best practices
-                href: biztalk-server-migration-approaches.md
               - name: Migration Agent for Azure Logic Apps
                 items:
+                  - name: Migration approaches with Migration Agent
+                    href: biztalk-server-migration-approaches.md
                   - name: About Migration Agent
                     href: migration/migration-agent-overview.md
                   - name: Migrate to Azure Logic Apps
@@ -494,8 +496,8 @@ items:
             href: logic-apps-enterprise-integration-xml-validation.md
       - name: Secure
         items:
-          - name: Secure logic apps
-            href: logic-apps-securing-a-logic-app.md
+          - name: Secure data and access
+            href: set-up-security-permissions.md
           - name: Secure agentic workflows with Easy Auth
             href: set-up-authentication-agent-workflows.md
           - name: Authenticate with managed identities

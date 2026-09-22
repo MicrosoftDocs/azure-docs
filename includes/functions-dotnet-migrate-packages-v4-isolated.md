@@ -1,33 +1,32 @@
 ---
-author: mattchenderson
 ms.service: azure-functions
 ms.topic: include
-ms.date: 07/31/2023
-ms.author: mahender
+ms.date: 08/25/2026
 ---
 
-If you haven't already, update your project to reference the latest stable versions of:
+If you haven't already, update your project to use the latest stable versions of:
+
 - [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)
-- [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/)
+- [Azure.Functions.Sdk](https://www.nuget.org/packages/Azure.Functions.Sdk/) as the project SDK
 
 Depending on the triggers and bindings your app uses, your app might need to reference a different set of packages. The following table shows the replacements for some of the most commonly used extensions:
 
 | Scenario | Changes to package references |
 | - | - |
-| Timer trigger |  Add<br/>[Microsoft.Azure.Functions.Worker.Extensions.Timer][timer] |
+| Timer trigger | Add<br/>[Microsoft.Azure.Functions.Worker.Extensions.Timer][timer] |
 | Storage bindings | Replace<br/>`Microsoft.Azure.WebJobs.Extensions.Storage`<br/>with<br/>[Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs][blobs],<br/>[Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues][queues], and<br/>[Microsoft.Azure.Functions.Worker.Extensions.Tables][tables] |
 | Blob bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.Storage.Blobs`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs][blobs] |
 | Queue bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.Storage.Queues`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues][queues] |
 | Table bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.Tables`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.Tables][tables] |
-| Cosmos DB bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.CosmosDB`<br/>and/or<br/>`Microsoft.Azure.WebJobs.Extensions.DocumentDB`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.CosmosDB][cosmos] | 
-| Service Bus bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.ServiceBus`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.ServiceBus][servicebus] | 
-| Event Hubs bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.EventHubs`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.EventHubs][eventhubs] | 
-| Event Grid bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.EventGrid`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.EventGrid][eventgrid] | 
+| Cosmos DB bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.CosmosDB`<br/>and/or<br/>`Microsoft.Azure.WebJobs.Extensions.DocumentDB`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.CosmosDB][cosmos] |
+| Service Bus bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.ServiceBus`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.ServiceBus][servicebus] |
+| Event Hubs bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.EventHubs`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.EventHubs][eventhubs] |
+| Event Grid bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.EventGrid`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.EventGrid][eventgrid] |
 | SignalR Service bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.SignalRService`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.SignalRService][signalr] |
 | Durable Functions | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.DurableTask`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.DurableTask][durable] |
 | Durable Functions<br/>(SQL storage provider) | Replace references to<br/>`Microsoft.DurableTask.SqlServer.AzureFunctions`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.DurableTask.SqlServer][durable-sql] |
 | Durable Functions<br/>(Netherite storage provider) | Replace references to<br/>`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite][durable-netherite] |
-| SendGrid bindings| Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.SendGrid`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.SendGrid][sendgrid] | 
+| SendGrid bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.SendGrid`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.SendGrid][sendgrid] |
 | Kafka bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.Kafka`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.Kafka][kafka] |
 | RabbitMQ bindings | Replace references to<br/>`Microsoft.Azure.WebJobs.Extensions.RabbitMQ`<br/>with the latest version of<br/>[Microsoft.Azure.Functions.Worker.Extensions.RabbitMQ][rabbitmq] |
 | Dependency injection<br/>and startup config | Remove references to<br/>`Microsoft.Azure.Functions.Extensions`<br/>(The isolated worker model provides this functionality by default.) |

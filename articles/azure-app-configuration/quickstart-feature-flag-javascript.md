@@ -6,7 +6,7 @@ author: zhiyuanliang-ms
 ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/30/2025
+ms.date: 08/28/2026
 ms.author: zhiyuanliang
 ms.custom: quickstart, mode-other, devx-track-js
 #Customer intent: As a JavaScript developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -49,7 +49,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     const sleepInMs = require("util").promisify(setTimeout);
     const { load } = require("@azure/app-configuration-provider");
     const { DefaultAzureCredential } = require("@azure/identity");
-    const { FeatureManager, ConfigurationMapFeatureFlagProvider} = require("@microsoft/feature-management");
+    const { FeatureManager, ConfigurationMapFeatureFlagProvider } = require("@microsoft/feature-management");
     const endpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
     const credential = new DefaultAzureCredential(); // For more information, see https://learn.microsoft.com/azure/developer/javascript/sdk/credential-chains#use-defaultazurecredential-for-flexibility
 
@@ -88,7 +88,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ``` javascript
     const sleepInMs = require("util").promisify(setTimeout);
     const { load } = require("@azure/app-configuration-provider");
-    const { FeatureManager, ConfigurationMapFeatureFlagProvider} = require("@microsoft/feature-management");
+    const { FeatureManager, ConfigurationMapFeatureFlagProvider } = require("@microsoft/feature-management");
     const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 
     async function run() {

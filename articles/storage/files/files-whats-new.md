@@ -228,7 +228,7 @@ This preview enables share-level read and write access to SMB file shares for us
 
 #### AD Kerberos authentication for Linux clients (SMB) is generally available
 
-Azure Files customers can now use identity-based Kerberos authentication for Linux clients over SMB using either on-premises Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS). For more information, see [Enable Active Directory authentication over SMB for Linux clients accessing Azure Files](storage-files-identity-auth-linux-kerberos-enable.md).
+Azure Files customers can now use identity-based Kerberos authentication for Linux clients over SMB by using either on-premises Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services. For configuration steps, see [Configure Linux clients for Azure Files with on-premises AD DS](storage-files-identity-auth-linux-kerberos-enable.md) and [Configure Linux clients for Azure Files with Microsoft Entra Domain Services](storage-files-identity-auth-linux-kerberos-entra-domain-services.md).
 
 ### 2023 quarter 1 (January, February, March)
 #### NFS nconnect for Azure file shares is generally available

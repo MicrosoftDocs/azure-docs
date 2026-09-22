@@ -17,7 +17,7 @@ This article describes how to back up all [Azure blobs](./blob-backup-overview.m
 For information on the Azure blob region availability, supported scenarios and limitations, see the [support matrix](blob-backup-support-matrix.md).
 
 > [!IMPORTANT]
-> Support for Azure blobs is available from version **Az 5.9.0**.
+> Support for Azure blobs is available from version **Az 5.9.0**. To configure auto-protection for present and future containers, install Az.DataProtection version 3.0.1 or later.
 
 ## Before you start
 
@@ -148,7 +148,7 @@ blobrg-PSTestSA-3df6ac08-9496-4839-8fb5-8b78e594f166 Microsoft.DataProtection/ba
 
 ## Update a backup instance
 
-After you have configured the backup, you can change the associated policy with a backup instance. For vaulted backups, you can also change the containers selected for backup. 
+After you configure the backup, you can change the associated policy with a backup instance. For vaulted backups, you can also change the containers selected for backup or choose to auto-protect containers up to the supported limit. Selecting auto-protection for all present and future containers is permanent, and you can't switch back to the earlier container selection options.
 
 To update the backup instance, run the following cmdlets:
 
@@ -158,7 +158,7 @@ To update the backup instance, run the following cmdlets:
 
 1. Change the policy used for backing up the Azure Blobs by using the [Update-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/update-azdataprotectionbackupinstance?view=azps-13.0.0&preserve-view=true). Specify the relevant backup item and the new backup policy.
 
-1. Update the policy or the new containers to existing backup items.
+1. Update the policy or the new containers to existing backup items. If auto-protection is enabled, new containers are automatically protected until the protected container count reaches 1000.
 
    1. Create the storage account context by using the `New-AzStorageContext` cmdlet. Provide the `-UseConnectedAccount` parameter so that data operations are performed using your Microsoft Entra credentials. Learn more [about the storage account commands](/azure/storage/blobs/blob-containers-powershell#list-containers). 
 
@@ -225,7 +225,7 @@ To update the backup instance, run the following cmdlets:
          $updatePolicy = Get-AzDataProtectionBackupPolicy -SubscriptionId "Demosub" -VaultName BCDR-BV-EastUS -ResourceGroupName Demo-BCDR-RG -name continer-1
          ```
 
-   1. Update the backup instance with new list of container (the existing backed up containers & new containers).       
+   1. Update the backup instance with the new list of containers when you explicitly select containers for backup.
 
          ```azurepowershell
          PS C:\Users\testuser> $updateBI = Update-AzDataProtectionBackupInstance -ResourceGroupName Daya-BCDR-RG -VaultName DPBCDR-BV-EastUS -BackupInstanceName $instance[0].Name -SubscriptionId "ef4ab5a7-c2c0-4304-af80-af49f48af3d1"  -PolicyId $updatePolicy.id -VaultedBackupContainer $targetContainers.name
@@ -254,4 +254,4 @@ To update the backup instance, run the following cmdlets:
 
 ## Related content
 
-Restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
+Restore Azure blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

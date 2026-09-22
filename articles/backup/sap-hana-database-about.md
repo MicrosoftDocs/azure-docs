@@ -19,7 +19,7 @@ Azure Backup is [Backint certified](https://help.sap.com/docs/SUPPORT_CONTENT/sa
 
 By using the Azure Backup service to back up and restore SAP HANA databases, you get the following advantages:
 
-* **15-minute RPO**: Recovery of critical data of up to 15 minutes is now possible.
+* **15-minute RPO**: Recover critical data with a minimum RPO of 15 minutes.
 * **One-click, point-in-time restores**: Restoration of production data to alternative HANA servers is made easy. The chaining of the backups and catalogs to perform restores are all managed by Azure behind the scenes.
 * **Long-term retention**: For rigorous compliance and audit needs. Retain your backups for years, based on the retention duration, beyond which the recovery points will be pruned automatically by the built-in lifecycle management capability.
 * **Backup management from Azure**: Use Azure Backup management and monitoring capabilities for improved management experience. The Azure CLI is also supported.

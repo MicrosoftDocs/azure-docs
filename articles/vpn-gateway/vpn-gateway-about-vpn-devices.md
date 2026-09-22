@@ -26,7 +26,7 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 
 In partnership with device vendors, we have validated a set of standard VPN devices. All of the devices in the device families in the following list should work with VPN gateways. These are the recommended algorithms for your device configuration.
 
-[!INCLUDE [Recommended Algorithms table](../../includes/vpn-gateway-recommended-algorithms.md)]
+[!INCLUDE [Recommended Algorithms table](../networking/includes/vpn-gateway/recommended-algorithms.md)]
 
 To help configure your VPN device, refer to the links that correspond to the appropriate device family. The links to configuration instructions are provided on a best-effort basis and defaults listed in configuration guide need not contain the best cryptographic algorithms. For VPN device support, contact your device manufacturer.
 

@@ -109,12 +109,14 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | [Azure OpenAI service](/azure/ai-services/openai/how-to/network-security-perimeter) | Microsoft.CognitiveServices(kind="OpenAI") | | Public Preview | Not Available |
 | [Microsoft Foundry](/azure/ai-foundry/how-to/add-foundry-to-network-security-perimeter) | Microsoft.CognitiveServices/accounts<br>Microsoft.CognitiveServices(kind="AIServices") | | Generally Available | Generally Available |
 | [Azure Service Bus](/azure/service-bus-messaging/network-security-perimeter) | Microsoft.ServiceBus/namespaces | | Generally Available | Not Available |
+| [Event Grid](/azure/event-grid/configure-network-security-perimeter) | Microsoft.EventGrid/domains | | Public Preview | Not Available |
 
 > [!IMPORTANT]
 > The following onboarded services are in public preview with Network Security Perimeter:
 > - Cosmos DB
 > - SQL DB
 > - Azure OpenAI Service
+> - Event Grid
 >   
 > These previews are provided without a service level agreement, and it's not recommended for production workloads.
 > Certain features might not be supported or might have constrained capabilities.

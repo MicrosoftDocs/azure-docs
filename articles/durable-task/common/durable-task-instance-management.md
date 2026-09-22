@@ -21,7 +21,7 @@ Use the built-in instance management APIs to start, query, terminate, suspend, r
 
 ## Start instances
 
-The *start-new* (or *schedule-new*) method on the orchestration client starts a new orchestration instance. Internally, this method writes a message to the configured backend (such as the Durable Task Scheduler or Azure Storage) and then returns. This message asynchronously triggers the start of an orchestration with the specified name.
+The *start-new* (or *schedule-new*) method on the orchestration client starts a new orchestration instance. Internally, this method writes a message to the configured backend (such as the Durable Task Scheduler) and then returns. This message asynchronously triggers the start of an orchestration with the specified name.
 
 Here are the parameters for starting a new orchestration instance:
 
@@ -29,9 +29,11 @@ Here are the parameters for starting a new orchestration instance:
 
 [!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
 
-* **Name**: The name of the orchestrator function to schedule.
-* **Input**: Any JSON-serializable data that should be passed as the input to the orchestrator function.
-* **InstanceId**: (Optional) The unique ID of the instance. If you don't specify this parameter, the method uses a random ID.
+| Parameter | Description |
+| --- | --- |
+| **Name** | The name of the orchestrator function to schedule. |
+| **Input** | Any JSON-serializable data that should be passed as the input to the orchestrator function. |
+| **InstanceId** | (Optional) The unique ID of the instance. If you don't specify this parameter, the method uses a random ID. |
 
 > [!TIP]
 > Use a random identifier for the instance ID whenever possible. Random instance IDs help ensure an equal load distribution when you scale orchestrator functions across multiple VMs. The proper time to use nonrandom instance IDs is when the ID comes from an external source or when you're implementing the [singleton orchestrator](durable-task-singletons.md) pattern.
@@ -40,9 +42,11 @@ Here are the parameters for starting a new orchestration instance:
 
 ::: zone pivot="durable-task-sdks"
 
-* **Name**: The name of the orchestration to schedule.
-* **Input**: Any JSON-serializable data that should be passed as input to the orchestration.
-* **InstanceId**: (Optional) The unique ID of the instance. If you don't specify this parameter, the method uses a random ID.
+| Parameter | Description |
+| --- | --- |
+| **Name** | The name of the orchestration to schedule. |
+| **Input** | Any JSON-serializable data that should be passed as input to the orchestration. |
+| **InstanceId** | (Optional) The unique ID of the instance. If you don't specify this parameter, the method uses a random ID. |
 
 > [!TIP]
 > Use a random identifier for the instance ID whenever possible. Random instance IDs help ensure an equal load distribution when you scale orchestrations across multiple VMs. The proper time to use nonrandom instance IDs is when the ID comes from an external source or when you're implementing the [singleton orchestrator](durable-task-singletons.md) pattern.
@@ -339,49 +343,53 @@ It takes an `instanceId` (required), `showHistory` (optional), `showHistoryOutpu
 
 The method returns an object with the following properties:
 
-* **Name**: The name of the orchestrator function.
-* **InstanceId**: The instance ID of the orchestration (should be the same as the `instanceId` input).
-* **CreatedTime**: The time at which the orchestrator function starts running.
-* **LastUpdatedTime**: The time at which the orchestration last checkpoints.
-* **Input**: The input of the function as a JSON value. This field isn't populated if `showInput` is `false`.
-* **CustomStatus**: Custom orchestration status in JSON format.
-* **Output**: The output of the function as a JSON value (if the function completes). If the orchestrator function fails, this property includes the failure details. If the orchestrator function is suspended or terminated, this property includes the reason for the suspension or termination (if any).
-* **RuntimeStatus**: One of the following values:
-  * **Pending**: The instance is scheduled but hasn't yet started running.
-  * **Running**: The instance is running.
-  * **Completed**: The instance completed normally.
-  * **ContinuedAsNew**: The instance restarted itself with a new history. This state is a transient state.
-  * **Failed**: The instance failed with an error.
-  * **Terminated**: The instance stopped abruptly.
-  * **Suspended**: The instance is suspended and can be resumed at a later point in time.
-* **History**: The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`.
+| Property | Description |
+| --- | --- |
+| **Name** | The name of the orchestrator function. |
+| **InstanceId** | The instance ID of the orchestration (should be the same as the `instanceId` input). |
+| **CreatedTime** | The time at which the orchestrator function starts running. |
+| **LastUpdatedTime** | The time at which the orchestration last checkpoints. |
+| **Input** | The input of the function as a JSON value. This field isn't populated if `showInput` is `false`. |
+| **CustomStatus** | Custom orchestration status in JSON format. |
+| **Output** | The output of the function as a JSON value (if the function completes). If the orchestrator function fails, this property includes the failure details. If the orchestrator function is suspended or terminated, this property includes the reason for the suspension or termination (if any). |
+| **RuntimeStatus: Pending** | The instance is scheduled but hasn't yet started running. |
+| **RuntimeStatus: Running** | The instance is running. |
+| **RuntimeStatus: Completed** | The instance completed normally. |
+| **RuntimeStatus: ContinuedAsNew** | The instance restarted itself with a new history. This state is a transient state. |
+| **RuntimeStatus: Failed** | The instance failed with an error. |
+| **RuntimeStatus: Terminated** | The instance stopped abruptly. |
+| **RuntimeStatus: Suspended** | The instance is suspended and can be resumed later. |
+| **History** | The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`. |
 
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
 
-* **`showHistory`**: If set to `true`, the response contains the execution history.
-* **`showHistoryOutput`**: If set to `true`, the execution history contains activity outputs.
-* **`showInput`**: If set to `false`, the response doesn't contain the input of the orchestration. The default value is `true`.
+| Parameter | Description |
+| --- | --- |
+| **`showHistory`** | If set to `true`, the response contains the execution history. |
+| **`showHistoryOutput`** | If set to `true`, the execution history contains activity outputs. |
+| **`showInput`** | If set to `false`, the response doesn't contain the input of the orchestration. The default value is `true`. |
 
 The method returns an object with the following properties:
 
-* **Name**: The name of the orchestration.
-* **InstanceId**: The instance ID of the orchestration (should be the same as the `instanceId` input).
-* **CreatedTime**: The time at which the orchestration starts running.
-* **LastUpdatedTime**: The time at which the orchestration last checkpoints.
-* **Input**: The input of the orchestration as a JSON value. This field isn't populated if `showInput` is `false`.
-* **CustomStatus**: Custom orchestration status in JSON format.
-* **Output**: The output of the orchestration as a JSON value (if the orchestration completes). If the orchestration fails, this property includes the failure details. If the orchestration is suspended or terminated, this property includes the reason for the suspension or termination (if any).
-* **RuntimeStatus**: One of the following values:
-  * **Pending**: The instance is scheduled but hasn't yet started running.
-  * **Running**: The instance is running.
-  * **Completed**: The instance completed normally.
-  * **ContinuedAsNew**: The instance restarted itself with a new history. This state is a transient state.
-  * **Failed**: The instance failed with an error.
-  * **Terminated**: The instance stopped abruptly.
-  * **Suspended**: The instance is suspended and can be resumed at a later point in time.
-* **History**: The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`.
+| Property | Description |
+| --- | --- |
+| **Name** | The name of the orchestration. |
+| **InstanceId** | The instance ID of the orchestration (should be the same as the `instanceId` input). |
+| **CreatedTime** | The time at which the orchestration starts running. |
+| **LastUpdatedTime** | The time at which the orchestration last checkpoints. |
+| **Input** | The input of the orchestration as a JSON value. This field isn't populated if `showInput` is `false`. |
+| **CustomStatus** | Custom orchestration status in JSON format. |
+| **Output** | The output of the orchestration as a JSON value (if the orchestration completes). If the orchestration fails, this property includes the failure details. If the orchestration is suspended or terminated, this property includes the reason for the suspension or termination (if any). |
+| **RuntimeStatus: Pending** | The instance is scheduled but hasn't yet started running. |
+| **RuntimeStatus: Running** | The instance is running. |
+| **RuntimeStatus: Completed** | The instance completed normally. |
+| **RuntimeStatus: ContinuedAsNew** | The instance restarted itself with a new history. This state is a transient state. |
+| **RuntimeStatus: Failed** | The instance failed with an error. |
+| **RuntimeStatus: Terminated** | The instance stopped abruptly. |
+| **RuntimeStatus: Suspended** | The instance is suspended and can be resumed at a later point in time. |
+| **History** | The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`. |
 
 ::: zone-end
 

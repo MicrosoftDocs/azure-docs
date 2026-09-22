@@ -1,9 +1,10 @@
 ---
 title: Plan and Size HPC Clusters
 description: Learn how to plan and size High Performance Computing (HPC) clusters in Azure CycleCloud, including scheduler, VM, autoscaling, storage, networking, and cost decisions.
+ai-usage: ai-assisted
 author: padmalathas
 ms.author: padmalathas
-ms.date: 07/30/2026
+ms.date: 09/16/2026
 ms.update-cycle: 3650-days
 ms.topic: concept-article
 ms.service: azure-cyclecloud
@@ -16,6 +17,15 @@ ms.custom: compute-evergreen
 Before you create a cluster in Azure CycleCloud, plan how the cluster is structured and sized. Good planning decisions up front - about the scheduler, the virtual machine (VM) types, how the cluster scales, and how it stores and moves data - determine how well the cluster performs and how much it costs to run.
 
 This article describes the main decisions to make when you plan an HPC cluster in CycleCloud. It complements [CycleCloud clusters and nodes](clusters.md), which explains what clusters, nodes, and node arrays are, and [Create a new cluster](../how-to/create-cluster.md), which walks through building a cluster from a template.
+
+## Confirm that CycleCloud fits your workload
+
+Use CycleCloud when you need to operate a specific HPC scheduler, customize the cluster topology and software stack, or align closely with existing on-premises workflows. Before you size a custom cluster, consider these alternatives:
+
+- Choose [Azure CycleCloud Workspace for Slurm](../overview-ccws.md) when you want a ready-to-deploy Slurm environment with networking, storage, and access components provisioned in your subscription.
+- Choose [Azure Batch](/azure/batch/batch-technical-overview) when you want Azure to provide scheduling as a service and your application can use Batch pools, jobs, and tasks.
+
+If CycleCloud is the right operating model, use the following sections to create a planning baseline. Record your scheduler, VM, scale, quota, region, storage, network, and cost decisions before deployment, and validate them with a representative workload.
 
 ## Choose a scheduler
 
@@ -45,9 +55,37 @@ Because a node array can span more than one virtual machine scale set, a single 
 
 CycleCloud automatically scales the number of compute nodes based on the work queued in the scheduler, so you don't need to guess a fixed cluster size. Instead, plan the following boundaries:
 
-- **Maximum size.** The cluster form limits how far a cluster autoscales, based on the total number of cores it can start. Set this limit to reflect the largest workload you expect and the quota available in the region.
+- **Maximum size.** The cluster creation form limits how far a cluster autoscales, based on the total number of nodes or cores it can start. Set this limit to reflect the largest workload you expect and the quota available in the region.
 - **Dedicated versus Spot nodes.** *Dedicated* nodes are reserved for your pool and give you predictable capacity. *Spot* nodes use surplus Azure capacity at a reduced price, but Azure can reclaim them when it needs the capacity back. Use dedicated nodes for time-sensitive or long-running jobs, and Spot nodes for fault-tolerant or restartable work where cost matters more than guaranteed availability.
 - **Scale-down behavior.** Autoscaling removes idle nodes so that you stop paying for compute you aren't using. Confirm that your jobs write results to durable storage, because local data on a node is lost when the node is deallocated.
+
+### Understand autoscaling limits
+
+For a CycleCloud cluster, several independent limits determine how many nodes CycleCloud can start. The lowest effective limit wins:
+
+| Limit | What it controls |
+| --- | --- |
+| Available total regional vCPU quota | The remaining vCPUs that your subscription can deploy across all VM families in the region. |
+| Available VM-family vCPU quota | The remaining vCPUs that your subscription can deploy for the selected VM family in the region. Both [vCPU quotas](/azure/virtual-machines/quotas) must allow the deployment. |
+| CycleCloud `MaxCount` | The maximum number of nodes in a node array. |
+| CycleCloud `MaxCoreCount` | The maximum number of cores in a node array. If a template defines both `MaxCount` and `MaxCoreCount`, CycleCloud applies the lower effective constraint. |
+
+> [!IMPORTANT]
+> Quota and CycleCloud limits are ceilings, not capacity reservations. Actual provisioning can be lower because of temporary Azure capacity constraints or configuration errors.
+
+To identify a constraint, go to the CycleCloud cluster page for your cluster. In the **Nodes** table, select **Actions** > **Add**. The **Add Nodes** dialog describes the applicable constraints for the selected node array.
+
+For example, suppose a node array uses current-generation [`Standard_HB368rs_v5`](/azure/virtual-machines/sizes/high-performance-compute/hbv5-series#sizes-in-series) VMs, which consume 368 vCPUs each, and has these limits:
+
+| Constraint | Available or configured limit | Effective nodes |
+| --- | --- | ---: |
+| Total regional vCPU quota | 3,680 vCPUs | 10 |
+| HBv5 VM-family vCPU quota | 2,208 vCPUs | 6 |
+| CycleCloud `MaxCount` | 8 nodes | 8 |
+
+The HBv5 VM-family quota is the lowest limit, so the configured ceiling is six nodes even though `MaxCount` allows eight. If Azure has capacity for only five VMs when the request runs, CycleCloud provisions five nodes and the remaining request stays constrained until capacity becomes available. Increasing `MaxCount` alone doesn't raise either the quota ceiling or available capacity.
+
+When a template uses `MaxCoreCount`, divide that value by the VM's vCPU count and round down to find its node ceiling. For definitions of both CycleCloud settings, see [Node and node array objects](../cluster-references/node-nodearray-reference.md#nodearray-specific-attributes).
 
 ## Check quota, capacity, and region
 
@@ -85,6 +123,21 @@ Compute costs are usually the largest expense in an HPC environment. Plan to con
 - Using autoscaling and Spot nodes to avoid paying for idle capacity.
 - Right-sizing VMs to match the workload instead of defaulting to the largest option.
 - Tracking spending through the built-in integration with [Microsoft Cost Management](/azure/cost-management-billing/costs/overview-cost-management). For more information, see [Cost and usage tracking](usage-tracking.md).
+
+## Validate the cluster before production
+
+Run a proof of concept with a representative job, its expected data volume, and the production scheduler and cluster configuration. Don't approve the design for production until you can record evidence for every criterion:
+
+| Criterion | Evidence to record |
+| --- | --- |
+| Workflow compatibility | Existing job scripts, scheduler policies, software, licenses, and identity integrations work without unplanned changes. |
+| Scale and quota | Autoscaling reaches the required node count in the intended region without exceeding total regional, VM-family, `MaxCount`, or `MaxCoreCount` limits. |
+| Compute and storage performance | End-to-end job time meets the target, including queue time, node provisioning, data staging, compute, and result persistence. |
+| Recovery | After a node provisioning failure, job failure, or Spot eviction if used, the workload stays within the recorded maximum recovery time and permitted checkpoint loss, meets the completion deadline, and successfully uses the planned fallback VM size. |
+| Cost | Measured compute, storage, networking, and license cost per completed job meets the target at the expected run frequency. |
+| Operations | Named owners can monitor the scheduler and infrastructure, investigate failed scale requests, patch the environment, and recover jobs and data. |
+
+If a criterion fails, revise the VM, node-array limits, storage path, autoscaling configuration, or regional fallback and repeat the same job. A small functional test doesn't establish production readiness because it doesn't exercise scheduler compatibility, peak scale, or data movement.
 
 ## Next steps
 

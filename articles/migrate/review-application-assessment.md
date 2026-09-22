@@ -5,10 +5,9 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.update-cycle: 1095-days
 ms.date: 11/05/2024
-monikerRange:
 # Customer intent: As a migration planner, I want to conduct an application assessment for my workloads, so that I can determine the best migration strategies and prepare for a successful transition to Azure.
 ---
 

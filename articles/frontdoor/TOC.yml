@@ -200,21 +200,13 @@
   - name: End-to-end TLS encryption
     href: end-to-end-tls.md
   - name: TLS policy
-    items:
-    - name: Front Door TLS policy
-      href: standard-premium/tls-policy.md
-    - name: Configure TLS policy
-      href: standard-premium/tls-policy-configure.md
+    href: tls-policy.md
   - name: Mutual TLS authentication
     href: mutual-tls.md
   - name: Set up managed identity
     href: managed-identity.md
-  - name: Sensitive data protection
-    items:
-    - name: Front Door sensitive data protection
-      href: standard-premium/sensitive-data-protection.md
-    - name: Enable log scrubbing
-      href: standard-premium/how-to-protect-sensitive-data.md
+  - name: Protect sensitive data in logs
+    href: sensitive-data-protection.md
   - name: Secure traffic to origins
     href: origin-security.md
   - name: Web Application Firewall
@@ -391,16 +383,12 @@
         href: /security/benchmark/azure/baselines/content-delivery-network-security-baseline?toc=/azure/frontdoor/toc.json
       - name: DDoS protection
         href: ../cdn/cdn-ddos.md?toc=/azure/frontdoor/toc.json
-  - name: Operation excellence
+  - name: Operational excellence
     items:
-    - name: CDN (classic) from Microsoft
-      items:
-      - name: HTTP/2 support
-        href: ../cdn/cdn-http2.md?toc=/azure/frontdoor/toc.json
-      - name: Retrieve POP IPs
-        href: ../cdn/cdn-pop-list-api.md?toc=/azure/frontdoor/toc.json
-      - name: China content delivery
-        href: ../cdn/cdn-china-delivery.md?toc=/azure/frontdoor/toc.json
+    - name: HTTP/2 support
+      href: ../cdn/cdn-http2.md?toc=/azure/frontdoor/toc.json
+    - name: Retrieve POP IPs
+      href: ../cdn/cdn-pop-list-api.md?toc=/azure/frontdoor/toc.json
   - name: Troubleshoot
     items:
     - name: CDN

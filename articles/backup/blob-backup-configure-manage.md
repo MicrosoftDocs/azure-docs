@@ -31,7 +31,7 @@ For more information about the supported scenarios, limitations, and availabilit
 - Vaulted backup of blobs is a managed offsite backup solution that transfers data to the backup vault and retains as per the retention configured in the backup policy. You can retain data for a maximum of *10 years*.
 - Currently, you can use the vaulted backup solution to restore data to a different storage account only. While performing restores, ensure that the target storage account doesn't contain any *containers* with the same name as those backed up in a recovery point. If any conflicts arise due to the same name of containers, the restore operation fails.
 
-For more information about the supported scenarios, limitations, and availability, See the [support matrix](blob-backup-support-matrix.md).
+For more information about the supported scenarios, limitations, and availability, see the [support matrix](blob-backup-support-matrix.md).
 
 ---
 
@@ -189,7 +189,7 @@ After stopping backup, you can disable other storage data protection capabilitie
 
 ## Update the backup instance
 
-After you have configured the backup, you can change the associated policy with a backup instance. For vaulted backups, you can even change the containers selected for backup.
+After you configure the backup, you can change the associated policy with a backup instance. For vaulted backups, you can also change the containers selected for backup or choose to auto-protect containers up to the supported limit. Selecting auto-protection for all present and future containers is permanent, and you can't switch back to the earlier container selection options.
 To update the backup instance, follow these steps:
  
 1. Go to the **Backup vault** dashboard.

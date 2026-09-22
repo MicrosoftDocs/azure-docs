@@ -599,6 +599,8 @@
       href: troubleshoot-file-locks.md
     - name: Troubleshoot SMB authentication and CIFS password reset failures
       href: troubleshoot-authentication-password-reset-failure.md
+    - name: Troubleshoot latency issues
+      href: troubleshoot-latency-issues.md
 - name: FAQs
   items:
   - name: Networking FAQs

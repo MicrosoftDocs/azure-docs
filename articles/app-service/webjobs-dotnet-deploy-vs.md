@@ -48,7 +48,7 @@ You can add these items to an existing console app project or use a template to 
 
 Deploy a project as a WebJob by itself, or link it to a web project so that it automatically deploys whenever you deploy the web project. To link projects, Visual Studio includes the name of the WebJobs-enabled project in a [webjobs-list.json](#webjobs-listjson-file) file in the web project.
 
-:::image type="content" source="./media/webjobs-dotnet-deploy-vs/link.png" alt-text="Diagram showing that a WebJobs project is linked to a web project when its name is included in the the webjobs-list.json file.":::
+:::image type="content" source="./media/webjobs-dotnet-deploy-vs/link.png" alt-text="Diagram showing that a WebJobs project is linked to a web project when its name is included in the webjobs-list.json file.":::
 
 ### Prerequisites
 

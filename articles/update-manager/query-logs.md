@@ -2,8 +2,8 @@
 title: Query Resources with Azure Resource Graph in Azure Update Manager
 description: This article provides details on how Access Azure Update Manager operations data using Azure Resource Graph.
 ms.service: azure-update-manager
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.date: 08/21/2025
 ms.topic: overview
 ms.update-cycle: 1095-days

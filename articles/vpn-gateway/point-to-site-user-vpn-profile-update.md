@@ -51,7 +51,7 @@ After generating the new profile, distribute it to all end users and install the
 
 The installation steps depend on the authentication method, tunnel type, client OS, and VPN client software you're using. For detailed installation instructions for your specific configuration:
 
-- For Microsoft Entra ID or Certificate-based authentication, see the table in [Configure Azure VPN Client for P2S certificate authentication connections - Windows](point-to-site-vpn-client-certificate-windows-azure-vpn-client.md#before-you-begin).
+- For Microsoft Entra ID or Certificate-based authentication, see the table in [Configure a VPN client for P2S certificate authentication connections](point-to-site-vpn-client-certificate.md#before-you-begin).
 - For RADIUS-based authentication, see the "VPN Client Configuration" section in the [Point-to-Site RADIUS VPN Gateway](point-to-site-radius-gateway.md) article.
 
 > [!NOTE]
@@ -77,7 +77,7 @@ After distributing the updated profile, monitor your gateway to confirm all clie
 
 ## Known issues
 
-The Azure VPN Client for Linux doesn't have a supported update method at this time. If you're using the Azure VPN Client on Linux, there's currently no supported migration path for updating the client profile during a certificate migration. Monitor this page for updates.
+The Azure VPN Client for Linux (Preview) didn't have a supported update method. If you used the Azure VPN Client on Linux (Preview), no supported migration path existed for updating the client profile during a certificate migration. As of August 31, 2026, the Azure VPN Client for Linux is retired and is no longer supported.
 
 ## Next steps
 

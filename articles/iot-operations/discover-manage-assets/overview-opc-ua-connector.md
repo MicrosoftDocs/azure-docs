@@ -66,6 +66,7 @@ The connector for OPC UA supports the following features as part of Azure IoT Op
 | [High availability](#high-availability-for-opc-ua-connections) | Yes | Uses active and passive connector instances to reduce interruptions |
 | [Key frame generation](#key-frames-for-opc-ua-data-points) | Yes | Enables downstream services to recover state more quickly |
 | [Dataset triggering](#control-dataset-publishing-with-a-triggering-item) | Yes | Publishes sampled data points when a selected data point changes |
+| [Server heartbeat monitoring](concept-opc-ua-server-heartbeat-monitoring.md) | Yes | Detects OPC UA server liveness and reports inbound endpoint health |
 
 ## How it works
 
@@ -85,7 +86,7 @@ To write values to a node in a connected OPC UA server, the connector for OPC UA
 
 1. Reads the asset configuration to determine which nodes to write to on the OPC UA server.
 
-1. Subscribes to an MQTT topic that contains write requests for the asset. The topic name is in the format `{Namespace}/asset-operations/{AssetId}/builtin/{DatasetName}/`, where `{Namespace}` is the namespace for Azure IoT Operations instance, `{AssetId}` is the unique identifier for the asset, and `{DatasetName}` is the name of the dataset that contains the nodes to write to.
+1. Subscribes to an MQTT topic that contains write requests for the asset. The topic name is in the format `<namespace>/asset-operations/<asset-name>/builtin/<dataset-name>/`, where `<namespace>` is the namespace for the Azure IoT Operations instance, `<asset-name>` is the name of the asset, and `<dataset-name>` is the name of the dataset that contains the nodes to write to.
 
 1. Creates a temporary session with the OPC UA server using the device configuration.
 
@@ -98,14 +99,14 @@ To generate a write request, publish a JSON message to the MQTT topic using MQTT
 To synchronize OPC UA node properties to the distributed state store, the connector for OPC UA:
 
 1. Follows the `HasProperty` reference of all variable nodes that are referenced as data points within any dataset of all assets using the same OPC UA inbound endpoint.
-1. Adds the properties to the distributed state store under the ID: `{AioNamespace}.{AssetName}.{DatasetName}.{DataPointName}.{PropertyName}`.
+1. Adds the properties to the distributed state store under the ID: `<aio-namespace>.<asset-name>.<dataset-name>.<data-point-name>.<property-name>`.
 1. Automatically subscribes the `ModelChange` event of the OPC UA server and repopulates all properties after a `ModelChange` event occurs.
 
 To configure this behavior, select **Sync properties into state store** when you configure an inbound OPC UA endpoint in the operations experience web UI:
 
 :::image type="content" source="media/overview-opc-ua-connector/sync-properties.png" alt-text="Screenshot that shows the location of the sync properties to state store option." lightbox="media/overview-opc-ua-connector/sync-properties.png":::
 
-You can also force a synchronization of all properties by making an MQTT RPC call to the `azure-iot-operation/asset-operations/{AssetName}/builtin/syncProperties` topic. A payload `{}` forces a synchronization without observing `ModelChange` events. A payload `{"observeModelChanges": true}` forces a synchronization that observes `ModelChange` events.
+You can also force a synchronization of all properties by making an MQTT RPC call to the `azure-iot-operations/asset-operations/<asset-name>/builtin/syncProperties` topic. A payload `{}` forces a synchronization without observing `ModelChange` events. A payload `{"observeModelChanges": true}` forces a synchronization that observes `ModelChange` events.
 
 ## Shared endpoint mode
 
@@ -124,6 +125,12 @@ High availability uses active and passive connector instances for an OPC UA inbo
 You can combine high availability with dedicated or shared session mode. High availability reduces interruptions caused by connector failures, but it doesn't make the OPC UA server itself highly available and it doesn't guarantee that no data is lost during failover.
 
 To plan capacity, configure redundant connectors, and verify failover, see [Configure OPC UA sessions and high availability](howto-configure-opc-ua-sessions-high-availability.md).
+
+## Server heartbeat monitoring
+
+The connector for OPC UA can monitor whether an OPC UA server is alive, independently of your asset data collection. A dedicated monitoring session watches the server's current time and reports server liveness as inbound endpoint health, so you can tell a server outage apart from a data configuration problem.
+
+Server heartbeat monitoring is separate from dataset publishing behavior, session sharing, and connector high availability. To learn how it works, how to configure it per endpoint, and how to monitor the heartbeat state, see [Monitor OPC UA server availability with heartbeat monitoring](concept-opc-ua-server-heartbeat-monitoring.md).
 
 ## Connector for OPC UA message format
 
