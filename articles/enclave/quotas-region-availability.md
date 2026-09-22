@@ -75,14 +75,7 @@ az provider show --namespace Microsoft.Mission --query "resourceTypes[?resourceT
 
 ## Data residency
 
-Azure Enclave processes and stores its service data in the Azure geography of your selected deployment region. This service data includes resource metadata and service audit and diagnostic logs.
-
-| Deployment region | Service-data geography |
-| --- | --- |
-| Any supported United States region | United States |
-| Any supported Japan region | Japan |
-
-This table doesn't imply availability in every region within either geography. See [regional availability](#regions) for supported deployment locations.
+Azure Enclave processes and stores its service data in the Azure geography of your selected deployment region. This service data includes resource metadata and service audit and diagnostic logs. For example, United States regions are in the United State service data geography. See [regional availability](#regions) for supported deployment locations.
 
 The residency boundary is the geography, not a single region. Service-managed replication and recovery copies of this data remain within that geography.
 
