@@ -31,6 +31,8 @@ For security reasons, use identity-based authentication to access SMB file share
 
 Azure Files uses the Kerberos protocol to authenticate with an identity source. When an identity associated with a user or application running on a client attempts to access data in Azure Files, the request is sent to the identity source to authenticate the identity. If authentication is successful, the identity source returns a Kerberos ticket. The client then sends a request that includes the Kerberos ticket, and Azure Files uses that ticket to authorize the request. The Azure Files service only receives the Kerberos ticket, not the user's access credentials.
 
+All three identity sources require Kerberos to be enabled under **Authentication methods** in the storage account's SMB security settings. For instructions, see [SMB security settings](files-smb-protocol.md#smb-security-settings).
+
 ## Choose an identity source for your storage account
 
 Before you enable identity-based authentication on your storage account, decide which identity source to use. Most companies and organizations have some type of domain environment configured, so you likely already have one. Consult your Active Directory (AD) or IT admin to be sure. If you don't already have an identity source, you need to configure one before you can enable identity-based authentication.
