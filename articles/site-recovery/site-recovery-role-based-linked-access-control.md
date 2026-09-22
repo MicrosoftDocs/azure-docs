@@ -21,52 +21,28 @@ Azure Site Recovery provides 3 built-in roles to control Site Recovery managemen
 
 If you're looking to define your own roles for even more control, see how to [build custom roles](../role-based-access-control/custom-roles.md) in Azure.
 
-## Permissions required to enable replication for new virtual machines
-When a new Virtual Machine is replicated to Azure using Azure Site Recovery, the associated user's access levels are validated to ensure that the user has the required permissions to use the Azure resources provided to Site Recovery.
-
-To enable replication for a new virtual machine, a user must have:
-* Permission to create a virtual machine in the selected resource group
-* Permission to create a virtual machine in the selected virtual network
-* Permission to write to the selected Storage account
-
-A user needs the following permissions to complete replication of a new virtual machine.
+## Permissions required to perform replication and failover actions on virtual machines
+When you replicate a virtual machine by using Azure Site Recovery or perform other actions such as failover, Azure Site Recovery validates your access levels. This validation ensures you have the required permissions to use the Azure resources provided to Site Recovery.
 
 > [!IMPORTANT]
->Ensure that relevant permissions are added per the deployment model (Resource Manager/ Classic) used for resource deployment.
+> Add the relevant permissions for the user for each Site Recovery action they're allowed to perform.
 
 > [!NOTE]
 > If you are enabling replication for an Azure VM and want to allow Site Recovery to manage updates, then while enabling replication you may also want to create a new Automation account in which case you would need permission to create an automation account in the same subscription as the vault as well.
 
-| **Resource Type** | **Deployment Model** | **Permission** |
+| **Operation Type** | **Permissions required** | **Scope required** |
 | --- | --- | --- |
-| Compute | Resource Manager | Microsoft.Compute/availabilitySets/read |
-|  |  | Microsoft.Compute/virtualMachines/read |
-|  |  | Microsoft.compute/disks/delete |
-|  |  | Microsoft.Compute/virtualMachines/write |
-|  |  | Microsoft.Compute/virtualMachines/delete |
-|  | Classic | Microsoft.ClassicCompute/domainNames/read |
-|  |  | Microsoft.ClassicCompute/domainNames/write |
-|  |  | Microsoft.ClassicCompute/domainNames/delete |
-|  |  | Microsoft.ClassicCompute/virtualMachines/read |
-|  |  | Microsoft.ClassicCompute/virtualMachines/write |
-|  |  | Microsoft.ClassicCompute/virtualMachines/delete |
-| Network | Resource Manager | Microsoft.Network/networkInterfaces/read |
-|  |  | Microsoft.Network/networkInterfaces/write |
-|  |  | Microsoft.Network/networkInterfaces/delete |
-|  |  | Microsoft.Network/networkInterfaces/join/action |
-|  |  | Microsoft.Network/virtualNetworks/read |
-|  |  | Microsoft.Network/virtualNetworks/subnets/read |
-|  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
-|  | Classic | Microsoft.ClassicNetwork/virtualNetworks/read |
-|  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Storage | Resource Manager | microsoft.storage/storageaccounts/write |
-|  |  | Microsoft.Storage/storageAccounts/listkeys/action |
-|  | Classic | Microsoft.ClassicStorage/storageAccounts/read |
-|  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
-| Resource Group | Resource Manager | Microsoft.RecoveryServices/register/action |
-|  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
+| Enable Replication, Add disks for replication, Update replication, Failover, Test Failover | Microsoft.Compute/virtualMachines/read | Source VM, Target Resource Group |
+|  | Microsoft.Compute/disks/read | Source VM, Target Resource Group |
+|  | Microsoft.Compute/virtualMachineScaleSets/read | Target Virtual Machine Scale Set (VMSS) |
+|  | Microsoft.Compute/proximityPlacementGroups/read | Target Proximity Placement Group (PPG) |
+|  | Microsoft.Compute/capacityReservationGroups/read | Target Capacity reservation group |
+|  | Microsoft.Compute/diskEncryptionSets/read | Source VM, Target Resource Group |
+|  | Microsoft.Network/virtualNetworks/read | Target Virtual Network |
+|  | Microsoft.Storage/storageAccounts/read | Cache Storage Account |
+|  | Microsoft.Automation/automationAccounts/read | Azure Automation Account (only if using ASR managed Site Recovery extension updates) | 
 
-Consider using the 'Virtual Machine Contributor' and 'Classic Virtual Machine Contributor' [built-in roles](../role-based-access-control/built-in-roles.md) for Resource Manager and Classic deployment models respectively.
+Consider using the [built-in roles](../role-based-access-control/built-in-roles.md).
 
 ## Next steps
 

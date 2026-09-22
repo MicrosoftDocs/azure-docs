@@ -1,5 +1,5 @@
 ---
-title: Develop and test apps locally for Azure Container Apps express (preview)
+title: Develop and test apps locally for Azure Container Apps express
 description: Build, run, test, and publish container images before you deploy them to Azure Container Apps express.
 services: container-apps
 author: craigshoemaker
@@ -9,7 +9,7 @@ ms.date: 05/20/2026
 ms.author: cshoe
 ---
 
-# Develop and test apps locally for Azure Container Apps express (preview)
+# Develop and test apps locally for Azure Container Apps express
 
 You can build and test your container locally before you deploy to Azure Container Apps express. This article shows you how to build an image, run it locally with Docker or Docker Compose, push it to a registry, and verify the deployment.
 

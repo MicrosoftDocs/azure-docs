@@ -1,6 +1,41 @@
 {
   "redirections": [
     {
+      "source_path": "articles/backup/backup-azure-data-protection-use-rest-api-backup-postgresql.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-azure-database-postgresql.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-postgresql-cli.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-postgresql-ps.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/quick-backup-postgresql-database-portal.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/tutorial-postgresql-backup.md",
+      "redirect_url": "/azure/backup/backup-azure-database-postgresql-overview#changes-to-vaulted-backups-for-postgresql-single-servers",
+       "redirect_document_id": false
+    },
+    {
       "source_path": "articles/site-recovery/hybrid-how-to-enable-replication-private-endpoints.md",
       "redirect_url": "/azure/site-recovery/vmware-azure-architecture-modernized",
       "redirect_document_id": false

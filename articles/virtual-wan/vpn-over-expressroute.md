@@ -51,7 +51,7 @@ In both of these examples, Azure will send traffic to 10.0.1.0/24 over the VPN c
 
 ## Before you begin
 
-[!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
+[!INCLUDE [Before you begin](../networking/includes/virtual-wan/tutorial-vwan-before.md)]
 
 ## <a name="openvwan"></a>1. Create a virtual WAN and hub with gateways
 
@@ -103,7 +103,7 @@ After you create the VPN site and connect to the hub, use the following steps to
 1. On the **Link connection 1** page, configure the following settings:
 
    - For **Use Azure Private IP Address**, select **Yes**. The setting configures the hub VPN gateway to use private IP addresses within the hub address range on the gateway for this connection, instead of the public IP addresses. This ensures that the traffic from the on-premises network traverses the ExpressRoute private peering paths rather than using the public internet for this VPN connection.
-1. Click **Create** to update the settings. After the settings have been created, the hub VPN gateway will use the private IP addresses on the VPN gateway to establish the IPsec/IKE connections with the on-premises VPN device over ExpressRoute.
+1. Select **Create** to update the settings. After you create the settings, the hub VPN gateway uses the private IP addresses on the VPN gateway to establish the IPsec/IKE connections with the on-premises VPN device over ExpressRoute.
 
 ## <a name="associate"></a>4. Get the private IP addresses for the hub VPN gateway
 

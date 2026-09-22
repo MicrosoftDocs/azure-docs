@@ -8,6 +8,8 @@ items:
     href: overview.md
   - name: What's new
     href: whats-new.md
+  - name: Retirement and breaking changes guide
+    href: acs-retirement-and-breaking-changes-guide.md
   - name: Services
     href: concepts/services.md
   - name: Pricing
@@ -82,6 +84,8 @@ items:
     href: concepts/chat/concepts.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/communication-services/
+  - name: Migrate Chat to Microsoft Graph chat
+    href: acs-chat-to-graph-chat-migration-guide.md
   - name: Chat architecture
     href: concepts/chat/concepts.md#chat-architecture
   - name: Build intelligent, AI-powered chat experiences

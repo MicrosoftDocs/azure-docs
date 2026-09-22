@@ -373,8 +373,6 @@ reply.Attachments.Add(adaptiveCard);
 await turnContext.SendActivityAsync(reply, cancellationToken);             
 ```
 
-Get sample payloads for adaptive cards at [Samples and templates](https://adaptivecards.io/samples).
-
 For a chat user, the Communication Services Chat channel adds a field to the message metadata that indicates the message has an attachment. In the metadata, the `microsoft.azure.communication.chat.bot.contenttype` property is set to `azurebotservice.adaptivecard`.
 
 Here's an example of a chat message that has an adaptive card attached:

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Install the Azure Container Apps Sandboxes agent skill (preview)'
+title: 'Quickstart: Install the Azure Container Apps Sandboxes agent skill'
 description: Install the Azure Container Apps Sandboxes agent skill so your coding agent can manage sandboxes using natural language.
 author: craigshoemaker
 ms.author: cshoe
@@ -10,12 +10,9 @@ ms.date: 08/21/2026
 # customer intent: As a developer, I want to install the Azure Container Apps Sandboxes agent skill so that my coding agent can create and manage sandboxes using natural language.
 ---
 
-# Quickstart: Install the Azure Container Apps Sandboxes agent skill (preview)
+# Quickstart: Install the Azure Container Apps Sandboxes agent skill
 
 In this quickstart, you install the Azure Container Apps Sandboxes agent skill so your coding agent can manage sandboxes by using natural language. The skill teaches coding agents to use Azure Container Apps Sandboxes as infrastructure: boot disposable Linux VMs, run untrusted code in isolation, lock down egress, snapshot state, and run `aca` CLI commands.
-
-> [!IMPORTANT]
-> Azure Container Apps Sandboxes are currently in preview. Sandboxes created during preview might not be compatible with future releases and might need to be recreated.
 
 ## Install the agent skill
 

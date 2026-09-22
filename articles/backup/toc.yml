@@ -639,8 +639,6 @@
     href: backup-azure-database-postgresql-server-faq.yml
   - name: Quickstarts for Azure PostgreSQL Database backup
     items:
-    - name: Back up the database - Azure portal
-      href: quick-backup-postgresql-database-portal.md
     - name: Restore the PostgreSQL database across regions
       items:
       - name: Using the Azure portal
@@ -649,38 +647,26 @@
         href: quick-secondary-region-restore-postgresql-powershell.md
   - name: Tutorials for PostgreSQL databases backup
     items:
-    - name: Back up the database
-      href: tutorial-postgresql-backup.md
     - name: Configure and run Cross Region Restore
       href: tutorial-cross-region-restore.md
   - name: Backup scenarios
     items:
     - name: From the Azure portal
       items:
-      - name: Backup
-        href: backup-azure-database-postgresql.md
       - name: Restore
         href: restore-azure-database-postgresql.md
       - name: Manage
         href: manage-azure-database-postgresql.md
     - name: With PowerShell
       items:
-      - name: Backup
-        href: backup-postgresql-ps.md
       - name: Restore
         href: restore-postgresql-database-ps.md
     - name: With CLI
       items:
-      - name: Backup
-        href: backup-postgresql-cli.md
       - name: Restore
         href: restore-postgresql-database-cli.md
     - name: With REST API
       items:
-      - name: Policy
-        href: backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md
-      - name: Backup
-        href: backup-azure-data-protection-use-rest-api-backup-postgresql.md
       - name: Restore
         href: restore-postgresql-database-use-rest-api.md
 - name: SQL Server database on Azure VM backup
@@ -708,7 +694,7 @@
         - name: Back up SQL Server from the SQL Server VM blade
           href: backup-sql-server-database-from-azure-vm-blade.md
         - name: Back up SQL Server instance snapshot
-          href: back-up-sql-server-instance-snapshot.md  
+          href: back-up-sql-server-instance-snapshot.md
       - name: Restore
         items:
         - name: Restore SQL Server database from the vault
@@ -875,7 +861,7 @@
       href: manage-telemetry.md
     - name: Unattended installation
       href: backup-mabs-unattended-install.md
-    - name: Create Application Control supplemental policy for MABS with PowerShell  
+    - name: Create Application Control supplemental policy for MABS with PowerShell
       href: backup-server-application-control-supplemental-policy-create.md
   - name: Configure and manage private endpoint in Recovery Services vault for backup
     items:
@@ -910,9 +896,9 @@
   - name: Back up the MABS server
     href: backup-the-mabs-server.md
   - name: Stop protection in Azure Backup Server
-    href: backup-server-stop-protection.md  
+    href: backup-server-stop-protection.md
   - name: Monitor MABS
-    href: backup-server-monitor.md 
+    href: backup-server-monitor.md
 - name: Azure Backup Server on Azure Stack
   items:
   - name: Install Azure Backup Server
@@ -1004,7 +990,7 @@
   - name: Optimize storage cost
     href: backup-azure-reserved-pricing-optimize-cost.md
   - name: Reserved capacity discounts for storage
-    href: backup-azure-reserved-pricing-overview.md 
+    href: backup-azure-reserved-pricing-overview.md
   - name: Pricing calculator
     href: azure-backup-pricing.md
 - name: Automation
