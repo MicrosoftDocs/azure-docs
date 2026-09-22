@@ -489,6 +489,8 @@
       href: application-volume-group-delete.md  
   - name: Manage hybrid data mobility and protection  
     items:
+    - name: Manage data restores
+      href: azure-netapp-files-manage-data-restores.md
     - name: Manage snapshot-based protection 
       items:
       - name: Create an on-demand snapshot
