@@ -178,7 +178,7 @@ The renewal process requires that the service principal for App Service has the 
 
    :::image type="content" source="./media/configure-ssl-certificate/auto-renew-app-service-cert.png" alt-text="Screenshot that shows the specified certificate's autorenewal settings." lightbox="./media/configure-ssl-certificate/auto-renew-app-service-cert.png":::
 
-1. To renew manually instead, select **Manual Renew**. Manual renewal is available during the last 90 days before the certificate expires. A [certificate can't be issued for longer than 200 days](https://cabforum.org/2025/04/11/ballot-sc081v3-introduce-schedule-of-reducing-validity-and-data-reuse-periods/).
+1. To renew manually instead, select **Manual Renew**. Manual renewal is available during the last 90 days before the certificate expires. An App Service certificate can't be issued for longer than 198 days.
 
 1. After the renewal operation finishes, select **Sync**.
 
