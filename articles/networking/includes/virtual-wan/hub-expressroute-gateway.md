@@ -5,7 +5,7 @@ ms.date: 05/25/2022
 ms.service: azure-virtual-wan
 ms.topic: include
 ---
-1. Select **ExpressRoute** to open the ExpressRoute page. Click **Yes** to reveal ExpressRoute configuration settings. Fill out the necessary fields. For information about gateway scale units, see the [FAQ](../articles/virtual-wan/virtual-wan-faq.md#what-are-virtual-wan-gateway-scale-units).
+1. Select **ExpressRoute** to open the ExpressRoute page. Select **Yes** to reveal ExpressRoute configuration settings. Fill out the necessary fields. For information about gateway scale units, see the [FAQ](../../../virtual-wan/virtual-wan-faq.md#what-are-virtual-wan-gateway-scale-units).
 
    :::image type="content" source="media/virtual-wan-hub-expressroute-gateway/expressroute.png" alt-text="Screenshot shows the ExpressRoute tab where you can enter values.":::
 
