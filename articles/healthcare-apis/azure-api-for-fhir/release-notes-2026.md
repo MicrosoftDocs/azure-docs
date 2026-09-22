@@ -24,6 +24,8 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 **SMART-on-FHIR compartment authorization enforced on `_include` and `_revinclude`**: SMART-on-FHIR compartment authorization is now enforced on `_include` and `_revinclude` query results. Previously, included resources could be returned without verifying they belonged to the authorized patient compartment. Queries using `_include` or `_revinclude` under SMART scopes might now return fewer results.
 
+**Improved error handling for `$export` with invalid resource types**: `$export` jobs with invalid resource types now return HTTP 400 Bad Request instead of HTTP 500 Internal Server Error.
+
 #### Bug fixes:
 
 **Fix for conditional patch with required ETags**: Fixed an issue where conditional patch requests failed when ETags were required. Conditional patches now correctly pass the ETag for optimistic concurrency checks.
@@ -31,6 +33,12 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 **Fix for intermittent errors from non-thread-safe HTTP header access**: Fixed intermittent errors in request processing caused by non-thread-safe HTTP header access, improving overall service stability.
 
 **Fix for capability statement rebuild exceptions from stale request context**: Fixed unexpected exceptions during capability statement rebuilds caused by stale request context in background processing.
+
+**Fix for delete by URL failures**: Fixed an issue where deleting a resource by URL could fail in certain scenarios. Delete operations by URL now work correctly.
+
+**Fix for `$validate` fatal error on Bundles with entries lacking a resource**: Fixed an issue where the `$validate` operation returned a fatal error (code 5003) for Bundles containing entries without a resource, such as transaction DELETE entries. Validation now correctly handles these entries.
+
+**Fix for HTTP 500 on searches with extreme dates**: Fixed an issue where FHIR search queries with extreme dates (for example, `_lastUpdated=gt9999-12-31`) caused an internal overflow and returned HTTP 500. These queries now return proper results.
 
 ## August 2026
 ### FHIR service
