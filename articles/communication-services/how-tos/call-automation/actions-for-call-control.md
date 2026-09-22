@@ -54,7 +54,7 @@ call_automation_client = CallAutomationClient.from_connection_string("<resource_
 
 ## Make an outbound call
 
-You can place a 1:1 or group call to a communication user or phone number (a public number or one that Azure Communication Services owns).
+You can place a one-to-one or group call to a communication user or phone number.
 When you call a public-switched telephone network (PSTN) endpoint, you also need to provide a phone number to use as the source caller ID and that shows as the call notification to the target PSTN endpoint.
 
 To place a call to an Azure Communication Services user, you need to provide a `CommunicationUserIdentifier` object instead of `PhoneNumberIdentifier`.  

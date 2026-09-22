@@ -5,8 +5,8 @@ author: boris-bazilevskiy
 manager: nmurav
 services: azure-communication-services
 
-ms.author: bobazile
-ms.date: 06/22/2023
+ms.author: henikaraa
+ms.date: 06/22/2026
 ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: pstn
@@ -22,72 +22,41 @@ Azure Communication Services Calling SDKs enable you to add telephony and Public
 
 ## Telephony overview
 
-Whenever your users interact with a traditional telephone number, the Public Switched Telephone Network (PSTN) voice calling handles the call. To make and receive PSTN calls, you need to add telephony capabilities to your Azure Communication Services resource. In this case, signaling and media use a combination of IP-based and PSTN-based technologies to connect your users. Communication Services provides two discrete ways to reach the PSTN network: Voice Calling (PSTN) and Azure direct routing.
+Whenever your users interact with a traditional telephone number, the Public Switched Telephone Network (PSTN) voice calling handles the call. To make and receive PSTN calls, you need to add telephony capabilities to your Azure Communication Services resource. In this case, signaling and media use a combination of IP-based and PSTN-based technologies to connect your users. Going forward, Communication Services supports only Teams Phone connectivity. For more information about the retirement of the legacy telephony options (Azure Communication Services Direct Offer and Direct Routing), see [Azure Communication Services telephony retirement](https://aka.ms/acs-retirement).
 
-### Voice Calling (PSTN)
+### Teams Phone connectivity
 
-An easy way of adding PSTN connectivity to your app or service, in such case, Microsoft is your telco provider. You can buy numbers directly from Microsoft. Azure Cloud Calling is an all-in-the-cloud telephony solution for Communication Services. It's the simplest option that connects Communication Services to the Public Switched Telephone Network (PSTN) to enable calls to landlines and mobile phones worldwide. Microsoft acts as your PSTN carrier, as shown in the following diagram:
+As organizations increasingly adopt Microsoft Teams for their collaboration and communication needs, understanding the various PSTN connectivity options available becomes crucial. With Teams Phone, you have three primary options:
 
-![Voice Calling (PSTN) diagram.](../media/telephony-concept/azure-calling-diagram.png)
+1. **Calling Plans** are an all-in-the-cloud solution in which Microsoft acts as your PSTN carrier. Calling Plans are the simplest option, ideal for organizations that don't need to retain their current PSTN carrier. By using Calling Plans, you get Teams Phone with added Domestic or International Calling Plans for your solution to reach phone numbers around the world.
 
-If you answer **yes** to the following questions, then Voice Calling (PSTN) is the right solution for you:
-- Voice Calling (PSTN) is available in your region.
-- You don't need to retain your current PSTN carrier.
-- You want to use Microsoft-managed access to the PSTN.
+   This option doesn't require any on-premises deployment or maintenance. For more information, see [Microsoft Teams Calling Plans](/microsoftteams/calling-plans-for-office-365).
 
-With this option:
-- You get numbers directly from Microsoft and can call phones around the world.
-- You don't need to deploy or maintain any on-premises system because Voice Calling (PSTN) operates through Azure Communication Services.
+   :::image type="content" source="../interop/tpe/media/teams-phone-extensibility-teams-calling-plans.png" alt-text="Diagram shows the simplest solution Teams Phone system with Calling Plan using Microsoft as a public switched telephone network (PSTN) carrier."  lightbox="../interop/tpe/media/teams-phone-extensibility-teams-calling-plans.png":::
 
-  > [!NOTE]
-  > If necessary, you can connect a supported Session Border Controller (SBC) through Azure Communication Services direct routing for interoperability with third-party private branch exchanges (PBXs). SBCs can also enable analog devices and other third-party telephony equipment supported by the SBC.
+2. **Operator Connect** enables you to bring your existing PSTN carrier into the Microsoft Teams environment. If your carrier participates in the Microsoft Operator Connect program, they can manage PSTN calling and Session Border Controllers (SBCs) for you.
 
-This option requires an uninterrupted connection to Azure Communication Services.  
+   Operator Connect provides a fully managed service with no hardware footprint. This option is a great choice for organizations that want to maintain their existing PSTN infrastructure while using Teams. For more information, see [Plan for Operator Connect](/microsoftteams/operator-connect-plan).
 
-For cloud calling, outbound calls are billed at per-minute rates depending on the target country/region. See the [current rate list for PSTN calls](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv).
+   :::image type="content" source="../interop/tpe/media/teams-phone-extensibility-teams-operator-connect.png" alt-text="Diagram shows Teams Operator Connect using a public switched telephone network (PSTN) and Session Border Controller as a Service (SBCaaS) through Teams Phone / Teams Admin Center to connect your operators."  lightbox="../interop/tpe/media/teams-phone-extensibility-teams-operator-connect.png":::
 
-### Azure direct routing
+3. **Direct Routing** enables you to use your own PSTN carrier by connecting your SBCs to Teams Phone. Direct Routing offers the most flexibility, enabling you to design a solution that fits complex environments or manage a multi-step migration.
 
-With this option, you can connect legacy on-premises telephony and your carrier of choice to Azure Communication Services. It provides PSTN calling capabilities to your Communication Services application even if Voice Calling (PSTN) is not available in your country/region. 
+   Direct Routing is suitable for organizations that need to retain their current PSTN carrier and have specific requirements for interoperability with third-party private branch exchanges (PBXs), analog devices, and other telephony equipment. For more information, see [Plan Direct Routing](/microsoftteams/direct-routing-plan).
 
-![Azure direct routing diagram.](../media/telephony-concept/sip-interface-diagram.png)
+   :::image type="content" source="../interop/tpe/media/teams-phone-extensibility-voice-solution-with-direct-routing.png" alt-text="Diagram shows Teams Direct Routing. It features Teams users on Microsoft 365 through on premises session border controller (SBC), phone number ranges, and third party private branch exchange (PBX) / telephony equipment connecting to a telephony trunk and public switched telephone network (PSTN)."  lightbox="../interop/tpe/media/teams-phone-extensibility-voice-solution-with-direct-routing.png":::
 
-If you answer **yes** to any of the following questions, then Azure direct routing is the right solution for you:
+If you answer **yes** to the following questions, then Teams Phone connectivity options are the right solution for you:
 
-- You want to use Azure Communication Services with PSTN calling capabilities.
-- You need to retain your current PSTN carrier.
-- You want to mix routing, with some calls going through Voice Calling (PSTN) and some through your carrier.
-- You need to interoperate with third-party PBXs and/or equipment such as overhead pagers, analog devices, and so on.
+- Teams Phone services are available in your region.
+- You want Microsoft‑managed PSTN access through Calling Plans, prefer simplified onboarding with Operator Connect, or want to bring your own carrier and connect your SBC.
+- You plan to integrate contact center or advanced workflows by using Teams Phone Extensibility (TPE).
 
-With this option:
-
-- You connect your own supported SBC to Azure Communication Services without the need for extra on-premises software.
-- You can use literally any telephony carrier with Communication Services.
-- You can choose to configure and manage this option, or have it configured and managed by your carrier or partner. Ask if your carrier or partner provides this option.
-- You can configure interoperability between your telephony equipment, such as a third-party PBX and analog devices, and Azure Communication Services.
-
-This option requires:
-
-- Uninterrupted connection to Azure.
-- Deploying and maintaining a supported SBC.
-- A contract with a third-party carrier. Unless deployed as an option to provide a connection to third-party PBX, analog devices, or other telephony equipment for users who are on Communication Services.
 
 ## Next steps
 
-### Conceptual documentation
-
-- [Phone number types in Azure Communication Services](./plan-solution.md).
-- [Plan for Azure direct routing](./direct-routing-infrastructure.md).
-- [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md).
-- [Pricing](../pricing.md).
-- Learn about [call automation API](../call-automation/call-automation.md) that enables you to build server-based calling workflows that controls and manages calls for phone numbers and direct routing.
-- [Number lookup overview](../../concepts/numbers/number-lookup-concept.md).
-- [Try Phone Calling](./try-phone-calling.md).
-
-
-### Quickstarts
-
-- [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
+- Learn more about [Teams Phone Extensibility](../interop/tpe/teams-phone-extensibility-overview.md).
+- Learn more about [how to migrate from Azure Communication Services phone numbers to Teams Phone numbers](migrate-to-teams-phone.md).
+- Learn about the [call automation API](../call-automation/call-automation.md) that you can use to build server-based calling workflows that control and manage PSTN calls.
 - [Outbound call to a phone number](../../quickstarts/telephony/pstn-call.md).
 - [Use call automation to build calling workflow that can place calls to phone numbers, play voice prompts and more](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
-- [Look up operator information for a phone number](../../quickstarts/telephony/number-lookup.md).

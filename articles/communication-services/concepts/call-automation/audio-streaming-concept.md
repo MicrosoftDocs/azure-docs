@@ -14,6 +14,9 @@ ms.custom: public_prview
 
 Azure Communication Services provides bidirectional audio streaming capabilities, offering developers powerful tools to capture, analyze, and process audio content during active calls. This development paves the way for new possibilities in real-time communication for developers and businesses alike. 
 
+> [!IMPORTANT]
+> Following the Azure Communication Services telephony retirement announcement, Microsoft will update the Microsoft Product Terms. After this update, Azure Communication Services Call Automation, Call Recording, and Audio Streaming support only Microsoft Teams interoperability scenarios: Teams Meeting interop, Teams click-to-call, and Teams Phone extensibility (TPE). For more information, see the retirement announcement: https://aka.ms/acs-retirement
+
 By integrating bidirectional audio streaming with services like Azure OpenAI and other real-time voice APIs, businesses can achieve seamless, low-latency communication. This additional capability significantly enhances the development and deployment of conversational AI solutions, allowing for more engaging and efficient interactions. 
 
 With bidirectional streaming, businesses can now elevate their voice solutions to low-latency, human-like, interactive conversational AI agents. Our bidirectional streaming APIs enable developers to stream audio from an ongoing call on Azure Communication Services to their web servers in real-time, and stream audio back into the call. While the initial focus of these features is to help businesses create conversational AI agents, other use cases include Natural Language Processing for conversation analysis or providing real-time insights and suggestions to agents while they are in active interaction with end users. 
