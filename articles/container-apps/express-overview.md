@@ -1,5 +1,5 @@
 ---
-title: Azure Container Apps Express Overview (preview)
+title: Azure Container Apps Express Overview
 description: Learn about Azure Container Apps express, a developer-first platform that lets you deploy containerized web apps to Azure with minimal configuration and rapid provisioning.
 ms.topic: overview
 ms.date: 08/27/2026
@@ -9,7 +9,7 @@ ms.service: azure-container-apps
 ms.custom: references_regions
 ---
 
-# Azure Container Apps express overview (preview)
+# Azure Container Apps express overview
 
 Azure Container Apps express provides the fastest way to deploy containerized web applications to Azure. With opinionated defaults and a minimal configuration surface, express is a developer-first and agent-first platform designed to get your web apps running in the cloud as fast as possible.
 
@@ -176,7 +176,7 @@ Express doesn't support the following capabilities:
 
 ## Region availability
 
-During public preview, Express is available in the following Azure regions:
+Express is available in the following Azure regions:
 
 - Australia East
 - Austria East
