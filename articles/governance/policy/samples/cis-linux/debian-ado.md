@@ -221,7 +221,7 @@ This article provides detailed information about the CIS Security Benchmarks for
 |Ensure sshd MACs are configured|macsDisallowedValues|hmac-md5,hmac-md5-96,hmac-ripemd160,hmac-sha1-96,umac-64@openssh\.com,hmac-md5-etm@openssh\.com,hmac-md5-96-etm@openssh\.com,hmac-ripemd160-etm@openssh\.com,hmac-sha1-96-etm@openssh\.com,umac-64-etm@openssh\.com,umac-128-etm@openssh\.com|
 |Ensure sshd MaxAuthTries is configured|maxauthtriesValue|[0-4]\b|
 |Ensure sshd MaxSessions is configured|maxsessionsValue|([1-9]\|10)\b|
-|Ensure sshd MaxStartups is configured|maxstartupsValue|(10\|[1-9])[^ \t](30\|[1-2][0-9]\|[1-9])[^ \t](60\|[1-5][0-9]\|[1-9])\b|
+|Ensure sshd MaxStartups is configured|maxstartupsValue|`(10\|[1-9])[^ \t](30\|[1-2][0-9]\|[1-9])[^ \t](60\|[1-5][0-9]\|[1-9])\b`|
 |Ensure password expiration is configured|maxDays|365|
 ||minDays|1|
 |Ensure minimum password age is configured|minDays|1|

@@ -788,7 +788,7 @@ This article provides detailed information about the CIS Security Benchmarks for
 |Ensure sshd LoginGraceTime is configured|logingracetimeValue|\b([1-9]\|[1-5][0-9]\|60)\b|
 |Ensure sshd LogLevel is configured|loglevelValue|(VERBOSE\|INFO)\b|
 |Ensure sshd MaxAuthTries is configured|maxauthtriesValue|[0-4]\b|
-|Ensure sshd MaxStartups is configured|maxstartupsValue|(10\|[1-9])[^ \t](30\|[1-2][0-9]\|[1-9])[^ \t](60\|[1-5][0-9]\|[1-9])\b|
+|Ensure sshd MaxStartups is configured|maxstartupsValue|`(10\|[1-9])[^ \t](30\|[1-2][0-9]\|[1-9])[^ \t](60\|[1-5][0-9]\|[1-9])\b`|
 |Ensure sshd MaxSessions is configured|maxsessionsValue|([1-9]\|10)\b|
 |Ensure password expiration is configured|maxDays|365|
 ||minDays|1|
