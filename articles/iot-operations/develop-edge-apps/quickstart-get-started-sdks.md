@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: quickstart-sdk
-ms.date: 07/31/2026
+ms.date: 09/22/2026
 ai-usage: ai-assisted
 ---
 
@@ -24,10 +24,6 @@ Before you begin, prepare the following prerequisites:
 * A [GitHub](https://github.com) account.
 
 * Azure access permissions. For more information, see [Deployment overview > Required permissions](../deploy-iot-ops/overview-deploy.md#required-permissions).
-
-[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
-
-This article also uses the following environment variables for resource names that you choose: `SCHEMA_REGISTRY` (the name of the schema registry), `SCHEMA_REGISTRY_NAMESPACE` (the name of the schema registry namespace), `STORAGE_ACCOUNT` (the name of the storage account). Set each one to a value that you want before you run the related commands.
 
 ## Setting up
 
