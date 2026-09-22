@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: quickstart-sdk
-ms.date: 07/31/2026
+ms.date: 09/22/2026
 ai-usage: ai-assisted
 ---
 
