@@ -1,124 +1,160 @@
 ---
 title: Upgrade your Azure Data Factory pipelines to Fabric Data Factory
-description: Learn how to assess and upgrade your Azure Data Factory pipelines to Fabric Data Factory.
+description: Upgrade your Azure Data Factory to Fabric at your own pace. Explore the benefits and get started with View in Fabric (Preview).
 author: ssindhub
 ms.author: ssrinivasara
 ms.topic: how-to
-ms.date: 06/11/2026
+ms.date: 09/15/2026
 ms.custom: pipelines
 ai-usage: ai-assisted
 ---
 
-# Upgrade your Azure Data Factory pipelines to Fabric Data Factory
+# Upgrade to Fabric Data Factory
 
-Your Azure Data Factory pipelines already power critical workflows. This article walks you through migrating Azure Data Factory (ADF) pipelines to Fabric Data Factory using the built-in migration experience. You can start from either Azure Data Factory or a Fabric workspace.
+Fabric Data Factory is where data integration at Microsoft is headed—unified, intelligent, and built for AI. Your Azure Data Factory (ADF) pipelines already power critical workflows, and you can bring them into Fabric on your own terms.
 
-The migration experience helps you:
+You don't have to upgrade today. Start by looking around: bring your factory into Fabric, see what's ready, and move pipelines only when it adds value. It's a staged journey you control—not a forced, one-time cutover.
 
-- Assess pipeline readiness directly in Azure Data Factory.
-- Understand compatibility gaps at the pipeline and activity level.
-- Migrate supported pipelines to a Fabric workspace.
-- Plan next steps for items that need updates or that are coming soon.
+**In this article:**
 
-This assessment-first approach lets you upgrade pipelines at your own pace and validate results before switching production workloads.
+- [Why upgrade to Fabric Data Factory](#why-upgrade-to-fabric-data-factory)
+- [Let's get started](#get-started)
+- [What to expect](#what-to-expect)
+- [Known limitations](#known-limitations)
+- [Frequently asked questions](#frequently-asked-questions)
 
-## How to start migration
+## Why upgrade to Fabric Data Factory
 
-You can start migrating your Azure Data Factory pipelines from either of two entry points:
+Fabric Data Factory is built on the same underlying engine and connector library as Azure Data Factory. The shell changed; the engine didn't—so your pipelines feel familiar from day one, and you gain everything Fabric adds around them: OneLake as a single source of truth, Dataflow Gen2, built-in Git-based CI/CD without ARM-template friction, Copilot-assisted development, and a growing set of AI-powered capabilities.
 
-| Entry point | Best for | Starting step |
-|---|---|---|
-| **From Azure Data Factory** | Running a full assessment of pipeline readiness before migrating | [Option A: Start from Azure Data Factory](#option-a-start-from-azure-data-factory) |
-| **From a Fabric workspace** | Directly mounting and migrating when you already know which factory to bring over | [Option B: Start from Fabric](#option-b-start-from-fabric) |
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/do-more-with-data-factory.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/do-more-with-data-factory.png" alt-text="Screenshot showing the Azure Data Factory migration assessment results.":::
 
-Both paths converge at [Step 4: Migrate pipelines](#step-4-migrate-pipelines).
+As you upgrade, three things stay true:
 
+- **Nothing breaks.** Your Azure Data Factory pipelines keep running exactly as they do today, on the same pricing, fully supported. There's no forced upgrade and no deadline.
+- **You're in control.** Every step is initiated by you. Nothing moves until you choose, and you can pause or step back at any point.
+- **You don't lose anything by looking.** Bringing your factory into Fabric is reversible—nothing is upgraded, switched, or billed until you decide to upgrade intentionally.
 
-## Prerequisites
+Azure Data Factory remains the trusted foundation you rely on today. While it remains fully supported and available, future innovation is being built into Fabric Data Factory. You can move on your own timeline, but the value and innovation make the Fabric journey compelling.
 
-Before you start, make sure you have:
+## Get started
 
-- An existing Azure Data Factory instance with pipelines.
-- Access to a Microsoft Fabric tenant.
-- A Fabric workspace in the same Microsoft Entra ID tenant as the Azure Data Factory instance.
-- **If starting from Fabric**: A Fabric workspace where you have at least Contributor permissions.
+You need an existing Azure Data Factory instance with pipelines. The fastest way to start is to select **View in Fabric (Preview)**. In one click, it brings your existing factory into Fabric so you can explore it—no project plan and no commitment.
 
-## Option A: Start from Azure Data Factory
+### Step 1: Select View in Fabric (Preview)
 
-### Step 1: Assess your pipelines for migration
+In your [Azure Data Factory](https://adf.azure.com) authoring canvas, select **View in Fabric (Preview)**.
 
-To run the migration assessment, in your [Azure Data Factory](https://adf.azure.com) authoring canvas, select **Migrate to Fabric (Preview)** > **Get started (preview)** to evaluate pipelines and activities for migration readiness.
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/view-in-fabric.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/view-in-fabric.png" alt-text="Screenshot showing the View in Fabric (Preview) entry point in Azure Data Factory.":::
 
-:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migrate-to-fabric-get-started.png" alt-text="Screenshot showing how to run the Azure Data Factory migration assessment." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migrate-to-fabric-get-started.png":::
+The first time you select **View in Fabric (Preview)**, an onboarding panel opens and
+explains what you can do with Data Factory in Fabric. Select the checkbox to
+agree to the terms and conditions, and then select **Try Fabric Data Factory**
+to continue.
 
-### Step 2: Review and understand assessment results
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/fabric-terms-and-conditions-for-privacy-settings.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/fabric-terms-and-conditions-for-privacy-settings.png" alt-text="Screenshot showing the Fabric onboarding panel with the terms and conditions checkbox and Try Fabric Data Factory button.":::
 
-Both the factory and individual pipelines are categorized with a readiness status:
+You're then guided through the factory setup in Fabric:
 
-[!INCLUDE [migration-assessment-statuses](includes/migration-assessment-statuses.md)]
+1. **Verify your Fabric license.** If you don't have a Fabric license, you're
+   prompted to sign up for a free license.
 
-For details on how to drill into activity-level details, see [What the assessment statuses mean](how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md#what-the-assessment-statuses-mean).
+   :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/fabric-signup.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/fabric-signup.png" alt-text="Screenshot showing the Fabric sign-up page.":::
 
-You can also export your assessment results to a CSV file to support offline review and remediation planning.
+1. **Select a Fabric capacity.** Choose a capacity, such as a Trial capacity.
 
-:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/assessment-results.png" alt-text="Screenshot showing the Azure Data Factory migration assessment results." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/assessment-results.png":::
+   > [!NOTE]
+   > Viewing your data factory in Fabric doesn't consume any capacity. Capacity
+   > is only consumed when you upgrade to Fabric-native capabilities or create
+   > new Fabric artifacts in the workspace.
 
+1. **Set up the Fabric workspace.** Fabric creates a new workspace for your
+   Azure Data Factory artifacts with the same name as your data factory, or
+   reuses the existing workspace if one was created previously.
 
-### Step 3: Select a Fabric workspace and mount your Azure Data Factory
+1. **Set up the Azure Data Factory item.** Your data factory is surfaced in
+   Fabric as an Azure Data Factory item in the workspace.
 
-After you review the assessment, select **Next** to mount your Azure Data Factory to a Fabric workspace and continue the migration flow in Fabric. Mounting lets you reference your Azure Data Factory (ADF) instance inside a Fabric workspace without migrating, copying, or altering the Azure Data Factory environment.
+1. **Share Fabric workspace access (optional).** You can add directly assigned
+   Azure Data Factory users and groups as Fabric workspace viewers. Existing
+   Fabric roles are kept. Later ADF role changes aren't synchronized, and
+   access isn't automatically removed. To skip and continue, select **Continue
+   without adding access**. You can manage workspace access later in Fabric.
 
-:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/mount-azure-data-factory-to-fabric.png" alt-text="Screenshot showing Fabric workspace selection for mounting Azure Data Factory to Fabric." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/mount-azure-data-factory-to-fabric.png":::
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/setup-factory-panel.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/setup-factory-panel.png" alt-text="Screenshot showing the Setting up your factory in Fabric panel with the license, capacity, workspace, Azure Data Factory item, and share access steps.":::
 
-After mounting completes, select **Continue in Fabric** to proceed with migration steps.
+After setup completes, a short orientation walks you through Data Factory in Fabric the first time you arrive.
 
-:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/successfully-mounted-factory.png" alt-text="Screenshot showing the Continue in Fabric option after successful mounting." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/successfully-mounted-factory.png":::
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/onboarding-your-existing-data-factory-in-fabric.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/onboarding-your-existing-data-factory-in-fabric.png" alt-text="Screenshot showing the first onboarding screen for Data Factory in Fabric.":::
 
-Continue to [Step 4: Migrate pipelines](#step-4-migrate-pipelines).
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/onboarding-foundations-remain-the-same.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/onboarding-foundations-remain-the-same.png" alt-text="Screenshot showing the second onboarding screen for Data Factory in Fabric.":::
 
-## Option B: Start from Fabric
-1. Open your Fabric workspace.
-2. In the workspace toolbar, select **Migrate**.
-3. In the **Migrate to Fabric** panel, under **Migrate to notebooks, Spark pools, and more**, select **Data Factory**.
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/onboarding-what-is-better-in-fabric.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/onboarding-what-is-better-in-fabric.png" alt-text="Screenshot showing the third onboarding screen for Data Factory in Fabric.":::
 
-:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migrate-from-fabric-workspace.png" alt-text="Screenshot showing the Migrate to Fabric panel in a Fabric workspace with the Data Factory option highlighted.":::
+That's it—you can now edit, manage, monitor, and run pipelines from within Fabric, just as you do in Azure Data Factory. Nothing is upgraded, and pipeline execution and billing remain in Azure Data Factory.
 
-4. Select the Azure Data Factory instance you want to mount to this workspace.
-   
-:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/mount-from-fabric-migrate-end-point.png" alt-text="Screenshot showing the mounting experience from Migrate endpoint in Fabric.":::
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/fabric-view.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/fabric-view.png" alt-text="Screenshot showing the Azure Data Factory in its new Fabric workspace.":::
 
-5. After mounting completes, continue with [Step 4: Migrate pipelines](#step-4-migrate-pipelines).
+### Step 2: Review readiness
 
-> [!NOTE]
-> Starting from Fabric skips the in-ADF assessment (Steps 1-2). To review pipeline readiness before migrating, start from [Step 1: Assess your pipelines for migration](#step-1-assess-your-pipelines-for-migration) in Azure Data Factory instead.
+Select **Assess and Upgrade** to open your readiness assessment.
 
-### Step 4: Migrate pipelines
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/assess-and-upgrade.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/assess-and-upgrade.png" alt-text="Screenshot showing the Assess and Upgrade button in Fabric.":::
 
-Continue migration from the Fabric experience by selecting **Migrate to Fabric (Preview)**.
+This tool evaluates your Azure Data Factory estate and shows how ready it is to move to Fabric-native capabilities. It's **read-only and informational**—running it changes nothing and doesn't start an upgrade. You can also download your assessment report.
 
-:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migrate-to-fabric-post-mount.png" alt-text="Screenshot showing the Migrate to Fabric option in Fabric." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migrate-to-fabric-post-mount.png":::
+Key things to know:
 
-Select the pipelines you want to migrate.
+- **It covers your whole estate automatically.** The assessment gives an aggregate view of all your pipelines, computed from your existing Azure Data Factory metadata.
+- **It's available on demand** from your factory in Fabric, so you can check your status whenever you want.
+- **It categorizes your pipelines** so you know what to do next:
 
-:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/pick-pipelines-for-migration.png" alt-text="Screenshot showing the option to select pipelines for migration." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/pick-pipelines-for-migration.png":::
+  - **Ready**: Can move to Fabric-native today (for example, copy activities and basic orchestration).
+  - **Review**: Needs manual adjustments before upgrade (for example, converting Synapse notebooks or Spark Job Definitions (SJDs) to Fabric-native assets), or includes capabilities that aren't fully supported yet. See [Known limitations](#known-limitations).
 
+If the assessment indicates that you're ready to upgrade, the next step is to select the pipelines you want to upgrade.
 
-### Step 5: Map linked services to Fabric connections and complete migration
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/readiness-assessment.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/readiness-assessment.png" alt-text="Screenshot showing the readiness assessment results in Fabric with Select pipelines and Review connections options.":::
 
-Select **Review connections** to map Azure Data Factory linked services to Fabric connections and then select **Confirm**.
+### Step 3: Map connections and start upgrade
 
-The migration experience tries to automatically create connections for authentication methods that it can safely and reliably map from Azure Data Factory to Fabric’s managed identity and security model without requiring customer-managed infrastructure or network configuration.
+Next, select **Review connections** to map your Azure Data Factory linked
+services to Fabric connections. Many connections are created for you
+automatically—see [Connections created automatically during upgrade](#connections-created-automatically-during-upgrade).
 
-:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/linked-services-to-connection-mapping.png" alt-text="Screenshot showing the mapping of linked services to Fabric connections." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/linked-services-to-connection-mapping.png":::
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/map-connections.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/map-connections.png" alt-text="Screenshot showing the mapping of linked services to Fabric connections.":::
 
-### Connections automatically created during migration (supported only)
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/map-connections-expanded-view.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/map-connections-expanded-view.png" alt-text="Screenshot showing the expanded view of connection mapping.":::
+
+When you're ready, select **Start upgrade (Preview)** to upgrade your pipelines to Fabric native pipelines.
+
+Selected pipelines upgrade into a folder prefixed with the source factory name, so you can easily identify them and they don't collide with existing items. A confirmation message appears when the upgrade finishes.
+
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/upgrade-results.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/upgrade-results.png" alt-text="Screenshot showing the results after upgrading pipelines to Fabric Data Factory.":::
+
+For more detail on what happens behind the scenes, see [What to expect](#what-to-expect).
+
+## What to expect
+
+This section explains what happens behind the scenes and how to validate your results. You don't need it to get started—it's here when you want the detail.
+
+### Viewing your factory in Fabric
+
+- Fabric creates a new workspace with the same name as your Azure Data Factory and assigns it to the capacity you choose.
+- You can add existing Azure Data Factory users as **Viewer** members of the new workspace during setup. If you skip this step, no workspace access is added. A Fabric workspace Admin with write permission on the data factory can add access later by using **Share workspace access** in the management hub under ADF in Microsoft Fabric.
+- **You get a full view of your estate.** Pipelines, linked services, triggers, and integration runtime configurations surface through live references to your Azure Data Factory, and you can monitor recent pipeline run history—status, duration, and errors—directly in Fabric.
+- **Nothing changes in Azure Data Factory.** Authoring, execution, permissions, and billing all continue in Azure Data Factory exactly as before.
+
+### Connections created automatically during upgrade
+
+The experience automatically creates connections for authentication methods it can safely and reliably map from Azure Data Factory to Fabric's managed identity and security model, without requiring customer-managed infrastructure or network configuration.
 
 | Connector | Azure Data Factory authentication | Fabric authentication |
-|------------------------|----------------------------------|----------------------|
+| --- | --- | --- |
 | Azure Blob Storage | Account key; Shared access signature (SAS); Service principal; System-assigned managed identity | Account key; Shared access signature (SAS); Service principal; Workspace identity (system-assigned managed identity) |
 | Azure Data Lake Storage Gen2 | Account key; Shared access signature (SAS); Service principal; System-assigned managed identity | Account key; Shared access signature (SAS); Service principal; Workspace identity (system-assigned managed identity) |
-| SQL Server | Basic authentication (SQL authentication); Service principal; System-assigned managed identity | Basic authentication; Service principal; Workspace identity (system-assigned managed identity) |
-| Azure SQL Database | Basic authentication (SQL authentication); Service principal; System-assigned managed identity | Basic authentication; Service principal; Workspace identity (system-assigned managed identity) |
+| SQL Server | SQL authentication; Service principal; System-assigned managed identity | Basic authentication; Service principal; Workspace identity (system-assigned managed identity) |
+| Azure SQL Database | SQL authentication; Service principal; System-assigned managed identity | Basic authentication; Service principal; Workspace identity (system-assigned managed identity) |
 | Azure Data Explorer (Kusto) | Service principal; System-assigned managed identity | Service principal; Workspace identity (system-assigned managed identity) |
 | Azure Cosmos DB for NoSQL | Account key | Account key |
 | Azure Cosmos DB for MongoDB | Basic authentication | Basic authentication |
@@ -128,114 +164,118 @@ The migration experience tries to automatically create connections for authentic
 | MySQL | Basic authentication | Basic authentication |
 | PostgreSQL | Basic authentication | Basic authentication |
 
-For other connections, either select an existing Fabric connection or create new connections by using the modern Get Data experience or from workspace settings. Then select **Confirm**.
-
-Selected pipelines migrate into a folder prefixed with the source factory name_Migration for easy identification and to avoid name collisions. A confirmation message appears when the migration completes successfully.
-
-:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migration-successfully-completed.png" alt-text="Screenshot showing successful completion of migration from Azure Data Factory to Fabric." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migration-successfully-completed.png":::
-
-After migration completes, go to your Fabric workspace to review the migrated pipelines. Each pipeline is created under the workspace and prefixed with its source factory name. You can open each pipeline to review and validate it before you continue with further configuration or testing.
-
-:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/validate-migration.png" alt-text="Screenshot showing the migration folder with the migrated pipelines for validation." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/validate-migration.png":::
+For other connections, either select an existing Fabric connection or [create a new one](/fabric/data-factory/data-source-management) from workspace settings. Then begin your upgrade by selecting **Start upgrade (Preview)**.
 
 > [!NOTE]
-> If you don't map any connections during this step, pipelines still migrate. Activities within those pipelines are deactivated, and you can configure them later in Fabric.
+> If you don't map any connections, pipelines still upgrade, but activities that depend on unmapped connections are deactivated. Configure the required Fabric connections and re-enable those activities before you run the pipelines.
 
-After migration completes, validate the pipelines in the Fabric Data Factory experience.
+### Upgrade behavior
 
-> [!VIDEO  https://learn-video.azurefd.net/vod/player?id=4704fb66-2ce2-44a6-a024-4a00c0963b42]
-
-## Migration behavior
-
-- Pipelines migrate into a Fabric Data Factory workspace.
+- Pipelines upgrade into a Fabric workspace with the same name as your Azure Data Factory.
 - Pipeline names must be unique within a workspace.
-- If a pipeline with the same name already exists, the migration tool skips that pipeline.
-- To ensure uniqueness, migrated pipelines use the following naming format: `<Source factory or workspace name>_<Pipeline name>`.
-- The migration flow includes a mounting step that lets you view your existing factory structure in Fabric before migration.
+- If a pipeline with the same name already exists in the workspace, the upgrade tool skips that pipeline.
+- To keep names unique, upgraded pipelines use the format `<Source factory or workspace name>_<Pipeline name>`.
+- You can view your existing factory structure in Fabric before upgrade.
 
-## Post-migration validation
+### After you upgrade
 
-After migration, complete the following tasks:
+After upgrade, complete the following tasks:
 
 1. Validate all connections and credentials.
-1. Recreate global parameters as variable libraries.
-1. Re-enable and configure triggers (disabled by default).
+1. Re-enable and configure triggers, which are disabled by default.
 1. Run end-to-end tests to confirm pipeline behavior.
-1. Validate migrations in a nonproduction environment before you migrate production workloads.
+1. Validate in a nonproduction environment before you upgrade production workloads.
 
-## What's out of scope
+## Known limitations
 
-The following items aren't supported in the UX-based migration experience today. Pipelines that use these features require redesign or alternate migration approaches.
+- **Fabric license required:** If you don't have a Fabric license, View in Fabric (Preview) takes you to sign up for a free one. If your administrator disables Fabric self-service sign-up, you can't sign up yourself. Ask your administrator to enable it or to assign you a Fabric license.
+
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/blocked-fabric-free-license.png" lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/blocked-fabric-free-license.png" alt-text="Screenshot showing the message when Fabric self-service sign-up is blocked by tenant policy.":::
+
+A partial upgrade is a supported outcome, not a failure state. The Readiness Assessment in Fabric identifies which pipelines are affected by the items in the following list. You can upgrade the ready ones and keep the rest running in Azure Data Factory.
+
+The following items aren't supported in the upgrade experience today. Pipelines that use these features require redesign or an alternate approach.
 
 | Category | Out-of-scope item | Details |
-|--------|------------------|---------|
-| **Integration runtimes** | Self-hosted integration runtime (SHIR) | Self-hosted integration runtimes can't be migrated. Replace with the Fabric on-premises data gateway (OPDG). |
-| | Managed virtual network integration runtime (Managed virtual network IR) / Virtual network-injected integration runtime (VNet - Virtual network) | Fabric doesn't support migrating managed virtual network integration runtimes. The Fabric virtual network gateway uses a different model and requires reconfiguration. |
-| | SQL Server Integration Services integration runtime (SSIS IR) | Infrastructure migration, including SQL Server Integration Services integration runtimes, isn't supported. |
-| **Workload types** | Azure Data Factory change data capture (CDC) | Change data capture workloads are out of scope and don't migrate. |
-| | Apache Airflow assets | Directed acyclic graph (DAG)-based orchestration from Apache Airflow can't be migrated to Fabric. |
-| | Unified Structured Query Language (U-SQL) / Azure Data Lake Analytics | Deprecated services and not supported in Fabric. |
-| | Cross-cloud or Azure Machine Learning refresh workloads | Workspace identity support is in progress. These workloads don't migrate. |
-| **Connectors** | Long-tail connectors (for example, SAP ERP Central Component (ECC), SAP Business Warehouse (BW), Multidimensional Expressions (MDX), SAP Core Data Services (CDS)) | Fabric has no equivalent connectors. Redesign is required. |
-| | Marketing and finance software-as-a-service connectors (HubSpot, Google Ads, QuickBooks, Shopify, Xero) | Not supported today. |
-| **Triggers and orchestration** | Custom event triggers | Custom event triggers can't be migrated. |
-| | Storage event triggers | Support is coming soon. |
-| | Tumbling window triggers | Known as Interval-based scheduling in Fabric. Watermark and backfill workloads must be redesigned. |
-| | Chaining or dependency triggers | Chaining and dependency trigger semantics aren't supported yet. |
-| **Security and authentication** | Advanced configurations (customer-managed keys (CMK), dual tokens, federated identity credential (FIC) flows) | Unsupported workspace identity or service principal authentication models don't migrate. |
-| | Certificate-based authentication (Web activity) | Unsupported and requires redesign. |
-| | User-assigned managed identity (UAMI) support | Use workspace identity (WI) as a workaround. |
-| **Parameterization and metadata** | Global parameters | Support is coming soon. Recreate by using Fabric variable libraries. |
-| | Dynamic linked services (parameterized connections) | Not supported. Each permutation must be a separate connection and can't migrate. |
-| | Metadata-driven pipelines | Highly dynamic linked service or dataset-driven patterns can't migrate. |
-| **Activities and compute** | Azure Synapse Spark job definition (SJD) or notebook | Partially supported. Requires redesign into Fabric notebooks or Spark jobs. |
-| | Mapping data flows (MDF) | Supported (preview). Mapping data flows are converted to MDF transforms in Dataflow Gen2. See [Upgrade Azure Data Factory Mapping Data Flows pipelines to Fabric](/fabric/data-factory/dataflow-gen2-mapping-data-flows-transforms-upgrade). |
-| | Web, webhook, or HTTP activities with custom authentication or headers | Complex authentication scenarios must be rebuilt manually. |
-| | Notebook pool environment settings | Not supported. Migration is blocked. |
-| | Batch or custom activity workspace identity support | Missing workspace identity support blocks migration for these activities. |
-| | Copy activity upsert into Lakehouse tables | Not supported. Requires copy to staging and a notebook MERGE operation. |
+| --- | --- | --- |
+| **Integration runtimes** | Self-hosted integration runtime (SHIR) | Replace with the Fabric on-premises data gateway (OPDG). |
+|  | Managed virtual network IR / VNet-injected IR | Use the VNet gateway in Fabric. |
+|  | SQL Server Integration Services IR (SSIS IR) | SSIS IR isn't needed in Fabric. You can run SSIS packages directly from a Fabric pipeline. |
+| **Workload types** | Change data capture (CDC) | Use Copy job in Fabric pipelines. |
+|  | Apache Airflow assets | Reload your existing DAG files manually into Fabric Apache Airflow jobs. |
+|  | U-SQL / Azure Data Lake Analytics | Deprecated services; not supported in Fabric. |
+|  | Cross-cloud or Azure Machine Learning refresh workloads | Workspace identity support is in progress; these workloads don't upgrade. |
+| **Connectors** | Long-tail connectors (for example, SAP ECC, SAP BW, MDX, SAP CDS) | No equivalent connectors in Fabric. Redesign required. |
+|  | Marketing and finance SaaS connectors (HubSpot, Google Ads, QuickBooks, Shopify, Xero) | Not supported today. |
+| **Triggers and orchestration** | Custom event triggers | Can't be upgraded. |
+|  | Tumbling window triggers | Known as interval-based scheduling in Fabric. Watermark and backfill workloads must be redesigned. |
+|  | Chaining or dependency triggers | Not supported yet. |
+| **Security and authentication** | Advanced configurations (CMK, dual tokens, FIC flows) | Unsupported workspace identity or service principal models don't upgrade. |
+|  | Certificate-based authentication (Web activity) | Requires redesign. |
+|  | User-assigned managed identity (UAMI) | Use workspace identity (WI) as a workaround. |
+| **Parameterization and metadata** | Dynamic linked services (parameterized connections) | Each permutation must be a separate connection. |
+| **Activities and compute** | Mapping data flows (MDF) | Supported in preview. Converted to MDF transforms in Dataflow Gen2. |
+|  | Web, webhook, or HTTP activities with custom authentication or headers | Complex authentication scenarios must be rebuilt manually. |
+|  | Notebook pool environment settings | Not supported; upgrade is blocked. |
+|  | Batch or custom activity workspace identity support | Missing workspace identity support blocks upgrade. |
+|  | Copy activity upsert into Lakehouse tables | Requires copy to staging and a notebook MERGE operation. |
 
+## Frequently asked questions
 
+### What is "View in Fabric (Preview)"?
 
-## FAQ
+It's the one-click entry point in Azure Data Factory that brings your factory into Fabric. If you don't have a Fabric license, it takes you to sign up for a free one. You choose a Fabric capacity, and Fabric creates a new workspace with the same name as your Azure Data Factory so you can review readiness and upgrade.
 
-**Does the assessment change my factory?**
+### Where does View in Fabric (Preview) put my factory?
 
-No. The assessment is read-only. It scans your factory configuration and surfaces findings in the side pane without modifying pipelines, activities, or settings. You can safely run it to understand migration impact before taking any action.
+It creates a new Fabric workspace with the same name as your Azure Data Factory, assigns it to the capacity you choose, and brings your factory into that workspace.
 
-**Can I rerun the assessment or migration after making changes?**
+### Does View in Fabric (Preview) use capacity or a Fabric trial?
 
-Yes. You can rerun the assessment at any time during validation. If you rerun migration for the same pipelines, you must first delete the previously migrated pipelines in Fabric, because pipeline names must be unique within a workspace.
+During View in Fabric (Preview), you choose a Fabric capacity, such as a Trial capacity. Fabric creates the new workspace on that selected capacity. Viewing the factory doesn't upgrade your pipelines or move pipeline execution and billing to Fabric; that happens only when you explicitly start the upgrade.
 
-**Does mounting Azure Data Factory migrate my pipelines?**
+### Do I need a Fabric license before I start?
 
-No. Mounting is just a snapshot of your existing Azure Data Factory in a Fabric workspace. No pipelines are migrated until you explicitly start migration by selecting the **Migrate to Fabric (Preview)** button from your mounted data factory in Fabric.
+You need a Fabric license, but you don't have to arrange it in advance. If you don't have one, View in Fabric (Preview) takes you to sign up for a free Fabric license and accept the terms and conditions. If your tenant administrator disabled Fabric self-service sign-up, ask them to enable it or to assign you a license. You then choose a Fabric capacity, such as Trial, for the new workspace.
 
-**Will triggers migrate automatically?**
+### Does bringing my factory into Fabric change or upgrade it directly?
 
-Schedule triggers are migrated automatically but disabled after migration by design. You must manually re-enable them in Fabric. All other triggers must be manually reconfigured and re-enabled after you validate the migrated pipelines.
+No. Your factory is surfaced in Fabric so you can work with it, but nothing is copied or moved. No pipelines are upgraded until you explicitly start upgrade by selecting **Start upgrade (Preview)** from your factory in Fabric.
 
-**Do unsupported items block the entire migration?**
+### Does this signal that Azure Data Factory is being deprecated?
 
-No. Unsupported activities affect only the pipelines that contain them. Other supported pipelines can migrate independently. The assessment clearly identifies which pipelines require redesign.
+No. Azure Data Factory is fully supported. New innovation lands in Fabric Data Factory—you don't have to move, but you'll want to. You can continue to author, manage, monitor, and run pipelines in Fabric exactly as you would in your Azure Data Factory studio using your existing permissions and workflows.
 
-**Can I migrate without mapping connections?**
+### What if only some of my pipelines are ready?
 
-Yes. Pipelines still migrate, but activities that depend on unmapped connections are deactivated. You must configure the required Fabric connections and re-enable those activities before running the pipelines.
+You see exactly which pipelines are ready and which ones need attention. You can upgrade the ready ones and keep the rest running in Azure Data Factory. A partial upgrade is a supported outcome, not a failure state.
 
-**Can I validate migrations before moving production workloads?**
+### Can I upgrade without mapping connections?
 
-Yes. Microsoft recommends validating migrations in a nonproduction environment, confirming connections, triggers, and end-to-end execution before migrating production pipelines.
+Yes. Pipelines still upgrade, but activities that depend on unmapped connections are deactivated. Configure the required Fabric connections and re-enable those activities before running the pipelines.
 
-**Why certain system variables behave differently in Fabric compared to Azure Data Factory?**
+### Where did my datasets go after the upgrade, and how do I keep definitions reusable?
 
-These differences are expected as the platforms evolve independently. You can typically address them with a small adjustment during migration. For example, `pipeline().TriggerName` is available in Azure Data Factory but isn't currently supported in Fabric Data Factory. If your pipeline logic depends on the trigger name, use supported trigger event metadata or pass the trigger name explicitly as a pipeline parameter instead.
+Fabric doesn't use Azure Data Factory datasets. During upgrade, linked services become Fabric connections, and dataset settings are applied directly to the upgraded pipeline activities.
+
+To keep values reusable across pipelines and environments, use Fabric connections for credentials and endpoints, and use variable libraries for values that need to change by environment, such as database names, folder paths, or table names.
+
+### Will my triggers upgrade automatically?
+
+Schedule triggers and Storage event triggers are upgraded automatically. However, they're disabled by design after the upgrade and must be re-enabled once you validate your upgraded pipelines. You must manually reconfigure and enable all other trigger types after validation.
+
+### Do I still need Azure Key Vault for CI/CD?
+
+In Fabric, you manage connections at the tenant level rather than scope them to a single factory, so you don't move connections through CI/CD pipelines the way you did in Azure Data Factory. Pre-create each connection once, then reference it with variable libraries and parameterize on deploy—you don't need Azure Key Vault to promote credentials across Dev, Test, and Prod. Tenant-level connections also support interactive user (OAuth) authentication, which was difficult to flow through ADF-style CI/CD.
+
+### Can I validate before upgrading production workloads?
+
+Yes. Validate in a nonproduction environment—confirming connections, triggers, and end-to-end execution—before you upgrade production pipelines.
 
 ## Related content
 
 - [Compare Azure Data Factory and Fabric Data Factory](/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory)
 - [Plan your migration from Azure Data Factory to Fabric Data Factory](/fabric/data-factory/migrate-planning-azure-data-factory)
-- [Assess your pipelines for migration to Fabric Data Factory](how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md)
 - [Upgrade Azure Data Factory Mapping Data Flows pipelines to Fabric (preview)](/fabric/data-factory/dataflow-gen2-mapping-data-flows-transforms-upgrade)
 - [Migration best practices](/fabric/data-factory/migration-best-practices)
 - [Connector parity](/fabric/data-factory/connector-parity)

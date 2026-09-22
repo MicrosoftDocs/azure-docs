@@ -135,7 +135,7 @@ To modify or remove an existing Route-map rule, use the following steps.
 
 The following section describes common issues encountered when you configure Route-maps on your Virtual WAN hub.
 
-[!INCLUDE [Route-maps troubleshooting](../../includes/virtual-wan-route-maps-troubleshoot.md)]
+[!INCLUDE [Route-maps troubleshooting](../networking/includes/virtual-wan/route-maps-troubleshoot.md)]
 
 ## Next steps
 

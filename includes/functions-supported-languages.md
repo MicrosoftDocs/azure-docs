@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/20/2026
+ms.date: 09/21/2026
 ms.author: glenga
 ms.custom:
   - include file
@@ -39,16 +39,6 @@ Support for .NET 6 reached the end of official support on [November 12, 2024][do
 
 For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md) and [Azure Functions legacy C# script (.csx) developer reference](../articles/azure-functions/functions-reference-csharp.md).
 
-### [v1.x](#tab/v1/in-process)
-
-[!INCLUDE [functions-runtime-1x-retirement-note](./functions-runtime-1x-retirement-note.md)]
-
-| Supported version | Support level | Expected end-of-support date |
-| ---- | ---- |--- |
-| .NET Framework 4.8.1 | GA | See [.NET Framework Support Policy][dotnet-framework-policy]. |
- 
-For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md) and [Azure Functions legacy C# script (.csx) developer reference](../articles/azure-functions/functions-reference-csharp.md).
-
 ### [v4.x](#tab/v4/isolated-process)
 
 | Supported version    | Support level | Expected end-of-support date                                  |
@@ -71,10 +61,6 @@ For more information, see [Develop C# class library functions using Azure Functi
 .NET 7 reached the end of official support on [May 14, 2024][dotnet-policy].
 
 For more information, see [Guide for running C# Azure Functions in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md).
-
-### [v1.x](#tab/v1/isolated-process)
-
-Version 1.x of the Functions runtime doesn't support running C# function apps in an isolated worker process. Go to the **In-process** tab or the **v4.x** tab.
 
 ---
 
@@ -115,11 +101,10 @@ The following table shows the language versions supported for PowerShell functio
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
-| [PowerShell 7.6](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | Preview | TBD |
+| [PowerShell 7.6](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 14, 2028 |
 | [PowerShell 7.4](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 10, 2026 |
 
-> [!NOTE]
-> PowerShell 7.4 is the last PowerShell version supported for Linux Consumption plan apps. Newer PowerShell versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
+[!INCLUDE [PowerShell 7.6 Linux Consumption migration](./functions-powershell-76-linux-consumption-migration.md)]
 
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).
 ::: zone-end

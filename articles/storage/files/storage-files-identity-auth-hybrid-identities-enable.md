@@ -34,6 +34,8 @@ Before you enable Microsoft Entra Kerberos authentication over SMB for Azure fil
 
 You need the following minimum prerequisites. Without these prerequisites, you can't authenticate by using Microsoft Entra ID.
 
+- The storage account's SMB security settings must allow Kerberos authentication. If you use a custom SMB security profile, verify that **Kerberos** is selected under **Authentication methods**. For instructions, see [SMB security settings](files-smb-protocol.md#smb-security-settings).
+
 - Your Azure storage account can't authenticate with both Microsoft Entra ID and a second method like AD DS or Microsoft Entra Domain Services. If you already chose another identity source for your storage account, you must disable it before enabling Microsoft Entra Kerberos. If you're migrating from on-premises AD DS authentication to Microsoft Entra Kerberos for cloud-only or hybrid identities, follow the steps in [Change the identity source for Azure file shares](change-identity-source.md).
 
 - If you want to authenticate hybrid identities, you also need AD DS and either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync). You must create these accounts in Active Directory and sync them to Microsoft Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Microsoft Entra ID. This requirement doesn't apply to cloud-only identities.
@@ -81,7 +83,7 @@ Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](/entra
 
 ## Regional availability for Microsoft Entra Kerberos
 
-Microsoft Entra Kerberos supports hybrid and cloud-only identities in all regions of the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/).
+Microsoft Entra Kerberos supports hybrid identities in all regions of the [Azure Public, Azure US Gov, and Azure China 21Vianet clouds](https://azure.microsoft.com/global-infrastructure/locations/). Cloud-only identities are supported in all regions of the Azure Public cloud, but aren't supported in Azure US Gov or Azure China 21Vianet clouds.
 
 <a name='enable-azure-ad-kerberos-authentication'></a>
 

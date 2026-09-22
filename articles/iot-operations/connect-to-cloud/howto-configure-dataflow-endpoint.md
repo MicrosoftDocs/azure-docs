@@ -112,7 +112,7 @@ In this example, assume a configuration file named `data-flow.json` with the fol
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-07-01' = {
   parent: <DEFAULT_PROFILE_RESOURCE>
   name: 'broker-to-broker'
   extendedLocation: {
@@ -214,7 +214,7 @@ In this example, assume a configuration file named `data-flow.json` with the fol
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-07-01' = {
   parent: <DEFAULT_PROFILE_RESOURCE>
   name: 'broker-to-eh'
   extendedLocation: {

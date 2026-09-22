@@ -3,7 +3,7 @@ title: Migrate apps from Azure Functions version 1.x to 4.x
 description: This article shows you how to migrate your existing function apps running on version 1.x of the Azure Functions runtime to be able to run on version 4.x of the runtime.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 09/09/2026
+ms.date: 09/15/2026
 zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom:
   - template-how-to-pattern
@@ -50,7 +50,7 @@ ms.custom:
 ::: zone pivot="programming-language-javascript,programming-language-csharp"
 
 > [!IMPORTANT]
-> [Support will end for version 1.x of the Azure Functions runtime on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). We highly recommend that you migrate your apps to version 4.x by following the instructions in this article.
+> [Support ended for version 1.x of the Azure Functions runtime on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). Migrate your apps to version 4.x by following the instructions in this article. For historical runtime 1.x behavior and reference resources, see the [runtime 1.x legacy reference](functions-runtime-1x-legacy.md).
 
 This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project migration instructions are language dependent, make sure to choose your development language from the selector at the [top of the article](#top).
 
@@ -108,7 +108,7 @@ The isolated worker model examples in this guide target .NET 10. The .NET 8 exam
 
 ## Prepare for migration
 
-If you haven't already, identify the list of apps that need to be migrated in your current Azure Subscription by using the [Azure PowerShell](#identify-function-apps-to-migrate).
+If you haven't already, identify the list of apps that need to be migrated in your current Azure subscription by using the [Azure PowerShell](#identify-function-apps-to-migrate).
 
 Before you migrate an app to version 4.x of the Functions runtime, you should do the following tasks:
 
@@ -567,7 +567,7 @@ In version 2.x, the following changes were made:
 
 * The version 2.x runtime doesn't include built-in support for webhook providers. This change was made to improve performance. You can still use HTTP triggers as endpoints for webhooks.
 
-* To improve monitoring, the WebJobs dashboard in the portal, which used the [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) setting is replaced with Azure Application Insights, which uses the [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) setting. For more information, see [Monitor Azure Functions](functions-monitoring.md).
+* To improve monitoring, the WebJobs dashboard in the portal, which used the [`AzureWebJobsDashboard`](functions-runtime-1x-legacy.md#app-settings-specific-to-runtime-1x) setting is replaced with Azure Application Insights, which uses the [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) setting. For more information, see [Monitor Azure Functions](functions-monitoring.md).
 
 * All functions in a function app must share the same language. When you create a function app, you must choose a runtime stack for the app. The runtime stack is specified by the [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) value in application settings. This requirement was added to improve footprint and startup time. When developing locally, you must also include this setting in the [local.settings.json file](functions-develop-local.md#local-settings-file).
 
@@ -579,7 +579,7 @@ In version 2.x, the following changes were made:
 
 * The URL format of Event Grid trigger webhooks has been changed to follow this pattern: `https://{app}/runtime/webhooks/{triggerName}`.
 
-* The names of some [pre-defined custom metrics](analyze-telemetry-data.md) were changed after version 1.x. `Duration` was replaced with `MaxDurationMs`, `MinDurationMs`, and `AvgDurationMs`. `Success Rate` was also renamed to `Success Rate`.
+* The names of some [predefined custom metrics](analyze-telemetry-data.md) were changed after version 1.x. `Duration` was replaced with `MaxDurationMs`, `MinDurationMs`, and `AvgDurationMs`. `Success Rate` was also renamed to `Success Rate`.
 
 ## Considerations for Azure Stack Hub
 

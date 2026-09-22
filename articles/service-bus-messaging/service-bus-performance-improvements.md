@@ -78,11 +78,15 @@ Use the following thresholds as a starting point for when to scale up:
 
 Memory usage can rise quickly. To improve receive throughput, Service Bus keeps some messages in a cache and trims that cache only when memory usage reaches a high threshold (around 80%). Scaling up at 60% memory usage gives the namespace headroom and helps prevent interruptions to message processing. For guidance on setting scale-up and scale-down rules for both metrics, see [Automatically update messaging units](automate-update-messaging-units.md).
 
+### Plan namespace capacity by workload
+
+The maximum entity quota shows how many entities a namespace can hold. It isn't a performance-sizing target. Namespace capacity needs depend on the number of active entities, aggregate and per-entity activity, traffic concentration, message characteristics, and enabled features. Evaluate expected and peak workloads by using representative testing and monitoring instead of sizing namespaces or MUs based on entity count alone.
+
 ### Sharding across namespaces
 
-While scaling up Compute (Messaging Units) allocated to the namespace is an easier solution, it **might not** provide a linear increase in the throughput. It's because of Service Bus internals (storage, network, etc.), which might be limiting the throughput.
+Consider distributing heavily used entities or independent workload groups across multiple Service Bus Premium namespaces. This topology provides workload isolation and allows each namespace to scale independently. You can adopt it proactively when workloads have different scaling or isolation requirements.
 
-The cleaner solution in this case is to shard your entities (queues, and topics) across different Service Bus Premium namespaces. You can also consider sharding across different namespaces in different Azure regions.
+Sharding can also help when increasing the compute (Messaging Units) allocated to a namespace doesn't provide a linear increase in throughput because other Service Bus resources, such as storage or networking, might limit performance. If your workload requires regional distribution, you can also shard entities across namespaces in different Azure regions.
 
 ## Service Bus messaging protocols
 

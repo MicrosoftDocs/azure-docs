@@ -2,7 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: reference
-ms.date: 09/10/2026
+ms.date: 09/15/2026
 ms.custom:
   - devx-track-extended-java
   - devx-track-python
@@ -96,12 +96,12 @@ To connect to Application Insights with Microsoft Entra authentication, you shou
 ## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
 > [!IMPORTANT]
-> Azure Functions proxies was a feature of [versions 1.x through 3.x](functions-versions.md) of the Azure Functions runtime. For more information, see [Functions proxies](functions-proxies.md).
+> Azure Functions Proxies is a legacy feature that isn't supported in the current Functions runtime. For historical configuration details, see [Application settings in the legacy Proxies reference](/previous-versions/azure/azure-functions/legacy-proxies#application-settings).
 
 ## AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
 
 > [!IMPORTANT]
-> Azure Functions proxies was a feature of [versions 1.x through 3.x](functions-versions.md) of the Azure Functions runtime. For more information, see [Functions proxies](functions-proxies.md).
+> Azure Functions Proxies is a legacy feature that isn't supported in the current Functions runtime. For historical configuration details, see [Application settings in the legacy Proxies reference](/previous-versions/azure/azure-functions/legacy-proxies#application-settings).
 
 ## AZURE_FUNCTIONS_ENVIRONMENT
 
@@ -115,11 +115,9 @@ Configures the runtime [hosting environment](/dotnet/api/microsoft.extensions.ho
 
 Use this setting instead of `ASPNETCORE_ENVIRONMENT` when you need to change the runtime environment in Azure to something other than `Production`. For more information, see [Environment-based Startup class and methods](/aspnet/core/fundamentals/environments#environments).
 
-This setting isn't available in version 1.x of the Functions runtime.
-
 ## AzureFunctionsJobHost__\*
 
-In version 2.x and later versions of the Functions runtime, application settings can override [host.json](functions-host-json.md) settings in the current environment. These overrides are expressed as application settings named `AzureFunctionsJobHost__path__to__setting`. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
+Application settings can override [host.json](functions-host-json.md) settings in the current environment. These overrides are expressed as application settings named `AzureFunctionsJobHost__path__to__setting`. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
 
 ## AzureFunctionsWebHost__hostid
 
@@ -139,16 +137,6 @@ An easy way to generate an ID is to take a GUID, remove the dashes, and make it 
 |AzureFunctionsWebHost__hostid|`myuniquefunctionappname123456789`|
 
 For more information, see [Host ID considerations](storage-considerations.md#host-id-considerations).
-
-## AzureWebJobsDashboard
-
-_This setting is deprecated and is only supported when running on version 1.x of the Azure Functions runtime._ 
-
-Optional storage account connection string for storing logs and displaying them in the **Monitor** tab in the Azure portal. The storage account must be a general-purpose one that supports blobs, queues, and tables. To learn more, see [Storage account requirements](storage-considerations.md#storage-account-requirements).
-
-|Key|Sample value|
-|---|------------|
-|AzureWebJobsDashboard|`DefaultEndpointsProtocol=https;AccountName=...`|
 
 ## AzureWebJobsDisableHomepage
 
@@ -184,7 +172,7 @@ Currently supported feature flags:
 
 |Flag value | Description |
 | ----- | ----- |
-| `EnableProxies` | Re-enables proxies on version 4.x of the Functions runtime while you plan your migration to Azure API Management. For more information, see [Re-enable proxies in Functions v4.x](./legacy-proxies.md#re-enable-proxies-in-functions-v4x). |
+| `EnableProxies` | Re-enables proxies on version 4.x of the Functions runtime while you plan your migration to Azure API Management. For more information, see [Re-enable proxies in Functions v4.x](/previous-versions/azure/azure-functions/legacy-proxies#re-enable-proxies-in-functions-v4x). |
 | `EnableAzureMonitorTimeIsoFormat` | Enables the `ISO 8601` time format in Azure Monitor logs for Linux apps running on a Dedicated (App Service) plan. |
 
 ## AzureWebJobsKubernetesSecretName 
@@ -278,7 +266,7 @@ Specifies the repository or provider to use for key storage. Keys are always enc
 |Key| Value| Description|
 |---|------------|---|
 |AzureWebJobsSecretStorageType|`blob`|Keys are stored in a Blob storage container in the account provided by the `AzureWebJobsStorage` setting. Blob storage is the default behavior when `AzureWebJobsSecretStorageType` isn't set.<br/>To specify a different storage account, use the `AzureWebJobsSecretStorageSas` setting to indicate the SAS URL of a second storage account. |
-|AzureWebJobsSecretStorageType  | `files` | Keys are persisted on the file system. This behavior is the default for Functions v1.x.|
+|AzureWebJobsSecretStorageType  | `files` | Keys are persisted on the file system.|
 |AzureWebJobsSecretStorageType |`keyvault` | Keys are stored in a key vault instance set by `AzureWebJobsSecretStorageKeyVaultName`. | 
 |AzureWebJobsSecretStorageType | `kubernetes` | Supported only when running the Functions runtime in Kubernetes. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.|
 
@@ -404,14 +392,9 @@ The version of the Functions runtime that hosts your function app. A tilde (`~`)
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|`~4`|
 
-The following major runtime version values are supported:
+Version 4 is currently the only supported Azure Functions runtime version.
 
-| Value | Runtime target | Comment |
-| ------ | -------- | --- |
-| `~4` | 4.x | Recommended |
-| `~1` | 1.x | Support ends September 14, 2026 |
-
-A value of `~4` means that your app runs on version 4.x of the runtime. A value of `~1` pins your app to version 1.x of the runtime. Runtime versions 2.x and 3.x are no longer supported. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
+A value of `~4` means that your app runs on version 4.x of the runtime. Runtime versions 2.x and 3.x are no longer supported. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
 
 If requested by support to pin your app to a specific minor version, use the full version number, for example, `4.0.12345`. For more information, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
@@ -456,7 +439,7 @@ This sample `FUNCTIONS_REQUEST_BODY_SIZE_LIMIT` value limits the message body in
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
 >[!IMPORTANT]
-> This setting is no longer supported. It was originally provided to enable a short-term workaround for apps that targeted the v2.x runtime. They would be able to instead run on the v3.x runtime while it was still supported. Except for legacy apps that run on version 1.x, all function apps must run on version 4.x of the Functions runtime: `FUNCTIONS_EXTENSION_VERSION=~4`. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
+> This setting is no longer supported. It was originally provided to enable a short-term workaround for apps that targeted the v2.x runtime. They would be able to instead run on the v3.x runtime while it was still supported. All function apps must run on version 4.x of the Functions runtime: `FUNCTIONS_EXTENSION_VERSION=~4`. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
 
 ## FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
@@ -927,7 +910,7 @@ On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.m
 
 Determines whether the built-in administrator (`/admin`) endpoints in your function app can be accessed. When set to `false` (the default), the app allows requests to endpoints under `/admin` when those requests present a [master key](function-keys-how-to.md#understand-keys) in the request. When `true`, `/admin` endpoints can't be accessed, even with a master key.
 
-This property can't be set for apps running on Linux in a Consumption plan. It can't be set for apps running on version 1.x of Azure Functions. If you're using version 1.x, you must first [migrate to version 4.x](./migrate-version-1-version-4.md). 
+This property can't be set for apps running on Linux in a Consumption plan.
 
 ## linuxFxVersion 
 
@@ -937,13 +920,15 @@ This value is set for you when you create your Linux function app. You might nee
 
 ### Valid linuxFxVersion values
 
-You can use the following Azure CLI command to see a table of current `linuxFxVersion` values, by supported Functions runtime version:
+You can use the following Azure CLI command to see a table of current `linuxFxVersion` values:
 
 ```azurecli-interactive
 az functionapp list-runtimes --os linux --query "[].{stack:join(' ', [runtime, version]), LinuxFxVersion:linux_fx_version, SupportedFunctionsVersions:to_string(supported_functions_versions[])}" --output table
 ```
 
 The previous command requires you to upgrade to version 2.40 of the Azure CLI.  
+
+Some managed Linux image updates use a three-part value in the format `<LANGUAGE>|<VERSION>|<IMAGE_VERSION>`. These values explicitly select the Linux distribution and aren't returned by the preceding command. For supported values and update instructions for affected Python and Java apps, see [Update the managed Linux image](set-runtime-version.md?pivots=platform-linux#update-the-managed-linux-image).
 
 ### Custom images
 
@@ -991,7 +976,7 @@ In the [Flex Consumption plan](./flex-consumption-plan.md), these site propertie
 | Setting/property | Reason | 
 | ----- | ----- | 
 | `ENABLE_ORYX_BUILD` |Replaced by the `remoteBuild` parameter when deploying in Flex Consumption|
-| `FUNCTIONS_EXTENSION_VERSION` |App Setting is set by the backend. A value of ~1 can be ignored. |
+| `FUNCTIONS_EXTENSION_VERSION` | App setting is managed by the platform and shouldn't be set manually. |
 | `FUNCTIONS_WORKER_RUNTIME` |Replaced by `name` in `properties.functionAppConfig.runtime`|
 | `FUNCTIONS_WORKER_RUNTIME_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
 | `FUNCTIONS_MAX_HTTP_CONCURRENCY` |Replaced by scale and concurrency's trigger section|

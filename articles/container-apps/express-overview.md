@@ -1,5 +1,5 @@
 ---
-title: Azure Container Apps Express Overview (preview)
+title: Azure Container Apps Express Overview
 description: Learn about Azure Container Apps express, a developer-first platform that lets you deploy containerized web apps to Azure with minimal configuration and rapid provisioning.
 ms.topic: overview
 ms.date: 08/27/2026
@@ -9,7 +9,7 @@ ms.service: azure-container-apps
 ms.custom: references_regions
 ---
 
-# Azure Container Apps express overview (preview)
+# Azure Container Apps express overview
 
 Azure Container Apps express provides the fastest way to deploy containerized web applications to Azure. With opinionated defaults and a minimal configuration surface, express is a developer-first and agent-first platform designed to get your web apps running in the cloud as fast as possible.
 
@@ -91,9 +91,9 @@ Keep these important points in mind when using express:
 
 - **Opinionated configuration**: The express model uses opinionated defaults with a minimal configuration surface. If you need fine-grained control over compute, networking, or cold-start behavior, use standard Container Apps with a [workload profiles environment](environment.md).
 
-- **Focused networking**: Express supports internal or external ingress, IP restrictions, CORS, virtual network egress, and environment private endpoints. For virtual network egress, use either an environment-level subnet or an app-level outbound subnet. An app-level subnet can't be combined with an environment-level virtual network, can only be shared by apps in the same environment, and can't be changed or removed after it's set. Custom domains, client certificates, session affinity, and built-in service discovery aren't yet supported.
+- **Focused networking**: Express supports internal or external ingress, IP restrictions, CORS, virtual network egress, and environment private endpoints. For virtual network egress, use either an environment-level subnet or an app-level outbound subnet. An app-level subnet can't be combined with an environment-level virtual network, can only be shared by apps in the same environment, and can't be changed or removed after it's set. Custom domains, client certificates, session affinity, and built-in service discovery aren't supported.
 
-- **Feature availability**: Express offers a focused set of Container Apps capabilities. User-assigned managed identities, HTTP, CPU, and memory scale rules, `EmptyDir` volume mounts, and custom ephemeral storage are available with the limitations described in the following table. Dapr, jobs, workload profiles, and system-assigned managed identities aren't yet supported.
+- **Feature availability**: Express offers a focused set of Container Apps capabilities. User-assigned managed identities, HTTP, CPU, and memory scale rules, `EmptyDir` volume mounts, and custom ephemeral storage are available with the limitations described in the following table. Dapr, jobs, workload profiles, and system-assigned managed identities aren't supported.
 
 ## Supported features
 
@@ -176,7 +176,7 @@ Express doesn't support the following capabilities:
 
 ## Region availability
 
-During public preview, Express is available in the following Azure regions:
+Express is available in the following Azure regions:
 
 - Australia East
 - Austria East

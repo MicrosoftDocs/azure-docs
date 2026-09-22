@@ -6,7 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
-ms.date: 02/13/2026
+ms.date: 09/11/2026
 # Customer intent: As a system administrator, I want to enable VMware VM replication to Azure for disaster recovery, so that I can ensure business continuity and seamless recovery in the event of a disaster.
 ---
 
@@ -29,13 +29,13 @@ Before you begin, make sure your system meets the following criteria:
 
 - Each disk must be smaller than 4 TB when replicating to unmanaged disks and smaller than 32 TB when replicating to managed disks.
 - The operating system disk must be a basic disk, not a dynamic disk.
-- For generation 2 UEFI-enabled virtual machines, the operating system family must be Windows, and the boot disk must be smaller than 300 GB.
+- Generation 2 UEFI protection supports eligible Windows and Linux operating systems. Apply the OS-specific Secure Boot, partitioning, and boot-driver requirements in the support matrix. The Generation 2 OS disk can be up to 4,095 GiB.
 
 ## Before you start
 
 When you replicate VMware virtual machines, keep this information in mind:
 
-- Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) to enable replication of a new virtual machine to Azure.
+- Your Azure user account needs to have certain [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-perform-replication-and-failover-actions-on-virtual-machines) to enable replication of a new virtual machine to Azure.
 - VMware VMs are discovered every 15 minutes. It can take 15 minutes or more for VMs to appear in the Azure portal after discovery. When you add a new vCenter server or vSphere host, discovery can take 15 minutes or more.
 - It can take 15 minutes or more for environment changes on the virtual machine to be updated in the portal. For example, the VMware tools installation.
 - You can check the last-discovered time for VMware VMs: See the **Last Contact At** field on the **Configuration Servers** page for the vCenter server or vSphere host.
@@ -58,7 +58,7 @@ To enable replication, follow these steps:
 1. In the **Source** page > **Source**, select the configuration server.
 1. For **Machine type**, select **Virtual Machines** or **Physical Machines**.
 1. In **vCenter/vSphere Hypervisor**, select the vCenter server that manages the vSphere host, or select the host. This setting isn't relevant if you're replicating physical computers.
-1. Select the process server. If you don't create any additional process servers, the built-in process server of the configuration server is available in the dropdown menu. The health status of each process server is indicated according to recommended limits and other parameters. Choose a healthy process server. You can't choose a [critical](vmware-physical-azure-monitor-process-server.md#process-server-alerts) appliance. You can either [troubleshoot and resolve](vmware-physical-azure-troubleshoot-process-server.md) the errors **or** set up a [scale-out process server](vmware-azure-set-up-process-server-scale.md).
+1. Select the process server. If you don't create any additional process servers, the built-in process server of the configuration server is available in the dropdown menu. The health status of each process server is indicated according to recommended limits and other parameters. Choose a healthy process server. You can't choose a [critical](vmware-physical-azure-monitor-process-server.md#process-server-alerts) appliance. You can either [troubleshoot and resolve](vmware-physical-azure-monitor-process-server.md#process-server-alerts) the errors **or** set up a [scale-out process server](vmware-azure-set-up-process-server-scale.md).
 
    :::image type="content" source="./media/vmware-azure-enable-replication/ps-selection.png" alt-text="Enable replication source window.":::
 
@@ -86,6 +86,8 @@ To enable replication, follow these steps:
 
    > [!NOTE]
    > - Virtual machines in a replication group replicate together and have shared crash-consistent and app-consistent recovery points when they fail over.
+   > - A multi-VM consistency group can contain up to 16 machines.
+   > - A built-in replication appliance supports up to 200 protected machines. Churn and appliance sizing can require a lower count.
    > - Gather VMs and physical servers together so that they mirror your workloads. Enabling multi-VM consistency can affect workload performance. Do this only if the virtual machines are running the same workload, and you need consistency.
 
    :::image type="content" source="./media/vmware-azure-enable-replication/enable-replication7.png" alt-text="Enable replication window.":::
@@ -115,7 +117,9 @@ To track the progress of initial replication, go to the recovery services vault 
       - After initial replication finishes, the status shows "Complete".        
    - Site Recovery reads through the original disk, transfers data to Azure, and captures progress at a disk level. Note that, Site Recovery skips replication of the unoccupied size of the disk and adds it to the completed data. So, sum of data transferred across all disks might not add up to the "total data transferred" at the VM level.
    - When you select the information balloon against a disk, you see details on when the replication (synchronization) was triggered for the disk, data transferred to Azure in the last 15 minutes, and the last refreshed timestamp. This timestamp shows the latest time that Azure service receives information from the source machine.
-:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-info-balloon.png" alt-text="initial-replication-info-balloon-details." lightbox="media/vmware-azure-enable-replication/initial-replication-info-balloon.png":::
+
+:::image type="content" source="media/vmware-azure-enable-replication/initial-replication-info-balloon.png" alt-text="Screenshot that shows initial replication details for a disk." lightbox="media/vmware-azure-enable-replication/initial-replication-info-balloon.png":::
+
    - Health of each disk is displayed
       - If replication is slower than expected, the disk status shows warning.
       - If replication isn't progressing, the disk status shows critical.

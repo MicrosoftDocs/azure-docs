@@ -6,6 +6,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-functions/functions-add-openai-text-completion.md",
+            "redirect_url": "/azure/azure-functions/functions-create-ai-enabled-apps",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-functions/compare-serverless-agents-runtime.md",
             "redirect_url": "/azure/azure-functions/functions-hosted-skills",
             "redirect_document_id": false
