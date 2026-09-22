@@ -178,7 +178,7 @@ The renewal process requires that the service principal for App Service has the 
 
    :::image type="content" source="./media/configure-ssl-certificate/auto-renew-app-service-cert.png" alt-text="Screenshot that shows the specified certificate's autorenewal settings." lightbox="./media/configure-ssl-certificate/auto-renew-app-service-cert.png":::
 
-1. To renew manually instead, select **Manual Renew**. Manual renewal is available during the last 90 days before the certificate expires. A [certificate can't be issued for longer than 397 days](https://www.godaddy.com/help/important-notification-about-ssl-offerings-9322).
+1. To renew manually instead, select **Manual Renew**. Manual renewal is available during the last 90 days before the certificate expires. A [certificate can't be issued for longer than 200 days](https://cabforum.org/2025/04/11/ballot-sc081v3-introduce-schedule-of-reducing-validity-and-data-reuse-periods/).
 
 1. After the renewal operation finishes, select **Sync**.
 
@@ -188,7 +188,7 @@ The renewal process requires that the service principal for App Service has the 
 
 ### What renewing does before the paid term ends
 
-Being able to request a renewal doesn't mean you get extra validity. If more than 32 days are left on the term you already paid for, a renewal rekeys the certificate for free, and the new certificate keeps the same expiration date as the term you already paid for. You are not charged, and repeating the renewal doesn't add any more days. When you renew within the last 32 days of the paid term, the renewal buys the next year, your subscription is charged once, and the expiration date moves out by a year. If you need a certificate that lasts longer than your current term today, buy a new App Service certificate instead.
+Being able to request a renewal doesn't mean you get extra validity. If more than 32 days are left on the term you already paid for, a renewal rekeys the certificate for free, and the new certificate keeps the same expiration date as the term you already paid for. You are not charged, and repeating the renewal doesn't add any more days. When you renew within the last 32 days of the paid term, the renewal buys the next year, your subscription is charged for the full year, and the expiration date extends by one year.
 
 ## Rekey an App Service certificate
 
@@ -216,14 +216,14 @@ The rekey process requires that the service principal for App Service has the re
 
 ### Why a rekey returns a shorter certificate than a renewal
 
-A rekey replaces the private key on your certificate and keeps the existing expiration date. The new certificate is valid only for the days that were left on the previous one. If you rekey 60 days before expiration, the new certificate is valid for about 60 days.
+A rekey replaces the private key on your certificate and keeps the existing expiration date. The new certificate is valid only for the days that were left on the previous one. For example, if you rekey 60 days before expiration, the new certificate is valid for about 60 days.
 
 A renewal is different. It issues a fresh certificate. On a subscription based order, the new certificate is valid for 198 days.
 
 > [!NOTE]
 > Rekey keeps your current expiration date. Renew resets it.
 
-Neither a rekey nor a renewal can issue a certificate that outlives the paid term of the order. If fewer than 30 days remain on a subscription based order, the request is refused. Renew the order first to extend the term, and then rekey.
+Neither a rekey nor a renewal can issue a certificate that outlives the paid term of the order. If fewer than 30 days remain on a subscription based order, a rekey is refused. Renew instead, which also rotates the key.
 
 ## Export an App Service certificate
 
