@@ -72,9 +72,7 @@ To configure a specialized VM size for your Batch pool, you have several options
 
     * [Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) for Linux or Windows - includes NVIDIA CUDA drivers
 
-    * Linux images for Batch container workloads that also include GPU and RDMA drivers:
-
-    * [Ubuntu Server (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
+    * Linux images for Batch container workloads that also include GPU and RDMA drivers
 
 * Create a [custom Windows or Linux VM image](batch-sig-images.md) with installed drivers, software, or other settings required for the VM size.
 
