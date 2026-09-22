@@ -1,7 +1,7 @@
 ---
 title: Reference - CIS Security Benchmarks for Rocky Linux via Machine Configuration
 description: Reference - CIS Security Benchmarks for Rocky Linux via Machine Configuration
-ms.date: 06/18/2026
+ms.date: 09/11/2026
 author: pallakatos
 ms.author: pallakatos
 ms.topic: reference
@@ -27,16 +27,15 @@ This article provides detailed information about the CIS Security Benchmarks for
 > [!NOTE]
 > The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.
 
-- Ensure permissions on /etc/ssh/sshd_config are configured
-- Ensure sshd LoginGraceTime is configured
-- Ensure sshd MaxStartups is configured
-- Ensure active authselect profile includes pam modules
-- Ensure audit configuration files are owned by root
-- Ensure audit configuration files belong to group root
+- 4.2.1 Ensure permissions on /etc/ssh/sshd_config are configured
+- 4.2.12 Ensure sshd LoginGraceTime is configured
+- 4.2.17 Ensure sshd MaxStartups is configured
+- 5.2.4.6 Ensure audit configuration files are owned by root
+- 5.2.4.7 Ensure audit configuration files belong to group root
 
 ### Not implemented rules
 
-- Ensure only authorized groups are assigned ownership of audit log files
+- 5.2.4.4 Ensure only authorized groups are assigned ownership of audit log files
 
 ### Configurable parameters
 
@@ -304,14 +303,11 @@ This article provides detailed information about the CIS Security Benchmarks for
 > [!NOTE]
 > The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.
 
-- Ensure firewire-core kernel module is not available
-- Ensure chrony is configured
-- Ensure access to /etc/cron.yearly is configured
-- Ensure access to at is configured
-- Ensure sshd Ciphers are configured
-- Ensure active authselect profile includes pam modules
-- Ensure cryptographic mechanisms are used to protect the integrity of audit tools
-- Ensure world writable files and directories are secured
+- 1.1.1.9 Ensure firewire-core kernel module is not available
+- 2.3.2 Ensure chrony is configured
+- 5.1.8 Ensure sshd Ciphers are configured
+- 6.1.3 Ensure cryptographic mechanisms are used to protect the integrity of audit tools
+- 7.1.11 Ensure world writable files and directories are secured
 
 ### Configurable parameters
 
@@ -483,6 +479,7 @@ This article provides detailed information about the CIS Security Benchmarks for
 ||group|root|
 |Ensure access to crontab is configured|owner|root|
 ||group|root\|crontab|
+||mask|0137|
 |Ensure access to at is configured|filenameEtcAtAllow|/etc/at.allow|
 ||mask|0137|
 ||owner|root|
@@ -597,14 +594,13 @@ This article provides detailed information about the CIS Security Benchmarks for
 > [!NOTE]
 > The mismatched rules are the ones that in some circumstances the assessment might differ from CIS-CAT® Pro Assessor; usually our implementation enforces stricter criteria.
 
-- Ensure sshd IgnoreRhosts is enabled
-- Ensure sshd LogLevel is configured
-- Ensure sshd MaxSessions is configured
-- Ensure sshd PermitEmptyPasswords is disabled
-- Ensure sshd PermitUserEnvironment is disabled
-- Ensure sshd UsePAM is enabled
-- Ensure root account access is controlled
-- Ensure only one logging system is in use
+- 5.1.13 Ensure sshd IgnoreRhosts is enabled
+- 5.1.15 Ensure sshd LogLevel is configured
+- 5.1.18 Ensure sshd MaxSessions is configured
+- 5.1.19 Ensure sshd PermitEmptyPasswords is disabled
+- 5.1.21 Ensure sshd PermitUserEnvironment is disabled
+- 5.1.22 Ensure sshd UsePAM is enabled
+- 6.2.1.4 Ensure only one logging system is in use
 
 ### Configurable parameters
 
@@ -800,7 +796,7 @@ This article provides detailed information about the CIS Security Benchmarks for
 |Ensure sshd LoginGraceTime is configured|logingracetimeValue|\b([1-9]\|[1-5][0-9]\|60)\b|
 |Ensure sshd LogLevel is configured|loglevelValue|(VERBOSE\|INFO)\b|
 |Ensure sshd MaxAuthTries is configured|maxauthtriesValue|[0-4]\b|
-|Ensure sshd MaxStartups is configured|maxstartupsValue|`(10\|[1-9])[^ \t](30\|[1-2][0-9]\|[1-9])[^ \t](60\|[1-5][0-9]\|[1-9])\b`|
+|Ensure sshd MaxStartups is configured|maxstartupsValue|(10\|[1-9])[^ \t](30\|[1-2][0-9]\|[1-9])[^ \t](60\|[1-5][0-9]\|[1-9])\b|
 |Ensure sshd MaxSessions is configured|maxsessionsValue|([1-9]\|10)\b|
 |Ensure password expiration is configured|maxDays|365|
 ||minDays|1|
