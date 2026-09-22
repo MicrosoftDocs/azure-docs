@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Container Apps Sandboxes (preview)
-description: Choose a setup path for Azure Container Apps Sandboxes (preview), including portal, Azure Container Apps CLI, Python SDK, Bicep, and agent skills options.
+title: Get started with Azure Container Apps Sandboxes
+description: Choose a setup path for Azure Container Apps Sandboxes, including portal, Azure Container Apps CLI, Python SDK, Bicep, and agent skills options.
 #customer intent: As a developer building AI agents, I want to choose the right setup path for Azure Container Apps Sandboxes so that I can start with the tools that match my workflow.
 author: craigshoemaker
 ms.author: cshoe
@@ -10,16 +10,12 @@ ms.service: azure-container-apps
 ms.topic: overview
 ---
 
-# Get started with Azure Container Apps Sandboxes (preview)
+# Get started with Azure Container Apps Sandboxes
 
 Azure Container Apps Sandboxes let you run untrusted or AI-generated code in isolated environments with explicit lifecycle control. Use this article to choose the setup path that best fits how you want to create and manage sandboxes.
 
 > [!IMPORTANT]
 > To manage and create sandboxes, you need the Azure role *Container Apps SandboxGroup Data Owner*. Assign this role to all users who create and manage sandboxes.
->
-> Sandboxes created during preview might not be compatible with future releases and might need to be recreated.
->
-> The API surface for Python SDK and Azure Container Apps CLI commands might change during preview.
 
 ## Choose your path
 
