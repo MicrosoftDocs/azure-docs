@@ -912,6 +912,10 @@ items:
   items:
   - name: Overview
     href: concepts/telephony/telephony-concept.md
+  - name: Migration to Teams Phone numbers
+    href: concepts/telephony/migrate-to-teams-phone.md
+  - name: Migration to Teams Phone Direct Routing
+    href: concepts/telephony/migrate-to-teams-direct-routing.md
   - name: Pricing
     href: concepts/pstn-pricing.md
   - name: Phone number types
