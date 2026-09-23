@@ -15,18 +15,9 @@ ms.custom: engagement-fy23
 
 This article answers common questions that might come up when you deploy disaster recovery of on-premises VMware virtual machines (VMs) to Azure.
 
-[!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
-
->[!NOTE]
->You can now move your existing replicated items to modernized VMware disaster recovery experience. [Learn more](move-from-classic-to-modernized-vmware-disaster-recovery.md).
-
 ## General
 
-### How do I use the classic experience in the Recovery Services vault rather than the modernized experience? 
-
-You can't move to the classic experience in a newly created Recovery Services vault because it will be [deprecated](vmware-physical-azure-classic-deprecation.md) in March 2026. All new Recovery Services vaults use the modernized experience. 
-
-### Can I migrate to the modernized experience? 
+### Can I migrate to the modernized experience?
 
 You can migrate all VMware VMs or physical servers that you're replicating by using the classic experience to the modernized experience. Check the details [here](move-from-classic-to-modernized-vmware-disaster-recovery.md) and follow the [tutorial](how-to-move-from-classic-to-modernized-vmware-disaster-recovery.md).
 
@@ -114,7 +105,7 @@ Find the installers in the %ProgramData%\ASR\home\svsystems\pushinstallsvc\repos
 On each VM that you want to replicate, install the service by using one of several methods:
 
 - [Push installation](vmware-physical-mobility-service-overview.md#push-installation)
-- [Manual installation](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-classic) from the UI or PowerShell
+- [Manual installation](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui) from the UI or PowerShell
 - Deployment by using a deployment tool such as [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
 ## Managed disks
