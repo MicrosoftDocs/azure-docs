@@ -66,7 +66,6 @@ Kubenet isn't supported by Application Gateway for Containers. If using Kubenet,
 ## FAQ
 
 Q: Can I upgrade an existing cluster with Application Gateway for Containers from CNI to CNI Overlay?
-
 A: Yes, upgrade of the AKS cluster from CNI to CNI Overlay and Application Gateway for Containers automatically detects the change. It's recommended to schedule the upgrade during a maintenance window as traffic disruption can occur. The controller may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
 
 > [!WARNING]
@@ -83,7 +82,10 @@ Q: Can I deploy Application Gateway for Containers in a separate virtual network
 A: No. Separate virtual networks for Application Gateway for Containers and AKS aren't currently supported. Application Gateway for Containers must be deployed in the same virtual network as your AKS cluster.
 
 Q: Can Application Gateway for Containers proxy traffic to a cluster running CNI Overlay with Cilium and WireGuard enabled?
-A: Yes. Application Gateway for Containers can proxy traffic to a cluster configured with CNI Overlay, Cilium, and WireGuard. However, WireGuard doesn't encrypt traffic between Application Gateway for Containers and the destination pod.  
+A: Yes. Application Gateway for Containers can proxy traffic to a cluster configured with CNI Overlay, Cilium, and WireGuard. However, WireGuard doesn't encrypt traffic between Application Gateway for Containers and the destination pod. 
+
+Q: Does Application Gateway for Containers support virtual networks with VNet encryption enabled?
+A: Yes. Application Gateway for Containers can be deployed in a virtual network with VNet encryption enabled. However, Application Gateway for Containers does not use VNet encryption for traffic between the gateway and AKS.
 
 ## Next steps
 
