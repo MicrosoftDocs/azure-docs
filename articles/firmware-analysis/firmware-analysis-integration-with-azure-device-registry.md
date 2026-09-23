@@ -88,21 +88,21 @@ Firmware analysis surfaces Azure Device Registry device and asset information as
 - Firmware Overview right-hand pop-up in firmware list  
   Displays two fields: “Devices” and “Assets” count associated with the firmware image  
 
-  :::image type="content" source="media/device-registry-integration/devices-assets-firmware-list-popup.png" alt-text="Screenshot of the Devices and Assets list in the firmware list popup." lightbox="media/device-registry-integration/devices-assets-firmware-list-popup.png":::
+    :::image type="content" source="media/device-registry-integration/devices-assets-firmware-list-popup.png" alt-text="Screenshot of the Devices and Assets list in the firmware list popup." lightbox="media/device-registry-integration/devices-assets-firmware-list-popup.png":::
 
-  - Hover over the number to see a scrollable list of Azure Device Registry Devices or Assets, each linking to that Azure Device Registry resource’s Resource Overview page in the Azure Device Registry portal
-
+  - Hover over the number to see a grouped list of Azure Device Registry Devices or Assets, each linking to that Azure Device Registry resource's name space in the Azure Device Registry portal.
+    
 - Analysis results Azure Device Registry section  
   - Azure Device Registry fields “Devices” and “Assets” that displays Azure Device Registry-associated devices and assets alongside firmware analysis findings  
   
     :::image type="content" source="media/device-registry-integration/devices-assets-firmware-details.png" alt-text="Screenshot of the Devices and Assets fields in firmware analysis findings." lightbox="media/device-registry-integration/devices-assets-firmware-details.png":::
 
-  - Like the experience in the Overview panel pop-up, hover over the number to see a scrollable list of Azure Device Registry resources, each linking to that resource’s Resource Overview page in the Azure Device Registry portal  
+  - Like the experience in the Overview panel pop-up, hover over the number to see a scrollable list of Azure Device Registry name spaces and the count of devices within, each linking to that namespace.
   
-    :::image type="content" source="media/device-registry-integration/hover-list.png" alt-text="Screenshot of the scrollable list upon hovering over Azure Device Registry resources." lightbox="media/device-registry-integration/hover-list.png":::
-
-From Firmware analysis, you can select an Azure Device Registry resource to be taken to the Azure Device Registry resource overview page in the Azure Device Registry portal.
-
+    ![Screenshot of the ADR integration card showing devices grouped by namespace.](media/firmware-analysis-integration-with-azure-device-registry/image.png)
+    
+    
+    
 ---
 
 ## Access requirements
