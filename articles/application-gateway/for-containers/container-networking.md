@@ -85,7 +85,7 @@ Q: Can Application Gateway for Containers proxy traffic to a cluster running CNI
 A: Yes. Application Gateway for Containers can proxy traffic to a cluster configured with CNI Overlay, Cilium, and WireGuard. However, WireGuard doesn't encrypt traffic between Application Gateway for Containers and the destination pod. 
 
 Q: Does Application Gateway for Containers support virtual networks with VNet encryption enabled?
-A: Yes. Application Gateway for Containers can be deployed in a virtual network with VNet encryption enabled. However, Application Gateway for Containers does not use VNet encryption for traffic between the gateway and AKS.
+A: Yes. You can deploy Application Gateway for Containers in a virtual network with VNet encryption enabled. However, Application Gateway for Containers doesn't use VNet encryption for traffic between the gateway and AKS.
 
 ## Next steps
 
