@@ -2,7 +2,7 @@
 title: Analyze a firmware image with the firmware analysis service.
 description: Learn to analyze a compiled firmware image using firmware analysis.
 ms.topic: tutorial
-ms.date: 07/17/2025
+ms.date: 09/04/2026
 author: karengu0
 ms.author: karenguo
 ms.service: azure
@@ -104,7 +104,7 @@ The analysis time will vary based on the size of the firmware image and the numb
     
 1. Select **View results** to drill down for more details.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/overview.png" alt-text="Screenshot that shows clicking view results button for a detailed analysis of the firmware image." lightbox="media/tutorial-firmware-analysis/overview.png":::
+    :::image type="content" source="media/tutorial-firmware-analysis/overview.png" alt-text="Screenshot of the firmware analysis overview, including the unsafe function calls summary and preview tab." lightbox="media/tutorial-firmware-analysis/overview.png":::
     
 1. The firmware details page shows security analysis results on the following tabs:
 
@@ -114,11 +114,16 @@ The analysis time will vary based on the size of the firmware image and the numb
     |**Software Components**     |   View a software bill of materials with the following details: <br><Br> - A list of open source components used to create firmware image <br>- Component version information <br>- Component license <br>- Executable path of the binary      |
     |**Weaknesses**     |  View a listing of common vulnerabilities and exposures (CVEs). <br><br>Select a specific CVE to view more details. |
     |**Binary Hardening**     |   View if executables compiled using recommended security settings: <br><br>- NX <br>- PIE<br>- RELRO<br>- CANARY<br>- STRIPPED<br><br> Select a specific binary to view more details.|
+    |**Unsafe function calls (preview)**     | View supported executables that reference potentially unsafe functions. Use the total and function-specific call counts, networking-call information, and executable path to prioritize further security review. An empty result doesn't confirm that the firmware contains no unsafe function calls. |
     |**Password Hashes**     |   View embedded accounts and their associated password hashes.<br><br>Select a specific user account to view more details.|
     |**Certificates**     |   View a list of TLS/SSL certificates found in the firmware.<br><br>Select a specific certificate to view more details.|
     |**Keys**     |   View a list of public and private crypto keys in the firmware.<br><br>Select a specific key to view more details.|
 
     :::image type="content" source="media/tutorial-firmware-analysis/weaknesses.png" alt-text="Screenshot that shows the weaknesses (CVE) analysis of the firmware image." lightbox="media/tutorial-firmware-analysis/weaknesses.png":::
+
+    For information about supported architectures, analysis limitations, and how to interpret zero or empty results, see [Understand unsafe function call data](understand-unsafe-function-calls.md).
+
+    :::image type="content" source="media/tutorial-firmware-analysis/unsafe-function-calls.png" alt-text="Screenshot of the unsafe function calls preview results, including unsafe and network call totals and function-specific counts by executable." lightbox="media/tutorial-firmware-analysis/unsafe-function-calls.png":::
 
 ## Delete a firmware image
 
