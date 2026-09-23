@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Azure Backup Server v3
 description: This article provides the information about the known issues and workarounds for Microsoft Azure Backup Server (MABS) v3.
 ms.topic: release-notes
-ms.date: 04/24/2026
+ms.date: 08/18/2026
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -11,13 +11,20 @@ ms.author: v-mallicka
 
 # Release notes for Microsoft Azure Backup Server
 
-This article provides the known issues and workarounds for Microsoft Azure Backup Server (MABS) V3.
+This article provides the known issues and workarounds for Microsoft Azure Backup Server (MABS) V4 and V3.
+
+## MABS V4 UR2  known issues and workarounds
+
+MABS V4 UR2 has the following known issues:
+
+| Known issue | Workaround |
+| --- | --- |
+| The Patch UI doesn't appear after the patch files are extracted. This issue occurs when Visual C++ Redistributable updates runtime files that require a system to restart before the changes take effect. | Restart the machine and run the package again. |
+| An error appears when you push the agent to a machine that doesn’t have Visual C++ Redistributable 2013 installed.  |   Although the latest agent no longer depends on this component, the RTM version still requires Visual C++ Redistributable 2013, for upgrade scenarios. <br><br> Install Visual C++ Redistributable 2013, and then push the agent again. <br><br> If the machine has an older version of Microsoft Visual C++ 2015-2022 Redistributable than the version required by MABS V4 UR2, MABS V4 UR2 automatically upgrades the existing installation to version 14.38.33135 during setup. If the machine already has a newer version installed, setup continues without changes. |
 
 ## MABS V4 UR1 Refresh known issues and workarounds
 
 No known issues.
-
-
 
 ## MABS V4 UR1 known issues and workarounds
 
@@ -51,7 +58,7 @@ If you're protecting Windows Server 2012 and 2012 R2, you need to install Visual
 >[!Note] 
 >This issue is fixed in MABS V4.
 
-**Work around:** To prevent this, open SQL Server Management Studio (SSMS)) and run the following SQL script on the DPM DB:
+**Work around:** To prevent this, open SQL Server Management Studio (SSMS) and run the following SQL script on the DPM DB:
 
 ```sql
     IF EXISTS (SELECT * FROM dbo.sysobjects

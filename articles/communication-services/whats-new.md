@@ -5,7 +5,7 @@ author: sroons
 ms.author: serooney
 ms.service: azure-communication-services
 ms.topic: whats-new
-ms.date: 06/24/2025
+ms.date: 09/15/2026
 ms.custom: template-concept, references_regions
 ---
 
@@ -14,6 +14,37 @@ ms.custom: template-concept, references_regions
 This article describes new features and updates related to Azure Communication Services.
 
 <!-- [!INCLUDE [Survey Request](includes/survey-request.md)] -->
+
+## September 2026
+
+### Retirement and breaking changes
+
+Azure Communication Services retires as a standalone offering on September 30, 2028. Some services retire, while others remain available with breaking changes that require migration to supported Teams-aligned scenarios.
+
+**Retiring services:**
+
+- Email
+- SMS
+- Advanced Messaging with WhatsApp
+- Chat
+- Chat for Teams Meeting interoperability
+- Rooms
+- Number Management (Direct Offer)
+- Direct Routing
+- Job Router
+- Web UI Library SDK
+- Mobile UI Library SDK
+
+**Services with breaking changes:**
+
+- Voice and Video Calling SDK
+- Call Diagnostics
+- Call Automation
+- Audio Streaming
+- Call Recording
+- Closed Captions
+
+For timelines, migration options, and support guidance, see the [retirement and breaking changes guide](https://aka.ms/acs-retirement).
 
 ## June 2025
 

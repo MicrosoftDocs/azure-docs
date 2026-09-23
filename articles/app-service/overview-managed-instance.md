@@ -1,20 +1,35 @@
 ---
-title: Managed Instance on App Service overview (preview)
+title: Managed Instance on App Service overview
 description: Managed Instance on Azure App Service is a specialized hosting option that provides isolation, customization, and secure integration with Azure resources, ideal for legacy, and infrastructure-dependent web apps.
 keywords: app service, azure app service, managed instance, isolation, vnet integration, registry, COM, RDP, installation scripts, key vault, pv4, pmv4, windows services, GAC, third-party dependencies
 ms.topic: overview
-ms.date: 05/01/2026
+ms.date: 08/28/2026
 ms.author: msangapu
 author: msangapu-msft
 ms.service: azure-app-service
 ms.custom: references_regions
 ---
 
-# Managed Instance on Azure App Service (preview)
+# Managed Instance on Azure App Service
 
-Managed Instance on Azure App Service (preview) is a plan‑scoped hosting option for Windows web apps that need Operating System (OS) customization, optional private networking, and secure integration with Azure resources. It targets legacy or infrastructure‑dependent workloads (Component Object Model (COM), registry, Microsoft/Windows Installer (MSI)) while retaining App Service’s managed patching, scaling, diagnostics, and identity features.
+Managed Instance on Azure App Service is a plan‑scoped hosting option for Windows web apps that need operating system (OS) customization, optional private networking, and secure integration with Azure resources. It targets legacy or infrastructure‑dependent workloads (Component Object Model (COM), registry, Microsoft/Windows Installer (MSI)) while retaining App Service’s managed patching, scaling, diagnostics, and identity features.
 
-[!INCLUDE [managed-instance](./includes/managed-instance/preview-note.md)]
+[!INCLUDE [managed-instance](./includes/managed-instance/availability-note.md)]
+
+## Migrate .NET apps with GitHub Copilot modernization
+
+[GitHub Copilot modernization for .NET](/dotnet/azure/migration/appmod/overview) provides an agentic workflow for assessing, remediating, validating, and deploying .NET applications to Azure. In Visual Studio Code, you can use Managed Instance as the assessment and deployment target for Windows applications that require operating system-level customization.
+
+[!INCLUDE [copilot-modernization-availability](./includes/managed-instance/copilot-modernization-availability-note.md)]
+
+Configure the assessment target as `AppServiceManagedInstance.Windows` to receive Managed Instance-specific findings and recommendations. You can then use the modernization agent to:
+
+1. Assess application code, configuration, and dependencies for migration readiness.
+1. Review and apply recommended migration tasks.
+1. Validate builds, tests, and remediated dependencies.
+1. Prepare Azure resources and deploy the application to Managed Instance.
+
+To get started, see [Assess and migrate a .NET project with GitHub Copilot modernization](/dotnet/azure/migration/appmod/quickstart). For target configuration and deployment details, see [Work with application assessments](/dotnet/azure/migration/appmod/working-with-assessment) and [Deploy a project to Azure](/dotnet/azure/migration/appmod/deploy).
 
 ## Key capabilities
 
@@ -39,6 +54,7 @@ The following table summarizes the main capabilities that Managed Instance offer
 Managed Instance provides plan-level configuration through:
 
 - **Configuration (install) scripts**: Upload zipped PowerShell scripts to Azure Storage (accessed via managed identity). Scripts run at startup for persistent configuration.  
+  - Scripts are optional. Use a script when your app requires dependencies to be installed or operating system-level features to be configured.
   - RDP session changes are temporary and lost after restart or platform maintenance.
   - Script execution logs appear in App Service console logs and can be streamed to Azure Monitor.
 
@@ -89,7 +105,7 @@ Managed Instance provides plan-level configuration through:
 - Deployments supporting 100+ applications
 - Complete network boundary control
 
-## Current Limitations (Preview)
+## Current limitations
 
 | Limitation | Details |
 |-----------|---------|
@@ -104,7 +120,7 @@ Managed Instance provides plan-level configuration through:
 
 - Use configuration scripts (install scripts) for persistent configuration.
 - Centralize secrets using Key Vault.
-- Validate logging setup in preview environments.
+- Validate logging setup in staging environments.
 - Test configuration (install) scripts in staging before production rollout.
 - Align network rules with dependency inventories.
 - Monitor with Microsoft Defender for Cloud for threat detection.
@@ -112,6 +128,7 @@ Managed Instance provides plan-level configuration through:
 ## Next steps
 
 - [Managed Instance Quickstart](quickstart-managed-instance.md)
+- [GitHub Copilot modernization for .NET](/dotnet/azure/migration/appmod/overview)
 - [App Service overview](overview.md)
 - [Configure Managed Instance](configure-managed-instance.md)
 - [App Service Environment comparison](./environment/overview.md)

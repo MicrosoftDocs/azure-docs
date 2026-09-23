@@ -2,7 +2,7 @@
 title: About Azure Cosmos DB backup
 description: An overview on Azure Cosmos DB backup
 ms.topic: overview
-ms.date: 5/15/2026
+ms.date: 8/27/2026
 ms.service: azure-backup
 ms.custom:
   - build-2026
@@ -37,7 +37,7 @@ Azure Backup for Cosmos DB provides:
 
 ## How Azure Backup for Cosmos DB works 
 
-Azure Backup for Cosmos DB integrates with Cosmos DB’s transactionally consistent backup streams and transfers backup data into a Backup vault based on a defined backup policy. Backups are taken at the Cosmos DB account level and include all databases and containers in the account. 
+Azure Backup for Cosmos DB integrates with Cosmos DB's transactionally consistent backup streams and transfers scheduled backups into a Backup vault based on a defined backup policy. A policy can combine a weekly full backup with daily incremental backups to provide a 1-day recovery point objective (RPO); each incremental backup copies only the data that changed since the previous backup. Backups are taken at the Cosmos DB account level and include all databases and containers in the account. 
 
 To perform the backup and restore operations for Azure Cosmos DB:
 
@@ -46,6 +46,19 @@ To perform the backup and restore operations for Azure Cosmos DB:
 - Azure Backup streams consistent backups from Cosmos DB into the vault. 
 - Azure Backup stores the recovery points securely and isolates them from the source account. 
 - Azure Backup triggers the restore operation from the vault to a target Cosmos DB account. 
+
+### Supported backup types  for Azure Cosmos DB
+
+Azure Backup for Cosmos DB supports two backup types within a single backup policy: 
+
+- **Full backup**: A complete copy of the Cosmos DB account. Each full backup is independent and anchors the incremental backups that follow it.
+- **Incremental backup**: Captures only the data that changed since the previous backup (full or incremental). Incremental backups are smaller and faster, which lowers cost and enables a shorter RPO. 
+
+A typical policy takes one full backup per week and an incremental backup on each remaining day, forming a backup chain. Every policy must include a weekly full backup; incremental-only policies aren't supported. Restoring an incremental recovery point automatically uses its full backup and all incremental backups up to the selected point.
+
+### Backup reliability
+
+If a scheduled backup fails because of a transient issue, Azure Backup automatically retries it (auto-heal) to help maintain your RPO, with no manual action required. Auto-healed jobs appear in the Backup jobs view. 
 
 ## Backup vaults and storage isolation 
 

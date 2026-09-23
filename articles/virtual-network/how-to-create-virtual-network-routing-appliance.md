@@ -6,7 +6,7 @@ description: This guide covers configuration and troubleshooting for Azure Virtu
 author: asudbring
 ms.author: allensu
 ms.reviewer: allensu
-ms.date: 07/31/2026
+ms.date: 08/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-network
 ms.custom: references_regions
@@ -116,7 +116,7 @@ To get started, search for **routing appliance** in the Azure portal's search bo
     | **Instance details** | |
     | **Name** | Enter **vnet-appliance**. |
     | **Region** | Select **East US**. |
-    | **Capacity** | Select **50 Gbps**. Supported bandwidth tiers are 50, 100, and 200 Gbps. |
+    | **Capacity** | Select **50 Gbps**. Supported bandwidth tiers are 10, 50, 100, and 200 Gbps. |
     | **Virtual Network** | Select **vnet-1**. |
 
 1. Select **Review + create**.
@@ -133,6 +133,7 @@ Each routing appliance instance has a fixed bandwidth tier. The tier determines 
 
 | Bandwidth tier | Max connections per second | Max concurrent flows |
 |----------------|----------------------------|----------------------|
+| 10 Gbps        | 100,000                    | 1,000,000            |
 | 50 Gbps        | 250,000                    | 2,000,000            |
 | 100 Gbps       | 600,000                    | 4,000,000            |
 | 200 Gbps       | 1,500,000                  | 8,000,000            |

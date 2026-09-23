@@ -3,7 +3,7 @@ title: Azure Service Bus Enable FIFO with Sessions
 description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
 #customer intent: As a developer, I want to understand how to use Azure Service Bus sessions to implement the FIFO pattern so that I can ensure ordered message processing.
 ms.topic: concept-article
-ms.date: 02/10/2026
+ms.date: 08/20/2026
 # Customer intent: As a developer, I want to know how to enable joint and ordered handling of unbounded sequences of related messages.
 ---
 
@@ -97,6 +97,21 @@ Say, there are three messages in the queue and two consumers.
 So, the messages are processed in this order: message 2, message 3, and message 1. If you need message 1, 2, and 3 to be processed in order, you need to use sessions.
 
 If messages just need to be retrieved in order, you don't need to use sessions. If messages need to be processed in order, use sessions. Set the same session ID on messages that belong together, which could be message 1, 4, and 8 in a set, and 2, 3, and 6 in another set. 
+
+## List message sessions
+
+Use session listing to discover the session IDs in a session-enabled queue or subscription without accepting each session. By default, the operation returns sessions that have active messages or stored session state. It excludes sessions that have neither. You can also filter the results to sessions whose stored state was set or updated after a point in time.
+
+> [!IMPORTANT]
+> The SDK APIs for listing sessions are currently in preview. The beta package versions in the following table introduce the preview APIs. Preview APIs can change before they become generally available.
+
+| SDK | Preview package version | API | Sample |
+|-----|-------------------------|-----|--------|
+| .NET | `7.21.0-beta.1` | `ServiceBusClient.GetMessageSessionsAsync` | [List message sessions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample22_GetMessageSessions.md) |
+| Java | `7.18.0-beta.3` | `ServiceBusSessionReceiverClient.listSessions` and `ServiceBusSessionReceiverAsyncClient.listSessions` | [Synchronous](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/src/samples/java/com/azure/messaging/servicebus/ListSessionsSample.java) and [asynchronous](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/src/samples/java/com/azure/messaging/servicebus/ListSessionsAsyncSample.java) |
+| JavaScript | `7.10.0-beta.5` | `ServiceBusClient.listMessageSessions` | [List message sessions](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/service-bus#list-message-sessions) |
+| Go | `1.11.0-beta.1` | `Client.NewListSessionsForQueuePager` and `Client.NewListSessionsForSubscriptionPager` | [List sessions](https://github.com/Azure/azure-sdk-for-go/blob/main/sdk/messaging/azservicebus/example_client_test.go) |
+| Python | `7.15.0b2` | `ServiceBusClient.list_queue_sessions` and `ServiceBusClient.list_subscription_sessions` | [Synchronous](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/samples/sync_samples/list_sessions.py) and [asynchronous](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/samples/async_samples/list_sessions_async.py) |
 
 ## Message expiration
 For session-enabled queues or topics' subscriptions, messages are locked at the session level. If the time-to-live (TTL) for any of the messages expires, the system either drops or dead-letters all messages related to that session based on the dead-lettering enabled on messaging expiration setting on the entity. In other words, if there's a single message in the session that passes the TTL, all the messages in the session expire. The messages expire only if there's an active listener. For more information, see [Message expiration](message-expiration.md).

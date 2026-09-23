@@ -31,15 +31,15 @@ A quick way to see the roles assigned to a user or group in a subscription is to
 
 1. Select **Microsoft Entra ID** and then select **Users** or **Groups**.
 
-1. Click the user or group you want list the role assignments for.
+1. Select the user or group you want to list the role assignments for.
 
-1. Click **Azure role assignments**.
+1. Select **Azure role assignments**.
 
    You see a list of roles assigned to the selected user or group at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
 
    ![Screenshot of role assignments for a user.](./media/role-assignments-list-portal/azure-role-assignments-user.png)
 
-1. To change the subscription, click the **Subscriptions** list.
+1. To change the subscription, select the **Subscriptions** list.
 
 >[!Note]
 >Attempting to access **Azure role assignments** > **Subscriptions** from the Intune admin center may display an outage-style error message. This is expected, as the Intune admin center does not support Azure subscription management. Use the **Azure portal** or **Microsoft Entra admin center** to manage Azure subscription role assignments.
@@ -48,13 +48,13 @@ A quick way to see the roles assigned to a user or group in a subscription is to
 
 Users that have been assigned the [Owner](built-in-roles.md#owner) role for a subscription can manage everything in the subscription. Follow these steps to list the owners of a subscription.
 
-1. In the Azure portal, click **All services** and then **Subscriptions**.
+1. In the Azure portal, select **All services** and then **Subscriptions**.
 
-1. Click the subscription you want to list the owners of.
+1. Select the subscription you want to list the owners of.
 
-1. Click **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
-1. Click the **Role assignments** tab to view all the role assignments for this subscription.
+1. Select the **Role assignments** tab to view all the role assignments for this subscription.
 
 1. Scroll to the **Owners** section to see all the users that have been assigned the Owner role for this subscription.
 
@@ -64,19 +64,19 @@ Users that have been assigned the [Owner](built-in-roles.md#owner) role for a su
 
 On the **Role assignments** tab, you can list and see the count of privileged administrator role assignments at the current scope. For more information, see [Privileged administrator roles](role-assignments-steps.md#privileged-administrator-roles).
 
-1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+1. In the Azure portal, select **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
-1. Click the specific resource.
+1. Select the specific resource.
 
-1. Click **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
-1. Click the **Role assignments** tab and then click the **Privileged** tab to list the privileged administrator role assignments at this scope.
+1. Select the **Role assignments** tab and then select the **Privileged** tab to list the privileged administrator role assignments at this scope.
 
    :::image type="content" source="./media/role-assignments-list-portal/access-control-role-assignments-privileged.png" alt-text="Screenshot of Access control page, Role assignments tab, and Privileged tab showing privileged role assignments." lightbox="./media/role-assignments-list-portal/access-control-role-assignments-privileged.png":::
 
 1. To see the count of privileged administrator role assignments at this scope, see the **Privileged** card.
 
-1. To manage privileged administrator role assignments, see the **Privileged** card and click **View assignments**.
+1. To manage privileged administrator role assignments, see the **Privileged** card and select **View assignments**.
 
    On the **Manage privileged role assignments** page, you can add a condition to constrain the privileged role assignment or remove the role assignment. For more information, see [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md).
 
@@ -84,13 +84,13 @@ On the **Role assignments** tab, you can list and see the count of privileged ad
 
 ## List role assignments at a scope
 
-1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+1. In the Azure portal, select **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
-1. Click the specific resource.
+1. Select the specific resource.
 
-1. Click **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
-1. Click the **Role assignments** tab to view the role assignments at this scope.
+1. Select the **Role assignments** tab to view the role assignments at this scope.
 
    If you have a Microsoft Entra ID Free or Microsoft Entra ID P1 license, your **Role assignments** tab is similar to the following screenshot.
 
@@ -111,7 +111,7 @@ On the **Role assignments** tab, you can list and see the count of privileged ad
 
    It's possible to set the start date in the future.
 
-   If you want to list the start time and end time for role assignments, click **Edit columns** and then select **Start time** and **End time**.
+   If you want to list the start time and end time for role assignments, select **Edit columns** and then select **Start time** and **End time**.
 
    :::image type="content" source="./media/role-assignments-list-portal/role-assignments-list-edit-columns.png" alt-text="Screenshot of Columns pane showing Start time and End time check boxes." lightbox="./media/role-assignments-list-portal/role-assignments-list-edit-columns.png":::
 
@@ -121,23 +121,23 @@ On the **Role assignments** tab, you can list and see the count of privileged ad
 
 To list access for a user, group, service principal, or managed identity, you list their role assignments. Follow these steps to list the role assignments for a single user, group, service principal, or managed identity at a particular scope.
 
-1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+1. In the Azure portal, select **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
-1. Click the specific resource.
+1. Select the specific resource.
 
-1. Click **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
    ![Screenshot of resource group access control and Check access tab.](./media/shared/rg-access-control.png)
 
-1. On the **Check access** tab, click the **Check access** button.
+1. On the **Check access** tab, select the **Check access** button.
 
-1. In the **Check access** pane, click **User, group, or service principal** or **Managed identity**.
+1. In the **Check access** pane, select **User, group, or service principal** or **Managed identity**.
 
 1. In the search box, enter a string to search the directory for display names, email addresses, or object identifiers.
 
    ![Screenshot of Check access select list.](./media/shared/rg-check-access-select.png)
 
-1. Click the security principal to open the **assignments** pane.
+1. Select the security principal to open the **assignments** pane.
 
    On this pane, you can see the access for the selected security principal at this scope and inherited to this scope. Assignments at child scopes are not listed. You see the following assignments:
 
@@ -154,33 +154,33 @@ You can list role assignments for system-assigned and user-assigned managed iden
 
 1. In the Azure portal, open a system-assigned managed identity.
 
-1. In the left menu, click **Identity**.
+1. In the left menu, select **Identity**.
 
    ![Screenshot of system-assigned managed identity.](./media/shared/identity-system-assigned.png)
 
-1. Under **Permissions**, click **Azure role assignments**.
+1. Under **Permissions**, select **Azure role assignments**.
 
    You see a list of roles assigned to the selected system-assigned managed identity at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
 
    ![Screenshot of role assignments for a system-assigned managed identity.](./media/shared/role-assignments-system-assigned.png)
 
-1. To change the subscription, click the **Subscription** list.
+1. To change the subscription, select the **Subscription** list.
 
 ### User-assigned managed identity
 
 1. In the Azure portal, open a user-assigned managed identity.
 
-1. Click **Azure role assignments**.
+1. Select **Azure role assignments**.
 
    You see a list of roles assigned to the selected user-assigned managed identity at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
 
    ![Screenshot of role assignments for a user-assigned managed identity.](./media/shared/role-assignments-user-assigned.png)
 
-1. To change the subscription, click the **Subscription** list.
+1. To change the subscription, select the **Subscription** list.
 
 ## List number of role assignments
 
-You can have up to **4000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. [Eligible role assignments](/azure/role-based-access-control/role-assignments-portal#step-6-select-assignment-type) and role assignments scheduled in the future do not count towards this limit. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
+You can have up to **5000** role assignments in each subscription. This limit includes role assignments at the subscription, resource group, and resource scopes. [Eligible role assignments](/azure/role-based-access-control/role-assignments-portal#step-6-select-assignment-type) and role assignments scheduled in the future do not count towards this limit. To help you keep track of this limit, the **Role assignments** tab includes a chart that lists the number of role assignments for the current subscription.
 
 ![Screenshot of Access control and number of role assignments chart.](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 
@@ -200,13 +200,13 @@ When you download role assignments, you should keep in mind the following criter
 
 Follow these steps to download role assignments at a scope.
 
-1. In the Azure portal, click **All services** and then select the scope where you want to download the role assignments. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+1. In the Azure portal, select **All services** and then select the scope where you want to download the role assignments. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
-1. Click the specific resource.
+1. Select the specific resource.
 
-1. Click **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
-1. Click **Download role assignments** to open the Download role assignments pane.
+1. Select **Download role assignments** to open the **Download role assignments** pane.
 
    ![Screenshot of Access control and Download role assignments.](./media/role-assignments-list-portal/download-role-assignments.png)
 
@@ -220,7 +220,7 @@ Follow these steps to download role assignments at a scope.
 
 1. Specify the file name.
 
-1. Click **Start** to start the download.
+1. Select **Start** to start the download.
 
    The following show examples of the output for each file format.
 

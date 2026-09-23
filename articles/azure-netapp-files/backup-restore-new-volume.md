@@ -20,7 +20,7 @@ When you restore a backup, a new volume is created using the same protocol type 
 * You can restore backups to a different capacity pool within the same NetApp account.
 * You can restore a backup only to a new volume. You can't overwrite the existing volume with the backup. 
 * The new volume created by the restore operation can't be mounted until the restore completes. 
-* You should trigger the restore operation when there are no baseline backups. Otherwise, the restore might increase the load on the Azure Blob account where your data is backed up. 
+* Trigger the restore operation when no backups are in progress to prevent resource contention that causes slow restore.
 * For volumes greater than 10 TiB, it can take multiple hours to transfer all the data from the backup media.
 * In the Volume overview page, refer to the **Originated from** field to see the name of the backup used to create the volume. 
 * If you restore a volume from the backup list at the NetApp account level, you must specify the protocol. The **Protocol** field must match the protocol of the original volume. Otherwise, the restore operation fails with the following error: `Protocol Type value mismatch between input and source volume of backupId <backup-id of the selected backup>. Supported protocol type : <Protocol Type of the source volume>`

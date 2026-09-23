@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: prashantsaini4
 ms.author: prsaini
-ms.date: 04/21/2026
+ms.date: 09/21/2026
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise-agreement
@@ -14,6 +14,10 @@ ms.custom:
 ---
 
 # EA Billing administration on the Azure portal
+
+> [!NOTE]
+> Starting October 15, 2026, all new Enterprise Agreement billing role assignments must use Work or School accounts (WSA) managed through Microsoft Entra ID. You can't add Personal Microsoft accounts (MSAs) to new role assignments.
+> Users with existing MSA role assignments aren't impacted at this time. However, these users need to transition to a Work or School account (WSA) in a future phase. Microsoft will provide advance notice and guidance before this change takes effect.
 
 This article explains the common tasks that an Enterprise Agreement (EA) administrator accomplishes in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). A direct enterprise agreement is signed between Microsoft and an enterprise agreement customer. Conversely, an indirect EA is one where a customer signs an agreement with a Microsoft partner. This article is applicable for both direct and indirect EA customers.
 

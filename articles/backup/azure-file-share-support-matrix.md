@@ -115,7 +115,7 @@ Migration of file shares protected with snapshot backup to vaulted backup is sup
 
 | Setting                                      | Limit |
 | -------------------------------------------- | ----- |
-| Maximum  number of scheduled backups per day | 6    |
+| Maximum  number of scheduled snapshots per day | 24    |
 
 # [Vault-standard tier](#tab/vault-tier)
 

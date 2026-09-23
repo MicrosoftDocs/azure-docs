@@ -4,8 +4,8 @@ description: This article details how to use Azure Update Manager to set update 
 ms.service: azure-update-manager
 ms.date: 08/21/2025
 ms.topic: how-to
-author: habibaum
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.custom: sfi-image-nochange
 ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator, I want to schedule recurring updates for my virtual machines using Azure Update Manager, so that I can ensure they are consistently maintained and secure without manual intervention."

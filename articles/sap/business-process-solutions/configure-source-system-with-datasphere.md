@@ -21,7 +21,7 @@ SAP Datasphere uses an Azure storage account to store the extracted data. You mu
 
 ### Set up a Fabric storage account connection
 
-Business Process Solutions uses a storage account connection to read and process data from Azure storage account. You must create the connection before deploying source system. To set up connection, follow these steps:
+Business Process Solutions uses a storage account connection to read and process data from an Azure storage account. You must create the connection before deploying the source system. To set up the connection, follow these steps:
 
 1. To create a new connection, go to your workspace and select **Settings** in the upper-right corner.
 1. Select **Manage connections and gateways**.
@@ -38,7 +38,7 @@ Business Process Solutions uses a storage account connection to read and process
 
    :::image type="content" source="./media/configure-source-system-with-datasphere/connection-type.png" alt-text="Screenshot that shows how to create a new connection with datalake gen2." lightbox="./media/configure-source-system-with-datasphere/connection-type.png":::
 
-1. Enter storage account path and blob container path.
+1. Enter the storage account path and blob container path.
 1. For the authentication method, select **OAuth > Edit Credentials** and enter the details.
 1. Select **Create** to create the connection.
 
@@ -58,11 +58,11 @@ Business Process Solutions uses a Fabric SQL Database connection to read and orc
 
 1. Select **Create** to create the connection.
 
-### Prepare CDS Views for DD03ND in SAP system
+### Prepare CDS views for DD03ND in SAP system
 
 SAP Datasphere doesn't support extraction of a subset of CDS views required by Business Process Solutions. To work around this limitation, create a custom CDS view in your SAP system and replicate it into SAP Datasphere.
 
-#### ZDD03ND_CDS – Custom CDS View for extraction of the data types (mandatory)
+#### ZDD03ND_CDS – Custom CDS view for extraction of the data types (mandatory)
 
 Business Process Solutions uses this view to map SAP data types during transformation. Replication is required for transformations to work. **When you replicate the view, set the target name to DD03ND**.
 
@@ -93,7 +93,7 @@ define view ZDD03ND_CDS as select from dd03nd
 }
 ```
 
-#### ZI_GLACCOUNTTEXT - Custom CDS View for extraction of GL Account texts (optional)
+#### ZI_GLACCOUNTTEXT - Custom CDS view for extraction of GL Account texts (optional)
 
 Business Process Solutions uses this view to populate GL account names in the Power BI report. Replication is optional but recommended, as missing data might require more manual changes in the Power BI dashboard. During replication, set the target name to I_GLACCOUNTTEXT.
 
@@ -127,6 +127,44 @@ To configure your SAP source system with SAP Datasphere, follow these steps to c
 
 1. Monitor the deployment status by using the refresh button to refresh the page.
 1. After the deployment finishes, you can see the resources that are deployed to your workspace.
+
+## Finding source objects for replication
+
+After you deploy the source system, import a dataset for your source system. The dataset contains the source objects that are required for replication. To import the dataset for your source system, see [Import a dataset from a template](manage-datasets.md#import-a-dataset-from-a-template).
+
+To find the source objects and add them to your replication flow, follow these steps:
+
+1. In the **Explorer** menu, open the dataset that you imported to view its source objects.
+1. In the SAP Datasphere portal, add the tables from the dataset to your replication flow.
+1. On the dataset page, review which tables support incremental extraction and which tables require a full load.
+
+:::image type="content" source="./media/configure-source-system-with-datasphere/view-dataset-tables.png" alt-text="Screenshot that shows the dataset tables in the Explorer menu." lightbox="./media/configure-source-system-with-datasphere/view-dataset-tables.png":::
+
+### Creating dimensions from text tables
+
+Some source objects in the dataset might not be available in the SAP Datasphere replication flow. Use the notebook `bps_datasphere_nb_b2s_generate_table_from_text` to create dimensions from text tables.
+
+The following source objects might not be available in the SAP Datasphere replication flow:
+
+- `I_BILLINGPLANRULE`
+- `I_CUSTOMERPAYMENTTERMS`
+- `I_DELIVERYBLOCKREASON`
+- `I_DELIVERYBLOCKSTATUS`
+- `I_DELIVERYDOCUMENTTYPE`
+- `I_DUNNINGAREA`
+- `I_EQUIPMENT`
+- `I_FUNCTIONALLOCATION`
+- `I_INCOTERMSVERSION`
+- `I_PURCHASINGPROCESSINGSTATUS`
+- `I_SALESGROUP`
+- `I_SALESOFFICE`
+- `I_SEGMENT`
+- `I_SHIPPINGPOINT`
+- `I_GLACCOUNTTEXT`
+
+When you deploy the source system, the notebook is deployed to your workspace and added to the dimension processing pipeline. You don't need to run the notebook manually.
+
+To process more text tables, update the notebook in your workspace to include the tables you want to process.
 
 ## Next step
 

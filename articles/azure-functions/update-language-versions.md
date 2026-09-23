@@ -3,7 +3,7 @@ title: Update Language Versions in Azure Functions
 description: Find out how to update the version of the native language used by a function app in Azure Functions, including configurations with multiple slots.
 ms.topic: how-to
 ms.custom: devx-track-extended-java, devx-track-azurecli, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 08/21/2025
+ms.date: 09/21/2026
 zone_pivot_groups: programming-languages-set-functions
 #customer intent: As a developer who supports function apps in Azure Functions, I want to update the language stack of my function apps so that I can take advantage of new language features.
 ---
@@ -51,7 +51,7 @@ Use these steps to update the project on your local computer:
 
    If you're targeting a preview version, see [Functions guidance for preview .NET versions](./dotnet-isolated-process-guide.md#preview-net-versions) to ensure that the version is supported. Using .NET previews might require more steps.
 
-1. Update your references to the latest versions of [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/).
+1. Update the project SDK to the latest version of [Azure.Functions.Sdk](https://www.nuget.org/packages/Azure.Functions.Sdk/) and update your explicit [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) reference to the latest version.
 
 1. Update your project's target framework to the new version. For C# projects, you must update the `<TargetFramework>` element in the *.csproj* file. For more information about your version, see [Target frameworks](/dotnet/standard/frameworks).
 
@@ -111,6 +111,12 @@ The way that you update the stack configuration depends on whether your function
 
 When you use a [staging slot](functions-deployment-slots.md), make sure to target your updates to the correct slot.
 
+::: zone pivot="programming-language-powershell"
+
+[!INCLUDE [PowerShell 7.6 Linux Consumption migration](../../includes/functions-powershell-76-linux-consumption-migration.md)]
+
+::: zone-end
+
 ### [Windows](#tab/windows/azure-portal)
 
 [!INCLUDE [functions-update-language-version-portal](../../includes/functions-update-language-version-portal.md)]
@@ -125,7 +131,7 @@ The portal doesn't support Python apps on Windows. Go to the **Linux** tab inste
 > If you have a function app on Linux that's hosted in a [Flex Consumption](./flex-consumption-plan.md), [Premium](./functions-premium-plan.md), or a [Dedicated (App Service)](./dedicated-plan.md) plan, you can use the Azure portal to update your function app. But if you have a function app on Linux that's hosted in a [Consumption plan](./consumption-plan.md), use the [Azure CLI](update-language-versions.md?tabs=azure-cli#update-the-stack-configuration). 
 >
 > The ability to run your apps on Linux in a Consumption plan is planned for retirement. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md).
- 
+
 [!INCLUDE [functions-update-language-version-portal](../../includes/functions-update-language-version-portal.md)]
 
 ::: zone pivot="programming-language-python" 

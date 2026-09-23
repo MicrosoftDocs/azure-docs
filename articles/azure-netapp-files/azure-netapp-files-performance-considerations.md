@@ -70,25 +70,29 @@ If you use manual QoS volumes, you don’t have to overprovision the volume quot
 
 Azure NetApp Files volumes can be monitored using available [Performance metrics](azure-netapp-files-metrics.md#performance-metrics-for-volumes). 
 
-When volume throughput reaches its maximum (as determined by the QoS setting), the volume response times (latency) increase. This effect can be incorrectly perceived as a performance issue caused by the storage. Increasing the volume QoS setting (manual QoS) or increasing the volume size (auto QoS) increases the allowable volume throughput. 
+:::image type="content" source="./media/performance-considerations/monitor-volume-performance.png" alt-text="Screenshot providing information about the performance of volumes." lightbox="./media/performance-considerations/monitor-volume-performance.png":::
 
-To check if the maximum throughput limit has been reached, monitor the metric [Throughput limit reached](azure-netapp-files-metrics.md#volumes). For more recommendations, see [Performance FAQs for Azure NetApp Files](faq-performance.md#what-should-i-do-to-optimize-or-tune-azure-netapp-files-performance). 
+As the graph shows, latency typically stays low and predictable as throughput increases. When a volume approaches its configured QoS throughput limit, latency starts to increase. After the volume throughput limit is reached, the system queues extra I/O requests and latency can rise rapidly while throughput stays capped. This behavior is expected and is a strong indicator that the volume exhausted its available performance headroom rather than experiencing a storage service issue.
 
-## Backend placement, throughput, and fan-in considerations
+To verify this condition, monitor the Throughput limit reached metric. Non-zero values indicate that the volume reached its throughput ceiling. Increasing the volume QoS setting (manual QoS), increasing volume size (automatic QoS), or moving to a higher service level increases the allowable throughput and can reduce latency caused by throughput throttling.
+
+For a comprehensive workflow to identify and isolate latency caused by throughput throttling, cool-tier data retrieval, client-side bottlenecks, network-path issues, and other factors, see [Troubleshoot latency issues on Azure NetApp Files volumes](troubleshoot-latency-issues.md).
+
+For more recommendations, see [Performance FAQs for Azure NetApp Files](faq-performance.md#what-should-i-do-to-optimize-or-tune-azure-netapp-files-performance). 
+
+## Volume placement and throughput considerations
 
 For high-throughput workloads, performance planning should consider not only volume-level throughput limits but also workload demand.
 
-Azure NetApp Files volumes use backend infrastructure with finite physical network and node-level resources. When you place multiple volumes that support the same application on the same backend resources, the aggregate workload can approach platform-level throughput limits. This scenario is more likely with sustained, throughput-intensive workloads such as Oracle, SAP HANA, and other large database platforms.
+Azure NetApp Files volumes are delivered through a shared infrastructure platform with resource allocations designed to deliver predictable performance and scale. When multiple volumes supporting the same application are deployed together, their combined activity can increase demand on shared service resources. This scenario is more likely with sustained, throughput-intensive workloads such as Oracle, SAP HANA, and other large database platforms.
 
-To reduce the risk of backend resource concentration:
+To reduce the risk of backend resource concentration and to optimize workload distribution across the service:
 
-* Use Application Volume Groups for supported enterprise database workloads.
-* Distribute volumes according to application best practices.
-* Avoid concentrating many high-throughput volumes without considering aggregate demand.
+* Use application volume groups for supported workloads.
 * Use zonal deployment patterns where low latency and predictable placement are required.
 * Monitor volume throughput, latency, and the throughput limit reached metric where applicable.
 
-Application Volume Groups help improve placement, isolation, and predictability for supported workloads by organizing related volumes by using application-aware deployment rules.
+Application volume groups help improve placement, optimization, and predictability for supported workloads by organizing related volumes by using application-aware deployment rules following best practices.
 
 ## Next steps
 

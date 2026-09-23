@@ -27,7 +27,7 @@ Azure Recovery Services contributes to your BCDR strategy:
 - **Site Recovery service**: Site Recovery helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery [replicates](azure-to-azure-quickstart.md) workloads running on physical and virtual machines (VMs) from a primary site to a secondary location. When an outage occurs at your primary site, you fail over to a secondary location, and access apps from there. After the primary location is running again, you can fail back to it.
 - **Backup service**: The [Azure Backup](../backup/index.yml) service keeps your data safe and recoverable.
 
-Azure Site Recovery has an option of *High Churn*, enabling you to configure disaster recovery for Azure VMs having data churn up to 100 MB/s. This helps you to enable disaster recovery for more IO intensive workloads. [Learn more](../site-recovery/concepts-azure-to-azure-high-churn-support.md).
+Azure Site Recovery has a *High Churn* option for Azure VMs with data churn up to 100 MB/s. Some configurations support up to 500 MB/s when the documented memory, disk, write-size, region, operating-system, and Mobility service requirements are met. [Learn more](../site-recovery/concepts-azure-to-azure-high-churn-support.md).
 
 Site Recovery can manage replication for:
 
@@ -43,7 +43,7 @@ Site Recovery can manage replication for:
 **Feature** | **Details**
 --- | ---
 **Simple BCDR solution** | Using Site Recovery, you can set up and manage replication, failover, and failback from a single location in the Azure portal.
-**VMware VM replication** | You can replicate VMware VMs to Azure using the improved Azure Site Recovery replication appliance that offers better security and resilience than the configuration server. For more information, see [Disaster recovery of VMware VMs](vmware-azure-about-disaster-recovery.md).
+**VMware VM replication** | You can replicate VMware VMs to Azure using the improved Azure Site Recovery replication appliance that offers better security and resilience than the configuration server. For more information, see [VMware to Azure disaster recovery architecture](vmware-azure-architecture-modernized.md).
 **On-premises VM replication** | You can replicate on-premises VMs and physical servers to Azure. Replication to Azure eliminates the cost and complexity of maintaining a secondary datacenter.
 **Workload replication** | Replicate any workload running on supported Azure VMs, on-premises Hyper-V and VMware VMs, and Windows/Linux physical servers.
 **Data resilience** | Site Recovery orchestrates replication without intercepting application data. When you replicate to Azure, data is stored in Azure storage, with the resilience that provides. When failover occurs, Azure VMs are created based on the replicated data. This also applies to Extended Zones to Azure region Azure Site Recovery scenario.
@@ -56,7 +56,7 @@ Site Recovery can manage replication for:
 **Azure automation integration** | A rich Azure Automation library provides production-ready, application-specific scripts that can be downloaded and integrated with Site Recovery.
 **Network integration** | Site Recovery integrates with Azure for application network management. For example, to reserve IP addresses, configure load-balancers, and use Azure Traffic Manager for efficient network switchovers.
 **Shared disk** | You can protect, monitor, failover, and re-protect your workloads running on Windows Server Failover Clusters (WSFC) on Azure VMs using shared disk. <br> You can use shared disks for your critical applications such as SQL FCI, SAP ASCS, Scale-out File Servers, etc., while ensuring business continuity and disaster recovery with Azure Site Recovery.
-**Azure Local integration (preview)** | Azure Site Recovery is integrated with Azure Local environments. You can replicate and recover Hyper-V virtual machine workloads running on Azure Local clusters and enable seamless disaster recovery for your hybrid infrastructure to Azure. [Learn more](/azure/azure-local/manage/azure-site-recovery?view=azloc-2602).
+**Azure Local integration (preview)** | Azure Site Recovery is integrated with Azure Local environments. You can replicate and recover Hyper-V virtual machine workloads running on Azure Local clusters and enable seamless disaster recovery for your hybrid infrastructure to Azure. [Learn more](/azure/azure-local/manage/azure-site-recovery?view=azloc-2602&preserve-view=true).
 
 ## What can I replicate?
 
@@ -76,3 +76,4 @@ Site Recovery can manage replication for:
 - Get started with [Cloud Adoption Framework for Multiregion Business Continuity](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr). 
 - Get started with [Well-Architected Framework for VMware Solution during disasters](/azure/well-architected/azure-vmware/operations).
 - Get started with [Azure Architected Center for Azure Local stretched clusters for disaster recovery](/azure/architecture/hybrid/azure-local-dr).
+

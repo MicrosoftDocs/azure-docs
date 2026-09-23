@@ -15,8 +15,7 @@ You can use the [Azure Backup service](backup-overview.md) to back up on-premise
 
 [!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
-
-## The MARS agent
+## Supported MARS agent deployment scenarios for backup operations
 
 Azure Backup uses the MARS agent to back up data from on-premises machines and Azure VMs to a backup Recovery Services vault in Azure. The MARS agent can:
 
@@ -80,7 +79,6 @@ Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No | - .N
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes | - .NET 4.8 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes |- .NET 4.8 <br> -Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
 
-
 For more information, see [Supported MABS and DPM operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 
 ### Operating Systems at end of support
@@ -133,6 +131,8 @@ The following are the retention durations that can be set for the different reco
 ### Other limitations
 
 - MARS doesn't support protection of multiple machines with the same name to a single vault.
+
+- Recovery Services vaults encrypted using customer-managed keys (CMKs) aren't supported for backup via the MARS agent. 
 
 ## Supported file types for backup
 

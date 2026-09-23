@@ -14,20 +14,23 @@ ms.author: serooney
 
 Azure Communication Services Call Automation enables developers to create applications that can make and receive calls. It uses Event Grid subscriptions to deliver `IncomingCall` events, making it crucial to configure your environment to receive these notifications for your application to redirect or answer a call effectively. Therefore, understanding the fundamentals of incoming calls is essential for using the full potential of Azure Communication Services Call Automation.
 
+> [!IMPORTANT]
+> Following the Azure Communication Services telephony retirement announcement, Microsoft will update the Microsoft Product Terms. After this update, Azure Communication Services Call Automation, Call Recording, and Audio Streaming support only Microsoft Teams interoperability scenarios: Teams Meeting interop, Teams click-to-call, and Teams Phone extensibility (TPE). For more information, see the retirement announcement: https://aka.ms/acs-retirement
+
 ## Calling scenarios
 
-Before setting up your environment, it's important to understand the scenarios that can trigger an `IncomingCall` event. To trigger an `IncomingCall` event, a call must be made to either an Azure Communication Services identity or a Public Switched Telephone Network (PSTN) number associated with your Azure Communication Services resource. The following are examples of these resources:
+Before setting up your environment, understand the scenarios that can trigger an `IncomingCall` event. To trigger an `IncomingCall` event, a call must be made to either an Azure Communication Services identity or a Public Switched Telephone Network (PSTN) number reachable through a valid Teams Phone connectivity option. The following resources are examples:
 
 1. An Azure Communication Services identity
-2. A PSTN phone number owned by your Azure Communication Services resource
+2. A valid PSTN connectivity option through Teams Phone
 
 Given these examples, the following scenarios trigger an `IncomingCall` event sent to Event Grid:
 
 | Source | Destination | Scenarios |
 | ------ | ----------- | -------- |
 | Azure Communication Services identity | Azure Communication Services identity | Call, Redirect, Add Participant, Transfer |
-| Azure Communication Services identity | PSTN number owned by your Azure Communication Services resource  | Call, Redirect, Add Participant, Transfer
-| Public PSTN | PSTN number owned by your Azure Communication Services resource  | Call, Redirect, Add Participant, Transfer
+| Azure Communication Services identity | Valid PSTN connectivity option through Teams Phone  | Call, Redirect, Add Participant, Transfer
+| Public PSTN | Valid PSTN connectivity option through Teams Phone  | Call, Redirect, Add Participant, Transfer
 
 > [!NOTE]
 > It's important to understand that an Azure Communication Services identity can represent either a user or an application. While the platform doesn't have a built-in feature to explicitly assign an identity to a user or application, your application or supporting infrastructure can accomplish this assignment. To learn more, see the [identity concepts guide](../identity-model.md).

@@ -16,6 +16,9 @@ ai-usage: ai-assisted
 
 Data flow graphs and the HTTP/REST connector use registry endpoints to pull WebAssembly (WASM) modules and graph definitions from container registries. Azure IoT Operations pulls any custom connector templates you develop from container registries. You can configure the endpoint settings, authentication, and other settings to connect to Azure Container Registry (ACR), Microsoft Container Registry (MCR), or GitHub Container Registry (ghcr.io).
 
+> [!IMPORTANT]
+> Currently, the operations experience web UI only supports creating and viewing data flow graph artifacts sourced from Azure Container Registry (ACR) and, for built-in transforms, mcr.microsoft.com. To learn more, see [Operations experience web UI only displays data flow graph artifacts sourced from Azure Container Registry (ACR) and mcr.microsoft.com](../troubleshoot/known-issues.md#operations-experience-web-ui-only-displays-data-flow-graph-artifacts-sourced-from-azure-container-registry-acr-and-mcrmicrosoftcom).
+
 ## Prerequisites
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
@@ -88,7 +91,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
 param acrName string = '<YOUR_ACR_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -96,7 +99,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-03-01' = {
+resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-07-01' = {
   parent: aioInstance
   name: registryEndpointName
   extendedLocation: {
@@ -395,7 +398,7 @@ az iot ops registry create \
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-03-01' = {
+resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-07-01' = {
   parent: aioInstance
   name: 'public-ghcr'
   extendedLocation: {
@@ -455,7 +458,7 @@ az iot ops registry list \
 The default endpoint is equivalent to the following configuration:
 
 ```bicep
-resource defaultRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-03-01' = {
+resource defaultRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-07-01' = {
   parent: aioInstance
   name: 'default'
   extendedLocation: {

@@ -161,5 +161,4 @@ Enabling a private endpoint for blobs in a storage account restricts access to t
 - [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
 - [Azure Functions](../../azure-functions/functions-overview.md)
 - [Azure App Service](../../app-service/overview.md)
-- [Build your first serverless web app](/samples/azure-samples/azure-opensource-labs/azure-opensource-labs/)
 - [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

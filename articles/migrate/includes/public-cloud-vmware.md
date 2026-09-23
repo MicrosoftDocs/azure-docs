@@ -1,6 +1,6 @@
 ---
-author: habibaum
-ms.author: v-uhabiba 
+author: jyothisuri
+ms.author: jsuri
 ms.topic: include
 ms.date: 07/02/2024
 # Customer intent: As a systems administrator, I want to download the latest version of VMware, so that I can ensure my infrastructure is up to date and secure.

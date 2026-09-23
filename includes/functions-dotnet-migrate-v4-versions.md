@@ -1,11 +1,11 @@
 ---
-author: mattchenderson
+author: ggailey777
 ms.service: azure-functions
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 07/28/2023
-ms.author: mahender
+ms.date: 09/09/2026
+ms.author: glenga
 ---
 
 When you migrate your function app, you have the opportunity to choose the target version of .NET. You can update your C# project to one of the following versions of .NET that are supported by Functions version 4.x: 

@@ -2,6 +2,7 @@
 title: Slurm Scheduler Integration
 description: Learn how to configure and integrate the Slurm scheduler with Azure CycleCloud to schedule HPC workloads.
 author: KimliW
+ai-usage: ai-assisted
 ms.date: 06/19/2026
 ms.topic: how-to
 ms.author: adjohnso
@@ -14,7 +15,7 @@ ms.author: adjohnso
 Slurm is a highly configurable open source workload manager. For more information, see the overview on the [Slurm project site](https://www.schedmd.com/).
 
 > [!NOTE]
-> Starting with CycleCloud 8.4.0, we rewrote the Slurm integration to support new features and functionality. For more information, see [Slurm 3.0](slurm-3.md) documentation.
+> Starting with CycleCloud 8.4.0, Microsoft rewrote the Slurm integration to support new features and functionality. For project version 3.x, see [Slurm 3.0](slurm-3.md). For the current project version, see [Configure and manage CycleCloud Slurm 4 clusters](slurm-4.md) and [Operate and troubleshoot CycleCloud Slurm 4 clusters](slurm-4-operations.md).
 
 ::: moniker range="=cyclecloud-7"
 To enable Slurm on a CycleCloud cluster, modify the 'run_list', available in the configuration section of your cluster definition. A Slurm cluster has two main parts: the master (or scheduler) node, which runs the Slurm software on a shared file system, and the executed nodes, which mount that file system and run the submitted jobs. For example, a simple cluster template snippet may look like:

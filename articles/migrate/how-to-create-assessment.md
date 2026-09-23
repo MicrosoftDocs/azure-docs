@@ -2,13 +2,12 @@
 title: Create an Azure VM assessment with Azure Migrate Discovery and assessment tool | Microsoft Docs
 description: Describes how to create an Azure VM assessment with the Azure Migrate Discovery and assessment tool
 author: rashi-ms
-ms.author: v-uhabiba
+ms.author: jsuri
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.update-cycle: 1095-days
-monikerRange:
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange

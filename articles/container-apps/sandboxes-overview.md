@@ -1,6 +1,6 @@
 ---
-title: Azure Container Apps Sandboxes overview (preview)
-description: Azure Container Apps Sandboxes (preview) deliver fast, secure, ephemeral compute with suspend and resume. Explore key features, use cases, and architecture in Early Access.
+title: Azure Container Apps Sandboxes overview
+description: Azure Container Apps Sandboxes deliver fast, secure, ephemeral compute with suspend and resume. Explore key features, use cases, and architecture.
 #customer intent: As a developer building AI agents, I want to understand Azure Container Apps Sandboxes so that I can decide whether to use them for persistent, isolated agent workspaces.
 author: craigshoemaker
 ms.author: cshoe
@@ -10,16 +10,12 @@ ms.topic: overview
 ms.service: azure-container-apps
 ---
 
-# Azure Container Apps Sandboxes overview (preview)
+# Azure Container Apps Sandboxes overview
 
 Azure Container Apps Sandboxes provide fast, secure, ephemeral compute environments with built-in suspend and resume capabilities. Sandboxes are a first-class resource type (`Microsoft.App/SandboxGroups`) in Container Apps, alongside apps, jobs, and dynamic sessions.
 
 > [!IMPORTANT]
 > To manage and create sandboxes, you need the Azure role *Container Apps SandboxGroup Data Owner*. Assign this role to all users who create and manage sandboxes.
->
-> Sandboxes created during preview might not be compatible with future releases and might need to be recreated.
->
-> The API surface for Python SDK and Azure Container Apps CLI commands might change during preview.
 
 [!INCLUDE [sandboxes-create-manage](includes/sandboxes-create-manage.md)]
 
@@ -176,7 +172,7 @@ Sandboxes and [dynamic sessions](./sessions.md) both provide isolated compute en
 | **Image model** | Code interpreter (built-in) or custom container | Disk images (OCI), snapshots, content packages |
 | **Persistent storage** | Not available | Volumes (Azure Blob, Data Disk) |
 | **Networking** | Basic isolation | Egress policies, VNet integration, port management |
-| **SDKs** | REST API through pool endpoint | Coming soon: dedicated SDKs (C#, Python) |
+| **SDKs** | REST API through pool endpoint | Python SDK (`azure-containerapps-sandbox`) and REST API |
 
 Choose dynamic sessions when you need a managed execution experience that abstracts infrastructure. Choose Sandboxes when you need programmable control over isolated compute with state persistence.
 

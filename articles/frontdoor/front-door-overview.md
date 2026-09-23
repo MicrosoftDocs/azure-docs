@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: overview
-ms.date: 04/24/2026
+ms.date: 08/28/2026
 ms.custom: portfolio-consolidation-2025
 #customer intent: As an IT admin, I want to learn about Azure Front Door and what I can use it for.
 ---
@@ -42,7 +42,7 @@ Scale out and improve the performance of your applications and content by using 
 
 * Take advantage of more than [118 edge locations](edge-locations-by-region.md) across 100 metro areas connected to Azure by using a private enterprise-grade WAN. Improve latency for applications by up to three times.
 
-* Accelerate application performance by using the Azure Front Door [anycast](front-door-traffic-acceleration.md#select-the-front-door-edge-location-for-the-request-anycast) network and [split TCP](front-door-traffic-acceleration.md#connect-to-the-front-door-edge-location-split-tcp) connections.
+* Accelerate application performance by using the Azure Front Door [unicast](front-door-traffic-acceleration.md#select-the-front-door-edge-location-for-the-request-unicast) network and [split TCP](front-door-traffic-acceleration.md#connect-to-the-front-door-edge-location-split-tcp) connections.
 
 * Terminate SSL offload at the edge and use integrated [certificate management](standard-premium/how-to-configure-https-custom-domain.md).
 
@@ -82,7 +82,7 @@ Modernize your internet-first applications on Azure with cloud-native experience
 
 * Help secure applications with built-in layer 3-4 DDoS protection, a seamlessly attached [WAF](../web-application-firewall/afds/afds-overview.md), and [Azure DNS to help protect your domains](how-to-configure-endpoints.md).
 
-* Help protect your applications against layer 7 DDoS attacks by using a WAF. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
+* Help protect your applications against layer 7 DDoS attacks by using a WAF. For more information, see [Application DDoS protection](../web-application-firewall/application-ddos-protection.md).
 
 * Help protect your applications from malicious actors with bot manager rules based on Microsoft Threat Intelligence.
 

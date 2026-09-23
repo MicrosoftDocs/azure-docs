@@ -2,7 +2,7 @@
 title: Replicate Azure Stack Hub to Azure using Azure Site Recovery
 description: Learn how to set up disaster recovery to Azure for Azure Stack Hub with the Azure Site Recovery service.
 ms.topic: how-to
-ms.date: 02/27/2026
+ms.date: 09/21/2026
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 ms.custom:
@@ -25,11 +25,11 @@ Site Recovery contributes to your business continuity and disaster recovery (BCD
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * **Step 1: Prepare Azure stack VMs for replication**. Check that VMs comply with Site Recovery requirements, and prepare for installation of the Site Recovery Mobility service. This service is installed on each VM you want to replicate.
+> * **Step 1: Prepare Azure Stack VMs for replication**. Check that VMs comply with Site Recovery requirements, and prepare for installation of the Site Recovery Mobility service. This service is installed on each VM you want to replicate.
 > * **Step 2: Set up a Recovery Services vault**. Set up a vault for Site Recovery, and specify what you want to replicate. Site Recovery components and actions are configured and managed in the vault.
 > * **Step 3: Set up the source replication environment**. Set up a Site Recovery configuration server. The configuration server is a single Azure Stack VM that runs all the components needed by Site Recovery. After you've set up the configuration server, you register it in the vault.
 > * **Step 4: Set up the target replication environment**. Select your Azure account, and the Azure storage account and network that you want to use. During replication, VM data is copied to Azure storage. After failover, Azure VMs are joined to the specified network.
-> * **Step 5: Enable replication**. Configure replication settings, and enable replication for VMs. The Mobility service will be installed on a VM when replication is enabled. Site Recovery performs an initial replication of the VM, and then ongoing replication begins. Learn how to [install the Mobility service using command prompt (Modernized)](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-modernized).   
+> * **Step 5: Enable replication**. Configure replication settings, and enable replication for VMs. The Mobility service will be installed on a VM when replication is enabled. Site Recovery performs an initial replication of the VM, and then ongoing replication begins. Learn how to [install the Mobility service using command prompt (Modernized)](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt).   
 > * **Step 6: Run a disaster recovery drill**: After replication is up and running, you verify that failover will work as expected by running a drill. To initiate the drill, you run a test failover in Site Recovery. The test failover doesn't impact your production environment.
 
 With these steps complete, you can then run a full failover to Azure as and when you need to.
@@ -53,7 +53,7 @@ Replication works as follows:
 4. After initial replication finishes, replication of delta changes to Azure begins. Tracked changes for a machine are held in an .hrl file.
 5. The configuration server orchestrates replication management with Azure (port HTTPS 443 outbound).
 6. The process server receives data from source machines, optimizes and encrypts it, and sends it to Azure storage (port 443 outbound).
-7. Replicated machines communicate with the configuration server (port HTTPS 443 inbound, for replication management. Machines send replication data to the process server (port HTTPS 9443 inbound - can be modified).
+7. Replicated machines communicate with the configuration server (port HTTPS 443 inbound), for replication management. Machines send replication data to the process server (port HTTPS 9443 inbound - can be modified).
 8. Traffic is replicated to Azure storage public endpoints, over the internet. Alternately, you can use Azure ExpressRoute public peering or Azure Peering Service. Replicating traffic over a site-to-site VPN from an on-premises site to Azure isn't supported.
 
 ## Prerequisites
@@ -79,7 +79,10 @@ Here's what you need to set up this scenario.
 
 Make sure that the VMs are running one of the operating systems summarized in the table.
 
-[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+> [!IMPORTANT]
+> The following list shows the intentionally narrower set of operating systems that are validated for this Azure Stack Hub scenario as of September 11, 2026.
+
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012.md](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 **Operating system** | **Details**
 --- | ---

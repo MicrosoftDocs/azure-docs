@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Create an Azure Global Load Balancer'
 titleSuffix: Azure Load Balancer
-description: Get started with this tutorial deploying a global Load Balancer with the Azure portal, Azure CLI, or Azure PowerShell.
+description: Get started with this tutorial deploying an Azure Global Load Balancer with the Azure portal, Azure CLI, or Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
@@ -17,7 +17,7 @@ ms.custom:
 
 # Tutorial: Create an Azure Global Load Balancer
 
-A global load balancer ensures a service is available globally across multiple Azure regions. If one region fails, the traffic is routed to the next closest healthy regional load balancer.  
+Azure Global Load Balancer ensures a service is available globally across multiple Azure regions. If one region fails, the traffic is routed to the next closest healthy regional load balancer.
 
 In this tutorial, you learn how to:
 
@@ -117,11 +117,11 @@ In this section, you create a global load balancer with a public IP address, a f
 
 16. Select **Add**.
 
-18. Select **Next: Inbound rules** at the bottom of the page.
+17. Select **Next: Inbound rules** at the bottom of the page.
 
-19. In **Inbound rules**, select **+ Add a load balancing rule**.
+18. In **Inbound rules**, select **+ Add a load balancing rule**.
 
-20. In **Add load balancing rule**, enter or select the following information:
+19. In **Add load balancing rule**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -136,11 +136,11 @@ In this section, you create a global load balancer with a public IP address, a f
     | TCP reset | Select **Enabled**. |
     | Floating IP | Leave the default of **Disabled**. |
 
-21. Select **Add**.
+20. Select **Add**.
 
-22. Select **Review + create** at the bottom of the page.
+21. Select **Review + create** at the bottom of the page.
 
-23. Select **Create** in the **Review + create** tab.
+22. Select **Create** in the **Review + create** tab.
 
     > [!NOTE]
     > Cross region load-balancer deployment is listed to specific home Azure regions. For the current list, see [Home regions in Azure](cross-region-overview.md#home-regions-in-azure) for cross region load balancer.
@@ -169,6 +169,7 @@ Create a global load balancer with [az network cross-region-lb create](/cli/azur
 * Named **myLoadBalancer-CR**.
 * A frontend pool named **myFrontEnd-CR**.
 * A backend pool named **myBackEndPool-CR**.
+* A generated public IP address named **PublicIPmyLoadBalancer-CR**.
 
 ```azurecli-interactive
   az network cross-region-lb create \
@@ -272,20 +273,20 @@ New-AzResourceGroup @rg
 
 In this section, you create the resources needed for the global load balancer.
 
-A global standard sku public IP is used for the frontend of the global load balancer.
+1. Use a Global tier Standard SKU public IP address for the frontend of Azure Global Load Balancer.
 
-* Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create the public IP address.
+1. Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create the public IP address.
 
-* Create a frontend IP configuration with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig).
+1. Create a frontend IP configuration with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig).
 
-* Create a backend address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig).
+1. Create a backend address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig).
 
-* Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig).
+1. Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig).
 
-* Create a global load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
+1. Create Azure Global Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer).
 
 ```azurepowershell-interactive
-`## Create global IP address for load balancer ##
+## Create a Global tier public IP address for the load balancer
 $ip = @{
     Name = 'myPublicIP-CR'
     ResourceGroupName = 'MyResourceGroupLB-CR'
@@ -296,20 +297,20 @@ $ip = @{
 }
 $publicIP = New-AzPublicIpAddress @ip
 
-## Create frontend configuration ##
+## Create the frontend configuration
 $fe = @{
     Name = 'myFrontEnd-CR'
     PublicIpAddress = $publicIP
 }
 $feip = New-AzLoadBalancerFrontendIpConfig @fe
 
-## Create backend address pool ##
+## Create the backend address pool
 $be = @{
     Name = 'myBackEndPool-CR'
 }
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig @be
 
-## Create the load balancer rule ##
+## Create the load-balancer rule
 $rul = @{
     Name = 'myHTTPRule-CR'
     Protocol = 'tcp'
@@ -320,7 +321,7 @@ $rul = @{
 }
 $rule = New-AzLoadBalancerRuleConfig @rul
 
-## Create global load balancer resource ##
+## Create the Azure Global Load Balancer resource
 $lbp = @{
     ResourceGroupName = 'myResourceGroupLB-CR'
     Name = 'myLoadBalancer-CR'
@@ -331,7 +332,7 @@ $lbp = @{
     BackendAddressPool = $bepool
     LoadBalancingRule = $rule
 }
-$lb = New-AzLoadBalancer @lbp`
+$lb = New-AzLoadBalancer @lbp
 ```
 
 ## Configure backend pool
@@ -424,7 +425,7 @@ In this section, you test the global load balancer. You connect to the public IP
 
 In this section, you test the global load balancer. You connect to the public IP address in a web browser.  You stop the virtual machines in one of the regional load balancer backend pools and observe the failover.
 
-1. To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
+1. To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). The create command generated the public IP resource name **PublicIPmyLoadBalancer-CR** from the load balancer name:
 
     ```azurecli-interactive
       az network public-ip show \

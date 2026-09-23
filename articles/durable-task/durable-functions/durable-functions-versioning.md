@@ -337,7 +337,7 @@ For detailed configuration and implementation guidance, see [Orchestration versi
 
 ### Stop all in-flight instances
 
-Another option is to stop all in-flight instances. If you're using the default [Azure Storage provider for Durable Functions](../common/durable-task-storage-providers.md#azure-storage), stop all instances by clearing the contents of the internal **control-queue** and **workitem-queue** queues. Alternatively, stop the function app, delete these queues, and restart the app. The queues are recreated automatically once the app restarts. The previous orchestration instances might remain in the "Running" state indefinitely, but they don't clutter your logs with failure messages or cause any harm to your app. This approach is ideal for rapid prototype development, including local development.
+Another option is to stop all in-flight instances. If you're using the [Azure Storage provider for Durable Functions](../common/durable-task-storage-providers.md#azure-storage), stop all instances by clearing the contents of the internal **control-queue** and **workitem-queue** queues. Alternatively, stop the function app, delete these queues, and restart the app. The queues are recreated automatically once the app restarts. The previous orchestration instances might remain in the `Running` state indefinitely, but they don't clutter your logs with failure messages or cause any harm to your app. This approach is ideal for rapid prototype development, including local development.
 
 > [!WARNING]
 > This approach requires direct access to the underlying storage resources and isn't appropriate for all storage providers supported by Durable Functions.

@@ -6,7 +6,8 @@ ms.author: dhananjayanr
 ms.manager: dhananjayanr
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
+ms.update:cycle: 1095-days
 ms.date: 07/14/2026
 ms.custom: vmware-scenario-422, engagement-fy24
 # Customer intent: As a VMware administrator, I want to troubleshoot replication cycle failures during agentless VM migration, so that I can ensure seamless and reliable data transfer to the cloud.

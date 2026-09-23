@@ -59,7 +59,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
 // Pointer to the Azure IoT Operations instance
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -69,7 +69,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
 }
 
 // Pointer to the default data flow profile
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-07-01' = {
   parent: aioInstance
   name: 'default'
   extendedLocation: {
@@ -133,7 +133,7 @@ az iot ops dataflow profile create --resource-group myResourceGroup --instance m
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' = {
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-07-01' = {
   parent: aioInstance
   name: '<NAME>'
   properties: {
@@ -245,7 +245,7 @@ az iot ops dataflow profile update --resource-group myResourceGroup --instance m
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' = {
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-07-01' = {
   parent: aioInstance
   name: '<NAME>'
   properties: {

@@ -14,7 +14,7 @@ ms.custom: devx-track-extended-storage
 
 # Azure Storage provider for Durable Functions
 
-When you use Durable Functions, the Azure Storage provider is your default option for managing state and orchestration. The Azure Storage provider optimizes performance and scalability for your applications by storing your instance states and queues in an Azure Storage account. 
+When you use Durable Functions, consider the Azure Storage provider for managing state and orchestration. The Azure Storage provider optimizes performance and scalability for your applications by storing your instance states and queues in an Azure Storage account. 
 
 With the Azure Storage provider:
 - Azure Queues drive all function execution. 
@@ -165,7 +165,7 @@ Storing payloads to local disks is *not* recommended, since on-disk state isn't 
 
 ## Configure the Azure Storage provider
 
-The Azure Storage provider is the default storage provider and doesn't require any explicit configuration, NuGet package references, or extension bundle references. You can find the full set of [Durable Functions host.json configuration options](durable-functions-host-json-settings.md) under the `extensions/durableTask/storageProvider` path.
+The Azure Storage provider doesn't require any explicit configuration, NuGet package references, or extension bundle references. You can find the full set of [Durable Functions host.json configuration options](durable-functions-host-json-settings.md) under the `extensions/durableTask/storageProvider` path.
 
 ### Connections
 

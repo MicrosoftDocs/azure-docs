@@ -1,92 +1,61 @@
 ---
 title: Overview of Azure SRE Agent
-description: Learn how Azure SRE Agent automates incident triage, scheduled operations, and site reliability workflows with integrations for PagerDuty, Grafana, ServiceNow, and GitHub.
+description: Learn how Azure SRE Agent automates incident triage, scheduled operations, and site reliability workflows with integrations for PagerDuty, ServiceNow, and GitHub.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 07/30/2026
+ms.date: 08/26/2026
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
 
 # Overview of Azure SRE Agent
 
-Azure SRE Agent safely automates operational work and reduces toil, so your team spends less time on incident triage and manual runbooks and more time building.
+During incidents, you often find context scattered across alerts, dashboards, tickets, and repositories. Azure SRE Agent connects to your Azure resources, observability tools, incident platforms, and source code repositories so you can investigate issues with more operational context in one place. Use it to gather signals, compare current issues with previous investigations, and run governed automation within configured permissions, run modes, and policies.
 
-It connects your observability tools, incident platforms, and source code repositories into a single automated workflow. When something breaks at 3 AM, instead of jumping between Grafana, PagerDuty, and Slack, you get one investigation with answers already in it, including what changed, what's affected, and what to do next.
+## What you can do
 
-The agent proposes changes and your team approves. No change deploys without human sign-off.
+Azure SRE Agent helps your team investigate incidents and respond faster. It gathers context, identifies probable causes, and suggests or, when configured, executes mitigations.
 
-Every investigation the agent runs builds institutional knowledge that persists across conversations and accumulates over time, whether you're a team of twenty or the only person who knows how the system works.
+For example, during a memory-related incident, SRE Agent can:
 
-## SRE Agent in action
+- **Detect memory trends**: Query Application Insights to identify a memory trend that began 40 minutes before the alert
+- **Correlate deployments**: Link the trend to a GitHub repository deployment event two hours earlier
+- **Propose mitigations**: Identify the specific commit and propose restarting the affected pod or adjusting the memory scaling threshold (horizontal pod autoscaler, or HPA)
+- **Prefill incident tickets**: Create a ServiceNow, PagerDuty, or incident-channel ticket with the full investigation summary prefilled
 
-Picture alerts firing at 2:47 AM for your payment-service from Azure Monitor, PagerDuty, or any connected monitoring platform.
+These configured workflows notify the appropriate people while SRE Agent works on a proposed mitigation. In Review mode, an SRE Agent administrator reviews the summary with attached runbook context and approves actions that require approval. The investigation stays in one thread, reducing tool switching. Whether the agent applies a mitigation automatically or waits for approval depends on your configured [run mode](run-modes.md).
 
-Within minutes, SRE Agent:
+This pattern applies across configured Azure services and integrations, including compute, storage, networking, data, and related monitoring and management services. Extend it with permitted Azure CLI operations through skills, approved runbooks, or custom agents. Use [agent hooks](agent-hooks.md) to add governance checkpoints that can allow or block actions.
 
-- Queries Application Insights and identifies a memory trend that started 40 minutes before the alert
-- Correlates the trend with a deployment event from your GitHub repository two hours earlier
-- Identifies the specific commit and proposes two mitigations: restart the affected pod and adjust the memory scaling threshold (HPA)
-- Creates a ticket in ServiceNow, PagerDuty, or your incident channel with the full investigation summary prefilled
+The agent's work follows three patterns:
 
-A notification surfaces the proposed mitigation. The on-call engineer reviews the summary and approves with a single action, with no runbook required and no context-switching. The investigation resolves in 7 minutes in a single thread, with no war room and no tab-switching between Grafana, PagerDuty, and Slack.
+- **Automate incidents**: On alert, the agent queries your monitoring tools, correlates signals across systems, identifies probable root cause, and proposes mitigations.
 
-## Azure service management capabilities
+- **Automate scheduled workflows**: Schedule proactive health checks, compliance sweeps, and routine operational tasks. Results surface in your connected incident platform or notification channel.
 
-SRE Agent can manage the full range of Azure services your team relies on:
+- **Investigate and advise**: Ask natural-language questions about your environment, such as "what changed in the last hour?" or "why is this service degraded?", and get grounded, source-cited answers.
 
-- **Compute services**: Virtual machines, Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS), Azure Functions, and more.
+## How it works
 
-- **Storage services**: Blob storage, file shares, managed disks, and storage accounts.
+SRE Agent combines Azure-specific product knowledge with customization you control. By default, it can query and act on Azure resources within assigned permissions, with built-in behavior for common operational tasks.
 
-- **Networking services**: Virtual networks, load balancers, application gateways, and network security groups.
-
-- **Database services**: Azure SQL Database, Azure Cosmos DB, PostgreSQL, MySQL, and Redis.
-
-- **Monitoring and management**: Azure Monitor, Log Analytics, Application Insights, and Azure Resource Manager.
-
-You can automate any Azure CLI operation through SRE Agent using runbooks, subagents, and [agent hooks](agent-hooks.md).
-
-## Primary use cases
-
-- **Automate incidents**: When an alert fires, the agent queries your monitoring tools, correlates signals across systems, identifies probable root cause, and proposes mitigations. This process reduces mean time to recovery (MTTR), improves service availability, and catches failure patterns before they become incidents.
-
-- **Automate scheduled workflows**: Run proactive health checks, compliance sweeps, and routine operational tasks on a defined schedule. Results surface in your connected incident platform or notification channel.
-
-- **Investigate and advise**: Ask natural-language questions about your environment, such as "what changed in the last hour?" or "why is this service degraded?", and get grounded answers with source citations.
-
-## How does SRE Agent work?
-
-SRE Agent combines fine-tuned Azure expertise with full customization capabilities. By default, it understands and manages Azure resources with defaults for common operational tasks.
-
-The agent operates through five extension primitives:
+The agent operates through five extension points that you can customize:
 
 - **Skills**: Discrete capabilities, including marketplace runbooks and Azure CLI scripts, that extend the agent's operational reach without requiring custom code.
 
-- **Subagents**: Purpose-built agents for specific operational domains. Six generic subagents ship built in: Explore, Plan, CodeReview, Bash, Verification, and GeneralPurpose. The agent can parallelize investigation, planning, review, shell, and verification work across built-in and custom subagents.
+- **Custom agents**: Purpose-built agents for specific operational domains. Several specialist agents ship ready to use, and you can build your own in the agent builder. See [Custom agents](sub-agents.md).
 
 - **Python tools**: Custom logic, data transformations, and API integrations for scenarios that require code rather than configuration.
 
-- **MCP servers**: Connect to 40+ managed connectors (Datadog, New Relic, Splunk, Elasticsearch, Dynatrace, and more) or any custom tool through the Model Context Protocol standard.
+- **MCP servers**: Connect to preconfigured partner connectors for observability platforms such as Datadog, Splunk, New Relic, Dynatrace, and Elasticsearch, or connect any custom tool through the Model Context Protocol standard. See [MCP connectors and tools](mcp-connectors.md).
 
-- **Agent hooks**: Event-triggered automations that run at defined points in the agent lifecycle, either before investigation or after resolution. Two executor types are supported: command hooks run deterministic CLI operations, and prompt hooks produce LLM-evaluated structured JSON output. Use hooks to enforce policies, emit telemetry, or integrate with external approval workflows. See [agent hooks](agent-hooks.md).
+- **Agent hooks**: Event-triggered automations that run at defined points in the agent lifecycle, such as after a tool runs or when the agent stops. Use hooks to enforce policies, emit telemetry, or integrate with external approval workflows. See [Agent hooks](agent-hooks.md).
 
-A permission gate governs all five primitives. This pre-execution safety layer evaluates every proposed tool call before it runs. Operators can require human approval, enforce policy rules, or block disallowed operations, ensuring your team remains in control even during fully automated workflows. Audit telemetry routes to your own Application Insights instance for compliance visibility.
-
-For the full primitive taxonomy, including RBAC scoping, cost attribution, and audit trail patterns, see [Subagents and extensibility](sub-agents.md) and [Agent hooks](agent-hooks.md).
-
-## Knowledge that never leaves
-
-Every investigation teaches your agent something new, and that knowledge stays even when you don't. It captures root causes, resolution steps, preferences, and operational patterns. If you're the only one who knows how the system works, that's no longer a single point of failure. For teams, new members ramp up faster, on-call quality stays consistent regardless of who's paged, and your collective expertise grows automatically.
-
-> [!TIP]
-> **Team example:** A new engineer joins on-call. The agent already knows deployment patterns, past incidents, and team procedures, delivering consistent quality from day one.
->
-> **Solo example:** You go on vacation. The agent carries your operational context so whoever covers doesn't start from scratch.
+Every proposed tool call passes through governance controls before it runs, so your team defines the boundaries even for fully automated workflows. For more information, see [Security and governance](#security-and-governance).
 
 ## Integrations
 
-Azure SRE Agent integrates with your operational ecosystem in the following ways:
+Azure SRE Agent connects to the tools your team already uses:
 
 :::row:::
 :::column:::
@@ -96,7 +65,6 @@ Azure SRE Agent integrates with your operational ecosystem in the following ways
 - Azure Monitor (metrics, logs, alerts, workbooks)
 - Application Insights
 - Log Analytics
-- Grafana
 
 **Incident management:**
 
@@ -119,15 +87,46 @@ Azure SRE Agent integrates with your operational ecosystem in the following ways
 
 **Communication and notifications:**
 
-- Slack
 - Microsoft Teams
+- Outlook
 
 :::column-end:::
 :::row-end:::
 
+Depending on your configuration, Azure SRE Agent also offers [managed connectors](managed-connectors.md), a separate connector system that can link your agent to SaaS services such as Google Drive, SharePoint, Notion, and Confluence.
+
+## Security and governance
+
+Security and platform teams can apply layered controls across network, identity, authorization, and organizational governance:
+
+- **Network isolation**: VNet integration routes agent workspace traffic through your virtual network. Your network security group (NSG) rules apply while your private DNS resolves requests. When you configure network routing, DNS, and permissions correctly, you can reach private endpoints, internal APIs, and locked-down resources like any other resource in your virtual network (VNet).
+
+- **Identity and RBAC**: The agent authenticates with managed identity and operates under Azure role-based access control (RBAC). For source code, GitHub Enterprise support lets the agent authenticate as a governed service identity through a Bring Your Own GitHub App model.
+
+- **Tool-level access control**: Set each tool the agent uses to *allow*, *ask*, or *deny*. Admins set global guardrails, team leads customize each custom agent, and users approve tools within their conversation. The available options, defaults, and precedence depend on the scope and policy in effect. For details, see [tool access policies](tool-access-policies.md).
+
+- **Infrastructure as Code**: Deploy the agent, its network configuration, its identity, and its tool policies via Bicep templates (Azure's infrastructure-as-code language) and Azure CLI through the same CI/CD pipelines you use for every other Azure resource.
+
+- **Governed skill distribution**: Platform teams can publish approved skills to a private GitHub repository by using the Private Plugins Marketplace. Agents across the tenant install approved skills from the same governed catalog.
+
+## Reuse operational context
+
+Azure SRE Agent retains context from prior investigations and uses background insight generation and session insights to recognize recurring patterns or related context. Retained context can include root causes, resolution steps, preferences, and operational patterns. Reusing it can limit repeated context gathering, reduce dependence on undocumented individual knowledge, and give on-call engineers more consistent starting information.
+
+> [!TIP]
+> **Team example:** A new engineer joins on-call. The agent already knows deployment patterns, past incidents, and team procedures, so they start with more context from day one.
+>
+> **Solo example:** You go on vacation. The agent's captured operational context is available to whoever covers, so they don't start from scratch.
+
+| Stage | What happens |
+|---|---|
+| **Initial setup** | Connect your tools and use built-in Azure knowledge during an investigation. |
+| **After repeated investigations** | Retained context can include environment topology, recurring failure patterns, and escalation preferences. |
+| **As shared context accumulates** | Team members can reuse prior root causes and resolution steps with less dependence on undocumented individual knowledge. |
+
 ## Get started
 
-Get started working with Azure SRE Agent by scheduling a task, handling an incident, or building a custom agent.
+Pick the path that matches your goal: schedule a task, handle an incident, or build a custom agent.
 
 # [Schedule a task](#tab/task)
 
@@ -143,7 +142,7 @@ Use scheduled tasks to automate routine operational work (health checks, cleanup
 
 1. Select **Create scheduled task**.
 
-1. Results from your scheduled task surface in your connected incident platform or notification channel.
+You see results from your scheduled task in your connected incident platform or notification channel.
 
 # [Handle an incident](#tab/incident)
 
@@ -151,7 +150,7 @@ When an alert fires, SRE Agent:
 
 1. Receives the alert from PagerDuty, ServiceNow, or Azure Monitor Alerts.
 
-1. Queries your observability stack (Grafana, Application Insights, Log Analytics) for correlated signals.
+1. Queries your observability stack (Application Insights, Log Analytics, and your connected monitoring platforms) for correlated signals.
 
 1. Generates a root cause hypothesis and proposes mitigations.
 
@@ -159,7 +158,7 @@ When an alert fires, SRE Agent:
 
 **To enable incident handling:**
 
-1. Connect your incident management platform: [ServiceNow](servicenow-incidents.md), [PagerDuty](pagerduty-incidents.md), or use Azure Monitor alerts.
+1. Connect your incident management platform: [ServiceNow](servicenow-incidents.md), [PagerDuty](pagerduty-incidents.md), or Azure Monitor alerts.
 
 1. Create an incident response plan with instructions for how the agent should handle incidents in your environment.
 
@@ -168,7 +167,7 @@ When an alert fires, SRE Agent:
 1. Send a test incident to validate enrichment, root cause analysis, and automation flow.
 
 > [!NOTE]
-> SRE Agent proposes mitigations but doesn't apply them without human approval, so you always control what runs.
+> Whether the agent applies a mitigation on its own depends on the run mode you set for the response plan or scheduled task. In Review mode, an SRE Agent Administrator approves the write actions that require approval before the agent runs them. In Autonomous mode, the agent applies them without waiting. For more information, see [Run modes](run-modes.md).
 
 # [Build a custom agent](#tab/subagent)
 
@@ -177,55 +176,25 @@ Use the agent builder to extend SRE Agent for your environment. Start with the p
 | Primitive | Use when | Docs |
 |-----------|----------|------|
 | **Skills** | You want to add a discrete capability from the marketplace | [Skills](skills.md) |
-| **Subagents** | You need a specialized agent for a specific operational domain | [Subagents](sub-agents.md) |
+| **Custom agents** | You need a specialized agent for a specific operational domain | [Custom agents](sub-agents.md) |
 | **Python tools** | You need custom logic, transformations, or API calls | [Python code execution](python-code-execution.md) |
 | **MCP servers** | You need to connect an external data source or platform | [MCP integrations](mcp-connectors.md) |
 | **Hooks** | You need event-triggered automations at lifecycle points | [Agent hooks](agent-hooks.md) |
 
-Builder capabilities are scoped by RBAC. See [Security overview](security-overview.md) for role definitions and audit trail configuration.
+Builder capabilities are scoped by RBAC. See [User roles and permissions](user-roles.md) for role definitions and [Audit agent actions](audit-agent-actions.md) for audit trail queries.
 
 ---
 
-## Value over time
+## Related content
 
-SRE Agent delivers progressive value as it learns your environment, your patterns, and your operational history.
-
-| Milestone | What happens |
-|-----------|-------------|
-| **Day 1** | Connect your tools, triage your first incident, and get immediate diagnostic value from built-in Azure knowledge. |
-| **Week 1** | The agent learns your environment topology, common failure patterns, and escalation preferences. Investigations get faster and more accurate. |
-| **Month 1** | Institutional knowledge compounds. Teams report catching failure patterns before they escalate. New team members contribute from their first on-call shift with no tribal knowledge required. |
-
-Organizations using Azure SRE Agent report significant reductions in mean time to recovery and operational overhead across early pilots.
-
-## Evaluate for your organization
-
-Whether you're evaluating for a team or running operations solo, start with the progressive value table in the preceding section. Then explore:
+Use these resources to plan deployment, governance, billing, and team onboarding:
 
 | Resource | What you find |
 |----------|---------------|
-| [Pricing and billing](pricing-billing.md) | Usage-based pricing, free tier eligibility, and capacity planning |
-| [Security overview](security-overview.md) | Data handling, privacy, network integration |
-| [Create and set up](create-agent.md) | How to run a structured pilot |
-| [Team setup and roles](team-onboard.md) | Administrator vs. Standard User roles, phased rollout guide |
-
-## Considerations
-
-Keep the following considerations in mind as you use Azure SRE Agent:
-
-- English is the only supported language in the chat interface.
-- For more information about how Azure SRE Agent manages data, see the [Microsoft privacy policy](https://www.microsoft.com/privacy/privacystatement).
-- Availability varies by region and tenant configuration.
-- Costs are usage-based. See [Pricing and billing](pricing-billing.md) for the current rate model and free tier details.
-- As with any AI system, SRE Agent might occasionally produce incorrect conclusions or propose mitigations that don't apply to your environment. Always review proposed actions before approving.
-
-When you create an agent, the following resources are also automatically created for you:
-
-- Azure Application Insights
-- Log Analytics workspace
-- Managed identity
-
-These resources support agent observability and identity management. You can view and manage them in your Azure subscription.
+| [Pricing and billing](pricing-billing.md) | Usage-based pricing metered in Azure Agent Units (AAUs), plus capacity planning |
+| [Security overview](security-overview.md) | Data handling, privacy, and execution isolation |
+| [Create and set up](create-agent.md) | Deploy an agent and grant it access to selected Azure resources. |
+| [Team setup and roles](team-onboard.md) and [User roles and permissions](user-roles.md) | How roles control who can chat, approve, and administer the agent, plus how to teach the agent about your team, services, and procedures |
 
 ## Next step
 

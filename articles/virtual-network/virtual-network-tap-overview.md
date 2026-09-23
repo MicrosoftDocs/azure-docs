@@ -97,6 +97,7 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 |**LinkShadow**|[LinkShadow NDR](https://www.linkshadow.com/products/network-detection-and-response)|
 |**AttackFence**|[AttackFence NDR](https://www.attackfence.com/ndr)|
 |**Arista Networks**|[Arista NDR](https://www.arista.com/en/products/network-detection-and-response)|
+|**Rapid7**|[Rapid7 Network Sensor (Insight Network Sensor)](https://docs.rapid7.com/sensor/insight-network-sensor-overview/)|
 
 ## Next Steps
 
