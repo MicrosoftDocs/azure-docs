@@ -408,7 +408,7 @@ Store the client secret as a secret in your logic app resource. Reference that s
 
 > [!IMPORTANT]
 >
-> Make sure to rotate the secret before it expires.
+> Rotate the secret before it expires.
 
 1. In the Azure portal, go to your logic app resource.
 
