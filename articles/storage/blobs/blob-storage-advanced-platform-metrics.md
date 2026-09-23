@@ -161,7 +161,7 @@ az storage advanced-platform-metric create \
 
 ### [Portal](#tab/azure-portal)
 
-To view advanced platform metrics in the Azure portal:
+To enable advanced platform metrics in the Azure portal:
 
 1. Go to your **Storage Account** in the [Azure portal](https://portal.azure.com).
 1. Under **Monitoring**, select **Advanced platform metrics**.
