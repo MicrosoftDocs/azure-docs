@@ -18,6 +18,8 @@ Azure Functions hosted skills let you add AI reasoning to your function apps. In
 
 To create and deploy your first hosted skills app, see [Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md).
 
+For the most up-to-date and comprehensive runtime documentation, see [Azure Functions Agents Runtime](https://azure.github.io/azure-functions-agents-runtime/).
+
 [!INCLUDE [functions-hosted-skills-preview](../../includes/functions-hosted-skills-preview.md)]
 
 A *hosted skill* is a single unit of AI-powered work defined in an `.agent.md` file. Each hosted skill maps to one Azure Function. A *skill* on its own refers to reusable Markdown guidance stored in a `SKILL.md` file that hosted skills can load on demand.
@@ -176,6 +178,7 @@ For the latest configuration details, telemetry fields, and usage guidance, use 
 
 ## Related content
 
++ [Azure Functions Agents Runtime documentation](https://azure.github.io/azure-functions-agents-runtime/)
 + [Azure Functions hosted skills reference](functions-hosted-skills-reference.md)
 + [Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md)
 + [Dynamic workflows in Azure Functions hosted skills](functions-hosted-skills-dynamic-workflows.md)
