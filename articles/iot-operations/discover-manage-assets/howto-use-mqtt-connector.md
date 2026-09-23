@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 07/14/2026
+ms.date: 08/18/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from MQTT topics.
@@ -310,6 +310,9 @@ For background on how management groups and actions work across connectors, see:
 - [Manage and control the camera](howto-use-onvif-connector.md#manage-and-control-the-camera) — shows how a similar pattern is used for the connector for ONVIF.
 
 ## Transform incoming data
+
+> [!IMPORTANT]
+> To prevent collisions with reserved cloud headers, the connector doesn't propagate MQTT user properties from incoming messages to outgoing messages. To preserve the user properties, use the [user properties to payload sample](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm-user-props-to-payload/README.md) to add them to the message payload. The sample requires a top-level JSON object payload and adds the properties under the `_user_properties` key.
 
 [!INCLUDE [connector-transform-incoming-data](../includes/connector-transform-incoming-data.md)]
 

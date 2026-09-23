@@ -242,7 +242,9 @@ Some actions, such as changing the default access tier of your account, can lead
 
 ## Frequently asked questions (FAQ)
 
-See [Managing costs FAQ](../blobs/storage-blob-faq.yml#managing-costs).
+### If I use Azure Blob Storage for only a few days a month, is the cost prorated?
+
+Storage capacity for Blob Storage is billed in units of the average daily amount of data stored, in gigabytes (GB), over a monthly period. For example, if you consistently used 10 GB of storage for the first half of the month, and none for the second half of the month, you would be billed for your average usage of 5 GB of storage.
 
 ## Next steps
 

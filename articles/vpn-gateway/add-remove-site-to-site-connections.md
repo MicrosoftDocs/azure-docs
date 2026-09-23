@@ -70,7 +70,7 @@ Create a site-to-site VPN connection between your virtual network gateway and yo
 
 ## Remove a connection
 
-[!INCLUDE [Remove a connection](../../includes/vpn-gateway-remove-connections.md)]
+[!INCLUDE [Remove a connection](../networking/includes/vpn-gateway/remove-connections.md)]
 
 ## Next steps
 

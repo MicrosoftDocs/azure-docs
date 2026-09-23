@@ -1,33 +1,29 @@
 ---
-title: Plan for an Azure File Sync Deployment
-description: Plan for a deployment with Azure File Sync, a service that allows you to cache several Azure file shares locally on an on-premises Windows Server instance or cloud VM.
+title: Plan an Azure File Sync deployment
+description: Plan your Azure File Sync deployment by choosing servers, sync topologies, networking, cloud tiering policies, and Windows Server configurations.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 07/28/2026
+ms.date: 08/17/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As an IT administrator, I want to plan for an Azure File Sync deployment so that I can effectively manage on-premises file caching and ensure seamless integration with cloud file shares."
 ---
 
-# Plan for an Azure File Sync deployment
+# Plan an Azure File Sync deployment
 
-:::row:::
-    :::column:::
-        [![Interview and demonstration that introduces Azure File Sync - select to play.](./media/storage-sync-files-planning/azure-file-sync-interview-video-snapshot.png)](https://www.youtube.com/watch?v=nfWLO7F52-s)
-    :::column-end:::
-    :::column:::
-        Azure File Sync is a service that you can use to cache several Azure file shares on an on-premises Windows Server instance or cloud virtual machine (VM).
+Planning an Azure File Sync deployment involves choosing which servers to sync, how to organize your sync topology, and how to configure networking and cloud tiering. Use this article to make those decisions, then follow the [deployment guide](file-sync-deployment-guide.md) to set it up.
 
-        This article introduces you to Azure File Sync concepts and features. After you're familiar with Azure File Sync, consider following the [Azure File Sync deployment guide](file-sync-deployment-guide.md) to try out this service.        
-    :::column-end:::
-:::row-end:::
+**Key decisions:**
 
-The files are stored in the cloud in [Azure file shares](../files/storage-files-introduction.md). You can use Azure file shares in the following two ways. Which deployment option you choose changes the aspects that you need to consider as you plan for your deployment.
+1. **Which servers will sync?** On-premises Windows Servers, Azure VMs, or both? See [Windows file server considerations](#considerations-for-windows-file-servers).
+2. **How many sync groups do you need?** Map your file shares and server folders into [sync topologies](#planning-for-balanced-sync-topologies).
+3. **Will you use cloud tiering?** Cache only hot files locally to save disk space, or keep a full copy? See [Storage tiers](#storage-tiers).
+4. **What networking configuration?** Public endpoints, private endpoints, or firewalls? See [Networks](#networks).
+5. **How will users authenticate?** See [Identity](#identity).
+6. **What Windows Server specifications?** See [Recommended system resources](#recommended-system-resources).
 
-- **Directly mount an Azure file share by using the Server Message Block (SMB) protocol**: Because Azure Files provides SMB access, you can mount Azure file shares on-premises or in the cloud by using the standard SMB client available in Windows, macOS, and Linux. Because Azure file shares are serverless, deploying for production scenarios doesn't require managing a file server or network-attached storage (NAS) device. This choice means you don't have to apply software patches or swap out physical disks.
-
-- **Cache an Azure file share on-premises by using Azure File Sync**: With Azure File Sync, you can centralize your organization's file shares in Azure Files while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server instance into a quick cache of your Azure file share.
+> [!VIDEO https://www.youtube.com/embed/nfWLO7F52-s]
 
 ## Management concepts
 
@@ -42,7 +38,7 @@ In Azure, a *resource* is a manageable item that you create and configure within
 
 ### Azure file share management concepts
 
-Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports, including SMB and NFS, SSD and HDD media tiers, every redundancy type, and availability in every region. To learn more about classic file shares, see [classic file shares](../files/storage-files-planning.md#classic-file-shares-microsoftstorage).
+Classic file shares, or file shares deployed in storage accounts, are the traditional way to deploy file shares for Azure Files. They support all of the key features that Azure Files supports, including SMB and NFS, SSD and HDD media tiers, every redundancy type, and availability in every region. To learn more about classic file shares, see [classic file shares](../files/files-management-concepts.md#classic-file-shares-microsoftstorage).
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
@@ -132,6 +128,9 @@ The following table provides both the size of the namespace and a conversion to 
 > Initial synchronization of a namespace is an intensive operation. Allocate more memory until initial sync is complete. This approach isn't required but might speed up initial sync.
 >
 > Typical churn is 0.5% of the namespace changing per day. For higher levels of churn, consider adding more CPUs.
+
+> [!NOTE]
+> The Azure File Sync agent requires .NET Framework 4.7.2 or later on the Windows Server. Windows Server 2019 and later include .NET Framework 4.7.2 by default. For Windows Server 2016, verify that .NET Framework 4.7.2 or later is installed before installing Azure File Sync.
 
 ### Evaluation cmdlet
 
@@ -330,7 +329,7 @@ For Azure File Sync and DFS-R to work side by side:
 - You shouldn't configure server endpoints on DFS-R read-only replication folders.
 - Only a single server endpoint can overlap with a DFS-R location. Multiple server endpoints overlapping with other active DFS-R locations might lead to conflicts.
 
-For more information, see [DFS Namespaces and DFS Replication overview](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj127250(v=ws.11)).
+For more information, see [DFS Replication overview](/windows-server/storage/dfs-replication/dfs-replication-overview).
 
 ### Sysprep
 

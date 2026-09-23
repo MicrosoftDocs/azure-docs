@@ -1,21 +1,21 @@
 ---
 title: Create, change, or delete an Azure public IP address
 titleSuffix: Azure Virtual Network
-description:  Manage public IP addresses. Learn how a public IP address is a resource with configurable settings.
+description: Manage Azure public IP address settings and learn how to create, change, or delete a public IP address.
 services: virtual-network
-ms.date: 01/08/2025
+ms.date: 09/05/2026
 ms.author: mbender
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
-# Customer intent: "As a cloud network administrator, I want to create, modify, or delete public IP addresses in Azure, so that I can manage network connectivity for my resources efficiently and ensure compliance before the upcoming SKU retirement deadline."
+# Customer intent: "As a cloud network administrator, I want to create, modify, or delete public IP addresses in Azure so that I can manage network connectivity for my resources efficiently."
 ---
 
 # Create, change, or delete an Azure public IP address
 
->[!Important]
->On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. For guidance on upgrading, visit [Upgrading a basic public IP address to Standard SKU - Guidance](public-ip-basic-upgrade-guidance.md).
+> [!IMPORTANT]
+> On September 30, 2025, Basic SKU public IP addresses were retired. If you still use a Basic SKU public IP address, upgrade it to Standard SKU as soon as possible. For guidance, see [Upgrade Basic Public IP Address to Standard SKU in Azure](public-ip-basic-upgrade-guidance.md).
 
 Learn about a public IP address and how to create, change, and delete one. A public IP address is a resource with configurable settings. 
 

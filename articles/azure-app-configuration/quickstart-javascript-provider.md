@@ -7,18 +7,19 @@ ms.service: azure-app-configuration
 ms.devlang: javascript
 ms.topic: quickstart
 ms.custom: quickstart, mode-other, devx-track-js
-ms.date: 11/07/2024
+ms.date: 08/28/2026
 ms.author: zhiyuanliang
+ai-usage: ai-assisted
 #Customer intent: As a JavaScript developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a Node.js console app with Azure App Configuration
 
 In this quickstart, you use Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration JavaScript provider client library](https://github.com/Azure/AppConfiguration-JavaScriptProvider).
 
-App Configuration provider for JavaScript is built on top of the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration) and is designed to be easier to use with richer features.
+The App Configuration provider for JavaScript is built on the [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration) and is designed to be easier to use with richer features.
 It enables access to key-values in App Configuration as a `Map` object.
-It offers features like configuration composition from multiple labels, key prefix trimming, automatic resolution of Key Vault references, and many more.
-As an example, this tutorial shows how to use the JavaScript provider in a Node.js app.
+It offers features such as configuration composition from multiple labels, key prefix trimming, and automatic resolution of Key Vault references.
+This quickstart shows how to use the JavaScript provider in a Node.js app.
 
 ## Prerequisites
 

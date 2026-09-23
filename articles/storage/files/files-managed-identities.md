@@ -54,6 +54,8 @@ This article assumes that you have an Azure subscription with permissions to cre
 
 The clients that need to authenticate by using a managed identity shouldn't be joined to any domain.
 
+The storage account's SMB security settings must allow Kerberos authentication. If you use a custom SMB security profile, verify that **Kerberos** is selected under **Authentication methods**. Enabling Managed Identity for SMB (`SMBOAuth`) doesn't enable or validate this separate setting. For instructions, see [SMB security settings](files-smb-protocol.md#smb-security-settings).
+
 ## Configure the managed identity's access property on your storage account
 
 To authenticate a managed identity, you must enable the `SMBOAuth` property on the storage account that contains the Azure file share you want to access. We recommend creating a new storage account for this purpose, although you can use an existing storage account.
@@ -294,11 +296,11 @@ If you created a user-assigned managed identity, follow these steps to add it to
 
 ## Prepare your client to authenticate by using a managed identity
 
-The steps for preparing your system to mount the file share by using managed identity authentication are different for Windows and Linux clients. Clients shouldn't be domain joined.
+The steps for preparing your system to mount the file share by using managed identity authentication are different for Windows and Linux clients. Windows clients can't be joined to a domain, or managed identity authentication won't work.
 
 ::: zone pivot="windows"
 
-To prepare your client VM or Windows device to authenticate by using a managed identity, follow these steps:
+To prepare your client VM or Windows device to authenticate by using a managed identity, ensure the client isn't joined to a domain and follow these steps.
 
 1. Sign in to your VM or device that has the managed identity assigned and open a PowerShell window as administrator. You need either PowerShell 5.1+ or PowerShell 7+.
 
@@ -355,8 +357,8 @@ The package location and installation steps differ depending on your Linux distr
 Run the following commands to install `azfilesauth` on Azure Linux 3.0:
 
 ```bash
-tdnf update 
-tdnf install azfilesauth
+sudo tdnf update 
+sudo tdnf install azfilesauth
 ```
 
 #### RHEL 9.6+
@@ -367,8 +369,8 @@ Run the following commands to install `azfilesauth` on RHEL 9.6+:
 curl -sSL -O https://packages.microsoft.com/config/$(source /etc/os-release && echo "$ID/${VERSION_ID%%.*}")/packages-microsoft-prod.rpm
 sudo rpm -i packages-microsoft-prod.rpm
 rm packages-microsoft-prod.rpm
-dnf update
-dnf install -y azfilesauth
+sudo dnf update
+sudo dnf install -y azfilesauth
 ```
 
 Sometimes RHEL can block kernel upcall access to the credential cache file. If a failure occurs, see `/var/log/messages` for potential causes.
@@ -376,10 +378,10 @@ Sometimes RHEL can block kernel upcall access to the credential cache file. If a
 RHEL uses a persistent credential or KCM cache by default. You can switch to a file-based cache for `azfilesauth`:
 
 ```bash
-  sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
-  [libdefaults]
-    default_ccache_name = FILE:/tmp/krb5cc_%{uid}
-  EOF
+sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
+[libdefaults]
+  default_ccache_name = FILE:/tmp/krb5cc_%{uid}
+EOF
 ```
 
 #### SLES 15 SP6+
@@ -397,10 +399,10 @@ sudo zypper install -y azfilesauth
 SLES 15 SP6+ uses a persistent credential or KCM cache by default. You can switch to a file-based cache for `azfilesauth`:
 
 ```bash
-  sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
-  [libdefaults]
-    default_ccache_name = FILE:/tmp/krb5cc_%{uid}
-  EOF
+sudo tee /etc/krb5.conf.d/00-azfilesauth.conf > /dev/null <<EOF
+[libdefaults]
+  default_ccache_name = FILE:/tmp/krb5cc_%{uid}
+EOF
 ```
 
 #### Ubuntu 22.04
@@ -524,6 +526,8 @@ Automatic credential refresh requires a managed identity assigned to your VM. If
 ::: zone-end
 
 ## Troubleshooting
+
+If a managed identity mount prompts for a username and password, first verify that the storage account's SMB security settings allow Kerberos authentication. If Kerberos is already enabled, follow the troubleshooting steps for your operating system.
 
 Troubleshooting steps are different for Windows and Linux clients.
 

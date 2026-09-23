@@ -1,10 +1,10 @@
 ---
 title: Prepare machines for agentless migration with Azure Migrate
 description: Learn how to prepare on-premises machines for agentless migration with Azure Migrate.
-author: vijain
-ms.author: v-uhabiba
+author: jyothisuri
+ms.author: jsuri
 ms.topic: concept-article
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.service: azure-migrate
 ms.update-cycle: 365-days
 ms.date: 05/09/2025

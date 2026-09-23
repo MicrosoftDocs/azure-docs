@@ -29,7 +29,7 @@ Azure API Management provides the following caching service options to meet diff
     The internal cache implementation differs between the classic tiers (**Developer**, **Basic**, **Standard**, and **Premium**) and the v2 tiers (**Basic v2**, **Standard v2**, and **Premium v2**). The built-in cache in the v2 tiers provides enhanced reliability. [Learn more](api-management-howto-cache.md) about caching with the built-in cache.
 
 
-* **External** cache: For enhanced performance and persistence, optionally configure an external Redis-compatible cache, such as [Azure Managed Redis](../redis/overview.md), to use with any API Management service tier or gateway. [Learn more](api-management-howto-cache-external.md) about setting up an external cache with Azure Managed Redis.
+* **External** cache: For enhanced performance and persistence, optionally configure an external Redis-compatible cache, such as [Azure Managed Redis](/azure/redis/overview), to use with any API Management service tier or gateway. [Learn more](api-management-howto-cache-external.md) about setting up an external cache with Azure Managed Redis.
 
 The following table compares capabilities of the internal and external cache.
 

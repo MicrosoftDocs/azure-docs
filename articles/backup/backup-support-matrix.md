@@ -159,6 +159,7 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 | MARS Agent (Preview)  | Available in preview. <br><br> Not supported for vaults with Private Endpoint enabled.       | Available in all Azure public regions.   |
 | DPM/MABS | No                        |                      N/A                   |
 | AFS (Azure file shares)                 | Yes                                                           |      See the [supported regions](azure-file-share-support-matrix.md?tabs=vault-tier#supported-regions).               |
+| PostgreSQL | Yes | Available in all Azure public regions. |
 
 ## Resource health
 

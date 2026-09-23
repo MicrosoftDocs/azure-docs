@@ -5,7 +5,8 @@ author: jadean-msft
 ms.author: jadean
 ms.topic: overview
 ms.service: azure-enclave
-ms.date: 06/03/2026
+ai-usage: ai-assisted
+ms.date: 09/02/2026
 ---
 
 # What is Azure Enclave?
@@ -25,9 +26,10 @@ Azure Enclave takes a multi-layered and hierarchical approach to virtual boundar
 Azure Enclave dramatically reduces the time and complexity required to create and manage secure, compliant cloud environments. Traditional secure environment deployment can take weeks or months of planning, configuration, and testing and still might be missing important isolation and policy controls. Azure Enclave reduces the deployment time to hours or days through Azure Enclave managed infrastructure and built-in security controls so you can focus on your customers or users.
 
 ## Isolated virtual networking and workloads
+
 With Azure Enclave, you can easily create new isolated, zero-trust software-defined networks and deploy workloads in those networks to satisfy your business requirements on Azure.
 
-- [**Communities**](./what-community.md) - Isolated, zero-trust, Azure Enclave managed virtual WAN boundary protected through a combination of Azure Firewall, policy guardrails, and role-based access control (RBAC) deny assignments that serve as a hub for one or more enclaves.  You manage connections outside of the community through community endpoints and transit hub resources to allow connectivity to trusted destinations. Logging and diagnostics are enabled for all enclaves and workloads within the community by default. Each enclave can send logging data to the community or keep it isolated to the enclave, or send logs to both.
+- [**Communities**](./what-community.md) - Isolated, zero-trust, Azure Enclave managed virtual WAN boundary protected through a combination of Azure Firewall, policy guardrails, and role-based access control (RBAC) deny assignments that serve as a hub for one or more enclaves. You manage connections outside of the community through community endpoints and transit hub resources to allow connectivity to trusted destinations. Logging and diagnostics infrastructure is available to all enclaves and workloads within the community. Each enclave can send logging data to the community, keep it isolated to the enclave, or send logs to both; by default, an enclave's logs stay isolated to the enclave.
 
 - [**Enclaves**](./what-enclave.md) - Isolated, zero-trust, Azure Enclave managed virtual networks connected to the community hub protected through a combination of network security groups (NSG), policy guardrails, and RBAC deny assignments that serve as the virtual network for one or more workloads. You can't directly modify enclave virtual networks and NSGs. You must manage them through enclave endpoints and enclave resources to establish network connectivity.
 
@@ -36,6 +38,7 @@ With Azure Enclave, you can easily create new isolated, zero-trust software-defi
 [ ![Diagram showing the Azure Enclave layers within the management layers in Azure.](./media/ave-azure-layers-hierarchy.png) ](./media/ave-azure-layers-hierarchy.png#lightbox)
 
 ## What gets deployed
+
 When you deploy Azure Enclave resources, these resources are deployed for you:
 
 - [**Communities**](./what-community.md) - The community managed resource group contains these resources depending on your selections during community creation.
@@ -50,10 +53,11 @@ When you deploy Azure Enclave resources, these resources are deployed for you:
   > [!NOTE]
   > 
   > Virtual WAN regional hub - A secured hub (Virtual WAN hub plus Azure Firewall) is created during enclave creation for each new region an enclave is deployed in.
+  >
   > Virtual WAN hub for transit - When you create a transit hub one of the following resources is also created depending on your choice:
-    - VPN Gateway
-    - ExpressRoute Gateway
-    - Virtual Network Connection
+  > - VPN Gateway
+  > - ExpressRoute Gateway
+  > - Virtual Network Connection
 
 - [**Enclaves**](./what-enclave.md)
   - Virtual Network
@@ -71,14 +75,14 @@ When you deploy Azure Enclave resources, these resources are deployed for you:
 - [**Workloads**](./what-workload.md)
   - Workload Resource Groups - You create each [workload resource group](./what-workload.md#workload-resource-group) you need to organize your resources.
 
-
 ## Virtual connection management
+
 With Azure Enclave, you can easily connect your communities, enclaves, and workloads to other networks and resources, both on Azure and on-premises.
 
 - [**Enclave Endpoints**](./what-enclave-endpoint.md) are collections of networking rules that enable simplified and standardized connectivity to an enclave or an individual workload.
 - [**Community Endpoints**](./what-community-endpoint.md) are collections of networking rules that enable external connectivity to trusted destinations including public websites, well-known services, and external private networks.
 - [**Transit hubs**](./what-transit-hub.md) can be associated with community endpoint rules to allow secure site-to-site connectivity to external private networks via VPN Gateway or ExpressRoute.
-- [**Enclave connections**](./what-enclave-connection.md) are associated with a community or enclave endpoint and allow network traffic based on the rules defined within the Endpoint.
+- [**Enclave connections**](./what-enclave-connection.md) are associated with a community or enclave endpoint and allow network traffic based on the rules defined within the endpoint.
 
 ## Multi-layered governance, security, and monitoring
 
@@ -93,7 +97,8 @@ Azure Enclave provides the following security layers built directly into the ser
 
 For more governance guidance, see [best practices](./best-practices.md) and [access controls in enclaves](./access-controls-enclaves.md).
 
-## Defense-in-depth 
+## Defense-in-depth
+
 Azure Enclave simplifies integration with existing Azure security and monitoring services including:
 
 **Microsoft Sentinel**: Combine the power of Microsoft Sentinel's Security Information and Event Management (SIEM) and Security Orchestration, Automation, and Response (SOAR) capabilities with Azure Enclave to enhance threat detection, investigation, and response across your cloud environment.
@@ -106,7 +111,8 @@ Azure Enclave simplifies integration with existing Azure security and monitoring
 
 Learn more about how Azure Enclave incorporates [defense-in-depth](./defense-in-depth.md).
 
-## Next steps 
+## Next steps
+
 Here are some other articles to learn about the new Azure Enclave resources:
 
 - [Why use Azure Enclave?](./why-azure-enclave.md)
@@ -115,3 +121,5 @@ Here are some other articles to learn about the new Azure Enclave resources:
 - [What is an enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)
 - [Azure Enclave tutorials](./1-1-create-community.md)
+- [Azure Enclave API reference](https://aka.ms/ae/api)
+- [Azure Enclave API source and specs](https://aka.ms/ae/apigithub)

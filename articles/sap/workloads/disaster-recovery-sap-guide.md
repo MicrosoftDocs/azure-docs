@@ -79,19 +79,19 @@ The high availability setup of SAP NetWeaver or ABAP platform uses enqueue repli
 
 ##### Fencing Mechanism
 
-Irrespective of the operating system (SLES or RHEL) and its version, pacemaker requires a valid fencing mechanism in order for the entire solution to work properly. Based on the type of fencing mechanism you had setup in your primary region, you need to make sure the same fencing mechanism is set up on the DR site after failover.
+Regardless of the operating system (SLES or RHEL) and its version, pacemaker requires a valid fencing mechanism in order for the entire solution to work properly. Based on the type of fencing mechanism you had set up in your primary region, you need to make sure the same fencing mechanism is set up on the DR site after failover.
 
 | Fencing Mechanism             | Cross region DR recommendation                                                                                                                                                                                                |
 | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SBD using iSCSI target server | Replicate iSCSI target server using Azure Site Recovery.</br> On DR VMs, discover iSCSI disk again.                                                                                                                           |
 | Azure fence agent             | Enable Managed System Identities (MSI) on DR VMs.</br>Assign custom roles.</br> Update the fence agent resource in cluster.                                                                                                   |
-| SBD using Azure shared disk\* | Configure new Azure Shared Disk on DR region. Attach Azure Shared Disk to DR VMs after failover.</br>[Set up Azure shared disk SBD device](high-availability-guide-suse-pacemaker.md#set-up-an-azure-shared-disk-sbd-device). |
+| SBD using Azure shared disk\* | Configure new Azure Shared Disk on DR region. Attach Azure Shared Disk to DR VMs after failover.</br>[Set up Azure shared disk SBD device](/azure/sap/workloads/high-availability-guide-rhel-pacemaker?tabs=rhel10%2Cmsi&pivots=sbd-shared-disk#deploy-an-azure-shared-disk-for-sbd). |
 
 \*ZRS for Azure shared disk is available in [limited regions](/azure/virtual-machines/disks-redundancy#limitations).
 
 > [!NOTE]
 >
-> We recommend to have same fencing mechanism for both primary and DR region for ease of operation and failover. It is not advised to have different fencing mechanism after failover to DR site.
+> We recommend using the same fencing mechanism for both primary and DR regions for ease of operation and failover. It is not advised to have different fencing mechanisms after failover to DR site.
 
 #### [Windows](#tab/windows)
 
@@ -107,7 +107,7 @@ Azure Site Recovery replicates VMs to the DR site, but it doesn’t replicate Az
 
 If you configure a cluster with a cloud witness as its quorum mechanism, then you need to create a separate storage account in the DR region. On the event of failover, quorum setting must be updated with the new storage account name and access keys.
 
-##### Windows server failover cluster
+##### Windows Server failover cluster
 
 If there's a failover, SAP ASCS/ERS VMs configured with WSFC don't work out-of-the-box. Additional reconfiguration is required to start SAP system on the DR region. Based on the type of your deployment (file share or shared disk), refer to following blog to learn more on the additional steps to be performed in the DR region.
 
@@ -147,7 +147,7 @@ For cost optimized solution, you can even use backup and restore option for data
 
 ## Back up and restore
 
-Backup and restore is other solution you can use to achieve disaster recovery for your SAP workloads if the business RTO and RPO are noncritical. You can use [Azure backup](../../backup/backup-overview.md), a cloud based backup service to take copies of different component of your SAP workload like virtual machines, managed disks, and supported databases. To learn more on the general support settings and limitations for Azure Backup scenarios and deployments, see [Azure Backup support matrix](../../backup/backup-support-matrix.md).
+Backup and restore is another solution you can use to achieve disaster recovery for your SAP workloads if the business RTO and RPO are noncritical. You can use [Azure backup](../../backup/backup-overview.md), a cloud based backup service to take copies of different components of your SAP workload like virtual machines, managed disks, and supported databases. To learn more on the general support settings and limitations for Azure Backup scenarios and deployments, see [Azure Backup support matrix](../../backup/backup-support-matrix.md).
 
 | Services | Component                                                                                       | Azure Backup Support |
 | -------- | ----------------------------------------------------------------------------------------------- | -------------------- |
@@ -155,7 +155,7 @@ Backup and restore is other solution you can use to achieve disaster recovery fo
 | Storage  | [Azure Managed Disks including shared disks](../../backup/disk-backup-support-matrix.md)        | Supported            |
 | Storage  | [Azure File Share - SMB (Standard or Premium)](../../backup/azure-file-share-support-matrix.md) | Supported            |
 | Storage  | [Azure blobs](../../backup/blob-backup-support-matrix.md)                                       | Supported            |
-| Storage  | Azure File Shared - NFS (Standard or Premium)                                                   | Not Supported        |
+| Storage  | Azure File Share - NFS (Standard or Premium)                                                   | Not Supported        |
 | Storage  | Azure NetApp Files                                                                              | Not Supported        |
 | Database | [SAP HANA database in Azure VMs](../../backup/sap-hana-backup-support-matrix.md)                | Supported            |
 | Database | [SQL server in Azure VMs](../../backup/sql-support-matrix.md)                                   | Supported            |
@@ -165,11 +165,11 @@ Backup and restore is other solution you can use to achieve disaster recovery fo
 
 > [!Note]
 >
-> Azure backup supports Oracle database using [Azure VM backup for database consistent snapshots](../../backup/backup-azure-linux-database-consistent-enhanced-pre-post.md).
+> Azure Backup supports Oracle database using [Azure VM backup for database consistent snapshots](../../backup/backup-azure-linux-database-consistent-enhanced-pre-post.md).
 >
-> Azure backup doesn’t support all Azure storages and databases that are used for SAP workload.
+> Azure Backup doesn’t support all Azure storages and databases that are used for SAP workload.
 
-Azure backup stores backups in recovery service vault, which replicates your data based on the chosen replication type (LRS, ZRS, or GRS). For [Geo-redundant storage (GRS)](../../storage/common/storage-redundancy.md#geo-redundant-storage), your backup data is replicated to a paired secondary region. With [cross region restore](../../backup/backup-support-matrix.md#cross-region-restore) feature enabled, you can restore data of the supported management type on the secondary region.
+Azure Backup stores backups in recovery service vault, which replicates your data based on the chosen replication type (LRS, ZRS, or GRS). For [Geo-redundant storage (GRS)](../../storage/common/storage-redundancy.md#geo-redundant-storage), your backup data is replicated to a paired secondary region. With [cross region restore](../../backup/backup-support-matrix.md#cross-region-restore) feature enabled, you can restore data of the supported management type on the secondary region.
 
 Backup and restore are more traditional cost optimized approach but comes with a trade-off of higher RTO. As you need to restore all the applications from the backup if there's failover to DR region. So you need to analyze your business need and accordingly design a DR strategy.
 

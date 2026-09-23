@@ -4,7 +4,7 @@ description: Supported versions of Spark, Scala, Python
 author: arali
 ms.author: arali
 ms.reviewer: arali
-ms.date: 03/08/2024
+ms.date: 09/02/2026
 ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: reference
@@ -21,16 +21,16 @@ The runtimes have the following advantages:
 
 ## Supported Azure Synapse runtime releases
 
-> [!TIP]
-> We strongly recommend proactively upgrading workloads to a more recent GA version of the runtime which is [Azure Synapse Runtime for Apache Spark 3.5 (GA)](./apache-spark-35-runtime.md). Refer to the [Apache Spark migration guide](https://spark.apache.org/docs/latest/sql-migration-guide.html).
-
 The following table lists the runtime name, Apache Spark version, and release date for supported Azure Synapse Runtime releases.
 
-| Runtime name | Release date | Release stage                | End of Support announcement date | End of Support effective date |
+| Runtime name | Release date | Release stage                | End of support announcement date | End of support effective date |
 | --- | --- |------------------------------| --- | --- |
-| [Azure Synapse Runtime for Apache Spark 3.5](./apache-spark-35-runtime.md) | Oct 13, 2025 | GA | Oct 31, 2026 | Oct 31, 2027|
+| [Azure Synapse Runtime for Apache Spark 3.5](./apache-spark-35-runtime.md) | Oct 13, 2025 | GA; LTS beginning Nov 1, 2027 | Oct 31, 2027 | Oct 31, 2028 |
 | [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023 | **deprecated and soon to be disabled** | April 30, 2025| March 31, 2026|
 | [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022 |**deprecated and soon to be disabled**|July 12, 2024| March 31, 2025 
+
+> [!IMPORTANT]
+> Azure Synapse Runtime for Apache Spark 3.5 enters Long Term Support (LTS) on November 1, 2027, for 12 months, extending support through October 31, 2028. We encourage customers to migrate to [Fabric Runtime 2.0](/fabric/data-engineering/runtime-2-0), which is generally available and includes Apache Spark 4.1 and Delta Lake 4.2, with major improvements in performance, stability, and security.
 
 ## Runtime release stages
 
@@ -73,7 +73,7 @@ The patch policy differs based on the [runtime lifecycle stage](./runtime-for-ap
 
 ## Migration between Apache Spark versions - support
 
-This guide provides a structured approach for users looking to upgrade their Azure Synapse Runtime for Apache Spark workloads to  [the latest GA version, such as 3.5](./apache-spark-35-runtime.md). Upgrading to the most recent version enables users to benefit from performance enhancements, new features, and improved security measures. It's important to note that transitioning to a higher version may require adjustments to your existing Spark code due to incompatibilities or deprecated features.
+This guide provides a structured approach for users looking to upgrade their Azure Synapse Runtime for Apache Spark workloads to [the latest supported Azure Synapse runtime, such as 3.5](./apache-spark-35-runtime.md). Upgrading to the most recent version enables users to benefit from performance enhancements, new features, and improved security measures. It's important to note that transitioning to a higher version may require adjustments to your existing Spark code due to incompatibilities or deprecated features.
 
 ### Step 1: Evaluate and plan
 - **Assess Compatibility:** Start with reviewing Apache Spark migration guides to identify any potential incompatibilities, deprecated features, and new APIs between your current Spark version and the target version (for example, 3.5).
@@ -96,7 +96,7 @@ This guide provides a structured approach for users looking to upgrade their Azu
 
 **Answer:**  Don't use PowerShell cmdlet if you have custom libraries installed in your Synapse workspace. Instead follow these steps:
 1. Recreate your Spark Pool from the ground up.
-1. Downgrade the current Spark Pool, remove any packages attached, and then upgrade again to [the latest GA version, such as 3.5](./apache-spark-35-runtime.md)
+1. Downgrade the current Spark Pool, remove any packages attached, and then upgrade again to [the latest supported Azure Synapse runtime, such as 3.5](./apache-spark-35-runtime.md)
 
 **Question:** Why can't I upgrade to 3.5 without recreating a new Spark pool?
 

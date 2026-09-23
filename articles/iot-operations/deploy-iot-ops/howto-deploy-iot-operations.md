@@ -113,7 +113,7 @@ A cluster host:
 1. To prepare the cluster for Azure IoT Operations deployment, copy and run the provided [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
 
    > [!TIP]
-   > The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.8.0 deployed on it, you can skip this step.
+   > The `init` command only needs to be run once per cluster. If you're reusing a cluster that already has the latest version of Azure IoT Operations deployed on it, you can skip this step.
 
    This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 

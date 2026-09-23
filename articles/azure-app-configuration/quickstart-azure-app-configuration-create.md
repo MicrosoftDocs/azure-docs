@@ -71,7 +71,7 @@ az appconfig create --location centralus --name <AppConfigurationStoreName> --re
 
 > [!NOTE]
 > App Configuration store limits vary by tier:
-> - **Free tier**: Limited to 3 stores per subscription
+> - **Free tier**: Limited to 3 stores per region per subscription
 > - **Developer, Standard, and Premium tiers**: Unlimited stores per subscription
 >
 > For more information, see [Azure App Configuration pricing](https://azure.microsoft.com/pricing/details/app-configuration/).

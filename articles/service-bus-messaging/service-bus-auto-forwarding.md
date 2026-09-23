@@ -2,7 +2,7 @@
 title: Autoforwarding Azure Service Bus messaging entities
 description: This article describes how to chain an Azure Service Bus queue or subscription to another queue or topic.
 ms.topic: concept-article
-ms.date: 07/27/2026
+ms.date: 09/15/2026
 ms.custom: devx-track-csharp
 # Customer intent: I want to learn how to automatically forward messages received by one entity to another entity in Azure Service Bus. 
 ---
@@ -37,6 +37,11 @@ If Alice goes on vacation, her personal queue, rather than the ERP topic, fills 
 >  - Autoforwarding doesn't make any changes to the destination entity. If `AutoDeleteOnIdle` is enabled on destination entity, the entity is automatically deleted if it's inactive for the specified idle interval. We recommend that you don't enable `AutoDeleteOnIdle` on the destination entity because if the destination entity is deleted, the source entity will continually see exceptions when trying to forward messages that destination. 
 
 ## Autoforwarding considerations
+
+> [!WARNING]
+> A principal with Azure resource management permissions to configure autoforwarding on a source queue or subscription can forward its messages to a destination where the principal has receive access, even if it doesn't have receive access on the source. The authorization requirements for configuring forwarding on the source and destination still apply.
+>
+> Grant permissions to create or update queues and subscriptions only to principals trusted with their message contents. For applications that only send or receive messages, use the **Azure Service Bus Data Sender** or **Azure Service Bus Data Receiver** role instead of granting management permissions. Scope role assignments to the narrowest required entity scope, and review inherited role assignments. For more information, see [Azure built-in roles for Azure Service Bus](authenticate-application.md#azure-built-in-roles-for-azure-service-bus).
 
 - Service Bus doesn't allow creating a message receiver on a source entity with autoforwarding enabled.
 - If the destination entity accumulates too many messages and exceeds the quota, or the destination entity is disabled, the source entity adds the messages to its [dead-letter queue](service-bus-dead-letter-queues.md) until there's space in the destination (or the entity is re-enabled). Those messages continue to live in the dead-letter queue, so you must explicitly receive and process them from the dead-letter queue.

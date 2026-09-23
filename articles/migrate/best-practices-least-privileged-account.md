@@ -3,7 +3,7 @@ title: Set Up Least Privileged Accounts
 description: Learn how to configure the Azure Migrate appliance with least privileged access by setting up read-only VMware roles with guest operations and scoped permissions.
 author: molishv
 ms.author: molir
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 09/04/2025

@@ -1,39 +1,42 @@
 ---
-title: Stream Analytics job diagram (preview) in Azure portal
-description: This article describes the Azure Stream Analytics job diagram with metrics in Azure portal.
+title: Job diagram and metrics in the Azure portal
+description: Explore the Azure Stream Analytics job diagram in the Azure portal to view query steps, streaming nodes, and metrics so you can troubleshoot and optimize jobs.
 titleSuffix: Azure Stream Analytics
-author: xujxu
-ms.author: xujiang1
+author: spelluru
+ms.author: spelluru
 ms.service: azure-stream-analytics
-ms.topic: feature-guide
-ms.date: 2/17/2023
+ms.topic: concept-article
+ms.date: 08/25/2026
+ai-usage: ai-assisted
+#customer-intent: As a Stream Analytics job operator, I want to understand the physical and logical job diagram views and their metrics so that I can troubleshoot and optimize my streaming jobs.
 ---
 
-# Stream Analytics job diagram (preview) in Azure portal
+# Job diagram and metrics overview
 
-The job diagram in the Azure portal can help you visualize your job's query steps (logical concept) or streaming node (physical concept) with its input source, output destination, and metrics. You can use the job diagram to examine the metrics for each step or streaming node and quickly identify the source of a problem when you troubleshoot issues.
+The job diagram in the Azure portal helps you visualize a Stream Analytics job's query steps (logical concept) or streaming nodes (physical concept), along with its input source, output destination, and metrics. The job diagram lets you examine the metrics for each step or streaming node so that you can identify the source of a problem when you troubleshoot issues.
 
-There are two types of job diagrams: 
-
-* **Physical diagram**: it visualizes the key metrics of Stream Analytics job with the physical computation concept: streaming node dimension. A streaming node represents a set of compute resources that's used to process job's input data. To learn more details about the streaming node dimension, see [Azure Stream Analytics node name dimension](monitor-azure-stream-analytics-reference.md#node-name-dimension).
-
-   Inside each streaming node, there are Stream Analytics processors available for processing the stream data. Each processor represents one or more steps in your query. You can visualize the processor topology in each streaming node by using the **processor diagram** in physical job diagram.
-
-* **Logical diagram**: it visualizes the key metrics of Stream Analytics job with the logical concept: query step based on job's queries. To learn more, see [Debugging with the logical job diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md).
-
-This article describes the two types of job diagrams to guide you. 
+This article describes the logical and physical diagram views and the metrics available in each, so you can choose the right view to troubleshoot and optimize your streaming jobs.
 
 > [!IMPORTANT]
-> This feature is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> This feature is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Use the job diagram
+## Types of job diagrams
 
-In the Azure portal, locate and select a Stream Analytics job. Then select **Job diagram (preview)** under **Developer tools**: 
+Stream Analytics provides two types of job diagrams:
+
+- **Physical diagram**: Visualizes the key metrics of a Stream Analytics job by using the physical computation concept, the streaming node dimension. A streaming node represents a set of compute resources that process a job's input data. For more information about the streaming node dimension, see [Azure Stream Analytics node name dimension](monitor-azure-stream-analytics-reference.md#node-name-dimension).
+
+  Inside each streaming node, Stream Analytics processors are available to process the stream data. Each processor represents one or more steps in your query. To visualize the processor topology in each streaming node, use the **processor diagram** in the physical job diagram.
+
+- **Logical diagram**: Visualizes the key metrics of a Stream Analytics job by using the logical concept, the query step based on the job's queries.
+
+## Access the job diagram
+
+The job diagram is available in the Azure portal for each Stream Analytics job, under **Developer tools** > **Job diagram (preview)**.
 
 :::image type="content" source="./media/job-diagram-with-metrics/diagram-location-in-portal-tree.png" alt-text="Screenshot that shows job diagram location in portal tree." lightbox="./media/job-diagram-with-metrics/diagram-location-in-portal-tree.png":::
 
-In the top left corner, you can switch the two types of job diagram by clicking **Logical**, **Physical**.
+The top-left corner of the diagram provides a switcher between the two job diagram types, **Logical** and **Physical**.
 
 :::image type="content" source="./media/job-diagram-with-metrics/2-diagram-switcher.png" alt-text="Screenshot that shows job diagram switcher."  lightbox="./media/job-diagram-with-metrics/2-diagram-switcher.png":::
 
@@ -43,64 +46,80 @@ The following screenshot shows a physical job diagram with a default time period
 
 :::image type="content" source="./media/job-diagram-with-metrics/3-physical-diagram-sections.png" alt-text="Screenshot that shows physical job diagram sections." lightbox="./media/job-diagram-with-metrics/3-physical-diagram-sections.png":::
 
-1. **Command bar section**: it's the command area where you can configure the time range of the job metrics, switch/configure heatmap visualization, search a streaming node, and switch view between **Diagram** and **Table**. 
-    * **Heatmap settings**: the heatmap setting enables you to sort the nodes in diagram based on your wanted metrics and sorting type. The metrics can be CPU/memory utilization, watermark delay, input event, and backlogged input events.
-    * **Time range**: you can choose different time range and job run to view the diagram and metrics.
-    * **Job run**: Job run is inside **Time range**. When a job is started, restarted or scaled-up/down (SU changes), a new job run will be generated. One job run maps on physical job diagram.
-    * **Diagram/Table view switcher**: you can switch the view between diagram and table. The table view is shown as below:
+A physical job diagram has three main sections: a command bar section, a diagram/table section, and a chart section.
 
-        :::image type="content" source="./media/job-diagram-with-metrics/4-physical-diagram-table-view.png" alt-text="Screenshot that shows physical job diagram with table overview."  lightbox="./media/job-diagram-with-metrics/4-physical-diagram-table-view.png":::
+### Command bar section
 
-1. **Diagram/Table section**: it's the place where you can view the metrics (aggregated within the selected time range) in streaming node level with diagram view or table view. Each box in this section represents a streaming node that is used to process the input data. The metrics on each node are:
-    * **Input Events** (Aggregation type: SUM)
-    * **CPU % Utilization** (Aggregation type: Avg)
-    * **SU (Memory) % Utilization** (Aggregation type: Max)
-    * **Partition IDs** (A list, no aggregation)
-    * **Watermark Delay** (Aggregation type: Max)
-    * **Backlogged Input Events** (Aggregation type: SUM)
+The command bar section is the command area for configuring the time range of the job metrics, switching or configuring heatmap visualization, searching for a streaming node, and switching the view between **Diagram** and **Table**. The following screenshot shows the table view:
 
-    For more information about the metrics definition, see [Azure Stream Analytics node name dimension](monitor-azure-stream-analytics-reference.md#node-name-dimension).
-1. **Chart section**: it's the place where you can view the historical metrics data within the selected time range. The default metrics shown in the default chart are **SU (Memory) % Utilization** and **CPU % Utilization**". You can also add more charts by clicking **Add chart**.
+:::image type="content" source="./media/job-diagram-with-metrics/4-physical-diagram-table-view.png" alt-text="Screenshot that shows physical job diagram with table overview."  lightbox="./media/job-diagram-with-metrics/4-physical-diagram-table-view.png":::
 
-The **Diagram/Table section** and **Chart section** can be interactive with each other. You can select multiple nodes in **Diagram/Table section** to get the metrics in **Chart section** filtered by the selected nodes and vice versa.
+The command bar provides the following options:
+
+- **Heatmap settings**: The heatmap setting sorts the nodes in the diagram based on the selected metrics and sorting type. The metrics can be CPU or memory utilization, watermark delay, input event, and backlogged input events.
+- **Time range**: The time range and job run determine which diagram and metrics appear.
+- **Job run**: Job run is inside **Time range**. When you start, restart, or scale a job up or down (streaming unit (SU) changes), Stream Analytics generates a new job run. One job run maps to one physical job diagram.
+- **Diagram/Table view switcher**: The switcher changes the view between diagram and table.
+
+### Diagram and table section
+
+The diagram and table section shows the metrics aggregated within the selected time range at the streaming node level in either diagram view or table view. Each box in this section represents a streaming node that processes the input data. For more information about the metrics definition, see [Azure Stream Analytics node name dimension](monitor-azure-stream-analytics-reference.md#node-name-dimension). The metrics on each node are:
+
+- **Input Events** (Aggregation type: SUM)
+- **CPU % Utilization** (Aggregation type: Avg)
+- **SU (Memory) % Utilization** (Aggregation type: Max)
+- **Partition IDs** (A list, no aggregation)
+- **Watermark Delay** (Aggregation type: Max)
+- **Backlogged Input Events** (Aggregation type: SUM)
+
+### Chart section
+
+The chart section shows the historical metrics data within the selected time range. The default metrics shown in the default chart are **SU (Memory) % Utilization** and **CPU % Utilization**. Additional charts are available through **Add chart**.
+
+The **Diagram/Table section** and **Chart section** interact with each other. Selecting multiple nodes in the **Diagram/Table section** filters the metrics in the **Chart section** by the selected nodes, and vice versa.
 
 :::image type="content" source="./media/job-diagram-with-metrics/5-job-physical-diagram-node-chart-interaction.png" alt-text="Screenshot that shows physical job diagram node chart interaction."  lightbox="./media/job-diagram-with-metrics/5-job-physical-diagram-node-chart-interaction.png":::
 
-To learn more about how to debug with physical diagram, see [Debugging with the physical job diagram (preview) in Azure portal](./stream-analytics-job-physical-diagram-with-metrics.md).
-
+To learn more about how to debug with the physical diagram, see [Debugging with the physical job diagram (preview) in Azure portal](./stream-analytics-job-physical-diagram-with-metrics.md).
 
 ## Processor diagram in physical job diagram
 
-The processor diagram in physical job diagram visualizes the processor topology inside the specific streaming node. To access the processor diagram, you'll need to open the physical job diagram, locate a streaming node that you want to check its processor diagram, and then open the processor diagram by clicking the streaming node name.
+The processor diagram in the physical job diagram visualizes the processor topology inside a specific streaming node. You can access the processor diagram from the physical job diagram by selecting the name of the streaming node whose processor topology you want to examine.
 
 :::image type="content" source="./media/job-diagram-with-metrics/7-processor-diagram-openning.png" alt-text="Screenshot that shows processor diagram entrypoint."  lightbox="./media/job-diagram-with-metrics/7-processor-diagram-openning.png":::
 
+After you open the processor diagram, it shows the processors that run inside the selected streaming node.
+
 :::image type="content" source="./media/job-diagram-with-metrics/7-processor-diagram-view.png" alt-text="Screenshot that shows processor diagram view."  lightbox="./media/job-diagram-with-metrics/7-processor-diagram-view.png":::
 
-1. **Information bar section**: it's the place where you can view the basic information for this processor diagram, such as the time range, the corresponding streaming node name.
-2. **Diagram section**: it's the place where the processor diagram is visualized. Each node box in this section represents a processor that processes the stream data for certain purpose.
-    * **Processor type**: it shows the type of the processor, stands for certain data processing purpose. It's available in each processor node.
-    
-        | Processor type | Description | 
-        | --- | --- | 
-        | **Input** or **Output** | This processor is used for reading input or writing output data streams. |
-        | **ReferenceData** | This processor is used for fetching the reference data. |
-        | **Computing** | This processor is used for processing the stream data according to the query logic, for example, aggregating, filtering, grouping with window, etc. To learn more about the stream data computation query functions, see [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference). |
-        | **MarshallerUpstream** and **MarshallerDownstream** | When there's stream data interaction among streaming nodes, there will be two marshaller processors: 1). **MarshallerUpstream** for sending the data in the upstream streaming node and 2). **MarshallerDownstream** for receiving the data in the downstream streaming node. |
-        | **Merger** | This processor is to receive the crossing-partition stream data, which were outputted from several upstream streaming nodes. The best practice to optimize job performance is to update query to remove the merger processor to make the job become parallel since the merger processor is the bottleneck of the job. The job diagram simulator feature within Visual Studio Code ASA extension can help you simulating your query locally when you optimizing your job query. To learn more, see [Optimize query using job diagram simulator (preview)](./optimize-query-using-job-diagram-simulator.md). |
-        |
+The processor diagram has two sections: an information bar section and a diagram section.
 
+### Information bar section
 
-        :::image type="content" source="./media/job-diagram-with-metrics/7-marshaller-merger-diagram.png" alt-text="Screenshot that shows marshaller and merger diagram."  lightbox="./media/job-diagram-with-metrics/7-marshaller-merger-diagram.png":::
+The information bar section shows the basic information for this processor diagram, such as the time range and the corresponding streaming node name.
 
+### Diagram section
 
-    * **Adapter type**: it shows the type of the input or output adapter. Stream Analytics supports various input sources and output destinations. Each input source or output destination has a dedicated adapter type. It's only available in input processor and output processor. For example, "InputBlob" represents the ADLS Gen2 input where the input processor receives the data from; "OutputDocumentDb" represents the Cosmos DB output where the output processor outputs the data to. 
-    
-        To learn more details of the input and output types, see [Azure Stream Analytics inputs overview](./stream-analytics-define-inputs.md), and [Azure Stream Analytics outputs overview](./stream-analytics-define-outputs.md).
+The diagram section visualizes the processor diagram. Each node box in this section represents a processor that processes the stream data for a certain purpose. Each processor node has the following properties:
 
-    * **Partition IDs**: it shows which partition IDs' data are being processed by this processor. It's only available in input processor and output processor.
-    * **Serializer type**: it shows the type of the serialization. Stream Analytics supports several [serialization types](./stream-analytics-define-inputs.md). It's only available in input processor and output processor.
+- **Processor type**: Shows the type of the processor, which stands for a certain data processing purpose. It's available in each processor node.
+- **Adapter type**: Shows the type of the input or output adapter. Stream Analytics supports various input sources and output destinations. Each input source or output destination has a dedicated adapter type. It's only available in the input and output processors. For example, `InputBlob` represents the Azure Data Lake Storage Gen2 (ADLS Gen2) input where the input processor receives the data from; `OutputDocumentDb` represents the Azure Cosmos DB output where the output processor outputs the data to. To learn more about the input and output types, see [Azure Stream Analytics inputs overview](./stream-analytics-define-inputs.md) and [Azure Stream Analytics outputs overview](./stream-analytics-define-outputs.md).
+- **Partition IDs**: Shows which partition IDs' data this processor processes. It's only available in the input and output processors.
+- **Serializer type**: Shows the type of the serialization. Stream Analytics supports several [serialization types](./stream-analytics-define-inputs.md). It's only available in the input and output processors.
 
+The following screenshot shows the marshaller and merger processors:
+
+:::image type="content" source="./media/job-diagram-with-metrics/7-marshaller-merger-diagram.png" alt-text="Screenshot that shows marshaller and merger diagram."  lightbox="./media/job-diagram-with-metrics/7-marshaller-merger-diagram.png":::
+
+### Processor types
+
+Each processor has a type that represents a specific data processing purpose. The available processor types are:
+
+- **Input** or **Output**: This processor reads input or writes output data streams.
+- **ReferenceData**: This processor fetches the reference data.
+- **Computing**: This processor processes the stream data according to the query logic, such as aggregating, filtering, and grouping with a window. To learn more about the stream data computation query functions, see [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference).
+- **MarshallerUpstream** and **MarshallerDownstream**: When streaming nodes interact with stream data, two marshaller processors handle it. **MarshallerUpstream** sends the data in the upstream streaming node, and **MarshallerDownstream** receives the data in the downstream streaming node.
+- **Merger**: This processor receives the crossing-partition stream data that several upstream streaming nodes output. To optimize job performance, update the query to remove the merger processor and make the job parallel, because the merger processor is the bottleneck of the job. The job diagram simulator feature within the Azure Stream Analytics extension for Visual Studio Code can help you simulate your query locally when you optimize your job query. To learn more, see [Optimize query using job diagram simulator (preview)](./optimize-query-using-job-diagram-simulator.md).
 
 ## Logical job diagram
 
@@ -108,25 +127,31 @@ The logical job diagram has a similar layout to the physical diagram, with three
 
 :::image type="content" source="./media/job-diagram-with-metrics/3-logical-diagram-overview.png" alt-text="Screenshot that shows logical job diagram sections."  lightbox="./media/job-diagram-with-metrics/3-logical-diagram-overview.png":::
 
-1. **Command bar section**: in logical diagram, you can operate the cloud job (Stop, Delete), and configure the time range of the job metrics. The diagram view is only available for logical diagrams.
-2. **Diagram section**: the node box in this selection represents the job's input, output, and query steps. You can view the metrics in the node directly or in the chart section interactively by clicking certain node in this section. For more information about the metrics definition, see [Azure Stream Analytics node name dimension](monitor-azure-stream-analytics-reference.md#node-name-dimension).
-3. **Chart section**: the chart section in a logical diagram has two tabs: **Metrics** and **Activity Logs**.
-    * **Metrics**: job's metrics data is shown here when the corresponding metrics are selected in the right panel. 
-    * **Activity Logs**: job's operations performed on jobs is shown here. When the job's diagnostic log is enabled, it's also shown here. To learn more about the job logs, see [Azure Stream Analytics job logs](./stream-analytics-job-diagnostic-logs.md).
+The interaction between the diagram section and the chart section is also available in the logical diagram. The node's properties filter the metrics data.
 
-   When a logical job diagram is loaded, this job's metrics: Watermark delay, Input events, Output Events, and Backlogged Input Events are shown in the chart section for the latest 30 minutes.
+:::image type="content" source="./media/job-diagram-with-metrics/5-job-logical-diagram-node-selection.png" alt-text="Screenshot that shows logical job diagram node selection."  lightbox="./media/job-diagram-with-metrics/5-job-logical-diagram-node-selection.png":::
 
-The interaction between **Diagram section** and **Chart section** is also available in logical diagram as well. The metrics data will be filtered by the node's properties.
+A logical job diagram has three sections: a command bar section, a diagram section, and a chart section. To learn more about how to debug with logical diagrams, see [Debugging with the logical job diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md).
 
-:::image type="content" source="./media/job-diagram-with-metrics/5-job-logical-diagram-node-selection.png" alt-text="Screenshot that shows physical job diagram overview."  lightbox="./media/job-diagram-with-metrics/5-job-logical-diagram-node-selection.png":::
+### Command bar section
 
-To learn more about how to debug with logical diagrams, see [Debugging with the logical job diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md).
+In the logical diagram, the command bar section provides controls to operate the cloud job (Stop, Delete) and configure the time range of the job metrics. The diagram view is only available for logical diagrams.
 
+### Diagram section
 
-## Next steps
-* [Introduction to Stream Analytics](stream-analytics-introduction.md)
-* [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics)
-* [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)
-* [Stream Analytics management REST API reference](/rest/api/streamanalytics/)
+The node box in this section represents the job's input, output, and query steps. The metrics appear in the node directly, or in the chart section interactively when you select a node in this section. For more information about the metrics definition, see [Azure Stream Analytics node name dimension](monitor-azure-stream-analytics-reference.md#node-name-dimension).
+
+### Chart section
+
+The chart section in a logical diagram has two tabs: **Metrics** and **Activity Logs**. When a logical job diagram loads, the chart section shows this job's metrics (Watermark Delay, Input Events, Output Events, and Backlogged Input Events) for the latest 30 minutes. The **Metrics** tab shows the job's metrics data when you select the corresponding metrics in the right panel. The **Activity Logs** tab shows the operations performed on jobs. When you enable the job's diagnostic log, it also appears here. To learn more about the job logs, see [Azure Stream Analytics job logs](./stream-analytics-job-diagnostic-logs.md).
+
+## Related content
+
+- [Debugging with the physical job diagram (preview) in Azure portal](./stream-analytics-job-physical-diagram-with-metrics.md)
+- [Debugging with the logical job diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md)
+- [Introduction to Stream Analytics](stream-analytics-introduction.md)
+- [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+- [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics)
+- [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)
+- [Stream Analytics management REST API reference](/rest/api/streamanalytics/)

@@ -3,7 +3,7 @@ title: Questions about Business case in Azure Migrate
 description: Get answers to common questions about Business case in Azure Migrate.
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: v-uhabiba
+ms.reviewer: jsuri
 ms.date: 09/19/2025
 ms.update-cycle: 365-days
 ms.custom: references_regions, engagement-fy23

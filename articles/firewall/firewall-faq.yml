@@ -110,7 +110,7 @@ sections:
 
       - question: Does Azure Firewall support BGP peering?
         answer: |
-          No, Azure Firewall doesn't natively support BGP peering. However, the [Autolearn SNAT routes feature](../firewall/snat-private-range.md#auto-learn-snat-routes-preview) indirectly uses BGP through Azure Route Server.
+          No, Azure Firewall doesn't natively support BGP peering. However, the [Auto-learn SNAT routes feature](../firewall/snat-private-range.md#auto-learn-snat-routes) indirectly uses BGP through Azure Route Server.
 
 
 
@@ -173,6 +173,21 @@ sections:
           $pip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "azfwpublicip"
           $mgmtPip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
           $azfw.Allocate($vnet, $pip, $mgmtPip)
+          Set-AzFirewall -AzureFirewall $azfw
+          ```
+
+          **For a firewall with a Management NIC and no public IP associated with the Dataplane NIC:**
+          ```azurepowershell
+          # Stop the firewall
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+          $azfw.Deallocate()
+          Set-AzFirewall -AzureFirewall $azfw
+
+          # Start the firewall
+          $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+          $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+          $mgmtPip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
+          $azfw.Allocate($vnet, $null, $mgmtPip)
           Set-AzFirewall -AzureFirewall $azfw
           ```
 

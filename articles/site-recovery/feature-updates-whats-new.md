@@ -5,7 +5,7 @@ ms.topic: concept-article
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
 author: Jeronika-MS
-ms.date: 06/03/2026
+ms.date: 09/11/2026
 # Customer intent: "As a disaster recovery manager, I want to stay informed about the latest updates in Azure Site Recovery features, so that I can ensure optimal protection and monitoring of our critical workloads."
 ---
 
@@ -15,6 +15,20 @@ The Azure Site Recovery service is updated and improved on an ongoing basis. To 
 
 You can follow and subscribe to Site Recovery update notifications in the [Azure updates channel](https://azure.microsoft.com/updates/?product=site-recovery).
 
+## Updates (August 2026)
+
+### Azure Site Recovery support for Linux Azure VMs with NVMe disk controllers
+ 
+Azure Site Recovery now supports replication and disaster recovery for Linux Azure Virtual Machines running on NVMe-enabled Generation 2 VM families, such as the Da/Ea/Fa v6-series, Ddsv6, Edsv6, and Ebsv5/Ebdsv5 in the Azure-to-Azure scenario. This support is limited to RHEL 9 (except RHEL 9.8), SLES 15, and Ubuntu 24 distros of Linux. This enhancement allows you to enable disaster recovery for your Azure VMs running high-performance, I/O-intensive workloads (subject to Azure Site Recovery churn support) with the NVMe disk controller. This capability is supported across all Azure public cloud regions. [Learn more](azure-to-azure-support-matrix.md).
+
+### BYON (Bring Your Own NIC) in Azure Site Recovery
+
+Azure Site Recovery now supports use of an existing, preprovisioned Network Interface Card (NIC) if you precreate it in the target region for test failover and failover in the Azure-to-Azure scenario. 
+
+Earlier, Azure Site Recovery always created a new NIC during disaster recovery operations. By using this functionality, you can now select a preprovisioned NIC in the target environment which helps you retain prepared network configurations, preserve network security group associations, and reserve IPs in the target region.
+
+To use this functionality, ensure that the required NIC already exists in the target environment. Then update the network settings for your protected virtual machine and select the appropriate subnet and NIC you want to use for the target. You can independently select an existing target NIC for failover and test failover. If you don't select a NIC, Azure Site Recovery continues to create a new NIC during recovery as before. [Learn more](azure-to-azure-customize-networking.md).
+
 ## Updates (June 2026)
 
 ### Azure Site Recovery support for Windows Azure VMs with NVMe disk controllers
@@ -23,7 +37,7 @@ Azure Site Recovery support for Windows Azure VMs with NVMe disk controllers is 
 
 ### Azure Site Recovery support for Linux Azure VMs with NVMe disk controllers (Preview)
  
-Azure Site Recovery now supports replication and disaster recovery for Linux Azure Virtual Machines running on NVMe-enabled Generation 2 VM families, such as the Da/Ea/Fa v6-series, Ddsv6, Edsv6 and Ebsv5/Ebdsv5 in the Azure-to-Azure scenario. This support is limited to RHEL 9, SLES 15 and Ubuntu 24 distros of Linux. This enhancement allows you to enable disaster recovery for your Azure VMs running high-performance, I/O-intensive workloads (subject to Azure Site Recovery churn support) with the NVMe disk controller. This capability is supported across all Azure public cloud regions. [Learn more](azure-to-azure-support-matrix.md).
+Azure Site Recovery now supports replication and disaster recovery for Linux Azure Virtual Machines running on NVMe-enabled Generation 2 VM families, such as the Da/Ea/Fa v6-series, Ddsv6, Edsv6 and Ebsv5/Ebdsv5 in the Azure-to-Azure scenario. This support is limited to RHEL 9 (except RHEL 9.8), SLES 15 and Ubuntu 24 distros of Linux. This enhancement allows you to enable disaster recovery for your Azure VMs running high-performance, I/O-intensive workloads (subject to Azure Site Recovery churn support) with the NVMe disk controller. This capability is supported across all Azure public cloud regions. [Learn more](azure-to-azure-support-matrix.md).
 
 ## Updates (May 2026)
 
@@ -46,7 +60,7 @@ Azure Site Recovery now supports replication and disaster recovery for Windows A
 
 ### Azure Site Recovery for Virtual Machines with Premium SSD v2 disks
 
-Azure Site Recovery support for Virtual Machines with Premium SSD v2 disks is in public preview. Azure Site Recovery provides seamless disaster recovery for Virtual Machines across Azure Regions and from on-premises to Azure, helping organizations maintain business continuity. It offers cost-effective replication, automated failover, and easy disaster recovery simulation, ensuring minimal production impact during disaster events. With built-in security, compliance support, and native integration with Azure services, Azure Site Recovery helps your organization stay resilient and minimize downtime. [Learn more](azure-to-azure-support-matrix.md).
+Premium SSD v2 support is generally available for Azure-to-Azure disaster recovery. Premium SSD v2 and Ultra Disk aren't supported as source or recovery-target disk types for on-premises-to-Azure protection. [Learn more](azure-to-azure-support-matrix.md).
 
 ## Updates (April 2025)
 
@@ -103,7 +117,7 @@ Enabling disaster recovery on Premium SSD v2 is currently available in select re
 
 ### Use Azure Business Continuity center (preview)
 
-You can now also manage Azure Site Recovery protections using Azure Business Continuity (ABC) center. ABC enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities. [Learn more about the supported scenarios](../business-continuity-center/business-continuity-center-support-matrix.md).
+You can now also manage Azure Site Recovery protections using Azure Business Continuity (ABC) center. ABC enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your business continuity estate for better discoverability with the ability to do core activities. [Learn more about the supported scenarios](../resiliency/resiliency-support-matrix.md).
 
 ## Updates (August 2023)
 

@@ -59,7 +59,9 @@ Gen 2 is available in the following Azure public regions.
 - Brazil South
 - Canada Central
 - Canada East
+- Central India
 - Central US
+- Chile Central
 - East US
 - East US 2
 - France Central
@@ -74,6 +76,7 @@ Gen 2 is available in the following Azure public regions.
 - Qatar Central
 - Southeast Asia
 - South Central US
+- Sweden Central
 - Switzerland North
 - Switzerland West
 - UK South

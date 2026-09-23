@@ -320,6 +320,8 @@
       href: automation-manage-api-management.md
     - name: DevOps and CI/CD
       href: devops-api-development-templates.md
+    - name: Manage configuration with APIOps CLI
+      href: how-to-manage-apiops-cli.md
   - name: Resiliency and reliability
     items:
     - name: Reliability in API Management

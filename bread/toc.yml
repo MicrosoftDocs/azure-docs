@@ -421,7 +421,7 @@ items:
     topicHref: /azure/connectors/
   - name: Connector Namespace
     tocHref: /azure/connector-namespace/
-    topicHref: /azure/connector-namespace/    
+    topicHref: /azure/connector-namespace/
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
@@ -688,6 +688,9 @@ items:
     - name: Load Balancer
       tocHref: /azure/load-balancer/
       topicHref: /azure/load-balancer/
+    - name: Multicloud Interconnect
+      tocHref: /azure/multicloud-interconnect/
+      topicHref: /azure/multicloud-interconnect/
     - name: NAT Gateway
       tocHref: /azure/nat-gateway
       topicHref: /azure/nat-gateway
@@ -954,10 +957,3 @@ items:
   - name: Operator Insights
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
-  - name: Redis
-    tocHref: /azure/redis/
-    topicHref: /azure/redis/index
-    items:
-    - name: Azure Cache for Redis
-      tocHref: /azure/azure-cache-for-redis/
-      topicHref: /azure/azure-cache-for-redis/index

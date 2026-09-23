@@ -5,13 +5,16 @@ description: Learn to configure forced tunneling for P2S VPN in Virtual WAN.
 author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 03/26/2025
+ms.date: 08/27/2026
 ms.author: wellee
 
 ---
 # Configure forced tunneling for Virtual WAN Point-to-site VPN
 
 Forced tunneling allows you to send **all** traffic (including Internet-bound traffic) from remote users to Azure. In Virtual WAN, forced tunneling for Point-to-site VPN remote users signifies that the 0.0.0.0/0 default route is advertised to remote VPN users.
+
+> [!NOTE]
+> Point-to-site VPN forced tunneling isn't the same as the Virtual WAN hub **Forced Tunnel** internet traffic routing mode. Point-to-site forced tunneling advertises the 0.0.0.0/0 route to remote VPN clients so their internet traffic goes to Azure. Hub Forced Tunnel mode determines how the hub's security solution forwards internet traffic after inspection. It requires a private routing policy with 0.0.0.0/0 configured as an additional prefix, and it can't be combined with an internet routing policy. For more information, see [Securing internet access with routing intent](about-internet-routing.md).
 
 ## Create a Virtual WAN hub
 
@@ -33,7 +36,7 @@ To create the Point-to-site VPN gateway and related profiles, see [Create a Poin
 There are a couple ways to configure forced-tunneling and advertise the default route (0.0.0.0/0) to your remote user VPN clients connected to Virtual WAN.
 
 * You can specify a static 0.0.0.0/0 route in the defaultRouteTable with next hop Virtual Network Connection. This will force all internet-bound traffic to be sent to a Network Virtual Appliance deployed in that spoke Virtual Network. For more detailed instructions, consider the alternate workflow described in [routing traffic to indirect spokes or the internet](indirect-spoke-architecture.md).
-* You can use Azure Firewall Manager to configure Virtual WAN to send all internet-bound traffic via Azure Firewall deployed in the Virtual WAN hub. For configuration steps and a tutorial, see the Azure Firewall Manager documentation [Securing virtual hubs](../firewall-manager/secure-cloud-network.md). Alternatively, this can also be configured via using an Internet Traffic Routing Policy. For more information, see [Routing Intent and Routing Policies](how-to-routing-policies.md).
+* You can use Azure Firewall Manager to configure Virtual WAN to send all internet-bound traffic via Azure Firewall deployed in the Virtual WAN hub. For configuration steps and a tutorial, see the Azure Firewall Manager documentation [Securing virtual hubs](../firewall-manager/secure-cloud-network.md). Alternatively, you can configure an Internet Traffic Routing Policy, which secures the internet traffic your remote users send to Azure and then routes it directly to the internet after inspection. An internet routing policy configures the hub in direct access mode, not hub Forced Tunnel mode. For more information, see [Routing Intent and Routing Policies](how-to-routing-policies.md).
 * You can use Firewall Manager to send internet traffic via a third-party security provider. For more information on this capability, see [Trusted security providers](../firewall-manager/deploy-trusted-security-partner.md).
 * You can configure one of your branches (Site-to-site VPN, ExpressRoute circuit) to advertise the 0.0.0.0/0 route to Virtual WAN.
 

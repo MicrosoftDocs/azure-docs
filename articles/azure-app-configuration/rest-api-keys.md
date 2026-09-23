@@ -9,7 +9,7 @@ ms.date: 08/02/2024
 zone_pivot_groups: appconfig-data-plane-api-version
 
 ---
-:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04,v26-05-preview"
 
 # Keys
 

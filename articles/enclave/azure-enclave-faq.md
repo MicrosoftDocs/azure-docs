@@ -6,7 +6,7 @@ ms.author: aserfass
 ms.topic: concept-article
 ms.service: azure-enclave
 ai-usage: ai-assisted
-ms.date: 8/11/2026
+ms.date: 9/17/2026
 ---
 
 # Azure Enclave frequently asked questions
@@ -26,6 +26,12 @@ Azure Enclave creates a secure foundation in a known configuration so you can pu
 ### How does Azure Enclave work?
 
 Azure Enclave uses a managed community-and-enclave model. A community provides shared network controls, and each enclave provides isolated workload boundaries. You connect approved endpoints with enclave connections, and Azure Enclave applies policy and routing controls across those paths. For architecture details, see [What is Azure Enclave?](./what-azure-enclave.md).
+
+### Are Azure Enclave and confidential compute enclaves related?
+
+Azure Enclave and confidential compute enclaves address different security boundaries. Azure Enclave provides isolated virtual networks, workload boundaries, and policy controls for Azure resources. Confidential compute enclaves are hardware-based trusted execution environments that protect data while it's being processed. You can use confidential compute technologies within an Azure Enclave workload when your application requires protection for data in use.
+
+For more information, see [Application development for confidential computing](/azure/confidential-computing/application-development) and [Confidential computing enclaves](/azure/confidential-computing/confidential-computing-enclaves).
 
 ### What is the pricing for Azure Enclave?
 
@@ -62,6 +68,12 @@ You can also query the current regions allowed for communities with the Azure CL
 ```azurecli
 az provider show --namespace Microsoft.Mission --query "resourceTypes[?resourceType=='communities'].locations"
 ```
+
+### Where does Azure Enclave keep service data?
+
+Azure Enclave processes and stores service data for any supported region. This service data includes resource metadata, service audit and diagnostic logs, and service-managed replication and recovery copies.
+
+Residency covers the geography, not a single region. Customer-managed workloads and configured data transfers follow the relevant services and your configuration and can cross geography boundaries. See [Data residency](./quotas-region-availability.md#data-residency) for scope and customer responsibilities.
 
 ### What roles are used to manage permissions for Azure Enclave resources?
 

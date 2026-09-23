@@ -18,6 +18,9 @@ The connector for OPC UA opens sessions with OPC UA servers to collect data for 
 
 High availability for the connector for OPC UA is available starting with Azure IoT Operations release 2607.
 
+> [!NOTE]
+> Session sharing and high availability control how the connector opens and fails over data sessions. To monitor whether an OPC UA server is alive, use [server heartbeat monitoring](concept-opc-ua-server-heartbeat-monitoring.md), which uses a separate monitoring session and reports inbound endpoint health independently of session sharing and high availability.
+
 This article shows you how to:
 
 - Choose between dedicated and shared OPC UA sessions.

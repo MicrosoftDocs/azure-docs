@@ -38,33 +38,39 @@ You can use different types of logs in Azure to manage and troubleshoot applicat
 ## Storage locations for diagnostic logs 
 Azure Monitor provides multiple options for storing resource logs depending on your analysis, retention, and integration requirements. When configuring diagnostic settings, you can choose one or more destinations for log collection. 
 
-**Log Analytics workspace (recommended)** 
-A Log Analytics workspace is the recommended destination for collecting and analyzing Application Gateway resource logs. It enables: 
+### Log Analytics workspace (recommended)
 
-- Use of predefined queries and visualizations 
-- Creation of alerts based on specific log conditions 
-- Integration with Azure Monitor features and insights 
-In Log Analytics, the table used for storing diagnostic logs depends on the collection type configured in the diagnostic setting. 
+A Log Analytics workspace is the recommended destination for collecting and analyzing Application Gateway resource logs. It enables you to:
 
-**Collection types in Log Analytics**
+- Use predefined queries and visualizations
+- Create alerts based on specific log conditions
+- Integrate with Azure Monitor features and insights
 
-**Azure Diagnostics (legacy):** When you select Azure Diagnostics, all logs are written to the shared AzureDiagnostics table.Because this table is shared across many resource types, each service writes its own custom fields. When the number of custom fields exceeds 500, additional fields are stored under the AdditionalFields dynamic property as key/value pairs. This can lead to reduced discoverability and more complex queries. 
+In Log Analytics, the table used for storing diagnostic logs depends on the collection type configured in the diagnostic setting.
 
-**Resource-specific (recommended):** When you select Resource-specific, logs are written into dedicated tables for each category.
-Resource-specific mode provides: 
+### Collection types in Log Analytics
 
-- Simplified querying with predictable schemas 
-- Improved discoverability of fields and table structures 
-- Better performance due to lower ingestion latency and faster query execution 
-- Granular RBAC by assigning access at the table level 
+#### Azure Diagnostics (legacy)
 
-For Application Gateway, resource-specific mode creates the following tables: 
+When you select Azure Diagnostics, all logs are written to the shared **AzureDiagnostics** table. Because this table is shared across many resource types, each service writes its own custom fields. When the number of custom fields exceeds 500, the system stores extra fields under the **AdditionalFields** dynamic property as key/value pairs. This structure can lead to reduced discoverability and more complex queries.
+
+### Resource-specific (recommended)
+
+When you select Resource-specific, the system writes logs into dedicated tables for each category.
+Resource-specific mode provides:
+
+- Simplified querying with predictable schemas
+- Improved discoverability of fields and table structures
+- Better performance due to lower ingestion latency and faster query execution
+- Granular RBAC by assigning access at the table level
+
+For Application Gateway, resource-specific mode creates the following tables:
 
 - [AGWAccessLogs](/azure/azure-monitor/reference/tables/agwaccesslogs)
 - [AGWPerformanceLogs](/azure/azure-monitor/reference/tables/agwperformancelogs)
 - [AGWFirewallLogs](/azure/azure-monitor/reference/tables/agwfirewalllogs)
 
-**Selecting the collection type in Log analytics**
+### Selecting the collection type in Log Analytics
 
 Azure services are transitioning to resource-specific mode. As part of this migration, a toggle is available in the diagnostic settings to choose either: 
 

@@ -18,7 +18,7 @@ This article provides best practices for securing artificial intelligence (AI) w
 
 This article focuses on Azure-specific AI security considerations. For comprehensive, platform-agnostic AI security guidance, including organizational strategy, governance frameworks, and the full AI security lifecycle, see [Security for AI](/security/security-for-ai/) in the Microsoft Security documentation.
 
-This article is a companion to the [AI shared responsibility model](shared-responsibility-ai.md), which explains the division of security responsibilities between you and Microsoft for AI workloads. For prescriptive security controls with Azure Policy enforcement, see [Microsoft Cloud Security Benchmark v2 - Artificial Intelligence Security](/security/benchmark/azure/mcsb-v2-artificial-intelligence-security).
+This article is a companion to the [AI shared responsibility model](shared-responsibility-ai.md) and the [AI agent shared responsibility model](shared-responsibility-ai-agent.md), which explain the division of security responsibilities between you and Microsoft for AI workloads and autonomous agents. For prescriptive security controls with Azure Policy enforcement, see [Microsoft Cloud Security Benchmark v2 - Artificial Intelligence Security](/security/benchmark/azure/mcsb-v2-artificial-intelligence-security).
 
 ## Enable visibility into AI workloads and usage
 
@@ -73,7 +73,7 @@ AI workloads face unique threats including prompt injection, jailbreak attacks, 
     - [PyRIT (Python Risk Identification Tool for GenAI)](https://azure.github.io/PyRIT/) for automated adversarial testing.
     - [Azure AI Red Teaming Agent](https://devblogs.microsoft.com/foundry/ai-red-teaming-agent-preview/) for targeted attack simulations.
 
-Integrate red teaming into CI/CD pipelines to validate security before deployment. Test against known attack patterns from [MITRE ATLAS](https://atlas.mitre.org/) and the [OWASP Top 10 for LLM](https://owasp.org/www-project-top-10-for-large-language-model-applications/).
+Integrate red teaming into CI/CD pipelines to validate security before deployment. Test against known attack patterns from [MITRE ATLAS](https://atlas.mitre.org/), the [OWASP Top 10 for LLM applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/), and the [OWASP Top 10 for Agentic AI](https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/).
 
 - **Implement human-in-the-loop for critical actions.** For high-risk AI operations such as external data transfers or system configuration changes, use Azure Logic Apps or Power Automate to design workflows that pause for human review and approval before execution.
 
@@ -98,6 +98,7 @@ AI applications must comply with regulatory requirements and organizational poli
 ## Next steps
 
 - Learn about the [AI shared responsibility model](shared-responsibility-ai.md).
+- Learn about the [AI agent shared responsibility model](shared-responsibility-ai-agent.md).
 - Review [Microsoft Cloud Security Benchmark v2 - Artificial Intelligence Security](/security/benchmark/azure/mcsb-v2-artificial-intelligence-security).
 - Explore [Security for AI](/security/security-for-ai/) for comprehensive AI security guidance.
 - Learn about [Zero Trust](/security/zero-trust/zero-trust-overview) principles and how they apply to AI workloads.

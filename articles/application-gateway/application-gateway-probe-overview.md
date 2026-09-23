@@ -110,6 +110,9 @@ Match criteria can be attached to probe configuration using a `-Match` operator 
 - If a backend server allows access to only authenticated users, the application gateway probes will receive a 403 response code instead of 200. As the clients (users) are bound to authenticate themselves for the live traffic, you can configure the probe traffic to accept 403 as an expected response.
 - When a backend server has a wildcard certificate (*.contoso.com) installed to serve different sub-domains, you can use a Custom probe with a specific hostname (required for SNI) that is accepted to establish a successful TLS probe and report that server as healthy. With "override hostname" in the Backend Setting set to NO, the different incoming hostnames (subdomains) will be passed as is to the backend.
 
+> [!NOTE]
+> An incorrectly configured custom probe **Path** commonly causes backend servers to become unhealthy and clients to receive 502 Bad Gateway errors. If backend health checks fail after you configure a custom probe, see [Invalid or improper configuration of custom health probes](/troubleshoot/azure/application-gateway/application-gateway-troubleshooting-502#invalid-or-improper-configuration-of-custom-health-probes). This article helps you validate the probe path, response code, and SNI fallback certificate settings.
+
 ## NSG considerations
 
 The NSG requirements in this section apply to Application Gateway deployments that don't have Network Isolation enabled. Gateways with Network Isolation enabled, including private-only deployments, no longer require the GatewayManager inbound rule or outbound Internet access. For those deployments, the only required rule is to allow inbound traffic from the **AzureLoadBalancer** tag. For details, see [Private Application Gateway deployment](application-gateway-private-deployment.md#network-security-group-control).

@@ -18,7 +18,7 @@ ms.custom: devx-track-go, devguide-go
 
 [!INCLUDE [storage-dev-guide-selector-list-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-list-blob.md)]
 
-This article shows how to list blobs using the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme).
+This article shows how to list blobs by using the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme).
 
 [!INCLUDE [storage-dev-guide-prereqs-go](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-go.md)]
 
@@ -28,17 +28,17 @@ This article shows how to list blobs using the [Azure Storage client module for 
 
 #### Authorization
 
-The authorization mechanism must have the necessary permissions to upload a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [List Blobs (REST API)](/rest/api/storageservices/list-blobs#authorization).
+The authorization mechanism must have the necessary permissions to upload a blob. For authorization with Microsoft Entra ID (recommended), you need the Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [List Blobs (REST API)](/rest/api/storageservices/list-blobs#authorization).
 
 ## About blob listing options
 
-When you list blobs from your code, you can specify many options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
+When you list blobs from your code, you can specify many options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. You can list blobs in a flat listing structure or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
 
-To list the blobs in a container using a flat listing, call the following method:
+To list the blobs in a container by using a flat listing, call the following method:
 
 - [NewListBlobsFlatPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.NewListBlobsFlatPager)
 
-To list the blobs in a container using a hierarchical listing, call the following method from a container client object:
+To list the blobs in a container by using a hierarchical listing, call the following method from a container client object:
 
 - [NewListBlobsHierarchyPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container#Client.NewListBlobsHierarchyPager)
 
@@ -89,7 +89,7 @@ The following example lists blobs in a container that begin with a specific pref
 
 :::code language="go" source="~/blob-devguide-go/cmd/list-blobs/list_blobs.go" id="snippet_list_blobs_flat_options":::
 
-When passing a prefix string of "sample", output is similar to:
+When you pass a prefix string of "sample", the output is similar to:
 
 ```console
 List blobs with prefix:
@@ -99,7 +99,7 @@ sample-blob3.txt
 ```
 
 > [!NOTE]
-> The sample output shown assumes that you have a storage account with a flat namespace. If you've enabled the hierarchical namespace feature for your storage account, directories are not virtual. Instead, they are concrete, independent objects. As a result, directories appear in the list as zero-length blobs.
+> The sample output shown assumes that you have a storage account with a flat namespace. If you enable the hierarchical namespace feature for your storage account, directories aren't virtual. Instead, they're concrete, independent objects. As a result, directories appear in the list as zero-length blobs.
 >
 > For an alternative listing option when working with a hierarchical namespace, see [NewListPathsPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azdatalake/filesystem#Client.NewListPathsPager).
 
@@ -130,6 +130,44 @@ Blob: folderA/folderB/file3.txt
 
 [!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
 
+## List blobs in Apache Arrow format (preview)
+
+> [!IMPORTANT]
+> Listing blobs in Apache Arrow format is currently in **PREVIEW**. This scenario requires a **beta (preview) version** of the Azure Storage client module for Go (for example, `github.com/Azure/azure-sdk-for-go/sdk/storage/azblob` **v1.8.1-beta.1** or later preview release). Preview features are provided without a service-level agreement and aren't recommended for production workloads. Some features might not be supported, or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+This capability is built on the existing `List Blobs` API. Instead of using the default XML, it uses the compact, columnar [Apache Arrow](https://arrow.apache.org/) format as the response format on the wire. You enable it by setting a single option on the container listing call. The Go SDK decodes Apache Arrow behind the scenes and still returns the same `BlobItem` values. This approach improves listing throughput and reduces client-side CPU when enumerating large containers. It preserves the response contract that applications rely on.
+
+> [!WARNING]
+> Listing blobs in Apache Arrow format isn't supported on storage accounts that have hierarchical namespace (Azure Data Lake Storage) enabled.
+
+To request Apache Arrow-formatted results, set the `ResponseFormat` field of [ListBlobsFlatOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob@v1.8.1-beta.1/container#ListBlobsFlatOptions) to [StorageResponseFormatArrow](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob@v1.8.1-beta.1/container#StorageResponseFormat), then pass the options to [NewListBlobsFlatPager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob@v1.8.1-beta.1#Client.NewListBlobsFlatPager). When using Apache Arrow output, you can also set the `StartFrom` and `EndBefore` fields to control the range of paths returned.
+
+The following example lists the blobs in a container and requests the results in Apache Arrow format:
+
+```go
+import (
+    "context"
+
+    "github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+    "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
+    "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container"
+)
+
+pager := client.NewListBlobsFlatPager("sample-container", &azblob.ListBlobsFlatOptions{
+    Prefix:         to.Ptr("folderA/"),
+    ResponseFormat: container.StorageResponseFormatArrow,
+})
+
+for pager.More() {
+    resp, err := pager.NextPage(context.TODO())
+    handleError(err)
+
+    for _, blob := range resp.Segment.BlobItems {
+        fmt.Println(*blob.Name)
+    }
+}
+```
+
 ## Resources
 
 To learn more about how to list blobs using the Azure Blob Storage client module for Go, see the following resources.
@@ -140,7 +178,7 @@ To learn more about how to list blobs using the Azure Blob Storage client module
 
 ### REST API operations
 
-The Azure SDK for Go contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Go paradigms. The client library methods for listing blobs use the following REST API operation:
+The Azure SDK for Go contains libraries that build on top of the Azure REST API. By using these libraries, you can interact with REST API operations through familiar Go paradigms. The client library methods for listing blobs use the following REST API operation:
 
 - [List Blobs](/rest/api/storageservices/list-blobs) (REST API)
 
