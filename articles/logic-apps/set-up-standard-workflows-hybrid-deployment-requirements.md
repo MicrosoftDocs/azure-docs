@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/19/2026
+ms.date: 09/22/2026
 ms.custom:
   - build-2025
   - sfi-ropc-nochange
@@ -60,7 +60,7 @@ The following section describes the limitations for the hybrid deployment option
 
 | Limitation | Description |
 |------------|-------------|
-| Data logging with a disconnected runtime | The local runtime and workflows that use locally available dependencies can continue running while disconnected. The runtime can retain logging data for up to 24 hours, but logging data generated beyond this period might be lost. Azure-dependent management and workflow operations might also be unavailable while disconnected. |
+| Data logging with a disconnected runtime | The local runtime and workflows that use locally available dependencies can continue running while disconnected. The runtime can retain logging data for up to 24 hours, but you might lose logging data generated beyond this period. Azure-dependent management and workflow operations might also be unavailable while disconnected. |
 | Supported Azure regions | Hybrid deployment is currently available and supported only in the following Azure regions: <br><br>- Australia East <br>- East Asia <br>- East US <br>- North Central US <br>- Southeast Asia <br>- Sweden Central <br>- UK South <br>- West Europe <br>- West US |
 | Supported Azure Arc-enabled Kubernetes clusters | - Azure Arc-enabled AKS clusters <br>- Azure Arc-enabled AKS clusters on Azure Local (formerly Azure Stack HCI) <br>- Azure Arc-enabled AKS clusters on Windows Server <br>- Azure Arc-enabled Red Hat OpenShift clusters <br>- Azure Arc-enabled Rancher RKE2 clusters |
 | Unsupported capabilities available in single-tenant Azure Logic Apps (Standard) and related Azure services | - Deployment slots <br><br>- Azure Business process tracking <br><br>- Resource health under **Support + troubleshooting** in Azure portal <br><br>- Managed identity authentication for connector operations. For more information, see [Limitations for creating hybrid deployment workflows](create-standard-workflows-hybrid-deployment.md#limitations). |
@@ -242,12 +242,9 @@ Use this option when you already have a datacenter load balancer or your cluster
 
 > [!NOTE]
 >
-> You can find the steps in this section and onwards through to creating your connected 
-> environment in a script named **EnvironmentSetup.ps1**, which you can find in the 
-> [GitHub repo named **Azure/logicapps**](https://github.com/Azure/logicapps/tree/master/scripts/hybrid). 
-> You can modify and use this script to meet your requirements and scenarios. 
+> You can find the steps in this section and onwards through to creating your connected environment in a script named **EnvironmentSetup.ps1**, which you can find in the [GitHub repo named **Azure/logicapps**](https://github.com/Azure/logicapps/tree/master/scripts/hybrid). You can modify and use this script to meet your requirements and scenarios. 
 >
-> The script is unsigned. Review the script and confirm its source before you run it. To change the execution policy only for the current PowerShell process, run the following command:
+> The script is unsigned. Before you run the script, review the content, and confirm its source. To change the execution policy only for the current PowerShell process, run the following command:
 >
 > `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 >
@@ -610,7 +607,7 @@ For more information, see the following resources:
 
    > [!IMPORTANT]
    >
-   > The following commands grant the `anyuid`, `privileged`, and `hostnetwork` security context constraints to service accounts in the extension namespace. Review these elevated permissions through your organization's security and compliance process before you install the extension.
+   > The following commands grant the `anyuid`, `privileged`, and `hostnetwork` security context constraints to service accounts in the extension namespace. Before you install the extension, review these elevated permissions through your organization's security and compliance process.
 
    ```azurecli
    oc create namespace logicapps-aca-ns
@@ -738,7 +735,7 @@ After you complete the steps on the tab that applies to your scenario, finish by
    kubectl get pods --namespace $NAMESPACE
    ```
 
-   If any pods aren't ready or are in `CrashLoopBackOff`, review the pod events and logs before you continue. A successful extension provisioning state alone doesn't confirm that all runtime components are healthy.
+   If any pods aren't ready or are in `CrashLoopBackOff`, before you continue, review the pod events and logs. A successful extension provisioning state alone isn't enough to confirm that all runtime components are healthy.
 
    For more information, see the following resources:
 
