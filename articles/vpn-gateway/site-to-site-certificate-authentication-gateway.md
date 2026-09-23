@@ -15,7 +15,7 @@ zone_pivot_groups: azure-portal-powershell-cli
 Use certificate authentication to create a site-to-site (S2S) VPN connection between your on-premises network and an Azure virtual network. Certificate authentication uses X.509 certificates, Azure Key Vault, and a user-assigned managed identity. For certificate flow and requirements, see [About site-to-site VPN connections with certificate authentication](site-to-site-certificate-authentication-gateway-about.md).
 
 > [!IMPORTANT]
-> Site-to-site certificate authentication is supported only in the Azure public cloud and isn't supported on Basic SKU VPN gateways.
+> Site-to-site certificate authentication isn't supported on Basic SKU VPN gateways.
 
 :::image type="content" source="./media/site-to-site-certificate-authentication/certificate-diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections using certificates." lightbox="./media/site-to-site-certificate-authentication/certificate-diagram.png":::
 
