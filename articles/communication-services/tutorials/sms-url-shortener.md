@@ -16,6 +16,8 @@ zone_pivot_groups: acs-js-csharp
 
 # Send short URL
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 SMS messages are limited to 160 characters, which can impair your ability to send URLs to customers. URLs can exceed the 160 character limit as they contain query parameters, encrypted information, and so on. You can use the Azure URL shortener to generate short URLs that are appropriate to send through SMS as they stay well below the 160 character limit. 
 
 This document outlines the process of integrating Azure Communication Services with the Azure URL Shortener. The URL Shortener is an open source service that enables you to easily create, manage, and monitor shortened links.

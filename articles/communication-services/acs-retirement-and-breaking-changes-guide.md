@@ -12,6 +12,42 @@ ms.service: azure-communication-services
 ---
 # Retirement and breaking changes guide for Azure Communication Services
 
+## Guide contents
+
+- [What's changing and why?](#whats-changing-and-why)
+- [Retirement](#retirement)
+- [Breaking changes](#breaking-changes)
+- [Impacted services and SDKs](#impacted-services-and-sdks)
+- [Services not impacted](#services-not-impacted)
+- [Migration recommendations](#migration-recommendations)
+- [General FAQ](#general-faq)
+  - [Resource reporting tools](#resource-reporting-tools)
+  - [Requirements and options](#requirements-and-options)
+  - [Support during the transition](#support-during-the-transition)
+  - [Resources, data, and compliance](#resources-data-and-compliance)
+  - [Pricing and licensing](#pricing-and-licensing)
+  - [Communications and notifications](#communications-and-notifications)
+- [Retired services FAQ](#retired-services-faq)
+  - [ACS Number Management (Direct Offer)](#acs-number-management-direct-offer)
+  - [ACS Email](#acs-email)
+  - [ACS SMS](#acs-sms)
+  - [ACS Advanced Messaging (WhatsApp)](#acs-advanced-messaging-whatsapp)
+  - [ACS Chat](#acs-chat)
+  - [ACS Rooms](#acs-rooms)
+  - [ACS UI Library (mobile and web)](#acs-ui-library-mobile-and-web)
+  - [ACS Job Router](#acs-job-router)
+  - [ACS Direct Routing](#acs-direct-routing)
+- [Breaking changes FAQ](#breaking-changes-faq)
+  - [ACS Voice and Video Calling SDK](#acs-voice-and-video-calling-sdk)
+  - [ACS Call Diagnostics](#acs-call-diagnostics)
+  - [ACS Call Automation](#acs-call-automation)
+  - [ACS call recording](#acs-call-recording)
+  - [ACS Audio Streaming](#acs-audio-streaming)
+  - [ACS closed captions](#acs-closed-captions)
+- [Get help and support](#get-help-and-support)
+  - [Create an Azure support request](#create-an-azure-support-request)
+  - [Post a question to Microsoft Q&A](#post-a-question-to-microsoft-qa)
+
 **Action required:** To prevent disruption to your workloads, review this guide and plan your transition for impacted **Azure Communication Services (ACS)** services and SDKs before **September 30, 2028**. Microsoft announced these retirement and breaking changes in **September 2026**. See the [Impacted Services and SDKs](#impacted-services-and-sdks) table for impacted services.
 
 ---
@@ -110,7 +146,7 @@ The following integrated solutions are supported scenarios:
 |---|---|---|
 | **Azure Advisor Recommendation** | Azure portal > Advisor > Recommendations > Operational Excellence | Customers see personalized retirement recommendations in the portal and [Azure Advisor documentation](/azure/advisor/advisor-overview). |
 | **Azure Advisor Workbook** | Azure portal > Advisor > Service Retirement | Customers can track service retirements for their resources and export the results to CSV. |
-| ACS Resource Explorer Agent | [ACS Transition Agent](https://github.com/microsoft/acs-transition-agent) | Using Copilot, customers can scan subscriptions by primitive or service and use the agent to identify impacted resources and migration paths. |
+| ACS Resource Explorer Agent | [ACS Resource Explorer](https://github.com/microsoft/acs-resource-explorer-agent) | Using Copilot, customers can scan subscriptions by primitive or service and use the agent to identify impacted resources and migration paths. |
 | Azure Cost Management & Billing Portal | Azure portal > Cost Management + Billing | Customers can see resource usage in the Cost Management portal and [Cost Management Portal](../cost-management-billing/manage/view-all-accounts.md). |
 
 

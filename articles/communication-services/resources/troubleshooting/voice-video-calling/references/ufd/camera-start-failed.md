@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # cameraStartFailed UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `cameraStartFailed` UFD event with a `true` value occurs when the SDK is unable to acquire the camera stream because the source is unavailable.
 This error typically happens when the specified video device is being used by another process.
 For example, the user may see this `cameraStartFailed` UFD event when they attempt to join a call with video on a browser such as Chrome while another Edge browser has been using the same camera.

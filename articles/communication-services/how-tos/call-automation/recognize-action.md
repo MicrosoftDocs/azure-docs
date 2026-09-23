@@ -14,6 +14,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Gather user input with Recognize action
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This guide helps you get started recognizing DTMF input provided by participants through Azure Communication Services Call Automation SDK. 
 
 ::: zone pivot="programming-language-csharp"

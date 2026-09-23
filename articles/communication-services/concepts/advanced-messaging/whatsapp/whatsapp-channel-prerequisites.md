@@ -14,6 +14,8 @@ ms.subservice: advanced-messaging
 
 # Prerequisites to Configure WhatsApp as a Channel in Microsoft Copilot Studio
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services Advanced Messaging SDK enables AI agents in Microsoft Copilot Studio to send and receive WhatsApp messages to users. Each AI agents are linked to a unique WhatsApp Business phone number.
 
 ## Overview

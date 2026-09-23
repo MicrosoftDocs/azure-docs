@@ -14,6 +14,8 @@ ms.subservice: identity
 
 # Answer Teams Phone calls from Call Automation
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Use Azure Communication Services Call Automation to receive and answer calls for a Teams resource account.
 
 ## Prerequisites

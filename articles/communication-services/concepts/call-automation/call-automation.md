@@ -11,6 +11,8 @@ ms.author: askaur
 ---
 # Call Automation Overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network (PSTN) channels. The SDKs, available in C#, Java, JavaScript, and Python, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (such as answer, transfer, play audio, start recording, and so on) to steer and control calls based on your business logic.
 
 > [!IMPORTANT]

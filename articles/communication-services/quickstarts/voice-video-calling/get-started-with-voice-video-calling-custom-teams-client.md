@@ -14,6 +14,8 @@ ms.custom: mode-other, devx-track-js, devx-track-extended-java
 
 # QuickStart: Add 1:1 video calling as a Teams user to your application
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Video Calling with JavaScript](./includes/custom-teams-endpoint/voice-video-calling-cte-javascript.md)]
 ::: zone-end

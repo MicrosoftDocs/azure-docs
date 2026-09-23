@@ -16,6 +16,8 @@ ms.custom: mode-other, devx-track-js
 
 # Set video constraints in a calling app
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="platform-windows"
 [!INCLUDE [Set video constraints with Windows](./includes/video-constraints/video-constraints-windows.md)]
 ::: zone-end

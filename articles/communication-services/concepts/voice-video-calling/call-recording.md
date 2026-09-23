@@ -14,6 +14,8 @@ ms.subservice: calling
 ---
 # Call Recording overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Call Recording enables you to record multiple calling scenarios available in Azure Communication Services by providing you with a set of APIs to start, stop, pause, and resume recording. Whether it's a PSTN, WebRTC, or SIP call, these APIs can be accessed from your server-side business logic. Also, recordings can be triggered by a user action that tells the server application to start recording. 
 
 > [!IMPORTANT]

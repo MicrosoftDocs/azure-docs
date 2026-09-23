@@ -16,6 +16,8 @@ ms.custom: mode-api, devx-track-extended-java, devx-track-js, devx-track-python
 
 # Export SDK telemetry to Application Insights
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 > [!IMPORTANT]
 > For the most up-to-date information on this topic, please visit: 
 > [Add and modify OpenTelemetry in Azure Monitor](/azure/azure-monitor/app/opentelemetry-add-modify?tabs=aspnetcore)

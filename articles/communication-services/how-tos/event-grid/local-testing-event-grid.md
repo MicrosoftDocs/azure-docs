@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Test your Event Grid handler locally
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Testing Event Grid triggered Azure Functions locally can be complicated. You don't want to have to trigger events over and over to test your flow. It can also get expensive as triggering those events might require you perform an event that costs money like sending an SMS or placing a phone call. To help with testing, we show you how to use Postman to trigger your Azure Function with a payload that mimics the Event Grid event.
 
 ## Pre-requisites

@@ -14,6 +14,8 @@ ms.custom: public_preview
 
 # Add Teams users in Call Automation workflows
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions on the call. This programmability enables you to build intelligent calling workflows that can adapt to customer needs in real time and be fully customized for your business logic. You can learn more about the API in the [Call Automation Overview](./call-automation.md). This document describes the interoperability Call Automation supports with Microsoft Teams.
 
 Developers can use Call Automation APIs to add Teams users to their calling workflows and customer interactions, helping you deliver advanced customer service solutions​ with easy-to-use REST APIs and SDKs. This interoperability is offered over VoIP to reduce telephony infrastructure overhead. Developers can add Teams users to Azure Communication Services calls using the user's Microsoft Entra object ID (OID).  

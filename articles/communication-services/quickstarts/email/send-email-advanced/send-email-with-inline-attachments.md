@@ -15,6 +15,8 @@ zone_pivot_groups: acs-js-csharp-java-python-azcli-ps
 
 # Send email with inline attachments
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to send email with inline attachments using our Email SDKs.
 
 [!INCLUDE [public-preview-notice.md](./includes/public-preview-include-document.md)]

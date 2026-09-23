@@ -15,6 +15,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Add multiple sender addresses with Management SDKs in Azure Communication Services using the Azure Communication Services Management Client Libraries
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to add and remove sender addresses in Azure Communication Services using the Azure Communication Services Management Client Libraries.
 
 ::: zone pivot="programming-language-csharp"

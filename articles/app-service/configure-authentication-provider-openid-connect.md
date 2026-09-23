@@ -41,7 +41,7 @@ If you can't access a configuration metadata document, get the following values 
 - The [OAuth 2.0 token endpoint](https://tools.ietf.org/html/rfc6749#section-3.2), sometimes shown as `token_endpoint`.
 - The URL of the [OAuth 2.0 JSON Web Key set](https://tools.ietf.org/html/rfc8414#section-2) document, sometimes shown as `jwks_uri`.
 
-Each identity provider should provide instructions on how to complete the registration steps. Some providers might require extra steps for their configuration or for using the values that they provide. For example, Apple provides a private key that you use to create a JSON Web Token (JWT), which you enter as the secret in your app configuration. For more information, see [Creating a client secret](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens).
+Each identity provider should provide instructions on how to complete the registration steps. Some providers might require extra steps for their configuration or for using the values that they provide. For example, Apple provides a private key that you use to create a JSON Web Token (JWT), which you enter as the secret in your app configuration.
 
 ## <a name="configure"> </a>Add provider information to your application
 

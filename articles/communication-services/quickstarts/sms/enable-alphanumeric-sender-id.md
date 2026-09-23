@@ -15,6 +15,8 @@ ms.custom: mode-other
 ---
 # Enable alphanumeric sender ID
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 
 ## Prerequisites
 

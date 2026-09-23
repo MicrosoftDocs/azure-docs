@@ -17,6 +17,8 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Customize buttons
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 To implement custom actions or modify the current button layout, you can interact with the Native UI Library's API. This API involves defining custom button configurations, specifying actions, and managing the button bar's current actions. The API provides methods for adding custom actions, and removing existing buttons, all of which are accessible via straightforward function calls.
 
 This functionality provides a high degree of customization, and ensures that the user interface remains cohesive and consistent with the application's overall design.

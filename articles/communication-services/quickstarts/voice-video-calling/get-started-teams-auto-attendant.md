@@ -14,6 +14,8 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: Join your calling app to a Teams Auto Attendant
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Auto Attendant with JavaScript](./includes/teams-auto-attendant/teams-auto-attendant-javascript.md)]
 ::: zone-end

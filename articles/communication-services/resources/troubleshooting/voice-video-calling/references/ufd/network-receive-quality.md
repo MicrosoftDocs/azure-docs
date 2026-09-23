@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # networkReceiveQuality UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `networkReceiveQuality` UFD event with a `Bad` value indicates the presence of network quality issues for incoming streams, as detected by the ACS Calling SDK.
 This event suggests that there may be problems with the network connection between the local endpoint and remote endpoint.
 When this UFD event fires with a`Bad` value, the user may experience degraded audio quality.

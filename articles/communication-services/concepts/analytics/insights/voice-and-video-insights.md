@@ -14,6 +14,8 @@ ms.subservice: data
 
 # Voice and Video Insights
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This document introduces the Voice and Video section of your Insights dashboard and how to use Azure Copilot to monitor and improve your call quality.
 
 ## Overview

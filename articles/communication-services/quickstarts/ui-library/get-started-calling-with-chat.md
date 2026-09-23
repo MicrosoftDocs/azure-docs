@@ -17,6 +17,8 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Integrate calling and chat by using the UI Library
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 In this article, you learn how to integrate calling and chat functionality in your Android or iOS app by using the Azure Communication Services UI Library.
 
 ::: zone pivot="platform-android"

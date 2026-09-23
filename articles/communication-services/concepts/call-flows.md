@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Call networking internals
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 The article describes the call flows in Azure Communication Services. Signaling and media flows depend on the types of calls your users are making. Examples of call types include one-to-one VoIP, one-to-one public switched telephone network (PSTN), and group calls containing a combination of VoIP and PSTN-connected participants. For more information, see [Call types](./voice-video-calling/about-call-types.md).
 
 ## Signaling and media protocols

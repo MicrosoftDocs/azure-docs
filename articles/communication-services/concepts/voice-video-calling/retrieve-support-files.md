@@ -11,6 +11,8 @@ ms.date:     06/28/2025
 
 # Collecting user feedback in native calling scenarios
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ## Introduction
 
 As a third-party library, we acknowledge that diagnostic data, crucial for troubleshooting, resides on end user mobile devices. Our support model hinges on a symbiotic relationship: to assist your customers effectively, we must ensure you're equipped to do so. This article outlines methods to collect diagnostic data when a user reports an issue.

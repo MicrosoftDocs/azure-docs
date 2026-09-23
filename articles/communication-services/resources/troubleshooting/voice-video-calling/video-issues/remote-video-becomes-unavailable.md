@@ -12,6 +12,8 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 # The remote video becomes unavailable while subscribing the video
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 The remote video is initially available, but during the video subscription process, it becomes unavailable.
 
 The SDK detects this change and throws an error.

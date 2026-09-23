@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Distribution modes
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Distribution policies support the following distribution modes to define the strategy used to distribute jobs to workers:
 
 ## Round robin mode

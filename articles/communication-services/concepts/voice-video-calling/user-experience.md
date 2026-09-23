@@ -14,6 +14,8 @@ ms.subservice: teams-interop
 
 # User experience
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Developers strive to bring the best user experience to their users. Azure Communication Services is integrating the best practices into the UI library, but if you're building your user interface, here are some tools to help you achieve the best user experience.
 
 ## Hide buttons that aren't enabled

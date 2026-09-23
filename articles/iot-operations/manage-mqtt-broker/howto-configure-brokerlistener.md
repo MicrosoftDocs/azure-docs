@@ -680,6 +680,7 @@ resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listene
             issuerRef: {
               name: 'my-issuer'
               kind: 'Issuer'
+              group: 'cert-manager.io'
             }
           }
         }
@@ -719,6 +720,7 @@ spec:
         issuerRef:
           name: my-issuer
           kind: Issuer
+          group: cert-manager.io
 ```
 
 ---

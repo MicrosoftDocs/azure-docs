@@ -13,6 +13,8 @@ ms.custom: sfi-image-nochange
 ---
 # Troubleshooting domain configuration issues
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to resolve common problems with setting up and using custom domains for Azure Email Communication Service.
 
 ## 1. Unable to verify Custom Domain Status

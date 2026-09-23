@@ -15,6 +15,8 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 # Inject a custom data model in the UI library for an application
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services uses an identity-agnostic model in which developers can [bring their own identities](../../concepts/identity-model.md). Developers can get their data model and link it to Azure Communication Services identities. The data model for a user most likely includes information such as display name, profile picture or avatar, and other details. Developers use this information to build their applications and platforms.
 
 The UI Library makes it simple for you to inject a user data model into the UI components. When you render the UI components, they show users the provided information rather than generic information from Azure Communication Services.

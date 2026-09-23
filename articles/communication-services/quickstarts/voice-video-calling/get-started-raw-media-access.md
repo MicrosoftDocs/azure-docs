@@ -15,6 +15,8 @@ ms.custom: mode-other, devx-track-js
 
 # Access raw audio and video
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="platform-unity"
 [!INCLUDE [Raw media with Unity](./includes/raw-media/raw-media-access-unity.md)]
 ::: zone-end

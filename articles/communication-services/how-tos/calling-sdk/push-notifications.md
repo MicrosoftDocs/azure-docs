@@ -16,6 +16,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Enable push notifications
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Push notifications send information from your application to users' devices. You can use push notifications to show a dialog, play a sound, or display incoming call into the app's UI layer.
 
 In this article, you learn how to enable push notifications for Azure Communication Services calls. Communication Services provides integrations with [Azure Event Grid](../../../event-grid/overview.md) and [Azure Notification Hubs](../../../notification-hubs/notification-hubs-push-notification-overview.md) that enable you to add push notifications to your apps.

@@ -14,6 +14,8 @@ ms.subservice: data
 
 # Insights dashboard
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes insights available from the Insights dashboard. Use these insights to monitor logs and metrics.
 
 ## Overview

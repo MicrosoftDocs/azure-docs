@@ -17,6 +17,8 @@ zone_pivot_groups: acs-ps-azclips-azclipython
 
 # Automate email resource management
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="platform-powershell"
 [!INCLUDE [Email Resource Managemnt with Azure PowerShell](./includes/email-resource-management-powershell.md)]
 ::: zone-end

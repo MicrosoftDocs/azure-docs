@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Overview of video issues
 
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Establishing a video call involves many components and processes. Steps include the video stream acquisition from a camera device, browser encoding, browser decoding, video rendering, and so on.
 If there's a problem in any of these stages, users may experience video-related issues.
 For example, users may complain about being unable to see the video or the poor quality of the video.

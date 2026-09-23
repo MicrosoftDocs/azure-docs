@@ -13,6 +13,8 @@ ms.subservice: data
 
 # Chat logs
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services provides logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
 
 > [!IMPORTANT]

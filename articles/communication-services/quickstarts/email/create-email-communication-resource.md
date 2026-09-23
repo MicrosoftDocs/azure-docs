@@ -16,6 +16,8 @@ ms.devlang: azurecli
 
 # Create and manage Email Communication Service resources
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Get started with Email by provisioning your first Email Communication Service resource. Provision Email Communication Service resources through the [Azure portal](https://portal.azure.com/) or using the .NET management client library. The management client library and the Azure portal enable you to create, configure, update, and delete your resources and interface using Azure's deployment and management service: [Azure Resource Manager](../../../azure-resource-manager/management/overview.md). All functions available in the client libraries are available in the Azure portal.
 
 > [!WARNING]
