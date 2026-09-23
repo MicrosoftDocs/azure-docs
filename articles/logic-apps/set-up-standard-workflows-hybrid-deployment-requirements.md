@@ -242,7 +242,7 @@ Use this option when you already have a datacenter load balancer or your cluster
 
 > [!NOTE]
 >
-> You can find the steps in this section and onwards through to creating your connected environment in a script named **EnvironmentSetup.ps1**, which you can find in the [GitHub repo named **Azure/logicapps**](https://github.com/Azure/logicapps/tree/master/scripts/hybrid). You can modify and use this script to meet your requirements and scenarios. 
+> You can find the steps in this section and onwards through to creating your connected environment in a script named **EnvironmentSetup.ps1** in the [Azure/logicapps GitHub repo](https://github.com/Azure/logicapps/tree/master/scripts/hybrid). Modify and use this script to meet your requirements and scenarios. 
 >
 > The script is unsigned. Before you run the script, review the content and confirm its source. To change the execution policy only for the current PowerShell process, run the following command:
 >
