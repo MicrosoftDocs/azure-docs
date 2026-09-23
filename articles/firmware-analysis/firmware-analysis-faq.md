@@ -5,7 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: faq
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 07/29/2026
+ms.date: 09/04/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -124,6 +124,15 @@ Preview results should be interpreted as **security signals**, not guarantees of
 
 For detailed explanations of UEFI firmware analysis capabilities, limitations, and how to interpret results, see [Understanding UEFI firmware analysis capabilities and limitations](unified-extensible-firmware-interface-firmware-analysis.md).
 
+## Why don't I see any results for unsafe function calls?
 
+An empty result doesn't mean the firmware has no unsafe function calls. You might not see results when:
 
+- The firmware image doesn't contain supported ELF user-space executables.
+- The extracted executables use an unsupported processor architecture.
+- A static or stripped binary doesn't retain enough information to identify function references.
+- The extracted file is a Linux kernel module (`.ko`), which isn't included in this analysis.
+- The firmware image was analyzed before unsafe function calls analysis became available.
+- Extraction or analysis didn't complete successfully.
 
+Upload an older firmware image again to receive current analysis. For supported architectures, binary requirements, and guidance on interpreting results, see [Understand unsafe function call data](understand-unsafe-function-calls.md).

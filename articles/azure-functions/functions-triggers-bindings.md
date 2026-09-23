@@ -2,7 +2,7 @@
 title: Triggers and Bindings in Azure Functions
 description: Learn how to use triggers and bindings to connect your Azure function to online events and cloud-based services.
 ms.topic: concept-article
-ms.date: 09/04/2026
+ms.date: 09/10/2026
 ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ai-usage: ai-assisted
@@ -44,7 +44,7 @@ For C# class library functions, you configure triggers and bindings by decoratin
 
 ### [Isolated worker model](#tab/isolated-process)
 
-The HTTP trigger (`HttpTrigger`) is defined on the `Run` method for a function named `HttpExample` that returns a `MultiResponse` object:
+You define the HTTP trigger (`HttpTrigger`) on the `Run` method for a function named `HttpExample` that returns a `MultiResponse` object:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="17-18":::
 
@@ -56,7 +56,7 @@ For more information, see the [C# guide for isolated worker models](dotnet-isola
 
 ### [In-process model](#tab/in-process)
 
-The HTTP trigger (`HttpTrigger`) is defined on the `Run` method for a function named `HttpExample`. This function writes to a storage queue that the `Queue` and `StorageAccount` attributes define on the `msg` parameter:
+You define the HTTP trigger (`HttpTrigger`) on the `Run` method for a function named `HttpExample`. This function writes to a storage queue that the `Queue` and `StorageAccount` attributes define on the `msg` parameter:
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-19":::
 
@@ -68,7 +68,7 @@ Legacy C# script functions use a `function.json` definition file. For more infor
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-For Java functions, you configure triggers and bindings by annotating specific methods and parameters. This HTTP trigger (`@HttpTrigger`) is defined on the `run` method for a function named `HttpExample`. The function writes to a storage queue named `outqueue` that the `@QueueOutput` annotation defines on the `msg` parameter:
+For Java functions, you configure triggers and bindings by annotating specific methods and parameters. You define this HTTP trigger (`@HttpTrigger`) on the `run` method for a function named `HttpExample`. The function writes to a storage queue named `outqueue` that the `@QueueOutput` annotation defines on the `msg` parameter:
 
 :::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="16-23":::
 
@@ -93,7 +93,7 @@ In Node.js for Azure Functions version 3, you configure triggers and bindings in
 ::: zone pivot="programming-language-javascript"
 ### [v4](#tab/node-v4)
 
-The `http` method on the exported `app` object defines an HTTP trigger. The `storageQueue` method on `output` defines an output binding on this trigger.
+The exported `app` object's `http` method defines an HTTP trigger. The `storageQueue` method on `output` defines an output binding on this trigger.
 
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueOutput1.js" :::
 
@@ -133,7 +133,7 @@ This example `function.json` file defines the HTTP trigger function that returns
 ::: zone pivot="programming-language-typescript"
 ### [v4](#tab/node-v4)
 
-The `http` method on the exported `app` object defines an HTTP trigger. The `storageQueue` method on `output` defines an output binding on this trigger.
+The exported `app` object's `http` method defines an HTTP trigger. The `storageQueue` method on `output` defines an output binding on this trigger.
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageQueueOutput1.ts" :::
 
@@ -177,7 +177,7 @@ For more information, see the [PowerShell developer guide](functions-reference-p
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-The way that the function is defined depends on the version of Python for Azure Functions:
+The way that you define the function depends on the version of Python for Azure Functions:
 
 ### [v2](#tab/python-v2)
 
@@ -207,7 +207,7 @@ In Python for Azure Functions version 1, this example `function.json` file defin
 
 You can connect your function to other services by using input or output bindings. Add a binding by adding its specific definitions to your function. To learn how, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md).
 
-Azure Functions supports multiple bindings, which must be configured correctly. For example, a function can read data from a queue (input binding) and write data to a database (output binding) simultaneously.
+Azure Functions supports multiple bindings, which you must configure correctly. For example, a function can read data from a queue (input binding) and write data to a database (output binding) at the same time.
 
 ## Supported bindings
 
@@ -270,6 +270,21 @@ Go supports SDK client injection for triggers that provide Azure SDK clients. Du
 
 For more information, see [Extension triggers](functions-reference-go.md#extension-triggers) in the Go developer reference.
 ::: zone-end
+
+::: zone pivot="programming-language-python"
+
+## Agent bindings
+
+[!INCLUDE [functions-agent-bindings-preview](../../includes/functions-agent-bindings-preview.md)]
+
+Agent bindings let you inject an `Agent` object into a Python function while retaining standard Azure Functions triggers, bindings, and application logic. Use agent bindings when part of a function workflow benefits from agentic reasoning but your function code must remain in control of execution.
+
+Agent bindings also support Durable Functions orchestrations. The replay-safe `context.call_agent()` API runs agent operations in an activity so that orchestration replay remains deterministic.
+
+Agent bindings are available for the Python v2 programming model. For more information, see [Agent bindings for Python function apps](functions-agent-bindings.md).
+
+::: zone-end
+
 ## Code examples for bindings
 
 Use the following table to find more examples of specific binding types that show you how to work with bindings in your functions. First, choose the language tab that corresponds to your project.
@@ -278,7 +293,7 @@ Use the following table to find more examples of specific binding types that sho
 
 ## Custom bindings
 
-You can create custom input and output bindings. Bindings must be authored in .NET, but they can be consumed from any supported language. For more information about creating custom bindings, see [Creating custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
+You can create custom input and output bindings. You must author bindings in .NET, but you can consume them from any supported language. For more information about creating custom bindings, see [Creating custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
 ## Related content
 

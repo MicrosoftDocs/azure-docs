@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop, validate, and deploy your Python code projects to Azure Functions using the Python library for Azure Functions.
 ms.topic: article
-ms.date: 08/27/2026
+ms.date: 09/10/2026
 ms.devlang: python
 ms.custom:
   - devx-track-python
@@ -508,6 +508,12 @@ By using these _SDK type bindings_, you can interact with binding data as if you
 For more information, see [supported SDK type bindings](./functions-triggers-bindings.md?pivots=programming-language-python#sdk-types).
 > [!IMPORTANT]  
 > SDK type bindings support for Python is only available in the Python v2 programming model.
+
+### Agent bindings
+
+[!INCLUDE [functions-agent-bindings-preview](../../includes/functions-agent-bindings-preview.md)]
+
+Agent bindings let you inject an Agent object into a function while retaining standard Azure Functions triggers, bindings, and application logic. You can use Agent bindings to combine deterministic code with agentic reasoning, including in Durable Functions orchestrations. For more information, see [Agent bindings for Python function apps](functions-agent-bindings.md).
 
 ::: zone-end
 

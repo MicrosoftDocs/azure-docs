@@ -4,6 +4,8 @@
   items:
   - name: What is Azure IoT Central
     href: core/overview-iot-central.md
+  - name: Azure IoT Central evolution
+    href: core/iot-central-evolution.md
   - name: Tour of the UI
     href: core/overview-iot-central-tour.md
   - name: Tour of the API
