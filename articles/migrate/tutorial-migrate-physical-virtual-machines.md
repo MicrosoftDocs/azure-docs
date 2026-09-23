@@ -234,7 +234,7 @@ When you enable replication for VMware virtual machines and physical servers, th
 You can install the Mobility service using the Mobility service agent software. The following methods are available for deployment:
 
 - [Push installation](../site-recovery/vmware-physical-mobility-service-overview.md#push-installation): When protection is enabled via the Azure portal, Site Recovery installs the Mobility service on the server.
-- Manual installation: You can install the Mobility service manually on each machine through the [user interface (UI)](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) or [command prompt](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-modernized).
+- Manual installation: You can install the Mobility service manually on each machine through the [user interface (UI)](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui) or [command prompt](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt).
 - [Automated deployment](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md): You can automate the Mobility service installation with software deployment tools such as Configuration Manager.
   
  [Learn more](../site-recovery/vmware-physical-mobility-service-overview.md) about mobility service agent installation.
