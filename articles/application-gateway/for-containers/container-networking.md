@@ -83,7 +83,7 @@ Q: Can I deploy Application Gateway for Containers in a separate virtual network
 A: No. Separate virtual networks for Application Gateway for Containers and AKS aren't currently supported. Application Gateway for Containers must be deployed in the same virtual network as your AKS cluster.
 
 Q: Can Application Gateway for Containers proxy traffic to a cluster running CNI Overlay with Cilium and WireGuard enabled?
-A: Yes. Application Gateway for Containers can proxy traffic to a cluster configured with CNI Overlay, Cilium, and WireGuard. However, traffic between Application Gateway for Containers and the destination pod is not encrypted by WireGuard.
+A: Yes. Application Gateway for Containers can proxy traffic to a cluster configured with CNI Overlay, Cilium, and WireGuard. However, WireGuard doesn't encrypt traffic between Application Gateway for Containers and the destination pod.  
 
 ## Next steps
 
