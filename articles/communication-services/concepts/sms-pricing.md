@@ -11,6 +11,8 @@ zone_pivot_groups: acs-tollfree-shortcode-alphanumeric-tendlc-mobile
 ---
 # SMS pricing 
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="tollfree"
 [!INCLUDE [Toll free](./includes/sms-tollfree-pricing.md)]
 ::: zone-end

@@ -13,6 +13,8 @@ ms.custom: references_regions, mode-other
 ---
 # Quickstart: Port a phone number
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Get started with Azure Communication Services by porting your phone number into your Azure Communication Services resource. Toll-free and geographic numbers based in the United States are eligible for porting. For more information about phone number types, visit the [phone number conceptual documentation](../../concepts/telephony/plan-solution.md).

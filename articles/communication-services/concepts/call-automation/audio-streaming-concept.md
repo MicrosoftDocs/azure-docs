@@ -12,6 +12,8 @@ ms.custom: public_prview
 
 # Audio streaming overview - audio subscription
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services provides bidirectional audio streaming capabilities, offering developers powerful tools to capture, analyze, and process audio content during active calls. This development paves the way for new possibilities in real-time communication for developers and businesses alike. 
 
 > [!IMPORTANT]

@@ -17,6 +17,8 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Subscribe events in the UI Library
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 ## Prerequisites

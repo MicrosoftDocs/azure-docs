@@ -14,6 +14,8 @@ ms.subservice: identity
 
 # Access Teams Phone without going through the Teams client
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to grant consent to a server to receive calls directed to a Teams Resource Account. Following sections also describe how to use a client to answer and place calls on behalf of Teams Resource Accounts.
 
 ## Prerequisites

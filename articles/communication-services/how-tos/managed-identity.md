@@ -14,6 +14,8 @@ ms.custom: managed-identity
 
 # Enable managed identity
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services is a fully managed communication platform that enables developers to build real-time communication features into their applications. By using managed identity with Azure Communication Services, you can simplify the authentication process for your application, while also increasing its security. This document covers how to use managed identity with Azure Communication Services.
 
 ## Using managed identity with Azure Communication Services

@@ -13,6 +13,8 @@ ms.custom: sfi-ropc-nochange
 
 # Collecting user feedback in the ACS UI library
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ## Introduction
 
 This comprehensive guide is designed to assist developers in integrating enhanced support into the ACS UI Library, using Azure services for backend processing. The guide is divided into client-side and server-side steps for clarity and ease of implementation.

@@ -12,6 +12,8 @@ ms.subservice: pstn
 ---
 
 # Azure direct routing infrastructure requirements 
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
  
 This article describes infrastructure, licensing, and Session Border Controller (SBC) connectivity details that you want to keep in mind as your plan your Azure direct routing deployment.
 

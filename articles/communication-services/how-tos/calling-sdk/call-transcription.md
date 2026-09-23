@@ -14,6 +14,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Show call transcription state on the client
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 You need to collect consent from all participants in the call before you can transcribe them. Microsoft Teams enables users to start transcription in the meetings or calls. You receive an event when transcription starts. You can check the transcription state if transcription started before you joined the call or meeting. You can provide explicit consent to transcription if a meeting or call requires it, and you already collected it.
 
 ## Prerequisites

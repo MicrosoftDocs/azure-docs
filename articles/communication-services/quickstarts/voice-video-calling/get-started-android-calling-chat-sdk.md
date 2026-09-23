@@ -10,6 +10,8 @@ description: Learn how to use the Calling SDK and the Chat SDK together in an An
 ---
 # Add the Calling and Chat SDKs in an Android application
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how you can integrate the Azure Communication Services Calling SDK and Chat SDK in an Android application.
 
 ## Problem

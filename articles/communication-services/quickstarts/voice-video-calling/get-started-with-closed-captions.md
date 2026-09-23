@@ -14,6 +14,8 @@ ms.custom: mode-api, devx-track-js
 
 # Enable closed captions
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Closed Captions for Web](./includes/closed-captions/closed-captions-javascript.md)]
 ::: zone-end

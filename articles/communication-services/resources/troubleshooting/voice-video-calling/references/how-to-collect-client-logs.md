@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # How to collect client logs
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 The client logs can help when we want to get more details while debugging an issue.
 To collect client logs, you can use [@azure/logger](https://www.npmjs.com/package/@azure/logger), which is used by WebJS calling SDK internally.
 

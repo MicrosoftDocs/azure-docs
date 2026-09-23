@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Best practices for sender authentication support
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article provides the Email Sending best practices on DNS records and how to use the sender authentication methods that help prevent attackers from sending messages that look like they come from your domain.
 
 ## Email authentication and DNS setup

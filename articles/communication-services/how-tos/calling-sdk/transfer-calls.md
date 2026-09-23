@@ -15,6 +15,8 @@ ms.custom: template-how-to
 
 # Transfer calls
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 During an active call, you can want to transfer the call to another person, number, or to voicemail. Let's learn how. 
 
 ## Prerequisites

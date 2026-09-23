@@ -14,6 +14,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Add real-time transcription into your application
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This guide helps you better understand the different ways you can use Azure Communication Services offering of real-time transcription through Call Automation SDKs.
 
 ### Prerequisites

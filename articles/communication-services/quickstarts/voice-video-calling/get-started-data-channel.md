@@ -15,6 +15,8 @@ ms.custom: mode-other, devx-track-js
 
 # Add data channel messaging to a calling app
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Data Channel feature with JavaScript](./includes/data-channel/data-channel-javascript.md)]
 ::: zone-end

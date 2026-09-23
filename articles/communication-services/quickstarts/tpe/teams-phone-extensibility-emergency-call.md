@@ -14,6 +14,8 @@ ms.subservice: identity
 
 # Teams Phone Extensibility: Emergency Calling
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how emergency calls work for Teams Phone Extensibility users, and how different calling policies affect the handling of emergency calls.  
 
 ## Overview  

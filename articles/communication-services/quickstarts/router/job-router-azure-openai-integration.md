@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Quick Start: Integrating Azure OpenAI with ACS Job Router
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Integrate ACS Job Router with Azure OpenAI. Use Azure OpenAI to pair your jobs to agents.
 
 ### Prerequisites

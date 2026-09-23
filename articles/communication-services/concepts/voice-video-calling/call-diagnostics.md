@@ -15,6 +15,8 @@ ms.subservice: calling
 
 # Call Diagnostics
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services offers call quality analytics and visualizations in Call Diagnostics. You can use Call Diagnostics to investigate call metrics and events, and understand detected quality problems in your Communication Services calling solution.
 
 It's important to understand call quality and reliability in order to deliver a great customer experience. Various problems can affect the quality of calls, such as poor internet connectivity, software incompatibilities, and technical difficulties with devices. These problems can be frustrating for all call participants, whether they're a patient checking in for a doctor's call or a student taking a lesson with a teacher. For a developer, diagnosing and fixing these problems can be time-consuming.

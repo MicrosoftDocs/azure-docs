@@ -14,6 +14,8 @@ services: azure-communication-services
 
 # Pass contextual data between calls
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Call Automation allows developers to pass along custom contextual information when routing calls. Developers can pass metadata about the call, caller, or any other information that's relevant to their application or business logic. Businesses can then manage and route calls across networks without having to worry about losing context.
 
 Passing context is supported by specifying custom headers. This optional list of key/value pairs is included as part of `AddParticipant` or `Transfer` actions. The context is retrieved later as part of the `IncomingCall` event payload.

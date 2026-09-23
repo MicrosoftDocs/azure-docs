@@ -15,6 +15,8 @@ ms.custom: references_regions
 
 # Phone number management for Spain
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 > [!IMPORTANT]
 > Effective **September 15, 2026**, Microsoft will no longer provide Dynamic or Preregistered alphanumeric sender IDs for SMS to **Spain** phone numbers. After September 15, 2026, sender IDs will no longer be allowed in Spain, and messages will be blocked.
 >

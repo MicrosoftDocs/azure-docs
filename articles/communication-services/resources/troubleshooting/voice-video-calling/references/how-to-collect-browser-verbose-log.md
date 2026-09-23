@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # How to collect verbose log from browsers
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 When an issue originates within the underlying layer, collecting verbose logs in addition to web logs can provide valuable information.
 
 To collect the verbose log from the browser, initiate a web browser session with specific command line arguments. You open your video application within the browser and execute the scenario you're debugging.

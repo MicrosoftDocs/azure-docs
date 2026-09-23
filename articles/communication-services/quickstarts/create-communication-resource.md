@@ -21,6 +21,8 @@ ms.custom:
 
 # Create an Communication Services resource
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 Get started with Azure Communication Services by provisioning your first Communication Services resource. You can provision Communication Services resources through the [Azure portal](https://portal.azure.com) or using the .NET management SDK. The management SDK and the Azure portal enable you to create, configure, update, and delete your resources and interface using the deployment and management service: [Azure Resource Manager](../../azure-resource-manager/management/overview.md). All functions available in the SDKs are available in the Azure portal.
 
 >[!VIDEO https://www.youtube.com/embed/3In3o5DhOHU]

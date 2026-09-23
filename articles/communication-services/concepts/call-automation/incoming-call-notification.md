@@ -12,6 +12,8 @@ ms.author: serooney
 
 # Incoming call concepts
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services Call Automation enables developers to create applications that can make and receive calls. It uses Event Grid subscriptions to deliver `IncomingCall` events, making it crucial to configure your environment to receive these notifications for your application to redirect or answer a call effectively. Therefore, understanding the fundamentals of incoming calls is essential for using the full potential of Azure Communication Services Call Automation.
 
 > [!IMPORTANT]

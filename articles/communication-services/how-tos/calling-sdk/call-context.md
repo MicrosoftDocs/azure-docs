@@ -13,6 +13,8 @@ ms.custom: template-how-to
 
 # Pass user-to-user information (UUI) data in a header
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to pass user-to-user information (UUI) in a header when routing calls with Azure Communication Services Calling SDKs. This capability enables users to pass metadata about the call, callee, or any other information that is relevant to their application or business logic.
 
 The Azure Communication Services WebJS SDK enables developers to include custom contextual data (included as a header on the calling object) when directing and routing calls from one person to another. This information, also known as user-to-user information (UUI) data or call control UUI data, is a small piece of data inserted by an application initiating the call. The UUI data is opaque to end users making a call.

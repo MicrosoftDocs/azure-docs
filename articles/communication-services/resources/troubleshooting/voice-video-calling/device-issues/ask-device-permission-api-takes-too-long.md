@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # The askDevicePermission API takes too long
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 The [`askDevicePermission`](/javascript/api/%40azure/communication-react/calladapterdevicemanagement?view=azure-node-latest&preserve-view=true#@azure-communication-react-calladapterdevicemanagement-askdevicepermission) API prompts the end user via the browser asking if they allow permission to use camera or microphone.
 If the end user approves camera or microphone usage, then those devices are available to be used in a call. The devices availability is reflected in available device list.
 

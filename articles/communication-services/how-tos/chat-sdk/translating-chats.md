@@ -15,6 +15,8 @@ ms.subservice: chat
 
 #  Translating chats
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Translating chats enables users to communicate in their preferred language.
 
 This article describes how you can use [Azure AI APIs](/azure/ai-services/) with the Chat SDK to build use cases like:

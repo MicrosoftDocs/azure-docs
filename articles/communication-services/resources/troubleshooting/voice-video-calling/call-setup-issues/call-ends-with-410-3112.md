@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # The call ends with 410/3112
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 The reason why call ends with 410/3112 error is the client isn't able to reach out to the other endpoint and no relay candidates are gathered.
 This 410/3112 error code can happen when the media path can't be established due to network issues, firewall restrictions, or incorrect configuration settings.
 Therefore, the peers were unable to establish a direct or relay connection.

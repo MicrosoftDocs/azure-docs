@@ -13,6 +13,8 @@ ms.custom: mode-other
 
 # Quickstart: Place interop calls between Azure Communication Services and Microsoft Teams
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 In this quickstart, you're going to learn how to start a call from Azure Communication Services user to Teams users. You're going to achieve it with the following steps:
 
 1. Enable federation of Azure Communication Services resource with Teams Tenant.

@@ -14,6 +14,8 @@ services: azure-communication-services
 
 # Cost and connectivity options for Teams Phone extensibility
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Effective communication is essential for success in today's fast-paced business environment. Choosing the right public switched telephone network (PSTN) connectivity option for your organization's communication needs can significantly improve efficiency, reduce cost, and raise overall performance.
 
 As organizations increasingly adopt Microsoft Teams for their collaboration and communication needs, understanding the various PSTN connectivity options available becomes crucial. This article explores your options for Teams Phone extensibility and provides guidance on selecting the best fit for your specific requirements. Options include Calling Plans, Operator Connect, and Direct Routing.
