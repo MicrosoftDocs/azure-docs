@@ -36,8 +36,8 @@ There are naming rules for each Azure Enclave resource under the `Microsoft.Miss
 |--|--|--|--|
 | communities | Resource group | 3-30 | Alphanumerics and hyphens. Start with a letter and end with alphanumerics. |
 | communities/communityEndpoints | community | 3-30 | Alphanumerics and hyphens. Start with a letter and end with alphanumerics.  |
+| communities/transitHubs | Resource group | 3-30 | Alphanumerics and hyphens. Start with a letter and end with alphanumerics.  |
 | virtualEnclaves | Resource group | 3-30 | Alphanumerics and hyphens. Start with a letter and end with alphanumerics.  |
 | virtualEnclaves/enclaveEndpoints | Enclave | 3-30 | Alphanumerics and hyphens. Start with a letter and end with alphanumerics.  |
 | virtualEnclaves/workloads | Enclave & Subscription| 3-30 | Alphanumerics and hyphens. Start with a letter and end with alphanumerics.  |
 | enclaveConnections | Resource group | 3-30 | Alphanumerics and hyphens. Start with a letter and end with alphanumerics.  |
-| transitHubs | Resource group | 3-30 | Alphanumerics and hyphens. Start with a letter and end with alphanumerics.  |
