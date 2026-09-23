@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/19/2026
+ms.date: 09/22/2026
 ms.update-cycle: 1095-days
 ms.custom:
   - build-2025
@@ -26,7 +26,7 @@ This how-to guide shows how to create and deploy a Standard logic app workflow b
 
 > [!IMPORTANT]
 >
-> The local Azure Logic Apps runtime and workflows that use only locally available dependencies can continue running when Azure connectivity is interrupted. Azure-dependent management, deployment, monitoring, identity operations, and managed connectors might be unavailable while disconnected. After 24 hours, logging data might be lost, although local runtime execution continues. For more information, see [Limitations for hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md#limitations).
+> The local Azure Logic Apps runtime and workflows that use only locally available dependencies can continue running when Azure connectivity is interrupted. Azure-dependent management, deployment, monitoring, identity operations, and managed connectors might be unavailable while disconnected. After 24 hours, you might lose logging data, although local runtime execution continues. For more information, see [Limitations for hybrid deployment](set-up-standard-workflows-hybrid-deployment-requirements.md#limitations).
 
 ## Limitations
 
@@ -250,7 +250,7 @@ You can set up enhanced telemetry collection in Application Insights for your St
 
 For partially connected and on-premises scenarios, you can set up your Standard logic app to emit telemetry based on the [OpenTelemetry-supported](https://opentelemetry.io/) app settings that you define for the specific environment. By default, this telemetry data is sent to Application Insights. For more information, see [Enable enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](enable-enhanced-telemetry-standard-workflows.md).
 
-Application Insights requires Azure connectivity. During connectivity interruption, telemetry delivery might encounter delays, and logging data generated after 24 hours might be lost. Validate any requirement for local monitoring and alerting against the telemetry destination and configuration that you use.
+Application Insights requires Azure connectivity. During connectivity interruption, telemetry delivery might encounter delays, and you might lose logging data generated after 24 hours. Validate any requirement for local monitoring and alerting against the telemetry destination and configuration that you use.
 
 <a name="change-vcpu-memory"></a>
 
@@ -317,7 +317,7 @@ You can expose your logic app to the public web, your virtual network, and other
 
 ## Set up authentication for managed API connections
 
-Managed identity authentication isn't currently supported for managed API connections in hybrid logic apps. To authenticate these connections, you must create your own app registration by using Microsoft Entra ID. You can then add this app registration's values as environment variables in your Standard logic app resource. This authentication model requires connectivity to Microsoft Entra ID.
+Managed API connections currently don't support managed identity authentication in hybrid logic apps. To authenticate these connections, you must create your own app registration by using Microsoft Entra ID. You can then add this app registration's values as environment variables in your Standard logic app resource. This authentication model requires connectivity to Microsoft Entra ID.
 
 ### Create an app registration with Microsoft Entra ID
 
@@ -358,7 +358,7 @@ Managed identity authentication isn't currently supported for managed API connec
       --skip-assignment
    ```
 
-1. From the command output, save the `appId`, `password`, and `tenant` values the client ID, client secret, and tenant ID. The client secret appears only in the command output.
+1. From the command output, save the `appId`, `password`, and `tenant` values as for the client ID, client secret, and tenant ID values. The client secret appears only in the command output.
 
 1. Get the service principal object ID:
 
@@ -404,7 +404,11 @@ For more information, see:
 
 ### Store and reference the client secret
 
-Store the client secret in your logic app resource as a secret, and then reference that secret from the **WORKFLOWAPP_AAD_CLIENTSECRET** environment variable. Plan to rotate the secret before it expires.
+Store the client secret as a secret in your logic app resource. Reference that secret from the **WORKFLOWAPP_AAD_CLIENTSECRET** environment variable.
+
+> [!IMPORTANT]
+>
+> Make sure to rotate the secret before it expires.
 
 1. In the Azure portal, go to your logic app resource.
 
@@ -458,7 +462,7 @@ After you deploy your Standard logic app, confirm that your app is running corre
 
    :::image type="content" source="media/create-standard-workflows-hybrid-deployment/running-logic-app-hybrid-deployment.png" alt-text="Screenshot shows browser and logic app running as a website.":::
 
-   Otherwise, if your app has any failures, check that your Kubernetes pods are running correctly. Ensure that `kubectl` uses the context for your cluster, and then run the following commands:
+   Otherwise, if your app has any failures, check that your Kubernetes pods are running correctly. Make sure that `kubectl` uses the context for your cluster, and then run the following commands:
 
    ```powershell
    kubectl get ns
