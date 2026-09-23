@@ -4,7 +4,7 @@ ms.reviewer: v-gajeronika
 description: This article describes show to switch between different replication appliances while replicating VMware VMs to Azure in Azure Site Recovery- Modernized
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 09/11/2026
+ms.date: 09/21/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: "As a cloud administrator managing VMware VMs, I want to switch replication appliances in Azure Site Recovery, so that I can enhance resiliency and load balance my replication processes seamlessly."
@@ -21,10 +21,7 @@ This article provides information about how you can switch between replication a
 
 ## Appliance resiliency
 
-Typically, in the classic architecture, if you need to maintain the resiliency of your configuration server then the recommended action is to take regular manual backups of the machine. It's a highly cumbersome process, also prone to errors and misses.  
-
-This modernized application resilience introduces a better way to make your appliances more resilient. If your replication appliance burns down or you need to balance the machines running on an appliance, just spin up another replication appliance and switch all your machines to the new appliance.
-
+Modernized application resilience introduces a better way to make your appliances more resilient. If your replication appliance burns down or you need to balance the machines running on an appliance, just spin up another replication appliance and switch all your machines to the new appliance.
 
 ## Considerations for switching replication appliance
 

@@ -103,13 +103,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-python"  
 
-Your project has been configured to use [extension bundles](extension-bundles.md), which automatically installs a predefined set of extension packages. 
-
-Extension bundles usage is enabled in the host.json file at the root of the project, which appears as follows:
-
-:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-sql-cli-v4-programming-model/host.json":::
-
-:::
+[!INCLUDE [functions-extension-bundles-json-v4-element](../../includes/functions-extension-bundles-json-v4-element.md)]
 
 ::: zone-end
 
@@ -117,15 +111,13 @@ Now, you can add the Azure SQL output binding to your project.
 
 ## Add an output binding
 
-In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
-
 ::: zone pivot="programming-language-csharp"
 
 Open the *HttpExample.cs* project file and add the following `ToDoItem` class, which defines the object that is written to the database:
 
 :::code language="csharp" source="~/functions-sql-todo-sample/ToDoModel.cs" range="6-16":::
 
-In a C# class library project, the bindings are defined as binding attributes on the function method. The *function.json* file required by Functions is then auto-generated based on these attributes.
+In a C# class library project, you define the bindings as binding attributes on the function method.
 
 Open the *HttpExample.cs* project file and add the following output type class, which defines the combined objects that will be output from our function for both the HTTP response and the SQL output:
 

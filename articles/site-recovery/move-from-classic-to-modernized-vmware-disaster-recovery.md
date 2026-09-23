@@ -1,16 +1,16 @@
 ---
-title: Move from classic to modernized VMware disaster recovery
+title: Prepare infrastructure for migration
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware or Physical machine replications from classic to modernized protection architecture.
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 09/11/2026
+ms.date: 09/21/2026
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.custom: engagement-fy23
 # Customer intent: "As an IT administrator managing VMware environments, I want to migrate existing machine replications from classic to modernized disaster recovery architecture, so that I can leverage improved protection and efficiency without the need for complete reinitialization of data."
 ---
 
-# Move from classic to modernized VMware disaster recovery   
+# Prepare infrastructure for migration   
 
 This article provides reference information for moving eligible existing VMware or physical machine replications from the retired classic experience to the [modernized](./vmware-azure-architecture-modernized.md) protection architecture. The classic experience retired on March 30, 2026. You can't enable new classic protection. For an existing classic replication, use this migration only if the **Upgrade to modernized VMware replication** action is available. Otherwise, contact Microsoft Support for recovery guidance.
 
@@ -47,7 +47,7 @@ Ensure the following for a successful movement of replicated item:
 
 Ensure the following before you move from classic architecture to modernized architecture: 
 
-- [Create a Recovery Services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault) and ensure the experience [hasn't been switched to classic](./vmware-azure-common-questions.md#how-do-i-use-the-classic-experience-in-the-recovery-services-vault-rather-than-the-modernized-experience)
+- [Create a Recovery Services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault) and ensure the experience [hasn't been switched to classic](./vmware-azure-common-questions.md)
 - [Deploy an Azure Site Recovery replication appliance](./deploy-vmware-azure-replication-appliance-modernized.md). 
 - [Add the on-premises machine’s vCenter Server details](./deploy-vmware-azure-replication-appliance-modernized.md) to the appliance, so that it successfully performs discovery.   
 
