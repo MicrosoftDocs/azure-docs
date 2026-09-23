@@ -16,7 +16,7 @@ Welcome to the Azure Site Recovery service! This article provides a quick servic
 
 As an organization, you need to adopt a business continuity and disaster recovery (BCDR) strategy that keeps your data safe, and your apps and workloads online, when planned and unplanned outages occur.
 
-Azure Site Recovery (ASR) provides infrastructure resiliency for your business-critical workloads by providing continuous replication, failover, and recovery capabilities. ASR supports your disaster recovery (DR) strategy by protecting virtual machines against planned and unplanned disruptions, ranging from zonal failures to regional outages, while meeting your recovery point objectives (RPO and RTO). Before configuring replication, assess application dependencies, recovery requirements, plan network connectivity, target environment capacity, and failover requirements for the recovery environment.
+Azure Site Recovery (ASR) provides infrastructure resiliency for your business-critical workloads by providing continuous replication, failover, and recovery capabilities. ASR supports your disaster recovery (DR) strategy by protecting virtual machines against planned and unplanned disruptions, ranging from zonal failures to regional outages, while meeting your recovery objectives (RPO and RTO). Before configuring replication, assess application dependencies, recovery requirements, plan network connectivity, target environment capacity, and failover requirements for the recovery environment.
 
 For broader BCDR planning and guidance, see [Business continuity and disaster recovery](/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-business-continuity-disaster-recovery#design-recommendations).
 
