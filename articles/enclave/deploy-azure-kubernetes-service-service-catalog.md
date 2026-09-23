@@ -6,7 +6,8 @@ author: aserfass-msft
 ms.author: aserfass
 ms.service: azure-enclave
 ms.topic: how-to
-ms.date: 6/16/2025
+ms.date: 09/23/2026
+ai-usage: ai-assisted
 ---
 
 # Deploy Azure Kubernetes Service (AKS) from the service catalog into a workload
@@ -135,7 +136,7 @@ Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be br
     "resources": [
         {
             "type": "Microsoft.Mission/virtualEnclaves/workloads",
-            "apiVersion": "2024-06-01-preview",
+            "apiVersion": "2026-04-01",
             "name": "<virtual-enclave-name>/<workload-name>",
             "location": "<some-location>",
             "tags": {
