@@ -95,7 +95,7 @@ The most requested quota changes are listed in the following table. Each scope i
 ### Sandboxes and Express quotas
 
 > [!NOTE]
-> Sandboxes and Express are limited to 2,000 cores. Express apps are limited to 30 replicas, and you can create up to 200 Express environments per region. Updates to the quota request pipeline are planned in the coming months. To request additional quota, open a support request or work with your Microsoft account representative.
+> Sandboxes and Express are limited to 2,000 cores. Express apps are limited to 30 replicas, and you can create up to 200 Express environments per region. Updates to the quota request pipeline are planned in the coming months. To request more quota, open a support request or work with your Microsoft account representative.
 
 ## Related content
 
