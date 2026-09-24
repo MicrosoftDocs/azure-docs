@@ -123,7 +123,7 @@ To start a capture session, use the following steps:
     
     <sup>2</sup> Port and IP address values can be a single value, a range such as 80-1024, or multiple values such as 80, 443.
     
-    <sup>3</sup> Continuous capture is currently in preview. For more information, see [Continuous packet capture](packet-capture-overview.md#continuous-packet-capture-preview).
+    <sup>3</sup> See [Continuous packet capture](packet-capture-overview.md#continuous-packet-capture-preview).
 
 1. Select **Start packet capture**.
 
