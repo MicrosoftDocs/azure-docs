@@ -1,8 +1,8 @@
 ---
 title: Guidance on Patching for SQL Server on Azure VMs Using Azure Update Manager.
 description: An overview on patching guidance for SQL Server on Azure VMs using Azure Update Manager  
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-update-manager
 ms.topic: overview
 ms.date: 08/21/2025
