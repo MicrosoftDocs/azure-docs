@@ -38,7 +38,7 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 |  Maximum size of a single regular volume     |    100 TiB    |    No    |
 |  Minimum size of a single [large volume](large-volumes-requirements-considerations.md) | 50 TiB | No |
 |  Maximum size of a single [large volume](large-volumes-requirements-considerations.md) | 1 PiB | Yes** |
-| Maximum size of a single large volume with breakthrough mode (preview) | 2,400 TiB | No |
+| Maximum size of a single large volume with breakthrough mode  | 2,400 TiB | No |
 | Maximum size of a large volume up to 7.2 PiB** | 7.2 PiB | Yes** |
 |  Maximum size of a single file on regular Azure NetApp Files volumes    |    64 TiB    |    No    | 
 |  Maximum size of a single file on Azure NetApp Files large volumes    |    16 TiB    |    No    |  
@@ -46,7 +46,7 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 | Maximum size of a large volume up to 7.2 PiB*** | 7.2 PiB | Yes** |
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
 |  Maximum number of files in a single directory  | *Approximately* 4 million. <br> See [Determine if a directory is approaching the limit size](directory-sizes-concept.md#directory-limit).  |    No    |   
-|  Maximum number of `maxfiles` per volume | See [`maxfiles`](maxfiles-concept.md)  | Yes**** |    
+|  Maximum number of `maxfiles` per volume | See [`maxfiles`](maxfiles-concept.md)  | Yes*** |    
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Maximum number of quota rules per volume     |   1,000  |    No    | 
 |  Minimum assigned throughput for a manual Quality of Service (QoS) volume     |    1 MiB/s   |    No    |    
@@ -67,9 +67,7 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 
 \** Extended sizes for [large volumes](large-volumes-requirements-considerations.md) are available on request depending on regional dedicated capacity availability. To explore availability, contact your account team. 
 
-\*** This feature is available [when cool access is enabled and by request](large-volumes-requirements-considerations.md#requirements-and-considerations-for-large-volumes-up-to-72-pib-preview). When enabled, the minimum size of the volume is 2,400 GiB.
-
-\**** Support request to adjust maxfiles limits is appropriate only when the volume is already provisioned at a size that supports the requested file count. While Azure NetApp Files support can adjust maxfiles limits within supported backend thresholds, these adjustments cannot override the fundamental relationship between volume size and inode capacity. If a workload requires a higher maxfiles limit, then the volume must be provisioned at a size that natively supports that file count. Support requests cannot be used to keep a small volume size while enabling a maxfiles limit that is only supported by a much larger volume. Support requests should not be opened in the following situations as support engineers cannot make backend changes to satisfy the request:
+\*** Support request to adjust maxfiles limits is appropriate only when the volume is already provisioned at a size that supports the requested file count. While Azure NetApp Files support can adjust maxfiles limits within supported backend thresholds, these adjustments can't override the fundamental relationship between volume size and inode capacity. If a workload requires a higher maxfiles limit, then the volume must be provisioned at a size that natively supports that file count. Support requests can't be used to keep a small volume size while enabling a maxfiles limit that is only supported by a much larger volume. Support requests shouldn't be opened in the following situations as support engineers can't make backend changes to satisfy the request:
 
 * To avoid increasing volume size
 * To request maxfiles limits that exceed what the current volume size supports
