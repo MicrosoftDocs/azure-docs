@@ -55,7 +55,8 @@ For more information on Microsoft-initiated gateway migration, see the associate
 The ExpressRoute Scalable Gateway (ErGwScale) is a new virtual network gateway SKU that provides flexible, high-bandwidth connectivity for your Azure virtual networks.
 
 > [!IMPORTANT]
->The minimum scale unit must be 1, when the maximum scale unit is 1.
+> - The minimum scale unit must be 1, when the maximum scale unit is 1.
+> - The migration tool is supported only for ExpressRoute gateways that use a Standard Public IP or an [Auto-assigned Microsoft-managed Public IP](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-about-virtual-network-gateways#auto-assigned-public-ip)
 
 
 You can configure the gateway's scaling, as per requirements, by setting the minimum and maximum scale units:
