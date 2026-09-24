@@ -45,7 +45,7 @@ The following details are important considerations for Nutanix on Azure BareMeta
 
 **Track the trial period**: There's no visible trial information for the BareMetal. You should track your BareMetal deployment date manually.
 
-For more information, see *[Starting a Free Trial for NC2](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:nc2-clusters-starting-a-nc2-free-trial-t.html)*
+For more information, see *[Starting a Free Trial for NC2](https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Cloud-Clusters-Azure:nc2-clusters-starting-a-nc2-free-trial-t.html)*.
 
 ## Next steps
 
