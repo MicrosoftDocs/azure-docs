@@ -79,6 +79,8 @@ For example, a 10-TiB volume on the Premium service regularly delivers throughpu
 
 With either throughput calculation, increasing the volume quota increases the throughput limit because throughput scales linearly with the provisioned capacity.
 
+The cool access throughput for Premium and Ultra service levels feature is supported in all Azure NetApp Files-enabled regions.
+
 ### Supported regions for cool access throughput for premium and ultra service levels feature
 
 * Australia Central

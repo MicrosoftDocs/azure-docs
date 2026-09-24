@@ -17,8 +17,9 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+    
 ## July 2026
-
+    
 * [Support for SMB opportunistic locking configuration](azure-netapp-files-create-volumes-smb.md) (preview)
   
     Azure NetApp Files now supports configuration of SMB opportunistic locking (oplocks) for SMB and dual-protocol volumes. This capability improves compatibility with legacy applications that require oplocks to be disabled and supports configuration on both new and existing volumes. You can configure replication destination volumes independently of the source volume. 
