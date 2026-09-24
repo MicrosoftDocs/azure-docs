@@ -71,9 +71,10 @@ Managed connectors in Azure Functions are additive. The right choice depends on 
 | --- | --- | --- |
 | [Logic Apps Standard](../logic-apps/logic-apps-overview.md) | Orchestrating a workflow across connectors; team prefers a visual designer; little custom code between steps. | Low-code designer for the same connector ecosystem. |
 | [Azure Functions with managed connectors](#how-connectors-enhance-functions) | Code-first experiences including custom branching, in-process libraries, other bindings, and AI model calls between trigger and action. | .NET, Python, or Node.js authoring; Functions deployment and monitoring; no webhook or OAuth code for external services. |
+| [Azure App Service with managed connectors](../app-service/overview-managed-connectors.md) | Adding connector events and actions to an existing web app or API. | Authenticated HTTP callbacks through your app's routes and the same connector SDK clients for outbound actions; receiving-app authentication configured separately from the trigger. |
 | [HTTP triggers](./functions-bindings-http-webhook-trigger.md) with service SDKs | Cases where no managed connector exists for the targeted service or you need protocol-level controls that aren't provided by the connector. | Full control over auth, retry, and webhook validation; no requirements for a connector namespace. |
 
-A single function app can combine all three patterns. You can add a connector trigger to an existing HTTP-trigger app and adopt SDK clients incrementally.
+A function app can use connector triggers and direct service SDKs, and participate in Logic Apps workflows. You can add a connector trigger to an existing HTTP-trigger app and adopt SDK clients incrementally.
 
 ## Packages and prerequisites
 
@@ -495,6 +496,7 @@ The connector SDK isn't available in these languages for the public preview.
 
 ## Related articles
 
+- [Use managed connectors in Azure App Service](../app-service/overview-managed-connectors.md)
 - [Azure Functions connectors samples (canonical index)](https://aka.ms/functions-connectors-samples)
 - [End-to-end .NET sample: email → user lookup → Teams](https://github.com/Azure-Samples/functions-connectors-net-e2e-email-users-teams)
 - [.NET sample: built-in authentication with managed identity](https://github.com/Azure-Samples/functions-connectors-net-builtinauth)
