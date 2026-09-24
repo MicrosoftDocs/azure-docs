@@ -5,7 +5,7 @@ author: dhananjayanr98
 ms.author: dhananjayanr
 ms.manager: dhananjayanr
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.topic: how-to
 ms.update-cycle: 365-days
 ms.date: 11/11/2025

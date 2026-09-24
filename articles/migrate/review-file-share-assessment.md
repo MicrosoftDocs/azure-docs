@@ -5,7 +5,7 @@ author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: concept-article
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 11/05/2024
 ms.update-cycle: 1825-days
 # Customer intent: As a migration planner, I want to conduct an Azure Files assessment for my Fileshares, so that I can determine the best migration strategies and prepare for a successful transition to Azure.

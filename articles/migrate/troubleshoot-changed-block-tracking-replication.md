@@ -6,7 +6,7 @@ ms.author: dhananjayanr
 ms.manager: dhananjayanr
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.update:cycle: 1095-days
 ms.date: 07/14/2026
 ms.custom: vmware-scenario-422, engagement-fy24

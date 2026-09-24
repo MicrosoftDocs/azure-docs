@@ -3,7 +3,7 @@ title: Customize assessments for Azure Migrate | Microsoft Docs
 description: Describes how to customize assessments created with Azure Migrate
 ms.service: azure-migrate
 ms.topic: how-to
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 3/22/2024
 ms.custom: engagement-fy23
 

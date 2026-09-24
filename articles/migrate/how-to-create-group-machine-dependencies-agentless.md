@@ -7,7 +7,7 @@ ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 06/26/2026
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.update-cycle: 1095-days
 ms.custom:
   - engagement-fy25
