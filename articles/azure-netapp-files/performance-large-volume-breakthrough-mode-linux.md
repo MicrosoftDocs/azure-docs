@@ -45,18 +45,20 @@ Tests were conducted with the following configuration:
 | Azure VM size | E32s_v5 |
 | Azure VM egress bandwidth limit | 2000MiB/s (2GiB/s) |
 | Operating system | RHEL 9.4 |
-| Large volume size | 50 TiB FSL (50,560 MiB/s throughput)  |
+| Large volume size | 200 TiB FSL (122,800 MiB/s throughput)  |
 | Mount options | `hard, rsize=262144, wsize=262144, vers=3, tcp, nconnect=8` |
 
 ### 256-KiB sequential workloads (MiB/s) 
 
-The graph represents a 256-KiB sequential workload using twelve virtual machines reading and writing to a single large volume in breakthrough mode using a 1-TiB working set. The graph shows that a single Azure NetApp Files large volume in breakthrough mode can handle between approximately 50,000 MiB/s pure sequential reads and 21,202 MiB/s pure sequential writes. 
+The following graph represents a 256-KiB sequential workload using thirty virtual machines reading and writing to a single large volume in breakthrough mode using a 1-TiB working set. The graph shows that a single Azure NetApp Files large volume in breakthrough mode can handle between approximately 54,000 MiB/s pure sequential reads and 32,637 MiB/s pure sequential writes.
 
 :::image type="content" source="./media/performance-large-volumes-linux/sequential-reads-breakthrough-mode.png" alt-text="Bar chart of a 256-KiB sequential workload on a large volume breakthrough mode." lightbox="./media/performance-large-volumes-linux/sequential-reads-breakthrough-mode.png":::
 
+Benchmark results reflect the validated test configuration used during performance qualification. Further testing and optimization are expected to increase performance, particularly for sequential read workloads.
+
 ### 8-KiB random workload (IOPS)
 
-The graph represents an 8-KiB random workload and a 1 TiB working set. The graph shows that an Azure NetApp Files large volume in breakthrough mode can handle between approximately 1,800,000 pure random read IOs and 994,384 pure random writes IOs approximately. 
+The following graph represents an 8-KiB random workload and a 1 TiB working set. The graph shows that an Azure NetApp Files large volume in breakthrough mode can handle approximately 4,333,761 pure random read IOs and 1,500,000 pure random writes IOs.
 
 :::image type="content" source="./media/performance-large-volumes-linux/random-workload-chart-breakthrough-mode.png" alt-text="Bar chart of a random workload on a large volume breakthrough mode." lightbox="./media/performance-large-volumes-linux/random-workload-chart-breakthrough-mode.png":::
 

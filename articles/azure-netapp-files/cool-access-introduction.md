@@ -132,6 +132,7 @@ The cool access throughput for Premium and Ultra service levels feature is suppo
 * West US 2
 * West US 3
 
+
 ## Billing 
 
 You can enable cool access for each volume in a [cool-access enabled capacity pool](manage-cool-access.md). How you're billed is based on:

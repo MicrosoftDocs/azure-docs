@@ -27,6 +27,7 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 |:--- |:--- |:--- |
 | Elastic zone-redundant storage service level | Preview | No |
 
+
 ## Portal access
 
 Azure Government users can access Azure NetApp Files by pointing their browsers to **portal.azure.us**. The portal site name is **Microsoft Azure Government**. For more information, see [Connect to Azure Government using portal](../azure-government/documentation-government-get-started-connect-with-portal.md).
