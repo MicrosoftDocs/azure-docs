@@ -110,8 +110,11 @@ To manage your connector namespace and any connections, triggers, and MCP server
    >
    > Before you can use specific triggers, you need to first [create any necessary connections](create-connector-namespace-connection.md).
 
+For an Azure App Service app, you can select **App Service** as the trigger destination to receive events at an HTTP route. Your app can also use connector SDKs to call actions through the namespace's connections. For callback authentication, connection access, and code examples, see [Use managed connectors in Azure App Service](../app-service/overview-managed-connectors.md).
+
 ## Related content
 
 - [Create reusable connections in connector namespaces for integration](create-connector-namespace-connection.md)
 - [What is Connector Namespace?](connector-namespace-overview.md)
 - [Connect Azure Functions to more services with connectors](../azure-functions/functions-connectors-overview.md)
+- [Use managed connectors in Azure App Service](../app-service/overview-managed-connectors.md)

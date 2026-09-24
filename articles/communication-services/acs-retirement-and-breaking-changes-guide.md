@@ -146,7 +146,7 @@ The following integrated solutions are supported scenarios:
 |---|---|---|
 | **Azure Advisor Recommendation** | Azure portal > Advisor > Recommendations > Operational Excellence | Customers see personalized retirement recommendations in the portal and [Azure Advisor documentation](/azure/advisor/advisor-overview). |
 | **Azure Advisor Workbook** | Azure portal > Advisor > Service Retirement | Customers can track service retirements for their resources and export the results to CSV. |
-| ACS Resource Explorer Agent | [ACS Resource Explorer](https://github.com/microsoft/acs-resource-explorer-agent) | Using Copilot, customers can scan subscriptions by primitive or service and use the agent to identify impacted resources and migration paths. |
+| ACS Resource Explorer Agent | [ACS Resource Explorer](https://github.com/microsoft/acs-resource-explorer) | Using Copilot, customers can scan subscriptions by primitive or service and use the agent to identify impacted resources and migration paths. |
 | Azure Cost Management & Billing Portal | Azure portal > Cost Management + Billing | Customers can see resource usage in the Cost Management portal and [Cost Management Portal](../cost-management-billing/manage/view-all-accounts.md). |
 
 
