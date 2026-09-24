@@ -23,7 +23,7 @@ To deploy NC2 on Azure you must have the following:
 * An **Azure account ** associated with an active subscription and a **Microsoft Entra ID** with permissions to create an app registration in Microsoft Entra ID with access to the subscription.
 * A **My Nutanix** account.
 * In addition, there are **networking and Azure quota** requirements to consider.
-  * Nutanix Cloud Cluster requires the deployment of a Flow Gateway for network connectivity. The following types are supported
+  * Nutanix Cloud Cluster requires the deployment of a Flow Gateway for network connectivity. The following types are supported:
   * Standard_D32_v4 or Standard_D4_v4
   * (Recommended) Standard_D32_v5 or Standard_D4_v5
 
