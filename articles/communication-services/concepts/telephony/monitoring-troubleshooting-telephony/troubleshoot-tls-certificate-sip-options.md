@@ -12,6 +12,8 @@ description: Learn how to troubleshoot Azure Communication Services direct routi
 
 # Session Border Controller (SBC) connectivity issues
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 When you set up a direct routing, you might experience the following Session Border Controller (SBC) connectivity issues:
 
 - Session Initiation Protocol (SIP) OPTIONS aren't received.

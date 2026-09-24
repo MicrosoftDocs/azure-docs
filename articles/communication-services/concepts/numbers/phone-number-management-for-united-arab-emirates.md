@@ -14,6 +14,8 @@ ms.custom: references_regions
 ---
 
 # Phone number management for United Arab Emirates
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 Use the below tables to find all the relevant information on number availability, eligibility and restrictions for phone numbers in United Arab Emirates.
 
 ## Number types and capabilities availability

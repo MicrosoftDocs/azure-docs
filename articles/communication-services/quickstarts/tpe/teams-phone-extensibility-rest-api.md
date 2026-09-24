@@ -14,6 +14,8 @@ ms.subservice: identity
 
 # REST API for Teams Phone Extensibility
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes REST API for Teams Phone extensibility.
 
 For an end-to-end walkthrough with concrete request and response examples, see [Access a user's Teams Phone separate from their Teams client](./teams-phone-extensibility-access-teams-phone.md).

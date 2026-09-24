@@ -17,6 +17,8 @@ ms.custom:
 
 # Join a room call
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to join a room call using web or native mobile calling SDKs.
 
 ## Prerequisites

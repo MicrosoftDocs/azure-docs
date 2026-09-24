@@ -16,6 +16,8 @@ ms.devlang: azurecli
 
 # Add Azure Managed Domains to Email Communication Service
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to provision Azure Managed Domains for Email Communication Service in Azure Communication Services. There's no charge for provisioning email domains.
 
 ::: zone pivot="platform-azp"

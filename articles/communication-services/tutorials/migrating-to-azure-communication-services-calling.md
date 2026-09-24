@@ -16,6 +16,8 @@ zone_pivot_groups: acs-plat-web-ios-android
 
 # Migrate from Twilio Video to Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to migrate an existing Twilio Video implementation to the [Azure Communication Services Calling SDK](../concepts/voice-video-calling/calling-sdk-features.md). Both Twilio Video and Azure Communication Services Calling SDK are cloud-based platforms that enable developers to add voice and video calling features to their web applications.
 
 However, there are some key differences between them that may affect your choice of platform or require some changes to your existing code if you decide to migrate. In this article, we compare the main features and functions of both platforms and provide some guidance on how to migrate an existing Twilio Video implementation to Azure Communication Services Calling SDK.

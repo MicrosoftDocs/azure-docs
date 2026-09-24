@@ -16,6 +16,8 @@ ms.custom: devx-track-js
 
 # Get started with Azure Communication Services UI library JavaScript bundles calling to Teams Call Queue and Auto Attendant
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 To facilitate better business to customer communications the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/overview--docs) provides JavaScript bundles to try out cross-platform solutions for using the UI Library. This tutorial is the fastest way from getting into a call using the UI library and Teams.

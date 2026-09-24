@@ -15,6 +15,8 @@ ms.custom: kr2b-contr-experiment
 
 # Firewall configuration of calling applications for Teams users
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services allows you to build custom Teams calling experiences.
 
 You can use the Calling *Software development kit (SDK)* to customize experiences. Use your Administrator account to configure your firewall based on Communication Services and Microsoft Teams guidelines. Communication Services requirements are for the control plane, and Teams requirements are for Calling. If you'll use telephony, follow Communication Services and Teams' requirements.

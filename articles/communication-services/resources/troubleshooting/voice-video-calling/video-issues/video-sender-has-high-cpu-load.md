@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # The video sender has high CPU load
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 When the web browser detects high CPU load or poor network conditions, it can apply extra restraints on the output video resolution. If the user's machine has high CPU load, the final resolution sent out can be lower than the intended resolution.
 It's an expected behavior, as lowering the encoding resolution can reduce the CPU load.
 It's important to note that the browser controls this behavior, and we're unable to control it at the JavaScript layer.

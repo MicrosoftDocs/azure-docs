@@ -691,6 +691,8 @@ items:
       items:
       - name: Runtime for Apache Spark overview
         href: ./spark/apache-spark-version-support.md
+      - name: Runtime release channels
+        href: ./spark/apache-spark-runtime-release-channels.md
       - name: Azure Synapse Apache Spark 3.5 runtime (GA)
         href: ./spark/apache-spark-35-runtime.md
       - name: Azure Synapse Apache Spark 3.4 runtime (unsupported)

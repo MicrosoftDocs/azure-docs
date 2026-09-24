@@ -14,6 +14,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Customize voice prompts to users with Play action
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This guide helps you get started with playing audio files to participants by using the play action provided through Azure Communication Services Call Automation SDK.
 
 ::: zone pivot="programming-language-csharp"

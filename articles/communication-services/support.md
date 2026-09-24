@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Help and support options for Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](includes/acs-retirement-breakingchange-callout.md)]
+
 If you have an issue or question about Azure Communication Services, you have many options.
 
 ## Create an Azure support request

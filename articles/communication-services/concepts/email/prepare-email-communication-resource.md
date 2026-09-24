@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Prepare an email communication resource for Azure Communication Services 
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Similar to Chat, VoIP, and SMS modalities under Azure Communication Services, you can send an email using an Azure Communication Services resource. Sending an email requires certain preconfiguration steps, and you need to assign an admin in your organization to help set that up. The admin needs to:
 
 - Approve the domain that your organization allows you to send mail from.

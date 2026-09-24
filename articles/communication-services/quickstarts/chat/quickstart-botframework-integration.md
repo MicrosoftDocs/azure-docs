@@ -14,6 +14,8 @@ ms.custom: mode-other
 
 # Add a bot to your chat app
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Learn how to build conversational AI experiences in a chat application by using the Azure Communication Services Chat messaging channel that's available in Azure Bot Service. In this quickstart, you create a bot by using the BotFramework SDK. Then, integrate the bot into a chat application you create by using the Communication Services Chat SDK.
 
 This article describes how to:
@@ -372,8 +374,6 @@ var adaptiveCard = new Attachment()
 reply.Attachments.Add(adaptiveCard);   
 await turnContext.SendActivityAsync(reply, cancellationToken);             
 ```
-
-Get sample payloads for adaptive cards at [Samples and templates](https://adaptivecards.io/samples).
 
 For a chat user, the Communication Services Chat channel adds a field to the message metadata that indicates the message has an attachment. In the metadata, the `microsoft.azure.communication.chat.bot.contenttype` property is set to `azurebotservice.adaptivecard`.
 

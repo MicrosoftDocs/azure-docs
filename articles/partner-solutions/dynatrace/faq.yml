@@ -25,7 +25,7 @@ sections:
 
       - question: Where can I find the service?
         answer: |
-          You can find Azure Native Dynatrace Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors) and on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview).
+          You can find Azure Native Dynatrace Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors).
 
       - question: What gets created for billing and monitoring?
         answer: |

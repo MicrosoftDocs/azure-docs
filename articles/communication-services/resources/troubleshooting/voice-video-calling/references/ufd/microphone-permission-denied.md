@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # microphonePermissionDenied UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `microphonePermissionDenied` UFD event with a `true` value occurs when the SDK detects that the microphone permission was denied either at browser or OS level.
 
 | microphonePermissionDenied            | Details                |

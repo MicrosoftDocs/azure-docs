@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Define an Azure Container Apps sandbox group using Bicep (preview)'
+title: 'Quickstart: Define an Azure Container Apps sandbox group using Bicep'
 description: Define a sandbox group as code with Bicep, set resource defaults, attach a managed identity, connect a virtual network, and grant data-plane access.
 author: craigshoemaker
 ms.author: cshoe
@@ -10,12 +10,9 @@ ms.date: 08/21/2026
 # customer intent: As a developer, I want to define an Azure Container Apps sandbox group with Bicep so that I can deploy sandbox infrastructure consistently as code.
 ---
 
-# Quickstart: Define an Azure Container Apps sandbox group using Bicep (preview)
+# Quickstart: Define an Azure Container Apps sandbox group using Bicep
 
 In this quickstart, you define an Azure Container Apps sandbox group as infrastructure as code with Bicep and deploy it with a single command.
-
-> [!IMPORTANT]
-> Azure Container Apps Sandboxes are currently in preview. Sandboxes created during preview might not be compatible with future releases and might need to be recreated.
 
 ## Prerequisites
 

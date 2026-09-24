@@ -2,7 +2,7 @@
 title: PostgreSQL Assessment properties
 description: Describes the components of a PostgreSQL assessment in Azure Migrate
 author: ankitsurkar06
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 08/11/2025

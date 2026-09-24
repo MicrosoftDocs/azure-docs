@@ -14,6 +14,8 @@ ms.subservice: teams-interop
 ---
 
 # Govern meeting experience
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 In this article, you learn how to use existing Microsoft 365 tools to control the experience of your virtual visits with Microsoft Teams. You learn the best practices and considerations for individual approaches. Administrators and meeting organizers can control the experience in Teams meetings by the following tools: tenant configuration, tenant policy, assigned role, meeting options, meeting templates, and sensitivity labels. You can learn more about individual tools in [this article](../guest/teams-administration.md).
 
 ## Policies, roles & meeting options

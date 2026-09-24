@@ -13,6 +13,8 @@ ms.custom: template-how-to
 
 # Together Mode
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to implement Microsoft Teams Together Mode with Azure Communication Services Calling SDKs. Together Mode enhances virtual meetings and calls, making them feel more personal. By creating a unified view that places everyone in a shared background, participants can connect seamlessly and collaborate effectively.
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]

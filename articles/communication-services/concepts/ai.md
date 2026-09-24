@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Artificial intelligence (AI) overview
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 Artificial intelligence (AI) technologies are useful for many communication experiences. AI can help humans communicate better and accomplish their mission more efficiently, for example, a banking employee may use an AI generated meeting summary to help them follow up. AI can reduce human workloads and enable more flexible customer engagement, such as operating a 24/7 phone bot that customers call to check their account balance.
 
 More examples include:

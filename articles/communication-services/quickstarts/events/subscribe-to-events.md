@@ -17,6 +17,8 @@ ms.devlang: azurecli
 
 # Subscribe to events
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to subscribe to events from Azure Communication Services through the portal, Azure CLI, PowerShell, and .NET SDK.
 
 You can set up event subscriptions for Communication Services resources through the [Azure portal](https://portal.azure.com), Azure CLI, PowerShell, or with the Azure [Event Grid Management SDK](https://www.nuget.org/packages/Azure.ResourceManager.EventGrid/).

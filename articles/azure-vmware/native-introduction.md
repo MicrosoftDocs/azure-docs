@@ -69,7 +69,6 @@ Gen 2 is available in the following Azure public regions.
 - Japan East
 - Malaysia West
 - New Zealand North
-- North Europe
 - North Central US
 - North Europe
 - Norway East

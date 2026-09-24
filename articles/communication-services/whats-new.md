@@ -11,6 +11,8 @@ ms.custom: template-concept, references_regions
 
 # What's new in Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes new features and updates related to Azure Communication Services.
 
 <!-- [!INCLUDE [Survey Request](includes/survey-request.md)] -->

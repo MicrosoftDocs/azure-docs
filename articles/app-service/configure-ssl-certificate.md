@@ -142,13 +142,13 @@ If you use Key Vault to manage your certificates, you can import a PKCS12 certif
 By default, the App Service resource provider doesn't have access to your key vault. To use a key vault for a certificate deployment, you must authorize read access for the resource provider (App Service) to the key vault. You can grant access with an access policy or role-based access control (RBAC).
 
 > [!NOTE]
-> In Azure Resource Manager and RBAC role definitions, App Service is represented by the resource provider namespace `Microsoft.Web`. In automation scripts and some APIs, the service principal might be referenced as `Microsoft.Azure.WebSites`.
+> In Azure Resource Manager and RBAC role definitions, App Service is represented by the resource provider namespace `Microsoft.Web`. In automation scripts and some APIs, the service principal might be referenced as `Microsoft.Azure.WebSites`. Use the sample Azure CLI command or Azure PowerShell script below to grant the required permission to the Key Vault.
 
 ### [RBAC permissions](#tab/rbac)
 
 | Resource provider | Service principal app ID / assignee | Key Vault RBAC role |
 |--|--|--|
-| Azure App Service or `Microsoft.Azure.WebSites` | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for Azure Cloud Services <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Cloud Services for Government | Certificate User |
+| Microsoft Azure App Service, Azure App Service or `Microsoft.Azure.WebSites` | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for Azure Cloud Services <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Cloud Services for Government | Certificate User |
 
 The service principal app ID or assignee value is the application (client) ID for the App Service resource provider.
 
@@ -156,7 +156,7 @@ The service principal app ID or assignee value is the application (client) ID fo
 
 | Resource provider | Service principal app ID | Key Vault secret permissions | Key Vault certificate permissions |
 |--|--|--|--|
-| Azure App Service or `Microsoft.Azure.WebSites` | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for Azure Cloud Services <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Cloud Services for Government | Get | Get |
+| Microsoft Azure App Service, Azure App Service or `Microsoft.Azure.WebSites` | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for Azure Cloud Services <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Cloud Services for Government | Get | Get |
 
 The service principal app ID or assignee value is the ID for the App Service resource provider. To learn how to authorize Key Vault permissions for the App Service resource provider by using an access policy, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
 

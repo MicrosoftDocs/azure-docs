@@ -128,6 +128,8 @@ You might decide to restrict the maximum number of instances an app can use for 
 
 ::: zone-end
 
+> [!NOTE]
+> Setting a maximum instance count that's too low for your HTTP workload can increase latency or cause requests to be rejected when demand exceeds the available capacity. Load-test your app at its expected peak traffic before reducing the default maximum.
 ::: zone pivot="flex-consumption-plan"
 
 By default, apps running in a Flex Consumption plan have limit of `100` overall instances. Currently the lowest maximum instance count value is `1`, and the highest supported maximum instance count value is `1000`. When you use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command to create a function app in the Flex Consumption plan, use the `--maximum-instance-count` parameter to set this maximum instance count for of your app. 

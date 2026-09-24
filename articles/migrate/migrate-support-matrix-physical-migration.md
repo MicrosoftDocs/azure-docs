@@ -1,12 +1,12 @@
 ---
 title: Support for physical server migration in Azure Migrate and Modernize
 description: Learn about support for physical server migration in Azure Migrate and Modernize.
-author: jyothisuri
-ms.author: jsuri
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.manager: kmadnani
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 01/27/2025
 ms.custom: engagement-fy25
 # Customer intent: As a cloud architect, I want to evaluate the migration capabilities for physical servers and other virtual machines to Azure, so that I can determine the best strategy for transitioning our on-premises infrastructure to the cloud.

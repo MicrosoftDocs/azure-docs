@@ -16,6 +16,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Manage video during calls
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Learn how to manage video calls with the Azure Communication Services SDKS. We'll learn how to manage receiving and sending video within a call.
 
 ## Prerequisites

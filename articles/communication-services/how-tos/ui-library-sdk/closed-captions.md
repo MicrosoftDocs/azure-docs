@@ -16,6 +16,8 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Closed captions
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Closed captions play a critical role in video voice calling apps, providing numerous benefits that enhance the accessibility, usability, and overall user experience of these platforms.
 
 In this article, you learn how to enable closed captions scenarios using the UI Library. There's two main scenarios to enable closed captions: Azure Communication Services video and voice calls and Interop calls.

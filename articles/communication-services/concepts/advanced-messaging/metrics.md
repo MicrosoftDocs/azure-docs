@@ -13,6 +13,8 @@ ms.subservice: advanced-messaging
 
 # Advanced Messaging metrics overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services currently provides metrics for all Communication Services primitives. You can use [Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) to:
 
 - Plot your own charts.

@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Reporting an issue
 
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
+
 If the issue reported by the user can't be found in the troubleshooting guide, consider reporting the issue.
 
 Sometimes the problem comes from the app itself.

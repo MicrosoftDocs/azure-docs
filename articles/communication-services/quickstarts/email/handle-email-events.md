@@ -15,6 +15,8 @@ ms.custom: sfi-image-nochange
 
 # Handle Email events
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services Email events. After subscribing to Email events such as delivery reports and engagement reports, you generate and receive these events. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Prerequisites

@@ -21,6 +21,8 @@ ms.custom:
 ---
 # Quickstart: Set up and manage access tokens for Teams users
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 In this quickstart, you'll build a .NET console application to authenticate a Microsoft 365 user by using the Microsoft Authentication Library (MSAL) and retrieving a Microsoft Entra user token. You'll then exchange that token for an access token of Teams user with the Azure Communication Services Identity SDK. The access token for Teams user can then be used by the Communication Services Calling SDK to integrate calling capability as Teams user.
 
 > [!NOTE]

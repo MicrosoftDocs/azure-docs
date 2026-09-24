@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Enable user engagement tracking
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 To gain insights into your customer email engagements, enable user engagement tracking. Only emails sent from Azure Communication Services verified email domains that are enabled for user engagement analysis can receive engagement tracking metrics.
 
 > [!IMPORTANT]

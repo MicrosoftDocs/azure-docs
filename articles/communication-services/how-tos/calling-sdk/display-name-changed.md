@@ -15,6 +15,8 @@ ms.custom: template-how-to
 
 # Display name changed
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how you can subscribe the Teams participants' display name changed events showing the old, new values, and the reason of the name change.
 
 ## Prerequisites

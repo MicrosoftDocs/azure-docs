@@ -103,8 +103,6 @@ The base64-encoded version of this payload looks like this:
 > [!NOTE]
 > Apple doesn't accept client secret JWTs with an expiration date more than six months after the creation, or *nbf*, date. You need to rotate your client secret, at minimum, every six months.
 
-For more information about generating and validating tokens, see [Apple's developer documentation](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens).
-
 ### Sign the client secret JWT
 
 You use the `.p8` file you downloaded previously to sign the client secret JWT. This file is a [PKCS#8 file](https://en.wikipedia.org/wiki/PKCS_8) that contains the private signing key in PEM format. There are many libraries that can create and sign the JWT for you.

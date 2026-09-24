@@ -14,6 +14,8 @@ ms.subservice: advanced-messaging
 
 # Try Advanced Messaging for WhatsApp sandbox
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Explore the Advanced Messaging features for WhatsApp. Advanced Messaging provides a sandbox experience on the Azure portal where developers can experiment with sending template and text messages to a WhatsApp user.
 
 ## Prerequisites 

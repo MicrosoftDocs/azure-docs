@@ -14,6 +14,8 @@ ms.subservice: teams-interop
 ---
 # Teams interoperability pricing
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services and Graph API allow developers to integrate a chat and calling capabilities into any product. The pricing depends on the following factors:
 - Identity
 - Product used for real-time communication

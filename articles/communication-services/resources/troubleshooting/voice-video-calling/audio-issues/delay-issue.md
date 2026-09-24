@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # The user experiences delays during the call
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 High round trip time and high jitter buffer delay are the most common causes of audio delay.
 
 There are several reasons that can cause high round trip time.

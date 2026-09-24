@@ -5,7 +5,7 @@ author: iamwilliew
 ms.author: wwilliams
 ms.topic: overview
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 products:
   - azure-migrate
   - vmware

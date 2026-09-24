@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Failed to create CallAgent
 
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
+
 In order to make or receive a call, a user needs a call agent (`CallAgent`).
 To create a call agent, the application needs a valid ACS communication token credential. With the token, the application invokes `CallClient.createCallAgent` API to create an instance of `CallAgent`.
 It's important to note that multiple call agents aren't currently supported in one `CallClient` object.

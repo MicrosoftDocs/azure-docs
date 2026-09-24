@@ -12,6 +12,8 @@ ms.custom: sfi-ropc-nochange
 ---
 
 # Integrate Azure Function
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 ## Introduction
 This tutorial provides detailed guidance on how to set up an Azure Function to receive user-related information. Setting up an Azure Function is highly recommended. It helps to avoid hard-coding application parameters in the Contoso app (such as user ID and user token). This information is highly confidential. More importantly, we refresh user tokens periodically on the backend. Hard-coding the user ID and token combination requires editing the value after every refresh.
 

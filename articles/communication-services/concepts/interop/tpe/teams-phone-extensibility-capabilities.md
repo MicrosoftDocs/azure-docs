@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 ---
 
 # Microsoft Teams Phone capabilities in Calling and Call Automation SDKs
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
     
 This article describes which Microsoft Teams Phone capabilities Azure Communication Services Calling and Call Automation SDKs support for Teams Phone extensibility.
 

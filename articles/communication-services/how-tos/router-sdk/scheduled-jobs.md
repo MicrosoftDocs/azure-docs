@@ -16,6 +16,8 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 # Scheduling a job
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 In the context of a call center, customers may want to receive a scheduled callback at a later time. As such, you need to create a scheduled job in Job Router.
 
 ## Prerequisites

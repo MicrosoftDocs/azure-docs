@@ -4,7 +4,7 @@ description: This article provides an overview of components and architecture us
 ms.service: azure-site-recovery
 ms.custom: linux-related-content
 ms.topic: concept-article
-ms.date: 09/15/2026
+ms.date: 09/21/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: "As a systems administrator, I want to implement disaster recovery for physical Windows and Linux servers to Azure, so that I can ensure data availability and minimize downtime during failures."
@@ -13,8 +13,6 @@ author: Jeronika-MS
 # Physical server to Azure disaster recovery architecture – Modernized 
 
 This article describes the modernized architecture and processes used when you replicate, failover, and recover physical Windows and Linux servers between an on-premises site and Azure, using the [Azure Site Recovery](./site-recovery-overview.md) service. 
-
-For information about configuration server requirements in Classic releases, see [Physical server to Azure disaster recovery architecture](./physical-azure-architecture.md).  
 
 >[!Note]
 >Ensure you create a new Recovery Services vault for setting up the ASR replication appliance. Don't use an existing vault. 
@@ -29,7 +27,7 @@ The following table and graphic provide a high-level view of the components used
 --- | --- | ---
 **Azure** | An Azure subscription, Azure Storage account for cache, Managed Disk, and Azure network. | Replicated data from on-premises machines is stored in Azure storage. Azure VMs are created with the replicated data when you run a failover from on-premises to Azure. The Azure VMs connect to the Azure virtual network when they're created.
 **Azure Site Recovery replication appliance** | 	This is the basic building block of the entire Azure Site Recovery on-premises infrastructure. <br/><br/> All components in the appliance coordinate with the replication appliance. This service oversees all end-to-end Site Recovery activities including monitoring the health of protected machines, data replication, automatic updates, etc. | The appliance hosts various crucial components like:<br/><br/>**Proxy server:** This component acts as a proxy channel between mobility agent and Site Recovery  services in the cloud. It ensures there is no additional internet connectivity required from production workloads to generate recovery points.<br/><br/>**Discovered items:** This component gathers information of vCenter and coordinates with Azure Site Recovery management service in the cloud.<br/><br/>**Re-protection server:** This component coordinates between Azure and on-premises machines during reprotect and failback operations.<br/><br/>**Process server:** This component is used for caching, compression of data before being sent to Azure. <br/><br/> [Learn more](switch-replication-appliance-modernized.md) about replication appliance and how to use multiple replication appliances.<br/><br/>**Recovery Service agent:** This component is used for configuring/registering with Site Recovery services, and for monitoring the health of all the components.<br/><br/>**Site Recovery provider:** This component is used for facilitating re-protect. It identifies between alternate location re-protect and original location re-protect for a source machine. <br/><br/> **Replication service:** This component is used for replicating data from source location to Azure.
-**Replicated machines** | Mobility Service is installed on each physical server that you replicate. | We recommend that you allow automatic installation of the Mobility Service. Alternatively, you can install the [service manually](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized).
+**Replicated machines** | Mobility Service is installed on each physical server that you replicate. | We recommend that you allow automatic installation of the Mobility Service. Alternatively, you can install the [service manually](vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui).
 
 
 ## Set up outbound network connectivity
@@ -46,7 +44,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 | **URL**                  | **Details**                             |
 | ------------------------- | -------------------------------------------|
 | portal.azure.com          | Navigate to the Azure portal.              |
-| `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign-in to your Azure subscription.  |
+| `*.windows.net `<br>`*.msftauth.net`<br>`*.msauth.net`<br>`*.microsoft.com`<br>`*.live.com `<br>`*.office.com ` | To sign in to your Azure subscription.  |
 |`*.microsoftonline.com `|Create Microsoft Entra apps for the appliance to communicate with Azure Site Recovery. |
 |management.azure.com |Create Microsoft Entra apps for the appliance to communicate with the Azure Site Recovery service. |
 |`*.services.visualstudio.com `|Upload app logs used for internal monitoring. |
@@ -88,7 +86,7 @@ After you set up replication and run a disaster recovery drill (test failover) t
 > [!NOTE]
 > For physical servers, failback is not supported
 
-1. You can run failover for a single machine or create a recovery plan to failover multiple servers simultaneously. The advantage of a recovery plan rather than single machine failover include:
+1. You can run failover for a single machine or create a recovery plan to failover multiple servers simultaneously. The advantages of a recovery plan rather than single machine failover include:
     - You can model app-dependencies by including all the servers across the app in a single recovery plan.
     - You can add scripts, Azure runbooks, and pause for manual actions.
 2. After triggering the initial failover, you commit it to start accessing the workload from the Azure VM.
@@ -98,7 +96,7 @@ After you set up replication and run a disaster recovery drill (test failover) t
 1. At times, during initial replication or while transferring delta changes, there can be network connectivity issues between source machine to process server or between process server to Azure. Either of these can lead to failures in data transfer to Azure momentarily.
 2. To avoid data integrity issues, and minimize data transfer costs, Site Recovery marks a machine for resynchronization.
 3. A machine can also be marked for resynchronization in situations like following to maintain consistency between source machine and data stored in Azure
-    - If a machine undergoes force shut down
+    - If a machine undergoes forced shut down
     - If a machine undergoes configurational changes like disk resizing (modifying the size of disk from 2 TB to 4 TB)
 4. Resynchronization sends only delta data to Azure. Data transfer between on-premises and Azure by minimized by computing checksums of data between source machine and data stored in Azure.
 5. By default, resynchronization is scheduled to run automatically outside office hours. If you don't want to wait for default resynchronization outside hours, you can resynchronize a system manually. To do this, go to Azure portal, select the physical machine > **Resynchronize**.
@@ -111,7 +109,7 @@ When you enable Azure VM replication, by default Site Recovery creates a new rep
 
 **Policy setting** | **Details** | **Default**
 --- | --- | ---
-**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 1 days
+**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 1 day
 **App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot | Disabled
 
 ## Snapshots and recovery points

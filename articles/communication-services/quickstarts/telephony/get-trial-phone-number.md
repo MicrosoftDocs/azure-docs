@@ -11,6 +11,8 @@ ms.custom: template-quickstart
 
 # Quickstart: get and manage a trial phone number in Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 > [!NOTE]

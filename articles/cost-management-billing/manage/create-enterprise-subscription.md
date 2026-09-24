@@ -41,7 +41,8 @@ A user with Enterprise Administrator or Account Owner permissions can use the fo
 >[!NOTE]
 > If you want to create an Enterprise Dev/Test subscription, an enterprise administrator must enable account owners to create them. Otherwise, the option to create them isn't available. To enable the dev/test offer for an enrollment, see [Enable the enterprise dev/test offer](direct-ea-administration.md#enable-the-enterprise-devtest-offer).
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com). If you’re signed in to a directory where you’re a guest, switch to your primary directory before creating an EA subscription. This requirement applies to both Enterprise Administrators and Account Owners. 
+
 1. Navigate to **Subscriptions** and then select **Add**.  
     :::image type="content" source="./media/create-enterprise-subscription/subscription-add.png" alt-text="Screenshot showing the Subscription page where you Add a subscription." lightbox="./media/create-enterprise-subscription/subscription-add.png" :::
 1. On the Create a subscription page, on the **Basics** tab, type a **Subscription name**.
@@ -52,8 +53,8 @@ A user with Enterprise Administrator or Account Owner permissions can use the fo
 1. Select the **Advanced** tab.
 1. Select your **Subscription directory**. It's the Microsoft Entra ID where the new subscription gets created.
 1. Select a **Management group**. It's the Microsoft Entra management group that the new subscription is associated with. You can only select management groups in the current directory.
-1. Select more or more **Subscription owners**. You can select only users or service principals in the selected subscription directory. You can't select guest directory users. If you select a service principal, enter its App ID.   
-    :::image type="content" source="./media/create-enterprise-subscription/create-subscription-advanced-tab.png" alt-text="Screenshot showing the Advanced tab where you specify the directory, management group, and owner for the EA subscription." lightbox="./media/create-enterprise-subscription/create-subscription-advanced-tab.png" :::
+1. Select one or more **Subscription owners**. You can select only users or service principals in the selected subscription directory. You can't select guest directory users. If you select a service principal, enter its App ID.  
+:::image type="content" source="./media/create-enterprise-subscription/create-subscription-advanced-tab.png" alt-text="Screenshot showing the Advanced tab where you specify the directory, management group, and owner for the EA subscription." lightbox="./media/create-enterprise-subscription/create-subscription-advanced-tab.png" :::
 1. Select the **Tags** tab.
 1. Enter tag pairs for **Name** and **Value**.  
     :::image type="content" source="./media/create-enterprise-subscription/create-subscription-tags-tab.png" alt-text="Screenshot showing the tags tab where you enter tag and value pairs." lightbox="./media/create-enterprise-subscription/create-subscription-tags-tab.png" :::

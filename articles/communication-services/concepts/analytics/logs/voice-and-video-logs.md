@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Overview of Azure Communication Services call logs
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services provides logging capabilities that you can use to monitor and debug your Communication Services solution. Configure these capabilities through the Azure portal.
 
 The content in this article refers to logs enabled through [Azure Monitor](/azure/azure-monitor/overview) (see also [FAQ](/azure/azure-monitor/overview#frequently-asked-questions)). To enable these logs for Communication Services, see [Enable logging in diagnostic settings](../enable-logging.md).

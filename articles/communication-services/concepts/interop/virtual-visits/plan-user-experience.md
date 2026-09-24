@@ -11,6 +11,8 @@ ms.subservice: teams-interop
 ---
 
 # Plan user experience
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 You can configure Microsoft Teams tenant to allow Azure Communication Services users to join Teams meetings scheduled by the organization. In this article, you learn how to optimize the user experience when connecting Azure Communication Services. Microsoft Teams users might have available actions that aren't supported by the application. The lack of support in Communication Services or implementation in the application can cause inconsistency in feature parity. For those cases, we provide best practices for improving the experience of virtual appointments. 
 
 ## Default user experience

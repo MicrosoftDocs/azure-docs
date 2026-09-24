@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # The user's speaker has a problem
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 When the user's speaker has a problem, they may not be able to hear the audio, resulting in one-way audio issue in the call.
 
 ## How to detect using the SDK

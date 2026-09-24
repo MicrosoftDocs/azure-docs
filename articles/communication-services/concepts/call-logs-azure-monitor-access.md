@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Enable and Access Call Summary and Call Diagnostic Logs
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 To access telemetry for Azure Communication Services Voice & Video resources, follow these steps.
 
 ## Enable logging

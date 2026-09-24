@@ -96,7 +96,7 @@ $conditionalResourceProviders | ForEach-Object {
 
 1. Sign in to your Azure tenant and open the subscription.
 1. Under `Settings`, select `Resource providers`.
-1. Register the resource providers listed in the **Option 1: PowerShell** tab for the subscription. Register the conditional providers only when you use the corresponding workloads.
+1. Register the resource providers listed in the **Option 1: PowerShell** tab for the subscription. Register the conditional providers only when you use the corresponding workloads. 
 
 1. Search for and select `Microsoft.Mission`, and then select `Register`.
 
@@ -141,8 +141,8 @@ Existing preview customers must re-register the Azure Enclave resource provider 
 Complete these steps to use the latest Azure Enclave API:
 
 1. In the Azure portal, navigate to your subscription.
-1. Under `Settings`, select `Resource providers`.
-1. Search for and select `Microsoft.Mission`, and then select `Re-register`.
+1. Under **Settings**, select **Resource providers**.
+1. Search for and select **Microsoft.Mission**, and then select **Re-register**.
 1. Repeat these steps for any additional subscriptions.
 
 ## Next steps

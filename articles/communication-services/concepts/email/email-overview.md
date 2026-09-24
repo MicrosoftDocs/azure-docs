@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Overview of Azure Communication Services email
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Email continues to be a key customer engagement channel globally for businesses. Businesses rely heavily on email communication for seamless business operations.
 
 Azure Communication Services offers an intelligent communication platform to enable businesses to build engaging business-to-consumer (B2C) experiences. Azure Communication Services facilitates high-volume transactional, bulk, and marketing emails. It supports application-to-person (A2P) use cases.

@@ -6,7 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
-ms.date: 02/12/2026
+ms.date: 09/21/2026
 
 # Customer intent: As a system administrator, I want to troubleshoot mobility agent health errors in VMware virtual machines, so that I can ensure successful replication and maintain data integrity in Azure Site Recovery.
 ---
@@ -63,7 +63,7 @@ If you get the following error in the `svagents_curr<>.log` file:
 
 Follow these recommendations: 
 1. [Upgrade Azure Site Recovery mobility agent](./upgrade-mobility-service-modernized.md) to the latest version available on the source machine. 
-1. [Generate Mobility Service configuration](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) mobility agents with appliance.
+1. [Generate Mobility Service configuration](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui) mobility agents with appliance.
 
 
 ### Error 2 - certificate verification failed
@@ -116,7 +116,7 @@ Follow these recommendations:
 1. Go to the replication appliance where the Proxy Server component health is critical and sign in to the replication appliance. 
 1. [Upgrade](./upgrade-mobility-service-modernized.md#upgrade-appliance) the proxy server on the appliance to the latest version and wait for an hour.
 1. If the proxy server is already on the latest version, try restarting the services *Microsoft Azure RCM Proxy Agent* and *Microsoft Azure RCM Proxy Management Service*  and wait for an hour.
-1. [Generate](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) a mobility service configuration file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) mobility agents with the appliance. 
+1. [Generate](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) a mobility service configuration file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui) mobility agents with the appliance. 
 
 
 #### Error 4 - mismatch of fingerprints received
@@ -144,7 +144,7 @@ If you get the following error in the `svagents_curr<>.log` file:
 
 Follow this recommendation:
 
-[Generate](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) a mobility service configuration file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized) mobility agents with the appliance. 
+[Generate](./vmware-physical-mobility-service-overview.md#generate-mobility-service-configuration-file) a mobility service configuration file and [re-register](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui) mobility agents with the appliance. 
 
 ## Next steps
 

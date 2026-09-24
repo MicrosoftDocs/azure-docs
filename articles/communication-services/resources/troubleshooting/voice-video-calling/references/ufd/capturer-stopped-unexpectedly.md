@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # capturerStoppedUnexpectedly UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `capturerStoppedUnexpectedly` UFD event with a `true` value occurs when the SDK detects that the screen sharing track was muted.
 This issue can happen due to external reasons and depends on the browser implementation.
 For example, if the user shares a window and minimize that window, the `capturerStoppedUnexpectedly` UFD event may fire.

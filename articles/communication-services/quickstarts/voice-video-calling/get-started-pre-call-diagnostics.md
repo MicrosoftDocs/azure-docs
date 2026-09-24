@@ -15,6 +15,8 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: Add pre-call diagnostics to your app
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Pre-call diagnostics with JavaScript](./includes/pre-call-diagnostics/pre-call-diagnostics-javascript.md)]
 ::: zone-end

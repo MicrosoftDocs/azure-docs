@@ -3,7 +3,7 @@ title: Support Requirements for Azure Site Recovery Replication Appliance
 description: This article describes support and requirements when you deploy the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery with modernized architecture.
 ms.service: azure-site-recovery
 ms.topic: faq
-ms.date: 04/21/2026
+ms.date: 09/21/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: "As a VMware administrator, I want to deploy the Azure Site Recovery replication appliance so that I can ensure effective disaster recovery of my virtual machines to Azure."
@@ -14,7 +14,7 @@ author: Jeronika-MS
 This article describes support and requirements when you deploy the replication appliance for VMware disaster recovery to Azure with Azure Site Recovery with modernized architecture.
 
 >[!NOTE]
-> The information in this article applies to Azure Site Recovery with modernized architecture. For information about configuration server requirements in classic releases, see [Deprecation of classic experience to protect VMware and physical machines using Site Recovery](vmware-azure-configuration-server-requirements.md).
+> The information in this article applies to Azure Site Recovery with modernized architecture. 
 
 Create a new and exclusive Recovery Services vault for setting up the Site Recovery replication appliance. Don't use an existing vault.
 

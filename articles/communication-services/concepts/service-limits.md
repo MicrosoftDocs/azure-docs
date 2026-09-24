@@ -15,6 +15,8 @@ ms.subservice: data
 
 # Service limits for Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article explains the limitations of Azure Communication Services APIs and possible resolutions.
 
 ## Throttling patterns and architecture

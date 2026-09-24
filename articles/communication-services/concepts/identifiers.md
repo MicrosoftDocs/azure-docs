@@ -17,6 +17,8 @@ zone_pivot_groups: acs-js-csharp-java-python-ios-android-rest
 
 # Understand identifiers
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 Communication Services SDKs and REST APIs use the *identifier* type to identify who is communicating with whom. For example, identifiers specify who to call, or who sent a chat message.
 
 Depending on context, identifiers get wrapped with extra properties, like inside the `ChatParticipant` in the Chat SDK or inside the `RemoteParticipant` in the Calling SDK.

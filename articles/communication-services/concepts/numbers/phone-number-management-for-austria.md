@@ -14,6 +14,8 @@ ms.custom: references_regions
 ---
 
 # Phone number management for Austria
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 > [!IMPORTANT]
 > Effective **October 1, 2026**, Microsoft will no longer provide Dynamic or Preregistered alphanumeric sender IDs for SMS to **Austria** phone numbers. After October 1, 2026, sender IDs will no longer be allowed in Austria, and messages will be blocked.
 >

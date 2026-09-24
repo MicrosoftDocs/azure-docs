@@ -15,6 +15,8 @@ ms.subservice: calling
 
 # Microphone and camera setup before a call using Azure Communication Services UI Library
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 This tutorial is a continuation of a three part series of Call Readiness tutorials and follows on from the previous two parts:

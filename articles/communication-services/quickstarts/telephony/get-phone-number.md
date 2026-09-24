@@ -15,6 +15,8 @@ zone_pivot_groups: acs-azp-azpnew-azcli-java-csharp-js-python
 
 # Quickstart: Get and manage phone numbers
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 [!INCLUDE [Bulk Acquisition Instructions](../../includes/phone-number-special-order.md)]

@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # cameraPermissionDenied UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `cameraPermissionDenied` UFD event with a `true` value occurs when the SDK detects that the camera permission was denied either at browser layer or at Operating System level.
 
 | cameraPermissionDenied                | Details                |

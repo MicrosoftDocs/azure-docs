@@ -13,6 +13,8 @@ ms.subservice: data
 
 # SMS Insights Dashboard
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes the available insights dashboard to monitor SMS logs and metrics.
 
 ## Overview

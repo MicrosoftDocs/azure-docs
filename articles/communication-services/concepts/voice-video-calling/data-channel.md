@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # Data Channel
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 > [!NOTE]
 > This article describes the Data Channel feature of the Azure Communication Services Calling SDK.
 > While the Data Channel in this context bears some resemblance to the Data Channel in WebRTC, it's crucial to recognize subtle differences in their specifics.

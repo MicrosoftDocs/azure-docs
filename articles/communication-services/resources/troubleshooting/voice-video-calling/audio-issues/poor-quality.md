@@ -14,6 +14,8 @@ ms.subservice: calling
 
 # The user experiences poor audio quality
 
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
+
 There are many different factors that can affect poor audio quality. For instance, it may be due to:
 
 - A poor network connectivity

@@ -371,7 +371,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[RSM US, LLP](https://rsmus.com)|
 |[RV Global Solutions](https://rvglobalsolutions.com/)|
 |[RyanTech Inc.](https://ryantechinc.com)|
-|[Saiph Technologies Corporation](http://www.saiphtech.com/)|
+|Saiph Technologies Corporation|
 |[SAP NS2](https://sapns2.com)|
 |[Sarela Technology Solutions LLC](https://www.sarelatech.com)|
 |[Saasplaza](https://www.intwo.cloud/)|

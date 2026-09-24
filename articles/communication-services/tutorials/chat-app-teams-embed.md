@@ -14,6 +14,8 @@ ms.subservice: chat
 
 # Embed chat in a Microsoft Teams custom app
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to create a Microsoft Teams custom app to interact with an Azure Communication Services instance. This chat app enables interwork functions between the two systems while maintaining separated backend environments and identity configurations.
 
 ## Use cases

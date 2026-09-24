@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # There's a network issue in the call
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 When there's a network reconnection in the call on the audio sending end or receiving end, the participant can experience one-way audio issue temporarily.
 It can cause an audio issue because shortly before and during the network is reconnecting, audio packets don't flow.
 

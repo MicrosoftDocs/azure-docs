@@ -6,7 +6,7 @@ ms.author: aserfass
 ms.topic: concept-article
 ms.service: azure-enclave
 ai-usage: ai-assisted
-ms.date: 8/11/2026
+ms.date: 9/17/2026
 ---
 
 # Azure Enclave frequently asked questions
@@ -68,6 +68,12 @@ You can also query the current regions allowed for communities with the Azure CL
 ```azurecli
 az provider show --namespace Microsoft.Mission --query "resourceTypes[?resourceType=='communities'].locations"
 ```
+
+### Where does Azure Enclave keep service data?
+
+Azure Enclave processes and stores service data for any supported region. This service data includes resource metadata, service audit and diagnostic logs, and service-managed replication and recovery copies.
+
+Residency covers the geography, not a single region. Customer-managed workloads and configured data transfers follow the relevant services and your configuration and can cross geography boundaries. See [Data residency](./quotas-region-availability.md#data-residency) for scope and customer responsibilities.
 
 ### What roles are used to manage permissions for Azure Enclave resources?
 

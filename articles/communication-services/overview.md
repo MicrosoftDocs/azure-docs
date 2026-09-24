@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # What is Azure Communication Services?
 
+[!INCLUDE [Retirement and breaking changes](includes/acs-retirement-breakingchange-callout.md)]
+
 <!-- [!INCLUDE [Survey Request](includes/survey-request.md)] -->
 
 Azure Communication Services offers multichannel communication APIs for adding voice, video, chat, text messaging/SMS, email, and more to all your applications. 

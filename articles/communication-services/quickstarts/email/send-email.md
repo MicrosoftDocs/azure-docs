@@ -15,6 +15,8 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python-portal-nocode-ps
 
 # Send an email using Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 <!-- [!INCLUDE [Survey Request](../includes/survey-request.md)] -->
 
 This quickstart describes how to send email using our Email SDKs.

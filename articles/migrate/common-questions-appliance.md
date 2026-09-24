@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 08/03/2025
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.update-cycle: 365-days
 ms.custom:
   - engagement-fy25

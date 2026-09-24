@@ -6,7 +6,7 @@ ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
-ms.date: 02/13/2026
+ms.date: 09/21/2026
 ms.custom: sfi-image-nochange
 # Customer intent: "As an IT administrator managing on-premises physical servers, I want to enable replication to Azure for disaster recovery, so that I can ensure business continuity in case of system failures or disasters."
 ---
@@ -14,8 +14,6 @@ ms.custom: sfi-image-nochange
 # Enable replication for a physical server – Modernized
 
 This article describes how to enable replication for on-premises physical servers for disaster recovery to Azure by using the Azure Site Recovery service - Modernized.
-
-For information on how to set up disaster recovery in Azure Site Recovery Classic releases, see the [tutorial](./physical-azure-disaster-recovery.md). 
 
 This tutorial is the second in a series that shows you how to set up disaster recovery to Azure for on-premises physical servers. In the previous tutorial, you prepared the Azure Site Recovery replication appliance for disaster recovery to Azure.
 
@@ -55,7 +53,7 @@ You can add details of the physical servers that you plan to protect when you fi
 
 This process adds your physical server details to the appliance. You can enable replication on these machines by using any appliance that has a healthy or warning status. 
 
-To protect physical servers without credentials, you must manually install the mobility service and enable replication. [Learn more](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui-modernized).
+To protect physical servers without credentials, you must manually install the mobility service and enable replication. [Learn more](./vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-ui).
 
 ## Enable replication for physical servers
 

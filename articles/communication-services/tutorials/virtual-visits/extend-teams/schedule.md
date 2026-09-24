@@ -13,6 +13,8 @@ ms.subservice: teams-interop
 ---
 
 # Extend scheduling
+
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
 In this article, you learn the available options to schedule a Virtual appointment with Microsoft Teams and Microsoft Graph. 
 First, you learn how to replicate the existing experience in Microsoft Teams Virtual appointments. Second, you learn how to bring your own scheduling system while providing the same Virtual appointment experience to consumers.
 

@@ -14,6 +14,8 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: How to make a call between your application and Teams user
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 In this quickstart, you're going to learn how to start a call from Azure Communication Services user to Teams user. You're going to achieve it with the following steps:
 
 1. Enable federation of Azure Communication Services resource with Teams Tenant.

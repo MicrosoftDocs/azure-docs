@@ -15,6 +15,8 @@ ms.custom: has-azure-ad-ps-ref
 ---
 # Calling capabilities supported for Teams users in Calling SDK
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 The Azure Communication Services Calling SDK enables Teams user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away with JavaScript, check out [Calling quickstarts](../../quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md). 
 
 Key features of the Calling SDK:

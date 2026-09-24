@@ -12,6 +12,8 @@ ms.service: azure-communication-services
 
 # Network Diagnostics Tool
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
 
 The **Network Diagnostics Tool** enables Azure Communication Services developers to ensure that their device and network conditions are optimal for connecting to the service to ensure a great call experience. The tool can be found at [aka.ms/acsdiagnostics](https://azurecommdiagnostics.net/). Users can quickly run a test, by pressing the start test button. The tool performs diagnostics on the network, devices, and call quality. The results of the diagnostics are directly provided through the tools UI. No sign-in required to use the tool. After the test, a GUID is presented which can be provided to our support team for further help.

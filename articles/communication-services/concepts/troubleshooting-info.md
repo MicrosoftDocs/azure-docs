@@ -13,6 +13,8 @@ ms.custom: sfi-ropc-nochange
 ---
 
 # Troubleshooting in Azure Communication Services
+
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
 <a name="calling-sdk-error-codes"></a>
 
 This article helps you troubleshoot issues that you might experience within your Azure Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Azure Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.

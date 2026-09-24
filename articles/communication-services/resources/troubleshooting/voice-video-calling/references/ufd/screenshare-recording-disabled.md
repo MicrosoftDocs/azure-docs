@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # screenshareRecordingDisabled UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 The `screenshareRecordingDisabled` UFD event with a `true` value occurs when the SDK detects that the screen sharing permission was denied in the browser or OS settings on macOS.
 
 | screenshareRecordingDisabled          | Details                |

@@ -14,6 +14,8 @@ ms.collection:
 
 Dynamic workflows are a feature of [Azure Functions hosted skills](functions-hosted-skills.md). They let a hosted skill start a durable, multistep workflow of tool calls and waits without you writing Durable Functions orchestration code.
 
+For the most up-to-date and comprehensive runtime documentation, see [Dynamic workflows in Azure Functions Agents Runtime](https://azure.github.io/azure-functions-agents-runtime/workflows/).
+
 [!INCLUDE [functions-hosted-skills-preview](../../includes/functions-hosted-skills-preview.md)]
 
 Instead of calling tools one at a time through the conversation loop, dynamic workflows let the AI model generate a structured plan of tool calls. The runtime executes the plan as a Durable Functions orchestration that can fan out, wait, survive restarts, and remain observable while only the final result enters the hosted skill's context.
@@ -154,6 +156,7 @@ Configure workflow-safe tools and run your workflow locally:
 
 ## Related content
 
++ [Dynamic workflows in Azure Functions Agents Runtime](https://azure.github.io/azure-functions-agents-runtime/workflows/)
 + [Azure Functions hosted skills](functions-hosted-skills.md)
 + [Build an event-driven AI app with Azure Functions hosted skills](scenario-hosted-skills.md)
 + [Workflow incident triage sample](https://github.com/Azure/azure-functions-agents-runtime/tree/main/samples/workflow-incident-triage)

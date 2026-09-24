@@ -63,7 +63,7 @@ items:
               href: sandboxes-quickstart-bicep.md
             - name: Python SDK
               href: sandboxes-quickstart-python-sdk.md
-        - name: Snapshots and state management
+        - name: Lifecycle (preview)
           href: sandboxes-snapshots-state-management.md
         - name: Egress policies
           href: sandboxes-egress-policies.md

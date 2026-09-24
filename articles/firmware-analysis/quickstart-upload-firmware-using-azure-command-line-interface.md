@@ -5,7 +5,7 @@ author: karengu0
 ms.author: karenguo
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.date: 09/12/2025
+ms.date: 09/04/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -78,6 +78,7 @@ Here's an example workflow of how you could use these commands to create and upl
 ```azurecli
 set filePath="/path/to/image"
 set resourceGroup="myResourceGroup"
+set subscription="123e4567-e89b-12d3-a456-426614174000"
 set workspace="default"
 
 set fileName="file1"
@@ -85,9 +86,9 @@ set vendor="vendor1"
 set model="model"
 set version="test"
 
-for /f "tokens=*" %i in ('az firmwareanalysis firmware create --resource-group %resourceGroup% --workspace-name %workspace% --file-name %fileName% --vendor %vendor% --model %model% --version %version% --query "name"') do set FWID=%i
+for /f "tokens=*" %i in ('az firmwareanalysis firmware create --resource-group %resourceGroup% --subscription %subscription% --workspace-name %workspace% --file-name %fileName% --vendor %vendor% --model %model% --version %version% --query "name"') do set FWID=%i
 
-for /f "tokens=*" %i in ('az firmwareanalysis workspace generate-upload-url --resource-group %resourceGroup% --workspace-name %workspace% --firmware-id %FWID% --query "url"') do set URL=%i
+for /f "tokens=*" %i in ('az firmwareanalysis workspace generate-upload-url --resource-group %resourceGroup% --subscription %subscription% --workspace-name %workspace% --firmware-id %FWID% --query "url"') do set URL=%i
 
 az storage blob upload -f %filePath% --blob-url %URL%
 ```
@@ -97,7 +98,7 @@ az storage blob upload -f %filePath% --blob-url %URL%
 To retrieve firmware analysis results, you must make sure that the status of the analysis is "Ready":
 
 ```azurecli
-az firmwareanalysis firmware show --firmware-id sampleFirmwareID --resource-group myResourceGroup --workspace-name default
+az firmwareanalysis firmware show --firmware-id sampleFirmwareID --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default
 ```
 
 Look for the "status" field to display "Ready", then run the following commands to retrieve your firmware analysis results.
@@ -108,10 +109,11 @@ The `az resource wait` command has a `--timeout` parameter, which is the time in
 
 ```azurecli
 set resourceGroup="myResourceGroup"
+set subscription="123e4567-e89b-12d3-a456-426614174000"
 set workspace="default"
 set FWID="yourFirmwareID"
 
-for /f "tokens=*" %i in ('az firmwareanalysis firmware show --resource-group %resourceGroup% --workspace-name %workspace% --firmware-id %FWID% --query "id"') do set ID=%i
+for /f "tokens=*" %i in ('az firmwareanalysis firmware show --resource-group %resourceGroup% --subscription %subscription% --workspace-name %workspace% --firmware-id %FWID% --query "id"') do set ID=%i
 
 echo Successfully created a firmware image with the firmware ID of %FWID%, recognized in Azure by this resource ID: %ID%.
 
@@ -126,10 +128,10 @@ Once you've confirmed that your analysis status is "Ready", you can run commands
 
 ### Firmware summary
 
-The following command retrieves a general summary of your firmware analysis results. Replace each argument with the appropriate value for your resource group, workspace name, and firmware ID.
+The following command retrieves a general summary of your firmware analysis results. Replace each argument with the appropriate value for your resource group, subscription, workspace name, and firmware ID.
 
 ```azurecli
-az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --name Firmware
+az firmwareanalysis firmware summary --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID --name Firmware
 ```
 
 ### SBOM
@@ -151,7 +153,7 @@ az firmwareanalysis firmware cve --resource-group myResourceGroup --subscription
 For a summary of your CVEs, run the following command:
 
 ```azurecli
-az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --name CVE
+az firmwareanalysis firmware summary --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID --name CVE
 ```
 
 ### Binary hardening
@@ -165,7 +167,7 @@ az firmwareanalysis firmware binary-hardening --resource-group myResourceGroup -
 For a summary of your binary hardening results, run the following command:
 
 ```azurecli
-az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --name BinaryHardening
+az firmwareanalysis firmware summary --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID --name BinaryHardening
 ```
 
 ### Password hashes
@@ -187,7 +189,7 @@ az firmwareanalysis firmware crypto-certificate --resource-group myResourceGroup
 For a summary of your certificates, run the following command:
 
 ```azurecli
-az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --name CryptoCertificate
+az firmwareanalysis firmware summary --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID --name CryptoCertificate
 ```
 
 ### Keys
@@ -201,5 +203,5 @@ az firmwareanalysis firmware crypto-key --resource-group myResourceGroup --subsc
 For a summary of your keys, run the following command:
 
 ```azurecli
-az firmwareanalysis firmware summary --resource-group myResourceGroup --workspace-name default --firmware-id 123e4567-e89b-12d3-a456-426614174000 --name CryptoKey
+az firmwareanalysis firmware summary --resource-group myResourceGroup --subscription 123e4567-e89b-12d3-a456-426614174000 --workspace-name default --firmware-id sampleFirmwareID --name CryptoKey
 ```

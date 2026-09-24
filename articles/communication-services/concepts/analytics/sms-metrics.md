@@ -12,6 +12,8 @@ ms.subservice: data
 ---
 # SMS metrics
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services provides metrics for Azure Communication Services. You can use [Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) to:
 
 - Plot your own charts.

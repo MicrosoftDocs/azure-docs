@@ -13,6 +13,8 @@ ms.custom: template-how-to
 
 # Music Mode
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 The **music mode** enhances the audio quality for music playback and performance within virtual environments. Use music mode to ensure clarity and depth in sound reproduction. Music mode currently supports a 32-kHz sampling rate at 128 kbps when network bandwidth allows. If network bandwidth is insufficient, you can reduce the bitrate to as low as 48 kbps.
 
 Music mode elevates the audio quality for calls, ensuring the audio is crisp and offers a richer and more immersive audio experience. Music mode also reduces audio compression to maintain the original sound. This efficiency makes it ideal for applications ranging from live musical performances and remote music education or music sessions.

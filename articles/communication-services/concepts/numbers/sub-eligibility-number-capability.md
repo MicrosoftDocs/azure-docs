@@ -15,6 +15,8 @@ ms.custom: references_regions
 
 # Country/region availability of telephone numbers and subscription eligibility
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 You can purchase numbers on eligible Azure subscriptions and in geographies where Azure Communication Services is legally eligible to provide them. The capabilities and numbers available to you depend on the country/region where you operate, your use case, and the phone number type you select. These capabilities vary by country/region due to regulatory requirements.
 
 > [!NOTE]  

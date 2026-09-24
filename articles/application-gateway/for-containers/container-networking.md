@@ -5,7 +5,7 @@ services: application gateway
 author: mbender-ms
 ms.service: azure-application-gateway-containers
 ms.topic: concept-article
-ms.date: 08/26/2025
+ms.date: 09/23/2026
 ms.author: mbender
 # Customer intent: "As a Kubernetes administrator, I want to configure and deploy Application Gateway for Containers with different CNI plugins, so that I can manage networking efficiently and ensure seamless connectivity between pods in my Azure Kubernetes Service cluster."
 ---
@@ -66,7 +66,6 @@ Kubenet isn't supported by Application Gateway for Containers. If using Kubenet,
 ## FAQ
 
 Q: Can I upgrade an existing cluster with Application Gateway for Containers from CNI to CNI Overlay?
-
 A: Yes, upgrade of the AKS cluster from CNI to CNI Overlay and Application Gateway for Containers automatically detects the change. It's recommended to schedule the upgrade during a maintenance window as traffic disruption can occur. The controller may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
 
 > [!WARNING]
@@ -81,6 +80,12 @@ If you need Azure services or NVAs to access the overlay network, use Azure CNI 
 
 Q: Can I deploy Application Gateway for Containers in a separate virtual network from my AKS cluster?  
 A: No. Separate virtual networks for Application Gateway for Containers and AKS aren't currently supported. Application Gateway for Containers must be deployed in the same virtual network as your AKS cluster.
+
+Q: Can Application Gateway for Containers proxy traffic to a cluster running CNI Overlay with Cilium and WireGuard enabled?
+A: Yes. Application Gateway for Containers can proxy traffic to a cluster configured with CNI Overlay, Cilium, and WireGuard. However, WireGuard doesn't encrypt traffic between Application Gateway for Containers and the destination pod. 
+
+Q: Does Application Gateway for Containers support virtual networks with VNet encryption enabled?
+A: Yes. You can deploy Application Gateway for Containers in a virtual network with VNet encryption enabled. However, Application Gateway for Containers doesn't use VNet encryption for traffic between the gateway and AKS.
 
 ## Next steps
 

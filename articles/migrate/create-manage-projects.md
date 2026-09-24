@@ -7,7 +7,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 03/20/2025
 ms.update-cycle: 365-days
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange

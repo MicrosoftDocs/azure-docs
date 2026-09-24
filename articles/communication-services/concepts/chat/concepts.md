@@ -14,6 +14,8 @@ ms.subservice: chat
 
 # Chat concepts
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services Chat can help you add real-time text communication to your cross-platform applications. This page summarizes key Chat concepts and capabilities. See the [Communication Services Chat Software Development Kit (SDK) Overview](./sdk-features.md) for lists of SDKs, languages, platforms, and detailed feature support.
 
 The Chat APIs provide an **auto-scaling** service for persistently stored text and data communication. Other key features include:

@@ -3,7 +3,7 @@ title: Review a Business Case with Azure Migrate | Microsoft Docs
 description: This article describes how to review a business case with Azure Migrate.
 ms.topic: how-to
 ms.service: azure-migrate
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.date: 02/06/2025
 ms.update-cycle: 365-days
 ms.custom: engagement-fy24

@@ -4,7 +4,7 @@ description: Use Azure Site Recovery to move Azure virtual machines between Azur
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 02/13/2026
+ms.date: 09/21/2026
 ms.author: v-gajeronika
 ms.reviewer: v-gajeronika
 ms.custom: MVC, engagement-fy23

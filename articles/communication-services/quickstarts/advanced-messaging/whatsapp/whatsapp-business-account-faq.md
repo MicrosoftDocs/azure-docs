@@ -14,6 +14,8 @@ ms.subservice: advanced-messaging
 
 # WhatsApp business account FAQ
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 There are some common issues you might see with the WhatsApp Business Account that you connected to your Azure Communication Services resource. Your WhatsApp Business Account is managed from the WhatsApp business portal. This article provides links to the WhatsApp documentation to learn more and troubleshoot these issues.
 
 ## What is a display name and how is it verified?

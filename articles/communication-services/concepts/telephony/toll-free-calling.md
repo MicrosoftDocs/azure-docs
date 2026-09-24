@@ -13,6 +13,8 @@ ms.subservice: pstn
 ---
 
 # Outbound and inbound calling with toll-free numbers
+
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
 Azure Communication Services supports inbound and outbound calling capability with toll-free numbers in many countries or regions. However, there are some common limitations that you should be aware of. 
 
 **Outbound calling with toll-free numbers**

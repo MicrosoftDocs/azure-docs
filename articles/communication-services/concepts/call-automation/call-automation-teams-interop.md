@@ -14,9 +14,14 @@ ms.custom: public_preview
 
 # Add Teams users in Call Automation workflows
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services Call Automation provides developers the ability to build programmable customer interactions using real-time event triggers to perform actions on the call. This programmability enables you to build intelligent calling workflows that can adapt to customer needs in real time and be fully customized for your business logic. You can learn more about the API in the [Call Automation Overview](./call-automation.md). This document describes the interoperability Call Automation supports with Microsoft Teams.
 
 Developers can use Call Automation APIs to add Teams users to their calling workflows and customer interactions, helping you deliver advanced customer service solutions​ with easy-to-use REST APIs and SDKs. This interoperability is offered over VoIP to reduce telephony infrastructure overhead. Developers can add Teams users to Azure Communication Services calls using the user's Microsoft Entra object ID (OID).  
+
+> [!IMPORTANT]
+> Following the Azure Communication Services telephony retirement announcement, Microsoft will update the Microsoft Product Terms. After this update, Azure Communication Services Call Automation, Call Recording, and Audio Streaming support only Microsoft Teams interoperability scenarios: Teams Meeting interop, Teams click-to-call, and Teams Phone extensibility (TPE). For more information, see the retirement announcement: https://aka.ms/acs-retirement
 
 ## Use-cases
 
@@ -43,7 +48,7 @@ Now, lets look at the scenario where Contoso is already using a CCaaS provider f
 
 1. Customer is connected to contact center solution in an ongoing call. The customer might be waiting in queue or interacting with a virtual agent/bot. Contact center solution identifies an available agent on Teams (presence via Graph APIs) to connect to this call.
 2. Contact Center provider implemented a web service, using Azure Communication Services Call Automation, that requests to add this Teams user to the call. 
-3. Because the contact center provider handles the customer call, the provider needs to configure a Session Border Controller (SBC) with Azure Communication Services Direct Routing in order to route/connect calls to Microsoft. With this model, only the contact center provider needs to have an SBC setup. This SBC can handle connections to multiple Teams tenants, making it easy for developers to implement per-region multitenant trunks that maximize value. Contoso doesn't have to set up Teams Direct Routing for each tenant, thus reducing the telephony overhead and Contoso's onboarding time to contact center provider. 
+3. Because the contact center provider handles the customer call, the provider uses Teams Phone extensibility (TPE) to connect calls to Microsoft Teams. By using this model, only the contact center provider sets up the connectivity, and that connectivity serves multiple Teams tenants. This setup lets developers implement per-region, multitenant connectivity that maximizes value. Contoso doesn't have to set up Teams Direct Routing for each tenant, which reduces the telephony overhead and Contoso's onboarding time to the contact center provider. 
 4. With Teams interop built into Call Automation, Azure Communication Services then uses the Teams user’s ObjectId to add them to the call. The Teams user receives the incoming call notification. They accept and join the call. 
 
 [!INCLUDE [Teams Phone license](../../includes/teams-phone-license-include.md)]

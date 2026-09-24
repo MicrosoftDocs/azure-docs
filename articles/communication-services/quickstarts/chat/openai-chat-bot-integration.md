@@ -14,6 +14,8 @@ ms.custom: mode-other
 
 # Integrate an OpenAI bot with chat
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article demonstrates how to integrate a conversational OpenAI bot with an Azure Communication Services chat. The OpenAI chat bot uses [Microsoft Bot Framework](https://dev.botframework.com) integrated with [Semantic Kernel](https://github.com/microsoft/semantic-kernel). The OpenAI bot retrieves and summarizes responses from an internal knowledge base to answer user questions in natural language.
 
 :::image type="content" source="./media/chat-azure-open-ai-architecture.png" alt-text="Azure OpenAI Architecture Diagram.":::

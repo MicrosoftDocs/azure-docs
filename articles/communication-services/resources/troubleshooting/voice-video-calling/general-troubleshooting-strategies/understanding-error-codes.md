@@ -15,6 +15,8 @@ zone_pivot_groups: acs-calling-codes
 
 # Understanding calling codes and subcodes errors
 
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
+
 The Calling SDK and respective server infrastructure use a unified framework to represent errors. Using  error codes, subcodes, and their corresponding result categories, as a developer you can more easily understand these errors and find explanations as to why they happened and how to mitigate in the future. The details about the error results can be viewed as:
  
 **Code** Are modeled as 3 digit integers that indicate the response status of a client or server response. They're grouped into:<br>

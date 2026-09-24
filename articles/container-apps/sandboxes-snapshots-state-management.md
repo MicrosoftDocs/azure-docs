@@ -1,101 +1,131 @@
 ---
-title: Snapshots and state management for Azure Container Apps Sandboxes (preview)
-description: Azure Container Apps Sandboxes snapshots let you pause and resume workloads without losing state. Learn how autosuspend and snapshots preserve memory and disk.
+title: Sandbox lifecycle in Azure Container Apps Sandboxes (preview)
+description: Learn how lifecycle policies, suspend modes, auto-delete, and snapshots preserve state in Azure Container Apps Sandboxes (preview).
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
-ms.date: 05/21/2026
+ms.date: 09/22/2026
 ms.topic: concept-article
 ms.service: azure-container-apps
 ---
 
-# Snapshots and state management for Azure Container Apps Sandboxes (preview)
+# Sandbox lifecycle in Azure Container Apps Sandboxes (preview)
 
-Azure Container Apps Sandboxes are isolated, lightweight virtual machines designed for short interactive sessions and long-running agentic workloads. Both types need a way to pause and resume work without losing in-memory progress. This article explains the state model, how snapshots fit in, and how to choose between autosuspend and snapshot paths for preserving state.
+Azure Container Apps Sandboxes are currently in preview. Sandboxes are isolated, lightweight virtual machines for interactive sessions, agentic workloads, and controlled code execution. A sandbox can run work, pause when it's idle, preserve local state, resume later, and be removed when it's no longer needed.
 
-## What "state" means in a sandbox
+This article covers the lifecycle of Azure Container Apps Sandboxes. [Dynamic sessions](sessions.md#dynamic-sessions-in-azure-container-apps) are a separate Azure Container Apps feature for request-scoped code execution and don't provide the same direct control over an individual sandbox lifecycle.
 
-A running sandbox has three layers of state:
+## How sandbox lifecycle works
 
-- **In-memory state**: process memory, open file descriptors, established network connections, and anything else the kernel and your processes hold in RAM.
+The sandbox lifecycle controls how long an individual sandbox remains available and what local state is preserved when active work pauses. A running sandbox can hold three kinds of state:
 
-- **Local disk state**: the sandbox's root filesystem, including any files written under `/tmp`, `/home`, or the working directory.
+- **In-memory state**: Process memory, open file handles, terminal sessions, and other state held by the operating system and running processes.
+- **Local disk state**: Files written inside the sandbox root filesystem, including files under paths such as `/tmp`, `/home`, or the working directory.
+- **External state**: Data written outside the sandbox, such as attached volumes, object storage, databases, queues, or upstream services.
 
-- **External state**: anything written to attached volumes, object storage, databases, or upstream services.
+External state follows the behavior of the external service that stores it. In-memory state and local disk state are tied to the sandbox lifecycle, so Azure Container Apps Sandboxes provides automatic lifecycle policy and explicit snapshots to help preserve or restore that state.
 
-External state is naturally durable. Local disk and in-memory state are tied to the sandbox's lifetime, so the platform provides two mechanisms to preserve them across pauses and restarts.
+Lifecycle policy is best for routine idle-and-resume behavior. Snapshots are best for deliberate checkpoints, branching from a prepared environment, or keeping a reusable point-in-time copy independent of the source sandbox.
 
-[!INCLUDE [sandboxes-create-manage](includes/sandboxes-create-manage.md)]
+## Lifecycle states
 
-## Sandbox lifecycle
+A sandbox reports its lifecycle state as it moves through provisioning, active work, idle periods, state preservation, resume, and deletion. Use the state reported by the portal, CLI, SDK, or API to decide whether your workflow should run commands, wait, resume the sandbox, capture a snapshot, or clean up the resource.
 
-A sandbox transitions through four primary states:
+Azure Container Apps Sandboxes use these lifecycle states:
 
-| State | Meaning |
+| State | Description |
 |---|---|
-| **Running** | Sandbox is running and actively executing your workload. |
-| **Stopped** | The sandbox is suspended either automatically (lifecycle policy) or explicitly by a user. Compute is released. |
+| **Running** | The sandbox is active and can run workload commands. |
+| **Stopped** | The sandbox is stopped. This state is distinct from **Suspended**. Resume the sandbox and wait until it returns to **Running** before running workload commands. |
 
-The lifecycle policy on the sandbox group controls automatic transitions. Snapshots provide an independent way to capture full state independent of the lifecycle.
+## Preserve state automatically
 
-## How to reserve state
+A lifecycle policy lets a sandbox pause after inactivity and clean up after a retention period. Use a lifecycle policy when most sandboxes follow a predictable pattern, such as an agent that waits between turns or an interactive workspace that users resume later.
 
-The lifecycle policy on a sandbox group controls automatic state preservation during lifecycle transitions. Snapshots are separate point-in-time captures of the complete sandbox state.
+### Auto-suspend
 
-### Automatic: lifecycle policy and autosuspend
+Auto-suspend can be enabled with an inactivity interval and a suspend mode. The inactivity interval controls how long a sandbox can remain idle before the policy acts. The suspend mode controls whether the platform captures memory state or preserves disk state only.
 
-Every sandbox group has a lifecycle policy that controls autosuspend behavior:
+Use auto-suspend when the workload can tolerate being paused after inactivity and resumed before the next command or session.
 
-- **Idle timeout**: how long the sandbox can sit idle before suspending. Common values are 60, 120, 300, 600, 1800, and 3600 seconds.
-- **Suspend mode**: what to preserve when suspending.
-- **Auto-delete**: whether to delete suspended sandboxes after a configurable retention window.
+### Suspend mode: memory and disk
 
-Autosuspend keeps your sandboxes available for a fast resume without you having to write any snapshot code. It's the right choice when most of your sandboxes follow a predictable idle-then-resume pattern (interactive sessions, agent reasoning loops with pauses).
+Auto-suspend supports two suspend modes:
 
-### Manual: the snapshot action
+| Suspend mode | What it preserves |
+|---|---|
+| **Memory** | Full sandbox state, including memory. |
+| **Disk** | Disk state only. The VM restarts fresh on resume. |
 
-A snapshot is a captured copy of a sandbox's full state at a point in time. Unlike autosuspend, snapshots persist independently of the source sandbox. You can:
+If you attach data disk volumes to a sandbox, only **Disk** mode is supported. Memory snapshots aren't available with data disk volumes.
 
-- Create a snapshot, delete the source sandbox, and create a new sandbox from the snapshot later.
+Choose **Memory** when the workload needs in-memory process state. Choose **Disk** when local disk state is enough and the workload can restart on resume.
 
-- Capture multiple snapshots from the same sandbox over time as checkpoints.
+### Auto-delete
 
-- Use snapshots to move a workload from one sandbox to another after you delete the original.
+You can enable auto-delete with a delete interval. The delete interval controls how long an inactive sandbox remains available before the policy removes it.
 
-## Choosing between Memory and Disk suspend modes
+Before you enable auto-delete, decide where durable data belongs. Store long-lived data in external services, mounted volumes, or snapshots rather than relying on an inactive sandbox to remain available indefinitely.
 
-When autosuspend fires (or you call suspend explicitly), the platform preserves state according to the configured suspend mode:
+## Capture state explicitly with snapshots
 
-| Mode | What's preserved | Resume latency | Storage footprint | Best for |
-|---|---|---|---|---|
-| **Memory** | Full memory image plus disk | Sub-second | Larger (memory + disk) | Interactive sessions, agent state, long-running workloads with expensive warm-up. |
-| **Disk** | Disk only; VM restarts fresh | Cold start (process restart) | Smaller (disk only) | Workloads that boot quickly from disk and don't depend on in-memory state. |
+A snapshot is a point-in-time capture of sandbox state. Use a snapshot as a source to create a new sandbox from that captured state.
 
-If you're not sure, start with **Memory**. It's the default and the choice that gives you the sub-second resume sandboxes are designed for. Switch to **Disk** when storage cost or memory size becomes a concern.
+Snapshots are scoped to the sandbox group that contains them. Because a sandbox group is regional, snapshots are also tied to that group's region.
 
-## Resume and restore semantics
+Common snapshot scenarios include:
 
-When you restore a sandbox from a snapshot or resume it from a memory suspend, several constraints apply:
+- Capturing a prepared environment after installing dependencies, cloning a repository, or warming a model.
+- Creating checkpoints before a risky operation so you can create a new sandbox from a known state.
+- Fanning out multiple sandboxes from one prepared snapshot instead of repeating setup in each one.
+- Preserving local state before deleting a sandbox.
 
-- **Resource tier is inherited.** A restored sandbox uses the CPU, memory, and disk allocation captured in the snapshot. You can't change the resource tier on the restore call. To run the workload at a different size, capture a new snapshot from a sandbox sized appropriately.
+Snapshots capture sandbox-local state. They don't coordinate writes to databases, queues, object storage, APIs, or other external systems. If a workload changes external state, design the workflow so new sandboxes created from snapshots don't repeat non-idempotent operations unintentionally.
 
-- **Entrypoint, command, and environment aren't configurable.** When a sandbox's source is a snapshot, the entrypoint, command, and environment variables come from the snapshot. To change them, create a sandbox from the original disk image instead.
+## Choose lifecycle policy or snapshots
 
-- **Region pinning.** Snapshots are scoped to the region of the sandbox group that owns them. Restoring in another region requires recreating the workload in a sandbox group in that region.
+Lifecycle policy and snapshots solve different state-preservation problems. A workflow can use both.
 
-## Operational guidance
+| Use lifecycle policy when... | Use snapshots when... |
+|---|---|
+| A sandbox should pause automatically after idle time. | You need an explicit checkpoint before a known workflow step. |
+| The same sandbox is expected to resume and continue work. | A new sandbox should be created from a prepared state. |
+| You want a default policy for routine interactive or agent sessions. | You want to keep state after deleting the source sandbox. |
+| Cleanup can follow a standard retention period. | You need named, labeled, or separately managed sources for new sandboxes. |
 
-These patterns make snapshots easier to operate at scale:
+Use lifecycle policy as the default safety net for idle sandboxes. Add snapshots where the workflow needs intentional checkpoints or reproducible starts.
 
-- **Label every snapshot.** Labels are the primary way for filtering and discovery in the snapshot list. Encode the workload, owner, and purpose in labels at capture time.
+## Create-from-snapshot and resume considerations
 
-- **Build deletion into your workflow.** Snapshots aren't garbage collected. Pair every long-lived snapshot with a retention policy enforced by your application or scheduled cleanup job.
+Resuming a sandbox and creating a sandbox from a snapshot both bring local state forward, but they fit different workflow shapes. Resume continues work in an existing sandbox. A snapshot creates a new sandbox from a captured point-in-time state.
 
-- **Audit snapshot count.** Periodically list snapshots and report on count and label distribution. Storage costs grow with snapshot count.
+Creating a sandbox from a snapshot uses the CPU, memory, and disk resources captured in that snapshot. You can't change CPU, memory, or disk on the create-from-snapshot flow. Resuming a sandbox resumes the existing sandbox and doesn't change its resources.
 
-- **Treat snapshots as immutable (once created, they can't be changed or updated).** A snapshot is a point-in-time capture. To update a snapshot, capture a new one and delete the old one when consumers move over.
+Plan for these considerations:
+
+- **Reconnect clients.** Terminal sessions, SDK clients, open network connections, and application-level sessions might need to reconnect after a pause or after you create a new sandbox from a snapshot.
+- **Resume before running commands.** Resume the sandbox and wait until it returns to **Running** before running workload commands.
+- **Validate external dependencies.** Tokens, leases, locks, and external service state can expire or change while a sandbox is inactive.
+- **Make repeated work safe.** New sandboxes created from snapshots can replay local commands or scripts from a previous point. Design setup and teardown steps to be idempotent.
+- **Keep shared data outside the sandbox.** Use volumes or external stores for data that must be shared across sandboxes or retained beyond sandbox cleanup.
+- **Use disk images for reusable filesystem baselines.** If you need a standard starting filesystem for many sandboxes, use a disk image for the baseline and snapshots for point-in-time runtime checkpoints.
+
+## Operational checklist
+
+Use this checklist when you design a sandbox lifecycle strategy:
+
+- Define the expected lifecycle for each workload: short-lived execution, interactive workspace, agent session, or reusable prepared environment.
+- Choose a suspend mode based on whether the workload needs in-memory process state or only local disk state.
+- Enable auto-suspend for sandboxes that can pause after inactivity.
+- Configure auto-delete for sandboxes that shouldn't remain available after a retention period.
+- Create snapshots before risky operations, expensive setup handoffs, or deletion of sandboxes with useful local state.
+- Label sandboxes and snapshots with owner, workload, purpose, and retention information.
+- Store long-lived or shared data in volumes or external services instead of relying on sandbox-local files.
+- Test resume and create-from-snapshot paths as part of the workload, not only during incident recovery.
+- Clean up stale snapshots and sandboxes on a schedule.
 
 ## Related content
 
-- [Sandboxes overview](sandboxes-overview.md)
-- [Sandboxes egress policies](sandboxes-egress-policies.md)
+- [Azure Container Apps Sandboxes overview](sandboxes-overview.md)
+- [Egress policies in Azure Container Apps Sandboxes](sandboxes-egress-policies.md)
+- [Dynamic sessions in Azure Container Apps](sessions.md)

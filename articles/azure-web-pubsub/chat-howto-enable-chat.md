@@ -6,7 +6,7 @@ author: bjqian
 ms.author: biqian
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 06/29/2026
+ms.date: 08/07/2026
 ---
 
 # Configure storage and enable Chat
@@ -28,8 +28,9 @@ strings or keys to manage. Enable a managed identity on the resource first; see
 
 1. In your Web PubSub resource, go to **Persistent Storages** and select **Add** to link an existing
    storage account.
-1. Select **Save**. The linked persistent storage is added, and your resource's managed identity is
-   granted the **Contributor** role on the storage account so Chat can read and write its tables.
+1. Select **Save**. The linked persistent storage is added, and the portal automatically grants your
+   Web PubSub resource's managed identity the **Storage Table Data Contributor** role on the storage
+   account so Chat can read and write its tables.
 
 :::image type="content" source="media/chat-howto-enable/configure-storage.png" alt-text="Screenshot of adding a persistent storage account to an Azure Web PubSub resource in the portal.":::
 

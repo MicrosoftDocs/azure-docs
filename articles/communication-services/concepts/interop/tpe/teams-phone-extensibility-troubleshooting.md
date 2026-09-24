@@ -15,6 +15,8 @@ services: azure-communication-services
 
 # Teams Phone extensibility troubleshooting
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to identify and resolve Teams Phone extensibility issues. Errors can stem from the application, Azure Communication Services SDKs, the user environment, or Microsoft Teams configuration settings.
 
 Whether you're experiencing problems with Call Automation or the Calling SDK, this article provides information to help you diagnose and fix these issues.
