@@ -29,7 +29,7 @@ By the end, you'll have both orchestrations running locally with the [Durable Ta
 
 ## Prerequisites
 
-- [PowerShell 7.4+](/powershell/scripting/install/installing-powershell) installed.
+- [PowerShell 7.6](/powershell/scripting/install/installing-powershell) installed.
 - [Azure Functions Core Tools](../../azure-functions/functions-run-local.md) v4 or later.
 - [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator and Azurite.
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.

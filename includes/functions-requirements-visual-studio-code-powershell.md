@@ -9,9 +9,9 @@ ms.author: glenga
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-+ [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell 7.6](/powershell/scripting/install/installing-powershell)
 
-+ [.NET 8.0 runtime](https://dotnet.microsoft.com/download/dotnet/8.0)  
++ [.NET 10 runtime](https://dotnet.microsoft.com/download/dotnet/10.0)
 
 + [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).    
 

@@ -36,7 +36,7 @@ This article supports version 2 of the Python programming model for Azure Functi
 + [Node.js 22](https://nodejs.org/) or later  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-+ [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell 7.6](/powershell/scripting/install/installing-powershell)
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
 + [Python 3.11](https://www.python.org/) or later
