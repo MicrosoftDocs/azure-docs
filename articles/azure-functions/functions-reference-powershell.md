@@ -422,7 +422,7 @@ When you run PowerShell functions locally, you need to add the setting `"FUNCTIO
 
 ### Changing the PowerShell version
 
-Before changing the PowerShell version, test your app for compatibility and make sure that it runs on version 4.x of the Functions runtime. For more information, see [View the current runtime version](set-runtime-version.md#view-the-current-runtime-version).
+Before changing the PowerShell version, test your app for compatibility and ensure that it runs on version 4.x of the Functions runtime. For more information, see [View the current runtime version](set-runtime-version.md#view-the-current-runtime-version).
 
 For migration guidance, check the [Azure Functions PowerShell worker wiki](https://github.com/Azure/azure-functions-powershell-worker/wiki).
 
@@ -447,7 +447,7 @@ Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RES
 
 ```
 
-Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group and function app, respectively. Replace `<VERSION>` with a [supported PowerShell version](#powershell-versions) for your hosting plan. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table.
+Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group, and function app, respectively. Replace `<VERSION>` with a [supported PowerShell version](#powershell-versions) for your hosting plan. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table.
 
 ---
 
