@@ -4,8 +4,9 @@ description: Learn how to discover on-premises servers, applications, and depend
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
 ms.topic: tutorial
+ms.update-cycle: 365-days
 ms.date: 05/12/2025
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422, mvc, subject-rbac-steps, engagement-fy24

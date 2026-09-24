@@ -82,7 +82,7 @@ Be careful when you modify the default listener by using Bicep. Don't change the
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -90,12 +90,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource defaultListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
+resource defaultListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-07-01' = {
   parent: defaultBroker
   name: 'default'
   extendedLocation: {
@@ -314,7 +314,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param listenerName string = '<LISTENER_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -322,12 +322,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
+resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-07-01' = {
   parent: defaultBroker
   name: listenerName
   extendedLocation: {
@@ -647,7 +647,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param listenerName string = 'aio-broker-loadbalancer-tls'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -655,12 +655,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
+resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-07-01' = {
   parent: defaultBroker
   name: listenerName
   extendedLocation: {
@@ -680,6 +680,7 @@ resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listene
             issuerRef: {
               name: 'my-issuer'
               kind: 'Issuer'
+              group: 'cert-manager.io'
             }
           }
         }
@@ -719,6 +720,7 @@ spec:
         issuerRef:
           name: my-issuer
           kind: Issuer
+          group: cert-manager.io
 ```
 
 ---
@@ -875,7 +877,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param listenerServiceName string = 'mqtts-endpoint'
 param listenerName string = '<LISTENER_NAME>' // Match the SAN in the server certificate
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-07-01' existing = {
   name: aioInstanceName
 }
 
@@ -883,12 +885,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-07-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
+resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-07-01' = {
   parent: defaultBroker
   name: listenerName
   extendedLocation: {

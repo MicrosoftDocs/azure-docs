@@ -42,7 +42,7 @@ You need an Azure account with an active subscription. If you don't have one, [c
 
 This article uses the Azure portal to create a virtual network. You can also use a different tool or method to create a virtual network. For more information or steps, see [Create a virtual network](../virtual-network/quick-create-portal.md). For this exercise, the virtual network doesn't require the configuration of additional services, such as [Azure Bastion](../bastion/bastion-overview.md) or [DDoS Protection](../ddos-protection/ddos-protection-overview.md). However, you can add these services if you want to use them.
 
-[!INCLUDE [Virtual network values](../../includes/vpn-gateway-virtual-network-values.md)]
+[!INCLUDE [Virtual network values](../networking/includes/vpn-gateway/virtual-network-values.md)]
 
 [!INCLUDE [Create a VNet](../../includes/vpn-gateway-virtual-network-steps.md)]
 

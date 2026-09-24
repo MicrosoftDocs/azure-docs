@@ -12,6 +12,8 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 # The maximum number of active incoming video streams is reached the limit or been exceeded
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 Azure Communication Service currently imposes a maximum limit on the number of active incoming video subscriptions that are rendered at a time. The current limit is 10 videos on desktop browsers and 6 videos on mobile browsers. Review the [supported browser list](../../../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser) to see what browsers currently work with Azure Communication Services WebJS SDK.
 
 ## How to detect using the SDK

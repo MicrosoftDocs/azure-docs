@@ -17,8 +17,25 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-## July 2026
+## September 2026
 
+* [Support for Microsoft Entra Kerberos authentication](understand-entra-id.md) (preview) 
+
+    Azure NetApp Files now supports Microsoft Entra Kerberos authentication for SMB volumes. The capability enables users with hybrid or cloud-only identities to authenticate through Microsoft Entra ID using cloud-issued Kerberos tickets. This capability removes the requirement for SMB clients to have network line-of-sight to Active Directory Domain Services domain controllers in the authentication path. It helps organizations simplify identity architecture, reduce infrastructure dependencies, and modernize SMB access for hybrid and cloud-first environments. 
+
+* [Large volumes breakthrough mode](large-volumes-requirements-considerations.md#register-for-breakthrough-mode) is now generally available (GA)
+
+    Azure NetApp Files large volumes breakthrough mode is now generally available (GA) in Azure NetApp Files regions where dedicated capacity is ordered and provisioned for you.
+
+    Designed for extreme-scale workloads, breakthrough mode enables higher throughput, greater concurrency, and low-latency access beyond the capabilities of standard large volumes. By leveraging six parallel storage endpoints on dedicated capacity, breakthrough mode can deliver up to 80 GiB/s throughput per volume while supporting petabyte-scale datasets and billions of files. This capability is ideal for high-performance computing (HPC), electronic design automation (EDA), AI/ML data pipelines, and other metadata-intensive workloads requiring predictable, isolated performance at scale.
+
+* [Storage with cool access enhancement](cool-access-introduction.md#throughput-for-premium-and-ultra-service-levels) for Premium and Ultra service levels is now generally available (GA)
+
+    Azure NetApp Files introduces an enhancement to storage with cool access for Premium and Ultra service levels that more precisely aligns throughput with data tiering. When cool access is enabled, maximum throughput is dynamically calculated based on the amount of data tiered to cool access storage, rather than applying a fixed reduction. Hot data retains its configured performance, and throughput is adjusted only when data is tiered to the cool tier. This enhancement delivers more predictable QoS behavior while optimizing performance and cost as data access patterns evolve, without requiring manual tuning or reconfiguration.
+
+    
+## July 2026
+    
 * [Support for SMB opportunistic locking configuration](azure-netapp-files-create-volumes-smb.md) (preview)
   
     Azure NetApp Files now supports configuration of SMB opportunistic locking (oplocks) for SMB and dual-protocol volumes. This capability improves compatibility with legacy applications that require oplocks to be disabled and supports configuration on both new and existing volumes. You can configure replication destination volumes independently of the source volume. 

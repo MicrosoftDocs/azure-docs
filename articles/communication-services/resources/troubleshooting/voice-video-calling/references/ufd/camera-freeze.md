@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # cameraFreeze UFD
+
+[!INCLUDE [Retirement and breaking changes](../../../../../includes/acs-retirement-breakingchange-callout.md)]
 A `cameraFreeze` UFD event with a `true` value occurs when the SDK detects that the input framerate goes down to zero, causing the video output to appear frozen or not changing.
 
 The underlying issue may suggest problems with the user's video camera, or in certain instances, the device may cease sending video frames.

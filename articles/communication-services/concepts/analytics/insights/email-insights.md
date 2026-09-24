@@ -14,6 +14,8 @@ ms.subservice: data
 
 # Email insights
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes the available insights dashboard to monitor Email logs and metrics.
 
 ## Overview

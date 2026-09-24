@@ -16,6 +16,8 @@ ms.custom: mode-other, devx-track-js
 
 # Enable video background effects
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 ::: zone pivot="platform-web"
 [!INCLUDE [Video effects with JavaScript](./includes/video-effects/video-effects-javascript.md)]
 ::: zone-end

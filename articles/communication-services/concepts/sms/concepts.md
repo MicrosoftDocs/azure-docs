@@ -16,6 +16,8 @@ ms.custom: references_regions
 
 # SMS overview
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services enables you to send and receive short message service (SMS) text messages using the Communication Services SMS SDKs. You can use these SDKs to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Azure Communication Services SMS enables you to reliably send messages while exposing deliverability and response metrics.

@@ -13,6 +13,8 @@ ms.subservice: chat
 
 # Enable file sharing using UI Library in Teams Interoperability Chat
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 In a Teams Interoperability Chat or *Interop Chat*, we can enable file sharing between Azure Communication Services end users and Teams users. Interop Chat is different from the Azure Communication Services Chat. If you want to enable file sharing in an Azure Communication Services Chat, see [Add file sharing with UI Library in Azure Communication Services Chat](./file-sharing-tutorial-acs-chat.md). Currently, the Azure Communication Services end user is only able to receive file attachments from the Teams user. For more information, see [UI Library Use Cases](../concepts/ui-library/ui-library-use-cases.md).
 
 >[!IMPORTANT]

@@ -12,6 +12,8 @@ ms.date: 06/05/2025
 
 # How to manage Teams meeting role
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 In this article, you learn how users that joined Teams meetings or Room can learn the currently assigned role and manage role change.
 
 ## Prerequisites

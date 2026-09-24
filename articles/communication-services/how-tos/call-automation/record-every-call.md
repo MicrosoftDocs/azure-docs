@@ -14,6 +14,8 @@ ms.custom: sfi-ropc-nochange
 
 # Record a call when it starts
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Call recording is often used directly through the UI of a calling application, where the user triggers the recording. For applications within industries like banking or healthcare, call recording is required from the get-go. The service needs to automatically record for compliance purposes. This sample shows how to record a call when it starts. It uses Azure Communication Services and Azure Event Grid to trigger an Azure Function when a call starts. It automatically records every call within your Azure Communication Services resource.
 
 In this QuickStart, we focus on showcasing the processing of call started events through Azure Functions using Event Grid triggers. We use the Call Automation SDK for Azure Communication Services to start recording.

@@ -15,6 +15,8 @@ ms.custom: sfi-ropc-nochange
 
 # Control and steer calls with Call Automation
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Because of the asynchronous nature of calling, most actions have corresponding events that are triggered when the action finishes successfully or fails. This article covers the actions that are available for steering calls, like `CreateCall`, `Transfer`, and `Redirect`, and managing participants. Sample code shows how to invoke the particular action. Sequence diagrams describe the events that are expected after you invoke an action. The diagrams help you visualize how to program your service application with Call Automation.
 
 Call Automation supports other actions to manage call media and recording that have separate articles.
@@ -54,7 +56,7 @@ call_automation_client = CallAutomationClient.from_connection_string("<resource_
 
 ## Make an outbound call
 
-You can place a 1:1 or group call to a communication user or phone number (a public number or one that Azure Communication Services owns).
+You can place a one-to-one or group call to a communication user or phone number.
 When you call a public-switched telephone network (PSTN) endpoint, you also need to provide a phone number to use as the source caller ID and that shows as the call notification to the target PSTN endpoint.
 
 To place a call to an Azure Communication Services user, you need to provide a `CommunicationUserIdentifier` object instead of `PhoneNumberIdentifier`.  

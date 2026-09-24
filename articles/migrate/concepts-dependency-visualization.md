@@ -2,11 +2,12 @@
 title: Dependency analysis in Azure Migrate Discovery and assessment
 description: Describes how to use dependency analysis for assessment using Azure Migrate Discovery and assessment.
 ms.topic: concept-article
-author: jyothisuri
-ms.author: jsuri 
+author: Jeronika-MS
+ms.author: v-gajeronika 
 ms.service: azure-migrate
 ms.date: 06/06/2025
-ms.reviewer: jsuri
+ms.reviewer: v-gajeronika
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 # Customer intent: As a cloud migration planner, I want to utilize dependency analysis for my on-premises servers, so that I can accurately group and assess them for migration to ensure smooth application functionality and avoid potential outages post-migration.
 ---

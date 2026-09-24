@@ -54,6 +54,8 @@ This article assumes that you have an Azure subscription with permissions to cre
 
 The clients that need to authenticate by using a managed identity shouldn't be joined to any domain.
 
+The storage account's SMB security settings must allow Kerberos authentication. If you use a custom SMB security profile, verify that **Kerberos** is selected under **Authentication methods**. Enabling Managed Identity for SMB (`SMBOAuth`) doesn't enable or validate this separate setting. For instructions, see [SMB security settings](files-smb-protocol.md#smb-security-settings).
+
 ## Configure the managed identity's access property on your storage account
 
 To authenticate a managed identity, you must enable the `SMBOAuth` property on the storage account that contains the Azure file share you want to access. We recommend creating a new storage account for this purpose, although you can use an existing storage account.
@@ -524,6 +526,8 @@ Automatic credential refresh requires a managed identity assigned to your VM. If
 ::: zone-end
 
 ## Troubleshooting
+
+If a managed identity mount prompts for a username and password, first verify that the storage account's SMB security settings allow Kerberos authentication. If Kerberos is already enabled, follow the troubleshooting steps for your operating system.
 
 Troubleshooting steps are different for Windows and Linux clients.
 

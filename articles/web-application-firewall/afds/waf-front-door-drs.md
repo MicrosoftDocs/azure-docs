@@ -1,25 +1,25 @@
 ---
-title: Azure Web Application Firewall DRS rule groups and rules
+title: Front Door WAF DRS rule groups and rules
 description: Learn about the Azure Web Application Firewall Default Rule Set (DRS) rule groups and rules on Azure Front Door.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 08/31/2026
+ms.date: 09/10/2026
 
 # Customer intent: As a web application administrator, I want to configure and manage the Default Rule Set (DRS) for the Web Application Firewall, so that I can effectively protect my applications from various vulnerabilities and security threats.
 ---
 
-# Web Application Firewall DRS rule groups and rules
+# Azure Front Door WAF DRS rule groups and rules
 
 **Applies to:** :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
 
-Azure Web Application Firewall on Azure Front Door protects web applications from common vulnerabilities and exploits. Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Because Azure manages these rule sets, the rules are updated as needed to protect against new attack signatures.
+Azure Web Application Firewall on Azure Front Door protects web applications from common vulnerabilities and exploits. Azure-managed rule sets simplify deployment of protections against common security threats and are updated as new attack signatures emerge.
 
-The Default Rule Set (DRS) also includes the Microsoft Threat Intelligence Collection rules that are written in partnership with the Microsoft Intelligence team to provide increased coverage, patches for specific vulnerabilities, and better false positive reduction.
+The Default Rule Set (DRS) includes rules developed with the Microsoft Threat Intelligence team to improve coverage, address specific vulnerabilities, and reduce false positives.
 
 > [!NOTE]
-> When a ruleset version is changed in a WAF Policy, any existing customizations you made to your ruleset are reset to the defaults for the new ruleset. See: [Upgrading or changing ruleset version](#upgrading-or-changing-ruleset-version).
+> When you change the rule set version in a WAF policy, Azure resets your rule customizations to the defaults for the new version. For guidance on preserving and reapplying your customizations, see [Upgrading or changing rule set version](#upgrading-or-changing-ruleset-version).
 
 ## Default rule sets
 
@@ -537,6 +537,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99001015|Critical - 5|2|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |99001016|Critical - 5|2|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 |99001017|Critical - 5|2|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+|99001019|Critical - 5|2|Attempted WP2Shell remote code execution exploitation [CVE-2026-63030](https://www.cve.org/CVERecord?id=CVE-2026-63030)|
 
 
 ### <a name="drs99032-22"></a> MS-ThreatIntel-XSS
@@ -814,6 +815,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99001015|Critical - 5|2|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |99001016|Critical - 5|2|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 |99001017|Critical - 5|2|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+|99001019|Critical - 5|2|Attempted WP2Shell remote code execution exploitation [CVE-2026-63030](https://www.cve.org/CVERecord?id=CVE-2026-63030)|
 
 > [!NOTE]
 > When you review your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
@@ -1065,6 +1067,7 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
 |99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)
 |99001017|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
+|99001019|Attempted WP2Shell remote code execution exploitation [CVE-2026-63030](https://www.cve.org/CVERecord?id=CVE-2026-63030)|
 
 > [!NOTE]
 > When you review your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.

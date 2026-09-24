@@ -116,9 +116,6 @@
         href: functions-add-output-binding-cosmos-db-vs-code.md
       - name: Azure SQL Database
         href: functions-add-output-binding-azure-sql-vs-code.md
-    - name: OpenAI
-      displayName: Connect to OpenAI, text completion
-      href: functions-add-openai-text-completion.md  
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
@@ -153,8 +150,6 @@
     href: /training/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
   - name: Data + AI
     items:
-    - name: Azure OpenAI for text completion
-      href: functions-add-openai-text-completion.md
     - name: Machine learning with TensorFlow
       href: functions-machine-learning-tensorflow.md
     - name: Image classification with PyTorch
@@ -307,7 +302,7 @@
       displayName: .NET isolated
       href: dotnet-isolated-process-guide.md
     - name: Aspire integration
-      href: dotnet-aspire-integration.md
+      href: aspire-integration.md
     - name: Legacy models
       items:
       - name: Execution mode comparison
@@ -473,6 +468,8 @@
       href: functions-rollback-deployments.md
     - name: Containers
       items:
+      - name: Azure Container Apps hosting
+        href: ../container-apps/functions-container-apps.md
       - name: Work with containers
         href: functions-how-to-custom-container.md
       - name: Create functions in containers
@@ -486,10 +483,8 @@
       href: functions-how-to-azure-devops.md
     - name: Build and deploy using GitHub Actions
       href: functions-how-to-github-actions.md
-    - name: Zip deployment
+    - name: Package-based deployment
       href: deployment-zip-push.md
-    - name: Run from package
-      href: run-functions-from-deployment-package.md
     - name: Package management
       displayName: node, typescript, javascript, npm
       href: functions-reference-node.md#package-management
@@ -646,6 +641,15 @@
   - name: Create AI-enabled functions
     displayName: OpenAI, agent, agentic, tools, trigger
     href: functions-create-ai-enabled-apps.md
+  - name: Agent bindings in Python
+    displayName: AI, agent, agentic, Microsoft Agent Framework, Python, Durable Functions, hybrid workflows
+    href: functions-agent-bindings.md
+  - name: Agent binding with Microsoft Agent Framework
+    displayName: AI, agent, agentic, Microsoft Agent Framework, Python, HTTP, quickstart
+    href: functions-agent-bindings-agent-framework.md
+  - name: Agent binding with Durable Functions
+    displayName: AI, agent, agentic, Microsoft Agent Framework, Python, Durable Functions, orchestration, quickstart
+    href: functions-agent-bindings-agent-framework-durable.md
   - name: Custom remote MCP servers 
     items:  
     - name: MCP extension quickstart
@@ -670,10 +674,10 @@
     - name: Overview
       displayName: AI, agent, agentic, hosted skills, event-driven AI, Foundry, MCP, connectors
       href: functions-hosted-skills.md
-    - name: Dynamic workflows
+    - name: Dynamic workflows overview
       displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows
       href: functions-hosted-skills-dynamic-workflows.md
-    - name: Create and run dynamic workflows
+    - name: Dynamic workflows quickstart
       displayName: AI, agent, agentic, hosted skills, durable workflows, dynamic workflows, how-to
       href: functions-hosted-skills-dynamic-workflows-how-to.md
     - name: Reference
@@ -696,6 +700,8 @@
       href: migrate-version-3-version-4.md
     - name: Migrate v1.x to v4.x
       href: migrate-version-1-version-4.md
+    - name: Runtime v1.x legacy reference
+      href: functions-runtime-1x-legacy.md
   - name: Language version updates
     items:
     - name: Update language versions

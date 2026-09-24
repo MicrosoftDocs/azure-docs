@@ -16,6 +16,8 @@ zone_pivot_groups: acs-programming-languages-support-kotlin-swift
 
 # Enable audio only mode in the ACS UI library
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 The UI Library allows you to modify the Audio Video mode of a Call for a local user. 
 
 In this article, you learn how to enable Audio only mode, which disables local and remote video capabilities.

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 01/27/2026
+ms.date: 09/10/2026
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data on the health of my industrial assets and edge environment.
 ---
@@ -307,6 +307,9 @@ Complete the following steps to install the Azure IoT Operations curated Grafana
 
 > [!NOTE]
 > In the **aio-observability.json** file, make sure to configure both the Prometheus and Azure Monitor datasources, and set the `subscriptionId` variable to your Azure subscription ID, for log queries.
+
+> [!NOTE]
+> A counter metric might not appear in Prometheus until the corresponding event occurs at least once. For example, an error counter might be absent until an error is recorded. An absent counter doesn't necessarily indicate a problem with metrics collection.
 
 ## Next steps
 

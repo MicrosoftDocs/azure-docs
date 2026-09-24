@@ -12,6 +12,8 @@ ms.custom: mode-other
 
 # Get started with the UI Library Design Kit (Figma)
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to get started with the UI Library Design Kit (Figma).
 
 ## Design faster

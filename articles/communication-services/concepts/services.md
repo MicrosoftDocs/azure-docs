@@ -11,6 +11,8 @@ ms.custom: template-concept
 
 # Services
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 Azure Communication Services provides the following cloud-based communication and customer engagement features you can integrate with your applications.
 
 - [Identity](./identity-model.md) – The identity-agnostic model maps your existing users to Azure Communication Services identities.

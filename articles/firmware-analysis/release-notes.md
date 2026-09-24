@@ -4,7 +4,7 @@ author: karengu0
 ms.author: karenguo
 description: Learn about the latest updates for firmware analysis.
 ms.topic: concept-article
-ms.date: 08/04/2026
+ms.date: 09/21/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -16,6 +16,13 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 > `https://learn.microsoft.com/api/search/rss?search=%22What%27s+new+in+firmware+analysis%22&locale=en-us`
 
+## September 21, 2026
+
+- **Unsafe function calls analysis (preview)**: Firmware analysis now identifies references to potentially unsafe functions in supported ELF user-space executables. The preview supports AMD64 or x86-64, ARM64 or AArch64, and ARM32.
+
+  Results are security-review signals and don't establish that an executable is vulnerable. Static or stripped binaries, unsupported architectures, and Linux kernel modules might not produce results. To receive unsafe function call analysis, upload again firmware images analyzed before this feature became available. For more information, see [Understand unsafe function call data in firmware analysis](understand-unsafe-function-calls.md).
+
+- **Azure Device Registry integration namespace grouping**: ADR data in firmware analysis now groups device results based on ADR name space's and enables improved navigation cross integration.
 
 ## July 28, 2026
 

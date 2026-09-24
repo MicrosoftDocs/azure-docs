@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # The getSpeakers API doesn't return detailed speaker list
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 If a user reports that they can't see the detailed speaker list, it could be because the application doesn't have permission to access the microphone.
 Alternatively, the platform may not support speaker enumeration.
 

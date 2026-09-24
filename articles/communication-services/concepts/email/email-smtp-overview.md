@@ -13,6 +13,8 @@ ms.service: azure-communication-services
 
 # Email SMTP support in Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Email is still a vital channel for global businesses to connect with customers. It's an essential part of business communications.
 
 Many businesses made large investments in on-premises infrastructures to support the strong Simple Mail Transfer Protocol (SMTP) email needs of their line-of-business (LOB) applications. Delivering and securing outgoing emails from these existing LOB applications can be challenging. As outgoing emails become more numerous and important, the difficulties of managing this critical aspect of communication become more obvious. Organizations often face problems such as email deliverability, security risks, and the need for centralized control over outgoing communications.

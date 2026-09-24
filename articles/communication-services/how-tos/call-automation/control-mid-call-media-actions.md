@@ -16,6 +16,8 @@ ms.custom:
 
 # Control mid-call media actions with Call Automation
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Call Automation uses a REST API interface to receive requests for actions and provide responses to notify whether the request was successfully submitted or not. Because of the asynchronous nature of calling, most actions have corresponding events that are triggered when the action finishes successfully or fails. This article covers the actions that are available to developers during calls, like `SendDTMF` and `ContinuousDtmfRecognition`. Actions are accompanied with sample code on how to invoke the particular action.
 
 Call Automation supports other actions to manage calls and recordings that aren't included in this article.

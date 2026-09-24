@@ -63,10 +63,12 @@ items:
               href: sandboxes-quickstart-bicep.md
             - name: Python SDK
               href: sandboxes-quickstart-python-sdk.md
-        - name: Snapshots and state management
+        - name: Lifecycle (preview)
           href: sandboxes-snapshots-state-management.md
         - name: Egress policies
           href: sandboxes-egress-policies.md
+        - name: Reliability in Container Apps Sandboxes
+          href: /azure/reliability/reliability-container-apps-sandboxes?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Express
       items:
         - name: Overview
@@ -435,6 +437,8 @@ items:
   items:
     - name: Reliability in Azure Container Apps
       href: /azure/reliability/reliability-container-apps?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
+    - name: Reliability in Container Apps Sandboxes
+      href: /azure/reliability/reliability-container-apps-sandboxes?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Create a zone-redundant container app
       href: how-to-zone-redundancy.md
     - name: Relocate to another region
@@ -556,8 +560,8 @@ items:
         - name: Overview
           href: dotnet-overview.md
           displayName: .NET overview
-        - name: Deploy a .NET Aspire app
-          href: /dotnet/aspire/deployment/azure/aca-deployment
+        - name: Deploy an Aspire app
+          href: https://aspire.dev/deployment/azure/container-apps/
         - name: Deploy and scale an ASP.NET Core app
           href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
     - name: Java
@@ -681,14 +685,18 @@ items:
           href: /javascript/api/overview/azure/arm-appcontainers-readme
         - name: Python
           href: /python/api/azure-mgmt-appcontainers/azure.mgmt.appcontainers
-- name: Azure Arc
+- name: Azure Arc-enabled Kubernetes
   items:
-    - name: Azure Arc-enabled Kubernetes clusters
+    - name: Overview
       href: azure-arc-overview.md
-    - name: 1 - Set up Azure Arc-enabled Kubernetes clusters
+    - name: Plan deployment
+      href: azure-arc-plan.md
+    - name: Set up cluster
       href: azure-arc-enable-cluster.md
-    - name: 2 - Create container app
+    - name: Create first app
       href: azure-arc-create-container-app.md
+    - name: Troubleshoot
+      href: azure-arc-troubleshoot.md
 - name: Compliance
   items:
     - name: Secure your Azure Container Apps deployment

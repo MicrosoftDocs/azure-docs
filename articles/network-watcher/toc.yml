@@ -12,10 +12,8 @@
       href: rbac-permissions.md
     - name: Enable Network Watcher
       href: network-watcher-create.md
-    - name: Install and manage Network Watcher Agent
+    - name: Network Watcher Agent
       href: network-watcher-agent-manage.md
-    - name: Update Network Watcher Agent to latest version
-      href: network-watcher-agent-update.md
   expanded: true
 - name: Monitoring
   items:
@@ -185,6 +183,8 @@
     href: traffic-analytics-zero-trust.md
   - name: Enable traffic analytics using Azure policy
     href: traffic-analytics-policy-portal.md
+  - name: Enhance traffic analytics insights with AI agent usage
+    href: traffic-analytics-insights.md
 - name: Security
   items:
   - name: Secure Network Watcher deployment

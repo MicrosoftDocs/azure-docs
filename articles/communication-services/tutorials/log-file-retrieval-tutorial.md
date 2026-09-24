@@ -17,6 +17,8 @@ zone_pivot_groups: acs-programming-languages-java-swift-csharp
 
 # Log File Access tutorial
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 In this tutorial, you learn how to access the Log Files stored on the device with the Calling SDK.
 
 ## Prerequisites

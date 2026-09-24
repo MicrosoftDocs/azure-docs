@@ -13,6 +13,8 @@ ms.custom: template-how-to
 
 # Microsoft Teams Meeting Audio Conferencing 
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to use Azure Communication Services Calling SDK to retrieve Microsoft Teams Meeting Audio Conferencing details. This function enables users who are already connected to a Microsoft Teams Meeting to be able to get the conference ID and dial-in phone number associated with the meeting. The Teams Meeting Audio Conferencing feature returns a collection of all toll and toll-free numbers. The collection includes concomitant country/region names and city names, giving users control of which Teams meeting dial-in details to use.
 
 ## Prerequisites

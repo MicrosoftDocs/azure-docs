@@ -10,6 +10,8 @@ ms.author: kpunjabi
 
 # Gathering user input
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 With the release of Azure Communication Services Call Automation Recognize action, developers can now enhance their IVR or contact center applications to recognize user input. One of the most common scenarios of recognition is playing a message for the user, which prompts them to provide a response that then gets recognized by the application, once recognized the application then carries out a corresponding action. Input from callers can be received in several ways, which include DTMF (user input via the digits on their calling device), speech or a combination of both DTMF and speech.
 
 **Voice recognition with speech-to-text**

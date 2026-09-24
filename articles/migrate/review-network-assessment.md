@@ -1,12 +1,11 @@
 ---
 title: Review Azure Networking With Azure Migrate Assessments
 description: Learn how to review Azure networking with Azure Migrate assessments.
-ms.author: jsuri
+ms.author: v-gajeronika
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 08/31/2026
-author: jyothisuri
-ms.reviewer: v-uhabiba
+author: Jeronika-MS
 ms.custom: engagement-fy25
 # Customer intent: As a cloud migration architect, I want to create a network assessment in Azure Migrate, so that I can map on-premises VMware and NSX-T resources to Azure networking services.
 ---        

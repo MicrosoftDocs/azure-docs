@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: limits-and-quotas
-ms.date: 04/29/2025
+ms.date: 09/23/2026
 ms.author: cshoe
 ---
 
@@ -65,7 +65,7 @@ Other error messages could indicate that you've reached an environment or other 
 
 ## Quota types
 
-Azure Container Apps implements different categories of quotas that govern resource allocation across different aspects of your apps. These quotas are organized into basic quotas that control fundamental resource limits, GPU quotas for applications requiring specialized compute capabilities, and dynamic sessions quotas for session-based workloads.
+Azure Container Apps implements different categories of quotas that govern resource allocation across different aspects of your apps. These quotas are organized into basic quotas that control fundamental resource limits, GPU quotas for applications requiring specialized compute capabilities, dynamic sessions quotas for session-based workloads, and quotas for Sandboxes and Express.
 
 ### Basic quotas
 
@@ -91,6 +91,11 @@ The most requested quota changes are listed in the following table. Each scope i
 | Quota | Scope | Request | View | Remarks |
 |--|--|--|--|--|
 | Session pools | Region | [Integrated request](quota-requests.md#integrated-requests) | [Portal](#list-usage-portal) | Maximum number of dynamic session pools per region. |
+
+### Sandboxes and Express quotas
+
+> [!NOTE]
+> Sandboxes and Express are limited to 2,000 cores. Express apps are limited to 30 replicas, and you can create up to 200 Express environments per region. Updates to the quota request pipeline are planned in the coming months. To request more quota, open a support request or work with your Microsoft account representative.
 
 ## Related content
 

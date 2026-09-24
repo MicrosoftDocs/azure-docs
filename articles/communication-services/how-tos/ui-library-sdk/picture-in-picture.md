@@ -15,6 +15,8 @@ zone_pivot_groups: acs-plat-ios-android
 
 # Turn on picture-in-picture in an application
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 While a user is on a call, a full-screen UI can prevent the user from multitasking in an app. There are two ways to enable the user to multitask in the app:
 
 - Enable the user to select the **Back** button and return to the previous screen. No calling UI is visible while the user is still on the call.

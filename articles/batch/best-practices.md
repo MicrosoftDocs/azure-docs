@@ -1,7 +1,8 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 08/31/2026
+ai-usage: ai-assisted
+ms.date: 09/16/2026
 ms.topic: concept-article
 # Customer intent: As a cloud solution architect, I want to implement best practices for Azure Batch services, so that I can optimize performance, ensure reliability, and enhance security for my batch processing workloads.
 ---
@@ -12,6 +13,20 @@ This article discusses best practices and useful tips for using the Azure Batch 
 
 > [!TIP]
 > For guidance about security in Azure Batch, see [Batch security and compliance best practices](security-best-practices.md).
+
+## Evaluate your Batch design
+
+Before you implement a production workload, review the decisions that most affect scale, reliability, security, and cost:
+
+| Decision | Evaluate | Guidance |
+| --- | --- | --- |
+| Capacity and quota | Peak concurrency, task duration, cores per VM, regional quota, and fallback capacity | [Capacity planning for Azure Batch](batch-capacity-planning.md) |
+| VM and image selection | CPU, memory, GPU, interconnect, operating system, and regional availability | [Choose VM sizes and images for pools](batch-pool-vm-sizes.md) |
+| Cost and availability | Whether tasks tolerate interruption and can use a mix of dedicated and Spot VMs | [Use Spot VMs with Batch workloads](batch-spot-vms.md) |
+| Resilience | Task retries, durable outputs, alternate pools, and multi-region recovery | [Prepare for unplanned downtime](#unplanned-downtime) |
+| Security | Identity, network isolation, pool boundaries, and secrets management | [Batch security and compliance best practices](security-best-practices.md) |
+
+Use the recommendations in this article after you choose the initial design. Reevaluate these decisions when workload scale, deadlines, or compliance requirements change.
 
 ## Pools
 
@@ -350,7 +365,7 @@ When provisioning [Batch pools in a virtual network](batch-virtual-network.md), 
 
 For User Defined Routes (UDRs), it's recommended to use BatchNodeManagement.*region* [service tags](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) instead of Batch service IP addresses as they can change over time.
 
-### Honoring DNS
+### Honor DNS
 
 Ensure that your systems honor DNS Time-to-Live (TTL) for your Batch account service URL. Additionally, ensure that your Batch service clients and other connectivity mechanisms to the Batch service don't rely on IP addresses.
 

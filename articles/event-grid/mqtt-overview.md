@@ -153,6 +153,10 @@ This feature simplifies client-side processing by:
 
 In Azure Event Grid MQTT Broker, subscription identifiers are useful for building efficient, scalable applications where clients need to distinguish between messages from different subscriptions.
 
+## Maximum MQTT message size 
+
+Azure Event Grid Namespace MQTT broker supports MQTT publish messages up to 1 MB (1,024 KB). The broker rejects messages that exceed 1 MB. The 1 MB limit applies to MQTT v3.1.1 and MQTT v5 clients. 
+
 ## Concepts
 
 Learn more about concepts of the MQTT broker in Event Grid:

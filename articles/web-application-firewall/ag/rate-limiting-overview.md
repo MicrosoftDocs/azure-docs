@@ -13,7 +13,7 @@ ms.date: 08/19/2026
 
 # Rate limiting for Azure Web Application Firewall on Azure Application Gateway
 
-**Applies to:** :heavy_check_mark: Application Gateway V2
+**Applies to:** :heavy_check_mark: Application Gateway v2
 
 Rate limiting for Web Application Firewall on Application Gateway helps you detect and block abnormally high levels of traffic destined for your application. By using rate limiting on Application Gateway WAF v2, you can mitigate many types of denial-of-service attacks, protect against clients that are misconfigured to send large volumes of requests in a short time period, or control traffic rates to your site from specific geographies.
 

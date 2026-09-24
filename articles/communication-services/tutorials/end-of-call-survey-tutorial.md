@@ -15,6 +15,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Use the End of Call Survey to collect user feedback
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 This tutorial shows you how to use the Azure Communication Services End of Call Survey.
 
 ## Prerequisites

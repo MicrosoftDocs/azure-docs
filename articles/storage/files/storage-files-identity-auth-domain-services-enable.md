@@ -31,6 +31,10 @@ If you're new to Azure Files, read the [planning guide](storage-files-planning.m
 
 Before you enable Microsoft Entra Domain Services over SMB for Azure file shares, complete the following prerequisites:
 
+1.  **Allow Kerberos authentication in the storage account's SMB security settings.**
+
+    If you use a custom SMB security profile, verify that **Kerberos** is selected under **Authentication methods**. For instructions, see [SMB security settings](files-smb-protocol.md#smb-security-settings).
+
 1.  **Select or create a Microsoft Entra tenant.**
 
     You can [use an existing tenant](/entra/identity-platform/quickstart-create-new-tenant#use-an-existing-microsoft-entra-tenant) or [create a new tenant](/entra/fundamentals/create-new-tenant) in Microsoft Entra ID. The tenant and the file share that you want to access must be associated with the same subscription.

@@ -15,6 +15,8 @@ ms.custom: template-how-to, devx-track-js
 
 # How to detect if an application using Azure Communication Services' SDK is active in multiple tabs of a browser
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 Based on best practices, your application should not connect to calls from multiple browser tabs simultaneously. Handling multiple calls on multiple tabs of a browser on mobile can cause undefined behavior due to resource allocation for microphone and camera on the device.
 In order to detect if an application is active in multiple tabs of a browser, a developer can use the method `isCallClientActiveInAnotherTab` and the event `isCallClientActiveInAnotherTabChanged` of a `CallClient` instance.
 

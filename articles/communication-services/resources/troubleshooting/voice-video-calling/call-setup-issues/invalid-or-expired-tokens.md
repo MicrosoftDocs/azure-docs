@@ -13,6 +13,8 @@ ms.subservice: calling
 ---
 
 # Invalid or expired tokens
+
+[!INCLUDE [Retirement and breaking changes](../../../../includes/acs-retirement-breakingchange-callout.md)]
 Invalid or expired tokens can prevent the ACS Calling SDK from accessing its service. To avoid this issue, your application must use a valid user access token.
 It's important to note that access tokens have an expiration time of 24 hours by default.
 If necessary, you can adjust the lifespan of tokens issued for your application by creating a short-lived token.

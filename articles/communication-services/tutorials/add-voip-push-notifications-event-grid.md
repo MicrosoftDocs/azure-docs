@@ -12,6 +12,8 @@ ms.custom: sfi-ropc-nochange
 
 # Use Event Grid to send calling push notifications
 
+[!INCLUDE [Retirement and breaking changes](../includes/acs-retirement-breakingchange-callout.md)]
+
 With Azure Communication Services, you can receive real-time event notifications in a dependable, expandable, and safe way by integrating it with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). This integration can be used to build a notification system that sends push notifications to your users on mobile devices. To achieve it, create an Event Grid subscription that triggers an [Azure Function](../../azure-functions/functions-overview.md) or webhook.
 
 :::image type="content" source="../concepts/media/notifications/acs-events-int.png" alt-text="Diagram showing how Communication Services integrates with Event Grid.":::

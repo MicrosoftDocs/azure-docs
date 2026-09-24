@@ -15,6 +15,8 @@ ms.subservice: calling
 
 # Creating a Call Readiness Experience using Azure Communication Services
 
+[!INCLUDE [Retirement and breaking changes](../../includes/acs-retirement-breakingchange-callout.md)]
+
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 In this tutorial, we're using Azure Communication Services with the [UI Library](https://aka.ms/acsstorybook) to create an experience that gets users ready to join a call. The UI Library provides a set of rich components and UI controls that can be used to produce a Call Readiness experience, and a rich set of APIs to understand the user state.

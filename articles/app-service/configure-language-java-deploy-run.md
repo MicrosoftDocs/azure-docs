@@ -4,7 +4,7 @@ description: Learn how to deploy Tomcat, JBoss EAP, or Java SE apps to run on Az
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss, spring boot, quarkus
 ms.devlang: java
 ms.topic: how-to
-ms.date: 08/12/2025
+ms.date: 09/18/2026
 ms.custom:
   - devx-track-java
   - devx-track-azurecli
@@ -98,6 +98,63 @@ az webapp list-runtimes --os windows | grep java
 For more information on version support, see [App Service language runtime support policy](language-support-policy.md).
 
 [!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
+
+## How can I identify apps using Java 8, 11, and 17?
+
+To identify web apps using Java 8, 11, and 17, use the following query with Azure CLI or Azure Cloud Shell to output a list to a file named java-webapps.csv.
+
+```azurecli-interactive
+output_file="java-webapps.csv" 
+    printf '%s\n' \ 
+    'Subscription,SubscriptionId,Name,ResourceGroup,Location,JavaVersion,LinuxFxVersion' \ 
+    > "$output_file" 
+
+az account list --query "[].{id:id, name:name}" -o json | 
+jq -c '.[]' | 
+while read -r sub; do 
+    sub_id=$(echo "$sub" | jq -r '.id') 
+    sub_name=$(echo "$sub" | jq -r '.name') 
+    echo "Scanning subscription: $sub_name" >&2 
+
+    az account set --subscription "$sub_id" 
+
+    az webapp list --query "[].{name:name, rg:resourceGroup, location:location}" -o json | 
+    jq -c '.[]' | 
+    while read -r app; do 
+        name=$(echo "$app" | jq -r '.name') 
+        rg=$(echo "$app" | jq -r '.rg') 
+        location=$(echo "$app" | jq -r '.location') 
+
+        config=$(az webapp config show -n "$name" -g "$rg" \ 
+            --query "{javaVersion:javaVersion,linuxFxVersion:linuxFxVersion}" -o json) 
+        jv=$(echo "$config" | jq -r '.javaVersion // ""') 
+        lx=$(echo "$config" | jq -r '.linuxFxVersion // ""') 
+
+        if [[ "$jv" =~ ^(1\.8|8|11|17)([._+-].*)?$ ]] || \ 
+            [[ "${lx,,}" =~ (java|jre)[^0-9]*(1\.8|8|11|17)([^0-9]|$) ]]; then 
+                jq -nr \ 
+                    --arg subscription "$sub_name" \ 
+                    --arg subscriptionId "$sub_id" \ 
+                    --arg name "$name" \ 
+                    --arg resourceGroup "$rg" \ 
+                    --arg location "$location" \ 
+                    --arg javaVersion "$jv" \ 
+                    --arg linuxFxVersion "$lx" \ 
+                '[ 
+                    $subscription, 
+                    $subscriptionId, 
+                    $name, 
+                    $resourceGroup, 
+                    $location, 
+                    $javaVersion, 
+                    $linuxFxVersion 
+                ] | @csv' >> "$output_file" 
+        fi 
+    done 
+done 
+
+echo "Results exported to $output_file" >&2
+```
 
 ## Deploying your app
 

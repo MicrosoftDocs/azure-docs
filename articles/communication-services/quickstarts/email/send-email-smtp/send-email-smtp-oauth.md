@@ -12,6 +12,8 @@ ms.custom: devx-track-dotnet
 ---
 # Send email with SMTP and XOAuth2 using .NET
 
+[!INCLUDE [Retirement and breaking changes](../../../includes/acs-retirement-breakingchange-callout.md)]
+
 This article describes how to use XOAuth2 for authentication when sending emails using the Simple Mail Transfer Protocol (SMTP) and Azure Communication Services.
 
 ## Prerequisites

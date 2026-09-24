@@ -4,6 +4,8 @@
   items:
   - name: What is Azure IoT Central
     href: core/overview-iot-central.md
+  - name: Azure IoT Central evolution
+    href: core/iot-central-evolution.md
   - name: Tour of the UI
     href: core/overview-iot-central-tour.md
   - name: Tour of the API
@@ -143,6 +145,8 @@
           href: core/howto-configure-file-uploads.md
         - name: Migrate devices to IoT Hub
           href: core/howto-migrate-to-iot-hub.md
+        - name: Migrate to native Azure IoT architecture
+          href: core/howto-migrate-to-azure-native-iot.md
     - name: Extend your application
       items:
         - name: Configure rules

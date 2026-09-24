@@ -2,7 +2,8 @@
 title: Common Issues - Node Connectivity
 description: Troubleshoot connectivity issues between Azure CycleCloud nodes and the CycleCloud application server.
 author: adriankjohnson
-ms.date: 06/19/2026
+ai-usage: ai-assisted
+ms.date: 08/10/2026
 ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso
 ---
@@ -22,7 +23,9 @@ We recommend deploying the application server in the same virtual network as the
 
 ## Resolution
 
-- If the CycleCloud server and the cluster are in the same virtual network, check the network security groups for the subnets in the virtual network. Cluster nodes need to reach the CycleCloud server at TCP 9443 and 5672. In the other direction, Azure CycleCloud needs to reach ganglia (TCP 8652) and SSH (TCP 22) ports of the cluster for system and job monitoring.
+- If the CycleCloud server and the cluster are in the same virtual network, check the network security groups for the subnets in the virtual network. In CycleCloud 8, cluster nodes need to reach the CycleCloud server on TCP port 9443. CycleCloud needs to reach TCP port 22 on managed cluster nodes when it uses SSH for orchestration, system access, or job monitoring. CycleCloud 8 retrieves cluster metrics from Azure Monitor. For all direct and return-proxy rules, see the [CycleCloud ports and traffic matrix](../how-to/network-security.md#required-ports-and-traffic).
+
+- For CycleCloud 7, cluster nodes also need to reach TCP port 5672 on the CycleCloud server, and the CycleCloud server needs to reach TCP port 8652 on a Ganglia primary node.
 
 - Add a public IP address.
 
